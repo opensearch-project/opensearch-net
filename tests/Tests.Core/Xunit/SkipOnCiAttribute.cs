@@ -29,36 +29,35 @@
 using System;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Core.Xunit
+namespace Tests.Core.Xunit;
+
+public class SkipOnCiAttribute : SkipTestAttributeBase
 {
-	public class SkipOnCiAttribute : SkipTestAttributeBase
-	{
-		public override string Reason { get; } = "Skip running this test on TeamCity, this is usually a sign this test is flakey?";
+    public override string Reason { get; } = "Skip running this test on TeamCity, this is usually a sign this test is flakey?";
 
-		public static bool RunningOnTeamCity => !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("TEAMCITY_VERSION"));
-		public static bool RunningOnAzureDevops => !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("TF_BUILD"));
-		public static bool RunningOnAppVeyor => !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("APPVEYOR_BUILD_VERSION"));
-		public override bool Skip => RunningOnTeamCity || RunningOnAppVeyor || RunningOnAzureDevops;
-	}
+    public static bool RunningOnTeamCity => !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("TEAMCITY_VERSION"));
+    public static bool RunningOnAzureDevops => !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("TF_BUILD"));
+    public static bool RunningOnAppVeyor => !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("APPVEYOR_BUILD_VERSION"));
+    public override bool Skip => RunningOnTeamCity || RunningOnAppVeyor || RunningOnAzureDevops;
+}
 
-	//TODO this attribute and all its usages have to be scrubbed before we can do a next release
-	/// <summary> Indicates test can not run because of a presumed upstream bug </summary>
-	public class BlockedByIssueAttribute : SkipTestAttributeBase
-	{
-		public BlockedByIssueAttribute(string url) => Url = url;
+//TODO this attribute and all its usages have to be scrubbed before we can do a next release
+/// <summary> Indicates test can not run because of a presumed upstream bug </summary>
+public class BlockedByIssueAttribute : SkipTestAttributeBase
+{
+    public BlockedByIssueAttribute(string url) => Url = url;
 
-		public override string Reason => $"Blocked temporarily by {Url}";
+    public override string Reason => $"Blocked temporarily by {Url}";
 
-		public override bool Skip => true;
+    public override bool Skip => true;
 
-		private string Url { get; }
-	}
+    private string Url { get; }
+}
 
-	public class SkipAttribute : SkipTestAttributeBase
-	{
-		public SkipAttribute(string reason) => Reason = reason;
+public class SkipAttribute : SkipTestAttributeBase
+{
+    public SkipAttribute(string reason) => Reason = reason;
 
-		public override bool Skip => true;
-		public override string Reason { get; }
-	}
+    public override bool Skip => true;
+    public override string Reason { get; }
 }

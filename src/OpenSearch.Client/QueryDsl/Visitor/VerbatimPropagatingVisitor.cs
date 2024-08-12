@@ -5,18 +5,17 @@
 * compatible open source license.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class VerbatimPropagatingVisitor : QueryVisitor
 {
-	public class VerbatimPropagatingVisitor : QueryVisitor
-	{
-		private readonly bool _verbatim;
+    private readonly bool _verbatim;
 
-		public VerbatimPropagatingVisitor(bool verbatim) => _verbatim = verbatim;
+    public VerbatimPropagatingVisitor(bool verbatim) => _verbatim = verbatim;
 
-		public override void Visit(IQuery query)
-		{
-			query.IsVerbatim = _verbatim;
-			base.Visit(query);
-		}
-	}
+    public override void Visit(IQuery query)
+    {
+        query.IsVerbatim = _verbatim;
+        base.Visit(query);
+    }
 }

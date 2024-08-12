@@ -30,31 +30,30 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+public class ClusterPendingTasksResponse : ResponseBase
 {
-	[DataContract]
-	public class ClusterPendingTasksResponse : ResponseBase
-	{
-		[DataMember(Name ="tasks")]
-		public IReadOnlyCollection<PendingTask> Tasks { get; internal set; } = EmptyReadOnly<PendingTask>.Collection;
-	}
+    [DataMember(Name = "tasks")]
+    public IReadOnlyCollection<PendingTask> Tasks { get; internal set; } = EmptyReadOnly<PendingTask>.Collection;
+}
 
-	[DataContract]
-	public class PendingTask
-	{
-		[DataMember(Name ="insert_order")]
-		public int InsertOrder { get; internal set; }
+[DataContract]
+public class PendingTask
+{
+    [DataMember(Name = "insert_order")]
+    public int InsertOrder { get; internal set; }
 
-		[DataMember(Name ="priority")]
-		public string Priority { get; internal set; }
+    [DataMember(Name = "priority")]
+    public string Priority { get; internal set; }
 
-		[DataMember(Name ="source")]
-		public string Source { get; internal set; }
+    [DataMember(Name = "source")]
+    public string Source { get; internal set; }
 
-		[DataMember(Name ="time_in_queue")]
-		public string TimeInQueue { get; internal set; }
+    [DataMember(Name = "time_in_queue")]
+    public string TimeInQueue { get; internal set; }
 
-		[DataMember(Name ="time_in_queue_millis")]
-		public int TimeInQueueMilliseconds { get; internal set; }
-	}
+    [DataMember(Name = "time_in_queue_millis")]
+    public int TimeInQueueMilliseconds { get; internal set; }
 }

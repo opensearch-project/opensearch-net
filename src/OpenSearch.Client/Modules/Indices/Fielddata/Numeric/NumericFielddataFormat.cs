@@ -30,15 +30,14 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 
 
-namespace OpenSearch.Client
-{
-	[StringEnum]
-	public enum NumericFielddataFormat
-	{
-		[EnumMember(Value = "array")]
-		Array,
+namespace OpenSearch.Client;
 
-		[EnumMember(Value = "disabled")]
-		Disabled
-	}
+[StringEnum]
+public enum NumericFielddataFormat
+{
+    [EnumMember(Value = "array")]
+    Array,
+
+    [EnumMember(Value = "disabled")]
+    Disabled
 }

@@ -30,18 +30,17 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// Sorts highlighted fragments
+/// </summary>
+[StringEnum]
+public enum HighlighterOrder
 {
-	/// <summary>
-	/// Sorts highlighted fragments
-	/// </summary>
-	[StringEnum]
-	public enum HighlighterOrder
-	{
-		/// <summary>
-		/// Sorts highlighted fragments by score. Only valid for the <see cref="HighlighterType.Unified" /> highlighter
-		/// </summary>
-		[EnumMember(Value = "score")]
-		Score
-	}
+    /// <summary>
+    /// Sorts highlighted fragments by score. Only valid for the <see cref="HighlighterType.Unified" /> highlighter
+    /// </summary>
+    [EnumMember(Value = "score")]
+    Score
 }

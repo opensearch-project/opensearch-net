@@ -29,19 +29,18 @@
 using System;
 using OpenSearch.OpenSearch.Xunit.Sdk;
 
-namespace OpenSearch.OpenSearch.Xunit.XunitPlumbing
-{
-	[AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
-	public class IntegrationTestClusterAttribute : Attribute
-	{
-		public IntegrationTestClusterAttribute(Type clusterType)
-		{
-			if (!TestAssemblyRunner.IsAnIntegrationTestClusterType(clusterType))
-				throw new ArgumentException(
-					$"Cluster must be subclass of {nameof(XunitClusterBase)} or {nameof(XunitClusterBase)}<>");
-			ClusterType = clusterType;
-		}
+namespace OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-		public Type ClusterType { get; }
-	}
+[AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
+public class IntegrationTestClusterAttribute : Attribute
+{
+    public IntegrationTestClusterAttribute(Type clusterType)
+    {
+        if (!TestAssemblyRunner.IsAnIntegrationTestClusterType(clusterType))
+            throw new ArgumentException(
+                $"Cluster must be subclass of {nameof(XunitClusterBase)} or {nameof(XunitClusterBase)}<>");
+        ClusterType = clusterType;
+    }
+
+    public Type ClusterType { get; }
 }

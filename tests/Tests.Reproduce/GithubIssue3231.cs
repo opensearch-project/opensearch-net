@@ -27,27 +27,26 @@
 */
 
 using System;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GithubIssue3231 : IClusterFixture<ReadOnlyCluster>
 {
-	public class GithubIssue3231 : IClusterFixture<ReadOnlyCluster>
-	{
-		private readonly ReadOnlyCluster _cluster;
+    private readonly ReadOnlyCluster _cluster;
 
-		public GithubIssue3231(ReadOnlyCluster cluster) => _cluster = cluster;
+    public GithubIssue3231(ReadOnlyCluster cluster) => _cluster = cluster;
 
-		[I]
-		public void CatIndicesUsesThrowExceptionsFromConnectionSettingsWhenRequestSettingsAreNotSetTest()
-		{
-			var client = new OpenSearchClient(_cluster.CreateConnectionSettings().ThrowExceptions());
-			Action catIndicesRequest = () => client.LowLevel.Cat.Indices<StringResponse>("non-existing-index");
-			catIndicesRequest.Should().Throw<OpenSearchClientException>();
-		}
-	}
+    [I]
+    public void CatIndicesUsesThrowExceptionsFromConnectionSettingsWhenRequestSettingsAreNotSetTest()
+    {
+        var client = new OpenSearchClient(_cluster.CreateConnectionSettings().ThrowExceptions());
+        Action catIndicesRequest = () => client.LowLevel.Cat.Indices<StringResponse>("non-existing-index");
+        catIndicesRequest.Should().Throw<OpenSearchClientException>();
+    }
 }

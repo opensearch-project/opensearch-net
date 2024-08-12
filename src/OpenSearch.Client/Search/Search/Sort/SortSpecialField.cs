@@ -30,18 +30,17 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[StringEnum]
+public enum SortSpecialField
 {
-	[StringEnum]
-	public enum SortSpecialField
-	{
-		[EnumMember(Value = "_score")]
-		Score,
+    [EnumMember(Value = "_score")]
+    Score,
 
-		[EnumMember(Value = "_doc")]
-		DocumentIndexOrder,
+    [EnumMember(Value = "_doc")]
+    DocumentIndexOrder,
 
-		[EnumMember(Value = "_shard_doc")]
-		ShardDocumentOrder
-	}
+    [EnumMember(Value = "_shard_doc")]
+    ShardDocumentOrder
 }

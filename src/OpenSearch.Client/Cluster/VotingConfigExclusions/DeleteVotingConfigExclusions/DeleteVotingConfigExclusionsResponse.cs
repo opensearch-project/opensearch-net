@@ -26,9 +26,8 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class DeleteVotingConfigExclusionsResponse : ResponseBase
 {
-	public class DeleteVotingConfigExclusionsResponse : ResponseBase
-	{
-	}
 }

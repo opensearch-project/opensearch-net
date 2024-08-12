@@ -28,13 +28,12 @@
 
 using OpenSearch.Net;
 
-namespace Tests.Domain
+namespace Tests.Domain;
+
+[StringEnum]
+public enum Gender
 {
-	[StringEnum]
-	public enum Gender
-	{
-		Male,
-		Female,
-		NoneOfYourBeeswax
-	}
+    Male,
+    Female,
+    NoneOfYourBeeswax
 }

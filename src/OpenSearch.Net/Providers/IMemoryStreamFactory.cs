@@ -28,26 +28,25 @@
 
 using System.IO;
 
-namespace OpenSearch.Net
+namespace OpenSearch.Net;
+
+/// <summary>
+/// A factory for creating memory streams
+/// </summary>
+public interface IMemoryStreamFactory
 {
-	/// <summary>
-	/// A factory for creating memory streams
-	/// </summary>
-	public interface IMemoryStreamFactory
-	{
-		/// <summary>
-		/// Creates a memory stream
-		/// </summary>
-		MemoryStream Create();
+    /// <summary>
+    /// Creates a memory stream
+    /// </summary>
+    MemoryStream Create();
 
-		/// <summary>
-		/// Creates a memory stream with the bytes written to the stream
-		/// </summary>
-		MemoryStream Create(byte[] bytes);
+    /// <summary>
+    /// Creates a memory stream with the bytes written to the stream
+    /// </summary>
+    MemoryStream Create(byte[] bytes);
 
-		/// <summary>
-		/// Creates a memory stream with the bytes written to the stream
-		/// </summary>
-		MemoryStream Create(byte[] bytes, int index, int count);
-	}
+    /// <summary>
+    /// Creates a memory stream with the bytes written to the stream
+    /// </summary>
+    MemoryStream Create(byte[] bytes, int index, int count);
 }

@@ -32,32 +32,31 @@ using System.Threading.Tasks;
 using OpenSearch.Net;
 using OpenSearch.Net.Specification.ClusterApi;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[MapsApi("cluster.post_voting_config_exclusions")]
+public partial interface IPostVotingConfigExclusionsRequest { }
+
+public partial class PostVotingConfigExclusionsRequest
 {
-	[MapsApi("cluster.post_voting_config_exclusions")]
-	public partial interface IPostVotingConfigExclusionsRequest { }
+    protected sealed override void RequestDefaults(PostVotingConfigExclusionsRequestParameters parameters) =>
+        parameters.CustomResponseBuilder = new PostVotingConfigExclusionsResponseBuilder();
+}
 
-	public partial class PostVotingConfigExclusionsRequest
-	{
-		protected sealed override void RequestDefaults(PostVotingConfigExclusionsRequestParameters parameters) =>
-			parameters.CustomResponseBuilder = new PostVotingConfigExclusionsResponseBuilder();
-	}
+public partial class PostVotingConfigExclusionsDescriptor
+{
+    protected sealed override void RequestDefaults(PostVotingConfigExclusionsRequestParameters parameters) =>
+        parameters.CustomResponseBuilder = new PostVotingConfigExclusionsResponseBuilder();
+}
 
-	public partial class PostVotingConfigExclusionsDescriptor
-	{
-		protected sealed override void RequestDefaults(PostVotingConfigExclusionsRequestParameters parameters) =>
-			parameters.CustomResponseBuilder = new PostVotingConfigExclusionsResponseBuilder();
-	}
+/// <summary>
+/// Response is a single newline character, so skip trying to deserialize to an object
+/// </summary>
+internal class PostVotingConfigExclusionsResponseBuilder : CustomResponseBuilderBase
+{
+    public override object DeserializeResponse(IOpenSearchSerializer builtInSerializer, IApiCallDetails response, Stream stream) =>
+        new PostVotingConfigExclusionsResponse();
 
-	/// <summary>
-	/// Response is a single newline character, so skip trying to deserialize to an object
-	/// </summary>
-	internal class PostVotingConfigExclusionsResponseBuilder : CustomResponseBuilderBase
-	{
-		public override object DeserializeResponse(IOpenSearchSerializer builtInSerializer, IApiCallDetails response, Stream stream) =>
-			new PostVotingConfigExclusionsResponse();
-
-		public override Task<object> DeserializeResponseAsync(IOpenSearchSerializer builtInSerializer, IApiCallDetails response, Stream stream, CancellationToken ctx = default) =>
-			Task.FromResult<object>(new PostVotingConfigExclusionsResponse());
-	}
+    public override Task<object> DeserializeResponseAsync(IOpenSearchSerializer builtInSerializer, IApiCallDetails response, Stream stream, CancellationToken ctx = default) =>
+        Task.FromResult<object>(new PostVotingConfigExclusionsResponse());
 }

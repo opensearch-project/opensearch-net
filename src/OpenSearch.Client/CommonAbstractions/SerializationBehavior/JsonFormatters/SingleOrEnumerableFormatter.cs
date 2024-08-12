@@ -29,61 +29,60 @@
 using System.Collections.Generic;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal class SingleOrEnumerableFormatter<T> : IJsonFormatter<IEnumerable<T>>
 {
-	internal class SingleOrEnumerableFormatter<T> : IJsonFormatter<IEnumerable<T>>
-	{
-		public IEnumerable<T> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			var token = reader.GetCurrentJsonToken();
-			return token == JsonToken.BeginArray
-				? formatterResolver.GetFormatter<IEnumerable<T>>().Deserialize(ref reader, formatterResolver)
-				: new[] { formatterResolver.GetFormatter<T>().Deserialize(ref reader, formatterResolver) };
-		}
+    public IEnumerable<T> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+    {
+        var token = reader.GetCurrentJsonToken();
+        return token == JsonToken.BeginArray
+            ? formatterResolver.GetFormatter<IEnumerable<T>>().Deserialize(ref reader, formatterResolver)
+            : new[] { formatterResolver.GetFormatter<T>().Deserialize(ref reader, formatterResolver) };
+    }
 
-		public void Serialize(ref JsonWriter writer, IEnumerable<T> value, IJsonFormatterResolver formatterResolver)
-		{
-			if (value == null)
-			{
-				writer.WriteNull();
-				return;
-			}
+    public void Serialize(ref JsonWriter writer, IEnumerable<T> value, IJsonFormatterResolver formatterResolver)
+    {
+        if (value == null)
+        {
+            writer.WriteNull();
+            return;
+        }
 
-			var formatter = formatterResolver.GetFormatter<IEnumerable<T>>();
-			formatter.Serialize(ref writer, value, formatterResolver);
-		}
-	}
+        var formatter = formatterResolver.GetFormatter<IEnumerable<T>>();
+        formatter.Serialize(ref writer, value, formatterResolver);
+    }
+}
 
-	// TODO investigate this is really needed
-	// only used in one place and on main branch this is already gone
-	internal class SerializeAsSingleFormatter<T> : IJsonFormatter<IEnumerable<T>>
-	{
-		public IEnumerable<T> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			var token = reader.GetCurrentJsonToken();
-			return token == JsonToken.BeginArray
-				? formatterResolver.GetFormatter<IEnumerable<T>>().Deserialize(ref reader, formatterResolver)
-				: new[] { formatterResolver.GetFormatter<T>().Deserialize(ref reader, formatterResolver) };
-		}
+// TODO investigate this is really needed
+// only used in one place and on main branch this is already gone
+internal class SerializeAsSingleFormatter<T> : IJsonFormatter<IEnumerable<T>>
+{
+    public IEnumerable<T> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+    {
+        var token = reader.GetCurrentJsonToken();
+        return token == JsonToken.BeginArray
+            ? formatterResolver.GetFormatter<IEnumerable<T>>().Deserialize(ref reader, formatterResolver)
+            : new[] { formatterResolver.GetFormatter<T>().Deserialize(ref reader, formatterResolver) };
+    }
 
-		public void Serialize(ref JsonWriter writer, IEnumerable<T> value, IJsonFormatterResolver formatterResolver)
-		{
-			if (value == null)
-			{
-				writer.WriteNull();
-				return;
-			}
+    public void Serialize(ref JsonWriter writer, IEnumerable<T> value, IJsonFormatterResolver formatterResolver)
+    {
+        if (value == null)
+        {
+            writer.WriteNull();
+            return;
+        }
 
-			var enumerator = value.GetEnumerator();
-			if (!enumerator.MoveNext())
-			{
-				writer.WriteNull();
-				return;
-			}
+        var enumerator = value.GetEnumerator();
+        if (!enumerator.MoveNext())
+        {
+            writer.WriteNull();
+            return;
+        }
 
-			var firstValue = enumerator.Current;
-			var formatter = formatterResolver.GetFormatter<T>();
-			formatter.Serialize(ref writer, firstValue, formatterResolver);
-		}
-	}
+        var firstValue = enumerator.Current;
+        var formatter = formatterResolver.GetFormatter<T>();
+        formatter.Serialize(ref writer, firstValue, formatterResolver);
+    }
 }

@@ -33,318 +33,304 @@ using System.Linq;
 using System.Reflection;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal class InterfaceGenericDictionaryResolver : IJsonFormatterResolver
 {
-	internal class InterfaceGenericDictionaryResolver : IJsonFormatterResolver
-	{
-		public static readonly InterfaceGenericDictionaryResolver Instance = new InterfaceGenericDictionaryResolver();
+    public static readonly InterfaceGenericDictionaryResolver Instance = new InterfaceGenericDictionaryResolver();
 
-		public IJsonFormatter<T> GetFormatter<T>() => FormatterCache<T>.Formatter;
+    public IJsonFormatter<T> GetFormatter<T>() => FormatterCache<T>.Formatter;
 
-		internal static bool IsGenericIDictionary(Type type) => type.GetInterfaces()
-			.Any(t => t.IsGenericType && t.GetGenericTypeDefinition() == typeof(IDictionary<,>));
+    internal static bool IsGenericIDictionary(Type type) => type.GetInterfaces()
+        .Any(t => t.IsGenericType && t.GetGenericTypeDefinition() == typeof(IDictionary<,>));
 
-		private static class FormatterCache<T>
-		{
-			public static readonly IJsonFormatter<T> Formatter;
+    private static class FormatterCache<T>
+    {
+        public static readonly IJsonFormatter<T> Formatter;
 
-			static FormatterCache() => Formatter = (IJsonFormatter<T>)DictionaryFormatterHelper.GetFormatter(typeof(T));
-		}
+        static FormatterCache() => Formatter = (IJsonFormatter<T>)DictionaryFormatterHelper.GetFormatter(typeof(T));
+    }
 
-		internal static class DictionaryFormatterHelper
-		{
-			internal static object GetFormatter(Type t)
-			{
-				if (!typeof(IEnumerable).IsAssignableFrom(t) || !IsGenericIDictionary(t))
-					return null;
+    internal static class DictionaryFormatterHelper
+    {
+        internal static object GetFormatter(Type t)
+        {
+            if (!typeof(IEnumerable).IsAssignableFrom(t) || !IsGenericIDictionary(t))
+                return null;
 
-				t.TryGetGenericDictionaryArguments(out var typeArguments);
-				var genericTypeArgs = new[]
-				{
-					typeArguments[0],
-					typeArguments[1],
-					t
-				};
+            t.TryGetGenericDictionaryArguments(out var typeArguments);
+            var genericTypeArgs = new[]
+            {
+                typeArguments[0],
+                typeArguments[1],
+                t
+            };
 
-				var genericDictionaryInterface = typeof(IDictionary<,>).MakeGenericType(typeArguments);
+            var genericDictionaryInterface = typeof(IDictionary<,>).MakeGenericType(typeArguments);
 
-				Type implementationType;
-				if (t.IsInterface)
-				{
-					// need an implementation to deserialize interface to
-					var readAsAttribute = t.GetCustomAttribute<ReadAsAttribute>();
-					if (readAsAttribute == null)
-						throw new Exception($"Unable to deserialize interface {t.FullName}");
+            Type implementationType;
+            if (t.IsInterface)
+            {
+                // need an implementation to deserialize interface to
+                var readAsAttribute = t.GetCustomAttribute<ReadAsAttribute>() ?? throw new Exception($"Unable to deserialize interface {t.FullName}");
+                implementationType = readAsAttribute.Type.IsGenericType
+                    ? readAsAttribute.Type.MakeGenericType(typeArguments)
+                    : readAsAttribute.Type;
+            }
+            else
+                implementationType = t;
 
-					implementationType = readAsAttribute.Type.IsGenericType
-						? readAsAttribute.Type.MakeGenericType(typeArguments)
-						: readAsAttribute.Type;
-				}
-				else
-					implementationType = t;
+            // find either a parameterless ctor or ctor that takes IDictionary<TKey, TValue>
+            var constructors = from c in implementationType.GetConstructors(BindingFlags.Public | BindingFlags.Instance)
+                               let p = c.GetParameters()
+                               where p.Length == 0 || p.Length == 1 && genericDictionaryInterface.IsAssignableFrom(p[0].ParameterType)
+                               orderby p.Length descending
+                               select c;
 
-				// find either a parameterless ctor or ctor that takes IDictionary<TKey, TValue>
-				var constructors = from c in implementationType.GetConstructors(BindingFlags.Public | BindingFlags.Instance)
-					let p = c.GetParameters()
-					where p.Length == 0 || p.Length == 1 && genericDictionaryInterface.IsAssignableFrom(p[0].ParameterType)
-					orderby p.Length descending
-					select c;
+            var ctor = constructors.FirstOrDefault() ?? throw new Exception($"Cannot create an instance of {t.FullName} because it does not "
+                    + $"have a public constructor accepting "
+                    + $"IDictionary<{typeArguments[0].FullName},{typeArguments[1].FullName}> argument "
+                    + $"or a public parameterless constructor");
 
-				var ctor = constructors.FirstOrDefault();
-				if (ctor == null)
-					throw new Exception($"Cannot create an instance of {t.FullName} because it does not "
-						+ $"have a public constructor accepting "
-						+ $"IDictionary<{typeArguments[0].FullName},{typeArguments[1].FullName}> argument "
-						+ $"or a public parameterless constructor");
+            // construct a delegate for the ctor
+            var activatorMethod = TypeExtensions.GetActivatorMethodInfo.MakeGenericMethod(t);
+            var activator = activatorMethod.Invoke(null, new object[] { ctor });
+            return CreateInstance(genericTypeArgs, activator, ctor.GetParameters().Length == 0);
+        }
 
-				// construct a delegate for the ctor
-				var activatorMethod = TypeExtensions.GetActivatorMethodInfo.MakeGenericMethod(t);
-				var activator = activatorMethod.Invoke(null, new object[] { ctor });
-				return CreateInstance(genericTypeArgs, activator, ctor.GetParameters().Length == 0);
-			}
+        private static object CreateInstance(Type[] genericTypeArguments, params object[] args) =>
+            typeof(InterfaceDictionaryFormatter<,,>).MakeGenericType(genericTypeArguments).CreateInstance(args);
+    }
+}
 
-			private static object CreateInstance(Type[] genericTypeArguments, params object[] args) =>
-				typeof(InterfaceDictionaryFormatter<,,>).MakeGenericType(genericTypeArguments).CreateInstance(args);
-		}
-	}
+internal class InterfaceGenericReadOnlyDictionaryResolver : IJsonFormatterResolver
+{
+    public static readonly InterfaceGenericReadOnlyDictionaryResolver Instance = new InterfaceGenericReadOnlyDictionaryResolver();
 
-	internal class InterfaceGenericReadOnlyDictionaryResolver : IJsonFormatterResolver
-	{
-		public static readonly InterfaceGenericReadOnlyDictionaryResolver Instance = new InterfaceGenericReadOnlyDictionaryResolver();
+    public IJsonFormatter<T> GetFormatter<T>() => FormatterCache<T>.Formatter;
 
-		public IJsonFormatter<T> GetFormatter<T>() => FormatterCache<T>.Formatter;
+    internal static bool IsGenericIReadOnlyDictionary(Type type) => type.GetInterfaces()
+        .Any(t => t.IsGenericType && t.GetGenericTypeDefinition() == typeof(IReadOnlyDictionary<,>));
 
-		internal static bool IsGenericIReadOnlyDictionary(Type type) => type.GetInterfaces()
-			.Any(t => t.IsGenericType && t.GetGenericTypeDefinition() == typeof(IReadOnlyDictionary<,>));
+    private static class FormatterCache<T>
+    {
+        public static readonly IJsonFormatter<T> Formatter;
 
-		private static class FormatterCache<T>
-		{
-			public static readonly IJsonFormatter<T> Formatter;
+        static FormatterCache() => Formatter = (IJsonFormatter<T>)DictionaryFormatterHelper.GetFormatter(typeof(T));
+    }
 
-			static FormatterCache() => Formatter = (IJsonFormatter<T>)DictionaryFormatterHelper.GetFormatter(typeof(T));
-		}
+    internal static class DictionaryFormatterHelper
+    {
+        internal static object GetFormatter(Type t)
+        {
+            if (!typeof(IEnumerable).IsAssignableFrom(t) || !IsGenericIReadOnlyDictionary(t))
+                return null;
 
-		internal static class DictionaryFormatterHelper
-		{
-			internal static object GetFormatter(Type t)
-			{
-				if (!typeof(IEnumerable).IsAssignableFrom(t) || !IsGenericIReadOnlyDictionary(t))
-					return null;
+            t.TryGetGenericDictionaryArguments(out var typeArguments);
+            var genericTypeArgs = new[]
+            {
+                typeArguments[0],
+                typeArguments[1],
+                t
+            };
 
-				t.TryGetGenericDictionaryArguments(out var typeArguments);
-				var genericTypeArgs = new[]
-				{
-					typeArguments[0],
-					typeArguments[1],
-					t
-				};
+            Type implementationType;
+            if (t.IsInterface)
+            {
+                // need an implementation to deserialize interface to
+                var readAsAttribute = t.GetCustomAttribute<ReadAsAttribute>() ?? throw new Exception($"Unable to deserialize interface {t.FullName}");
+                implementationType = readAsAttribute.Type.IsGenericType
+                    ? readAsAttribute.Type.MakeGenericType(typeArguments)
+                    : readAsAttribute.Type;
+            }
+            else
+                implementationType = t;
 
-				Type implementationType;
-				if (t.IsInterface)
-				{
-					// need an implementation to deserialize interface to
-					var readAsAttribute = t.GetCustomAttribute<ReadAsAttribute>();
-					if (readAsAttribute == null)
-						throw new Exception($"Unable to deserialize interface {t.FullName}");
+            var genericDictionaryInterface = typeof(IDictionary<,>).MakeGenericType(typeArguments);
 
-					implementationType = readAsAttribute.Type.IsGenericType
-						? readAsAttribute.Type.MakeGenericType(typeArguments)
-						: readAsAttribute.Type;
-				}
-				else
-					implementationType = t;
+            // find ctor that takes IDictionary<TKey, TValue>
+            var constructors = from c in implementationType.GetConstructors(BindingFlags.Public | BindingFlags.Instance)
+                               let p = c.GetParameters()
+                               where p.Length == 1 && genericDictionaryInterface.IsAssignableFrom(p[0].ParameterType)
+                               orderby p.Length descending
+                               select c;
 
-				var genericDictionaryInterface = typeof(IDictionary<,>).MakeGenericType(typeArguments);
+            var ctor = constructors.FirstOrDefault() ?? throw new Exception($"Cannot create an instance of {t.FullName} because it does not "
+                    + $"have a public constructor accepting IDictionary<{typeArguments[0].FullName},{typeArguments[1].FullName}> argument");
 
-				// find ctor that takes IDictionary<TKey, TValue>
-				var constructors = from c in implementationType.GetConstructors(BindingFlags.Public | BindingFlags.Instance)
-					let p = c.GetParameters()
-					where p.Length == 1 && genericDictionaryInterface.IsAssignableFrom(p[0].ParameterType)
-					orderby p.Length descending
-					select c;
+            // construct a delegate for the ctor
+            var activatorMethod = TypeExtensions.GetActivatorMethodInfo.MakeGenericMethod(t);
+            var activator = activatorMethod.Invoke(null, new object[] { ctor });
+            return CreateInstance(genericTypeArgs, activator, ctor.GetParameters().Length == 0);
+        }
 
-				var ctor = constructors.FirstOrDefault();
-				if (ctor == null)
-					throw new Exception($"Cannot create an instance of {t.FullName} because it does not "
-						+ $"have a public constructor accepting IDictionary<{typeArguments[0].FullName},{typeArguments[1].FullName}> argument");
+        private static object CreateInstance(Type[] genericTypeArguments, params object[] args) =>
+            typeof(InterfaceReadOnlyDictionaryFormatter<,,>).MakeGenericType(genericTypeArguments).CreateInstance(args);
+    }
+}
 
-				// construct a delegate for the ctor
-				var activatorMethod = TypeExtensions.GetActivatorMethodInfo.MakeGenericMethod(t);
-				var activator = activatorMethod.Invoke(null, new object[] { ctor });
-				return CreateInstance(genericTypeArgs, activator, ctor.GetParameters().Length == 0);
-			}
+internal abstract class InterfaceDictionaryFormatterBase<TKey, TValue, TDictionary> : IJsonFormatter<TDictionary>
+    where TDictionary : class
+{
+    protected readonly TypeExtensions.ObjectActivator<TDictionary> Activator;
+    protected readonly bool ParameterlessCtor;
 
-			private static object CreateInstance(Type[] genericTypeArguments, params object[] args) =>
-				typeof(InterfaceReadOnlyDictionaryFormatter<,,>).MakeGenericType(genericTypeArguments).CreateInstance(args);
-		}
-	}
+    public InterfaceDictionaryFormatterBase(TypeExtensions.ObjectActivator<TDictionary> activator, bool parameterlessCtor)
+    {
+        Activator = activator;
+        ParameterlessCtor = parameterlessCtor;
+    }
 
-	internal abstract class InterfaceDictionaryFormatterBase<TKey, TValue, TDictionary> : IJsonFormatter<TDictionary>
-		where TDictionary : class
-	{
-		protected readonly TypeExtensions.ObjectActivator<TDictionary> Activator;
-		protected readonly bool ParameterlessCtor;
+    public TDictionary Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+    {
+        if (reader.ReadIsNull()) return null;
 
-		public InterfaceDictionaryFormatterBase(TypeExtensions.ObjectActivator<TDictionary> activator, bool parameterlessCtor)
-		{
-			Activator = activator;
-			ParameterlessCtor = parameterlessCtor;
-		}
+        var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>();
+        var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
+        reader.ReadIsBeginObjectWithVerify();
 
-		public TDictionary Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			if (reader.ReadIsNull()) return null;
+        var dict = Create();
+        var i = 0;
+        if (keyFormatter is IObjectPropertyNameFormatter<TKey> objectKeyFormatter)
+        {
+            while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref i))
+            {
+                var key = objectKeyFormatter.DeserializeFromPropertyName(ref reader, formatterResolver);
+                reader.ReadIsNameSeparatorWithVerify();
+                var value = valueFormatter.Deserialize(ref reader, formatterResolver);
+                Add(ref dict, key, value);
+            }
+        }
+        else
+        {
+            while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref i))
+            {
+                var keyString = reader.ReadString();
+                var key = (TKey)Convert.ChangeType(keyString, typeof(TKey));
+                reader.ReadIsNameSeparatorWithVerify();
+                var value = valueFormatter.Deserialize(ref reader, formatterResolver);
+                Add(ref dict, key, value);
+            }
+        }
 
-			var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>();
-			var objectKeyFormatter = keyFormatter as IObjectPropertyNameFormatter<TKey>;
-			var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
-			reader.ReadIsBeginObjectWithVerify();
+        return Complete(ref dict);
+    }
 
-			var dict = Create();
-			var i = 0;
-			if (objectKeyFormatter != null)
-			{
-				while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref i))
-				{
-					var key = objectKeyFormatter.DeserializeFromPropertyName(ref reader, formatterResolver);
-					reader.ReadIsNameSeparatorWithVerify();
-					var value = valueFormatter.Deserialize(ref reader, formatterResolver);
-					Add(ref dict, key, value);
-				}
-			}
-			else
-			{
-				while (!reader.ReadIsEndObjectWithSkipValueSeparator(ref i))
-				{
-					var keyString = reader.ReadString();
-					var key = (TKey)Convert.ChangeType(keyString, typeof(TKey));
-					reader.ReadIsNameSeparatorWithVerify();
-					var value = valueFormatter.Deserialize(ref reader, formatterResolver);
-					Add(ref dict, key, value);
-				}
-			}
+    public void Serialize(ref JsonWriter writer, TDictionary value, IJsonFormatterResolver formatterResolver)
+    {
+        if (value == null)
+        {
+            writer.WriteNull();
+            return;
+        }
 
-			return Complete(ref dict);
-		}
+        // TODO mutator is not used, should it?
+        var mutator = formatterResolver.GetConnectionSettings().DefaultFieldNameInferrer;
+        var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
+        writer.WriteBeginObject();
 
-		public void Serialize(ref JsonWriter writer, TDictionary value, IJsonFormatterResolver formatterResolver)
-		{
-			if (value == null)
-			{
-				writer.WriteNull();
-				return;
-			}
+        var e = GetSourceEnumerator(value);
+        try
+        {
+            if (formatterResolver.GetFormatterWithVerify<TKey>() is IObjectPropertyNameFormatter<TKey> keyFormatter)
+            {
+                if (e.MoveNext())
+                {
+                    var item = e.Current;
+                    keyFormatter.SerializeToPropertyName(ref writer, item.Key, formatterResolver);
+                    writer.WriteNameSeparator();
+                    valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
+                }
+                else
+                    goto END;
 
-			// TODO mutator is not used, should it?
-			var mutator = formatterResolver.GetConnectionSettings().DefaultFieldNameInferrer;
-			var keyFormatter = formatterResolver.GetFormatterWithVerify<TKey>() as IObjectPropertyNameFormatter<TKey>;
-			var valueFormatter = formatterResolver.GetFormatterWithVerify<TValue>();
+                while (e.MoveNext())
+                {
+                    writer.WriteValueSeparator();
+                    var item = e.Current;
+                    keyFormatter.SerializeToPropertyName(ref writer, item.Key, formatterResolver);
+                    writer.WriteNameSeparator();
+                    valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
+                }
+            }
+            else
+            {
+                if (e.MoveNext())
+                {
+                    var item = e.Current;
+                    writer.WriteString(item.Key.ToString());
+                    writer.WriteNameSeparator();
+                    valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
+                }
+                else
+                    goto END;
 
-			writer.WriteBeginObject();
+                while (e.MoveNext())
+                {
+                    writer.WriteValueSeparator();
+                    var item = e.Current;
+                    writer.WriteString(item.Key.ToString());
+                    writer.WriteNameSeparator();
+                    valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
+                }
+            }
+        }
+        finally
+        {
+            e.Dispose();
+        }
 
-			var e = GetSourceEnumerator(value);
-			try
-			{
-				if (keyFormatter != null)
-				{
-					if (e.MoveNext())
-					{
-						var item = e.Current;
-						keyFormatter.SerializeToPropertyName(ref writer, item.Key, formatterResolver);
-						writer.WriteNameSeparator();
-						valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
-					}
-					else
-						goto END;
+    END:
+        writer.WriteEndObject();
+    }
 
-					while (e.MoveNext())
-					{
-						writer.WriteValueSeparator();
-						var item = e.Current;
-						keyFormatter.SerializeToPropertyName(ref writer, item.Key, formatterResolver);
-						writer.WriteNameSeparator();
-						valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
-					}
-				}
-				else
-				{
-					if (e.MoveNext())
-					{
-						var item = e.Current;
-						writer.WriteString(item.Key.ToString());
-						writer.WriteNameSeparator();
-						valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
-					}
-					else
-						goto END;
+    private Dictionary<TKey, TValue> Create() =>
+        new Dictionary<TKey, TValue>();
 
-					while (e.MoveNext())
-					{
-						writer.WriteValueSeparator();
-						var item = e.Current;
-						writer.WriteString(item.Key.ToString());
-						writer.WriteNameSeparator();
-						valueFormatter.Serialize(ref writer, item.Value, formatterResolver);
-					}
-				}
-			}
-			finally
-			{
-				e.Dispose();
-			}
+    private void Add(ref Dictionary<TKey, TValue> collection, TKey key, TValue value) =>
+        collection.Add(key, value);
 
-			END:
-			writer.WriteEndObject();
-		}
+    protected abstract IEnumerator<KeyValuePair<TKey, TValue>> GetSourceEnumerator(TDictionary source);
 
-		private Dictionary<TKey, TValue> Create() =>
-			new Dictionary<TKey, TValue>();
+    protected abstract TDictionary Complete(ref Dictionary<TKey, TValue> intermediateCollection);
+}
 
-		private void Add(ref Dictionary<TKey, TValue> collection, TKey key, TValue value) =>
-			collection.Add(key, value);
+internal class InterfaceReadOnlyDictionaryFormatter<TKey, TValue, TDictionary> : InterfaceDictionaryFormatterBase<TKey, TValue, TDictionary>
+    where TDictionary : class, IReadOnlyDictionary<TKey, TValue>
+{
+    public InterfaceReadOnlyDictionaryFormatter(TypeExtensions.ObjectActivator<TDictionary> activator, bool parameterlessCtor)
+        : base(activator, parameterlessCtor) { }
 
-		protected abstract IEnumerator<KeyValuePair<TKey, TValue>> GetSourceEnumerator(TDictionary source);
+    protected override IEnumerator<KeyValuePair<TKey, TValue>> GetSourceEnumerator(TDictionary source) =>
+        source.GetEnumerator();
 
-		protected abstract TDictionary Complete(ref Dictionary<TKey, TValue> intermediateCollection);
-	}
+    protected override TDictionary Complete(ref Dictionary<TKey, TValue> intermediateCollection) =>
+        Activator(intermediateCollection);
+}
 
-	internal class InterfaceReadOnlyDictionaryFormatter<TKey, TValue, TDictionary> : InterfaceDictionaryFormatterBase<TKey, TValue, TDictionary>
-		where TDictionary : class, IReadOnlyDictionary<TKey, TValue>
-	{
-		public InterfaceReadOnlyDictionaryFormatter(TypeExtensions.ObjectActivator<TDictionary> activator, bool parameterlessCtor)
-			: base(activator, parameterlessCtor) { }
+internal class InterfaceDictionaryFormatter<TKey, TValue, TDictionary> : InterfaceDictionaryFormatterBase<TKey, TValue, TDictionary>
+    where TDictionary : class, IDictionary<TKey, TValue>
+{
+    public InterfaceDictionaryFormatter(TypeExtensions.ObjectActivator<TDictionary> activator, bool parameterlessCtor)
+        : base(activator, parameterlessCtor)
+    {
+    }
 
-		protected override IEnumerator<KeyValuePair<TKey, TValue>> GetSourceEnumerator(TDictionary source) =>
-			source.GetEnumerator();
+    protected override IEnumerator<KeyValuePair<TKey, TValue>> GetSourceEnumerator(TDictionary source) =>
+        source.GetEnumerator();
 
-		protected override TDictionary Complete(ref Dictionary<TKey, TValue> intermediateCollection) =>
-			Activator(intermediateCollection);
-	}
+    protected override TDictionary Complete(ref Dictionary<TKey, TValue> intermediateCollection)
+    {
+        TDictionary dictionary;
+        if (ParameterlessCtor)
+        {
+            dictionary = Activator();
+            foreach (var kv in intermediateCollection)
+                dictionary.Add(kv);
+        }
+        else
+            dictionary = Activator(intermediateCollection);
 
-	internal class InterfaceDictionaryFormatter<TKey, TValue, TDictionary> : InterfaceDictionaryFormatterBase<TKey, TValue, TDictionary>
-		where TDictionary : class, IDictionary<TKey, TValue>
-	{
-		public InterfaceDictionaryFormatter(TypeExtensions.ObjectActivator<TDictionary> activator, bool parameterlessCtor)
-			:base (activator, parameterlessCtor)
-		{
-		}
-
-		protected override IEnumerator<KeyValuePair<TKey, TValue>> GetSourceEnumerator(TDictionary source) =>
-			source.GetEnumerator();
-
-		protected override TDictionary Complete(ref Dictionary<TKey, TValue> intermediateCollection)
-		{
-			TDictionary dictionary;
-			if (ParameterlessCtor)
-			{
-				dictionary = Activator();
-				foreach (var kv in intermediateCollection)
-					dictionary.Add(kv);
-			}
-			else
-				dictionary = Activator(intermediateCollection);
-
-			return dictionary;
-		}
-	}
+        return dictionary;
+    }
 }

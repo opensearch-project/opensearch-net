@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	[MapsApi("snapshot.cleanup_repository.json")]
-	public partial interface ICleanupRepositoryRequest { }
+namespace OpenSearch.Client;
 
-	public partial class CleanupRepositoryRequest { }
+[MapsApi("snapshot.cleanup_repository.json")]
+public partial interface ICleanupRepositoryRequest { }
 
-	public partial class CleanupRepositoryDescriptor { }
-}
+public partial class CleanupRepositoryRequest { }
+
+public partial class CleanupRepositoryDescriptor { }

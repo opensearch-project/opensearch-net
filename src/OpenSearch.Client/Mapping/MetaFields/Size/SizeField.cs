@@ -28,25 +28,24 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[ReadAs(typeof(SizeField))]
+public interface ISizeField : IFieldMapping
 {
-	[ReadAs(typeof(SizeField))]
-	public interface ISizeField : IFieldMapping
-	{
-		[DataMember(Name ="enabled")]
-		bool? Enabled { get; set; }
-	}
+    [DataMember(Name = "enabled")]
+    bool? Enabled { get; set; }
+}
 
-	public class SizeField : ISizeField
-	{
-		public bool? Enabled { get; set; }
-	}
+public class SizeField : ISizeField
+{
+    public bool? Enabled { get; set; }
+}
 
-	public class SizeFieldDescriptor
-		: DescriptorBase<SizeFieldDescriptor, ISizeField>, ISizeField
-	{
-		bool? ISizeField.Enabled { get; set; }
+public class SizeFieldDescriptor
+    : DescriptorBase<SizeFieldDescriptor, ISizeField>, ISizeField
+{
+    bool? ISizeField.Enabled { get; set; }
 
-		public SizeFieldDescriptor Enabled(bool? enabled = true) => Assign(enabled, (a, v) => a.Enabled = v);
-	}
+    public SizeFieldDescriptor Enabled(bool? enabled = true) => Assign(enabled, (a, v) => a.Enabled = v);
 }

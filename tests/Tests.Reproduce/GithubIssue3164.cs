@@ -29,25 +29,25 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
+using Newtonsoft.Json;
 using OpenSearch.Client;
 using OpenSearch.Client.JsonNetSerializer;
-using Newtonsoft.Json;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GithubIssue3164
 {
-	public class GithubIssue3164
-	{
-		[U]
-		public void SerializerRespectsDateTimeValuesFromOpenSearch()
-		{
-			var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+    [U]
+    public void SerializerRespectsDateTimeValuesFromOpenSearch()
+    {
+        var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
 
-			// simulate a request rather than using the source serializer directly, so that
-			// the SourceConverter is invoked.
-			var json = @"{
+        // simulate a request rather than using the source serializer directly, so that
+        // the SourceConverter is invoked.
+        var json = @"{
 				""_index"" : ""dates"",
 				""_type"" : ""_doc"",
 				""_id"" : ""1"",
@@ -62,45 +62,44 @@ namespace Tests.Reproduce
 				}
 			}";
 
-			var connectionSettings = new ConnectionSettings(
-				pool,
-				new InMemoryConnection(Encoding.UTF8.GetBytes(json)),
-				(builtin, values) => new CustomSerializer(builtin, values));
+        var connectionSettings = new ConnectionSettings(
+            pool,
+            new InMemoryConnection(Encoding.UTF8.GetBytes(json)),
+            (builtin, values) => new CustomSerializer(builtin, values));
 
-			var client = new OpenSearchClient(connectionSettings);
+        var client = new OpenSearchClient(connectionSettings);
 
-			var getResponse = client.Get<Dates>(1, g => g.Index("dates"));
-			var dates = getResponse.Source;
+        var getResponse = client.Get<Dates>(1, g => g.Index("dates"));
+        var dates = getResponse.Source;
 
-			dates.DateTimeLocal.Kind.Should().Be(DateTimeKind.Local);
-			dates.DateTimeUnspecified.Kind.Should().Be(DateTimeKind.Unspecified);
-			dates.DateTimeUtc.Kind.Should().Be(DateTimeKind.Utc);
-			dates.DateTimeOffset.Offset.Should().Be(TimeSpan.FromHours(10));
-			dates.DateTimeOffsetUtc.Offset.Should().Be(TimeSpan.Zero);
-		}
+        dates.DateTimeLocal.Kind.Should().Be(DateTimeKind.Local);
+        dates.DateTimeUnspecified.Kind.Should().Be(DateTimeKind.Unspecified);
+        dates.DateTimeUtc.Kind.Should().Be(DateTimeKind.Utc);
+        dates.DateTimeOffset.Offset.Should().Be(TimeSpan.FromHours(10));
+        dates.DateTimeOffsetUtc.Offset.Should().Be(TimeSpan.Zero);
+    }
 
-		public sealed class CustomSerializer : ConnectionSettingsAwareSerializerBase
-		{
-			public CustomSerializer(IOpenSearchSerializer builtinSerializer, IConnectionSettingsValues connectionSettings)
-				: base(builtinSerializer, connectionSettings) { }
+    public sealed class CustomSerializer : ConnectionSettingsAwareSerializerBase
+    {
+        public CustomSerializer(IOpenSearchSerializer builtinSerializer, IConnectionSettingsValues connectionSettings)
+            : base(builtinSerializer, connectionSettings) { }
 
-			protected override JsonSerializerSettings CreateJsonSerializerSettings() => new JsonSerializerSettings
-			{
-				DateFormatHandling = DateFormatHandling.IsoDateFormat,
-				DateParseHandling = DateParseHandling.DateTimeOffset,
-				DateTimeZoneHandling = DateTimeZoneHandling.RoundtripKind,
-				Formatting = Formatting.Indented
-			};
-		}
+        protected override JsonSerializerSettings CreateJsonSerializerSettings() => new JsonSerializerSettings
+        {
+            DateFormatHandling = DateFormatHandling.IsoDateFormat,
+            DateParseHandling = DateParseHandling.DateTimeOffset,
+            DateTimeZoneHandling = DateTimeZoneHandling.RoundtripKind,
+            Formatting = Formatting.Indented
+        };
+    }
 
-		[SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Local")]
-		private class Dates
-		{
-			public DateTime DateTimeLocal { get; set; }
-			public DateTimeOffset DateTimeOffset { get; set; }
-			public DateTimeOffset DateTimeOffsetUtc { get; set; }
-			public DateTime DateTimeUnspecified { get; set; }
-			public DateTime DateTimeUtc { get; set; }
-		}
-	}
+    [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Local")]
+    private class Dates
+    {
+        public DateTime DateTimeLocal { get; set; }
+        public DateTimeOffset DateTimeOffset { get; set; }
+        public DateTimeOffset DateTimeOffsetUtc { get; set; }
+        public DateTime DateTimeUnspecified { get; set; }
+        public DateTime DateTimeUtc { get; set; }
+    }
 }

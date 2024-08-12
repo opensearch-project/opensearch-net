@@ -31,40 +31,39 @@ using System.Collections.Generic;
 using System.Linq;
 using OpenSearch.Stack.ArtifactsApi;
 
-namespace OpenSearch.OpenSearch.Managed.Configuration
+namespace OpenSearch.OpenSearch.Managed.Configuration;
+
+public class NodeSettings : List<NodeSetting>
 {
-	public class NodeSettings : List<NodeSetting>
-	{
-		public NodeSettings()
-		{
-		}
+    public NodeSettings()
+    {
+    }
 
-		public NodeSettings(NodeSettings settings) : base(settings)
-		{
-		}
+    public NodeSettings(NodeSettings settings) : base(settings)
+    {
+    }
 
-		public void Add(string setting)
-		{
-			var s = setting.Split(new[] {'='}, 2, StringSplitOptions.RemoveEmptyEntries);
-			if (s.Length != 2)
-				throw new ArgumentException($"Can only add node settings in key=value from but received: {setting}");
-			Add(new NodeSetting(s[0], s[1], null));
-		}
+    public void Add(string setting)
+    {
+        var s = setting.Split(new[] { '=' }, 2, StringSplitOptions.RemoveEmptyEntries);
+        if (s.Length != 2)
+            throw new ArgumentException($"Can only add node settings in key=value from but received: {setting}");
+        Add(new NodeSetting(s[0], s[1], null));
+    }
 
-		public void Add(string key, string value) => Add(new NodeSetting(key, value, null));
+    public void Add(string key, string value) => Add(new NodeSetting(key, value, null));
 
-		public void Add(string key, string value, string versionRange) =>
-			Add(new NodeSetting(key, value, versionRange));
+    public void Add(string key, string value, string versionRange) =>
+        Add(new NodeSetting(key, value, versionRange));
 
-		public string[] ToCommandLineArguments(OpenSearchVersion version) =>
-			this
-				//if a node setting is only applicable for a certain version make sure its filtered out
-				.Where(s => string.IsNullOrEmpty(s.VersionRange) || version.InRange(s.VersionRange))
-				//allow additional settings to take precedence over already DefaultNodeSettings
-				//without relying on opensearch to dedup
-				.GroupBy(setting => setting.Key)
-				.Select(g => g.Last())
-				.SelectMany(s => new[] { "-E", s.ToString() })
-				.ToArray();
-	}
+    public string[] ToCommandLineArguments(OpenSearchVersion version) =>
+        this
+            //if a node setting is only applicable for a certain version make sure its filtered out
+            .Where(s => string.IsNullOrEmpty(s.VersionRange) || version.InRange(s.VersionRange))
+            //allow additional settings to take precedence over already DefaultNodeSettings
+            //without relying on opensearch to dedup
+            .GroupBy(setting => setting.Key)
+            .Select(g => g.Last())
+            .SelectMany(s => new[] { "-E", s.ToString() })
+            .ToArray();
 }

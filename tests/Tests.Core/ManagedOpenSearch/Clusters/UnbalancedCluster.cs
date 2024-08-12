@@ -29,13 +29,12 @@
 using OpenSearch.Client;
 using Tests.Core.ManagedOpenSearch.NodeSeeders;
 
-namespace Tests.Core.ManagedOpenSearch.Clusters
+namespace Tests.Core.ManagedOpenSearch.Clusters;
+
+//TODO does this need a whole separate cluster?
+public class UnbalancedCluster : ClientTestClusterBase
 {
-	//TODO does this need a whole separate cluster?
-	public class UnbalancedCluster : ClientTestClusterBase
-	{
-		protected override void SeedNode() =>
-			new DefaultSeeder(Client, new IndexSettings { NumberOfShards = 3, NumberOfReplicas = 2 })
-				.SeedNode();
-	}
+    protected override void SeedNode() =>
+        new DefaultSeeder(Client, new IndexSettings { NumberOfShards = 3, NumberOfReplicas = 2 })
+            .SeedNode();
 }

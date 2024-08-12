@@ -28,18 +28,17 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+public class CatCountRecord : ICatRecord
 {
-	[DataContract]
-	public class CatCountRecord : ICatRecord
-	{
-		[DataMember(Name ="count")]
-		public string Count { get; set; }
+    [DataMember(Name = "count")]
+    public string Count { get; set; }
 
-		[DataMember(Name ="epoch")]
-		public string Epoch { get; set; }
+    [DataMember(Name = "epoch")]
+    public string Epoch { get; set; }
 
-		[DataMember(Name ="timestamp")]
-		public string Timestamp { get; set; }
-	}
+    [DataMember(Name = "timestamp")]
+    public string Timestamp { get; set; }
 }

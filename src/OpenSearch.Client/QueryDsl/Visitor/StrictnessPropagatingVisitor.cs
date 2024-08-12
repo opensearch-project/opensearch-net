@@ -7,18 +7,17 @@
 
 using System;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class StrictnessPropagatingVisitor : QueryVisitor
 {
-	public class StrictnessPropagatingVisitor : QueryVisitor
-	{
-		private readonly bool _strict;
+    private readonly bool _strict;
 
-		public StrictnessPropagatingVisitor(bool strict) => _strict = strict;
+    public StrictnessPropagatingVisitor(bool strict) => _strict = strict;
 
-		public override void Visit(IQuery query)
-		{
-			query.IsStrict = _strict;
-			base.Visit(query);
-		}
-	}
+    public override void Visit(IQuery query)
+    {
+        query.IsStrict = _strict;
+        base.Visit(query);
+    }
 }

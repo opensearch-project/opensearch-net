@@ -36,67 +36,66 @@ using OpenSearch.OpenSearch.Managed.Configuration;
 using OpenSearch.Stack.ArtifactsApi;
 using OpenSearch.Stack.ArtifactsApi.Products;
 
-namespace OpenSearch.OpenSearch.Ephemeral
+namespace OpenSearch.OpenSearch.Ephemeral;
+
+public class EphemeralClusterConfiguration : ClusterConfiguration<EphemeralFileSystem>
 {
-	public class EphemeralClusterConfiguration : ClusterConfiguration<EphemeralFileSystem>
-	{
-		public EphemeralClusterConfiguration(OpenSearchVersion version, OpenSearchPlugins plugins = null,
-			int numberOfNodes = 1)
-			: this(version, ClusterFeatures.None, plugins, numberOfNodes)
-		{
-		}
+    public EphemeralClusterConfiguration(OpenSearchVersion version, OpenSearchPlugins plugins = null,
+        int numberOfNodes = 1)
+        : this(version, ClusterFeatures.None, plugins, numberOfNodes)
+    {
+    }
 
-		public EphemeralClusterConfiguration(OpenSearchVersion version, ClusterFeatures features,
-			OpenSearchPlugins plugins = null, int numberOfNodes = 1)
-			: base(version, (v, s) => new EphemeralFileSystem(v, s), numberOfNodes, EphemeralClusterName)
-		{
-			Features = features;
+    public EphemeralClusterConfiguration(OpenSearchVersion version, ClusterFeatures features,
+        OpenSearchPlugins plugins = null, int numberOfNodes = 1)
+        : base(version, (v, s) => new EphemeralFileSystem(v, s), numberOfNodes, EphemeralClusterName)
+    {
+        Features = features;
 
-			var pluginsList = plugins?.ToList() ?? new List<OpenSearchPlugin>();
-			Plugins = new OpenSearchPlugins(pluginsList);
-		}
+        var pluginsList = plugins?.ToList() ?? new List<OpenSearchPlugin>();
+        Plugins = new OpenSearchPlugins(pluginsList);
+    }
 
-		private static string UniqueishSuffix => Guid.NewGuid().ToString("N").Substring(0, 6);
-		private static string EphemeralClusterName => $"ephemeral-cluster-{UniqueishSuffix}";
+    private static string UniqueishSuffix => Guid.NewGuid().ToString("N").Substring(0, 6);
+    private static string EphemeralClusterName => $"ephemeral-cluster-{UniqueishSuffix}";
 
-		/// <summary>
-		///     The features supported by the cluster
-		/// </summary>
-		public ClusterFeatures Features { get; }
+    /// <summary>
+    ///     The features supported by the cluster
+    /// </summary>
+    public ClusterFeatures Features { get; }
 
-		/// <summary>
-		///     The collection of plugins to install
-		/// </summary>
-		public OpenSearchPlugins Plugins { get; }
+    /// <summary>
+    ///     The collection of plugins to install
+    /// </summary>
+    public OpenSearchPlugins Plugins { get; }
 
-		/// <summary>
-		///     Validates that the plugins to install can be installed on the target OpenSearch version.
-		///     This can be useful to fail early when subsequent operations are relying on installation
-		///     succeeding.
-		/// </summary>
-		public bool ValidatePluginsToInstall { get; } = true;
+    /// <summary>
+    ///     Validates that the plugins to install can be installed on the target OpenSearch version.
+    ///     This can be useful to fail early when subsequent operations are relying on installation
+    ///     succeeding.
+    /// </summary>
+    public bool ValidatePluginsToInstall { get; } = true;
 
-		public bool EnableSsl => Features.HasFlag(ClusterFeatures.SSL);
+    public bool EnableSsl => Features.HasFlag(ClusterFeatures.SSL);
 
-		public IList<IClusterComposeTask> AdditionalBeforeNodeStartedTasks { get; } = new List<IClusterComposeTask>();
+    public IList<IClusterComposeTask> AdditionalBeforeNodeStartedTasks { get; } = new List<IClusterComposeTask>();
 
-		public IList<IClusterComposeTask> AdditionalAfterStartedTasks { get; } = new List<IClusterComposeTask>();
+    public IList<IClusterComposeTask> AdditionalAfterStartedTasks { get; } = new List<IClusterComposeTask>();
 
-		/// <summary>
-		///     Expert level setting, skips all built-in validation tasks for cases where you need to guarantee your call is the
-		///     first call into the cluster
-		/// </summary>
-		public bool SkipBuiltInAfterStartTasks { get; set; }
+    /// <summary>
+    ///     Expert level setting, skips all built-in validation tasks for cases where you need to guarantee your call is the
+    ///     first call into the cluster
+    /// </summary>
+    public bool SkipBuiltInAfterStartTasks { get; set; }
 
-		/// <summary> Bootstrapping HTTP calls should attempt to auto route traffic through fiddler if its running </summary>
-		public bool HttpFiddlerAware { get; set; }
+    /// <summary> Bootstrapping HTTP calls should attempt to auto route traffic through fiddler if its running </summary>
+    public bool HttpFiddlerAware { get; set; }
 
-		protected virtual string NodePrefix => "ephemeral";
+    protected virtual string NodePrefix => "ephemeral";
 
-		public override string CreateNodeName(int? node)
-		{
-			var suffix = Guid.NewGuid().ToString("N").Substring(0, 6);
-			return $"{NodePrefix}-node-{suffix}{node}";
-		}
-	}
+    public override string CreateNodeName(int? node)
+    {
+        var suffix = Guid.NewGuid().ToString("N").Substring(0, 6);
+        return $"{NodePrefix}-node-{suffix}{node}";
+    }
 }

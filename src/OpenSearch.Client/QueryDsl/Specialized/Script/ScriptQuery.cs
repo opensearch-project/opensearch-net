@@ -30,60 +30,59 @@ using System;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// A query allowing to define a script to execute as a query
+/// </summary>
+[ReadAs(typeof(ScriptQuery))]
+[InterfaceDataContract]
+public interface IScriptQuery : IQuery
 {
-	/// <summary>
-	/// A query allowing to define a script to execute as a query
-	/// </summary>
-	[ReadAs(typeof(ScriptQuery))]
-	[InterfaceDataContract]
-	public interface IScriptQuery : IQuery
-	{
-		/// <summary>
-		/// The script to execute
-		/// </summary>
-		[DataMember(Name = "script")]
-		IScript Script { get; set; }
-	}
+    /// <summary>
+    /// The script to execute
+    /// </summary>
+    [DataMember(Name = "script")]
+    IScript Script { get; set; }
+}
 
-	/// <inheritdoc cref="IScriptQuery"/>
-	public class ScriptQuery : QueryBase, IScriptQuery
-	{
-		/// <inheritdoc />
-		public IScript Script { get; set; }
+/// <inheritdoc cref="IScriptQuery"/>
+public class ScriptQuery : QueryBase, IScriptQuery
+{
+    /// <inheritdoc />
+    public IScript Script { get; set; }
 
-		protected override bool Conditionless => IsConditionless(this);
+    protected override bool Conditionless => IsConditionless(this);
 
-		internal override void InternalWrapInContainer(IQueryContainer c) => c.Script = this;
+    internal override void InternalWrapInContainer(IQueryContainer c) => c.Script = this;
 
-		internal static bool IsConditionless(IScriptQuery q)
-		{
-			if (q.Script == null)
-				return true;
+    internal static bool IsConditionless(IScriptQuery q)
+    {
+        if (q.Script == null)
+            return true;
 
-			switch (q.Script)
-			{
-				case IInlineScript inlineScript:
-					return inlineScript.Source.IsNullOrEmpty();
-				case IIndexedScript indexedScript:
-					return indexedScript.Id.IsNullOrEmpty();
-			}
+        switch (q.Script)
+        {
+            case IInlineScript inlineScript:
+                return inlineScript.Source.IsNullOrEmpty();
+            case IIndexedScript indexedScript:
+                return indexedScript.Id.IsNullOrEmpty();
+        }
 
-			return false;
-		}
-	}
+        return false;
+    }
+}
 
-	/// <inheritdoc cref="IScriptQuery"/>
-	public class ScriptQueryDescriptor<T>
-		: QueryDescriptorBase<ScriptQueryDescriptor<T>, IScriptQuery>
-			, IScriptQuery where T : class
-	{
-		protected override bool Conditionless => ScriptQuery.IsConditionless(this);
+/// <inheritdoc cref="IScriptQuery"/>
+public class ScriptQueryDescriptor<T>
+    : QueryDescriptorBase<ScriptQueryDescriptor<T>, IScriptQuery>
+        , IScriptQuery where T : class
+{
+    protected override bool Conditionless => ScriptQuery.IsConditionless(this);
 
-		IScript IScriptQuery.Script { get; set; }
+    IScript IScriptQuery.Script { get; set; }
 
-		/// <inheritdoc cref="IScriptQuery.Script"/>
-		public ScriptQueryDescriptor<T> Script(Func<ScriptDescriptor, IScript> selector) =>
-			Assign(selector, (a, v) => a.Script = v?.Invoke(new ScriptDescriptor()));
-	}
+    /// <inheritdoc cref="IScriptQuery.Script"/>
+    public ScriptQueryDescriptor<T> Script(Func<ScriptDescriptor, IScript> selector) =>
+        Assign(selector, (a, v) => a.Script = v?.Invoke(new ScriptDescriptor()));
 }

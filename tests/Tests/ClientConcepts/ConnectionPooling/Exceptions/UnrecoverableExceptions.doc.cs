@@ -31,21 +31,21 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
+using FluentAssertions;
+using OpenSearch.Client;
 using OpenSearch.Net;
 using OpenSearch.Net.VirtualizedCluster;
 using OpenSearch.Net.VirtualizedCluster.Audit;
-using FluentAssertions;
-using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Domain;
 using Tests.Framework;
 using Tests.Framework.SerializationTests;
 
-namespace Tests.ClientConcepts.ConnectionPooling.Exceptions
+namespace Tests.ClientConcepts.ConnectionPooling.Exceptions;
+
+public class UnrecoverableExceptions
 {
-	public class UnrecoverableExceptions
-	{
-		/**=== Unrecoverable exceptions
+    /**=== Unrecoverable exceptions
 		 *
 		* Unrecoverable exceptions are _expected_ exceptions that are grounds to exit the client pipeline immediately.
 		*
@@ -67,72 +67,74 @@ namespace Tests.ClientConcepts.ConnectionPooling.Exceptions
 		* by using `ThrowExceptions()` on <<configuration-options, `ConnectionSettings`>>.
 		*
 		*/
-		[U] public void SomePipelineFailuresAreRecoverable()
-		{
-			var failures = Enum.GetValues(typeof(PipelineFailure)).Cast<PipelineFailure>();
-			foreach (var failure in failures)
-			{
-				switch (failure)
-				{
-					/** The followinig pipeline failures are recoverable and will be retried */
-					case PipelineFailure.PingFailure:
-					case PipelineFailure.BadRequest:
-					case PipelineFailure.BadResponse:
-						var recoverable = new PipelineException(failure);
-						recoverable.Recoverable.Should().BeTrue(failure.GetStringValue());
-						break;
+    [U]
+    public void SomePipelineFailuresAreRecoverable()
+    {
+        var failures = Enum.GetValues(typeof(PipelineFailure)).Cast<PipelineFailure>();
+        foreach (var failure in failures)
+        {
+            switch (failure)
+            {
+                /** The followinig pipeline failures are recoverable and will be retried */
+                case PipelineFailure.PingFailure:
+                case PipelineFailure.BadRequest:
+                case PipelineFailure.BadResponse:
+                    var recoverable = new PipelineException(failure);
+                    recoverable.Recoverable.Should().BeTrue(failure.GetStringValue());
+                    break;
 
-					/** The followinig pipeline failures are NOT recoverable and won't be retried */
-					case PipelineFailure.BadAuthentication:
-					case PipelineFailure.SniffFailure:
-					case PipelineFailure.CouldNotStartSniffOnStartup:
-					case PipelineFailure.MaxTimeoutReached:
-					case PipelineFailure.MaxRetriesReached:
-					case PipelineFailure.Unexpected:
-					case PipelineFailure.NoNodesAttempted:
-						var unrecoverable = new PipelineException(failure);
-						unrecoverable.Recoverable.Should().BeFalse(failure.GetStringValue());
-						break;
-					default:
-						throw new ArgumentOutOfRangeException(failure.GetStringValue());
-				}
-			}
-		}
+                /** The followinig pipeline failures are NOT recoverable and won't be retried */
+                case PipelineFailure.BadAuthentication:
+                case PipelineFailure.SniffFailure:
+                case PipelineFailure.CouldNotStartSniffOnStartup:
+                case PipelineFailure.MaxTimeoutReached:
+                case PipelineFailure.MaxRetriesReached:
+                case PipelineFailure.Unexpected:
+                case PipelineFailure.NoNodesAttempted:
+                    var unrecoverable = new PipelineException(failure);
+                    unrecoverable.Recoverable.Should().BeFalse(failure.GetStringValue());
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(failure.GetStringValue());
+            }
+        }
+    }
 
-		/**
+    /**
 		 * As an example, let's use our Virtual cluster test framework to set up a 10 node cluster
 		 * that always succeeds when pinged but fails with a 401 response when making client calls
 		 */
-		[U] public async Task BadAuthenticationIsUnrecoverable()
-		{
-			var audit = new Auditor(() => VirtualClusterWith
-				.Nodes(10)
-				.Ping(r => r.SucceedAlways()) // <1> Always succeed on ping
-				.ClientCalls(r => r.FailAlways(401)) // <2> ...but always fail on calls with a 401 Bad Authentication response
-				.StaticConnectionPool()
-				.AllDefaults()
-			);
+    [U]
+    public async Task BadAuthenticationIsUnrecoverable()
+    {
+        var audit = new Auditor(() => VirtualClusterWith
+            .Nodes(10)
+            .Ping(r => r.SucceedAlways()) // <1> Always succeed on ping
+            .ClientCalls(r => r.FailAlways(401)) // <2> ...but always fail on calls with a 401 Bad Authentication response
+            .StaticConnectionPool()
+            .AllDefaults()
+        );
 
-			/**
+        /**
 			 * Now, let's make a client call. We'll see that the first audit event is a successful ping
 			* followed by a bad response as a result of the 401 bad authentication response
 			*/
-			audit = await audit.TraceOpenSearchException(
-				new ClientCall {
-					{ AuditEvent.PingSuccess, 9200 }, // <1> First call results in a successful ping
+        audit = await audit.TraceOpenSearchException(
+            new ClientCall {
+                { AuditEvent.PingSuccess, 9200 }, // <1> First call results in a successful ping
 					{ AuditEvent.BadResponse, 9200 }, // <2> Second call results in a bad response
 				},
-				exception =>
-				{
-					exception.FailureReason
-						.Should().Be(PipelineFailure.BadAuthentication); // <3> The reason for the bad response is Bad Authentication
-				}
-			);
-		}
+            exception =>
+            {
+                exception.FailureReason
+                    .Should().Be(PipelineFailure.BadAuthentication); // <3> The reason for the bad response is Bad Authentication
+            }
+        );
+    }
 
-		private static byte[] HtmlNginx401Response = Encoding.UTF8.GetBytes(StubResponse.NginxHtml401Response);
+    private static byte[] HtmlNginx401Response = Encoding.UTF8.GetBytes(StubResponse.NginxHtml401Response);
 
-		/**
+    /**
 		 * When a bad authentication response occurs, the client attempts to deserialize the response body returned;
 		 *
 		 * In some setups you might be running behind a proxy and you might need to prevent the client from trying to deserialize
@@ -140,93 +142,95 @@ namespace Tests.ClientConcepts.ConnectionPooling.Exceptions
 		 * under your control you would need to be able to fix this in the client. Here we make the client aware that 401 responses
 		 * should never be deserialized by calling `SkipDeserializationForStatusCodes()` on `ConnectionSettings`.
 		 */
-		[U] public async Task BadAuthenticationHtmlResponseIsIgnored()
-		{
-			var audit = new Auditor(() => VirtualClusterWith
-				.Nodes(10)
-				.Ping(r => r.SucceedAlways())
-				.ClientCalls(r => r.FailAlways(401).ReturnByteResponse(HtmlNginx401Response, "application/json")) // <1> Always return a 401 bad response with a HTML response on client calls
-				.StaticConnectionPool()
-				.Settings(s => s.SkipDeserializationForStatusCodes(401))
-			);
+    [U]
+    public async Task BadAuthenticationHtmlResponseIsIgnored()
+    {
+        var audit = new Auditor(() => VirtualClusterWith
+            .Nodes(10)
+            .Ping(r => r.SucceedAlways())
+            .ClientCalls(r => r.FailAlways(401).ReturnByteResponse(HtmlNginx401Response, "application/json")) // <1> Always return a 401 bad response with a HTML response on client calls
+            .StaticConnectionPool()
+            .Settings(s => s.SkipDeserializationForStatusCodes(401))
+        );
 
-			audit = await audit.TraceOpenSearchException(
-				new ClientCall {
-					{ AuditEvent.PingSuccess, 9200 },
-					{ AuditEvent.BadResponse, 9201 },
-				},
-				(e) =>
-				{
-					e.FailureReason.Should().Be(PipelineFailure.BadAuthentication);
-					e.Response.HttpStatusCode.Should().Be(401);
-					e.Response.ResponseBodyInBytes.Should().BeNull(); // <2> Assert that the response body bytes are null
-				}
-			);
-		}
+        audit = await audit.TraceOpenSearchException(
+            new ClientCall {
+                { AuditEvent.PingSuccess, 9200 },
+                { AuditEvent.BadResponse, 9201 },
+            },
+            (e) =>
+            {
+                e.FailureReason.Should().Be(PipelineFailure.BadAuthentication);
+                e.Response.HttpStatusCode.Should().Be(401);
+                e.Response.ResponseBodyInBytes.Should().BeNull(); // <2> Assert that the response body bytes are null
+            }
+        );
+    }
 
-		/**
+    /**
 		 * Now in this example, by turning on `DisableDirectStreaming()` on `ConnectionSettings`, we see the same behaviour exhibited
 		 * as before, but this time however, the response body bytes are captured in the response and can be inspected.
 		 * Also note that in this example the 401 returns the correct mime type for html so the client wont try to deserialize to json and
 		 * we no longer need to set `SkipDeserializationForStatusCodes()`
 		 */
-		[U] public async Task BadAuthenticationHtmlResponseStillExposedWhenUsingDisableDirectStreaming()
-		{
-			var audit = new Auditor(() => VirtualClusterWith
-				.Nodes(10)
-				.Ping(r => r.SucceedAlways())
-				.ClientCalls(r => r.FailAlways(401).ReturnByteResponse(HtmlNginx401Response, "text/html"))
-				.StaticConnectionPool()
-				.Settings(s => s.DisableDirectStreaming())
-			);
+    [U]
+    public async Task BadAuthenticationHtmlResponseStillExposedWhenUsingDisableDirectStreaming()
+    {
+        var audit = new Auditor(() => VirtualClusterWith
+            .Nodes(10)
+            .Ping(r => r.SucceedAlways())
+            .ClientCalls(r => r.FailAlways(401).ReturnByteResponse(HtmlNginx401Response, "text/html"))
+            .StaticConnectionPool()
+            .Settings(s => s.DisableDirectStreaming())
+        );
 
-			audit = await audit.TraceOpenSearchException(
-				new ClientCall {
-					{ AuditEvent.PingSuccess, 9200 },
-					{ AuditEvent.BadResponse, 9200 },
-				},
-				(e) =>
-				{
-					e.FailureReason.Should().Be(PipelineFailure.BadAuthentication);
-					e.Response.HttpStatusCode.Should().Be(401);
-					e.Response.ResponseBodyInBytes.Should().NotBeNull(); // <1> Response bytes are set on the response
-					var responseString = Encoding.UTF8.GetString(e.Response.ResponseBodyInBytes);
-					responseString.Should().Contain("nginx/"); // <2> Assert that the response contains `"nginx/"`
-					e.DebugInformation.Should().Contain("nginx/");
-				}
-			);
-		}
+        audit = await audit.TraceOpenSearchException(
+            new ClientCall {
+                { AuditEvent.PingSuccess, 9200 },
+                { AuditEvent.BadResponse, 9200 },
+            },
+            (e) =>
+            {
+                e.FailureReason.Should().Be(PipelineFailure.BadAuthentication);
+                e.Response.HttpStatusCode.Should().Be(401);
+                e.Response.ResponseBodyInBytes.Should().NotBeNull(); // <1> Response bytes are set on the response
+                var responseString = Encoding.UTF8.GetString(e.Response.ResponseBodyInBytes);
+                responseString.Should().Contain("nginx/"); // <2> Assert that the response contains `"nginx/"`
+                e.DebugInformation.Should().Contain("nginx/");
+            }
+        );
+    }
 
-		// hide
-		[U] public async Task BadAuthOnGetClientCallDoesNotThrowSerializationException()
-		{
-			var audit = new Auditor(() => VirtualClusterWith
-				.Nodes(10)
-				.Ping(r => r.SucceedAlways())
-				.ClientCalls(r => r.FailAlways(401).ReturnByteResponse(HtmlNginx401Response))
-				.StaticConnectionPool()
-				.Settings(s => s.DisableDirectStreaming().SkipDeserializationForStatusCodes(401))
-				.ClientProxiesTo(
-					(c, r) => c.Get<GetResponse<Project>>("default", "1"),
-					async (c, r) => await c.GetAsync<GetResponse<Project>>("default-index", "1") as IResponse
-				)
-			);
+    // hide
+    [U]
+    public async Task BadAuthOnGetClientCallDoesNotThrowSerializationException()
+    {
+        var audit = new Auditor(() => VirtualClusterWith
+            .Nodes(10)
+            .Ping(r => r.SucceedAlways())
+            .ClientCalls(r => r.FailAlways(401).ReturnByteResponse(HtmlNginx401Response))
+            .StaticConnectionPool()
+            .Settings(s => s.DisableDirectStreaming().SkipDeserializationForStatusCodes(401))
+            .ClientProxiesTo(
+                (c, r) => c.Get<GetResponse<Project>>("default", "1"),
+                async (c, r) => await c.GetAsync<GetResponse<Project>>("default-index", "1") as IResponse
+            )
+        );
 
-			audit = await audit.TraceOpenSearchException(
-				new ClientCall {
-					{ AuditEvent.PingSuccess, 9200 },
-					{ AuditEvent.BadResponse, 9200 },
-				},
-				(e) =>
-				{
-					e.FailureReason.Should().Be(PipelineFailure.BadAuthentication);
-					e.Response.HttpStatusCode.Should().Be(401);
-					e.Response.ResponseBodyInBytes.Should().NotBeNull();
-					var responseString = Encoding.UTF8.GetString(e.Response.ResponseBodyInBytes);
-					responseString.Should().Contain("nginx/");
-					e.DebugInformation.Should().Contain("nginx/");
-				}
-			);
-		}
-	}
+        audit = await audit.TraceOpenSearchException(
+            new ClientCall {
+                { AuditEvent.PingSuccess, 9200 },
+                { AuditEvent.BadResponse, 9200 },
+            },
+            (e) =>
+            {
+                e.FailureReason.Should().Be(PipelineFailure.BadAuthentication);
+                e.Response.HttpStatusCode.Should().Be(401);
+                e.Response.ResponseBodyInBytes.Should().NotBeNull();
+                var responseString = Encoding.UTF8.GetString(e.Response.ResponseBodyInBytes);
+                responseString.Should().Contain("nginx/");
+                e.DebugInformation.Should().Contain("nginx/");
+            }
+        );
+    }
 }

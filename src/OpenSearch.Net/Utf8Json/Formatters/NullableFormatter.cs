@@ -53,61 +53,60 @@
 
 using System;
 
-namespace OpenSearch.Net.Utf8Json.Formatters
+namespace OpenSearch.Net.Utf8Json.Formatters;
+
+internal sealed class NullableFormatter<T> : IJsonFormatter<T?>
+    where T : struct
 {
-	internal sealed class NullableFormatter<T> : IJsonFormatter<T?>
-		where T : struct
-	{
-		public void Serialize(ref JsonWriter writer, T? value, IJsonFormatterResolver formatterResolver)
-		{
-			if (value == null)
-				writer.WriteNull();
-			else
-				formatterResolver.GetFormatterWithVerify<T>().Serialize(ref writer, value.Value, formatterResolver);
-		}
+    public void Serialize(ref JsonWriter writer, T? value, IJsonFormatterResolver formatterResolver)
+    {
+        if (value == null)
+            writer.WriteNull();
+        else
+            formatterResolver.GetFormatterWithVerify<T>().Serialize(ref writer, value.Value, formatterResolver);
+    }
 
-		public T? Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			if (reader.ReadIsNull())
-				return null;
+    public T? Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+    {
+        if (reader.ReadIsNull())
+            return null;
 
-			return formatterResolver.GetFormatterWithVerify<T>().Deserialize(ref reader, formatterResolver);
-		}
-	}
+        return formatterResolver.GetFormatterWithVerify<T>().Deserialize(ref reader, formatterResolver);
+    }
+}
 
-	internal sealed class StaticNullableFormatter<T> : IJsonFormatter<T?>
-		where T : struct
-	{
-		private readonly IJsonFormatter<T> _underlyingFormatter;
+internal sealed class StaticNullableFormatter<T> : IJsonFormatter<T?>
+    where T : struct
+{
+    private readonly IJsonFormatter<T> _underlyingFormatter;
 
-		public StaticNullableFormatter(IJsonFormatter<T> underlyingFormatter) => _underlyingFormatter = underlyingFormatter;
+    public StaticNullableFormatter(IJsonFormatter<T> underlyingFormatter) => _underlyingFormatter = underlyingFormatter;
 
-		public StaticNullableFormatter(Type formatterType, object[] formatterArguments)
-		{
-			try
-			{
-				_underlyingFormatter = (IJsonFormatter<T>)Activator.CreateInstance(formatterType, formatterArguments);
-			}
-			catch (Exception ex)
-			{
-				throw new InvalidOperationException("Can not create formatter from JsonFormatterAttribute, check the target formatter is public and has constructor with right argument. FormatterType:" + formatterType.Name, ex);
-			}
-		}
+    public StaticNullableFormatter(Type formatterType, object[] formatterArguments)
+    {
+        try
+        {
+            _underlyingFormatter = (IJsonFormatter<T>)Activator.CreateInstance(formatterType, formatterArguments);
+        }
+        catch (Exception ex)
+        {
+            throw new InvalidOperationException("Can not create formatter from JsonFormatterAttribute, check the target formatter is public and has constructor with right argument. FormatterType:" + formatterType.Name, ex);
+        }
+    }
 
-		public void Serialize(ref JsonWriter writer, T? value, IJsonFormatterResolver formatterResolver)
-		{
-			if (value == null)
-				writer.WriteNull();
-			else
-				_underlyingFormatter.Serialize(ref writer, value.Value, formatterResolver);
-		}
+    public void Serialize(ref JsonWriter writer, T? value, IJsonFormatterResolver formatterResolver)
+    {
+        if (value == null)
+            writer.WriteNull();
+        else
+            _underlyingFormatter.Serialize(ref writer, value.Value, formatterResolver);
+    }
 
-		public T? Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			if (reader.ReadIsNull())
-				return null;
-			else
-				return _underlyingFormatter.Deserialize(ref reader, formatterResolver);
-		}
-	}
+    public T? Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+    {
+        if (reader.ReadIsNull())
+            return null;
+        else
+            return _underlyingFormatter.Deserialize(ref reader, formatterResolver);
+    }
 }

@@ -26,24 +26,23 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// A request to the indices add block API
+/// </summary>
+[MapsApi("indices.add_block.json")]
+[ReadAs(typeof(AddIndexBlockRequest))]
+public partial interface IAddIndexBlockRequest
 {
-	/// <summary>
-	/// A request to the indices add block API
-	/// </summary>
-	[MapsApi("indices.add_block.json")]
-	[ReadAs(typeof(AddIndexBlockRequest))]
-	public partial interface IAddIndexBlockRequest
-	{
-	}
+}
 
-	/// <inheritdoc cref="IAddIndexBlockRequest" />
-	public partial class AddIndexBlockRequest
-	{
-	}
+/// <inheritdoc cref="IAddIndexBlockRequest" />
+public partial class AddIndexBlockRequest
+{
+}
 
-	/// <inheritdoc cref="IAddIndexBlockRequest" />
-	public partial class AddIndexBlockDescriptor
-	{
-	}
+/// <inheritdoc cref="IAddIndexBlockRequest" />
+public partial class AddIndexBlockDescriptor
+{
 }

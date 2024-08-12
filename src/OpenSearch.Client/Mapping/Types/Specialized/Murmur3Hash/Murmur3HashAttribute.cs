@@ -26,10 +26,9 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class Murmur3HashAttribute : OpenSearchDocValuesPropertyAttributeBase, IMurmur3HashProperty
 {
-	public class Murmur3HashAttribute : OpenSearchDocValuesPropertyAttributeBase, IMurmur3HashProperty
-	{
-		public Murmur3HashAttribute() : base(FieldType.Murmur3Hash) { }
-	}
+    public Murmur3HashAttribute() : base(FieldType.Murmur3Hash) { }
 }

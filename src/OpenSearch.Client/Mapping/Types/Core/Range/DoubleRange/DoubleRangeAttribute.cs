@@ -26,10 +26,9 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class DoubleRangeAttribute : RangePropertyAttributeBase, IDoubleRangeProperty
 {
-	public class DoubleRangeAttribute : RangePropertyAttributeBase, IDoubleRangeProperty
-	{
-		public DoubleRangeAttribute() : base(RangeType.DoubleRange) { }
-	}
+    public DoubleRangeAttribute() : base(RangeType.DoubleRange) { }
 }

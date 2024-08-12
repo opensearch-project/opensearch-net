@@ -28,14 +28,13 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
-{
-	public class HardBounds<T>
-	{
-		[DataMember(Name = "max")]
-		public T Maximum { get; set; }
+namespace OpenSearch.Client;
 
-		[DataMember(Name = "min")]
-		public T Minimum { get; set; }
-	}
+public class HardBounds<T>
+{
+    [DataMember(Name = "max")]
+    public T Maximum { get; set; }
+
+    [DataMember(Name = "min")]
+    public T Minimum { get; set; }
 }

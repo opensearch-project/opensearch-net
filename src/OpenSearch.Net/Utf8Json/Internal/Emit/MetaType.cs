@@ -56,243 +56,243 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Net.Utf8Json.Internal.Emit
+namespace OpenSearch.Net.Utf8Json.Internal.Emit;
+
+internal class MetaMethodInfoComparer : IEqualityComparer<MethodInfo>
 {
-	internal class MetaMethodInfoComparer : IEqualityComparer<MethodInfo>
-	{
-		public static readonly MetaMethodInfoComparer Default = new MetaMethodInfoComparer();
+    public static readonly MetaMethodInfoComparer Default = new MetaMethodInfoComparer();
 
-		public bool Equals(MethodInfo x, MethodInfo y)
-		{
-			if (x == null || y == null)
-				return false;
+    public bool Equals(MethodInfo x, MethodInfo y)
+    {
+        if (x == null || y == null)
+            return false;
 
-			return x.Name == y.Name && x.DeclaringType == y.DeclaringType;
-		}
+        return x.Name == y.Name && x.DeclaringType == y.DeclaringType;
+    }
 
-		public int GetHashCode(MethodInfo obj) => obj.GetHashCode();
-	}
+    public int GetHashCode(MethodInfo obj) => obj.GetHashCode();
+}
 
-	internal class MetaType
-	{
-		public Type Type { get; }
-		public bool IsClass { get; }
-		public bool IsStruct => !IsClass;
-		public bool IsConcreteClass { get; }
-		public ConstructorInfo BestMatchConstructor { get; internal set; }
-		public MetaMember[] ConstructorParameters { get; internal set; }
-		public MetaMember[] Members { get; internal set; }
+internal class MetaType
+{
+    public Type Type { get; }
+    public bool IsClass { get; }
+    public bool IsStruct => !IsClass;
+    public bool IsConcreteClass { get; }
+    public ConstructorInfo BestMatchConstructor { get; internal set; }
+    public MetaMember[] ConstructorParameters { get; internal set; }
+    public MetaMember[] Members { get; internal set; }
 
-		private static TAttribute GetCustomAttribute<TAttribute>(PropertyInfo propertyInfo, bool inherit, List<PropertyInfo> interfaceProperties)
-			where TAttribute : Attribute
-		{
-			var attribute = propertyInfo.GetCustomAttribute<TAttribute>(inherit);
-			if (attribute != null)
-				return attribute;
+    private static TAttribute GetCustomAttribute<TAttribute>(PropertyInfo propertyInfo, bool inherit, List<PropertyInfo> interfaceProperties)
+        where TAttribute : Attribute
+    {
+        var attribute = propertyInfo.GetCustomAttribute<TAttribute>(inherit);
+        if (attribute != null)
+            return attribute;
 
-			if (interfaceProperties == null || interfaceProperties.Count == 0)
-				return null;
+        if (interfaceProperties == null || interfaceProperties.Count == 0)
+            return null;
 
-			var interfaceProperty = interfaceProperties.FirstOrDefault();
-			return interfaceProperty != null ? interfaceProperty.GetCustomAttribute<TAttribute>(inherit) : null;
-		}
+        var interfaceProperty = interfaceProperties.FirstOrDefault();
 
-		public MetaType(Type type, Func<string, string> nameMutator, Func<MemberInfo, JsonProperty> propertyMapper, bool allowPrivate)
-		{
-			var isClass = type.IsClass || type.IsInterface || type.IsAbstract;
-			var dataContractPresent = type.GetCustomAttribute<DataContractAttribute>(true) != null ||
-									  type.GetCustomAttribute<InterfaceDataContractAttribute>(true) != null;
+        return interfaceProperty?.GetCustomAttribute<TAttribute>(inherit);
+    }
 
-			Type = type;
+    public MetaType(Type type, Func<string, string> nameMutator, Func<MemberInfo, JsonProperty> propertyMapper, bool allowPrivate)
+    {
+        var isClass = type.IsClass || type.IsInterface || type.IsAbstract;
+        var dataContractPresent = type.GetCustomAttribute<DataContractAttribute>(true) != null ||
+                                  type.GetCustomAttribute<InterfaceDataContractAttribute>(true) != null;
 
-			var stringMembers = new Dictionary<string, MetaMember>();
-			{
-				var interfaceMaps = type.IsClass
-					? type.GetInterfaces().Select(type.GetInterfaceMap).ToArray()
-					: null;
+        Type = type;
 
-				foreach (var item in type.GetAllProperties())
-				{
-					if (item.GetIndexParameters().Length > 0) continue; // skip indexer
+        var stringMembers = new Dictionary<string, MetaMember>();
+        {
+            var interfaceMaps = type.IsClass
+                ? type.GetInterfaces().Select(type.GetInterfaceMap).ToArray()
+                : null;
 
-					// get interface properties this property implements
-					List<PropertyInfo> interfaceProps = null;
-					if (interfaceMaps != null)
-					{
-						var accessor = item.GetMethod ?? item.SetMethod;
+            foreach (var item in type.GetAllProperties())
+            {
+                if (item.GetIndexParameters().Length > 0) continue; // skip indexer
 
-						for (var i = 0; i < interfaceMaps.Length; i++)
-						{
-							var interfaceMap = interfaceMaps[i];
-							if (interfaceMap.TargetMethods.Contains(accessor, MetaMethodInfoComparer.Default))
-							{
-								interfaceProps ??= new List<PropertyInfo>();
+                // get interface properties this property implements
+                List<PropertyInfo> interfaceProps = null;
+                if (interfaceMaps != null)
+                {
+                    var accessor = item.GetMethod ?? item.SetMethod;
 
-								var propertyName = item.Name.StartsWith(interfaceMap.InterfaceType.FullName + ".")
-									? item.Name.Substring(interfaceMap.InterfaceType.FullName.Length + 1)
-									: item.Name;
+                    for (var i = 0; i < interfaceMaps.Length; i++)
+                    {
+                        var interfaceMap = interfaceMaps[i];
+                        if (interfaceMap.TargetMethods.Contains(accessor, MetaMethodInfoComparer.Default))
+                        {
+                            interfaceProps ??= new List<PropertyInfo>();
 
-								var info = interfaceMap.InterfaceType.GetProperty(propertyName);
-								if (info != null)
-									interfaceProps.Add(info);
-							}
-						}
-					}
+                            var propertyName = item.Name.StartsWith(interfaceMap.InterfaceType.FullName + ".")
+                                ? item.Name.Substring(interfaceMap.InterfaceType.FullName.Length + 1)
+                                : item.Name;
 
-					if (GetCustomAttribute<IgnoreDataMemberAttribute>(item, true, interfaceProps) != null)
-						continue;
+                            var info = interfaceMap.InterfaceType.GetProperty(propertyName);
+                            if (info != null)
+                                interfaceProps.Add(info);
+                        }
+                    }
+                }
 
-					var dm = GetCustomAttribute<DataMemberAttribute>(item, true, interfaceProps);
+                if (GetCustomAttribute<IgnoreDataMemberAttribute>(item, true, interfaceProps) != null)
+                    continue;
 
-					if (dataContractPresent && dm == null)
-						continue;
+                var dm = GetCustomAttribute<DataMemberAttribute>(item, true, interfaceProps);
 
-					var name = dm?.Name ?? nameMutator(item.Name);
-					var allowPrivateMember = allowPrivate;
+                if (dataContractPresent && dm == null)
+                    continue;
 
-					object jsonFormatter = null;
+                var name = dm?.Name ?? nameMutator(item.Name);
+                var allowPrivateMember = allowPrivate;
 
-					var property = propertyMapper?.Invoke(item);
-					if (property != null)
-					{
-						if (property.Ignore)
-							continue;
+                object jsonFormatter = null;
 
-						if (!string.IsNullOrEmpty(property.Name))
-							name = property.Name;
+                var property = propertyMapper?.Invoke(item);
+                if (property != null)
+                {
+                    if (property.Ignore)
+                        continue;
 
-						if (property.AllowPrivate.HasValue)
-							allowPrivateMember = property.AllowPrivate.Value;
+                    if (!string.IsNullOrEmpty(property.Name))
+                        name = property.Name;
 
-						if (property.JsonFormatter != null)
-							jsonFormatter = property.JsonFormatter;
-					}
+                    if (property.AllowPrivate.HasValue)
+                        allowPrivateMember = property.AllowPrivate.Value;
 
-					var props = interfaceProps?.ToArray();
+                    if (property.JsonFormatter != null)
+                        jsonFormatter = property.JsonFormatter;
+                }
 
-					var member = new MetaMember(item, name, props, jsonFormatter, allowPrivateMember || dm != null);
-					if (!member.IsReadable && !member.IsWritable) continue;
+                var props = interfaceProps?.ToArray();
 
-					if (!stringMembers.ContainsKey(member.Name))
-						stringMembers.Add(member.Name, member);
-				}
-				foreach (var item in type.GetAllFields())
-				{
-					if (item.GetCustomAttribute<IgnoreDataMemberAttribute>(true) != null) continue;
-					if (item.GetCustomAttribute<System.Runtime.CompilerServices.CompilerGeneratedAttribute>(true) != null) continue;
-					if (item.IsStatic) continue;
-					if (item.Name.StartsWith("<")) continue; // compiler generated field(anonymous type, etc...)
+                var member = new MetaMember(item, name, props, jsonFormatter, allowPrivateMember || dm != null);
+                if (!member.IsReadable && !member.IsWritable) continue;
 
-					var dm = item.GetCustomAttribute<DataMemberAttribute>(true);
-					if (dataContractPresent && dm == null) continue;
-					var name = (dm != null && dm.Name != null) ? dm.Name : nameMutator(item.Name);
-					var allowPrivateMember = allowPrivate;
-					object jsonFormatter = null;
+                if (!stringMembers.ContainsKey(member.Name))
+                    stringMembers.Add(member.Name, member);
+            }
+            foreach (var item in type.GetAllFields())
+            {
+                if (item.GetCustomAttribute<IgnoreDataMemberAttribute>(true) != null) continue;
+                if (item.GetCustomAttribute<System.Runtime.CompilerServices.CompilerGeneratedAttribute>(true) != null) continue;
+                if (item.IsStatic) continue;
+                if (item.Name.StartsWith("<")) continue; // compiler generated field(anonymous type, etc...)
 
-					var field = propertyMapper?.Invoke(item);
-					if (field != null)
-					{
-						if (field.Ignore)
-							continue;
+                var dm = item.GetCustomAttribute<DataMemberAttribute>(true);
+                if (dataContractPresent && dm == null) continue;
+                var name = (dm != null && dm.Name != null) ? dm.Name : nameMutator(item.Name);
+                var allowPrivateMember = allowPrivate;
+                object jsonFormatter = null;
 
-						if (!string.IsNullOrEmpty(field.Name))
-							name = field.Name;
+                var field = propertyMapper?.Invoke(item);
+                if (field != null)
+                {
+                    if (field.Ignore)
+                        continue;
 
-						if (field.AllowPrivate.HasValue)
-							allowPrivateMember = field.AllowPrivate.Value;
+                    if (!string.IsNullOrEmpty(field.Name))
+                        name = field.Name;
 
-						if (field.JsonFormatter != null)
-							jsonFormatter = field.JsonFormatter;
-					}
+                    if (field.AllowPrivate.HasValue)
+                        allowPrivateMember = field.AllowPrivate.Value;
 
-					var member = new MetaMember(item, name, jsonFormatter, allowPrivateMember || dm != null);
-					if (!member.IsReadable && !member.IsWritable) continue;
+                    if (field.JsonFormatter != null)
+                        jsonFormatter = field.JsonFormatter;
+                }
 
-					if (!stringMembers.ContainsKey(member.Name))
-						stringMembers.Add(member.Name, member);
-				}
-			}
+                var member = new MetaMember(item, name, jsonFormatter, allowPrivateMember || dm != null);
+                if (!member.IsReadable && !member.IsWritable) continue;
 
-			// GetConstructor
-			var ctor = type.GetDeclaredConstructors()
-				.SingleOrDefault(x => x.GetCustomAttribute<SerializationConstructorAttribute>(false) != null);
-			var constructorParameters = new List<MetaMember>();
-			{
-				IEnumerator<ConstructorInfo> ctorEnumerator = null;
-				if (ctor == null)
-				{
-					// descending.
-					ctorEnumerator = type.GetDeclaredConstructors()
-						.Where(x => x.IsPublic)
-						.OrderByDescending(x => x.GetParameters().Length).GetEnumerator();
-					if (ctorEnumerator.MoveNext())
-						ctor = ctorEnumerator.Current;
-				}
+                if (!stringMembers.ContainsKey(member.Name))
+                    stringMembers.Add(member.Name, member);
+            }
+        }
 
-				if (ctor != null)
-				{
-					var constructorLookupDictionary = stringMembers.ToLookup(x => x.Key, x => x, StringComparer.OrdinalIgnoreCase);
-					do
-					{
-						constructorParameters.Clear();
-						var ctorParamIndex = 0;
-						foreach (var item in ctor.GetParameters())
-						{
-							var hasKey = constructorLookupDictionary[item.Name];
-							var len = hasKey.Count();
-							if (len != 0)
-							{
-								if (len != 1)
-								{
-									if (ctorEnumerator != null)
-									{
-										ctor = null;
-										continue;
-									}
+        // GetConstructor
+        var ctor = type.GetDeclaredConstructors()
+            .SingleOrDefault(x => x.GetCustomAttribute<SerializationConstructorAttribute>(false) != null);
+        var constructorParameters = new List<MetaMember>();
+        {
+            IEnumerator<ConstructorInfo> ctorEnumerator = null;
+            if (ctor == null)
+            {
+                // descending.
+                ctorEnumerator = type.GetDeclaredConstructors()
+                    .Where(x => x.IsPublic)
+                    .OrderByDescending(x => x.GetParameters().Length).GetEnumerator();
+                if (ctorEnumerator.MoveNext())
+                    ctor = ctorEnumerator.Current;
+            }
 
-									throw new InvalidOperationException("duplicate matched constructor parameter name:" + type.FullName + " parameterName:" + item.Name + " paramterType:" + item.ParameterType.Name);
-								}
+            if (ctor != null)
+            {
+                var constructorLookupDictionary = stringMembers.ToLookup(x => x.Key, x => x, StringComparer.OrdinalIgnoreCase);
+                do
+                {
+                    constructorParameters.Clear();
+                    var ctorParamIndex = 0;
+                    foreach (var item in ctor.GetParameters())
+                    {
+                        var hasKey = constructorLookupDictionary[item.Name];
+                        var len = hasKey.Count();
+                        if (len != 0)
+                        {
+                            if (len != 1)
+                            {
+                                if (ctorEnumerator != null)
+                                {
+                                    ctor = null;
+                                    continue;
+                                }
 
-								var paramMember = hasKey.First().Value;
-								if (item.ParameterType == paramMember.Type && paramMember.IsReadable)
-									constructorParameters.Add(paramMember);
-								else
-								{
-									ctor = null;
-									continue;
-								}
-							}
-							else
-							{
-								ctor = null;
-								continue;
-							}
-							ctorParamIndex++;
-						}
-					} while (TryGetNextConstructor(ctorEnumerator, ref ctor));
-				}
-			}
+                                throw new InvalidOperationException("duplicate matched constructor parameter name:" + type.FullName + " parameterName:" + item.Name + " paramterType:" + item.ParameterType.Name);
+                            }
 
-			IsClass = isClass;
-			IsConcreteClass = isClass && !(type.IsAbstract || type.IsInterface);
-			BestMatchConstructor = ctor;
-			ConstructorParameters = constructorParameters.ToArray();
-			Members = stringMembers.Values.ToArray();
-		}
+                            var paramMember = hasKey.First().Value;
+                            if (item.ParameterType == paramMember.Type && paramMember.IsReadable)
+                                constructorParameters.Add(paramMember);
+                            else
+                            {
+                                ctor = null;
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            ctor = null;
+                            continue;
+                        }
+                        ctorParamIndex++;
+                    }
+                } while (TryGetNextConstructor(ctorEnumerator, ref ctor));
+            }
+        }
 
-		private static bool TryGetNextConstructor(IEnumerator<ConstructorInfo> ctorEnumerator, ref ConstructorInfo ctor)
-		{
-			if (ctorEnumerator == null || ctor != null)
-				return false;
+        IsClass = isClass;
+        IsConcreteClass = isClass && !(type.IsAbstract || type.IsInterface);
+        BestMatchConstructor = ctor;
+        ConstructorParameters = constructorParameters.ToArray();
+        Members = stringMembers.Values.ToArray();
+    }
 
-			if (ctorEnumerator.MoveNext())
-			{
-				ctor = ctorEnumerator.Current;
-				return true;
-			}
+    private static bool TryGetNextConstructor(IEnumerator<ConstructorInfo> ctorEnumerator, ref ConstructorInfo ctor)
+    {
+        if (ctorEnumerator == null || ctor != null)
+            return false;
 
-			ctor = null;
-			return false;
-		}
-	}
+        if (ctorEnumerator.MoveNext())
+        {
+            ctor = ctorEnumerator.Current;
+            return true;
+        }
+
+        ctor = null;
+        return false;
+    }
 }

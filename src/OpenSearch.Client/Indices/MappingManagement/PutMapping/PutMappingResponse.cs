@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	public class PutMappingResponse : IndicesResponseBase { }
-}
+namespace OpenSearch.Client;
+
+public class PutMappingResponse : IndicesResponseBase { }

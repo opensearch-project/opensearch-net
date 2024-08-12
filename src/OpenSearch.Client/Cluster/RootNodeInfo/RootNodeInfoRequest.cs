@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	[MapsApi("info.json")]
-	public partial interface IRootNodeInfoRequest { }
+namespace OpenSearch.Client;
 
-	public partial class RootNodeInfoRequest { }
+[MapsApi("info.json")]
+public partial interface IRootNodeInfoRequest { }
 
-	public partial class RootNodeInfoDescriptor { }
-}
+public partial class RootNodeInfoRequest { }
+
+public partial class RootNodeInfoDescriptor { }

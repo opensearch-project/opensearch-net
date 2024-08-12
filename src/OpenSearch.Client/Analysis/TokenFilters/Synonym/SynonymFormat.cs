@@ -29,15 +29,14 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
-{
-	[StringEnum]
-	public enum SynonymFormat
-	{
-		[EnumMember(Value = "solr")]
-		Solr,
+namespace OpenSearch.Client;
 
-		[EnumMember(Value = "wordnet")]
-		WordNet
-	}
+[StringEnum]
+public enum SynonymFormat
+{
+    [EnumMember(Value = "solr")]
+    Solr,
+
+    [EnumMember(Value = "wordnet")]
+    WordNet
 }

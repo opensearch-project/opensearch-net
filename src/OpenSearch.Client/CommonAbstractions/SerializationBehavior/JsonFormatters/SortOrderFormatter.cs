@@ -28,43 +28,42 @@
 
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal class SortOrderFormatter<TSortOrder> : IJsonFormatter<TSortOrder>
+    where TSortOrder : class, ISortOrder, new()
 {
-	internal class SortOrderFormatter<TSortOrder> : IJsonFormatter<TSortOrder>
-		where TSortOrder : class, ISortOrder, new()
-	{
-		public TSortOrder Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			if (reader.GetCurrentJsonToken() != JsonToken.BeginObject)
-			{
-				reader.ReadNextBlock();
-				return null;
-			}
+    public TSortOrder Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+    {
+        if (reader.GetCurrentJsonToken() != JsonToken.BeginObject)
+        {
+            reader.ReadNextBlock();
+            return null;
+        }
 
-			var count = 0;
-			var sortOrder = new TSortOrder();
-			while (reader.ReadIsInObject(ref count))
-			{
-				sortOrder.Key = reader.ReadPropertyName();
-				sortOrder.Order = formatterResolver.GetFormatter<SortOrder>()
-					.Deserialize(ref reader, formatterResolver);
-			}
+        var count = 0;
+        var sortOrder = new TSortOrder();
+        while (reader.ReadIsInObject(ref count))
+        {
+            sortOrder.Key = reader.ReadPropertyName();
+            sortOrder.Order = formatterResolver.GetFormatter<SortOrder>()
+                .Deserialize(ref reader, formatterResolver);
+        }
 
-			return sortOrder;
-		}
+        return sortOrder;
+    }
 
-		public void Serialize(ref JsonWriter writer, TSortOrder value, IJsonFormatterResolver formatterResolver)
-		{
-			if (value?.Key == null)
-			{
-				writer.WriteNull();
-				return;
-			}
+    public void Serialize(ref JsonWriter writer, TSortOrder value, IJsonFormatterResolver formatterResolver)
+    {
+        if (value?.Key == null)
+        {
+            writer.WriteNull();
+            return;
+        }
 
-			writer.WriteBeginObject();
-			writer.WritePropertyName(value.Key);
-			formatterResolver.GetFormatter<SortOrder>().Serialize(ref writer, value.Order, formatterResolver);
-			writer.WriteEndObject();
-		}
-	}
+        writer.WriteBeginObject();
+        writer.WritePropertyName(value.Key);
+        formatterResolver.GetFormatter<SortOrder>().Serialize(ref writer, value.Order, formatterResolver);
+        writer.WriteEndObject();
+    }
 }

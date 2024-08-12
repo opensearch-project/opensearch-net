@@ -43,8 +43,7 @@
 // -----------------------------------------------
 using System.Collections.Generic;
 
-namespace OpenSearch.Client
-{
-    // ReSharper disable UnusedTypeParameter
-    public abstract partial class RequestDescriptorBase<TDescriptor, TParameters, TInterface> { }
-}
+namespace OpenSearch.Client;
+
+// ReSharper disable UnusedTypeParameter
+public abstract partial class RequestDescriptorBase<TDescriptor, TParameters, TInterface> { }

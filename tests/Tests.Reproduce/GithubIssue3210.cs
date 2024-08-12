@@ -27,16 +27,16 @@
 */
 
 using System.Linq;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GithubIssue3210
 {
-	public class GithubIssue3210
-	{
-		private const string ClusterAllocationResponse = @"{
+    private const string ClusterAllocationResponse = @"{
   ""index"" : ""idx"",
 	""shard"" : 0,
 	""primary"" : true,
@@ -63,14 +63,14 @@ namespace Tests.Reproduce
 	]
 }";
 
-		[U] public void MissingNodeDecisionOptionsInResponseThrowExceptionWhenAttemptingToDeserializeResponse()
-		{
-			var client = FixedResponseClient.Create(ClusterAllocationResponse);
-			var response = client.Cluster.AllocationExplain();
+    [U]
+    public void MissingNodeDecisionOptionsInResponseThrowExceptionWhenAttemptingToDeserializeResponse()
+    {
+        var client = FixedResponseClient.Create(ClusterAllocationResponse);
+        var response = client.Cluster.AllocationExplain();
 
-			var nodeAllocationDecisions = response.NodeAllocationDecisions;
-			nodeAllocationDecisions.Should().NotBeNullOrEmpty();
-			nodeAllocationDecisions.First().NodeDecision.Should().NotBeNull().And.Be(Decision.WorseBalance);
-		}
-	}
+        var nodeAllocationDecisions = response.NodeAllocationDecisions;
+        nodeAllocationDecisions.Should().NotBeNullOrEmpty();
+        nodeAllocationDecisions.First().NodeDecision.Should().NotBeNull().And.Be(Decision.WorseBalance);
+    }
 }

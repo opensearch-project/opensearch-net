@@ -33,5 +33,5 @@ namespace OpenSearch.Client;
 [DataContract]
 public class ExistsResponse : ResponseBase
 {
-	public bool Exists => ApiCall is { Success: true, HttpStatusCode: 200 };
+    public bool Exists => ApiCall is { Success: true, HttpStatusCode: 200 };
 }

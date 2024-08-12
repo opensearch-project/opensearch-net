@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	public class PutIndexTemplateResponse : AcknowledgedResponseBase { }
-}
+namespace OpenSearch.Client;
+
+public class PutIndexTemplateResponse : AcknowledgedResponseBase { }

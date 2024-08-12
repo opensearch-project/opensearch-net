@@ -27,71 +27,70 @@
 */
 
 using System;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Mapping.Types.Core.Range.FloatRange
+namespace Tests.Mapping.Types.Core.Range.FloatRange;
+
+public class FloatRangePropertyTests : PropertyTestsBase
 {
-	public class FloatRangePropertyTests : PropertyTestsBase
-	{
-		public FloatRangePropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public FloatRangePropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override object ExpectJson => new
-		{
-			properties = new
-			{
-				ranges = new
-				{
-					type = "object",
-					properties = new
-					{
-						floats = new
-						{
-							type = "float_range",
-							store = true,
-							index = false,
-							coerce = true
-						}
-					}
-				}
-			}
-		};
+    protected override object ExpectJson => new
+    {
+        properties = new
+        {
+            ranges = new
+            {
+                type = "object",
+                properties = new
+                {
+                    floats = new
+                    {
+                        type = "float_range",
+                        store = true,
+                        index = false,
+                        coerce = true
+                    }
+                }
+            }
+        }
+    };
 
-		protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
-			.Object<Ranges>(m => m
-				.Name(p => p.Ranges)
-				.Properties(props => props
-					.FloatRange(n => n
-						.Name(p => p.Floats)
-						.Store()
-						.Index(false)
-						.Coerce()
-					)
-				)
-			);
+    protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
+        .Object<Ranges>(m => m
+            .Name(p => p.Ranges)
+            .Properties(props => props
+                .FloatRange(n => n
+                    .Name(p => p.Floats)
+                    .Store()
+                    .Index(false)
+                    .Coerce()
+                )
+            )
+        );
 
 
-		protected override IProperties InitializerProperties => new Properties
-		{
-			{
-				"ranges", new ObjectProperty
-				{
-					Properties = new Properties
-					{
-						{
-							"floats", new FloatRangeProperty
-							{
-								Store = true,
-								Index = false,
-								Coerce = true
-							}
-						}
-					}
-				}
-			}
-		};
-	}
+    protected override IProperties InitializerProperties => new Properties
+    {
+        {
+            "ranges", new ObjectProperty
+            {
+                Properties = new Properties
+                {
+                    {
+                        "floats", new FloatRangeProperty
+                        {
+                            Store = true,
+                            Index = false,
+                            Coerce = true
+                        }
+                    }
+                }
+            }
+        }
+    };
 }

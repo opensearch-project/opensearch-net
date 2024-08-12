@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	[MapsApi("cat.plugins.json")]
-	public partial interface ICatPluginsRequest { }
+namespace OpenSearch.Client;
 
-	public partial class CatPluginsRequest { }
+[MapsApi("cat.plugins.json")]
+public partial interface ICatPluginsRequest { }
 
-	public partial class CatPluginsDescriptor { }
-}
+public partial class CatPluginsRequest { }
+
+public partial class CatPluginsDescriptor { }

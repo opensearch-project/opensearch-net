@@ -26,9 +26,9 @@
 *  under the License.
 */
 
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
@@ -36,55 +36,54 @@ using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 using static OpenSearch.Client.Infer;
 
-namespace Tests.Cluster.RemoteInfo
+namespace Tests.Cluster.RemoteInfo;
+
+public class RemoteInfoApiTests
+    : ApiIntegrationTestBase<ReadOnlyCluster, RemoteInfoResponse, IRemoteInfoRequest, RemoteInfoDescriptor, RemoteInfoRequest>
 {
-	public class RemoteInfoApiTests
-		: ApiIntegrationTestBase<ReadOnlyCluster, RemoteInfoResponse, IRemoteInfoRequest, RemoteInfoDescriptor, RemoteInfoRequest>
-	{
-		public RemoteInfoApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public RemoteInfoApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override bool ExpectIsValid => true;
-		protected override int ExpectStatusCode => 200;
-		protected override HttpMethod HttpMethod => HttpMethod.GET;
-		protected override string UrlPath => "/_remote/info";
+    protected override bool ExpectIsValid => true;
+    protected override int ExpectStatusCode => 200;
+    protected override HttpMethod HttpMethod => HttpMethod.GET;
+    protected override string UrlPath => "/_remote/info";
 
-		protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
-		{
-			var enableRemoteClusters = client.Cluster.PutSettings(s => s
-				.Transient(t => t
-					.Add("cluster.remote.cluster_one.seeds", new[] { "127.0.0.1:9300", "127.0.0.1:9301" })
-					.Add("cluster.remote.cluster_one.skip_unavailable", true)
-					.Add("cluster.remote.cluster_two.seeds", new[] { "127.0.0.1:9300" })
-					.Add("cluster.remote.cluster_two.skip_unavailable", true)));
-			enableRemoteClusters.ShouldBeValid();
+    protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
+    {
+        var enableRemoteClusters = client.Cluster.PutSettings(s => s
+            .Transient(t => t
+                .Add("cluster.remote.cluster_one.seeds", new[] { "127.0.0.1:9300", "127.0.0.1:9301" })
+                .Add("cluster.remote.cluster_one.skip_unavailable", true)
+                .Add("cluster.remote.cluster_two.seeds", new[] { "127.0.0.1:9300" })
+                .Add("cluster.remote.cluster_two.skip_unavailable", true)));
+        enableRemoteClusters.ShouldBeValid();
 
-			var remoteSearch = client.Search<Project>(s => s.Index(Index<Project>("cluster_one").And<Project>("cluster_two")));
-			remoteSearch.ShouldBeValid();
-		}
+        var remoteSearch = client.Search<Project>(s => s.Index(Index<Project>("cluster_one").And<Project>("cluster_two")));
+        remoteSearch.ShouldBeValid();
+    }
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Cluster.RemoteInfo(),
-			(client, f) => client.Cluster.RemoteInfoAsync(),
-			(client, r) => client.Cluster.RemoteInfo(r),
-			(client, r) => client.Cluster.RemoteInfoAsync(r)
-		);
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Cluster.RemoteInfo(),
+        (client, f) => client.Cluster.RemoteInfoAsync(),
+        (client, r) => client.Cluster.RemoteInfo(r),
+        (client, r) => client.Cluster.RemoteInfoAsync(r)
+    );
 
-		protected override void ExpectResponse(RemoteInfoResponse response)
-		{
-			response.Remotes.Should()
-				.NotBeEmpty()
-				.And.ContainKey("cluster_one")
-				.And.ContainKey("cluster_two");
+    protected override void ExpectResponse(RemoteInfoResponse response)
+    {
+        response.Remotes.Should()
+            .NotBeEmpty()
+            .And.ContainKey("cluster_one")
+            .And.ContainKey("cluster_two");
 
-			foreach (var (name, remote) in response.Remotes)
-			{
-				if (!name.StartsWith("cluster_")) continue;
-				remote.Connected.Should().BeTrue();
-				remote.Seeds.Should().NotBeNullOrEmpty();
-				remote.InitialConnectTimeout.Should().NotBeNull().And.Be("30s");
-				remote.MaxConnectionsPerCluster.Should().BeGreaterThan(0, "max_connections_per_cluster");
-				remote.NumNodesConnected.Should().BeGreaterThan(0, "num_nodes_connected");
-			}
-		}
-	}
+        foreach (var (name, remote) in response.Remotes)
+        {
+            if (!name.StartsWith("cluster_")) continue;
+            remote.Connected.Should().BeTrue();
+            remote.Seeds.Should().NotBeNullOrEmpty();
+            remote.InitialConnectTimeout.Should().NotBeNull().And.Be("30s");
+            remote.MaxConnectionsPerCluster.Should().BeGreaterThan(0, "max_connections_per_cluster");
+            remote.NumNodesConnected.Should().BeGreaterThan(0, "num_nodes_connected");
+        }
+    }
 }

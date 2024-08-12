@@ -29,18 +29,17 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+public class ClusterRerouteExplanation
 {
-	[DataContract]
-	public class ClusterRerouteExplanation
-	{
-		[DataMember(Name ="command")]
-		public string Command { get; set; }
+    [DataMember(Name = "command")]
+    public string Command { get; set; }
 
-		[DataMember(Name ="decisions")]
-		public IEnumerable<ClusterRerouteDecision> Decisions { get; set; }
+    [DataMember(Name = "decisions")]
+    public IEnumerable<ClusterRerouteDecision> Decisions { get; set; }
 
-		[DataMember(Name ="parameters")]
-		public ClusterRerouteParameters Parameters { get; set; }
-	}
+    [DataMember(Name = "parameters")]
+    public ClusterRerouteParameters Parameters { get; set; }
 }

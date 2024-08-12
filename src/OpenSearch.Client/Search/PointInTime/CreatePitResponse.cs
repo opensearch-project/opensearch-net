@@ -12,12 +12,12 @@ namespace OpenSearch.Client;
 [DataContract]
 public class CreatePitResponse : ResponseBase
 {
-	[DataMember(Name = "pit_id")]
-	public string PitId { get; internal set; }
+    [DataMember(Name = "pit_id")]
+    public string PitId { get; internal set; }
 
-	[DataMember(Name = "_shards")]
-	public ShardStatistics Shards { get; internal set; }
+    [DataMember(Name = "_shards")]
+    public ShardStatistics Shards { get; internal set; }
 
-	[DataMember(Name = "creation_time")]
-	public long CreationTime { get; internal set; }
+    [DataMember(Name = "creation_time")]
+    public long CreationTime { get; internal set; }
 }

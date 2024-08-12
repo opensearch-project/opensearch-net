@@ -30,24 +30,23 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[StringEnum]
+public enum ChildScoreMode
 {
-	[StringEnum]
-	public enum ChildScoreMode
-	{
-		[EnumMember(Value = "none")]
-		None,
+    [EnumMember(Value = "none")]
+    None,
 
-		[EnumMember(Value = "avg")]
-		Average,
+    [EnumMember(Value = "avg")]
+    Average,
 
-		[EnumMember(Value = "sum")]
-		Sum,
+    [EnumMember(Value = "sum")]
+    Sum,
 
-		[EnumMember(Value = "max")]
-		Max,
+    [EnumMember(Value = "max")]
+    Max,
 
-		[EnumMember(Value = "min")]
-		Min
-	}
+    [EnumMember(Value = "min")]
+    Min
 }

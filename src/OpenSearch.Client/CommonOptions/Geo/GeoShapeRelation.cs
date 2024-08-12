@@ -29,33 +29,32 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[StringEnum]
+public enum GeoShapeRelation
 {
-	[StringEnum]
-	public enum GeoShapeRelation
-	{
-		/// <summary>
-		/// INTERSECTS relation.
-		/// </summary>
-		[EnumMember(Value = "intersects")]
-		Intersects,
+    /// <summary>
+    /// INTERSECTS relation.
+    /// </summary>
+    [EnumMember(Value = "intersects")]
+    Intersects,
 
-		/// <summary>
-		/// DISJOINT relation.
-		/// </summary>
-		[EnumMember(Value = "disjoint")]
-		Disjoint,
+    /// <summary>
+    /// DISJOINT relation.
+    /// </summary>
+    [EnumMember(Value = "disjoint")]
+    Disjoint,
 
-		/// <summary>
-		/// WITHIN relation.
-		/// </summary>
-		[EnumMember(Value = "within")]
-		Within,
+    /// <summary>
+    /// WITHIN relation.
+    /// </summary>
+    [EnumMember(Value = "within")]
+    Within,
 
-		/// <summary>
-		/// CONTAINS relation.
-		/// </summary>
-		[EnumMember(Value = "contains")]
-		Contains
-	}
+    /// <summary>
+    /// CONTAINS relation.
+    /// </summary>
+    [EnumMember(Value = "contains")]
+    Contains
 }

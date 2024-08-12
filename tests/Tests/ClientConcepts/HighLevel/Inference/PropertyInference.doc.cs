@@ -28,24 +28,24 @@
 
 using System;
 using System.Linq.Expressions;
+using OpenSearch.Client;
 using OpenSearch.OpenSearch.Xunit.Sdk;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework;
 using Tests.Framework.DocumentationTests;
-using static Tests.Core.Serialization.SerializationTestHelper;
 using Xunit;
+using static Tests.Core.Serialization.SerializationTestHelper;
 
-namespace Tests.ClientConcepts.HighLevel.Inference
-{
-	/**[[property-inference]]
+namespace Tests.ClientConcepts.HighLevel.Inference;
+
+/**[[property-inference]]
 	* === Property name inference
 	*/
-	public class PropertyNames : DocumentationTestBase , IClusterFixture<WritableCluster>
-	{
-		/**
+public class PropertyNames : DocumentationTestBase, IClusterFixture<WritableCluster>
+{
+    /**
 		 * ==== Appending suffixes to a lambda expression body
 		 * Suffixes can be appended to the body of a lambda expression, which is useful in cases where
 		 * you have a POCO property mapped as a <<multi-fields, multi-field>>
@@ -55,24 +55,25 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		 * The `.Suffix()` extension method can be used for this purpose and when serializing expressions suffixed
 		 * in this way, the serialized property name resolves to the last token
 		 */
-		[U] public void PropertyNamesAreResolvedToLastTokenUsingSuffix()
-		{
-			Expression<Func<Project, object>> expression = p => p.Name.Suffix("raw");
-			Expect("raw").WhenSerializing<PropertyName>(expression);
-		}
+    [U]
+    public void PropertyNamesAreResolvedToLastTokenUsingSuffix()
+    {
+        Expression<Func<Project, object>> expression = p => p.Name.Suffix("raw");
+        Expect("raw").WhenSerializing<PropertyName>(expression);
+    }
 
-		/**
+    /**
 		 * ==== Appending suffixes to a Lambda expression
 		 * Alternatively, suffixes can be applied to a lambda expression directly using
 		 * the `.ApplySuffix()` extension method. Again, the serialized field name
 		 * resolves to the last token
 		 */
-		[U] public void PropertyNamesAreResolvedToLastTokenUsingAppendSuffix()
-		{
-			Expression<Func<Project, object>> expression = p => p.Name;
-			expression = expression.AppendSuffix("raw");
-			Expect("raw").WhenSerializing<PropertyName>(expression);
-		}
+    [U]
+    public void PropertyNamesAreResolvedToLastTokenUsingAppendSuffix()
+    {
+        Expression<Func<Project, object>> expression = p => p.Name;
+        expression = expression.AppendSuffix("raw");
+        Expect("raw").WhenSerializing<PropertyName>(expression);
+    }
 
-	}
 }

@@ -30,27 +30,26 @@ using System.Reflection;
 using Xunit.Abstractions;
 using Xunit.Sdk;
 
-namespace OpenSearch.OpenSearch.Xunit.Sdk
+namespace OpenSearch.OpenSearch.Xunit.Sdk;
+
+public class OpenSearchTestFramework : XunitTestFramework
 {
-	public class OpenSearchTestFramework : XunitTestFramework
-	{
-		public OpenSearchTestFramework(IMessageSink messageSink) : base(messageSink)
-		{
-		}
+    public OpenSearchTestFramework(IMessageSink messageSink) : base(messageSink)
+    {
+    }
 
-		protected override ITestFrameworkDiscoverer CreateDiscoverer(IAssemblyInfo assemblyInfo) =>
-			new OpenSearchTestFrameworkDiscoverer(assemblyInfo, SourceInformationProvider, DiagnosticMessageSink);
+    protected override ITestFrameworkDiscoverer CreateDiscoverer(IAssemblyInfo assemblyInfo) =>
+        new OpenSearchTestFrameworkDiscoverer(assemblyInfo, SourceInformationProvider, DiagnosticMessageSink);
 
-		protected override ITestFrameworkExecutor CreateExecutor(AssemblyName assemblyName)
-		{
-			var assembly = Assembly.Load(assemblyName);
-			var options = assembly.GetCustomAttribute<OpenSearchXunitConfigurationAttribute>()?.Options ??
-			              new OpenSearchXunitRunOptions();
+    protected override ITestFrameworkExecutor CreateExecutor(AssemblyName assemblyName)
+    {
+        var assembly = Assembly.Load(assemblyName);
+        var options = assembly.GetCustomAttribute<OpenSearchXunitConfigurationAttribute>()?.Options ??
+                      new OpenSearchXunitRunOptions();
 
-			return new TestFrameworkExecutor(assemblyName, SourceInformationProvider, DiagnosticMessageSink)
-			{
-				Options = options
-			};
-		}
-	}
+        return new TestFrameworkExecutor(assemblyName, SourceInformationProvider, DiagnosticMessageSink)
+        {
+            Options = options
+        };
+    }
 }

@@ -26,28 +26,27 @@
 *  under the License.
 */
 
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Mapping.Types.Core.Range.IntegerRange
+namespace Tests.Mapping.Types.Core.Range.IntegerRange;
+
+public class IntegerRangeTest
 {
-	public class IntegerRangeTest
-	{
-		[IntegerRange]
-		public OpenSearch.Client.IntegerRange Range { get; set; }
-	}
+    [IntegerRange]
+    public OpenSearch.Client.IntegerRange Range { get; set; }
+}
 
-	public class IntegerRangeAttributeTests : AttributeTestsBase<IntegerRangeTest>
-	{
-		protected override object ExpectJson => new
-		{
-			properties = new
-			{
-				range = new
-				{
-					type = "integer_range"
-				}
-			}
-		};
-	}
+public class IntegerRangeAttributeTests : AttributeTestsBase<IntegerRangeTest>
+{
+    protected override object ExpectJson => new
+    {
+        properties = new
+        {
+            range = new
+            {
+                type = "integer_range"
+            }
+        }
+    };
 }

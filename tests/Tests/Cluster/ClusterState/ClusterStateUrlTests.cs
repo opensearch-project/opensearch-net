@@ -27,41 +27,41 @@
 */
 
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
 
-namespace Tests.Cluster.ClusterState
+namespace Tests.Cluster.ClusterState;
+
+public class ClusterStateUrlTests : UrlTestsBase
 {
-	public class ClusterStateUrlTests : UrlTestsBase
-	{
-		[U] public override async Task Urls()
-		{
-			await GET("/_cluster/state")
-					.Fluent(c => c.Cluster.State())
-					.Request(c => c.Cluster.State(new ClusterStateRequest()))
-					.FluentAsync(c => c.Cluster.StateAsync())
-					.RequestAsync(c => c.Cluster.StateAsync(new ClusterStateRequest()))
-				;
+    [U]
+    public override async Task Urls()
+    {
+        await GET("/_cluster/state")
+                .Fluent(c => c.Cluster.State())
+                .Request(c => c.Cluster.State(new ClusterStateRequest()))
+                .FluentAsync(c => c.Cluster.StateAsync())
+                .RequestAsync(c => c.Cluster.StateAsync(new ClusterStateRequest()))
+            ;
 
-			var metrics = ClusterStateMetric.ClusterManagerNode | ClusterStateMetric.Metadata;
-			await GET("/_cluster/state/cluster_manager_node%2Cmetadata")
-					.Fluent(c => c.Cluster.State(null, p => p.Metric(metrics)))
-					.Request(c => c.Cluster.State(new ClusterStateRequest(metrics)))
-					.FluentAsync(c => c.Cluster.StateAsync(null, p => p.Metric(metrics)))
-					.RequestAsync(c => c.Cluster.StateAsync(new ClusterStateRequest(metrics)))
-				;
+        var metrics = ClusterStateMetric.ClusterManagerNode | ClusterStateMetric.Metadata;
+        await GET("/_cluster/state/cluster_manager_node%2Cmetadata")
+                .Fluent(c => c.Cluster.State(null, p => p.Metric(metrics)))
+                .Request(c => c.Cluster.State(new ClusterStateRequest(metrics)))
+                .FluentAsync(c => c.Cluster.StateAsync(null, p => p.Metric(metrics)))
+                .RequestAsync(c => c.Cluster.StateAsync(new ClusterStateRequest(metrics)))
+            ;
 
-			metrics |= ClusterStateMetric.All;
-			var index = "indexx";
-			await GET($"/_cluster/state/_all/{index}")
-					.Fluent(c => c.Cluster.State(index, p => p.Metric(metrics)))
-					.Request(c => c.Cluster.State(new ClusterStateRequest(metrics, index)))
-					.FluentAsync(c => c.Cluster.StateAsync(index, p => p.Metric(metrics)))
-					.RequestAsync(c => c.Cluster.StateAsync(new ClusterStateRequest(metrics, index)))
-				;
-		}
-	}
+        metrics |= ClusterStateMetric.All;
+        var index = "indexx";
+        await GET($"/_cluster/state/_all/{index}")
+                .Fluent(c => c.Cluster.State(index, p => p.Metric(metrics)))
+                .Request(c => c.Cluster.State(new ClusterStateRequest(metrics, index)))
+                .FluentAsync(c => c.Cluster.StateAsync(index, p => p.Metric(metrics)))
+                .RequestAsync(c => c.Cluster.StateAsync(new ClusterStateRequest(metrics, index)))
+            ;
+    }
 }

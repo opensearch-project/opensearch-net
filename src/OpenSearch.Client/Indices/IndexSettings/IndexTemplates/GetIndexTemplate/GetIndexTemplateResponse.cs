@@ -30,13 +30,12 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+[JsonFormatter(typeof(DictionaryResponseFormatter<GetIndexTemplateResponse, string, TemplateMapping>))]
+public class GetIndexTemplateResponse : DictionaryResponseBase<string, TemplateMapping>
 {
-	[DataContract]
-	[JsonFormatter(typeof(DictionaryResponseFormatter<GetIndexTemplateResponse, string, TemplateMapping>))]
-	public class GetIndexTemplateResponse : DictionaryResponseBase<string, TemplateMapping>
-	{
-		[IgnoreDataMember]
-		public IReadOnlyDictionary<string, TemplateMapping> TemplateMappings => Self.BackingDictionary;
-	}
+    [IgnoreDataMember]
+    public IReadOnlyDictionary<string, TemplateMapping> TemplateMappings => Self.BackingDictionary;
 }

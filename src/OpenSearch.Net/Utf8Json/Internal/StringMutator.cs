@@ -52,26 +52,25 @@
 
 using System;
 
-namespace OpenSearch.Net.Utf8Json.Internal
+namespace OpenSearch.Net.Utf8Json.Internal;
+
+internal static class StringMutator
 {
-	internal static class StringMutator
-	{
-		/// <summary>
-		/// MyProperty -> MyProperty
-		/// </summary>
-		public static string Original(string s) => s;
+    /// <summary>
+    /// MyProperty -> MyProperty
+    /// </summary>
+    public static string Original(string s) => s;
 
-		/// <summary>
-		/// MyProperty -> myProperty
-		/// </summary>
-		public static string ToCamelCase(string s)
-		{
-			if (string.IsNullOrEmpty(s) || char.IsLower(s, 0))
-				return s;
+    /// <summary>
+    /// MyProperty -> myProperty
+    /// </summary>
+    public static string ToCamelCase(string s)
+    {
+        if (string.IsNullOrEmpty(s) || char.IsLower(s, 0))
+            return s;
 
-			var array = s.ToCharArray();
-			array[0] = char.ToLowerInvariant(array[0]);
-			return new string(array);
-		}
-	}
+        var array = s.ToCharArray();
+        array[0] = char.ToLowerInvariant(array[0]);
+        return new string(array);
+    }
 }

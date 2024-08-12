@@ -29,26 +29,25 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+public interface IHDRHistogramMethod : IPercentilesMethod
 {
-	[InterfaceDataContract]
-	public interface IHDRHistogramMethod : IPercentilesMethod
-	{
-		[DataMember(Name ="number_of_significant_value_digits")]
-		int? NumberOfSignificantValueDigits { get; set; }
-	}
+    [DataMember(Name = "number_of_significant_value_digits")]
+    int? NumberOfSignificantValueDigits { get; set; }
+}
 
-	public class HDRHistogramMethod : IHDRHistogramMethod
-	{
-		public int? NumberOfSignificantValueDigits { get; set; }
-	}
+public class HDRHistogramMethod : IHDRHistogramMethod
+{
+    public int? NumberOfSignificantValueDigits { get; set; }
+}
 
-	public class HDRHistogramMethodDescriptor
-		: DescriptorBase<HDRHistogramMethodDescriptor, IHDRHistogramMethod>, IHDRHistogramMethod
-	{
-		int? IHDRHistogramMethod.NumberOfSignificantValueDigits { get; set; }
+public class HDRHistogramMethodDescriptor
+    : DescriptorBase<HDRHistogramMethodDescriptor, IHDRHistogramMethod>, IHDRHistogramMethod
+{
+    int? IHDRHistogramMethod.NumberOfSignificantValueDigits { get; set; }
 
-		public HDRHistogramMethodDescriptor NumberOfSignificantValueDigits(int? numDigits) =>
-			Assign(numDigits, (a, v) => a.NumberOfSignificantValueDigits = v);
-	}
+    public HDRHistogramMethodDescriptor NumberOfSignificantValueDigits(int? numDigits) =>
+        Assign(numDigits, (a, v) => a.NumberOfSignificantValueDigits = v);
 }

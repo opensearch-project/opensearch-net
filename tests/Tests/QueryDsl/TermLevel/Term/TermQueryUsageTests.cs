@@ -27,160 +27,160 @@
 */
 
 using System.IO;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.QueryDsl.TermLevel.Term
+namespace Tests.QueryDsl.TermLevel.Term;
+
+public class TermQueryUsageTests : QueryDslUsageTestsBase
 {
-	public class TermQueryUsageTests : QueryDslUsageTestsBase
-	{
-		public TermQueryUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public TermQueryUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override ConditionlessWhen ConditionlessWhen => new ConditionlessWhen<ITermQuery>(q => q.Term)
-		{
-			q => q.Field = null,
-			q => q.Value = "  ",
-			q => q.Value = null
-		};
+    protected override ConditionlessWhen ConditionlessWhen => new ConditionlessWhen<ITermQuery>(q => q.Term)
+    {
+        q => q.Field = null,
+        q => q.Value = "  ",
+        q => q.Value = null
+    };
 
-		protected override QueryContainer QueryInitializer => new TermQuery
-		{
-			Name = "named_query",
-			Boost = 1.1,
-			Field = "description",
-			Value = "project description"
-		};
+    protected override QueryContainer QueryInitializer => new TermQuery
+    {
+        Name = "named_query",
+        Boost = 1.1,
+        Field = "description",
+        Value = "project description"
+    };
 
-		protected override object QueryJson => new
-		{
-			term = new
-			{
-				description = new
-				{
-					_name = "named_query",
-					boost = 1.1,
-					value = "project description"
-				}
-			}
-		};
+    protected override object QueryJson => new
+    {
+        term = new
+        {
+            description = new
+            {
+                _name = "named_query",
+                boost = 1.1,
+                value = "project description"
+            }
+        }
+    };
 
-		protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) => q
-			.Term(c => c
-				.Name("named_query")
-				.Boost(1.1)
-				.Field(p => p.Description)
-				.Value("project description")
-			);
+    protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) => q
+        .Term(c => c
+            .Name("named_query")
+            .Boost(1.1)
+            .Field(p => p.Description)
+            .Value("project description")
+        );
 
-		//hide
-		[U] public void DeserializeShortForm()
-		{
-			using var stream = new MemoryStream(ShortFormQuery);
-			var query = Client.RequestResponseSerializer.Deserialize<ITermQuery>(stream);
-			query.Should().NotBeNull();
-			query.Field.Should().Be(new Field("description"));
-			query.Value.Should().Be("project description");
-		}
-	}
+    //hide
+    [U]
+    public void DeserializeShortForm()
+    {
+        using var stream = new MemoryStream(ShortFormQuery);
+        var query = Client.RequestResponseSerializer.Deserialize<ITermQuery>(stream);
+        query.Should().NotBeNull();
+        query.Field.Should().Be(new Field("description"));
+        query.Value.Should().Be("project description");
+    }
+}
 
-	/**[float]
+/**[float]
 	*== Verbatim term query
 	 *
 	 * By default an empty term is conditionless so will be rewritten. Sometimes sending an empty term to
 	 * match nothing makes sense. You can either use the `ConditionlessQuery` construct from OSC to provide a fallback or make the
 	 * query verbatim as followed:
 	*/
-	public class VerbatimTermQueryUsageTests : TermQueryUsageTests
-	{
-		public VerbatimTermQueryUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+public class VerbatimTermQueryUsageTests : TermQueryUsageTests
+{
+    public VerbatimTermQueryUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override ConditionlessWhen ConditionlessWhen => null;
+    protected override ConditionlessWhen ConditionlessWhen => null;
 
-		protected override QueryContainer QueryInitializer => new TermQuery
-		{
-			IsVerbatim = true,
-			Field = "description",
-			Value = "",
-		};
+    protected override QueryContainer QueryInitializer => new TermQuery
+    {
+        IsVerbatim = true,
+        Field = "description",
+        Value = "",
+    };
 
-		protected override object QueryJson => new
-		{
-			term = new
-			{
-				description = new
-				{
-					value = ""
-				}
-			}
-		};
+    protected override object QueryJson => new
+    {
+        term = new
+        {
+            description = new
+            {
+                value = ""
+            }
+        }
+    };
 
-		//when reading back the json the notion of is conditionless is lost
-		protected override bool SupportsDeserialization => false;
+    //when reading back the json the notion of is conditionless is lost
+    protected override bool SupportsDeserialization => false;
 
-		protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) => q
-			.Term(c => c
-				.Verbatim()
-				.Field(p => p.Description)
-				.Value(string.Empty)
-			);
-	}
+    protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) => q
+        .Term(c => c
+            .Verbatim()
+            .Field(p => p.Description)
+            .Value(string.Empty)
+        );
+}
 
-	public class TermQueryWithCaseInsensitiveUsageTests : QueryDslUsageTestsBase
-	{
-		public TermQueryWithCaseInsensitiveUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+public class TermQueryWithCaseInsensitiveUsageTests : QueryDslUsageTestsBase
+{
+    public TermQueryWithCaseInsensitiveUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override ConditionlessWhen ConditionlessWhen => new ConditionlessWhen<ITermQuery>(q => q.Term)
-		{
-			q => q.Field = null,
-			q => q.Value = "  ",
-			q => q.Value = null
-		};
+    protected override ConditionlessWhen ConditionlessWhen => new ConditionlessWhen<ITermQuery>(q => q.Term)
+    {
+        q => q.Field = null,
+        q => q.Value = "  ",
+        q => q.Value = null
+    };
 
-		protected override QueryContainer QueryInitializer => new TermQuery
-		{
-			Name = "named_query",
-			Boost = 1.1,
-			Field = "description",
-			Value = "project description",
-			CaseInsensitive = true
-		};
+    protected override QueryContainer QueryInitializer => new TermQuery
+    {
+        Name = "named_query",
+        Boost = 1.1,
+        Field = "description",
+        Value = "project description",
+        CaseInsensitive = true
+    };
 
-		protected override object QueryJson => new
-		{
-			term = new
-			{
-				description = new
-				{
-					_name = "named_query",
-					boost = 1.1,
-					value = "project description",
-					case_insensitive = true
-				}
-			}
-		};
+    protected override object QueryJson => new
+    {
+        term = new
+        {
+            description = new
+            {
+                _name = "named_query",
+                boost = 1.1,
+                value = "project description",
+                case_insensitive = true
+            }
+        }
+    };
 
-		protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) => q
-			.Term(c => c
-				.Name("named_query")
-				.Boost(1.1)
-				.Field(p => p.Description)
-				.Value("project description")
-				.CaseInsensitive(true)
-			);
+    protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) => q
+        .Term(c => c
+            .Name("named_query")
+            .Boost(1.1)
+            .Field(p => p.Description)
+            .Value("project description")
+            .CaseInsensitive(true)
+        );
 
-		//hide
-		[U]
-		public void DeserializeShortForm()
-		{
-			using var stream = new MemoryStream(ShortFormQuery);
-			var query = Client.RequestResponseSerializer.Deserialize<ITermQuery>(stream);
-			query.Should().NotBeNull();
-			query.Field.Should().Be(new Field("description"));
-			query.Value.Should().Be("project description");
-		}
-	}
+    //hide
+    [U]
+    public void DeserializeShortForm()
+    {
+        using var stream = new MemoryStream(ShortFormQuery);
+        var query = Client.RequestResponseSerializer.Deserialize<ITermQuery>(stream);
+        query.Should().NotBeNull();
+        query.Field.Should().Be(new Field("description"));
+        query.Value.Should().Be("project description");
+    }
 }

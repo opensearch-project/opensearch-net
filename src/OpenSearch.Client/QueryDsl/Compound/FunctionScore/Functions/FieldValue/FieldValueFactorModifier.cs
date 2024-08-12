@@ -30,39 +30,38 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[StringEnum]
+public enum FieldValueFactorModifier
 {
-	[StringEnum]
-	public enum FieldValueFactorModifier
-	{
-		[EnumMember(Value = "none")]
-		None,
+    [EnumMember(Value = "none")]
+    None,
 
-		[EnumMember(Value = "log")]
-		Log,
+    [EnumMember(Value = "log")]
+    Log,
 
-		[EnumMember(Value = "log1p")]
-		Log1P,
+    [EnumMember(Value = "log1p")]
+    Log1P,
 
-		[EnumMember(Value = "log2p")]
-		Log2P,
+    [EnumMember(Value = "log2p")]
+    Log2P,
 
-		[EnumMember(Value = "ln")]
-		Ln,
+    [EnumMember(Value = "ln")]
+    Ln,
 
-		[EnumMember(Value = "ln1p")]
-		Ln1P,
+    [EnumMember(Value = "ln1p")]
+    Ln1P,
 
-		[EnumMember(Value = "ln2p")]
-		Ln2P,
+    [EnumMember(Value = "ln2p")]
+    Ln2P,
 
-		[EnumMember(Value = "square")]
-		Square,
+    [EnumMember(Value = "square")]
+    Square,
 
-		[EnumMember(Value = "sqrt")]
-		SquareRoot,
+    [EnumMember(Value = "sqrt")]
+    SquareRoot,
 
-		[EnumMember(Value = "reciprocal")]
-		Reciprocal
-	}
+    [EnumMember(Value = "reciprocal")]
+    Reciprocal
 }

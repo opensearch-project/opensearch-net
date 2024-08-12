@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	[MapsApi("tasks.list.json")]
-	public partial interface IListTasksRequest { }
+namespace OpenSearch.Client;
 
-	public partial class ListTasksRequest { }
+[MapsApi("tasks.list.json")]
+public partial interface IListTasksRequest { }
 
-	public partial class ListTasksDescriptor { }
-}
+public partial class ListTasksRequest { }
+
+public partial class ListTasksDescriptor { }

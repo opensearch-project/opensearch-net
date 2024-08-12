@@ -27,19 +27,19 @@
 */
 
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
 
-namespace Tests.Cluster.RemoteInfo
+namespace Tests.Cluster.RemoteInfo;
+
+public class RemoteInfoUrlTests : UrlTestsBase
 {
-	public class RemoteInfoUrlTests : UrlTestsBase
-	{
-		[U] public override async Task Urls() => await GET("/_remote/info")
-			.Fluent(c => c.Cluster.RemoteInfo())
-			.Request(c => c.Cluster.RemoteInfo(new RemoteInfoRequest()))
-			.FluentAsync(c => c.Cluster.RemoteInfoAsync())
-			.RequestAsync(c => c.Cluster.RemoteInfoAsync(new RemoteInfoRequest()));
-	}
+    [U]
+    public override async Task Urls() => await GET("/_remote/info")
+        .Fluent(c => c.Cluster.RemoteInfo())
+        .Request(c => c.Cluster.RemoteInfo(new RemoteInfoRequest()))
+        .FluentAsync(c => c.Cluster.RemoteInfoAsync())
+        .RequestAsync(c => c.Cluster.RemoteInfoAsync(new RemoteInfoRequest()));
 }

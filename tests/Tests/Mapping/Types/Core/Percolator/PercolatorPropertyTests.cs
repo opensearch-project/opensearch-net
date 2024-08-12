@@ -32,32 +32,31 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Mapping.Types.Core.Percolator
+namespace Tests.Mapping.Types.Core.Percolator;
+
+public class PercolatorPropertyTests : PropertyTestsBase
 {
-	public class PercolatorPropertyTests : PropertyTestsBase
-	{
-		public PercolatorPropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public PercolatorPropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override object ExpectJson => new
-		{
-			properties = new
-			{
-				name = new
-				{
-					type = "percolator"
-				}
-			}
-		};
+    protected override object ExpectJson => new
+    {
+        properties = new
+        {
+            name = new
+            {
+                type = "percolator"
+            }
+        }
+    };
 
-		protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
-			.Percolator(pr => pr
-				.Name(p => p.Name)
-			);
+    protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
+        .Percolator(pr => pr
+            .Name(p => p.Name)
+        );
 
 
-		protected override IProperties InitializerProperties => new Properties
-		{
-			{ "name", new PercolatorProperty() }
-		};
-	}
+    protected override IProperties InitializerProperties => new Properties
+    {
+        { "name", new PercolatorProperty() }
+    };
 }

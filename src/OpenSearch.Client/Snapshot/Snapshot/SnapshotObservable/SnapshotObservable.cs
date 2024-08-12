@@ -32,212 +32,208 @@ using System.Linq;
 using System.Threading;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class SnapshotObservable : IDisposable, IObservable<SnapshotStatusResponse>
 {
-	public class SnapshotObservable : IDisposable, IObservable<SnapshotStatusResponse>
-	{
-		private readonly IOpenSearchClient _opensearchClient;
-		private readonly TimeSpan _interval = TimeSpan.FromSeconds(2);
-		private readonly ISnapshotRequest _snapshotRequest;
-		private readonly SnapshotStatusHumbleObject _snapshotStatusHumbleObject;
-		private EventHandler<SnapshotCompletedEventArgs> _completedEventHandler;
-		private bool _disposed;
-		private EventHandler<SnapshotErrorEventArgs> _errorEventHandler;
-		private EventHandler<SnapshotNextEventArgs> _nextEventHandler;
-		private Timer _timer;
+    private readonly IOpenSearchClient _opensearchClient;
+    private readonly TimeSpan _interval = TimeSpan.FromSeconds(2);
+    private readonly ISnapshotRequest _snapshotRequest;
+    private readonly SnapshotStatusHumbleObject _snapshotStatusHumbleObject;
+    private EventHandler<SnapshotCompletedEventArgs> _completedEventHandler;
+    private bool _disposed;
+    private EventHandler<SnapshotErrorEventArgs> _errorEventHandler;
+    private EventHandler<SnapshotNextEventArgs> _nextEventHandler;
+    private Timer _timer;
 
-		public SnapshotObservable(IOpenSearchClient opensearchClient, ISnapshotRequest snapshotRequest)
-		{
-			opensearchClient.ThrowIfNull(nameof(opensearchClient));
-			snapshotRequest.ThrowIfNull(nameof(snapshotRequest));
+    public SnapshotObservable(IOpenSearchClient opensearchClient, ISnapshotRequest snapshotRequest)
+    {
+        opensearchClient.ThrowIfNull(nameof(opensearchClient));
+        snapshotRequest.ThrowIfNull(nameof(snapshotRequest));
 
-			_opensearchClient = opensearchClient;
-			_snapshotRequest = snapshotRequest;
-			_snapshotRequest.RequestParameters.SetRequestMetaData(RequestMetaDataFactory.SnapshotHelperRequestMetaData());
-			_snapshotStatusHumbleObject = new SnapshotStatusHumbleObject(opensearchClient, snapshotRequest);
-			_snapshotStatusHumbleObject.Completed += StopTimer;
-			_snapshotStatusHumbleObject.Error += StopTimer;
-		}
+        _opensearchClient = opensearchClient;
+        _snapshotRequest = snapshotRequest;
+        _snapshotRequest.RequestParameters.SetRequestMetaData(RequestMetaDataFactory.SnapshotHelperRequestMetaData());
+        _snapshotStatusHumbleObject = new SnapshotStatusHumbleObject(opensearchClient, snapshotRequest);
+        _snapshotStatusHumbleObject.Completed += StopTimer;
+        _snapshotStatusHumbleObject.Error += StopTimer;
+    }
 
-		public SnapshotObservable(IOpenSearchClient opensearchClient, ISnapshotRequest snapshotRequest, TimeSpan interval)
-			: this(opensearchClient, snapshotRequest)
-		{
-			interval.ThrowIfNull(nameof(interval));
-			if (interval.Ticks < 0) throw new ArgumentOutOfRangeException(nameof(interval));
+    public SnapshotObservable(IOpenSearchClient opensearchClient, ISnapshotRequest snapshotRequest, TimeSpan interval)
+        : this(opensearchClient, snapshotRequest)
+    {
+        interval.ThrowIfNull(nameof(interval));
+        if (interval.Ticks < 0) throw new ArgumentOutOfRangeException(nameof(interval));
 
-			_interval = interval;
-		}
+        _interval = interval;
+    }
 
-		public void Dispose() => Dispose(true);
+    public void Dispose() => Dispose(true);
 
-		public IDisposable Subscribe(IObserver<SnapshotStatusResponse> observer)
-		{
-			observer.ThrowIfNull(nameof(observer));
+    public IDisposable Subscribe(IObserver<SnapshotStatusResponse> observer)
+    {
+        observer.ThrowIfNull(nameof(observer));
 
-			try
-			{
-				_snapshotRequest.RequestParameters.WaitForCompletion = false;
-				var snapshotResponse = _opensearchClient.Snapshot.Snapshot(_snapshotRequest);
+        try
+        {
+            _snapshotRequest.RequestParameters.WaitForCompletion = false;
+            var snapshotResponse = _opensearchClient.Snapshot.Snapshot(_snapshotRequest);
 
-				if (!snapshotResponse.IsValid)
-					throw new OpenSearchClientException(PipelineFailure.BadResponse, "Failed to create snapshot.", snapshotResponse.ApiCall);
+            if (!snapshotResponse.IsValid)
+                throw new OpenSearchClientException(PipelineFailure.BadResponse, "Failed to create snapshot.", snapshotResponse.ApiCall);
 
-				EventHandler<SnapshotNextEventArgs> onNext = (sender, args) => observer.OnNext(args.SnapshotStatusResponse);
-				EventHandler<SnapshotCompletedEventArgs> onCompleted = (sender, args) => observer.OnCompleted();
-				EventHandler<SnapshotErrorEventArgs> onError = (sender, args) => observer.OnError(args.Exception);
+            EventHandler<SnapshotNextEventArgs> onNext = (sender, args) => observer.OnNext(args.SnapshotStatusResponse);
+            EventHandler<SnapshotCompletedEventArgs> onCompleted = (sender, args) => observer.OnCompleted();
+            EventHandler<SnapshotErrorEventArgs> onError = (sender, args) => observer.OnError(args.Exception);
 
-				_nextEventHandler = onNext;
-				_completedEventHandler = onCompleted;
-				_errorEventHandler = onError;
+            _nextEventHandler = onNext;
+            _completedEventHandler = onCompleted;
+            _errorEventHandler = onError;
 
-				_snapshotStatusHumbleObject.Next += onNext;
-				_snapshotStatusHumbleObject.Completed += onCompleted;
-				_snapshotStatusHumbleObject.Error += onError;
+            _snapshotStatusHumbleObject.Next += onNext;
+            _snapshotStatusHumbleObject.Completed += onCompleted;
+            _snapshotStatusHumbleObject.Error += onError;
 
-				_timer = new Timer(Snapshot, observer, _interval, Timeout.InfiniteTimeSpan);
-			}
-			catch (Exception exception)
-			{
-				observer.OnError(exception);
-			}
+            _timer = new Timer(Snapshot, observer, _interval, Timeout.InfiniteTimeSpan);
+        }
+        catch (Exception exception)
+        {
+            observer.OnError(exception);
+        }
 
-			return this;
-		}
+        return this;
+    }
 
-		private void Snapshot(object state)
-		{
-			var observer = state as IObserver<SnapshotStatusResponse>;
+    private void Snapshot(object state)
+    {
+        var observer = state as IObserver<SnapshotStatusResponse> ?? throw new ArgumentException("state");
+        try
+        {
+            var watch = new Stopwatch();
+            watch.Start();
 
-			if (observer == null) throw new ArgumentException("state");
+            _snapshotStatusHumbleObject.CheckStatus();
 
-			try
-			{
-				var watch = new Stopwatch();
-				watch.Start();
+            _timer.Change(TimeSpan.FromMilliseconds(Math.Max(0, _interval.TotalMilliseconds - watch.ElapsedMilliseconds)),
+                Timeout.InfiniteTimeSpan);
+        }
+        catch (Exception exception)
+        {
+            observer.OnError(exception);
+            StopTimer(null, null);
+        }
+    }
 
-				_snapshotStatusHumbleObject.CheckStatus();
+    private void StopTimer(object sender, EventArgs restoreCompletedEventArgs) => _timer.Change(Timeout.Infinite, Timeout.Infinite);
 
-				_timer.Change(TimeSpan.FromMilliseconds(Math.Max(0, _interval.TotalMilliseconds - watch.ElapsedMilliseconds)),
-					Timeout.InfiniteTimeSpan);
-			}
-			catch (Exception exception)
-			{
-				observer.OnError(exception);
-				StopTimer(null, null);
-			}
-		}
+    protected virtual void Dispose(bool disposing)
+    {
+        if (_disposed) return;
 
-		private void StopTimer(object sender, EventArgs restoreCompletedEventArgs) => _timer.Change(Timeout.Infinite, Timeout.Infinite);
+        _timer?.Dispose();
 
-		protected virtual void Dispose(bool disposing)
-		{
-			if (_disposed) return;
+        if (_snapshotStatusHumbleObject != null)
+        {
+            _snapshotStatusHumbleObject.Next -= _nextEventHandler;
+            _snapshotStatusHumbleObject.Completed -= _completedEventHandler;
+            _snapshotStatusHumbleObject.Error -= _errorEventHandler;
 
-			_timer?.Dispose();
+            _snapshotStatusHumbleObject.Completed -= StopTimer;
+            _snapshotStatusHumbleObject.Error -= StopTimer;
+        }
 
-			if (_snapshotStatusHumbleObject != null)
-			{
-				_snapshotStatusHumbleObject.Next -= _nextEventHandler;
-				_snapshotStatusHumbleObject.Completed -= _completedEventHandler;
-				_snapshotStatusHumbleObject.Error -= _errorEventHandler;
+        _disposed = true;
+    }
 
-				_snapshotStatusHumbleObject.Completed -= StopTimer;
-				_snapshotStatusHumbleObject.Error -= StopTimer;
-			}
+    ~SnapshotObservable() => Dispose(false);
+}
 
-			_disposed = true;
-		}
+public class SnapshotNextEventArgs : EventArgs
+{
+    public SnapshotNextEventArgs(SnapshotStatusResponse snapshotStatusResponse) => SnapshotStatusResponse = snapshotStatusResponse;
 
-		~SnapshotObservable() => Dispose(false);
-	}
+    public SnapshotStatusResponse SnapshotStatusResponse { get; }
+}
 
-	public class SnapshotNextEventArgs : EventArgs
-	{
-		public SnapshotNextEventArgs(SnapshotStatusResponse snapshotStatusResponse) => SnapshotStatusResponse = snapshotStatusResponse;
+public class SnapshotCompletedEventArgs : EventArgs
+{
+    public SnapshotCompletedEventArgs(SnapshotStatusResponse snapshotStatusResponse) => SnapshotStatusResponse = snapshotStatusResponse;
 
-		public SnapshotStatusResponse SnapshotStatusResponse { get; }
-	}
+    public SnapshotStatusResponse SnapshotStatusResponse { get; private set; }
+}
 
-	public class SnapshotCompletedEventArgs : EventArgs
-	{
-		public SnapshotCompletedEventArgs(SnapshotStatusResponse snapshotStatusResponse) => SnapshotStatusResponse = snapshotStatusResponse;
+public class SnapshotErrorEventArgs : EventArgs
+{
+    public SnapshotErrorEventArgs(Exception exception) => Exception = exception;
 
-		public SnapshotStatusResponse SnapshotStatusResponse { get; private set; }
-	}
+    public Exception Exception { get; }
+}
 
-	public class SnapshotErrorEventArgs : EventArgs
-	{
-		public SnapshotErrorEventArgs(Exception exception) => Exception = exception;
+public class SnapshotStatusHumbleObject
+{
+    private readonly IOpenSearchClient _opensearchClient;
+    private readonly ISnapshotRequest _snapshotRequest;
 
-		public Exception Exception { get; }
-	}
+    public SnapshotStatusHumbleObject(IOpenSearchClient opensearchClient, ISnapshotRequest snapshotRequest)
+    {
+        opensearchClient.ThrowIfNull(nameof(opensearchClient));
+        snapshotRequest.ThrowIfNull(nameof(snapshotRequest));
 
-	public class SnapshotStatusHumbleObject
-	{
-		private readonly IOpenSearchClient _opensearchClient;
-		private readonly ISnapshotRequest _snapshotRequest;
+        _opensearchClient = opensearchClient;
+        _snapshotRequest = snapshotRequest;
+    }
 
-		public SnapshotStatusHumbleObject(IOpenSearchClient opensearchClient, ISnapshotRequest snapshotRequest)
-		{
-			opensearchClient.ThrowIfNull(nameof(opensearchClient));
-			snapshotRequest.ThrowIfNull(nameof(snapshotRequest));
+    public event EventHandler<SnapshotCompletedEventArgs> Completed;
+    public event EventHandler<SnapshotErrorEventArgs> Error;
+    public event EventHandler<SnapshotNextEventArgs> Next;
 
-			_opensearchClient = opensearchClient;
-			_snapshotRequest = snapshotRequest;
-		}
+    public void CheckStatus()
+    {
+        try
+        {
+            var snapshotRequest = new SnapshotStatusRequest(_snapshotRequest.RepositoryName, _snapshotRequest.Snapshot)
+            {
+                RequestConfiguration = new RequestConfiguration()
+            };
 
-		public event EventHandler<SnapshotCompletedEventArgs> Completed;
-		public event EventHandler<SnapshotErrorEventArgs> Error;
-		public event EventHandler<SnapshotNextEventArgs> Next;
+            snapshotRequest.RequestConfiguration.SetRequestMetaData(RequestMetaDataFactory.SnapshotHelperRequestMetaData());
 
-		public void CheckStatus()
-		{
-			try
-			{
-				var snapshotRequest = new SnapshotStatusRequest(_snapshotRequest.RepositoryName, _snapshotRequest.Snapshot)
-				{
-					RequestConfiguration = new RequestConfiguration()
-				};
+            var snapshotStatusResponse =
+                _opensearchClient.Snapshot.Status(snapshotRequest);
 
-				snapshotRequest.RequestConfiguration.SetRequestMetaData(RequestMetaDataFactory.SnapshotHelperRequestMetaData());
+            if (!snapshotStatusResponse.IsValid)
+                throw new OpenSearchClientException(PipelineFailure.BadResponse, "Failed to get snapshot status.",
+                    snapshotStatusResponse.ApiCall);
 
-				var snapshotStatusResponse =
-					_opensearchClient.Snapshot.Status(snapshotRequest);
+            if (snapshotStatusResponse.Snapshots.All(s => s.ShardsStats.Done == s.ShardsStats.Total))
+            {
+                OnCompleted(new SnapshotCompletedEventArgs(snapshotStatusResponse));
+                return;
+            }
 
-				if (!snapshotStatusResponse.IsValid)
-					throw new OpenSearchClientException(PipelineFailure.BadResponse, "Failed to get snapshot status.",
-						snapshotStatusResponse.ApiCall);
+            OnNext(new SnapshotNextEventArgs(snapshotStatusResponse));
+        }
+        catch (Exception exception)
+        {
+            OnError(new SnapshotErrorEventArgs(exception));
+        }
+    }
 
-				if (snapshotStatusResponse.Snapshots.All(s => s.ShardsStats.Done == s.ShardsStats.Total))
-				{
-					OnCompleted(new SnapshotCompletedEventArgs(snapshotStatusResponse));
-					return;
-				}
+    protected virtual void OnNext(SnapshotNextEventArgs nextEventArgs)
+    {
+        var handler = Next;
+        handler?.Invoke(this, nextEventArgs);
+    }
 
-				OnNext(new SnapshotNextEventArgs(snapshotStatusResponse));
-			}
-			catch (Exception exception)
-			{
-				OnError(new SnapshotErrorEventArgs(exception));
-			}
-		}
+    protected virtual void OnCompleted(SnapshotCompletedEventArgs completedEventArgs)
+    {
+        var handler = Completed;
+        handler?.Invoke(this, completedEventArgs);
+    }
 
-		protected virtual void OnNext(SnapshotNextEventArgs nextEventArgs)
-		{
-			var handler = Next;
-			handler?.Invoke(this, nextEventArgs);
-		}
-
-		protected virtual void OnCompleted(SnapshotCompletedEventArgs completedEventArgs)
-		{
-			var handler = Completed;
-			handler?.Invoke(this, completedEventArgs);
-		}
-
-		protected virtual void OnError(SnapshotErrorEventArgs errorEventArgs)
-		{
-			var handler = Error;
-			handler?.Invoke(this, errorEventArgs);
-		}
-	}
+    protected virtual void OnError(SnapshotErrorEventArgs errorEventArgs)
+    {
+        var handler = Error;
+        handler?.Invoke(this, errorEventArgs);
+    }
 }

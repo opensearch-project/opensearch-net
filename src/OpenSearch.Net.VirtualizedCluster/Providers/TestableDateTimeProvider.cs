@@ -28,14 +28,13 @@
 
 using System;
 
-namespace OpenSearch.Net.VirtualizedCluster.Providers
+namespace OpenSearch.Net.VirtualizedCluster.Providers;
+
+public class TestableDateTimeProvider : DateTimeProvider
 {
-	public class TestableDateTimeProvider : DateTimeProvider
-	{
-		private DateTime MutableNow { get; set; } = DateTime.UtcNow;
+    private DateTime MutableNow { get; set; } = DateTime.UtcNow;
 
-		public override DateTime Now() => MutableNow;
+    public override DateTime Now() => MutableNow;
 
-		public void ChangeTime(Func<DateTime, DateTime> change) => MutableNow = change(MutableNow);
-	}
+    public void ChangeTime(Func<DateTime, DateTime> change) => MutableNow = change(MutableNow);
 }

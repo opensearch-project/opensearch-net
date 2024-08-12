@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	[MapsApi("snapshot.verify_repository.json")]
-	public partial interface IVerifyRepositoryRequest { }
+namespace OpenSearch.Client;
 
-	public partial class VerifyRepositoryRequest { }
+[MapsApi("snapshot.verify_repository.json")]
+public partial interface IVerifyRepositoryRequest { }
 
-	public partial class VerifyRepositoryDescriptor { }
-}
+public partial class VerifyRepositoryRequest { }
+
+public partial class VerifyRepositoryDescriptor { }

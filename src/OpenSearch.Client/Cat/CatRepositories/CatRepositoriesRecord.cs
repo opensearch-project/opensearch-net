@@ -28,15 +28,14 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
-{
-	[DataContract]
-	public class CatRepositoriesRecord : ICatRecord
-	{
-		[DataMember(Name ="id")]
-		public string Id { get; set; }
+namespace OpenSearch.Client;
 
-		[DataMember(Name ="type")]
-		public string Type { get; set; }
-	}
+[DataContract]
+public class CatRepositoriesRecord : ICatRecord
+{
+    [DataMember(Name = "id")]
+    public string Id { get; set; }
+
+    [DataMember(Name = "type")]
+    public string Type { get; set; }
 }

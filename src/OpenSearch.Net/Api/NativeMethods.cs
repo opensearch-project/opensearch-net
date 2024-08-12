@@ -29,42 +29,41 @@
 
 using System.Runtime.InteropServices;
 
-namespace OpenSearch.Net
+namespace OpenSearch.Net;
+
+internal static class NativeMethods
 {
-	internal static class NativeMethods
-	{
-		public static class Windows
-		{
-			// This call avoids the shimming Windows does to report old versions
-			[DllImport("ntdll")]
-			private static extern int RtlGetVersion(out RTL_OSVERSIONINFOEX lpVersionInformation);
+    public static class Windows
+    {
+        // This call avoids the shimming Windows does to report old versions
+        [DllImport("ntdll")]
+        private static extern int RtlGetVersion(out RTL_OSVERSIONINFOEX lpVersionInformation);
 
-			internal static string RtlGetVersion()
-			{
-				var osvi = new RTL_OSVERSIONINFOEX();
-				osvi.dwOSVersionInfoSize = (uint)Marshal.SizeOf(osvi);
-				return RtlGetVersion(out osvi) == 0
-					? $"Microsoft Windows {osvi.dwMajorVersion}.{osvi.dwMinorVersion}.{osvi.dwBuildNumber}"
-					: null;
-			}
+        internal static string RtlGetVersion()
+        {
+            var osvi = new RTL_OSVERSIONINFOEX();
+            osvi.dwOSVersionInfoSize = (uint)Marshal.SizeOf(osvi);
+            return RtlGetVersion(out osvi) == 0
+                ? $"Microsoft Windows {osvi.dwMajorVersion}.{osvi.dwMinorVersion}.{osvi.dwBuildNumber}"
+                : null;
+        }
 
-			[StructLayout(LayoutKind.Sequential)]
-			// ReSharper disable once MemberCanBePrivate.Global
-			// ReSharper disable InconsistentNaming
-			// ReSharper disable FieldCanBeMadeReadOnly.Global
-			internal struct RTL_OSVERSIONINFOEX
-			{
-				internal uint dwOSVersionInfoSize;
-				internal uint dwMajorVersion;
-				internal uint dwMinorVersion;
-				internal uint dwBuildNumber;
-				internal uint dwPlatformId;
+        [StructLayout(LayoutKind.Sequential)]
+        // ReSharper disable once MemberCanBePrivate.Global
+        // ReSharper disable InconsistentNaming
+        // ReSharper disable FieldCanBeMadeReadOnly.Global
+        internal struct RTL_OSVERSIONINFOEX
+        {
+            internal uint dwOSVersionInfoSize;
+            internal uint dwMajorVersion;
+            internal uint dwMinorVersion;
+            internal uint dwBuildNumber;
+            internal uint dwPlatformId;
 
-				[MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
-				internal string szCSDVersion;
-			}
-			// ReSharper restore InconsistentNaming
-			// ReSharper restore FieldCanBeMadeReadOnly.Global
-		}
-	}
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
+            internal string szCSDVersion;
+        }
+        // ReSharper restore InconsistentNaming
+        // ReSharper restore FieldCanBeMadeReadOnly.Global
+    }
 }

@@ -28,24 +28,24 @@
 
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+[ReadAs(typeof(MaxBucketAggregation))]
+public interface IMaxBucketAggregation : IPipelineAggregation { }
+
+public class MaxBucketAggregation
+    : PipelineAggregationBase, IMaxBucketAggregation
 {
-	[InterfaceDataContract]
-	[ReadAs(typeof(MaxBucketAggregation))]
-	public interface IMaxBucketAggregation : IPipelineAggregation { }
+    internal MaxBucketAggregation() { }
 
-	public class MaxBucketAggregation
-		: PipelineAggregationBase, IMaxBucketAggregation
-	{
-		internal MaxBucketAggregation() { }
+    public MaxBucketAggregation(string name, SingleBucketsPath bucketsPath)
+        : base(name, bucketsPath) { }
 
-		public MaxBucketAggregation(string name, SingleBucketsPath bucketsPath)
-			: base(name, bucketsPath) { }
-
-		internal override void WrapInContainer(AggregationContainer c) => c.MaxBucket = this;
-	}
-
-	public class MaxBucketAggregationDescriptor
-		: PipelineAggregationDescriptorBase<MaxBucketAggregationDescriptor, IMaxBucketAggregation, SingleBucketsPath>
-			, IMaxBucketAggregation { }
+    internal override void WrapInContainer(AggregationContainer c) => c.MaxBucket = this;
 }
+
+public class MaxBucketAggregationDescriptor
+    : PipelineAggregationDescriptorBase<MaxBucketAggregationDescriptor, IMaxBucketAggregation, SingleBucketsPath>
+        , IMaxBucketAggregation
+{ }

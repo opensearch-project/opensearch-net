@@ -27,55 +27,54 @@
 */
 
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Ephemeral;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Ephemeral;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Framework.EndpointTests
+namespace Tests.Framework.EndpointTests;
+
+public abstract class CanConnectTestBase<TCluster>
+    : ApiIntegrationTestBase<TCluster, RootNodeInfoResponse, IRootNodeInfoRequest, RootNodeInfoDescriptor, RootNodeInfoRequest>
+    where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOpenSearchClientTestCluster, new()
 {
-	public abstract class CanConnectTestBase<TCluster>
-		: ApiIntegrationTestBase<TCluster, RootNodeInfoResponse, IRootNodeInfoRequest, RootNodeInfoDescriptor, RootNodeInfoRequest>
-		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOpenSearchClientTestCluster, new()
-	{
-		protected CanConnectTestBase(TCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    protected CanConnectTestBase(TCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override bool ExpectIsValid => true;
-		protected override int ExpectStatusCode => 200;
-		protected override HttpMethod HttpMethod => HttpMethod.GET;
-		protected override string UrlPath => "/";
+    protected override bool ExpectIsValid => true;
+    protected override int ExpectStatusCode => 200;
+    protected override HttpMethod HttpMethod => HttpMethod.GET;
+    protected override string UrlPath => "/";
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.RootNodeInfo(),
-			(client, f) => client.RootNodeInfoAsync(),
-			(client, r) => client.RootNodeInfo(r),
-			(client, r) => client.RootNodeInfoAsync(r)
-		);
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.RootNodeInfo(),
+        (client, f) => client.RootNodeInfoAsync(),
+        (client, r) => client.RootNodeInfo(r),
+        (client, r) => client.RootNodeInfoAsync(r)
+    );
 
-		protected override void ExpectResponse(RootNodeInfoResponse response)
-		{
-			response.Version.Should().NotBeNull();
-			response.Version.LuceneVersion.Should().NotBeNullOrWhiteSpace();
-			response.Tagline.Should().NotBeNullOrWhiteSpace();
-			response.Name.Should().NotBeNullOrWhiteSpace();
-		}
+    protected override void ExpectResponse(RootNodeInfoResponse response)
+    {
+        response.Version.Should().NotBeNull();
+        response.Version.LuceneVersion.Should().NotBeNullOrWhiteSpace();
+        response.Tagline.Should().NotBeNullOrWhiteSpace();
+        response.Name.Should().NotBeNullOrWhiteSpace();
+    }
 
-		// https://youtrack.jetbrains.com/issue/RIDER-19912
-		[U] protected override Task HitsTheCorrectUrl() => base.HitsTheCorrectUrl();
+    // https://youtrack.jetbrains.com/issue/RIDER-19912
+    [U] protected override Task HitsTheCorrectUrl() => base.HitsTheCorrectUrl();
 
-		[U] protected override Task UsesCorrectHttpMethod() => base.UsesCorrectHttpMethod();
+    [U] protected override Task UsesCorrectHttpMethod() => base.UsesCorrectHttpMethod();
 
-		[U] protected override void SerializesInitializer() => base.SerializesInitializer();
+    [U] protected override void SerializesInitializer() => base.SerializesInitializer();
 
-		[U] protected override void SerializesFluent() => base.SerializesFluent();
+    [U] protected override void SerializesFluent() => base.SerializesFluent();
 
-		[I] public override Task ReturnsExpectedStatusCode() => base.ReturnsExpectedResponse();
+    [I] public override Task ReturnsExpectedStatusCode() => base.ReturnsExpectedResponse();
 
-		[I] public override Task ReturnsExpectedIsValid() => base.ReturnsExpectedIsValid();
+    [I] public override Task ReturnsExpectedIsValid() => base.ReturnsExpectedIsValid();
 
-		[I] public override Task ReturnsExpectedResponse() => base.ReturnsExpectedResponse();
-	}
+    [I] public override Task ReturnsExpectedResponse() => base.ReturnsExpectedResponse();
 }

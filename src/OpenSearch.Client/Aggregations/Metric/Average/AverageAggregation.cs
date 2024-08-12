@@ -28,23 +28,23 @@
 
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+[ReadAs(typeof(AverageAggregation))]
+public interface IAverageAggregation : IFormattableMetricAggregation { }
+
+public class AverageAggregation : FormattableMetricAggregationBase, IAverageAggregation
 {
-	[InterfaceDataContract]
-	[ReadAs(typeof(AverageAggregation))]
-	public interface IAverageAggregation : IFormattableMetricAggregation { }
+    internal AverageAggregation() { }
 
-	public class AverageAggregation : FormattableMetricAggregationBase, IAverageAggregation
-	{
-		internal AverageAggregation() { }
+    public AverageAggregation(string name, Field field) : base(name, field) { }
 
-		public AverageAggregation(string name, Field field) : base(name, field) { }
-
-		internal override void WrapInContainer(AggregationContainer c) => c.Average = this;
-	}
-
-	public class AverageAggregationDescriptor<T>
-		: FormattableMetricAggregationDescriptorBase<AverageAggregationDescriptor<T>, IAverageAggregation, T>
-			, IAverageAggregation
-		where T : class { }
+    internal override void WrapInContainer(AggregationContainer c) => c.Average = this;
 }
+
+public class AverageAggregationDescriptor<T>
+    : FormattableMetricAggregationDescriptorBase<AverageAggregationDescriptor<T>, IAverageAggregation, T>
+        , IAverageAggregation
+    where T : class
+{ }

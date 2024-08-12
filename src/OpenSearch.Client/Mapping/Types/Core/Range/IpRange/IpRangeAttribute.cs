@@ -26,10 +26,9 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class IpRangeAttribute : RangePropertyAttributeBase, IIpRangeProperty
 {
-	public class IpRangeAttribute : RangePropertyAttributeBase, IIpRangeProperty
-	{
-		public IpRangeAttribute() : base(RangeType.IpRange) { }
-	}
+    public IpRangeAttribute() : base(RangeType.IpRange) { }
 }

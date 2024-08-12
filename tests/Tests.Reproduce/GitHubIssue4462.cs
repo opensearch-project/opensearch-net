@@ -28,15 +28,15 @@
 
 using System;
 using System.Text;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Domain;
 
-namespace Tests.Reproduce
-{
-	/*
+namespace Tests.Reproduce;
+
+/*
 	 * https://github.com/elastic/elasticsearch-net/pull/4353
 	 * Fixed an issue with the GetMany helpers that returned the cartesian product of all ids specified rather
 	 * then creating a distinct list if more then one index was targeted.
@@ -50,32 +50,33 @@ namespace Tests.Reproduce
 	 *
 	 * Without configuring `ConnectionSettings()` with either a default index for T or a global default index.
 	 */
-	public class GitHubIssue4462
-	{
-		[U] public void GetManyShouldNotThrowIfIndexIsProvided()
-		{
-			var json = "{}";
+public class GitHubIssue4462
+{
+    [U]
+    public void GetManyShouldNotThrowIfIndexIsProvided()
+    {
+        var json = "{}";
 
-			var bytes = Encoding.UTF8.GetBytes(json);
-			var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-			var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(bytes));
-			var client = new OpenSearchClient(connectionSettings);
+        var bytes = Encoding.UTF8.GetBytes(json);
+        var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+        var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(bytes));
+        var client = new OpenSearchClient(connectionSettings);
 
-			var response = client.GetMany<Project>(new long[] {1, 2, 3}, "indexName");
-			response.Should().NotBeNull();
-		}
+        var response = client.GetMany<Project>(new long[] { 1, 2, 3 }, "indexName");
+        response.Should().NotBeNull();
+    }
 
-		[U] public void SourceManyShouldNotThrowIfIndexIsProvided()
-		{
-			var json = "{}";
+    [U]
+    public void SourceManyShouldNotThrowIfIndexIsProvided()
+    {
+        var json = "{}";
 
-			var bytes = Encoding.UTF8.GetBytes(json);
-			var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-			var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(bytes));
-			var client = new OpenSearchClient(connectionSettings);
+        var bytes = Encoding.UTF8.GetBytes(json);
+        var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+        var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(bytes));
+        var client = new OpenSearchClient(connectionSettings);
 
-			var response = client.SourceMany<Project>(new long[] {1, 2, 3}, "indexName");
-			response.Should().NotBeNull();
-		}
-	}
+        var response = client.SourceMany<Project>(new long[] { 1, 2, 3 }, "indexName");
+        response.Should().NotBeNull();
+    }
 }

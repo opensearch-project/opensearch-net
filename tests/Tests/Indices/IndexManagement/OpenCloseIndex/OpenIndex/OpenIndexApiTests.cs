@@ -27,51 +27,50 @@
 */
 
 using System;
-using OpenSearch.Net;
 using OpenSearch.Client;
+using OpenSearch.Net;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Indices.IndexManagement.OpenCloseIndex.OpenIndex
+namespace Tests.Indices.IndexManagement.OpenCloseIndex.OpenIndex;
+
+public class OpenIndexApiTests
+    : ApiIntegrationTestBase<WritableCluster, OpenIndexResponse, IOpenIndexRequest, OpenIndexDescriptor, OpenIndexRequest>
 {
-	public class OpenIndexApiTests
-		: ApiIntegrationTestBase<WritableCluster, OpenIndexResponse, IOpenIndexRequest, OpenIndexDescriptor, OpenIndexRequest>
-	{
-		public OpenIndexApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public OpenIndexApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override bool ExpectIsValid => true;
-		protected override int ExpectStatusCode => 200;
+    protected override bool ExpectIsValid => true;
+    protected override int ExpectStatusCode => 200;
 
-		protected override Func<OpenIndexDescriptor, IOpenIndexRequest> Fluent => d => d
-			.IgnoreUnavailable();
+    protected override Func<OpenIndexDescriptor, IOpenIndexRequest> Fluent => d => d
+        .IgnoreUnavailable();
 
-		protected override HttpMethod HttpMethod => HttpMethod.POST;
+    protected override HttpMethod HttpMethod => HttpMethod.POST;
 
-		protected override OpenIndexRequest Initializer => new OpenIndexRequest(CallIsolatedValue)
-		{
-			IgnoreUnavailable = true
-		};
+    protected override OpenIndexRequest Initializer => new OpenIndexRequest(CallIsolatedValue)
+    {
+        IgnoreUnavailable = true
+    };
 
-		protected override string UrlPath => $"/{CallIsolatedValue}/_open?ignore_unavailable=true";
+    protected override string UrlPath => $"/{CallIsolatedValue}/_open?ignore_unavailable=true";
 
-		protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
-		{
-			foreach (var index in values.Values)
-			{
-				client.Indices.Create(index);
-				client.Cluster.Health(index, h => h.WaitForStatus(HealthStatus.Yellow));
-				client.Indices.Close(index);
-			}
-		}
+    protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
+    {
+        foreach (var index in values.Values)
+        {
+            client.Indices.Create(index);
+            client.Cluster.Health(index, h => h.WaitForStatus(HealthStatus.Yellow));
+            client.Indices.Close(index);
+        }
+    }
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Indices.Open(CallIsolatedValue, f),
-			(client, f) => client.Indices.OpenAsync(CallIsolatedValue, f),
-			(client, r) => client.Indices.Open(r),
-			(client, r) => client.Indices.OpenAsync(r)
-		);
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Indices.Open(CallIsolatedValue, f),
+        (client, f) => client.Indices.OpenAsync(CallIsolatedValue, f),
+        (client, r) => client.Indices.Open(r),
+        (client, r) => client.Indices.OpenAsync(r)
+    );
 
-		protected override OpenIndexDescriptor NewDescriptor() => new OpenIndexDescriptor(CallIsolatedValue);
-	}
+    protected override OpenIndexDescriptor NewDescriptor() => new OpenIndexDescriptor(CallIsolatedValue);
 }

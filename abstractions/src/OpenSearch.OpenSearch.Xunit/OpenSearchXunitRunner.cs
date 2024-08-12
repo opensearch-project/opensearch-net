@@ -28,10 +28,9 @@
 
 using OpenSearch.OpenSearch.Ephemeral;
 
-namespace OpenSearch.OpenSearch.Xunit
+namespace OpenSearch.OpenSearch.Xunit;
+
+public static class OpenSearchXunitRunner
 {
-	public static class OpenSearchXunitRunner
-	{
-		public static IEphemeralCluster<XunitClusterConfiguration> CurrentCluster { get; internal set; }
-	}
+    public static IEphemeralCluster<XunitClusterConfiguration> CurrentCluster { get; internal set; }
 }

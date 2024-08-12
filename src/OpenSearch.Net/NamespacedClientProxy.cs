@@ -30,33 +30,32 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace OpenSearch.Net
+namespace OpenSearch.Net;
+
+public class NamespacedClientProxy
 {
-	public class NamespacedClientProxy
-	{
-		private readonly OpenSearchLowLevelClient _client;
+    private readonly OpenSearchLowLevelClient _client;
 
-		internal NamespacedClientProxy(OpenSearchLowLevelClient client) => _client = client;
+    internal NamespacedClientProxy(OpenSearchLowLevelClient client) => _client = client;
 
-		protected TResponse DoRequest<TResponse>(HttpMethod post, string url, PostData body, IRequestParameters @params)
-			where TResponse : class, IOpenSearchResponse, new() =>
-			_client.DoRequest<TResponse>(post, url, body, @params);
+    protected TResponse DoRequest<TResponse>(HttpMethod post, string url, PostData body, IRequestParameters @params)
+        where TResponse : class, IOpenSearchResponse, new() =>
+        _client.DoRequest<TResponse>(post, url, body, @params);
 
-		protected Task<TResponse> DoRequestAsync<TResponse>(HttpMethod post, string url, CancellationToken ctx, PostData body, IRequestParameters @params)
-			where TResponse : class, IOpenSearchResponse, new() =>
-			_client.DoRequestAsync<TResponse>(post, url, ctx, body, @params);
+    protected Task<TResponse> DoRequestAsync<TResponse>(HttpMethod post, string url, CancellationToken ctx, PostData body, IRequestParameters @params)
+        where TResponse : class, IOpenSearchResponse, new() =>
+        _client.DoRequestAsync<TResponse>(post, url, ctx, body, @params);
 
-		protected string Url(FormattableString formattable) => _client.Url(formattable);
+    protected string Url(FormattableString formattable) => _client.Url(formattable);
 
-		protected TRequestParams RequestParams<TRequestParams>(TRequestParams requestParams, string contentType)
-			where TRequestParams : class, IRequestParameters, new()
-			=> _client.RequestParams(requestParams, contentType ?? ContentType, contentType ?? ContentType);
+    protected TRequestParams RequestParams<TRequestParams>(TRequestParams requestParams, string contentType)
+        where TRequestParams : class, IRequestParameters, new()
+        => _client.RequestParams(requestParams, contentType ?? ContentType, contentType ?? ContentType);
 
-		protected TRequestParams RequestParams<TRequestParams>(TRequestParams requestParams)
-			where TRequestParams : class, IRequestParameters, new()
-			=> _client.RequestParams(requestParams, ContentType, ContentType);
+    protected TRequestParams RequestParams<TRequestParams>(TRequestParams requestParams)
+        where TRequestParams : class, IRequestParameters, new()
+        => _client.RequestParams(requestParams, ContentType, ContentType);
 
-		// ReSharper disable once UnassignedGetOnlyAutoProperty intended to be overridden
-		protected virtual string ContentType { get; }
-	}
+    // ReSharper disable once UnassignedGetOnlyAutoProperty intended to be overridden
+    protected virtual string ContentType { get; }
 }

@@ -27,33 +27,34 @@
 */
 
 using System;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Core.Connection.MetaData
+namespace Tests.Core.Connection.MetaData;
+
+public class VersionInfoTests
 {
-	public class VersionInfoTests
-	{
-		[U] public void ToString_ReturnsExpectedValue_ForNonPrerelease()
-		{
-			var sut = new TestVersionInfo("1.2.3", false);
-			sut.ToString().Should().Be("1.2.3");
-		}
+    [U]
+    public void ToString_ReturnsExpectedValue_ForNonPrerelease()
+    {
+        var sut = new TestVersionInfo("1.2.3", false);
+        sut.ToString().Should().Be("1.2.3");
+    }
 
-		[U] public void ToString_ReturnsExpectedValue_ForPrerelease()
-		{
-			var sut = new TestVersionInfo("1.2.3", true);
-			sut.ToString().Should().Be("1.2.3p");
-		}
+    [U]
+    public void ToString_ReturnsExpectedValue_ForPrerelease()
+    {
+        var sut = new TestVersionInfo("1.2.3", true);
+        sut.ToString().Should().Be("1.2.3p");
+    }
 
-		private class TestVersionInfo : VersionInfo
-		{
-			public TestVersionInfo(string version, bool isPrerelease)
-			{
-				Version = new Version(version);
-				IsPrerelease = isPrerelease;
-			}
-		}
-	}
+    private class TestVersionInfo : VersionInfo
+    {
+        public TestVersionInfo(string version, bool isPrerelease)
+        {
+            Version = new Version(version);
+            IsPrerelease = isPrerelease;
+        }
+    }
 }

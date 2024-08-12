@@ -33,31 +33,30 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[AttributeUsage(AttributeTargets.Property)]
+[DataContract]
+public abstract class OpenSearchPropertyAttributeBase : Attribute, IProperty, IPropertyMapping, IJsonProperty
 {
-	[AttributeUsage(AttributeTargets.Property)]
-	[DataContract]
-	public abstract class OpenSearchPropertyAttributeBase : Attribute, IProperty, IPropertyMapping, IJsonProperty
-	{
-		protected OpenSearchPropertyAttributeBase(FieldType type) => Self.Type = type.GetStringValue();
+    protected OpenSearchPropertyAttributeBase(FieldType type) => Self.Type = type.GetStringValue();
 
-		public bool? AllowPrivate { get; set; } = true;
+    public bool? AllowPrivate { get; set; } = true;
 
-		public bool Ignore { get; set; }
+    public bool Ignore { get; set; }
 
-		public string Name { get; set; }
+    public string Name { get; set; }
 
-		public int Order { get; } = -2;
+    public int Order { get; } = -2;
 
-		IDictionary<string, object> IProperty.LocalMetadata { get; set; }
+    IDictionary<string, object> IProperty.LocalMetadata { get; set; }
 
-		IDictionary<string, string> IProperty.Meta { get; set; }
+    IDictionary<string, string> IProperty.Meta { get; set; }
 
-		PropertyName IProperty.Name { get; set; }
-		private IProperty Self => this;
-		string IProperty.Type { get; set; }
+    PropertyName IProperty.Name { get; set; }
+    private IProperty Self => this;
+    string IProperty.Type { get; set; }
 
-		public static OpenSearchPropertyAttributeBase From(MemberInfo memberInfo) =>
-			memberInfo.GetCustomAttribute<OpenSearchPropertyAttributeBase>(true);
-	}
+    public static OpenSearchPropertyAttributeBase From(MemberInfo memberInfo) =>
+        memberInfo.GetCustomAttribute<OpenSearchPropertyAttributeBase>(true);
 }

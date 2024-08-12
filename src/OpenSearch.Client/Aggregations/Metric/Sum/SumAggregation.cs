@@ -28,23 +28,23 @@
 
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+[ReadAs(typeof(SumAggregation))]
+public interface ISumAggregation : IFormattableMetricAggregation { }
+
+public class SumAggregation : FormattableMetricAggregationBase, ISumAggregation
 {
-	[InterfaceDataContract]
-	[ReadAs(typeof(SumAggregation))]
-	public interface ISumAggregation : IFormattableMetricAggregation { }
+    internal SumAggregation() { }
 
-	public class SumAggregation : FormattableMetricAggregationBase, ISumAggregation
-	{
-		internal SumAggregation() { }
+    public SumAggregation(string name, Field field) : base(name, field) { }
 
-		public SumAggregation(string name, Field field) : base(name, field) { }
-
-		internal override void WrapInContainer(AggregationContainer c) => c.Sum = this;
-	}
-
-	public class SumAggregationDescriptor<T>
-		: FormattableMetricAggregationDescriptorBase<SumAggregationDescriptor<T>, ISumAggregation, T>
-			, ISumAggregation
-		where T : class { }
+    internal override void WrapInContainer(AggregationContainer c) => c.Sum = this;
 }
+
+public class SumAggregationDescriptor<T>
+    : FormattableMetricAggregationDescriptorBase<SumAggregationDescriptor<T>, ISumAggregation, T>
+        , ISumAggregation
+    where T : class
+{ }

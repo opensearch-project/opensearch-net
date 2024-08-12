@@ -29,41 +29,40 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// A range of date values represented as unsigned 64-bit integer milliseconds elapsed since system epoch.
+/// </summary>
+[InterfaceDataContract]
+public interface IDateRangeProperty : IRangeProperty
 {
-	/// <summary>
-	/// A range of date values represented as unsigned 64-bit integer milliseconds elapsed since system epoch.
-	/// </summary>
-	[InterfaceDataContract]
-	public interface IDateRangeProperty : IRangeProperty
-	{
-		/// <summary>
-		/// The date format(s) that can be parsed. Defaults to strict_date_optional_time||epoch_millis.
-		/// <see cref="DateFormat" />
-		/// </summary>
-		[DataMember(Name ="format")]
-		string Format { get; set; }
-	}
+    /// <summary>
+    /// The date format(s) that can be parsed. Defaults to strict_date_optional_time||epoch_millis.
+    /// <see cref="DateFormat" />
+    /// </summary>
+    [DataMember(Name = "format")]
+    string Format { get; set; }
+}
 
-	/// <inheritdoc cref="IDateRangeProperty" />
-	public class DateRangeProperty : RangePropertyBase, IDateRangeProperty
-	{
-		public DateRangeProperty() : base(RangeType.DateRange) { }
+/// <inheritdoc cref="IDateRangeProperty" />
+public class DateRangeProperty : RangePropertyBase, IDateRangeProperty
+{
+    public DateRangeProperty() : base(RangeType.DateRange) { }
 
-		/// <inheritdoc />
-		public string Format { get; set; }
-	}
+    /// <inheritdoc />
+    public string Format { get; set; }
+}
 
-	/// <inheritdoc cref="IDateRangeProperty" />
-	public class DateRangePropertyDescriptor<T>
-		: RangePropertyDescriptorBase<DateRangePropertyDescriptor<T>, IDateRangeProperty, T>, IDateRangeProperty
-		where T : class
-	{
-		public DateRangePropertyDescriptor() : base(RangeType.DateRange) { }
+/// <inheritdoc cref="IDateRangeProperty" />
+public class DateRangePropertyDescriptor<T>
+    : RangePropertyDescriptorBase<DateRangePropertyDescriptor<T>, IDateRangeProperty, T>, IDateRangeProperty
+    where T : class
+{
+    public DateRangePropertyDescriptor() : base(RangeType.DateRange) { }
 
-		string IDateRangeProperty.Format { get; set; }
+    string IDateRangeProperty.Format { get; set; }
 
-		/// <inheritdoc />
-		public DateRangePropertyDescriptor<T> Format(string format) => Assign(format, (a, v) => a.Format = v);
-	}
+    /// <inheritdoc />
+    public DateRangePropertyDescriptor<T> Format(string format) => Assign(format, (a, v) => a.Format = v);
 }

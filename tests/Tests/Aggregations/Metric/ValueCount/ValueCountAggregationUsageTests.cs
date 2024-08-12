@@ -35,37 +35,36 @@ using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static OpenSearch.Client.Infer;
 
-namespace Tests.Aggregations.Metric.ValueCount
+namespace Tests.Aggregations.Metric.ValueCount;
+
+public class ValueCountAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
 {
-	public class ValueCountAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
-	{
-		public ValueCountAggregationUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+    public ValueCountAggregationUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
 
-		protected override object AggregationJson => new
-		{
-			commit_count = new
-			{
-				value_count = new
-				{
-					field = "numberOfCommits"
-				}
-			}
-		};
+    protected override object AggregationJson => new
+    {
+        commit_count = new
+        {
+            value_count = new
+            {
+                field = "numberOfCommits"
+            }
+        }
+    };
 
-		protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
-			.ValueCount("commit_count", c => c
-				.Field(p => p.NumberOfCommits)
-			);
+    protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
+        .ValueCount("commit_count", c => c
+            .Field(p => p.NumberOfCommits)
+        );
 
-		protected override AggregationDictionary InitializerAggs =>
-			new ValueCountAggregation("commit_count", Field<Project>(p => p.NumberOfCommits));
+    protected override AggregationDictionary InitializerAggs =>
+        new ValueCountAggregation("commit_count", Field<Project>(p => p.NumberOfCommits));
 
-		protected override void ExpectResponse(ISearchResponse<Project> response)
-		{
-			response.ShouldBeValid();
-			var commitCount = response.Aggregations.ValueCount("commit_count");
-			commitCount.Should().NotBeNull();
-			commitCount.Value.Should().BeGreaterThan(0);
-		}
-	}
+    protected override void ExpectResponse(ISearchResponse<Project> response)
+    {
+        response.ShouldBeValid();
+        var commitCount = response.Aggregations.ValueCount("commit_count");
+        commitCount.Should().NotBeNull();
+        commitCount.Value.Should().BeGreaterThan(0);
+    }
 }

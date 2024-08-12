@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	[MapsApi("cat.thread_pool.json")]
-	public partial interface ICatThreadPoolRequest { }
+namespace OpenSearch.Client;
 
-	public partial class CatThreadPoolRequest { }
+[MapsApi("cat.thread_pool.json")]
+public partial interface ICatThreadPoolRequest { }
 
-	public partial class CatThreadPoolDescriptor { }
-}
+public partial class CatThreadPoolRequest { }
+
+public partial class CatThreadPoolDescriptor { }

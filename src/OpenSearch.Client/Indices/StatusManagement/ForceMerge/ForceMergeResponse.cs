@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	public class ForceMergeResponse : ShardsOperationResponseBase { }
-}
+namespace OpenSearch.Client;
+
+public class ForceMergeResponse : ShardsOperationResponseBase { }

@@ -28,117 +28,116 @@
 
 using System;
 using System.Collections.Generic;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Indices.IndexSettings.IndexTemplates.PutIndexTemplate
+namespace Tests.Indices.IndexSettings.IndexTemplates.PutIndexTemplate;
+
+using OpenSearch.Client;
+
+public class PutIndexTemplateApiTests
+    : ApiIntegrationTestBase<WritableCluster, PutIndexTemplateResponse, IPutIndexTemplateRequest, PutIndexTemplateDescriptor,
+        PutIndexTemplateRequest>
 {
-	using OpenSearch.Client;
+    public PutIndexTemplateApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-	public class PutIndexTemplateApiTests
-		: ApiIntegrationTestBase<WritableCluster, PutIndexTemplateResponse, IPutIndexTemplateRequest, PutIndexTemplateDescriptor,
-			PutIndexTemplateRequest>
-	{
-		public PutIndexTemplateApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    protected override bool ExpectIsValid => true;
 
-		protected override bool ExpectIsValid => true;
+    protected override object ExpectJson { get; } = new
+    {
+        order = 1,
+        version = 2,
+        index_patterns = new[] { "oscx-*" },
+        settings = new Dictionary<string, object> { { "index.number_of_shards", 1 } },
+        mappings = new
+        {
+            dynamic_templates = new object[]
+            {
+                new
+                {
+                    @base = new
+                    {
+                        match = "*",
+                        match_mapping_type = "*",
+                        mapping = new
+                        {
+                            index = false
+                        }
+                    }
+                }
+            }
+        }
+    };
 
-		protected override object ExpectJson { get; } = new
-		{
-			order = 1,
-			version = 2,
-			index_patterns = new[] { "oscx-*" },
-			settings = new Dictionary<string, object> { { "index.number_of_shards", 1 } },
-			mappings = new
-			{
-				dynamic_templates = new object[]
-				{
-					new
-					{
-						@base = new
-						{
-							match = "*",
-							match_mapping_type = "*",
-							mapping = new
-							{
-								index = false
-							}
-						}
-					}
-				}
-			}
-		};
+    protected override int ExpectStatusCode => 200;
 
-		protected override int ExpectStatusCode => 200;
+    protected override Func<PutIndexTemplateDescriptor, IPutIndexTemplateRequest> Fluent => d => d
+        .Order(1)
+        .Version(2)
+        .IndexPatterns("oscx-*")
+        .Create(false)
+        .Settings(p => p.NumberOfShards(1))
+        .Map(tm => tm
+            .DynamicTemplates(t => t
+                .DynamicTemplate("base", dt => dt
+                    .Match("*")
+                    .MatchMappingType("*")
+                    .Mapping(mm => mm
+                        .Generic(g => g
+                            .Index(false)
+                        )
+                    )
+                )
+        )
+    );
 
-		protected override Func<PutIndexTemplateDescriptor, IPutIndexTemplateRequest> Fluent => d => d
-			.Order(1)
-			.Version(2)
-			.IndexPatterns("oscx-*")
-			.Create(false)
-			.Settings(p => p.NumberOfShards(1))
-			.Map(tm => tm
-				.DynamicTemplates(t => t
-					.DynamicTemplate("base", dt => dt
-						.Match("*")
-						.MatchMappingType("*")
-						.Mapping(mm => mm
-							.Generic(g => g
-								.Index(false)
-							)
-						)
-					)
-			)
-		);
-
-		protected override HttpMethod HttpMethod => HttpMethod.PUT;
+    protected override HttpMethod HttpMethod => HttpMethod.PUT;
 
 
-		protected override PutIndexTemplateRequest Initializer => new(CallIsolatedValue)
-		{
-			Order = 1,
-			Version = 2,
-			IndexPatterns = new[] { "oscx-*" },
-			Create = false,
-			Settings = new IndexSettings
-			{
-				NumberOfShards = 1
-			},
-			Mappings = new TypeMapping
-			{
-				DynamicTemplates = new DynamicTemplateContainer
-				{
-					{ "base", new DynamicTemplate
-					{
-						Match = "*",
-						MatchMappingType = "*",
-						Mapping = new GenericProperty { Index = false }
-					} }
-				}
-			}
-		};
+    protected override PutIndexTemplateRequest Initializer => new(CallIsolatedValue)
+    {
+        Order = 1,
+        Version = 2,
+        IndexPatterns = new[] { "oscx-*" },
+        Create = false,
+        Settings = new IndexSettings
+        {
+            NumberOfShards = 1
+        },
+        Mappings = new TypeMapping
+        {
+            DynamicTemplates = new DynamicTemplateContainer
+            {
+                { "base", new DynamicTemplate
+                {
+                    Match = "*",
+                    MatchMappingType = "*",
+                    Mapping = new GenericProperty { Index = false }
+                } }
+            }
+        }
+    };
 
-		protected override bool SupportsDeserialization => false;
-		protected override string UrlPath => $"/_template/{CallIsolatedValue}?create=false";
+    protected override bool SupportsDeserialization => false;
+    protected override string UrlPath => $"/_template/{CallIsolatedValue}?create=false";
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Indices.PutTemplate(CallIsolatedValue, f),
-			(client, f) => client.Indices.PutTemplateAsync(CallIsolatedValue, f),
-			(client, r) => client.Indices.PutTemplate(r),
-			(client, r) => client.Indices.PutTemplateAsync(r)
-		);
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Indices.PutTemplate(CallIsolatedValue, f),
+        (client, f) => client.Indices.PutTemplateAsync(CallIsolatedValue, f),
+        (client, r) => client.Indices.PutTemplate(r),
+        (client, r) => client.Indices.PutTemplateAsync(r)
+    );
 
-		protected override PutIndexTemplateDescriptor NewDescriptor() => new(CallIsolatedValue);
+    protected override PutIndexTemplateDescriptor NewDescriptor() => new(CallIsolatedValue);
 
-		protected override void ExpectResponse(PutIndexTemplateResponse response)
-		{
-			response.ShouldBeValid();
-			response.Acknowledged.Should().BeTrue();
-		}
-	}
+    protected override void ExpectResponse(PutIndexTemplateResponse response)
+    {
+        response.ShouldBeValid();
+        response.Acknowledged.Should().BeTrue();
+    }
 }

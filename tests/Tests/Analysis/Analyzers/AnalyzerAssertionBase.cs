@@ -28,32 +28,31 @@
 
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Analysis.Analyzers
+namespace Tests.Analysis.Analyzers;
+
+public interface IAnalyzerAssertion : IAnalysisAssertion<IAnalyzer, IAnalyzers, AnalyzersDescriptor> { }
+
+public abstract class AnalyzerAssertionBase<TAssertion>
+    : AnalysisComponentTestBase<TAssertion, IAnalyzer, IAnalyzers, AnalyzersDescriptor>
+        , IAnalyzerAssertion
+    where TAssertion : AnalyzerAssertionBase<TAssertion>, new()
 {
-	public interface IAnalyzerAssertion : IAnalysisAssertion<IAnalyzer, IAnalyzers, AnalyzersDescriptor> { }
+    protected override object AnalysisJson => new
+    {
+        analyzer = new Dictionary<string, object> { { AssertionSetup.Name, AssertionSetup.Json } }
+    };
 
-	public abstract class AnalyzerAssertionBase<TAssertion>
-		: AnalysisComponentTestBase<TAssertion, IAnalyzer, IAnalyzers, AnalyzersDescriptor>
-			, IAnalyzerAssertion
-		where TAssertion : AnalyzerAssertionBase<TAssertion>, new()
-	{
-		protected override object AnalysisJson => new
-		{
-			analyzer = new Dictionary<string, object> { { AssertionSetup.Name, AssertionSetup.Json } }
-		};
+    protected override IAnalysis FluentAnalysis(AnalysisDescriptor an) =>
+        an.Analyzers(d => AssertionSetup.Fluent(AssertionSetup.Name, d));
 
-		protected override IAnalysis FluentAnalysis(AnalysisDescriptor an) =>
-			an.Analyzers(d => AssertionSetup.Fluent(AssertionSetup.Name, d));
+    protected override OpenSearch.Client.Analysis InitializerAnalysis() =>
+        new OpenSearch.Client.Analysis { Analyzers = new OpenSearch.Client.Analyzers { { AssertionSetup.Name, AssertionSetup.Initializer } } };
 
-		protected override OpenSearch.Client.Analysis InitializerAnalysis() =>
-			new OpenSearch.Client.Analysis { Analyzers = new OpenSearch.Client.Analyzers { { AssertionSetup.Name, AssertionSetup.Initializer } } };
+    // https://youtrack.jetbrains.com/issue/RIDER-19912
+    [U] public override Task TestPutSettingsRequest() => base.TestPutSettingsRequest();
 
-		// https://youtrack.jetbrains.com/issue/RIDER-19912
-		[U] public override Task TestPutSettingsRequest() => base.TestPutSettingsRequest();
-
-		[I] public override Task TestPutSettingsResponse() => base.TestPutSettingsResponse();
-	}
+    [I] public override Task TestPutSettingsResponse() => base.TestPutSettingsResponse();
 }

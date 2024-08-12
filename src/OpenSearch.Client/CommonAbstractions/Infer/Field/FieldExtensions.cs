@@ -28,13 +28,12 @@
 
 using System.Linq;
 
-namespace OpenSearch.Client
-{
-	internal static class FieldExtensions
-	{
-		internal static bool IsConditionless(this Field field) =>
-			field == null || field.Name.IsNullOrEmpty() && field.Expression == null && field.Property == null;
+namespace OpenSearch.Client;
 
-		internal static bool IsConditionless(this Fields field) => field?.ListOfFields == null || field.ListOfFields.All(l => l.IsConditionless());
-	}
+internal static class FieldExtensions
+{
+    internal static bool IsConditionless(this Field field) =>
+        field == null || field.Name.IsNullOrEmpty() && field.Expression == null && field.Property == null;
+
+    internal static bool IsConditionless(this Fields field) => field?.ListOfFields == null || field.ListOfFields.All(l => l.IsConditionless());
 }

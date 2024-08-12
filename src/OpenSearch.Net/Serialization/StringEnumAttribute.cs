@@ -28,8 +28,7 @@
 
 using System;
 
-namespace OpenSearch.Net
-{
-	[AttributeUsage(AttributeTargets.Property | AttributeTargets.Enum)]
-	public class StringEnumAttribute : Attribute { }
-}
+namespace OpenSearch.Net;
+
+[AttributeUsage(AttributeTargets.Property | AttributeTargets.Enum)]
+public class StringEnumAttribute : Attribute { }

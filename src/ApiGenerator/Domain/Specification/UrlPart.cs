@@ -28,130 +28,129 @@
 
 using System.Collections.Generic;
 
-namespace ApiGenerator.Domain.Specification
+namespace ApiGenerator.Domain.Specification;
+
+public class UrlPart
 {
-    public class UrlPart
+    private string _description;
+
+    public string Argument => $"{LowLevelTypeName} {NameAsArgument}";
+
+    public string LowLevelTypeName
     {
-        private string _description;
-
-        public string Argument => $"{LowLevelTypeName} {NameAsArgument}";
-
-        public string LowLevelTypeName
+        get
         {
-            get
+            //TODO treat list with fixed options as Flags Enum
+            switch (Type)
             {
-                //TODO treat list with fixed options as Flags Enum
-                switch (Type)
-                {
-                    case "int": //does not occur on part
-                    case "number": //does not occur on part
-                    case "string":
-                        return Type;
-                    case "list":
-                        return "string";
-                    case "enum":
-                        return Name.ToPascalCase();
-                    default:
-                        return Type;
-                }
+                case "int": //does not occur on part
+                case "number": //does not occur on part
+                case "string":
+                    return Type;
+                case "list":
+                    return "string";
+                case "enum":
+                    return Name.ToPascalCase();
+                default:
+                    return Type;
             }
         }
+    }
 
-        public string HighLevelTypeName
+    public string HighLevelTypeName
+    {
+        get
         {
-            get
+            if (ClrTypeNameOverride != null) return ClrTypeNameOverride;
+
+            switch (Name)
             {
-                if (ClrTypeNameOverride != null) return ClrTypeNameOverride;
+                case "category_id": return "LongId";
+                case "timestamp": return "Timestamp";
+                case "index_metric": return "IndexMetrics";
+                case "metric": return "Metrics";
 
-                switch (Name)
-                {
-                    case "category_id": return "LongId";
-                    case "timestamp": return "Timestamp";
-                    case "index_metric": return "IndexMetrics";
-                    case "metric": return "Metrics";
+                case "node_id" when Type == "list":
+                    return "NodeIds";
 
-                    case "node_id" when Type == "list":
-                        return "NodeIds";
+                case "fields" when Type == "list":
+                    return "Fields";
 
-                    case "fields" when Type == "list":
-                        return "Fields";
+                case "parent_task_id":
+                case "task_id":
+                    return "TaskId";
 
-                    case "parent_task_id":
-                    case "task_id":
-                        return "TaskId";
+                case "forecast_id":
+                case "action_id":
+                case "ids" when Type == "list":
+                    return "Ids";
 
-                    case "forecast_id":
-                    case "action_id":
-                    case "ids" when Type == "list":
-                        return "Ids";
+                case "index":
+                case "new_index":
+                case "target":
+                    return Type == "string" ? "IndexName" : "Indices";
 
-                    case "index":
-                    case "new_index":
-                    case "target":
-                        return Type == "string" ? "IndexName" : "Indices";
+                case "job_id":
+                case "calendar_id":
+                case "event_id":
+                case "snapshot_id":
+                case "filter_id":
+                case "model_id":
+                case "id":
+                    return "Id";
 
-                    case "job_id":
-                    case "calendar_id":
-                    case "event_id":
-                    case "snapshot_id":
-                    case "filter_id":
-                    case "model_id":
-                    case "id":
-                        return "Id";
+                case "policy_id":
+                    return Type == "string" ? "Id" : "Ids";
 
-                    case "policy_id":
-                        return Type == "string" ? "Id" : "Ids";
+                case "application":
+                case "repository":
+                case "snapshot":
+                case "target_snapshot":
+                case "user":
+                case "username":
+                case "realms":
+                case "alias":
+                case "context":
+                case "name":
+                case "thread_pool_patterns":
+                case "type":
+                    return Type == "string" ? "Name" : "Names";
 
-                    case "application":
-                    case "repository":
-                    case "snapshot":
-                    case "target_snapshot":
-                    case "user":
-                    case "username":
-                    case "realms":
-                    case "alias":
-                    case "context":
-                    case "name":
-                    case "thread_pool_patterns":
-                    case "type":
-                        return Type == "string" ? "Name" : "Names";
+                case "block":
+                    return "IndexBlock";
 
-                    case "block":
-                        return "IndexBlock";
+                case "index_uuid":
+                    return "IndexUuid";
 
-                    case "index_uuid":
-                        return "IndexUuid";
-
-                    //This forces a compilation error post code generation as intended
-                    default: return Type + "_";
-                }
+                //This forces a compilation error post code generation as intended
+                default: return Type + "_";
             }
         }
+    }
 
-        public string ClrTypeNameOverride { get; set; }
+    public string ClrTypeNameOverride { get; set; }
 
-        public string Description
+    public string Description
+    {
+        get => _description;
+        set => _description = CleanUpDescription(value);
+    }
+
+    public string InterfaceName =>
+        Name switch
         {
-            get => _description;
-            set => _description = CleanUpDescription(value);
-        }
+            "repository" => "RepositoryName",
+            _ => Name.ToPascalCase()
+        };
 
-        public string InterfaceName =>
-			Name switch
-			{
-				"repository" => "RepositoryName",
-				_ => Name.ToPascalCase()
-			};
+    public string Name { get; set; }
+    public string NameAsArgument => Name.ToCamelCase();
+    public bool Required { get; set; }
+    public bool Deprecated { get; set; }
+    public string Type { get; set; }
 
-		public string Name { get; set; }
-        public string NameAsArgument => Name.ToCamelCase();
-        public bool Required { get; set; }
-        public bool Deprecated { get; set; }
-        public string Type { get; set; }
-
-        private static string CleanUpDescription(string value) =>
-			string.IsNullOrWhiteSpace(value)
-				? value
-				: value.Replace("use `_all` or empty string", "use the special string `_all` or Indices.All");
-	}
+    private static string CleanUpDescription(string value) =>
+        string.IsNullOrWhiteSpace(value)
+            ? value
+            : value.Replace("use `_all` or empty string", "use the special string `_all` or Indices.All");
 }

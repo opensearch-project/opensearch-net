@@ -28,15 +28,14 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
-{
-	[DataContract]
-	public class DocStats
-	{
-		[DataMember(Name ="count")]
-		public long Count { get; set; }
+namespace OpenSearch.Client;
 
-		[DataMember(Name ="deleted")]
-		public long Deleted { get; set; }
-	}
+[DataContract]
+public class DocStats
+{
+    [DataMember(Name = "count")]
+    public long Count { get; set; }
+
+    [DataMember(Name = "deleted")]
+    public long Deleted { get; set; }
 }

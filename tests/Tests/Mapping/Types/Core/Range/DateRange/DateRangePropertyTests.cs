@@ -27,71 +27,70 @@
 */
 
 using System;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Mapping.Types.Core.Range.DateRange
+namespace Tests.Mapping.Types.Core.Range.DateRange;
+
+public class DateRangePropertyTests : PropertyTestsBase
 {
-	public class DateRangePropertyTests : PropertyTestsBase
-	{
-		public DateRangePropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public DateRangePropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override object ExpectJson => new
-		{
-			properties = new
-			{
-				ranges = new
-				{
-					type = "object",
-					properties = new
-					{
-						dates = new
-						{
-							type = "date_range",
-							store = true,
-							index = false,
-							coerce = true
-						}
-					}
-				}
-			}
-		};
+    protected override object ExpectJson => new
+    {
+        properties = new
+        {
+            ranges = new
+            {
+                type = "object",
+                properties = new
+                {
+                    dates = new
+                    {
+                        type = "date_range",
+                        store = true,
+                        index = false,
+                        coerce = true
+                    }
+                }
+            }
+        }
+    };
 
-		protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
-			.Object<Ranges>(m => m
-				.Name(p => p.Ranges)
-				.Properties(props => props
-					.DateRange(n => n
-						.Name(p => p.Dates)
-						.Store()
-						.Index(false)
-						.Coerce()
-					)
-				)
-			);
+    protected override Func<PropertiesDescriptor<Project>, IPromise<IProperties>> FluentProperties => f => f
+        .Object<Ranges>(m => m
+            .Name(p => p.Ranges)
+            .Properties(props => props
+                .DateRange(n => n
+                    .Name(p => p.Dates)
+                    .Store()
+                    .Index(false)
+                    .Coerce()
+                )
+            )
+        );
 
 
-		protected override IProperties InitializerProperties => new Properties
-		{
-			{
-				"ranges", new ObjectProperty
-				{
-					Properties = new Properties
-					{
-						{
-							"dates", new DateRangeProperty
-							{
-								Store = true,
-								Index = false,
-								Coerce = true
-							}
-						}
-					}
-				}
-			}
-		};
-	}
+    protected override IProperties InitializerProperties => new Properties
+    {
+        {
+            "ranges", new ObjectProperty
+            {
+                Properties = new Properties
+                {
+                    {
+                        "dates", new DateRangeProperty
+                        {
+                            Store = true,
+                            Index = false,
+                            Coerce = true
+                        }
+                    }
+                }
+            }
+        }
+    };
 }

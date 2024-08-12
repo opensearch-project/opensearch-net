@@ -32,24 +32,23 @@ using Tests.Configuration;
 using Tests.Core.Client.Settings;
 using Tests.Domain.Extensions;
 
-namespace Tests.Core.Client
+namespace Tests.Core.Client;
+
+public static class TestClient
 {
-	public static class TestClient
-	{
-		public static readonly TestConfigurationBase Configuration = TestConfiguration.Instance;
-		public static readonly IOpenSearchClient Default = new OpenSearchClient(new TestConnectionSettings().ApplyDomainSettings());
-		public static readonly IOpenSearchClient DefaultInMemoryClient = new OpenSearchClient(new AlwaysInMemoryConnectionSettings().ApplyDomainSettings());
-		public static IOpenSearchClient FixedInMemoryClient(byte[] response) => new OpenSearchClient(
-			new AlwaysInMemoryConnectionSettings(response)
-				.ApplyDomainSettings()
-				.DisableDirectStreaming()
-				.EnableHttpCompression(false)
-			);
+    public static readonly TestConfigurationBase Configuration = TestConfiguration.Instance;
+    public static readonly IOpenSearchClient Default = new OpenSearchClient(new TestConnectionSettings().ApplyDomainSettings());
+    public static readonly IOpenSearchClient DefaultInMemoryClient = new OpenSearchClient(new AlwaysInMemoryConnectionSettings().ApplyDomainSettings());
+    public static IOpenSearchClient FixedInMemoryClient(byte[] response) => new OpenSearchClient(
+        new AlwaysInMemoryConnectionSettings(response)
+            .ApplyDomainSettings()
+            .DisableDirectStreaming()
+            .EnableHttpCompression(false)
+        );
 
-		public static readonly IOpenSearchClient DisabledStreaming =
-			new OpenSearchClient(new TestConnectionSettings().ApplyDomainSettings().DisableDirectStreaming());
+    public static readonly IOpenSearchClient DisabledStreaming =
+        new OpenSearchClient(new TestConnectionSettings().ApplyDomainSettings().DisableDirectStreaming());
 
-		public static readonly IOpenSearchClient InMemoryWithJsonNetSerializer = new OpenSearchClient(
-			new AlwaysInMemoryConnectionSettings(sourceSerializerFactory: JsonNetSerializer.Default).ApplyDomainSettings());
-	}
+    public static readonly IOpenSearchClient InMemoryWithJsonNetSerializer = new OpenSearchClient(
+        new AlwaysInMemoryConnectionSettings(sourceSerializerFactory: JsonNetSerializer.Default).ApplyDomainSettings());
 }

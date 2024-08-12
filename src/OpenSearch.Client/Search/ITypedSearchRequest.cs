@@ -29,12 +29,11 @@
 using System;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary> Signals the type to deserialize hits into </summary>
+[InterfaceDataContract]
+public interface ITypedSearchRequest
 {
-	/// <summary> Signals the type to deserialize hits into </summary>
-	[InterfaceDataContract]
-	public interface ITypedSearchRequest
-	{
-		Type ClrType { get; }
-	}
+    Type ClrType { get; }
 }

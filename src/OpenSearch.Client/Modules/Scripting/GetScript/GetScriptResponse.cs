@@ -28,12 +28,11 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+public class GetScriptResponse : ResponseBase
 {
-	[DataContract]
-	public class GetScriptResponse : ResponseBase
-	{
-		[DataMember(Name ="script")]
-		public IStoredScript Script { get; set; }
-	}
+    [DataMember(Name = "script")]
+    public IStoredScript Script { get; set; }
 }

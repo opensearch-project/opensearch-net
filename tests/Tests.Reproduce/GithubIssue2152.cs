@@ -29,20 +29,20 @@
 using System;
 using System.Linq;
 using System.Text;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Extensions;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GithubIssue2152
 {
-	public class GithubIssue2152
-	{
-		[U]
-		public void CanDeserializeNestedBulkError()
-		{
-			var nestedCausedByError = @"{
+    [U]
+    public void CanDeserializeNestedBulkError()
+    {
+        var nestedCausedByError = @"{
 			   ""took"": 4,
 			   ""errors"": true,
 			   ""items"": [{
@@ -71,28 +71,28 @@ namespace Tests.Reproduce
 				}]
 			}";
 
-			var bytes = Encoding.UTF8.GetBytes(nestedCausedByError);
-			var connection = new InMemoryConnection(bytes);
-			var settings = new ConnectionSettings(new SingleNodeConnectionPool(new Uri("http://localhost:9200")), connection);
-			var client = new OpenSearchClient(settings);
+        var bytes = Encoding.UTF8.GetBytes(nestedCausedByError);
+        var connection = new InMemoryConnection(bytes);
+        var settings = new ConnectionSettings(new SingleNodeConnectionPool(new Uri("http://localhost:9200")), connection);
+        var client = new OpenSearchClient(settings);
 
-			var bulkResponse = client.Bulk(new BulkDescriptor());
+        var bulkResponse = client.Bulk(new BulkDescriptor());
 
-			bulkResponse.Errors.Should().BeTrue();
+        bulkResponse.Errors.Should().BeTrue();
 
-			var firstOperation = bulkResponse.ItemsWithErrors.First();
-			firstOperation.Status.Should().Be(400);
+        var firstOperation = bulkResponse.ItemsWithErrors.First();
+        firstOperation.Status.Should().Be(400);
 
-			ShouldDeserialize(firstOperation.Error);
-			ShouldDeserialize(firstOperation.Error.CausedBy);
-			ShouldDeserialize(firstOperation.Error.CausedBy.CausedBy, true);
-			ShouldDeserialize(firstOperation.Error.CausedBy.CausedBy.CausedBy);
-		}
+        ShouldDeserialize(firstOperation.Error);
+        ShouldDeserialize(firstOperation.Error.CausedBy);
+        ShouldDeserialize(firstOperation.Error.CausedBy.CausedBy, true);
+        ShouldDeserialize(firstOperation.Error.CausedBy.CausedBy.CausedBy);
+    }
 
-		[U]
-		public void CanDeserializeNestedError()
-		{
-			var nestedCausedByError = @"{
+    [U]
+    public void CanDeserializeNestedError()
+    {
+        var nestedCausedByError = @"{
 				""status"": 400,
 				""error"": {
 					""type"": ""illegal_argument_exception"",
@@ -112,31 +112,30 @@ namespace Tests.Reproduce
 				}
 			}";
 
-			var bytes = Encoding.UTF8.GetBytes(nestedCausedByError);
-			var connection = new InMemoryConnection(bytes, 400);
-			var settings = new ConnectionSettings(new SingleNodeConnectionPool(new Uri("http://localhost:9200")), connection);
-			var client = new OpenSearchClient(settings);
+        var bytes = Encoding.UTF8.GetBytes(nestedCausedByError);
+        var connection = new InMemoryConnection(bytes, 400);
+        var settings = new ConnectionSettings(new SingleNodeConnectionPool(new Uri("http://localhost:9200")), connection);
+        var client = new OpenSearchClient(settings);
 
-			var searchResponse = client.Search<object>(s => s.Index("index"));
+        var searchResponse = client.Search<object>(s => s.Index("index"));
 
-			searchResponse.ShouldNotBeValid();
-			var se = searchResponse.ServerError;
-			se.Status.Should().Be(400);
-			se.Should().NotBeNull();
-			ShouldDeserialize(se.Error);
-			ShouldDeserialize(se.Error.CausedBy);
-			ShouldDeserialize(se.Error.CausedBy.CausedBy, true);
-			ShouldDeserialize(se.Error.CausedBy.CausedBy.CausedBy);
-		}
+        searchResponse.ShouldNotBeValid();
+        var se = searchResponse.ServerError;
+        se.Status.Should().Be(400);
+        se.Should().NotBeNull();
+        ShouldDeserialize(se.Error);
+        ShouldDeserialize(se.Error.CausedBy);
+        ShouldDeserialize(se.Error.CausedBy.CausedBy, true);
+        ShouldDeserialize(se.Error.CausedBy.CausedBy.CausedBy);
+    }
 
-		private static void ShouldDeserialize(ErrorCause error, bool nullReason = false)
-		{
-			error.Should().NotBeNull();
-			error.Type.Should().NotBeNullOrEmpty();
-			if (nullReason)
-				error.Reason.Should().BeNull();
-			else
-				error.Reason.Should().NotBeNullOrEmpty();
-		}
-	}
+    private static void ShouldDeserialize(ErrorCause error, bool nullReason = false)
+    {
+        error.Should().NotBeNull();
+        error.Type.Should().NotBeNullOrEmpty();
+        if (nullReason)
+            error.Reason.Should().BeNull();
+        else
+            error.Reason.Should().NotBeNullOrEmpty();
+    }
 }

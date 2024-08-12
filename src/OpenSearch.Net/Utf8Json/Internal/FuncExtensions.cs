@@ -53,20 +53,19 @@
 using System;
 // ReSharper disable All
 
-namespace OpenSearch.Net.Utf8Json.Internal
+namespace OpenSearch.Net.Utf8Json.Internal;
+
+// Unity compiler can't understand this.
+
+internal static class FuncExtensions
 {
-	// Unity compiler can't understand this.
+    // hack of avoid closure allocation(() => value).
+    public static Func<T> AsFunc<T>(this T value) => new Func<T>(value.ReturnBox<T>);
 
-	internal static class FuncExtensions
-	{
-		// hack of avoid closure allocation(() => value).
-		public static Func<T> AsFunc<T>(this T value) => new Func<T>(value.ReturnBox<T>);
+    public static Func<T> AsFuncFast<T>(this T value) where T : class => new Func<T>(value.Return<T>);
 
-		public static Func<T> AsFuncFast<T>(this T value) where T : class => new Func<T>(value.Return<T>);
+    private static T Return<T>(this T value) => value;
 
-		static T Return<T>(this T value) => value;
-
-		static T ReturnBox<T>(this object value) => (T)value;
-	}
+    private static T ReturnBox<T>(this object value) => (T)value;
 }
 

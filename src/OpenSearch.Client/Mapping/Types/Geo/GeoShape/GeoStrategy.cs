@@ -30,21 +30,20 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 
 
-namespace OpenSearch.Client
-{
-	[StringEnum]
-	public enum GeoStrategy
-	{
-		/// <summary>
-		/// supports all shape types
-		/// </summary>
-		[EnumMember(Value = "recursive")]
-		Recursive,
+namespace OpenSearch.Client;
 
-		/// <summary>
-		/// supports point types only
-		/// </summary>
-		[EnumMember(Value = "term")]
-		Term
-	}
+[StringEnum]
+public enum GeoStrategy
+{
+    /// <summary>
+    /// supports all shape types
+    /// </summary>
+    [EnumMember(Value = "recursive")]
+    Recursive,
+
+    /// <summary>
+    /// supports point types only
+    /// </summary>
+    [EnumMember(Value = "term")]
+    Term
 }

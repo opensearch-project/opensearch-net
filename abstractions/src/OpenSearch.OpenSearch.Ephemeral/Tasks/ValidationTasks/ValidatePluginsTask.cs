@@ -32,37 +32,36 @@ using OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks;
 using OpenSearch.OpenSearch.Managed.ConsoleWriters;
 using OpenSearch.Stack.ArtifactsApi;
 
-namespace OpenSearch.OpenSearch.Ephemeral.Tasks.ValidationTasks
+namespace OpenSearch.OpenSearch.Ephemeral.Tasks.ValidationTasks;
+
+public class ValidatePluginsTask : ClusterComposeTask
 {
-	public class ValidatePluginsTask : ClusterComposeTask
-	{
-		public override void Run(IEphemeralCluster<EphemeralClusterConfiguration> cluster)
-		{
-			var v = cluster.ClusterConfiguration.Version;
-			var requestPlugins = cluster.ClusterConfiguration.Plugins
-				.Where(p => p.IsValid(v))
-				.Where(p => !p.IsIncludedOutOfTheBox(v))
-				.Select(p => p.GetExistsMoniker(v))
-				.ToList();
-			if (!requestPlugins.Any()) return;
+    public override void Run(IEphemeralCluster<EphemeralClusterConfiguration> cluster)
+    {
+        var v = cluster.ClusterConfiguration.Version;
+        var requestPlugins = cluster.ClusterConfiguration.Plugins
+            .Where(p => p.IsValid(v))
+            .Where(p => !p.IsIncludedOutOfTheBox(v))
+            .Select(p => p.GetExistsMoniker(v))
+            .ToList();
+        if (!requestPlugins.Any()) return;
 
-			cluster.Writer.WriteDiagnostic(
-				$"{{{nameof(ValidatePluginsTask)}}} validating the cluster is running the requested plugins");
-			var catPlugins = Get(cluster, "_cat/plugins", "h=component");
-			if (catPlugins == null || !catPlugins.IsSuccessStatusCode)
-				throw new Exception(
-					$"Calling _cat/plugins did not result in an OK response {GetResponseException(catPlugins)}");
+        cluster.Writer.WriteDiagnostic(
+            $"{{{nameof(ValidatePluginsTask)}}} validating the cluster is running the requested plugins");
+        var catPlugins = Get(cluster, "_cat/plugins", "h=component");
+        if (catPlugins == null || !catPlugins.IsSuccessStatusCode)
+            throw new Exception(
+                $"Calling _cat/plugins did not result in an OK response {GetResponseException(catPlugins)}");
 
-			var installedPlugins = GetResponseString(catPlugins)
-				.Split(new[] {'\n'}, StringSplitOptions.RemoveEmptyEntries).ToList();
+        var installedPlugins = GetResponseString(catPlugins)
+            .Split(new[] { '\n' }, StringSplitOptions.RemoveEmptyEntries).ToList();
 
-			var missingPlugins = requestPlugins.Except(installedPlugins).ToList();
-			if (!missingPlugins.Any()) return;
+        var missingPlugins = requestPlugins.Except(installedPlugins).ToList();
+        if (!missingPlugins.Any()) return;
 
-			var missingString = string.Join(", ", missingPlugins);
-			var pluginsString = string.Join(", ", installedPlugins);
-			throw new Exception(
-				$"Already running opensearch missed the following plugin(s): {missingString} currently installed: {pluginsString}.");
-		}
-	}
+        var missingString = string.Join(", ", missingPlugins);
+        var pluginsString = string.Join(", ", installedPlugins);
+        throw new Exception(
+            $"Already running opensearch missed the following plugin(s): {missingString} currently installed: {pluginsString}.");
+    }
 }

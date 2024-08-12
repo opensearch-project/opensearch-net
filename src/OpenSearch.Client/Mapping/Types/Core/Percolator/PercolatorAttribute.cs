@@ -26,10 +26,9 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class PercolatorAttribute : OpenSearchPropertyAttributeBase, IPercolatorProperty
 {
-	public class PercolatorAttribute : OpenSearchPropertyAttributeBase, IPercolatorProperty
-	{
-		public PercolatorAttribute() : base(FieldType.Percolator) { }
-	}
+    public PercolatorAttribute() : base(FieldType.Percolator) { }
 }

@@ -29,44 +29,43 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ApiGenerator.Domain.Specification
+namespace ApiGenerator.Domain.Specification;
+
+
+// ReSharper disable once ClassNeverInstantiated.Global
+public class UrlInformation
 {
+    public IDictionary<string, QueryParameters> Params { get; set; } = new SortedDictionary<string, QueryParameters>();
 
-    // ReSharper disable once ClassNeverInstantiated.Global
-    public class UrlInformation
+    public IEnumerable<UrlPath> Paths => AllPaths.Where(p => p.Deprecation == null);
+    public IEnumerable<UrlPath> DeprecatedPaths => AllPaths.Where(p => p.Deprecation != null);
+
+    public IList<UrlPath> AllPaths = new List<UrlPath>();
+
+    public IReadOnlyCollection<UrlPart> Parts => Paths
+            .SelectMany(p => p.Parts)
+            .DistinctBy(p => p.Name)
+            .OrderBy(p => p.Name)
+            .ToList();
+
+    public bool IsPartless => !Parts.Any();
+
+    private static readonly string[] DocumentApiParts = { "index", "id" };
+
+    public bool IsDocumentApi => IsADocumentRoute(Parts);
+
+    public static bool IsADocumentRoute(IReadOnlyCollection<UrlPart> parts) =>
+        parts.Count == DocumentApiParts.Length
+        && parts.All(p => DocumentApiParts.Contains(p.Name));
+
+
+    public bool TryGetDocumentApiPath(out UrlPath path)
     {
-        public IDictionary<string, QueryParameters> Params { get; set; } = new SortedDictionary<string, QueryParameters>();
+        path = null;
+        if (!IsDocumentApi) return false;
 
-		public IEnumerable<UrlPath> Paths => AllPaths.Where(p => p.Deprecation == null);
-		public IEnumerable<UrlPath> DeprecatedPaths => AllPaths.Where(p => p.Deprecation != null);
-
-		public IList<UrlPath> AllPaths = new List<UrlPath>();
-
-        public IReadOnlyCollection<UrlPart> Parts => Paths
-				.SelectMany(p => p.Parts)
-				.DistinctBy(p => p.Name)
-				.OrderBy(p => p.Name)
-				.ToList();
-
-        public bool IsPartless => !Parts.Any();
-
-        private static readonly string[] DocumentApiParts = { "index", "id" };
-
-        public bool IsDocumentApi => IsADocumentRoute(Parts);
-
-        public static bool IsADocumentRoute(IReadOnlyCollection<UrlPart> parts) =>
-            parts.Count == DocumentApiParts.Length
-            && parts.All(p => DocumentApiParts.Contains(p.Name));
-
-
-        public bool TryGetDocumentApiPath(out UrlPath path)
-        {
-            path = null;
-            if (!IsDocumentApi) return false;
-
-            var mostVerbosePath = Paths.OrderByDescending(p => p.Parts.Count).First();
-            path = new UrlPath(mostVerbosePath.Path, mostVerbosePath.Parts, mostVerbosePath.Deprecation, mostVerbosePath.VersionAdded, mostVerbosePath.Parts);
-            return true;
-        }
+        var mostVerbosePath = Paths.OrderByDescending(p => p.Parts.Count).First();
+        path = new UrlPath(mostVerbosePath.Path, mostVerbosePath.Parts, mostVerbosePath.Deprecation, mostVerbosePath.VersionAdded, mostVerbosePath.Parts);
+        return true;
     }
 }

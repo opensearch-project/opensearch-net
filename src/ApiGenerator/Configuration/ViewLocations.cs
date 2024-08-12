@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace ApiGenerator.Configuration
-{
-    public static class ViewLocations
-    {
-        public static string HighLevel(params string[] paths) => "HighLevel." + string.Join(".", paths);
+namespace ApiGenerator.Configuration;
 
-        public static string LowLevel(params string[] paths) => "LowLevel." + string.Join(".", paths);
-    }
+public static class ViewLocations
+{
+    public static string HighLevel(params string[] paths) => "HighLevel." + string.Join(".", paths);
+
+    public static string LowLevel(params string[] paths) => "LowLevel." + string.Join(".", paths);
 }

@@ -50,170 +50,169 @@ using System.Linq.Expressions;
 using System.Text;
 
 // ReSharper disable once CheckNamespace
-namespace OpenSearch.Net.Specification.NodesApi
+namespace OpenSearch.Net.Specification.NodesApi;
+
+/// <summary>Request options for HotThreads <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
+public partial class NodesHotThreadsRequestParameters
+    : RequestParameters<NodesHotThreadsRequestParameters>
 {
-    /// <summary>Request options for HotThreads <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
-    public partial class NodesHotThreadsRequestParameters
-        : RequestParameters<NodesHotThreadsRequestParameters>
+    public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+    public override bool SupportsBody => false;
+
+    /// <summary>Don't show threads that are in known-idle places, such as waiting on a socket select or pulling from an empty task queue.</summary>
+    public bool? IgnoreIdleThreads
     {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
-        public override bool SupportsBody => false;
-
-        /// <summary>Don't show threads that are in known-idle places, such as waiting on a socket select or pulling from an empty task queue.</summary>
-        public bool? IgnoreIdleThreads
-        {
-            get => Q<bool?>("ignore_idle_threads");
-            set => Q("ignore_idle_threads", value);
-        }
-
-        /// <summary>The interval for the second sampling of threads.</summary>
-        public TimeSpan Interval
-        {
-            get => Q<TimeSpan>("interval");
-            set => Q("interval", value);
-        }
-
-        /// <summary>Number of samples of thread stacktrace.</summary>
-        public long? Snapshots
-        {
-            get => Q<long?>("snapshots");
-            set => Q("snapshots", value);
-        }
-
-        /// <summary>Specify the number of threads to provide information for.</summary>
-        public long? Threads
-        {
-            get => Q<long?>("threads");
-            set => Q("threads", value);
-        }
-
-        /// <summary>Operation timeout.</summary>
-        public TimeSpan Timeout
-        {
-            get => Q<TimeSpan>("timeout");
-            set => Q("timeout", value);
-        }
-
-        /// <summary>The type to sample.</summary>
-        public NodesSampleType? Type
-        {
-            get => Q<NodesSampleType?>("type");
-            set => Q("type", value);
-        }
+        get => Q<bool?>("ignore_idle_threads");
+        set => Q("ignore_idle_threads", value);
     }
 
-    /// <summary>Request options for Info <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
-    public partial class NodesInfoRequestParameters : RequestParameters<NodesInfoRequestParameters>
+    /// <summary>The interval for the second sampling of threads.</summary>
+    public TimeSpan Interval
     {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
-        public override bool SupportsBody => false;
-
-        /// <summary>If true, returns settings in flat format.</summary>
-        public bool? FlatSettings
-        {
-            get => Q<bool?>("flat_settings");
-            set => Q("flat_settings", value);
-        }
-
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        public TimeSpan Timeout
-        {
-            get => Q<TimeSpan>("timeout");
-            set => Q("timeout", value);
-        }
+        get => Q<TimeSpan>("interval");
+        set => Q("interval", value);
     }
 
-    /// <summary>Request options for ReloadSecureSettings <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
-    public partial class ReloadSecureSettingsRequestParameters
-        : RequestParameters<ReloadSecureSettingsRequestParameters>
+    /// <summary>Number of samples of thread stacktrace.</summary>
+    public long? Snapshots
     {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
-        public override bool SupportsBody => true;
-
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        public TimeSpan Timeout
-        {
-            get => Q<TimeSpan>("timeout");
-            set => Q("timeout", value);
-        }
+        get => Q<long?>("snapshots");
+        set => Q("snapshots", value);
     }
 
-    /// <summary>Request options for Stats <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
-    public partial class NodesStatsRequestParameters
-        : RequestParameters<NodesStatsRequestParameters>
+    /// <summary>Specify the number of threads to provide information for.</summary>
+    public long? Threads
     {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
-        public override bool SupportsBody => false;
-
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata and suggest statistics.</summary>
-        public string[] CompletionFields
-        {
-            get => Q<string[]>("completion_fields");
-            set => Q("completion_fields", value);
-        }
-
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata statistics.</summary>
-        public string[] FielddataFields
-        {
-            get => Q<string[]>("fielddata_fields");
-            set => Q("fielddata_fields", value);
-        }
-
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
-        public string[] Fields
-        {
-            get => Q<string[]>("fields");
-            set => Q("fields", value);
-        }
-
-        /// <summary>Comma-separated list of search groups to include in the search statistics.</summary>
-        public string[] Groups
-        {
-            get => Q<string[]>("groups");
-            set => Q("groups", value);
-        }
-
-        /// <summary>If true, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
-        public bool? IncludeSegmentFileSizes
-        {
-            get => Q<bool?>("include_segment_file_sizes");
-            set => Q("include_segment_file_sizes", value);
-        }
-
-        /// <summary>Indicates whether statistics are aggregated at the cluster, index, or shard level.</summary>
-        public Level? Level
-        {
-            get => Q<Level?>("level");
-            set => Q("level", value);
-        }
-
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        public TimeSpan Timeout
-        {
-            get => Q<TimeSpan>("timeout");
-            set => Q("timeout", value);
-        }
-
-        /// <summary>A comma-separated list of document types for the indexing index metric.</summary>
-        public string[] Types
-        {
-            get => Q<string[]>("types");
-            set => Q("types", value);
-        }
+        get => Q<long?>("threads");
+        set => Q("threads", value);
     }
 
-    /// <summary>Request options for Usage <para>https://opensearch.org/docs/latest</para></summary>
-    public partial class NodesUsageRequestParameters
-        : RequestParameters<NodesUsageRequestParameters>
+    /// <summary>Operation timeout.</summary>
+    public TimeSpan Timeout
     {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
-        public override bool SupportsBody => false;
+        get => Q<TimeSpan>("timeout");
+        set => Q("timeout", value);
+    }
 
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        public TimeSpan Timeout
-        {
-            get => Q<TimeSpan>("timeout");
-            set => Q("timeout", value);
-        }
+    /// <summary>The type to sample.</summary>
+    public NodesSampleType? Type
+    {
+        get => Q<NodesSampleType?>("type");
+        set => Q("type", value);
+    }
+}
+
+/// <summary>Request options for Info <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
+public partial class NodesInfoRequestParameters : RequestParameters<NodesInfoRequestParameters>
+{
+    public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+    public override bool SupportsBody => false;
+
+    /// <summary>If true, returns settings in flat format.</summary>
+    public bool? FlatSettings
+    {
+        get => Q<bool?>("flat_settings");
+        set => Q("flat_settings", value);
+    }
+
+    /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+    public TimeSpan Timeout
+    {
+        get => Q<TimeSpan>("timeout");
+        set => Q("timeout", value);
+    }
+}
+
+/// <summary>Request options for ReloadSecureSettings <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
+public partial class ReloadSecureSettingsRequestParameters
+    : RequestParameters<ReloadSecureSettingsRequestParameters>
+{
+    public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+    public override bool SupportsBody => true;
+
+    /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+    public TimeSpan Timeout
+    {
+        get => Q<TimeSpan>("timeout");
+        set => Q("timeout", value);
+    }
+}
+
+/// <summary>Request options for Stats <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
+public partial class NodesStatsRequestParameters
+    : RequestParameters<NodesStatsRequestParameters>
+{
+    public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+    public override bool SupportsBody => false;
+
+    /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata and suggest statistics.</summary>
+    public string[] CompletionFields
+    {
+        get => Q<string[]>("completion_fields");
+        set => Q("completion_fields", value);
+    }
+
+    /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata statistics.</summary>
+    public string[] FielddataFields
+    {
+        get => Q<string[]>("fielddata_fields");
+        set => Q("fielddata_fields", value);
+    }
+
+    /// <summary>Comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
+    public string[] Fields
+    {
+        get => Q<string[]>("fields");
+        set => Q("fields", value);
+    }
+
+    /// <summary>Comma-separated list of search groups to include in the search statistics.</summary>
+    public string[] Groups
+    {
+        get => Q<string[]>("groups");
+        set => Q("groups", value);
+    }
+
+    /// <summary>If true, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
+    public bool? IncludeSegmentFileSizes
+    {
+        get => Q<bool?>("include_segment_file_sizes");
+        set => Q("include_segment_file_sizes", value);
+    }
+
+    /// <summary>Indicates whether statistics are aggregated at the cluster, index, or shard level.</summary>
+    public Level? Level
+    {
+        get => Q<Level?>("level");
+        set => Q("level", value);
+    }
+
+    /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+    public TimeSpan Timeout
+    {
+        get => Q<TimeSpan>("timeout");
+        set => Q("timeout", value);
+    }
+
+    /// <summary>A comma-separated list of document types for the indexing index metric.</summary>
+    public string[] Types
+    {
+        get => Q<string[]>("types");
+        set => Q("types", value);
+    }
+}
+
+/// <summary>Request options for Usage <para>https://opensearch.org/docs/latest</para></summary>
+public partial class NodesUsageRequestParameters
+    : RequestParameters<NodesUsageRequestParameters>
+{
+    public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+    public override bool SupportsBody => false;
+
+    /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+    public TimeSpan Timeout
+    {
+        get => Q<TimeSpan>("timeout");
+        set => Q("timeout", value);
     }
 }

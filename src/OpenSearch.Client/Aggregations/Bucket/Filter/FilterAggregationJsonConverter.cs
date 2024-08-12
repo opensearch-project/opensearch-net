@@ -28,36 +28,35 @@
 
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal class FilterAggregationFormatter : IJsonFormatter<IFilterAggregation>
 {
-	internal class FilterAggregationFormatter : IJsonFormatter<IFilterAggregation>
-	{
-		public void Serialize(ref JsonWriter writer, IFilterAggregation value, IJsonFormatterResolver formatterResolver)
-		{
-			if (value?.Filter == null || !value.Filter.IsWritable)
-			{
-				writer.WriteBeginObject();
-				writer.WriteEndObject();
-				return;
-			}
+    public void Serialize(ref JsonWriter writer, IFilterAggregation value, IJsonFormatterResolver formatterResolver)
+    {
+        if (value?.Filter == null || !value.Filter.IsWritable)
+        {
+            writer.WriteBeginObject();
+            writer.WriteEndObject();
+            return;
+        }
 
-			var formatter = formatterResolver.GetFormatter<QueryContainer>();
-			formatter.Serialize(ref writer, value.Filter, formatterResolver);
-		}
+        var formatter = formatterResolver.GetFormatter<QueryContainer>();
+        formatter.Serialize(ref writer, value.Filter, formatterResolver);
+    }
 
-		public IFilterAggregation Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			if (reader.GetCurrentJsonToken() != JsonToken.BeginObject)
-				return null;
+    public IFilterAggregation Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+    {
+        if (reader.GetCurrentJsonToken() != JsonToken.BeginObject)
+            return null;
 
-			var formatter = formatterResolver.GetFormatter<QueryContainer>();
-			var container = formatter.Deserialize(ref reader, formatterResolver);
-			var agg = new FilterAggregation
-			{
-				Filter = container
-			};
+        var formatter = formatterResolver.GetFormatter<QueryContainer>();
+        var container = formatter.Deserialize(ref reader, formatterResolver);
+        var agg = new FilterAggregation
+        {
+            Filter = container
+        };
 
-			return agg;
-		}
-	}
+        return agg;
+    }
 }

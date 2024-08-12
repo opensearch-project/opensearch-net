@@ -26,23 +26,22 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// A token filter of type reverse that simply reverses the tokens.
+/// </summary>
+public interface IReverseTokenFilter : ITokenFilter { }
+
+/// <inheritdoc />
+public class ReverseTokenFilter : TokenFilterBase, IReverseTokenFilter
 {
-	/// <summary>
-	/// A token filter of type reverse that simply reverses the tokens.
-	/// </summary>
-	public interface IReverseTokenFilter : ITokenFilter { }
+    public ReverseTokenFilter() : base("reverse") { }
+}
 
-	/// <inheritdoc />
-	public class ReverseTokenFilter : TokenFilterBase, IReverseTokenFilter
-	{
-		public ReverseTokenFilter() : base("reverse") { }
-	}
-
-	/// <inheritdoc />
-	public class ReverseTokenFilterDescriptor
-		: TokenFilterDescriptorBase<ReverseTokenFilterDescriptor, IReverseTokenFilter>, IReverseTokenFilter
-	{
-		protected override string Type => "reverse";
-	}
+/// <inheritdoc />
+public class ReverseTokenFilterDescriptor
+    : TokenFilterDescriptorBase<ReverseTokenFilterDescriptor, IReverseTokenFilter>, IReverseTokenFilter
+{
+    protected override string Type => "reverse";
 }

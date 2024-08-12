@@ -29,35 +29,34 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+[ReadAs(typeof(ExtendedStatsAggregation))]
+public interface IExtendedStatsAggregation : IFormattableMetricAggregation
 {
-	[InterfaceDataContract]
-	[ReadAs(typeof(ExtendedStatsAggregation))]
-	public interface IExtendedStatsAggregation : IFormattableMetricAggregation
-	{
-		[DataMember(Name ="sigma")]
-		double? Sigma { get; set; }
-	}
+    [DataMember(Name = "sigma")]
+    double? Sigma { get; set; }
+}
 
-	public class ExtendedStatsAggregation : FormattableMetricAggregationBase, IExtendedStatsAggregation
-	{
-		internal ExtendedStatsAggregation() { }
+public class ExtendedStatsAggregation : FormattableMetricAggregationBase, IExtendedStatsAggregation
+{
+    internal ExtendedStatsAggregation() { }
 
-		public ExtendedStatsAggregation(string name, Field field) : base(name, field) { }
+    public ExtendedStatsAggregation(string name, Field field) : base(name, field) { }
 
-		public double? Sigma { get; set; }
+    public double? Sigma { get; set; }
 
-		internal override void WrapInContainer(AggregationContainer c) => c.ExtendedStats = this;
-	}
+    internal override void WrapInContainer(AggregationContainer c) => c.ExtendedStats = this;
+}
 
-	public class ExtendedStatsAggregationDescriptor<T>
-		: FormattableMetricAggregationDescriptorBase<ExtendedStatsAggregationDescriptor<T>, IExtendedStatsAggregation, T>
-			, IExtendedStatsAggregation
-		where T : class
-	{
-		double? IExtendedStatsAggregation.Sigma { get; set; }
+public class ExtendedStatsAggregationDescriptor<T>
+    : FormattableMetricAggregationDescriptorBase<ExtendedStatsAggregationDescriptor<T>, IExtendedStatsAggregation, T>
+        , IExtendedStatsAggregation
+    where T : class
+{
+    double? IExtendedStatsAggregation.Sigma { get; set; }
 
-		public ExtendedStatsAggregationDescriptor<T> Sigma(double? sigma) =>
-			Assign(sigma, (a, v) => a.Sigma = v);
-	}
+    public ExtendedStatsAggregationDescriptor<T> Sigma(double? sigma) =>
+        Assign(sigma, (a, v) => a.Sigma = v);
 }

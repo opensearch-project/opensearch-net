@@ -26,33 +26,32 @@
 *  under the License.
 */
 
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Cat.CatSegments
+namespace Tests.Cat.CatSegments;
+
+public class CatSegmentsApiTests
+    : ApiIntegrationTestBase<ReadOnlyCluster, CatResponse<CatSegmentsRecord>, ICatSegmentsRequest, CatSegmentsDescriptor, CatSegmentsRequest>
 {
-	public class CatSegmentsApiTests
-		: ApiIntegrationTestBase<ReadOnlyCluster, CatResponse<CatSegmentsRecord>, ICatSegmentsRequest, CatSegmentsDescriptor, CatSegmentsRequest>
-	{
-		public CatSegmentsApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public CatSegmentsApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override bool ExpectIsValid => true;
-		protected override int ExpectStatusCode => 200;
-		protected override HttpMethod HttpMethod => HttpMethod.GET;
-		protected override string UrlPath => "/_cat/segments";
+    protected override bool ExpectIsValid => true;
+    protected override int ExpectStatusCode => 200;
+    protected override HttpMethod HttpMethod => HttpMethod.GET;
+    protected override string UrlPath => "/_cat/segments";
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Cat.Segments(),
-			(client, f) => client.Cat.SegmentsAsync(),
-			(client, r) => client.Cat.Segments(r),
-			(client, r) => client.Cat.SegmentsAsync(r)
-		);
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Cat.Segments(),
+        (client, f) => client.Cat.SegmentsAsync(),
+        (client, r) => client.Cat.Segments(r),
+        (client, r) => client.Cat.SegmentsAsync(r)
+    );
 
-		protected override void ExpectResponse(CatResponse<CatSegmentsRecord> response) =>
-			response.Records.Should().NotBeEmpty().And.Contain(a => !string.IsNullOrEmpty(a.Index));
-	}
+    protected override void ExpectResponse(CatResponse<CatSegmentsRecord> response) =>
+        response.Records.Should().NotBeEmpty().And.Contain(a => !string.IsNullOrEmpty(a.Index));
 }

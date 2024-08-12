@@ -28,16 +28,16 @@
 
 using System;
 using System.Linq;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.QueryDsl.Compound.Bool
-{
-	/**
+namespace Tests.QueryDsl.Compound.Bool;
+
+/**
 	 * A query that matches documents matching boolean combinations of other queries.
 	 * It is built using one or more boolean clauses, each clause with a typed occurrence.
 	 *
@@ -60,129 +60,128 @@ namespace Tests.QueryDsl.Compound.Bool
 	 *
 	 * See the OpenSearch documentation on {ref_current}/query-dsl-bool-query.html[bool query] for more details.
 	 */
-	public class BoolQueryUsageTests : QueryDslUsageTestsBase
-	{
-		public BoolQueryUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+public class BoolQueryUsageTests : QueryDslUsageTestsBase
+{
+    public BoolQueryUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		// hide
-		protected override ConditionlessWhen ConditionlessWhen => new ConditionlessWhen<IBoolQuery>(a => a.Bool)
-		{
-			q =>
-			{
-				q.MustNot = null;
-				q.Should = null;
-				q.Must = null;
-				q.Filter = null;
-			},
-			q =>
-			{
-				q.MustNot = Enumerable.Empty<QueryContainer>();
-				q.Should = Enumerable.Empty<QueryContainer>();
-				q.Must = Enumerable.Empty<QueryContainer>();
-				q.Filter = Enumerable.Empty<QueryContainer>();
-			},
-			q =>
-			{
-				q.MustNot = new[] { ConditionlessQuery };
-				q.Should = new[] { ConditionlessQuery };
-				q.Must = new[] { ConditionlessQuery };
-				q.Filter = new[] { ConditionlessQuery };
-			},
-		};
+    // hide
+    protected override ConditionlessWhen ConditionlessWhen => new ConditionlessWhen<IBoolQuery>(a => a.Bool)
+    {
+        q =>
+        {
+            q.MustNot = null;
+            q.Should = null;
+            q.Must = null;
+            q.Filter = null;
+        },
+        q =>
+        {
+            q.MustNot = Enumerable.Empty<QueryContainer>();
+            q.Should = Enumerable.Empty<QueryContainer>();
+            q.Must = Enumerable.Empty<QueryContainer>();
+            q.Filter = Enumerable.Empty<QueryContainer>();
+        },
+        q =>
+        {
+            q.MustNot = new[] { ConditionlessQuery };
+            q.Should = new[] { ConditionlessQuery };
+            q.Must = new[] { ConditionlessQuery };
+            q.Filter = new[] { ConditionlessQuery };
+        },
+    };
 
-		// hide
-		protected override NotConditionlessWhen NotConditionlessWhen => new NotConditionlessWhen<IBoolQuery>(a => a.Bool)
-		{
-			q =>
-			{
-				q.MustNot = new[] { VerbatimQuery };
-				q.Should = null;
-				q.Must = null;
-				q.Filter = null;
-			},
-			q =>
-			{
-				q.MustNot = null;
-				q.Should = new[] { VerbatimQuery };
-				q.Must = null;
-				q.Filter = null;
-			},
-			q =>
-			{
-				q.MustNot = null;
-				q.Should = null;
-				q.Must = new[] { VerbatimQuery };
-				q.Filter = null;
-			},
-			q =>
-			{
-				q.MustNot = null;
-				q.Should = null;
-				q.Must = null;
-				q.Filter = new[] { VerbatimQuery };
-			},
-		};
+    // hide
+    protected override NotConditionlessWhen NotConditionlessWhen => new NotConditionlessWhen<IBoolQuery>(a => a.Bool)
+    {
+        q =>
+        {
+            q.MustNot = new[] { VerbatimQuery };
+            q.Should = null;
+            q.Must = null;
+            q.Filter = null;
+        },
+        q =>
+        {
+            q.MustNot = null;
+            q.Should = new[] { VerbatimQuery };
+            q.Must = null;
+            q.Filter = null;
+        },
+        q =>
+        {
+            q.MustNot = null;
+            q.Should = null;
+            q.Must = new[] { VerbatimQuery };
+            q.Filter = null;
+        },
+        q =>
+        {
+            q.MustNot = null;
+            q.Should = null;
+            q.Must = null;
+            q.Filter = new[] { VerbatimQuery };
+        },
+    };
 
-		protected override QueryContainer QueryInitializer =>
-			new BoolQuery
-			{
-				MustNot = new QueryContainer[] { new MatchAllQuery() },
-				Should = new QueryContainer[] { new MatchAllQuery() },
-				Must = new QueryContainer[] { new MatchAllQuery() },
-				Filter = new QueryContainer[] { new MatchAllQuery() },
-				MinimumShouldMatch = 1,
-				Boost = 2
-			};
+    protected override QueryContainer QueryInitializer =>
+        new BoolQuery
+        {
+            MustNot = new QueryContainer[] { new MatchAllQuery() },
+            Should = new QueryContainer[] { new MatchAllQuery() },
+            Must = new QueryContainer[] { new MatchAllQuery() },
+            Filter = new QueryContainer[] { new MatchAllQuery() },
+            MinimumShouldMatch = 1,
+            Boost = 2
+        };
 
-		protected override object QueryJson => new
-		{
-			@bool = new
-			{
-				must = new[]
-				{
-					new { match_all = new { } }
-				},
-				must_not = new[]
-				{
-					new { match_all = new { } }
-				},
-				should = new[]
-				{
-					new { match_all = new { } }
-				},
-				filter = new[]
-				{
-					new { match_all = new { } }
-				},
-				minimum_should_match = 1,
-				boost = 2.0,
-			}
-		};
+    protected override object QueryJson => new
+    {
+        @bool = new
+        {
+            must = new[]
+            {
+                new { match_all = new { } }
+            },
+            must_not = new[]
+            {
+                new { match_all = new { } }
+            },
+            should = new[]
+            {
+                new { match_all = new { } }
+            },
+            filter = new[]
+            {
+                new { match_all = new { } }
+            },
+            minimum_should_match = 1,
+            boost = 2.0,
+        }
+    };
 
-		protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) => q
-			.Bool(b => b
-				.MustNot(m => m.MatchAll())
-				.Should(m => m.MatchAll())
-				.Must(m => m.MatchAll())
-				.Filter(f => f.MatchAll())
-				.MinimumShouldMatch(1)
-				.Boost(2));
+    protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) => q
+        .Bool(b => b
+            .MustNot(m => m.MatchAll())
+            .Should(m => m.MatchAll())
+            .Must(m => m.MatchAll())
+            .Filter(f => f.MatchAll())
+            .MinimumShouldMatch(1)
+            .Boost(2));
 
-		// hide
-		[U]
-		public void NullQueryDoesNotCauseANullReferenceException()
-		{
-			Action query = () => Client.Search<Project>(s => s
-				.Query(q => q
-					.Bool(b => b
-						.Filter(f => f
-							.Term(t => t.Name, null)
-						)
-					)
-				)
-			);
+    // hide
+    [U]
+    public void NullQueryDoesNotCauseANullReferenceException()
+    {
+        Action query = () => Client.Search<Project>(s => s
+            .Query(q => q
+                .Bool(b => b
+                    .Filter(f => f
+                        .Term(t => t.Name, null)
+                    )
+                )
+            )
+        );
 
-			query.Should().NotThrow();
-		}
-	}
+        query.Should().NotThrow();
+    }
 }

@@ -61,7 +61,6 @@ using OpenSearch.Net.Specification.TasksApi;
 using OpenSearch.Net.Utf8Json;
 
 // ReSharper disable UnusedTypeParameter
-namespace OpenSearch.Client
-{
-    public abstract partial class PlainRequestBase<TParameters> { }
-}
+namespace OpenSearch.Client;
+
+public abstract partial class PlainRequestBase<TParameters> { }

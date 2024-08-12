@@ -30,56 +30,55 @@ using System;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[StringEnum]
+public enum DateMathTimeUnit
 {
-	[StringEnum]
-	public enum DateMathTimeUnit
-	{
-		[EnumMember(Value = "s")]
-		Second,
+    [EnumMember(Value = "s")]
+    Second,
 
-		[EnumMember(Value = "m")]
-		Minute,
+    [EnumMember(Value = "m")]
+    Minute,
 
-		[EnumMember(Value = "h")]
-		Hour,
+    [EnumMember(Value = "h")]
+    Hour,
 
-		[EnumMember(Value = "d")]
-		Day,
+    [EnumMember(Value = "d")]
+    Day,
 
-		[EnumMember(Value = "w")]
-		Week,
+    [EnumMember(Value = "w")]
+    Week,
 
-		[EnumMember(Value = "M")]
-		Month,
+    [EnumMember(Value = "M")]
+    Month,
 
-		[EnumMember(Value = "y")]
-		Year
-	}
+    [EnumMember(Value = "y")]
+    Year
+}
 
-	public static class DateMathTimeUnitExtensions
-	{
-		public static string GetStringValue(this DateMathTimeUnit value)
-		{
-			switch (value)
-			{
-				case DateMathTimeUnit.Second:
-					return "s";
-				case DateMathTimeUnit.Minute:
-					return "m";
-				case DateMathTimeUnit.Hour:
-					return "h";
-				case DateMathTimeUnit.Day:
-					return "d";
-				case DateMathTimeUnit.Week:
-					return "w";
-				case DateMathTimeUnit.Month:
-					return "M";
-				case DateMathTimeUnit.Year:
-					return "y";
-				default:
-					throw new ArgumentOutOfRangeException(nameof(value), value, null);
-			}
-		}
-	}
+public static class DateMathTimeUnitExtensions
+{
+    public static string GetStringValue(this DateMathTimeUnit value)
+    {
+        switch (value)
+        {
+            case DateMathTimeUnit.Second:
+                return "s";
+            case DateMathTimeUnit.Minute:
+                return "m";
+            case DateMathTimeUnit.Hour:
+                return "h";
+            case DateMathTimeUnit.Day:
+                return "d";
+            case DateMathTimeUnit.Week:
+                return "w";
+            case DateMathTimeUnit.Month:
+                return "M";
+            case DateMathTimeUnit.Year:
+                return "y";
+            default:
+                throw new ArgumentOutOfRangeException(nameof(value), value, null);
+        }
+    }
 }

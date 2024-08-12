@@ -27,19 +27,19 @@
 */
 
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
 
-namespace Tests.Document.Multiple.ReindexOnServer
+namespace Tests.Document.Multiple.ReindexOnServer;
+
+public class ReindexOnServerUrlTests : UrlTestsBase
 {
-	public class ReindexOnServerUrlTests : UrlTestsBase
-	{
-		[U] public override async Task Urls() => await POST("/_reindex")
-			.Fluent(c => c.ReindexOnServer(f => f))
-			.Request(c => c.ReindexOnServer(new ReindexOnServerRequest()))
-			.FluentAsync(c => c.ReindexOnServerAsync(f => f))
-			.RequestAsync(c => c.ReindexOnServerAsync(new ReindexOnServerRequest()));
-	}
+    [U]
+    public override async Task Urls() => await POST("/_reindex")
+        .Fluent(c => c.ReindexOnServer(f => f))
+        .Request(c => c.ReindexOnServer(new ReindexOnServerRequest()))
+        .FluentAsync(c => c.ReindexOnServerAsync(f => f))
+        .RequestAsync(c => c.ReindexOnServerAsync(new ReindexOnServerRequest()));
 }

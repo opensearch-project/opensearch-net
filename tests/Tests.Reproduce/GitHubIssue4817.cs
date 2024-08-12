@@ -29,26 +29,25 @@
 using System;
 using System.IO;
 using System.Text;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GitHubIssue4817
 {
-	public class GitHubIssue4817
-	{
-		[U]
-		public void DeserializeCaseInsensitiveEnum()
-		{
-			var json = "{\"default_operator\":\"AND\",\"query\":\"Hans Mueller\"}";
-			var bytes = Encoding.UTF8.GetBytes(json);
-			var opensearchClient = new OpenSearchClient();
+    [U]
+    public void DeserializeCaseInsensitiveEnum()
+    {
+        var json = "{\"default_operator\":\"AND\",\"query\":\"Hans Mueller\"}";
+        var bytes = Encoding.UTF8.GetBytes(json);
+        var opensearchClient = new OpenSearchClient();
 
-			Func<QueryStringQuery> func = () => opensearchClient.RequestResponseSerializer.Deserialize<QueryStringQuery>(new MemoryStream(bytes));
+        Func<QueryStringQuery> func = () => opensearchClient.RequestResponseSerializer.Deserialize<QueryStringQuery>(new MemoryStream(bytes));
 
-			var query = func.Should().NotThrow().Subject;
-			query.DefaultOperator.Should().Be(Operator.And);
-		}
-	}
+        var query = func.Should().NotThrow().Subject;
+        query.DefaultOperator.Should().Be(Operator.And);
+    }
 }

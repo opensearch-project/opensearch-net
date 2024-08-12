@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	[MapsApi("cluster.pending_tasks.json")]
-	public partial interface IClusterPendingTasksRequest { }
+namespace OpenSearch.Client;
 
-	public partial class ClusterPendingTasksRequest { }
+[MapsApi("cluster.pending_tasks.json")]
+public partial interface IClusterPendingTasksRequest { }
 
-	public partial class ClusterPendingTasksDescriptor { }
-}
+public partial class ClusterPendingTasksRequest { }
+
+public partial class ClusterPendingTasksDescriptor { }

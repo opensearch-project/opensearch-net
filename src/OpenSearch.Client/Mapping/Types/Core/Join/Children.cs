@@ -30,31 +30,30 @@ using System;
 using System.Collections.Generic;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[JsonFormatter(typeof(ChildrenFormatter))]
+public class Children : List<RelationName>
 {
-	[JsonFormatter(typeof(ChildrenFormatter))]
-	public class Children : List<RelationName>
-	{
-		public Children() { }
+    public Children() { }
 
-		public Children(RelationName child, params RelationName[] moreChildren)
-		{
-			if (child != null) Add(child);
-			if (moreChildren == null || moreChildren.Length == 0) return;
+    public Children(RelationName child, params RelationName[] moreChildren)
+    {
+        if (child != null) Add(child);
+        if (moreChildren == null || moreChildren.Length == 0) return;
 
-			AddRange(moreChildren);
-		}
+        AddRange(moreChildren);
+    }
 
-		public static implicit operator Children(RelationName child)
-		{
-			if (child == null) return null;
+    public static implicit operator Children(RelationName child)
+    {
+        if (child == null) return null;
 
-			var children = new Children { child };
-			return children;
-		}
+        var children = new Children { child };
+        return children;
+    }
 
-		public static implicit operator Children(Type type) => type == null ? null : new Children { type };
+    public static implicit operator Children(Type type) => type == null ? null : new Children { type };
 
-		public static implicit operator Children(string type) => type == null ? null : new Children { type };
-	}
+    public static implicit operator Children(string type) => type == null ? null : new Children { type };
 }

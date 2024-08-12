@@ -30,12 +30,11 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+public class MultiTermVectorsResponse : ResponseBase
 {
-	[DataContract]
-	public class MultiTermVectorsResponse : ResponseBase
-	{
-		[DataMember(Name ="docs")]
-		public IReadOnlyCollection<ITermVectors> Documents { get; internal set; } = EmptyReadOnly<ITermVectors>.Collection;
-	}
+    [DataMember(Name = "docs")]
+    public IReadOnlyCollection<ITermVectors> Documents { get; internal set; } = EmptyReadOnly<ITermVectors>.Collection;
 }

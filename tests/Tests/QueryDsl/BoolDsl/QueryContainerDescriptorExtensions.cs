@@ -29,14 +29,13 @@
 using OpenSearch.Client;
 using Tests.Domain;
 
-namespace Tests.QueryDsl.BoolDsl
+namespace Tests.QueryDsl.BoolDsl;
+
+public static class QueryContainerDescriptorExtensions
 {
-	public static class QueryContainerDescriptorExtensions
-	{
-		public static QueryContainer Query(this QueryContainerDescriptor<Project> q) => q.Term("x", "y");
+    public static QueryContainer Query(this QueryContainerDescriptor<Project> q) => q.Term("x", "y");
 
-		public static QueryContainer ConditionlessQuery(this QueryContainerDescriptor<Project> q) => q.Term("x", "");
+    public static QueryContainer ConditionlessQuery(this QueryContainerDescriptor<Project> q) => q.Term("x", "");
 
-		public static QueryContainer NullQuery(this QueryContainerDescriptor<Project> q) => q.Term("x", "");
-	}
+    public static QueryContainer NullQuery(this QueryContainerDescriptor<Project> q) => q.Term("x", "");
 }

@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	[MapsApi("indices.get.json")]
-	public partial interface IGetIndexRequest { }
+namespace OpenSearch.Client;
 
-	public partial class GetIndexRequest { }
+[MapsApi("indices.get.json")]
+public partial interface IGetIndexRequest { }
 
-	public partial class GetIndexDescriptor { }
-}
+public partial class GetIndexRequest { }
+
+public partial class GetIndexDescriptor { }

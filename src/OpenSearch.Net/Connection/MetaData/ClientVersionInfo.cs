@@ -31,44 +31,43 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-namespace OpenSearch.Net
+namespace OpenSearch.Net;
+
+internal sealed class ClientVersionInfo : VersionInfo
 {
-	internal sealed class ClientVersionInfo : VersionInfo
-	{
-		private static readonly Regex VersionRegex = new Regex(@"(\d+\.)(\d+\.)(\d)");
+    private static readonly Regex VersionRegex = new Regex(@"(\d+\.)(\d+\.)(\d)");
 
-		public static readonly ClientVersionInfo Empty = new ClientVersionInfo { Version = new Version(0, 0, 0), IsPrerelease = false };
+    public static readonly ClientVersionInfo Empty = new ClientVersionInfo { Version = new Version(0, 0, 0), IsPrerelease = false };
 
-		private ClientVersionInfo() { }
+    private ClientVersionInfo() { }
 
-		public static ClientVersionInfo Create<T>()
-		{
-			var fullVersion = DetermineClientVersion(typeof(T));
+    public static ClientVersionInfo Create<T>()
+    {
+        var fullVersion = DetermineClientVersion(typeof(T));
 
-			var clientVersion = new ClientVersionInfo();
-			clientVersion.StoreVersion(fullVersion);
-			return clientVersion;
-		}
+        var clientVersion = new ClientVersionInfo();
+        clientVersion.StoreVersion(fullVersion);
+        return clientVersion;
+    }
 
-		private static string DetermineClientVersion(Type type)
-		{
-			try
-			{
-				var productVersion = FileVersionInfo.GetVersionInfo(type.GetTypeInfo().Assembly.Location)?.ProductVersion ?? EmptyVersion;
+    private static string DetermineClientVersion(Type type)
+    {
+        try
+        {
+            var productVersion = FileVersionInfo.GetVersionInfo(type.GetTypeInfo().Assembly.Location)?.ProductVersion ?? EmptyVersion;
 
-				if (productVersion == EmptyVersion)
-					productVersion = Assembly.GetAssembly(type).GetName().Version.ToString();
+            if (productVersion == EmptyVersion)
+                productVersion = Assembly.GetAssembly(type).GetName().Version.ToString();
 
-				var match = VersionRegex.Match(productVersion);
+            var match = VersionRegex.Match(productVersion);
 
-				return match.Success ? match.Value : EmptyVersion;
-			}
-			catch
-			{
-				// ignore failures and fall through
-			}
+            return match.Success ? match.Value : EmptyVersion;
+        }
+        catch
+        {
+            // ignore failures and fall through
+        }
 
-			return EmptyVersion;
-		}
-	}
+        return EmptyVersion;
+    }
 }

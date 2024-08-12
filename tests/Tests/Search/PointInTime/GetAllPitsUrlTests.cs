@@ -15,10 +15,11 @@ namespace Tests.Search.PointInTime;
 
 public class GetAllPitsUrlTests
 {
-	[U] public async Task Urls() =>
-		await GET("/_search/point_in_time/_all")
-			.Fluent(c => c.GetAllPits())
-			.Request(c => c.GetAllPits(new GetAllPitsRequest()))
-			.FluentAsync(c => c.GetAllPitsAsync())
-			.RequestAsync(c => c.GetAllPitsAsync(new GetAllPitsRequest()));
+    [U]
+    public async Task Urls() =>
+        await GET("/_search/point_in_time/_all")
+            .Fluent(c => c.GetAllPits())
+            .Request(c => c.GetAllPits(new GetAllPitsRequest()))
+            .FluentAsync(c => c.GetAllPitsAsync())
+            .RequestAsync(c => c.GetAllPitsAsync(new GetAllPitsRequest()));
 }

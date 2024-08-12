@@ -28,35 +28,34 @@
 
 using System;
 using System.Text;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GitHubIssue4573
 {
-	public class GitHubIssue4573
-	{
-		[U]
-		public void SerializePercentageScore()
-		{
-			Func<ISearchResponse<object>> action = () => TestClient.DefaultInMemoryClient.Search<object>(b => b
-				.Aggregations(a => a
-					.SignificantTerms("related_organisations", sigTerms => sigTerms
-						.Field("organisations.keyword")
-						.Size(10)
-						.PercentageScore(p => p)
-						.MinimumDocumentCount(5)
-					)
-				)
-			);
+    [U]
+    public void SerializePercentageScore()
+    {
+        Func<ISearchResponse<object>> action = () => TestClient.DefaultInMemoryClient.Search<object>(b => b
+            .Aggregations(a => a
+                .SignificantTerms("related_organisations", sigTerms => sigTerms
+                    .Field("organisations.keyword")
+                    .Size(10)
+                    .PercentageScore(p => p)
+                    .MinimumDocumentCount(5)
+                )
+            )
+        );
 
-			action.Should().NotThrow();
+        action.Should().NotThrow();
 
-			var response = action();
+        var response = action();
 
-			var json = Encoding.UTF8.GetString(response.ApiCall.RequestBodyInBytes);
-			json.Should().Contain("\"percentage\":{}");
-		}
-	}
+        var json = Encoding.UTF8.GetString(response.ApiCall.RequestBodyInBytes);
+        json.Should().Contain("\"percentage\":{}");
+    }
 }

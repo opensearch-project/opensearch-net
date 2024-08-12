@@ -26,11 +26,10 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <inheritdoc cref="IRankFeaturesProperty"/>
+public class RankFeaturesAttribute : OpenSearchPropertyAttributeBase, IRankFeaturesProperty
 {
-	/// <inheritdoc cref="IRankFeaturesProperty"/>
-	public class RankFeaturesAttribute : OpenSearchPropertyAttributeBase, IRankFeaturesProperty
-	{
-		public RankFeaturesAttribute() : base(FieldType.RankFeatures) { }
-	}
+    public RankFeaturesAttribute() : base(FieldType.RankFeatures) { }
 }

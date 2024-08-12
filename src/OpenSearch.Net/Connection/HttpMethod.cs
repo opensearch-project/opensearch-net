@@ -35,21 +35,21 @@ namespace OpenSearch.Net;
 
 public enum HttpMethod
 {
-	[EnumMember(Value = "GET")]
-	GET,
+    [EnumMember(Value = "GET")]
+    GET,
 
-	[EnumMember(Value = "POST")]
-	POST,
+    [EnumMember(Value = "POST")]
+    POST,
 
-	[EnumMember(Value = "PUT")]
-	PUT,
+    [EnumMember(Value = "PUT")]
+    PUT,
 
-	[EnumMember(Value = "DELETE")]
-	DELETE,
+    [EnumMember(Value = "DELETE")]
+    DELETE,
 
-	[EnumMember(Value = "HEAD")]
-	HEAD,
+    [EnumMember(Value = "HEAD")]
+    HEAD,
 
-	[EnumMember(Value = "PATCH")]
-	PATCH
+    [EnumMember(Value = "PATCH")]
+    PATCH
 }

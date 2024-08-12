@@ -30,37 +30,36 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[JsonFormatter(typeof(ResolvableDictionaryResponseFormatter<GetMappingResponse, IndexName, IndexMappings>))]
+public class GetMappingResponse : DictionaryResponseBase<IndexName, IndexMappings>
 {
-	[JsonFormatter(typeof(ResolvableDictionaryResponseFormatter<GetMappingResponse, IndexName, IndexMappings>))]
-	public class GetMappingResponse : DictionaryResponseBase<IndexName, IndexMappings>
-	{
-		[IgnoreDataMember]
-		public IReadOnlyDictionary<IndexName, IndexMappings> Indices => Self.BackingDictionary;
+    [IgnoreDataMember]
+    public IReadOnlyDictionary<IndexName, IndexMappings> Indices => Self.BackingDictionary;
 
-		public void Accept(IMappingVisitor visitor)
-		{
-			var walker = new MappingWalker(visitor);
-			walker.Accept(this);
-		}
-	}
+    public void Accept(IMappingVisitor visitor)
+    {
+        var walker = new MappingWalker(visitor);
+        walker.Accept(this);
+    }
+}
 
-	public class IndexMappings
-	{
-		[DataMember(Name = "mappings")]
-		public TypeMapping Mappings { get; internal set; }
-	}
+public class IndexMappings
+{
+    [DataMember(Name = "mappings")]
+    public TypeMapping Mappings { get; internal set; }
+}
 
 
-	public static class GetMappingResponseExtensions
-	{
-		public static ITypeMapping GetMappingFor<T>(this GetMappingResponse response) => response.GetMappingFor(typeof(T));
+public static class GetMappingResponseExtensions
+{
+    public static ITypeMapping GetMappingFor<T>(this GetMappingResponse response) => response.GetMappingFor(typeof(T));
 
-		public static ITypeMapping GetMappingFor(this GetMappingResponse response, IndexName index)
-		{
-			if (index.IsNullOrEmpty()) return null;
+    public static ITypeMapping GetMappingFor(this GetMappingResponse response, IndexName index)
+    {
+        if (index.IsNullOrEmpty()) return null;
 
-			return response.Indices.TryGetValue(index, out var indexMappings) ? indexMappings.Mappings : null;
-		}
-	}
+        return response.Indices.TryGetValue(index, out var indexMappings) ? indexMappings.Mappings : null;
+    }
 }

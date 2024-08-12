@@ -30,27 +30,26 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[StringEnum]
+public enum TextQueryType
 {
-	[StringEnum]
-	public enum TextQueryType
-	{
-		[EnumMember(Value = "best_fields")]
-		BestFields,
+    [EnumMember(Value = "best_fields")]
+    BestFields,
 
-		[EnumMember(Value = "most_fields")]
-		MostFields,
+    [EnumMember(Value = "most_fields")]
+    MostFields,
 
-		[EnumMember(Value = "cross_fields")]
-		CrossFields,
+    [EnumMember(Value = "cross_fields")]
+    CrossFields,
 
-		[EnumMember(Value = "phrase")]
-		Phrase,
+    [EnumMember(Value = "phrase")]
+    Phrase,
 
-		[EnumMember(Value = "phrase_prefix")]
-		PhrasePrefix,
+    [EnumMember(Value = "phrase_prefix")]
+    PhrasePrefix,
 
-		[EnumMember(Value = "bool_prefix")]
-		BoolPrefix
-	}
+    [EnumMember(Value = "bool_prefix")]
+    BoolPrefix
 }

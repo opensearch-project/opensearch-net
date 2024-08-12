@@ -28,10 +28,9 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+public class ImportDanglingIndexResponse : AcknowledgedResponseBase
 {
-	[DataContract]
-	public class ImportDanglingIndexResponse : AcknowledgedResponseBase
-	{
-	}
 }

@@ -34,103 +34,102 @@ using System.Threading.Tasks;
 using OpenSearch.Net.Diagnostics;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Net
+namespace OpenSearch.Net;
+
+public class SerializerRegistrationInformation
 {
-	public class SerializerRegistrationInformation
-	{
-		private readonly string _stringRepresentation;
+    private readonly string _stringRepresentation;
 
-		public SerializerRegistrationInformation(Type type, string purpose)
-		{
-			TypeInformation = type;
-			Purpose = purpose;
-			_stringRepresentation = $"{Purpose}: {TypeInformation.FullName}";
-		}
+    public SerializerRegistrationInformation(Type type, string purpose)
+    {
+        TypeInformation = type;
+        Purpose = purpose;
+        _stringRepresentation = $"{Purpose}: {TypeInformation.FullName}";
+    }
 
 
-		public Type TypeInformation { get; }
+    public Type TypeInformation { get; }
 
-		/// <summary>
-		/// A string describing the purpose of the serializer emitting this events.
-		/// <para>In `Elastisearch.Net` this will always be "request/response"</para>
-		/// <para>Using `OpenSearch.Client` this could also be `source` allowing you to differentiate between the internal and configured source serializer</para>
-		/// </summary>
-		public string Purpose { get; }
+    /// <summary>
+    /// A string describing the purpose of the serializer emitting this events.
+    /// <para>In `Elastisearch.Net` this will always be "request/response"</para>
+    /// <para>Using `OpenSearch.Client` this could also be `source` allowing you to differentiate between the internal and configured source serializer</para>
+    /// </summary>
+    public string Purpose { get; }
 
-		public override string ToString() => _stringRepresentation;
-	}
+    public override string ToString() => _stringRepresentation;
+}
 
-	/// <summary>
-	/// Wraps configured serializer so that we can emit diagnostics per configured serializer.
-	/// </summary>
-	internal class DiagnosticsSerializerProxy : IOpenSearchSerializer, IInternalSerializer
-	{
-		private readonly IOpenSearchSerializer _serializer;
-		private readonly bool _wrapsUtf8JsonSerializer;
-		private readonly SerializerRegistrationInformation _state;
-		private readonly IJsonFormatterResolver _formatterResolver;
-		private static DiagnosticSource DiagnosticSource { get; } = new DiagnosticListener(DiagnosticSources.Serializer.SourceName);
+/// <summary>
+/// Wraps configured serializer so that we can emit diagnostics per configured serializer.
+/// </summary>
+internal class DiagnosticsSerializerProxy : IOpenSearchSerializer, IInternalSerializer
+{
+    private readonly IOpenSearchSerializer _serializer;
+    private readonly bool _wrapsUtf8JsonSerializer;
+    private readonly SerializerRegistrationInformation _state;
+    private readonly IJsonFormatterResolver _formatterResolver;
+    private static DiagnosticSource DiagnosticSource { get; } = new DiagnosticListener(DiagnosticSources.Serializer.SourceName);
 
-		public DiagnosticsSerializerProxy(IOpenSearchSerializer serializer, string purpose = "request/response")
-		{
-			_serializer = serializer;
-			_state = new SerializerRegistrationInformation(serializer.GetType(), purpose);
-			if (serializer is IInternalSerializer s && s.TryGetJsonFormatter(out var formatterResolver))
-			{
-				_formatterResolver = formatterResolver;
-				_wrapsUtf8JsonSerializer = true;
-			}
-			else
-			{
-				_formatterResolver = null;
-				_wrapsUtf8JsonSerializer = false;
-			}
-		}
+    public DiagnosticsSerializerProxy(IOpenSearchSerializer serializer, string purpose = "request/response")
+    {
+        _serializer = serializer;
+        _state = new SerializerRegistrationInformation(serializer.GetType(), purpose);
+        if (serializer is IInternalSerializer s && s.TryGetJsonFormatter(out var formatterResolver))
+        {
+            _formatterResolver = formatterResolver;
+            _wrapsUtf8JsonSerializer = true;
+        }
+        else
+        {
+            _formatterResolver = null;
+            _wrapsUtf8JsonSerializer = false;
+        }
+    }
 
-		public bool TryGetJsonFormatter(out IJsonFormatterResolver formatterResolver)
-		{
-			formatterResolver = _formatterResolver;
-			return _wrapsUtf8JsonSerializer;
-		}
+    public bool TryGetJsonFormatter(out IJsonFormatterResolver formatterResolver)
+    {
+        formatterResolver = _formatterResolver;
+        return _wrapsUtf8JsonSerializer;
+    }
 
-		public object Deserialize(Type type, Stream stream)
-		{
-			using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Deserialize, _state))
-				return _serializer.Deserialize(type, stream);
-		}
+    public object Deserialize(Type type, Stream stream)
+    {
+        using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Deserialize, _state))
+            return _serializer.Deserialize(type, stream);
+    }
 
 
-		public T Deserialize<T>(Stream stream)
-		{
-			using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Deserialize, _state))
-				return _serializer.Deserialize<T>(stream);
-		}
+    public T Deserialize<T>(Stream stream)
+    {
+        using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Deserialize, _state))
+            return _serializer.Deserialize<T>(stream);
+    }
 
-		public Task<object> DeserializeAsync(Type type, Stream stream, CancellationToken cancellationToken = default)
-		{
-			using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Deserialize, _state))
-				return _serializer.DeserializeAsync(type, stream, cancellationToken);
-		}
+    public Task<object> DeserializeAsync(Type type, Stream stream, CancellationToken cancellationToken = default)
+    {
+        using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Deserialize, _state))
+            return _serializer.DeserializeAsync(type, stream, cancellationToken);
+    }
 
-		public Task<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default)
-		{
-			using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Deserialize, _state))
-				return _serializer.DeserializeAsync<T>(stream, cancellationToken);
-		}
+    public Task<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default)
+    {
+        using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Deserialize, _state))
+            return _serializer.DeserializeAsync<T>(stream, cancellationToken);
+    }
 
-		public void Serialize<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None)
-		{
-			using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Serialize, _state))
-				_serializer.Serialize(data, stream, formatting);
-		}
+    public void Serialize<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None)
+    {
+        using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Serialize, _state))
+            _serializer.Serialize(data, stream, formatting);
+    }
 
-		public Task SerializeAsync<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None,
-			CancellationToken cancellationToken = default
-		)
-		{
-			using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Serialize, _state))
-				return _serializer.SerializeAsync(data, stream, formatting, cancellationToken);
-		}
+    public Task SerializeAsync<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None,
+        CancellationToken cancellationToken = default
+    )
+    {
+        using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Serialize, _state))
+            return _serializer.SerializeAsync(data, stream, formatting, cancellationToken);
+    }
 
-	}
 }

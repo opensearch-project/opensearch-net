@@ -28,10 +28,9 @@
 
 using System.Collections.Generic;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class KeyedValueAggregate : ValueAggregate
 {
-	public class KeyedValueAggregate : ValueAggregate
-	{
-		public IList<string> Keys { get; set; }
-	}
+    public IList<string> Keys { get; set; }
 }

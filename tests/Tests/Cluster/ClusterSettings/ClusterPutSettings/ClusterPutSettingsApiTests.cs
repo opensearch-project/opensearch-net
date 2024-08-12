@@ -28,89 +28,88 @@
 
 using System;
 using System.Collections.Generic;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Cluster.ClusterSettings.ClusterPutSettings
+namespace Tests.Cluster.ClusterSettings.ClusterPutSettings;
+
+public class ClusterPutSettingsApiTests
+    : ApiIntegrationTestBase<IntrusiveOperationCluster, ClusterPutSettingsResponse, IClusterPutSettingsRequest, ClusterPutSettingsDescriptor,
+        ClusterPutSettingsRequest>
 {
-	public class ClusterPutSettingsApiTests
-		: ApiIntegrationTestBase<IntrusiveOperationCluster, ClusterPutSettingsResponse, IClusterPutSettingsRequest, ClusterPutSettingsDescriptor,
-			ClusterPutSettingsRequest>
-	{
-		public ClusterPutSettingsApiTests(IntrusiveOperationCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public ClusterPutSettingsApiTests(IntrusiveOperationCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override bool ExpectIsValid => true;
+    protected override bool ExpectIsValid => true;
 
-		protected override int ExpectStatusCode => 200;
+    protected override int ExpectStatusCode => 200;
 
-		protected override Func<ClusterPutSettingsDescriptor, IClusterPutSettingsRequest> Fluent => c => c
-			.Transient(s => s
-				.Add("indices.recovery.max_bytes_per_sec", "41mb")
-			);
+    protected override Func<ClusterPutSettingsDescriptor, IClusterPutSettingsRequest> Fluent => c => c
+        .Transient(s => s
+            .Add("indices.recovery.max_bytes_per_sec", "41mb")
+        );
 
-		protected override HttpMethod HttpMethod => HttpMethod.PUT;
+    protected override HttpMethod HttpMethod => HttpMethod.PUT;
 
-		protected override ClusterPutSettingsRequest Initializer => new ClusterPutSettingsRequest
-		{
-			Transient = new Dictionary<string, object>
-			{
-				{ "indices.recovery.max_bytes_per_sec", "41mb" }
-			}
-		};
+    protected override ClusterPutSettingsRequest Initializer => new ClusterPutSettingsRequest
+    {
+        Transient = new Dictionary<string, object>
+        {
+            { "indices.recovery.max_bytes_per_sec", "41mb" }
+        }
+    };
 
-		protected override string UrlPath => "/_cluster/settings";
+    protected override string UrlPath => "/_cluster/settings";
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Cluster.PutSettings(f),
-			(client, f) => client.Cluster.PutSettingsAsync(f),
-			(client, r) => client.Cluster.PutSettings(r),
-			(client, r) => client.Cluster.PutSettingsAsync(r)
-		);
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Cluster.PutSettings(f),
+        (client, f) => client.Cluster.PutSettingsAsync(f),
+        (client, r) => client.Cluster.PutSettings(r),
+        (client, r) => client.Cluster.PutSettingsAsync(r)
+    );
 
-		protected override void ExpectResponse(ClusterPutSettingsResponse response)
-		{
-			response.ShouldBeValid();
-			response.Acknowledged.Should().BeTrue();
-			response.Transient.Should().HaveCount(1);
-		}
-	}
+    protected override void ExpectResponse(ClusterPutSettingsResponse response)
+    {
+        response.ShouldBeValid();
+        response.Acknowledged.Should().BeTrue();
+        response.Transient.Should().HaveCount(1);
+    }
+}
 
-	public class ClusterPutSettingsNoopApiTests
-		: ApiIntegrationTestBase<IntrusiveOperationCluster, ClusterPutSettingsResponse, IClusterPutSettingsRequest, ClusterPutSettingsDescriptor,
-			ClusterPutSettingsRequest>
-	{
-		public ClusterPutSettingsNoopApiTests(IntrusiveOperationCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+public class ClusterPutSettingsNoopApiTests
+    : ApiIntegrationTestBase<IntrusiveOperationCluster, ClusterPutSettingsResponse, IClusterPutSettingsRequest, ClusterPutSettingsDescriptor,
+        ClusterPutSettingsRequest>
+{
+    public ClusterPutSettingsNoopApiTests(IntrusiveOperationCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override bool ExpectIsValid => false;
+    protected override bool ExpectIsValid => false;
 
-		protected override int ExpectStatusCode => 400;
+    protected override int ExpectStatusCode => 400;
 
-		protected override HttpMethod HttpMethod => HttpMethod.PUT;
+    protected override HttpMethod HttpMethod => HttpMethod.PUT;
 
-		protected override ClusterPutSettingsRequest Initializer => new ClusterPutSettingsRequest();
+    protected override ClusterPutSettingsRequest Initializer => new ClusterPutSettingsRequest();
 
-		protected override string UrlPath => "/_cluster/settings";
+    protected override string UrlPath => "/_cluster/settings";
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Cluster.PutSettings(f),
-			(client, f) => client.Cluster.PutSettingsAsync(f),
-			(client, r) => client.Cluster.PutSettings(r),
-			(client, r) => client.Cluster.PutSettingsAsync(r)
-		);
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Cluster.PutSettings(f),
+        (client, f) => client.Cluster.PutSettingsAsync(f),
+        (client, r) => client.Cluster.PutSettings(r),
+        (client, r) => client.Cluster.PutSettingsAsync(r)
+    );
 
-		protected override void ExpectResponse(ClusterPutSettingsResponse response)
-		{
-			response.ShouldNotBeValid();
-			response.ServerError.Should().NotBeNull();
-			response.ServerError.Status.Should().Be(400);
-			response.ServerError.Error.Should().NotBeNull();
-			response.ServerError.Error.Reason.Should().Contain("no settings to update");
-			response.ServerError.Error.Type.Should().Contain("action_request_validation_exception");
-		}
-	}
+    protected override void ExpectResponse(ClusterPutSettingsResponse response)
+    {
+        response.ShouldNotBeValid();
+        response.ServerError.Should().NotBeNull();
+        response.ServerError.Status.Should().Be(400);
+        response.ServerError.Error.Should().NotBeNull();
+        response.ServerError.Error.Reason.Should().Contain("no settings to update");
+        response.ServerError.Error.Type.Should().Contain("action_request_validation_exception");
+    }
 }

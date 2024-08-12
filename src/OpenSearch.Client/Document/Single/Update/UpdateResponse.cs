@@ -28,22 +28,21 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public interface IUpdateResponse<out TDocument> : IResponse where TDocument : class
 {
-	public interface IUpdateResponse<out TDocument> : IResponse where TDocument : class
-	{
-		IInlineGet<TDocument> Get { get; }
-	}
+    IInlineGet<TDocument> Get { get; }
+}
 
-	[DataContract]
-	public class UpdateResponse<TDocument> : WriteResponseBase, IUpdateResponse<TDocument>
-		where TDocument : class
-	{
-		public override bool IsValid => base.IsValid &&
-			(Result != Result.NotFound && Result != Result.Error);
+[DataContract]
+public class UpdateResponse<TDocument> : WriteResponseBase, IUpdateResponse<TDocument>
+    where TDocument : class
+{
+    public override bool IsValid => base.IsValid &&
+        (Result != Result.NotFound && Result != Result.Error);
 
-		[DataMember(Name ="get")]
-		public IInlineGet<TDocument> Get { get; internal set; }
+    [DataMember(Name = "get")]
+    public IInlineGet<TDocument> Get { get; internal set; }
 
-	}
 }

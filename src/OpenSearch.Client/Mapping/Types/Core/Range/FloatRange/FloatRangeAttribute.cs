@@ -26,10 +26,9 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class IntegerRangeAttribute : RangePropertyAttributeBase, IIntegerRangeProperty
 {
-	public class IntegerRangeAttribute : RangePropertyAttributeBase, IIntegerRangeProperty
-	{
-		public IntegerRangeAttribute() : base(RangeType.IntegerRange) { }
-	}
+    public IntegerRangeAttribute() : base(RangeType.IntegerRange) { }
 }

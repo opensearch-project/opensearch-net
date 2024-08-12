@@ -30,11 +30,10 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class GrokProcessorPatternsResponse : ResponseBase
 {
-	public class GrokProcessorPatternsResponse : ResponseBase
-	{
-		[DataMember(Name ="patterns")]
-		public IReadOnlyDictionary<string, string> Patterns { get; internal set; } = EmptyReadOnly<string, string>.Dictionary;
-	}
+    [DataMember(Name = "patterns")]
+    public IReadOnlyDictionary<string, string> Patterns { get; internal set; } = EmptyReadOnly<string, string>.Dictionary;
 }

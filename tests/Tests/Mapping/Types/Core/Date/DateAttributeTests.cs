@@ -29,56 +29,55 @@
 using System;
 using OpenSearch.Client;
 
-namespace Tests.Mapping.Types.Core.Date
+namespace Tests.Mapping.Types.Core.Date;
+
+public class DateTest
 {
-	public class DateTest
-	{
-		[Date(
-			DocValues = true,
-			Store = true,
-			Index = false,
-			Boost = 1.2,
-			IgnoreMalformed = true,
-			Format = "yyyy-MM-dd'T'HH:mm[:ss][.S]")]
-		public DateTime Full { get; set; }
+    [Date(
+        DocValues = true,
+        Store = true,
+        Index = false,
+        Boost = 1.2,
+        IgnoreMalformed = true,
+        Format = "yyyy-MM-dd'T'HH:mm[:ss][.S]")]
+    public DateTime Full { get; set; }
 
-		public DateTime Inferred { get; set; }
+    public DateTime Inferred { get; set; }
 
-		public DateTimeOffset InferredOffset { get; set; }
+    public DateTimeOffset InferredOffset { get; set; }
 
-		[Date]
-		public DateTime Minimal { get; set; }
-	}
+    [Date]
+    public DateTime Minimal { get; set; }
+}
 
-	public class DateAttributeTests : AttributeTestsBase<DateTest>
-	{
-		protected override object ExpectJson => new
-		{
-			properties = new
-			{
-				full = new
-				{
-					type = "date",
-					doc_values = true,
-					store = true,
-					index = false,
-					boost = 1.2,
-					ignore_malformed = true,
-					format = "yyyy-MM-dd'T'HH:mm[:ss][.S]"
-				},
-				minimal = new
-				{
-					type = "date"
-				},
-				inferred = new
-				{
-					type = "date"
-				},
-				inferredOffset = new
-				{
-					type = "date"
-				}
-			}
-		};
-	}
+public class DateAttributeTests : AttributeTestsBase<DateTest>
+{
+    protected override object ExpectJson => new
+    {
+        properties = new
+        {
+            full = new
+            {
+                type = "date",
+                doc_values = true,
+                store = true,
+                index = false,
+                boost = 1.2,
+                ignore_malformed = true,
+                format = "yyyy-MM-dd'T'HH:mm[:ss][.S]"
+            },
+            minimal = new
+            {
+                type = "date"
+            },
+            inferred = new
+            {
+                type = "date"
+            },
+            inferredOffset = new
+            {
+                type = "date"
+            }
+        }
+    };
 }

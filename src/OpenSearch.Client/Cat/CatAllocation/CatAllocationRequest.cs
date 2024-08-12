@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	[MapsApi("cat.allocation.json")]
-	public partial interface ICatAllocationRequest { }
+namespace OpenSearch.Client;
 
-	public partial class CatAllocationRequest { }
+[MapsApi("cat.allocation.json")]
+public partial interface ICatAllocationRequest { }
 
-	public partial class CatAllocationDescriptor { }
-}
+public partial class CatAllocationRequest { }
+
+public partial class CatAllocationDescriptor { }

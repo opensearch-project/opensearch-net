@@ -30,47 +30,46 @@ using System;
 using System.Collections.Generic;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal class TermsExcludeFormatter : IJsonFormatter<TermsExclude>
 {
-	internal class TermsExcludeFormatter : IJsonFormatter<TermsExclude>
-	{
-		public TermsExclude Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			var token = reader.GetCurrentJsonToken();
-			if (token == JsonToken.Null)
-			{
-				reader.ReadNext();
-				return null;
-			}
+    public TermsExclude Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+    {
+        var token = reader.GetCurrentJsonToken();
+        if (token == JsonToken.Null)
+        {
+            reader.ReadNext();
+            return null;
+        }
 
-			TermsExclude termsExclude;
-			switch (token)
-			{
-				case JsonToken.BeginArray:
-					var formatter = formatterResolver.GetFormatter<IEnumerable<string>>();
-					termsExclude = new TermsExclude(formatter.Deserialize(ref reader, formatterResolver));
-					break;
-				case JsonToken.String:
-					termsExclude = new TermsExclude(reader.ReadString());
-					break;
-				default:
-					throw new Exception($"Unexpected token {token} when deserializing {nameof(TermsInclude)}");
-			}
+        TermsExclude termsExclude;
+        switch (token)
+        {
+            case JsonToken.BeginArray:
+                var formatter = formatterResolver.GetFormatter<IEnumerable<string>>();
+                termsExclude = new TermsExclude(formatter.Deserialize(ref reader, formatterResolver));
+                break;
+            case JsonToken.String:
+                termsExclude = new TermsExclude(reader.ReadString());
+                break;
+            default:
+                throw new Exception($"Unexpected token {token} when deserializing {nameof(TermsInclude)}");
+        }
 
-			return termsExclude;
-		}
+        return termsExclude;
+    }
 
-		public void Serialize(ref JsonWriter writer, TermsExclude value, IJsonFormatterResolver formatterResolver)
-		{
-			if (value == null)
-				writer.WriteNull();
-			else if (value.Values != null)
-			{
-				var formatter = formatterResolver.GetFormatter<IEnumerable<string>>();
-				formatter.Serialize(ref writer, value.Values, formatterResolver);
-			}
-			else
-				writer.WriteString(value.Pattern);
-		}
-	}
+    public void Serialize(ref JsonWriter writer, TermsExclude value, IJsonFormatterResolver formatterResolver)
+    {
+        if (value == null)
+            writer.WriteNull();
+        else if (value.Values != null)
+        {
+            var formatter = formatterResolver.GetFormatter<IEnumerable<string>>();
+            formatter.Serialize(ref writer, value.Values, formatterResolver);
+        }
+        else
+            writer.WriteString(value.Pattern);
+    }
 }

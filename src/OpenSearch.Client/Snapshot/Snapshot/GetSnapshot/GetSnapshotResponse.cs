@@ -30,12 +30,11 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+public class GetSnapshotResponse : ResponseBase
 {
-	[DataContract]
-	public class GetSnapshotResponse : ResponseBase
-	{
-		[DataMember(Name ="snapshots")]
-		public IReadOnlyCollection<Snapshot> Snapshots { get; internal set; } = EmptyReadOnly<Snapshot>.Collection;
-	}
+    [DataMember(Name = "snapshots")]
+    public IReadOnlyCollection<Snapshot> Snapshots { get; internal set; } = EmptyReadOnly<Snapshot>.Collection;
 }

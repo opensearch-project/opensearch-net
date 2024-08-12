@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	[MapsApi("cluster.state.json")]
-	public partial interface IClusterStateRequest { }
+namespace OpenSearch.Client;
 
-	public partial class ClusterStateRequest { }
+[MapsApi("cluster.state.json")]
+public partial interface IClusterStateRequest { }
 
-	public partial class ClusterStateDescriptor { }
-}
+public partial class ClusterStateRequest { }
+
+public partial class ClusterStateDescriptor { }

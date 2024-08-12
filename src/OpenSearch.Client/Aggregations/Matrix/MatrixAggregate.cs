@@ -29,11 +29,10 @@
 using System.Collections.Generic;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public abstract class MatrixAggregateBase : IAggregate
 {
-	public abstract class MatrixAggregateBase : IAggregate
-	{
-		/// <inheritdoc />
-		public IReadOnlyDictionary<string, object> Meta { get; set; } = EmptyReadOnly<string, object>.Dictionary;
-	}
+    /// <inheritdoc />
+    public IReadOnlyDictionary<string, object> Meta { get; set; } = EmptyReadOnly<string, object>.Dictionary;
 }

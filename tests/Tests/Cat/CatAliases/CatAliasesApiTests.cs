@@ -26,34 +26,33 @@
 *  under the License.
 */
 
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Core.ManagedOpenSearch.NodeSeeders;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Cat.CatAliases
+namespace Tests.Cat.CatAliases;
+
+public class CatAliasesApiTests
+    : ApiIntegrationTestBase<ReadOnlyCluster, CatResponse<CatAliasesRecord>, ICatAliasesRequest, CatAliasesDescriptor, CatAliasesRequest>
 {
-	public class CatAliasesApiTests
-		: ApiIntegrationTestBase<ReadOnlyCluster, CatResponse<CatAliasesRecord>, ICatAliasesRequest, CatAliasesDescriptor, CatAliasesRequest>
-	{
-		public CatAliasesApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public CatAliasesApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override bool ExpectIsValid => true;
-		protected override int ExpectStatusCode => 200;
-		protected override HttpMethod HttpMethod => HttpMethod.GET;
-		protected override string UrlPath => "/_cat/aliases";
+    protected override bool ExpectIsValid => true;
+    protected override int ExpectStatusCode => 200;
+    protected override HttpMethod HttpMethod => HttpMethod.GET;
+    protected override string UrlPath => "/_cat/aliases";
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Cat.Aliases(),
-			(client, f) => client.Cat.AliasesAsync(),
-			(client, r) => client.Cat.Aliases(r),
-			(client, r) => client.Cat.AliasesAsync(r)
-		);
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Cat.Aliases(),
+        (client, f) => client.Cat.AliasesAsync(),
+        (client, r) => client.Cat.Aliases(r),
+        (client, r) => client.Cat.AliasesAsync(r)
+    );
 
-		protected override void ExpectResponse(CatResponse<CatAliasesRecord> response) =>
-			response.Records.Should().NotBeEmpty().And.Contain(a => a.Alias == DefaultSeeder.ProjectsAliasName);
-	}
+    protected override void ExpectResponse(CatResponse<CatAliasesRecord> response) =>
+        response.Records.Should().NotBeEmpty().And.Contain(a => a.Alias == DefaultSeeder.ProjectsAliasName);
 }

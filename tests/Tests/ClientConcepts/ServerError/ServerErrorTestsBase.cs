@@ -26,60 +26,59 @@
 *  under the License.
 */
 
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
 using Tests.Core.Client;
 using Tests.Core.Extensions;
 using Tests.Domain;
 
-namespace Tests.ClientConcepts.ServerError
+namespace Tests.ClientConcepts.ServerError;
+
+public abstract class ServerErrorTestsBase
 {
-	public abstract class ServerErrorTestsBase
-	{
-		protected ServerErrorTestsBase()
-		{
-			var settings = FixedResponseClient.CreateConnectionSettings(ResponseJson, 500);
-			LowLevelClient = new OpenSearchLowLevelClient(settings);
-			HighLevelClient = new OpenSearchClient(settings);
-		}
+    protected ServerErrorTestsBase()
+    {
+        var settings = FixedResponseClient.CreateConnectionSettings(ResponseJson, 500);
+        LowLevelClient = new OpenSearchLowLevelClient(settings);
+        HighLevelClient = new OpenSearchClient(settings);
+    }
 
-		protected abstract string Json { get; }
-		private IOpenSearchClient HighLevelClient { get; }
-		private IOpenSearchLowLevelClient LowLevelClient { get; }
+    protected abstract string Json { get; }
+    private IOpenSearchClient HighLevelClient { get; }
+    private IOpenSearchLowLevelClient LowLevelClient { get; }
 
-		private string ResponseJson => string.Concat(@"{ ""error"": ", Json, @", ""status"":500 }");
+    private string ResponseJson => string.Concat(@"{ ""error"": ", Json, @", ""status"":500 }");
 
-		protected virtual void AssertServerError()
-		{
-			LowLevelCall();
-			HighLevelCall();
-		}
+    protected virtual void AssertServerError()
+    {
+        LowLevelCall();
+        HighLevelCall();
+    }
 
-		protected void HighLevelCall()
-		{
-			var response = HighLevelClient.Search<Project>(s => s);
-			response.Should().NotBeNull();
-			var serverError = response.ServerError;
-			serverError.Should().NotBeNull();
-			serverError.Status.Should().Be(response.ApiCall.HttpStatusCode);
-			serverError.Error.Should().NotBeNull();
-			serverError.Error.Headers.Should().NotBeNull();
-			AssertResponseError("high level client", serverError.Error);
-		}
+    protected void HighLevelCall()
+    {
+        var response = HighLevelClient.Search<Project>(s => s);
+        response.Should().NotBeNull();
+        var serverError = response.ServerError;
+        serverError.Should().NotBeNull();
+        serverError.Status.Should().Be(response.ApiCall.HttpStatusCode);
+        serverError.Error.Should().NotBeNull();
+        serverError.Error.Headers.Should().NotBeNull();
+        AssertResponseError("high level client", serverError.Error);
+    }
 
-		protected void LowLevelCall()
-		{
-			var response = LowLevelClient.Search<StringResponse>(PostData.Serializable(new { }));
-			response.Should().NotBeNull();
-			response.Body.Should().NotBeNullOrWhiteSpace();
-			var hasServerError = response.TryGetServerError(out var serverError);
-			hasServerError.Should().BeTrue("we're trying to deserialize a server error using the helper but it returned false");
-			serverError.Should().NotBeNull();
-			serverError.Status.Should().Be(response.ApiCall.HttpStatusCode);
-			AssertResponseError("low level client", serverError.Error);
-		}
+    protected void LowLevelCall()
+    {
+        var response = LowLevelClient.Search<StringResponse>(PostData.Serializable(new { }));
+        response.Should().NotBeNull();
+        response.Body.Should().NotBeNullOrWhiteSpace();
+        var hasServerError = response.TryGetServerError(out var serverError);
+        hasServerError.Should().BeTrue("we're trying to deserialize a server error using the helper but it returned false");
+        serverError.Should().NotBeNull();
+        serverError.Status.Should().Be(response.ApiCall.HttpStatusCode);
+        AssertResponseError("low level client", serverError.Error);
+    }
 
-		protected abstract void AssertResponseError(string origin, Error error);
-	}
+    protected abstract void AssertResponseError(string origin, Error error);
 }

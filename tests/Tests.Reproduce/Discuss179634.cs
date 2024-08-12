@@ -28,43 +28,42 @@
 
 using System;
 using System.Globalization;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Serialization;
 using Tests.Domain;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class Discuss179634
 {
-	public class Discuss179634
-	{
-		[U]
-		public void SerializeCompletionSuggesterFieldsCorrectlyWhenDefaultFieldNameInferrerUsed()
-		{
-			var connectionPool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-			var settings = new ConnectionSettings(connectionPool, new InMemoryConnection())
-				.DefaultFieldNameInferrer(p => p.ToUpper(CultureInfo.CurrentCulture))
-				.DisableDirectStreaming();
+    [U]
+    public void SerializeCompletionSuggesterFieldsCorrectlyWhenDefaultFieldNameInferrerUsed()
+    {
+        var connectionPool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+        var settings = new ConnectionSettings(connectionPool, new InMemoryConnection())
+            .DefaultFieldNameInferrer(p => p.ToUpper(CultureInfo.CurrentCulture))
+            .DisableDirectStreaming();
 
-			var tester = new SerializationTester(new OpenSearchClient(settings));
+        var tester = new SerializationTester(new OpenSearchClient(settings));
 
-			var suggest = new SearchDescriptor<Project>()
-				.Suggest(ss => ss
-					.Completion("title", cs => cs
-						.Field(f => f.Suggest)
-						.Prefix("keyword")
-						.Fuzzy(f => f
-							.Fuzziness(Fuzziness.Auto)
-						)
-						.Size(5)
-					)
-				);
+        var suggest = new SearchDescriptor<Project>()
+            .Suggest(ss => ss
+                .Completion("title", cs => cs
+                    .Field(f => f.Suggest)
+                    .Prefix("keyword")
+                    .Fuzzy(f => f
+                        .Fuzziness(Fuzziness.Auto)
+                    )
+                    .Size(5)
+                )
+            );
 
-			var expected = @"{""suggest"":{""title"":{""completion"":{""fuzzy"":{""fuzziness"":""AUTO""},""field"":""SUGGEST"",""size"":5},""prefix"":""keyword""}}}";
+        var expected = @"{""suggest"":{""title"":{""completion"":{""fuzzy"":{""fuzziness"":""AUTO""},""field"":""SUGGEST"",""size"":5},""prefix"":""keyword""}}}";
 
-			var result = tester.Serializes(suggest, expected);
-			result.Success.Should().Be(true, result.DiffFromExpected);
-		}
-	}
+        var result = tester.Serializes(suggest, expected);
+        result.Success.Should().Be(true, result.DiffFromExpected);
+    }
 }

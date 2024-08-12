@@ -28,12 +28,11 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+public class CompactNodeInfo
 {
-	[DataContract]
-	public class CompactNodeInfo
-	{
-		[DataMember(Name ="name")]
-		public string Name { get; internal set; }
-	}
+    [DataMember(Name = "name")]
+    public string Name { get; internal set; }
 }

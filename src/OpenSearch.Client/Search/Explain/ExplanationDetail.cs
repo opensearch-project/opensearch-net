@@ -30,18 +30,17 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+public class ExplanationDetail
 {
-	[DataContract]
-	public class ExplanationDetail
-	{
-		[DataMember(Name ="description")]
-		public string Description { get; internal set; }
+    [DataMember(Name = "description")]
+    public string Description { get; internal set; }
 
-		[DataMember(Name ="details")]
-		public IReadOnlyCollection<ExplanationDetail> Details { get; internal set; } = EmptyReadOnly<ExplanationDetail>.Collection;
+    [DataMember(Name = "details")]
+    public IReadOnlyCollection<ExplanationDetail> Details { get; internal set; } = EmptyReadOnly<ExplanationDetail>.Collection;
 
-		[DataMember(Name ="value")]
-		public float Value { get; internal set; }
-	}
+    [DataMember(Name = "value")]
+    public float Value { get; internal set; }
 }

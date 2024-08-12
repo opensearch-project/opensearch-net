@@ -18,27 +18,27 @@ namespace Tests.Connection.Http;
 
 public class HttpConnectionTests
 {
-	public static TheoryData<HttpMethod> HttpMethods()
-	{
-		var data = new TheoryData<HttpMethod>();
-		foreach (var httpMethod in Enum.GetValues<HttpMethod>()) data.Add(httpMethod);
-		return data;
-	}
+    public static TheoryData<HttpMethod> HttpMethods()
+    {
+        var data = new TheoryData<HttpMethod>();
+        foreach (var httpMethod in Enum.GetValues<HttpMethod>()) data.Add(httpMethod);
+        return data;
+    }
 
-	[TU]
-	[MemberData(nameof(HttpMethods))]
-	public void UsesCorrectHttpMethod(HttpMethod method)
-	{
-		HttpRequestMessage sentRequest = null;
-		var connection = new MockableHttpConnection(r =>
-		{
-			sentRequest = r;
-			return new HttpResponseMessage();
-		});
-		var client = new OpenSearchLowLevelClient(new ConnectionConfiguration(connection: connection));
+    [TU]
+    [MemberData(nameof(HttpMethods))]
+    public void UsesCorrectHttpMethod(HttpMethod method)
+    {
+        HttpRequestMessage sentRequest = null;
+        var connection = new MockableHttpConnection(r =>
+        {
+            sentRequest = r;
+            return new HttpResponseMessage();
+        });
+        var client = new OpenSearchLowLevelClient(new ConnectionConfiguration(connection: connection));
 
-		client.DoRequest<VoidResponse>(method, "/");
+        client.DoRequest<VoidResponse>(method, "/");
 
-		sentRequest.ShouldHaveMethod(method.ToString());
-	}
+        sentRequest.ShouldHaveMethod(method.ToString());
+    }
 }

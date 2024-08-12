@@ -14,16 +14,16 @@ namespace OpenSearch.Client;
 [DataContract]
 public class DeletePitResponse : ResponseBase
 {
-	[DataMember(Name = "pits")]
-	public IReadOnlyCollection<DeletedPit> Pits { get; internal set; } = EmptyReadOnly<DeletedPit>.Collection;
+    [DataMember(Name = "pits")]
+    public IReadOnlyCollection<DeletedPit> Pits { get; internal set; } = EmptyReadOnly<DeletedPit>.Collection;
 }
 
 [DataContract]
 public class DeletedPit
 {
-	[DataMember(Name = "pit_id")]
-	public string PitId { get; set; }
+    [DataMember(Name = "pit_id")]
+    public string PitId { get; set; }
 
-	[DataMember(Name = "successful")]
-	public bool Successful { get; set; }
+    [DataMember(Name = "successful")]
+    public bool Successful { get; set; }
 }

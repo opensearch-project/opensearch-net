@@ -28,38 +28,37 @@
 
 using System;
 
-namespace OpenSearch.Stack.ArtifactsApi.Products
+namespace OpenSearch.Stack.ArtifactsApi.Products;
+
+public class SubProduct
 {
-	public class SubProduct
-	{
-		private readonly Func<OpenSearchVersion, string> _getExistsMoniker;
+    private readonly Func<OpenSearchVersion, string> _getExistsMoniker;
 
-		private readonly Func<OpenSearchVersion, bool> _isValid;
+    private readonly Func<OpenSearchVersion, bool> _isValid;
 
-		public SubProduct(string subProject, Func<OpenSearchVersion, bool> isValid = null,
-			Func<OpenSearchVersion, string> listName = null)
-		{
-			SubProductName = subProject;
-			_isValid = isValid ?? (v => true);
-			_getExistsMoniker = listName ?? (v => subProject);
-		}
+    public SubProduct(string subProject, Func<OpenSearchVersion, bool> isValid = null,
+        Func<OpenSearchVersion, string> listName = null)
+    {
+        SubProductName = subProject;
+        _isValid = isValid ?? (v => true);
+        _getExistsMoniker = listName ?? (v => subProject);
+    }
 
-		public string SubProductName { get; }
+    public string SubProductName { get; }
 
-		public OpenSearchVersion ShippedByDefaultAsOf { get; set; }
+    public OpenSearchVersion ShippedByDefaultAsOf { get; set; }
 
-		public bool PlatformDependent { get; protected set; }
+    public bool PlatformDependent { get; protected set; }
 
-		/// <summary> what moniker to use when asserting the sub product is already present</summary>
-		public string GetExistsMoniker(OpenSearchVersion version) => _getExistsMoniker(version);
+    /// <summary> what moniker to use when asserting the sub product is already present</summary>
+    public string GetExistsMoniker(OpenSearchVersion version) => _getExistsMoniker(version);
 
-		/// <summary>Whether the sub project is included in the distribution out of the box for the given version</summary>
-		public bool IsIncludedOutOfTheBox(OpenSearchVersion version) =>
-			ShippedByDefaultAsOf != null && version >= ShippedByDefaultAsOf;
+    /// <summary>Whether the sub project is included in the distribution out of the box for the given version</summary>
+    public bool IsIncludedOutOfTheBox(OpenSearchVersion version) =>
+        ShippedByDefaultAsOf != null && version >= ShippedByDefaultAsOf;
 
-		/// <summary>Whether the subProject is valid for the given version</summary>
-		public bool IsValid(OpenSearchVersion version) => IsIncludedOutOfTheBox(version) || _isValid(version);
+    /// <summary>Whether the subProject is valid for the given version</summary>
+    public bool IsValid(OpenSearchVersion version) => IsIncludedOutOfTheBox(version) || _isValid(version);
 
-		public override string ToString() => SubProductName;
-	}
+    public override string ToString() => SubProductName;
 }

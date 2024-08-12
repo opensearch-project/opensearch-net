@@ -29,12 +29,11 @@
 using System.Runtime.CompilerServices;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal static class JsonFormatterResolverExtensions
 {
-	internal static class JsonFormatterResolverExtensions
-	{
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static IConnectionSettingsValues GetConnectionSettings(this IJsonFormatterResolver formatterResolver) =>
-			((IJsonFormatterResolverWithSettings)formatterResolver).Settings;
-	}
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static IConnectionSettingsValues GetConnectionSettings(this IJsonFormatterResolver formatterResolver) =>
+        ((IJsonFormatterResolverWithSettings)formatterResolver).Settings;
 }

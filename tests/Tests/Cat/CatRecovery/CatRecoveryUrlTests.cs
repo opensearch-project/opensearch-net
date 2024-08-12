@@ -27,30 +27,30 @@
 */
 
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
 
-namespace Tests.Cat.CatRecovery
-{
-	public class CatRecoveryUrlTests : UrlTestsBase
-	{
-		[U] public override async Task Urls()
-		{
-			await GET("/_cat/recovery")
-					.Fluent(c => c.Cat.Recovery())
-					.Request(c => c.Cat.Recovery(new CatRecoveryRequest()))
-					.FluentAsync(c => c.Cat.RecoveryAsync())
-					.RequestAsync(c => c.Cat.RecoveryAsync(new CatRecoveryRequest()))
-				;
+namespace Tests.Cat.CatRecovery;
 
-			await GET("/_cat/recovery/project")
-				.Fluent(c => c.Cat.Recovery(r => r.Index<Project>()))
-				.Request(c => c.Cat.Recovery(new CatRecoveryRequest(OpenSearch.Client.Indices.Index<Project>())))
-				.FluentAsync(c => c.Cat.RecoveryAsync(r => r.Index<Project>()))
-				.RequestAsync(c => c.Cat.RecoveryAsync(new CatRecoveryRequest(OpenSearch.Client.Indices.Index<Project>())));
-		}
-	}
+public class CatRecoveryUrlTests : UrlTestsBase
+{
+    [U]
+    public override async Task Urls()
+    {
+        await GET("/_cat/recovery")
+                .Fluent(c => c.Cat.Recovery())
+                .Request(c => c.Cat.Recovery(new CatRecoveryRequest()))
+                .FluentAsync(c => c.Cat.RecoveryAsync())
+                .RequestAsync(c => c.Cat.RecoveryAsync(new CatRecoveryRequest()))
+            ;
+
+        await GET("/_cat/recovery/project")
+            .Fluent(c => c.Cat.Recovery(r => r.Index<Project>()))
+            .Request(c => c.Cat.Recovery(new CatRecoveryRequest(OpenSearch.Client.Indices.Index<Project>())))
+            .FluentAsync(c => c.Cat.RecoveryAsync(r => r.Index<Project>()))
+            .RequestAsync(c => c.Cat.RecoveryAsync(new CatRecoveryRequest(OpenSearch.Client.Indices.Index<Project>())));
+    }
 }

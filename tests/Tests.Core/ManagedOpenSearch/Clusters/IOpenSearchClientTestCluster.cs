@@ -28,10 +28,9 @@
 
 using OpenSearch.Client;
 
-namespace Tests.Core.ManagedOpenSearch.Clusters
+namespace Tests.Core.ManagedOpenSearch.Clusters;
+
+public interface IOpenSearchClientTestCluster
 {
-	public interface IOpenSearchClientTestCluster
-	{
-		IOpenSearchClient Client { get; }
-	}
+    IOpenSearchClient Client { get; }
 }

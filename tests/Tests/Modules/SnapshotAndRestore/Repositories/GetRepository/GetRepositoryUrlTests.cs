@@ -27,31 +27,31 @@
 */
 
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
 
-namespace Tests.Modules.SnapshotAndRestore.Repositories.GetRepository
-{
-	public class GetRepositoryUrlTests
-	{
-		[U] public async Task Urls()
-		{
-			var repositories = "repos1,repos2";
+namespace Tests.Modules.SnapshotAndRestore.Repositories.GetRepository;
 
-			await GET($"/_snapshot/repos1%2Crepos2")
-					.Fluent(c => c.Snapshot.GetRepository(s => s.RepositoryName(repositories)))
-					.Request(c => c.Snapshot.GetRepository(new GetRepositoryRequest(repositories)))
-					.FluentAsync(c => c.Snapshot.GetRepositoryAsync(s => s.RepositoryName(repositories)))
-					.RequestAsync(c => c.Snapshot.GetRepositoryAsync(new GetRepositoryRequest(repositories)))
-				;
-			await GET($"/_snapshot")
-					.Fluent(c => c.Snapshot.GetRepository())
-					.Request(c => c.Snapshot.GetRepository(new GetRepositoryRequest()))
-					.FluentAsync(c => c.Snapshot.GetRepositoryAsync())
-					.RequestAsync(c => c.Snapshot.GetRepositoryAsync(new GetRepositoryRequest()))
-				;
-		}
-	}
+public class GetRepositoryUrlTests
+{
+    [U]
+    public async Task Urls()
+    {
+        var repositories = "repos1,repos2";
+
+        await GET($"/_snapshot/repos1%2Crepos2")
+                .Fluent(c => c.Snapshot.GetRepository(s => s.RepositoryName(repositories)))
+                .Request(c => c.Snapshot.GetRepository(new GetRepositoryRequest(repositories)))
+                .FluentAsync(c => c.Snapshot.GetRepositoryAsync(s => s.RepositoryName(repositories)))
+                .RequestAsync(c => c.Snapshot.GetRepositoryAsync(new GetRepositoryRequest(repositories)))
+            ;
+        await GET($"/_snapshot")
+                .Fluent(c => c.Snapshot.GetRepository())
+                .Request(c => c.Snapshot.GetRepository(new GetRepositoryRequest()))
+                .FluentAsync(c => c.Snapshot.GetRepositoryAsync())
+                .RequestAsync(c => c.Snapshot.GetRepositoryAsync(new GetRepositoryRequest()))
+            ;
+    }
 }

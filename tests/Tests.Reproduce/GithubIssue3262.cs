@@ -28,19 +28,19 @@
 
 using System;
 using System.Text;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GithubIssue3262
 {
-	public class GithubIssue3262
-	{
-		[U]
-		public void CanDeserializeSingleFilterAndCharacterFilter()
-		{
-			var json = @"{
+    [U]
+    public void CanDeserializeSingleFilterAndCharacterFilter()
+    {
+        var json = @"{
 			  ""products_purchasing"": {
 				""settings"": {
 				  ""index"": {
@@ -85,21 +85,20 @@ namespace Tests.Reproduce
 			  }
 			}";
 
-			var bytes = Encoding.UTF8.GetBytes(json);
+        var bytes = Encoding.UTF8.GetBytes(json);
 
-			var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-			var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(bytes));
-			var client = new OpenSearchClient(connectionSettings);
+        var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+        var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(bytes));
+        var client = new OpenSearchClient(connectionSettings);
 
-			Action getIndexRequest = () => client.Indices.Get(new GetIndexRequest("products_purchasing"));
+        Action getIndexRequest = () => client.Indices.Get(new GetIndexRequest("products_purchasing"));
 
-			getIndexRequest.Should().NotThrow();
+        getIndexRequest.Should().NotThrow();
 
-			var response = client.Indices.Get(new GetIndexRequest("products_purchasing"));
+        var response = client.Indices.Get(new GetIndexRequest("products_purchasing"));
 
-			var normalizer = response.Indices["products_purchasing"].Settings.Analysis.Normalizers["lowercase"] as ICustomNormalizer;
-			normalizer.Should().NotBeNull();
-			normalizer.Filter.Should().NotBeNull().And.HaveCount(1);
-		}
-	}
+        var normalizer = response.Indices["products_purchasing"].Settings.Analysis.Normalizers["lowercase"] as ICustomNormalizer;
+        normalizer.Should().NotBeNull();
+        normalizer.Filter.Should().NotBeNull().And.HaveCount(1);
+    }
 }

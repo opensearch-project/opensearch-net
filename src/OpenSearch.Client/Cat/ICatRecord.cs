@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	public interface ICatRecord { }
-}
+namespace OpenSearch.Client;
+
+public interface ICatRecord { }

@@ -28,19 +28,19 @@
 
 using System;
 using System.Text;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GithubIssue3745
 {
-	public class GithubIssue3745
-	{
-		[U]
-		public void CanDeserializeCompositeAggs()
-		{
-			var json = @"{
+    [U]
+    public void CanDeserializeCompositeAggs()
+    {
+        var json = @"{
 	""took"": 28,
 	""timed_out"": false,
 	""_shards"": {
@@ -118,21 +118,21 @@ namespace Tests.Reproduce
 	}
 }";
 
-			var bytes = Encoding.UTF8.GetBytes(json);
+        var bytes = Encoding.UTF8.GetBytes(json);
 
-			var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-			var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(bytes)).DefaultIndex("default_index");
-			var client = new OpenSearchClient(connectionSettings);
+        var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+        var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(bytes)).DefaultIndex("default_index");
+        var client = new OpenSearchClient(connectionSettings);
 
-			var response = client.Search<object>(s => s);
-			var compositeAgg = response.Aggregations.Composite("FieldNamecomposite");
-			compositeAgg.Should().NotBeNull();
-		}
+        var response = client.Search<object>(s => s);
+        var compositeAgg = response.Aggregations.Composite("FieldNamecomposite");
+        compositeAgg.Should().NotBeNull();
+    }
 
-		[U]
-		public void CanDeserializeCompositeAggsWithSubs()
-		{
-			var json = @"{
+    [U]
+    public void CanDeserializeCompositeAggsWithSubs()
+    {
+        var json = @"{
   ""took"" : 172,
   ""timed_out"" : false,
   ""_shards"" : {
@@ -709,15 +709,14 @@ namespace Tests.Reproduce
 }
 ";
 
-			var bytes = Encoding.UTF8.GetBytes(json);
+        var bytes = Encoding.UTF8.GetBytes(json);
 
-			var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-			var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(bytes)).DefaultIndex("default_index");
-			var client = new OpenSearchClient(connectionSettings);
+        var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+        var connectionSettings = new ConnectionSettings(pool, new InMemoryConnection(bytes)).DefaultIndex("default_index");
+        var client = new OpenSearchClient(connectionSettings);
 
-			var response = client.Search<object>(s => s);
-			var compositeAgg = response.Aggregations.Composite("my_buckets");
-			compositeAgg.Should().NotBeNull();
-		}
-	}
+        var response = client.Search<object>(s => s);
+        var compositeAgg = response.Aggregations.Composite("my_buckets");
+        compositeAgg.Should().NotBeNull();
+    }
 }

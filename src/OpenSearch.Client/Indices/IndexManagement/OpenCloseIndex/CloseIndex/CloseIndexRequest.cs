@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	[MapsApi("indices.close.json")]
-	public partial interface ICloseIndexRequest { }
+namespace OpenSearch.Client;
 
-	public partial class CloseIndexRequest { }
+[MapsApi("indices.close.json")]
+public partial interface ICloseIndexRequest { }
 
-	public partial class CloseIndexDescriptor { }
-}
+public partial class CloseIndexRequest { }
+
+public partial class CloseIndexDescriptor { }

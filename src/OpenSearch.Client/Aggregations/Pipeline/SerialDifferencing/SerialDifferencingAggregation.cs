@@ -29,34 +29,33 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+[ReadAs(typeof(SerialDifferencingAggregation))]
+public interface ISerialDifferencingAggregation : IPipelineAggregation
 {
-	[InterfaceDataContract]
-	[ReadAs(typeof(SerialDifferencingAggregation))]
-	public interface ISerialDifferencingAggregation : IPipelineAggregation
-	{
-		[DataMember(Name ="lag")]
-		int? Lag { get; set; }
-	}
+    [DataMember(Name = "lag")]
+    int? Lag { get; set; }
+}
 
-	public class SerialDifferencingAggregation : PipelineAggregationBase, ISerialDifferencingAggregation
-	{
-		internal SerialDifferencingAggregation() { }
+public class SerialDifferencingAggregation : PipelineAggregationBase, ISerialDifferencingAggregation
+{
+    internal SerialDifferencingAggregation() { }
 
-		public SerialDifferencingAggregation(string name, SingleBucketsPath bucketsPath)
-			: base(name, bucketsPath) { }
+    public SerialDifferencingAggregation(string name, SingleBucketsPath bucketsPath)
+        : base(name, bucketsPath) { }
 
-		public int? Lag { get; set; }
+    public int? Lag { get; set; }
 
-		internal override void WrapInContainer(AggregationContainer c) => c.SerialDifferencing = this;
-	}
+    internal override void WrapInContainer(AggregationContainer c) => c.SerialDifferencing = this;
+}
 
-	public class SerialDifferencingAggregationDescriptor
-		: PipelineAggregationDescriptorBase<SerialDifferencingAggregationDescriptor, ISerialDifferencingAggregation, SingleBucketsPath>
-			, ISerialDifferencingAggregation
-	{
-		int? ISerialDifferencingAggregation.Lag { get; set; }
+public class SerialDifferencingAggregationDescriptor
+    : PipelineAggregationDescriptorBase<SerialDifferencingAggregationDescriptor, ISerialDifferencingAggregation, SingleBucketsPath>
+        , ISerialDifferencingAggregation
+{
+    int? ISerialDifferencingAggregation.Lag { get; set; }
 
-		public SerialDifferencingAggregationDescriptor Lag(int? lag) => Assign(lag, (a, v) => a.Lag = v);
-	}
+    public SerialDifferencingAggregationDescriptor Lag(int? lag) => Assign(lag, (a, v) => a.Lag = v);
 }

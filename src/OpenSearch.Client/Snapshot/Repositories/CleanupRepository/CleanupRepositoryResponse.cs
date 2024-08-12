@@ -28,21 +28,20 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+public class CleanupRepositoryResponse : ResponseBase
 {
-	[DataContract]
-	public class CleanupRepositoryResponse : ResponseBase
-	{
-		[DataMember(Name ="results")]
-		public CleanupRepositoryResults Results { get; internal set; }
-	}
+    [DataMember(Name = "results")]
+    public CleanupRepositoryResults Results { get; internal set; }
+}
 
-	public class CleanupRepositoryResults
-	{
-		[DataMember(Name ="deleted_bytes")]
-		public long DeletedBytes { get; internal set; }
+public class CleanupRepositoryResults
+{
+    [DataMember(Name = "deleted_bytes")]
+    public long DeletedBytes { get; internal set; }
 
-		[DataMember(Name ="deleted_blobs")]
-		public long DeletedBlobs { get; internal set; }
-	}
+    [DataMember(Name = "deleted_blobs")]
+    public long DeletedBlobs { get; internal set; }
 }

@@ -29,15 +29,14 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
-{
-	[StringEnum]
-	public enum EdgeNGramSide
-	{
-		[EnumMember(Value = "front")]
-		Front,
+namespace OpenSearch.Client;
 
-		[EnumMember(Value = "back")]
-		Back,
-	}
+[StringEnum]
+public enum EdgeNGramSide
+{
+    [EnumMember(Value = "front")]
+    Front,
+
+    [EnumMember(Value = "back")]
+    Back,
 }

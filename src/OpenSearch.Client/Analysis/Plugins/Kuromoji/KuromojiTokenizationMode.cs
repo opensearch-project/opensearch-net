@@ -29,33 +29,32 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// The tokenization mode determines how the tokenizer handles compound and unknown words.
+/// Part of the `analysis-kuromoji` plugin:
+///
+/// </summary>
+[StringEnum]
+public enum KuromojiTokenizationMode
 {
-	/// <summary>
-	/// The tokenization mode determines how the tokenizer handles compound and unknown words.
-	/// Part of the `analysis-kuromoji` plugin:
-	///
-	/// </summary>
-	[StringEnum]
-	public enum KuromojiTokenizationMode
-	{
-		/// <summary>
-		/// Normal segmentation, no decomposition for compounds
-		/// </summary>
-		[EnumMember(Value = "normal")]
-		Normal,
+    /// <summary>
+    /// Normal segmentation, no decomposition for compounds
+    /// </summary>
+    [EnumMember(Value = "normal")]
+    Normal,
 
-		/// <summary>
-		/// Segmentation geared towards search. This includes a decompounding process for long nouns,
-		/// also including the full compound token as a synonym.
-		/// </summary>
-		[EnumMember(Value = "search")]
-		Search,
+    /// <summary>
+    /// Segmentation geared towards search. This includes a decompounding process for long nouns,
+    /// also including the full compound token as a synonym.
+    /// </summary>
+    [EnumMember(Value = "search")]
+    Search,
 
-		/// <summary>
-		/// Extended mode outputs unigrams for unknown words.
-		/// </summary>
-		[EnumMember(Value = "extended")]
-		Extended
-	}
+    /// <summary>
+    /// Extended mode outputs unigrams for unknown words.
+    /// </summary>
+    [EnumMember(Value = "extended")]
+    Extended
 }

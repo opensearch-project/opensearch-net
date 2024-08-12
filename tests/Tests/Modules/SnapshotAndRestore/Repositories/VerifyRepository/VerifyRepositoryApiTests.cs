@@ -27,40 +27,39 @@
 */
 
 using System;
-using OpenSearch.Net;
 using OpenSearch.Client;
+using OpenSearch.Net;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Modules.SnapshotAndRestore.Repositories.VerifyRepository
+namespace Tests.Modules.SnapshotAndRestore.Repositories.VerifyRepository;
+
+public class VerifyRepositoryApiTests
+    : ApiTestBase<ReadOnlyCluster, VerifyRepositoryResponse, IVerifyRepositoryRequest, VerifyRepositoryDescriptor, VerifyRepositoryRequest>
 {
-	public class VerifyRepositoryApiTests
-		: ApiTestBase<ReadOnlyCluster, VerifyRepositoryResponse, IVerifyRepositoryRequest, VerifyRepositoryDescriptor, VerifyRepositoryRequest>
-	{
-		private static readonly string _name = "repository1";
+    private static readonly string _name = "repository1";
 
-		public VerifyRepositoryApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public VerifyRepositoryApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override object ExpectJson { get; } = new { };
+    protected override object ExpectJson { get; } = new { };
 
-		protected override Func<VerifyRepositoryDescriptor, IVerifyRepositoryRequest> Fluent => d => d;
+    protected override Func<VerifyRepositoryDescriptor, IVerifyRepositoryRequest> Fluent => d => d;
 
-		protected override HttpMethod HttpMethod => HttpMethod.POST;
+    protected override HttpMethod HttpMethod => HttpMethod.POST;
 
-		protected override VerifyRepositoryRequest Initializer => new VerifyRepositoryRequest(_name);
+    protected override VerifyRepositoryRequest Initializer => new VerifyRepositoryRequest(_name);
 
-		protected override bool SupportsDeserialization => false;
-		protected override string UrlPath => $"/_snapshot/{_name}/_verify";
+    protected override bool SupportsDeserialization => false;
+    protected override string UrlPath => $"/_snapshot/{_name}/_verify";
 
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Snapshot.VerifyRepository(_name, f),
-			(client, f) => client.Snapshot.VerifyRepositoryAsync(_name, f),
-			(client, r) => client.Snapshot.VerifyRepository(r),
-			(client, r) => client.Snapshot.VerifyRepositoryAsync(r)
-		);
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Snapshot.VerifyRepository(_name, f),
+        (client, f) => client.Snapshot.VerifyRepositoryAsync(_name, f),
+        (client, r) => client.Snapshot.VerifyRepository(r),
+        (client, r) => client.Snapshot.VerifyRepositoryAsync(r)
+    );
 
-		protected override VerifyRepositoryDescriptor NewDescriptor() => new VerifyRepositoryDescriptor(_name);
-	}
+    protected override VerifyRepositoryDescriptor NewDescriptor() => new VerifyRepositoryDescriptor(_name);
 }

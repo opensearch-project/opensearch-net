@@ -27,21 +27,21 @@
 */
 
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
 
-namespace Tests.Document.Multiple.ReindexRethrottle
-{
-	public class ReindexRethrottleUrlTests : UrlTestsBase
-	{
-		private readonly TaskId _taskId = "rhtoNesNR4aXVIY2bRR4GQ:13056";
+namespace Tests.Document.Multiple.ReindexRethrottle;
 
-		[U] public override async Task Urls() => await POST($"/_reindex/{EscapeUriString(_taskId.ToString())}/_rethrottle")
-			.Fluent(c => c.ReindexRethrottle(_taskId))
-			.Request(c => c.ReindexRethrottle(new ReindexRethrottleRequest(_taskId)))
-			.FluentAsync(c => c.ReindexRethrottleAsync(_taskId))
-			.RequestAsync(c => c.ReindexRethrottleAsync(new ReindexRethrottleRequest(_taskId)));
-	}
+public class ReindexRethrottleUrlTests : UrlTestsBase
+{
+    private readonly TaskId _taskId = "rhtoNesNR4aXVIY2bRR4GQ:13056";
+
+    [U]
+    public override async Task Urls() => await POST($"/_reindex/{EscapeUriString(_taskId.ToString())}/_rethrottle")
+        .Fluent(c => c.ReindexRethrottle(_taskId))
+        .Request(c => c.ReindexRethrottle(new ReindexRethrottleRequest(_taskId)))
+        .FluentAsync(c => c.ReindexRethrottleAsync(_taskId))
+        .RequestAsync(c => c.ReindexRethrottleAsync(new ReindexRethrottleRequest(_taskId)));
 }

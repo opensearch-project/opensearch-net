@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	public class PutPipelineResponse : AcknowledgedResponseBase { }
-}
+namespace OpenSearch.Client;
+
+public class PutPipelineResponse : AcknowledgedResponseBase { }

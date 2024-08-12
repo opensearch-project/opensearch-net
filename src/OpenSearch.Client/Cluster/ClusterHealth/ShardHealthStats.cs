@@ -26,30 +26,29 @@
 *  under the License.
 */
 
-using OpenSearch.Net;
 using System.Runtime.Serialization;
+using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+public class ShardHealthStats
 {
-	[DataContract]
-	public class ShardHealthStats
-	{
-		[DataMember(Name ="active_shards")]
-		public int ActiveShards { get; internal set; }
+    [DataMember(Name = "active_shards")]
+    public int ActiveShards { get; internal set; }
 
-		[DataMember(Name ="initializing_shards")]
-		public int InitializingShards { get; internal set; }
+    [DataMember(Name = "initializing_shards")]
+    public int InitializingShards { get; internal set; }
 
-		[DataMember(Name ="primary_active")]
-		public bool PrimaryActive { get; internal set; }
+    [DataMember(Name = "primary_active")]
+    public bool PrimaryActive { get; internal set; }
 
-		[DataMember(Name ="relocating_shards")]
-		public int RelocatingShards { get; internal set; }
+    [DataMember(Name = "relocating_shards")]
+    public int RelocatingShards { get; internal set; }
 
-		[DataMember(Name ="status")]
-		public HealthStatus Status { get; internal set; }
+    [DataMember(Name = "status")]
+    public HealthStatus Status { get; internal set; }
 
-		[DataMember(Name ="unassigned_shards")]
-		public int UnassignedShards { get; internal set; }
-	}
+    [DataMember(Name = "unassigned_shards")]
+    public int UnassignedShards { get; internal set; }
 }

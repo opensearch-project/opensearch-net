@@ -32,18 +32,17 @@ using ApiGenerator.Configuration;
 using ApiGenerator.Domain;
 using ShellProgressBar;
 
-namespace ApiGenerator.Generator.Razor
+namespace ApiGenerator.Generator.Razor;
+
+public class ApiUrlsLookupsGenerator : RazorGeneratorBase
 {
-    public class ApiUrlsLookupsGenerator : RazorGeneratorBase
+    public override string Title => "OpenSearch.Client static url lookups";
+
+    public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
     {
-        public override string Title => "OpenSearch.Client static url lookups";
+        var view = ViewLocations.HighLevel("Requests", "ApiUrlsLookup.cshtml");
+        var target = GeneratorLocations.HighLevel("ApiUrlsLookup.cs");
 
-        public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
-        {
-            var view = ViewLocations.HighLevel("Requests", "ApiUrlsLookup.cshtml");
-            var target = GeneratorLocations.HighLevel("ApiUrlsLookup.cs");
-
-            await DoRazor(spec, view, target, token);
-        }
+        await DoRazor(spec, view, target, token);
     }
 }

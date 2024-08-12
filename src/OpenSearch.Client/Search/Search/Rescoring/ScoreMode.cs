@@ -30,24 +30,23 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[StringEnum]
+public enum ScoreMode
 {
-	[StringEnum]
-	public enum ScoreMode
-	{
-		[EnumMember(Value = "avg")]
-		Average,
+    [EnumMember(Value = "avg")]
+    Average,
 
-		[EnumMember(Value = "max")]
-		Max,
+    [EnumMember(Value = "max")]
+    Max,
 
-		[EnumMember(Value = "min")]
-		Min,
+    [EnumMember(Value = "min")]
+    Min,
 
-		[EnumMember(Value = "multiply")]
-		Multiply,
+    [EnumMember(Value = "multiply")]
+    Multiply,
 
-		[EnumMember(Value = "total")]
-		Total,
-	}
+    [EnumMember(Value = "total")]
+    Total,
 }

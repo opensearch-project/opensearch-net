@@ -26,10 +26,9 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal class IndexRequestFormatter<TDocument> : ProxyRequestFormatterBase<IIndexRequest<TDocument>, IndexRequest<TDocument>>
+    where TDocument : class
 {
-	internal class IndexRequestFormatter<TDocument> : ProxyRequestFormatterBase<IIndexRequest<TDocument>, IndexRequest<TDocument>>
-		where TDocument : class
-	{
-	}
 }

@@ -26,10 +26,9 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	/// <summary>
-	/// A document field mapping in OpenSearch
-	/// </summary>
-	public interface IFieldMapping { }
-}
+namespace OpenSearch.Client;
+
+/// <summary>
+/// A document field mapping in OpenSearch
+/// </summary>
+public interface IFieldMapping { }

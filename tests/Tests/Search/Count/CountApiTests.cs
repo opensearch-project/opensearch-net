@@ -27,64 +27,63 @@
 */
 
 using System;
-using OpenSearch.Net;
 using OpenSearch.Client;
+using OpenSearch.Net;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Search.Count
+namespace Tests.Search.Count;
+
+public class CountApiTests
+    : ApiIntegrationTestBase<ReadOnlyCluster, CountResponse, ICountRequest, CountDescriptor<Project>, CountRequest<Project>>
 {
-	public class CountApiTests
-		: ApiIntegrationTestBase<ReadOnlyCluster, CountResponse, ICountRequest, CountDescriptor<Project>, CountRequest<Project>>
-	{
-		public CountApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public CountApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override bool ExpectIsValid => true;
+    protected override bool ExpectIsValid => true;
 
-		protected override object ExpectJson => new
-		{
-			query = new
-			{
-				match = new
-				{
-					name = new
-					{
-						query = "OSC"
-					}
-				}
-			}
-		};
+    protected override object ExpectJson => new
+    {
+        query = new
+        {
+            match = new
+            {
+                name = new
+                {
+                    query = "OSC"
+                }
+            }
+        }
+    };
 
-		protected override int ExpectStatusCode => 200;
+    protected override int ExpectStatusCode => 200;
 
-		protected override Func<CountDescriptor<Project>, ICountRequest> Fluent => c => c
-			.Query(q => q
-				.Match(m => m
-					.Field(p => p.Name)
-					.Query("OSC")
-				)
-			);
+    protected override Func<CountDescriptor<Project>, ICountRequest> Fluent => c => c
+        .Query(q => q
+            .Match(m => m
+                .Field(p => p.Name)
+                .Query("OSC")
+            )
+        );
 
-		protected override HttpMethod HttpMethod => HttpMethod.POST;
+    protected override HttpMethod HttpMethod => HttpMethod.POST;
 
-		protected override CountRequest<Project> Initializer => new CountRequest<Project>()
-		{
-			Query = new QueryContainer(new MatchQuery
-			{
-				Field = "name",
-				Query = "OSC"
-			})
-		};
+    protected override CountRequest<Project> Initializer => new CountRequest<Project>()
+    {
+        Query = new QueryContainer(new MatchQuery
+        {
+            Field = "name",
+            Query = "OSC"
+        })
+    };
 
-		protected override string UrlPath => "/project/_count";
+    protected override string UrlPath => "/project/_count";
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(c, f) => c.Count(f),
-			(c, f) => c.CountAsync(f),
-			(c, r) => c.Count(r),
-			(c, r) => c.CountAsync(r)
-		);
-	}
+    protected override LazyResponses ClientUsage() => Calls(
+        (c, f) => c.Count(f),
+        (c, f) => c.CountAsync(f),
+        (c, r) => c.Count(r),
+        (c, r) => c.CountAsync(r)
+    );
 }

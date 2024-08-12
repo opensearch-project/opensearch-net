@@ -35,37 +35,36 @@ using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
 using static OpenSearch.Client.Infer;
 
-namespace Tests.Aggregations.Metric.Sum
+namespace Tests.Aggregations.Metric.Sum;
+
+public class SumAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
 {
-	public class SumAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
-	{
-		public SumAggregationUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+    public SumAggregationUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
 
-		protected override object AggregationJson => new
-		{
-			commits_sum = new
-			{
-				sum = new
-				{
-					field = "numberOfCommits"
-				}
-			}
-		};
+    protected override object AggregationJson => new
+    {
+        commits_sum = new
+        {
+            sum = new
+            {
+                field = "numberOfCommits"
+            }
+        }
+    };
 
-		protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
-			.Sum("commits_sum", sm => sm
-				.Field(p => p.NumberOfCommits)
-			);
+    protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
+        .Sum("commits_sum", sm => sm
+            .Field(p => p.NumberOfCommits)
+        );
 
-		protected override AggregationDictionary InitializerAggs =>
-			new SumAggregation("commits_sum", Field<Project>(p => p.NumberOfCommits));
+    protected override AggregationDictionary InitializerAggs =>
+        new SumAggregation("commits_sum", Field<Project>(p => p.NumberOfCommits));
 
-		protected override void ExpectResponse(ISearchResponse<Project> response)
-		{
-			response.ShouldBeValid();
-			var commitsSum = response.Aggregations.Sum("commits_sum");
-			commitsSum.Should().NotBeNull();
-			commitsSum.Value.Should().BeGreaterThan(0);
-		}
-	}
+    protected override void ExpectResponse(ISearchResponse<Project> response)
+    {
+        response.ShouldBeValid();
+        var commitsSum = response.Aggregations.Sum("commits_sum");
+        commitsSum.Should().NotBeNull();
+        commitsSum.Value.Should().BeGreaterThan(0);
+    }
 }

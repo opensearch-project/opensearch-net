@@ -26,26 +26,26 @@
 *  under the License.
 */
 
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.ManagedOpenSearch.Clusters;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GithubIssue2886 : IClusterFixture<WritableCluster>
 {
-	public class GithubIssue2886 : IClusterFixture<WritableCluster>
-	{
-		private readonly WritableCluster _cluster;
+    private readonly WritableCluster _cluster;
 
-		public GithubIssue2886(WritableCluster cluster) => _cluster = cluster;
+    public GithubIssue2886(WritableCluster cluster) => _cluster = cluster;
 
-		[I]
-		public void CanReadSingleOrMultipleCommonGramsCommonWordsItem()
-		{
-			var client = _cluster.Client;
+    [I]
+    public void CanReadSingleOrMultipleCommonGramsCommonWordsItem()
+    {
+        var client = _cluster.Client;
 
-			var json = @"
+        var json = @"
 				{
 				  ""settings"": {
 					""analysis"": {
@@ -63,24 +63,23 @@ namespace Tests.Reproduce
 				  }
 				}";
 
-			var response = client.LowLevel.Indices.Create<StringResponse>("common_words_token_filter", json);
-			response.Success.Should().BeTrue();
+        var response = client.LowLevel.Indices.Create<StringResponse>("common_words_token_filter", json);
+        response.Success.Should().BeTrue();
 
-			var settingsResponse = client.Indices.Get("common_words_token_filter");
+        var settingsResponse = client.Indices.Get("common_words_token_filter");
 
-			var indexState = settingsResponse.Indices["common_words_token_filter"];
-			indexState.Should().NotBeNull();
+        var indexState = settingsResponse.Indices["common_words_token_filter"];
+        indexState.Should().NotBeNull();
 
-			var tokenFilters = indexState.Settings.Analysis.TokenFilters;
-			tokenFilters.Should().HaveCount(2);
+        var tokenFilters = indexState.Settings.Analysis.TokenFilters;
+        tokenFilters.Should().HaveCount(2);
 
-			var commonGramsTokenFilter = tokenFilters["single_common_words"] as ICommonGramsTokenFilter;
-			commonGramsTokenFilter.Should().NotBeNull();
-			commonGramsTokenFilter.CommonWords.Should().NotBeNull().And.HaveCount(1);
+        var commonGramsTokenFilter = tokenFilters["single_common_words"] as ICommonGramsTokenFilter;
+        commonGramsTokenFilter.Should().NotBeNull();
+        commonGramsTokenFilter.CommonWords.Should().NotBeNull().And.HaveCount(1);
 
-			commonGramsTokenFilter = tokenFilters["multiple_common_words"] as ICommonGramsTokenFilter;
-			commonGramsTokenFilter.Should().NotBeNull();
-			commonGramsTokenFilter.CommonWords.Should().NotBeNull().And.HaveCount(2);
-		}
-	}
+        commonGramsTokenFilter = tokenFilters["multiple_common_words"] as ICommonGramsTokenFilter;
+        commonGramsTokenFilter.Should().NotBeNull();
+        commonGramsTokenFilter.CommonWords.Should().NotBeNull().And.HaveCount(2);
+    }
 }

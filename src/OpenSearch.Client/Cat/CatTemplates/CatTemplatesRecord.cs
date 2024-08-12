@@ -29,23 +29,22 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+public class CatTemplatesRecord : ICatRecord
 {
-	[DataContract]
-	public class CatTemplatesRecord : ICatRecord
-	{
-		[DataMember(Name ="index_patterns")]
-		public string IndexPatterns { get; set; }
+    [DataMember(Name = "index_patterns")]
+    public string IndexPatterns { get; set; }
 
-		[DataMember(Name ="name")]
-		public string Name { get; set; }
+    [DataMember(Name = "name")]
+    public string Name { get; set; }
 
-		[DataMember(Name ="order")]
-		[JsonFormatter(typeof(StringLongFormatter))]
-		public long Order { get; set; }
+    [DataMember(Name = "order")]
+    [JsonFormatter(typeof(StringLongFormatter))]
+    public long Order { get; set; }
 
-		[DataMember(Name ="version")]
-		[JsonFormatter(typeof(NullableStringLongFormatter))]
-		public long? Version { get; set; }
-	}
+    [DataMember(Name = "version")]
+    [JsonFormatter(typeof(NullableStringLongFormatter))]
+    public long? Version { get; set; }
 }

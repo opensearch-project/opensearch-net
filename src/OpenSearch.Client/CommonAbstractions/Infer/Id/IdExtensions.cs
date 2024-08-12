@@ -26,10 +26,9 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal static class IdExtensions
 {
-	internal static class IdExtensions
-	{
-		internal static bool IsConditionless(this Id id) => id == null || id.StringOrLongValue == null && id.Document == null;
-	}
+    internal static bool IsConditionless(this Id id) => id == null || id.StringOrLongValue == null && id.Document == null;
 }

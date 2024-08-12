@@ -50,70 +50,69 @@ using System.Linq.Expressions;
 using System.Text;
 
 // ReSharper disable once CheckNamespace
-namespace OpenSearch.Net
+namespace OpenSearch.Net;
+
+/// <summary>Request options for CreatePit <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</para></summary>
+public partial class CreatePitRequestParameters : RequestParameters<CreatePitRequestParameters>
 {
-    /// <summary>Request options for CreatePit <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</para></summary>
-    public partial class CreatePitRequestParameters : RequestParameters<CreatePitRequestParameters>
+    public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+    public override bool SupportsBody => false;
+
+    /// <summary>Allow if point in time can be created with partial failures.</summary>
+    public bool? AllowPartialPitCreation
     {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
-        public override bool SupportsBody => false;
-
-        /// <summary>Allow if point in time can be created with partial failures.</summary>
-        public bool? AllowPartialPitCreation
-        {
-            get => Q<bool?>("allow_partial_pit_creation");
-            set => Q("allow_partial_pit_creation", value);
-        }
-
-        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
-        public ExpandWildcards? ExpandWildcards
-        {
-            get => Q<ExpandWildcards?>("expand_wildcards");
-            set => Q("expand_wildcards", value);
-        }
-
-        /// <summary>Specify the keep alive for point in time.</summary>
-        public TimeSpan KeepAlive
-        {
-            get => Q<TimeSpan>("keep_alive");
-            set => Q("keep_alive", value);
-        }
-
-        /// <summary>Specify the node or shard the operation should be performed on.</summary>
-        public string Preference
-        {
-            get => Q<string>("preference");
-            set => Q("preference", value);
-        }
-
-        /// <summary>Comma-separated list of specific routing values.</summary>
-        public string[] Routing
-        {
-            get => Q<string[]>("routing");
-            set => Q("routing", value);
-        }
+        get => Q<bool?>("allow_partial_pit_creation");
+        set => Q("allow_partial_pit_creation", value);
     }
 
-    /// <summary>Request options for DeleteAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
-    public partial class DeleteAllPitsRequestParameters
-        : RequestParameters<DeleteAllPitsRequestParameters>
+    /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+    public ExpandWildcards? ExpandWildcards
     {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
-        public override bool SupportsBody => false;
+        get => Q<ExpandWildcards?>("expand_wildcards");
+        set => Q("expand_wildcards", value);
     }
 
-    /// <summary>Request options for DeletePit <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
-    public partial class DeletePitRequestParameters : RequestParameters<DeletePitRequestParameters>
+    /// <summary>Specify the keep alive for point in time.</summary>
+    public TimeSpan KeepAlive
     {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
-        public override bool SupportsBody => true;
+        get => Q<TimeSpan>("keep_alive");
+        set => Q("keep_alive", value);
     }
 
-    /// <summary>Request options for GetAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</para></summary>
-    public partial class GetAllPitsRequestParameters
-        : RequestParameters<GetAllPitsRequestParameters>
+    /// <summary>Specify the node or shard the operation should be performed on.</summary>
+    public string Preference
     {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
-        public override bool SupportsBody => false;
+        get => Q<string>("preference");
+        set => Q("preference", value);
     }
+
+    /// <summary>Comma-separated list of specific routing values.</summary>
+    public string[] Routing
+    {
+        get => Q<string[]>("routing");
+        set => Q("routing", value);
+    }
+}
+
+/// <summary>Request options for DeleteAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
+public partial class DeleteAllPitsRequestParameters
+    : RequestParameters<DeleteAllPitsRequestParameters>
+{
+    public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
+    public override bool SupportsBody => false;
+}
+
+/// <summary>Request options for DeletePit <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
+public partial class DeletePitRequestParameters : RequestParameters<DeletePitRequestParameters>
+{
+    public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
+    public override bool SupportsBody => true;
+}
+
+/// <summary>Request options for GetAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</para></summary>
+public partial class GetAllPitsRequestParameters
+    : RequestParameters<GetAllPitsRequestParameters>
+{
+    public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+    public override bool SupportsBody => false;
 }

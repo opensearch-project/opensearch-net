@@ -28,11 +28,10 @@
 
 using OpenSearch.Client;
 
-namespace Tests.Domain
+namespace Tests.Domain;
+
+public class ProjectPercolation : Project
 {
-	public class ProjectPercolation : Project
-	{
-		public string Id { get; set; }
-		public QueryContainer Query { get; set; }
-	}
+    public string Id { get; set; }
+    public QueryContainer Query { get; set; }
 }

@@ -31,29 +31,28 @@ using System.Linq;
 
 #pragma warning disable 3015
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class JoinAttribute : OpenSearchPropertyAttributeBase, IJoinProperty
 {
-	public class JoinAttribute : OpenSearchPropertyAttributeBase, IJoinProperty
-	{
-		public JoinAttribute(RelationName parent, RelationName child, params RelationName[] moreChildren) : base(FieldType.Join) =>
-			Self.Relations = new Relations { { parent, new Children(child, moreChildren) } };
+    public JoinAttribute(RelationName parent, RelationName child, params RelationName[] moreChildren) : base(FieldType.Join) =>
+        Self.Relations = new Relations { { parent, new Children(child, moreChildren) } };
 
-		public JoinAttribute(Type parent, Type child, params Type[] moreChildren) : base(FieldType.Join)
-		{
-			var children = new Children { child };
-			children.AddRange(moreChildren.Select(c => (RelationName)c));
-			Self.Relations = new Relations { { parent, children } };
-		}
+    public JoinAttribute(Type parent, Type child, params Type[] moreChildren) : base(FieldType.Join)
+    {
+        var children = new Children { child };
+        children.AddRange(moreChildren.Select(c => (RelationName)c));
+        Self.Relations = new Relations { { parent, children } };
+    }
 
-		public JoinAttribute(string parent, string child, params string[] moreChildren) : base(FieldType.Join)
-		{
-			var children = new Children { child };
-			children.AddRange(moreChildren.Select(c => (RelationName)c));
-			Self.Relations = new Relations { { parent, children } };
-		}
+    public JoinAttribute(string parent, string child, params string[] moreChildren) : base(FieldType.Join)
+    {
+        var children = new Children { child };
+        children.AddRange(moreChildren.Select(c => (RelationName)c));
+        Self.Relations = new Relations { { parent, children } };
+    }
 
-		IRelations IJoinProperty.Relations { get; set; }
+    IRelations IJoinProperty.Relations { get; set; }
 
-		private IJoinProperty Self => this;
-	}
+    private IJoinProperty Self => this;
 }

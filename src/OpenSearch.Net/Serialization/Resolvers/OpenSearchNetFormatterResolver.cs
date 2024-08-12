@@ -33,56 +33,55 @@ using OpenSearch.Net.Utf8Json.Formatters;
 using OpenSearch.Net.Utf8Json.Internal;
 using OpenSearch.Net.Utf8Json.Resolvers;
 
-namespace OpenSearch.Net
+namespace OpenSearch.Net;
+
+internal class OpenSearchNetFormatterResolver : IJsonFormatterResolver
 {
-	internal class OpenSearchNetFormatterResolver : IJsonFormatterResolver
-	{
-		private readonly IJsonFormatter<object> _fallbackFormatter;
-		private readonly InnerResolver _innerFormatterResolver;
+    private readonly IJsonFormatter<object> _fallbackFormatter;
+    private readonly InnerResolver _innerFormatterResolver;
 
-		public OpenSearchNetFormatterResolver()
-		{
-			_innerFormatterResolver = new InnerResolver();
-			_fallbackFormatter = new DynamicObjectTypeFallbackFormatter(_innerFormatterResolver);
-		}
+    public OpenSearchNetFormatterResolver()
+    {
+        _innerFormatterResolver = new InnerResolver();
+        _fallbackFormatter = new DynamicObjectTypeFallbackFormatter(_innerFormatterResolver);
+    }
 
-		public static OpenSearchNetFormatterResolver Instance { get; } = new OpenSearchNetFormatterResolver();
+    public static OpenSearchNetFormatterResolver Instance { get; } = new OpenSearchNetFormatterResolver();
 
-		public IJsonFormatter<T> GetFormatter<T>() =>
-			typeof(T) == typeof(object)
-				? (IJsonFormatter<T>)_fallbackFormatter
-				: _innerFormatterResolver.GetFormatter<T>();
+    public IJsonFormatter<T> GetFormatter<T>() =>
+        typeof(T) == typeof(object)
+            ? (IJsonFormatter<T>)_fallbackFormatter
+            : _innerFormatterResolver.GetFormatter<T>();
 
-		internal sealed class InnerResolver : IJsonFormatterResolver
-		{
-			private static readonly IJsonFormatterResolver[] Resolvers =
-			{
-				BuiltinResolver.Instance, // Builtin primitives
+    internal sealed class InnerResolver : IJsonFormatterResolver
+    {
+        private static readonly IJsonFormatterResolver[] Resolvers =
+        {
+            BuiltinResolver.Instance, // Builtin primitives
 				OpenSearchNetEnumResolver.Instance, // Specialized Enum handling
 				AttributeFormatterResolver.Instance, // [JsonFormatter]
 				DynamicGenericResolver.Instance, // T[], List<T>, etc...
 				ExceptionFormatterResolver.Instance
-			};
+        };
 
-			private readonly IJsonFormatterResolver _finalFormatter;
-			private readonly ConcurrentDictionary<Type, object> _formatters = new ConcurrentDictionary<Type, object>();
+        private readonly IJsonFormatterResolver _finalFormatter;
+        private readonly ConcurrentDictionary<Type, object> _formatters = new ConcurrentDictionary<Type, object>();
 
-			internal InnerResolver() =>
-				_finalFormatter =
-					DynamicObjectResolver.Create(null, new Lazy<Func<string, string>>(() => StringMutator.Original), true);
+        internal InnerResolver() =>
+            _finalFormatter =
+                DynamicObjectResolver.Create(null, new Lazy<Func<string, string>>(() => StringMutator.Original), true);
 
-			public IJsonFormatter<T> GetFormatter<T>() =>
-				(IJsonFormatter<T>)_formatters.GetOrAdd(typeof(T), type =>
-				{
-					foreach (var item in Resolvers)
-					{
-						var formatter = item.GetFormatter<T>();
-						if (formatter != null)
-							return formatter;
-					}
+        public IJsonFormatter<T> GetFormatter<T>() =>
+            (IJsonFormatter<T>)_formatters.GetOrAdd(typeof(T), type =>
+            {
+                foreach (var item in Resolvers)
+                {
+                    var formatter = item.GetFormatter<T>();
+                    if (formatter != null)
+                        return formatter;
+                }
 
-					return _finalFormatter.GetFormatter<T>();
-				});
-		}
-	}
+                return _finalFormatter.GetFormatter<T>();
+            });
+    }
 }

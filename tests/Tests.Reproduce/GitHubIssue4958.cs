@@ -28,53 +28,52 @@
 
 using System;
 using System.Text;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GitHubIssue4958
 {
-	public class GitHubIssue4958
-	{
-		[U]
-		public void SearchUsesConfiguredDefaultMappingFor()
-		{
-			var defaultIndex = "documents";
-			var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+    [U]
+    public void SearchUsesConfiguredDefaultMappingFor()
+    {
+        var defaultIndex = "documents";
+        var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
 
-			var settings = new ConnectionSettings(pool, new InMemoryConnection())
-				.DefaultIndex(defaultIndex)
-				.DisableDirectStreaming()
-				.DefaultMappingFor<AccountAddressOpenSearchInfo>(i => i
-					.IndexName(defaultIndex)
-					.PropertyName(p => p.AccountId, "accountid")
-					.IdProperty(p => p.AccountAddressVersionId)
-				);
+        var settings = new ConnectionSettings(pool, new InMemoryConnection())
+            .DefaultIndex(defaultIndex)
+            .DisableDirectStreaming()
+            .DefaultMappingFor<AccountAddressOpenSearchInfo>(i => i
+                .IndexName(defaultIndex)
+                .PropertyName(p => p.AccountId, "accountid")
+                .IdProperty(p => p.AccountAddressVersionId)
+            );
 
-			var client = new OpenSearchClient(settings);
+        var client = new OpenSearchClient(settings);
 
-			var response = client.DeleteByQuery<AccountAddressOpenSearchInfo>(d => d
-				.Query(q => q
-					.Term(f => f.AccountId, "value")
-				)
-				.MaximumDocuments(100000)
-			);
+        var response = client.DeleteByQuery<AccountAddressOpenSearchInfo>(d => d
+            .Query(q => q
+                .Term(f => f.AccountId, "value")
+            )
+            .MaximumDocuments(100000)
+        );
 
-			var json = Encoding.UTF8.GetString(response.ApiCall.RequestBodyInBytes);
-			json.Should().Contain("\"accountid\"");
-		}
+        var json = Encoding.UTF8.GetString(response.ApiCall.RequestBodyInBytes);
+        json.Should().Contain("\"accountid\"");
+    }
 
-		public class AccountAddressInfo
-		{
-			public string AccountAddressVersionId { get; set; }
-			public string AccountId { get; set; }
-		}
+    public class AccountAddressInfo
+    {
+        public string AccountAddressVersionId { get; set; }
+        public string AccountId { get; set; }
+    }
 
-		public class AccountAddressOpenSearchInfo : AccountAddressInfo
-		{
+    public class AccountAddressOpenSearchInfo : AccountAddressInfo
+    {
 
-			public DateTime Timestamp => DateTime.Now;
-		}
-	}
+        public DateTime Timestamp => DateTime.Now;
+    }
 }

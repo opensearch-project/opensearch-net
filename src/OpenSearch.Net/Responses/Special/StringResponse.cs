@@ -28,22 +28,21 @@
 
 using System.Text;
 
-namespace OpenSearch.Net
+namespace OpenSearch.Net;
+
+public class StringResponse : OpenSearchResponse<string>
 {
-	public class StringResponse : OpenSearchResponse<string>
-	{
-		public StringResponse() { }
+    public StringResponse() { }
 
-		public StringResponse(string body) => Body = body;
+    public StringResponse(string body) => Body = body;
 
-		public override bool TryGetServerError(out ServerError serverError)
-		{
-			serverError = null;
-			if (string.IsNullOrEmpty(Body) || ResponseMimeType != RequestData.MimeType)
-				return false;
+    public override bool TryGetServerError(out ServerError serverError)
+    {
+        serverError = null;
+        if (string.IsNullOrEmpty(Body) || ResponseMimeType != RequestData.MimeType)
+            return false;
 
-			using(var stream = ConnectionConfiguration.MemoryStreamFactory.Create(Encoding.UTF8.GetBytes(Body)))
-				return ServerError.TryCreate(stream, out serverError);
-		}
-	}
+        using (var stream = ConnectionConfiguration.MemoryStreamFactory.Create(Encoding.UTF8.GetBytes(Body)))
+            return ServerError.TryCreate(stream, out serverError);
+    }
 }

@@ -27,25 +27,25 @@
 */
 
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
 
-namespace Tests.Indices.IndexManagement.IndicesExists
+namespace Tests.Indices.IndexManagement.IndicesExists;
+
+public class IndexExistsUrlTests
 {
-	public class IndexExistsUrlTests
-	{
-		[U] public async Task Urls()
-		{
-			var indices = OpenSearch.Client.Indices.Index<Project>().And<CommitActivity>();
-			var index = "project";
-			await UrlTester.HEAD($"/{index}")
-					.Fluent(c => c.Indices.Exists(index, s => s))
-					.Request(c => c.Indices.Exists(new IndexExistsRequest(index)))
-					.FluentAsync(c => c.Indices.ExistsAsync(index))
-					.RequestAsync(c => c.Indices.ExistsAsync(new IndexExistsRequest(index)))
-				;
-		}
-	}
+    [U]
+    public async Task Urls()
+    {
+        var indices = OpenSearch.Client.Indices.Index<Project>().And<CommitActivity>();
+        var index = "project";
+        await UrlTester.HEAD($"/{index}")
+                .Fluent(c => c.Indices.Exists(index, s => s))
+                .Request(c => c.Indices.Exists(new IndexExistsRequest(index)))
+                .FluentAsync(c => c.Indices.ExistsAsync(index))
+                .RequestAsync(c => c.Indices.ExistsAsync(new IndexExistsRequest(index)))
+            ;
+    }
 }

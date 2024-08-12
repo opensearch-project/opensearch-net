@@ -28,94 +28,93 @@
 
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public enum GeoOrientation
 {
-	public enum GeoOrientation
-	{
-		ClockWise,
-		CounterClockWise
-	}
+    ClockWise,
+    CounterClockWise
+}
 
-	internal class GeoOrientationFormatter : IJsonFormatter<GeoOrientation>
-	{
-		public void Serialize(ref JsonWriter writer, GeoOrientation value, IJsonFormatterResolver formatterResolver)
-		{
-			switch (value)
-			{
-				case GeoOrientation.ClockWise:
-					writer.WriteString("cw");
-					break;
-				case GeoOrientation.CounterClockWise:
-					writer.WriteString("ccw");
-					break;
-			}
-		}
+internal class GeoOrientationFormatter : IJsonFormatter<GeoOrientation>
+{
+    public void Serialize(ref JsonWriter writer, GeoOrientation value, IJsonFormatterResolver formatterResolver)
+    {
+        switch (value)
+        {
+            case GeoOrientation.ClockWise:
+                writer.WriteString("cw");
+                break;
+            case GeoOrientation.CounterClockWise:
+                writer.WriteString("ccw");
+                break;
+        }
+    }
 
-		public GeoOrientation Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			if (reader.ReadIsNull())
-			{
-				// Default, complies with the OGC standard
-				return GeoOrientation.CounterClockWise;
-			}
+    public GeoOrientation Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+    {
+        if (reader.ReadIsNull())
+        {
+            // Default, complies with the OGC standard
+            return GeoOrientation.CounterClockWise;
+        }
 
-			var enumString = reader.ReadString();
-			switch (enumString.ToUpperInvariant())
-			{
-				case "LEFT":
-				case "CW":
-				case "CLOCKWISE":
-					return GeoOrientation.ClockWise;
-			}
+        var enumString = reader.ReadString();
+        switch (enumString.ToUpperInvariant())
+        {
+            case "LEFT":
+            case "CW":
+            case "CLOCKWISE":
+                return GeoOrientation.ClockWise;
+        }
 
-			// Default, complies with the OGC standard
-			return GeoOrientation.CounterClockWise;
-		}
-	}
+        // Default, complies with the OGC standard
+        return GeoOrientation.CounterClockWise;
+    }
+}
 
-	internal class NullableGeoOrientationFormatter : IJsonFormatter<GeoOrientation?>
-	{
-		public void Serialize(ref JsonWriter writer, GeoOrientation? value, IJsonFormatterResolver formatterResolver)
-		{
-			if (!value.HasValue)
-			{
-				writer.WriteNull();
-				return;
-			}
+internal class NullableGeoOrientationFormatter : IJsonFormatter<GeoOrientation?>
+{
+    public void Serialize(ref JsonWriter writer, GeoOrientation? value, IJsonFormatterResolver formatterResolver)
+    {
+        if (!value.HasValue)
+        {
+            writer.WriteNull();
+            return;
+        }
 
-			switch (value)
-			{
-				case GeoOrientation.ClockWise:
-					writer.WriteString("cw");
-					break;
-				case GeoOrientation.CounterClockWise:
-					writer.WriteString("ccw");
-					break;
-			}
-		}
+        switch (value)
+        {
+            case GeoOrientation.ClockWise:
+                writer.WriteString("cw");
+                break;
+            case GeoOrientation.CounterClockWise:
+                writer.WriteString("ccw");
+                break;
+        }
+    }
 
-		public GeoOrientation? Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			if (reader.ReadIsNull())
-			{
-				return null;
-			}
+    public GeoOrientation? Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+    {
+        if (reader.ReadIsNull())
+        {
+            return null;
+        }
 
-			var enumString = reader.ReadString();
+        var enumString = reader.ReadString();
 
-			switch (enumString.ToUpperInvariant())
-			{
-				case "LEFT":
-				case "CW":
-				case "CLOCKWISE":
-					return GeoOrientation.ClockWise;
-				case "RIGHT":
-				case "CCW":
-				case "COUNTERCLOCKWISE":
-					return GeoOrientation.CounterClockWise;
-				default:
-					return null;
-			}
-		}
-	}
+        switch (enumString.ToUpperInvariant())
+        {
+            case "LEFT":
+            case "CW":
+            case "CLOCKWISE":
+                return GeoOrientation.ClockWise;
+            case "RIGHT":
+            case "CCW":
+            case "COUNTERCLOCKWISE":
+                return GeoOrientation.CounterClockWise;
+            default:
+                return null;
+        }
+    }
 }

@@ -26,10 +26,9 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class LongRangeAttribute : RangePropertyAttributeBase, ILongRangeProperty
 {
-	public class LongRangeAttribute : RangePropertyAttributeBase, ILongRangeProperty
-	{
-		public LongRangeAttribute() : base(RangeType.LongRange) { }
-	}
+    public LongRangeAttribute() : base(RangeType.LongRange) { }
 }

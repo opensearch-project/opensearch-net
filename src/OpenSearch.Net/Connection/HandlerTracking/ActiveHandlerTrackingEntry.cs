@@ -34,77 +34,76 @@ using System;
 using System.Diagnostics;
 using System.Threading;
 
-namespace OpenSearch.Net
+namespace OpenSearch.Net;
+
+/// <summary>
+/// Thread-safety: We treat this class as immutable except for the timer. Creating a new object
+/// for the 'expiry' pool simplifies the threading requirements significantly.
+/// <para>https://github.com/dotnet/runtime/blob/master/src/libraries/Microsoft.Extensions.Http/src/ActiveHandlerTrackingEntry.cs</para>
+/// </summary>
+internal class ActiveHandlerTrackingEntry
 {
-	/// <summary>
-    /// Thread-safety: We treat this class as immutable except for the timer. Creating a new object
-	/// for the 'expiry' pool simplifies the threading requirements significantly.
-	/// <para>https://github.com/dotnet/runtime/blob/master/src/libraries/Microsoft.Extensions.Http/src/ActiveHandlerTrackingEntry.cs</para>
-	/// </summary>
-    internal class ActiveHandlerTrackingEntry
+    private static readonly TimerCallback TimerCallback = (s) => ((ActiveHandlerTrackingEntry)s).Timer_Tick();
+    private readonly object _lock;
+    private bool _timerInitialized;
+    private Timer _timer;
+    private TimerCallback _callback;
+
+    public ActiveHandlerTrackingEntry(
+        int key,
+        LifetimeTrackingHttpMessageHandler handler,
+        TimeSpan lifetime)
     {
-        private static readonly TimerCallback TimerCallback = (s) => ((ActiveHandlerTrackingEntry)s).Timer_Tick();
-        private readonly object _lock;
-        private bool _timerInitialized;
-        private Timer _timer;
-        private TimerCallback _callback;
+        Key = key;
+        Handler = handler;
+        Lifetime = lifetime;
 
-        public ActiveHandlerTrackingEntry(
-            int key,
-            LifetimeTrackingHttpMessageHandler handler,
-            TimeSpan lifetime)
+        _lock = new object();
+    }
+
+    public LifetimeTrackingHttpMessageHandler Handler { get; private set; }
+
+    public TimeSpan Lifetime { get; }
+
+    public int Key { get; }
+
+    public void StartExpiryTimer(TimerCallback callback)
+    {
+        if (Lifetime == Timeout.InfiniteTimeSpan) return;
+
+        if (Volatile.Read(ref _timerInitialized)) return;
+
+        StartExpiryTimerSlow(callback);
+    }
+
+    private void StartExpiryTimerSlow(TimerCallback callback)
+    {
+        Debug.Assert(Lifetime != Timeout.InfiniteTimeSpan);
+
+        lock (_lock)
         {
-            Key = key;
-            Handler = handler;
-            Lifetime = lifetime;
+            if (Volatile.Read(ref _timerInitialized))
+                return;
 
-            _lock = new object();
+            _callback = callback;
+            _timer = NonCapturingTimer.Create(TimerCallback, this, Lifetime, Timeout.InfiniteTimeSpan);
+            _timerInitialized = true;
         }
+    }
 
-        public LifetimeTrackingHttpMessageHandler Handler { get; private set; }
+    private void Timer_Tick()
+    {
+        Debug.Assert(_callback != null);
+        Debug.Assert(_timer != null);
 
-        public TimeSpan Lifetime { get; }
-
-        public int Key { get; }
-
-        public void StartExpiryTimer(TimerCallback callback)
+        lock (_lock)
         {
-            if (Lifetime == Timeout.InfiniteTimeSpan) return;
+            if (_timer == null) return;
 
-            if (Volatile.Read(ref _timerInitialized)) return;
+            _timer.Dispose();
+            _timer = null;
 
-            StartExpiryTimerSlow(callback);
-        }
-
-        private void StartExpiryTimerSlow(TimerCallback callback)
-        {
-            Debug.Assert(Lifetime != Timeout.InfiniteTimeSpan);
-
-            lock (_lock)
-            {
-                if (Volatile.Read(ref _timerInitialized))
-                    return;
-
-                _callback = callback;
-                _timer = NonCapturingTimer.Create(TimerCallback, this, Lifetime, Timeout.InfiniteTimeSpan);
-                _timerInitialized = true;
-            }
-        }
-
-        private void Timer_Tick()
-        {
-            Debug.Assert(_callback != null);
-            Debug.Assert(_timer != null);
-
-            lock (_lock)
-			{
-				if (_timer == null) return;
-
-				_timer.Dispose();
-				_timer = null;
-
-				_callback(this);
-			}
+            _callback(this);
         }
     }
 }

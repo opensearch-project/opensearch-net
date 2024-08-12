@@ -28,15 +28,14 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
-{
-	[DataContract]
-	public class FielddataStats
-	{
-		[DataMember(Name ="evictions")]
-		public long Evictions { get; set; }
+namespace OpenSearch.Client;
 
-		[DataMember(Name ="memory_size_in_bytes")]
-		public long MemorySizeInBytes { get; set; }
-	}
+[DataContract]
+public class FielddataStats
+{
+    [DataMember(Name = "evictions")]
+    public long Evictions { get; set; }
+
+    [DataMember(Name = "memory_size_in_bytes")]
+    public long MemorySizeInBytes { get; set; }
 }

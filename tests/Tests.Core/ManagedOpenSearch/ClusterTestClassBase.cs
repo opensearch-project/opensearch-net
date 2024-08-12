@@ -26,24 +26,23 @@
 *  under the License.
 */
 
+using OpenSearch.Client;
 using OpenSearch.OpenSearch.Ephemeral;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 
-namespace Tests.Core.ManagedOpenSearch
-{
-	public abstract class ClusterTestClassBase<TCluster> : IClusterFixture<TCluster>
-		where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOpenSearchClientTestCluster, new()
-	{
-		protected ClusterTestClassBase(TCluster cluster)
-		{
-			Cluster = cluster;
-			Cluster.ClusterConfiguration.ShowOpenSearchOutputAfterStarted = false;
-			Cluster.ClusterConfiguration.CacheOpenSearchHomeInstallation = true;
-		}
+namespace Tests.Core.ManagedOpenSearch;
 
-		public IOpenSearchClient Client => Cluster.Client;
-		public TCluster Cluster { get; }
-	}
+public abstract class ClusterTestClassBase<TCluster> : IClusterFixture<TCluster>
+    where TCluster : IEphemeralCluster<EphemeralClusterConfiguration>, IOpenSearchClientTestCluster, new()
+{
+    protected ClusterTestClassBase(TCluster cluster)
+    {
+        Cluster = cluster;
+        Cluster.ClusterConfiguration.ShowOpenSearchOutputAfterStarted = false;
+        Cluster.ClusterConfiguration.CacheOpenSearchHomeInstallation = true;
+    }
+
+    public IOpenSearchClient Client => Cluster.Client;
+    public TCluster Cluster { get; }
 }

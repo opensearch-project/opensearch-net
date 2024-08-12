@@ -31,32 +31,31 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+[JsonFormatter(typeof(GetRepositoryResponseFormatter))]
+public class GetRepositoryResponse : ResponseBase
 {
-	[DataContract]
-	[JsonFormatter(typeof(GetRepositoryResponseFormatter))]
-	public class GetRepositoryResponse : ResponseBase
-	{
-		public IReadOnlyDictionary<string, ISnapshotRepository> Repositories { get; internal set; } =
-			EmptyReadOnly<string, ISnapshotRepository>.Dictionary;
+    public IReadOnlyDictionary<string, ISnapshotRepository> Repositories { get; internal set; } =
+        EmptyReadOnly<string, ISnapshotRepository>.Dictionary;
 
-		public AzureRepository Azure(string name) => Get<AzureRepository>(name);
+    public AzureRepository Azure(string name) => Get<AzureRepository>(name);
 
-		public FileSystemRepository FileSystem(string name) => Get<FileSystemRepository>(name);
+    public FileSystemRepository FileSystem(string name) => Get<FileSystemRepository>(name);
 
-		public HdfsRepository Hdfs(string name) => Get<HdfsRepository>(name);
+    public HdfsRepository Hdfs(string name) => Get<HdfsRepository>(name);
 
-		public ReadOnlyUrlRepository ReadOnlyUrl(string name) => Get<ReadOnlyUrlRepository>(name);
+    public ReadOnlyUrlRepository ReadOnlyUrl(string name) => Get<ReadOnlyUrlRepository>(name);
 
-		public S3Repository S3(string name) => Get<S3Repository>(name);
+    public S3Repository S3(string name) => Get<S3Repository>(name);
 
-		private TRepository Get<TRepository>(string name)
-			where TRepository : class, ISnapshotRepository
-		{
-			if (Repositories == null) return null;
-			if (!Repositories.TryGetValue(name, out var repository)) return null;
+    private TRepository Get<TRepository>(string name)
+        where TRepository : class, ISnapshotRepository
+    {
+        if (Repositories == null) return null;
+        if (!Repositories.TryGetValue(name, out var repository)) return null;
 
-			return repository as TRepository;
-		}
-	}
+        return repository as TRepository;
+    }
 }

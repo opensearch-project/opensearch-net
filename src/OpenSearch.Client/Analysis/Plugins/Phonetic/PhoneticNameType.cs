@@ -29,18 +29,17 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[StringEnum]
+public enum PhoneticNameType
 {
-	[StringEnum]
-	public enum PhoneticNameType
-	{
-		[EnumMember(Value = "generic")]
-		Generic,
+    [EnumMember(Value = "generic")]
+    Generic,
 
-		[EnumMember(Value = "ashkenazi")]
-		Ashkenazi,
+    [EnumMember(Value = "ashkenazi")]
+    Ashkenazi,
 
-		[EnumMember(Value = "sephardic")]
-		Sephardic
-	}
+    [EnumMember(Value = "sephardic")]
+    Sephardic
 }

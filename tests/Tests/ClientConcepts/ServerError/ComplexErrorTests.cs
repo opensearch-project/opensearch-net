@@ -28,16 +28,16 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Extensions;
 
-namespace Tests.ClientConcepts.ServerError
+namespace Tests.ClientConcepts.ServerError;
+
+public class ComplexErrorTests : ServerErrorTestsBase
 {
-	public class ComplexErrorTests : ServerErrorTestsBase
-	{
-		protected override string Json => @"{
+    protected override string Json => @"{
 	""root_cause"" : [
 	{
 		""type"" : ""parse_exception"",
@@ -97,60 +97,59 @@ namespace Tests.ClientConcepts.ServerError
 	""lang"" : ""c#""
 }";
 
-		[U] protected override void AssertServerError() => base.AssertServerError();
+    [U] protected override void AssertServerError() => base.AssertServerError();
 
-		protected override void AssertResponseError(string origin, Error error)
-		{
-			AssertCausedBy(origin, error);
-			AssertCausedBy(origin, error.CausedBy);
-			AssertCausedBy(origin, error.CausedBy.CausedBy);
-			error.CausedBy.CausedBy.CausedBy.Should().NotBeNull();
-			error.CausedBy.CausedBy.CausedBy.Reason.Should().Be("x");
-			error.RootCause.Should().NotBeEmpty(origin);
-			error.Headers.Should().HaveCount(2, origin);
-			AssertMetadata(origin, error);
-			error.CausedBy.Should().NotBeNull();
-			error.CausedBy.ScriptStack.Should().HaveCount(2);
-			error.CausedBy.ResourceId.Should().HaveCount(2);
-			error.AdditionalProperties.Should().ContainKeys("unknown_prop", "unknown_prop2");
-		}
+    protected override void AssertResponseError(string origin, Error error)
+    {
+        AssertCausedBy(origin, error);
+        AssertCausedBy(origin, error.CausedBy);
+        AssertCausedBy(origin, error.CausedBy.CausedBy);
+        error.CausedBy.CausedBy.CausedBy.Should().NotBeNull();
+        error.CausedBy.CausedBy.CausedBy.Reason.Should().Be("x");
+        error.RootCause.Should().NotBeEmpty(origin);
+        error.Headers.Should().HaveCount(2, origin);
+        AssertMetadata(origin, error);
+        error.CausedBy.Should().NotBeNull();
+        error.CausedBy.ScriptStack.Should().HaveCount(2);
+        error.CausedBy.ResourceId.Should().HaveCount(2);
+        error.AdditionalProperties.Should().ContainKeys("unknown_prop", "unknown_prop2");
+    }
 
-		private void AssertMetadata(string origin, ErrorCause errorMetadata)
-		{
-			errorMetadata.Should().NotBeNull(origin);
-			errorMetadata.Grouped.Should().BeTrue(origin);
-			errorMetadata.Phase.Should().Be("query", origin);
-			errorMetadata.Index.Should().Be("index", origin);
-			errorMetadata.IndexUUID.Should().NotBeNullOrWhiteSpace(origin);
-			errorMetadata.ResourceType.Should().NotBeNullOrWhiteSpace(origin);
-			errorMetadata.ResourceId.Should().HaveCount(1, origin);
-			errorMetadata.Shard.Should().Be(1, origin);
-			errorMetadata.Line.Should().Be(12, origin);
-			errorMetadata.Column.Should().Be(199, origin);
-			errorMetadata.BytesWanted.Should().BeGreaterThan(1, origin);
-			errorMetadata.BytesLimit.Should().BeGreaterThan(1, origin);
-			errorMetadata.ScriptStack.Should().HaveCount(1, origin);
-			errorMetadata.Script.Should().NotBeNullOrWhiteSpace(origin);
-			errorMetadata.Language.Should().NotBeNullOrWhiteSpace(origin);
-			AssertFailedShards(origin, errorMetadata.FailedShards);
-		}
+    private void AssertMetadata(string origin, ErrorCause errorMetadata)
+    {
+        errorMetadata.Should().NotBeNull(origin);
+        errorMetadata.Grouped.Should().BeTrue(origin);
+        errorMetadata.Phase.Should().Be("query", origin);
+        errorMetadata.Index.Should().Be("index", origin);
+        errorMetadata.IndexUUID.Should().NotBeNullOrWhiteSpace(origin);
+        errorMetadata.ResourceType.Should().NotBeNullOrWhiteSpace(origin);
+        errorMetadata.ResourceId.Should().HaveCount(1, origin);
+        errorMetadata.Shard.Should().Be(1, origin);
+        errorMetadata.Line.Should().Be(12, origin);
+        errorMetadata.Column.Should().Be(199, origin);
+        errorMetadata.BytesWanted.Should().BeGreaterThan(1, origin);
+        errorMetadata.BytesLimit.Should().BeGreaterThan(1, origin);
+        errorMetadata.ScriptStack.Should().HaveCount(1, origin);
+        errorMetadata.Script.Should().NotBeNullOrWhiteSpace(origin);
+        errorMetadata.Language.Should().NotBeNullOrWhiteSpace(origin);
+        AssertFailedShards(origin, errorMetadata.FailedShards);
+    }
 
-		private static void AssertFailedShards(string origin, IReadOnlyCollection<ShardFailure> errorMetadataFailedShards)
-		{
-			errorMetadataFailedShards.Should().NotBeEmpty(origin).And.HaveCount(1, origin);
-			var f = errorMetadataFailedShards.First();
-			f.Index.Should().NotBeNullOrWhiteSpace(origin);
-			f.Node.Should().NotBeNullOrWhiteSpace(origin);
-			f.Status.Should().NotBeNullOrWhiteSpace(origin);
-			AssertCausedBy(origin, f.Reason);
-			f.Shard.Should().NotBeNull(origin);
-		}
+    private static void AssertFailedShards(string origin, IReadOnlyCollection<ShardFailure> errorMetadataFailedShards)
+    {
+        errorMetadataFailedShards.Should().NotBeEmpty(origin).And.HaveCount(1, origin);
+        var f = errorMetadataFailedShards.First();
+        f.Index.Should().NotBeNullOrWhiteSpace(origin);
+        f.Node.Should().NotBeNullOrWhiteSpace(origin);
+        f.Status.Should().NotBeNullOrWhiteSpace(origin);
+        AssertCausedBy(origin, f.Reason);
+        f.Shard.Should().NotBeNull(origin);
+    }
 
-		private static void AssertCausedBy(string origin, ErrorCause causedBy)
-		{
-			causedBy.Should().NotBeNull(origin);
-			causedBy.Type.Should().NotBeNullOrWhiteSpace(origin);
-			causedBy.Reason.Should().NotBeNullOrWhiteSpace(origin);
-		}
-	}
+    private static void AssertCausedBy(string origin, ErrorCause causedBy)
+    {
+        causedBy.Should().NotBeNull(origin);
+        causedBy.Type.Should().NotBeNullOrWhiteSpace(origin);
+        causedBy.Reason.Should().NotBeNullOrWhiteSpace(origin);
+    }
 }

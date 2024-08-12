@@ -32,43 +32,42 @@ using OpenSearch.Net.Utf8Json;
 using OpenSearch.Net.Utf8Json.Formatters;
 using OpenSearch.Net.Utf8Json.Internal;
 
-namespace OpenSearch.Net
+namespace OpenSearch.Net;
+
+internal sealed class OpenSearchNetEnumResolver : IJsonFormatterResolver
 {
-	internal sealed class OpenSearchNetEnumResolver : IJsonFormatterResolver
-	{
-		public static readonly IJsonFormatterResolver Instance = new OpenSearchNetEnumResolver();
+    public static readonly IJsonFormatterResolver Instance = new OpenSearchNetEnumResolver();
 
-		private OpenSearchNetEnumResolver() { }
+    private OpenSearchNetEnumResolver() { }
 
-		public IJsonFormatter<T> GetFormatter<T>() => FormatterCache<T>.Formatter;
+    public IJsonFormatter<T> GetFormatter<T>() => FormatterCache<T>.Formatter;
 
-		private static class FormatterCache<T>
-		{
-			public static readonly IJsonFormatter<T> Formatter;
+    private static class FormatterCache<T>
+    {
+        public static readonly IJsonFormatter<T> Formatter;
 
-			static FormatterCache()
-			{
-				var type = typeof(T);
+        static FormatterCache()
+        {
+            var type = typeof(T);
 
-				if (type.IsNullable())
-				{
-					// build underlying type and use wrapped formatter.
-					type = type.GenericTypeArguments[0];
-					if (!type.IsEnum) return;
+            if (type.IsNullable())
+            {
+                // build underlying type and use wrapped formatter.
+                type = type.GenericTypeArguments[0];
+                if (!type.IsEnum) return;
 
-					var innerFormatter = Instance.GetFormatterDynamic(type);
-					if (innerFormatter == null) return;
+                var innerFormatter = Instance.GetFormatterDynamic(type);
+                if (innerFormatter == null) return;
 
-					Formatter = (IJsonFormatter<T>)Activator.CreateInstance(typeof(StaticNullableFormatter<>).MakeGenericType(type), innerFormatter);
-				}
-				else if (type.IsEnum)
-				{
-					var stringEnumAttribute = typeof(T).GetCustomAttribute<StringEnumAttribute>();
-					Formatter = stringEnumAttribute != null
-						? new EnumFormatter<T>(true)
-						: new EnumFormatter<T>(false);
-				}
-			}
-		}
-	}
+                Formatter = (IJsonFormatter<T>)Activator.CreateInstance(typeof(StaticNullableFormatter<>).MakeGenericType(type), innerFormatter);
+            }
+            else if (type.IsEnum)
+            {
+                var stringEnumAttribute = typeof(T).GetCustomAttribute<StringEnumAttribute>();
+                Formatter = stringEnumAttribute != null
+                    ? new EnumFormatter<T>(true)
+                    : new EnumFormatter<T>(false);
+            }
+        }
+    }
 }

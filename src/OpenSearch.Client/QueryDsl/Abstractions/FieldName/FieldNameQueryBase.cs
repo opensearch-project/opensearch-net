@@ -28,16 +28,15 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
-{
-	public interface IFieldNameQuery : IQuery
-	{
-		[IgnoreDataMember]
-		Field Field { get; set; }
-	}
+namespace OpenSearch.Client;
 
-	public abstract class FieldNameQueryBase : QueryBase, IFieldNameQuery
-	{
-		public Field Field { get; set; }
-	}
+public interface IFieldNameQuery : IQuery
+{
+    [IgnoreDataMember]
+    Field Field { get; set; }
+}
+
+public abstract class FieldNameQueryBase : QueryBase, IFieldNameQuery
+{
+    public Field Field { get; set; }
 }

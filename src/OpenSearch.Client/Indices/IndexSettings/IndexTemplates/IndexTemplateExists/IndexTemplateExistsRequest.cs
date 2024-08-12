@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	[MapsApi("indices.exists_template.json")]
-	public partial interface IIndexTemplateExistsRequest { }
+namespace OpenSearch.Client;
 
-	public partial class IndexTemplateExistsRequest { }
+[MapsApi("indices.exists_template.json")]
+public partial interface IIndexTemplateExistsRequest { }
 
-	public partial class IndexTemplateExistsDescriptor { }
-}
+public partial class IndexTemplateExistsRequest { }
+
+public partial class IndexTemplateExistsDescriptor { }

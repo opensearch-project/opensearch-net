@@ -10,26 +10,25 @@ using Xunit;
 using Xunit.Abstractions;
 using Xunit.Sdk;
 
-namespace OpenSearch.OpenSearch.Xunit.XunitPlumbing
+namespace OpenSearch.OpenSearch.Xunit.XunitPlumbing;
+
+/// <summary>
+///     An Xunit theory unit test
+/// </summary>
+[XunitTestCaseDiscoverer("OpenSearch.OpenSearch.Xunit.XunitPlumbing.TheoryUnitTestDiscoverer",
+    "OpenSearch.OpenSearch.Xunit")]
+public class TU : TheoryAttribute
 {
-	/// <summary>
-	///     An Xunit theory unit test
-	/// </summary>
-	[XunitTestCaseDiscoverer("OpenSearch.OpenSearch.Xunit.XunitPlumbing.TheoryUnitTestDiscoverer",
-		"OpenSearch.OpenSearch.Xunit")]
-	public class TU : TheoryAttribute
-	{
-	}
+}
 
-	public class TheoryUnitTestDiscoverer : UnitTestDiscoverer
-	{
-		private readonly TheoryDiscoverer _discoverer;
+public class TheoryUnitTestDiscoverer : UnitTestDiscoverer
+{
+    private readonly TheoryDiscoverer _discoverer;
 
-		public TheoryUnitTestDiscoverer(IMessageSink diagnosticMessageSink) : base(diagnosticMessageSink) =>
-			_discoverer = new TheoryDiscoverer(diagnosticMessageSink);
+    public TheoryUnitTestDiscoverer(IMessageSink diagnosticMessageSink) : base(diagnosticMessageSink) =>
+        _discoverer = new TheoryDiscoverer(diagnosticMessageSink);
 
-		protected override IEnumerable<IXunitTestCase> DiscoverImpl(ITestFrameworkDiscoveryOptions discoveryOptions, ITestMethod testMethod,
-			IAttributeInfo factAttribute
-		) => _discoverer.Discover(discoveryOptions, testMethod, factAttribute);
-	}
+    protected override IEnumerable<IXunitTestCase> DiscoverImpl(ITestFrameworkDiscoveryOptions discoveryOptions, ITestMethod testMethod,
+        IAttributeInfo factAttribute
+    ) => _discoverer.Discover(discoveryOptions, testMethod, factAttribute);
 }

@@ -29,43 +29,42 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+public class MatrixStatsField
 {
-	[DataContract]
-	public class MatrixStatsField
-	{
-		[DataMember(Name = "correlation")]
-		public Dictionary<string, double> Correlation { get; set; }
+    [DataMember(Name = "correlation")]
+    public Dictionary<string, double> Correlation { get; set; }
 
-		[DataMember(Name = "count")]
-		public int Count { get; set; }
+    [DataMember(Name = "count")]
+    public int Count { get; set; }
 
-		[DataMember(Name = "covariance")]
-		public Dictionary<string, double> Covariance { get; set; }
+    [DataMember(Name = "covariance")]
+    public Dictionary<string, double> Covariance { get; set; }
 
-		[DataMember(Name = "kurtosis")]
-		public double Kurtosis { get; set; }
+    [DataMember(Name = "kurtosis")]
+    public double Kurtosis { get; set; }
 
-		[DataMember(Name = "mean")]
-		public double Mean { get; set; }
+    [DataMember(Name = "mean")]
+    public double Mean { get; set; }
 
-		[DataMember(Name = "name")]
-		public string Name { get; set; }
+    [DataMember(Name = "name")]
+    public string Name { get; set; }
 
-		[DataMember(Name = "skewness")]
-		public double Skewness { get; set; }
+    [DataMember(Name = "skewness")]
+    public double Skewness { get; set; }
 
-		[DataMember(Name = "variance")]
-		public double Variance { get; set; }
-	}
+    [DataMember(Name = "variance")]
+    public double Variance { get; set; }
+}
 
-	[DataContract]
-	public class MatrixStatsAggregate : MatrixAggregateBase
-	{
-		[DataMember(Name = "doc_count")]
-		public long DocCount { get; set; }
+[DataContract]
+public class MatrixStatsAggregate : MatrixAggregateBase
+{
+    [DataMember(Name = "doc_count")]
+    public long DocCount { get; set; }
 
-		[DataMember(Name = "fields")]
-		public List<MatrixStatsField> Fields { get; set; }
-	}
+    [DataMember(Name = "fields")]
+    public List<MatrixStatsField> Fields { get; set; }
 }

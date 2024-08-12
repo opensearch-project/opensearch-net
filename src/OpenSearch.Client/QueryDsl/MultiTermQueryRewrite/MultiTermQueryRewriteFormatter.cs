@@ -29,32 +29,31 @@
 using System;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal class MultiTermQueryRewriteFormatter : IJsonFormatter<MultiTermQueryRewrite>
 {
-	internal class MultiTermQueryRewriteFormatter : IJsonFormatter<MultiTermQueryRewrite>
-	{
-		public MultiTermQueryRewrite Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			var token = reader.GetCurrentJsonToken();
+    public MultiTermQueryRewrite Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+    {
+        var token = reader.GetCurrentJsonToken();
 
-			if (token == JsonToken.Null)
-			{
-				reader.ReadNext();
-				return null;
-			}
+        if (token == JsonToken.Null)
+        {
+            reader.ReadNext();
+            return null;
+        }
 
-			if (token != JsonToken.String)
-				throw new Exception($"Invalid token type {token} to deserialize {nameof(MultiTermQueryRewrite)} from");
+        if (token != JsonToken.String)
+            throw new Exception($"Invalid token type {token} to deserialize {nameof(MultiTermQueryRewrite)} from");
 
-			return MultiTermQueryRewrite.Create(reader.ReadString());
-		}
+        return MultiTermQueryRewrite.Create(reader.ReadString());
+    }
 
-		public void Serialize(ref JsonWriter writer, MultiTermQueryRewrite value, IJsonFormatterResolver formatterResolver)
-		{
-			if (value == null)
-				writer.WriteNull();
-			else
-				writer.WriteString(value.ToString());
-		}
-	}
+    public void Serialize(ref JsonWriter writer, MultiTermQueryRewrite value, IJsonFormatterResolver formatterResolver)
+    {
+        if (value == null)
+            writer.WriteNull();
+        else
+            writer.WriteString(value.ToString());
+    }
 }

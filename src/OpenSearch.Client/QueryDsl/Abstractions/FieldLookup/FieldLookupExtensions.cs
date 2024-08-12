@@ -26,14 +26,13 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal static class FieldLookupExtensions
 {
-	internal static class FieldLookupExtensions
-	{
-		internal static bool IsConditionless(this IFieldLookup fieldLookup) =>
-			fieldLookup == null ||
-			fieldLookup.Id == null ||
-			fieldLookup.Index == null ||
-			fieldLookup.Path == null;
-	}
+    internal static bool IsConditionless(this IFieldLookup fieldLookup) =>
+        fieldLookup == null ||
+        fieldLookup.Id == null ||
+        fieldLookup.Index == null ||
+        fieldLookup.Path == null;
 }

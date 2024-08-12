@@ -27,37 +27,37 @@
 */
 
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework.EndpointTests;
 using static OpenSearch.Client.Indices;
 using static Tests.Framework.EndpointTests.UrlTester;
 
-namespace Tests.Indices.IndexSettings.UpdateIndicesSettings
+namespace Tests.Indices.IndexSettings.UpdateIndicesSettings;
+
+public class UpdateIndexSettingsUrlTests
 {
-	public class UpdateIndexSettingsUrlTests
-	{
-		[U] public async Task Urls()
-		{
-			var index = "index1,index2";
-			OpenSearch.Client.Indices indices = index;
-			await PUT($"/index1%2Cindex2/_settings")
-					.Fluent(c => c.Indices.UpdateSettings(indices, s => s))
-					.Request(c => c.Indices.UpdateSettings(new UpdateIndexSettingsRequest(index)))
-					.FluentAsync(c => c.Indices.UpdateSettingsAsync(indices, s => s))
-					.RequestAsync(c => c.Indices.UpdateSettingsAsync(new UpdateIndexSettingsRequest(index)));
+    [U]
+    public async Task Urls()
+    {
+        var index = "index1,index2";
+        OpenSearch.Client.Indices indices = index;
+        await PUT($"/index1%2Cindex2/_settings")
+                .Fluent(c => c.Indices.UpdateSettings(indices, s => s))
+                .Request(c => c.Indices.UpdateSettings(new UpdateIndexSettingsRequest(index)))
+                .FluentAsync(c => c.Indices.UpdateSettingsAsync(indices, s => s))
+                .RequestAsync(c => c.Indices.UpdateSettingsAsync(new UpdateIndexSettingsRequest(index)));
 
-			await PUT($"/_all/_settings")
-					.Fluent(c => c.Indices.UpdateSettings(AllIndices, s => s))
-					.Request(c => c.Indices.UpdateSettings(new UpdateIndexSettingsRequest(All)))
-					.FluentAsync(c => c.Indices.UpdateSettingsAsync(AllIndices, s => s))
-					.RequestAsync(c => c.Indices.UpdateSettingsAsync(new UpdateIndexSettingsRequest(All)))
-				;
+        await PUT($"/_all/_settings")
+                .Fluent(c => c.Indices.UpdateSettings(AllIndices, s => s))
+                .Request(c => c.Indices.UpdateSettings(new UpdateIndexSettingsRequest(All)))
+                .FluentAsync(c => c.Indices.UpdateSettingsAsync(AllIndices, s => s))
+                .RequestAsync(c => c.Indices.UpdateSettingsAsync(new UpdateIndexSettingsRequest(All)))
+            ;
 
-			await PUT($"/_settings")
-					.Request(c => c.Indices.UpdateSettings(new UpdateIndexSettingsRequest()))
-					.RequestAsync(c => c.Indices.UpdateSettingsAsync(new UpdateIndexSettingsRequest()))
-				;
-		}
-	}
+        await PUT($"/_settings")
+                .Request(c => c.Indices.UpdateSettings(new UpdateIndexSettingsRequest()))
+                .RequestAsync(c => c.Indices.UpdateSettingsAsync(new UpdateIndexSettingsRequest()))
+            ;
+    }
 }

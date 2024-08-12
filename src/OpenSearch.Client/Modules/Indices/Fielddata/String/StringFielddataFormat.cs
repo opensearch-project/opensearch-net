@@ -30,15 +30,14 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 
 
-namespace OpenSearch.Client
-{
-	[StringEnum]
-	public enum StringFielddataFormat
-	{
-		[EnumMember(Value = "paged_bytes")]
-		PagedBytes,
+namespace OpenSearch.Client;
 
-		[EnumMember(Value = "disabled")]
-		Disabled
-	}
+[StringEnum]
+public enum StringFielddataFormat
+{
+    [EnumMember(Value = "paged_bytes")]
+    PagedBytes,
+
+    [EnumMember(Value = "disabled")]
+    Disabled
 }

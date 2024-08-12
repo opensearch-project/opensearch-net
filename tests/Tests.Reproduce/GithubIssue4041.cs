@@ -26,23 +26,22 @@
 *  under the License.
 */
 
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using static Tests.Core.Serialization.SerializationTestHelper;
 
-namespace Tests.Reproduce
-{
-	public class GithubIssue4041
-	{
-		[U]
-		[UseCulture("sv-SE")]
-		public void DistanceSerializesWithInvariantCulture()
-		{
-			const string distanceString = "2.5m";
-			Distance distance = distanceString;
+namespace Tests.Reproduce;
 
-			Expect(distanceString)
-				.WhenSerializing(distance);
-		}
-	}
+public class GithubIssue4041
+{
+    [U]
+    [UseCulture("sv-SE")]
+    public void DistanceSerializesWithInvariantCulture()
+    {
+        const string distanceString = "2.5m";
+        Distance distance = distanceString;
+
+        Expect(distanceString)
+            .WhenSerializing(distance);
+    }
 }

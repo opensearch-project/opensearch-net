@@ -26,49 +26,48 @@
 *  under the License.
 */
 
-namespace OpenSearch.Net
+namespace OpenSearch.Net;
+
+/// <summary>
+/// Produces the meta header when this functionality is enabled in the <see cref="ConnectionConfiguration"/>.
+/// </summary>
+public class MetaHeaderProvider
 {
-	/// <summary>
-	/// Produces the meta header when this functionality is enabled in the <see cref="ConnectionConfiguration"/>.
-	/// </summary>
-	public class MetaHeaderProvider
-	{
-		private const string MetaHeaderName = "opensearch-client-meta";
-		
-		private readonly MetaDataHeader _asyncMetaDataHeader;
-		private readonly MetaDataHeader _syncMetaDataHeader;
+    private const string MetaHeaderName = "opensearch-client-meta";
 
-		public MetaHeaderProvider()
-		{
-			var clientVersionInfo = ClientVersionInfo.Create<IOpenSearchLowLevelClient>();
-			_asyncMetaDataHeader = new MetaDataHeader(clientVersionInfo, "opensearch", true);
-			_syncMetaDataHeader = new MetaDataHeader(clientVersionInfo, "opensearch", false);
-		}
-		
-		public string HeaderName => MetaHeaderName;
+    private readonly MetaDataHeader _asyncMetaDataHeader;
+    private readonly MetaDataHeader _syncMetaDataHeader;
 
-		public string ProduceHeaderValue(RequestData requestData)
-		{
-			try
-			{
-				if (requestData.ConnectionSettings.DisableMetaHeader)
-					return null;
+    public MetaHeaderProvider()
+    {
+        var clientVersionInfo = ClientVersionInfo.Create<IOpenSearchLowLevelClient>();
+        _asyncMetaDataHeader = new MetaDataHeader(clientVersionInfo, "opensearch", true);
+        _syncMetaDataHeader = new MetaDataHeader(clientVersionInfo, "opensearch", false);
+    }
 
-				var headerValue = requestData.IsAsync
-					? _asyncMetaDataHeader.ToString()
-					: _syncMetaDataHeader.ToString();
+    public string HeaderName => MetaHeaderName;
 
-				if (requestData.RequestMetaData.TryGetValue(RequestMetaData.HelperKey, out var helperSuffix))
-					headerValue = $"{headerValue},h={helperSuffix}";
+    public string ProduceHeaderValue(RequestData requestData)
+    {
+        try
+        {
+            if (requestData.ConnectionSettings.DisableMetaHeader)
+                return null;
 
-				return headerValue;
-			}
-			catch
-			{
-				// don't fail the application just because we cannot create this optional header
-			}
+            var headerValue = requestData.IsAsync
+                ? _asyncMetaDataHeader.ToString()
+                : _syncMetaDataHeader.ToString();
 
-			return string.Empty;
-		}
-	}
+            if (requestData.RequestMetaData.TryGetValue(RequestMetaData.HelperKey, out var helperSuffix))
+                headerValue = $"{headerValue},h={helperSuffix}";
+
+            return headerValue;
+        }
+        catch
+        {
+            // don't fail the application just because we cannot create this optional header
+        }
+
+        return string.Empty;
+    }
 }

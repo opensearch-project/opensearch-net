@@ -28,25 +28,24 @@
 
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// A range of signed 64-bit integers with a minimum value of -263 and maximum of 263-1.
+/// </summary>
+[InterfaceDataContract]
+public interface ILongRangeProperty : IRangeProperty { }
+
+/// <inheritdoc cref="ILongRangeProperty"/>
+public class LongRangeProperty : RangePropertyBase, ILongRangeProperty
 {
-	/// <summary>
-	/// A range of signed 64-bit integers with a minimum value of -263 and maximum of 263-1.
-	/// </summary>
-	[InterfaceDataContract]
-	public interface ILongRangeProperty : IRangeProperty { }
+    public LongRangeProperty() : base(RangeType.LongRange) { }
+}
 
-	/// <inheritdoc cref="ILongRangeProperty"/>
-	public class LongRangeProperty : RangePropertyBase, ILongRangeProperty
-	{
-		public LongRangeProperty() : base(RangeType.LongRange) { }
-	}
-
-	/// <inheritdoc cref="ILongRangeProperty"/>
-	public class LongRangePropertyDescriptor<T>
-		: RangePropertyDescriptorBase<LongRangePropertyDescriptor<T>, ILongRangeProperty, T>, ILongRangeProperty
-		where T : class
-	{
-		public LongRangePropertyDescriptor() : base(RangeType.LongRange) { }
-	}
+/// <inheritdoc cref="ILongRangeProperty"/>
+public class LongRangePropertyDescriptor<T>
+    : RangePropertyDescriptorBase<LongRangePropertyDescriptor<T>, ILongRangeProperty, T>, ILongRangeProperty
+    where T : class
+{
+    public LongRangePropertyDescriptor() : base(RangeType.LongRange) { }
 }

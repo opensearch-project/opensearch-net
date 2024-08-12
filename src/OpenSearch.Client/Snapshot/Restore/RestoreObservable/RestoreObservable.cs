@@ -33,31 +33,30 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class RestoreErrorEventArgs : EventArgs
 {
-	public class RestoreErrorEventArgs : EventArgs
-	{
-		public RestoreErrorEventArgs(Exception exception) => Exception = exception;
+    public RestoreErrorEventArgs(Exception exception) => Exception = exception;
 
-		public Exception Exception { get; }
-	}
+    public Exception Exception { get; }
+}
 
-	public class RestoreStatusHumbleObject
-	{
-		private readonly IOpenSearchClient _opensearchClient;
-		private readonly string _renamePattern;
-		private readonly string _renameReplacement;
-		private readonly IRestoreRequest _restoreRequest;
+public class RestoreStatusHumbleObject
+{
+    private readonly IOpenSearchClient _opensearchClient;
+    private readonly string _renamePattern;
+    private readonly string _renameReplacement;
+    private readonly IRestoreRequest _restoreRequest;
 
-		public RestoreStatusHumbleObject(IOpenSearchClient opensearchClient, IRestoreRequest restoreRequest)
-		{
-			opensearchClient.ThrowIfNull(nameof(opensearchClient));
-			restoreRequest.ThrowIfNull(nameof(restoreRequest));
+    public RestoreStatusHumbleObject(IOpenSearchClient opensearchClient, IRestoreRequest restoreRequest)
+    {
+        opensearchClient.ThrowIfNull(nameof(opensearchClient));
+        restoreRequest.ThrowIfNull(nameof(restoreRequest));
 
-			_opensearchClient = opensearchClient;
-			_restoreRequest = restoreRequest;
-			_renamePattern = string.IsNullOrEmpty(_restoreRequest.RenamePattern) ? string.Empty : _restoreRequest.RenamePattern;
-			_renameReplacement = string.IsNullOrEmpty(_restoreRequest.RenameReplacement) ? string.Empty : _restoreRequest.RenameReplacement;
-		}
-	}
+        _opensearchClient = opensearchClient;
+        _restoreRequest = restoreRequest;
+        _renamePattern = string.IsNullOrEmpty(_restoreRequest.RenamePattern) ? string.Empty : _restoreRequest.RenamePattern;
+        _renameReplacement = string.IsNullOrEmpty(_restoreRequest.RenameReplacement) ? string.Empty : _restoreRequest.RenameReplacement;
+    }
 }

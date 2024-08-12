@@ -27,9 +27,9 @@
 */
 
 using System;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
@@ -37,9 +37,9 @@ using Tests.Framework.EndpointTests.TestState;
 using static OpenSearch.Client.Infer;
 using ValueType = OpenSearch.Client.ValueType;
 
-namespace Tests.Aggregations.Metric.WeightedAverage
-{
-	/**
+namespace Tests.Aggregations.Metric.WeightedAverage;
+
+/**
 	 * A single-value metrics aggregation that computes the weighted average of numeric values that are extracted
 	 * from the aggregated documents. These values can be extracted either from specific numeric fields in the documents.
 	 * When calculating a regular average, each datapoint has an equal "weight" i.e. it contributes equally to the final
@@ -48,57 +48,56 @@ namespace Tests.Aggregations.Metric.WeightedAverage
 	 *
 	 * Be sure to read the OpenSearch documentation on {ref_current}/search-aggregations-metrics-weight-avg-aggregation.html[Weighted Avg Aggregation]
 	 */
-	public class WeightedAverageAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
-	{
-		public WeightedAverageAggregationUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+public class WeightedAverageAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
+{
+    public WeightedAverageAggregationUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
 
-		protected override object AggregationJson => new
-		{
-			weighted_avg_commits = new
-			{
-				weighted_avg = new
-				{
-					value = new
-					{
-						field = "numberOfCommits",
-						missing = 0.0
-					},
-					weight = new
-					{
-						script = new
-						{
-							source = "(doc['numberOfContributors']?.value ?: 0) + 1"
-						}
-					},
-					value_type = "long"
-				}
-			}
-		};
+    protected override object AggregationJson => new
+    {
+        weighted_avg_commits = new
+        {
+            weighted_avg = new
+            {
+                value = new
+                {
+                    field = "numberOfCommits",
+                    missing = 0.0
+                },
+                weight = new
+                {
+                    script = new
+                    {
+                        source = "(doc['numberOfContributors']?.value ?: 0) + 1"
+                    }
+                },
+                value_type = "long"
+            }
+        }
+    };
 
-		protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
-			.WeightedAverage("weighted_avg_commits", avg => avg
-				.Value(v => v.Field(p => p.NumberOfCommits).Missing(0))
-				.Weight(w => w.Script("(doc['numberOfContributors']?.value ?: 0) + 1"))
-				.ValueType(ValueType.Long)
-			);
+    protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
+        .WeightedAverage("weighted_avg_commits", avg => avg
+            .Value(v => v.Field(p => p.NumberOfCommits).Missing(0))
+            .Weight(w => w.Script("(doc['numberOfContributors']?.value ?: 0) + 1"))
+            .ValueType(ValueType.Long)
+        );
 
-		protected override AggregationDictionary InitializerAggs =>
-			new WeightedAverageAggregation("weighted_avg_commits")
-			{
-				Value = new WeightedAverageValue(Field<Project>(p => p.NumberOfCommits))
-				{
-					Missing = 0
-				},
-				Weight = new WeightedAverageValue(new InlineScript("(doc['numberOfContributors']?.value ?: 0) + 1")),
-				ValueType = ValueType.Long
-			};
+    protected override AggregationDictionary InitializerAggs =>
+        new WeightedAverageAggregation("weighted_avg_commits")
+        {
+            Value = new WeightedAverageValue(Field<Project>(p => p.NumberOfCommits))
+            {
+                Missing = 0
+            },
+            Weight = new WeightedAverageValue(new InlineScript("(doc['numberOfContributors']?.value ?: 0) + 1")),
+            ValueType = ValueType.Long
+        };
 
-		protected override void ExpectResponse(ISearchResponse<Project> response)
-		{
-			response.ShouldBeValid();
-			var commitsAvg = response.Aggregations.WeightedAverage("weighted_avg_commits");
-			commitsAvg.Should().NotBeNull();
-			commitsAvg.Value.Should().BeGreaterThan(0);
-		}
-	}
+    protected override void ExpectResponse(ISearchResponse<Project> response)
+    {
+        response.ShouldBeValid();
+        var commitsAvg = response.Aggregations.WeightedAverage("weighted_avg_commits");
+        commitsAvg.Should().NotBeNull();
+        commitsAvg.Value.Should().BeGreaterThan(0);
+    }
 }

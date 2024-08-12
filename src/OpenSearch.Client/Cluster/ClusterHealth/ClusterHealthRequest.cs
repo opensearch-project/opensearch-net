@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	[MapsApi("cluster.health.json")]
-	public partial interface IClusterHealthRequest { }
+namespace OpenSearch.Client;
 
-	public partial class ClusterHealthRequest { }
+[MapsApi("cluster.health.json")]
+public partial interface IClusterHealthRequest { }
 
-	public partial class ClusterHealthDescriptor { }
-}
+public partial class ClusterHealthRequest { }
+
+public partial class ClusterHealthDescriptor { }

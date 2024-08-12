@@ -28,14 +28,13 @@
 
 #pragma warning disable 612, 618
 
-namespace OpenSearch.Client
-{
-	[MapsApi("cat.templates.json")]
-	public partial interface ICatTemplatesRequest { }
+namespace OpenSearch.Client;
 
-	public partial class CatTemplatesRequest { }
+[MapsApi("cat.templates.json")]
+public partial interface ICatTemplatesRequest { }
 
-	public partial class CatTemplatesDescriptor { }
-}
+public partial class CatTemplatesRequest { }
+
+public partial class CatTemplatesDescriptor { }
 
 #pragma warning restore 612, 618

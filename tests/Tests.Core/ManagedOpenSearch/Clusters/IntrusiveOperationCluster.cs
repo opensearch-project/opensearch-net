@@ -28,16 +28,16 @@
 
 using static OpenSearch.Stack.ArtifactsApi.Products.OpenSearchPlugin;
 
-namespace Tests.Core.ManagedOpenSearch.Clusters
+namespace Tests.Core.ManagedOpenSearch.Clusters;
+
+/// <summary>
+/// Use this cluster for heavy API's, either on OpenSearch's side or the client (intricate setup etc)
+/// </summary>
+public class IntrusiveOperationCluster : ClientTestClusterBase
 {
-	/// <summary>
-	/// Use this cluster for heavy API's, either on OpenSearch's side or the client (intricate setup etc)
-	/// </summary>
-	public class IntrusiveOperationCluster : ClientTestClusterBase
-	{
-		public IntrusiveOperationCluster() : base(new ClientTestClusterConfiguration(IngestGeoIp, IngestAttachment)
-		{
-			MaxConcurrency = 1
-		}) { }
-	}
+    public IntrusiveOperationCluster() : base(new ClientTestClusterConfiguration(IngestGeoIp, IngestAttachment)
+    {
+        MaxConcurrency = 1
+    })
+    { }
 }

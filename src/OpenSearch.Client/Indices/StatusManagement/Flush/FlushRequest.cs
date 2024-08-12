@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	[MapsApi("indices.flush.json")]
-	public partial interface IFlushRequest { }
+namespace OpenSearch.Client;
 
-	public partial class FlushRequest { }
+[MapsApi("indices.flush.json")]
+public partial interface IFlushRequest { }
 
-	public partial class FlushDescriptor { }
-}
+public partial class FlushRequest { }
+
+public partial class FlushDescriptor { }

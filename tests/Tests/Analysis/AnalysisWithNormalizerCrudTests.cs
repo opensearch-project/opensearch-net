@@ -31,36 +31,35 @@ using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests.TestState;
 using static Tests.Framework.Extensions.Promisify;
 
-namespace Tests.Analysis
+namespace Tests.Analysis;
+
+public class AnalysisWithNormalizerCrudTests : AnalysisCrudTests
 {
-	public class AnalysisWithNormalizerCrudTests : AnalysisCrudTests
-	{
-		public AnalysisWithNormalizerCrudTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public AnalysisWithNormalizerCrudTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override CreateIndexRequest CreateInitializer(string indexName) => new CreateIndexRequest(indexName)
-		{
-			Settings = new IndexSettings
-			{
-				Analysis = new OpenSearch.Client.Analysis
-				{
-					Analyzers = AnalysisUsageTests.AnalyzersInitializer.Analysis.Analyzers,
-					CharFilters = AnalysisUsageTests.CharFiltersInitializer.Analysis.CharFilters,
-					Tokenizers = AnalysisUsageTests.TokenizersInitializer.Analysis.Tokenizers,
-					TokenFilters = AnalysisUsageTests.TokenFiltersInitializer.Analysis.TokenFilters,
-					Normalizers = AnalysisUsageTests.NormalizersInitializer.Analysis.Normalizers,
-				}
-			}
-		};
+    protected override CreateIndexRequest CreateInitializer(string indexName) => new CreateIndexRequest(indexName)
+    {
+        Settings = new IndexSettings
+        {
+            Analysis = new OpenSearch.Client.Analysis
+            {
+                Analyzers = AnalysisUsageTests.AnalyzersInitializer.Analysis.Analyzers,
+                CharFilters = AnalysisUsageTests.CharFiltersInitializer.Analysis.CharFilters,
+                Tokenizers = AnalysisUsageTests.TokenizersInitializer.Analysis.Tokenizers,
+                TokenFilters = AnalysisUsageTests.TokenFiltersInitializer.Analysis.TokenFilters,
+                Normalizers = AnalysisUsageTests.NormalizersInitializer.Analysis.Normalizers,
+            }
+        }
+    };
 
-		protected override ICreateIndexRequest CreateFluent(string indexName, CreateIndexDescriptor c) =>
-			c.Settings(s => s
-				.Analysis(a => a
-					.Analyzers(t => Promise(AnalysisUsageTests.AnalyzersFluent.Analysis.Analyzers))
-					.CharFilters(t => Promise(AnalysisUsageTests.CharFiltersFluent.Analysis.CharFilters))
-					.Tokenizers(t => Promise(AnalysisUsageTests.TokenizersFluent.Analysis.Tokenizers))
-					.TokenFilters(t => Promise(AnalysisUsageTests.TokenFiltersFluent.Analysis.TokenFilters))
-					.Normalizers(t => Promise(AnalysisUsageTests.NormalizersFluent.Analysis.Normalizers))
-				)
-			);
-	}
+    protected override ICreateIndexRequest CreateFluent(string indexName, CreateIndexDescriptor c) =>
+        c.Settings(s => s
+            .Analysis(a => a
+                .Analyzers(t => Promise(AnalysisUsageTests.AnalyzersFluent.Analysis.Analyzers))
+                .CharFilters(t => Promise(AnalysisUsageTests.CharFiltersFluent.Analysis.CharFilters))
+                .Tokenizers(t => Promise(AnalysisUsageTests.TokenizersFluent.Analysis.Tokenizers))
+                .TokenFilters(t => Promise(AnalysisUsageTests.TokenFiltersFluent.Analysis.TokenFilters))
+                .Normalizers(t => Promise(AnalysisUsageTests.NormalizersFluent.Analysis.Normalizers))
+            )
+        );
 }

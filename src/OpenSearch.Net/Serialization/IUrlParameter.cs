@@ -26,10 +26,9 @@
 *  under the License.
 */
 
-namespace OpenSearch.Net
+namespace OpenSearch.Net;
+
+public interface IUrlParameter
 {
-	public interface IUrlParameter
-	{
-		string GetString(IConnectionConfigurationValues settings);
-	}
+    string GetString(IConnectionConfigurationValues settings);
 }

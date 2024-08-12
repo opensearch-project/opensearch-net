@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	[MapsApi("cat.aliases.json")]
-	public partial interface ICatAliasesRequest { }
+namespace OpenSearch.Client;
 
-	public partial class CatAliasesRequest { }
+[MapsApi("cat.aliases.json")]
+public partial interface ICatAliasesRequest { }
 
-	public partial class CatAliasesDescriptor { }
-}
+public partial class CatAliasesRequest { }
+
+public partial class CatAliasesDescriptor { }

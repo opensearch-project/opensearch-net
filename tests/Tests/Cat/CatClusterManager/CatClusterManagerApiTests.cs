@@ -26,35 +26,34 @@
 *  under the License.
 */
 
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.Cat.CatClusterManager
+namespace Tests.Cat.CatClusterManager;
+
+[SkipVersion("<2.0.0", "CatClusterManager API was introdused in 2.0.0 release instead of CatMaster")]
+public class CatClusterManagerApiTests
+    : ApiIntegrationTestBase<ReadOnlyCluster, CatResponse<CatClusterManagerRecord>, ICatClusterManagerRequest, CatClusterManagerDescriptor, CatClusterManagerRequest>
 {
-	[SkipVersion("<2.0.0", "CatClusterManager API was introdused in 2.0.0 release instead of CatMaster")]
-	public class CatClusterManagerApiTests
-		: ApiIntegrationTestBase<ReadOnlyCluster, CatResponse<CatClusterManagerRecord>, ICatClusterManagerRequest, CatClusterManagerDescriptor, CatClusterManagerRequest>
-	{
-		public CatClusterManagerApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public CatClusterManagerApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override bool ExpectIsValid => true;
-		protected override int ExpectStatusCode => 200;
-		protected override HttpMethod HttpMethod => HttpMethod.GET;
-		protected override string UrlPath => "/_cat/cluster_manager";
+    protected override bool ExpectIsValid => true;
+    protected override int ExpectStatusCode => 200;
+    protected override HttpMethod HttpMethod => HttpMethod.GET;
+    protected override string UrlPath => "/_cat/cluster_manager";
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Cat.ClusterManager(),
-			(client, f) => client.Cat.ClusterManagerAsync(),
-			(client, r) => client.Cat.ClusterManager(r),
-			(client, r) => client.Cat.ClusterManagerAsync(r)
-		);
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Cat.ClusterManager(),
+        (client, f) => client.Cat.ClusterManagerAsync(),
+        (client, r) => client.Cat.ClusterManager(r),
+        (client, r) => client.Cat.ClusterManagerAsync(r)
+    );
 
-		protected override void ExpectResponse(CatResponse<CatClusterManagerRecord> response) =>
-			response.Records.Should().NotBeEmpty().And.Contain(a => !string.IsNullOrEmpty(a.Node));
-	}
+    protected override void ExpectResponse(CatResponse<CatClusterManagerRecord> response) =>
+        response.Records.Should().NotBeEmpty().And.Contain(a => !string.IsNullOrEmpty(a.Node));
 }

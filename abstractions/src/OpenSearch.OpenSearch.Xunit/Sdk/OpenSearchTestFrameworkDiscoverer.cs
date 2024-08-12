@@ -30,36 +30,35 @@ using System.Reflection;
 using Xunit.Abstractions;
 using Xunit.Sdk;
 
-namespace OpenSearch.OpenSearch.Xunit.Sdk
+namespace OpenSearch.OpenSearch.Xunit.Sdk;
+
+public class OpenSearchTestFrameworkDiscoverer : XunitTestFrameworkDiscoverer
 {
-	public class OpenSearchTestFrameworkDiscoverer : XunitTestFrameworkDiscoverer
-	{
-		public OpenSearchTestFrameworkDiscoverer(IAssemblyInfo assemblyInfo, ISourceInformationProvider sourceProvider,
-			IMessageSink diagnosticMessageSink, IXunitTestCollectionFactory collectionFactory = null) : base(
-			assemblyInfo, sourceProvider, diagnosticMessageSink, collectionFactory)
-		{
-			var a = Assembly.Load(new AssemblyName(assemblyInfo.Name));
-			var options = a.GetCustomAttribute<OpenSearchXunitConfigurationAttribute>()?.Options ??
-			              new OpenSearchXunitRunOptions();
-			Options = options;
-		}
+    public OpenSearchTestFrameworkDiscoverer(IAssemblyInfo assemblyInfo, ISourceInformationProvider sourceProvider,
+        IMessageSink diagnosticMessageSink, IXunitTestCollectionFactory collectionFactory = null) : base(
+        assemblyInfo, sourceProvider, diagnosticMessageSink, collectionFactory)
+    {
+        var a = Assembly.Load(new AssemblyName(assemblyInfo.Name));
+        var options = a.GetCustomAttribute<OpenSearchXunitConfigurationAttribute>()?.Options ??
+                      new OpenSearchXunitRunOptions();
+        Options = options;
+    }
 
-		/// <summary>
-		///     The options for
-		/// </summary>
-		public OpenSearchXunitRunOptions Options { get; }
+    /// <summary>
+    ///     The options for
+    /// </summary>
+    public OpenSearchXunitRunOptions Options { get; }
 
-		protected override bool FindTestsForType(ITestClass testClass, bool includeSourceInformation,
-			IMessageBus messageBus, ITestFrameworkDiscoveryOptions discoveryOptions)
-		{
-			discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.Version), Options.Version);
-			discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.RunIntegrationTests), Options.RunIntegrationTests);
-			discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.IntegrationTestsMayUseAlreadyRunningNode),
-				Options.IntegrationTestsMayUseAlreadyRunningNode);
-			discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.RunUnitTests), Options.RunUnitTests);
-			discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.TestFilter), Options.TestFilter);
-			discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.ClusterFilter), Options.ClusterFilter);
-			return base.FindTestsForType(testClass, includeSourceInformation, messageBus, discoveryOptions);
-		}
-	}
+    protected override bool FindTestsForType(ITestClass testClass, bool includeSourceInformation,
+        IMessageBus messageBus, ITestFrameworkDiscoveryOptions discoveryOptions)
+    {
+        discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.Version), Options.Version);
+        discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.RunIntegrationTests), Options.RunIntegrationTests);
+        discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.IntegrationTestsMayUseAlreadyRunningNode),
+            Options.IntegrationTestsMayUseAlreadyRunningNode);
+        discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.RunUnitTests), Options.RunUnitTests);
+        discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.TestFilter), Options.TestFilter);
+        discoveryOptions.SetValue(nameof(OpenSearchXunitRunOptions.ClusterFilter), Options.ClusterFilter);
+        return base.FindTestsForType(testClass, includeSourceInformation, messageBus, discoveryOptions);
+    }
 }

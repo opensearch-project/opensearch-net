@@ -27,44 +27,43 @@
 */
 
 using System;
+using OpenSearch.Client;
 using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Indices.AliasManagement.DeleteAlias
+namespace Tests.Indices.AliasManagement.DeleteAlias;
+
+[SkipVersion(">=1.0.0", "Disabled due to https://github.com/opensearch-project/security/issues/1732. Affects OpenDistro as well.")]
+public class DeleteAliasApiTests
+    : ApiIntegrationTestBase<WritableCluster, DeleteAliasResponse, IDeleteAliasRequest, DeleteAliasDescriptor, DeleteAliasRequest>
 {
-	[SkipVersion(">=1.0.0", "Disabled due to https://github.com/opensearch-project/security/issues/1732. Affects OpenDistro as well.")]
-	public class DeleteAliasApiTests
-		: ApiIntegrationTestBase<WritableCluster, DeleteAliasResponse, IDeleteAliasRequest, DeleteAliasDescriptor, DeleteAliasRequest>
-	{
-		public DeleteAliasApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public DeleteAliasApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override bool ExpectIsValid => true;
-		protected override int ExpectStatusCode => 200;
+    protected override bool ExpectIsValid => true;
+    protected override int ExpectStatusCode => 200;
 
-		protected override Func<DeleteAliasDescriptor, IDeleteAliasRequest> Fluent => null;
-		protected override HttpMethod HttpMethod => HttpMethod.DELETE;
-		protected override DeleteAliasRequest Initializer => new DeleteAliasRequest(Infer.AllIndices, Names);
-		protected override bool SupportsDeserialization => false;
-		protected override string UrlPath => $"/_all/_alias/{CallIsolatedValue + "-alias"}";
-		private Names Names => Infer.Names(CallIsolatedValue + "-alias");
+    protected override Func<DeleteAliasDescriptor, IDeleteAliasRequest> Fluent => null;
+    protected override HttpMethod HttpMethod => HttpMethod.DELETE;
+    protected override DeleteAliasRequest Initializer => new DeleteAliasRequest(Infer.AllIndices, Names);
+    protected override bool SupportsDeserialization => false;
+    protected override string UrlPath => $"/_all/_alias/{CallIsolatedValue + "-alias"}";
+    private Names Names => Infer.Names(CallIsolatedValue + "-alias");
 
-		protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
-		{
-			foreach (var index in values.Values)
-				client.Indices.Create(index, c => c
-					.Aliases(aa => aa.Alias(index + "-alias"))
-				);
-		}
+    protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
+    {
+        foreach (var index in values.Values)
+            client.Indices.Create(index, c => c
+                .Aliases(aa => aa.Alias(index + "-alias"))
+            );
+    }
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Indices.DeleteAlias(Infer.AllIndices, Names),
-			(client, f) => client.Indices.DeleteAliasAsync(Infer.AllIndices, Names),
-			(client, r) => client.Indices.DeleteAlias(r),
-			(client, r) => client.Indices.DeleteAliasAsync(r)
-		);
-	}
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Indices.DeleteAlias(Infer.AllIndices, Names),
+        (client, f) => client.Indices.DeleteAliasAsync(Infer.AllIndices, Names),
+        (client, r) => client.Indices.DeleteAlias(r),
+        (client, r) => client.Indices.DeleteAliasAsync(r)
+    );
 }

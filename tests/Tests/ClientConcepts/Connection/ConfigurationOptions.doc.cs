@@ -27,15 +27,15 @@
 */
 
 using System;
-using OpenSearch.Net;
 using OpenSearch.Client;
+using OpenSearch.Net;
 using Tests.Domain;
 
-namespace Tests.ClientConcepts.Connection
+namespace Tests.ClientConcepts.Connection;
+
+public class ConfigurationOptions
 {
-	public class ConfigurationOptions
-	{
-		/**[[configuration-options]]
+    /**[[configuration-options]]
 		 * === Configuration options
 		 *
 		 * Connecting to OpenSearch with <<opensearch-net-getting-started,OpenSearch.Net>> and <<osc-getting-started,OSC>> is easy, but
@@ -55,18 +55,18 @@ namespace Tests.ClientConcepts.Connection
 		 *
 		 * Here's an example to demonstrate setting several configuration options using the low level client
 		 */
-		public void AvailableOptions()
-		{
-			var connectionConfiguration = new ConnectionConfiguration()
-				.DisableAutomaticProxyDetection()
-				.EnableHttpCompression()
-				.DisableDirectStreaming()
-				.PrettyJson()
-				.RequestTimeout(TimeSpan.FromMinutes(2));
+    public void AvailableOptions()
+    {
+        var connectionConfiguration = new ConnectionConfiguration()
+            .DisableAutomaticProxyDetection()
+            .EnableHttpCompression()
+            .DisableDirectStreaming()
+            .PrettyJson()
+            .RequestTimeout(TimeSpan.FromMinutes(2));
 
-			var lowLevelClient = new OpenSearchLowLevelClient(connectionConfiguration);
+        var lowLevelClient = new OpenSearchLowLevelClient(connectionConfiguration);
 
-			/**
+        /**
 			 * ==== Options on ConnectionSettings
 			 *
 			 * The following is a list of available connection configuration options on `ConnectionSettings`:
@@ -77,30 +77,29 @@ namespace Tests.ClientConcepts.Connection
 			 *
 			 * Here's an example to demonstrate setting several configuration options using the high level client
 			 */
-			var connectionSettings = new ConnectionSettings()
-				.DefaultMappingFor<Project>(i => i
-					.IndexName("my-projects")
-					.IdProperty(p => p.Name)
-				)
-				.EnableDebugMode()
-				.PrettyJson()
-				.RequestTimeout(TimeSpan.FromMinutes(2));
+        var connectionSettings = new ConnectionSettings()
+            .DefaultMappingFor<Project>(i => i
+                .IndexName("my-projects")
+                .IdProperty(p => p.Name)
+            )
+            .EnableDebugMode()
+            .PrettyJson()
+            .RequestTimeout(TimeSpan.FromMinutes(2));
 
-			var client = new OpenSearchClient(connectionSettings);
+        var client = new OpenSearchClient(connectionSettings);
 
-			/**[NOTE]
+        /**[NOTE]
 			* ====
 			*
 			* Basic Authentication credentials can alternatively be specified on the node URI directly
 			*/
-			var uri = new Uri("http://username:password@localhost:9200");
-			var settings = new ConnectionConfiguration(uri);
-		}
-		/**
+        var uri = new Uri("http://username:password@localhost:9200");
+        var settings = new ConnectionConfiguration(uri);
+    }
+    /**
 		* but this can be awkward when using connection pooling with multiple nodes, especially when the connection pool
 		* used is one that is capable of reseeding itself. For this reason, we'd recommend specifying credentials
 		* on `ConnectionSettings`.
 		*====
 		*/
-	}
 }

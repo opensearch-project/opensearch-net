@@ -28,10 +28,10 @@
 
 using System;
 using System.Threading;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Cluster.TaskManagement.GetTask;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
@@ -40,30 +40,29 @@ using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Cluster.VotingConfigExclusions.DeleteVotingConfigExclusions
+namespace Tests.Cluster.VotingConfigExclusions.DeleteVotingConfigExclusions;
+
+public class DeleteVotingConfigExclusionsApiTests : ApiIntegrationTestBase<WritableCluster, DeleteVotingConfigExclusionsResponse, IDeleteVotingConfigExclusionsRequest, DeleteVotingConfigExclusionsDescriptor, DeleteVotingConfigExclusionsRequest>
 {
-	public class DeleteVotingConfigExclusionsApiTests : ApiIntegrationTestBase<WritableCluster, DeleteVotingConfigExclusionsResponse, IDeleteVotingConfigExclusionsRequest, DeleteVotingConfigExclusionsDescriptor, DeleteVotingConfigExclusionsRequest>
-	{
-		public DeleteVotingConfigExclusionsApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public DeleteVotingConfigExclusionsApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override bool ExpectIsValid => true;
-		protected override int ExpectStatusCode => 200;
+    protected override bool ExpectIsValid => true;
+    protected override int ExpectStatusCode => 200;
 
-		protected override Func<DeleteVotingConfigExclusionsDescriptor, IDeleteVotingConfigExclusionsRequest> Fluent => s => s
-			.WaitForRemoval();
+    protected override Func<DeleteVotingConfigExclusionsDescriptor, IDeleteVotingConfigExclusionsRequest> Fluent => s => s
+        .WaitForRemoval();
 
-		protected override HttpMethod HttpMethod => HttpMethod.DELETE;
+    protected override HttpMethod HttpMethod => HttpMethod.DELETE;
 
-		protected override DeleteVotingConfigExclusionsRequest Initializer => new DeleteVotingConfigExclusionsRequest { WaitForRemoval = true };
-		protected override string UrlPath => $"/_cluster/voting_config_exclusions?wait_for_removal=true";
+    protected override DeleteVotingConfigExclusionsRequest Initializer => new DeleteVotingConfigExclusionsRequest { WaitForRemoval = true };
+    protected override string UrlPath => $"/_cluster/voting_config_exclusions?wait_for_removal=true";
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Cluster.DeleteVotingConfigExclusions(f),
-			(client, f) => client.Cluster.DeleteVotingConfigExclusionsAsync(f),
-			(client, r) => client.Cluster.DeleteVotingConfigExclusions(r),
-			(client, r) => client.Cluster.DeleteVotingConfigExclusionsAsync(r)
-		);
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Cluster.DeleteVotingConfigExclusions(f),
+        (client, f) => client.Cluster.DeleteVotingConfigExclusionsAsync(f),
+        (client, r) => client.Cluster.DeleteVotingConfigExclusions(r),
+        (client, r) => client.Cluster.DeleteVotingConfigExclusionsAsync(r)
+    );
 
-		protected override void ExpectResponse(DeleteVotingConfigExclusionsResponse response) => response.ShouldBeValid();
-	}
+    protected override void ExpectResponse(DeleteVotingConfigExclusionsResponse response) => response.ShouldBeValid();
 }

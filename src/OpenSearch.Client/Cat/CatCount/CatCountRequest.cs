@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	[MapsApi("cat.count.json")]
-	public partial interface ICatCountRequest { }
+namespace OpenSearch.Client;
 
-	public partial class CatCountRequest { }
+[MapsApi("cat.count.json")]
+public partial interface ICatCountRequest { }
 
-	public partial class CatCountDescriptor { }
-}
+public partial class CatCountRequest { }
+
+public partial class CatCountDescriptor { }

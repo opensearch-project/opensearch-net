@@ -27,53 +27,51 @@
 */
 
 using System;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
-namespace Tests.CommonOptions.DateMath
+namespace Tests.CommonOptions.DateMath;
+
+public class DateMathTests
 {
-	public class DateMathTests
-	{
-		[U]
-		public void ImplicitConversionFromNullString()
-		{
-			string nullString = null;
-			OpenSearch.Client.DateMath dateMath = nullString;
-			dateMath.Should().BeNull();
-		}
+    [U]
+    public void ImplicitConversionFromNullString()
+    {
+        string nullString = null;
+        OpenSearch.Client.DateMath dateMath = nullString;
+        dateMath.Should().BeNull();
+    }
 
-		[U]
-		public void ImplicitConversionFromNullNullableDateTime()
-		{
-			DateTime? nullableDateTime = null;
-			OpenSearch.Client.DateMath dateMath = nullableDateTime;
-			dateMath.Should().BeNull();
-		}
+    [U]
+    public void ImplicitConversionFromNullNullableDateTime()
+    {
+        DateTime? nullableDateTime = null;
+        OpenSearch.Client.DateMath dateMath = nullableDateTime;
+        dateMath.Should().BeNull();
+    }
 
-		[U] // F# backticks would be great in C# :)
-		public void ImplicitConversionFromDefaultDateTimeIsMinValue()
-		{
-			DateTime nullableDateTime = default;
-			OpenSearch.Client.DateMath dateMath = nullableDateTime;
-			dateMath.Should().NotBeNull();
-			dateMath.ToString().Should().Be("0001-01-01T00:00:00");
-		}
+    [U] // F# backticks would be great in C# :)
+    public void ImplicitConversionFromDefaultDateTimeIsMinValue()
+    {
+        DateTime nullableDateTime = default;
+        OpenSearch.Client.DateMath dateMath = nullableDateTime;
+        dateMath.Should().NotBeNull();
+        dateMath.ToString().Should().Be("0001-01-01T00:00:00");
+    }
 
-		[U]
-		public void ImplicitConversionFromDateMathString()
-		{
-			var nullString = "now+3d";
-			OpenSearch.Client.DateMath dateMath = nullString;
-			dateMath.Should().NotBeNull();
-		}
+    [U]
+    public void ImplicitConversionFromDateMathString()
+    {
+        var nullString = "now+3d";
+        OpenSearch.Client.DateMath dateMath = nullString;
+        dateMath.Should().NotBeNull();
+    }
 
-		[U]
-		public void ImplicitConversionFromNullableDateTimeWithValue()
-		{
-			DateTime? nullableDateTime = DateTime.Now;
-			OpenSearch.Client.DateMath dateMath = nullableDateTime;
-			dateMath.Should().NotBeNull();
-		}
-	}
-
+    [U]
+    public void ImplicitConversionFromNullableDateTimeWithValue()
+    {
+        DateTime? nullableDateTime = DateTime.Now;
+        OpenSearch.Client.DateMath dateMath = nullableDateTime;
+        dateMath.Should().NotBeNull();
+    }
 }

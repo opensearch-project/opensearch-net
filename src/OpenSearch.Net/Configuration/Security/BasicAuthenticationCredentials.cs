@@ -29,38 +29,37 @@
 using System;
 using System.Security;
 
-namespace OpenSearch.Net
+namespace OpenSearch.Net;
+
+/// <summary>
+/// Credentials for Basic Authentication
+/// </summary>
+public class BasicAuthenticationCredentials : IDisposable
 {
-	/// <summary>
-	/// Credentials for Basic Authentication
-	/// </summary>
-	public class BasicAuthenticationCredentials : IDisposable
-	{
-		public BasicAuthenticationCredentials() { }
+    public BasicAuthenticationCredentials() { }
 
-		public BasicAuthenticationCredentials(string username, string password)
-		{
-			Username = username;
-			Password = password.CreateSecureString();
-		}
+    public BasicAuthenticationCredentials(string username, string password)
+    {
+        Username = username;
+        Password = password.CreateSecureString();
+    }
 
-		public BasicAuthenticationCredentials(string username, SecureString password)
-		{
-			Username = username;
-			Password = password;
-		}
+    public BasicAuthenticationCredentials(string username, SecureString password)
+    {
+        Username = username;
+        Password = password;
+    }
 
-		/// <summary>
-		/// The password with which to authenticate
-		/// </summary>
-		public SecureString Password { get; set; }
+    /// <summary>
+    /// The password with which to authenticate
+    /// </summary>
+    public SecureString Password { get; set; }
 
-		/// <summary>
-		/// The username with which to authenticate
-		/// </summary>
-		public string Username { get; set; }
+    /// <summary>
+    /// The username with which to authenticate
+    /// </summary>
+    public string Username { get; set; }
 
-		public void Dispose() => Password?.Dispose();
-		
-	}
+    public void Dispose() => Password?.Dispose();
+
 }

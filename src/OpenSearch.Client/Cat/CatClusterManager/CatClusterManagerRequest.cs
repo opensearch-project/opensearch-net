@@ -26,15 +26,14 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	[MapsApi("cat.cluster_manager.json")]
-	///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="ICatMasterRequest"/></remarks>
-	public partial interface ICatClusterManagerRequest { }
+namespace OpenSearch.Client;
 
-	///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="CatMasterRequest"/></remarks>
-	public partial class CatClusterManagerRequest { }
+[MapsApi("cat.cluster_manager.json")]
+///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="ICatMasterRequest"/></remarks>
+public partial interface ICatClusterManagerRequest { }
 
-	///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="CatMasterDescriptor"/></remarks>
-	public partial class CatClusterManagerDescriptor { }
-}
+///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="CatMasterRequest"/></remarks>
+public partial class CatClusterManagerRequest { }
+
+///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="CatMasterDescriptor"/></remarks>
+public partial class CatClusterManagerDescriptor { }

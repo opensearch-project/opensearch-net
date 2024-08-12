@@ -26,26 +26,25 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public abstract class RangePropertyAttributeBase : OpenSearchDocValuesPropertyAttributeBase, IRangeProperty
 {
-	public abstract class RangePropertyAttributeBase : OpenSearchDocValuesPropertyAttributeBase, IRangeProperty
-	{
-		protected RangePropertyAttributeBase(RangeType type) : base(type.ToFieldType()) { }
+    protected RangePropertyAttributeBase(RangeType type) : base(type.ToFieldType()) { }
 
-		public bool Coerce
-		{
-			get => Self.Coerce.GetValueOrDefault();
-			set => Self.Coerce = value;
-		}
+    public bool Coerce
+    {
+        get => Self.Coerce.GetValueOrDefault();
+        set => Self.Coerce = value;
+    }
 
-		public bool Index
-		{
-			get => Self.Index.GetValueOrDefault();
-			set => Self.Index = value;
-		}
+    public bool Index
+    {
+        get => Self.Index.GetValueOrDefault();
+        set => Self.Index = value;
+    }
 
-		bool? IRangeProperty.Coerce { get; set; }
-		bool? IRangeProperty.Index { get; set; }
-		private IRangeProperty Self => this;
-	}
+    bool? IRangeProperty.Coerce { get; set; }
+    bool? IRangeProperty.Index { get; set; }
+    private IRangeProperty Self => this;
 }

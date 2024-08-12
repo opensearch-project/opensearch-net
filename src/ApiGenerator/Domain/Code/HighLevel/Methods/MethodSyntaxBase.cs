@@ -29,31 +29,30 @@
 using ApiGenerator.Domain.Specification;
 using SemanticVersioning;
 
-namespace ApiGenerator.Domain.Code.HighLevel.Methods
+namespace ApiGenerator.Domain.Code.HighLevel.Methods;
+
+public abstract class MethodSyntaxBase
 {
-    public abstract class MethodSyntaxBase
-    {
-        protected MethodSyntaxBase(CsharpNames names, string link, string summary, Deprecation deprecated, Version versionAdded) =>
-            (CsharpNames, DocumentationLink, XmlDocSummary, Deprecated, VersionAdded) = (names, link, summary, deprecated, versionAdded);
+    protected MethodSyntaxBase(CsharpNames names, string link, string summary, Deprecation deprecated, Version versionAdded) =>
+        (CsharpNames, DocumentationLink, XmlDocSummary, Deprecated, VersionAdded) = (names, link, summary, deprecated, versionAdded);
 
-        public string DocumentationLink { get;  }
+    public string DocumentationLink { get; }
 
-        public string XmlDocSummary { get;  }
+    public string XmlDocSummary { get; }
 
-		public Deprecation Deprecated { get; }
+    public Deprecation Deprecated { get; }
 
-		public Version VersionAdded { get; set; }
+    public Version VersionAdded { get; set; }
 
-        protected CsharpNames CsharpNames { get; }
+    protected CsharpNames CsharpNames { get; }
 
-        public bool InterfaceResponse => ResponseName.StartsWith("ISearchResponse<");
+    public bool InterfaceResponse => ResponseName.StartsWith("ISearchResponse<");
 
-        public string ResponseName => CsharpNames.GenericOrNonGenericResponseName;
+    public string ResponseName => CsharpNames.GenericOrNonGenericResponseName;
 
-        public string DocumentationCref => CsharpNames.GenericOrNonGenericInterfacePreference;
+    public string DocumentationCref => CsharpNames.GenericOrNonGenericInterfacePreference;
 
-        public abstract string MethodGenerics { get; }
+    public abstract string MethodGenerics { get; }
 
-        public abstract string GenericWhereClause { get; }
-    }
+    public abstract string GenericWhereClause { get; }
 }

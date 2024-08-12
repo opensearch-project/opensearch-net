@@ -28,14 +28,13 @@
 
 using System.Collections.Generic;
 
-namespace ApiGenerator.Configuration.Overrides.Endpoints
+namespace ApiGenerator.Configuration.Overrides.Endpoints;
+
+public class ForecastJobOverrides : EndpointOverridesBase
 {
-    public class ForecastJobOverrides : EndpointOverridesBase
+    public override IEnumerable<string> SkipQueryStringParams => new[]
     {
-        public override IEnumerable<string> SkipQueryStringParams => new[]
-        {
-            "duration",
-            "expires_in"
-        };
-    }
+        "duration",
+        "expires_in"
+    };
 }

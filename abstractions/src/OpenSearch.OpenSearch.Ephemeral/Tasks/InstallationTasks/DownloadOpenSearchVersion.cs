@@ -31,41 +31,40 @@ using System.IO;
 using OpenSearch.OpenSearch.Managed.ConsoleWriters;
 using OpenSearch.Stack.ArtifactsApi.Products;
 
-namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
+namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks;
+
+public class DownloadOpenSearchVersion : ClusterComposeTask
 {
-	public class DownloadOpenSearchVersion : ClusterComposeTask
-	{
-		public override void Run(IEphemeralCluster<EphemeralClusterConfiguration> cluster)
-		{
-			if (cluster.CachingAndCachedHomeExists()) return;
+    public override void Run(IEphemeralCluster<EphemeralClusterConfiguration> cluster)
+    {
+        if (cluster.CachingAndCachedHomeExists()) return;
 
-			var fs = cluster.FileSystem;
-			var v = cluster.ClusterConfiguration.Version;
-			var a = cluster.ClusterConfiguration.Artifact;
-			var from = v.Artifact(Product.OpenSearch).DownloadUrl;
-			var to = Path.Combine(fs.LocalFolder, a.Archive);
-			if (File.Exists(to))
-			{
-				cluster.Writer?.WriteDiagnostic(
-					$"{{{nameof(DownloadOpenSearchVersion)}}} {v} was already downloaded");
-				return;
-			}
+        var fs = cluster.FileSystem;
+        var v = cluster.ClusterConfiguration.Version;
+        var a = cluster.ClusterConfiguration.Artifact;
+        var from = v.Artifact(Product.OpenSearch).DownloadUrl;
+        var to = Path.Combine(fs.LocalFolder, a.Archive);
+        if (File.Exists(to))
+        {
+            cluster.Writer?.WriteDiagnostic(
+                $"{{{nameof(DownloadOpenSearchVersion)}}} {v} was already downloaded");
+            return;
+        }
 
-			if (Environment.GetEnvironmentVariable("OPENSEARCH_DISTRIBUTION") is {} distributionPath)
-			{
-				cluster.Writer?.WriteDiagnostic(
-					$"{{{nameof(DownloadOpenSearchVersion)}}} copying OpenSearch [{v}] from {{{distributionPath}}} {{{to}}}");
-				File.Copy(distributionPath, to);
-				cluster.Writer?.WriteDiagnostic(
-					$"{{{nameof(DownloadOpenSearchVersion)}}} copied OpenSearch [{v}] from {{{distributionPath}}} {{{to}}}");
-				return;
-			}
+        if (Environment.GetEnvironmentVariable("OPENSEARCH_DISTRIBUTION") is { } distributionPath)
+        {
+            cluster.Writer?.WriteDiagnostic(
+                $"{{{nameof(DownloadOpenSearchVersion)}}} copying OpenSearch [{v}] from {{{distributionPath}}} {{{to}}}");
+            File.Copy(distributionPath, to);
+            cluster.Writer?.WriteDiagnostic(
+                $"{{{nameof(DownloadOpenSearchVersion)}}} copied OpenSearch [{v}] from {{{distributionPath}}} {{{to}}}");
+            return;
+        }
 
-			cluster.Writer?.WriteDiagnostic(
-				$"{{{nameof(DownloadOpenSearchVersion)}}} downloading OpenSearch [{v}] from {{{from}}} {{{to}}}");
-			DownloadFile(from, to);
-			cluster.Writer?.WriteDiagnostic(
-				$"{{{nameof(DownloadOpenSearchVersion)}}} downloaded OpenSearch [{v}] from {{{from}}} {{{to}}}");
-		}
-	}
+        cluster.Writer?.WriteDiagnostic(
+            $"{{{nameof(DownloadOpenSearchVersion)}}} downloading OpenSearch [{v}] from {{{from}}} {{{to}}}");
+        DownloadFile(from, to);
+        cluster.Writer?.WriteDiagnostic(
+            $"{{{nameof(DownloadOpenSearchVersion)}}} downloaded OpenSearch [{v}] from {{{from}}} {{{to}}}");
+    }
 }

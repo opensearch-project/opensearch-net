@@ -26,13 +26,12 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	[MapsApi("indices.get_field_mapping.json")]
-	public partial interface IGetFieldMappingRequest { }
+namespace OpenSearch.Client;
 
-	public partial class GetFieldMappingRequest { }
+[MapsApi("indices.get_field_mapping.json")]
+public partial interface IGetFieldMappingRequest { }
 
-	// ReSharper disable once UnusedTypeParameter
-	public partial class GetFieldMappingDescriptor<TDocument> where TDocument : class { }
-}
+public partial class GetFieldMappingRequest { }
+
+// ReSharper disable once UnusedTypeParameter
+public partial class GetFieldMappingDescriptor<TDocument> where TDocument : class { }

@@ -31,39 +31,38 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace OpenSearch.Net
+namespace OpenSearch.Net;
+
+public interface IOpenSearchSerializer
 {
-	public interface IOpenSearchSerializer
-	{
-		/// <summary> Deserialize <paramref name="stream"/> to an instance of <paramref name="type"/> </summary>
-		object Deserialize(Type type, Stream stream);
+    /// <summary> Deserialize <paramref name="stream"/> to an instance of <paramref name="type"/> </summary>
+    object Deserialize(Type type, Stream stream);
 
-		/// <summary> Deserialize <paramref name="stream"/> to an instance of <typeparamref name="T" /></summary>
-		T Deserialize<T>(Stream stream);
+    /// <summary> Deserialize <paramref name="stream"/> to an instance of <typeparamref name="T" /></summary>
+    T Deserialize<T>(Stream stream);
 
-		/// <inheritdoc cref="Deserialize"/>
-		Task<object> DeserializeAsync(Type type, Stream stream, CancellationToken cancellationToken = default);
+    /// <inheritdoc cref="Deserialize"/>
+    Task<object> DeserializeAsync(Type type, Stream stream, CancellationToken cancellationToken = default);
 
-		/// <inheritdoc cref="Deserialize{T}"/>
-		Task<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default);
+    /// <inheritdoc cref="Deserialize{T}"/>
+    Task<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default);
 
-		/// <summary>
-		/// Serialize an instance of <typeparamref name="T"/> to <paramref name="stream"/> using <paramref name="formatting"/>.
-		/// </summary>
-		/// <param name="data">The instance of <typeparamref name="T"/> that we want to serialize</param>
-		/// <param name="stream">The stream to serialize to</param>
-		/// <param name="formatting">
-		/// Formatting hint, note no all implementations of <see cref="IOpenSearchSerializer"/> are able to
-		/// satisfy this hint.
-		/// </param>
-		void Serialize<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None);
+    /// <summary>
+    /// Serialize an instance of <typeparamref name="T"/> to <paramref name="stream"/> using <paramref name="formatting"/>.
+    /// </summary>
+    /// <param name="data">The instance of <typeparamref name="T"/> that we want to serialize</param>
+    /// <param name="stream">The stream to serialize to</param>
+    /// <param name="formatting">
+    /// Formatting hint, note no all implementations of <see cref="IOpenSearchSerializer"/> are able to
+    /// satisfy this hint.
+    /// </param>
+    void Serialize<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None);
 
-		/// <inheritdoc cref="Serialize{T}"/>
-		Task SerializeAsync<T>(
-			T data,
-			Stream stream,
-			SerializationFormatting formatting = SerializationFormatting.None,
-			CancellationToken cancellationToken = default
-		);
-	}
+    /// <inheritdoc cref="Serialize{T}"/>
+    Task SerializeAsync<T>(
+        T data,
+        Stream stream,
+        SerializationFormatting formatting = SerializationFormatting.None,
+        CancellationToken cancellationToken = default
+    );
 }

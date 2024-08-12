@@ -32,69 +32,68 @@ using System.Runtime.InteropServices;
 using OpenSearch.Stack.ArtifactsApi;
 using OpenSearch.Stack.ArtifactsApi.Products;
 
-namespace OpenSearch.OpenSearch.Managed.FileSystem
+namespace OpenSearch.OpenSearch.Managed.FileSystem;
+
+/// <inheritdoc />
+public class NodeFileSystem : INodeFileSystem
 {
-	/// <inheritdoc />
-	public class NodeFileSystem : INodeFileSystem
-	{
-		protected const string SubFolder = "OpenSearchManaged";
+    protected const string SubFolder = "OpenSearchManaged";
 
-		public NodeFileSystem(OpenSearchVersion version, string openSearchHome = null)
-		{
-			Version = version;
-			Artifact = version.Artifact(Product.OpenSearch);
-			LocalFolder = AppDataFolder(version);
-			OpenSearchHome = openSearchHome ??
-			                    GetOpenSearchHomeVariable() ?? throw new ArgumentNullException(nameof(openSearchHome));
+    public NodeFileSystem(OpenSearchVersion version, string openSearchHome = null)
+    {
+        Version = version;
+        Artifact = version.Artifact(Product.OpenSearch);
+        LocalFolder = AppDataFolder(version);
+        OpenSearchHome = openSearchHome ??
+                            GetOpenSearchHomeVariable() ?? throw new ArgumentNullException(nameof(openSearchHome));
 
-			ConfigEnvironmentVariableName = "OPENSEARCH_PATH_CONF";
-		}
+        ConfigEnvironmentVariableName = "OPENSEARCH_PATH_CONF";
+    }
 
-		protected OpenSearchVersion Version { get; }
-		protected Artifact Artifact { get; }
+    protected OpenSearchVersion Version { get; }
+    protected Artifact Artifact { get; }
 
-		private static bool IsMono { get; } = Type.GetType("Mono.Runtime") != null;
+    private static bool IsMono { get; } = Type.GetType("Mono.Runtime") != null;
 
-		protected static string BinarySuffix => IsMono || Path.DirectorySeparatorChar == '/' ? "" : ".bat";
+    protected static string BinarySuffix => IsMono || Path.DirectorySeparatorChar == '/' ? "" : ".bat";
 
-		/// <inheritdoc />
-		public string Binary => Path.Combine(OpenSearchHome, "bin", "opensearch") + BinarySuffix;
+    /// <inheritdoc />
+    public string Binary => Path.Combine(OpenSearchHome, "bin", "opensearch") + BinarySuffix;
 
-		/// <inheritdoc />
-		public string PluginBinary => Path.Combine(OpenSearchHome, "bin", "opensearch-plugin") + BinarySuffix;
+    /// <inheritdoc />
+    public string PluginBinary => Path.Combine(OpenSearchHome, "bin", "opensearch-plugin") + BinarySuffix;
 
-		/// <inheritdoc />
-		public string OpenSearchHome { get; }
+    /// <inheritdoc />
+    public string OpenSearchHome { get; }
 
-		/// <inheritdoc />
-		public string LocalFolder { get; }
+    /// <inheritdoc />
+    public string LocalFolder { get; }
 
-		/// <inheritdoc />
-		public virtual string ConfigPath => null;
+    /// <inheritdoc />
+    public virtual string ConfigPath => null;
 
-		/// <inheritdoc />
-		public virtual string DataPath => null;
+    /// <inheritdoc />
+    public virtual string DataPath => null;
 
-		/// <inheritdoc />
-		public virtual string LogsPath => null;
+    /// <inheritdoc />
+    public virtual string LogsPath => null;
 
-		/// <inheritdoc />
-		public virtual string RepositoryPath => null;
+    /// <inheritdoc />
+    public virtual string RepositoryPath => null;
 
-		public string ConfigEnvironmentVariableName { get; }
+    public string ConfigEnvironmentVariableName { get; }
 
-		protected static string AppDataFolder(OpenSearchVersion version)
-		{
-			var appData = GetApplicationDataDirectory();
-			return Path.Combine(appData, SubFolder, version.Artifact(Product.OpenSearch).LocalFolderName);
-		}
+    protected static string AppDataFolder(OpenSearchVersion version)
+    {
+        var appData = GetApplicationDataDirectory();
+        return Path.Combine(appData, SubFolder, version.Artifact(Product.OpenSearch).LocalFolderName);
+    }
 
-		protected static string GetOpenSearchHomeVariable() => Environment.GetEnvironmentVariable("OPENSEARCH_HOME");
+    protected static string GetOpenSearchHomeVariable() => Environment.GetEnvironmentVariable("OPENSEARCH_HOME");
 
-		protected static string GetApplicationDataDirectory() =>
-			RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
-				? Environment.GetEnvironmentVariable("LocalAppData")
-				: Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData,
-					Environment.SpecialFolderOption.Create);
-	}
+    protected static string GetApplicationDataDirectory() =>
+        RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
+            ? Environment.GetEnvironmentVariable("LocalAppData")
+            : Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData,
+                Environment.SpecialFolderOption.Create);
 }

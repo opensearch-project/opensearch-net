@@ -28,30 +28,29 @@
 
 using System;
 
-namespace OpenSearch.OpenSearch.Xunit
-{
-	/// <summary>
-	///     An assembly attribute that specifies the <see cref="OpenSearchXunitRunOptions" />
-	///     for Xunit tests within the assembly.
-	/// </summary>
-	[AttributeUsage(AttributeTargets.Assembly)]
-	public class OpenSearchXunitConfigurationAttribute : Attribute
-	{
-		/// <summary>
-		///     Creates a new instance of <see cref="OpenSearchXunitConfigurationAttribute" />
-		/// </summary>
-		/// <param name="type">
-		///     A type deriving from <see cref="OpenSearchXunitRunOptions" /> that specifies the run options
-		/// </param>
-		public OpenSearchXunitConfigurationAttribute(Type type)
-		{
-			var options = Activator.CreateInstance(type) as OpenSearchXunitRunOptions;
-			Options = options ?? new OpenSearchXunitRunOptions();
-		}
+namespace OpenSearch.OpenSearch.Xunit;
 
-		/// <summary>
-		///     The run options
-		/// </summary>
-		public OpenSearchXunitRunOptions Options { get; }
-	}
+/// <summary>
+///     An assembly attribute that specifies the <see cref="OpenSearchXunitRunOptions" />
+///     for Xunit tests within the assembly.
+/// </summary>
+[AttributeUsage(AttributeTargets.Assembly)]
+public class OpenSearchXunitConfigurationAttribute : Attribute
+{
+    /// <summary>
+    ///     Creates a new instance of <see cref="OpenSearchXunitConfigurationAttribute" />
+    /// </summary>
+    /// <param name="type">
+    ///     A type deriving from <see cref="OpenSearchXunitRunOptions" /> that specifies the run options
+    /// </param>
+    public OpenSearchXunitConfigurationAttribute(Type type)
+    {
+        var options = Activator.CreateInstance(type) as OpenSearchXunitRunOptions;
+        Options = options ?? new OpenSearchXunitRunOptions();
+    }
+
+    /// <summary>
+    ///     The run options
+    /// </summary>
+    public OpenSearchXunitRunOptions Options { get; }
 }

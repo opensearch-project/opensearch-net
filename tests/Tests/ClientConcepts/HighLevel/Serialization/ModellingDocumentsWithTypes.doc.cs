@@ -27,20 +27,20 @@
 */
 
 using System;
-using System.Text;
 using System.Runtime.Serialization;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
+using System.Text;
+using FluentAssertions;
+using Newtonsoft.Json;
+using OpenSearch.Client;
 using OpenSearch.Net;
 using OpenSearch.Net.Extensions;
-using FluentAssertions;
-using OpenSearch.Client;
-using Newtonsoft.Json;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 using Tests.Framework.DocumentationTests;
 
-namespace Tests.ClientConcepts.HighLevel.Serialization
-{
-	/**[[modelling-documents-with-types]]
+namespace Tests.ClientConcepts.HighLevel.Serialization;
+
+/**[[modelling-documents-with-types]]
 	 * === Modelling documents with types
 	 *
 	 * OpenSearch provides search and aggregation capabilities on the documents that it is sent and indexes. These documents are sent as
@@ -49,40 +49,40 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 	 *
 	 * This section provides an overview of how types and type hierarchies can be used to model documents.
 	 */
-	public class ModellingDocumentsWithTypes : DocumentationTestBase
-	{
-		/**[[default-behaviour]]
+public class ModellingDocumentsWithTypes : DocumentationTestBase
+{
+    /**[[default-behaviour]]
 		 * ==== Default behaviour
 		 *
 		 * OSC's default behaviour is to serialize type property names as camelcase JSON object members.
 		 * Given the POCO
 		 */
-		public class MyDocument
-		{
-			public string StringProperty { get; set; }
-		}
+    public class MyDocument
+    {
+        public string StringProperty { get; set; }
+    }
 
-		/**
+    /**
 		 * The following example demonstrates this behaviour
 		 */
-		[U]
-		public void Default()
-		{
-			var indexResponse = Client.Index(
-				new MyDocument { StringProperty = "value" },
-				i => i.Index("my_documents"));
+    [U]
+    public void Default()
+    {
+        var indexResponse = Client.Index(
+            new MyDocument { StringProperty = "value" },
+            i => i.Index("my_documents"));
 
-			/**
+        /**
 			 * serializing the POCO property named `StringProperty` to the JSON object member named `stringProperty`
 			 */
-			// json
-			var expected = new { stringProperty = "value" };
+        // json
+        var expected = new { stringProperty = "value" };
 
-			// hide
-			indexResponse.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected));
-		}
+        // hide
+        indexResponse.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected));
+    }
 
-		/**[[default-field-name-inferrer]]
+    /**[[default-field-name-inferrer]]
 		 * ==== `DefaultFieldNameInferrer` setting
 		 *
 		 * Many different systems may be indexing documents into OpenSearch, using a different
@@ -91,58 +91,58 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 		 * `ConnectionSettings`. The following example defines a function that applies snake casing
 		 * to a passed string, with the function called inside a delegate passed to `DefaultFieldNameInferrer`
 		 */
-		[U]
-		public void DefaultFieldNameInferrer()
-		{
-			var settings = new ConnectionSettings();
+    [U]
+    public void DefaultFieldNameInferrer()
+    {
+        var settings = new ConnectionSettings();
 
-			//hide
-			settings = new ConnectionSettings(new InMemoryConnection()).DisableDirectStreaming();
+        //hide
+        settings = new ConnectionSettings(new InMemoryConnection()).DisableDirectStreaming();
 
-			static string ToSnakeCase(string s) // <1> function to convert a string to snake case
-			{
-				var builder = new StringBuilder(s.Length);
-				for (int i = 0; i < s.Length; i++)
-				{
-					var c = s[i];
-					if (char.IsUpper(c))
-					{
-						if (i == 0)
-							builder.Append(char.ToLowerInvariant(c));
-						else if (char.IsUpper(s[i - 1]))
-							builder.Append(char.ToLowerInvariant(c));
-						else
-						{
-							builder.Append("_");
-							builder.Append(char.ToLowerInvariant(c));
-						}
-					}
-					else
-						builder.Append(c);
-				}
+        static string ToSnakeCase(string s) // <1> function to convert a string to snake case
+        {
+            var builder = new StringBuilder(s.Length);
+            for (var i = 0; i < s.Length; i++)
+            {
+                var c = s[i];
+                if (char.IsUpper(c))
+                {
+                    if (i == 0)
+                        builder.Append(char.ToLowerInvariant(c));
+                    else if (char.IsUpper(s[i - 1]))
+                        builder.Append(char.ToLowerInvariant(c));
+                    else
+                    {
+                        builder.Append("_");
+                        builder.Append(char.ToLowerInvariant(c));
+                    }
+                }
+                else
+                    builder.Append(c);
+            }
 
-				return builder.ToString();
-			}
+            return builder.ToString();
+        }
 
-			settings.DefaultFieldNameInferrer(p => ToSnakeCase(p)); // <2> apply snake casing to **all** POCO properties
+        settings.DefaultFieldNameInferrer(p => ToSnakeCase(p)); // <2> apply snake casing to **all** POCO properties
 
-			var client = new OpenSearchClient(settings);
+        var client = new OpenSearchClient(settings);
 
-			var indexResponse = client.Index(
-				new MyDocument { StringProperty = "value" },
-				i => i.Index("my_documents"));
+        var indexResponse = client.Index(
+            new MyDocument { StringProperty = "value" },
+            i => i.Index("my_documents"));
 
-			/**
+        /**
 			 * The above example serializes the `MyDocument` POCO to
 			 */
-			// json
-			var expected = new { string_property = "value" };
+        // json
+        var expected = new { string_property = "value" };
 
-			// hide
-			indexResponse.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected));
-		}
+        // hide
+        indexResponse.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected));
+    }
 
-		/**[[propertyname-attribute]]
+    /**[[propertyname-attribute]]
 		 * ==== `PropertyName` attribute
 		 *
 		 * Sometimes there may be a need to change only how specific POCO properties are serialized. The
@@ -150,30 +150,30 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 		 * property will serialize to and deserialize from. The following example uses the `PropertyName` attribute
 		 * to control how the POCO property named `StringProperty` is serialized
 		 */
-		public class MyDocumentWithPropertyName
-		{
-			[PropertyName("string_property")]
-			public string StringProperty { get; set; }
-		}
+    public class MyDocumentWithPropertyName
+    {
+        [PropertyName("string_property")]
+        public string StringProperty { get; set; }
+    }
 
-		[U]
-		public void PropertyName()
-		{
-			var indexResponse = Client.Index(
-				new MyDocumentWithPropertyName { StringProperty = "value" },
-				i => i.Index("my_documents"));
+    [U]
+    public void PropertyName()
+    {
+        var indexResponse = Client.Index(
+            new MyDocumentWithPropertyName { StringProperty = "value" },
+            i => i.Index("my_documents"));
 
-			/**
+        /**
 			 * The above example serializes the `MyDocumentWithPropertyName` POCO to
 			 */
-			// json
-			var expected = new { string_property = "value" };
+        // json
+        var expected = new { string_property = "value" };
 
-			// hide
-			indexResponse.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected));
-		}
+        // hide
+        indexResponse.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected));
+    }
 
-		/**[[osc-property-attributes]]
+    /**[[osc-property-attributes]]
 		 * ==== OSC property attributes
 		 *
 		 * The `PropertyName` attribute can be used to control how a POCO property is serialized. OSC contains
@@ -183,30 +183,30 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 		 *
 		 * The following example uses the `Text` attribute to control how the POCO property named `StringProperty` is serialized
 		 */
-		public class MyDocumentWithTextProperty
-		{
-			[Text(Name = "string_property")]
-			public string StringProperty { get; set; }
-		}
+    public class MyDocumentWithTextProperty
+    {
+        [Text(Name = "string_property")]
+        public string StringProperty { get; set; }
+    }
 
-		[U]
-		public void TextProperty()
-		{
-			var indexResponse = Client.Index(
-				new MyDocumentWithTextProperty { StringProperty = "value" },
-				i => i.Index("my_documents"));
+    [U]
+    public void TextProperty()
+    {
+        var indexResponse = Client.Index(
+            new MyDocumentWithTextProperty { StringProperty = "value" },
+            i => i.Index("my_documents"));
 
-			/**
+        /**
 			 * The above example serializes the `MyDocumentWithTextProperty` POCO to
 			 */
-			// json
-			var expected = new { string_property = "value" };
+        // json
+        var expected = new { string_property = "value" };
 
-			// hide
-			indexResponse.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected));
-		}
+        // hide
+        indexResponse.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected));
+    }
 
-		/**[[data-member-attribute]]
+    /**[[data-member-attribute]]
 		 * ==== DataMember attribute
 		 *
 		 * The `System.Runtime.Serialization.DataMember` attribute can be used to control how a POCO property is serialized. in a similar
@@ -216,30 +216,30 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 		 * The following example uses the `DataMember` attribute to control how the POCO property
 		 * named `StringProperty` is serialized
 		 */
-		public class MyDocumentWithDataMember
-		{
-			[DataMember(Name = "string_property")]
-			public string StringProperty { get; set; }
-		}
+    public class MyDocumentWithDataMember
+    {
+        [DataMember(Name = "string_property")]
+        public string StringProperty { get; set; }
+    }
 
-		[U]
-		public void DataMember()
-		{
-			var indexResponse = Client.Index(
-				new MyDocumentWithDataMember { StringProperty = "value" },
-				i => i.Index("my_documents"));
+    [U]
+    public void DataMember()
+    {
+        var indexResponse = Client.Index(
+            new MyDocumentWithDataMember { StringProperty = "value" },
+            i => i.Index("my_documents"));
 
-			/**
+        /**
 			 * The above example serializes the `MyDocumentWithDataMember` POCO to
 			 */
-			// json
-			var expected = new { string_property = "value" };
+        // json
+        var expected = new { string_property = "value" };
 
-			// hide
-			indexResponse.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected));
-		}
+        // hide
+        indexResponse.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected));
+    }
 
-		/**[[default-mapping-for]]
+    /**[[default-mapping-for]]
 		 * ==== `DefaultMappingFor<TDocument>` setting
 		 *
 		 * Whilst `DefaultFieldNameInferrer` applies a convention to all POCO properties, there may be occasions where
@@ -247,125 +247,125 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 		 * on `ConnectionSettings` can be used to change how properties are mapped for a type. The following example
 		 * changes how the `StringProperty` is serialized for the `MyDocument` type
 		 */
-		[U]
-		public void DefaultMappingFor()
-		{
-			var settings = new ConnectionSettings();
+    [U]
+    public void DefaultMappingFor()
+    {
+        var settings = new ConnectionSettings();
 
-			//hide
-			settings = new ConnectionSettings(new InMemoryConnection()).DisableDirectStreaming();
+        //hide
+        settings = new ConnectionSettings(new InMemoryConnection()).DisableDirectStreaming();
 
-			settings.DefaultMappingFor<MyDocument>(d => d
-				.PropertyName(p => p.StringProperty, nameof(MyDocument.StringProperty)) // <1> serialize the `StringProperty` type as `"StringProperty"`
-			);
+        settings.DefaultMappingFor<MyDocument>(d => d
+            .PropertyName(p => p.StringProperty, nameof(MyDocument.StringProperty)) // <1> serialize the `StringProperty` type as `"StringProperty"`
+        );
 
-			var client = new OpenSearchClient(settings);
+        var client = new OpenSearchClient(settings);
 
-			var indexResponse = client.Index(
-				new MyDocument { StringProperty = "value" },
-				i => i.Index("my_documents"));
+        var indexResponse = client.Index(
+            new MyDocument { StringProperty = "value" },
+            i => i.Index("my_documents"));
 
-			/**
+        /**
 			 * The above example serializes the `MyDocument` POCO to
 			 */
-			// json
-			var expected = new { StringProperty = "value" };
+        // json
+        var expected = new { StringProperty = "value" };
 
-			// hide
-			indexResponse.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected));
-		}
+        // hide
+        indexResponse.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected));
+    }
 
-		/**
+    /**
 		 * `DefaultMappingFor<TDocument>`'s behaviour can be somewhat surprising when class hierarchies are involved. Consider the following
 		 * POCOs
 		 */
-		public class MyBaseDocument
-		{
-			public string StringProperty { get; set; }
-		}
+    public class MyBaseDocument
+    {
+        public string StringProperty { get; set; }
+    }
 
-		public class MyDerivedDocument : MyBaseDocument
-		{
-			public int IntProperty { get; set; }
-		}
+    public class MyDerivedDocument : MyBaseDocument
+    {
+        public int IntProperty { get; set; }
+    }
 
-		/**
+    /**
 		 * When serializing an instance of `MyDerivedDocument` with
 		 */
-		[U]
-		public void DerivedDocument()
-		{
-			var indexResponse = Client.Index(
-				new MyDerivedDocument { StringProperty = "value", IntProperty = 2 },
-				i => i.Index("my_documents"));
+    [U]
+    public void DerivedDocument()
+    {
+        var indexResponse = Client.Index(
+            new MyDerivedDocument { StringProperty = "value", IntProperty = 2 },
+            i => i.Index("my_documents"));
 
-			/**
+        /**
 			 * it serializes to
 			 */
-			// json
-			var expected = new { intProperty = 2, stringProperty = "value" };
+        // json
+        var expected = new { intProperty = 2, stringProperty = "value" };
 
-			// hide
-			indexResponse.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected));
-		}
+        // hide
+        indexResponse.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected));
+    }
 
-		/**
+    /**
 		 * Now, consider what happens when `DefaultMappingFor<TDocument>` is used to control how `MyDerivedDocument`
 		 * is mapped
 		 */
-		[U]
-		public void DerivedDocumentIgnoreStringProperty()
-		{
-			var settings = new ConnectionSettings();
+    [U]
+    public void DerivedDocumentIgnoreStringProperty()
+    {
+        var settings = new ConnectionSettings();
 
-			//hide
-			settings = new ConnectionSettings(new InMemoryConnection()).DisableDirectStreaming();
+        //hide
+        settings = new ConnectionSettings(new InMemoryConnection()).DisableDirectStreaming();
 
-			settings.DefaultMappingFor<MyDerivedDocument>(d => d
-				.PropertyName(p => p.IntProperty, nameof(MyDerivedDocument.IntProperty)) // <1> serialize the `IntProperty` type as `"IntProperty"`
-				.Ignore(p => p.StringProperty) // <2> ignore `StringProperty`
-			);
+        settings.DefaultMappingFor<MyDerivedDocument>(d => d
+            .PropertyName(p => p.IntProperty, nameof(MyDerivedDocument.IntProperty)) // <1> serialize the `IntProperty` type as `"IntProperty"`
+            .Ignore(p => p.StringProperty) // <2> ignore `StringProperty`
+        );
 
-			var client = new OpenSearchClient(settings);
+        var client = new OpenSearchClient(settings);
 
-			var indexResponse = client.Index(
-				new MyDerivedDocument { StringProperty = "value", IntProperty = 2 },
-				i => i.Index("my_documents"));
+        var indexResponse = client.Index(
+            new MyDerivedDocument { StringProperty = "value", IntProperty = 2 },
+            i => i.Index("my_documents"));
 
-			/**
+        /**
 			 * `MyDerivedDocument` serializes to
 			 */
-			// json
-			var expected = new { IntProperty = 2 };
+        // json
+        var expected = new { IntProperty = 2 };
 
-			// hide
-			indexResponse.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected));
+        // hide
+        indexResponse.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected));
 
-			/**
+        /**
 			 * showing that the POCO property named `IntProperty` is serialized to JSON object member named `"IntProperty"` and
 			 * `StringProperty` has not been serialized (ignored). This shouldn't be surprising.
 			 *
 			 * Now, index an instance of the base class, `MyBaseDocument`
 			 */
-			var indexResponse2 = client.Index(
-				new MyBaseDocument { StringProperty = "value" },
-				i => i.Index("my_documents"));
+        var indexResponse2 = client.Index(
+            new MyBaseDocument { StringProperty = "value" },
+            i => i.Index("my_documents"));
 
-			/**
+        /**
 			 * This serializes to an empty JSON object
 			 */
-			// json
-			var expected2 = new { };
+        // json
+        var expected2 = new { };
 
-			/**
+        /**
 			 * The `StringProperty` has not been serialized (ignored) for the base class, even though `DefaultMappingFor<TDocument>`
 			 * was used with the derived class, `MyDerivedDocument`
 			 */
-			// hide
-			indexResponse2.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected2));
-		}
+        // hide
+        indexResponse2.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected2));
+    }
 
-		/**
+    /**
 		 * This happens because `MyBaseDocument` is the _declaring type_ for the `StringProperty` member; when the `MemberInfo` for
 		 * the `StringProperty` is retrieved from the expression `p => p.StringProperty`, the `DeclaringType` is `MyBaseDocument`.
 		 * Since `DefaultMappingFor<TDocument>` persists property mappings for types in a dictionary keyed on `MemberInfo`, the
@@ -374,72 +374,72 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 		 * Consider a more involved example where the base type defines a member as `virtual`, and the derived type provides an
 		 * `override` for the member
 		 */
-		public class MyBaseDocumentVirtualProperty
-		{
-			public virtual string StringProperty { get; set; }
-		}
+    public class MyBaseDocumentVirtualProperty
+    {
+        public virtual string StringProperty { get; set; }
+    }
 
-		public class MyDerivedDocumentOverrideProperty : MyBaseDocumentVirtualProperty
-		{
-			public override string StringProperty { get; set; }
+    public class MyDerivedDocumentOverrideProperty : MyBaseDocumentVirtualProperty
+    {
+        public override string StringProperty { get; set; }
 
-			public int IntProperty { get; set; }
-		}
+        public int IntProperty { get; set; }
+    }
 
-		/**
+    /**
 		 * With a similar scenario to the last example, `DefaultMappingFor<TDocument>` is defined for the
 		 * derived type, `MyDerivedDocumentOverrideProperty`
 		 */
-		[U]
-		public void DerivedDocumentVirtualIgnoreStringProperty()
-		{
-			var settings = new ConnectionSettings();
+    [U]
+    public void DerivedDocumentVirtualIgnoreStringProperty()
+    {
+        var settings = new ConnectionSettings();
 
-			//hide
-			settings = new ConnectionSettings(new InMemoryConnection()).DisableDirectStreaming();
+        //hide
+        settings = new ConnectionSettings(new InMemoryConnection()).DisableDirectStreaming();
 
-			settings.DefaultMappingFor<MyDerivedDocumentOverrideProperty>(d => d
-				.PropertyName(p => p.IntProperty, nameof(MyDerivedDocumentOverrideProperty.IntProperty))
-				.Ignore(p => p.StringProperty)
-			);
+        settings.DefaultMappingFor<MyDerivedDocumentOverrideProperty>(d => d
+            .PropertyName(p => p.IntProperty, nameof(MyDerivedDocumentOverrideProperty.IntProperty))
+            .Ignore(p => p.StringProperty)
+        );
 
-			var client = new OpenSearchClient(settings);
+        var client = new OpenSearchClient(settings);
 
-			var indexResponse = client.Index(
-				new MyDerivedDocumentOverrideProperty { StringProperty = "value", IntProperty = 2 },
-				i => i.Index("my_documents"));
+        var indexResponse = client.Index(
+            new MyDerivedDocumentOverrideProperty { StringProperty = "value", IntProperty = 2 },
+            i => i.Index("my_documents"));
 
-			/**
+        /**
 			 * The instance of `MyDerivedDocumentOverrideProperty` serializes to
 			 */
-			// json
-			var expected = new { stringProperty = "value", IntProperty = 2 };
+        // json
+        var expected = new { stringProperty = "value", IntProperty = 2 };
 
-			// hide
-			indexResponse.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected));
+        // hide
+        indexResponse.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected));
 
-			/**
+        /**
 			 * Notably, the `StringProperty` member has been serialized and not ignored, even though the
 			 * `DefaultMappingFor<MyDerivedDocumentOverrideProperty>` configuration specifies to ignore it.
 			 *
 			 * Serializing an instance of the base type, `MyBaseDocumentVirtualProperty`
 			 */
-			var indexResponse2 = client.Index(
-				new MyBaseDocumentVirtualProperty { StringProperty = "value" },
-				i => i.Index("my_documents"));
+        var indexResponse2 = client.Index(
+            new MyBaseDocumentVirtualProperty { StringProperty = "value" },
+            i => i.Index("my_documents"));
 
-			/**
+        /**
 			 * serializes to an empty JSON object
 			 */
-			// json
-			var expected2 = new { };
+        // json
+        var expected2 = new { };
 
-			// hide
-			indexResponse2.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected2));
-		}
+        // hide
+        indexResponse2.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected2));
+    }
 
 
-		/**
+    /**
 		 * This may be surprising.
 		 *
 		 * [IMPORTANT]
@@ -486,61 +486,60 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 		 *
 		 * As another example, consider a derived type that hides a base type member, using the `new` keyword
 		 */
-		public class MyDerivedDocumentShadowProperty : MyBaseDocument
-		{
-			public new string StringProperty { get; set; }
-		}
+    public class MyDerivedDocumentShadowProperty : MyBaseDocument
+    {
+        public new string StringProperty { get; set; }
+    }
 
-		/**
+    /**
 		 * Now when configuring `DefaultMappingFor<TDocument>` for `MyDerivedDocumentShadowProperty`
 		 */
-		[U]
-		public void DerivedDocumentShadowProperty()
-		{
-			var settings = new ConnectionSettings();
+    [U]
+    public void DerivedDocumentShadowProperty()
+    {
+        var settings = new ConnectionSettings();
 
-			//hide
-			settings = new ConnectionSettings(new InMemoryConnection()).DisableDirectStreaming();
+        //hide
+        settings = new ConnectionSettings(new InMemoryConnection()).DisableDirectStreaming();
 
-			settings.DefaultMappingFor<MyDerivedDocumentShadowProperty>(d => d
-				.Ignore(p => p.StringProperty)
-			);
+        settings.DefaultMappingFor<MyDerivedDocumentShadowProperty>(d => d
+            .Ignore(p => p.StringProperty)
+        );
 
-			var client = new OpenSearchClient(settings);
+        var client = new OpenSearchClient(settings);
 
-			var indexResponse = client.Index(
-				new MyDerivedDocumentShadowProperty { StringProperty = "value" },
-				i => i.Index("my_documents"));
+        var indexResponse = client.Index(
+            new MyDerivedDocumentShadowProperty { StringProperty = "value" },
+            i => i.Index("my_documents"));
 
-			/**
+        /**
 			 * an instance of `MyDerivedDocumentShadowProperty` serializes to
 			 */
-			// json
-			var expected = new { };
+        // json
+        var expected = new { };
 
-			// hide
-			indexResponse.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected));
+        // hide
+        indexResponse.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected));
 
-			/**
+        /**
 			 * Whilst the base type `MyBaseDocument`
 			 */
 
-			var indexResponse2 = client.Index(
-				new MyBaseDocument { StringProperty = "value" },
-				i => i.Index("my_documents"));
+        var indexResponse2 = client.Index(
+            new MyBaseDocument { StringProperty = "value" },
+            i => i.Index("my_documents"));
 
-			/**
+        /**
 			 * serializes to
 			 */
-			// json
-			var expected2 = new { stringProperty = "value" };
+        // json
+        var expected2 = new { stringProperty = "value" };
 
-			// hide
-			indexResponse2.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected2));
-		}
-		/**
+        // hide
+        indexResponse2.ApiCall.RequestBodyInBytes.Utf8String().Should().Be(JsonConvert.SerializeObject(expected2));
+    }
+    /**
 		 * In summary, careful consideration should be made when using type hierarchies to represent documents
 		 * that are indexed in OpenSearch. It is generally recommended to stick to simple POCOs, where possible.
 		 */
-	}
 }

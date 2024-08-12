@@ -28,21 +28,20 @@
 
 using System.Runtime.Serialization;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+public class ValidationExplanation
 {
-	[DataContract]
-	public class ValidationExplanation
-	{
-		[DataMember(Name ="error")]
-		public string Error { get; internal set; }
+    [DataMember(Name = "error")]
+    public string Error { get; internal set; }
 
-		[DataMember(Name ="explanation")]
-		public string Explanation { get; internal set; }
+    [DataMember(Name = "explanation")]
+    public string Explanation { get; internal set; }
 
-		[DataMember(Name ="index")]
-		public string Index { get; internal set; }
+    [DataMember(Name = "index")]
+    public string Index { get; internal set; }
 
-		[DataMember(Name ="valid")]
-		public bool Valid { get; internal set; }
-	}
+    [DataMember(Name = "valid")]
+    public bool Valid { get; internal set; }
 }

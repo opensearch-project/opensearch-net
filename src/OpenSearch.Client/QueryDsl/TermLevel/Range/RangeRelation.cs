@@ -30,13 +30,12 @@ using System.Runtime.Serialization;
 using OpenSearch.Net;
 
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[StringEnum]
+public enum RangeRelation
 {
-	[StringEnum]
-	public enum RangeRelation
-	{
-		[EnumMember(Value = "within")] Within,
-		[EnumMember(Value = "contains")] Contains,
-		[EnumMember(Value = "intersects")] Intersects
-	}
+    [EnumMember(Value = "within")] Within,
+    [EnumMember(Value = "contains")] Contains,
+    [EnumMember(Value = "intersects")] Intersects
 }

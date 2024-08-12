@@ -29,15 +29,14 @@
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
-{
-	[StringEnum]
-	public enum GapPolicy
-	{
-		[EnumMember(Value = "skip")]
-		Skip,
+namespace OpenSearch.Client;
 
-		[EnumMember(Value = "insert_zeros")]
-		InsertZeros
-	}
+[StringEnum]
+public enum GapPolicy
+{
+    [EnumMember(Value = "skip")]
+    Skip,
+
+    [EnumMember(Value = "insert_zeros")]
+    InsertZeros
 }

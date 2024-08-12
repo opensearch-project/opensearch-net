@@ -29,19 +29,19 @@
 using System;
 using System.Linq;
 using System.Text;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GitHubIssue5432
 {
-	public class GitHubIssue5432
-	{
-		[U]
-		public void DeserializesAnalyzers()
-		{
-			const string json = @"{
+    [U]
+    public void DeserializesAnalyzers()
+    {
+        const string json = @"{
     ""analyzer-test"": {
         ""aliases"": {},
         ""mappings"": {},
@@ -91,39 +91,38 @@ namespace Tests.Reproduce
     }
 }";
 
-			var bytes = Encoding.UTF8.GetBytes(json);
-			var client = TestClient.FixedInMemoryClient(bytes);
-			var response = client.Indices.Get("analyzer-test");
+        var bytes = Encoding.UTF8.GetBytes(json);
+        var client = TestClient.FixedInMemoryClient(bytes);
+        var response = client.Indices.Get("analyzer-test");
 
-			var analyzers = response.Indices.Values.First().Settings.Analysis.Analyzers.Values;
-			analyzers.Count.Should().Be(2);
+        var analyzers = response.Indices.Values.First().Settings.Analysis.Analyzers.Values;
+        analyzers.Count.Should().Be(2);
 
-			foreach(var a in analyzers)
-			{
-				a.Should().NotBeNull();
-			}
+        foreach (var a in analyzers)
+        {
+            a.Should().NotBeNull();
+        }
 
-			if (response.Indices.Values.First().Settings.Analysis.Analyzers.TryGetValue("search_autocomplete", out var analyzerOne))
-			{
-				var customAnalyzer = analyzerOne as CustomAnalyzer;
-				customAnalyzer.Should().NotBeNull();
-				customAnalyzer!.Filter.Count().Should().Be(1);
-			}
-			else
-			{
-				throw new Exception("Expected index_autocomplete analyzer was not found.");
-			}
+        if (response.Indices.Values.First().Settings.Analysis.Analyzers.TryGetValue("search_autocomplete", out var analyzerOne))
+        {
+            var customAnalyzer = analyzerOne as CustomAnalyzer;
+            customAnalyzer.Should().NotBeNull();
+            customAnalyzer!.Filter.Count().Should().Be(1);
+        }
+        else
+        {
+            throw new Exception("Expected index_autocomplete analyzer was not found.");
+        }
 
-			if (response.Indices.Values.First().Settings.Analysis.Analyzers.TryGetValue("index_autocomplete", out var analyzerTwo))
-			{
-				var customAnalyzer = analyzerTwo as CustomAnalyzer;
-				customAnalyzer.Should().NotBeNull();
-				customAnalyzer!.Filter.Count().Should().Be(2);
-			}
-			else
-			{
-				throw new Exception("Expected index_autocomplete analyzer was not found.");
-			}
-		}
-	}
+        if (response.Indices.Values.First().Settings.Analysis.Analyzers.TryGetValue("index_autocomplete", out var analyzerTwo))
+        {
+            var customAnalyzer = analyzerTwo as CustomAnalyzer;
+            customAnalyzer.Should().NotBeNull();
+            customAnalyzer!.Filter.Count().Should().Be(2);
+        }
+        else
+        {
+            throw new Exception("Expected index_autocomplete analyzer was not found.");
+        }
+    }
 }

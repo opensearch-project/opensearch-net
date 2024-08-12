@@ -30,14 +30,13 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[DataContract]
+public class ClusterGetSettingsResponse : ResponseBase
 {
-	[DataContract]
-	public class ClusterGetSettingsResponse : ResponseBase
-	{
-		[DataMember(Name ="persistent")]
-		public IReadOnlyDictionary<string, object> Persistent { get; internal set; } = EmptyReadOnly<string, object>.Dictionary;
-		[DataMember(Name ="transient")]
-		public IReadOnlyDictionary<string, object> Transient { get; internal set; } = EmptyReadOnly<string, object>.Dictionary;
-	}
+    [DataMember(Name = "persistent")]
+    public IReadOnlyDictionary<string, object> Persistent { get; internal set; } = EmptyReadOnly<string, object>.Dictionary;
+    [DataMember(Name = "transient")]
+    public IReadOnlyDictionary<string, object> Transient { get; internal set; } = EmptyReadOnly<string, object>.Dictionary;
 }

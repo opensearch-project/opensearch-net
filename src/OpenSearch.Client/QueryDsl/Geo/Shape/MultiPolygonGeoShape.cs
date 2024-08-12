@@ -31,23 +31,22 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[JsonFormatter(typeof(GeoShapeFormatter<IMultiPolygonGeoShape>))]
+public interface IMultiPolygonGeoShape : IGeoShape
 {
-	[JsonFormatter(typeof(GeoShapeFormatter<IMultiPolygonGeoShape>))]
-	public interface IMultiPolygonGeoShape : IGeoShape
-	{
-		[DataMember(Name ="coordinates")]
-		IEnumerable<IEnumerable<IEnumerable<GeoCoordinate>>> Coordinates { get; set; }
-	}
+    [DataMember(Name = "coordinates")]
+    IEnumerable<IEnumerable<IEnumerable<GeoCoordinate>>> Coordinates { get; set; }
+}
 
-	[JsonFormatter(typeof(GeoShapeFormatter<MultiPolygonGeoShape>))]
-	public class MultiPolygonGeoShape : GeoShapeBase, IMultiPolygonGeoShape
-	{
-		internal MultiPolygonGeoShape() : base("multipolygon") { }
+[JsonFormatter(typeof(GeoShapeFormatter<MultiPolygonGeoShape>))]
+public class MultiPolygonGeoShape : GeoShapeBase, IMultiPolygonGeoShape
+{
+    internal MultiPolygonGeoShape() : base("multipolygon") { }
 
-		public MultiPolygonGeoShape(IEnumerable<IEnumerable<IEnumerable<GeoCoordinate>>> coordinates) : this() =>
-			Coordinates = coordinates ?? throw new ArgumentNullException(nameof(coordinates));
+    public MultiPolygonGeoShape(IEnumerable<IEnumerable<IEnumerable<GeoCoordinate>>> coordinates) : this() =>
+        Coordinates = coordinates ?? throw new ArgumentNullException(nameof(coordinates));
 
-		public IEnumerable<IEnumerable<IEnumerable<GeoCoordinate>>> Coordinates { get; set; }
-	}
+    public IEnumerable<IEnumerable<IEnumerable<GeoCoordinate>>> Coordinates { get; set; }
 }

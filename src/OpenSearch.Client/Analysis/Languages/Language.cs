@@ -29,47 +29,46 @@
 using OpenSearch.Net;
 
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// Language types used for language analyzers
+/// </summary>
+[StringEnum]
+public enum Language
 {
-	/// <summary>
-	/// Language types used for language analyzers
-	/// </summary>
-	[StringEnum]
-	public enum Language
-	{
-		Arabic,
-		Armenian,
-		Basque,
-		Brazilian,
-		Bulgarian,
-		Catalan,
-		Chinese,
-		Cjk,
-		Czech,
-		Danish,
-		Dutch,
-		English,
-		Estonian,
-		Finnish,
-		French,
-		Galician,
-		German,
-		Greek,
-		Hindi,
-		Hungarian,
-		Indonesian,
-		Irish,
-		Italian,
-		Latvian,
-		Norwegian,
-		Persian,
-		Portuguese,
-		Romanian,
-		Russian,
-		Sorani,
-		Spanish,
-		Swedish,
-		Turkish,
-		Thai
-	}
+    Arabic,
+    Armenian,
+    Basque,
+    Brazilian,
+    Bulgarian,
+    Catalan,
+    Chinese,
+    Cjk,
+    Czech,
+    Danish,
+    Dutch,
+    English,
+    Estonian,
+    Finnish,
+    French,
+    Galician,
+    German,
+    Greek,
+    Hindi,
+    Hungarian,
+    Indonesian,
+    Irish,
+    Italian,
+    Latvian,
+    Norwegian,
+    Persian,
+    Portuguese,
+    Romanian,
+    Russian,
+    Sorani,
+    Spanish,
+    Swedish,
+    Turkish,
+    Thai
 }

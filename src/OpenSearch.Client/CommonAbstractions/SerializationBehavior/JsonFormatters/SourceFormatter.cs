@@ -29,54 +29,53 @@
 using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+internal class CollapsedSourceFormatter<T> : SourceFormatter<T>
 {
-	internal class CollapsedSourceFormatter<T> : SourceFormatter<T>
-	{
-		public override SerializationFormatting? ForceFormatting { get; } = SerializationFormatting.None;
-	}
+    public override SerializationFormatting? ForceFormatting { get; } = SerializationFormatting.None;
+}
 
-	internal class SourceFormatter<T> : IJsonFormatter<T>
-	{
-		public virtual SerializationFormatting? ForceFormatting { get; } = null;
+internal class SourceFormatter<T> : IJsonFormatter<T>
+{
+    public virtual SerializationFormatting? ForceFormatting { get; } = null;
 
-		/// <summary>
-		/// If SourceSerializer exposes a formatter we can use it directly
-		/// </summary>
-		private static bool AttemptFastPath(IOpenSearchSerializer serializer, out IJsonFormatterResolver formatter)
-		{
-			formatter = null;
-			return serializer is IInternalSerializer s && s.TryGetJsonFormatter(out formatter);
-		}
+    /// <summary>
+    /// If SourceSerializer exposes a formatter we can use it directly
+    /// </summary>
+    private static bool AttemptFastPath(IOpenSearchSerializer serializer, out IJsonFormatterResolver formatter)
+    {
+        formatter = null;
+        return serializer is IInternalSerializer s && s.TryGetJsonFormatter(out formatter);
+    }
 
 
-		public T Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			var settings = formatterResolver.GetConnectionSettings();
+    public T Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+    {
+        var settings = formatterResolver.GetConnectionSettings();
 
-			var sourceSerializer = settings.SourceSerializer;
-			if (AttemptFastPath(sourceSerializer, out var formatter))
-				return formatter.GetFormatter<T>().Deserialize(ref reader, formatter);
+        var sourceSerializer = settings.SourceSerializer;
+        if (AttemptFastPath(sourceSerializer, out var formatter))
+            return formatter.GetFormatter<T>().Deserialize(ref reader, formatter);
 
-			var arraySegment = reader.ReadNextBlockSegment();
-			using (var ms = settings.MemoryStreamFactory.Create(arraySegment.Array, arraySegment.Offset, arraySegment.Count))
-				return sourceSerializer.Deserialize<T>(ms);
-		}
+        var arraySegment = reader.ReadNextBlockSegment();
+        using (var ms = settings.MemoryStreamFactory.Create(arraySegment.Array, arraySegment.Offset, arraySegment.Count))
+            return sourceSerializer.Deserialize<T>(ms);
+    }
 
 
-		public virtual void Serialize(ref JsonWriter writer, T value, IJsonFormatterResolver formatterResolver)
-		{
-			var settings = formatterResolver.GetConnectionSettings();
+    public virtual void Serialize(ref JsonWriter writer, T value, IJsonFormatterResolver formatterResolver)
+    {
+        var settings = formatterResolver.GetConnectionSettings();
 
-			var sourceSerializer = settings.SourceSerializer;
-			if (AttemptFastPath(sourceSerializer, out var formatter))
-			{
-				formatter.GetFormatter<T>().Serialize(ref writer, value, formatter);
-				return;
-			}
+        var sourceSerializer = settings.SourceSerializer;
+        if (AttemptFastPath(sourceSerializer, out var formatter))
+        {
+            formatter.GetFormatter<T>().Serialize(ref writer, value, formatter);
+            return;
+        }
 
-			var f = ForceFormatting ?? SerializationFormatting.None;
-			writer.WriteSerialized(value, sourceSerializer, settings, f);
-		}
-	}
+        var f = ForceFormatting ?? SerializationFormatting.None;
+        writer.WriteSerialized(value, sourceSerializer, settings, f);
+    }
 }

@@ -26,12 +26,11 @@
 *  under the License.
 */
 
-namespace OpenSearch.Client
-{
-	[MapsApi("cat.health.json")]
-	public partial interface ICatHealthRequest { }
+namespace OpenSearch.Client;
 
-	public partial class CatHealthRequest { }
+[MapsApi("cat.health.json")]
+public partial interface ICatHealthRequest { }
 
-	public partial class CatHealthDescriptor { }
-}
+public partial class CatHealthRequest { }
+
+public partial class CatHealthDescriptor { }

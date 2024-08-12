@@ -30,12 +30,11 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace OpenSearch.Net
-{
-	public abstract class CustomResponseBuilderBase
-	{
-		public abstract object DeserializeResponse(IOpenSearchSerializer builtInSerializer, IApiCallDetails response, Stream stream);
+namespace OpenSearch.Net;
 
-		public abstract Task<object> DeserializeResponseAsync(IOpenSearchSerializer builtInSerializer, IApiCallDetails response, Stream stream, CancellationToken ctx = default);
-	}
+public abstract class CustomResponseBuilderBase
+{
+    public abstract object DeserializeResponse(IOpenSearchSerializer builtInSerializer, IApiCallDetails response, Stream stream);
+
+    public abstract Task<object> DeserializeResponseAsync(IOpenSearchSerializer builtInSerializer, IApiCallDetails response, Stream stream, CancellationToken ctx = default);
 }

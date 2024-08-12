@@ -31,57 +31,56 @@ using OpenSearch.OpenSearch.Managed.FileSystem;
 using OpenSearch.Stack.ArtifactsApi;
 using OpenSearch.Stack.ArtifactsApi.Products;
 
-namespace OpenSearch.OpenSearch.Ephemeral
+namespace OpenSearch.OpenSearch.Ephemeral;
+
+public class EphemeralFileSystem : NodeFileSystem
 {
-	public class EphemeralFileSystem : NodeFileSystem
-	{
-		public EphemeralFileSystem(OpenSearchVersion version, string clusterName) : base(version,
-			EphemeralHome(version, clusterName)) => ClusterName = clusterName;
+    public EphemeralFileSystem(OpenSearchVersion version, string clusterName) : base(version,
+        EphemeralHome(version, clusterName)) => ClusterName = clusterName;
 
-		private string ClusterName { get; }
+    private string ClusterName { get; }
 
-		public string TempFolder => Path.Combine(Path.GetTempPath(), SubFolder, Artifact.LocalFolderName, ClusterName);
+    public string TempFolder => Path.Combine(Path.GetTempPath(), SubFolder, Artifact.LocalFolderName, ClusterName);
 
-		public override string ConfigPath => Path.Combine(TempFolder, "config");
-		public override string LogsPath => Path.Combine(TempFolder, "logs");
-		public override string RepositoryPath => Path.Combine(TempFolder, "repositories");
-		public override string DataPath => Path.Combine(TempFolder, "data");
+    public override string ConfigPath => Path.Combine(TempFolder, "config");
+    public override string LogsPath => Path.Combine(TempFolder, "logs");
+    public override string RepositoryPath => Path.Combine(TempFolder, "repositories");
+    public override string DataPath => Path.Combine(TempFolder, "data");
 
-		//certificates
-		public string CertificateFolderName => "node-certificates";
-		public string CertificateNodeName => "node01";
-		public string ClientCertificateName => "cn=John Doe,ou=example,o=com";
-		public string ClientCertificateFilename => "john_doe";
+    //certificates
+    public string CertificateFolderName => "node-certificates";
+    public string CertificateNodeName => "node01";
+    public string ClientCertificateName => "cn=John Doe,ou=example,o=com";
+    public string ClientCertificateFilename => "john_doe";
 
-		public string CertificatesPath => Path.Combine(ConfigPath, CertificateFolderName);
+    public string CertificatesPath => Path.Combine(ConfigPath, CertificateFolderName);
 
-		public string CaCertificate => Path.Combine(CertificatesPath, "ca", "ca") + ".crt";
+    public string CaCertificate => Path.Combine(CertificatesPath, "ca", "ca") + ".crt";
 
-		public string NodePrivateKey =>
-			Path.Combine(CertificatesPath, CertificateNodeName, CertificateNodeName) + ".key";
+    public string NodePrivateKey =>
+        Path.Combine(CertificatesPath, CertificateNodeName, CertificateNodeName) + ".key";
 
-		public string NodeCertificate =>
-			Path.Combine(CertificatesPath, CertificateNodeName, CertificateNodeName) + ".crt";
+    public string NodeCertificate =>
+        Path.Combine(CertificatesPath, CertificateNodeName, CertificateNodeName) + ".crt";
 
-		public string ClientCertificate =>
-			Path.Combine(CertificatesPath, ClientCertificateFilename, ClientCertificateFilename) + ".crt";
+    public string ClientCertificate =>
+        Path.Combine(CertificatesPath, ClientCertificateFilename, ClientCertificateFilename) + ".crt";
 
-		public string ClientPrivateKey =>
-			Path.Combine(CertificatesPath, ClientCertificateFilename, ClientCertificateFilename) + ".key";
+    public string ClientPrivateKey =>
+        Path.Combine(CertificatesPath, ClientCertificateFilename, ClientCertificateFilename) + ".key";
 
-		public string UnusedCertificateFolderName => $"unused-{CertificateFolderName}";
-		public string UnusedCertificatesPath => Path.Combine(ConfigPath, UnusedCertificateFolderName);
-		public string UnusedCaCertificate => Path.Combine(UnusedCertificatesPath, "ca", "ca") + ".crt";
+    public string UnusedCertificateFolderName => $"unused-{CertificateFolderName}";
+    public string UnusedCertificatesPath => Path.Combine(ConfigPath, UnusedCertificateFolderName);
+    public string UnusedCaCertificate => Path.Combine(UnusedCertificatesPath, "ca", "ca") + ".crt";
 
-		public string UnusedClientCertificate =>
-			Path.Combine(UnusedCertificatesPath, ClientCertificateFilename, ClientCertificateFilename) + ".crt";
+    public string UnusedClientCertificate =>
+        Path.Combine(UnusedCertificatesPath, ClientCertificateFilename, ClientCertificateFilename) + ".crt";
 
 
-		protected static string EphemeralHome(OpenSearchVersion version, string clusterName)
-		{
-			var temp = Path.Combine(Path.GetTempPath(), SubFolder,
-				version.Artifact(Product.OpenSearch).LocalFolderName, clusterName);
-			return Path.Combine(temp, "home");
-		}
-	}
+    protected static string EphemeralHome(OpenSearchVersion version, string clusterName)
+    {
+        var temp = Path.Combine(Path.GetTempPath(), SubFolder,
+            version.Artifact(Product.OpenSearch).LocalFolderName, clusterName);
+        return Path.Combine(temp, "home");
+    }
 }

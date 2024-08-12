@@ -28,18 +28,18 @@
 
 using System.Linq;
 using System.Text;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 
-namespace Tests.Reproduce
+namespace Tests.Reproduce;
+
+public class GithubIssue4582
 {
-	public class GithubIssue4582
-	{
-		[U]
-		public void DeserializeBucketKeyWithHash()
-		{
-			var json = @"
+    [U]
+    public void DeserializeBucketKeyWithHash()
+    {
+        var json = @"
 {
   ""hits"": {
   },
@@ -62,16 +62,15 @@ namespace Tests.Reproduce
 }
 ";
 
-			var bytes = Encoding.UTF8.GetBytes(json);
-			var client = TestClient.FixedInMemoryClient(bytes);
-			var response = client.Search<object>();
+        var bytes = Encoding.UTF8.GetBytes(json);
+        var client = TestClient.FixedInMemoryClient(bytes);
+        var response = client.Search<object>();
 
-			var filters = response.Aggregations
-				.Filters("some_agg")
-				.Select(x => x.Key)
-				.ToList();
+        var filters = response.Aggregations
+            .Filters("some_agg")
+            .Select(x => x.Key)
+            .ToList();
 
-			filters[2].Should().Be("value3#something else");
-		}
-	}
+        filters[2].Should().Be("value3#something else");
+    }
 }

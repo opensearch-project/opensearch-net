@@ -58,198 +58,197 @@ using OpenSearch.Client.Specification.NodesApi;
 using OpenSearch.Client.Specification.SnapshotApi;
 using OpenSearch.Client.Specification.TasksApi;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+/// <summary>
+/// OpenSearch high level client
+/// </summary>
+public partial interface IOpenSearchClient
 {
+    /// <summary>Cat APIs</summary>
+    ICatNamespace Cat { get; }
+
+    /// <summary>Cluster APIs</summary>
+    IClusterNamespace Cluster { get; }
+
+    /// <summary>Dangling Indices APIs</summary>
+    IDanglingIndicesNamespace DanglingIndices { get; }
+
+    /// <summary>Indices APIs</summary>
+    IIndicesNamespace Indices { get; }
+
+    /// <summary>Ingest APIs</summary>
+    IIngestNamespace Ingest { get; }
+
+    /// <summary>Nodes APIs</summary>
+    INodesNamespace Nodes { get; }
+
+    /// <summary>Http APIs</summary>
+    IHttpNamespace Http { get; }
+
+    /// <summary>Snapshot APIs</summary>
+    ISnapshotNamespace Snapshot { get; }
+
+    /// <summary>Tasks APIs</summary>
+    ITasksNamespace Tasks { get; }
+
     /// <summary>
-    /// OpenSearch high level client
+    /// <c>POST</c> request to the <c>create_pit</c> API, read more about this API online:
+    /// <para></para>
+    /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</a>
     /// </summary>
-    public partial interface IOpenSearchClient
-    {
-        /// <summary>Cat APIs</summary>
-        ICatNamespace Cat { get; }
+    /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+    CreatePitResponse CreatePit(
+        Indices index,
+        Func<CreatePitDescriptor, ICreatePitRequest> selector = null
+    );
 
-        /// <summary>Cluster APIs</summary>
-        IClusterNamespace Cluster { get; }
+    /// <summary>
+    /// <c>POST</c> request to the <c>create_pit</c> API, read more about this API online:
+    /// <para></para>
+    /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</a>
+    /// </summary>
+    /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+    Task<CreatePitResponse> CreatePitAsync(
+        Indices index,
+        Func<CreatePitDescriptor, ICreatePitRequest> selector = null,
+        CancellationToken ct = default
+    );
 
-        /// <summary>Dangling Indices APIs</summary>
-        IDanglingIndicesNamespace DanglingIndices { get; }
+    /// <summary>
+    /// <c>POST</c> request to the <c>create_pit</c> API, read more about this API online:
+    /// <para></para>
+    /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</a>
+    /// </summary>
+    /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+    CreatePitResponse CreatePit(ICreatePitRequest request);
 
-        /// <summary>Indices APIs</summary>
-        IIndicesNamespace Indices { get; }
+    /// <summary>
+    /// <c>POST</c> request to the <c>create_pit</c> API, read more about this API online:
+    /// <para></para>
+    /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</a>
+    /// </summary>
+    /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+    Task<CreatePitResponse> CreatePitAsync(
+        ICreatePitRequest request,
+        CancellationToken ct = default
+    );
 
-        /// <summary>Ingest APIs</summary>
-        IIngestNamespace Ingest { get; }
+    /// <summary>
+    /// <c>DELETE</c> request to the <c>delete_all_pits</c> API, read more about this API online:
+    /// <para></para>
+    /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
+    /// </summary>
+    /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+    DeleteAllPitsResponse DeleteAllPits(
+        Func<DeleteAllPitsDescriptor, IDeleteAllPitsRequest> selector = null
+    );
 
-        /// <summary>Nodes APIs</summary>
-        INodesNamespace Nodes { get; }
+    /// <summary>
+    /// <c>DELETE</c> request to the <c>delete_all_pits</c> API, read more about this API online:
+    /// <para></para>
+    /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
+    /// </summary>
+    /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+    Task<DeleteAllPitsResponse> DeleteAllPitsAsync(
+        Func<DeleteAllPitsDescriptor, IDeleteAllPitsRequest> selector = null,
+        CancellationToken ct = default
+    );
 
-        /// <summary>Http APIs</summary>
-        IHttpNamespace Http { get; }
+    /// <summary>
+    /// <c>DELETE</c> request to the <c>delete_all_pits</c> API, read more about this API online:
+    /// <para></para>
+    /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
+    /// </summary>
+    /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+    DeleteAllPitsResponse DeleteAllPits(IDeleteAllPitsRequest request);
 
-        /// <summary>Snapshot APIs</summary>
-        ISnapshotNamespace Snapshot { get; }
+    /// <summary>
+    /// <c>DELETE</c> request to the <c>delete_all_pits</c> API, read more about this API online:
+    /// <para></para>
+    /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
+    /// </summary>
+    /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+    Task<DeleteAllPitsResponse> DeleteAllPitsAsync(
+        IDeleteAllPitsRequest request,
+        CancellationToken ct = default
+    );
 
-        /// <summary>Tasks APIs</summary>
-        ITasksNamespace Tasks { get; }
+    /// <summary>
+    /// <c>DELETE</c> request to the <c>delete_pit</c> API, read more about this API online:
+    /// <para></para>
+    /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
+    /// </summary>
+    /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+    DeletePitResponse DeletePit(Func<DeletePitDescriptor, IDeletePitRequest> selector = null);
 
-        /// <summary>
-        /// <c>POST</c> request to the <c>create_pit</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</a>
-        /// </summary>
-        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        CreatePitResponse CreatePit(
-            Indices index,
-            Func<CreatePitDescriptor, ICreatePitRequest> selector = null
-        );
+    /// <summary>
+    /// <c>DELETE</c> request to the <c>delete_pit</c> API, read more about this API online:
+    /// <para></para>
+    /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
+    /// </summary>
+    /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+    Task<DeletePitResponse> DeletePitAsync(
+        Func<DeletePitDescriptor, IDeletePitRequest> selector = null,
+        CancellationToken ct = default
+    );
 
-        /// <summary>
-        /// <c>POST</c> request to the <c>create_pit</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</a>
-        /// </summary>
-        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        Task<CreatePitResponse> CreatePitAsync(
-            Indices index,
-            Func<CreatePitDescriptor, ICreatePitRequest> selector = null,
-            CancellationToken ct = default
-        );
+    /// <summary>
+    /// <c>DELETE</c> request to the <c>delete_pit</c> API, read more about this API online:
+    /// <para></para>
+    /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
+    /// </summary>
+    /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+    DeletePitResponse DeletePit(IDeletePitRequest request);
 
-        /// <summary>
-        /// <c>POST</c> request to the <c>create_pit</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</a>
-        /// </summary>
-        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        CreatePitResponse CreatePit(ICreatePitRequest request);
+    /// <summary>
+    /// <c>DELETE</c> request to the <c>delete_pit</c> API, read more about this API online:
+    /// <para></para>
+    /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
+    /// </summary>
+    /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+    Task<DeletePitResponse> DeletePitAsync(
+        IDeletePitRequest request,
+        CancellationToken ct = default
+    );
 
-        /// <summary>
-        /// <c>POST</c> request to the <c>create_pit</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</a>
-        /// </summary>
-        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        Task<CreatePitResponse> CreatePitAsync(
-            ICreatePitRequest request,
-            CancellationToken ct = default
-        );
+    /// <summary>
+    /// <c>GET</c> request to the <c>get_all_pits</c> API, read more about this API online:
+    /// <para></para>
+    /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</a>
+    /// </summary>
+    /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+    GetAllPitsResponse GetAllPits(
+        Func<GetAllPitsDescriptor, IGetAllPitsRequest> selector = null
+    );
 
-        /// <summary>
-        /// <c>DELETE</c> request to the <c>delete_all_pits</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
-        /// </summary>
-        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        DeleteAllPitsResponse DeleteAllPits(
-            Func<DeleteAllPitsDescriptor, IDeleteAllPitsRequest> selector = null
-        );
+    /// <summary>
+    /// <c>GET</c> request to the <c>get_all_pits</c> API, read more about this API online:
+    /// <para></para>
+    /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</a>
+    /// </summary>
+    /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+    Task<GetAllPitsResponse> GetAllPitsAsync(
+        Func<GetAllPitsDescriptor, IGetAllPitsRequest> selector = null,
+        CancellationToken ct = default
+    );
 
-        /// <summary>
-        /// <c>DELETE</c> request to the <c>delete_all_pits</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
-        /// </summary>
-        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        Task<DeleteAllPitsResponse> DeleteAllPitsAsync(
-            Func<DeleteAllPitsDescriptor, IDeleteAllPitsRequest> selector = null,
-            CancellationToken ct = default
-        );
+    /// <summary>
+    /// <c>GET</c> request to the <c>get_all_pits</c> API, read more about this API online:
+    /// <para></para>
+    /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</a>
+    /// </summary>
+    /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+    GetAllPitsResponse GetAllPits(IGetAllPitsRequest request);
 
-        /// <summary>
-        /// <c>DELETE</c> request to the <c>delete_all_pits</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
-        /// </summary>
-        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        DeleteAllPitsResponse DeleteAllPits(IDeleteAllPitsRequest request);
-
-        /// <summary>
-        /// <c>DELETE</c> request to the <c>delete_all_pits</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
-        /// </summary>
-        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        Task<DeleteAllPitsResponse> DeleteAllPitsAsync(
-            IDeleteAllPitsRequest request,
-            CancellationToken ct = default
-        );
-
-        /// <summary>
-        /// <c>DELETE</c> request to the <c>delete_pit</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
-        /// </summary>
-        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        DeletePitResponse DeletePit(Func<DeletePitDescriptor, IDeletePitRequest> selector = null);
-
-        /// <summary>
-        /// <c>DELETE</c> request to the <c>delete_pit</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
-        /// </summary>
-        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        Task<DeletePitResponse> DeletePitAsync(
-            Func<DeletePitDescriptor, IDeletePitRequest> selector = null,
-            CancellationToken ct = default
-        );
-
-        /// <summary>
-        /// <c>DELETE</c> request to the <c>delete_pit</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
-        /// </summary>
-        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        DeletePitResponse DeletePit(IDeletePitRequest request);
-
-        /// <summary>
-        /// <c>DELETE</c> request to the <c>delete_pit</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
-        /// </summary>
-        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        Task<DeletePitResponse> DeletePitAsync(
-            IDeletePitRequest request,
-            CancellationToken ct = default
-        );
-
-        /// <summary>
-        /// <c>GET</c> request to the <c>get_all_pits</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</a>
-        /// </summary>
-        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        GetAllPitsResponse GetAllPits(
-            Func<GetAllPitsDescriptor, IGetAllPitsRequest> selector = null
-        );
-
-        /// <summary>
-        /// <c>GET</c> request to the <c>get_all_pits</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</a>
-        /// </summary>
-        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        Task<GetAllPitsResponse> GetAllPitsAsync(
-            Func<GetAllPitsDescriptor, IGetAllPitsRequest> selector = null,
-            CancellationToken ct = default
-        );
-
-        /// <summary>
-        /// <c>GET</c> request to the <c>get_all_pits</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</a>
-        /// </summary>
-        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        GetAllPitsResponse GetAllPits(IGetAllPitsRequest request);
-
-        /// <summary>
-        /// <c>GET</c> request to the <c>get_all_pits</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</a>
-        /// </summary>
-        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        Task<GetAllPitsResponse> GetAllPitsAsync(
-            IGetAllPitsRequest request,
-            CancellationToken ct = default
-        );
-    }
+    /// <summary>
+    /// <c>GET</c> request to the <c>get_all_pits</c> API, read more about this API online:
+    /// <para></para>
+    /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</a>
+    /// </summary>
+    /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+    Task<GetAllPitsResponse> GetAllPitsAsync(
+        IGetAllPitsRequest request,
+        CancellationToken ct = default
+    );
 }

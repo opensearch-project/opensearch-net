@@ -29,43 +29,42 @@
 using System;
 using System.Collections.Generic;
 
-namespace OpenSearch.Net.VirtualizedCluster.Audit
+namespace OpenSearch.Net.VirtualizedCluster.Audit;
+
+public class CallTraceState
 {
-	public class CallTraceState
-	{
-		public CallTraceState(AuditEvent e) => Event = e;
+    public CallTraceState(AuditEvent e) => Event = e;
 
-		public Action<string, OpenSearch.Net.Audit> AssertWithBecause { get; set; }
+    public Action<string, OpenSearch.Net.Audit> AssertWithBecause { get; set; }
 
-		public AuditEvent Event { get; private set; }
+    public AuditEvent Event { get; private set; }
 
-		public int? Port { get; set; }
+    public int? Port { get; set; }
 
-		public Action<OpenSearch.Net.Audit> SimpleAssert { get; set; }
-	}
+    public Action<OpenSearch.Net.Audit> SimpleAssert { get; set; }
+}
 
-	public class ClientCall : List<CallTraceState>
-	{
-		public ClientCall() { }
+public class ClientCall : List<CallTraceState>
+{
+    public ClientCall() { }
 
-		public ClientCall(Func<RequestConfigurationDescriptor, IRequestConfiguration> requestOverrides) => RequestOverrides = requestOverrides;
+    public ClientCall(Func<RequestConfigurationDescriptor, IRequestConfiguration> requestOverrides) => RequestOverrides = requestOverrides;
 
-		public Action<IConnectionPool> AssertPoolAfterCall { get; private set; }
-		public Action<IOpenSearchResponse> AssertResponse { get; private set; }
-		public Func<RequestConfigurationDescriptor, IRequestConfiguration> RequestOverrides { get; }
+    public Action<IConnectionPool> AssertPoolAfterCall { get; private set; }
+    public Action<IOpenSearchResponse> AssertResponse { get; private set; }
+    public Func<RequestConfigurationDescriptor, IRequestConfiguration> RequestOverrides { get; }
 
-		public void Add(AuditEvent key, Action<OpenSearch.Net.Audit> value) => Add(new CallTraceState(key) { SimpleAssert = value });
+    public void Add(AuditEvent key, Action<OpenSearch.Net.Audit> value) => Add(new CallTraceState(key) { SimpleAssert = value });
 
-		public void Add(AuditEvent key, int port) => Add(new CallTraceState(key) { Port = port });
+    public void Add(AuditEvent key, int port) => Add(new CallTraceState(key) { Port = port });
 
-		public void Add(AuditEvent key) => Add(new CallTraceState(key));
+    public void Add(AuditEvent key) => Add(new CallTraceState(key));
 
-		public void Add(Action<IConnectionPool> pool) => AssertPoolAfterCall = pool;
+    public void Add(Action<IConnectionPool> pool) => AssertPoolAfterCall = pool;
 
-		public void Add(AuditEvent key, int port, Action<IOpenSearchResponse> assertResponse)
-		{
-			Add(new CallTraceState(key) { Port = port });
-			AssertResponse = assertResponse;
-		}
-	}
+    public void Add(AuditEvent key, int port, Action<IOpenSearchResponse> assertResponse)
+    {
+        Add(new CallTraceState(key) { Port = port });
+        AssertResponse = assertResponse;
+    }
 }

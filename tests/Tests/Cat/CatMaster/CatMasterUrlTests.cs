@@ -27,20 +27,20 @@
 */
 
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
 #pragma warning disable CS0618 // Type or member is obsolete
 
-namespace Tests.Cat.CatMaster
+namespace Tests.Cat.CatMaster;
+
+public class CatMasterUrlTests : UrlTestsBase
 {
-	public class CatMasterUrlTests : UrlTestsBase
-	{
-		[U] public override async Task Urls() => await GET("/_cat/master")
-			.Fluent(c => c.Cat.Master())
-			.Request(c => c.Cat.Master(new CatMasterRequest()))
-			.FluentAsync(c => c.Cat.MasterAsync())
-			.RequestAsync(c => c.Cat.MasterAsync(new CatMasterRequest()));
-	}
+    [U]
+    public override async Task Urls() => await GET("/_cat/master")
+        .Fluent(c => c.Cat.Master())
+        .Request(c => c.Cat.Master(new CatMasterRequest()))
+        .FluentAsync(c => c.Cat.MasterAsync())
+        .RequestAsync(c => c.Cat.MasterAsync(new CatMasterRequest()));
 }

@@ -28,23 +28,23 @@
 
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+[ReadAs(typeof(GlobalAggregation))]
+public interface IGlobalAggregation : IBucketAggregation { }
+
+public class GlobalAggregation : BucketAggregationBase, IGlobalAggregation
 {
-	[InterfaceDataContract]
-	[ReadAs(typeof(GlobalAggregation))]
-	public interface IGlobalAggregation : IBucketAggregation { }
+    internal GlobalAggregation() { }
 
-	public class GlobalAggregation : BucketAggregationBase, IGlobalAggregation
-	{
-		internal GlobalAggregation() { }
+    public GlobalAggregation(string name) : base(name) { }
 
-		public GlobalAggregation(string name) : base(name) { }
-
-		internal override void WrapInContainer(AggregationContainer c) => c.Global = this;
-	}
-
-	public class GlobalAggregationDescriptor<T>
-		: BucketAggregationDescriptorBase<GlobalAggregationDescriptor<T>, IGlobalAggregation, T>
-			, IGlobalAggregation
-		where T : class { }
+    internal override void WrapInContainer(AggregationContainer c) => c.Global = this;
 }
+
+public class GlobalAggregationDescriptor<T>
+    : BucketAggregationDescriptorBase<GlobalAggregationDescriptor<T>, IGlobalAggregation, T>
+        , IGlobalAggregation
+    where T : class
+{ }

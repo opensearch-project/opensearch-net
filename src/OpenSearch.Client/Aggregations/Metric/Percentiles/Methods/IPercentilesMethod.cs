@@ -28,17 +28,16 @@
 
 using System;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public interface IPercentilesMethod { }
+
+public class PercentilesMethodDescriptor : DescriptorBase<PercentilesMethodDescriptor, IPercentilesMethod>, IPercentilesMethod
 {
-	public interface IPercentilesMethod { }
+    public IPercentilesMethod HDRHistogram(Func<HDRHistogramMethodDescriptor, IHDRHistogramMethod> hdrSelector = null) =>
+        hdrSelector.InvokeOrDefault(new HDRHistogramMethodDescriptor());
 
-	public class PercentilesMethodDescriptor : DescriptorBase<PercentilesMethodDescriptor, IPercentilesMethod>, IPercentilesMethod
-	{
-		public IPercentilesMethod HDRHistogram(Func<HDRHistogramMethodDescriptor, IHDRHistogramMethod> hdrSelector = null) =>
-			hdrSelector.InvokeOrDefault(new HDRHistogramMethodDescriptor());
-
-	// ReSharper disable once InconsistentNaming
-		public IPercentilesMethod TDigest(Func<TDigestMethodDescriptor, ITDigestMethod> tdigestSelector = null) =>
-			tdigestSelector.InvokeOrDefault(new TDigestMethodDescriptor());
-	}
+    // ReSharper disable once InconsistentNaming
+    public IPercentilesMethod TDigest(Func<TDigestMethodDescriptor, ITDigestMethod> tdigestSelector = null) =>
+        tdigestSelector.InvokeOrDefault(new TDigestMethodDescriptor());
 }

@@ -28,31 +28,30 @@
 
 using System;
 using System.Linq;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using static Tests.Core.Serialization.SerializationTestHelper;
 
-namespace Tests.Ingest
+namespace Tests.Ingest;
+
+public class ProcessorSerializationTests
 {
-	public class ProcessorSerializationTests
-	{
-		[U]
-		public void CanSerializeAndDeserializeAllProcessors()
-		{
-			var processorTypes =
-				from t in typeof(IProcessor).Assembly.Types()
-				where typeof(ProcessorBase).IsAssignableFrom(t) && !t.IsAbstract
-				select t;
+    [U]
+    public void CanSerializeAndDeserializeAllProcessors()
+    {
+        var processorTypes =
+            from t in typeof(IProcessor).Assembly.Types()
+            where typeof(ProcessorBase).IsAssignableFrom(t) && !t.IsAbstract
+            select t;
 
-			var processors = processorTypes
-				.Select(processorType => (IProcessor)Activator.CreateInstance(processorType))
-				.ToList();
+        var processors = processorTypes
+            .Select(processorType => (IProcessor)Activator.CreateInstance(processorType))
+            .ToList();
 
-			var pipeline = new Pipeline { Processors = processors };
-			var deserializedPipeline = Object(pipeline).RoundTrips();
-			deserializedPipeline.Processors.Should().HaveCount(pipeline.Processors.Count());
-			deserializedPipeline.Processors.Select(p => p.Name).Distinct().Should().HaveCount(pipeline.Processors.Count());
-		}
-	}
+        var pipeline = new Pipeline { Processors = processors };
+        var deserializedPipeline = Object(pipeline).RoundTrips();
+        deserializedPipeline.Processors.Should().HaveCount(pipeline.Processors.Count());
+        deserializedPipeline.Processors.Select(p => p.Name).Distinct().Should().HaveCount(pipeline.Processors.Count());
+    }
 }

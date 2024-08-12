@@ -30,23 +30,22 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public class AddIndexBlockResponse : AcknowledgedResponseBase
 {
-	public class AddIndexBlockResponse : AcknowledgedResponseBase
-	{
-		[DataMember(Name = "shards_acknowledged")]
-		public bool ShardsAcknowledged { get; internal set; }
+    [DataMember(Name = "shards_acknowledged")]
+    public bool ShardsAcknowledged { get; internal set; }
 
-		[DataMember(Name = "indices")]
-		public IReadOnlyCollection<BlockedIndex> Indices { get; internal set; } = EmptyReadOnly<BlockedIndex>.Collection;
-	}
+    [DataMember(Name = "indices")]
+    public IReadOnlyCollection<BlockedIndex> Indices { get; internal set; } = EmptyReadOnly<BlockedIndex>.Collection;
+}
 
-	public class BlockedIndex
-	{
-		[DataMember(Name = "name")]
-		public string Name { get; internal set; }
+public class BlockedIndex
+{
+    [DataMember(Name = "name")]
+    public string Name { get; internal set; }
 
-		[DataMember(Name = "blocked")]
-		public bool Blocked { get; internal set; }
-	}
+    [DataMember(Name = "blocked")]
+    public bool Blocked { get; internal set; }
 }

@@ -30,35 +30,34 @@ using System;
 using System.Runtime.Serialization;
 using OpenSearch.Net.Utf8Json;
 
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+[InterfaceDataContract]
+[JsonFormatter(typeof(FilterAggregationFormatter))]
+public interface IFilterAggregation : IBucketAggregation
 {
-	[InterfaceDataContract]
-	[JsonFormatter(typeof(FilterAggregationFormatter))]
-	public interface IFilterAggregation : IBucketAggregation
-	{
-		[DataMember(Name ="filter")]
-		QueryContainer Filter { get; set; }
-	}
+    [DataMember(Name = "filter")]
+    QueryContainer Filter { get; set; }
+}
 
-	public class FilterAggregation : BucketAggregationBase, IFilterAggregation
-	{
-		internal FilterAggregation() { }
+public class FilterAggregation : BucketAggregationBase, IFilterAggregation
+{
+    internal FilterAggregation() { }
 
-		public FilterAggregation(string name) : base(name) { }
+    public FilterAggregation(string name) : base(name) { }
 
-		public QueryContainer Filter { get; set; }
+    public QueryContainer Filter { get; set; }
 
-		internal override void WrapInContainer(AggregationContainer c) => c.Filter = this;
-	}
+    internal override void WrapInContainer(AggregationContainer c) => c.Filter = this;
+}
 
-	public class FilterAggregationDescriptor<T>
-		: BucketAggregationDescriptorBase<FilterAggregationDescriptor<T>, IFilterAggregation, T>
-			, IFilterAggregation
-		where T : class
-	{
-		QueryContainer IFilterAggregation.Filter { get; set; }
+public class FilterAggregationDescriptor<T>
+    : BucketAggregationDescriptorBase<FilterAggregationDescriptor<T>, IFilterAggregation, T>
+        , IFilterAggregation
+    where T : class
+{
+    QueryContainer IFilterAggregation.Filter { get; set; }
 
-		public FilterAggregationDescriptor<T> Filter(Func<QueryContainerDescriptor<T>, QueryContainer> selector) =>
-			Assign(selector, (a, v) => a.Filter = v?.Invoke(new QueryContainerDescriptor<T>()));
-	}
+    public FilterAggregationDescriptor<T> Filter(Func<QueryContainerDescriptor<T>, QueryContainer> selector) =>
+        Assign(selector, (a, v) => a.Filter = v?.Invoke(new QueryContainerDescriptor<T>()));
 }

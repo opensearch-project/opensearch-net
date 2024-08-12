@@ -38,62 +38,61 @@ using RazorLight.Generation;
 using RazorLight.Razor;
 using ShellProgressBar;
 
-namespace ApiGenerator.Generator.Razor
+namespace ApiGenerator.Generator.Razor;
+
+public abstract class RazorGeneratorBase
 {
-    public abstract class RazorGeneratorBase
+    private static readonly RazorLightEngine Engine = new RazorLightEngineBuilder()
+        .UseProject(new EmbeddedRazorProject(typeof(CodeTemplatePage<>).Assembly, "ApiGenerator.Views"))
+        .SetOperatingAssembly(typeof(CodeTemplatePage<>).Assembly)
+        .UseMemoryCachingProvider()
+        .EnableDebugMode()
+        .Build();
+
+    protected static async Task DoRazor<TModel>(TModel model, string viewLocation, string targetLocation, CancellationToken token)
     {
-        private static readonly RazorLightEngine Engine = new RazorLightEngineBuilder()
-            .UseProject(new EmbeddedRazorProject(typeof(CodeTemplatePage<>).Assembly, "ApiGenerator.Views"))
-			.SetOperatingAssembly(typeof(CodeTemplatePage<>).Assembly)
-			.UseMemoryCachingProvider()
-			.EnableDebugMode()
-            .Build();
-
-        protected static async Task DoRazor<TModel>(TModel model, string viewLocation, string targetLocation, CancellationToken token)
+        try
         {
-            try
-            {
-                token.ThrowIfCancellationRequested();
-                var generated = await Engine.CompileRenderAsync(viewLocation,  model);
-                await WriteFormattedCsharpFile(targetLocation, generated);
-            }
-            catch (TemplateGenerationException e)
-            {
-                foreach (var d in e.Diagnostics) Console.WriteLine(d.GetMessage());
-                throw;
-            }
+            token.ThrowIfCancellationRequested();
+            var generated = await Engine.CompileRenderAsync(viewLocation, model);
+            await WriteFormattedCsharpFile(targetLocation, generated);
         }
-
-        protected async Task DoRazorDependantFiles<TModel>(
-            ProgressBar pbar, IReadOnlyCollection<TModel> items, string viewLocation,
-            Func<TModel, string> identifier, Func<string, string> target,
-            CancellationToken token
-            )
-		{
-			using var c = pbar.Spawn(items.Count, "Generating namespaces", new ProgressBarOptions
-			{
-				ProgressCharacter = '─',
-				ForegroundColor = ConsoleColor.Yellow
-			});
-			foreach (var item in items)
-			{
-				var id = identifier(item);
-				var targetLocation = target(id);
-				await DoRazor(item, viewLocation, targetLocation, token);
-				c.Tick($"{Title}: {id}");
-			}
-		}
-
-        private static async Task WriteFormattedCsharpFile(string path, string contents)
+        catch (TemplateGenerationException e)
         {
-			contents = (await CodeFormatter.FormatAsync(contents)).Code;
-
-			if (Directory.GetParent(path) is { Exists: false } dir) dir.Create();
-
-			await File.WriteAllTextAsync(path, contents);
+            foreach (var d in e.Diagnostics) Console.WriteLine(d.GetMessage());
+            throw;
         }
-
-        public abstract string Title { get; }
-        public abstract Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token);
     }
+
+    protected async Task DoRazorDependantFiles<TModel>(
+        ProgressBar pbar, IReadOnlyCollection<TModel> items, string viewLocation,
+        Func<TModel, string> identifier, Func<string, string> target,
+        CancellationToken token
+        )
+    {
+        using var c = pbar.Spawn(items.Count, "Generating namespaces", new ProgressBarOptions
+        {
+            ProgressCharacter = '─',
+            ForegroundColor = ConsoleColor.Yellow
+        });
+        foreach (var item in items)
+        {
+            var id = identifier(item);
+            var targetLocation = target(id);
+            await DoRazor(item, viewLocation, targetLocation, token);
+            c.Tick($"{Title}: {id}");
+        }
+    }
+
+    private static async Task WriteFormattedCsharpFile(string path, string contents)
+    {
+        contents = (await CodeFormatter.FormatAsync(contents)).Code;
+
+        if (Directory.GetParent(path) is { Exists: false } dir) dir.Create();
+
+        await File.WriteAllTextAsync(path, contents);
+    }
+
+    public abstract string Title { get; }
+    public abstract Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token);
 }

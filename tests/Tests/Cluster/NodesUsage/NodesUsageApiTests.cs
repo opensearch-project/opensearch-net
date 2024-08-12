@@ -28,9 +28,9 @@
 
 using System;
 using System.Linq;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
 using Tests.Core.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
@@ -38,57 +38,56 @@ using Tests.Domain;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
-namespace Tests.Cluster.NodesUsage
+namespace Tests.Cluster.NodesUsage;
+
+public class NodesUsageApiTests
+    : ApiIntegrationTestBase<ReadOnlyCluster, NodesUsageResponse, INodesUsageRequest, NodesUsageDescriptor, NodesUsageRequest>
 {
-	public class NodesUsageApiTests
-		: ApiIntegrationTestBase<ReadOnlyCluster, NodesUsageResponse, INodesUsageRequest, NodesUsageDescriptor, NodesUsageRequest>
-	{
-		public NodesUsageApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public NodesUsageApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override bool ExpectIsValid => true;
-		protected override int ExpectStatusCode => 200;
-		protected override HttpMethod HttpMethod => HttpMethod.GET;
-		protected override string UrlPath => "/_nodes/usage";
+    protected override bool ExpectIsValid => true;
+    protected override int ExpectStatusCode => 200;
+    protected override HttpMethod HttpMethod => HttpMethod.GET;
+    protected override string UrlPath => "/_nodes/usage";
 
-		protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
-		{
-			var searchResponse = client.Search<Project>(s => s
-				.Size(0)
-				.Aggregations(a => a
-					.Average("avg_commits", avg => avg
-						.Field(f => f.NumberOfCommits)
-					)
-				)
-			);
+    protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
+    {
+        var searchResponse = client.Search<Project>(s => s
+            .Size(0)
+            .Aggregations(a => a
+                .Average("avg_commits", avg => avg
+                    .Field(f => f.NumberOfCommits)
+                )
+            )
+        );
 
-			if (!searchResponse.IsValid)
-				throw new Exception($"Exception when setting up {nameof(NodesUsageApiTests)}: {searchResponse.DebugInformation}");
-		}
+        if (!searchResponse.IsValid)
+            throw new Exception($"Exception when setting up {nameof(NodesUsageApiTests)}: {searchResponse.DebugInformation}");
+    }
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Nodes.Usage(),
-			(client, f) => client.Nodes.UsageAsync(),
-			(client, r) => client.Nodes.Usage(r),
-			(client, r) => client.Nodes.UsageAsync(r)
-		);
+    protected override LazyResponses ClientUsage() => Calls(
+        (client, f) => client.Nodes.Usage(),
+        (client, f) => client.Nodes.UsageAsync(),
+        (client, r) => client.Nodes.Usage(r),
+        (client, r) => client.Nodes.UsageAsync(r)
+    );
 
-		protected override void ExpectResponse(NodesUsageResponse response)
-		{
-			response.ClusterName.Should().NotBeEmpty();
+    protected override void ExpectResponse(NodesUsageResponse response)
+    {
+        response.ClusterName.Should().NotBeEmpty();
 
-			response.NodeStatistics.Should().NotBeNull();
-			response.NodeStatistics.Total.Should().Be(1);
-			response.NodeStatistics.Successful.Should().Be(1);
-			response.NodeStatistics.Failed.Should().Be(0);
+        response.NodeStatistics.Should().NotBeNull();
+        response.NodeStatistics.Total.Should().Be(1);
+        response.NodeStatistics.Successful.Should().Be(1);
+        response.NodeStatistics.Failed.Should().Be(0);
 
-			response.Nodes.Should().NotBeNull();
-			response.Nodes.Should().HaveCount(1);
+        response.Nodes.Should().NotBeNull();
+        response.Nodes.Should().HaveCount(1);
 
-			var firstNode = response.Nodes.First();
-			firstNode.Value.Timestamp.Should().BeBefore(DateTimeOffset.UtcNow);
-			firstNode.Value.Since.Should().BeBefore(DateTimeOffset.UtcNow);
-			firstNode.Value.RestActions.Should().NotBeNull();
-			firstNode.Value.Aggregations.Should().NotBeNull().And.ContainKey("avg");
-		}
-	}
+        var firstNode = response.Nodes.First();
+        firstNode.Value.Timestamp.Should().BeBefore(DateTimeOffset.UtcNow);
+        firstNode.Value.Since.Should().BeBefore(DateTimeOffset.UtcNow);
+        firstNode.Value.RestActions.Should().NotBeNull();
+        firstNode.Value.Aggregations.Should().NotBeNull().And.ContainKey("avg");
+    }
 }
