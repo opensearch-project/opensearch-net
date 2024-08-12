@@ -291,6 +291,8 @@ namespace Tests.Core.ManagedOpenSearch.NodeSeeders
 			.Settings(s => s
 				.AutoExpandReplicas("0-all")
 				.Analysis(ProjectAnalysisSettings)
+                .Setting("index.knn", true)
+                .Setting("index.knn.algo_param.ef_search", 100)
 			)
 			.Map<ProjectPercolation>(m => m
 				.AutoMap()
