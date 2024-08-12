@@ -47,6 +47,7 @@ namespace ApiGenerator.Configuration
 			new("dangling_indices.*"),
 
 			new("indices.{delete,exists,get,put}_index_template"),
+            new("indices.stats"),
 
 			new("ingest.*"),
             new("nodes.*"),

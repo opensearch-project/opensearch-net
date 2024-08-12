@@ -725,50 +725,6 @@ namespace OpenSearch.Net.Specification.IndicesApi
 		[MapsApi("indices.split", "index, target, body")]
 		public Task<TResponse> SplitAsync<TResponse>(string index, string target, PostData body, SplitIndexRequestParameters requestParameters = null, CancellationToken ctx = default)
 			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(PUT, Url($"{index:index}/_split/{target:target}"), ctx, body, RequestParams(requestParameters));
-		///<summary>GET on /_stats <para>https://opensearch.org/docs/latest/opensearch/stats-api/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse StatsForAll<TResponse>(IndicesStatsRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_stats", null, RequestParams(requestParameters));
-		///<summary>GET on /_stats <para>https://opensearch.org/docs/latest/opensearch/stats-api/</para></summary>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("indices.stats", "")]
-		public Task<TResponse> StatsForAllAsync<TResponse>(IndicesStatsRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_stats", ctx, null, RequestParams(requestParameters));
-		///<summary>GET on /_stats/{metric} <para>https://opensearch.org/docs/latest/opensearch/stats-api/</para></summary>
-		///<param name = "metric">Limit the information returned the specific metrics.</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse StatsForAll<TResponse>(string metric, IndicesStatsRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"_stats/{metric:metric}"), null, RequestParams(requestParameters));
-		///<summary>GET on /_stats/{metric} <para>https://opensearch.org/docs/latest/opensearch/stats-api/</para></summary>
-		///<param name = "metric">Limit the information returned the specific metrics.</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("indices.stats", "metric")]
-		public Task<TResponse> StatsForAllAsync<TResponse>(string metric, IndicesStatsRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_stats/{metric:metric}"), ctx, null, RequestParams(requestParameters));
-		///<summary>GET on /{index}/_stats <para>https://opensearch.org/docs/latest/opensearch/stats-api/</para></summary>
-		///<param name = "index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse Stats<TResponse>(string index, IndicesStatsRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"{index:index}/_stats"), null, RequestParams(requestParameters));
-		///<summary>GET on /{index}/_stats <para>https://opensearch.org/docs/latest/opensearch/stats-api/</para></summary>
-		///<param name = "index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("indices.stats", "index")]
-		public Task<TResponse> StatsAsync<TResponse>(string index, IndicesStatsRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"{index:index}/_stats"), ctx, null, RequestParams(requestParameters));
-		///<summary>GET on /{index}/_stats/{metric} <para>https://opensearch.org/docs/latest/opensearch/stats-api/</para></summary>
-		///<param name = "index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices</param>
-		///<param name = "metric">Limit the information returned the specific metrics.</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		public TResponse Stats<TResponse>(string index, string metric, IndicesStatsRequestParameters requestParameters = null)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"{index:index}/_stats/{metric:metric}"), null, RequestParams(requestParameters));
-		///<summary>GET on /{index}/_stats/{metric} <para>https://opensearch.org/docs/latest/opensearch/stats-api/</para></summary>
-		///<param name = "index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices</param>
-		///<param name = "metric">Limit the information returned the specific metrics.</param>
-		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-		[MapsApi("indices.stats", "index, metric")]
-		public Task<TResponse> StatsAsync<TResponse>(string index, string metric, IndicesStatsRequestParameters requestParameters = null, CancellationToken ctx = default)
-			where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"{index:index}/_stats/{metric:metric}"), ctx, null, RequestParams(requestParameters));
 		///<summary>POST on /_aliases <para>https://opensearch.org/docs/latest/opensearch/rest-api/alias/</para></summary>
 		///<param name = "body">The definition of `actions` to perform</param>
 		///<param name = "requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
