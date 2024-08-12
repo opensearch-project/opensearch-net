@@ -61,6 +61,6 @@ public class IndicesStatsApiTests
 
         var segments = primaries.Segments;
         segments.Should().NotBeNull();
-        segments.MemoryInBytes.Should().BeGreaterThan(0);
+        segments.Count.Should().BeGreaterThan(0);
     }
 }

@@ -13,6 +13,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added support for the `Cat.PitSegments` and `Cat.SegmentReplication` APIs ([#527](https://github.com/opensearch-project/opensearch-net/pull/527))
 - Added support for serializing the `DateOnly` and `TimeOnly` types ([#734](https://github.com/opensearch-project/opensearch-net/pull/734))
 - Added support for the `Ext` parameter on `SearchRequest` ([#738](https://github.com/opensearch-project/opensearch-net/pull/738))
+- Added support for the `Indices.Stats` API ([#753](https://github.com/opensearch-project/opensearch-net/pull/753))
 
 ### Removed
 - Removed support for the `net461` target ([#256](https://github.com/opensearch-project/opensearch-net/pull/256))
