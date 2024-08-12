@@ -43,6 +43,9 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `JetBrains.Annotations` from 2023.3.0 to 2024.2.0
 - Bumps `JunitXml.TestLogger` from 3.1.12 to 4.0.254
 - Bumps `Fake.Core.SemVer` from 6.0.0 to 6.1.0
+- Bumps `Fake.Core.Environment` from 6.0.0 to 6.1.0
+- Bumps `Fake.IO.FileSystem` from 6.0.0 to 6.1.0
+- Bumps `Fake.IO.Zip` from 5.23.1 to 6.1.0
 
 ## [1.7.1]
 ### Fixed
