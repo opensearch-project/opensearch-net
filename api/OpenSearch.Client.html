@@ -168,6 +168,8 @@ sent to OpenSearch and an Aggregate describes an aggregation returned from OpenS
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.AliasesDescriptor.html">AliasesDescriptor</a></h4>
       <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.AllIndicesStats.html">AllIndicesStats</a></h4>
+      <section></section>
       <h4><a class="xref" href="OpenSearch.Client.AllocateClusterRerouteCommandBase.html">AllocateClusterRerouteCommandBase</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.AllocateClusterRerouteCommandDescriptorBase-2.html">AllocateClusterRerouteCommandDescriptorBase&lt;TDescriptor, TInterface&gt;</a></h4>
@@ -2227,9 +2229,15 @@ Part of the <code>analysis-icu</code> plugin:</p>
       <h4><a class="xref" href="OpenSearch.Client.IndexSettingsDescriptor.html">IndexSettingsDescriptor</a></h4>
       <section><p>The settings for an index</p>
 </section>
+      <h4><a class="xref" href="OpenSearch.Client.IndexShardStats.html">IndexShardStats</a></h4>
+      <section></section>
       <h4><a class="xref" href="OpenSearch.Client.IndexSortSettings.html">IndexSortSettings</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.IndexState.html">IndexState</a></h4>
+      <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.IndexStats.html">IndexStats</a></h4>
+      <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.IndexStatsBase.html">IndexStatsBase</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.IndexTemplateExistsDescriptor.html">IndexTemplateExistsDescriptor</a></h4>
       <section><p>Descriptor for TemplateExists <p>https://opensearch.org/docs/latest/opensearch/rest-api/cat/cat-templates/</p>
@@ -2283,6 +2291,18 @@ disk. It is divided between all shards on the node.</p>
       <h4><a class="xref" href="OpenSearch.Client.IndicesShardStoresRequest.html">IndicesShardStoresRequest</a></h4>
       <section><p>Request for ShardStores <p></p>
 </section>
+      <h4><a class="xref" href="OpenSearch.Client.IndicesStats.html">IndicesStats</a></h4>
+      <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.IndicesStatsDescriptor.html">IndicesStatsDescriptor</a></h4>
+      <section><p>Descriptor for Stats <p>https://opensearch.org/docs/latest</p>
+</section>
+      <h4><a class="xref" href="OpenSearch.Client.IndicesStatsDictionary.html">IndicesStatsDictionary</a></h4>
+      <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.IndicesStatsRequest.html">IndicesStatsRequest</a></h4>
+      <section><p>Request for Stats <p>https://opensearch.org/docs/latest</p>
+</section>
+      <h4><a class="xref" href="OpenSearch.Client.IndicesStatsResponse.html">IndicesStatsResponse</a></h4>
+      <section></section>
       <h4><a class="xref" href="OpenSearch.Client.Infer.html">Infer</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.Inferrer.html">Inferrer</a></h4>
@@ -3985,13 +4005,25 @@ If the field already exists, its value will be replaced with the provided one.</
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.ShardBalancingHeuristicsSettingsDescriptor.html">ShardBalancingHeuristicsSettingsDescriptor</a></h4>
       <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.ShardCommitStats.html">ShardCommitStats</a></h4>
+      <section></section>
       <h4><a class="xref" href="OpenSearch.Client.ShardHealthStats.html">ShardHealthStats</a></h4>
+      <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.ShardPath.html">ShardPath</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.ShardProfile.html">ShardProfile</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.ShardRebalancingSettings.html">ShardRebalancingSettings</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.ShardRebalancingSettingsDescriptor.html">ShardRebalancingSettingsDescriptor</a></h4>
+      <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.ShardRetentionLease.html">ShardRetentionLease</a></h4>
+      <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.ShardRetentionLeasesStats.html">ShardRetentionLeasesStats</a></h4>
+      <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.ShardRouting.html">ShardRouting</a></h4>
+      <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.ShardSequenceNumberStats.html">ShardSequenceNumberStats</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.ShardStatistics.html">ShardStatistics</a></h4>
       <section></section>
@@ -5617,6 +5649,8 @@ normalization, transliteration and bidirectional text handling.</p>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.IIndicesShardStoresRequest.html">IIndicesShardStoresRequest</a></h4>
       <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.IIndicesStatsRequest.html">IIndicesStatsRequest</a></h4>
+      <section></section>
       <h4><a class="xref" href="OpenSearch.Client.IInlineGet-1.html">IInlineGet&lt;TDocument&gt;</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.IInlineScript.html">IInlineScript</a></h4>
@@ -6940,6 +6974,8 @@ search if the sort field is mapped differently on some indices.</p>
       <h4><a class="xref" href="OpenSearch.Client.ShapeOrientation.html">ShapeOrientation</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.ShapeRelation.html">ShapeRelation</a></h4>
+      <section></section>
+      <h4><a class="xref" href="OpenSearch.Client.ShardRoutingState.html">ShardRoutingState</a></h4>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.SimpleQueryStringFlags.html">SimpleQueryStringFlags</a></h4>
       <section></section>

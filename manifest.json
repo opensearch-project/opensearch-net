@@ -412,6 +412,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AllIndicesStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.AllIndicesStats.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.AllocateClusterRerouteCommandBase.yml",
       "output": {
         ".html": {
@@ -11972,6 +11982,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IIndicesStatsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IIndicesStatsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IInlineGet-1.yml",
       "output": {
         ".html": {
@@ -16472,6 +16492,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IndexShardStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IndexShardStats.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IndexSortMissing.yml",
       "output": {
         ".html": {
@@ -16516,6 +16546,26 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IndexState.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IndexStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IndexStats.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IndexStatsBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IndexStatsBase.html"
         }
       },
       "version": ""
@@ -16736,6 +16786,56 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IndicesShardStoresRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IndicesStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IndicesStats.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IndicesStatsDescriptor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IndicesStatsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IndicesStatsDictionary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IndicesStatsDictionary.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IndicesStatsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IndicesStatsRequest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IndicesStatsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IndicesStatsResponse.html"
         }
       },
       "version": ""
@@ -23942,10 +24042,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ShardCommitStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ShardCommitStats.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ShardHealthStats.yml",
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.ShardHealthStats.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ShardPath.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ShardPath.html"
         }
       },
       "version": ""
@@ -23976,6 +24096,56 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.ShardRebalancingSettingsDescriptor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ShardRetentionLease.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ShardRetentionLease.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ShardRetentionLeasesStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ShardRetentionLeasesStats.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ShardRouting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ShardRouting.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ShardRoutingState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ShardRoutingState.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ShardSequenceNumberStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ShardSequenceNumberStats.html"
         }
       },
       "version": ""
