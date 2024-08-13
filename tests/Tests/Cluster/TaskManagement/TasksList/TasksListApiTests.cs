@@ -135,7 +135,7 @@ namespace Tests.Cluster.TaskManagement.TasksList
 			client.Indices.Refresh(sourceIndex);
 
 			var createIndex = client.Indices.Create(targetIndex, i => i
-				.Settings(settings => settings.Analysis(DefaultSeeder.ProjectAnalysisSettings))
+				.Settings(DefaultSeeder.ProjectIndexSettings)
 				.Map<Project>(DefaultSeeder.ProjectTypeMappings)
 			);
 			createIndex.ShouldBeValid();

@@ -89,10 +89,9 @@ namespace Tests.QueryDsl.Specialized.Percolate
 			foreach (var index in values.Values)
 			{
 				Client.Indices.Create(index, c => c
-					.Settings(settings => settings
+					.Settings(settings => DefaultSeeder.ProjectIndexSettings(settings)
 						.NumberOfShards(1)
 						.NumberOfReplicas(0)
-						.Analysis(DefaultSeeder.ProjectAnalysisSettings)
 					)
 					.Map<Project>(mm => mm.AutoMap()
 						.Properties(DefaultSeeder.ProjectProperties)
@@ -100,10 +99,9 @@ namespace Tests.QueryDsl.Specialized.Percolate
 				);
 				var percolationIndex = index + "-queries";
 				Client.Indices.Create(percolationIndex, c => c
-					.Settings(settings => settings
+					.Settings(settings => DefaultSeeder.ProjectIndexSettings(settings)
 						.NumberOfShards(1)
 						.NumberOfReplicas(0)
-						.Analysis(DefaultSeeder.ProjectAnalysisSettings)
 					)
 					.Map<ProjectPercolation>(mm => mm.AutoMap()
 						.Properties(DefaultSeeder.PercolatedQueryProperties)

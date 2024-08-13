@@ -96,7 +96,6 @@ namespace OpenSearch.Client
 		internal static ApiUrls IndicesShardStores = new ApiUrls(new[]{"_shard_stores", "{index}/_shard_stores"});
 		internal static ApiUrls IndicesShrink = new ApiUrls(new[]{"{index}/_shrink/{target}"});
 		internal static ApiUrls IndicesSplit = new ApiUrls(new[]{"{index}/_split/{target}"});
-		internal static ApiUrls IndicesStats = new ApiUrls(new[]{"_stats", "_stats/{metric}", "{index}/_stats", "{index}/_stats/{metric}"});
 		internal static ApiUrls IndicesBulkAlias = new ApiUrls(new[]{"_aliases"});
 		internal static ApiUrls IndicesValidateQuery = new ApiUrls(new[]{"_validate/query", "{index}/_validate/query"});
 		internal static ApiUrls NoNamespaceRootNodeInfo = new ApiUrls(new[]{""});
