@@ -88,5 +88,8 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls IndicesPutComposableTemplate =
             new(new[] { "_index_template/{name}" });
+
+        internal static readonly ApiUrls IndicesStats =
+            new(new[] { "_stats", "{index}/_stats", "{index}/_stats/{metric}", "_stats/{metric}" });
     }
 }

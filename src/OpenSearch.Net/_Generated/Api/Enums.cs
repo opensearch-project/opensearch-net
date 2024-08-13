@@ -109,6 +109,19 @@ namespace OpenSearch.Net
     }
 
     [StringEnum]
+    public enum Level
+    {
+        [EnumMember(Value = "cluster")]
+        Cluster,
+
+        [EnumMember(Value = "indices")]
+        Indices,
+
+        [EnumMember(Value = "shards")]
+        Shards
+    }
+
+    [StringEnum]
     public enum TimeUnit
     {
         [EnumMember(Value = "d")]
@@ -139,6 +152,7 @@ namespace OpenSearch.Net
         {
             AddEnumStringResolver<Bytes>(GetStringValue);
             AddEnumStringResolver<ExpandWildcards>(GetStringValue);
+            AddEnumStringResolver<Level>(GetStringValue);
             AddEnumStringResolver<TimeUnit>(GetStringValue);
         }
 
@@ -177,6 +191,18 @@ namespace OpenSearch.Net
                 list.Add("open");
             return string.Join(",", list);
         }
+
+        public static string GetStringValue(this Level enumValue) =>
+            enumValue switch
+            {
+                Level.Cluster => "cluster",
+                Level.Indices => "indices",
+                Level.Shards => "shards",
+                _
+                    => throw new ArgumentException(
+                        $"'{enumValue.ToString()}' is not a valid value for enum 'Level'"
+                    )
+            };
 
         public static string GetStringValue(this TimeUnit enumValue) =>
             enumValue switch

@@ -270,17 +270,6 @@ namespace OpenSearch.Net
 	}
 
 	[StringEnum]
-	public enum Level
-	{
-		[EnumMember(Value = "cluster")]
-		Cluster,
-		[EnumMember(Value = "indices")]
-		Indices,
-		[EnumMember(Value = "shards")]
-		Shards
-	}
-
-	[StringEnum]
 	public enum WaitForEvents
 	{
 		[EnumMember(Value = "immediate")]
@@ -408,7 +397,6 @@ namespace OpenSearch.Net
 			AddEnumStringResolver<Refresh>(GetStringValue);
 			AddEnumStringResolver<Health>(GetStringValue);
 			AddEnumStringResolver<Size>(GetStringValue);
-			AddEnumStringResolver<Level>(GetStringValue);
 			AddEnumStringResolver<WaitForEvents>(GetStringValue);
 			AddEnumStringResolver<WaitForStatus>(GetStringValue);
 			AddEnumStringResolver<ClusterRerouteMetric>(GetStringValue);
@@ -647,15 +635,6 @@ namespace OpenSearch.Net
                 Size.T => "t",
                 Size.P => "p",
                 _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Size'")
-            };
-
-        public static string GetStringValue(this Level enumValue) =>
-            enumValue switch
-            {
-                Level.Cluster => "cluster",
-                Level.Indices => "indices",
-                Level.Shards => "shards",
-                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Level'")
             };
 
         public static string GetStringValue(this WaitForEvents enumValue) =>

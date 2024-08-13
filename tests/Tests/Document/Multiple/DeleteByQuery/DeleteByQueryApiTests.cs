@@ -98,10 +98,9 @@ namespace Tests.Document.Multiple.DeleteByQuery
 			foreach (var index in values.Values)
 			{
 				Client.Indices.Create(index, c => c
-					.Settings(s => s
+					.Settings(s => DefaultSeeder.ProjectIndexSettings(s)
 						.NumberOfShards(2)
 						.NumberOfReplicas(0)
-						.Analysis(DefaultSeeder.ProjectAnalysisSettings)
 					)
 					.Map<Project>(p => p
 						.AutoMap()

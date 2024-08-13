@@ -44,7 +44,8 @@ namespace ApiGenerator.Configuration
             new("cat.{all_pit,pit}_segments"),
             new("cat.segment_replication"),
 			new("cluster.{delete,exists,get,put}_component_template"),
-			new("indices.{delete,exists,get,put}_index_template")
+			new("indices.{delete,exists,get,put}_index_template"),
+            new("indices.stats")
 		};
 
 		public static bool IncludeOperation(string name) => OperationsToInclude.Any(g => g.IsMatch(name));

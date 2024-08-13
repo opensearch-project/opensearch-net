@@ -317,4 +317,117 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
     }
+
+    [InterfaceDataContract]
+    public partial interface IIndicesStatsRequest : IRequest<IndicesStatsRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+
+        [IgnoreDataMember]
+        Metrics Metric { get; }
+    }
+
+    /// <summary>Request for Stats <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class IndicesStatsRequest
+        : PlainRequestBase<IndicesStatsRequestParameters>,
+            IIndicesStatsRequest
+    {
+        protected IIndicesStatsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesStats;
+
+        /// <summary>/_stats</summary>
+        public IndicesStatsRequest()
+            : base() { }
+
+        /// <summary>/{index}/_stats</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public IndicesStatsRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        /// <summary>/{index}/_stats/{metric}</summary>
+        /// <param name="index">Optional, accepts null</param>
+        /// <param name="metric">Optional, accepts null</param>
+        public IndicesStatsRequest(Indices index, Metrics metric)
+            : base(r => r.Optional("index", index).Optional("metric", metric)) { }
+
+        /// <summary>/_stats/{metric}</summary>
+        /// <param name="metric">Optional, accepts null</param>
+        public IndicesStatsRequest(Metrics metric)
+            : base(r => r.Optional("metric", metric)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IIndicesStatsRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        [IgnoreDataMember]
+        Metrics IIndicesStatsRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
+
+        // Request parameters
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata and suggest statistics.</summary>
+        public Fields CompletionFields
+        {
+            get => Q<Fields>("completion_fields");
+            set => Q("completion_fields", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata statistics.</summary>
+        public Fields FielddataFields
+        {
+            get => Q<Fields>("fielddata_fields");
+            set => Q("fielddata_fields", value);
+        }
+
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
+        public Fields Fields
+        {
+            get => Q<Fields>("fields");
+            set => Q("fields", value);
+        }
+
+        /// <summary>If true, statistics are not collected from closed indices.</summary>
+        public bool? ForbidClosedIndices
+        {
+            get => Q<bool?>("forbid_closed_indices");
+            set => Q("forbid_closed_indices", value);
+        }
+
+        /// <summary>Comma-separated list of search groups to include in the search statistics.</summary>
+        public string[] Groups
+        {
+            get => Q<string[]>("groups");
+            set => Q("groups", value);
+        }
+
+        /// <summary>If true, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
+        public bool? IncludeSegmentFileSizes
+        {
+            get => Q<bool?>("include_segment_file_sizes");
+            set => Q("include_segment_file_sizes", value);
+        }
+
+        /// <summary>If true, the response includes information from segments that are not loaded into memory.</summary>
+        public bool? IncludeUnloadedSegments
+        {
+            get => Q<bool?>("include_unloaded_segments");
+            set => Q("include_unloaded_segments", value);
+        }
+
+        /// <summary>Indicates whether statistics are aggregated at the cluster, index, or shard level.</summary>
+        public Level? Level
+        {
+            get => Q<Level?>("level");
+            set => Q("level", value);
+        }
+    }
 }

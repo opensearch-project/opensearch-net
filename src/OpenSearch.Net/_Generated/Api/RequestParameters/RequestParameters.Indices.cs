@@ -216,4 +216,78 @@ namespace OpenSearch.Net.Specification.IndicesApi
             set => Q("master_timeout", value);
         }
     }
+
+    /// <summary>Request options for Stats <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class IndicesStatsRequestParameters
+        : RequestParameters<IndicesStatsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata and suggest statistics.</summary>
+        public string[] CompletionFields
+        {
+            get => Q<string[]>("completion_fields");
+            set => Q("completion_fields", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata statistics.</summary>
+        public string[] FielddataFields
+        {
+            get => Q<string[]>("fielddata_fields");
+            set => Q("fielddata_fields", value);
+        }
+
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
+        public string[] Fields
+        {
+            get => Q<string[]>("fields");
+            set => Q("fields", value);
+        }
+
+        /// <summary>If true, statistics are not collected from closed indices.</summary>
+        public bool? ForbidClosedIndices
+        {
+            get => Q<bool?>("forbid_closed_indices");
+            set => Q("forbid_closed_indices", value);
+        }
+
+        /// <summary>Comma-separated list of search groups to include in the search statistics.</summary>
+        public string[] Groups
+        {
+            get => Q<string[]>("groups");
+            set => Q("groups", value);
+        }
+
+        /// <summary>If true, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
+        public bool? IncludeSegmentFileSizes
+        {
+            get => Q<bool?>("include_segment_file_sizes");
+            set => Q("include_segment_file_sizes", value);
+        }
+
+        /// <summary>If true, the response includes information from segments that are not loaded into memory.</summary>
+        public bool? IncludeUnloadedSegments
+        {
+            get => Q<bool?>("include_unloaded_segments");
+            set => Q("include_unloaded_segments", value);
+        }
+
+        /// <summary>Indicates whether statistics are aggregated at the cluster, index, or shard level.</summary>
+        public Level? Level
+        {
+            get => Q<Level?>("level");
+            set => Q("level", value);
+        }
+    }
 }
