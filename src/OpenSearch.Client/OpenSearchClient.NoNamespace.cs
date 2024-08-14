@@ -48,13 +48,6 @@ namespace OpenSearch.Client
 	///</summary>
 	public partial class OpenSearchClient : IOpenSearchClient
 	{
-		///<summary>Cat APIs</summary>
-		public CatNamespace Cat
-		{
-			get;
-			private set;
-		}
-
 		///<summary>Dangling Indices APIs</summary>
 		public DanglingIndicesNamespace DanglingIndices
 		{

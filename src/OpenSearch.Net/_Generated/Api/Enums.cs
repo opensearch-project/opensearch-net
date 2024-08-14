@@ -53,6 +53,43 @@ using System.Text;
 namespace OpenSearch.Net
 {
     [StringEnum]
+    public enum Bytes
+    {
+        [EnumMember(Value = "b")]
+        B,
+
+        [EnumMember(Value = "k")]
+        K,
+
+        [EnumMember(Value = "kb")]
+        Kb,
+
+        [EnumMember(Value = "m")]
+        M,
+
+        [EnumMember(Value = "mb")]
+        Mb,
+
+        [EnumMember(Value = "g")]
+        G,
+
+        [EnumMember(Value = "gb")]
+        Gb,
+
+        [EnumMember(Value = "t")]
+        T,
+
+        [EnumMember(Value = "tb")]
+        Tb,
+
+        [EnumMember(Value = "p")]
+        P,
+
+        [EnumMember(Value = "pb")]
+        Pb
+    }
+
+    [StringEnum]
     public enum ExpandWildcards
     {
         [EnumMember(Value = "all")]
@@ -75,9 +112,42 @@ namespace OpenSearch.Net
     {
         static partial void RegisterEnumStringResolvers()
         {
+            EnumStringResolvers.TryAdd(typeof(Bytes), e => GetStringValue((Bytes)e));
             EnumStringResolvers.TryAdd(
                 typeof(ExpandWildcards),
                 e => GetStringValue((ExpandWildcards)e)
+            );
+        }
+
+        public static string GetStringValue(this Bytes enumValue)
+        {
+            switch (enumValue)
+            {
+                case Bytes.B:
+                    return "b";
+                case Bytes.K:
+                    return "k";
+                case Bytes.Kb:
+                    return "kb";
+                case Bytes.M:
+                    return "m";
+                case Bytes.Mb:
+                    return "mb";
+                case Bytes.G:
+                    return "g";
+                case Bytes.Gb:
+                    return "gb";
+                case Bytes.T:
+                    return "t";
+                case Bytes.Tb:
+                    return "tb";
+                case Bytes.P:
+                    return "p";
+                case Bytes.Pb:
+                    return "pb";
+            }
+            throw new ArgumentException(
+                $"'{enumValue.ToString()}' is not a valid value for enum 'Bytes'"
             );
         }
 

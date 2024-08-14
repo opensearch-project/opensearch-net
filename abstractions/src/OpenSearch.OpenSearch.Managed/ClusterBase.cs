@@ -131,11 +131,12 @@ namespace OpenSearch.OpenSearch.Managed
 			OnBeforeStart();
 
 			var subscriptions = new Subscriptions();
-			foreach (var node in Nodes) subscriptions.Add(node.SubscribeLines(writer));
 
-			var waitHandles = Nodes.Select(w => w.StartedHandle).ToArray();
-			if (!WaitHandle.WaitAll(waitHandles, waitForStarted))
+			foreach (var node in Nodes)
 			{
+				subscriptions.Add(node.SubscribeLines(writer));
+				if (node.WaitForStarted(waitForStarted)) continue;
+
 				var nodeExceptions = Nodes.Select(n => n.LastSeenException).Where(e => e != null).ToList();
 				writer?.WriteError(
 					$"{{{GetType().Name}.{nameof(Start)}}} cluster did not start after {waitForStarted}");

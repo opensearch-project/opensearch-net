@@ -45,6 +45,14 @@ namespace OpenSearch.Client
 {
     internal static partial class ApiUrlsLookups
     {
+        internal static readonly ApiUrls CatAllPitSegments =
+            new(new[] { "_cat/pit_segments/_all" });
+
+        internal static readonly ApiUrls CatPitSegments = new(new[] { "_cat/pit_segments" });
+
+        internal static readonly ApiUrls CatSegmentReplication =
+            new(new[] { "_cat/segment_replication", "_cat/segment_replication/{index}" });
+
         internal static readonly ApiUrls ClusterDeleteComponentTemplate =
             new(new[] { "_component_template/{name}" });
 

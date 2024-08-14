@@ -41,7 +41,8 @@ namespace ApiGenerator.Configuration
 		{
 			new("{create,delete}_pit"),
 			new("{delete,get}_all_pits"),
-
+            new("cat.{all_pit,pit}_segments"),
+            new("cat.segment_replication"),
 			new("cluster.{delete,exists,get,put}_component_template"),
 			new("indices.{delete,exists,get,put}_index_template")
 		};
