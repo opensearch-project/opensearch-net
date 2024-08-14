@@ -48,9 +48,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuget-
 
-      - run: "./build.sh integrate ${{ matrix.version }} readonly,replicatedreadonly,writable random:test_only_one --report"
+      - run: "./build.sh integrate $VERSION readonly,replicatedreadonly,writable random:test_only_one --report"
         name: Integration Tests
         working-directory: client
+        env:
+          VERSION: ${{ matrix.version }}
 
       - name: Upload test report
         if: failure()

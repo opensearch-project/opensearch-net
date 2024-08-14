@@ -33,7 +33,9 @@ jobs:
           token: ${{steps.github_app_token.outputs.token}}
 
       - name: Bump Version
-        run: bash .github/bump-version.sh "${{github.event.inputs.version}}"
+        run: bash .github/bump-version.sh "$VERSION"
+        env:
+          VERSION: ${{github.event.inputs.version}}
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
@@ -121,7 +123,7 @@ jobs:
           token: ${{steps.github_app_token.outputs.token}}
 
       - name: Bump Patch Version
-        run: bash .github/bump-version.sh "${{env.NEXT_PATCH}}"
+        run: bash .github/bump-version.sh "$NEXT_PATCH"
 
       - name: Create Patch Version Pull Request
         uses: peter-evans/create-pull-request@v5
@@ -146,7 +148,7 @@ jobs:
 
       - name: Bump Minor Version
         if: env.IS_MINOR_BUMP == 'true'
-        run: bash .github/bump-version.sh "${{env.NEXT_MINOR}}"
+        run: bash .github/bump-version.sh "$NEXT_MINOR"
 
       - name: Create Minor Version Pull Request
         if: env.IS_MINOR_BUMP == 'true'
@@ -172,7 +174,7 @@ jobs:
 
       - name: Bump Major Version
         if: env.IS_MAJOR_BUMP == 'true'
-        run: bash .github/bump-version.sh "${{env.NEXT_MAJOR}}"
+        run: bash .github/bump-version.sh "$NEXT_MAJOR"
 
       - name: Create Major Version Pull Request
         if: env.IS_MAJOR_BUMP == 'true'
