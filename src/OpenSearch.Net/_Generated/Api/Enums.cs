@@ -58,6 +58,12 @@ namespace OpenSearch.Net
         [EnumMember(Value = "b")]
         B,
 
+        [EnumMember(Value = "g")]
+        G,
+
+        [EnumMember(Value = "gb")]
+        Gb,
+
         [EnumMember(Value = "k")]
         K,
 
@@ -70,23 +76,17 @@ namespace OpenSearch.Net
         [EnumMember(Value = "mb")]
         Mb,
 
-        [EnumMember(Value = "g")]
-        G,
+        [EnumMember(Value = "p")]
+        P,
 
-        [EnumMember(Value = "gb")]
-        Gb,
+        [EnumMember(Value = "pb")]
+        Pb,
 
         [EnumMember(Value = "t")]
         T,
 
         [EnumMember(Value = "tb")]
-        Tb,
-
-        [EnumMember(Value = "p")]
-        P,
-
-        [EnumMember(Value = "pb")]
-        Pb
+        Tb
     }
 
     [Flags, StringEnum]
@@ -95,24 +95,30 @@ namespace OpenSearch.Net
         [EnumMember(Value = "all")]
         All = 1 << 0,
 
-        [EnumMember(Value = "open")]
-        Open = 1 << 1,
-
         [EnumMember(Value = "closed")]
-        Closed = 1 << 2,
+        Closed = 1 << 1,
 
         [EnumMember(Value = "hidden")]
-        Hidden = 1 << 3,
+        Hidden = 1 << 2,
 
         [EnumMember(Value = "none")]
-        None = 1 << 4
+        None = 1 << 3,
+
+        [EnumMember(Value = "open")]
+        Open = 1 << 4
     }
 
     [StringEnum]
     public enum TimeUnit
     {
-        [EnumMember(Value = "nanos")]
-        Nanos,
+        [EnumMember(Value = "d")]
+        D,
+
+        [EnumMember(Value = "h")]
+        H,
+
+        [EnumMember(Value = "m")]
+        M,
 
         [EnumMember(Value = "micros")]
         Micros,
@@ -120,17 +126,11 @@ namespace OpenSearch.Net
         [EnumMember(Value = "ms")]
         Ms,
 
+        [EnumMember(Value = "nanos")]
+        Nanos,
+
         [EnumMember(Value = "s")]
-        S,
-
-        [EnumMember(Value = "m")]
-        M,
-
-        [EnumMember(Value = "h")]
-        H,
-
-        [EnumMember(Value = "d")]
-        D
+        S
     }
 
     public static partial class KnownEnums
@@ -146,16 +146,16 @@ namespace OpenSearch.Net
             enumValue switch
             {
                 Bytes.B => "b",
+                Bytes.G => "g",
+                Bytes.Gb => "gb",
                 Bytes.K => "k",
                 Bytes.Kb => "kb",
                 Bytes.M => "m",
                 Bytes.Mb => "mb",
-                Bytes.G => "g",
-                Bytes.Gb => "gb",
-                Bytes.T => "t",
-                Bytes.Tb => "tb",
                 Bytes.P => "p",
                 Bytes.Pb => "pb",
+                Bytes.T => "t",
+                Bytes.Tb => "tb",
                 _
                     => throw new ArgumentException(
                         $"'{enumValue.ToString()}' is not a valid value for enum 'Bytes'"
@@ -167,27 +167,27 @@ namespace OpenSearch.Net
             var list = new List<string>();
             if ((enumValue & ExpandWildcards.All) != 0)
                 list.Add("all");
-            if ((enumValue & ExpandWildcards.Open) != 0)
-                list.Add("open");
             if ((enumValue & ExpandWildcards.Closed) != 0)
                 list.Add("closed");
             if ((enumValue & ExpandWildcards.Hidden) != 0)
                 list.Add("hidden");
             if ((enumValue & ExpandWildcards.None) != 0)
                 list.Add("none");
+            if ((enumValue & ExpandWildcards.Open) != 0)
+                list.Add("open");
             return string.Join(",", list);
         }
 
         public static string GetStringValue(this TimeUnit enumValue) =>
             enumValue switch
             {
-                TimeUnit.Nanos => "nanos",
+                TimeUnit.D => "d",
+                TimeUnit.H => "h",
+                TimeUnit.M => "m",
                 TimeUnit.Micros => "micros",
                 TimeUnit.Ms => "ms",
+                TimeUnit.Nanos => "nanos",
                 TimeUnit.S => "s",
-                TimeUnit.M => "m",
-                TimeUnit.H => "h",
-                TimeUnit.D => "d",
                 _
                     => throw new ArgumentException(
                         $"'{enumValue.ToString()}' is not a valid value for enum 'TimeUnit'"

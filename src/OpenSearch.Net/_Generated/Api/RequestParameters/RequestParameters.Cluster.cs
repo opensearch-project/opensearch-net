@@ -163,7 +163,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
     }
 
-    /// <summary>Request options for PutComponentTemplate</summary>
+    /// <summary>Request options for PutComponentTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</para></summary>
     public partial class PutComponentTemplateRequestParameters
         : RequestParameters<PutComponentTemplateRequestParameters>
     {

@@ -254,7 +254,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
         /// </summary>
         public PutComposableIndexTemplateResponse PutComposableTemplate(
             Name name,
@@ -267,7 +267,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
         /// </summary>
         public Task<PutComposableIndexTemplateResponse> PutComposableTemplateAsync(
             Name name,
@@ -282,7 +282,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
         /// </summary>
         public PutComposableIndexTemplateResponse PutComposableTemplate(
             IPutComposableIndexTemplateRequest request
@@ -295,7 +295,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
         /// </summary>
         public Task<PutComposableIndexTemplateResponse> PutComposableTemplateAsync(
             IPutComposableIndexTemplateRequest request,

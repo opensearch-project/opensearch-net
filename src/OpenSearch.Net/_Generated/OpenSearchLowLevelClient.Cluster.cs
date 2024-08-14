@@ -197,8 +197,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_component_template/{name}</summary>
-        /// <param name="name">Name of the component template to create. Opensearch includes the following built-in component templates: `logs-mappings`; &#x27;logs-settings`; `metrics-mappings`; `metrics-settings`;`synthetics-mapping`; `synthetics-settings`. Opensearch Agent uses these templates to configure backing indices for its data streams. If you use Opensearch Agent and want to overwrite one of these templates, set the `version` for your replacement template higher than the current version. If you don&#x2019;t use Opensearch Agent and want to disable all built-in component and index templates, set `stack.templates.enabled` to `false` using the cluster update settings API.</param>
+        /// <summary>PUT on /_component_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</para></summary>
+        /// <param name="name">Name of the component template to create. OpenSearch includes the following built-in component templates: `logs-mappings`; &#x27;logs-settings`; `metrics-mappings`; `metrics-settings`;`synthetics-mapping`; `synthetics-settings`. OpenSearch Agent uses these templates to configure backing indices for its data streams. If you use OpenSearch Agent and want to overwrite one of these templates, set the `version` for your replacement template higher than the current version. If you don&#x27;t use OpenSearch Agent and want to disable all built-in component and index templates, set `stack.templates.enabled` to `false` using the cluster update settings API.</param>
         /// <param name="body">The template definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse PutComponentTemplate<TResponse>(
@@ -214,8 +214,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_component_template/{name}</summary>
-        /// <param name="name">Name of the component template to create. Opensearch includes the following built-in component templates: `logs-mappings`; &#x27;logs-settings`; `metrics-mappings`; `metrics-settings`;`synthetics-mapping`; `synthetics-settings`. Opensearch Agent uses these templates to configure backing indices for its data streams. If you use Opensearch Agent and want to overwrite one of these templates, set the `version` for your replacement template higher than the current version. If you don&#x2019;t use Opensearch Agent and want to disable all built-in component and index templates, set `stack.templates.enabled` to `false` using the cluster update settings API.</param>
+        /// <summary>PUT on /_component_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</para></summary>
+        /// <param name="name">Name of the component template to create. OpenSearch includes the following built-in component templates: `logs-mappings`; &#x27;logs-settings`; `metrics-mappings`; `metrics-settings`;`synthetics-mapping`; `synthetics-settings`. OpenSearch Agent uses these templates to configure backing indices for its data streams. If you use OpenSearch Agent and want to overwrite one of these templates, set the `version` for your replacement template higher than the current version. If you don&#x27;t use OpenSearch Agent and want to disable all built-in component and index templates, set `stack.templates.enabled` to `false` using the cluster update settings API.</param>
         /// <param name="body">The template definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.put_component_template", "name, body")]

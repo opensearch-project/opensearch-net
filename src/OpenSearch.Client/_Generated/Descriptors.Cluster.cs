@@ -185,7 +185,7 @@ namespace OpenSearch.Client
             Qs("master_timeout", mastertimeout);
     }
 
-    /// <summary>Descriptor for PutComponentTemplate</summary>
+    /// <summary>Descriptor for PutComponentTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</para></summary>
     public partial class PutComponentTemplateDescriptor
         : RequestDescriptorBase<
             PutComponentTemplateDescriptor,
