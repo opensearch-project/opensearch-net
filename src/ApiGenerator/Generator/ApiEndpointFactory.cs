@@ -289,6 +289,9 @@ namespace ApiGenerator.Generator
         {
             if (string.IsNullOrWhiteSpace(description)) return null;
 
+            description = Regex.Replace(description, "&", "&amp;");
+            description = Regex.Replace(description, "<", "&lt;");
+            description = Regex.Replace(description, ">", "&gt;");
             description = Regex.Replace(description, @"\s+", " ");
 
             if (!description.EndsWith('.')) description += '.';

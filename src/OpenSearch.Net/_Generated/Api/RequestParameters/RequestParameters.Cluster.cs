@@ -367,8 +367,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// The request waits until the specified number N of nodes is available. It also accepts >=N, <=N, >N and <N. Alternatively, it is possible
-        /// to use ge(N), le(N), gt(N) and lt(N) notation.
+        /// The request waits until the specified number N of nodes is available. It also accepts &gt;=N, &lt;=N, &gt;N and &lt;N. Alternatively, it
+        /// is possible to use ge(N), le(N), gt(N) and lt(N) notation.
         /// </summary>
         public string WaitForNodes
         {
@@ -398,7 +398,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// One of green, yellow or red. Will wait (until the timeout provided) until the status of the cluster changes to the one provided or better,
-        /// i.e. green > yellow > red. By default, will not wait for any status.
+        /// i.e. green &gt; yellow &gt; red. By default, will not wait for any status.
         /// </summary>
         public HealthStatus? WaitForStatus
         {

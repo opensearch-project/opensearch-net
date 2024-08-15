@@ -87,7 +87,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        opensearch_ref: ['1.x', '2.x', 'main']
+        include:
+          - { opensearch_ref: '1.x', java_version: '11' }
+          - { opensearch_ref: '2.x', java_version: '17' }
+          - { opensearch_ref: 'main', java_version: '21' }
     steps:
       - name: Checkout Client
         uses: actions/checkout@v4
@@ -111,8 +114,8 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          java-version: 21
           distribution: 'temurin'
+          java-version: ${{ matrix.java_version }}
 
       - name: Restore or Build OpenSearch
         id: opensearch_build

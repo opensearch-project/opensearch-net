@@ -50,7 +50,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuget-
 
-      - run: "./build.sh integrate $VERSION readonly,replicatedreadonly,writable random:test_only_one --report"
+      - run: "./build.sh integrate $VERSION readonly,multinode,writable random:test_only_one --report"
         name: Integration Tests
         working-directory: client
         env:
@@ -69,10 +69,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        opensearch_ref:
-          - '1.x'
-          - '2.x'
-          - 'main'
+        include:
+          - { opensearch_ref: '1.x', java_version: '11' }
+          - { opensearch_ref: '2.x', java_version: '17' }
+          - { opensearch_ref: 'main', java_version: '21' }
 
     steps:
       - name: Checkout Client
@@ -100,6 +100,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuget-
 
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: ${{ matrix.java_version }}
+
       - name: Restore or Build OpenSearch
         id: opensearch
         uses: ./client/.github/actions/build-opensearch
@@ -109,7 +115,7 @@ jobs:
           knn_plugin: true
           plugins_output_directory: ${{ env.OPENSEARCH_PLUGINS_DIRECTORY }}
 
-      - run: "./build.sh integrate $OPENSEARCH_VERSION readonly,replicatedreadonly,writable random:test_only_one --report"
+      - run: "./build.sh integrate $OPENSEARCH_VERSION readonly,multinode,writable random:test_only_one --report"
         name: Integration Tests
         working-directory: client
         env:

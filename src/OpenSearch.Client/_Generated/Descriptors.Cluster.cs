@@ -336,7 +336,7 @@ namespace OpenSearch.Client
         public ClusterHealthDescriptor WaitForEvents(WaitForEvents? waitforevents) =>
             Qs("wait_for_events", waitforevents);
 
-        /// <summary>The request waits until the specified number N of nodes is available. It also accepts >=N, <=N, >N and <N. Alternatively, it is possible to use ge(N), le(N), gt(N) and lt(N) notation.</summary>
+        /// <summary>The request waits until the specified number N of nodes is available. It also accepts &gt;=N, &lt;=N, &gt;N and &lt;N. Alternatively, it is possible to use ge(N), le(N), gt(N) and lt(N) notation.</summary>
         public ClusterHealthDescriptor WaitForNodes(string waitfornodes) =>
             Qs("wait_for_nodes", waitfornodes);
 
@@ -350,7 +350,7 @@ namespace OpenSearch.Client
             bool? waitfornorelocatingshards = true
         ) => Qs("wait_for_no_relocating_shards", waitfornorelocatingshards);
 
-        /// <summary>One of green, yellow or red. Will wait (until the timeout provided) until the status of the cluster changes to the one provided or better, i.e. green > yellow > red. By default, will not wait for any status.</summary>
+        /// <summary>One of green, yellow or red. Will wait (until the timeout provided) until the status of the cluster changes to the one provided or better, i.e. green &gt; yellow &gt; red. By default, will not wait for any status.</summary>
         public ClusterHealthDescriptor WaitForStatus(HealthStatus? waitforstatus) =>
             Qs("wait_for_status", waitforstatus);
     }

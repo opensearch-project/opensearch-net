@@ -15,7 +15,7 @@ inputs:
   plugins_output_directory:
     description: The directory to output the plugins to
     default: ""
-outputs: 
+outputs:
     distribution:
       description: The path to the OpenSearch distribution
       value: ${{ steps.determine.outputs.distribution }}
@@ -36,11 +36,11 @@ runs:
           ./opensearch/distribution/archives/linux-tar/build/distributions/opensearch-*.tar.gz
           ./opensearch/plugins/*/build/distributions/*.zip
         build_script: |
-          ./gradlew :distribution:archives:linux-tar:assemble -Dbuild.snapshot=${{ inputs.build_snapshot }}
+          ./gradlew --stacktrace :distribution:archives:linux-tar:assemble -Dbuild.snapshot=${{ inputs.build_snapshot }}
 
           PluginList=("analysis-icu"  "analysis-kuromoji"  "analysis-nori"  "analysis-phonetic"  "ingest-attachment"  "mapper-murmur3")
           for plugin in ${PluginList[*]}; do
-            ./gradlew :plugins:$plugin:assemble -Dbuild.snapshot=${{ inputs.build_snapshot }}
+            ./gradlew --stacktrace :plugins:$plugin:assemble -Dbuild.snapshot=${{ inputs.build_snapshot }}
           done
 
     - name: Determine OpenSearch distribution path and version
@@ -62,7 +62,7 @@ runs:
         cache_key_suffix: ${{ inputs.build_snapshot == 'true' && '-snapshot' || '' }}
         cached_paths: |
           ./opensearch-security/build/distributions/opensearch-security-*.zip
-        build_script: ./gradlew assemble -Dopensearch.version=${{ steps.determine.outputs.version }} -Dbuild.snapshot=${{ inputs.build_snapshot }}
+        build_script: ./gradlew --stacktrace assemble -Dopensearch.version=${{ steps.determine.outputs.version }} -Dbuild.snapshot=${{ inputs.build_snapshot }}
 
     - name: Restore or Build OpenSearch k-NN
       uses: ./client/.github/actions/cached-git-build
@@ -76,7 +76,7 @@ runs:
           ./opensearch-knn/build/distributions/opensearch-knn-*.zip
         build_script: |
           sudo apt-get install -y libopenblas-dev libomp-dev
-          ./gradlew buildJniLib assemble -Dopensearch.version=${{ steps.determine.outputs.version }} -Dbuild.snapshot=${{ inputs.build_snapshot }}
+          ./gradlew --stacktrace buildJniLib assemble -Dopensearch.version=${{ steps.determine.outputs.version }} -Dbuild.snapshot=${{ inputs.build_snapshot }}
           distributions=./build/distributions
           lib_dir=$distributions/lib
           mkdir $lib_dir

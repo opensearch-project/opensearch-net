@@ -90,11 +90,8 @@ namespace OpenSearch.OpenSearch.Managed.Configuration
 			NumberOfNodes = numberOfNodes;
 
 			var fs = FileSystem;
-			Add("node.max_local_storage_nodes", numberOfNodes.ToString(CultureInfo.InvariantCulture), "1.0.0");
-
 			Add("cluster.name", clusterName);
 			Add("path.repo", fs.RepositoryPath);
-			Add("path.data", fs.DataPath);
 			var logsPathDefault = Path.Combine(fs.OpenSearchHome, "logs");
 			if (logsPathDefault != fs.LogsPath) Add("path.logs", fs.LogsPath);
 		}
@@ -122,7 +119,7 @@ namespace OpenSearch.OpenSearch.Managed.Configuration
 		public bool CacheOpenSearchHomeInstallation { get; set; }
 
 		/// <summary>The node settings to apply to each started node</summary>
-		public NodeSettings DefaultNodeSettings { get; } = new NodeSettings();
+		public NodeSettings DefaultNodeSettings { get; } = new();
 
 		/// <summary>
 		///     Creates a node name

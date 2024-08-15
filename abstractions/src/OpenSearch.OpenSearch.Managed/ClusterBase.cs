@@ -75,29 +75,32 @@ namespace OpenSearch.OpenSearch.Managed
 			ClusterConfiguration = clusterConfiguration;
 			ClusterMoniker = GetType().Name.Replace("Cluster", "");
 
-			NodeConfiguration Modify(NodeConfiguration n, int p)
-			{
-				ModifyNodeConfiguration(n, p);
-				return n;
-			}
+            var nodeConfigs = Enumerable.Range(ClusterConfiguration.StartingPortNumber, ClusterConfiguration.NumberOfNodes)
+                .Select(port => new NodeConfiguration(ClusterConfiguration, port, ClusterMoniker)
+                {
+                    ShowOpenSearchOutputAfterStarted = ClusterConfiguration.ShowOpenSearchOutputAfterStarted
+                })
+                .ToArray();
 
-			var nodes =
-				(from port in Enumerable.Range(ClusterConfiguration.StartingPortNumber,
-						ClusterConfiguration.NumberOfNodes)
-					let config = new NodeConfiguration(clusterConfiguration, port, ClusterMoniker)
-					{
-						ShowOpenSearchOutputAfterStarted =
-							clusterConfiguration.ShowOpenSearchOutputAfterStarted,
-					}
-					let node = new OpenSearchNode(Modify(config, port))
-					{
-						AssumeStartedOnNotEnoughMasterPing = ClusterConfiguration.NumberOfNodes > 1,
-					}
-					select node).ToList();
+            var initialClusterManagerNodes = string.Join(",", nodeConfigs.Select(n => n.DesiredNodeName));
 
-			var initialMasterNodes = string.Join(",", nodes.Select(n => n.NodeConfiguration.DesiredNodeName));
-			foreach (var node in nodes)
-				node.NodeConfiguration.InitialMasterNodes(initialMasterNodes);
+            var nodes = nodeConfigs
+                .Select(config =>
+                {
+                    if (nodeConfigs.Length > 1)
+                    {
+                        var otherNodes = nodeConfigs
+                            .Where(n => n != config)
+                            .Select(n => $"localhost:{(n.DesiredPort ?? 9200) + 100}");
+                        config.SeedHosts(string.Join(",", otherNodes));
+                    }
+
+                    config.InitialClusterManagerNodes(initialClusterManagerNodes);
+                    ModifyNodeConfiguration(config, config.DesiredPort ?? 9200);
+
+                    return new OpenSearchNode(config) { AssumeStartedOnNotEnoughClusterManagerPing = ClusterConfiguration.NumberOfNodes > 1 };
+                })
+                .ToArray();
 
 			Nodes = new ReadOnlyCollection<OpenSearchNode>(nodes);
 		}

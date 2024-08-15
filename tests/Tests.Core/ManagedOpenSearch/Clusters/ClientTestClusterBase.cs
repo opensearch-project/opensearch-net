@@ -39,57 +39,68 @@ using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Tasks;
 using Tests.Domain.Extensions;
 
-namespace Tests.Core.ManagedOpenSearch.Clusters
+namespace Tests.Core.ManagedOpenSearch.Clusters;
+
+public abstract class ClientTestClusterBase(ClientTestClusterConfiguration configuration)
+    : XunitClusterBase<ClientTestClusterConfiguration>(configuration),
+        IOpenSearchClientTestCluster
 {
-	public abstract class ClientTestClusterBase : XunitClusterBase<ClientTestClusterConfiguration>, IOpenSearchClientTestCluster
-	{
-		protected ClientTestClusterBase() : this(new ClientTestClusterConfiguration()) { }
+    protected ClientTestClusterBase() : this(new ClientTestClusterConfiguration()) { }
 
-		protected ClientTestClusterBase(params OpenSearchPlugin[] plugins) : this(new ClientTestClusterConfiguration(plugins)) { }
+    protected ClientTestClusterBase(params OpenSearchPlugin[] plugins) : this(new ClientTestClusterConfiguration(plugins)) { }
 
-		protected ClientTestClusterBase(ClientTestClusterConfiguration configuration) : base(configuration) { }
+    public IOpenSearchClient Client => this.GetOrAddClient(s => ConnectionSettings(s.ApplyDomainSettings()));
 
-		public IOpenSearchClient Client => this.GetOrAddClient(s => ConnectionSettings(s.ApplyDomainSettings()));
+    protected virtual ConnectionSettings ConnectionSettings(ConnectionSettings s) => s;
 
-		protected virtual ConnectionSettings ConnectionSettings(ConnectionSettings s) => s;
+    protected sealed override void SeedCluster()
+    {
+        var clusterHealth = new ClusterHealthRequest
+        {
+            WaitForNodes = ClusterConfiguration.NumberOfNodes.ToString(),
+            WaitForStatus = HealthStatus.Green,
+            Level = ClusterHealthLevel.Shards
+        };
 
-		protected sealed override void SeedCluster()
-		{
-			Client.Cluster.Health(new ClusterHealthRequest { WaitForStatus = HealthStatus.Green });
-			SeedNode();
-			Client.Cluster.Health(new ClusterHealthRequest { WaitForStatus = HealthStatus.Green });
-		}
+        Client.Cluster.Health(clusterHealth).ShouldBeValid();
 
-		protected virtual void SeedNode() { }
-	}
+        SeedNode();
 
-	public class ClientTestClusterConfiguration : XunitClusterConfiguration
-	{
-		public ClientTestClusterConfiguration(params OpenSearchPlugin[] plugins) : this(numberOfNodes: 1, plugins: plugins) { }
+        Client.Cluster.Health(clusterHealth).ShouldBeValid();
+    }
 
-		public ClientTestClusterConfiguration(ClusterFeatures features = ClusterFeatures.SSL, int numberOfNodes = 1,
-			params OpenSearchPlugin[] plugins
-		)
-			: base(TestClient.Configuration.OpenSearchVersion, features, new OpenSearchPlugins(plugins), numberOfNodes)
-		{
-			TestConfiguration = TestClient.Configuration;
+    protected virtual void SeedNode() { }
+}
 
-			ShowOpenSearchOutputAfterStarted = TestConfiguration.ShowOpenSearchOutputAfterStarted;
-			HttpFiddlerAware = true;
+public class ClientTestClusterConfiguration : XunitClusterConfiguration
+{
+    public ClientTestClusterConfiguration(params OpenSearchPlugin[] plugins) : this(numberOfNodes: 1, plugins: plugins) { }
 
-			CacheOpenSearchHomeInstallation = true;
+    public ClientTestClusterConfiguration(ClusterFeatures features = ClusterFeatures.SSL, int numberOfNodes = 1,
+        params OpenSearchPlugin[] plugins
+    )
+        : base(TestClient.Configuration.OpenSearchVersion, features, new OpenSearchPlugins(plugins), numberOfNodes)
+    {
+        TestConfiguration = TestClient.Configuration;
 
-			Add(AttributeKey("testingcluster"), "true");
-			Add(AttributeKey("gateway"), "true");
+        ShowOpenSearchOutputAfterStarted = TestConfiguration.ShowOpenSearchOutputAfterStarted;
+        HttpFiddlerAware = true;
 
-			Add($"script.disable_max_compilations_rate", "true");
+        CacheOpenSearchHomeInstallation = true;
 
-			Add($"script.allowed_types", "inline,stored");
+        Add(AttributeKey("testingcluster"), "true");
+        Add(AttributeKey("gateway"), "true");
 
-			AdditionalBeforeNodeStartedTasks.Add(new WriteAnalysisFiles());
-		}
+        Add("cluster.routing.allocation.disk.watermark.low", "100%");
+        Add("cluster.routing.allocation.disk.watermark.high", "100%");
+        Add("cluster.routing.allocation.disk.watermark.flood_stage", "100%");
 
-		public string AnalysisFolder => Path.Combine(FileSystem.ConfigPath, "analysis");
-		public TestConfigurationBase TestConfiguration { get; }
-	}
+        Add("script.disable_max_compilations_rate", "true");
+        Add("script.allowed_types", "inline,stored");
+
+        AdditionalBeforeNodeStartedTasks.Add(new WriteAnalysisFiles());
+    }
+
+    public string AnalysisFolder => Path.Combine(FileSystem.ConfigPath, "analysis");
+    public TestConfigurationBase TestConfiguration { get; }
 }
