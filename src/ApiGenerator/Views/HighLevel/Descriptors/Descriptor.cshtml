@@ -11,7 +11,10 @@
     var apiLookup = $"ApiUrlsLookups.{Model.CsharpNames.Namespace}{Model.CsharpNames.MethodName}";
 }
     /// <summary>Descriptor for @names.MethodName@(Raw(Model.OfficialDocumentationLink.IsNullOrEmpty() ? "" : " <para>" + Model.OfficialDocumentationLink + "</para>"))</summary>
-    public partial class @Raw(type) @(Raw(string.Format(" : RequestDescriptorBase<{0},{1}, {2}>, {2}", type,names.ParametersName, concreteInterface)))
+    public partial class @Raw(type) 
+        @(Raw(string.Format(" : RequestDescriptorBase<{0},{1}, {2}>,\r\t\t\t{2}", 
+                            type,names.ParametersName, 
+                            concreteInterface)))
     {
         internal override ApiUrls ApiUrls => @apiLookup;
 @foreach (var c in Model.Constructors)

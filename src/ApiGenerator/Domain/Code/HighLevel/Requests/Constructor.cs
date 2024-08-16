@@ -78,7 +78,7 @@ namespace ApiGenerator.Domain.Code.HighLevel.Requests
             ctors.AddRange(from path in paths
                            let baseArgs = inheritsFromPlainRequestBase ? path.RequestBaseArguments : path.TypedSubClassBaseArguments
                            let constParams = path.ConstructorArguments
-                           let generated = $"public {typeName}({constParams}) : base({baseArgs})"
+                           let generated = $"public {typeName}({constParams}){Indent}\t: base({baseArgs})"
                            select new Constructor
                            {
                                Parameterless = string.IsNullOrEmpty(constParams),
@@ -96,7 +96,7 @@ namespace ApiGenerator.Domain.Code.HighLevel.Requests
                                let baseOrThis = inheritsFromPlainRequestBase
                                    ? "this"
                                    : "base"
-                               let generated = $"public {typeName}({constructorArgs}) : {baseOrThis}({baseArgs})"
+                               let generated = $"public {typeName}({constructorArgs}){Indent}\t: {baseOrThis}({baseArgs})"
                                select new Constructor
                                {
                                    Parameterless = string.IsNullOrEmpty(constructorArgs),
@@ -125,7 +125,7 @@ namespace ApiGenerator.Domain.Code.HighLevel.Requests
                 constructors.Add(new Constructor
                 {
                     Parameterless = true,
-                    Generated = $"protected {typeName}() : base()",
+                    Generated = $"protected {typeName}(){Indent}\t: base()",
                     Description =
                         $"/// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>{Indent}[SerializationConstructor]",
                 });

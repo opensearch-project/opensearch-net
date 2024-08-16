@@ -13,9 +13,11 @@ namespace OpenSearch.Client;
 {
 <text>
 
-	public class @m.Descriptor : @Raw($"Arbitrary{(m.TakesBody ? "Body" : string.Empty)}HttpRequestDescriptorBase<{m.Descriptor}, {m.RequestParameters}, {m.IRequest}>"), @m.IRequest
+	public class @m.Descriptor : @Raw($"Arbitrary{(m.TakesBody ? "Body" : string.Empty)}HttpRequestDescriptorBase<{m.Descriptor}, {m.RequestParameters}, {m.IRequest}>"), 
+        @m.IRequest
 	{
-		public @(m.Descriptor)(string path) : base(path) { }
+		public @(m.Descriptor)(string path) 
+            : base(path) { }
 	}
 
 </text>
