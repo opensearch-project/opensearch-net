@@ -25,6 +25,7 @@
 *  specific language governing permissions and limitations
 *  under the License.
 */
+
 // ███╗   ██╗ ██████╗ ████████╗██╗ ██████╗███████╗
 // ████╗  ██║██╔═══██╗╚══██╔══╝██║██╔════╝██╔════╝
 // ██╔██╗ ██║██║   ██║   ██║   ██║██║     █████╗
@@ -66,288 +67,114 @@ namespace OpenSearch.Net.Specification.IndicesApi
     /// </summary>
     public partial class LowLevelIndicesNamespace : NamespacedClientProxy
     {
-        internal LowLevelIndicesNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
-
+        internal LowLevelIndicesNamespace(OpenSearchLowLevelClient client) : base(client) { }
         /// <summary>DELETE on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
         /// <param name="name">Name of the index template to delete. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse DeleteComposableTemplateForAll<TResponse>(
-            string name,
-            DeleteComposableIndexTemplateRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_index_template/{name:name}"),
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse DeleteComposableTemplateForAll<TResponse>(string name, DeleteComposableIndexTemplateRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(DELETE, Url($"_index_template/{name:name}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
         /// <param name="name">Name of the index template to delete. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.delete_index_template", "name")]
-        public Task<TResponse> DeleteComposableTemplateForAllAsync<TResponse>(
-            string name,
-            DeleteComposableIndexTemplateRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_index_template/{name:name}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> DeleteComposableTemplateForAllAsync<TResponse>(string name, DeleteComposableIndexTemplateRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(DELETE, Url($"_index_template/{name:name}"), ctx, null, RequestParams(requestParameters));
         /// <summary>HEAD on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
         /// <param name="name">Name of the index template to check existence of. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse ComposableTemplateExistsForAll<TResponse>(
-            string name,
-            ComposableIndexTemplateExistsRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                HEAD,
-                Url($"_index_template/{name:name}"),
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse ComposableTemplateExistsForAll<TResponse>(string name, ComposableIndexTemplateExistsRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(HEAD, Url($"_index_template/{name:name}"), null, RequestParams(requestParameters));
 
         /// <summary>HEAD on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
         /// <param name="name">Name of the index template to check existence of. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.exists_index_template", "name")]
-        public Task<TResponse> ComposableTemplateExistsForAllAsync<TResponse>(
-            string name,
-            ComposableIndexTemplateExistsRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                HEAD,
-                Url($"_index_template/{name:name}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> ComposableTemplateExistsForAllAsync<TResponse>(string name, ComposableIndexTemplateExistsRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(HEAD, Url($"_index_template/{name:name}"), ctx, null, RequestParams(requestParameters));
         /// <summary>GET on /_index_template <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetComposableTemplateForAll<TResponse>(
-            GetComposableIndexTemplateRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(GET, "_index_template", null, RequestParams(requestParameters));
+        public TResponse GetComposableTemplateForAll<TResponse>(GetComposableIndexTemplateRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_index_template", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_index_template <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.get_index_template", "")]
-        public Task<TResponse> GetComposableTemplateForAllAsync<TResponse>(
-            GetComposableIndexTemplateRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_index_template",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> GetComposableTemplateForAllAsync<TResponse>(GetComposableIndexTemplateRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_index_template", ctx, null, RequestParams(requestParameters));
         /// <summary>GET on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
         /// <param name="name">Name of the index template to retrieve. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetComposableTemplateForAll<TResponse>(
-            string name,
-            GetComposableIndexTemplateRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_index_template/{name:name}"),
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse GetComposableTemplateForAll<TResponse>(string name, GetComposableIndexTemplateRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"_index_template/{name:name}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
         /// <param name="name">Name of the index template to retrieve. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.get_index_template", "name")]
-        public Task<TResponse> GetComposableTemplateForAllAsync<TResponse>(
-            string name,
-            GetComposableIndexTemplateRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_index_template/{name:name}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> GetComposableTemplateForAllAsync<TResponse>(string name, GetComposableIndexTemplateRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_index_template/{name:name}"), ctx, null, RequestParams(requestParameters));
         /// <summary>PUT on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
         /// <param name="name">Index or template name.</param>
         /// <param name="body">The template definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse PutComposableTemplateForAll<TResponse>(
-            string name,
-            PostData body,
-            PutComposableIndexTemplateRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_index_template/{name:name}"),
-                body,
-                RequestParams(requestParameters)
-            );
+        public TResponse PutComposableTemplateForAll<TResponse>(string name, PostData body, PutComposableIndexTemplateRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(PUT, Url($"_index_template/{name:name}"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
         /// <param name="name">Index or template name.</param>
         /// <param name="body">The template definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.put_index_template", "name, body")]
-        public Task<TResponse> PutComposableTemplateForAllAsync<TResponse>(
-            string name,
-            PostData body,
-            PutComposableIndexTemplateRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_index_template/{name:name}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> PutComposableTemplateForAllAsync<TResponse>(string name, PostData body, PutComposableIndexTemplateRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(PUT, Url($"_index_template/{name:name}"), ctx, body, RequestParams(requestParameters));
         /// <summary>GET on /_stats <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse StatsForAll<TResponse>(
-            IndicesStatsRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(GET, "_stats", null, RequestParams(requestParameters));
+        public TResponse StatsForAll<TResponse>(IndicesStatsRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_stats", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_stats <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.stats", "")]
-        public Task<TResponse> StatsForAllAsync<TResponse>(
-            IndicesStatsRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(GET, "_stats", ctx, null, RequestParams(requestParameters));
-
+        public Task<TResponse> StatsForAllAsync<TResponse>(IndicesStatsRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_stats", ctx, null, RequestParams(requestParameters));
         /// <summary>GET on /{index}/_stats <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Stats<TResponse>(
-            string index,
-            IndicesStatsRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"{index:index}/_stats"),
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse Stats<TResponse>(string index, IndicesStatsRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"{index:index}/_stats"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /{index}/_stats <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.stats", "index")]
-        public Task<TResponse> StatsAsync<TResponse>(
-            string index,
-            IndicesStatsRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"{index:index}/_stats"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> StatsAsync<TResponse>(string index, IndicesStatsRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"{index:index}/_stats"), ctx, null, RequestParams(requestParameters));
         /// <summary>GET on /{index}/_stats/{metric} <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
         /// <param name="metric">Limit the information returned the specific metrics.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Stats<TResponse>(
-            string index,
-            string metric,
-            IndicesStatsRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"{index:index}/_stats/{metric:metric}"),
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse Stats<TResponse>(string index, string metric, IndicesStatsRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"{index:index}/_stats/{metric:metric}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /{index}/_stats/{metric} <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
         /// <param name="metric">Limit the information returned the specific metrics.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.stats", "index, metric")]
-        public Task<TResponse> StatsAsync<TResponse>(
-            string index,
-            string metric,
-            IndicesStatsRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"{index:index}/_stats/{metric:metric}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> StatsAsync<TResponse>(string index, string metric, IndicesStatsRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"{index:index}/_stats/{metric:metric}"), ctx, null, RequestParams(requestParameters));
         /// <summary>GET on /_stats/{metric} <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="metric">Limit the information returned the specific metrics.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse StatsForAll<TResponse>(
-            string metric,
-            IndicesStatsRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_stats/{metric:metric}"),
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse StatsForAll<TResponse>(string metric, IndicesStatsRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"_stats/{metric:metric}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_stats/{metric} <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="metric">Limit the information returned the specific metrics.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.stats", "metric")]
-        public Task<TResponse> StatsForAllAsync<TResponse>(
-            string metric,
-            IndicesStatsRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_stats/{metric:metric}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+        public Task<TResponse> StatsForAllAsync<TResponse>(string metric, IndicesStatsRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_stats/{metric:metric}"), ctx, null, RequestParams(requestParameters));
     }
 }

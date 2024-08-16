@@ -25,6 +25,7 @@
 *  specific language governing permissions and limitations
 *  under the License.
 */
+
 // ███╗   ██╗ ██████╗ ████████╗██╗ ██████╗███████╗
 // ████╗  ██║██╔═══██╗╚══██╔══╝██║██╔════╝██╔════╝
 // ██╔██╗ ██║██║   ██║   ██║   ██║██║     █████╗
@@ -62,26 +63,23 @@ namespace OpenSearch.Client
     public partial interface INodesHotThreadsRequest : IRequest<NodesHotThreadsRequestParameters>
     {
         [IgnoreDataMember]
-        NodeIds NodeId { get; }
+        NodeIds NodeId
+        {
+            get;
+        }
     }
-
     /// <summary>Request for HotThreads <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
-    public partial class NodesHotThreadsRequest
-        : PlainRequestBase<NodesHotThreadsRequestParameters>,
-            INodesHotThreadsRequest
+    public partial class NodesHotThreadsRequest : PlainRequestBase<NodesHotThreadsRequestParameters>, INodesHotThreadsRequest
     {
         protected INodesHotThreadsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesHotThreads;
-
         /// <summary>/_nodes/hot_threads</summary>
         public NodesHotThreadsRequest()
             : base() { }
-
         /// <summary>/_nodes/{node_id}/hot_threads</summary>
         /// <param name="nodeId">Optional, accepts null</param>
         public NodesHotThreadsRequest(NodeIds nodeId)
             : base(r => r.Optional("node_id", nodeId)) { }
-
         // values part of the url path
         [IgnoreDataMember]
         NodeIds INodesHotThreadsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
@@ -92,86 +90,71 @@ namespace OpenSearch.Client
         {
             get => Q<bool?>("ignore_idle_threads");
             set => Q("ignore_idle_threads", value);
-        }
-
-        /// <summary>The interval for the second sampling of threads.</summary>
-        public Time Interval
+        }/// <summary>The interval for the second sampling of threads.</summary>
+		public Time Interval
         {
             get => Q<Time>("interval");
             set => Q("interval", value);
-        }
-
-        /// <summary>Number of samples of thread stacktrace.</summary>
-        public long? Snapshots
+        }/// <summary>Number of samples of thread stacktrace.</summary>
+		public long? Snapshots
         {
             get => Q<long?>("snapshots");
             set => Q("snapshots", value);
-        }
-
-        /// <summary>Specify the number of threads to provide information for.</summary>
-        public long? Threads
+        }/// <summary>Specify the number of threads to provide information for.</summary>
+		public long? Threads
         {
             get => Q<long?>("threads");
             set => Q("threads", value);
-        }
-
-        /// <summary>Operation timeout.</summary>
-        public Time Timeout
+        }/// <summary>Operation timeout.</summary>
+		public Time Timeout
         {
             get => Q<Time>("timeout");
             set => Q("timeout", value);
-        }
-
-        /// <summary>The type to sample.</summary>
-        public NodesSampleType? Type
+        }/// <summary>The type to sample.</summary>
+		public NodesSampleType? Type
         {
             get => Q<NodesSampleType?>("type");
             set => Q("type", value);
         }
     }
-
     [InterfaceDataContract]
     public partial interface INodesInfoRequest : IRequest<NodesInfoRequestParameters>
     {
         [IgnoreDataMember]
-        Metrics Metric { get; }
-
+        Metrics Metric
+        {
+            get;
+        }
         [IgnoreDataMember]
-        NodeIds NodeId { get; }
+        NodeIds NodeId
+        {
+            get;
+        }
     }
-
     /// <summary>Request for Info <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
-    public partial class NodesInfoRequest
-        : PlainRequestBase<NodesInfoRequestParameters>,
-            INodesInfoRequest
+    public partial class NodesInfoRequest : PlainRequestBase<NodesInfoRequestParameters>, INodesInfoRequest
     {
         protected INodesInfoRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesInfo;
-
         /// <summary>/_nodes</summary>
         public NodesInfoRequest()
             : base() { }
-
         /// <summary>/_nodes/{metric}</summary>
         /// <param name="metric">Optional, accepts null</param>
         public NodesInfoRequest(Metrics metric)
             : base(r => r.Optional("metric", metric)) { }
-
         /// <summary>/_nodes/{node_id}</summary>
         /// <param name="nodeId">Optional, accepts null</param>
         public NodesInfoRequest(NodeIds nodeId)
             : base(r => r.Optional("node_id", nodeId)) { }
-
         /// <summary>/_nodes/{node_id}/{metric}</summary>
         /// <param name="nodeId">Optional, accepts null</param>
         /// <param name="metric">Optional, accepts null</param>
         public NodesInfoRequest(NodeIds nodeId, Metrics metric)
             : base(r => r.Optional("node_id", nodeId).Optional("metric", metric)) { }
-
         // values part of the url path
         [IgnoreDataMember]
         Metrics INodesInfoRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
-
         [IgnoreDataMember]
         NodeIds INodesInfoRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
@@ -181,41 +164,34 @@ namespace OpenSearch.Client
         {
             get => Q<bool?>("flat_settings");
             set => Q("flat_settings", value);
-        }
-
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        public Time Timeout
+        }/// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+		public Time Timeout
         {
             get => Q<Time>("timeout");
             set => Q("timeout", value);
         }
     }
-
     [InterfaceDataContract]
-    public partial interface IReloadSecureSettingsRequest
-        : IRequest<ReloadSecureSettingsRequestParameters>
+    public partial interface IReloadSecureSettingsRequest : IRequest<ReloadSecureSettingsRequestParameters>
     {
         [IgnoreDataMember]
-        NodeIds NodeId { get; }
+        NodeIds NodeId
+        {
+            get;
+        }
     }
-
     /// <summary>Request for ReloadSecureSettings <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
-    public partial class ReloadSecureSettingsRequest
-        : PlainRequestBase<ReloadSecureSettingsRequestParameters>,
-            IReloadSecureSettingsRequest
+    public partial class ReloadSecureSettingsRequest : PlainRequestBase<ReloadSecureSettingsRequestParameters>, IReloadSecureSettingsRequest
     {
         protected IReloadSecureSettingsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesReloadSecureSettings;
-
         /// <summary>/_nodes/reload_secure_settings</summary>
         public ReloadSecureSettingsRequest()
             : base() { }
-
         /// <summary>/_nodes/{node_id}/reload_secure_settings</summary>
         /// <param name="nodeId">Optional, accepts null</param>
         public ReloadSecureSettingsRequest(NodeIds nodeId)
             : base(r => r.Optional("node_id", nodeId)) { }
-
         // values part of the url path
         [IgnoreDataMember]
         NodeIds IReloadSecureSettingsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
@@ -228,73 +204,62 @@ namespace OpenSearch.Client
             set => Q("timeout", value);
         }
     }
-
     [InterfaceDataContract]
     public partial interface INodesStatsRequest : IRequest<NodesStatsRequestParameters>
     {
         [IgnoreDataMember]
-        IndexMetrics IndexMetric { get; }
-
+        IndexMetrics IndexMetric
+        {
+            get;
+        }
         [IgnoreDataMember]
-        Metrics Metric { get; }
-
+        Metrics Metric
+        {
+            get;
+        }
         [IgnoreDataMember]
-        NodeIds NodeId { get; }
+        NodeIds NodeId
+        {
+            get;
+        }
     }
-
     /// <summary>Request for Stats <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
-    public partial class NodesStatsRequest
-        : PlainRequestBase<NodesStatsRequestParameters>,
-            INodesStatsRequest
+    public partial class NodesStatsRequest : PlainRequestBase<NodesStatsRequestParameters>, INodesStatsRequest
     {
         protected INodesStatsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesStats;
-
         /// <summary>/_nodes/stats</summary>
         public NodesStatsRequest()
             : base() { }
-
         /// <summary>/_nodes/stats/{metric}</summary>
         /// <param name="metric">Optional, accepts null</param>
         public NodesStatsRequest(Metrics metric)
             : base(r => r.Optional("metric", metric)) { }
-
         /// <summary>/_nodes/stats/{metric}/{index_metric}</summary>
         /// <param name="metric">Optional, accepts null</param>
         /// <param name="indexMetric">Optional, accepts null</param>
         public NodesStatsRequest(Metrics metric, IndexMetrics indexMetric)
             : base(r => r.Optional("metric", metric).Optional("index_metric", indexMetric)) { }
-
         /// <summary>/_nodes/{node_id}/stats</summary>
         /// <param name="nodeId">Optional, accepts null</param>
         public NodesStatsRequest(NodeIds nodeId)
             : base(r => r.Optional("node_id", nodeId)) { }
-
         /// <summary>/_nodes/{node_id}/stats/{metric}</summary>
         /// <param name="nodeId">Optional, accepts null</param>
         /// <param name="metric">Optional, accepts null</param>
         public NodesStatsRequest(NodeIds nodeId, Metrics metric)
             : base(r => r.Optional("node_id", nodeId).Optional("metric", metric)) { }
-
         /// <summary>/_nodes/{node_id}/stats/{metric}/{index_metric}</summary>
         /// <param name="nodeId">Optional, accepts null</param>
         /// <param name="metric">Optional, accepts null</param>
         /// <param name="indexMetric">Optional, accepts null</param>
         public NodesStatsRequest(NodeIds nodeId, Metrics metric, IndexMetrics indexMetric)
-            : base(r =>
-                r.Optional("node_id", nodeId)
-                    .Optional("metric", metric)
-                    .Optional("index_metric", indexMetric)
-            ) { }
-
+            : base(r => r.Optional("node_id", nodeId).Optional("metric", metric).Optional("index_metric", indexMetric)) { }
         // values part of the url path
         [IgnoreDataMember]
-        IndexMetrics INodesStatsRequest.IndexMetric =>
-            Self.RouteValues.Get<IndexMetrics>("index_metric");
-
+        IndexMetrics INodesStatsRequest.IndexMetric => Self.RouteValues.Get<IndexMetrics>("index_metric");
         [IgnoreDataMember]
         Metrics INodesStatsRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
-
         [IgnoreDataMember]
         NodeIds INodesStatsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
@@ -304,100 +269,81 @@ namespace OpenSearch.Client
         {
             get => Q<Fields>("completion_fields");
             set => Q("completion_fields", value);
-        }
-
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata statistics.</summary>
-        public Fields FielddataFields
+        }/// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata statistics.</summary>
+		public Fields FielddataFields
         {
             get => Q<Fields>("fielddata_fields");
             set => Q("fielddata_fields", value);
-        }
-
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
-        public Fields Fields
+        }/// <summary>Comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
+		public Fields Fields
         {
             get => Q<Fields>("fields");
             set => Q("fields", value);
-        }
-
-        /// <summary>Comma-separated list of search groups to include in the search statistics.</summary>
-        public string[] Groups
+        }/// <summary>Comma-separated list of search groups to include in the search statistics.</summary>
+		public string[] Groups
         {
             get => Q<string[]>("groups");
             set => Q("groups", value);
-        }
-
-        /// <summary>If true, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
-        public bool? IncludeSegmentFileSizes
+        }/// <summary>If true, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
+		public bool? IncludeSegmentFileSizes
         {
             get => Q<bool?>("include_segment_file_sizes");
             set => Q("include_segment_file_sizes", value);
-        }
-
-        /// <summary>Indicates whether statistics are aggregated at the cluster, index, or shard level.</summary>
-        public Level? Level
+        }/// <summary>Indicates whether statistics are aggregated at the cluster, index, or shard level.</summary>
+		public Level? Level
         {
             get => Q<Level?>("level");
             set => Q("level", value);
-        }
-
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        public Time Timeout
+        }/// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+		public Time Timeout
         {
             get => Q<Time>("timeout");
             set => Q("timeout", value);
-        }
-
-        /// <summary>A comma-separated list of document types for the indexing index metric.</summary>
-        public string[] Types
+        }/// <summary>A comma-separated list of document types for the indexing index metric.</summary>
+		public string[] Types
         {
             get => Q<string[]>("types");
             set => Q("types", value);
         }
     }
-
     [InterfaceDataContract]
     public partial interface INodesUsageRequest : IRequest<NodesUsageRequestParameters>
     {
         [IgnoreDataMember]
-        Metrics Metric { get; }
-
+        Metrics Metric
+        {
+            get;
+        }
         [IgnoreDataMember]
-        NodeIds NodeId { get; }
+        NodeIds NodeId
+        {
+            get;
+        }
     }
-
     /// <summary>Request for Usage <para>https://opensearch.org/docs/latest</para></summary>
-    public partial class NodesUsageRequest
-        : PlainRequestBase<NodesUsageRequestParameters>,
-            INodesUsageRequest
+    public partial class NodesUsageRequest : PlainRequestBase<NodesUsageRequestParameters>, INodesUsageRequest
     {
         protected INodesUsageRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesUsage;
-
         /// <summary>/_nodes/usage</summary>
         public NodesUsageRequest()
             : base() { }
-
         /// <summary>/_nodes/usage/{metric}</summary>
         /// <param name="metric">Optional, accepts null</param>
         public NodesUsageRequest(Metrics metric)
             : base(r => r.Optional("metric", metric)) { }
-
         /// <summary>/_nodes/{node_id}/usage</summary>
         /// <param name="nodeId">Optional, accepts null</param>
         public NodesUsageRequest(NodeIds nodeId)
             : base(r => r.Optional("node_id", nodeId)) { }
-
         /// <summary>/_nodes/{node_id}/usage/{metric}</summary>
         /// <param name="nodeId">Optional, accepts null</param>
         /// <param name="metric">Optional, accepts null</param>
         public NodesUsageRequest(NodeIds nodeId, Metrics metric)
             : base(r => r.Optional("node_id", nodeId).Optional("metric", metric)) { }
-
         // values part of the url path
         [IgnoreDataMember]
         Metrics INodesUsageRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
-
         [IgnoreDataMember]
         NodeIds INodesUsageRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 

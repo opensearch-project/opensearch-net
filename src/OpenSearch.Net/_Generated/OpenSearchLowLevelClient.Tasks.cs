@@ -25,6 +25,7 @@
 *  specific language governing permissions and limitations
 *  under the License.
 */
+
 // ███╗   ██╗ ██████╗ ████████╗██╗ ██████╗███████╗
 // ████╗  ██║██╔═══██╗╚══██╔══╝██║██╔════╝██╔════╝
 // ██╔██╗ ██║██║   ██║   ██║   ██║██║     █████╗
@@ -66,111 +67,50 @@ namespace OpenSearch.Net.Specification.TasksApi
     /// </summary>
     public partial class LowLevelTasksNamespace : NamespacedClientProxy
     {
-        internal LowLevelTasksNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
-
+        internal LowLevelTasksNamespace(OpenSearchLowLevelClient client) : base(client) { }
         /// <summary>POST on /_tasks/_cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Cancel<TResponse>(CancelTasksRequestParameters requestParameters = null)
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(POST, "_tasks/_cancel", null, RequestParams(requestParameters));
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(POST, "_tasks/_cancel", null, RequestParams(requestParameters));
 
         /// <summary>POST on /_tasks/_cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("tasks.cancel", "")]
-        public Task<TResponse> CancelAsync<TResponse>(
-            CancelTasksRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_tasks/_cancel",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> CancelAsync<TResponse>(CancelTasksRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(POST, "_tasks/_cancel", ctx, null, RequestParams(requestParameters));
         /// <summary>POST on /_tasks/{task_id}/_cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
         /// <param name="taskId">ID of the task.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Cancel<TResponse>(
-            string taskId,
-            CancelTasksRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_tasks/{taskId:taskId}/_cancel"),
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse Cancel<TResponse>(string taskId, CancelTasksRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(POST, Url($"_tasks/{taskId:taskId}/_cancel"), null, RequestParams(requestParameters));
 
         /// <summary>POST on /_tasks/{task_id}/_cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
         /// <param name="taskId">ID of the task.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("tasks.cancel", "task_id")]
-        public Task<TResponse> CancelAsync<TResponse>(
-            string taskId,
-            CancelTasksRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_tasks/{taskId:taskId}/_cancel"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> CancelAsync<TResponse>(string taskId, CancelTasksRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(POST, Url($"_tasks/{taskId:taskId}/_cancel"), ctx, null, RequestParams(requestParameters));
         /// <summary>GET on /_tasks/{task_id} <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
         /// <param name="taskId">ID of the task.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetTask<TResponse>(
-            string taskId,
-            GetTaskRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_tasks/{taskId:taskId}"),
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse GetTask<TResponse>(string taskId, GetTaskRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"_tasks/{taskId:taskId}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_tasks/{task_id} <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
         /// <param name="taskId">ID of the task.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("tasks.get", "task_id")]
-        public Task<TResponse> GetTaskAsync<TResponse>(
-            string taskId,
-            GetTaskRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_tasks/{taskId:taskId}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> GetTaskAsync<TResponse>(string taskId, GetTaskRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_tasks/{taskId:taskId}"), ctx, null, RequestParams(requestParameters));
         /// <summary>GET on /_tasks <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse List<TResponse>(ListTasksRequestParameters requestParameters = null)
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(GET, "_tasks", null, RequestParams(requestParameters));
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_tasks", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_tasks <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("tasks.list", "")]
-        public Task<TResponse> ListAsync<TResponse>(
-            ListTasksRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(GET, "_tasks", ctx, null, RequestParams(requestParameters));
+        public Task<TResponse> ListAsync<TResponse>(ListTasksRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_tasks", ctx, null, RequestParams(requestParameters));
     }
 }

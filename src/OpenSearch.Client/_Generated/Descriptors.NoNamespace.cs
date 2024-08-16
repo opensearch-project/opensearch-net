@@ -25,6 +25,7 @@
 *  specific language governing permissions and limitations
 *  under the License.
 */
+
 // ███╗   ██╗ ██████╗ ████████╗██╗ ██████╗███████╗
 // ████╗  ██║██╔═══██╗╚══██╔══╝██║██╔════╝██╔════╝
 // ██╔██╗ ██║██║   ██║   ██║   ██║██║     █████╗
@@ -58,68 +59,51 @@ namespace OpenSearch.Client
 {
     /// <summary>Descriptor for CreatePit <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</para></summary>
     public partial class CreatePitDescriptor
-        : RequestDescriptorBase<CreatePitDescriptor, CreatePitRequestParameters, ICreatePitRequest>,
+         : RequestDescriptorBase<CreatePitDescriptor, CreatePitRequestParameters, ICreatePitRequest>,
             ICreatePitRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceCreatePit;
-
         /// <summary>/{index}/_search/point_in_time</summary>
         /// <param name="index">this parameter is required</param>
         public CreatePitDescriptor(Indices index)
             : base(r => r.Required("index", index)) { }
-
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
         protected CreatePitDescriptor()
             : base() { }
-
         // values part of the url path
         Indices ICreatePitRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         /// <summary>Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</summary>
-        public CreatePitDescriptor Index(Indices index) =>
-            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+        public CreatePitDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public CreatePitDescriptor Index<TOther>()
-            where TOther : class =>
-            Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (Indices)v));
+        public CreatePitDescriptor Index<TOther>() where TOther : class => Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
         public CreatePitDescriptor AllIndices() => Index(Indices.All);
-
         // Request parameters
         /// <summary>Allow if point in time can be created with partial failures.</summary>
-        public CreatePitDescriptor AllowPartialPitCreation(bool? allowpartialpitcreation = true) =>
-            Qs("allow_partial_pit_creation", allowpartialpitcreation);
-
+        public CreatePitDescriptor AllowPartialPitCreation(bool? allowpartialpitcreation = true) => Qs("allow_partial_pit_creation", allowpartialpitcreation);
         /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
-        public CreatePitDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
-            Qs("expand_wildcards", expandwildcards);
-
+        public CreatePitDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) => Qs("expand_wildcards", expandwildcards);
         /// <summary>Specify the keep alive for point in time.</summary>
         public CreatePitDescriptor KeepAlive(Time keepalive) => Qs("keep_alive", keepalive);
-
         /// <summary>Specify the node or shard the operation should be performed on.</summary>
         public CreatePitDescriptor Preference(string preference) => Qs("preference", preference);
-
         /// <summary>
         /// A document is routed to a particular shard in an index using the following formula
         /// <para> shard_num = hash(_routing) % num_primary_shards</para>
         /// <para>OpenSearch will use the document id if not provided. </para>
         /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
-        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see cref="OpenSearch.Client.ConnectionSettings" /></para> 
         /// </summary>
         public CreatePitDescriptor Routing(Routing routing) => Qs("routing", routing);
     }
 
     /// <summary>Descriptor for DeleteAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
     public partial class DeleteAllPitsDescriptor
-        : RequestDescriptorBase<
-            DeleteAllPitsDescriptor,
-            DeleteAllPitsRequestParameters,
-            IDeleteAllPitsRequest
-        >,
+         : RequestDescriptorBase<DeleteAllPitsDescriptor, DeleteAllPitsRequestParameters, IDeleteAllPitsRequest>,
             IDeleteAllPitsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceDeleteAllPits;
@@ -129,7 +113,7 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for DeletePit <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
     public partial class DeletePitDescriptor
-        : RequestDescriptorBase<DeletePitDescriptor, DeletePitRequestParameters, IDeletePitRequest>,
+         : RequestDescriptorBase<DeletePitDescriptor, DeletePitRequestParameters, IDeletePitRequest>,
             IDeletePitRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceDeletePit;
@@ -139,15 +123,12 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for GetAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</para></summary>
     public partial class GetAllPitsDescriptor
-        : RequestDescriptorBase<
-            GetAllPitsDescriptor,
-            GetAllPitsRequestParameters,
-            IGetAllPitsRequest
-        >,
+         : RequestDescriptorBase<GetAllPitsDescriptor, GetAllPitsRequestParameters, IGetAllPitsRequest>,
             IGetAllPitsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceGetAllPits;
         // values part of the url path
         // Request parameters
     }
+
 }

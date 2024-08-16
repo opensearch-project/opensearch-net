@@ -25,6 +25,7 @@
 *  specific language governing permissions and limitations
 *  under the License.
 */
+
 // ███╗   ██╗ ██████╗ ████████╗██╗ ██████╗███████╗
 // ████╗  ██║██╔═══██╗╚══██╔══╝██║██╔════╝██╔════╝
 // ██╔██╗ ██║██║   ██║   ██║   ██║██║     █████╗
@@ -62,184 +63,151 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</a>
         /// </summary>
-        DeletePipelineResponse DeletePipeline(
-            Id id,
-            Func<DeletePipelineDescriptor, IDeletePipelineRequest> selector = null
-        );
+        DeletePipelineResponse DeletePipeline(Id id, Func<DeletePipelineDescriptor, IDeletePipelineRequest> selector = null)
+        ;
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>ingest.delete_pipeline</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</a>
+        /// </summary>
+        Task<DeletePipelineResponse> DeletePipelineAsync(Id id, Func<DeletePipelineDescriptor, IDeletePipelineRequest> selector = null, CancellationToken ct = default)
+        ;
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>ingest.delete_pipeline</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</a>
+        /// </summary>
+        DeletePipelineResponse DeletePipeline(IDeletePipelineRequest request)
+        ;
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ingest.delete_pipeline</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</a>
         /// </summary>
-        Task<DeletePipelineResponse> DeletePipelineAsync(
-            Id id,
-            Func<DeletePipelineDescriptor, IDeletePipelineRequest> selector = null,
-            CancellationToken ct = default
-        );
-
-        /// <summary>
-        /// <c>DELETE</c> request to the <c>ingest.delete_pipeline</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</a>
-        /// </summary>
-        DeletePipelineResponse DeletePipeline(IDeletePipelineRequest request);
-
-        /// <summary>
-        /// <c>DELETE</c> request to the <c>ingest.delete_pipeline</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</a>
-        /// </summary>
-        Task<DeletePipelineResponse> DeletePipelineAsync(
-            IDeletePipelineRequest request,
-            CancellationToken ct = default
-        );
+        Task<DeletePipelineResponse> DeletePipelineAsync(IDeletePipelineRequest request, CancellationToken ct = default)
+        ;
 
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.get_pipeline</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</a>
         /// </summary>
-        GetPipelineResponse GetPipeline(
-            Func<GetPipelineDescriptor, IGetPipelineRequest> selector = null
-        );
+        GetPipelineResponse GetPipeline(Func<GetPipelineDescriptor, IGetPipelineRequest> selector = null)
+        ;
+        /// <summary>
+        /// <c>GET</c> request to the <c>ingest.get_pipeline</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</a>
+        /// </summary>
+        Task<GetPipelineResponse> GetPipelineAsync(Func<GetPipelineDescriptor, IGetPipelineRequest> selector = null, CancellationToken ct = default)
+        ;
+        /// <summary>
+        /// <c>GET</c> request to the <c>ingest.get_pipeline</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</a>
+        /// </summary>
+        GetPipelineResponse GetPipeline(IGetPipelineRequest request)
+        ;
 
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.get_pipeline</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</a>
         /// </summary>
-        Task<GetPipelineResponse> GetPipelineAsync(
-            Func<GetPipelineDescriptor, IGetPipelineRequest> selector = null,
-            CancellationToken ct = default
-        );
-
-        /// <summary>
-        /// <c>GET</c> request to the <c>ingest.get_pipeline</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</a>
-        /// </summary>
-        GetPipelineResponse GetPipeline(IGetPipelineRequest request);
-
-        /// <summary>
-        /// <c>GET</c> request to the <c>ingest.get_pipeline</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</a>
-        /// </summary>
-        Task<GetPipelineResponse> GetPipelineAsync(
-            IGetPipelineRequest request,
-            CancellationToken ct = default
-        );
+        Task<GetPipelineResponse> GetPipelineAsync(IGetPipelineRequest request, CancellationToken ct = default)
+        ;
 
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.processor_grok</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
         /// </summary>
-        GrokProcessorPatternsResponse GrokProcessorPatterns(
-            Func<GrokProcessorPatternsDescriptor, IGrokProcessorPatternsRequest> selector = null
-        );
+        GrokProcessorPatternsResponse GrokProcessorPatterns(Func<GrokProcessorPatternsDescriptor, IGrokProcessorPatternsRequest> selector = null)
+        ;
+        /// <summary>
+        /// <c>GET</c> request to the <c>ingest.processor_grok</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        Task<GrokProcessorPatternsResponse> GrokProcessorPatternsAsync(Func<GrokProcessorPatternsDescriptor, IGrokProcessorPatternsRequest> selector = null, CancellationToken ct = default)
+        ;
+        /// <summary>
+        /// <c>GET</c> request to the <c>ingest.processor_grok</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        GrokProcessorPatternsResponse GrokProcessorPatterns(IGrokProcessorPatternsRequest request)
+        ;
 
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.processor_grok</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
         /// </summary>
-        Task<GrokProcessorPatternsResponse> GrokProcessorPatternsAsync(
-            Func<GrokProcessorPatternsDescriptor, IGrokProcessorPatternsRequest> selector = null,
-            CancellationToken ct = default
-        );
-
-        /// <summary>
-        /// <c>GET</c> request to the <c>ingest.processor_grok</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
-        /// </summary>
-        GrokProcessorPatternsResponse GrokProcessorPatterns(IGrokProcessorPatternsRequest request);
-
-        /// <summary>
-        /// <c>GET</c> request to the <c>ingest.processor_grok</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
-        /// </summary>
-        Task<GrokProcessorPatternsResponse> GrokProcessorPatternsAsync(
-            IGrokProcessorPatternsRequest request,
-            CancellationToken ct = default
-        );
+        Task<GrokProcessorPatternsResponse> GrokProcessorPatternsAsync(IGrokProcessorPatternsRequest request, CancellationToken ct = default)
+        ;
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ingest.put_pipeline</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</a>
         /// </summary>
-        PutPipelineResponse PutPipeline(
-            Id id,
-            Func<PutPipelineDescriptor, IPutPipelineRequest> selector
-        );
+        PutPipelineResponse PutPipeline(Id id, Func<PutPipelineDescriptor, IPutPipelineRequest> selector)
+        ;
+        /// <summary>
+        /// <c>PUT</c> request to the <c>ingest.put_pipeline</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</a>
+        /// </summary>
+        Task<PutPipelineResponse> PutPipelineAsync(Id id, Func<PutPipelineDescriptor, IPutPipelineRequest> selector, CancellationToken ct = default)
+        ;
+        /// <summary>
+        /// <c>PUT</c> request to the <c>ingest.put_pipeline</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</a>
+        /// </summary>
+        PutPipelineResponse PutPipeline(IPutPipelineRequest request)
+        ;
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ingest.put_pipeline</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</a>
         /// </summary>
-        Task<PutPipelineResponse> PutPipelineAsync(
-            Id id,
-            Func<PutPipelineDescriptor, IPutPipelineRequest> selector,
-            CancellationToken ct = default
-        );
-
-        /// <summary>
-        /// <c>PUT</c> request to the <c>ingest.put_pipeline</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</a>
-        /// </summary>
-        PutPipelineResponse PutPipeline(IPutPipelineRequest request);
-
-        /// <summary>
-        /// <c>PUT</c> request to the <c>ingest.put_pipeline</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</a>
-        /// </summary>
-        Task<PutPipelineResponse> PutPipelineAsync(
-            IPutPipelineRequest request,
-            CancellationToken ct = default
-        );
+        Task<PutPipelineResponse> PutPipelineAsync(IPutPipelineRequest request, CancellationToken ct = default)
+        ;
 
         /// <summary>
         /// <c>POST</c> request to the <c>ingest.simulate</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</a>
         /// </summary>
-        SimulatePipelineResponse SimulatePipeline(
-            Func<SimulatePipelineDescriptor, ISimulatePipelineRequest> selector = null
-        );
+        SimulatePipelineResponse SimulatePipeline(Func<SimulatePipelineDescriptor, ISimulatePipelineRequest> selector = null)
+        ;
+        /// <summary>
+        /// <c>POST</c> request to the <c>ingest.simulate</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</a>
+        /// </summary>
+        Task<SimulatePipelineResponse> SimulatePipelineAsync(Func<SimulatePipelineDescriptor, ISimulatePipelineRequest> selector = null, CancellationToken ct = default)
+        ;
+        /// <summary>
+        /// <c>POST</c> request to the <c>ingest.simulate</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</a>
+        /// </summary>
+        SimulatePipelineResponse SimulatePipeline(ISimulatePipelineRequest request)
+        ;
 
         /// <summary>
         /// <c>POST</c> request to the <c>ingest.simulate</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</a>
         /// </summary>
-        Task<SimulatePipelineResponse> SimulatePipelineAsync(
-            Func<SimulatePipelineDescriptor, ISimulatePipelineRequest> selector = null,
-            CancellationToken ct = default
-        );
+        Task<SimulatePipelineResponse> SimulatePipelineAsync(ISimulatePipelineRequest request, CancellationToken ct = default)
+        ;
 
-        /// <summary>
-        /// <c>POST</c> request to the <c>ingest.simulate</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</a>
-        /// </summary>
-        SimulatePipelineResponse SimulatePipeline(ISimulatePipelineRequest request);
-
-        /// <summary>
-        /// <c>POST</c> request to the <c>ingest.simulate</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</a>
-        /// </summary>
-        Task<SimulatePipelineResponse> SimulatePipelineAsync(
-            ISimulatePipelineRequest request,
-            CancellationToken ct = default
-        );
     }
 
     /// <summary>
@@ -250,237 +218,186 @@ namespace OpenSearch.Client.Specification.IngestApi
     /// </summary>
     public partial class IngestNamespace : NamespacedClientProxy, IIngestNamespace
     {
-        internal IngestNamespace(OpenSearchClient client)
-            : base(client) { }
-
+        internal IngestNamespace(OpenSearchClient client) : base(client) { }
         /// <summary>
         /// <c>DELETE</c> request to the <c>ingest.delete_pipeline</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</a>
         /// </summary>
-        public DeletePipelineResponse DeletePipeline(
-            Id id,
-            Func<DeletePipelineDescriptor, IDeletePipelineRequest> selector = null
-        ) => DeletePipeline(selector.InvokeOrDefault(new DeletePipelineDescriptor(id: id)));
-
+        public DeletePipelineResponse DeletePipeline(Id id, Func<DeletePipelineDescriptor, IDeletePipelineRequest> selector = null)
+         =>
+            DeletePipeline(selector.InvokeOrDefault(new DeletePipelineDescriptor(id: id)));
         /// <summary>
         /// <c>DELETE</c> request to the <c>ingest.delete_pipeline</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</a>
         /// </summary>
-        public Task<DeletePipelineResponse> DeletePipelineAsync(
-            Id id,
-            Func<DeletePipelineDescriptor, IDeletePipelineRequest> selector = null,
-            CancellationToken ct = default
-        ) =>
+        public Task<DeletePipelineResponse> DeletePipelineAsync(Id id, Func<DeletePipelineDescriptor, IDeletePipelineRequest> selector = null, CancellationToken ct = default)
+         =>
             DeletePipelineAsync(selector.InvokeOrDefault(new DeletePipelineDescriptor(id: id)), ct);
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>ingest.delete_pipeline</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</a>
+        /// </summary>
+        public DeletePipelineResponse DeletePipeline(IDeletePipelineRequest request)
+         =>
+            DoRequest<IDeletePipelineRequest, DeletePipelineResponse>(request, request.RequestParameters);
+
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ingest.delete_pipeline</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</a>
         /// </summary>
-        public DeletePipelineResponse DeletePipeline(IDeletePipelineRequest request) =>
-            DoRequest<IDeletePipelineRequest, DeletePipelineResponse>(
-                request,
-                request.RequestParameters
-            );
+        public Task<DeletePipelineResponse> DeletePipelineAsync(IDeletePipelineRequest request, CancellationToken ct = default)
+         =>
+            DoRequestAsync<IDeletePipelineRequest, DeletePipelineResponse>(request, request.RequestParameters, ct);
 
-        /// <summary>
-        /// <c>DELETE</c> request to the <c>ingest.delete_pipeline</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</a>
-        /// </summary>
-        public Task<DeletePipelineResponse> DeletePipelineAsync(
-            IDeletePipelineRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IDeletePipelineRequest, DeletePipelineResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
 
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.get_pipeline</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</a>
         /// </summary>
-        public GetPipelineResponse GetPipeline(
-            Func<GetPipelineDescriptor, IGetPipelineRequest> selector = null
-        ) => GetPipeline(selector.InvokeOrDefault(new GetPipelineDescriptor()));
-
+        public GetPipelineResponse GetPipeline(Func<GetPipelineDescriptor, IGetPipelineRequest> selector = null)
+         =>
+            GetPipeline(selector.InvokeOrDefault(new GetPipelineDescriptor()));
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.get_pipeline</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</a>
         /// </summary>
-        public Task<GetPipelineResponse> GetPipelineAsync(
-            Func<GetPipelineDescriptor, IGetPipelineRequest> selector = null,
-            CancellationToken ct = default
-        ) => GetPipelineAsync(selector.InvokeOrDefault(new GetPipelineDescriptor()), ct);
-
+        public Task<GetPipelineResponse> GetPipelineAsync(Func<GetPipelineDescriptor, IGetPipelineRequest> selector = null, CancellationToken ct = default)
+         =>
+            GetPipelineAsync(selector.InvokeOrDefault(new GetPipelineDescriptor()), ct);
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.get_pipeline</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</a>
         /// </summary>
-        public GetPipelineResponse GetPipeline(IGetPipelineRequest request) =>
+        public GetPipelineResponse GetPipeline(IGetPipelineRequest request)
+         =>
             DoRequest<IGetPipelineRequest, GetPipelineResponse>(request, request.RequestParameters);
 
+
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.get_pipeline</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</a>
         /// </summary>
-        public Task<GetPipelineResponse> GetPipelineAsync(
-            IGetPipelineRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IGetPipelineRequest, GetPipelineResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<GetPipelineResponse> GetPipelineAsync(IGetPipelineRequest request, CancellationToken ct = default)
+         =>
+            DoRequestAsync<IGetPipelineRequest, GetPipelineResponse>(request, request.RequestParameters, ct);
+
 
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.processor_grok</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
         /// </summary>
-        public GrokProcessorPatternsResponse GrokProcessorPatterns(
-            Func<GrokProcessorPatternsDescriptor, IGrokProcessorPatternsRequest> selector = null
-        ) => GrokProcessorPatterns(selector.InvokeOrDefault(new GrokProcessorPatternsDescriptor()));
+        public GrokProcessorPatternsResponse GrokProcessorPatterns(Func<GrokProcessorPatternsDescriptor, IGrokProcessorPatternsRequest> selector = null)
+         =>
+            GrokProcessorPatterns(selector.InvokeOrDefault(new GrokProcessorPatternsDescriptor()));
+        /// <summary>
+        /// <c>GET</c> request to the <c>ingest.processor_grok</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<GrokProcessorPatternsResponse> GrokProcessorPatternsAsync(Func<GrokProcessorPatternsDescriptor, IGrokProcessorPatternsRequest> selector = null, CancellationToken ct = default)
+         =>
+            GrokProcessorPatternsAsync(selector.InvokeOrDefault(new GrokProcessorPatternsDescriptor()), ct);
+        /// <summary>
+        /// <c>GET</c> request to the <c>ingest.processor_grok</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public GrokProcessorPatternsResponse GrokProcessorPatterns(IGrokProcessorPatternsRequest request)
+         =>
+            DoRequest<IGrokProcessorPatternsRequest, GrokProcessorPatternsResponse>(request, request.RequestParameters);
+
 
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.processor_grok</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
         /// </summary>
-        public Task<GrokProcessorPatternsResponse> GrokProcessorPatternsAsync(
-            Func<GrokProcessorPatternsDescriptor, IGrokProcessorPatternsRequest> selector = null,
-            CancellationToken ct = default
-        ) =>
-            GrokProcessorPatternsAsync(
-                selector.InvokeOrDefault(new GrokProcessorPatternsDescriptor()),
-                ct
-            );
+        public Task<GrokProcessorPatternsResponse> GrokProcessorPatternsAsync(IGrokProcessorPatternsRequest request, CancellationToken ct = default)
+         =>
+            DoRequestAsync<IGrokProcessorPatternsRequest, GrokProcessorPatternsResponse>(request, request.RequestParameters, ct);
 
-        /// <summary>
-        /// <c>GET</c> request to the <c>ingest.processor_grok</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
-        /// </summary>
-        public GrokProcessorPatternsResponse GrokProcessorPatterns(
-            IGrokProcessorPatternsRequest request
-        ) =>
-            DoRequest<IGrokProcessorPatternsRequest, GrokProcessorPatternsResponse>(
-                request,
-                request.RequestParameters
-            );
-
-        /// <summary>
-        /// <c>GET</c> request to the <c>ingest.processor_grok</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
-        /// </summary>
-        public Task<GrokProcessorPatternsResponse> GrokProcessorPatternsAsync(
-            IGrokProcessorPatternsRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IGrokProcessorPatternsRequest, GrokProcessorPatternsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ingest.put_pipeline</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</a>
         /// </summary>
-        public PutPipelineResponse PutPipeline(
-            Id id,
-            Func<PutPipelineDescriptor, IPutPipelineRequest> selector
-        ) => PutPipeline(selector.InvokeOrDefault(new PutPipelineDescriptor(id: id)));
-
+        public PutPipelineResponse PutPipeline(Id id, Func<PutPipelineDescriptor, IPutPipelineRequest> selector)
+         =>
+            PutPipeline(selector.InvokeOrDefault(new PutPipelineDescriptor(id: id)));
         /// <summary>
         /// <c>PUT</c> request to the <c>ingest.put_pipeline</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</a>
         /// </summary>
-        public Task<PutPipelineResponse> PutPipelineAsync(
-            Id id,
-            Func<PutPipelineDescriptor, IPutPipelineRequest> selector,
-            CancellationToken ct = default
-        ) => PutPipelineAsync(selector.InvokeOrDefault(new PutPipelineDescriptor(id: id)), ct);
-
+        public Task<PutPipelineResponse> PutPipelineAsync(Id id, Func<PutPipelineDescriptor, IPutPipelineRequest> selector, CancellationToken ct = default)
+         =>
+            PutPipelineAsync(selector.InvokeOrDefault(new PutPipelineDescriptor(id: id)), ct);
         /// <summary>
         /// <c>PUT</c> request to the <c>ingest.put_pipeline</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</a>
         /// </summary>
-        public PutPipelineResponse PutPipeline(IPutPipelineRequest request) =>
+        public PutPipelineResponse PutPipeline(IPutPipelineRequest request)
+         =>
             DoRequest<IPutPipelineRequest, PutPipelineResponse>(request, request.RequestParameters);
 
+
         /// <summary>
         /// <c>PUT</c> request to the <c>ingest.put_pipeline</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</a>
         /// </summary>
-        public Task<PutPipelineResponse> PutPipelineAsync(
-            IPutPipelineRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IPutPipelineRequest, PutPipelineResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<PutPipelineResponse> PutPipelineAsync(IPutPipelineRequest request, CancellationToken ct = default)
+         =>
+            DoRequestAsync<IPutPipelineRequest, PutPipelineResponse>(request, request.RequestParameters, ct);
+
 
         /// <summary>
         /// <c>POST</c> request to the <c>ingest.simulate</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</a>
         /// </summary>
-        public SimulatePipelineResponse SimulatePipeline(
-            Func<SimulatePipelineDescriptor, ISimulatePipelineRequest> selector = null
-        ) => SimulatePipeline(selector.InvokeOrDefault(new SimulatePipelineDescriptor()));
+        public SimulatePipelineResponse SimulatePipeline(Func<SimulatePipelineDescriptor, ISimulatePipelineRequest> selector = null)
+         =>
+            SimulatePipeline(selector.InvokeOrDefault(new SimulatePipelineDescriptor()));
+        /// <summary>
+        /// <c>POST</c> request to the <c>ingest.simulate</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</a>
+        /// </summary>
+        public Task<SimulatePipelineResponse> SimulatePipelineAsync(Func<SimulatePipelineDescriptor, ISimulatePipelineRequest> selector = null, CancellationToken ct = default)
+         =>
+            SimulatePipelineAsync(selector.InvokeOrDefault(new SimulatePipelineDescriptor()), ct);
+        /// <summary>
+        /// <c>POST</c> request to the <c>ingest.simulate</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</a>
+        /// </summary>
+        public SimulatePipelineResponse SimulatePipeline(ISimulatePipelineRequest request)
+         =>
+            DoRequest<ISimulatePipelineRequest, SimulatePipelineResponse>(request, request.RequestParameters);
+
 
         /// <summary>
         /// <c>POST</c> request to the <c>ingest.simulate</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</a>
         /// </summary>
-        public Task<SimulatePipelineResponse> SimulatePipelineAsync(
-            Func<SimulatePipelineDescriptor, ISimulatePipelineRequest> selector = null,
-            CancellationToken ct = default
-        ) => SimulatePipelineAsync(selector.InvokeOrDefault(new SimulatePipelineDescriptor()), ct);
+        public Task<SimulatePipelineResponse> SimulatePipelineAsync(ISimulatePipelineRequest request, CancellationToken ct = default)
+         =>
+            DoRequestAsync<ISimulatePipelineRequest, SimulatePipelineResponse>(request, request.RequestParameters, ct);
 
-        /// <summary>
-        /// <c>POST</c> request to the <c>ingest.simulate</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</a>
-        /// </summary>
-        public SimulatePipelineResponse SimulatePipeline(ISimulatePipelineRequest request) =>
-            DoRequest<ISimulatePipelineRequest, SimulatePipelineResponse>(
-                request,
-                request.RequestParameters
-            );
 
-        /// <summary>
-        /// <c>POST</c> request to the <c>ingest.simulate</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</a>
-        /// </summary>
-        public Task<SimulatePipelineResponse> SimulatePipelineAsync(
-            ISimulatePipelineRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<ISimulatePipelineRequest, SimulatePipelineResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
     }
 }

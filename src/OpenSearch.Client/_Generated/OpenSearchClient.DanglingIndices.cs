@@ -25,6 +25,7 @@
 *  specific language governing permissions and limitations
 *  under the License.
 */
+
 // ███╗   ██╗ ██████╗ ████████╗██╗ ██████╗███████╗
 // ████╗  ██║██╔═══██╗╚══██╔══╝██║██╔════╝██╔════╝
 // ██╔██╗ ██║██║   ██║   ██║   ██║██║     █████╗
@@ -62,112 +63,91 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
-        DeleteDanglingIndexResponse DeleteDanglingIndex(
-            IndexUuid indexUuid,
-            Func<DeleteDanglingIndexDescriptor, IDeleteDanglingIndexRequest> selector = null
-        );
+        DeleteDanglingIndexResponse DeleteDanglingIndex(IndexUuid indexUuid, Func<DeleteDanglingIndexDescriptor, IDeleteDanglingIndexRequest> selector = null)
+        ;
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// </summary>
+        Task<DeleteDanglingIndexResponse> DeleteDanglingIndexAsync(IndexUuid indexUuid, Func<DeleteDanglingIndexDescriptor, IDeleteDanglingIndexRequest> selector = null, CancellationToken ct = default)
+        ;
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// </summary>
+        DeleteDanglingIndexResponse DeleteDanglingIndex(IDeleteDanglingIndexRequest request)
+        ;
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
-        Task<DeleteDanglingIndexResponse> DeleteDanglingIndexAsync(
-            IndexUuid indexUuid,
-            Func<DeleteDanglingIndexDescriptor, IDeleteDanglingIndexRequest> selector = null,
-            CancellationToken ct = default
-        );
-
-        /// <summary>
-        /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
-        /// </summary>
-        DeleteDanglingIndexResponse DeleteDanglingIndex(IDeleteDanglingIndexRequest request);
-
-        /// <summary>
-        /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
-        /// </summary>
-        Task<DeleteDanglingIndexResponse> DeleteDanglingIndexAsync(
-            IDeleteDanglingIndexRequest request,
-            CancellationToken ct = default
-        );
+        Task<DeleteDanglingIndexResponse> DeleteDanglingIndexAsync(IDeleteDanglingIndexRequest request, CancellationToken ct = default)
+        ;
 
         /// <summary>
         /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
-        ImportDanglingIndexResponse ImportDanglingIndex(
-            IndexUuid indexUuid,
-            Func<ImportDanglingIndexDescriptor, IImportDanglingIndexRequest> selector = null
-        );
+        ImportDanglingIndexResponse ImportDanglingIndex(IndexUuid indexUuid, Func<ImportDanglingIndexDescriptor, IImportDanglingIndexRequest> selector = null)
+        ;
+        /// <summary>
+        /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// </summary>
+        Task<ImportDanglingIndexResponse> ImportDanglingIndexAsync(IndexUuid indexUuid, Func<ImportDanglingIndexDescriptor, IImportDanglingIndexRequest> selector = null, CancellationToken ct = default)
+        ;
+        /// <summary>
+        /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// </summary>
+        ImportDanglingIndexResponse ImportDanglingIndex(IImportDanglingIndexRequest request)
+        ;
 
         /// <summary>
         /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
-        Task<ImportDanglingIndexResponse> ImportDanglingIndexAsync(
-            IndexUuid indexUuid,
-            Func<ImportDanglingIndexDescriptor, IImportDanglingIndexRequest> selector = null,
-            CancellationToken ct = default
-        );
-
-        /// <summary>
-        /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
-        /// </summary>
-        ImportDanglingIndexResponse ImportDanglingIndex(IImportDanglingIndexRequest request);
-
-        /// <summary>
-        /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
-        /// </summary>
-        Task<ImportDanglingIndexResponse> ImportDanglingIndexAsync(
-            IImportDanglingIndexRequest request,
-            CancellationToken ct = default
-        );
+        Task<ImportDanglingIndexResponse> ImportDanglingIndexAsync(IImportDanglingIndexRequest request, CancellationToken ct = default)
+        ;
 
         /// <summary>
         /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
-        ListDanglingIndicesResponse List(
-            Func<ListDanglingIndicesDescriptor, IListDanglingIndicesRequest> selector = null
-        );
+        ListDanglingIndicesResponse List(Func<ListDanglingIndicesDescriptor, IListDanglingIndicesRequest> selector = null)
+        ;
+        /// <summary>
+        /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// </summary>
+        Task<ListDanglingIndicesResponse> ListAsync(Func<ListDanglingIndicesDescriptor, IListDanglingIndicesRequest> selector = null, CancellationToken ct = default)
+        ;
+        /// <summary>
+        /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// </summary>
+        ListDanglingIndicesResponse List(IListDanglingIndicesRequest request)
+        ;
 
         /// <summary>
         /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
-        Task<ListDanglingIndicesResponse> ListAsync(
-            Func<ListDanglingIndicesDescriptor, IListDanglingIndicesRequest> selector = null,
-            CancellationToken ct = default
-        );
+        Task<ListDanglingIndicesResponse> ListAsync(IListDanglingIndicesRequest request, CancellationToken ct = default)
+        ;
 
-        /// <summary>
-        /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
-        /// </summary>
-        ListDanglingIndicesResponse List(IListDanglingIndicesRequest request);
-
-        /// <summary>
-        /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
-        /// </summary>
-        Task<ListDanglingIndicesResponse> ListAsync(
-            IListDanglingIndicesRequest request,
-            CancellationToken ct = default
-        );
     }
 
     /// <summary>
@@ -178,164 +158,114 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
     /// </summary>
     public partial class DanglingIndicesNamespace : NamespacedClientProxy, IDanglingIndicesNamespace
     {
-        internal DanglingIndicesNamespace(OpenSearchClient client)
-            : base(client) { }
+        internal DanglingIndicesNamespace(OpenSearchClient client) : base(client) { }
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// </summary>
+        public DeleteDanglingIndexResponse DeleteDanglingIndex(IndexUuid indexUuid, Func<DeleteDanglingIndexDescriptor, IDeleteDanglingIndexRequest> selector = null)
+         =>
+            DeleteDanglingIndex(selector.InvokeOrDefault(new DeleteDanglingIndexDescriptor(indexUuid: indexUuid)));
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// </summary>
+        public Task<DeleteDanglingIndexResponse> DeleteDanglingIndexAsync(IndexUuid indexUuid, Func<DeleteDanglingIndexDescriptor, IDeleteDanglingIndexRequest> selector = null, CancellationToken ct = default)
+         =>
+            DeleteDanglingIndexAsync(selector.InvokeOrDefault(new DeleteDanglingIndexDescriptor(indexUuid: indexUuid)), ct);
+        /// <summary>
+        /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// </summary>
+        public DeleteDanglingIndexResponse DeleteDanglingIndex(IDeleteDanglingIndexRequest request)
+         =>
+            DoRequest<IDeleteDanglingIndexRequest, DeleteDanglingIndexResponse>(request, request.RequestParameters);
+
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
-        public DeleteDanglingIndexResponse DeleteDanglingIndex(
-            IndexUuid indexUuid,
-            Func<DeleteDanglingIndexDescriptor, IDeleteDanglingIndexRequest> selector = null
-        ) =>
-            DeleteDanglingIndex(
-                selector.InvokeOrDefault(new DeleteDanglingIndexDescriptor(indexUuid: indexUuid))
-            );
+        public Task<DeleteDanglingIndexResponse> DeleteDanglingIndexAsync(IDeleteDanglingIndexRequest request, CancellationToken ct = default)
+         =>
+            DoRequestAsync<IDeleteDanglingIndexRequest, DeleteDanglingIndexResponse>(request, request.RequestParameters, ct);
 
-        /// <summary>
-        /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
-        /// </summary>
-        public Task<DeleteDanglingIndexResponse> DeleteDanglingIndexAsync(
-            IndexUuid indexUuid,
-            Func<DeleteDanglingIndexDescriptor, IDeleteDanglingIndexRequest> selector = null,
-            CancellationToken ct = default
-        ) =>
-            DeleteDanglingIndexAsync(
-                selector.InvokeOrDefault(new DeleteDanglingIndexDescriptor(indexUuid: indexUuid)),
-                ct
-            );
-
-        /// <summary>
-        /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
-        /// </summary>
-        public DeleteDanglingIndexResponse DeleteDanglingIndex(
-            IDeleteDanglingIndexRequest request
-        ) =>
-            DoRequest<IDeleteDanglingIndexRequest, DeleteDanglingIndexResponse>(
-                request,
-                request.RequestParameters
-            );
-
-        /// <summary>
-        /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
-        /// </summary>
-        public Task<DeleteDanglingIndexResponse> DeleteDanglingIndexAsync(
-            IDeleteDanglingIndexRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IDeleteDanglingIndexRequest, DeleteDanglingIndexResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
 
         /// <summary>
         /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
-        public ImportDanglingIndexResponse ImportDanglingIndex(
-            IndexUuid indexUuid,
-            Func<ImportDanglingIndexDescriptor, IImportDanglingIndexRequest> selector = null
-        ) =>
-            ImportDanglingIndex(
-                selector.InvokeOrDefault(new ImportDanglingIndexDescriptor(indexUuid: indexUuid))
-            );
+        public ImportDanglingIndexResponse ImportDanglingIndex(IndexUuid indexUuid, Func<ImportDanglingIndexDescriptor, IImportDanglingIndexRequest> selector = null)
+         =>
+            ImportDanglingIndex(selector.InvokeOrDefault(new ImportDanglingIndexDescriptor(indexUuid: indexUuid)));
+        /// <summary>
+        /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// </summary>
+        public Task<ImportDanglingIndexResponse> ImportDanglingIndexAsync(IndexUuid indexUuid, Func<ImportDanglingIndexDescriptor, IImportDanglingIndexRequest> selector = null, CancellationToken ct = default)
+         =>
+            ImportDanglingIndexAsync(selector.InvokeOrDefault(new ImportDanglingIndexDescriptor(indexUuid: indexUuid)), ct);
+        /// <summary>
+        /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// </summary>
+        public ImportDanglingIndexResponse ImportDanglingIndex(IImportDanglingIndexRequest request)
+         =>
+            DoRequest<IImportDanglingIndexRequest, ImportDanglingIndexResponse>(request, request.RequestParameters);
+
 
         /// <summary>
         /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
-        public Task<ImportDanglingIndexResponse> ImportDanglingIndexAsync(
-            IndexUuid indexUuid,
-            Func<ImportDanglingIndexDescriptor, IImportDanglingIndexRequest> selector = null,
-            CancellationToken ct = default
-        ) =>
-            ImportDanglingIndexAsync(
-                selector.InvokeOrDefault(new ImportDanglingIndexDescriptor(indexUuid: indexUuid)),
-                ct
-            );
+        public Task<ImportDanglingIndexResponse> ImportDanglingIndexAsync(IImportDanglingIndexRequest request, CancellationToken ct = default)
+         =>
+            DoRequestAsync<IImportDanglingIndexRequest, ImportDanglingIndexResponse>(request, request.RequestParameters, ct);
 
-        /// <summary>
-        /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
-        /// </summary>
-        public ImportDanglingIndexResponse ImportDanglingIndex(
-            IImportDanglingIndexRequest request
-        ) =>
-            DoRequest<IImportDanglingIndexRequest, ImportDanglingIndexResponse>(
-                request,
-                request.RequestParameters
-            );
-
-        /// <summary>
-        /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
-        /// </summary>
-        public Task<ImportDanglingIndexResponse> ImportDanglingIndexAsync(
-            IImportDanglingIndexRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IImportDanglingIndexRequest, ImportDanglingIndexResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
 
         /// <summary>
         /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
-        public ListDanglingIndicesResponse List(
-            Func<ListDanglingIndicesDescriptor, IListDanglingIndicesRequest> selector = null
-        ) => List(selector.InvokeOrDefault(new ListDanglingIndicesDescriptor()));
+        public ListDanglingIndicesResponse List(Func<ListDanglingIndicesDescriptor, IListDanglingIndicesRequest> selector = null)
+         =>
+            List(selector.InvokeOrDefault(new ListDanglingIndicesDescriptor()));
+        /// <summary>
+        /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// </summary>
+        public Task<ListDanglingIndicesResponse> ListAsync(Func<ListDanglingIndicesDescriptor, IListDanglingIndicesRequest> selector = null, CancellationToken ct = default)
+         =>
+            ListAsync(selector.InvokeOrDefault(new ListDanglingIndicesDescriptor()), ct);
+        /// <summary>
+        /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// </summary>
+        public ListDanglingIndicesResponse List(IListDanglingIndicesRequest request)
+         =>
+            DoRequest<IListDanglingIndicesRequest, ListDanglingIndicesResponse>(request, request.RequestParameters);
+
 
         /// <summary>
         /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
-        public Task<ListDanglingIndicesResponse> ListAsync(
-            Func<ListDanglingIndicesDescriptor, IListDanglingIndicesRequest> selector = null,
-            CancellationToken ct = default
-        ) => ListAsync(selector.InvokeOrDefault(new ListDanglingIndicesDescriptor()), ct);
+        public Task<ListDanglingIndicesResponse> ListAsync(IListDanglingIndicesRequest request, CancellationToken ct = default)
+         =>
+            DoRequestAsync<IListDanglingIndicesRequest, ListDanglingIndicesResponse>(request, request.RequestParameters, ct);
 
-        /// <summary>
-        /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
-        /// </summary>
-        public ListDanglingIndicesResponse List(IListDanglingIndicesRequest request) =>
-            DoRequest<IListDanglingIndicesRequest, ListDanglingIndicesResponse>(
-                request,
-                request.RequestParameters
-            );
 
-        /// <summary>
-        /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
-        /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
-        /// </summary>
-        public Task<ListDanglingIndicesResponse> ListAsync(
-            IListDanglingIndicesRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IListDanglingIndicesRequest, ListDanglingIndicesResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
     }
 }

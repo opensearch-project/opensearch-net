@@ -25,74 +25,57 @@ using OpenSearch.Net.Specification.HttpApi;
 
 namespace OpenSearch.Client;
 
-public class HttpDeleteDescriptor
-    : ArbitraryHttpRequestDescriptorBase<
-        HttpDeleteDescriptor,
-        HttpDeleteRequestParameters,
-        IHttpDeleteRequest
-    >,
-        IHttpDeleteRequest
+
+
+public class HttpDeleteDescriptor : ArbitraryHttpRequestDescriptorBase<HttpDeleteDescriptor, HttpDeleteRequestParameters, IHttpDeleteRequest>,
+    IHttpDeleteRequest
 {
     public HttpDeleteDescriptor(string path)
         : base(path) { }
 }
 
-public class HttpGetDescriptor
-    : ArbitraryHttpRequestDescriptorBase<
-        HttpGetDescriptor,
-        HttpGetRequestParameters,
-        IHttpGetRequest
-    >,
-        IHttpGetRequest
+
+
+public class HttpGetDescriptor : ArbitraryHttpRequestDescriptorBase<HttpGetDescriptor, HttpGetRequestParameters, IHttpGetRequest>,
+    IHttpGetRequest
 {
     public HttpGetDescriptor(string path)
         : base(path) { }
 }
 
-public class HttpHeadDescriptor
-    : ArbitraryHttpRequestDescriptorBase<
-        HttpHeadDescriptor,
-        HttpHeadRequestParameters,
-        IHttpHeadRequest
-    >,
-        IHttpHeadRequest
+
+
+public class HttpHeadDescriptor : ArbitraryHttpRequestDescriptorBase<HttpHeadDescriptor, HttpHeadRequestParameters, IHttpHeadRequest>,
+    IHttpHeadRequest
 {
     public HttpHeadDescriptor(string path)
         : base(path) { }
 }
 
-public class HttpPatchDescriptor
-    : ArbitraryBodyHttpRequestDescriptorBase<
-        HttpPatchDescriptor,
-        HttpPatchRequestParameters,
-        IHttpPatchRequest
-    >,
-        IHttpPatchRequest
+
+
+public class HttpPatchDescriptor : ArbitraryBodyHttpRequestDescriptorBase<HttpPatchDescriptor, HttpPatchRequestParameters, IHttpPatchRequest>,
+    IHttpPatchRequest
 {
     public HttpPatchDescriptor(string path)
         : base(path) { }
 }
 
-public class HttpPostDescriptor
-    : ArbitraryBodyHttpRequestDescriptorBase<
-        HttpPostDescriptor,
-        HttpPostRequestParameters,
-        IHttpPostRequest
-    >,
-        IHttpPostRequest
+
+
+public class HttpPostDescriptor : ArbitraryBodyHttpRequestDescriptorBase<HttpPostDescriptor, HttpPostRequestParameters, IHttpPostRequest>,
+    IHttpPostRequest
 {
     public HttpPostDescriptor(string path)
         : base(path) { }
 }
 
-public class HttpPutDescriptor
-    : ArbitraryBodyHttpRequestDescriptorBase<
-        HttpPutDescriptor,
-        HttpPutRequestParameters,
-        IHttpPutRequest
-    >,
-        IHttpPutRequest
+
+
+public class HttpPutDescriptor : ArbitraryBodyHttpRequestDescriptorBase<HttpPutDescriptor, HttpPutRequestParameters, IHttpPutRequest>,
+    IHttpPutRequest
 {
     public HttpPutDescriptor(string path)
         : base(path) { }
 }
+
