@@ -33,10 +33,10 @@ namespace ApiGenerator;
 
 public abstract class CodeTemplatePage<TModel> : TemplatePage<TModel>
 {
-	protected new Task IncludeAsync(string key, object model = null)
-		=> base.IncludeAsync(key.Replace('/', '.'), model);
+    protected new Task IncludeAsync(string key, object model = null)
+        => base.IncludeAsync(key.Replace('/', '.'), model);
 
-	protected async Task IncludeLegacyGeneratorNotice() => await IncludeAsync("GeneratorNotice", true);
+    protected async Task IncludeLegacyGeneratorNotice() => await IncludeAsync("GeneratorNotice", true);
 
-	protected async Task IncludeGeneratorNotice() => await IncludeAsync("GeneratorNotice", false);
+    protected async Task IncludeGeneratorNotice() => await IncludeAsync("GeneratorNotice", false);
 }

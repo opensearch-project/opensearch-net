@@ -50,7 +50,7 @@ namespace ApiGenerator.Generator
         {
             var components = new List<string>();
             foreach (var d in RenderDocumentation(doc)) A(d);
-			if (versionAdded != null) A($"/// <remarks>Supported by OpenSearch servers of version {versionAdded} or greater.</remarks>");
+            if (versionAdded != null) A($"/// <remarks>Supported by OpenSearch servers of version {versionAdded} or greater.</remarks>");
             if (!string.IsNullOrWhiteSpace(obsolete)) A($"[Obsolete(\"{obsolete}\")]");
 
             var generated = @namespace != null && @namespace == "Cat" && name == "Format"

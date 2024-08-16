@@ -31,15 +31,15 @@ using System.Collections.Generic;
 namespace ApiGenerator.Configuration.Overrides
 {
     public class GlobalOverrides : EndpointOverridesBase
-	{
-		public static readonly GlobalOverrides Instance = new();
+    {
+        public static readonly GlobalOverrides Instance = new();
 
-		private GlobalOverrides() { }
+        private GlobalOverrides() { }
 
-		public IDictionary<string, string> RenameEnums { get; } = new Dictionary<string, string>
-		{
-			{ "ExpandWildcard", "ExpandWildcards" }
-		};
+        public IDictionary<string, string> RenameEnums { get; } = new Dictionary<string, string>
+        {
+            { "ExpandWildcard", "ExpandWildcards" }
+        };
 
         public override IDictionary<string, string> ObsoleteQueryStringParams { get; set; } = new Dictionary<string, string>
         {

@@ -38,16 +38,16 @@ namespace ApiGenerator.Domain
     public class EnumDescription
     {
         public string Name { get; set; }
-		public bool IsFlag { get; set; }
+        public bool IsFlag { get; set; }
         public IEnumerable<string> Options { get; set; }
     }
 
     public class RestApiSpec
     {
-		public ImmutableSortedDictionary<string, ApiEndpoint> Endpoints { get; set; }
+        public ImmutableSortedDictionary<string, ApiEndpoint> Endpoints { get; set; }
 
         public ImmutableSortedDictionary<string, ReadOnlyCollection<ApiEndpoint>> EndpointsPerNamespaceLowLevel =>
-            Endpoints.Values.GroupBy(e=>e.CsharpNames.Namespace)
+            Endpoints.Values.GroupBy(e => e.CsharpNames.Namespace)
                 .ToImmutableSortedDictionary(kv => kv.Key, kv => kv.ToList().AsReadOnly());
 
         public ImmutableSortedDictionary<string, ReadOnlyCollection<ApiEndpoint>> EndpointsPerNamespaceHighLevel =>

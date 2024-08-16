@@ -26,7 +26,7 @@
 *  under the License.
 */
 
-namespace ApiGenerator.Domain.Specification 
+namespace ApiGenerator.Domain.Specification
 {
     public class Body
     {
