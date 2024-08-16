@@ -25,6 +25,7 @@
 *  specific language governing permissions and limitations
 *  under the License.
 */
+
 // ███╗   ██╗ ██████╗ ████████╗██╗ ██████╗███████╗
 // ████╗  ██║██╔═══██╗╚══██╔══╝██║██╔════╝██╔════╝
 // ██╔██╗ ██║██║   ██║   ██║   ██║██║     █████╗
@@ -66,801 +67,302 @@ namespace OpenSearch.Net.Specification.ClusterApi
     /// </summary>
     public partial class LowLevelClusterNamespace : NamespacedClientProxy
     {
-        internal LowLevelClusterNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
-
+        internal LowLevelClusterNamespace(OpenSearchLowLevelClient client) : base(client) { }
         /// <summary>POST on /_cluster/allocation/explain <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</para></summary>
         /// <param name="body">The index, shard, and primary flag to explain. Empty means &#x27;explain the first unassigned shard&#x27;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse AllocationExplain<TResponse>(
-            PostData body,
-            ClusterAllocationExplainRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_cluster/allocation/explain",
-                body,
-                RequestParams(requestParameters)
-            );
+        public TResponse AllocationExplain<TResponse>(PostData body, ClusterAllocationExplainRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(POST, "_cluster/allocation/explain", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_cluster/allocation/explain <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</para></summary>
         /// <param name="body">The index, shard, and primary flag to explain. Empty means &#x27;explain the first unassigned shard&#x27;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.allocation_explain", "body")]
-        public Task<TResponse> AllocationExplainAsync<TResponse>(
-            PostData body,
-            ClusterAllocationExplainRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_cluster/allocation/explain",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> AllocationExplainAsync<TResponse>(PostData body, ClusterAllocationExplainRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(POST, "_cluster/allocation/explain", ctx, body, RequestParams(requestParameters));
         /// <summary>DELETE on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="name">Name of the component template to delete. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse DeleteComponentTemplate<TResponse>(
-            string name,
-            DeleteComponentTemplateRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_component_template/{name:name}"),
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse DeleteComponentTemplate<TResponse>(string name, DeleteComponentTemplateRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(DELETE, Url($"_component_template/{name:name}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="name">Name of the component template to delete. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.delete_component_template", "name")]
-        public Task<TResponse> DeleteComponentTemplateAsync<TResponse>(
-            string name,
-            DeleteComponentTemplateRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_component_template/{name:name}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> DeleteComponentTemplateAsync<TResponse>(string name, DeleteComponentTemplateRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(DELETE, Url($"_component_template/{name:name}"), ctx, null, RequestParams(requestParameters));
         /// <summary>DELETE on /_cluster/decommission/awareness <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-decommission/#example-decommissioning-and-recommissioning-a-zone</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse DeleteDecommissionAwareness<TResponse>(
-            DeleteDecommissionAwarenessRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                "_cluster/decommission/awareness",
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse DeleteDecommissionAwareness<TResponse>(DeleteDecommissionAwarenessRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(DELETE, "_cluster/decommission/awareness", null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_cluster/decommission/awareness <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-decommission/#example-decommissioning-and-recommissioning-a-zone</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.delete_decommission_awareness", "")]
-        public Task<TResponse> DeleteDecommissionAwarenessAsync<TResponse>(
-            DeleteDecommissionAwarenessRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                "_cluster/decommission/awareness",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> DeleteDecommissionAwarenessAsync<TResponse>(DeleteDecommissionAwarenessRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(DELETE, "_cluster/decommission/awareness", ctx, null, RequestParams(requestParameters));
         /// <summary>DELETE on /_cluster/voting_config_exclusions <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse DeleteVotingConfigExclusions<TResponse>(
-            DeleteVotingConfigExclusionsRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                "_cluster/voting_config_exclusions",
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse DeleteVotingConfigExclusions<TResponse>(DeleteVotingConfigExclusionsRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(DELETE, "_cluster/voting_config_exclusions", null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_cluster/voting_config_exclusions <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.delete_voting_config_exclusions", "")]
-        public Task<TResponse> DeleteVotingConfigExclusionsAsync<TResponse>(
-            DeleteVotingConfigExclusionsRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                "_cluster/voting_config_exclusions",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> DeleteVotingConfigExclusionsAsync<TResponse>(DeleteVotingConfigExclusionsRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(DELETE, "_cluster/voting_config_exclusions", ctx, null, RequestParams(requestParameters));
         /// <summary>DELETE on /_cluster/routing/awareness/weights <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-deleting-weights</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse DeleteWeightedRouting<TResponse>(
-            DeleteWeightedRoutingRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                "_cluster/routing/awareness/weights",
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse DeleteWeightedRouting<TResponse>(DeleteWeightedRoutingRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(DELETE, "_cluster/routing/awareness/weights", null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_cluster/routing/awareness/weights <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-deleting-weights</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.delete_weighted_routing", "")]
-        public Task<TResponse> DeleteWeightedRoutingAsync<TResponse>(
-            DeleteWeightedRoutingRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                "_cluster/routing/awareness/weights",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> DeleteWeightedRoutingAsync<TResponse>(DeleteWeightedRoutingRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(DELETE, "_cluster/routing/awareness/weights", ctx, null, RequestParams(requestParameters));
         /// <summary>HEAD on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="name">Name of the component template to check existence of. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse ComponentTemplateExists<TResponse>(
-            string name,
-            ComponentTemplateExistsRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                HEAD,
-                Url($"_component_template/{name:name}"),
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse ComponentTemplateExists<TResponse>(string name, ComponentTemplateExistsRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(HEAD, Url($"_component_template/{name:name}"), null, RequestParams(requestParameters));
 
         /// <summary>HEAD on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="name">Name of the component template to check existence of. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.exists_component_template", "name")]
-        public Task<TResponse> ComponentTemplateExistsAsync<TResponse>(
-            string name,
-            ComponentTemplateExistsRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                HEAD,
-                Url($"_component_template/{name:name}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> ComponentTemplateExistsAsync<TResponse>(string name, ComponentTemplateExistsRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(HEAD, Url($"_component_template/{name:name}"), ctx, null, RequestParams(requestParameters));
         /// <summary>GET on /_component_template <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetComponentTemplate<TResponse>(
-            GetComponentTemplateRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_component_template",
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse GetComponentTemplate<TResponse>(GetComponentTemplateRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_component_template", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_component_template <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.get_component_template", "")]
-        public Task<TResponse> GetComponentTemplateAsync<TResponse>(
-            GetComponentTemplateRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_component_template",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> GetComponentTemplateAsync<TResponse>(GetComponentTemplateRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_component_template", ctx, null, RequestParams(requestParameters));
         /// <summary>GET on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="name">Name of the component template to retrieve. Wildcard (`*`) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetComponentTemplate<TResponse>(
-            string name,
-            GetComponentTemplateRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_component_template/{name:name}"),
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse GetComponentTemplate<TResponse>(string name, GetComponentTemplateRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"_component_template/{name:name}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_component_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="name">Name of the component template to retrieve. Wildcard (`*`) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.get_component_template", "name")]
-        public Task<TResponse> GetComponentTemplateAsync<TResponse>(
-            string name,
-            GetComponentTemplateRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_component_template/{name:name}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> GetComponentTemplateAsync<TResponse>(string name, GetComponentTemplateRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_component_template/{name:name}"), ctx, null, RequestParams(requestParameters));
         /// <summary>GET on /_cluster/decommission/awareness/{awareness_attribute_name}/_status <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-decommission/#example-getting-zone-decommission-status</para></summary>
         /// <param name="awarenessAttributeName">Awareness attribute name.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetDecommissionAwareness<TResponse>(
-            string awarenessAttributeName,
-            GetDecommissionAwarenessRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url(
-                    $"_cluster/decommission/awareness/{awarenessAttributeName:awarenessAttributeName}/_status"
-                ),
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse GetDecommissionAwareness<TResponse>(string awarenessAttributeName, GetDecommissionAwarenessRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"_cluster/decommission/awareness/{awarenessAttributeName:awarenessAttributeName}/_status"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cluster/decommission/awareness/{awareness_attribute_name}/_status <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-decommission/#example-getting-zone-decommission-status</para></summary>
         /// <param name="awarenessAttributeName">Awareness attribute name.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.get_decommission_awareness", "awareness_attribute_name")]
-        public Task<TResponse> GetDecommissionAwarenessAsync<TResponse>(
-            string awarenessAttributeName,
-            GetDecommissionAwarenessRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url(
-                    $"_cluster/decommission/awareness/{awarenessAttributeName:awarenessAttributeName}/_status"
-                ),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> GetDecommissionAwarenessAsync<TResponse>(string awarenessAttributeName, GetDecommissionAwarenessRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_cluster/decommission/awareness/{awarenessAttributeName:awarenessAttributeName}/_status"), ctx, null, RequestParams(requestParameters));
         /// <summary>GET on /_cluster/settings <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetSettings<TResponse>(
-            ClusterGetSettingsRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(GET, "_cluster/settings", null, RequestParams(requestParameters));
+        public TResponse GetSettings<TResponse>(ClusterGetSettingsRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_cluster/settings", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cluster/settings <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.get_settings", "")]
-        public Task<TResponse> GetSettingsAsync<TResponse>(
-            ClusterGetSettingsRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cluster/settings",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> GetSettingsAsync<TResponse>(ClusterGetSettingsRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_cluster/settings", ctx, null, RequestParams(requestParameters));
         /// <summary>GET on /_cluster/routing/awareness/{attribute}/weights <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-getting-weights-for-all-zones</para></summary>
         /// <param name="attribute">Awareness attribute name.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetWeightedRouting<TResponse>(
-            string attribute,
-            GetWeightedRoutingRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_cluster/routing/awareness/{attribute:attribute}/weights"),
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse GetWeightedRouting<TResponse>(string attribute, GetWeightedRoutingRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"_cluster/routing/awareness/{attribute:attribute}/weights"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cluster/routing/awareness/{attribute}/weights <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-getting-weights-for-all-zones</para></summary>
         /// <param name="attribute">Awareness attribute name.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.get_weighted_routing", "attribute")]
-        public Task<TResponse> GetWeightedRoutingAsync<TResponse>(
-            string attribute,
-            GetWeightedRoutingRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_cluster/routing/awareness/{attribute:attribute}/weights"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> GetWeightedRoutingAsync<TResponse>(string attribute, GetWeightedRoutingRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_cluster/routing/awareness/{attribute:attribute}/weights"), ctx, null, RequestParams(requestParameters));
         /// <summary>GET on /_cluster/health <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Health<TResponse>(ClusterHealthRequestParameters requestParameters = null)
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(GET, "_cluster/health", null, RequestParams(requestParameters));
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_cluster/health", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cluster/health <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.health", "")]
-        public Task<TResponse> HealthAsync<TResponse>(
-            ClusterHealthRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cluster/health",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> HealthAsync<TResponse>(ClusterHealthRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_cluster/health", ctx, null, RequestParams(requestParameters));
         /// <summary>GET on /_cluster/health/{index} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
         /// <param name="index">Comma-separated list of data streams, indices, and index aliases used to limit the request. Wildcard expressions (*) are supported. To target all data streams and indices in a cluster, omit this parameter or use `_all` or `*`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Health<TResponse>(
-            string index,
-            ClusterHealthRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_cluster/health/{index:index}"),
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse Health<TResponse>(string index, ClusterHealthRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"_cluster/health/{index:index}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cluster/health/{index} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
         /// <param name="index">Comma-separated list of data streams, indices, and index aliases used to limit the request. Wildcard expressions (*) are supported. To target all data streams and indices in a cluster, omit this parameter or use `_all` or `*`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.health", "index")]
-        public Task<TResponse> HealthAsync<TResponse>(
-            string index,
-            ClusterHealthRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_cluster/health/{index:index}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> HealthAsync<TResponse>(string index, ClusterHealthRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_cluster/health/{index:index}"), ctx, null, RequestParams(requestParameters));
         /// <summary>GET on /_cluster/pending_tasks <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse PendingTasks<TResponse>(
-            ClusterPendingTasksRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_cluster/pending_tasks",
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse PendingTasks<TResponse>(ClusterPendingTasksRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_cluster/pending_tasks", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cluster/pending_tasks <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.pending_tasks", "")]
-        public Task<TResponse> PendingTasksAsync<TResponse>(
-            ClusterPendingTasksRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cluster/pending_tasks",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> PendingTasksAsync<TResponse>(ClusterPendingTasksRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_cluster/pending_tasks", ctx, null, RequestParams(requestParameters));
         /// <summary>POST on /_cluster/voting_config_exclusions <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse PostVotingConfigExclusions<TResponse>(
-            PostVotingConfigExclusionsRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_cluster/voting_config_exclusions",
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse PostVotingConfigExclusions<TResponse>(PostVotingConfigExclusionsRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(POST, "_cluster/voting_config_exclusions", null, RequestParams(requestParameters));
 
         /// <summary>POST on /_cluster/voting_config_exclusions <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.post_voting_config_exclusions", "")]
-        public Task<TResponse> PostVotingConfigExclusionsAsync<TResponse>(
-            PostVotingConfigExclusionsRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_cluster/voting_config_exclusions",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> PostVotingConfigExclusionsAsync<TResponse>(PostVotingConfigExclusionsRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(POST, "_cluster/voting_config_exclusions", ctx, null, RequestParams(requestParameters));
         /// <summary>PUT on /_component_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</para></summary>
         /// <param name="name">Name of the component template to create. OpenSearch includes the following built-in component templates: `logs-mappings`; &#x27;logs-settings`; `metrics-mappings`; `metrics-settings`;`synthetics-mapping`; `synthetics-settings`. OpenSearch Agent uses these templates to configure backing indices for its data streams. If you use OpenSearch Agent and want to overwrite one of these templates, set the `version` for your replacement template higher than the current version. If you don&#x27;t use OpenSearch Agent and want to disable all built-in component and index templates, set `stack.templates.enabled` to `false` using the cluster update settings API.</param>
         /// <param name="body">The template definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse PutComponentTemplate<TResponse>(
-            string name,
-            PostData body,
-            PutComponentTemplateRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_component_template/{name:name}"),
-                body,
-                RequestParams(requestParameters)
-            );
+        public TResponse PutComponentTemplate<TResponse>(string name, PostData body, PutComponentTemplateRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(PUT, Url($"_component_template/{name:name}"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_component_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</para></summary>
         /// <param name="name">Name of the component template to create. OpenSearch includes the following built-in component templates: `logs-mappings`; &#x27;logs-settings`; `metrics-mappings`; `metrics-settings`;`synthetics-mapping`; `synthetics-settings`. OpenSearch Agent uses these templates to configure backing indices for its data streams. If you use OpenSearch Agent and want to overwrite one of these templates, set the `version` for your replacement template higher than the current version. If you don&#x27;t use OpenSearch Agent and want to disable all built-in component and index templates, set `stack.templates.enabled` to `false` using the cluster update settings API.</param>
         /// <param name="body">The template definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.put_component_template", "name, body")]
-        public Task<TResponse> PutComponentTemplateAsync<TResponse>(
-            string name,
-            PostData body,
-            PutComponentTemplateRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_component_template/{name:name}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+        public Task<TResponse> PutComponentTemplateAsync<TResponse>(string name, PostData body, PutComponentTemplateRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(PUT, Url($"_component_template/{name:name}"), ctx, body, RequestParams(requestParameters));
+        /// <summary>PUT on /_cluster/decommission/awareness/{awareness_attribute_name}/{awareness_attribute_value} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-decommission/#example-decommissioning-and-recommissioning-a-zone</para></summary>
+        /// <param name="awarenessAttributeName">Awareness attribute name.</param>
+        /// <param name="awarenessAttributeValue">Awareness attribute value.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse PutDecommissionAwareness<TResponse>(string awarenessAttributeName, string awarenessAttributeValue, PutDecommissionAwarenessRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(PUT, Url($"_cluster/decommission/awareness/{awarenessAttributeName:awarenessAttributeName}/{awarenessAttributeValue:awarenessAttributeValue}"), null, RequestParams(requestParameters));
 
         /// <summary>PUT on /_cluster/decommission/awareness/{awareness_attribute_name}/{awareness_attribute_value} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-decommission/#example-decommissioning-and-recommissioning-a-zone</para></summary>
         /// <param name="awarenessAttributeName">Awareness attribute name.</param>
         /// <param name="awarenessAttributeValue">Awareness attribute value.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse PutDecommissionAwareness<TResponse>(
-            string awarenessAttributeName,
-            string awarenessAttributeValue,
-            PutDecommissionAwarenessRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url(
-                    $"_cluster/decommission/awareness/{awarenessAttributeName:awarenessAttributeName}/{awarenessAttributeValue:awarenessAttributeValue}"
-                ),
-                null,
-                RequestParams(requestParameters)
-            );
-
-        /// <summary>PUT on /_cluster/decommission/awareness/{awareness_attribute_name}/{awareness_attribute_value} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-decommission/#example-decommissioning-and-recommissioning-a-zone</para></summary>
-        /// <param name="awarenessAttributeName">Awareness attribute name.</param>
-        /// <param name="awarenessAttributeValue">Awareness attribute value.</param>
-        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        [MapsApi(
-            "cluster.put_decommission_awareness",
-            "awareness_attribute_name, awareness_attribute_value"
-        )]
-        public Task<TResponse> PutDecommissionAwarenessAsync<TResponse>(
-            string awarenessAttributeName,
-            string awarenessAttributeValue,
-            PutDecommissionAwarenessRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url(
-                    $"_cluster/decommission/awareness/{awarenessAttributeName:awarenessAttributeName}/{awarenessAttributeValue:awarenessAttributeValue}"
-                ),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        [MapsApi("cluster.put_decommission_awareness", "awareness_attribute_name, awareness_attribute_value")]
+        public Task<TResponse> PutDecommissionAwarenessAsync<TResponse>(string awarenessAttributeName, string awarenessAttributeValue, PutDecommissionAwarenessRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(PUT, Url($"_cluster/decommission/awareness/{awarenessAttributeName:awarenessAttributeName}/{awarenessAttributeValue:awarenessAttributeValue}"), ctx, null, RequestParams(requestParameters));
         /// <summary>PUT on /_cluster/settings <para>https://opensearch.org/docs/latest/api-reference/cluster-settings/</para></summary>
         /// <param name="body">The settings to be updated. Can be either `transient` or `persistent` (survives cluster restart).</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse PutSettings<TResponse>(
-            PostData body,
-            ClusterPutSettingsRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(PUT, "_cluster/settings", body, RequestParams(requestParameters));
+        public TResponse PutSettings<TResponse>(PostData body, ClusterPutSettingsRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(PUT, "_cluster/settings", body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_cluster/settings <para>https://opensearch.org/docs/latest/api-reference/cluster-settings/</para></summary>
         /// <param name="body">The settings to be updated. Can be either `transient` or `persistent` (survives cluster restart).</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.put_settings", "body")]
-        public Task<TResponse> PutSettingsAsync<TResponse>(
-            PostData body,
-            ClusterPutSettingsRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                "_cluster/settings",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> PutSettingsAsync<TResponse>(PostData body, ClusterPutSettingsRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(PUT, "_cluster/settings", ctx, body, RequestParams(requestParameters));
         /// <summary>PUT on /_cluster/routing/awareness/{attribute}/weights <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-weighted-round-robin-search</para></summary>
         /// <param name="attribute">Awareness attribute name.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse PutWeightedRouting<TResponse>(
-            string attribute,
-            PutWeightedRoutingRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_cluster/routing/awareness/{attribute:attribute}/weights"),
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse PutWeightedRouting<TResponse>(string attribute, PutWeightedRoutingRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(PUT, Url($"_cluster/routing/awareness/{attribute:attribute}/weights"), null, RequestParams(requestParameters));
 
         /// <summary>PUT on /_cluster/routing/awareness/{attribute}/weights <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-weighted-round-robin-search</para></summary>
         /// <param name="attribute">Awareness attribute name.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.put_weighted_routing", "attribute")]
-        public Task<TResponse> PutWeightedRoutingAsync<TResponse>(
-            string attribute,
-            PutWeightedRoutingRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_cluster/routing/awareness/{attribute:attribute}/weights"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> PutWeightedRoutingAsync<TResponse>(string attribute, PutWeightedRoutingRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(PUT, Url($"_cluster/routing/awareness/{attribute:attribute}/weights"), ctx, null, RequestParams(requestParameters));
         /// <summary>GET on /_remote/info <para>https://opensearch.org/docs/latest/api-reference/remote-info/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse RemoteInfo<TResponse>(RemoteInfoRequestParameters requestParameters = null)
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(GET, "_remote/info", null, RequestParams(requestParameters));
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_remote/info", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_remote/info <para>https://opensearch.org/docs/latest/api-reference/remote-info/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.remote_info", "")]
-        public Task<TResponse> RemoteInfoAsync<TResponse>(
-            RemoteInfoRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_remote/info",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> RemoteInfoAsync<TResponse>(RemoteInfoRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_remote/info", ctx, null, RequestParams(requestParameters));
         /// <summary>POST on /_cluster/reroute <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="body">The definition of `commands` to perform (`move`, `cancel`, `allocate`).</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Reroute<TResponse>(
-            PostData body,
-            ClusterRerouteRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(POST, "_cluster/reroute", body, RequestParams(requestParameters));
+        public TResponse Reroute<TResponse>(PostData body, ClusterRerouteRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(POST, "_cluster/reroute", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_cluster/reroute <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="body">The definition of `commands` to perform (`move`, `cancel`, `allocate`).</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.reroute", "body")]
-        public Task<TResponse> RerouteAsync<TResponse>(
-            PostData body,
-            ClusterRerouteRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_cluster/reroute",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> RerouteAsync<TResponse>(PostData body, ClusterRerouteRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(POST, "_cluster/reroute", ctx, body, RequestParams(requestParameters));
         /// <summary>GET on /_cluster/state <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse State<TResponse>(ClusterStateRequestParameters requestParameters = null)
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(GET, "_cluster/state", null, RequestParams(requestParameters));
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_cluster/state", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cluster/state <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.state", "")]
-        public Task<TResponse> StateAsync<TResponse>(
-            ClusterStateRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cluster/state",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> StateAsync<TResponse>(ClusterStateRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_cluster/state", ctx, null, RequestParams(requestParameters));
         /// <summary>GET on /_cluster/state/{metric} <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="metric">Limit the information returned to the specified metrics.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse State<TResponse>(
-            string metric,
-            ClusterStateRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_cluster/state/{metric:metric}"),
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse State<TResponse>(string metric, ClusterStateRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"_cluster/state/{metric:metric}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cluster/state/{metric} <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="metric">Limit the information returned to the specified metrics.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.state", "metric")]
-        public Task<TResponse> StateAsync<TResponse>(
-            string metric,
-            ClusterStateRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_cluster/state/{metric:metric}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> StateAsync<TResponse>(string metric, ClusterStateRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_cluster/state/{metric:metric}"), ctx, null, RequestParams(requestParameters));
         /// <summary>GET on /_cluster/state/{metric}/{index} <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="metric">Limit the information returned to the specified metrics.</param>
         /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse State<TResponse>(
-            string metric,
-            string index,
-            ClusterStateRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_cluster/state/{metric:metric}/{index:index}"),
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse State<TResponse>(string metric, string index, ClusterStateRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"_cluster/state/{metric:metric}/{index:index}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cluster/state/{metric}/{index} <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="metric">Limit the information returned to the specified metrics.</param>
         /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.state", "metric, index")]
-        public Task<TResponse> StateAsync<TResponse>(
-            string metric,
-            string index,
-            ClusterStateRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_cluster/state/{metric:metric}/{index:index}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> StateAsync<TResponse>(string metric, string index, ClusterStateRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_cluster/state/{metric:metric}/{index:index}"), ctx, null, RequestParams(requestParameters));
         /// <summary>GET on /_cluster/stats <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Stats<TResponse>(ClusterStatsRequestParameters requestParameters = null)
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(GET, "_cluster/stats", null, RequestParams(requestParameters));
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, "_cluster/stats", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cluster/stats <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.stats", "")]
-        public Task<TResponse> StatsAsync<TResponse>(
-            ClusterStatsRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_cluster/stats",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
+        public Task<TResponse> StatsAsync<TResponse>(ClusterStatsRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, "_cluster/stats", ctx, null, RequestParams(requestParameters));
         /// <summary>GET on /_cluster/stats/nodes/{node_id} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</para></summary>
         /// <param name="nodeId">Comma-separated list of node filters used to limit returned information. Defaults to all nodes in the cluster.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Stats<TResponse>(
-            string nodeId,
-            ClusterStatsRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_cluster/stats/nodes/{nodeId:nodeId}"),
-                null,
-                RequestParams(requestParameters)
-            );
+        public TResponse Stats<TResponse>(string nodeId, ClusterStatsRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequest<TResponse>(GET, Url($"_cluster/stats/nodes/{nodeId:nodeId}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_cluster/stats/nodes/{node_id} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</para></summary>
         /// <param name="nodeId">Comma-separated list of node filters used to limit returned information. Defaults to all nodes in the cluster.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.stats", "node_id")]
-        public Task<TResponse> StatsAsync<TResponse>(
-            string nodeId,
-            ClusterStatsRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_cluster/stats/nodes/{nodeId:nodeId}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+        public Task<TResponse> StatsAsync<TResponse>(string nodeId, ClusterStatsRequestParameters requestParameters = null, CancellationToken ctx = default)
+            where TResponse : class, IOpenSearchResponse, new() => DoRequestAsync<TResponse>(GET, Url($"_cluster/stats/nodes/{nodeId:nodeId}"), ctx, null, RequestParams(requestParameters));
     }
 }

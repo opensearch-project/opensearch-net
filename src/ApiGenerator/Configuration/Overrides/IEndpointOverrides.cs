@@ -35,10 +35,10 @@ namespace ApiGenerator.Configuration.Overrides
     /// </summary>
     public interface IEndpointOverrides
     {
-		/// <summary>
-		/// Override how the url part is exposed to the client.
-		/// </summary>
-		IDictionary<string, string> RenameUrlParts { get; }
+        /// <summary>
+        /// Override how the url part is exposed to the client.
+        /// </summary>
+        IDictionary<string, string> RenameUrlParts { get; }
 
         /// <summary>
         /// A map of key -> obsolete message for properties in the spec that should not be used any longer

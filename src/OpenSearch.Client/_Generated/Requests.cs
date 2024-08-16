@@ -25,6 +25,7 @@
 *  specific language governing permissions and limitations
 *  under the License.
 */
+
 // ███╗   ██╗ ██████╗ ████████╗██╗ ██████╗███████╗
 // ████╗  ██║██╔═══██╗╚══██╔══╝██║██╔════╝██╔════╝
 // ██╔██╗ ██║██║   ██║   ██║   ██║██║     █████╗
@@ -63,5 +64,7 @@ using OpenSearch.Net.Utf8Json;
 // ReSharper disable UnusedTypeParameter
 namespace OpenSearch.Client
 {
-    public abstract partial class PlainRequestBase<TParameters> { }
+    public abstract partial class PlainRequestBase<TParameters>
+    {
+    }
 }

@@ -34,43 +34,55 @@ public abstract class ArbitraryHttpRequestParameters<TSelf> : RequestParameters<
         SupportsBody = supportsBody;
     }
 
-    public override HttpMethod DefaultHttpMethod { get; }
-    public override bool SupportsBody { get; }
+    public override HttpMethod DefaultHttpMethod
+    {
+        get;
+    }
+    public override bool SupportsBody
+    {
+        get;
+    }
 }
 
-public class HttpDeleteRequestParameters
-    : ArbitraryHttpRequestParameters<HttpDeleteRequestParameters>
+
+
+public class HttpDeleteRequestParameters : ArbitraryHttpRequestParameters<HttpDeleteRequestParameters>
 {
-    public HttpDeleteRequestParameters()
-        : base(HttpMethod.DELETE, false) { }
+    public HttpDeleteRequestParameters() : base(HttpMethod.DELETE, false) { }
 }
+
+
 
 public class HttpGetRequestParameters : ArbitraryHttpRequestParameters<HttpGetRequestParameters>
 {
-    public HttpGetRequestParameters()
-        : base(HttpMethod.GET, false) { }
+    public HttpGetRequestParameters() : base(HttpMethod.GET, false) { }
 }
+
+
 
 public class HttpHeadRequestParameters : ArbitraryHttpRequestParameters<HttpHeadRequestParameters>
 {
-    public HttpHeadRequestParameters()
-        : base(HttpMethod.HEAD, false) { }
+    public HttpHeadRequestParameters() : base(HttpMethod.HEAD, false) { }
 }
+
+
 
 public class HttpPatchRequestParameters : ArbitraryHttpRequestParameters<HttpPatchRequestParameters>
 {
-    public HttpPatchRequestParameters()
-        : base(HttpMethod.PATCH, true) { }
+    public HttpPatchRequestParameters() : base(HttpMethod.PATCH, true) { }
 }
+
+
 
 public class HttpPostRequestParameters : ArbitraryHttpRequestParameters<HttpPostRequestParameters>
 {
-    public HttpPostRequestParameters()
-        : base(HttpMethod.POST, true) { }
+    public HttpPostRequestParameters() : base(HttpMethod.POST, true) { }
 }
+
+
 
 public class HttpPutRequestParameters : ArbitraryHttpRequestParameters<HttpPutRequestParameters>
 {
-    public HttpPutRequestParameters()
-        : base(HttpMethod.PUT, true) { }
+    public HttpPutRequestParameters() : base(HttpMethod.PUT, true) { }
 }
+

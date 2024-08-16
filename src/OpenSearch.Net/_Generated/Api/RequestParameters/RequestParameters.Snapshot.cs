@@ -25,6 +25,7 @@
 *  specific language governing permissions and limitations
 *  under the License.
 */
+
 // ███╗   ██╗ ██████╗ ████████╗██╗ ██████╗███████╗
 // ████╗  ██║██╔═══██╗╚══██╔══╝██║██╔════╝██╔════╝
 // ██╔██╗ ██║██║   ██║   ██║   ██║██║     █████╗
@@ -52,13 +53,13 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.SnapshotApi
 {
+
     /// <summary>Request options for CleanupRepository <para>https://opensearch.org/docs/latest</para></summary>
     public partial class CleanupRepositoryRequestParameters
         : RequestParameters<CleanupRepositoryRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
-
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -66,17 +67,13 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             get => Q<TimeSpan>("cluster_manager_timeout");
             set => Q("cluster_manager_timeout", value);
         }
-
         /// <summary>Period to wait for a connection to the master node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
             set => Q("master_timeout", value);
         }
-
         /// <summary>Period to wait for a response.</summary>
         public TimeSpan Timeout
         {
@@ -84,14 +81,12 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             set => Q("timeout", value);
         }
     }
-
     /// <summary>Request options for Clone <para>https://opensearch.org/docs/latest</para></summary>
     public partial class CloneSnapshotRequestParameters
         : RequestParameters<CloneSnapshotRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
-
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -99,24 +94,20 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             get => Q<TimeSpan>("cluster_manager_timeout");
             set => Q("cluster_manager_timeout", value);
         }
-
         /// <summary>Explicit operation timeout for connection to master node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
             set => Q("master_timeout", value);
         }
     }
-
     /// <summary>Request options for Snapshot <para>https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</para></summary>
-    public partial class SnapshotRequestParameters : RequestParameters<SnapshotRequestParameters>
+    public partial class SnapshotRequestParameters
+        : RequestParameters<SnapshotRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
-
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -124,20 +115,16 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             get => Q<TimeSpan>("cluster_manager_timeout");
             set => Q("cluster_manager_timeout", value);
         }
-
         /// <summary>
         /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
         /// an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
             set => Q("master_timeout", value);
         }
-
         /// <summary>
         /// If `true`, the request returns a response when the snapshot is complete. If `false`, the request returns a response when the snapshot
         /// initializes.
@@ -148,14 +135,12 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             set => Q("wait_for_completion", value);
         }
     }
-
     /// <summary>Request options for CreateRepository <para>https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</para></summary>
     public partial class CreateRepositoryRequestParameters
         : RequestParameters<CreateRepositoryRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
-
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -163,24 +148,19 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             get => Q<TimeSpan>("cluster_manager_timeout");
             set => Q("cluster_manager_timeout", value);
         }
-
         /// <summary>Explicit operation timeout for connection to master node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
             set => Q("master_timeout", value);
         }
-
         /// <summary>Explicit operation timeout.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
             set => Q("timeout", value);
         }
-
         /// <summary>Whether to verify the repository after creation.</summary>
         public bool? Verify
         {
@@ -188,14 +168,12 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             set => Q("verify", value);
         }
     }
-
     /// <summary>Request options for Delete <para>https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/</para></summary>
     public partial class DeleteSnapshotRequestParameters
         : RequestParameters<DeleteSnapshotRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
-
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -203,25 +181,20 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             get => Q<TimeSpan>("cluster_manager_timeout");
             set => Q("cluster_manager_timeout", value);
         }
-
         /// <summary>Explicit operation timeout for connection to master node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
             set => Q("master_timeout", value);
         }
     }
-
     /// <summary>Request options for DeleteRepository <para>https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/</para></summary>
     public partial class DeleteRepositoryRequestParameters
         : RequestParameters<DeleteRepositoryRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
-
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -229,17 +202,13 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             get => Q<TimeSpan>("cluster_manager_timeout");
             set => Q("cluster_manager_timeout", value);
         }
-
         /// <summary>Explicit operation timeout for connection to master node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
             set => Q("master_timeout", value);
         }
-
         /// <summary>Explicit operation timeout.</summary>
         public TimeSpan Timeout
         {
@@ -247,14 +216,12 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             set => Q("timeout", value);
         }
     }
-
     /// <summary>Request options for Get <para>https://opensearch.org/docs/latest</para></summary>
     public partial class GetSnapshotRequestParameters
         : RequestParameters<GetSnapshotRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
-
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -262,27 +229,22 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             get => Q<TimeSpan>("cluster_manager_timeout");
             set => Q("cluster_manager_timeout", value);
         }
-
         /// <summary>If false, the request returns an error for any snapshots that are unavailable.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
         }
-
         /// <summary>
         /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
         /// an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
             set => Q("master_timeout", value);
         }
-
         /// <summary>
         /// If true, returns additional information about each snapshot such as the version of OpenSearch which took the snapshot, the start and end
         /// times of the snapshot, and the number of shards snapshotted.
@@ -293,14 +255,12 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             set => Q("verbose", value);
         }
     }
-
     /// <summary>Request options for GetRepository <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/</para></summary>
     public partial class GetRepositoryRequestParameters
         : RequestParameters<GetRepositoryRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
-
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -308,31 +268,26 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             get => Q<TimeSpan>("cluster_manager_timeout");
             set => Q("cluster_manager_timeout", value);
         }
-
         /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
-
         /// <summary>Explicit operation timeout for connection to master node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
             set => Q("master_timeout", value);
         }
     }
-
     /// <summary>Request options for Restore <para>https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/</para></summary>
-    public partial class RestoreRequestParameters : RequestParameters<RestoreRequestParameters>
+    public partial class RestoreRequestParameters
+        : RequestParameters<RestoreRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
-
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -340,17 +295,13 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             get => Q<TimeSpan>("cluster_manager_timeout");
             set => Q("cluster_manager_timeout", value);
         }
-
         /// <summary>Explicit operation timeout for connection to master node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
             set => Q("master_timeout", value);
         }
-
         /// <summary>Should this request wait until the operation has completed before returning.</summary>
         public bool? WaitForCompletion
         {
@@ -358,14 +309,12 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             set => Q("wait_for_completion", value);
         }
     }
-
     /// <summary>Request options for Status <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</para></summary>
     public partial class SnapshotStatusRequestParameters
         : RequestParameters<SnapshotStatusRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
-
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -373,32 +322,26 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             get => Q<TimeSpan>("cluster_manager_timeout");
             set => Q("cluster_manager_timeout", value);
         }
-
         /// <summary>Whether to ignore unavailable snapshots, defaults to false which means a SnapshotMissingException is thrown.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
         }
-
         /// <summary>Explicit operation timeout for connection to master node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
             set => Q("master_timeout", value);
         }
     }
-
     /// <summary>Request options for VerifyRepository <para>https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/</para></summary>
     public partial class VerifyRepositoryRequestParameters
         : RequestParameters<VerifyRepositoryRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
-
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -406,17 +349,13 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             get => Q<TimeSpan>("cluster_manager_timeout");
             set => Q("cluster_manager_timeout", value);
         }
-
         /// <summary>Explicit operation timeout for connection to master node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
             set => Q("master_timeout", value);
         }
-
         /// <summary>Explicit operation timeout.</summary>
         public TimeSpan Timeout
         {

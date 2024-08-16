@@ -46,7 +46,7 @@ namespace ApiGenerator.Domain.Specification
 
         public string Description { get; set; }
 
-		public Version VersionAdded { get; set; }
+        public Version VersionAdded { get; set; }
 
         public IEnumerable<string> DescriptionHighLevel
         {
@@ -99,9 +99,9 @@ namespace ApiGenerator.Domain.Specification
         public string Obsolete
         {
             get => !string.IsNullOrEmpty(_obsolete)
-				? _obsolete
-				: Deprecated?.ToString();
-			set => _obsolete = value;
+                ? _obsolete
+                : Deprecated?.ToString();
+            set => _obsolete = value;
         }
 
         public Deprecation Deprecated { get; set; }

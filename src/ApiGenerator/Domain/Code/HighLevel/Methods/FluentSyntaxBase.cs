@@ -89,7 +89,7 @@ namespace ApiGenerator.Domain.Code.HighLevel.Methods
                     parts.FirstOrDefault(p => p.Type == "list" && (p.Name == "index" || p.Name == "indices") && !willInferFromDocument),
                     parts.FirstOrDefault(p => p.Name == "name"),
                 };
-                requiredParts = candidates.Where(p=>p!= null).Take(1).ToList();
+                requiredParts = candidates.Where(p => p != null).Take(1).ToList();
             }
             if (!willInferFromDocument) return requiredParts;
 
@@ -119,8 +119,7 @@ namespace ApiGenerator.Domain.Code.HighLevel.Methods
 
         public string DescriptorArguments()
         {
-            string codeArgs;
-            if (CodeConfiguration.DescriptorConstructors.TryGetValue(CsharpNames.DescriptorName, out codeArgs))
+            if (CodeConfiguration.DescriptorConstructors.TryGetValue(CsharpNames.DescriptorName, out var codeArgs))
                 codeArgs += ",";
 
             if (!UrlParts.Any()) return codeArgs;
@@ -131,10 +130,9 @@ namespace ApiGenerator.Domain.Code.HighLevel.Methods
 
         public string SelectorArguments()
         {
-            string codeArgs = null;
-            if (CodeConfiguration.DescriptorConstructors.TryGetValue(CsharpNames.DescriptorName, out codeArgs))
+            if (CodeConfiguration.DescriptorConstructors.TryGetValue(CsharpNames.DescriptorName, out var codeArgs))
             {
-                codeArgs = string.Join(", ", codeArgs.Split(',').Select(a=>a.Split(' ').Last()));
+                codeArgs = string.Join(", ", codeArgs.Split(',').Select(a => a.Split(' ').Last()));
                 return codeArgs;
             }
 

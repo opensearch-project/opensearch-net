@@ -25,6 +25,7 @@
 *  specific language governing permissions and limitations
 *  under the License.
 */
+
 // ███╗   ██╗ ██████╗ ████████╗██╗ ██████╗███████╗
 // ████╗  ██║██╔═══██╗╚══██╔══╝██║██╔════╝██╔════╝
 // ██╔██╗ ██║██║   ██║   ██║   ██║██║     █████╗
@@ -52,417 +53,316 @@ using System.Text;
 
 namespace OpenSearch.Net
 {
+
     [StringEnum]
     public enum Bytes
     {
+
         [EnumMember(Value = "b")]
         B,
-
         [EnumMember(Value = "g")]
         G,
-
         [EnumMember(Value = "gb")]
         Gb,
-
         [EnumMember(Value = "k")]
         K,
-
         [EnumMember(Value = "kb")]
         Kb,
-
         [EnumMember(Value = "m")]
         M,
-
         [EnumMember(Value = "mb")]
         Mb,
-
         [EnumMember(Value = "p")]
         P,
-
         [EnumMember(Value = "pb")]
         Pb,
-
         [EnumMember(Value = "t")]
         T,
-
         [EnumMember(Value = "tb")]
         Tb
     }
-
     [StringEnum]
     public enum ClusterHealthLevel
     {
+
         [EnumMember(Value = "awareness_attributes")]
         AwarenessAttributes,
-
         [EnumMember(Value = "cluster")]
         Cluster,
-
         [EnumMember(Value = "indices")]
         Indices,
-
         [EnumMember(Value = "shards")]
         Shards
     }
-
     [Flags, StringEnum]
     public enum ClusterStateMetric
     {
+
         [EnumMember(Value = "blocks")]
         Blocks = 1 << 0,
-
         [EnumMember(Value = "cluster_manager_node")]
         ClusterManagerNode = 1 << 1,
-
         [EnumMember(Value = "master_node")]
         MasterNode = 1 << 2,
-
         [EnumMember(Value = "metadata")]
         Metadata = 1 << 3,
-
         [EnumMember(Value = "nodes")]
         Nodes = 1 << 4,
-
         [EnumMember(Value = "routing_nodes")]
         RoutingNodes = 1 << 5,
-
         [EnumMember(Value = "routing_table")]
         RoutingTable = 1 << 6,
-
         [EnumMember(Value = "version")]
         Version = 1 << 7,
-
         [EnumMember(Value = "_all")]
         All = 1 << 8
     }
-
     [Flags, StringEnum]
     public enum ExpandWildcards
     {
+
         [EnumMember(Value = "all")]
         All = 1 << 0,
-
         [EnumMember(Value = "closed")]
         Closed = 1 << 1,
-
         [EnumMember(Value = "hidden")]
         Hidden = 1 << 2,
-
         [EnumMember(Value = "none")]
         None = 1 << 3,
-
         [EnumMember(Value = "open")]
         Open = 1 << 4
     }
-
     [StringEnum]
     public enum HealthStatus
     {
+
         [EnumMember(Value = "green")]
         Green,
-
         [EnumMember(Value = "red")]
         Red,
-
         [EnumMember(Value = "yellow")]
         Yellow
     }
-
     [StringEnum]
     public enum Level
     {
+
         [EnumMember(Value = "cluster")]
         Cluster,
-
         [EnumMember(Value = "indices")]
         Indices,
-
         [EnumMember(Value = "shards")]
         Shards
     }
-
     [Flags, StringEnum]
     public enum NodesInfoMetric
     {
+
         [EnumMember(Value = "aggregations")]
         Aggregations = 1 << 0,
-
         [EnumMember(Value = "http")]
         Http = 1 << 1,
-
         [EnumMember(Value = "indices")]
         Indices = 1 << 2,
-
         [EnumMember(Value = "ingest")]
         Ingest = 1 << 3,
-
         [EnumMember(Value = "jvm")]
         Jvm = 1 << 4,
-
         [EnumMember(Value = "os")]
         Os = 1 << 5,
-
         [EnumMember(Value = "plugins")]
         Plugins = 1 << 6,
-
         [EnumMember(Value = "process")]
         Process = 1 << 7,
-
         [EnumMember(Value = "search_pipelines")]
         SearchPipelines = 1 << 8,
-
         [EnumMember(Value = "settings")]
         Settings = 1 << 9,
-
         [EnumMember(Value = "thread_pool")]
         ThreadPool = 1 << 10,
-
         [EnumMember(Value = "transport")]
         Transport = 1 << 11,
-
         [EnumMember(Value = "_all")]
         All = 1 << 12
     }
-
     [StringEnum]
     public enum NodesSampleType
     {
+
         [EnumMember(Value = "block")]
         Block,
-
         [EnumMember(Value = "cpu")]
         Cpu,
-
         [EnumMember(Value = "wait")]
         Wait
     }
-
     [Flags, StringEnum]
     public enum NodesStatsIndexMetric
     {
+
         [EnumMember(Value = "completion")]
         Completion = 1 << 0,
-
         [EnumMember(Value = "docs")]
         Docs = 1 << 1,
-
         [EnumMember(Value = "fielddata")]
         Fielddata = 1 << 2,
-
         [EnumMember(Value = "flush")]
         Flush = 1 << 3,
-
         [EnumMember(Value = "get")]
         Get = 1 << 4,
-
         [EnumMember(Value = "indexing")]
         Indexing = 1 << 5,
-
         [EnumMember(Value = "merge")]
         Merge = 1 << 6,
-
         [EnumMember(Value = "query_cache")]
         QueryCache = 1 << 7,
-
         [EnumMember(Value = "recovery")]
         Recovery = 1 << 8,
-
         [EnumMember(Value = "refresh")]
         Refresh = 1 << 9,
-
         [EnumMember(Value = "request_cache")]
         RequestCache = 1 << 10,
-
         [EnumMember(Value = "search")]
         Search = 1 << 11,
-
         [EnumMember(Value = "segments")]
         Segments = 1 << 12,
-
         [EnumMember(Value = "store")]
         Store = 1 << 13,
-
         [EnumMember(Value = "suggest")]
         Suggest = 1 << 14,
-
         [EnumMember(Value = "translog")]
         Translog = 1 << 15,
-
         [EnumMember(Value = "warmer")]
         Warmer = 1 << 16,
-
         [EnumMember(Value = "_all")]
         All = 1 << 17
     }
-
     [Flags, StringEnum]
     public enum NodesStatsMetric
     {
+
         [EnumMember(Value = "adaptive_selection")]
         AdaptiveSelection = 1 << 0,
-
         [EnumMember(Value = "admission_control")]
         AdmissionControl = 1 << 1,
-
         [EnumMember(Value = "breaker")]
         Breaker = 1 << 2,
-
         [EnumMember(Value = "caches")]
         Caches = 1 << 3,
-
         [EnumMember(Value = "cluster_manager_throttling")]
         ClusterManagerThrottling = 1 << 4,
-
         [EnumMember(Value = "discovery")]
         Discovery = 1 << 5,
-
         [EnumMember(Value = "file_cache")]
         FileCache = 1 << 6,
-
         [EnumMember(Value = "fs")]
         Fs = 1 << 7,
-
         [EnumMember(Value = "http")]
         Http = 1 << 8,
-
         [EnumMember(Value = "indexing_pressure")]
         IndexingPressure = 1 << 9,
-
         [EnumMember(Value = "indices")]
         Indices = 1 << 10,
-
         [EnumMember(Value = "ingest")]
         Ingest = 1 << 11,
-
         [EnumMember(Value = "jvm")]
         Jvm = 1 << 12,
-
         [EnumMember(Value = "os")]
         Os = 1 << 13,
-
         [EnumMember(Value = "process")]
         Process = 1 << 14,
-
         [EnumMember(Value = "repositories")]
         Repositories = 1 << 15,
-
         [EnumMember(Value = "resource_usage_stats")]
         ResourceUsageStats = 1 << 16,
-
         [EnumMember(Value = "script")]
         Script = 1 << 17,
-
         [EnumMember(Value = "script_cache")]
         ScriptCache = 1 << 18,
-
         [EnumMember(Value = "search_backpressure")]
         SearchBackpressure = 1 << 19,
-
         [EnumMember(Value = "search_pipeline")]
         SearchPipeline = 1 << 20,
-
         [EnumMember(Value = "segment_replication_backpressure")]
         SegmentReplicationBackpressure = 1 << 21,
-
         [EnumMember(Value = "shard_indexing_pressure")]
         ShardIndexingPressure = 1 << 22,
-
         [EnumMember(Value = "task_cancellation")]
         TaskCancellation = 1 << 23,
-
         [EnumMember(Value = "thread_pool")]
         ThreadPool = 1 << 24,
-
         [EnumMember(Value = "transport")]
         Transport = 1 << 25,
-
         [EnumMember(Value = "weighted_routing")]
         WeightedRouting = 1 << 26,
-
         [EnumMember(Value = "_all")]
         All = 1 << 27
     }
-
     [Flags, StringEnum]
     public enum NodesUsageMetric
     {
+
         [EnumMember(Value = "rest_actions")]
         RestActions = 1 << 0,
-
         [EnumMember(Value = "_all")]
         All = 1 << 1
     }
-
     [StringEnum]
     public enum TasksGroupBy
     {
+
         [EnumMember(Value = "nodes")]
         Nodes,
-
         [EnumMember(Value = "none")]
         None,
-
         [EnumMember(Value = "parents")]
         Parents
     }
-
     [StringEnum]
     public enum TimeUnit
     {
+
         [EnumMember(Value = "d")]
         D,
-
         [EnumMember(Value = "h")]
         H,
-
         [EnumMember(Value = "m")]
         M,
-
         [EnumMember(Value = "micros")]
         Micros,
-
         [EnumMember(Value = "ms")]
         Ms,
-
         [EnumMember(Value = "nanos")]
         Nanos,
-
         [EnumMember(Value = "s")]
         S
     }
-
     [StringEnum]
     public enum WaitForActiveShardOptions
     {
+
         [EnumMember(Value = "all")]
         All,
-
         [EnumMember(Value = "index-setting")]
         IndexSetting
     }
-
     [StringEnum]
     public enum WaitForEvents
     {
+
         [EnumMember(Value = "high")]
         High,
-
         [EnumMember(Value = "immediate")]
         Immediate,
-
         [EnumMember(Value = "languid")]
         Languid,
-
         [EnumMember(Value = "low")]
         Low,
-
         [EnumMember(Value = "normal")]
         Normal,
-
         [EnumMember(Value = "urgent")]
         Urgent
     }
-
     public static partial class KnownEnums
     {
         static partial void RegisterEnumStringResolvers()
@@ -484,6 +384,7 @@ namespace OpenSearch.Net
             AddEnumStringResolver<WaitForEvents>(GetStringValue);
         }
 
+
         public static string GetStringValue(this Bytes enumValue) =>
             enumValue switch
             {
@@ -498,10 +399,7 @@ namespace OpenSearch.Net
                 Bytes.Pb => "pb",
                 Bytes.T => "t",
                 Bytes.Tb => "tb",
-                _
-                    => throw new ArgumentException(
-                        $"'{enumValue.ToString()}' is not a valid value for enum 'Bytes'"
-                    )
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Bytes'")
             };
 
         public static string GetStringValue(this ClusterHealthLevel enumValue) =>
@@ -511,10 +409,7 @@ namespace OpenSearch.Net
                 ClusterHealthLevel.Cluster => "cluster",
                 ClusterHealthLevel.Indices => "indices",
                 ClusterHealthLevel.Shards => "shards",
-                _
-                    => throw new ArgumentException(
-                        $"'{enumValue.ToString()}' is not a valid value for enum 'ClusterHealthLevel'"
-                    )
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'ClusterHealthLevel'")
             };
 
         public static string GetStringValue(this ClusterStateMetric enumValue)
@@ -540,7 +435,6 @@ namespace OpenSearch.Net
                 list.Add("version");
             return string.Join(",", list);
         }
-
         public static string GetStringValue(this ExpandWildcards enumValue)
         {
             var list = new List<string>();
@@ -556,17 +450,13 @@ namespace OpenSearch.Net
                 list.Add("open");
             return string.Join(",", list);
         }
-
         public static string GetStringValue(this HealthStatus enumValue) =>
             enumValue switch
             {
                 HealthStatus.Green => "green",
                 HealthStatus.Red => "red",
                 HealthStatus.Yellow => "yellow",
-                _
-                    => throw new ArgumentException(
-                        $"'{enumValue.ToString()}' is not a valid value for enum 'HealthStatus'"
-                    )
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'HealthStatus'")
             };
 
         public static string GetStringValue(this Level enumValue) =>
@@ -575,10 +465,7 @@ namespace OpenSearch.Net
                 Level.Cluster => "cluster",
                 Level.Indices => "indices",
                 Level.Shards => "shards",
-                _
-                    => throw new ArgumentException(
-                        $"'{enumValue.ToString()}' is not a valid value for enum 'Level'"
-                    )
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Level'")
             };
 
         public static string GetStringValue(this NodesInfoMetric enumValue)
@@ -612,17 +499,13 @@ namespace OpenSearch.Net
                 list.Add("transport");
             return string.Join(",", list);
         }
-
         public static string GetStringValue(this NodesSampleType enumValue) =>
             enumValue switch
             {
                 NodesSampleType.Block => "block",
                 NodesSampleType.Cpu => "cpu",
                 NodesSampleType.Wait => "wait",
-                _
-                    => throw new ArgumentException(
-                        $"'{enumValue.ToString()}' is not a valid value for enum 'NodesSampleType'"
-                    )
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'NodesSampleType'")
             };
 
         public static string GetStringValue(this NodesStatsIndexMetric enumValue)
@@ -666,7 +549,6 @@ namespace OpenSearch.Net
                 list.Add("warmer");
             return string.Join(",", list);
         }
-
         public static string GetStringValue(this NodesStatsMetric enumValue)
         {
             if ((enumValue & NodesStatsMetric.All) != 0)
@@ -728,7 +610,6 @@ namespace OpenSearch.Net
                 list.Add("weighted_routing");
             return string.Join(",", list);
         }
-
         public static string GetStringValue(this NodesUsageMetric enumValue)
         {
             if ((enumValue & NodesUsageMetric.All) != 0)
@@ -738,17 +619,13 @@ namespace OpenSearch.Net
                 list.Add("rest_actions");
             return string.Join(",", list);
         }
-
         public static string GetStringValue(this TasksGroupBy enumValue) =>
             enumValue switch
             {
                 TasksGroupBy.Nodes => "nodes",
                 TasksGroupBy.None => "none",
                 TasksGroupBy.Parents => "parents",
-                _
-                    => throw new ArgumentException(
-                        $"'{enumValue.ToString()}' is not a valid value for enum 'TasksGroupBy'"
-                    )
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'TasksGroupBy'")
             };
 
         public static string GetStringValue(this TimeUnit enumValue) =>
@@ -761,10 +638,7 @@ namespace OpenSearch.Net
                 TimeUnit.Ms => "ms",
                 TimeUnit.Nanos => "nanos",
                 TimeUnit.S => "s",
-                _
-                    => throw new ArgumentException(
-                        $"'{enumValue.ToString()}' is not a valid value for enum 'TimeUnit'"
-                    )
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'TimeUnit'")
             };
 
         public static string GetStringValue(this WaitForActiveShardOptions enumValue) =>
@@ -772,10 +646,7 @@ namespace OpenSearch.Net
             {
                 WaitForActiveShardOptions.All => "all",
                 WaitForActiveShardOptions.IndexSetting => "index-setting",
-                _
-                    => throw new ArgumentException(
-                        $"'{enumValue.ToString()}' is not a valid value for enum 'WaitForActiveShardOptions'"
-                    )
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'WaitForActiveShardOptions'")
             };
 
         public static string GetStringValue(this WaitForEvents enumValue) =>
@@ -787,10 +658,7 @@ namespace OpenSearch.Net
                 WaitForEvents.Low => "low",
                 WaitForEvents.Normal => "normal",
                 WaitForEvents.Urgent => "urgent",
-                _
-                    => throw new ArgumentException(
-                        $"'{enumValue.ToString()}' is not a valid value for enum 'WaitForEvents'"
-                    )
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'WaitForEvents'")
             };
     }
 }

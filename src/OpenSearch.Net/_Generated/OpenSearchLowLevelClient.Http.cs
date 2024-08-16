@@ -35,21 +35,14 @@ namespace OpenSearch.Net.Specification.HttpApi;
 /// </summary>
 public class LowLevelHttpNamespace : NamespacedClientProxy
 {
-    internal LowLevelHttpNamespace(OpenSearchLowLevelClient client)
-        : base(client) { }
+    internal LowLevelHttpNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
-    public TResponse Delete<TResponse>(
-        FormattableString path,
-        HttpDeleteRequestParameters parameters = null
-    )
+
+    public TResponse Delete<TResponse>(FormattableString path, HttpDeleteRequestParameters parameters = null)
         where TResponse : class, IOpenSearchResponse, new() =>
         Delete<TResponse>(Url(path), parameters);
 
-    public Task<TResponse> DeleteAsync<TResponse>(
-        FormattableString path,
-        HttpDeleteRequestParameters parameters = null,
-        CancellationToken ctx = default
-    )
+    public Task<TResponse> DeleteAsync<TResponse>(FormattableString path, HttpDeleteRequestParameters parameters = null, CancellationToken ctx = default)
         where TResponse : class, IOpenSearchResponse, new() =>
         DeleteAsync<TResponse>(Url(path), parameters, ctx);
 
@@ -57,26 +50,17 @@ public class LowLevelHttpNamespace : NamespacedClientProxy
         where TResponse : class, IOpenSearchResponse, new() =>
         DoRequest<TResponse>(HttpMethod.DELETE, path, null, RequestParams(parameters));
 
-    public Task<TResponse> DeleteAsync<TResponse>(
-        string path,
-        HttpDeleteRequestParameters parameters = null,
-        CancellationToken ctx = default
-    )
+    public Task<TResponse> DeleteAsync<TResponse>(string path, HttpDeleteRequestParameters parameters = null, CancellationToken ctx = default)
         where TResponse : class, IOpenSearchResponse, new() =>
         DoRequestAsync<TResponse>(HttpMethod.DELETE, path, ctx, null, RequestParams(parameters));
 
-    public TResponse Get<TResponse>(
-        FormattableString path,
-        HttpGetRequestParameters parameters = null
-    )
+
+
+    public TResponse Get<TResponse>(FormattableString path, HttpGetRequestParameters parameters = null)
         where TResponse : class, IOpenSearchResponse, new() =>
         Get<TResponse>(Url(path), parameters);
 
-    public Task<TResponse> GetAsync<TResponse>(
-        FormattableString path,
-        HttpGetRequestParameters parameters = null,
-        CancellationToken ctx = default
-    )
+    public Task<TResponse> GetAsync<TResponse>(FormattableString path, HttpGetRequestParameters parameters = null, CancellationToken ctx = default)
         where TResponse : class, IOpenSearchResponse, new() =>
         GetAsync<TResponse>(Url(path), parameters, ctx);
 
@@ -84,26 +68,17 @@ public class LowLevelHttpNamespace : NamespacedClientProxy
         where TResponse : class, IOpenSearchResponse, new() =>
         DoRequest<TResponse>(HttpMethod.GET, path, null, RequestParams(parameters));
 
-    public Task<TResponse> GetAsync<TResponse>(
-        string path,
-        HttpGetRequestParameters parameters = null,
-        CancellationToken ctx = default
-    )
+    public Task<TResponse> GetAsync<TResponse>(string path, HttpGetRequestParameters parameters = null, CancellationToken ctx = default)
         where TResponse : class, IOpenSearchResponse, new() =>
         DoRequestAsync<TResponse>(HttpMethod.GET, path, ctx, null, RequestParams(parameters));
 
-    public TResponse Head<TResponse>(
-        FormattableString path,
-        HttpHeadRequestParameters parameters = null
-    )
+
+
+    public TResponse Head<TResponse>(FormattableString path, HttpHeadRequestParameters parameters = null)
         where TResponse : class, IOpenSearchResponse, new() =>
         Head<TResponse>(Url(path), parameters);
 
-    public Task<TResponse> HeadAsync<TResponse>(
-        FormattableString path,
-        HttpHeadRequestParameters parameters = null,
-        CancellationToken ctx = default
-    )
+    public Task<TResponse> HeadAsync<TResponse>(FormattableString path, HttpHeadRequestParameters parameters = null, CancellationToken ctx = default)
         where TResponse : class, IOpenSearchResponse, new() =>
         HeadAsync<TResponse>(Url(path), parameters, ctx);
 
@@ -111,113 +86,62 @@ public class LowLevelHttpNamespace : NamespacedClientProxy
         where TResponse : class, IOpenSearchResponse, new() =>
         DoRequest<TResponse>(HttpMethod.HEAD, path, null, RequestParams(parameters));
 
-    public Task<TResponse> HeadAsync<TResponse>(
-        string path,
-        HttpHeadRequestParameters parameters = null,
-        CancellationToken ctx = default
-    )
+    public Task<TResponse> HeadAsync<TResponse>(string path, HttpHeadRequestParameters parameters = null, CancellationToken ctx = default)
         where TResponse : class, IOpenSearchResponse, new() =>
         DoRequestAsync<TResponse>(HttpMethod.HEAD, path, ctx, null, RequestParams(parameters));
 
-    public TResponse Patch<TResponse>(
-        FormattableString path,
-        PostData body = null,
-        HttpPatchRequestParameters parameters = null
-    )
+
+
+    public TResponse Patch<TResponse>(FormattableString path, PostData body = null, HttpPatchRequestParameters parameters = null)
         where TResponse : class, IOpenSearchResponse, new() =>
         Patch<TResponse>(Url(path), body, parameters);
 
-    public Task<TResponse> PatchAsync<TResponse>(
-        FormattableString path,
-        PostData body = null,
-        HttpPatchRequestParameters parameters = null,
-        CancellationToken ctx = default
-    )
+    public Task<TResponse> PatchAsync<TResponse>(FormattableString path, PostData body = null, HttpPatchRequestParameters parameters = null, CancellationToken ctx = default)
         where TResponse : class, IOpenSearchResponse, new() =>
         PatchAsync<TResponse>(Url(path), body, parameters, ctx);
 
-    public TResponse Patch<TResponse>(
-        string path,
-        PostData body = null,
-        HttpPatchRequestParameters parameters = null
-    )
+    public TResponse Patch<TResponse>(string path, PostData body = null, HttpPatchRequestParameters parameters = null)
         where TResponse : class, IOpenSearchResponse, new() =>
         DoRequest<TResponse>(HttpMethod.PATCH, path, body, RequestParams(parameters));
 
-    public Task<TResponse> PatchAsync<TResponse>(
-        string path,
-        PostData body = null,
-        HttpPatchRequestParameters parameters = null,
-        CancellationToken ctx = default
-    )
+    public Task<TResponse> PatchAsync<TResponse>(string path, PostData body = null, HttpPatchRequestParameters parameters = null, CancellationToken ctx = default)
         where TResponse : class, IOpenSearchResponse, new() =>
         DoRequestAsync<TResponse>(HttpMethod.PATCH, path, ctx, body, RequestParams(parameters));
 
-    public TResponse Post<TResponse>(
-        FormattableString path,
-        PostData body = null,
-        HttpPostRequestParameters parameters = null
-    )
+
+
+    public TResponse Post<TResponse>(FormattableString path, PostData body = null, HttpPostRequestParameters parameters = null)
         where TResponse : class, IOpenSearchResponse, new() =>
         Post<TResponse>(Url(path), body, parameters);
 
-    public Task<TResponse> PostAsync<TResponse>(
-        FormattableString path,
-        PostData body = null,
-        HttpPostRequestParameters parameters = null,
-        CancellationToken ctx = default
-    )
+    public Task<TResponse> PostAsync<TResponse>(FormattableString path, PostData body = null, HttpPostRequestParameters parameters = null, CancellationToken ctx = default)
         where TResponse : class, IOpenSearchResponse, new() =>
         PostAsync<TResponse>(Url(path), body, parameters, ctx);
 
-    public TResponse Post<TResponse>(
-        string path,
-        PostData body = null,
-        HttpPostRequestParameters parameters = null
-    )
+    public TResponse Post<TResponse>(string path, PostData body = null, HttpPostRequestParameters parameters = null)
         where TResponse : class, IOpenSearchResponse, new() =>
         DoRequest<TResponse>(HttpMethod.POST, path, body, RequestParams(parameters));
 
-    public Task<TResponse> PostAsync<TResponse>(
-        string path,
-        PostData body = null,
-        HttpPostRequestParameters parameters = null,
-        CancellationToken ctx = default
-    )
+    public Task<TResponse> PostAsync<TResponse>(string path, PostData body = null, HttpPostRequestParameters parameters = null, CancellationToken ctx = default)
         where TResponse : class, IOpenSearchResponse, new() =>
         DoRequestAsync<TResponse>(HttpMethod.POST, path, ctx, body, RequestParams(parameters));
 
-    public TResponse Put<TResponse>(
-        FormattableString path,
-        PostData body = null,
-        HttpPutRequestParameters parameters = null
-    )
+
+
+    public TResponse Put<TResponse>(FormattableString path, PostData body = null, HttpPutRequestParameters parameters = null)
         where TResponse : class, IOpenSearchResponse, new() =>
         Put<TResponse>(Url(path), body, parameters);
 
-    public Task<TResponse> PutAsync<TResponse>(
-        FormattableString path,
-        PostData body = null,
-        HttpPutRequestParameters parameters = null,
-        CancellationToken ctx = default
-    )
+    public Task<TResponse> PutAsync<TResponse>(FormattableString path, PostData body = null, HttpPutRequestParameters parameters = null, CancellationToken ctx = default)
         where TResponse : class, IOpenSearchResponse, new() =>
         PutAsync<TResponse>(Url(path), body, parameters, ctx);
 
-    public TResponse Put<TResponse>(
-        string path,
-        PostData body = null,
-        HttpPutRequestParameters parameters = null
-    )
+    public TResponse Put<TResponse>(string path, PostData body = null, HttpPutRequestParameters parameters = null)
         where TResponse : class, IOpenSearchResponse, new() =>
         DoRequest<TResponse>(HttpMethod.PUT, path, body, RequestParams(parameters));
 
-    public Task<TResponse> PutAsync<TResponse>(
-        string path,
-        PostData body = null,
-        HttpPutRequestParameters parameters = null,
-        CancellationToken ctx = default
-    )
+    public Task<TResponse> PutAsync<TResponse>(string path, PostData body = null, HttpPutRequestParameters parameters = null, CancellationToken ctx = default)
         where TResponse : class, IOpenSearchResponse, new() =>
         DoRequestAsync<TResponse>(HttpMethod.PUT, path, ctx, body, RequestParams(parameters));
+
 }

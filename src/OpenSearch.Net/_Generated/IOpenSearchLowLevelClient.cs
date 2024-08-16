@@ -25,6 +25,7 @@
 *  specific language governing permissions and limitations
 *  under the License.
 */
+
 // ███╗   ██╗ ██████╗ ████████╗██╗ ██████╗███████╗
 // ████╗  ██║██╔═══██╗╚══██╔══╝██║██╔════╝██╔════╝
 // ██╔██╗ ██║██║   ██║   ██║   ██║██║     █████╗
@@ -67,103 +68,99 @@ namespace OpenSearch.Net
     /// </summary>
     public partial interface IOpenSearchLowLevelClient
     {
+
         /// <summary>Cat APIs</summary>
-        LowLevelCatNamespace Cat { get; }
+        LowLevelCatNamespace Cat
+        {
+            get;
+        }
 
         /// <summary>Cluster APIs</summary>
-        LowLevelClusterNamespace Cluster { get; }
+        LowLevelClusterNamespace Cluster
+        {
+            get;
+        }
 
         /// <summary>Dangling Indices APIs</summary>
-        LowLevelDanglingIndicesNamespace DanglingIndices { get; }
+        LowLevelDanglingIndicesNamespace DanglingIndices
+        {
+            get;
+        }
 
         /// <summary>Indices APIs</summary>
-        LowLevelIndicesNamespace Indices { get; }
+        LowLevelIndicesNamespace Indices
+        {
+            get;
+        }
 
         /// <summary>Ingest APIs</summary>
-        LowLevelIngestNamespace Ingest { get; }
+        LowLevelIngestNamespace Ingest
+        {
+            get;
+        }
 
         /// <summary>Nodes APIs</summary>
-        LowLevelNodesNamespace Nodes { get; }
+        LowLevelNodesNamespace Nodes
+        {
+            get;
+        }
 
         /// <summary>Http APIs</summary>
-        LowLevelHttpNamespace Http { get; }
+        LowLevelHttpNamespace Http
+        {
+            get;
+        }
 
         /// <summary>Snapshot APIs</summary>
-        LowLevelSnapshotNamespace Snapshot { get; }
+        LowLevelSnapshotNamespace Snapshot
+        {
+            get;
+        }
 
         /// <summary>Tasks APIs</summary>
-        LowLevelTasksNamespace Tasks { get; }
+        LowLevelTasksNamespace Tasks
+        {
+            get;
+        }
+        /// <summary>POST on /{index}/_search/point_in_time <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</para></summary>
+        /// <param name="index">Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        TResponse CreatePit<TResponse>(string index, CreatePitRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_search/point_in_time <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</para></summary>
         /// <param name="index">Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        TResponse CreatePit<TResponse>(
-            string index,
-            CreatePitRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new();
-
-        /// <summary>POST on /{index}/_search/point_in_time <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</para></summary>
-        /// <param name="index">Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        Task<TResponse> CreatePitAsync<TResponse>(string index, CreatePitRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new();
+        /// <summary>DELETE on /_search/point_in_time/_all <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        Task<TResponse> CreatePitAsync<TResponse>(
-            string index,
-            CreatePitRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new();
+        TResponse DeleteAllPits<TResponse>(DeleteAllPitsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>DELETE on /_search/point_in_time/_all <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        TResponse DeleteAllPits<TResponse>(DeleteAllPitsRequestParameters requestParameters = null)
-            where TResponse : class, IOpenSearchResponse, new();
-
-        /// <summary>DELETE on /_search/point_in_time/_all <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
+        Task<TResponse> DeleteAllPitsAsync<TResponse>(DeleteAllPitsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new();
+        /// <summary>DELETE on /_search/point_in_time <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
+        /// <param name="body">The point-in-time ids to be deleted.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        Task<TResponse> DeleteAllPitsAsync<TResponse>(
-            DeleteAllPitsRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new();
+        TResponse DeletePit<TResponse>(PostData body, DeletePitRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>DELETE on /_search/point_in_time <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
         /// <param name="body">The point-in-time ids to be deleted.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        TResponse DeletePit<TResponse>(
-            PostData body,
-            DeletePitRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new();
-
-        /// <summary>DELETE on /_search/point_in_time <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
-        /// <param name="body">The point-in-time ids to be deleted.</param>
+        Task<TResponse> DeletePitAsync<TResponse>(PostData body, DeletePitRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new();
+        /// <summary>GET on /_search/point_in_time/_all <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        Task<TResponse> DeletePitAsync<TResponse>(
-            PostData body,
-            DeletePitRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new();
+        TResponse GetAllPits<TResponse>(GetAllPitsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>GET on /_search/point_in_time/_all <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        TResponse GetAllPits<TResponse>(GetAllPitsRequestParameters requestParameters = null)
-            where TResponse : class, IOpenSearchResponse, new();
-
-        /// <summary>GET on /_search/point_in_time/_all <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</para></summary>
-        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        Task<TResponse> GetAllPitsAsync<TResponse>(
-            GetAllPitsRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new();
+        Task<TResponse> GetAllPitsAsync<TResponse>(GetAllPitsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new();
     }
 }

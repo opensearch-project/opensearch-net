@@ -25,6 +25,7 @@
 *  specific language governing permissions and limitations
 *  under the License.
 */
+
 // ███╗   ██╗ ██████╗ ████████╗██╗ ██████╗███████╗
 // ████╗  ██║██╔═══██╗╚══██╔══╝██║██╔════╝██╔════╝
 // ██╔██╗ ██║██║   ██║   ██║   ██║██║     █████╗
@@ -61,27 +62,24 @@ namespace OpenSearch.Client
     public partial interface ICreatePitRequest : IRequest<CreatePitRequestParameters>
     {
         [IgnoreDataMember]
-        Indices Index { get; }
+        Indices Index
+        {
+            get;
+        }
     }
-
     /// <summary>Request for CreatePit <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</para></summary>
-    public partial class CreatePitRequest
-        : PlainRequestBase<CreatePitRequestParameters>,
-            ICreatePitRequest
+    public partial class CreatePitRequest : PlainRequestBase<CreatePitRequestParameters>, ICreatePitRequest
     {
         protected ICreatePitRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceCreatePit;
-
         /// <summary>/{index}/_search/point_in_time</summary>
         /// <param name="index">this parameter is required</param>
         public CreatePitRequest(Indices index)
             : base(r => r.Required("index", index)) { }
-
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
         protected CreatePitRequest()
             : base() { }
-
         // values part of the url path
         [IgnoreDataMember]
         Indices ICreatePitRequest.Index => Self.RouteValues.Get<Indices>("index");
@@ -92,51 +90,41 @@ namespace OpenSearch.Client
         {
             get => Q<bool?>("allow_partial_pit_creation");
             set => Q("allow_partial_pit_creation", value);
-        }
-
-        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
-        public ExpandWildcards? ExpandWildcards
+        }/// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+		public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
             set => Q("expand_wildcards", value);
-        }
-
-        /// <summary>Specify the keep alive for point in time.</summary>
-        public Time KeepAlive
+        }/// <summary>Specify the keep alive for point in time.</summary>
+		public Time KeepAlive
         {
             get => Q<Time>("keep_alive");
             set => Q("keep_alive", value);
-        }
-
-        /// <summary>Specify the node or shard the operation should be performed on.</summary>
-        public string Preference
+        }/// <summary>Specify the node or shard the operation should be performed on.</summary>
+		public string Preference
         {
             get => Q<string>("preference");
             set => Q("preference", value);
-        }
-
-        /// <summary>
-        /// A document is routed to a particular shard in an index using the following formula
-        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
-        /// <para>OpenSearch will use the document id if not provided. </para>
-        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
-        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see
-        /// cref="OpenSearch.Client.ConnectionSettings" /></para>
-        /// </summary>
+        }/// <summary>
+         /// A document is routed to a particular shard in an index using the following formula
+         /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+         /// <para>OpenSearch will use the document id if not provided. </para>
+         /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+         /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see
+         /// cref="OpenSearch.Client.ConnectionSettings" /></para>
+         /// </summary>
         public Routing Routing
         {
             get => Q<Routing>("routing");
             set => Q("routing", value);
         }
     }
-
     [InterfaceDataContract]
-    public partial interface IDeleteAllPitsRequest : IRequest<DeleteAllPitsRequestParameters> { }
-
+    public partial interface IDeleteAllPitsRequest : IRequest<DeleteAllPitsRequestParameters>
+    {
+    }
     /// <summary>Request for DeleteAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
-    public partial class DeleteAllPitsRequest
-        : PlainRequestBase<DeleteAllPitsRequestParameters>,
-            IDeleteAllPitsRequest
+    public partial class DeleteAllPitsRequest : PlainRequestBase<DeleteAllPitsRequestParameters>, IDeleteAllPitsRequest
     {
         protected IDeleteAllPitsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceDeleteAllPits;
@@ -144,14 +132,12 @@ namespace OpenSearch.Client
 
         // Request parameters
     }
-
     [InterfaceDataContract]
-    public partial interface IDeletePitRequest : IRequest<DeletePitRequestParameters> { }
-
+    public partial interface IDeletePitRequest : IRequest<DeletePitRequestParameters>
+    {
+    }
     /// <summary>Request for DeletePit <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
-    public partial class DeletePitRequest
-        : PlainRequestBase<DeletePitRequestParameters>,
-            IDeletePitRequest
+    public partial class DeletePitRequest : PlainRequestBase<DeletePitRequestParameters>, IDeletePitRequest
     {
         protected IDeletePitRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceDeletePit;
@@ -159,14 +145,12 @@ namespace OpenSearch.Client
 
         // Request parameters
     }
-
     [InterfaceDataContract]
-    public partial interface IGetAllPitsRequest : IRequest<GetAllPitsRequestParameters> { }
-
+    public partial interface IGetAllPitsRequest : IRequest<GetAllPitsRequestParameters>
+    {
+    }
     /// <summary>Request for GetAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</para></summary>
-    public partial class GetAllPitsRequest
-        : PlainRequestBase<GetAllPitsRequestParameters>,
-            IGetAllPitsRequest
+    public partial class GetAllPitsRequest : PlainRequestBase<GetAllPitsRequestParameters>, IGetAllPitsRequest
     {
         protected IGetAllPitsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceGetAllPits;

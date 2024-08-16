@@ -25,6 +25,7 @@
 *  specific language governing permissions and limitations
 *  under the License.
 */
+
 // ███╗   ██╗ ██████╗ ████████╗██╗ ██████╗███████╗
 // ████╗  ██║██╔═══██╗╚══██╔══╝██║██╔════╝██╔════╝
 // ██╔██╗ ██║██║   ██║   ██║   ██║██║     █████╗
@@ -46,5 +47,7 @@ using System.Collections.Generic;
 namespace OpenSearch.Client
 {
     // ReSharper disable UnusedTypeParameter
-    public abstract partial class RequestDescriptorBase<TDescriptor, TParameters, TInterface> { }
+    public abstract partial class RequestDescriptorBase<TDescriptor, TParameters, TInterface>
+    {
+    }
 }

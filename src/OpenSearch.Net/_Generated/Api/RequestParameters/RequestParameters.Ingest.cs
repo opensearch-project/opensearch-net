@@ -25,6 +25,7 @@
 *  specific language governing permissions and limitations
 *  under the License.
 */
+
 // ███╗   ██╗ ██████╗ ████████╗██╗ ██████╗███████╗
 // ████╗  ██║██╔═══██╗╚══██╔══╝██║██╔════╝██╔════╝
 // ██╔██╗ ██║██║   ██║   ██║   ██║██║     █████╗
@@ -52,13 +53,13 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.IngestApi
 {
+
     /// <summary>Request options for DeletePipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</para></summary>
     public partial class DeletePipelineRequestParameters
         : RequestParameters<DeletePipelineRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
-
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -66,20 +67,16 @@ namespace OpenSearch.Net.Specification.IngestApi
             get => Q<TimeSpan>("cluster_manager_timeout");
             set => Q("cluster_manager_timeout", value);
         }
-
         /// <summary>
         /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
         /// an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
             set => Q("master_timeout", value);
         }
-
         /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public TimeSpan Timeout
         {
@@ -87,14 +84,12 @@ namespace OpenSearch.Net.Specification.IngestApi
             set => Q("timeout", value);
         }
     }
-
     /// <summary>Request options for GetPipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</para></summary>
     public partial class GetPipelineRequestParameters
         : RequestParameters<GetPipelineRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
-
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -102,21 +97,17 @@ namespace OpenSearch.Net.Specification.IngestApi
             get => Q<TimeSpan>("cluster_manager_timeout");
             set => Q("cluster_manager_timeout", value);
         }
-
         /// <summary>
         /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
         /// an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
             set => Q("master_timeout", value);
         }
     }
-
     /// <summary>Request options for GrokProcessorPatterns <para>https://opensearch.org/docs/latest</para></summary>
     public partial class GrokProcessorPatternsRequestParameters
         : RequestParameters<GrokProcessorPatternsRequestParameters>
@@ -124,14 +115,12 @@ namespace OpenSearch.Net.Specification.IngestApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
     }
-
     /// <summary>Request options for PutPipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</para></summary>
     public partial class PutPipelineRequestParameters
         : RequestParameters<PutPipelineRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
-
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -139,20 +128,16 @@ namespace OpenSearch.Net.Specification.IngestApi
             get => Q<TimeSpan>("cluster_manager_timeout");
             set => Q("cluster_manager_timeout", value);
         }
-
         /// <summary>
         /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
         /// an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
             set => Q("master_timeout", value);
         }
-
         /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public TimeSpan Timeout
         {
@@ -160,14 +145,12 @@ namespace OpenSearch.Net.Specification.IngestApi
             set => Q("timeout", value);
         }
     }
-
     /// <summary>Request options for SimulatePipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</para></summary>
     public partial class SimulatePipelineRequestParameters
         : RequestParameters<SimulatePipelineRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
-
         /// <summary>If `true`, the response includes output data for each processor in the executed pipeline.</summary>
         public bool? Verbose
         {

@@ -26,7 +26,7 @@
 *  under the License.
 */
 
-namespace ApiGenerator.Domain.Code.HighLevel.Methods 
+namespace ApiGenerator.Domain.Code.HighLevel.Methods
 {
     public class HighLevelModel
     {

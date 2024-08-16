@@ -27,10 +27,13 @@
 */
 
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using ApiGenerator.Configuration;
+using ProcNet;
 using Spectre.Console;
 
 #pragma warning disable 162
@@ -126,7 +129,8 @@ namespace ApiGenerator
                 await RestSpecDownloader.DownloadAsync(downloadBranch, token);
             }
 
-            if (!generateCode) return 0;
+            if (!generateCode)
+                return 0;
 
             Console.WriteLine();
             AnsiConsole.Write(new Rule("[b white on chartreuse4] Loading specification [/]").LeftJustified());
@@ -150,6 +154,8 @@ namespace ApiGenerator
 
             await Generator.ApiGenerator.Generate(lowLevelOnly, spec, token);
 
+            RunDotNetFormat();
+
             var warnings = Generator.ApiGenerator.Warnings;
             if (warnings.Count > 0)
             {
@@ -164,9 +170,22 @@ namespace ApiGenerator
             return 0;
         }
 
+        private static void RunDotNetFormat()
+        {
+            Console.WriteLine();
+            AnsiConsole.Write(new Rule("[b white on chartreuse4] Formatting Code using dotnet format [/]").LeftJustified());
+            Console.WriteLine();
+
+            Proc.Exec(new ExecArguments("dotnet", "format", "--verbosity", "normal", "--include", "./src/*/_Generated/")
+            {
+                WorkingDirectory = GeneratorLocations.SolutionFolder
+            });
+        }
+
         private static bool Ask(string question, bool defaultAnswer = true)
         {
-            if (!Interactive) return defaultAnswer;
+            if (!Interactive)
+                return defaultAnswer;
 
             var answer = "invalid";
             var defaultResponse = defaultAnswer ? "y" : "n";
@@ -175,7 +194,8 @@ namespace ApiGenerator
             {
                 Console.Write($"{question}[y/N] (default {defaultResponse}): ");
                 answer = Console.ReadLine()?.Trim().ToLowerInvariant();
-                if (string.IsNullOrWhiteSpace(answer)) answer = defaultResponse;
+                if (string.IsNullOrWhiteSpace(answer))
+                    answer = defaultResponse;
                 defaultAnswer = answer == "y";
             }
             return defaultAnswer;

@@ -76,34 +76,34 @@ namespace ApiGenerator.Domain.Code.HighLevel.Requests
             if (url.IsPartless) return ctors;
 
             ctors.AddRange(from path in paths
-                let baseArgs = inheritsFromPlainRequestBase ? path.RequestBaseArguments : path.TypedSubClassBaseArguments
-                let constParams = path.ConstructorArguments
-                let generated = $"public {typeName}({constParams}) : base({baseArgs})"
-                select new Constructor
-                {
-                    Parameterless = string.IsNullOrEmpty(constParams),
-                    Generated = generated,
-                    Description = path.GetXmlDocs(Indent),
-                    //Body = isDocumentApi ? $" => Q(\"routing\", new Routing(() => AutoRouteDocument()));" : string.Empty
-                    Body = string.Empty
-                });
+                           let baseArgs = inheritsFromPlainRequestBase ? path.RequestBaseArguments : path.TypedSubClassBaseArguments
+                           let constParams = path.ConstructorArguments
+                           let generated = $"public {typeName}({constParams}){Indent}\t: base({baseArgs})"
+                           select new Constructor
+                           {
+                               Parameterless = string.IsNullOrEmpty(constParams),
+                               Generated = generated,
+                               Description = path.GetXmlDocs(Indent),
+                               //Body = isDocumentApi ? $" => Q(\"routing\", new Routing(() => AutoRouteDocument()));" : string.Empty
+                               Body = string.Empty
+                           });
 
             if (generateGeneric && !string.IsNullOrWhiteSpace(generic))
             {
                 ctors.AddRange(from path in paths.Where(path => path.HasResolvableArguments)
-                    let baseArgs = path.AutoResolveBaseArguments(generic)
-                    let constructorArgs = path.AutoResolveConstructorArguments
-                    let baseOrThis = inheritsFromPlainRequestBase
-                        ? "this"
-                        : "base"
-                    let generated = $"public {typeName}({constructorArgs}) : {baseOrThis}({baseArgs})"
-                    select new Constructor
-                    {
-                        Parameterless = string.IsNullOrEmpty(constructorArgs),
-                        Generated = generated,
-                        Description = path.GetXmlDocs(Indent, skipResolvable: true),
-                        Body = string.Empty
-                    });
+                               let baseArgs = path.AutoResolveBaseArguments(generic)
+                               let constructorArgs = path.AutoResolveConstructorArguments
+                               let baseOrThis = inheritsFromPlainRequestBase
+                                   ? "this"
+                                   : "base"
+                               let generated = $"public {typeName}({constructorArgs}){Indent}\t: {baseOrThis}({baseArgs})"
+                               select new Constructor
+                               {
+                                   Parameterless = string.IsNullOrEmpty(constructorArgs),
+                                   Generated = generated,
+                                   Description = path.GetXmlDocs(Indent, skipResolvable: true),
+                                   Body = string.Empty
+                               });
 
                 if (url.TryGetDocumentApiPath(out var docPath))
                 {
@@ -121,11 +121,11 @@ namespace ApiGenerator.Domain.Code.HighLevel.Requests
                 }
             }
             var constructors = ctors.GroupBy(c => c.Generated.Split(new[] { ':' }, 2)[0]).Select(g => g.Last()).ToList();
-            if (!constructors.Any(c=>c.Parameterless))
+            if (!constructors.Any(c => c.Parameterless))
                 constructors.Add(new Constructor
                 {
                     Parameterless = true,
-                    Generated = $"protected {typeName}() : base()",
+                    Generated = $"protected {typeName}(){Indent}\t: base()",
                     Description =
                         $"/// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>{Indent}[SerializationConstructor]",
                 });
