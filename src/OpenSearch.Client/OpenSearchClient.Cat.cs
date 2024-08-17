@@ -42,12 +42,8 @@ namespace OpenSearch.Client.Specification.CatApi
 	/// on <see cref = "IOpenSearchClient"/>.
 	///</para>
 	///</summary>
-	public class CatNamespace : NamespacedClientProxy
+	public partial class CatNamespace : NamespacedClientProxy
 	{
-		internal CatNamespace(OpenSearchClient client): base(client)
-		{
-		}
-
 		/// <summary>
 		/// <c>GET</c> request to the <c>cat.aliases</c> API, read more about this API online:
 		/// <para></para>

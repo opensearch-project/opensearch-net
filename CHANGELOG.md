@@ -3,9 +3,11 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 ### Added
+- Added support for the `Cat.PitSegments` and `Cat.SegmentReplication` APIs ([#527](https://github.com/opensearch-project/opensearch-net/pull/527))
 - Added support for `MinScore` on `ScriptScoreQuery` ([#624](https://github.com/opensearch-project/opensearch-net/pull/624))
 - Added support for serializing the `DateOnly` and `TimeOnly` types ([#734](https://github.com/opensearch-project/opensearch-net/pull/734))
 - Added support for the `Ext` parameter on `SearchRequest` ([#738](https://github.com/opensearch-project/opensearch-net/pull/738))
+- Added support for the `Indices.Stats` API ([#753](https://github.com/opensearch-project/opensearch-net/pull/753))
 
 ### Dependencies
 - Bumps `AWSSDK.Core` from 3.7.204.12 to 3.7.400.4
@@ -21,6 +23,8 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Octokit` from 11.0.0 to 13.0.1
 - Bumps `System.Reactive` from 6.0.0 to 6.0.1
 - Bumps `Argu` from 6.2.3 to 6.2.4
+- Bumps `YamlDotNet` from 15.1.2 to 16.0.0
+- Bumps `NSwag.Core` from 14.0.7 to 14.1.0
 - Bumps `System.Text.Json` from 8.0.3 to 8.0.4
 - Bumps `JetBrains.Annotations` from 2023.3.0 to 2024.2.0
 - Bumps `JunitXml.TestLogger` from 3.1.12 to 4.0.254

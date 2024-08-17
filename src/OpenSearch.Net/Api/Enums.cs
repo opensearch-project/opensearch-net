@@ -242,33 +242,6 @@ namespace OpenSearch.Net
 	}
 
 	[StringEnum]
-	public enum Bytes
-	{
-		[EnumMember(Value = "b")]
-		B,
-		[EnumMember(Value = "k")]
-		K,
-		[EnumMember(Value = "kb")]
-		Kb,
-		[EnumMember(Value = "m")]
-		M,
-		[EnumMember(Value = "mb")]
-		Mb,
-		[EnumMember(Value = "g")]
-		G,
-		[EnumMember(Value = "gb")]
-		Gb,
-		[EnumMember(Value = "t")]
-		T,
-		[EnumMember(Value = "tb")]
-		Tb,
-		[EnumMember(Value = "p")]
-		P,
-		[EnumMember(Value = "pb")]
-		Pb
-	}
-
-	[StringEnum]
 	public enum Health
 	{
 		[EnumMember(Value = "green")]
@@ -294,17 +267,6 @@ namespace OpenSearch.Net
 		T,
 		[EnumMember(Value = "p")]
 		P
-	}
-
-	[StringEnum]
-	public enum Level
-	{
-		[EnumMember(Value = "cluster")]
-		Cluster,
-		[EnumMember(Value = "indices")]
-		Indices,
-		[EnumMember(Value = "shards")]
-		Shards
 	}
 
 	[StringEnum]
@@ -420,49 +382,37 @@ namespace OpenSearch.Net
 
 	public static partial class KnownEnums
 	{
-		private static readonly ConcurrentDictionary<Type, Func<Enum, string>> EnumStringResolvers = new ConcurrentDictionary<Type, Func<Enum, string>>();
+		private static readonly ConcurrentDictionary<Type, Func<Enum, string>> EnumStringResolvers = new();
 		static KnownEnums()
 		{
-			EnumStringResolvers.TryAdd(typeof(ClusterStateMetric), (e) => GetStringValue((ClusterStateMetric)e));
-			EnumStringResolvers.TryAdd(typeof(IndicesStatsMetric), (e) => GetStringValue((IndicesStatsMetric)e));
-			EnumStringResolvers.TryAdd(typeof(NodesInfoMetric), (e) => GetStringValue((NodesInfoMetric)e));
-			EnumStringResolvers.TryAdd(typeof(NodesStatsMetric), (e) => GetStringValue((NodesStatsMetric)e));
-			EnumStringResolvers.TryAdd(typeof(NodesStatsIndexMetric), (e) => GetStringValue((NodesStatsIndexMetric)e));
-			EnumStringResolvers.TryAdd(typeof(NodesUsageMetric), (e) => GetStringValue((NodesUsageMetric)e));
-			EnumStringResolvers.TryAdd(typeof(DefaultOperator), (e) => GetStringValue((DefaultOperator)e));
-			EnumStringResolvers.TryAdd(typeof(SearchType), (e) => GetStringValue((SearchType)e));
-			EnumStringResolvers.TryAdd(typeof(SuggestMode), (e) => GetStringValue((SuggestMode)e));
-			EnumStringResolvers.TryAdd(typeof(Refresh), (e) => GetStringValue((Refresh)e));
-			EnumStringResolvers.TryAdd(typeof(Bytes), (e) => GetStringValue((Bytes)e));
-			EnumStringResolvers.TryAdd(typeof(Health), (e) => GetStringValue((Health)e));
-			EnumStringResolvers.TryAdd(typeof(Size), (e) => GetStringValue((Size)e));
-			EnumStringResolvers.TryAdd(typeof(Level), (e) => GetStringValue((Level)e));
-			EnumStringResolvers.TryAdd(typeof(WaitForEvents), (e) => GetStringValue((WaitForEvents)e));
-			EnumStringResolvers.TryAdd(typeof(WaitForStatus), (e) => GetStringValue((WaitForStatus)e));
-			EnumStringResolvers.TryAdd(typeof(ClusterRerouteMetric), (e) => GetStringValue((ClusterRerouteMetric)e));
-			EnumStringResolvers.TryAdd(typeof(VersionType), (e) => GetStringValue((VersionType)e));
-			EnumStringResolvers.TryAdd(typeof(Conflicts), (e) => GetStringValue((Conflicts)e));
-			EnumStringResolvers.TryAdd(typeof(OpType), (e) => GetStringValue((OpType)e));
-			EnumStringResolvers.TryAdd(typeof(IndicesShardStoresStatus), (e) => GetStringValue((IndicesShardStoresStatus)e));
-			EnumStringResolvers.TryAdd(typeof(ThreadType), (e) => GetStringValue((ThreadType)e));
-			EnumStringResolvers.TryAdd(typeof(GroupBy), (e) => GetStringValue((GroupBy)e));
+			AddEnumStringResolver<ClusterStateMetric>(GetStringValue);
+			AddEnumStringResolver<IndicesStatsMetric>(GetStringValue);
+			AddEnumStringResolver<NodesInfoMetric>(GetStringValue);
+			AddEnumStringResolver<NodesStatsMetric>(GetStringValue);
+			AddEnumStringResolver<NodesStatsIndexMetric>(GetStringValue);
+			AddEnumStringResolver<NodesUsageMetric>(GetStringValue);
+			AddEnumStringResolver<DefaultOperator>(GetStringValue);
+			AddEnumStringResolver<SearchType>(GetStringValue);
+			AddEnumStringResolver<SuggestMode>(GetStringValue);
+			AddEnumStringResolver<Refresh>(GetStringValue);
+			AddEnumStringResolver<Health>(GetStringValue);
+			AddEnumStringResolver<Size>(GetStringValue);
+			AddEnumStringResolver<WaitForEvents>(GetStringValue);
+			AddEnumStringResolver<WaitForStatus>(GetStringValue);
+			AddEnumStringResolver<ClusterRerouteMetric>(GetStringValue);
+			AddEnumStringResolver<VersionType>(GetStringValue);
+			AddEnumStringResolver<Conflicts>(GetStringValue);
+			AddEnumStringResolver<OpType>(GetStringValue);
+			AddEnumStringResolver<IndicesShardStoresStatus>(GetStringValue);
+			AddEnumStringResolver<ThreadType>(GetStringValue);
+			AddEnumStringResolver<GroupBy>(GetStringValue);
 			RegisterEnumStringResolvers();
 		}
 
+        private static void AddEnumStringResolver<T>(Func<T, string> resolver) where T : Enum =>
+            EnumStringResolvers.TryAdd(typeof(T), e => resolver((T) e));
+
 		static partial void RegisterEnumStringResolvers();
-
-		private class EnumDictionary : Dictionary<Enum, string>
-		{
-			public EnumDictionary(int capacity): base(capacity)
-			{
-			}
-
-			public Func<Enum, string> Resolver
-			{
-				get;
-				set;
-			}
-		}
 
 		public static string GetStringValue(this ClusterStateMetric enumValue)
 		{
@@ -632,181 +582,83 @@ namespace OpenSearch.Net
 			return string.Join(",", list);
 		}
 
-		public static string GetStringValue(this DefaultOperator enumValue)
-		{
-			switch (enumValue)
-			{
-				case DefaultOperator.And:
-					return "AND";
-				case DefaultOperator.Or:
-					return "OR";
-			}
+		public static string GetStringValue(this DefaultOperator enumValue) =>
+            enumValue switch
+            {
+                DefaultOperator.And => "AND",
+                DefaultOperator.Or => "OR",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'DefaultOperator'")
+            };
 
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'DefaultOperator'");
-		}
+        public static string GetStringValue(this SearchType enumValue) =>
+            enumValue switch
+            {
+                SearchType.QueryThenFetch => "query_then_fetch",
+                SearchType.DfsQueryThenFetch => "dfs_query_then_fetch",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'SearchType'")
+            };
 
-		public static string GetStringValue(this SearchType enumValue)
-		{
-			switch (enumValue)
-			{
-				case SearchType.QueryThenFetch:
-					return "query_then_fetch";
-				case SearchType.DfsQueryThenFetch:
-					return "dfs_query_then_fetch";
-			}
+        public static string GetStringValue(this SuggestMode enumValue) =>
+            enumValue switch
+            {
+                SuggestMode.Missing => "missing",
+                SuggestMode.Popular => "popular",
+                SuggestMode.Always => "always",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'SuggestMode'")
+            };
 
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'SearchType'");
-		}
+        public static string GetStringValue(this Refresh enumValue) =>
+            enumValue switch
+            {
+                Refresh.True => "true",
+                Refresh.False => "false",
+                Refresh.WaitFor => "wait_for",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Refresh'")
+            };
 
-		public static string GetStringValue(this SuggestMode enumValue)
-		{
-			switch (enumValue)
-			{
-				case SuggestMode.Missing:
-					return "missing";
-				case SuggestMode.Popular:
-					return "popular";
-				case SuggestMode.Always:
-					return "always";
-			}
+        public static string GetStringValue(this Health enumValue) =>
+            enumValue switch
+            {
+                Health.Green => "green",
+                Health.Yellow => "yellow",
+                Health.Red => "red",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Health'")
+            };
 
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'SuggestMode'");
-		}
+        public static string GetStringValue(this Size enumValue) =>
+            enumValue switch
+            {
+                Size.Raw => "",
+                Size.K => "k",
+                Size.M => "m",
+                Size.G => "g",
+                Size.T => "t",
+                Size.P => "p",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Size'")
+            };
 
-		public static string GetStringValue(this Refresh enumValue)
-		{
-			switch (enumValue)
-			{
-				case Refresh.True:
-					return "true";
-				case Refresh.False:
-					return "false";
-				case Refresh.WaitFor:
-					return "wait_for";
-			}
+        public static string GetStringValue(this WaitForEvents enumValue) =>
+            enumValue switch
+            {
+                WaitForEvents.Immediate => "immediate",
+                WaitForEvents.Urgent => "urgent",
+                WaitForEvents.High => "high",
+                WaitForEvents.Normal => "normal",
+                WaitForEvents.Low => "low",
+                WaitForEvents.Languid => "languid",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'WaitForEvents'")
+            };
 
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Refresh'");
-		}
+        public static string GetStringValue(this WaitForStatus enumValue) =>
+            enumValue switch
+            {
+                WaitForStatus.Green => "green",
+                WaitForStatus.Yellow => "yellow",
+                WaitForStatus.Red => "red",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'WaitForStatus'")
+            };
 
-		public static string GetStringValue(this Bytes enumValue)
-		{
-			switch (enumValue)
-			{
-				case Bytes.B:
-					return "b";
-				case Bytes.K:
-					return "k";
-				case Bytes.Kb:
-					return "kb";
-				case Bytes.M:
-					return "m";
-				case Bytes.Mb:
-					return "mb";
-				case Bytes.G:
-					return "g";
-				case Bytes.Gb:
-					return "gb";
-				case Bytes.T:
-					return "t";
-				case Bytes.Tb:
-					return "tb";
-				case Bytes.P:
-					return "p";
-				case Bytes.Pb:
-					return "pb";
-			}
-
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Bytes'");
-		}
-
-		public static string GetStringValue(this Health enumValue)
-		{
-			switch (enumValue)
-			{
-				case Health.Green:
-					return "green";
-				case Health.Yellow:
-					return "yellow";
-				case Health.Red:
-					return "red";
-			}
-
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Health'");
-		}
-
-		public static string GetStringValue(this Size enumValue)
-		{
-			switch (enumValue)
-			{
-				case Size.Raw:
-					return "";
-				case Size.K:
-					return "k";
-				case Size.M:
-					return "m";
-				case Size.G:
-					return "g";
-				case Size.T:
-					return "t";
-				case Size.P:
-					return "p";
-			}
-
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Size'");
-		}
-
-		public static string GetStringValue(this Level enumValue)
-		{
-			switch (enumValue)
-			{
-				case Level.Cluster:
-					return "cluster";
-				case Level.Indices:
-					return "indices";
-				case Level.Shards:
-					return "shards";
-			}
-
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Level'");
-		}
-
-		public static string GetStringValue(this WaitForEvents enumValue)
-		{
-			switch (enumValue)
-			{
-				case WaitForEvents.Immediate:
-					return "immediate";
-				case WaitForEvents.Urgent:
-					return "urgent";
-				case WaitForEvents.High:
-					return "high";
-				case WaitForEvents.Normal:
-					return "normal";
-				case WaitForEvents.Low:
-					return "low";
-				case WaitForEvents.Languid:
-					return "languid";
-			}
-
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'WaitForEvents'");
-		}
-
-		public static string GetStringValue(this WaitForStatus enumValue)
-		{
-			switch (enumValue)
-			{
-				case WaitForStatus.Green:
-					return "green";
-				case WaitForStatus.Yellow:
-					return "yellow";
-				case WaitForStatus.Red:
-					return "red";
-			}
-
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'WaitForStatus'");
-		}
-
-		public static string GetStringValue(this ClusterRerouteMetric enumValue)
+        public static string GetStringValue(this ClusterRerouteMetric enumValue)
 		{
 			if ((enumValue & ClusterRerouteMetric.All) != 0)
 				return "_all";
@@ -826,95 +678,60 @@ namespace OpenSearch.Net
 			return string.Join(",", list);
 		}
 
-		public static string GetStringValue(this VersionType enumValue)
-		{
-			switch (enumValue)
-			{
-				case VersionType.Internal:
-					return "internal";
-				case VersionType.External:
-					return "external";
-				case VersionType.ExternalGte:
-					return "external_gte";
-			}
+		public static string GetStringValue(this VersionType enumValue) =>
+            enumValue switch
+            {
+                VersionType.Internal => "internal",
+                VersionType.External => "external",
+                VersionType.ExternalGte => "external_gte",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'VersionType'")
+            };
 
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'VersionType'");
-		}
+        public static string GetStringValue(this Conflicts enumValue) =>
+            enumValue switch
+            {
+                Conflicts.Abort => "abort",
+                Conflicts.Proceed => "proceed",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Conflicts'")
+            };
 
-		public static string GetStringValue(this Conflicts enumValue)
-		{
-			switch (enumValue)
-			{
-				case Conflicts.Abort:
-					return "abort";
-				case Conflicts.Proceed:
-					return "proceed";
-			}
+        public static string GetStringValue(this OpType enumValue) =>
+            enumValue switch
+            {
+                OpType.Index => "index",
+                OpType.Create => "create",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'OpType'")
+            };
 
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Conflicts'");
-		}
+        public static string GetStringValue(this IndicesShardStoresStatus enumValue) =>
+            enumValue switch
+            {
+                IndicesShardStoresStatus.Green => "green",
+                IndicesShardStoresStatus.Yellow => "yellow",
+                IndicesShardStoresStatus.Red => "red",
+                IndicesShardStoresStatus.All => "all",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'IndicesShardStoresStatus'")
+            };
 
-		public static string GetStringValue(this OpType enumValue)
-		{
-			switch (enumValue)
-			{
-				case OpType.Index:
-					return "index";
-				case OpType.Create:
-					return "create";
-			}
+        public static string GetStringValue(this ThreadType enumValue) =>
+            enumValue switch
+            {
+                ThreadType.Cpu => "cpu",
+                ThreadType.Wait => "wait",
+                ThreadType.Block => "block",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'ThreadType'")
+            };
 
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'OpType'");
-		}
+        public static string GetStringValue(this GroupBy enumValue) =>
+            enumValue switch
+            {
+                GroupBy.Nodes => "nodes",
+                GroupBy.Parents => "parents",
+                GroupBy.None => "none",
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'GroupBy'")
+            };
 
-		public static string GetStringValue(this IndicesShardStoresStatus enumValue)
-		{
-			switch (enumValue)
-			{
-				case IndicesShardStoresStatus.Green:
-					return "green";
-				case IndicesShardStoresStatus.Yellow:
-					return "yellow";
-				case IndicesShardStoresStatus.Red:
-					return "red";
-				case IndicesShardStoresStatus.All:
-					return "all";
-			}
-
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'IndicesShardStoresStatus'");
-		}
-
-		public static string GetStringValue(this ThreadType enumValue)
-		{
-			switch (enumValue)
-			{
-				case ThreadType.Cpu:
-					return "cpu";
-				case ThreadType.Wait:
-					return "wait";
-				case ThreadType.Block:
-					return "block";
-			}
-
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'ThreadType'");
-		}
-
-		public static string GetStringValue(this GroupBy enumValue)
-		{
-			switch (enumValue)
-			{
-				case GroupBy.Nodes:
-					return "nodes";
-				case GroupBy.Parents:
-					return "parents";
-				case GroupBy.None:
-					return "none";
-			}
-
-			throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'GroupBy'");
-		}
-
-		public static string GetStringValue(this Enum e)
+        public static string GetStringValue(this Enum e)
 		{
 			var type = e.GetType();
 			var resolver = EnumStringResolvers.GetOrAdd(type, GetEnumStringResolver);
@@ -924,8 +741,8 @@ namespace OpenSearch.Net
 		private static Func<Enum, string> GetEnumStringResolver(Type type)
 		{
 			var values = Enum.GetValues(type);
-			var dictionary = new EnumDictionary(values.Length);
-			for (int index = 0; index < values.Length; index++)
+			var dictionary = new Dictionary<Enum, string>(values.Length);
+			for (var index = 0; index < values.Length; index++)
 			{
 				var value = values.GetValue(index);
 				var info = type.GetField(value.ToString());
@@ -935,26 +752,9 @@ namespace OpenSearch.Net
 			}
 
 			var isFlag = type.GetCustomAttributes(typeof(FlagsAttribute), false).Length > 0;
-			return (e) =>
-			{
-				if (isFlag)
-				{
-					var list = new List<string>();
-					foreach (var kv in dictionary)
-					{
-						if (e.HasFlag(kv.Key))
-							list.Add(kv.Value);
-					}
-
-					return string.Join(",", list);
-				}
-				else
-				{
-					return dictionary[e];
-				}
-			}
-
-			;
+			return e => !isFlag
+                ? dictionary[e]
+                : string.Join(",", dictionary.Where(kv => e.HasFlag(kv.Key)).Select(kv => kv.Value));
 		}
 	}
 }

@@ -49,6 +49,7 @@ using System.Linq.Expressions;
 using System.Runtime.Serialization;
 using System.Text;
 using OpenSearch.Net;
+using OpenSearch.Net.Specification.CatApi;
 using OpenSearch.Net.Specification.ClusterApi;
 using OpenSearch.Net.Specification.HttpApi;
 using OpenSearch.Net.Specification.IndicesApi;

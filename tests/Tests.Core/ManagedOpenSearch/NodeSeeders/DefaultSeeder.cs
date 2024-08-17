@@ -220,10 +220,7 @@ namespace Tests.Core.ManagedOpenSearch.NodeSeeders
 
 #pragma warning disable 618
 		private Task<CreateIndexResponse> CreateProjectIndexAsync() => Client.Indices.CreateAsync(typeof(Project), c => c
-			.Settings(settings => settings
-				.Analysis(ProjectAnalysisSettings)
-				.Setting("index.knn", true)
-				.Setting("index.knn.algo_param.ef_search", 100))
+			.Settings(ProjectIndexSettings)
 			.Mappings(ProjectMappings)
 			.Aliases(aliases => aliases
 				.Alias(ProjectsAliasName)
@@ -264,6 +261,12 @@ namespace Tests.Core.ManagedOpenSearch.NodeSeeders
 			return mapping;
 		}
 
+        public static IndexSettingsDescriptor ProjectIndexSettings(IndexSettingsDescriptor settings) =>
+            settings
+                .Analysis(ProjectAnalysisSettings)
+                .Setting("index.knn", true)
+                .Setting("index.knn.algo_param.ef_search", 100);
+
 		public static IAnalysis ProjectAnalysisSettings(AnalysisDescriptor analysis)
 		{
 			analysis
@@ -287,12 +290,11 @@ namespace Tests.Core.ManagedOpenSearch.NodeSeeders
 			return analysis;
 		}
 
+        public static IndexSettingsDescriptor PercolatorIndexSettings(IndexSettingsDescriptor settings) =>
+            ProjectIndexSettings(settings).AutoExpandReplicas("0-all");
 
 		private Task<CreateIndexResponse> CreatePercolatorIndexAsync() => Client.Indices.CreateAsync(typeof(ProjectPercolation), c => c
-			.Settings(s => s
-				.AutoExpandReplicas("0-all")
-				.Analysis(ProjectAnalysisSettings)
-			)
+			.Settings(PercolatorIndexSettings)
 			.Map<ProjectPercolation>(m => m
 				.AutoMap()
 				.Properties(PercolatedQueryProperties)

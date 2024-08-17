@@ -97,7 +97,10 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -107,7 +110,7 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public Time Timeout
         {
             get => Q<Time>("timeout");
@@ -154,14 +157,20 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>
+        /// If true, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the
+        /// master node.
+        /// </summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -210,14 +219,17 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>If `true`, the request retrieves information from the local node only. If `false`, information is retrieved from the master node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]
@@ -236,7 +248,7 @@ namespace OpenSearch.Client
         Name Name { get; }
     }
 
-    /// <summary>Request for PutComponentTemplate</summary>
+    /// <summary>Request for PutComponentTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</para></summary>
     public partial class PutComponentTemplateRequest
         : PlainRequestBase<PutComponentTemplateRequestParameters>,
             IPutComponentTemplateRequest
@@ -267,14 +279,17 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Whether the index template should only be added if new or can also replace an existing one.</summary>
+        /// <summary>If `true`, this request cannot replace or update existing component templates.</summary>
         public bool? Create
         {
             get => Q<bool?>("create");
             set => Q("create", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
         )]

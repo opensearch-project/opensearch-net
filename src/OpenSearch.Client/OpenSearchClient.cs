@@ -220,7 +220,7 @@ namespace OpenSearch.Client
 
 			var url = request.GetUrl(ConnectionSettings);
 			var method = request.HttpMethod;
-			var body = method == HttpMethod.GET || method == HttpMethod.HEAD || !parameters.SupportsBody ? null : bodySelector(request);
+			var body = !parameters.SupportsBody ? null : bodySelector(request);
 
 			return (method, url, body);
 		}

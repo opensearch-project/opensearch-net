@@ -254,7 +254,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
         /// </summary>
         public PutComposableIndexTemplateResponse PutComposableTemplate(
             Name name,
@@ -267,7 +267,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
         /// </summary>
         public Task<PutComposableIndexTemplateResponse> PutComposableTemplateAsync(
             Name name,
@@ -282,7 +282,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
         /// </summary>
         public PutComposableIndexTemplateResponse PutComposableTemplate(
             IPutComposableIndexTemplateRequest request
@@ -295,13 +295,64 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a></a>
+        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
         /// </summary>
         public Task<PutComposableIndexTemplateResponse> PutComposableTemplateAsync(
             IPutComposableIndexTemplateRequest request,
             CancellationToken ct = default
         ) =>
             DoRequestAsync<IPutComposableIndexTemplateRequest, PutComposableIndexTemplateResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public IndicesStatsResponse Stats(
+            Indices index = null,
+            Func<IndicesStatsDescriptor, IIndicesStatsRequest> selector = null
+        ) => Stats(selector.InvokeOrDefault(new IndicesStatsDescriptor().Index(index: index)));
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<IndicesStatsResponse> StatsAsync(
+            Indices index = null,
+            Func<IndicesStatsDescriptor, IIndicesStatsRequest> selector = null,
+            CancellationToken ct = default
+        ) =>
+            StatsAsync(
+                selector.InvokeOrDefault(new IndicesStatsDescriptor().Index(index: index)),
+                ct
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public IndicesStatsResponse Stats(IIndicesStatsRequest request) =>
+            DoRequest<IIndicesStatsRequest, IndicesStatsResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// </summary>
+        public Task<IndicesStatsResponse> StatsAsync(
+            IIndicesStatsRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IIndicesStatsRequest, IndicesStatsResponse>(
                 request,
                 request.RequestParameters,
                 ct

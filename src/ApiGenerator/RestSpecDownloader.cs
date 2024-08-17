@@ -41,7 +41,7 @@ namespace ApiGenerator
 
 		public static async Task DownloadAsync(string branch, CancellationToken token)
 		{
-			var githubUrl = $"https://raw.githubusercontent.com/opensearch-project/opensearch-api-specification/{branch}/OpenSearch.openapi.json";
+			var githubUrl = $"https://github.com/opensearch-project/opensearch-api-specification/releases/download/{branch}-latest/opensearch-openapi.yaml";
 			Console.WriteLine($"Downloading OpenAPI spec for branch {branch}");
 			var spec = await Http.GetStringAsync(githubUrl, token);
 			await File.WriteAllTextAsync(GeneratorLocations.OpenApiSpecFile, spec, token);

@@ -50,6 +50,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Net;
+using OpenSearch.Net.Specification.CatApi;
 using OpenSearch.Net.Specification.ClusterApi;
 using OpenSearch.Net.Specification.HttpApi;
 using OpenSearch.Net.Specification.IndicesApi;
@@ -64,12 +65,14 @@ namespace OpenSearch.Net
     /// </summary>
     public partial class OpenSearchLowLevelClient : IOpenSearchLowLevelClient
     {
+        public LowLevelCatNamespace Cat { get; private set; }
         public LowLevelClusterNamespace Cluster { get; private set; }
         public LowLevelIndicesNamespace Indices { get; private set; }
         public LowLevelHttpNamespace Http { get; private set; }
 
         partial void SetupGeneratedNamespaces()
         {
+            Cat = new LowLevelCatNamespace(this);
             Cluster = new LowLevelClusterNamespace(this);
             Indices = new LowLevelIndicesNamespace(this);
             Http = new LowLevelHttpNamespace(this);
@@ -142,7 +145,7 @@ namespace OpenSearch.Net
             );
 
         /// <summary>DELETE on /_search/point_in_time <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
-        /// <param name="body">The point-in-time ids to be deleted</param>
+        /// <param name="body">The point-in-time ids to be deleted.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public TResponse DeletePit<TResponse>(
@@ -158,7 +161,7 @@ namespace OpenSearch.Net
             );
 
         /// <summary>DELETE on /_search/point_in_time <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
-        /// <param name="body">The point-in-time ids to be deleted</param>
+        /// <param name="body">The point-in-time ids to be deleted.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         [MapsApi("delete_pit", "body")]

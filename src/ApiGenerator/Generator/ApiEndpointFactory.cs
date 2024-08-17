@@ -30,6 +30,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mime;
+using System.Text.RegularExpressions;
 using ApiGenerator.Configuration;
 using ApiGenerator.Configuration.Overrides;
 using ApiGenerator.Domain;
@@ -44,241 +45,280 @@ namespace ApiGenerator.Generator
 {
     public static class ApiEndpointFactory
     {
-        public static ApiEndpoint From(string name, List<(string HttpPath, OpenApiPathItem Path, string HttpMethod, OpenApiOperation Operation)> variants)
-	    {
-	        var tokens = name.Split(".");
-	        var methodName = tokens[^1];
-	        var ns = tokens.Length > 1 ? tokens[0] : null;
-			var names = new CsharpNames(name, methodName, ns);
-			var overrides = LoadOverrides(name, names.MethodName);
+        public static ApiEndpoint From(
+            string name,
+            List<(string HttpPath, OpenApiPathItem Path, string HttpMethod, OpenApiOperation Operation)> variants,
+            Action<string, bool> trackEnumToGenerate
+        )
+        {
+            var tokens = name.Split(".");
+            var methodName = tokens[^1];
+            var ns = tokens.Length > 1 ? tokens[0] : null;
+            var names = new CsharpNames(name, methodName, ns);
+            var overrides = LoadOverrides(name, names.MethodName);
 
-	        HashSet<string> requiredPathParts = null;
-	        var allParts = new Dictionary<string, UrlPart>();
-			var canonicalPaths = new Dictionary<HashSet<string>, UrlPath>(HashSet<string>.CreateSetComparer());
-			var deprecatedPaths = new Dictionary<HashSet<string>, UrlPath>(HashSet<string>.CreateSetComparer());
-			var overloads = new List<(UrlPath Path, List<(string From, string To)> Renames)>();
+            HashSet<string> requiredPathParts = null;
+            var allParts = new Dictionary<string, UrlPart>();
+            var canonicalPaths = new Dictionary<HashSet<string>, UrlPath>(HashSet<string>.CreateSetComparer());
+            var deprecatedPaths = new Dictionary<HashSet<string>, UrlPath>(HashSet<string>.CreateSetComparer());
 
-	        foreach (var (httpPath, path, _, operation) in variants.DistinctBy(v => v.HttpPath))
-			{
-				var parts = new List<UrlPart>();
-				var partNames = new HashSet<string>();
-				var overloadedParts = new List<(string From, string To)>();
+            var httpPathVariants = variants
+                .DistinctBy(v => v.HttpPath)
+                .Select(v =>
+                    (
+                        v.HttpPath, v.Operation,
+                        PathParams: v.Path.Parameters
+                            .Concat(v.Operation.Parameters)
+                            .Select(p => p.ActualParameter)
+                            .Where(p => p.Kind == OpenApiParameterKind.Path)
+                            .ToList()
+                    )
+                )
+                .OrderBy(v => v.PathParams.Count(p => p.IsOverloaded()))
+                .SelectMany(v => GetOverloadedPathVariants(v.HttpPath, v.PathParams).Select(p => (p.HttpPath, v.Operation, p.PathParameters)));
 
-				foreach (var param in path.Parameters
-							 .Concat(operation.Parameters)
-							 .Where(p => p.Kind == OpenApiParameterKind.Path))
-				{
-					var partName = param.Name;
-					if (!allParts.TryGetValue(partName, out var part))
-					{
-						part = allParts[partName] = new UrlPart
-						{
-							ClrTypeNameOverride = null,
-							Deprecated = param.IsDeprecated,
-							Description = param.Description,
-							Name = partName,
-							Type = GetOpenSearchType(param.Schema),
-							Options = GetEnumOptions(param.Schema)
-						};
-					}
-					partNames.Add(partName);
-					parts.Add(part);
+            foreach (var (httpPath, operation, pathParams) in httpPathVariants)
+            {
+                var parts = new List<UrlPart>();
+                var partNames = new HashSet<string>();
 
-					if (param.Schema.XOverloadedParam() is {} overloadedParam) overloadedParts.Add((partName, overloadedParam));
-				}
+                foreach (var (paramName, schema, description, isDeprecated) in pathParams)
+                {
+                    if (!allParts.TryGetValue(paramName, out var part))
+                    {
+                        var type = GetOpenSearchType(schema, trackEnumToGenerate);
+                        part = allParts[paramName] = new UrlPart
+                        {
+                            ClrTypeNameOverride = null,
+                            Deprecated = isDeprecated,
+                            Description = description?.SanitizeDescription(),
+                            Name = paramName,
+                            Type = type
+                        };
+                    }
+                    partNames.Add(paramName);
+                    parts.Add(part);
+                }
 
-				parts.SortBy(p => httpPath.IndexOf($"{{{p.Name}}}", StringComparison.Ordinal));
+                parts.SortBy(p => httpPath.IndexOf($"{{{p.Name}}}", StringComparison.Ordinal));
 
-				var urlPath = new UrlPath(httpPath, parts, GetDeprecation(operation), operation.XVersionAdded());
-				(urlPath.Deprecation == null ? canonicalPaths : deprecatedPaths).TryAdd(partNames, urlPath);
+                var urlPath = new UrlPath(httpPath, parts, GetDeprecation(operation), operation.XVersionAdded());
+                (urlPath.Deprecation == null ? canonicalPaths : deprecatedPaths).TryAdd(partNames, urlPath);
 
-				if (overloadedParts.Count > 0)
-					overloads.Add((urlPath, overloadedParts));
+                if (requiredPathParts != null)
+                    requiredPathParts.IntersectWith(partNames);
+                else
+                    requiredPathParts = partNames;
+            }
 
-				if (requiredPathParts != null)
-	                requiredPathParts.IntersectWith(partNames);
-	            else
-	                requiredPathParts = partNames;
-	        }
-
-			foreach (var (path, renames) in overloads)
-			{
-				foreach (var (from, to) in renames)
-				{
-					var newPath = path.Path.Replace($"{{{from}}}", $"{{{to}}}");
-					var newParts = path.Parts.Select(p => p.Name == from ? allParts[to] : p).ToList();
-					var newPartNames = newParts.Select(p => p.Name).ToHashSet();
-					var newUrlPath = new UrlPath(newPath, newParts, path.Deprecation, path.VersionAdded);
-					(newUrlPath.Deprecation == null ? canonicalPaths : deprecatedPaths).TryAdd(newPartNames, newUrlPath);
-				}
-			}
-
-			//some deprecated paths describe aliases to the canonical using the same path e.g
+            //some deprecated paths describe aliases to the canonical using the same path e.g
             // PUT /{index}/_mapping/{type}
             // PUT /{index}/{type}/_mappings
             //
             //The following routine dedups these occasions and prefers either the canonical path
             //or the first duplicate deprecated path
 
-			var paths = canonicalPaths.Values
-				.Concat(deprecatedPaths
-					.Where(p => !canonicalPaths.ContainsKey(p.Key))
-					.Select(p => p.Value))
-				.ToList();
+            var paths = canonicalPaths.Values
+                .Concat(deprecatedPaths
+                    .Where(p => !canonicalPaths.ContainsKey(p.Key))
+                    .Select(p => p.Value))
+                .ToList();
 
-			ApiRequestParametersPatcher.PatchUrlPaths(name, paths, overrides);
+            ApiRequestParametersPatcher.PatchUrlPaths(name, paths, overrides);
 
-			paths.Sort((p1, p2) => p1.Parts
-					.Zip(p2.Parts)
-					.Select(t => string.Compare(t.First.Name, t.Second.Name, StringComparison.Ordinal))
-					.SkipWhile(c => c == 0)
-					.FirstOrDefault());
+            paths.SortBy(p => string.Join(",", p.Parts.Select(part => part.Name)));
 
-                // // now, check for and prefer deprecated URLs
-                //
-                // var finalPathsWithDeprecations = new List<UrlPath>(_pathsWithDeprecation.Count);
-                //
-                // foreach (var path in _pathsWithDeprecation)
-                // {
-                //     if (path.Deprecation is null &&
-                //         DeprecatedPaths.SingleOrDefault(p => p.Path.Equals(path.Path, StringComparison.OrdinalIgnoreCase)) is { } match)
-                //     {
-                //         finalPathsWithDeprecations.Add(new UrlPath(match, OriginalParts, Paths));
-                //     }
-                //     else
-                //     {
-                //         finalPathsWithDeprecations.Add(path);
-                //     }
-                // }
+            foreach (var partName in requiredPathParts ?? Enumerable.Empty<string>()) allParts[partName].Required = true;
 
-			foreach (var partName in requiredPathParts ?? Enumerable.Empty<string>()) allParts[partName].Required = true;
+            IDictionary<string, QueryParameters> queryParams = variants.SelectMany(v => v.Path.Parameters.Concat(v.Operation.Parameters))
+                .Select(p => p.ActualParameter)
+                .Where(p => p.Kind == OpenApiParameterKind.Query && !p.XGlobal())
+                .DistinctBy(p => p.Name)
+                .ToDictionary(p => p.Name, p => BuildQueryParam(p, trackEnumToGenerate));
+            queryParams = ApiRequestParametersPatcher.PatchQueryParameters(name, queryParams, overrides);
 
-			IDictionary<string, QueryParameters> queryParams = variants.SelectMany(v => v.Path.Parameters.Concat(v.Operation.Parameters))
-				.Where(p => p.Kind == OpenApiParameterKind.Query)
-				.DistinctBy(p => p.Name)
-				.ToDictionary(p => p.Name, BuildQueryParam);
-			queryParams = ApiRequestParametersPatcher.PatchQueryParameters(name, queryParams, overrides);
-
-			return new ApiEndpoint
-			{
-				Name = name,
-				Namespace = ns,
-				MethodName = methodName,
-				CsharpNames = names,
-				Overrides = overrides,
-				Stability = Stability.Stable, // TODO: for realsies
-				OfficialDocumentationLink = new Documentation
-				{
-					Description = variants[0].Operation.Description,
-					Url = variants[0].Operation.ExternalDocumentation?.Url
-				},
-				Url = new UrlInformation
-				{
-					AllPaths = paths,
-					Params = queryParams
-				},
-				Body = variants
-					.Select(v => v.Operation.RequestBody)
-					.FirstOrDefault(b => b != null) is { } reqBody
-					? new Body { Description = GetDescription(reqBody), Required = reqBody.IsRequired }
-					: null,
-				HttpMethods = variants.Select(v => v.HttpMethod.ToString().ToUpper()).Distinct().ToList(),
-			};
-	    }
-
-	    private static IEndpointOverrides LoadOverrides(string endpointName, string methodName)
-	    {
-	        if (CodeConfiguration.ApiNameMapping.TryGetValue(endpointName, out var mapsApiMethodName))
-	            methodName = mapsApiMethodName;
-
-	        var namespacePrefix = $"{typeof(GlobalOverrides).Namespace}.Endpoints.";
-	        var typeName = $"{namespacePrefix}{methodName}Overrides";
-	        var type = GeneratorLocations.Assembly.GetType(typeName);
-
-			return type != null && Activator.CreateInstance(type) is IEndpointOverrides overrides ? overrides : null;
-		}
-
-		private static QueryParameters BuildQueryParam(OpenApiParameter p)
-        {
-            var param = new QueryParameters
+            Body body = null;
+            if (variants.Select(v => v.Operation.RequestBody).FirstOrDefault() is { } requestBody)
             {
-                Type = GetOpenSearchType(p.Schema),
-                Description = p.Description,
-                Options = GetEnumOptions(p.Schema),
-                Deprecated = GetDeprecation(p.Schema),
-                VersionAdded = p.Schema.XVersionAdded(),
+                body = new Body { Description = GetDescription(requestBody)?.SanitizeDescription(), Required = requestBody.IsRequired };
+            }
+
+            return new ApiEndpoint
+            {
+                Name = name,
+                Namespace = ns,
+                MethodName = methodName,
+                CsharpNames = names,
+                Overrides = overrides,
+                Stability = Stability.Stable, // TODO: for realsies
+                OfficialDocumentationLink =
+                    new Documentation
+                    {
+                        Description = variants[0].Operation.Description?.SanitizeDescription(),
+                        Url = variants[0].Operation.ExternalDocumentation?.Url
+                    },
+                Url = new UrlInformation { AllPaths = paths, Params = queryParams },
+                Body = body,
+                HttpMethods = variants.Select(v => v.HttpMethod.ToString().ToUpper()).Distinct().ToList(),
             };
-
-            if (param.Type == "enum" && p.Schema.HasReference)
-				param.ClsName = ((IJsonReference)p.Schema).ReferencePath.Split('/').Last();
-
-			return param;
         }
 
-	    private static string GetOpenSearchType(JsonSchema schema)
-		{
-			schema = schema.ActualSchema;
+        private static IEnumerable<(string HttpPath, List<PathParameter> PathParameters)> GetOverloadedPathVariants(
+            string originalHttpPath, List<OpenApiParameter> pathParams
+        )
+        {
+            var paramCount = pathParams.Count;
 
-			if (schema.XDataType() is {} dataType)
-				return dataType == "array" ? "list" : dataType;
+            return GenerateVariants(originalHttpPath, 0, new List<PathParameter>());
 
-	        return schema.Type switch
-	        {
-	            JsonObjectType.String when schema.Enumeration is { Count: > 0 } => "enum",
-	            JsonObjectType.Integer => "number",
-	            JsonObjectType.Array => "list",
-	            var t => t.ToString().ToLowerInvariant()
-	        };
-	    }
+            IEnumerable<(string HttpPath, List<PathParameter> PathParameters)> GenerateVariants(string variantHttpPath, int i,
+                List<PathParameter> paramCombo
+            )
+            {
+                if (i == paramCount) return new[] { (variantHttpPath, paramCombo) };
 
-	    private static IEnumerable<string> GetEnumOptions(JsonSchema schema) =>
-			schema.ActualSchema.XEnumOptions()
-			?? schema.ActualSchema.Enumeration?.Select(e => e.ToString())
-			?? Enumerable.Empty<string>();
+                var originalParameter = pathParams[i];
+                var overloads = !originalParameter.IsOverloaded()
+                    ? new[] { (variantHttpPath, new PathParameter(originalParameter)) }
+                    : originalParameter.Schema.AnyOf
+                        .Select(overload =>
+                            (
+                                HttpPath: variantHttpPath.Replace($"{{{originalParameter.Name}}}", $"{{{overload.Title}}}"),
+                                PathParameter: new PathParameter(overload.Title, originalParameter, overload)
+                            )
+                        );
 
-		private static Deprecation GetDeprecation(IJsonExtensionObject schema) =>
-			(schema.XDeprecationMessage(), schema.XVersionDeprecated()) switch
-			{
-				(null, null) => null,
-				var (m, v) => new Deprecation { Description = m, Version = v }
-			};
+                return overloads.SelectMany(o => GenerateVariants(o.HttpPath, i + 1, new List<PathParameter>(paramCombo) { o.PathParameter }));
+            }
+        }
 
-		private static string GetDescription(OpenApiRequestBody requestBody)
-		{
-			if (!string.IsNullOrWhiteSpace(requestBody.Description))
-				return requestBody.Description;
+        private record PathParameter(string Name, JsonSchema Schema, string Description, bool IsDeprecated)
+        {
+            public PathParameter(OpenApiParameter parameter) :
+                this(parameter.Name, parameter.Schema, parameter.Description, parameter.IsDeprecated) { }
 
-			return requestBody.Content.TryGetValue(MediaTypeNames.Application.Json, out var content)
-				? content.Schema?.ActualSchema.Description
-				: null;
-		}
+            public PathParameter(string name, OpenApiParameter parameter, JsonSchema schema) : this(name, schema, parameter.Description,
+                parameter.IsDeprecated) { }
+        }
 
-		private static string XDeprecationMessage(this IJsonExtensionObject schema) =>
-			schema.GetExtension("x-deprecation-message") as string;
+        private static IEndpointOverrides LoadOverrides(string endpointName, string methodName)
+        {
+            if (CodeConfiguration.ApiNameMapping.TryGetValue(endpointName, out var mapsApiMethodName))
+                methodName = mapsApiMethodName;
 
-		private static string XVersionDeprecated(this IJsonExtensionObject schema) =>
-			schema.GetExtension("x-version-deprecated") as string;
+            var namespacePrefix = $"{typeof(GlobalOverrides).Namespace}.Endpoints.";
+            var typeName = $"{namespacePrefix}{methodName}Overrides";
+            var type = GeneratorLocations.Assembly.GetType(typeName);
 
-		private static Version XVersionAdded(this IJsonExtensionObject schema) =>
-			schema.GetExtension("x-version-added") is string s
-			? s.Split('.').Length switch
-			{
-				1 => new Version($"{s}.0.0"),
-				2 => new Version($"{s}.0"),
-				_ => new Version(s),
-			}
-			: null;
+            return type != null && Activator.CreateInstance(type) is IEndpointOverrides overrides ? overrides : null;
+        }
 
-		private static string XDataType(this IJsonExtensionObject schema) =>
-			schema.GetExtension("x-data-type") as string;
+        private static QueryParameters BuildQueryParam(OpenApiParameter p, Action<string, bool> trackEnumToGenerate) =>
+            new()
+            {
+                Type = GetOpenSearchType(p.Schema, trackEnumToGenerate),
+                Description = p.Description?.SanitizeDescription(),
+                Deprecated = GetDeprecation(p) ?? GetDeprecation(p.ActualSchema),
+                VersionAdded = p.XVersionAdded(),
+            };
 
-		private static string XOverloadedParam(this IJsonExtensionObject schema) =>
-			schema.GetExtension("x-overloaded-param") as string;
+        private static string GetOpenSearchType(JsonSchema schema, Action<string, bool> trackEnumToGenerate, bool isListContext = false)
+        {
+            var schemaKey = ((IJsonReference)schema).ReferencePath?.Split('/').Last();
+            schema = schema.ActualSchema;
 
-		private static IEnumerable<string> XEnumOptions(this IJsonExtensionObject schema) =>
-			schema.GetExtension("x-enum-options") is object[] opts ? opts.Cast<string>() : null;
+            if (schema.OneOf.Count > 0 || schema.AnyOf.Count > 0)
+            {
+                var oneOf = (schema.OneOf.Count > 0 ? schema.OneOf : schema.AnyOf).ToArray();
 
-	    private static object GetExtension(this IJsonExtensionObject schema, string key) =>
-	        schema.ExtensionData?.TryGetValue(key, out var value) ?? false ? value : null;
-	}
+                if (oneOf.Length == 2)
+                {
+                    var first = GetOpenSearchType(oneOf[0], trackEnumToGenerate);
+                    var second = GetOpenSearchType(oneOf[1], trackEnumToGenerate);
+                    if (first.EndsWith("?")) return first;
+                    if (first == second) return first;
+
+                    switch (first, second)
+                    {
+                        case ("string", "list"): return second;
+                        case ("boolean", "string"): return first;
+                        case ("string", "number"): return first;
+                        case ("number", _): return "string";
+                    }
+                }
+            }
+
+            var enumOptions = schema.Enumeration.Where(e => e != null).Select(e => e.ToString()).ToList();
+
+            if (schemaKey != null && schema.Type == JsonObjectType.String && enumOptions.Count > 0)
+            {
+                trackEnumToGenerate(schemaKey, isListContext);
+                return CsharpNames.GetEnumName(schemaKey) + "?";
+            }
+
+            if (schema.Type == JsonObjectType.Array && (schema.Item?.HasReference ?? false))
+                _ = GetOpenSearchType(schema.Item, trackEnumToGenerate, true);
+
+            return schema.Type switch
+            {
+                JsonObjectType.Integer => "number",
+                JsonObjectType.Array => "list",
+                JsonObjectType.String when schema.Pattern == "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$" => "time",
+                var t => t.ToString().ToLowerInvariant()
+            };
+        }
+
+        private static Deprecation GetDeprecation(IJsonExtensionObject schema) =>
+            (schema.XDeprecationMessage(), schema.XVersionDeprecated()) switch
+            {
+                (null, null) => null,
+                var (m, v) => new Deprecation { Description = m?.SanitizeDescription(), Version = v }
+            };
+
+        private static string GetDescription(OpenApiRequestBody requestBody)
+        {
+            if (!string.IsNullOrWhiteSpace(requestBody.Description))
+                return requestBody.Description;
+
+            return requestBody.Content.TryGetValue(MediaTypeNames.Application.Json, out var content)
+                ? content.Schema?.ActualSchema.Description
+                : null;
+        }
+
+        private static string SanitizeDescription(this string description)
+        {
+            if (string.IsNullOrWhiteSpace(description)) return null;
+
+            description = Regex.Replace(description, @"\s+", " ");
+
+            if (!description.EndsWith('.')) description += '.';
+
+            return description;
+        }
+
+        private static bool IsOverloaded(this OpenApiParameter parameter) =>
+            parameter.Schema.AnyOf.Count > 0 && parameter.Schema.AnyOf.All(s => !s.Title.IsNullOrEmpty());
+
+        private static bool XGlobal(this OpenApiParameter parameter) =>
+            parameter.GetExtension("x-global") is string s && bool.Parse(s);
+
+        private static string XDeprecationMessage(this IJsonExtensionObject schema) =>
+            schema.GetExtension("x-deprecation-message") as string;
+
+        private static string XVersionDeprecated(this IJsonExtensionObject schema) =>
+            schema.GetExtension("x-version-deprecated") as string;
+
+        private static Version XVersionAdded(this IJsonExtensionObject schema) =>
+            schema.GetExtension("x-version-added") is string s
+                ? s.Split('.').Length switch
+                {
+                    1 => new Version($"{s}.0.0"),
+                    2 => new Version($"{s}.0"),
+                    _ => new Version(s),
+                }
+                : null;
+
+        private static object GetExtension(this IJsonExtensionObject schema, string key) =>
+            schema.ExtensionData?.TryGetValue(key, out var value) ?? false ? value : null;
+    }
 }

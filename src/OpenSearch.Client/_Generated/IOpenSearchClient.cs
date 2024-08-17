@@ -48,6 +48,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Client;
+using OpenSearch.Client.Specification.CatApi;
 using OpenSearch.Client.Specification.ClusterApi;
 using OpenSearch.Client.Specification.HttpApi;
 using OpenSearch.Client.Specification.IndicesApi;
@@ -59,6 +60,9 @@ namespace OpenSearch.Client
     /// </summary>
     public partial interface IOpenSearchClient
     {
+        /// <summary>Cat APIs</summary>
+        CatNamespace Cat { get; }
+
         /// <summary>Cluster APIs</summary>
         ClusterNamespace Cluster { get; }
 
