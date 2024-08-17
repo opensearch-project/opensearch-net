@@ -64,7 +64,7 @@ namespace OpenSearch.OpenSearch.Managed
 		///     doing the election.
 		///     <para>Useful to speed up starting multi node clusters</para>
 		/// </summary>
-		public bool AssumeStartedOnNotEnoughMasterPing { get; set; }
+		public bool AssumeStartedOnNotEnoughClusterManagerPing { get; set; }
 
 		internal IConsoleLineHandler Writer { get; private set; }
 
@@ -119,7 +119,7 @@ namespace OpenSearch.OpenSearch.Managed
 
 		private bool AssumedStartedStateChecker(string section, string message)
 		{
-			if (AssumeStartedOnNotEnoughMasterPing
+			if (AssumeStartedOnNotEnoughClusterManagerPing
 				&& section.Contains("ZenDiscovery")
 				&& message.Contains("not enough master nodes discovered during pinging"))
 				return true;

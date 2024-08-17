@@ -7,6 +7,7 @@
 
 using System;
 using System.Linq;
+using System.Threading;
 using FluentAssertions;
 using OpenSearch.Client;
 using OpenSearch.Net;
@@ -20,9 +21,9 @@ namespace Tests.Cat.CatSegmentReplication;
 
 [SkipVersion("<2.7.0", "/_cat/segment_replication was added in version 2.7.0")]
 public class CatSegmentReplicationApiTests
-	: ApiIntegrationTestBase<ReplicatedReadOnlyCluster, CatResponse<CatSegmentReplicationRecord>, ICatSegmentReplicationRequest, CatSegmentReplicationDescriptor, CatSegmentReplicationRequest>
+	: ApiIntegrationTestBase<MultiNodeCluster, CatResponse<CatSegmentReplicationRecord>, ICatSegmentReplicationRequest, CatSegmentReplicationDescriptor, CatSegmentReplicationRequest>
 {
-	public CatSegmentReplicationApiTests(ReplicatedReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+	public CatSegmentReplicationApiTests(MultiNodeCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
 	private static readonly string IndexName = nameof(CatSegmentReplicationApiTests).ToLower();
 
@@ -45,9 +46,11 @@ public class CatSegmentReplicationApiTests
 		response.Records.Should().NotBeEmpty().And.AllSatisfy(r => r.ShardId.Should().StartWith($"[{IndexName}]"));
 
 	protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
-	{
+    {
 		var resp = client.Indices.Create(IndexName, d => d
 			.Settings(s => s
+                .NumberOfShards(1)
+                .NumberOfReplicas(1)
 				.Setting("index.replication.type", "SEGMENT")));
 		resp.ShouldBeValid();
 
@@ -56,9 +59,16 @@ public class CatSegmentReplicationApiTests
 			.IndexMany(Enumerable.Range(0, 10).Select(i => new Doc { Id = i }))
 			.Refresh(Refresh.WaitFor));
 		bulkResp.ShouldBeValid();
-	}
 
-	protected override void IntegrationTeardown(IOpenSearchClient client, CallUniqueValues values) => client.Indices.Delete(IndexName);
+        var healthResp = client.Cluster.Health(IndexName, d => d
+            .WaitForStatus(HealthStatus.Green)
+            .WaitForNodes("2")
+            .Timeout("30s")
+            .Level(ClusterHealthLevel.Shards)
+            .WaitForNoInitializingShards()
+            .WaitForNoRelocatingShards());
+        healthResp.ShouldBeValid();
+    }
 
 	public class Doc
 	{

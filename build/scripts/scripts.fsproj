@@ -32,15 +32,17 @@
     <Content Include="..\..\.github\license-header-fs.txt"><Link>license-header-fs.txt</Link></Content>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="8.0.301" />
+
     <PackageReference Include="Bullseye" Version="5.0.0" />
     <ProjectReference Include="$(SolutionRoot)\abstractions\src\OpenSearch.OpenSearch.Managed\OpenSearch.OpenSearch.Managed.csproj" />
-    
+
     <PackageReference Include="Fake.Core.Environment" Version="6.1.0" />
     <PackageReference Include="Fake.Core.SemVer" Version="6.1.0" />
     <PackageReference Include="Fake.IO.FileSystem" Version="6.1.0" />
     <PackageReference Include="Fake.IO.Zip" Version="6.1.0" />
     <PackageReference Include="Fake.Tools.Git" Version="5.23.1" />
-    
+
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 
     <PackageReference Include="Octokit" Version="13.0.1" />
