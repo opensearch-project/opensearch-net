@@ -28,6 +28,7 @@
 
 using System;
 using System.Globalization;
+using System.IO;
 using OpenSearch.OpenSearch.Managed.FileSystem;
 using OpenSearch.Stack.ArtifactsApi;
 using ProcNet;
@@ -49,12 +50,18 @@ namespace OpenSearch.OpenSearch.Managed.Configuration
 			ClusterConfiguration = clusterConfiguration;
 			DesiredPort = port;
 			DesiredNodeName = CreateNodeName(port, nodePrefix) ?? clusterConfiguration.CreateNodeName(port);
-			Settings = new NodeSettings(clusterConfiguration.DefaultNodeSettings);
+			Settings = new NodeSettings(clusterConfiguration.DefaultNodeSettings)
+            {
+                { "path.data", Path.Combine(ClusterConfiguration.FileSystem.DataPath, DesiredNodeName) }
+            };
 
-			if (!string.IsNullOrWhiteSpace(DesiredNodeName)) Settings.Add("node.name", DesiredNodeName);
-			if (DesiredPort.HasValue)
-				Settings.Add("http.port", DesiredPort.Value.ToString(CultureInfo.InvariantCulture));
-		}
+            if (!string.IsNullOrWhiteSpace(DesiredNodeName)) Settings.Add("node.name", DesiredNodeName);
+            if (DesiredPort is { } desiredPort)
+            {
+                Settings.Add("http.port", desiredPort.ToString(CultureInfo.InvariantCulture));
+                Settings.Add("transport.port", (desiredPort + 100).ToString(CultureInfo.InvariantCulture));
+            }
+        }
 
 		private IClusterConfiguration<NodeFileSystem> ClusterConfiguration { get; }
 
@@ -87,10 +94,15 @@ namespace OpenSearch.OpenSearch.Managed.Configuration
 		public OpenSearchVersion Version => ClusterConfiguration.Version;
 		public string[] CommandLineArguments => Settings.ToCommandLineArguments(Version);
 
-		public void InitialMasterNodes(string initialMasterNodes) =>
-			Settings.Add("cluster.initial_master_nodes", initialMasterNodes, ">=1.0.0");
+        public void SeedHosts(string seedHosts) => Settings.Add("discovery.seed_hosts", seedHosts);
 
-		public string AttributeKey(string attribute)
+        public void InitialClusterManagerNodes(string initialClusterManagerNodes)
+        {
+            Settings.Add("cluster.initial_master_nodes", initialClusterManagerNodes, ">=1.0.0 <2.0.0");
+            Settings.Add("cluster.initial_cluster_manager_nodes", initialClusterManagerNodes, ">=2.0.0");
+        }
+
+        public string AttributeKey(string attribute)
 		{
 			var attr = "attr.";
 			return $"node.{attr}{attribute}";
