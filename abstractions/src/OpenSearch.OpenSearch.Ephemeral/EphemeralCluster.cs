@@ -60,13 +60,6 @@ namespace OpenSearch.OpenSearch.Ephemeral
 
 		protected EphemeralClusterComposer<TConfiguration> Composer { get; }
 
-		protected override void ModifyNodeConfiguration(NodeConfiguration nodeConfiguration, int port)
-		{
-			base.ModifyNodeConfiguration(nodeConfiguration, port);
-
-			if (!ClusterConfiguration.EnableSsl) nodeConfiguration.Add("plugins.security.disabled", "true");
-		}
-
 		public virtual ICollection<Uri> NodesUris(string hostName = null)
 		{
 			hostName = hostName ?? (ClusterConfiguration.HttpFiddlerAware && Process.GetProcessesByName("fiddler").Any()
