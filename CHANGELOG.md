@@ -32,6 +32,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Fake.Core.Environment` from 6.0.0 to 6.1.0
 - Bumps `Fake.IO.FileSystem` from 6.0.0 to 6.1.0
 - Bumps `Fake.IO.Zip` from 5.23.1 to 6.1.0
+- Bumps `Fake.Tools.Git` from 5.23.1 to 6.1.0
 
 ## [1.7.1]
 ### Fixed
