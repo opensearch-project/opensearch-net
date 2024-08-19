@@ -86,7 +86,7 @@ namespace OpenSearch.Net
         T,
 
         [EnumMember(Value = "tb")]
-        Tb
+        Tb,
     }
 
     [Flags, StringEnum]
@@ -105,7 +105,7 @@ namespace OpenSearch.Net
         None = 1 << 3,
 
         [EnumMember(Value = "open")]
-        Open = 1 << 4
+        Open = 1 << 4,
     }
 
     [StringEnum]
@@ -118,7 +118,7 @@ namespace OpenSearch.Net
         Indices,
 
         [EnumMember(Value = "shards")]
-        Shards
+        Shards,
     }
 
     [StringEnum]
@@ -143,7 +143,7 @@ namespace OpenSearch.Net
         Nanos,
 
         [EnumMember(Value = "s")]
-        S
+        S,
     }
 
     public static partial class KnownEnums
@@ -170,10 +170,9 @@ namespace OpenSearch.Net
                 Bytes.Pb => "pb",
                 Bytes.T => "t",
                 Bytes.Tb => "tb",
-                _
-                    => throw new ArgumentException(
-                        $"'{enumValue.ToString()}' is not a valid value for enum 'Bytes'"
-                    )
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'Bytes'"
+                ),
             };
 
         public static string GetStringValue(this ExpandWildcards enumValue)
@@ -198,10 +197,9 @@ namespace OpenSearch.Net
                 Level.Cluster => "cluster",
                 Level.Indices => "indices",
                 Level.Shards => "shards",
-                _
-                    => throw new ArgumentException(
-                        $"'{enumValue.ToString()}' is not a valid value for enum 'Level'"
-                    )
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'Level'"
+                ),
             };
 
         public static string GetStringValue(this TimeUnit enumValue) =>
@@ -214,10 +212,9 @@ namespace OpenSearch.Net
                 TimeUnit.Ms => "ms",
                 TimeUnit.Nanos => "nanos",
                 TimeUnit.S => "s",
-                _
-                    => throw new ArgumentException(
-                        $"'{enumValue.ToString()}' is not a valid value for enum 'TimeUnit'"
-                    )
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'TimeUnit'"
+                ),
             };
     }
 }
