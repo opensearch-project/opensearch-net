@@ -147,7 +147,7 @@ namespace OpenSearch.Client
                 {
                     "_cluster/state",
                     "_cluster/state/{metric}",
-                    "_cluster/state/{metric}/{index}"
+                    "_cluster/state/{metric}/{index}",
                 }
             );
 
@@ -213,7 +213,7 @@ namespace OpenSearch.Client
                     "_nodes",
                     "_nodes/{metric}",
                     "_nodes/{node_id}",
-                    "_nodes/{node_id}/{metric}"
+                    "_nodes/{node_id}/{metric}",
                 }
             );
 
@@ -231,7 +231,7 @@ namespace OpenSearch.Client
                     "_nodes/stats/{metric}/{index_metric}",
                     "_nodes/{node_id}/stats",
                     "_nodes/{node_id}/stats/{metric}",
-                    "_nodes/{node_id}/stats/{metric}/{index_metric}"
+                    "_nodes/{node_id}/stats/{metric}/{index_metric}",
                 }
             );
 
@@ -242,7 +242,7 @@ namespace OpenSearch.Client
                     "_nodes/usage",
                     "_nodes/usage/{metric}",
                     "_nodes/{node_id}/usage",
-                    "_nodes/{node_id}/usage/{metric}"
+                    "_nodes/{node_id}/usage/{metric}",
                 }
             );
 
@@ -279,7 +279,7 @@ namespace OpenSearch.Client
                 {
                     "_snapshot/_status",
                     "_snapshot/{repository}/_status",
-                    "_snapshot/{repository}/{snapshot}/_status"
+                    "_snapshot/{repository}/{snapshot}/_status",
                 }
             );
 
