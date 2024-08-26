@@ -35,102 +35,109 @@ using SemanticVersioning;
 using Xunit;
 using Xunit.Abstractions;
 using Xunit.Sdk;
-using Enumerable = System.Linq.Enumerable;
 
-namespace OpenSearch.OpenSearch.Xunit.XunitPlumbing
+namespace OpenSearch.OpenSearch.Xunit.XunitPlumbing;
+
+/// <summary>
+/// A Xunit test that should be skipped, and a reason why.
+/// </summary>
+public abstract class SkipTestAttributeBase : Attribute
 {
-	/// <summary>
-	///     An Xunit test that should be skipped, and a reason why.
-	/// </summary>
-	public abstract class SkipTestAttributeBase : Attribute
-	{
-		/// <summary>
-		///     Whether the test should be skipped
-		/// </summary>
-		public abstract bool Skip { get; }
+    /// <summary>
+    ///     Whether the test should be skipped
+    /// </summary>
+    public abstract bool Skip { get; }
 
-		/// <summary>
-		///     The reason why the test should be skipped
-		/// </summary>
-		public abstract string Reason { get; }
-	}
+    /// <summary>
+    ///     The reason why the test should be skipped
+    /// </summary>
+    public abstract string Reason { get; }
+}
 
-	/// <summary>
-	///     An Xunit integration test
-	/// </summary>
-	[XunitTestCaseDiscoverer("OpenSearch.OpenSearch.Xunit.XunitPlumbing.IntegrationTestDiscoverer",
-		"OpenSearch.OpenSearch.Xunit")]
-	public class I : FactAttribute
-	{
-	}
+/// <summary>
+///     An Xunit integration test
+/// </summary>
+[XunitTestCaseDiscoverer("OpenSearch.OpenSearch.Xunit.XunitPlumbing.IntegrationTestDiscoverer",
+    "OpenSearch.OpenSearch.Xunit")]
+public class I : FactAttribute
+{
+}
 
-	/// <summary>
-	///     A test discoverer used to discover integration tests cases attached
-	///     to test methods that are attributed with <see cref="I" /> attribute
-	/// </summary>
-	public class IntegrationTestDiscoverer : OpenSearchTestCaseDiscoverer
-	{
-		public IntegrationTestDiscoverer(IMessageSink diagnosticMessageSink) : base(diagnosticMessageSink)
-		{
-		}
+/// <summary>
+///     A test discoverer used to discover integration tests cases attached
+///     to test methods that are attributed with <see cref="I" /> attribute
+/// </summary>
+public class IntegrationTestDiscoverer : OpenSearchTestCaseDiscoverer
+{
+    public IntegrationTestDiscoverer(IMessageSink diagnosticMessageSink) : base(diagnosticMessageSink)
+    {
+    }
 
-		/// <inheritdoc />
-		protected override bool SkipMethod(ITestFrameworkDiscoveryOptions discoveryOptions, ITestMethod testMethod,
-			out string skipReason)
-		{
-			skipReason = null;
-			var runIntegrationTests =
-				discoveryOptions.GetValue<bool>(nameof(OpenSearchXunitRunOptions.RunIntegrationTests));
-			if (!runIntegrationTests) return true;
+    /// <inheritdoc />
+    protected override bool SkipMethod(ITestFrameworkDiscoveryOptions discoveryOptions, ITestMethod testMethod,
+        out string skipReason)
+    {
+        skipReason = null;
+        var runIntegrationTests =
+            discoveryOptions.GetValue<bool>(nameof(OpenSearchXunitRunOptions.RunIntegrationTests));
+        if (!runIntegrationTests) return true;
 
-			var cluster = TestAssemblyRunner.GetClusterForClass(testMethod.TestClass.Class);
-			if (cluster == null)
-			{
-				skipReason +=
-					$"{testMethod.TestClass.Class.Name} does not define a cluster through IClusterFixture or {nameof(IntegrationTestClusterAttribute)}";
-				return true;
-			}
+        var cluster = TestAssemblyRunner.GetClusterForClass(testMethod.TestClass.Class);
+        if (cluster == null)
+        {
+            skipReason +=
+                $"{testMethod.TestClass.Class.Name} does not define a cluster through IClusterFixture or {nameof(IntegrationTestClusterAttribute)}";
+            return true;
+        }
 
-			var openSearchVersion =
-				discoveryOptions.GetValue<OpenSearchVersion>(nameof(OpenSearchXunitRunOptions.Version));
+        var openSearchVersion =
+            discoveryOptions.GetValue<OpenSearchVersion>(nameof(OpenSearchXunitRunOptions.Version));
 
-			// Skip if the version we are testing against is attributed to be skipped do not run the test nameof(SkipVersionAttribute.Ranges)
-			var skipVersionAttribute = Enumerable.FirstOrDefault(GetAttributes<SkipVersionAttribute>(testMethod));
-			if (skipVersionAttribute != null)
-			{
-				var skipVersionRanges =
-					skipVersionAttribute.GetNamedArgument<IList<Range>>(nameof(SkipVersionAttribute.Ranges)) ??
-					new List<Range>();
-				if (openSearchVersion == null && skipVersionRanges.Count > 0)
-				{
-					skipReason = $"{nameof(SkipVersionAttribute)} has ranges defined for this test but " +
-					             $"no {nameof(OpenSearchXunitRunOptions.Version)} has been provided to {nameof(OpenSearchXunitRunOptions)}";
-					return true;
-				}
+        // Skip if the version we are testing against is attributed to be skipped do not run the test nameof(SkipVersionAttribute.Ranges)
+        var skipVersionAttribute = GetAttributes<SkipVersionAttribute>(testMethod).FirstOrDefault();
+        if (skipVersionAttribute != null)
+        {
+            var skipVersionRanges =
+                skipVersionAttribute.GetNamedArgument<IList<Range>>(nameof(SkipVersionAttribute.Ranges)) ??
+                new List<Range>();
+            if (openSearchVersion == null && skipVersionRanges.Count > 0)
+            {
+                skipReason = $"{nameof(SkipVersionAttribute)} has ranges defined for this test but " +
+                    $"no {nameof(OpenSearchXunitRunOptions.Version)} has been provided to {nameof(OpenSearchXunitRunOptions)}";
+                return true;
+            }
 
-				if (openSearchVersion != null)
-				{
-					var reason = skipVersionAttribute.GetNamedArgument<string>(nameof(SkipVersionAttribute.Reason));
-					for (var index = 0; index < skipVersionRanges.Count; index++)
-					{
-						var range = skipVersionRanges[index];
-						// inrange takes prereleases into account
-						if (!openSearchVersion.InRange(range)) continue;
-						skipReason =
-							$"{nameof(SkipVersionAttribute)} has range {range} that {openSearchVersion} satisfies";
-						if (!string.IsNullOrWhiteSpace(reason)) skipReason += $": {reason}";
-						return true;
-					}
-				}
-			}
+            if (openSearchVersion != null)
+            {
+                var reason = skipVersionAttribute.GetNamedArgument<string>(nameof(SkipVersionAttribute.Reason));
+                foreach (var range in skipVersionRanges)
+                {
+                    // inrange takes prereleases into account
+                    if (!openSearchVersion.InRange(range)) continue;
+                    skipReason =
+                        $"{nameof(SkipVersionAttribute)} has range {range} that {openSearchVersion} satisfies";
+                    if (!string.IsNullOrWhiteSpace(reason)) skipReason += $": {reason}";
+                    return true;
+                }
+            }
+        }
 
-			var skipTests = GetAttributes<SkipTestAttributeBase>(testMethod)
-				.FirstOrDefault(a => a.GetNamedArgument<bool>(nameof(SkipTestAttributeBase.Skip)));
+        // Skip if a prerelease version and has SkipPrereleaseVersionsAttribute
+        var skipPrerelease = GetAttributes<SkipPrereleaseVersionsAttribute>(testMethod).FirstOrDefault();
+        if (openSearchVersion != null && openSearchVersion.IsPreRelease && skipPrerelease != null)
+        {
+            skipReason = $"{nameof(SkipPrereleaseVersionsAttribute)} has been applied to this test";
+            var reason = skipPrerelease.GetNamedArgument<string>(nameof(SkipVersionAttribute.Reason));
+            if (!string.IsNullOrWhiteSpace(reason)) skipReason += $": {reason}";
+            return true;
+        }
 
-			if (skipTests == null) return false;
+        var skipTests = GetAttributes<SkipTestAttributeBase>(testMethod)
+            .FirstOrDefault(a => a.GetNamedArgument<bool>(nameof(SkipTestAttributeBase.Skip)));
 
-			skipReason = skipTests.GetNamedArgument<string>(nameof(SkipTestAttributeBase.Reason));
-			return true;
-		}
-	}
+        if (skipTests == null) return false;
+
+        skipReason = skipTests.GetNamedArgument<string>(nameof(SkipTestAttributeBase.Reason));
+        return true;
+    }
 }

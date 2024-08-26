@@ -8,6 +8,7 @@
 using System.CommandLine;
 using System.CommandLine.Binding;
 using OpenSearch.Client;
+using OpenSearch.Net;
 
 namespace Samples;
 
@@ -58,4 +59,13 @@ public abstract class Sample
 	protected abstract Task Run(IOpenSearchClient client);
 
     protected virtual Task Cleanup(IOpenSearchClient client) => Task.CompletedTask;
+
+    protected static void Assert<T>(T response, Func<T, bool> condition) where T : IOpenSearchResponse
+    {
+        if (condition(response)) return;
+
+        throw new Exception($"Assertion failed:\n{response.ApiCall?.DebugInformation}");
+    }
+
+    protected static void AssertValid(IResponse response) => Assert(response, r => r.IsValid);
 }
