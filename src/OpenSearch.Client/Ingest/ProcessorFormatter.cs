@@ -70,7 +70,8 @@ namespace OpenSearch.Client
 			{ "uri_parts", 30 },
 			{ "fingerprint", 31 },
 			{ "community_id", 32 },
-			{ "network_direction", 33 }
+			{ "network_direction", 33 },
+            { "text_embedding", 34 }
 		};
 
 		public IProcessor Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
@@ -193,6 +194,9 @@ namespace OpenSearch.Client
 					case 33:
 						processor = Deserialize<NetworkDirectionProcessor>(ref reader, formatterResolver);
 						break;
+                    case 34:
+                        processor = Deserialize<TextEmbeddingProcessor>(ref reader, formatterResolver);
+                        break;
 				}
 			}
 			else
@@ -316,6 +320,9 @@ namespace OpenSearch.Client
 				case "network_direction":
 					Serialize<INetworkDirectionProcessor>(ref writer, value, formatterResolver);
 					break;
+                case "text_embedding":
+                    Serialize<ITextEmbeddingProcessor>(ref writer, value, formatterResolver);
+                    break;
 				default:
 					var formatter = DynamicObjectResolver.ExcludeNullCamelCase.GetFormatter<IProcessor>();
 					formatter.Serialize(ref writer, value, formatterResolver);

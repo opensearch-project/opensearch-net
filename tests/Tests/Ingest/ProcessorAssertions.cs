@@ -30,6 +30,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using JetBrains.Annotations;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
 using Tests.Core.Client;
@@ -62,11 +63,21 @@ namespace Tests.Ingest
 	public static class ProcessorAssertions
 	{
 		public static IEnumerable<IProcessorAssertion> All =>
-			from t in typeof(ProcessorAssertions).GetNestedTypes()
-			where typeof(IProcessorAssertion).IsAssignableFrom(t) && t.IsClass
-			let a = t.GetCustomAttributes(typeof(SkipVersionAttribute)).FirstOrDefault() as SkipVersionAttribute
-			where a == null || !a.Ranges.Any(r => r.IsSatisfied(TestClient.Configuration.OpenSearchVersion))
-			select (IProcessorAssertion)Activator.CreateInstance(t);
+            typeof(ProcessorAssertions).GetNestedTypes()
+                .Where(t =>
+                {
+                    if (!t.IsClass || !typeof(IProcessorAssertion).IsAssignableFrom(t)) return false;
+
+                    var skipVersion = t.GetCustomAttributes<SkipVersionAttribute>().FirstOrDefault();
+                    if (skipVersion != null && skipVersion.Ranges.Any(r => r.IsSatisfied(TestClient.Configuration.OpenSearchVersion)))
+                        return false;
+
+                    var skipPrereleases = t.GetCustomAttributes<SkipPrereleaseVersionsAttribute>().FirstOrDefault();
+                    if (skipPrereleases != null && TestClient.Configuration.OpenSearchVersion.IsPreRelease) return false;
+
+                    return true;
+                })
+                .Select(t => (IProcessorAssertion)Activator.CreateInstance(t));
 
 		public static IProcessor[] Initializers => All.Select(a => a.Initializer).ToArray();
 
@@ -592,5 +603,45 @@ namespace Tests.Ingest
 
 			public override string Key => "pipeline";
 		}
+
+        [SkipVersion("<2.4.0", "neural search plugin was released with v2.4.0")]
+        [SkipPrereleaseVersions("Prerelease versions of OpenSearch do not include the ML & Neural Search plugins")]
+        public class TextEmbedding : ProcessorAssertion
+        {
+            private class NeuralSearchDoc
+            {
+                [PropertyName("text")]
+                public string Text { get; set; }
+
+                [PropertyName("passage_embedding")]
+                public float[] PassageEmbedding { get; set; }
+            }
+
+            public override ProcFunc Fluent => d => d
+                .TextEmbedding<NeuralSearchDoc>(te => te
+                    .ModelId("someModel-abcdef")
+                    .FieldMap(f => f
+                        .Map(doc => doc.Text, doc => doc.PassageEmbedding)));
+
+            public override IProcessor Initializer => new TextEmbeddingProcessor
+            {
+                ModelId = "someModel-abcdef",
+                FieldMap = new InferenceFieldMap
+                {
+                    {new Field((NeuralSearchDoc d) => d.Text), new Field((NeuralSearchDoc d) => d.PassageEmbedding)}
+                }
+            };
+
+            public override object Json => new
+            {
+                model_id = "someModel-abcdef",
+                field_map = new
+                {
+                    text = "passage_embedding"
+                }
+            };
+
+            public override string Key => "text_embedding";
+        }
 	}
 }

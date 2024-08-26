@@ -27,6 +27,7 @@
 */
 
 using System;
+using Version = SemanticVersioning.Version;
 
 namespace OpenSearch.Stack.ArtifactsApi.Products
 {
@@ -81,5 +82,9 @@ namespace OpenSearch.Stack.ArtifactsApi.Products
 		public static OpenSearchPlugin DeleteByQuery { get; } = new("delete-by-query", version => version < "1.0.0");
 
 		public static OpenSearchPlugin Knn { get; } = new("opensearch-knn");
-	}
+
+        public static OpenSearchPlugin MachineLearning { get; } = new("opensearch-ml", v => v.BaseVersion() >= new Version("1.3.0") && !v.IsPreRelease);
+
+        public static OpenSearchPlugin NeuralSearch { get; } = new("opensearch-neural-search", v => v.BaseVersion() >= new Version("2.4.0") && !v.IsPreRelease);
+    }
 }
