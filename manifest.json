@@ -11992,6 +11992,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IInferenceFieldMap.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IInferenceFieldMap.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IInferenceProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IInferenceProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IInlineGet-1.yml",
       "output": {
         ".html": {
@@ -13116,6 +13136,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.INetworkDirectionProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.INeuralQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.INeuralQuery.html"
         }
       },
       "version": ""
@@ -15572,6 +15602,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ITextEmbeddingProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.ITextEmbeddingProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.ITextIndexPrefixes.yml",
       "output": {
         ".html": {
@@ -16846,6 +16886,46 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.Infer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.InferenceFieldMap.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.InferenceFieldMap.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.InferenceFieldMapDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.InferenceFieldMapDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.InferenceProcessorBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.InferenceProcessorBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.InferenceProcessorDescriptorBase-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.InferenceProcessorDescriptorBase-3.html"
         }
       },
       "version": ""
@@ -19706,6 +19786,26 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.NetworkDirectionProcessorDescriptor-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.NeuralQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.NeuralQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.NeuralQueryDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.NeuralQueryDescriptor-1.html"
         }
       },
       "version": ""
@@ -26746,6 +26846,26 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.TextAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.TextEmbeddingProcessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.TextEmbeddingProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.TextEmbeddingProcessorDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.TextEmbeddingProcessorDescriptor-1.html"
         }
       },
       "version": ""
