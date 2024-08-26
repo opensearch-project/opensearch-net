@@ -30,7 +30,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `xunit` from 2.7.1 to 2.8.0
 - Bumps `FSharp.Core` from 8.0.100 to 8.0.400
 - Bumps `xunit.runner.visualstudio` from 2.5.8 to 2.8.2
-- Bumps `CSharpier.Core` from 0.27.3 to 0.29.0
+- Bumps `CSharpier.Core` from 0.27.3 to 0.29.1
 - Bumps `System.Diagnostics.DiagnosticSource` from 8.0.0 to 8.0.1
 - Bumps `Spectre.Console` from 0.48.0 to 0.49.1
 - Bumps `Nullean.VsTest.Pretty.TestLogger` from 0.3.0 to 0.4.0
