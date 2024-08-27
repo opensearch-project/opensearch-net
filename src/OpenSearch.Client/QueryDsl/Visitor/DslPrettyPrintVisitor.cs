@@ -179,6 +179,8 @@ namespace OpenSearch.Client
 
 		public virtual void Visit(INestedQuery query) => Write("nested");
 
+        public virtual void Visit(INeuralQuery query) => Write("neural", query.Field);
+
 		public virtual void Visit(IPrefixQuery query) => Write("prefix");
 
 		public virtual void Visit(IQueryStringQuery query) => Write("query_string");

@@ -61,30 +61,29 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
 					.Where(p => !p.IsValid(v))
 					.Select(p => p.SubProductName).ToList();
 				if (invalidPlugins.Any())
-					throw new OpenSearchCleanExitException(
-						$"Can not install the following plugins for version {v}: {string.Join(", ", invalidPlugins)} ");
-			}
+                {
+                    throw new OpenSearchCleanExitException(
+                        $"Can not install the following plugins for version {v}: {string.Join(", ", invalidPlugins)} ");
+                }
+            }
 
 			foreach (var plugin in requiredPlugins)
 			{
-				var includedByDefault = plugin.IsIncludedOutOfTheBox(v);
-				if (includedByDefault)
+                if (plugin.IsIncludedOutOfTheBox(v))
 				{
 					cluster.Writer?.WriteDiagnostic(
 						$"{{{nameof(InstallPlugins)}}} SKIP plugin [{plugin.SubProductName}] shipped OOTB as of: {{{plugin.ShippedByDefaultAsOf}}}");
 					continue;
 				}
 
-				var validForCurrentVersion = plugin.IsValid(v);
-				if (!validForCurrentVersion)
+                if (!plugin.IsValid(v))
 				{
 					cluster.Writer?.WriteDiagnostic(
 						$"{{{nameof(InstallPlugins)}}} SKIP plugin [{plugin.SubProductName}] not valid for version: {{{v}}}");
 					continue;
 				}
 
-				var alreadyInstalled = AlreadyInstalled(fs, plugin.SubProductName);
-				if (alreadyInstalled)
+                if (AlreadyInstalled(fs, plugin.SubProductName))
 				{
 					cluster.Writer?.WriteDiagnostic(
 						$"{{{nameof(InstallPlugins)}}} SKIP plugin [{plugin.SubProductName}] already installed");
@@ -92,7 +91,7 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
 				}
 
 				cluster.Writer?.WriteDiagnostic(
-					$"{{{nameof(InstallPlugins)}}} attempting install [{plugin.SubProductName}] as it's not OOTB: {{{plugin.ShippedByDefaultAsOf}}} and valid for {v}: {{{plugin.IsValid(v)}}}");
+					$"{{{nameof(InstallPlugins)}}} attempting install [{plugin.SubProductName}] as it's not OOTB: {{{plugin.ShippedByDefaultAsOf}}} and valid for {v}");
 
 				var homeConfigPath = Path.Combine(fs.OpenSearchHome, "config");
 

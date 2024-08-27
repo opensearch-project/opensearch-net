@@ -75,7 +75,7 @@ public class EphemeralClusterConfiguration : ClusterConfiguration<EphemeralFileS
     ///     This can be useful to fail early when subsequent operations are relying on installation
     ///     succeeding.
     /// </summary>
-    public bool ValidatePluginsToInstall { get; } = true;
+    public bool ValidatePluginsToInstall { get; set; } = true;
 
     public bool EnableSsl => Features.HasFlag(ClusterFeatures.SSL);
 

@@ -203,6 +203,9 @@ namespace OpenSearch.Client
 		[DataMember(Name = "knn")]
 		IKnnQuery Knn { get; set; }
 
+        [DataMember(Name = "neural")]
+        INeuralQuery Neural { get; set; }
+
 		void Accept(IQueryVisitor visitor);
 	}
 }
