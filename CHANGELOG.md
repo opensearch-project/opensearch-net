@@ -3,6 +3,11 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 ### Added
+
+### Dependencies
+
+## [1.8.0]
+### Added
 - Added support for the `neural` query type and `text_embedding` ingest processor type ([#636](https://github.com/opensearch-project/opensearch-net/pull/636))
 - Added support for the `Cat.PitSegments` and `Cat.SegmentReplication` APIs ([#527](https://github.com/opensearch-project/opensearch-net/pull/527))
 - Added support for `MinScore` on `ScriptScoreQuery` ([#624](https://github.com/opensearch-project/opensearch-net/pull/624))
@@ -185,7 +190,8 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `System.Diagnostics.DiagnosticSource` from 5.0.0 to 6.0.0
 - Bumps `Microsoft.NETFramework.ReferenceAssemblies` from 1.0.0-preview.2 to 1.0.3
 
-[Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/v1.7.1...1.x
+[Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/v1.8.0...1.x
+[1.8.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.7.1...v1.8.0
 [1.7.1]: https://github.com/opensearch-project/opensearch-net/compare/v1.7.0...v1.7.1
 [1.7.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.6.0...v1.7.0
 [1.6.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.5.0...v1.6.0
