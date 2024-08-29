@@ -9,12 +9,6 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Changed the namespace client properties on `IOpenSearchClient` to return corresponding interfaces to better enable mocking & unit testing ([#646](https://github.com/opensearch-project/opensearch-net/pull/646))
 
 ### Added
-- Added support for `MinScore` on `ScriptScoreQuery` ([#624](https://github.com/opensearch-project/opensearch-net/pull/624))
-- Added support for the `neural` query type and `text_embedding` ingest processor type ([#636](https://github.com/opensearch-project/opensearch-net/pull/636))
-- Added support for the `Cat.PitSegments` and `Cat.SegmentReplication` APIs ([#527](https://github.com/opensearch-project/opensearch-net/pull/527))
-- Added support for serializing the `DateOnly` and `TimeOnly` types ([#734](https://github.com/opensearch-project/opensearch-net/pull/734))
-- Added support for the `Ext` parameter on `SearchRequest` ([#738](https://github.com/opensearch-project/opensearch-net/pull/738))
-- Added support for the `Indices.Stats` API ([#753](https://github.com/opensearch-project/opensearch-net/pull/753))
 
 ### Removed
 - Removed support for the `net461` target ([#256](https://github.com/opensearch-project/opensearch-net/pull/256))
@@ -25,13 +19,24 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed naming of `ClusterManagerTimeout` and `MasterTimeout` properties from `*TimeSpanout` in the low-level client ([#332](https://github.com/opensearch-project/opensearch-net/pull/332))
 
 ### Dependencies
+- Bumps `System.Diagnostics.DiagnosticSource` from 6.0.1 to 8.0.1
+
+## [1.8.0]
+### Added
+- Added support for the `neural` query type and `text_embedding` ingest processor type ([#636](https://github.com/opensearch-project/opensearch-net/pull/636))
+- Added support for the `Cat.PitSegments` and `Cat.SegmentReplication` APIs ([#527](https://github.com/opensearch-project/opensearch-net/pull/527))
+- Added support for `MinScore` on `ScriptScoreQuery` ([#624](https://github.com/opensearch-project/opensearch-net/pull/624))
+- Added support for serializing the `DateOnly` and `TimeOnly` types ([#734](https://github.com/opensearch-project/opensearch-net/pull/734))
+- Added support for the `Ext` parameter on `SearchRequest` ([#738](https://github.com/opensearch-project/opensearch-net/pull/738))
+- Added support for the `Indices.Stats` API ([#753](https://github.com/opensearch-project/opensearch-net/pull/753))
+
+### Dependencies
 - Bumps `AWSSDK.Core` from 3.7.204.12 to 3.7.400.11
 - Bumps `Bogus` from 35.3.0 to 35.6.0
 - Bumps `xunit` from 2.7.1 to 2.8.0
 - Bumps `FSharp.Core` from 8.0.100 to 8.0.400
 - Bumps `xunit.runner.visualstudio` from 2.5.8 to 2.8.2
 - Bumps `CSharpier.Core` from 0.27.3 to 0.29.1
-- Bumps `System.Diagnostics.DiagnosticSource` from 8.0.0 to 8.0.1
 - Bumps `Spectre.Console` from 0.48.0 to 0.49.1
 - Bumps `Nullean.VsTest.Pretty.TestLogger` from 0.3.0 to 0.4.0
 - Bumps `Microsoft.NET.Test.Sdk` from 17.9.0 to 17.11.0
@@ -201,7 +206,8 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `System.Diagnostics.DiagnosticSource` from 5.0.0 to 6.0.0
 - Bumps `Microsoft.NETFramework.ReferenceAssemblies` from 1.0.0-preview.2 to 1.0.3
 
-[Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/v1.7.1...main
+[Unreleased]: https://github.com/opensearch-project/opensearch-net/compare/v1.8.0...main
+[1.8.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.7.1...v1.8.0
 [1.7.1]: https://github.com/opensearch-project/opensearch-net/compare/v1.7.0...v1.7.1
 [1.7.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.6.0...v1.7.0
 [1.6.0]: https://github.com/opensearch-project/opensearch-net/compare/v1.5.0...v1.6.0
