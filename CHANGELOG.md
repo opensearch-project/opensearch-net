@@ -5,6 +5,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 ### Dependencies
+- Bumps `YamlDotNet` from 16.0.0 to 16.1.0
 
 ## [1.8.0]
 ### Added
