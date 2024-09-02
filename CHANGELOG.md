@@ -20,6 +20,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Dependencies
 - Bumps `System.Diagnostics.DiagnosticSource` from 6.0.1 to 8.0.1
+- Bumps `YamlDotNet` from 16.0.0 to 16.1.0
 
 ## [1.8.0]
 ### Added
