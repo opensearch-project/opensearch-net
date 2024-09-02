@@ -263,7 +263,7 @@ namespace ApiGenerator.Generator
             {
                 JsonObjectType.Integer => "number",
                 JsonObjectType.Array => "list",
-                JsonObjectType.String when schema.Pattern == "^([0-9]+)(?:d|h|m|s|ms|micros|nanos)$" => "time",
+                JsonObjectType.String when schema.Pattern == @"^([0-9\.]+)(?:d|h|m|s|ms|micros|nanos)$" => "time",
                 var t => t.ToString().ToLowerInvariant()
             };
         }
@@ -308,18 +308,23 @@ namespace ApiGenerator.Generator
         private static string XDeprecationMessage(this IJsonExtensionObject schema) =>
             schema.GetExtension("x-deprecation-message") as string;
 
-        private static string XVersionDeprecated(this IJsonExtensionObject schema) =>
-            schema.GetExtension("x-version-deprecated") as string;
+        private static Version XVersionDeprecated(this IJsonExtensionObject schema) =>
+            schema.GetExtension("x-version-deprecated") is string s
+                ? CoerceVersion(s)
+                : null;
 
         private static Version XVersionAdded(this IJsonExtensionObject schema) =>
             schema.GetExtension("x-version-added") is string s
-                ? s.Split('.').Length switch
-                {
-                    1 => new Version($"{s}.0.0"),
-                    2 => new Version($"{s}.0"),
-                    _ => new Version(s),
-                }
+                ? CoerceVersion(s)
                 : null;
+
+        private static Version CoerceVersion(string s) =>
+            s.Split('.').Length switch
+            {
+                1 => new Version($"{s}.0.0"),
+                2 => new Version($"{s}.0"),
+                _ => new Version(s),
+            };
 
         private static object GetExtension(this IJsonExtensionObject schema, string key) =>
             schema.ExtensionData?.TryGetValue(key, out var value) ?? false ? value : null;

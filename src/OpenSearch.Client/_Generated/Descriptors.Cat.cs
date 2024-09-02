@@ -593,7 +593,7 @@ namespace OpenSearch.Client
 
         /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 1.0, reason: This parameter does not cause this API to act locally."
+            "Deprecated as of: 1.0.0, reason: This parameter does not cause this API to act locally."
         )]
         public CatNodesDescriptor Local(bool? local = true) => Qs("local", local);
 

@@ -453,7 +453,7 @@ namespace OpenSearch.Net.Specification.CatApi
         /// <summary>GET on /_cat/master <para>https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [Obsolete(
-            "Deprecated in version 2.0: To promote inclusive language, please use '/_cat/cluster_manager' instead."
+            "Deprecated in version 2.0.0: To promote inclusive language, please use '/_cat/cluster_manager' instead."
         )]
         public TResponse Master<TResponse>(CatMasterRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -462,7 +462,7 @@ namespace OpenSearch.Net.Specification.CatApi
         /// <summary>GET on /_cat/master <para>https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [Obsolete(
-            "Deprecated in version 2.0: To promote inclusive language, please use '/_cat/cluster_manager' instead."
+            "Deprecated in version 2.0.0: To promote inclusive language, please use '/_cat/cluster_manager' instead."
         )]
         [MapsApi("cat.master", "")]
         public Task<TResponse> MasterAsync<TResponse>(
