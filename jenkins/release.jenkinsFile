@@ -4,7 +4,7 @@ lib = library(identifier: 'jenkins@2.1.2', retriever: modernSCM([
 ]))
 
 standardReleasePipelineWithGenericTrigger(
-    overrideDockerImage: 'opensearchstaging/ci-runner:release-centos7-clients-v2.3',
+    overrideDockerImage: 'opensearchstaging/ci-runner:release-almalinux8-clients-v1.1',
     tokenIdCredential: 'jenkins-opensearch-net-generic-webhook-token',
     causeString: 'A tag was cut on opensearch-project/opensearch-net repository causing this workflow to run',
     publishRelease: true) {
