@@ -68,7 +68,7 @@ jobs:
 
       - name: Save OpenSearch logs
         if: failure()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: opensearch-logs-${{ matrix.version }}
           path: |
@@ -76,7 +76,7 @@ jobs:
 
       - name: Upload test report
         if: failure()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: report-yaml-${{ matrix.version }}
           path: client/test-results.xml
@@ -153,7 +153,7 @@ jobs:
 
       - name: Save OpenSearch logs
         if: failure()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: opensearch-logs-${{ matrix.opensearch_ref }}
           path: |
@@ -161,7 +161,7 @@ jobs:
 
       - name: Upload test report
         if: failure()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: report-yaml-unreleased-${{ matrix.opensearch_ref }}
           path: client/test-results.xml

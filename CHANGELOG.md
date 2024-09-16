@@ -10,6 +10,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Fake.Core.SemVer` from 6.1.0 to 6.1.1
 - Bumps `Bogus` from 35.6.0 to 35.6.1
 - Bumps `Fake.Core.Environment` from 6.1.0 to 6.1.1
+- Bumps `FluentAssertions` from 6.12.0 to 6.12.1
 
 ## [1.8.0]
 ### Added
