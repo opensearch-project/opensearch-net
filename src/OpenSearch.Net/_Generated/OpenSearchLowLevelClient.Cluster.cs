@@ -194,22 +194,26 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>DELETE on /_cluster/routing/awareness/weights <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-deleting-weights</para></summary>
+        /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse DeleteWeightedRouting<TResponse>(
+            PostData body,
             DeleteWeightedRoutingRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
                 DELETE,
                 "_cluster/routing/awareness/weights",
-                null,
+                body,
                 RequestParams(requestParameters)
             );
 
         /// <summary>DELETE on /_cluster/routing/awareness/weights <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-deleting-weights</para></summary>
+        /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        [MapsApi("cluster.delete_weighted_routing", "")]
+        [MapsApi("cluster.delete_weighted_routing", "body")]
         public Task<TResponse> DeleteWeightedRoutingAsync<TResponse>(
+            PostData body,
             DeleteWeightedRoutingRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
@@ -218,7 +222,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 DELETE,
                 "_cluster/routing/awareness/weights",
                 ctx,
-                null,
+                body,
                 RequestParams(requestParameters)
             );
 
@@ -635,25 +639,29 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>PUT on /_cluster/routing/awareness/{attribute}/weights <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-weighted-round-robin-search</para></summary>
         /// <param name="attribute">Awareness attribute name.</param>
+        /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse PutWeightedRouting<TResponse>(
             string attribute,
+            PostData body,
             PutWeightedRoutingRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
                 PUT,
                 Url($"_cluster/routing/awareness/{attribute:attribute}/weights"),
-                null,
+                body,
                 RequestParams(requestParameters)
             );
 
         /// <summary>PUT on /_cluster/routing/awareness/{attribute}/weights <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-weighted-round-robin-search</para></summary>
         /// <param name="attribute">Awareness attribute name.</param>
+        /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        [MapsApi("cluster.put_weighted_routing", "attribute")]
+        [MapsApi("cluster.put_weighted_routing", "attribute, body")]
         public Task<TResponse> PutWeightedRoutingAsync<TResponse>(
             string attribute,
+            PostData body,
             PutWeightedRoutingRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
@@ -662,7 +670,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 PUT,
                 Url($"_cluster/routing/awareness/{attribute:attribute}/weights"),
                 ctx,
-                null,
+                body,
                 RequestParams(requestParameters)
             );
 

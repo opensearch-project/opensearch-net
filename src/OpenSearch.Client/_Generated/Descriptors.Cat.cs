@@ -123,7 +123,7 @@ namespace OpenSearch.Client
         // values part of the url path
         // Request parameters
         /// <summary>The unit in which to display byte values.</summary>
-        public CatAllPitSegmentsDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
+        public CatAllPitSegmentsDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
         /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
         public CatAllPitSegmentsDescriptor Format(string format) => Qs("format", format);
@@ -171,7 +171,7 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>The unit used to display byte values.</summary>
-        public CatAllocationDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
+        public CatAllocationDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -332,7 +332,7 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>The unit used to display byte values.</summary>
-        public CatFielddataDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
+        public CatFielddataDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
         /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
         public CatFielddataDescriptor Format(string format) => Qs("format", format);
@@ -428,7 +428,7 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>The unit used to display byte values.</summary>
-        public CatIndicesDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
+        public CatIndicesDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -572,7 +572,7 @@ namespace OpenSearch.Client
         // values part of the url path
         // Request parameters
         /// <summary>The unit used to display byte values.</summary>
-        public CatNodesDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
+        public CatNodesDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -671,7 +671,7 @@ namespace OpenSearch.Client
         // values part of the url path
         // Request parameters
         /// <summary>The unit in which to display byte values.</summary>
-        public CatPitSegmentsDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
+        public CatPitSegmentsDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
         /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
         public CatPitSegmentsDescriptor Format(string format) => Qs("format", format);
@@ -776,7 +776,7 @@ namespace OpenSearch.Client
             Qs("active_only", activeonly);
 
         /// <summary>The unit used to display byte values.</summary>
-        public CatRecoveryDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
+        public CatRecoveryDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
         /// <summary>If `true`, the response includes detailed information about shard recoveries.</summary>
         public CatRecoveryDescriptor Detailed(bool? detailed = true) => Qs("detailed", detailed);
@@ -888,7 +888,7 @@ namespace OpenSearch.Client
             Qs("allow_no_indices", allownoindices);
 
         /// <summary>The unit in which to display byte values.</summary>
-        public CatSegmentReplicationDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
+        public CatSegmentReplicationDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
         /// <summary>If `true`, the response only includes latest completed segment replication events.</summary>
         public CatSegmentReplicationDescriptor CompletedOnly(bool? completedonly = true) =>
@@ -971,7 +971,7 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>The unit used to display byte values.</summary>
-        public CatSegmentsDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
+        public CatSegmentsDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -1035,7 +1035,7 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>The unit used to display byte values.</summary>
-        public CatShardsDescriptor Bytes(Bytes? bytes) => Qs("bytes", bytes);
+        public CatShardsDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>

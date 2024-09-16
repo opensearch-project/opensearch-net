@@ -157,9 +157,9 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>The unit in which to display byte values.</summary>
-        public Bytes? Bytes
+        public ByteUnit? Bytes
         {
-            get => Q<Bytes?>("bytes");
+            get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
@@ -233,9 +233,9 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>The unit used to display byte values.</summary>
-        public Bytes? Bytes
+        public ByteUnit? Bytes
         {
-            get => Q<Bytes?>("bytes");
+            get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
@@ -483,9 +483,9 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>The unit used to display byte values.</summary>
-        public Bytes? Bytes
+        public ByteUnit? Bytes
         {
-            get => Q<Bytes?>("bytes");
+            get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
@@ -635,9 +635,9 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>The unit used to display byte values.</summary>
-        public Bytes? Bytes
+        public ByteUnit? Bytes
         {
-            get => Q<Bytes?>("bytes");
+            get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
@@ -908,9 +908,9 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>The unit used to display byte values.</summary>
-        public Bytes? Bytes
+        public ByteUnit? Bytes
         {
-            get => Q<Bytes?>("bytes");
+            get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
@@ -1084,9 +1084,9 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>The unit in which to display byte values.</summary>
-        public Bytes? Bytes
+        public ByteUnit? Bytes
         {
-            get => Q<Bytes?>("bytes");
+            get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
@@ -1246,9 +1246,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>The unit used to display byte values.</summary>
-        public Bytes? Bytes
+        public ByteUnit? Bytes
         {
-            get => Q<Bytes?>("bytes");
+            get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
@@ -1427,9 +1427,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>The unit in which to display byte values.</summary>
-        public Bytes? Bytes
+        public ByteUnit? Bytes
         {
-            get => Q<Bytes?>("bytes");
+            get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
@@ -1552,9 +1552,9 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>The unit used to display byte values.</summary>
-        public Bytes? Bytes
+        public ByteUnit? Bytes
         {
-            get => Q<Bytes?>("bytes");
+            get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
@@ -1646,9 +1646,9 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>The unit used to display byte values.</summary>
-        public Bytes? Bytes
+        public ByteUnit? Bytes
         {
-            get => Q<Bytes?>("bytes");
+            get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 

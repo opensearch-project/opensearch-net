@@ -121,9 +121,9 @@ namespace OpenSearch.Net.Specification.CatApi
         public override bool SupportsBody => false;
 
         /// <summary>The unit in which to display byte values.</summary>
-        public Bytes? Bytes
+        public ByteUnit? Bytes
         {
-            get => Q<Bytes?>("bytes");
+            get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
@@ -175,9 +175,9 @@ namespace OpenSearch.Net.Specification.CatApi
         public override bool SupportsBody => false;
 
         /// <summary>The unit used to display byte values.</summary>
-        public Bytes? Bytes
+        public ByteUnit? Bytes
         {
-            get => Q<Bytes?>("bytes");
+            get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
@@ -372,9 +372,9 @@ namespace OpenSearch.Net.Specification.CatApi
         public override bool SupportsBody => false;
 
         /// <summary>The unit used to display byte values.</summary>
-        public Bytes? Bytes
+        public ByteUnit? Bytes
         {
-            get => Q<Bytes?>("bytes");
+            get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
@@ -493,9 +493,9 @@ namespace OpenSearch.Net.Specification.CatApi
         public override bool SupportsBody => false;
 
         /// <summary>The unit used to display byte values.</summary>
-        public Bytes? Bytes
+        public ByteUnit? Bytes
         {
-            get => Q<Bytes?>("bytes");
+            get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
@@ -742,9 +742,9 @@ namespace OpenSearch.Net.Specification.CatApi
         public override bool SupportsBody => false;
 
         /// <summary>The unit used to display byte values.</summary>
-        public Bytes? Bytes
+        public ByteUnit? Bytes
         {
-            get => Q<Bytes?>("bytes");
+            get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
@@ -903,9 +903,9 @@ namespace OpenSearch.Net.Specification.CatApi
         public override bool SupportsBody => true;
 
         /// <summary>The unit in which to display byte values.</summary>
-        public Bytes? Bytes
+        public ByteUnit? Bytes
         {
-            get => Q<Bytes?>("bytes");
+            get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
@@ -1036,9 +1036,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>The unit used to display byte values.</summary>
-        public Bytes? Bytes
+        public ByteUnit? Bytes
         {
-            get => Q<Bytes?>("bytes");
+            get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
@@ -1193,9 +1193,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>The unit in which to display byte values.</summary>
-        public Bytes? Bytes
+        public ByteUnit? Bytes
         {
-            get => Q<Bytes?>("bytes");
+            get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
@@ -1303,9 +1303,9 @@ namespace OpenSearch.Net.Specification.CatApi
         public override bool SupportsBody => false;
 
         /// <summary>The unit used to display byte values.</summary>
-        public Bytes? Bytes
+        public ByteUnit? Bytes
         {
-            get => Q<Bytes?>("bytes");
+            get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
@@ -1374,9 +1374,9 @@ namespace OpenSearch.Net.Specification.CatApi
         public override bool SupportsBody => false;
 
         /// <summary>The unit used to display byte values.</summary>
-        public Bytes? Bytes
+        public ByteUnit? Bytes
         {
-            get => Q<Bytes?>("bytes");
+            get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
