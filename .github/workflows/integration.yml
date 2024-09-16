@@ -63,7 +63,7 @@ jobs:
 
       - name: Upload test report
         if: failure()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: report-${{ matrix.version }}
           path: client/build/output/*
@@ -129,7 +129,7 @@ jobs:
 
       - name: Upload test report
         if: failure()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: report-unreleased-${{ matrix.opensearch_ref }}
           path: client/build/output/*

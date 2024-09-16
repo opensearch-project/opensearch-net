@@ -27,7 +27,7 @@ jobs:
         ./build.sh release $VERSION
       env:
         GITHUB_TOKEN: ${{ github.token }}
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4
       with:
         name: opensearch-net-${{env.VERSION}}-release-candidate
         path: build/output/*.nupkg
