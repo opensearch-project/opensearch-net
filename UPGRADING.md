@@ -47,6 +47,7 @@
 - The `MasterTimeSpanout` & `ClusterManagerTimeSpanout` parameters on all actions have been corrected to `MasterTimeout` and `ClusterManagerTimeout` respectively.
 - The `MasterTimeout` parameters on all actions have been marked `[Obsolete]`, please migrate to using `ClusterManagerTimeout` if your OpenSearch cluster is at least version `2.0.0` as `MasterTimeout` may be removed in future major versions.
 - The `ExpandWildcards` enum is now attributed with `[Flags]` to allow combining of multiple values e.g. `ExpandWildcards.Open | ExpandWildcards.Closed` to match open and closed indexes but not hidden.
+- The `Bytes` enum has been renamed to `ByteUnit`.
 
 #### Cat.Help Action
 - The `Help` and `SortByColumns` parameters have been removed as they are unsupported by OpenSearch.
@@ -108,6 +109,7 @@
 - The `MasterTimeout` parameters on all actions have been marked `[Obsolete]`, please migrate to using `ClusterManagerTimeout` if your OpenSearch cluster is at least version `2.0.0` as `MasterTimeout` may be removed in future major versions.
 - The `ExpandWildcards` enum is now attributed with `[Flags]` to allow combining of multiple values e.g. `ExpandWildcards.Open | ExpandWildcards.Closed` to match open and closed indexes but not hidden.
 - The namespaced APIs exposed in `IOpenSearchClient` have each gained a corresponding interface and the types of the properties on `IOpenSearchClient` and `OpenSearchClient` have been changed from the concrete implementations to the matching interfaces. For example, `IOpenSearchClient.Cluster` was `ClusterNamespace` and now is `IClusterNamespace`.
+- The `Bytes` enum has been renamed to `ByteUnit`.
 
 #### Cat.Help Action
 - The `Help` and `SortByColumns` parameters have been removed as they are unsupported by OpenSearch.
