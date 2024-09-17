@@ -38,6 +38,7 @@ namespace ApiGenerator.Configuration.Overrides
 
 		public IDictionary<string, string> RenameEnums { get; } = new Dictionary<string, string>
 		{
+            { "ByteUnit", "Bytes" },
 			{ "ExpandWildcard", "ExpandWildcards" }
 		};
 
