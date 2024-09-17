@@ -53,7 +53,7 @@ using System.Text;
 namespace OpenSearch.Net
 {
     [StringEnum]
-    public enum Bytes
+    public enum ByteUnit
     {
         [EnumMember(Value = "b")]
         B,
@@ -467,7 +467,7 @@ namespace OpenSearch.Net
     {
         static partial void RegisterEnumStringResolvers()
         {
-            AddEnumStringResolver<Bytes>(GetStringValue);
+            AddEnumStringResolver<ByteUnit>(GetStringValue);
             AddEnumStringResolver<ClusterHealthLevel>(GetStringValue);
             AddEnumStringResolver<ClusterStateMetric>(GetStringValue);
             AddEnumStringResolver<ExpandWildcards>(GetStringValue);
@@ -484,22 +484,22 @@ namespace OpenSearch.Net
             AddEnumStringResolver<WaitForEvents>(GetStringValue);
         }
 
-        public static string GetStringValue(this Bytes enumValue) =>
+        public static string GetStringValue(this ByteUnit enumValue) =>
             enumValue switch
             {
-                Bytes.B => "b",
-                Bytes.G => "g",
-                Bytes.Gb => "gb",
-                Bytes.K => "k",
-                Bytes.Kb => "kb",
-                Bytes.M => "m",
-                Bytes.Mb => "mb",
-                Bytes.P => "p",
-                Bytes.Pb => "pb",
-                Bytes.T => "t",
-                Bytes.Tb => "tb",
+                ByteUnit.B => "b",
+                ByteUnit.G => "g",
+                ByteUnit.Gb => "gb",
+                ByteUnit.K => "k",
+                ByteUnit.Kb => "kb",
+                ByteUnit.M => "m",
+                ByteUnit.Mb => "mb",
+                ByteUnit.P => "p",
+                ByteUnit.Pb => "pb",
+                ByteUnit.T => "t",
+                ByteUnit.Tb => "tb",
                 _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'Bytes'"
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'ByteUnit'"
                 ),
             };
 

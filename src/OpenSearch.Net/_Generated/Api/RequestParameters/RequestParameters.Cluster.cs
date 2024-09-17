@@ -142,7 +142,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         : RequestParameters<DeleteWeightedRoutingRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
-        public override bool SupportsBody => false;
+        public override bool SupportsBody => true;
     }
 
     /// <summary>Request options for ComponentTemplateExists <para>https://opensearch.org/docs/latest</para></summary>
@@ -577,7 +577,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         : RequestParameters<PutWeightedRoutingRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
-        public override bool SupportsBody => false;
+        public override bool SupportsBody => true;
     }
 
     /// <summary>Request options for RemoteInfo <para>https://opensearch.org/docs/latest/api-reference/remote-info/</para></summary>
