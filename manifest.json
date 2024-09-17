@@ -28172,10 +28172,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Bytes.yml",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.ByteUnit.yml",
       "output": {
         ".html": {
-          "relative_path": "api/OpenSearch.Net.Bytes.html"
+          "relative_path": "api/OpenSearch.Net.ByteUnit.html"
         }
       },
       "version": ""
