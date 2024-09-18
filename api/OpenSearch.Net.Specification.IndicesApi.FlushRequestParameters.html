@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class FlushRequestParameters | OpenSearch.Net ">
     
-    <meta name="description" content="Request options for Flush">
+    <meta name="description" content="Request options for Flush https://opensearch.org/docs/latest">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -81,7 +81,7 @@
 
 
   <h1 id="OpenSearch_Net_Specification_IndicesApi_FlushRequestParameters" data-uid="OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters" class="text-break">Class FlushRequestParameters</h1>
-  <div class="markdown level0 summary"><p>Request options for Flush <p></p>
+  <div class="markdown level0 summary"><p>Request options for Flush <p>https://opensearch.org/docs/latest</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -164,12 +164,12 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_FlushRequestParameters_AllowNoIndices.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters.AllowNoIndices%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L604">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L783">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_FlushRequestParameters_AllowNoIndices_" data-uid="OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_FlushRequestParameters_AllowNoIndices" data-uid="OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters.AllowNoIndices">AllowNoIndices</h4>
-  <div class="markdown level1 summary"><p>Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes <code>_all</code> string or when no indices have
-been specified)</p>
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indices.
+This behavior applies even if the request targets other open indices.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -196,7 +196,7 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_FlushRequestParameters_DefaultHttpMethod.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters.DefaultHttpMethod%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L598">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L776">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_FlushRequestParameters_DefaultHttpMethod_" data-uid="OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters.DefaultHttpMethod*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_FlushRequestParameters_DefaultHttpMethod" data-uid="OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters.DefaultHttpMethod">DefaultHttpMethod</h4>
@@ -228,11 +228,13 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_FlushRequestParameters_ExpandWildcards.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters.ExpandWildcards%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L611">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L794">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_FlushRequestParameters_ExpandWildcards_" data-uid="OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters.ExpandWildcards*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_FlushRequestParameters_ExpandWildcards" data-uid="OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters.ExpandWildcards">ExpandWildcards</h4>
-  <div class="markdown level1 summary"><p>Whether to expand wildcard expression to concrete indices that are open, closed or both.</p>
+  <div class="markdown level1 summary"><p>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+expressions match hidden data streams. Supports comma-separated values, such as <code>open,hidden</code>. Valid values are: <code>all</code>, <code>open</code>, <code>closed</code>,
+<code>hidden</code>, <code>none</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -259,12 +261,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_FlushRequestParameters_Force.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters.Force%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L621">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L801">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_FlushRequestParameters_Force_" data-uid="OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters.Force*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_FlushRequestParameters_Force" data-uid="OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters.Force">Force</h4>
-  <div class="markdown level1 summary"><p>Whether a flush should be forced even if it is not necessarily needed ie. if no changes will be committed to the index. This is useful if
-transaction log IDs should be incremented even if no uncommitted changes are present. (This setting can be considered as internal)</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, the request forces a flush even if there are no changes to commit to the index.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -291,11 +292,11 @@ transaction log IDs should be incremented even if no uncommitted changes are pre
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_FlushRequestParameters_IgnoreUnavailable.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters.IgnoreUnavailable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L628">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L808">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_FlushRequestParameters_IgnoreUnavailable_" data-uid="OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters.IgnoreUnavailable*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_FlushRequestParameters_IgnoreUnavailable" data-uid="OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters.IgnoreUnavailable">IgnoreUnavailable</h4>
-  <div class="markdown level1 summary"><p>Whether specified concrete indices should be ignored when unavailable (missing or closed)</p>
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if it targets a missing or closed index.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -322,7 +323,7 @@ transaction log IDs should be incremented even if no uncommitted changes are pre
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_FlushRequestParameters_SupportsBody.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters.SupportsBody%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L599">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L777">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_FlushRequestParameters_SupportsBody_" data-uid="OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters.SupportsBody*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_FlushRequestParameters_SupportsBody" data-uid="OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters.SupportsBody">SupportsBody</h4>
@@ -354,12 +355,12 @@ transaction log IDs should be incremented even if no uncommitted changes are pre
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_FlushRequestParameters_WaitIfOngoing.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters.WaitIfOngoing%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L638">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L818">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_FlushRequestParameters_WaitIfOngoing_" data-uid="OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters.WaitIfOngoing*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_FlushRequestParameters_WaitIfOngoing" data-uid="OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters.WaitIfOngoing">WaitIfOngoing</h4>
-  <div class="markdown level1 summary"><p>If set to true the flush operation will block until the flush can be executed if another flush operation is already executing. The default
-is true. If set to false the flush will be skipped iff if another flush operation is already running.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, the flush operation blocks until execution when another flush operation is running. If <code>false</code>, OpenSearch returns an error if
+you request a flush when another flush operation is running.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -401,7 +402,7 @@ is true. If set to false the flush will be skipped iff if another flush operatio
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_FlushRequestParameters.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.FlushRequestParameters%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L596" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L774" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

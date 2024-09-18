@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class UpdateIndexSettingsRequest | OpenSearch.Net ">
     
-    <meta name="description" content="Request for UpdateSettings">
+    <meta name="description" content="Request for UpdateSettings https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -81,7 +81,7 @@
 
 
   <h1 id="OpenSearch_Client_UpdateIndexSettingsRequest" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest" class="text-break">Class UpdateIndexSettingsRequest</h1>
-  <div class="markdown level0 summary"><p>Request for UpdateSettings <p></p>
+  <div class="markdown level0 summary"><p>Request for UpdateSettings <p>https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -176,7 +176,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_UpdateIndexSettingsRequest__ctor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.UpdateIndexSettingsRequest.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L1938">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2255">View Source</a>
   </span>
   <a id="OpenSearch_Client_UpdateIndexSettingsRequest__ctor_" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.#ctor*"></a>
   <h4 id="OpenSearch_Client_UpdateIndexSettingsRequest__ctor" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.#ctor">UpdateIndexSettingsRequest()</h4>
@@ -192,7 +192,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_UpdateIndexSettingsRequest__ctor_OpenSearch_Client_Indices_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.UpdateIndexSettingsRequest.%23ctor(OpenSearch.Client.Indices)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L1944">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2260">View Source</a>
   </span>
   <a id="OpenSearch_Client_UpdateIndexSettingsRequest__ctor_" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.#ctor*"></a>
   <h4 id="OpenSearch_Client_UpdateIndexSettingsRequest__ctor_OpenSearch_Client_Indices_" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.#ctor(OpenSearch.Client.Indices)">UpdateIndexSettingsRequest(Indices)</h4>
@@ -228,12 +228,13 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_UpdateIndexSettingsRequest_AllowNoIndices.md&amp;value=---%0Auid%3A%20OpenSearch.Client.UpdateIndexSettingsRequest.AllowNoIndices%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L1956">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2273">View Source</a>
   </span>
   <a id="OpenSearch_Client_UpdateIndexSettingsRequest_AllowNoIndices_" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Client_UpdateIndexSettingsRequest_AllowNoIndices" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.AllowNoIndices">AllowNoIndices</h4>
-  <div class="markdown level1 summary"><p>Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes <code>_all</code> string or when no indices have
-been specified)</p>
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indices.
+This behavior applies even if the request targets other open indices. For example, a request targeting <code>foo*,bar*</code> returns an error if an
+index starts with <code>foo</code> but no index starts with <code>bar</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -260,11 +261,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_UpdateIndexSettingsRequest_ClusterManagerTimeout.md&amp;value=---%0Auid%3A%20OpenSearch.Client.UpdateIndexSettingsRequest.ClusterManagerTimeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L1993">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2281">View Source</a>
   </span>
   <a id="OpenSearch_Client_UpdateIndexSettingsRequest_ClusterManagerTimeout_" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.ClusterManagerTimeout*"></a>
   <h4 id="OpenSearch_Client_UpdateIndexSettingsRequest_ClusterManagerTimeout" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.ClusterManagerTimeout">ClusterManagerTimeout</h4>
-  <div class="markdown level1 summary"><p>Specify timeout for connection to cluster_manager node</p>
+  <div class="markdown level1 summary"><p>Operation timeout for connection to cluster-manager node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -287,18 +288,19 @@ been specified)</p>
     </tbody>
   </table>
   <h5 id="OpenSearch_Client_UpdateIndexSettingsRequest_ClusterManagerTimeout_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Introduced in OpenSearch 2.0 instead of <a class="xref" href="OpenSearch.Client.UpdateIndexSettingsRequest.html#OpenSearch_Client_UpdateIndexSettingsRequest_MasterTimeout">MasterTimeout</a></p>
+  <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.0.0 or greater.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_UpdateIndexSettingsRequest_ExpandWildcards.md&amp;value=---%0Auid%3A%20OpenSearch.Client.UpdateIndexSettingsRequest.ExpandWildcards%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L1963">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2291">View Source</a>
   </span>
   <a id="OpenSearch_Client_UpdateIndexSettingsRequest_ExpandWildcards_" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.ExpandWildcards*"></a>
   <h4 id="OpenSearch_Client_UpdateIndexSettingsRequest_ExpandWildcards" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.ExpandWildcards">ExpandWildcards</h4>
-  <div class="markdown level1 summary"><p>Whether to expand wildcard expression to concrete indices that are open, closed or both.</p>
+  <div class="markdown level1 summary"><p>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+expressions match hidden data streams. Supports comma-separated values, such as <code>open,hidden</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -325,11 +327,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_UpdateIndexSettingsRequest_FlatSettings.md&amp;value=---%0Auid%3A%20OpenSearch.Client.UpdateIndexSettingsRequest.FlatSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L1970">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2298">View Source</a>
   </span>
   <a id="OpenSearch_Client_UpdateIndexSettingsRequest_FlatSettings_" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.FlatSettings*"></a>
   <h4 id="OpenSearch_Client_UpdateIndexSettingsRequest_FlatSettings" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.FlatSettings">FlatSettings</h4>
-  <div class="markdown level1 summary"><p>Return settings in flat format (default: false)</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, returns settings in flat format.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -356,11 +358,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_UpdateIndexSettingsRequest_IgnoreUnavailable.md&amp;value=---%0Auid%3A%20OpenSearch.Client.UpdateIndexSettingsRequest.IgnoreUnavailable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L1977">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2305">View Source</a>
   </span>
   <a id="OpenSearch_Client_UpdateIndexSettingsRequest_IgnoreUnavailable_" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.IgnoreUnavailable*"></a>
   <h4 id="OpenSearch_Client_UpdateIndexSettingsRequest_IgnoreUnavailable" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.IgnoreUnavailable">IgnoreUnavailable</h4>
-  <div class="markdown level1 summary"><p>Whether specified concrete indices should be ignored when unavailable (missing or closed)</p>
+  <div class="markdown level1 summary"><p>Whether specified concrete indices should be ignored when unavailable (missing or closed).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -417,16 +419,18 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_UpdateIndexSettingsRequest_MasterTimeout.md&amp;value=---%0Auid%3A%20OpenSearch.Client.UpdateIndexSettingsRequest.MasterTimeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L1985">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2315">View Source</a>
   </span>
   <a id="OpenSearch_Client_UpdateIndexSettingsRequest_MasterTimeout_" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.MasterTimeout*"></a>
   <h4 id="OpenSearch_Client_UpdateIndexSettingsRequest_MasterTimeout" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.MasterTimeout">MasterTimeout</h4>
-  <div class="markdown level1 summary"><p>Specify timeout for connection to master node</p>
+  <div class="markdown level1 summary"><p>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Time MasterTimeout { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated as of: 2.0.0, reason: To promote inclusive language, use &#39;cluster_manager_timeout&#39; instead.&quot;)]
+public Time MasterTimeout { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -443,19 +447,16 @@ been specified)</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Client_UpdateIndexSettingsRequest_MasterTimeout_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Deprecated as of OpenSearch 2.0, use <a class="xref" href="OpenSearch.Client.UpdateIndexSettingsRequest.html#OpenSearch_Client_UpdateIndexSettingsRequest_ClusterManagerTimeout">ClusterManagerTimeout</a> instead</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_UpdateIndexSettingsRequest_PreserveExisting.md&amp;value=---%0Auid%3A%20OpenSearch.Client.UpdateIndexSettingsRequest.PreserveExisting%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L2000">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2325">View Source</a>
   </span>
   <a id="OpenSearch_Client_UpdateIndexSettingsRequest_PreserveExisting_" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.PreserveExisting*"></a>
   <h4 id="OpenSearch_Client_UpdateIndexSettingsRequest_PreserveExisting" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.PreserveExisting">PreserveExisting</h4>
-  <div class="markdown level1 summary"><p>Whether to update existing settings. If set to <code>true</code> existing settings on an index remain unchanged, the default is <code>false</code></p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, existing index settings remain unchanged.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -482,7 +483,7 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_UpdateIndexSettingsRequest_Self.md&amp;value=---%0Auid%3A%20OpenSearch.Client.UpdateIndexSettingsRequest.Self%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L1935">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2251">View Source</a>
   </span>
   <a id="OpenSearch_Client_UpdateIndexSettingsRequest_Self_" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.Self*"></a>
   <h4 id="OpenSearch_Client_UpdateIndexSettingsRequest_Self" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.Self">Self</h4>
@@ -512,11 +513,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_UpdateIndexSettingsRequest_Timeout.md&amp;value=---%0Auid%3A%20OpenSearch.Client.UpdateIndexSettingsRequest.Timeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L2007">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2332">View Source</a>
   </span>
   <a id="OpenSearch_Client_UpdateIndexSettingsRequest_Timeout_" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.Timeout*"></a>
   <h4 id="OpenSearch_Client_UpdateIndexSettingsRequest_Timeout" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.Timeout">Timeout</h4>
-  <div class="markdown level1 summary"><p>Explicit operation timeout</p>
+  <div class="markdown level1 summary"><p>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -564,7 +565,7 @@ been specified)</p>
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_UpdateIndexSettingsRequest.md&amp;value=---%0Auid%3A%20OpenSearch.Client.UpdateIndexSettingsRequest%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L1933" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2247" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class SplitIndexDescriptor | OpenSearch.Net ">
     
-    <meta name="description" content="Descriptor for Split https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/split/">
+    <meta name="description" content="A request to split an existing index into a new index, where each original primary shard is split into two or more primary shards in the new index.">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -81,7 +81,8 @@
 
 
   <h1 id="OpenSearch_Client_SplitIndexDescriptor" data-uid="OpenSearch.Client.SplitIndexDescriptor" class="text-break">Class SplitIndexDescriptor</h1>
-  <div class="markdown level0 summary"><p>Descriptor for Split <p>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/split/</p>
+  <div class="markdown level0 summary"><p>A request to split an existing index into a new index, where each original primary
+shard is split into two or more primary shards in the new index.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -189,7 +190,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SplitIndexDescriptor__ctor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SplitIndexDescriptor.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Indices.cs/#L1314">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L1988">View Source</a>
   </span>
   <a id="OpenSearch_Client_SplitIndexDescriptor__ctor_" data-uid="OpenSearch.Client.SplitIndexDescriptor.#ctor*"></a>
   <h4 id="OpenSearch_Client_SplitIndexDescriptor__ctor" data-uid="OpenSearch.Client.SplitIndexDescriptor.#ctor">SplitIndexDescriptor()</h4>
@@ -205,7 +206,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SplitIndexDescriptor__ctor_OpenSearch_Client_IndexName_OpenSearch_Client_IndexName_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SplitIndexDescriptor.%23ctor(OpenSearch.Client.IndexName%2COpenSearch.Client.IndexName)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Indices.cs/#L1309">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L1984">View Source</a>
   </span>
   <a id="OpenSearch_Client_SplitIndexDescriptor__ctor_" data-uid="OpenSearch.Client.SplitIndexDescriptor.#ctor*"></a>
   <h4 id="OpenSearch_Client_SplitIndexDescriptor__ctor_OpenSearch_Client_IndexName_OpenSearch_Client_IndexName_" data-uid="OpenSearch.Client.SplitIndexDescriptor.#ctor(OpenSearch.Client.IndexName,OpenSearch.Client.IndexName)">SplitIndexDescriptor(IndexName, IndexName)</h4>
@@ -295,16 +296,16 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SplitIndexDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SplitIndexDescriptor.ClusterManagerTimeout(OpenSearch.Client.Time)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Indices.cs/#L1333">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L2008">View Source</a>
   </span>
   <a id="OpenSearch_Client_SplitIndexDescriptor_ClusterManagerTimeout_" data-uid="OpenSearch.Client.SplitIndexDescriptor.ClusterManagerTimeout*"></a>
   <h4 id="OpenSearch_Client_SplitIndexDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.SplitIndexDescriptor.ClusterManagerTimeout(OpenSearch.Client.Time)">ClusterManagerTimeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Specify timeout for connection to cluster_manager node</p>
+  <div class="markdown level1 summary"><p>Operation timeout for connection to cluster-manager node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SplitIndexDescriptor ClusterManagerTimeout(Time timeout)</code></pre>
+    <pre><code class="lang-csharp hljs">public SplitIndexDescriptor ClusterManagerTimeout(Time clustermanagertimeout)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -318,7 +319,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="OpenSearch.Client.Time.html">Time</a></td>
-        <td><span class="parametername">timeout</span></td>
+        <td><span class="parametername">clustermanagertimeout</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -339,18 +340,18 @@
     </tbody>
   </table>
   <h5 id="OpenSearch_Client_SplitIndexDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Introduced in OpenSearch 2.0 instead of <a class="xref" href="OpenSearch.Client.SplitIndexDescriptor.html#OpenSearch_Client_SplitIndexDescriptor_MasterTimeout_OpenSearch_Client_Time_">MasterTimeout(Time)</a></p>
+  <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.0.0 or greater.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SplitIndexDescriptor_Index_OpenSearch_Client_IndexName_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SplitIndexDescriptor.Index(OpenSearch.Client.IndexName)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Indices.cs/#L1323">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L1997">View Source</a>
   </span>
   <a id="OpenSearch_Client_SplitIndexDescriptor_Index_" data-uid="OpenSearch.Client.SplitIndexDescriptor.Index*"></a>
   <h4 id="OpenSearch_Client_SplitIndexDescriptor_Index_OpenSearch_Client_IndexName_" data-uid="OpenSearch.Client.SplitIndexDescriptor.Index(OpenSearch.Client.IndexName)">Index(IndexName)</h4>
-  <div class="markdown level1 summary"><p>The name of the source index to split</p>
+  <div class="markdown level1 summary"><p>Name of the source index to split.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -394,7 +395,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SplitIndexDescriptor_Index__1.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SplitIndexDescriptor.Index%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Indices.cs/#L1325">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L2001">View Source</a>
   </span>
   <a id="OpenSearch_Client_SplitIndexDescriptor_Index_" data-uid="OpenSearch.Client.SplitIndexDescriptor.Index*"></a>
   <h4 id="OpenSearch_Client_SplitIndexDescriptor_Index__1" data-uid="OpenSearch.Client.SplitIndexDescriptor.Index``1">Index&lt;TOther&gt;()</h4>
@@ -440,16 +441,17 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SplitIndexDescriptor_MasterTimeout_OpenSearch_Client_Time_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SplitIndexDescriptor.MasterTimeout(OpenSearch.Client.Time)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Indices.cs/#L1330">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L2012">View Source</a>
   </span>
   <a id="OpenSearch_Client_SplitIndexDescriptor_MasterTimeout_" data-uid="OpenSearch.Client.SplitIndexDescriptor.MasterTimeout*"></a>
   <h4 id="OpenSearch_Client_SplitIndexDescriptor_MasterTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.SplitIndexDescriptor.MasterTimeout(OpenSearch.Client.Time)">MasterTimeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Specify timeout for connection to master node</p>
+  <div class="markdown level1 summary"><p>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SplitIndexDescriptor MasterTimeout(Time mastertimeout)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated as of: 2.0.0, reason: To promote inclusive language, use &#39;cluster_manager_timeout&#39; instead.&quot;)]
+public SplitIndexDescriptor MasterTimeout(Time mastertimeout)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -483,9 +485,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Client_SplitIndexDescriptor_MasterTimeout_OpenSearch_Client_Time__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Deprecated as of OpenSearch 2.0, use <a class="xref" href="OpenSearch.Client.SplitIndexDescriptor.html#OpenSearch_Client_SplitIndexDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time_">ClusterManagerTimeout(Time)</a> instead</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SplitIndexDescriptor_Settings_System_Func_OpenSearch_Client_IndexSettingsDescriptor_OpenSearch_Client_IPromise_OpenSearch_Client_IIndexSettings___.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SplitIndexDescriptor.Settings(System.Func%7BOpenSearch.Client.IndexSettingsDescriptor%2COpenSearch.Client.IPromise%7BOpenSearch.Client.IIndexSettings%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
@@ -536,14 +535,62 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SplitIndexDescriptor_TaskExecutionTimeout_OpenSearch_Client_Time_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SplitIndexDescriptor.TaskExecutionTimeout(OpenSearch.Client.Time)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L2019">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SplitIndexDescriptor_TaskExecutionTimeout_" data-uid="OpenSearch.Client.SplitIndexDescriptor.TaskExecutionTimeout*"></a>
+  <h4 id="OpenSearch_Client_SplitIndexDescriptor_TaskExecutionTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.SplitIndexDescriptor.TaskExecutionTimeout(OpenSearch.Client.Time)">TaskExecutionTimeout(Time)</h4>
+  <div class="markdown level1 summary"><p>Explicit task execution timeout, only useful when wait_for_completion is false, defaults to 1h.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SplitIndexDescriptor TaskExecutionTimeout(Time taskexecutiontimeout)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Time.html">Time</a></td>
+        <td><span class="parametername">taskexecutiontimeout</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.SplitIndexDescriptor.html">SplitIndexDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SplitIndexDescriptor_Timeout_OpenSearch_Client_Time_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SplitIndexDescriptor.Timeout(OpenSearch.Client.Time)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Indices.cs/#L1335">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L2023">View Source</a>
   </span>
   <a id="OpenSearch_Client_SplitIndexDescriptor_Timeout_" data-uid="OpenSearch.Client.SplitIndexDescriptor.Timeout*"></a>
   <h4 id="OpenSearch_Client_SplitIndexDescriptor_Timeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.SplitIndexDescriptor.Timeout(OpenSearch.Client.Time)">Timeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Explicit operation timeout</p>
+  <div class="markdown level1 summary"><p>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -587,11 +634,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SplitIndexDescriptor_WaitForActiveShards_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SplitIndexDescriptor.WaitForActiveShards(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Indices.cs/#L1337">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L2026">View Source</a>
   </span>
   <a id="OpenSearch_Client_SplitIndexDescriptor_WaitForActiveShards_" data-uid="OpenSearch.Client.SplitIndexDescriptor.WaitForActiveShards*"></a>
   <h4 id="OpenSearch_Client_SplitIndexDescriptor_WaitForActiveShards_System_String_" data-uid="OpenSearch.Client.SplitIndexDescriptor.WaitForActiveShards(System.String)">WaitForActiveShards(string)</h4>
-  <div class="markdown level1 summary"><p>Set the number of active shards to wait for on the shrunken index before the operation returns.</p>
+  <div class="markdown level1 summary"><p>The number of shard copies that must be active before proceeding with the operation. Set to <code>all</code> or any positive integer up to the total number of shards in the index (<code>number_of_replicas+1</code>).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -630,6 +677,57 @@
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SplitIndexDescriptor_WaitForCompletion_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SplitIndexDescriptor.WaitForCompletion(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L2031">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SplitIndexDescriptor_WaitForCompletion_" data-uid="OpenSearch.Client.SplitIndexDescriptor.WaitForCompletion*"></a>
+  <h4 id="OpenSearch_Client_SplitIndexDescriptor_WaitForCompletion_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.SplitIndexDescriptor.WaitForCompletion(System.Nullable{System.Boolean})">WaitForCompletion(bool?)</h4>
+  <div class="markdown level1 summary"><p>Should this request wait until the operation has completed before returning.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SplitIndexDescriptor WaitForCompletion(bool? waitforcompletion = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">waitforcompletion</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.SplitIndexDescriptor.html">SplitIndexDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Client_SplitIndexDescriptor_WaitForCompletion_System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.7.0 or greater.</p>
+</div>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="OpenSearch.Client.IDescriptor.html">IDescriptor</a>
@@ -659,7 +757,7 @@
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SplitIndexDescriptor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SplitIndexDescriptor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/IndexManagement/SplitIndex/SplitIndexRequest.cs/#L66" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L1971" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

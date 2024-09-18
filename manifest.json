@@ -11972,16 +11972,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IIndicesShardStoresRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IIndicesShardStoresRequest.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IIndicesStatsRequest.yml",
       "output": {
         ".html": {
@@ -16806,26 +16796,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Client.IndicesResponseBase.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IndicesShardStoresDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IndicesShardStoresDescriptor.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IndicesShardStoresRequest.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.IndicesShardStoresRequest.html"
         }
       },
       "version": ""
@@ -28912,10 +28882,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.IndexApiBlock.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.IndexApiBlock.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.IndexRequestParameters.yml",
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.IndexRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.IndicesShardStoresShardStoreStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.IndicesShardStoresShardStoreStatus.html"
         }
       },
       "version": ""
@@ -30282,10 +30272,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IndicesApi.CreateDataStreamRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IndicesApi.CreateDataStreamRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IndicesApi.CreateIndexRequestParameters.yml",
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.Specification.IndicesApi.CreateIndexRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IndicesApi.DataStreamsStatsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IndicesApi.DataStreamsStatsRequestParameters.html"
         }
       },
       "version": ""
@@ -30306,6 +30316,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.Specification.IndicesApi.DeleteComposableIndexTemplateRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IndicesApi.DeleteDataStreamRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IndicesApi.DeleteDataStreamRequestParameters.html"
         }
       },
       "version": ""
@@ -30372,6 +30392,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IndicesApi.GetDataStreamRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IndicesApi.GetDataStreamRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IndicesApi.GetFieldMappingRequestParameters.yml",
       "output": {
         ".html": {
@@ -30416,6 +30446,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.Specification.IndicesApi.GetMappingRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IndicesApi.GetUpgradeRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IndicesApi.GetUpgradeRequestParameters.html"
         }
       },
       "version": ""
@@ -30636,6 +30676,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.Specification.IndicesApi.UpdateIndexSettingsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IndicesApi.UpgradeRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IndicesApi.UpgradeRequestParameters.html"
         }
       },
       "version": ""
@@ -31504,11 +31554,11 @@
       "type": "Toc",
       "source_relative_path": "obj/temp/docfxapi/toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "api/toc.html"
-        },
         ".json": {
           "relative_path": "api/toc.json"
+        },
+        ".html": {
+          "relative_path": "api/toc.html"
         }
       },
       "version": ""
@@ -31517,11 +31567,11 @@
       "type": "Toc",
       "source_relative_path": "toc.yml",
       "output": {
-        ".html": {
-          "relative_path": "toc.html"
-        },
         ".json": {
           "relative_path": "toc.json"
+        },
+        ".html": {
+          "relative_path": "toc.html"
         }
       },
       "version": ""

@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class ClearCacheRequestParameters | OpenSearch.Net ">
     
-    <meta name="description" content="Request options for ClearCache">
+    <meta name="description" content="Request options for ClearCache https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -81,7 +81,7 @@
 
 
   <h1 id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters" class="text-break">Class ClearCacheRequestParameters</h1>
-  <div class="markdown level0 summary"><p>Request options for ClearCache <p></p>
+  <div class="markdown level0 summary"><p>Request options for ClearCache <p>https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -164,12 +164,12 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_AllowNoIndices.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.AllowNoIndices%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L129">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L137">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_AllowNoIndices_" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_AllowNoIndices" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.AllowNoIndices">AllowNoIndices</h4>
-  <div class="markdown level1 summary"><p>Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes <code>_all</code> string or when no indices have
-been specified)</p>
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indices.
+This behavior applies even if the request targets other open indices.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -196,7 +196,7 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_DefaultHttpMethod.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.DefaultHttpMethod%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L123">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L130">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_DefaultHttpMethod_" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.DefaultHttpMethod*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_DefaultHttpMethod" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.DefaultHttpMethod">DefaultHttpMethod</h4>
@@ -228,11 +228,13 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_ExpandWildcards.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.ExpandWildcards%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L136">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L148">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_ExpandWildcards_" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.ExpandWildcards*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_ExpandWildcards" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.ExpandWildcards">ExpandWildcards</h4>
-  <div class="markdown level1 summary"><p>Whether to expand wildcard expression to concrete indices that are open, closed or both.</p>
+  <div class="markdown level1 summary"><p>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+expressions match hidden data streams. Supports comma-separated values, such as <code>open,hidden</code>. Valid values are: <code>all</code>, <code>open</code>, <code>closed</code>,
+<code>hidden</code>, <code>none</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -259,11 +261,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_Fielddata.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.Fielddata%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L143">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L155">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_Fielddata_" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.Fielddata*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_Fielddata" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.Fielddata">Fielddata</h4>
-  <div class="markdown level1 summary"><p>Clear field data</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, clears the fields cache. Use the <code>fields</code> parameter to clear the cache of specific fields only.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -290,11 +292,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_Fields.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.Fields%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L150">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L162">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_Fields_" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.Fields*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_Fields" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.Fields">Fields</h4>
-  <div class="markdown level1 summary"><p>A comma-separated list of fields to clear when using the <code>fielddata</code> parameter (default: all)</p>
+  <div class="markdown level1 summary"><p>Comma-separated list of field names used to limit the <code>fielddata</code> parameter.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -318,14 +320,48 @@ been specified)</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_File.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.File%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L170">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_File_" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.File*"></a>
+  <h4 id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_File" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.File">File</h4>
+  <div class="markdown level1 summary"><p>If true, clears the unused entries from the file cache on nodes with the Search role.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? File { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_File_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.8.0 or greater.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_IgnoreUnavailable.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.IgnoreUnavailable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L157">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L177">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_IgnoreUnavailable_" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.IgnoreUnavailable*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_IgnoreUnavailable" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.IgnoreUnavailable">IgnoreUnavailable</h4>
-  <div class="markdown level1 summary"><p>Whether specified concrete indices should be ignored when unavailable (missing or closed)</p>
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if it targets a missing or closed index.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -349,19 +385,19 @@ been specified)</p>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_IndexQueryString.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.IndexQueryString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_Index.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.Index%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L164">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L184">View Source</a>
   </span>
-  <a id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_IndexQueryString_" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.IndexQueryString*"></a>
-  <h4 id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_IndexQueryString" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.IndexQueryString">IndexQueryString</h4>
-  <div class="markdown level1 summary"><p>A comma-separated list of index name to limit the operation</p>
+  <a id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_Index_" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.Index*"></a>
+  <h4 id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_Index" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.Index">Index</h4>
+  <div class="markdown level1 summary"><p>Comma-separated list of indices; use <code>_all</code> or empty string to perform the operation on all indices.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string[] IndexQueryString { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string[] Index { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -383,11 +419,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_Query.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.Query%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L171">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L191">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_Query_" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.Query*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_Query" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.Query">Query</h4>
-  <div class="markdown level1 summary"><p>Clear query caches</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, clears the query cache.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -414,11 +450,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_Request.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.Request%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L178">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L198">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_Request_" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.Request*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_Request" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.Request">Request</h4>
-  <div class="markdown level1 summary"><p>Clear request cache</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, clears the request cache.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -445,7 +481,7 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_SupportsBody.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.SupportsBody%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L124">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L131">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_SupportsBody_" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.SupportsBody*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters_SupportsBody" data-uid="OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters.SupportsBody">SupportsBody</h4>
@@ -492,7 +528,7 @@ been specified)</p>
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_ClearCacheRequestParameters.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.ClearCacheRequestParameters%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L121" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L127" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class CloneIndexDescriptor | OpenSearch.Net ">
     
-    <meta name="description" content="Descriptor for Clone https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/clone/">
+    <meta name="description" content="A request to the clone index API">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -81,7 +81,7 @@
 
 
   <h1 id="OpenSearch_Client_CloneIndexDescriptor" data-uid="OpenSearch.Client.CloneIndexDescriptor" class="text-break">Class CloneIndexDescriptor</h1>
-  <div class="markdown level0 summary"><p>Descriptor for Clone <p>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/clone/</p>
+  <div class="markdown level0 summary"><p>A request to the clone index API</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -189,7 +189,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CloneIndexDescriptor__ctor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CloneIndexDescriptor.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Indices.cs/#L185">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L244">View Source</a>
   </span>
   <a id="OpenSearch_Client_CloneIndexDescriptor__ctor_" data-uid="OpenSearch.Client.CloneIndexDescriptor.#ctor*"></a>
   <h4 id="OpenSearch_Client_CloneIndexDescriptor__ctor" data-uid="OpenSearch.Client.CloneIndexDescriptor.#ctor">CloneIndexDescriptor()</h4>
@@ -205,7 +205,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CloneIndexDescriptor__ctor_OpenSearch_Client_IndexName_OpenSearch_Client_IndexName_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CloneIndexDescriptor.%23ctor(OpenSearch.Client.IndexName%2COpenSearch.Client.IndexName)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Indices.cs/#L180">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L240">View Source</a>
   </span>
   <a id="OpenSearch_Client_CloneIndexDescriptor__ctor_" data-uid="OpenSearch.Client.CloneIndexDescriptor.#ctor*"></a>
   <h4 id="OpenSearch_Client_CloneIndexDescriptor__ctor_OpenSearch_Client_IndexName_OpenSearch_Client_IndexName_" data-uid="OpenSearch.Client.CloneIndexDescriptor.#ctor(OpenSearch.Client.IndexName,OpenSearch.Client.IndexName)">CloneIndexDescriptor(IndexName, IndexName)</h4>
@@ -295,16 +295,16 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CloneIndexDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CloneIndexDescriptor.ClusterManagerTimeout(OpenSearch.Client.Time)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Indices.cs/#L204">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L264">View Source</a>
   </span>
   <a id="OpenSearch_Client_CloneIndexDescriptor_ClusterManagerTimeout_" data-uid="OpenSearch.Client.CloneIndexDescriptor.ClusterManagerTimeout*"></a>
   <h4 id="OpenSearch_Client_CloneIndexDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.CloneIndexDescriptor.ClusterManagerTimeout(OpenSearch.Client.Time)">ClusterManagerTimeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Specify timeout for connection to cluster_manager node</p>
+  <div class="markdown level1 summary"><p>Operation timeout for connection to cluster-manager node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CloneIndexDescriptor ClusterManagerTimeout(Time timeout)</code></pre>
+    <pre><code class="lang-csharp hljs">public CloneIndexDescriptor ClusterManagerTimeout(Time clustermanagertimeout)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -318,7 +318,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="OpenSearch.Client.Time.html">Time</a></td>
-        <td><span class="parametername">timeout</span></td>
+        <td><span class="parametername">clustermanagertimeout</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -339,18 +339,18 @@
     </tbody>
   </table>
   <h5 id="OpenSearch_Client_CloneIndexDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Introduced in OpenSearch 2.0 instead of <a class="xref" href="OpenSearch.Client.CloneIndexDescriptor.html#OpenSearch_Client_CloneIndexDescriptor_MasterTimeout_OpenSearch_Client_Time_">MasterTimeout(Time)</a></p>
+  <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.0.0 or greater.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CloneIndexDescriptor_Index_OpenSearch_Client_IndexName_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CloneIndexDescriptor.Index(OpenSearch.Client.IndexName)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Indices.cs/#L194">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L253">View Source</a>
   </span>
   <a id="OpenSearch_Client_CloneIndexDescriptor_Index_" data-uid="OpenSearch.Client.CloneIndexDescriptor.Index*"></a>
   <h4 id="OpenSearch_Client_CloneIndexDescriptor_Index_OpenSearch_Client_IndexName_" data-uid="OpenSearch.Client.CloneIndexDescriptor.Index(OpenSearch.Client.IndexName)">Index(IndexName)</h4>
-  <div class="markdown level1 summary"><p>The name of the source index to clone</p>
+  <div class="markdown level1 summary"><p>Name of the source index to clone.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -394,7 +394,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CloneIndexDescriptor_Index__1.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CloneIndexDescriptor.Index%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Indices.cs/#L196">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L257">View Source</a>
   </span>
   <a id="OpenSearch_Client_CloneIndexDescriptor_Index_" data-uid="OpenSearch.Client.CloneIndexDescriptor.Index*"></a>
   <h4 id="OpenSearch_Client_CloneIndexDescriptor_Index__1" data-uid="OpenSearch.Client.CloneIndexDescriptor.Index``1">Index&lt;TOther&gt;()</h4>
@@ -440,16 +440,17 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CloneIndexDescriptor_MasterTimeout_OpenSearch_Client_Time_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CloneIndexDescriptor.MasterTimeout(OpenSearch.Client.Time)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Indices.cs/#L201">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L268">View Source</a>
   </span>
   <a id="OpenSearch_Client_CloneIndexDescriptor_MasterTimeout_" data-uid="OpenSearch.Client.CloneIndexDescriptor.MasterTimeout*"></a>
   <h4 id="OpenSearch_Client_CloneIndexDescriptor_MasterTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.CloneIndexDescriptor.MasterTimeout(OpenSearch.Client.Time)">MasterTimeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Specify timeout for connection to master node</p>
+  <div class="markdown level1 summary"><p>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public CloneIndexDescriptor MasterTimeout(Time mastertimeout)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated as of: 2.0.0, reason: To promote inclusive language, use &#39;cluster_manager_timeout&#39; instead.&quot;)]
+public CloneIndexDescriptor MasterTimeout(Time mastertimeout)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -483,9 +484,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Client_CloneIndexDescriptor_MasterTimeout_OpenSearch_Client_Time__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Deprecated as of OpenSearch 2.0, use <a class="xref" href="OpenSearch.Client.CloneIndexDescriptor.html#OpenSearch_Client_CloneIndexDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time_">ClusterManagerTimeout(Time)</a> instead</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CloneIndexDescriptor_Settings_System_Func_OpenSearch_Client_IndexSettingsDescriptor_OpenSearch_Client_IPromise_OpenSearch_Client_IIndexSettings___.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CloneIndexDescriptor.Settings(System.Func%7BOpenSearch.Client.IndexSettingsDescriptor%2COpenSearch.Client.IPromise%7BOpenSearch.Client.IIndexSettings%7D%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
@@ -536,14 +534,62 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CloneIndexDescriptor_TaskExecutionTimeout_OpenSearch_Client_Time_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CloneIndexDescriptor.TaskExecutionTimeout(OpenSearch.Client.Time)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L275">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CloneIndexDescriptor_TaskExecutionTimeout_" data-uid="OpenSearch.Client.CloneIndexDescriptor.TaskExecutionTimeout*"></a>
+  <h4 id="OpenSearch_Client_CloneIndexDescriptor_TaskExecutionTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.CloneIndexDescriptor.TaskExecutionTimeout(OpenSearch.Client.Time)">TaskExecutionTimeout(Time)</h4>
+  <div class="markdown level1 summary"><p>Explicit task execution timeout, only useful when wait_for_completion is false, defaults to 1h.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CloneIndexDescriptor TaskExecutionTimeout(Time taskexecutiontimeout)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.Time.html">Time</a></td>
+        <td><span class="parametername">taskexecutiontimeout</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.CloneIndexDescriptor.html">CloneIndexDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CloneIndexDescriptor_Timeout_OpenSearch_Client_Time_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CloneIndexDescriptor.Timeout(OpenSearch.Client.Time)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Indices.cs/#L206">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L279">View Source</a>
   </span>
   <a id="OpenSearch_Client_CloneIndexDescriptor_Timeout_" data-uid="OpenSearch.Client.CloneIndexDescriptor.Timeout*"></a>
   <h4 id="OpenSearch_Client_CloneIndexDescriptor_Timeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.CloneIndexDescriptor.Timeout(OpenSearch.Client.Time)">Timeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Explicit operation timeout</p>
+  <div class="markdown level1 summary"><p>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -587,11 +633,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CloneIndexDescriptor_WaitForActiveShards_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CloneIndexDescriptor.WaitForActiveShards(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Indices.cs/#L208">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L282">View Source</a>
   </span>
   <a id="OpenSearch_Client_CloneIndexDescriptor_WaitForActiveShards_" data-uid="OpenSearch.Client.CloneIndexDescriptor.WaitForActiveShards*"></a>
   <h4 id="OpenSearch_Client_CloneIndexDescriptor_WaitForActiveShards_System_String_" data-uid="OpenSearch.Client.CloneIndexDescriptor.WaitForActiveShards(System.String)">WaitForActiveShards(string)</h4>
-  <div class="markdown level1 summary"><p>Set the number of active shards to wait for on the cloned index before the operation returns.</p>
+  <div class="markdown level1 summary"><p>The number of shard copies that must be active before proceeding with the operation. Set to <code>all</code> or any positive integer up to the total number of shards in the index (<code>number_of_replicas+1</code>).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -630,6 +676,57 @@
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CloneIndexDescriptor_WaitForCompletion_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CloneIndexDescriptor.WaitForCompletion(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L287">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_CloneIndexDescriptor_WaitForCompletion_" data-uid="OpenSearch.Client.CloneIndexDescriptor.WaitForCompletion*"></a>
+  <h4 id="OpenSearch_Client_CloneIndexDescriptor_WaitForCompletion_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.CloneIndexDescriptor.WaitForCompletion(System.Nullable{System.Boolean})">WaitForCompletion(bool?)</h4>
+  <div class="markdown level1 summary"><p>Should this request wait until the operation has completed before returning.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CloneIndexDescriptor WaitForCompletion(bool? waitforcompletion = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">waitforcompletion</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.CloneIndexDescriptor.html">CloneIndexDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Client_CloneIndexDescriptor_WaitForCompletion_System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.7.0 or greater.</p>
+</div>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="OpenSearch.Client.IDescriptor.html">IDescriptor</a>
@@ -659,7 +756,7 @@
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_CloneIndexDescriptor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.CloneIndexDescriptor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/IndexManagement/CloneIndex/CloneIndexRequest.cs/#L65" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L227" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

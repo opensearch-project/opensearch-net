@@ -169,9 +169,6 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class ResolveIndexRequest : PlainRequestBase&lt;ResolveIndexRequestParameters&gt;, IResolveIndexRequest, IRequest&lt;ResolveIndexRequestParameters&gt;, IRequest</code></pre>
   </div>
-  <h5 id="OpenSearch_Client_ResolveIndexRequest_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>Note: Experimental within the OpenSearch server, this functionality is experimental and may be changed or removed completely in a future release. OpenSearch will take a best effort approach to fix any issues, but experimental features are not subject to the support SLA of official GA features.</p>
-</div>
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
@@ -179,7 +176,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ResolveIndexRequest__ctor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ResolveIndexRequest.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L2155">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2477">View Source</a>
   </span>
   <a id="OpenSearch_Client_ResolveIndexRequest__ctor_" data-uid="OpenSearch.Client.ResolveIndexRequest.#ctor*"></a>
   <h4 id="OpenSearch_Client_ResolveIndexRequest__ctor" data-uid="OpenSearch.Client.ResolveIndexRequest.#ctor">ResolveIndexRequest()</h4>
@@ -195,7 +192,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ResolveIndexRequest__ctor_OpenSearch_Client_Names_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ResolveIndexRequest.%23ctor(OpenSearch.Client.Names)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L2150">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2473">View Source</a>
   </span>
   <a id="OpenSearch_Client_ResolveIndexRequest__ctor_" data-uid="OpenSearch.Client.ResolveIndexRequest.#ctor*"></a>
   <h4 id="OpenSearch_Client_ResolveIndexRequest__ctor_OpenSearch_Client_Names_" data-uid="OpenSearch.Client.ResolveIndexRequest.#ctor(OpenSearch.Client.Names)">ResolveIndexRequest(Names)</h4>
@@ -231,11 +228,13 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ResolveIndexRequest_ExpandWildcards.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ResolveIndexRequest.ExpandWildcards%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L2165">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2491">View Source</a>
   </span>
   <a id="OpenSearch_Client_ResolveIndexRequest_ExpandWildcards_" data-uid="OpenSearch.Client.ResolveIndexRequest.ExpandWildcards*"></a>
   <h4 id="OpenSearch_Client_ResolveIndexRequest_ExpandWildcards" data-uid="OpenSearch.Client.ResolveIndexRequest.ExpandWildcards">ExpandWildcards</h4>
-  <div class="markdown level1 summary"><p>Whether wildcard expressions should get expanded to open or closed indices (default: open)</p>
+  <div class="markdown level1 summary"><p>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+expressions match hidden data streams. Supports comma-separated values, such as <code>open,hidden</code>. Valid values are: <code>all</code>, <code>open</code>, <code>closed</code>,
+<code>hidden</code>, <code>none</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -262,7 +261,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ResolveIndexRequest_Self.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ResolveIndexRequest.Self%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L2146">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2468">View Source</a>
   </span>
   <a id="OpenSearch_Client_ResolveIndexRequest_Self_" data-uid="OpenSearch.Client.ResolveIndexRequest.Self*"></a>
   <h4 id="OpenSearch_Client_ResolveIndexRequest_Self" data-uid="OpenSearch.Client.ResolveIndexRequest.Self">Self</h4>
@@ -313,7 +312,7 @@
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_ResolveIndexRequest.md&amp;value=---%0Auid%3A%20OpenSearch.Client.ResolveIndexRequest%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L2144" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2464" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

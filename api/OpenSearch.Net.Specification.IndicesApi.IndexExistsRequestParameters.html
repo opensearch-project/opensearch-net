@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class IndexExistsRequestParameters | OpenSearch.Net ">
     
-    <meta name="description" content="Request options for Exists https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/">
+    <meta name="description" content="Request options for Exists https://opensearch.org/docs/latest/api-reference/index-apis/exists/">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -81,7 +81,7 @@
 
 
   <h1 id="OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters" data-uid="OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters" class="text-break">Class IndexExistsRequestParameters</h1>
-  <div class="markdown level0 summary"><p>Request options for Exists <p>https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/exists/</p>
+  <div class="markdown level0 summary"><p>Request options for Exists <p>https://opensearch.org/docs/latest/api-reference/index-apis/exists/</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -164,11 +164,12 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_AllowNoIndices.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.AllowNoIndices%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L442">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L593">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_AllowNoIndices_" data-uid="OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_AllowNoIndices" data-uid="OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.AllowNoIndices">AllowNoIndices</h4>
-  <div class="markdown level1 summary"><p>Ignore if a wildcard expression resolves to no concrete indices (default: false)</p>
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indices.
+This behavior applies even if the request targets other open indices.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -192,10 +193,44 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_ClusterManagerTimeout.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.ClusterManagerTimeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L601">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_ClusterManagerTimeout_" data-uid="OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.ClusterManagerTimeout*"></a>
+  <h4 id="OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_ClusterManagerTimeout" data-uid="OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.ClusterManagerTimeout">ClusterManagerTimeout</h4>
+  <div class="markdown level1 summary"><p>Operation timeout for connection to cluster-manager node.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan ClusterManagerTimeout { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_ClusterManagerTimeout_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.0.0 or greater.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_DefaultHttpMethod.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.DefaultHttpMethod%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L439">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L586">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_DefaultHttpMethod_" data-uid="OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.DefaultHttpMethod*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_DefaultHttpMethod" data-uid="OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.DefaultHttpMethod">DefaultHttpMethod</h4>
@@ -227,11 +262,13 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_ExpandWildcards.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.ExpandWildcards%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L449">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L612">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_ExpandWildcards_" data-uid="OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.ExpandWildcards*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_ExpandWildcards" data-uid="OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.ExpandWildcards">ExpandWildcards</h4>
-  <div class="markdown level1 summary"><p>Whether wildcard expressions should get expanded to open or closed indices (default: open)</p>
+  <div class="markdown level1 summary"><p>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+expressions match hidden data streams. Supports comma-separated values, such as <code>open,hidden</code>. Valid values are: <code>all</code>, <code>open</code>, <code>closed</code>,
+<code>hidden</code>, <code>none</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -258,11 +295,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_FlatSettings.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.FlatSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L456">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L619">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_FlatSettings_" data-uid="OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.FlatSettings*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_FlatSettings" data-uid="OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.FlatSettings">FlatSettings</h4>
-  <div class="markdown level1 summary"><p>Return settings in flat format (default: false)</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, returns settings in flat format.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -289,11 +326,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_IgnoreUnavailable.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.IgnoreUnavailable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L463">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L626">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_IgnoreUnavailable_" data-uid="OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.IgnoreUnavailable*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_IgnoreUnavailable" data-uid="OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.IgnoreUnavailable">IgnoreUnavailable</h4>
-  <div class="markdown level1 summary"><p>Ignore unavailable indexes (default: false)</p>
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if it targets a missing or closed index.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -320,11 +357,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_IncludeDefaults.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.IncludeDefaults%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L470">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L633">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_IncludeDefaults_" data-uid="OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.IncludeDefaults*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_IncludeDefaults" data-uid="OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.IncludeDefaults">IncludeDefaults</h4>
-  <div class="markdown level1 summary"><p>Whether to return all default setting for each of the indices.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, return all default settings in the response.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -351,11 +388,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_Local.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.Local%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L477">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L640">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_Local_" data-uid="OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.Local*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_Local" data-uid="OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.Local">Local</h4>
-  <div class="markdown level1 summary"><p>Return local information, do not retrieve the state from cluster_manager node (default: false)</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, the request retrieves information from the local node only.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -382,7 +419,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_SupportsBody.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.SupportsBody%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L440">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L587">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_SupportsBody_" data-uid="OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.SupportsBody*"></a>
   <h4 id="OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters_SupportsBody" data-uid="OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters.SupportsBody">SupportsBody</h4>
@@ -429,7 +466,7 @@
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_IndexExistsRequestParameters.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.IndexExistsRequestParameters%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.Indices.cs/#L437" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.Indices.cs/#L583" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class PutMappingRequest | OpenSearch.Net ">
     
-    <meta name="description" content="Request for PutMapping https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/">
+    <meta name="description" content="Request for PutMapping https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -81,7 +81,7 @@
 
 
   <h1 id="OpenSearch_Client_PutMappingRequest" data-uid="OpenSearch.Client.PutMappingRequest" class="text-break">Class PutMappingRequest</h1>
-  <div class="markdown level0 summary"><p>Request for PutMapping <p>https://opensearch.org/docs/latest/opensearch/rest-api/update-mapping/</p>
+  <div class="markdown level0 summary"><p>Request for PutMapping <p>https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -179,7 +179,7 @@ public class PutMappingRequest : PlainRequestBase&lt;PutMappingRequestParameters
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PutMappingRequest__ctor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PutMappingRequest.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L1835">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2149">View Source</a>
   </span>
   <a id="OpenSearch_Client_PutMappingRequest__ctor_" data-uid="OpenSearch.Client.PutMappingRequest.#ctor*"></a>
   <h4 id="OpenSearch_Client_PutMappingRequest__ctor" data-uid="OpenSearch.Client.PutMappingRequest.#ctor">PutMappingRequest()</h4>
@@ -195,7 +195,7 @@ public class PutMappingRequest : PlainRequestBase&lt;PutMappingRequestParameters
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PutMappingRequest__ctor_OpenSearch_Client_Indices_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PutMappingRequest.%23ctor(OpenSearch.Client.Indices)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L1830">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2145">View Source</a>
   </span>
   <a id="OpenSearch_Client_PutMappingRequest__ctor_" data-uid="OpenSearch.Client.PutMappingRequest.#ctor*"></a>
   <h4 id="OpenSearch_Client_PutMappingRequest__ctor_OpenSearch_Client_Indices_" data-uid="OpenSearch.Client.PutMappingRequest.#ctor(OpenSearch.Client.Indices)">PutMappingRequest(Indices)</h4>
@@ -231,12 +231,12 @@ public class PutMappingRequest : PlainRequestBase&lt;PutMappingRequestParameters
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PutMappingRequest_AllowNoIndices.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PutMappingRequest.AllowNoIndices%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L1848">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2162">View Source</a>
   </span>
   <a id="OpenSearch_Client_PutMappingRequest_AllowNoIndices_" data-uid="OpenSearch.Client.PutMappingRequest.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Client_PutMappingRequest_AllowNoIndices" data-uid="OpenSearch.Client.PutMappingRequest.AllowNoIndices">AllowNoIndices</h4>
-  <div class="markdown level1 summary"><p>Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes <code>_all</code> string or when no indices have
-been specified)</p>
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indices.
+This behavior applies even if the request targets other open indices.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -263,11 +263,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PutMappingRequest_ClusterManagerTimeout.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PutMappingRequest.ClusterManagerTimeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L1886">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2170">View Source</a>
   </span>
   <a id="OpenSearch_Client_PutMappingRequest_ClusterManagerTimeout_" data-uid="OpenSearch.Client.PutMappingRequest.ClusterManagerTimeout*"></a>
   <h4 id="OpenSearch_Client_PutMappingRequest_ClusterManagerTimeout" data-uid="OpenSearch.Client.PutMappingRequest.ClusterManagerTimeout">ClusterManagerTimeout</h4>
-  <div class="markdown level1 summary"><p>Specify timeout for connection to cluster_manager node</p>
+  <div class="markdown level1 summary"><p>Operation timeout for connection to cluster-manager node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -290,7 +290,7 @@ been specified)</p>
     </tbody>
   </table>
   <h5 id="OpenSearch_Client_PutMappingRequest_ClusterManagerTimeout_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Introduced in OpenSearch 2.0 instead of <a class="xref" href="OpenSearch.Client.PutMappingRequest.html#OpenSearch_Client_PutMappingRequest_MasterTimeout">MasterTimeout</a></p>
+  <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.0.0 or greater.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -429,11 +429,13 @@ used in the mapping specification as placeholders.</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PutMappingRequest_ExpandWildcards.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PutMappingRequest.ExpandWildcards%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L1855">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2181">View Source</a>
   </span>
   <a id="OpenSearch_Client_PutMappingRequest_ExpandWildcards_" data-uid="OpenSearch.Client.PutMappingRequest.ExpandWildcards*"></a>
   <h4 id="OpenSearch_Client_PutMappingRequest_ExpandWildcards" data-uid="OpenSearch.Client.PutMappingRequest.ExpandWildcards">ExpandWildcards</h4>
-  <div class="markdown level1 summary"><p>Whether to expand wildcard expression to concrete indices that are open, closed or both.</p>
+  <div class="markdown level1 summary"><p>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+expressions match hidden data streams. Supports comma-separated values, such as <code>open,hidden</code>. Valid values are: <code>all</code>, <code>open</code>, <code>closed</code>,
+<code>hidden</code>, <code>none</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -496,11 +498,11 @@ using those fields you might want to disable</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PutMappingRequest_IgnoreUnavailable.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PutMappingRequest.IgnoreUnavailable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L1862">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2188">View Source</a>
   </span>
   <a id="OpenSearch_Client_PutMappingRequest_IgnoreUnavailable_" data-uid="OpenSearch.Client.PutMappingRequest.IgnoreUnavailable*"></a>
   <h4 id="OpenSearch_Client_PutMappingRequest_IgnoreUnavailable" data-uid="OpenSearch.Client.PutMappingRequest.IgnoreUnavailable">IgnoreUnavailable</h4>
-  <div class="markdown level1 summary"><p>Whether specified concrete indices should be ignored when unavailable (missing or closed)</p>
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if it targets a missing or closed index.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -527,7 +529,7 @@ using those fields you might want to disable</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PutMappingRequest_IncludeTypeName.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PutMappingRequest.IncludeTypeName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L1870">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L191">View Source</a>
   </span>
   <a id="OpenSearch_Client_PutMappingRequest_IncludeTypeName_" data-uid="OpenSearch.Client.PutMappingRequest.IncludeTypeName*"></a>
   <h4 id="OpenSearch_Client_PutMappingRequest_IncludeTypeName" data-uid="OpenSearch.Client.PutMappingRequest.IncludeTypeName">IncludeTypeName</h4>
@@ -561,16 +563,18 @@ using those fields you might want to disable</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PutMappingRequest_MasterTimeout.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PutMappingRequest.MasterTimeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L1878">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2198">View Source</a>
   </span>
   <a id="OpenSearch_Client_PutMappingRequest_MasterTimeout_" data-uid="OpenSearch.Client.PutMappingRequest.MasterTimeout*"></a>
   <h4 id="OpenSearch_Client_PutMappingRequest_MasterTimeout" data-uid="OpenSearch.Client.PutMappingRequest.MasterTimeout">MasterTimeout</h4>
-  <div class="markdown level1 summary"><p>Specify timeout for connection to master node</p>
+  <div class="markdown level1 summary"><p>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Time MasterTimeout { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated as of: 2.0.0, reason: To promote inclusive language, use &#39;cluster_manager_timeout&#39; instead.&quot;)]
+public Time MasterTimeout { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -587,9 +591,6 @@ using those fields you might want to disable</p>
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Client_PutMappingRequest_MasterTimeout_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Deprecated as of OpenSearch 2.0, use <a class="xref" href="OpenSearch.Client.PutMappingRequest.html#OpenSearch_Client_PutMappingRequest_ClusterManagerTimeout">ClusterManagerTimeout</a> instead</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PutMappingRequest_Meta.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PutMappingRequest.Meta%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
@@ -752,7 +753,7 @@ they wholly contain a numeric value and if so, to map as a numeric field.</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PutMappingRequest_Self.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PutMappingRequest.Self%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L1826">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2140">View Source</a>
   </span>
   <a id="OpenSearch_Client_PutMappingRequest_Self_" data-uid="OpenSearch.Client.PutMappingRequest.Self*"></a>
   <h4 id="OpenSearch_Client_PutMappingRequest_Self" data-uid="OpenSearch.Client.PutMappingRequest.Self">Self</h4>
@@ -845,11 +846,11 @@ Requires mapper-size plugin be installed</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PutMappingRequest_Timeout.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PutMappingRequest.Timeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L1893">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2208">View Source</a>
   </span>
   <a id="OpenSearch_Client_PutMappingRequest_Timeout_" data-uid="OpenSearch.Client.PutMappingRequest.Timeout*"></a>
   <h4 id="OpenSearch_Client_PutMappingRequest_Timeout" data-uid="OpenSearch.Client.PutMappingRequest.Timeout">Timeout</h4>
-  <div class="markdown level1 summary"><p>Explicit operation timeout</p>
+  <div class="markdown level1 summary"><p>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -876,11 +877,11 @@ Requires mapper-size plugin be installed</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PutMappingRequest_WriteIndexOnly.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PutMappingRequest.WriteIndexOnly%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L1900">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2215">View Source</a>
   </span>
   <a id="OpenSearch_Client_PutMappingRequest_WriteIndexOnly_" data-uid="OpenSearch.Client.PutMappingRequest.WriteIndexOnly*"></a>
   <h4 id="OpenSearch_Client_PutMappingRequest_WriteIndexOnly" data-uid="OpenSearch.Client.PutMappingRequest.WriteIndexOnly">WriteIndexOnly</h4>
-  <div class="markdown level1 summary"><p>When true, applies mappings only to the write index of an alias</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, the mappings are applied only to the current write index for the target.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -931,7 +932,7 @@ Requires mapper-size plugin be installed</p>
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_PutMappingRequest.md&amp;value=---%0Auid%3A%20OpenSearch.Client.PutMappingRequest%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.Indices.cs/#L1824" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Indices.cs/#L2136" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

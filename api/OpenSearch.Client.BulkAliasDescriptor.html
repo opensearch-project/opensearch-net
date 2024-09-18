@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class BulkAliasDescriptor | OpenSearch.Net ">
     
-    <meta name="description" content="Descriptor for BulkAlias https://opensearch.org/docs/latest/opensearch/rest-api/alias/">
+    <meta name="description" content="Descriptor for BulkAlias https://opensearch.org/docs/latest/api-reference/index-apis/alias/">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -81,7 +81,7 @@
 
 
   <h1 id="OpenSearch_Client_BulkAliasDescriptor" data-uid="OpenSearch.Client.BulkAliasDescriptor" class="text-break">Class BulkAliasDescriptor</h1>
-  <div class="markdown level0 summary"><p>Descriptor for BulkAlias <p>https://opensearch.org/docs/latest/opensearch/rest-api/alias/</p>
+  <div class="markdown level0 summary"><p>Descriptor for BulkAlias <p>https://opensearch.org/docs/latest/api-reference/index-apis/alias/</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -283,16 +283,16 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkAliasDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkAliasDescriptor.ClusterManagerTimeout(OpenSearch.Client.Time)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Indices.cs/#L1351">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L2150">View Source</a>
   </span>
   <a id="OpenSearch_Client_BulkAliasDescriptor_ClusterManagerTimeout_" data-uid="OpenSearch.Client.BulkAliasDescriptor.ClusterManagerTimeout*"></a>
   <h4 id="OpenSearch_Client_BulkAliasDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.BulkAliasDescriptor.ClusterManagerTimeout(OpenSearch.Client.Time)">ClusterManagerTimeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Specify timeout for connection to cluster_manager node</p>
+  <div class="markdown level1 summary"><p>Operation timeout for connection to cluster-manager node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public BulkAliasDescriptor ClusterManagerTimeout(Time timeout)</code></pre>
+    <pre><code class="lang-csharp hljs">public BulkAliasDescriptor ClusterManagerTimeout(Time clustermanagertimeout)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -306,7 +306,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="OpenSearch.Client.Time.html">Time</a></td>
-        <td><span class="parametername">timeout</span></td>
+        <td><span class="parametername">clustermanagertimeout</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -327,23 +327,24 @@
     </tbody>
   </table>
   <h5 id="OpenSearch_Client_BulkAliasDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Introduced in OpenSearch 2.0 instead of <a class="xref" href="OpenSearch.Client.BulkAliasDescriptor.html#OpenSearch_Client_BulkAliasDescriptor_MasterTimeout_OpenSearch_Client_Time_">MasterTimeout(Time)</a></p>
+  <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.0.0 or greater.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkAliasDescriptor_MasterTimeout_OpenSearch_Client_Time_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkAliasDescriptor.MasterTimeout(OpenSearch.Client.Time)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Indices.cs/#L1348">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L2154">View Source</a>
   </span>
   <a id="OpenSearch_Client_BulkAliasDescriptor_MasterTimeout_" data-uid="OpenSearch.Client.BulkAliasDescriptor.MasterTimeout*"></a>
   <h4 id="OpenSearch_Client_BulkAliasDescriptor_MasterTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.BulkAliasDescriptor.MasterTimeout(OpenSearch.Client.Time)">MasterTimeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Specify timeout for connection to master node</p>
+  <div class="markdown level1 summary"><p>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public BulkAliasDescriptor MasterTimeout(Time mastertimeout)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated as of: 2.0.0, reason: To promote inclusive language, use &#39;cluster_manager_timeout&#39; instead.&quot;)]
+public BulkAliasDescriptor MasterTimeout(Time mastertimeout)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -377,9 +378,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Client_BulkAliasDescriptor_MasterTimeout_OpenSearch_Client_Time__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Deprecated as of OpenSearch 2.0, use <a class="xref" href="OpenSearch.Client.BulkAliasDescriptor.html#OpenSearch_Client_BulkAliasDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time_">ClusterManagerTimeout(Time)</a> instead</p>
-</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkAliasDescriptor_Remove_System_Func_OpenSearch_Client_AliasRemoveDescriptor_OpenSearch_Client_IAliasRemoveAction__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkAliasDescriptor.Remove(System.Func%7BOpenSearch.Client.AliasRemoveDescriptor%2COpenSearch.Client.IAliasRemoveAction%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
@@ -479,11 +477,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkAliasDescriptor_Timeout_OpenSearch_Client_Time_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkAliasDescriptor.Timeout(OpenSearch.Client.Time)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.Indices.cs/#L1353">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L2161">View Source</a>
   </span>
   <a id="OpenSearch_Client_BulkAliasDescriptor_Timeout_" data-uid="OpenSearch.Client.BulkAliasDescriptor.Timeout*"></a>
   <h4 id="OpenSearch_Client_BulkAliasDescriptor_Timeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.BulkAliasDescriptor.Timeout(OpenSearch.Client.Time)">Timeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Request timeout</p>
+  <div class="markdown level1 summary"><p>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -551,7 +549,7 @@
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkAliasDescriptor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkAliasDescriptor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Indices/AliasManagement/Alias/BulkAliasRequest.cs/#L47" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Indices.cs/#L2140" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
