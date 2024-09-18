@@ -20,9 +20,9 @@
 </text>
 }
         // values part of the url path
-@foreach (var part in Model.Parts)
+@foreach (var part in Model.Parts.OrderBy(p => p.Name))
 {
-<text>      @(Raw(part.HighLevelTypeName)) @(Raw(baseInterface)).@(part.InterfaceName) => Self.RouteValues.Get@(Raw(string.Format("<{0}>",part.HighLevelTypeName)))("@(part.Name)");
+<text>      @(Raw(part.HighLevelTypeName)) @(Raw(baseInterface)).@(part.InterfaceName) => Self.RouteValues.Get@(Raw($"<{part.HighLevelTypeName}>"))("@(part.Name)");
 </text>
 }
 @foreach (var c in Model.GetFluentRouteSetters())

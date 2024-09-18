@@ -136,6 +136,16 @@ namespace OpenSearch.Net
         All = 1 << 8,
     }
 
+    [StringEnum]
+    public enum DefaultOperator
+    {
+        [EnumMember(Value = "and")]
+        And,
+
+        [EnumMember(Value = "or")]
+        Or,
+    }
+
     [Flags, StringEnum]
     public enum ExpandWildcards
     {
@@ -166,6 +176,38 @@ namespace OpenSearch.Net
 
         [EnumMember(Value = "yellow")]
         Yellow,
+    }
+
+    [StringEnum]
+    public enum IndexApiBlock
+    {
+        [EnumMember(Value = "metadata")]
+        Metadata,
+
+        [EnumMember(Value = "read")]
+        Read,
+
+        [EnumMember(Value = "read_only")]
+        ReadOnly,
+
+        [EnumMember(Value = "write")]
+        Write,
+    }
+
+    [Flags, StringEnum]
+    public enum IndicesShardStoresShardStoreStatus
+    {
+        [EnumMember(Value = "all")]
+        All = 1 << 0,
+
+        [EnumMember(Value = "green")]
+        Green = 1 << 1,
+
+        [EnumMember(Value = "red")]
+        Red = 1 << 2,
+
+        [EnumMember(Value = "yellow")]
+        Yellow = 1 << 3,
     }
 
     [StringEnum]
@@ -470,8 +512,11 @@ namespace OpenSearch.Net
             AddEnumStringResolver<ByteUnit>(GetStringValue);
             AddEnumStringResolver<ClusterHealthLevel>(GetStringValue);
             AddEnumStringResolver<ClusterStateMetric>(GetStringValue);
+            AddEnumStringResolver<DefaultOperator>(GetStringValue);
             AddEnumStringResolver<ExpandWildcards>(GetStringValue);
             AddEnumStringResolver<HealthStatus>(GetStringValue);
+            AddEnumStringResolver<IndexApiBlock>(GetStringValue);
+            AddEnumStringResolver<IndicesShardStoresShardStoreStatus>(GetStringValue);
             AddEnumStringResolver<Level>(GetStringValue);
             AddEnumStringResolver<NodesInfoMetric>(GetStringValue);
             AddEnumStringResolver<NodesSampleType>(GetStringValue);
@@ -539,6 +584,16 @@ namespace OpenSearch.Net
             return string.Join(",", list);
         }
 
+        public static string GetStringValue(this DefaultOperator enumValue) =>
+            enumValue switch
+            {
+                DefaultOperator.And => "and",
+                DefaultOperator.Or => "or",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'DefaultOperator'"
+                ),
+            };
+
         public static string GetStringValue(this ExpandWildcards enumValue)
         {
             var list = new List<string>();
@@ -565,6 +620,32 @@ namespace OpenSearch.Net
                     $"'{enumValue.ToString()}' is not a valid value for enum 'HealthStatus'"
                 ),
             };
+
+        public static string GetStringValue(this IndexApiBlock enumValue) =>
+            enumValue switch
+            {
+                IndexApiBlock.Metadata => "metadata",
+                IndexApiBlock.Read => "read",
+                IndexApiBlock.ReadOnly => "read_only",
+                IndexApiBlock.Write => "write",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'IndexApiBlock'"
+                ),
+            };
+
+        public static string GetStringValue(this IndicesShardStoresShardStoreStatus enumValue)
+        {
+            var list = new List<string>();
+            if ((enumValue & IndicesShardStoresShardStoreStatus.All) != 0)
+                list.Add("all");
+            if ((enumValue & IndicesShardStoresShardStoreStatus.Green) != 0)
+                list.Add("green");
+            if ((enumValue & IndicesShardStoresShardStoreStatus.Red) != 0)
+                list.Add("red");
+            if ((enumValue & IndicesShardStoresShardStoreStatus.Yellow) != 0)
+                list.Add("yellow");
+            return string.Join(",", list);
+        }
 
         public static string GetStringValue(this Level enumValue) =>
             enumValue switch

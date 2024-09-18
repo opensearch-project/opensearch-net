@@ -45,252 +45,296 @@ namespace OpenSearch.Client
 {
     internal static partial class ApiUrlsLookups
     {
-        internal static readonly ApiUrls CatAliases =
-            new(new[] { "_cat/aliases", "_cat/aliases/{name}" });
+        internal static readonly ApiUrls CatAliases = new(["_cat/aliases", "_cat/aliases/{name}"]);
 
-        internal static readonly ApiUrls CatAllPitSegments =
-            new(new[] { "_cat/pit_segments/_all" });
+        internal static readonly ApiUrls CatAllPitSegments = new(["_cat/pit_segments/_all"]);
 
         internal static readonly ApiUrls CatAllocation =
-            new(new[] { "_cat/allocation", "_cat/allocation/{node_id}" });
+            new(["_cat/allocation", "_cat/allocation/{node_id}"]);
 
-        internal static readonly ApiUrls CatClusterManager = new(new[] { "_cat/cluster_manager" });
+        internal static readonly ApiUrls CatClusterManager = new(["_cat/cluster_manager"]);
 
-        internal static readonly ApiUrls CatCount =
-            new(new[] { "_cat/count", "_cat/count/{index}" });
+        internal static readonly ApiUrls CatCount = new(["_cat/count", "_cat/count/{index}"]);
 
         internal static readonly ApiUrls CatFielddata =
-            new(new[] { "_cat/fielddata", "_cat/fielddata/{fields}" });
+            new(["_cat/fielddata", "_cat/fielddata/{fields}"]);
 
-        internal static readonly ApiUrls CatHealth = new(new[] { "_cat/health" });
+        internal static readonly ApiUrls CatHealth = new(["_cat/health"]);
 
-        internal static readonly ApiUrls CatHelp = new(new[] { "_cat" });
+        internal static readonly ApiUrls CatHelp = new(["_cat"]);
 
-        internal static readonly ApiUrls CatIndices =
-            new(new[] { "_cat/indices", "_cat/indices/{index}" });
+        internal static readonly ApiUrls CatIndices = new(["_cat/indices", "_cat/indices/{index}"]);
 
-        internal static readonly ApiUrls CatMaster = new(new[] { "_cat/master" });
+        internal static readonly ApiUrls CatMaster = new(["_cat/master"]);
 
-        internal static readonly ApiUrls CatNodeAttributes = new(new[] { "_cat/nodeattrs" });
+        internal static readonly ApiUrls CatNodeAttributes = new(["_cat/nodeattrs"]);
 
-        internal static readonly ApiUrls CatNodes = new(new[] { "_cat/nodes" });
+        internal static readonly ApiUrls CatNodes = new(["_cat/nodes"]);
 
-        internal static readonly ApiUrls CatPendingTasks = new(new[] { "_cat/pending_tasks" });
+        internal static readonly ApiUrls CatPendingTasks = new(["_cat/pending_tasks"]);
 
-        internal static readonly ApiUrls CatPitSegments = new(new[] { "_cat/pit_segments" });
+        internal static readonly ApiUrls CatPitSegments = new(["_cat/pit_segments"]);
 
-        internal static readonly ApiUrls CatPlugins = new(new[] { "_cat/plugins" });
+        internal static readonly ApiUrls CatPlugins = new(["_cat/plugins"]);
 
         internal static readonly ApiUrls CatRecovery =
-            new(new[] { "_cat/recovery", "_cat/recovery/{index}" });
+            new(["_cat/recovery", "_cat/recovery/{index}"]);
 
-        internal static readonly ApiUrls CatRepositories = new(new[] { "_cat/repositories" });
+        internal static readonly ApiUrls CatRepositories = new(["_cat/repositories"]);
 
         internal static readonly ApiUrls CatSegmentReplication =
-            new(new[] { "_cat/segment_replication", "_cat/segment_replication/{index}" });
+            new(["_cat/segment_replication", "_cat/segment_replication/{index}"]);
 
         internal static readonly ApiUrls CatSegments =
-            new(new[] { "_cat/segments", "_cat/segments/{index}" });
+            new(["_cat/segments", "_cat/segments/{index}"]);
 
-        internal static readonly ApiUrls CatShards =
-            new(new[] { "_cat/shards", "_cat/shards/{index}" });
+        internal static readonly ApiUrls CatShards = new(["_cat/shards", "_cat/shards/{index}"]);
 
         internal static readonly ApiUrls CatSnapshots =
-            new(new[] { "_cat/snapshots", "_cat/snapshots/{repository}" });
+            new(["_cat/snapshots", "_cat/snapshots/{repository}"]);
 
-        internal static readonly ApiUrls CatTasks = new(new[] { "_cat/tasks" });
+        internal static readonly ApiUrls CatTasks = new(["_cat/tasks"]);
 
         internal static readonly ApiUrls CatTemplates =
-            new(new[] { "_cat/templates", "_cat/templates/{name}" });
+            new(["_cat/templates", "_cat/templates/{name}"]);
 
         internal static readonly ApiUrls CatThreadPool =
-            new(new[] { "_cat/thread_pool", "_cat/thread_pool/{thread_pool_patterns}" });
+            new(["_cat/thread_pool", "_cat/thread_pool/{thread_pool_patterns}"]);
 
         internal static readonly ApiUrls ClusterAllocationExplain =
-            new(new[] { "_cluster/allocation/explain" });
+            new(["_cluster/allocation/explain"]);
 
         internal static readonly ApiUrls ClusterDeleteComponentTemplate =
-            new(new[] { "_component_template/{name}" });
+            new(["_component_template/{name}"]);
 
         internal static readonly ApiUrls ClusterDeleteVotingConfigExclusions =
-            new(new[] { "_cluster/voting_config_exclusions" });
+            new(["_cluster/voting_config_exclusions"]);
 
         internal static readonly ApiUrls ClusterComponentTemplateExists =
-            new(new[] { "_component_template/{name}" });
+            new(["_component_template/{name}"]);
 
         internal static readonly ApiUrls ClusterGetComponentTemplate =
-            new(new[] { "_component_template", "_component_template/{name}" });
+            new(["_component_template", "_component_template/{name}"]);
 
-        internal static readonly ApiUrls ClusterGetSettings = new(new[] { "_cluster/settings" });
+        internal static readonly ApiUrls ClusterGetSettings = new(["_cluster/settings"]);
 
         internal static readonly ApiUrls ClusterHealth =
-            new(new[] { "_cluster/health", "_cluster/health/{index}" });
+            new(["_cluster/health", "_cluster/health/{index}"]);
 
-        internal static readonly ApiUrls ClusterPendingTasks =
-            new(new[] { "_cluster/pending_tasks" });
+        internal static readonly ApiUrls ClusterPendingTasks = new(["_cluster/pending_tasks"]);
 
         internal static readonly ApiUrls ClusterPostVotingConfigExclusions =
-            new(new[] { "_cluster/voting_config_exclusions" });
+            new(["_cluster/voting_config_exclusions"]);
 
         internal static readonly ApiUrls ClusterPutComponentTemplate =
-            new(new[] { "_component_template/{name}" });
+            new(["_component_template/{name}"]);
 
-        internal static readonly ApiUrls ClusterPutSettings = new(new[] { "_cluster/settings" });
+        internal static readonly ApiUrls ClusterPutSettings = new(["_cluster/settings"]);
 
-        internal static readonly ApiUrls ClusterRemoteInfo = new(new[] { "_remote/info" });
+        internal static readonly ApiUrls ClusterRemoteInfo = new(["_remote/info"]);
 
-        internal static readonly ApiUrls ClusterReroute = new(new[] { "_cluster/reroute" });
+        internal static readonly ApiUrls ClusterReroute = new(["_cluster/reroute"]);
 
         internal static readonly ApiUrls ClusterState =
-            new(
-                new[]
-                {
-                    "_cluster/state",
-                    "_cluster/state/{metric}",
-                    "_cluster/state/{metric}/{index}",
-                }
-            );
+            new(["_cluster/state", "_cluster/state/{metric}", "_cluster/state/{metric}/{index}"]);
 
         internal static readonly ApiUrls ClusterStats =
-            new(new[] { "_cluster/stats", "_cluster/stats/nodes/{node_id}" });
+            new(["_cluster/stats", "_cluster/stats/nodes/{node_id}"]);
 
         internal static readonly ApiUrls NoNamespaceCreatePit =
-            new(new[] { "{index}/_search/point_in_time" });
+            new(["{index}/_search/point_in_time"]);
 
         internal static readonly ApiUrls DanglingIndicesDeleteDanglingIndex =
-            new(new[] { "_dangling/{index_uuid}" });
+            new(["_dangling/{index_uuid}"]);
 
         internal static readonly ApiUrls DanglingIndicesImportDanglingIndex =
-            new(new[] { "_dangling/{index_uuid}" });
+            new(["_dangling/{index_uuid}"]);
 
-        internal static readonly ApiUrls DanglingIndicesList = new(new[] { "_dangling" });
+        internal static readonly ApiUrls DanglingIndicesList = new(["_dangling"]);
 
         internal static readonly ApiUrls NoNamespaceDeleteAllPits =
-            new(new[] { "_search/point_in_time/_all" });
+            new(["_search/point_in_time/_all"]);
 
-        internal static readonly ApiUrls NoNamespaceDeletePit =
-            new(new[] { "_search/point_in_time" });
+        internal static readonly ApiUrls NoNamespaceDeletePit = new(["_search/point_in_time"]);
 
         internal static readonly ApiUrls NoNamespaceGetAllPits =
-            new(new[] { "_search/point_in_time/_all" });
+            new(["_search/point_in_time/_all"]);
+
+        internal static readonly ApiUrls IndicesAddBlock = new(["{index}/_block/{block}"]);
+
+        internal static readonly ApiUrls IndicesAnalyze = new(["_analyze", "{index}/_analyze"]);
+
+        internal static readonly ApiUrls IndicesClearCache =
+            new(["_cache/clear", "{index}/_cache/clear"]);
+
+        internal static readonly ApiUrls IndicesClone = new(["{index}/_clone/{target}"]);
+
+        internal static readonly ApiUrls IndicesClose = new(["{index}/_close"]);
+
+        internal static readonly ApiUrls IndicesCreate = new(["{index}"]);
+
+        internal static readonly ApiUrls IndicesDelete = new(["{index}"]);
+
+        internal static readonly ApiUrls IndicesDeleteAlias = new(["{index}/_alias/{name}"]);
 
         internal static readonly ApiUrls IndicesDeleteComposableTemplate =
-            new(new[] { "_index_template/{name}" });
+            new(["_index_template/{name}"]);
+
+        internal static readonly ApiUrls IndicesDeleteTemplate = new(["_template/{name}"]);
+
+        internal static readonly ApiUrls IndicesExists = new(["{index}"]);
+
+        internal static readonly ApiUrls IndicesAliasExists =
+            new(["{index}/_alias/{name}", "_alias/{name}"]);
 
         internal static readonly ApiUrls IndicesComposableTemplateExists =
-            new(new[] { "_index_template/{name}" });
+            new(["_index_template/{name}"]);
+
+        internal static readonly ApiUrls IndicesTemplateExists = new(["_template/{name}"]);
+
+        internal static readonly ApiUrls IndicesFlush = new(["_flush", "{index}/_flush"]);
+
+        internal static readonly ApiUrls IndicesForceMerge =
+            new(["_forcemerge", "{index}/_forcemerge"]);
+
+        internal static readonly ApiUrls IndicesGet = new(["{index}"]);
+
+        internal static readonly ApiUrls IndicesGetAlias =
+            new(["_alias", "{index}/_alias", "{index}/_alias/{name}", "_alias/{name}"]);
+
+        internal static readonly ApiUrls IndicesGetFieldMapping =
+            new(["_mapping/field/{fields}", "{index}/_mapping/field/{fields}"]);
 
         internal static readonly ApiUrls IndicesGetComposableTemplate =
-            new(new[] { "_index_template", "_index_template/{name}" });
+            new(["_index_template", "_index_template/{name}"]);
+
+        internal static readonly ApiUrls IndicesGetMapping = new(["_mapping", "{index}/_mapping"]);
+
+        internal static readonly ApiUrls IndicesGetSettings =
+            new(["_settings", "{index}/_settings", "{index}/_settings/{name}", "_settings/{name}"]);
+
+        internal static readonly ApiUrls IndicesGetTemplate =
+            new(["_template", "_template/{name}"]);
+
+        internal static readonly ApiUrls IndicesOpen = new(["{index}/_open"]);
+
+        internal static readonly ApiUrls IndicesPutAlias =
+            new(["_alias", "{index}/_alias", "{index}/_alias/{name}", "_alias/{name}"]);
 
         internal static readonly ApiUrls IndicesPutComposableTemplate =
-            new(new[] { "_index_template/{name}" });
+            new(["_index_template/{name}"]);
+
+        internal static readonly ApiUrls IndicesPutMapping = new(["{index}/_mapping"]);
+
+        internal static readonly ApiUrls IndicesUpdateSettings =
+            new(["_settings", "{index}/_settings"]);
+
+        internal static readonly ApiUrls IndicesPutTemplate = new(["_template/{name}"]);
+
+        internal static readonly ApiUrls IndicesRefresh = new(["_refresh", "{index}/_refresh"]);
+
+        internal static readonly ApiUrls IndicesResolve = new(["_resolve/index/{name}"]);
+
+        internal static readonly ApiUrls IndicesRollover =
+            new(["{alias}/_rollover", "{alias}/_rollover/{new_index}"]);
+
+        internal static readonly ApiUrls IndicesShrink = new(["{index}/_shrink/{target}"]);
+
+        internal static readonly ApiUrls IndicesSplit = new(["{index}/_split/{target}"]);
 
         internal static readonly ApiUrls IndicesStats =
-            new(new[] { "_stats", "{index}/_stats", "{index}/_stats/{metric}", "_stats/{metric}" });
+            new(["_stats", "{index}/_stats", "{index}/_stats/{metric}", "_stats/{metric}"]);
 
-        internal static readonly ApiUrls IngestDeletePipeline =
-            new(new[] { "_ingest/pipeline/{id}" });
+        internal static readonly ApiUrls IndicesBulkAlias = new(["_aliases"]);
+
+        internal static readonly ApiUrls IndicesValidateQuery =
+            new(["_validate/query", "{index}/_validate/query"]);
+
+        internal static readonly ApiUrls IngestDeletePipeline = new(["_ingest/pipeline/{id}"]);
 
         internal static readonly ApiUrls IngestGetPipeline =
-            new(new[] { "_ingest/pipeline", "_ingest/pipeline/{id}" });
+            new(["_ingest/pipeline", "_ingest/pipeline/{id}"]);
 
         internal static readonly ApiUrls IngestGrokProcessorPatterns =
-            new(new[] { "_ingest/processor/grok" });
+            new(["_ingest/processor/grok"]);
 
-        internal static readonly ApiUrls IngestPutPipeline = new(new[] { "_ingest/pipeline/{id}" });
+        internal static readonly ApiUrls IngestPutPipeline = new(["_ingest/pipeline/{id}"]);
 
         internal static readonly ApiUrls IngestSimulatePipeline =
-            new(new[] { "_ingest/pipeline/_simulate", "_ingest/pipeline/{id}/_simulate" });
+            new(["_ingest/pipeline/_simulate", "_ingest/pipeline/{id}/_simulate"]);
 
         internal static readonly ApiUrls NodesHotThreads =
-            new(new[] { "_nodes/hot_threads", "_nodes/{node_id}/hot_threads" });
+            new(["_nodes/hot_threads", "_nodes/{node_id}/hot_threads"]);
 
         internal static readonly ApiUrls NodesInfo =
-            new(
-                new[]
-                {
-                    "_nodes",
-                    "_nodes/{metric}",
-                    "_nodes/{node_id}",
-                    "_nodes/{node_id}/{metric}",
-                }
-            );
+            new(["_nodes", "_nodes/{metric}", "_nodes/{node_id}", "_nodes/{node_id}/{metric}"]);
 
         internal static readonly ApiUrls NodesReloadSecureSettings =
-            new(
-                new[] { "_nodes/reload_secure_settings", "_nodes/{node_id}/reload_secure_settings" }
-            );
+            new(["_nodes/reload_secure_settings", "_nodes/{node_id}/reload_secure_settings"]);
 
         internal static readonly ApiUrls NodesStats =
             new(
-                new[]
-                {
+                [
                     "_nodes/stats",
                     "_nodes/stats/{metric}",
                     "_nodes/stats/{metric}/{index_metric}",
                     "_nodes/{node_id}/stats",
                     "_nodes/{node_id}/stats/{metric}",
                     "_nodes/{node_id}/stats/{metric}/{index_metric}",
-                }
+                ]
             );
 
         internal static readonly ApiUrls NodesUsage =
             new(
-                new[]
-                {
+                [
                     "_nodes/usage",
                     "_nodes/usage/{metric}",
                     "_nodes/{node_id}/usage",
                     "_nodes/{node_id}/usage/{metric}",
-                }
+                ]
             );
 
         internal static readonly ApiUrls SnapshotCleanupRepository =
-            new(new[] { "_snapshot/{repository}/_cleanup" });
+            new(["_snapshot/{repository}/_cleanup"]);
 
         internal static readonly ApiUrls SnapshotClone =
-            new(new[] { "_snapshot/{repository}/{snapshot}/_clone/{target_snapshot}" });
+            new(["_snapshot/{repository}/{snapshot}/_clone/{target_snapshot}"]);
 
         internal static readonly ApiUrls SnapshotSnapshot =
-            new(new[] { "_snapshot/{repository}/{snapshot}" });
+            new(["_snapshot/{repository}/{snapshot}"]);
 
-        internal static readonly ApiUrls SnapshotCreateRepository =
-            new(new[] { "_snapshot/{repository}" });
+        internal static readonly ApiUrls SnapshotCreateRepository = new(["_snapshot/{repository}"]);
 
         internal static readonly ApiUrls SnapshotDelete =
-            new(new[] { "_snapshot/{repository}/{snapshot}" });
+            new(["_snapshot/{repository}/{snapshot}"]);
 
-        internal static readonly ApiUrls SnapshotDeleteRepository =
-            new(new[] { "_snapshot/{repository}" });
+        internal static readonly ApiUrls SnapshotDeleteRepository = new(["_snapshot/{repository}"]);
 
-        internal static readonly ApiUrls SnapshotGet =
-            new(new[] { "_snapshot/{repository}/{snapshot}" });
+        internal static readonly ApiUrls SnapshotGet = new(["_snapshot/{repository}/{snapshot}"]);
 
         internal static readonly ApiUrls SnapshotGetRepository =
-            new(new[] { "_snapshot", "_snapshot/{repository}" });
+            new(["_snapshot", "_snapshot/{repository}"]);
 
         internal static readonly ApiUrls SnapshotRestore =
-            new(new[] { "_snapshot/{repository}/{snapshot}/_restore" });
+            new(["_snapshot/{repository}/{snapshot}/_restore"]);
 
         internal static readonly ApiUrls SnapshotStatus =
             new(
-                new[]
-                {
+                [
                     "_snapshot/_status",
                     "_snapshot/{repository}/_status",
                     "_snapshot/{repository}/{snapshot}/_status",
-                }
+                ]
             );
 
         internal static readonly ApiUrls SnapshotVerifyRepository =
-            new(new[] { "_snapshot/{repository}/_verify" });
+            new(["_snapshot/{repository}/_verify"]);
 
         internal static readonly ApiUrls TasksCancel =
-            new(new[] { "_tasks/_cancel", "_tasks/{task_id}/_cancel" });
+            new(["_tasks/_cancel", "_tasks/{task_id}/_cancel"]);
 
-        internal static readonly ApiUrls TasksGetTask = new(new[] { "_tasks/{task_id}" });
+        internal static readonly ApiUrls TasksGetTask = new(["_tasks/{task_id}"]);
 
-        internal static readonly ApiUrls TasksList = new(new[] { "_tasks" });
+        internal static readonly ApiUrls TasksList = new(["_tasks"]);
     }
 }

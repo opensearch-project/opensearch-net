@@ -26,6 +26,7 @@
 *  under the License.
 */
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using ApiGenerator.Domain.Specification;
@@ -51,18 +52,17 @@ namespace ApiGenerator.Domain.Code.HighLevel.Requests
             var parts = Parts
                 .Where(p => !p.Required || alwaysGenerate.Contains(p.Name))
                 .Where(p => !string.IsNullOrEmpty(p.Name))
+                .OrderBy(p => p.Name)
                 .ToList();
             var returnType = CsharpNames.GenericOrNonGenericDescriptorName;
-            foreach (var part in parts)
+            foreach (var p in parts)
             {
-                var p = part;
                 var paramName = p.Name.ToPascalCase();
-                if (paramName.Length > 1)
-                    paramName = paramName.Substring(0, 1).ToLowerInvariant() + paramName.Substring(1);
-                else
-                    paramName = paramName.ToLowerInvariant();
+                paramName = paramName.Length > 1
+                    ? string.Concat(paramName[..1].ToLowerInvariant(), paramName.AsSpan(1))
+                    : paramName.ToLowerInvariant();
 
-                var routeValue = "v";
+                const string routeValue = "v";
                 var routeSetter = p.Required ? "Required" : "Optional";
 
                 var code =

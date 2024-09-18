@@ -38,7 +38,9 @@ namespace ApiGenerator.Configuration.Overrides
 
 		public IDictionary<string, string> RenameEnums { get; } = new Dictionary<string, string>
 		{
-			{ "ExpandWildcard", "ExpandWildcards" }
+			{ "ExpandWildcard", "ExpandWildcards" },
+            { "QueryDslOperator", "DefaultOperator" },
+            { "IndicesAddBlockIndicesBlockOptions", "IndexApiBlock" }
 		};
 
         public override IDictionary<string, string> ObsoleteQueryStringParams { get; set; } = new Dictionary<string, string>

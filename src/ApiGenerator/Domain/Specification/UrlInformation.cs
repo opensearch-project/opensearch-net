@@ -45,7 +45,6 @@ namespace ApiGenerator.Domain.Specification
         public IReadOnlyCollection<UrlPart> Parts => Paths
 				.SelectMany(p => p.Parts)
 				.DistinctBy(p => p.Name)
-				.OrderBy(p => p.Name)
 				.ToList();
 
         public bool IsPartless => !Parts.Any();
