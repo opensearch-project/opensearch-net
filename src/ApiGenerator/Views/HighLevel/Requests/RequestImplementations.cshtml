@@ -24,8 +24,8 @@
 <text>/// @Raw("<remarks>Note: " + Model.Stability + " within the OpenSearch server, " + warningMessage + "</remarks>")
 
 </text>}
-    public partial class @Raw(Model.Name) @Raw(string.Format(": PlainRequestBase<{0}>, {1}", Model.CsharpNames.ParametersName, Model.InterfaceName))
-{
+    public partial class @Raw(Model.Name) @Raw($": PlainRequestBase<{Model.CsharpNames.ParametersName}>, {Model.InterfaceName}")
+    {
         protected @Raw(Model.InterfaceName) Self => this;
         internal override ApiUrls ApiUrls => @apiLookup;
 @foreach (var c in Model.Constructors)
@@ -34,10 +34,10 @@
 </text>
 }
         // values part of the url path
-@foreach (var part in Model.Parts)
+@foreach (var part in Model.Parts.OrderBy(p => p.Name))
 {
 <text>      [IgnoreDataMember]
-        @(Raw(part.HighLevelTypeName)) @(Raw(Model.InterfaceName)).@(part.InterfaceName) => Self.RouteValues.Get@(Raw(string.Format("<{0}>", part.HighLevelTypeName)))("@(part.Name)");
+        @(Raw(part.HighLevelTypeName)) @(Raw(Model.InterfaceName)).@(part.InterfaceName) => Self.RouteValues.Get@(Raw($"<{part.HighLevelTypeName}>"))("@(part.Name)");
 </text>
 }
 
@@ -69,7 +69,7 @@
     }
 @if (Model.NeedsGenericImplementation)
     {<text>
-    public partial class @Raw(Model.CsharpNames.GenericRequestName) @Raw(string.Format(": {0}, {1}", Model.CsharpNames.RequestName, Model.CsharpNames.GenericInterfaceName))
+    public partial class @Raw(Model.CsharpNames.GenericRequestName) @Raw($": {Model.CsharpNames.RequestName}, {Model.CsharpNames.GenericInterfaceName}")
     {
         protected @Raw(Model.CsharpNames.GenericInterfaceName) TypedSelf => this;
 @foreach (Constructor c in Model.GenericConstructors)

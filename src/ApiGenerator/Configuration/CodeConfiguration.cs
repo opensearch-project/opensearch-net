@@ -38,22 +38,19 @@ namespace ApiGenerator.Configuration
     public static class CodeConfiguration
 	{
 		private static readonly Glob[] OperationsToInclude =
-		{
-			new("{create,delete}_pit"),
+        [
+            new("{create,delete}_pit"),
 			new("{delete,get}_all_pits"),
 
 			new("cat.*"),
 			new("cluster.*"),
 			new("dangling_indices.*"),
-
-			new("indices.{delete,exists,get,put}_index_template"),
-            new("indices.stats"),
-
+            new("indices.*"),
 			new("ingest.*"),
             new("nodes.*"),
 			new("snapshot.*"),
 			new("tasks.*")
-		};
+        ];
 
 		public static bool IncludeOperation(string name) => OperationsToInclude.Any(g => g.IsMatch(name));
 
@@ -62,6 +59,8 @@ namespace ApiGenerator.Configuration
         /// </summary>
         private static readonly Dictionary<string, string> LowLevelApiNameMapping = new()
 		{
+            {"indices.recovery", "RecoveryStatus"},
+            {"indices.shard_stores", "IndicesShardStores"}
         };
 
         /// <summary>

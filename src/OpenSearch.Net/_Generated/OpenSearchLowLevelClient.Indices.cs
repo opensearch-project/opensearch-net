@@ -69,6 +69,478 @@ namespace OpenSearch.Net.Specification.IndicesApi
         internal LowLevelIndicesNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
+        /// <summary>PUT on /{index}/_block/{block} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="index">A comma separated list of indices to add a block to.</param>
+        /// <param name="block">The block to add (one of read, write, read_only or metadata).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse AddBlock<TResponse>(
+            string index,
+            IndexApiBlock? block,
+            AddIndexBlockRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"{index:index}/_block/{block:block}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /{index}/_block/{block} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="index">A comma separated list of indices to add a block to.</param>
+        /// <param name="block">The block to add (one of read, write, read_only or metadata).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.add_block", "index, block")]
+        public Task<TResponse> AddBlockAsync<TResponse>(
+            string index,
+            IndexApiBlock? block,
+            AddIndexBlockRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"{index:index}/_block/{block:block}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_analyze <para>https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/</para></summary>
+        /// <param name="body">Define analyzer/tokenizer parameters and the text on which the analysis should be performed.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse AnalyzeForAll<TResponse>(
+            PostData body,
+            AnalyzeRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(POST, "_analyze", body, RequestParams(requestParameters));
+
+        /// <summary>POST on /_analyze <para>https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/</para></summary>
+        /// <param name="body">Define analyzer/tokenizer parameters and the text on which the analysis should be performed.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.analyze", "body")]
+        public Task<TResponse> AnalyzeForAllAsync<TResponse>(
+            PostData body,
+            AnalyzeRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_analyze",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{index}/_analyze <para>https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/</para></summary>
+        /// <param name="index">Index used to derive the analyzer. If specified, the `analyzer` or field parameter overrides this value. If no index is specified or the index does not have a default analyzer, the analyze API uses the standard analyzer.</param>
+        /// <param name="body">Define analyzer/tokenizer parameters and the text on which the analysis should be performed.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Analyze<TResponse>(
+            string index,
+            PostData body,
+            AnalyzeRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"{index:index}/_analyze"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{index}/_analyze <para>https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/</para></summary>
+        /// <param name="index">Index used to derive the analyzer. If specified, the `analyzer` or field parameter overrides this value. If no index is specified or the index does not have a default analyzer, the analyze API uses the standard analyzer.</param>
+        /// <param name="body">Define analyzer/tokenizer parameters and the text on which the analysis should be performed.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.analyze", "index, body")]
+        public Task<TResponse> AnalyzeAsync<TResponse>(
+            string index,
+            PostData body,
+            AnalyzeRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"{index:index}/_analyze"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_cache/clear <para>https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse ClearCacheForAll<TResponse>(
+            ClearCacheRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(POST, "_cache/clear", null, RequestParams(requestParameters));
+
+        /// <summary>POST on /_cache/clear <para>https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.clear_cache", "")]
+        public Task<TResponse> ClearCacheForAllAsync<TResponse>(
+            ClearCacheRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_cache/clear",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{index}/_cache/clear <para>https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse ClearCache<TResponse>(
+            string index,
+            ClearCacheRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"{index:index}/_cache/clear"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{index}/_cache/clear <para>https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.clear_cache", "index")]
+        public Task<TResponse> ClearCacheAsync<TResponse>(
+            string index,
+            ClearCacheRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"{index:index}/_cache/clear"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /{index}/_clone/{target} <para>https://opensearch.org/docs/latest/api-reference/index-apis/clone/</para></summary>
+        /// <param name="index">Name of the source index to clone.</param>
+        /// <param name="target">Name of the target index to create.</param>
+        /// <param name="body">The configuration for the target index (`settings` and `aliases`).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Clone<TResponse>(
+            string index,
+            string target,
+            PostData body,
+            CloneIndexRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"{index:index}/_clone/{target:target}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /{index}/_clone/{target} <para>https://opensearch.org/docs/latest/api-reference/index-apis/clone/</para></summary>
+        /// <param name="index">Name of the source index to clone.</param>
+        /// <param name="target">Name of the target index to create.</param>
+        /// <param name="body">The configuration for the target index (`settings` and `aliases`).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.clone", "index, target, body")]
+        public Task<TResponse> CloneAsync<TResponse>(
+            string index,
+            string target,
+            PostData body,
+            CloneIndexRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"{index:index}/_clone/{target:target}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{index}/_close <para>https://opensearch.org/docs/latest/api-reference/index-apis/close-index/</para></summary>
+        /// <param name="index">Comma-separated list or wildcard expression of index names used to limit the request.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Close<TResponse>(
+            string index,
+            CloseIndexRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"{index:index}/_close"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{index}/_close <para>https://opensearch.org/docs/latest/api-reference/index-apis/close-index/</para></summary>
+        /// <param name="index">Comma-separated list or wildcard expression of index names used to limit the request.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.close", "index")]
+        public Task<TResponse> CloseAsync<TResponse>(
+            string index,
+            CloseIndexRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"{index:index}/_close"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /{index} <para>https://opensearch.org/docs/latest/api-reference/index-apis/create-index/</para></summary>
+        /// <param name="index">Name of the index you wish to create.</param>
+        /// <param name="body">The configuration for the index (`settings` and `mappings`).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Create<TResponse>(
+            string index,
+            PostData body,
+            CreateIndexRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"{index:index}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /{index} <para>https://opensearch.org/docs/latest/api-reference/index-apis/create-index/</para></summary>
+        /// <param name="index">Name of the index you wish to create.</param>
+        /// <param name="body">The configuration for the index (`settings` and `mappings`).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.create", "index, body")]
+        public Task<TResponse> CreateAsync<TResponse>(
+            string index,
+            PostData body,
+            CreateIndexRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"{index:index}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_data_stream/{name} <para>https://opensearch.org/docs/latest/im-plugin/data-streams/</para></summary>
+        /// <param name="name">Name of the data stream, which must meet the following criteria: Lowercase only; Cannot include `\`, `/`, `*`, `?`, `&quot;`, `&amp;lt;`, `&amp;gt;`, `|`, `,`, `#`, `:`, or a space character; Cannot start with `-`, `_`, `&#x2B;`, or `.ds-`; Cannot be `.` or `..`; Cannot be longer than 255 bytes. Multi-byte characters count towards this limit faster.</param>
+        /// <param name="body">The data stream definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse CreateDataStreamForAll<TResponse>(
+            string name,
+            PostData body,
+            CreateDataStreamRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"_data_stream/{name:name}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_data_stream/{name} <para>https://opensearch.org/docs/latest/im-plugin/data-streams/</para></summary>
+        /// <param name="name">Name of the data stream, which must meet the following criteria: Lowercase only; Cannot include `\`, `/`, `*`, `?`, `&quot;`, `&amp;lt;`, `&amp;gt;`, `|`, `,`, `#`, `:`, or a space character; Cannot start with `-`, `_`, `&#x2B;`, or `.ds-`; Cannot be `.` or `..`; Cannot be longer than 255 bytes. Multi-byte characters count towards this limit faster.</param>
+        /// <param name="body">The data stream definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.create_data_stream", "name, body")]
+        public Task<TResponse> CreateDataStreamForAllAsync<TResponse>(
+            string name,
+            PostData body,
+            CreateDataStreamRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"_data_stream/{name:name}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_data_stream/_stats <para>https://opensearch.org/docs/latest/im-plugin/data-streams/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse DataStreamsStatsForAll<TResponse>(
+            DataStreamsStatsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                "_data_stream/_stats",
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_data_stream/_stats <para>https://opensearch.org/docs/latest/im-plugin/data-streams/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.data_streams_stats", "")]
+        public Task<TResponse> DataStreamsStatsForAllAsync<TResponse>(
+            DataStreamsStatsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_data_stream/_stats",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_data_stream/{name}/_stats <para>https://opensearch.org/docs/latest/im-plugin/data-streams/</para></summary>
+        /// <param name="name">Comma-separated list of data streams used to limit the request. Wildcard expressions (`*`) are supported. To target all data streams in a cluster, omit this parameter or use `*`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse DataStreamsStatsForAll<TResponse>(
+            string name,
+            DataStreamsStatsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_data_stream/{name:name}/_stats"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_data_stream/{name}/_stats <para>https://opensearch.org/docs/latest/im-plugin/data-streams/</para></summary>
+        /// <param name="name">Comma-separated list of data streams used to limit the request. Wildcard expressions (`*`) are supported. To target all data streams in a cluster, omit this parameter or use `*`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.data_streams_stats", "name")]
+        public Task<TResponse> DataStreamsStatsForAllAsync<TResponse>(
+            string name,
+            DataStreamsStatsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_data_stream/{name:name}/_stats"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /{index} <para>https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/</para></summary>
+        /// <param name="index">Comma-separated list of indices to delete. You cannot specify index aliases. By default, this parameter does not support wildcards (`*`) or `_all`. To use wildcards or `_all`, set the `action.destructive_requires_name` cluster setting to `false`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Delete<TResponse>(
+            string index,
+            DeleteIndexRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                Url($"{index:index}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /{index} <para>https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/</para></summary>
+        /// <param name="index">Comma-separated list of indices to delete. You cannot specify index aliases. By default, this parameter does not support wildcards (`*`) or `_all`. To use wildcards or `_all`, set the `action.destructive_requires_name` cluster setting to `false`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.delete", "index")]
+        public Task<TResponse> DeleteAsync<TResponse>(
+            string index,
+            DeleteIndexRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                Url($"{index:index}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /{index}/_alias/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases</para></summary>
+        /// <param name="index">Comma-separated list of data streams or indices used to limit the request. Supports wildcards (`*`).</param>
+        /// <param name="name">Comma-separated list of aliases to remove. Supports wildcards (`*`). To remove all aliases, use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse DeleteAlias<TResponse>(
+            string index,
+            string name,
+            DeleteAliasRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                Url($"{index:index}/_alias/{name:name}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /{index}/_alias/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases</para></summary>
+        /// <param name="index">Comma-separated list of data streams or indices used to limit the request. Supports wildcards (`*`).</param>
+        /// <param name="name">Comma-separated list of aliases to remove. Supports wildcards (`*`). To remove all aliases, use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.delete_alias", "index, name")]
+        public Task<TResponse> DeleteAliasAsync<TResponse>(
+            string index,
+            string name,
+            DeleteAliasRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                Url($"{index:index}/_alias/{name:name}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_data_stream/{name} <para>https://opensearch.org/docs/latest/im-plugin/data-streams/</para></summary>
+        /// <param name="name">Comma-separated list of data streams to delete. Wildcard (`*`) expressions are supported.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse DeleteDataStreamForAll<TResponse>(
+            string name,
+            DeleteDataStreamRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                Url($"_data_stream/{name:name}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_data_stream/{name} <para>https://opensearch.org/docs/latest/im-plugin/data-streams/</para></summary>
+        /// <param name="name">Comma-separated list of data streams to delete. Wildcard (`*`) expressions are supported.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.delete_data_stream", "name")]
+        public Task<TResponse> DeleteDataStreamForAllAsync<TResponse>(
+            string name,
+            DeleteDataStreamRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                Url($"_data_stream/{name:name}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>DELETE on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
         /// <param name="name">Name of the index template to delete. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -102,6 +574,142 @@ namespace OpenSearch.Net.Specification.IndicesApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>DELETE on /_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="name">The name of the legacy index template to delete. Wildcard (`*`) expressions are supported.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse DeleteTemplateForAll<TResponse>(
+            string name,
+            DeleteIndexTemplateRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                Url($"_template/{name:name}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="name">The name of the legacy index template to delete. Wildcard (`*`) expressions are supported.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.delete_template", "name")]
+        public Task<TResponse> DeleteTemplateForAllAsync<TResponse>(
+            string name,
+            DeleteIndexTemplateRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                Url($"_template/{name:name}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>HEAD on /{index} <para>https://opensearch.org/docs/latest/api-reference/index-apis/exists/</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases. Supports wildcards (`*`).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Exists<TResponse>(
+            string index,
+            IndexExistsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                HEAD,
+                Url($"{index:index}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>HEAD on /{index} <para>https://opensearch.org/docs/latest/api-reference/index-apis/exists/</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases. Supports wildcards (`*`).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.exists", "index")]
+        public Task<TResponse> ExistsAsync<TResponse>(
+            string index,
+            IndexExistsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                HEAD,
+                Url($"{index:index}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>HEAD on /{index}/_alias/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="index">Comma-separated list of data streams or indices used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="name">Comma-separated list of aliases to check. Supports wildcards (`*`).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse AliasExists<TResponse>(
+            string index,
+            string name,
+            AliasExistsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                HEAD,
+                Url($"{index:index}/_alias/{name:name}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>HEAD on /{index}/_alias/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="index">Comma-separated list of data streams or indices used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="name">Comma-separated list of aliases to check. Supports wildcards (`*`).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.exists_alias", "index, name")]
+        public Task<TResponse> AliasExistsAsync<TResponse>(
+            string index,
+            string name,
+            AliasExistsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                HEAD,
+                Url($"{index:index}/_alias/{name:name}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>HEAD on /_alias/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="name">Comma-separated list of aliases to check. Supports wildcards (`*`).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse AliasExistsForAll<TResponse>(
+            string name,
+            AliasExistsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                HEAD,
+                Url($"_alias/{name:name}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>HEAD on /_alias/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="name">Comma-separated list of aliases to check. Supports wildcards (`*`).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.exists_alias", "name")]
+        public Task<TResponse> AliasExistsForAllAsync<TResponse>(
+            string name,
+            AliasExistsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                HEAD,
+                Url($"_alias/{name:name}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>HEAD on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
         /// <param name="name">Name of the index template to check existence of. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -130,6 +738,426 @@ namespace OpenSearch.Net.Specification.IndicesApi
             DoRequestAsync<TResponse>(
                 HEAD,
                 Url($"_index_template/{name:name}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>HEAD on /_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="name">The comma separated names of the index templates.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse TemplateExistsForAll<TResponse>(
+            string name,
+            IndexTemplateExistsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                HEAD,
+                Url($"_template/{name:name}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>HEAD on /_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="name">The comma separated names of the index templates.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.exists_template", "name")]
+        public Task<TResponse> TemplateExistsForAllAsync<TResponse>(
+            string name,
+            IndexTemplateExistsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                HEAD,
+                Url($"_template/{name:name}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_flush <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse FlushForAll<TResponse>(FlushRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(POST, "_flush", null, RequestParams(requestParameters));
+
+        /// <summary>POST on /_flush <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.flush", "")]
+        public Task<TResponse> FlushForAllAsync<TResponse>(
+            FlushRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(POST, "_flush", ctx, null, RequestParams(requestParameters));
+
+        /// <summary>POST on /{index}/_flush <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases to flush. Supports wildcards (`*`). To flush all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Flush<TResponse>(
+            string index,
+            FlushRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"{index:index}/_flush"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{index}/_flush <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases to flush. Supports wildcards (`*`). To flush all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.flush", "index")]
+        public Task<TResponse> FlushAsync<TResponse>(
+            string index,
+            FlushRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"{index:index}/_flush"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_forcemerge <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse ForceMergeForAll<TResponse>(
+            ForceMergeRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(POST, "_forcemerge", null, RequestParams(requestParameters));
+
+        /// <summary>POST on /_forcemerge <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.forcemerge", "")]
+        public Task<TResponse> ForceMergeForAllAsync<TResponse>(
+            ForceMergeRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_forcemerge",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{index}/_forcemerge <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse ForceMerge<TResponse>(
+            string index,
+            ForceMergeRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"{index:index}/_forcemerge"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{index}/_forcemerge <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.forcemerge", "index")]
+        public Task<TResponse> ForceMergeAsync<TResponse>(
+            string index,
+            ForceMergeRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"{index:index}/_forcemerge"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /{index} <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-index/</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and index aliases used to limit the request. Wildcard expressions (*) are supported.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Get<TResponse>(
+            string index,
+            GetIndexRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"{index:index}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /{index} <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-index/</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and index aliases used to limit the request. Wildcard expressions (*) are supported.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.get", "index")]
+        public Task<TResponse> GetAsync<TResponse>(
+            string index,
+            GetIndexRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"{index:index}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_alias <para>https://opensearch.org/docs/latest/im-plugin/index-alias/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse GetAliasForAll<TResponse>(
+            GetAliasRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_alias", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_alias <para>https://opensearch.org/docs/latest/im-plugin/index-alias/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.get_alias", "")]
+        public Task<TResponse> GetAliasForAllAsync<TResponse>(
+            GetAliasRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(GET, "_alias", ctx, null, RequestParams(requestParameters));
+
+        /// <summary>GET on /{index}/_alias <para>https://opensearch.org/docs/latest/im-plugin/index-alias/</para></summary>
+        /// <param name="index">Comma-separated list of data streams or indices used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse GetAlias<TResponse>(
+            string index,
+            GetAliasRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"{index:index}/_alias"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /{index}/_alias <para>https://opensearch.org/docs/latest/im-plugin/index-alias/</para></summary>
+        /// <param name="index">Comma-separated list of data streams or indices used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.get_alias", "index")]
+        public Task<TResponse> GetAliasAsync<TResponse>(
+            string index,
+            GetAliasRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"{index:index}/_alias"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /{index}/_alias/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-alias/</para></summary>
+        /// <param name="index">Comma-separated list of data streams or indices used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="name">Comma-separated list of aliases to retrieve. Supports wildcards (`*`). To retrieve all aliases, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse GetAlias<TResponse>(
+            string index,
+            string name,
+            GetAliasRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"{index:index}/_alias/{name:name}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /{index}/_alias/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-alias/</para></summary>
+        /// <param name="index">Comma-separated list of data streams or indices used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="name">Comma-separated list of aliases to retrieve. Supports wildcards (`*`). To retrieve all aliases, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.get_alias", "index, name")]
+        public Task<TResponse> GetAliasAsync<TResponse>(
+            string index,
+            string name,
+            GetAliasRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"{index:index}/_alias/{name:name}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_alias/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-alias/</para></summary>
+        /// <param name="name">Comma-separated list of aliases to retrieve. Supports wildcards (`*`). To retrieve all aliases, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse GetAliasForAll<TResponse>(
+            string name,
+            GetAliasRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_alias/{name:name}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_alias/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-alias/</para></summary>
+        /// <param name="name">Comma-separated list of aliases to retrieve. Supports wildcards (`*`). To retrieve all aliases, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.get_alias", "name")]
+        public Task<TResponse> GetAliasForAllAsync<TResponse>(
+            string name,
+            GetAliasRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_alias/{name:name}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_data_stream <para>https://opensearch.org/docs/latest/im-plugin/data-streams/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse GetDataStreamForAll<TResponse>(
+            GetDataStreamRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_data_stream", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_data_stream <para>https://opensearch.org/docs/latest/im-plugin/data-streams/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.get_data_stream", "")]
+        public Task<TResponse> GetDataStreamForAllAsync<TResponse>(
+            GetDataStreamRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_data_stream",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_data_stream/{name} <para>https://opensearch.org/docs/latest/im-plugin/data-streams/</para></summary>
+        /// <param name="name">Comma-separated list of data stream names used to limit the request. Wildcard (`*`) expressions are supported. If omitted, all data streams are returned.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse GetDataStreamForAll<TResponse>(
+            string name,
+            GetDataStreamRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_data_stream/{name:name}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_data_stream/{name} <para>https://opensearch.org/docs/latest/im-plugin/data-streams/</para></summary>
+        /// <param name="name">Comma-separated list of data stream names used to limit the request. Wildcard (`*`) expressions are supported. If omitted, all data streams are returned.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.get_data_stream", "name")]
+        public Task<TResponse> GetDataStreamForAllAsync<TResponse>(
+            string name,
+            GetDataStreamRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_data_stream/{name:name}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_mapping/field/{fields} <para>https://opensearch.org/docs/latest/field-types/index/</para></summary>
+        /// <param name="fields">Comma-separated list or wildcard expression of fields used to limit returned information.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse GetFieldMappingForAll<TResponse>(
+            string fields,
+            GetFieldMappingRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_mapping/field/{fields:fields}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_mapping/field/{fields} <para>https://opensearch.org/docs/latest/field-types/index/</para></summary>
+        /// <param name="fields">Comma-separated list or wildcard expression of fields used to limit returned information.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.get_field_mapping", "fields")]
+        public Task<TResponse> GetFieldMappingForAllAsync<TResponse>(
+            string fields,
+            GetFieldMappingRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_mapping/field/{fields:fields}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /{index}/_mapping/field/{fields} <para>https://opensearch.org/docs/latest/field-types/index/</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="fields">Comma-separated list or wildcard expression of fields used to limit returned information.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse GetFieldMapping<TResponse>(
+            string index,
+            string fields,
+            GetFieldMappingRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"{index:index}/_mapping/field/{fields:fields}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /{index}/_mapping/field/{fields} <para>https://opensearch.org/docs/latest/field-types/index/</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="fields">Comma-separated list or wildcard expression of fields used to limit returned information.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.get_field_mapping", "index, fields")]
+        public Task<TResponse> GetFieldMappingAsync<TResponse>(
+            string index,
+            string fields,
+            GetFieldMappingRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"{index:index}/_mapping/field/{fields:fields}"),
                 ctx,
                 null,
                 RequestParams(requestParameters)
@@ -192,6 +1220,462 @@ namespace OpenSearch.Net.Specification.IndicesApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>GET on /_mapping <para>https://opensearch.org/docs/latest/field-types/index/#get-a-mapping</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse GetMappingForAll<TResponse>(
+            GetMappingRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_mapping", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_mapping <para>https://opensearch.org/docs/latest/field-types/index/#get-a-mapping</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.get_mapping", "")]
+        public Task<TResponse> GetMappingForAllAsync<TResponse>(
+            GetMappingRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(GET, "_mapping", ctx, null, RequestParams(requestParameters));
+
+        /// <summary>GET on /{index}/_mapping <para>https://opensearch.org/docs/latest/field-types/index/#get-a-mapping</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse GetMapping<TResponse>(
+            string index,
+            GetMappingRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"{index:index}/_mapping"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /{index}/_mapping <para>https://opensearch.org/docs/latest/field-types/index/#get-a-mapping</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.get_mapping", "index")]
+        public Task<TResponse> GetMappingAsync<TResponse>(
+            string index,
+            GetMappingRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"{index:index}/_mapping"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_settings <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse GetSettingsForAll<TResponse>(
+            GetIndexSettingsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_settings", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_settings <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.get_settings", "")]
+        public Task<TResponse> GetSettingsForAllAsync<TResponse>(
+            GetIndexSettingsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_settings",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /{index}/_settings <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse GetSettings<TResponse>(
+            string index,
+            GetIndexSettingsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"{index:index}/_settings"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /{index}/_settings <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.get_settings", "index")]
+        public Task<TResponse> GetSettingsAsync<TResponse>(
+            string index,
+            GetIndexSettingsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"{index:index}/_settings"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /{index}/_settings/{name} <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="name">Comma-separated list or wildcard expression of settings to retrieve.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse GetSettings<TResponse>(
+            string index,
+            string name,
+            GetIndexSettingsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"{index:index}/_settings/{name:name}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /{index}/_settings/{name} <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="name">Comma-separated list or wildcard expression of settings to retrieve.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.get_settings", "index, name")]
+        public Task<TResponse> GetSettingsAsync<TResponse>(
+            string index,
+            string name,
+            GetIndexSettingsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"{index:index}/_settings/{name:name}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_settings/{name} <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</para></summary>
+        /// <param name="name">Comma-separated list or wildcard expression of settings to retrieve.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse GetSettingsForAll<TResponse>(
+            string name,
+            GetIndexSettingsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_settings/{name:name}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_settings/{name} <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</para></summary>
+        /// <param name="name">Comma-separated list or wildcard expression of settings to retrieve.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.get_settings", "name")]
+        public Task<TResponse> GetSettingsForAllAsync<TResponse>(
+            string name,
+            GetIndexSettingsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_settings/{name:name}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_template <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse GetTemplateForAll<TResponse>(
+            GetIndexTemplateRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_template", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_template <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.get_template", "")]
+        public Task<TResponse> GetTemplateForAllAsync<TResponse>(
+            GetIndexTemplateRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_template",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="name">Comma-separated list of index template names used to limit the request. Wildcard (`*`) expressions are supported. To return all index templates, omit this parameter or use a value of `_all` or `*`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse GetTemplateForAll<TResponse>(
+            string name,
+            GetIndexTemplateRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_template/{name:name}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_template/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="name">Comma-separated list of index template names used to limit the request. Wildcard (`*`) expressions are supported. To return all index templates, omit this parameter or use a value of `_all` or `*`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.get_template", "name")]
+        public Task<TResponse> GetTemplateForAllAsync<TResponse>(
+            string name,
+            GetIndexTemplateRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_template/{name:name}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_upgrade <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse GetUpgradeForAll<TResponse>(
+            GetUpgradeRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_upgrade", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_upgrade <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.get_upgrade", "")]
+        public Task<TResponse> GetUpgradeForAllAsync<TResponse>(
+            GetUpgradeRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(GET, "_upgrade", ctx, null, RequestParams(requestParameters));
+
+        /// <summary>GET on /{index}/_upgrade <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="index">Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse GetUpgrade<TResponse>(
+            string index,
+            GetUpgradeRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"{index:index}/_upgrade"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /{index}/_upgrade <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="index">Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.get_upgrade", "index")]
+        public Task<TResponse> GetUpgradeAsync<TResponse>(
+            string index,
+            GetUpgradeRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"{index:index}/_upgrade"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{index}/_open <para>https://opensearch.org/docs/latest/api-reference/index-apis/open-index/</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). By default, you must explicitly name the indices you using to limit the request. To limit a request using `_all`, `*`, or other wildcard expressions, change the `action.destructive_requires_name` setting to false. You can update this setting in the `opensearch.yml` file or using the cluster update settings API.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Open<TResponse>(
+            string index,
+            OpenIndexRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"{index:index}/_open"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{index}/_open <para>https://opensearch.org/docs/latest/api-reference/index-apis/open-index/</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). By default, you must explicitly name the indices you using to limit the request. To limit a request using `_all`, `*`, or other wildcard expressions, change the `action.destructive_requires_name` setting to false. You can update this setting in the `opensearch.yml` file or using the cluster update settings API.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.open", "index")]
+        public Task<TResponse> OpenAsync<TResponse>(
+            string index,
+            OpenIndexRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"{index:index}/_open"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_alias <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</para></summary>
+        /// <param name="body">The settings for the alias, such as `routing` or `filter`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse PutAliasForAll<TResponse>(
+            PostData body,
+            PutAliasRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(PUT, "_alias", body, RequestParams(requestParameters));
+
+        /// <summary>PUT on /_alias <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</para></summary>
+        /// <param name="body">The settings for the alias, such as `routing` or `filter`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.put_alias", "body")]
+        public Task<TResponse> PutAliasForAllAsync<TResponse>(
+            PostData body,
+            PutAliasRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(PUT, "_alias", ctx, body, RequestParams(requestParameters));
+
+        /// <summary>PUT on /{index}/_alias <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</para></summary>
+        /// <param name="index">Comma-separated list of data streams or indices to add. Supports wildcards (`*`). Wildcard patterns that match both data streams and indices return an error.</param>
+        /// <param name="body">The settings for the alias, such as `routing` or `filter`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse PutAlias<TResponse>(
+            string index,
+            PostData body,
+            PutAliasRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"{index:index}/_alias"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /{index}/_alias <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</para></summary>
+        /// <param name="index">Comma-separated list of data streams or indices to add. Supports wildcards (`*`). Wildcard patterns that match both data streams and indices return an error.</param>
+        /// <param name="body">The settings for the alias, such as `routing` or `filter`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.put_alias", "index, body")]
+        public Task<TResponse> PutAliasAsync<TResponse>(
+            string index,
+            PostData body,
+            PutAliasRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"{index:index}/_alias"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /{index}/_alias/{name} <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</para></summary>
+        /// <param name="index">Comma-separated list of data streams or indices to add. Supports wildcards (`*`). Wildcard patterns that match both data streams and indices return an error.</param>
+        /// <param name="name">Alias to update. If the alias doesn&#x27;t exist, the request creates it. Index alias names support date math.</param>
+        /// <param name="body">The settings for the alias, such as `routing` or `filter`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse PutAlias<TResponse>(
+            string index,
+            string name,
+            PostData body,
+            PutAliasRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"{index:index}/_alias/{name:name}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /{index}/_alias/{name} <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</para></summary>
+        /// <param name="index">Comma-separated list of data streams or indices to add. Supports wildcards (`*`). Wildcard patterns that match both data streams and indices return an error.</param>
+        /// <param name="name">Alias to update. If the alias doesn&#x27;t exist, the request creates it. Index alias names support date math.</param>
+        /// <param name="body">The settings for the alias, such as `routing` or `filter`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.put_alias", "index, name, body")]
+        public Task<TResponse> PutAliasAsync<TResponse>(
+            string index,
+            string name,
+            PostData body,
+            PutAliasRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"{index:index}/_alias/{name:name}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_alias/{name} <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</para></summary>
+        /// <param name="name">Alias to update. If the alias doesn&#x27;t exist, the request creates it. Index alias names support date math.</param>
+        /// <param name="body">The settings for the alias, such as `routing` or `filter`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse PutAliasForAll<TResponse>(
+            string name,
+            PostData body,
+            PutAliasRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"_alias/{name:name}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_alias/{name} <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</para></summary>
+        /// <param name="name">Alias to update. If the alias doesn&#x27;t exist, the request creates it. Index alias names support date math.</param>
+        /// <param name="body">The settings for the alias, such as `routing` or `filter`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.put_alias", "name, body")]
+        public Task<TResponse> PutAliasForAllAsync<TResponse>(
+            string name,
+            PostData body,
+            PutAliasRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"_alias/{name:name}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>PUT on /_index_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
         /// <param name="name">Index or template name.</param>
         /// <param name="body">The template definition.</param>
@@ -224,6 +1708,671 @@ namespace OpenSearch.Net.Specification.IndicesApi
             DoRequestAsync<TResponse>(
                 PUT,
                 Url($"_index_template/{name:name}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /{index}/_mapping <para>https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/</para></summary>
+        /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
+        /// <param name="body">The mapping definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse PutMapping<TResponse>(
+            string index,
+            PostData body,
+            PutMappingRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"{index:index}/_mapping"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /{index}/_mapping <para>https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/</para></summary>
+        /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
+        /// <param name="body">The mapping definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.put_mapping", "index, body")]
+        public Task<TResponse> PutMappingAsync<TResponse>(
+            string index,
+            PostData body,
+            PutMappingRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"{index:index}/_mapping"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_settings <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/</para></summary>
+        /// <param name="body">The index settings to be updated.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse UpdateSettingsForAll<TResponse>(
+            PostData body,
+            UpdateIndexSettingsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(PUT, "_settings", body, RequestParams(requestParameters));
+
+        /// <summary>PUT on /_settings <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/</para></summary>
+        /// <param name="body">The index settings to be updated.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.put_settings", "body")]
+        public Task<TResponse> UpdateSettingsForAllAsync<TResponse>(
+            PostData body,
+            UpdateIndexSettingsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                "_settings",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /{index}/_settings <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="body">The index settings to be updated.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse UpdateSettings<TResponse>(
+            string index,
+            PostData body,
+            UpdateIndexSettingsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"{index:index}/_settings"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /{index}/_settings <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="body">The index settings to be updated.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.put_settings", "index, body")]
+        public Task<TResponse> UpdateSettingsAsync<TResponse>(
+            string index,
+            PostData body,
+            UpdateIndexSettingsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"{index:index}/_settings"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
+        /// <param name="name">The name of the template.</param>
+        /// <param name="body">The template definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse PutTemplateForAll<TResponse>(
+            string name,
+            PostData body,
+            PutIndexTemplateRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"_template/{name:name}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
+        /// <param name="name">The name of the template.</param>
+        /// <param name="body">The template definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.put_template", "name, body")]
+        public Task<TResponse> PutTemplateForAllAsync<TResponse>(
+            string name,
+            PostData body,
+            PutIndexTemplateRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"_template/{name:name}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_recovery <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse RecoveryStatusForAll<TResponse>(
+            RecoveryStatusRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_recovery", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_recovery <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.recovery", "")]
+        public Task<TResponse> RecoveryStatusForAllAsync<TResponse>(
+            RecoveryStatusRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_recovery",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /{index}/_recovery <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse RecoveryStatus<TResponse>(
+            string index,
+            RecoveryStatusRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"{index:index}/_recovery"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /{index}/_recovery <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.recovery", "index")]
+        public Task<TResponse> RecoveryStatusAsync<TResponse>(
+            string index,
+            RecoveryStatusRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"{index:index}/_recovery"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_refresh <para>https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse RefreshForAll<TResponse>(RefreshRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(POST, "_refresh", null, RequestParams(requestParameters));
+
+        /// <summary>POST on /_refresh <para>https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.refresh", "")]
+        public Task<TResponse> RefreshForAllAsync<TResponse>(
+            RefreshRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_refresh",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{index}/_refresh <para>https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Refresh<TResponse>(
+            string index,
+            RefreshRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"{index:index}/_refresh"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{index}/_refresh <para>https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.refresh", "index")]
+        public Task<TResponse> RefreshAsync<TResponse>(
+            string index,
+            RefreshRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"{index:index}/_refresh"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_resolve/index/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="name">Comma-separated name(s) or index pattern(s) of the indices, aliases, and data streams to resolve. Resources on remote clusters can be specified using the `&amp;lt;cluster&amp;gt;`:`&amp;lt;name&amp;gt;` syntax.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse ResolveForAll<TResponse>(
+            string name,
+            ResolveIndexRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_resolve/index/{name:name}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_resolve/index/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="name">Comma-separated name(s) or index pattern(s) of the indices, aliases, and data streams to resolve. Resources on remote clusters can be specified using the `&amp;lt;cluster&amp;gt;`:`&amp;lt;name&amp;gt;` syntax.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.resolve_index", "name")]
+        public Task<TResponse> ResolveForAllAsync<TResponse>(
+            string name,
+            ResolveIndexRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_resolve/index/{name:name}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{alias}/_rollover <para>https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/</para></summary>
+        /// <param name="alias">Name of the data stream or index alias to roll over.</param>
+        /// <param name="body">The conditions that needs to be met for executing rollover.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse RolloverForAll<TResponse>(
+            string alias,
+            PostData body,
+            RolloverIndexRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"{alias:alias}/_rollover"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{alias}/_rollover <para>https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/</para></summary>
+        /// <param name="alias">Name of the data stream or index alias to roll over.</param>
+        /// <param name="body">The conditions that needs to be met for executing rollover.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.rollover", "alias, body")]
+        public Task<TResponse> RolloverForAllAsync<TResponse>(
+            string alias,
+            PostData body,
+            RolloverIndexRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"{alias:alias}/_rollover"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{alias}/_rollover/{new_index} <para>https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/</para></summary>
+        /// <param name="alias">Name of the data stream or index alias to roll over.</param>
+        /// <param name="newIndex">Name of the index to create. Supports date math. Data streams do not support this parameter.</param>
+        /// <param name="body">The conditions that needs to be met for executing rollover.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse RolloverForAll<TResponse>(
+            string alias,
+            string newIndex,
+            PostData body,
+            RolloverIndexRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"{alias:alias}/_rollover/{newIndex:newIndex}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{alias}/_rollover/{new_index} <para>https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/</para></summary>
+        /// <param name="alias">Name of the data stream or index alias to roll over.</param>
+        /// <param name="newIndex">Name of the index to create. Supports date math. Data streams do not support this parameter.</param>
+        /// <param name="body">The conditions that needs to be met for executing rollover.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.rollover", "alias, new_index, body")]
+        public Task<TResponse> RolloverForAllAsync<TResponse>(
+            string alias,
+            string newIndex,
+            PostData body,
+            RolloverIndexRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"{alias:alias}/_rollover/{newIndex:newIndex}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_segments <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse SegmentsForAll<TResponse>(
+            SegmentsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_segments", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_segments <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.segments", "")]
+        public Task<TResponse> SegmentsForAllAsync<TResponse>(
+            SegmentsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_segments",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /{index}/_segments <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Segments<TResponse>(
+            string index,
+            SegmentsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"{index:index}/_segments"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /{index}/_segments <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.segments", "index")]
+        public Task<TResponse> SegmentsAsync<TResponse>(
+            string index,
+            SegmentsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"{index:index}/_segments"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_shard_stores <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse ShardStoresForAll<TResponse>(
+            IndicesShardStoresRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_shard_stores", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_shard_stores <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.shard_stores", "")]
+        public Task<TResponse> ShardStoresForAllAsync<TResponse>(
+            IndicesShardStoresRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_shard_stores",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /{index}/_shard_stores <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="index">List of data streams, indices, and aliases used to limit the request.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse ShardStores<TResponse>(
+            string index,
+            IndicesShardStoresRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"{index:index}/_shard_stores"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /{index}/_shard_stores <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="index">List of data streams, indices, and aliases used to limit the request.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.shard_stores", "index")]
+        public Task<TResponse> ShardStoresAsync<TResponse>(
+            string index,
+            IndicesShardStoresRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"{index:index}/_shard_stores"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /{index}/_shrink/{target} <para>https://opensearch.org/docs/latest/api-reference/index-apis/shrink-index/</para></summary>
+        /// <param name="index">Name of the source index to shrink.</param>
+        /// <param name="target">Name of the target index to create.</param>
+        /// <param name="body">The configuration for the target index (`settings` and `aliases`).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Shrink<TResponse>(
+            string index,
+            string target,
+            PostData body,
+            ShrinkIndexRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"{index:index}/_shrink/{target:target}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /{index}/_shrink/{target} <para>https://opensearch.org/docs/latest/api-reference/index-apis/shrink-index/</para></summary>
+        /// <param name="index">Name of the source index to shrink.</param>
+        /// <param name="target">Name of the target index to create.</param>
+        /// <param name="body">The configuration for the target index (`settings` and `aliases`).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.shrink", "index, target, body")]
+        public Task<TResponse> ShrinkAsync<TResponse>(
+            string index,
+            string target,
+            PostData body,
+            ShrinkIndexRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"{index:index}/_shrink/{target:target}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_index_template/_simulate_index/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="name">Index or template name to simulate.</param>
+        /// <param name="body">New index template definition, which will be included in the simulation, as if it already exists in the system.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse SimulateIndexTemplateForAll<TResponse>(
+            string name,
+            PostData body,
+            SimulateIndexTemplateRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_index_template/_simulate_index/{name:name}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_index_template/_simulate_index/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="name">Index or template name to simulate.</param>
+        /// <param name="body">New index template definition, which will be included in the simulation, as if it already exists in the system.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.simulate_index_template", "name, body")]
+        public Task<TResponse> SimulateIndexTemplateForAllAsync<TResponse>(
+            string name,
+            PostData body,
+            SimulateIndexTemplateRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_index_template/_simulate_index/{name:name}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_index_template/_simulate <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="body">New index template definition to be simulated, if no index template name is specified.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse SimulateTemplateForAll<TResponse>(
+            PostData body,
+            SimulateTemplateRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_index_template/_simulate",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_index_template/_simulate <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="body">New index template definition to be simulated, if no index template name is specified.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.simulate_template", "body")]
+        public Task<TResponse> SimulateTemplateForAllAsync<TResponse>(
+            PostData body,
+            SimulateTemplateRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_index_template/_simulate",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_index_template/_simulate/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="name">Name of the index template to simulate. To test a template configuration before you add it to the cluster, omit this parameter and specify the template configuration in the request body.</param>
+        /// <param name="body">New index template definition to be simulated, if no index template name is specified.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse SimulateTemplateForAll<TResponse>(
+            string name,
+            PostData body,
+            SimulateTemplateRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_index_template/_simulate/{name:name}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_index_template/_simulate/{name} <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="name">Name of the index template to simulate. To test a template configuration before you add it to the cluster, omit this parameter and specify the template configuration in the request body.</param>
+        /// <param name="body">New index template definition to be simulated, if no index template name is specified.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.simulate_template", "name, body")]
+        public Task<TResponse> SimulateTemplateForAllAsync<TResponse>(
+            string name,
+            PostData body,
+            SimulateTemplateRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_index_template/_simulate/{name:name}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /{index}/_split/{target} <para>https://opensearch.org/docs/latest/api-reference/index-apis/split/</para></summary>
+        /// <param name="index">Name of the source index to split.</param>
+        /// <param name="target">Name of the target index to create.</param>
+        /// <param name="body">The configuration for the target index (`settings` and `aliases`).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Split<TResponse>(
+            string index,
+            string target,
+            PostData body,
+            SplitIndexRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"{index:index}/_split/{target:target}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /{index}/_split/{target} <para>https://opensearch.org/docs/latest/api-reference/index-apis/split/</para></summary>
+        /// <param name="index">Name of the source index to split.</param>
+        /// <param name="target">Name of the target index to create.</param>
+        /// <param name="body">The configuration for the target index (`settings` and `aliases`).</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.split", "index, target, body")]
+        public Task<TResponse> SplitAsync<TResponse>(
+            string index,
+            string target,
+            PostData body,
+            SplitIndexRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"{index:index}/_split/{target:target}"),
                 ctx,
                 body,
                 RequestParams(requestParameters)
@@ -347,6 +2496,154 @@ namespace OpenSearch.Net.Specification.IndicesApi
                 Url($"_stats/{metric:metric}"),
                 ctx,
                 null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_aliases <para>https://opensearch.org/docs/latest/api-reference/index-apis/alias/</para></summary>
+        /// <param name="body">The definition of `actions` to perform.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse BulkAliasForAll<TResponse>(
+            PostData body,
+            BulkAliasRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(POST, "_aliases", body, RequestParams(requestParameters));
+
+        /// <summary>POST on /_aliases <para>https://opensearch.org/docs/latest/api-reference/index-apis/alias/</para></summary>
+        /// <param name="body">The definition of `actions` to perform.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.update_aliases", "body")]
+        public Task<TResponse> BulkAliasForAllAsync<TResponse>(
+            PostData body,
+            BulkAliasRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_aliases",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_upgrade <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse UpgradeForAll<TResponse>(UpgradeRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(POST, "_upgrade", null, RequestParams(requestParameters));
+
+        /// <summary>POST on /_upgrade <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.upgrade", "")]
+        public Task<TResponse> UpgradeForAllAsync<TResponse>(
+            UpgradeRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_upgrade",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{index}/_upgrade <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="index">Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Upgrade<TResponse>(
+            string index,
+            UpgradeRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"{index:index}/_upgrade"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{index}/_upgrade <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="index">Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.upgrade", "index")]
+        public Task<TResponse> UpgradeAsync<TResponse>(
+            string index,
+            UpgradeRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"{index:index}/_upgrade"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_validate/query <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="body">The query definition specified with the Query DSL.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse ValidateQueryForAll<TResponse>(
+            PostData body,
+            ValidateQueryRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(POST, "_validate/query", body, RequestParams(requestParameters));
+
+        /// <summary>POST on /_validate/query <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="body">The query definition specified with the Query DSL.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.validate_query", "body")]
+        public Task<TResponse> ValidateQueryForAllAsync<TResponse>(
+            PostData body,
+            ValidateQueryRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_validate/query",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{index}/_validate/query <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases to search. Supports wildcards (`*`). To search all data streams or indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="body">The query definition specified with the Query DSL.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse ValidateQuery<TResponse>(
+            string index,
+            PostData body,
+            ValidateQueryRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"{index:index}/_validate/query"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /{index}/_validate/query <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="index">Comma-separated list of data streams, indices, and aliases to search. Supports wildcards (`*`). To search all data streams or indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="body">The query definition specified with the Query DSL.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("indices.validate_query", "index, body")]
+        public Task<TResponse> ValidateQueryAsync<TResponse>(
+            string index,
+            PostData body,
+            ValidateQueryRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"{index:index}/_validate/query"),
+                ctx,
+                body,
                 RequestParams(requestParameters)
             );
     }

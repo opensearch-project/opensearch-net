@@ -92,15 +92,6 @@ namespace OpenSearch.Net
 	}
 
 	[StringEnum]
-	public enum DefaultOperator
-	{
-		[EnumMember(Value = "AND")]
-		And,
-		[EnumMember(Value = "OR")]
-		Or
-	}
-
-	[StringEnum]
 	public enum SearchType
 	{
 		[EnumMember(Value = "query_then_fetch")]
@@ -227,7 +218,6 @@ namespace OpenSearch.Net
 		static KnownEnums()
 		{
 			AddEnumStringResolver<IndicesStatsMetric>(GetStringValue);
-			AddEnumStringResolver<DefaultOperator>(GetStringValue);
 			AddEnumStringResolver<SearchType>(GetStringValue);
 			AddEnumStringResolver<SuggestMode>(GetStringValue);
 			AddEnumStringResolver<Refresh>(GetStringValue);
@@ -285,14 +275,6 @@ namespace OpenSearch.Net
 				list.Add("recovery");
 			return string.Join(",", list);
 		}
-
-		public static string GetStringValue(this DefaultOperator enumValue) =>
-			enumValue switch
-			{
-				DefaultOperator.And => "AND",
-				DefaultOperator.Or => "OR",
-				_ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'DefaultOperator'")
-			};
 
 		public static string GetStringValue(this SearchType enumValue) =>
 			enumValue switch

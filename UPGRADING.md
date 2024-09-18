@@ -77,6 +77,15 @@
 #### Features Namespace
 - The entire `Features` API namespace has been removed, there is no migration path as it was never supported by OpenSearch.
 
+#### Indices.AddBlock Action
+- The `block` parameter has been changed from a `string` to an `IndexApiBlock` enum.
+
+#### Indices.Analyze Action
+- The `IndexQueryString` parameter has been renamed to simply `Index`
+
+#### Indices.ClearCache Action
+- The `IndexQueryString` parameter has been renamed to simply `Index`
+
 #### Indices.DeleteTemplateV2 Action
 - This action has been removed in favour of the more descriptively named and typed `Indices.DeleteComposableTemplate` action.
 
@@ -90,6 +99,9 @@
 
 #### Indices.PutTemplateV2 Action
 - This action has been removed in favour of the more descriptively named and typed `Indices.PutComposableTemplate` action.
+
+#### Indices.ShardStores Action
+- The `Status` parameter now takes an `IndicesShardStoresShardStoreStatus` flag enum instead of a `string` array.
 
 #### Nodes.HotThreads Action
 - The `ThreadType` parameter has been renamed to just `Type` to match the query parameter it represents. Its corresponding `ThreadType` enum has been renamed to `NodesSampleType`.

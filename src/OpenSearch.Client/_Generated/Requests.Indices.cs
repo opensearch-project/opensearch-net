@@ -59,6 +59,628 @@ using OpenSearch.Net.Utf8Json;
 namespace OpenSearch.Client
 {
     [InterfaceDataContract]
+    public partial interface IAddIndexBlockRequest : IRequest<AddIndexBlockRequestParameters>
+    {
+        [IgnoreDataMember]
+        IndexBlock Block { get; }
+
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    /// <summary>Request for AddBlock <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class AddIndexBlockRequest
+        : PlainRequestBase<AddIndexBlockRequestParameters>,
+            IAddIndexBlockRequest
+    {
+        protected IAddIndexBlockRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesAddBlock;
+
+        /// <summary>/{index}/_block/{block}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="block">this parameter is required</param>
+        public AddIndexBlockRequest(Indices index, IndexBlock block)
+            : base(r => r.Required("index", index).Required("block", block)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected AddIndexBlockRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        IndexBlock IAddIndexBlockRequest.Block => Self.RouteValues.Get<IndexBlock>("block");
+
+        [IgnoreDataMember]
+        Indices IAddIndexBlockRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have
+        /// been specified).
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed).</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>Specify timeout for connection to master.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Explicit operation timeout.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IAnalyzeRequest : IRequest<AnalyzeRequestParameters>
+    {
+        [IgnoreDataMember]
+        IndexName Index { get; }
+    }
+
+    /// <summary>Request for Analyze <para>https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/</para></summary>
+    public partial class AnalyzeRequest
+        : PlainRequestBase<AnalyzeRequestParameters>,
+            IAnalyzeRequest
+    {
+        protected IAnalyzeRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesAnalyze;
+
+        /// <summary>/_analyze</summary>
+        public AnalyzeRequest()
+            : base() { }
+
+        /// <summary>/{index}/_analyze</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public AnalyzeRequest(IndexName index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        IndexName IAnalyzeRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        // Request parameters
+    }
+
+    [InterfaceDataContract]
+    public partial interface IClearCacheRequest : IRequest<ClearCacheRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    /// <summary>Request for ClearCache <para>https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</para></summary>
+    public partial class ClearCacheRequest
+        : PlainRequestBase<ClearCacheRequestParameters>,
+            IClearCacheRequest
+    {
+        protected IClearCacheRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesClearCache;
+
+        /// <summary>/_cache/clear</summary>
+        public ClearCacheRequest()
+            : base() { }
+
+        /// <summary>/{index}/_cache/clear</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public ClearCacheRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IClearCacheRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `true`, clears the fields cache. Use the `fields` parameter to clear the cache of specific fields only.</summary>
+        public bool? Fielddata
+        {
+            get => Q<bool?>("fielddata");
+            set => Q("fielddata", value);
+        }
+
+        /// <summary>Comma-separated list of field names used to limit the `fielddata` parameter.</summary>
+        public Fields Fields
+        {
+            get => Q<Fields>("fields");
+            set => Q("fields", value);
+        }
+
+        /// <summary>If true, clears the unused entries from the file cache on nodes with the Search role.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.8.0 or greater.</remarks>
+        public bool? File
+        {
+            get => Q<bool?>("file");
+            set => Q("file", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>If `true`, clears the query cache.</summary>
+        public bool? Query
+        {
+            get => Q<bool?>("query");
+            set => Q("query", value);
+        }
+
+        /// <summary>If `true`, clears the request cache.</summary>
+        public bool? Request
+        {
+            get => Q<bool?>("request");
+            set => Q("request", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface ICloneIndexRequest : IRequest<CloneIndexRequestParameters>
+    {
+        [IgnoreDataMember]
+        IndexName Index { get; }
+
+        [IgnoreDataMember]
+        IndexName Target { get; }
+    }
+
+    /// <summary>Request for Clone <para>https://opensearch.org/docs/latest/api-reference/index-apis/clone/</para></summary>
+    public partial class CloneIndexRequest
+        : PlainRequestBase<CloneIndexRequestParameters>,
+            ICloneIndexRequest
+    {
+        protected ICloneIndexRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesClone;
+
+        /// <summary>/{index}/_clone/{target}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="target">this parameter is required</param>
+        public CloneIndexRequest(IndexName index, IndexName target)
+            : base(r => r.Required("index", index).Required("target", target)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected CloneIndexRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        IndexName ICloneIndexRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        [IgnoreDataMember]
+        IndexName ICloneIndexRequest.Target => Self.RouteValues.Get<IndexName>("target");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Explicit task execution timeout, only useful when wait_for_completion is false, defaults to 1h.</summary>
+        public Time TaskExecutionTimeout
+        {
+            get => Q<Time>("task_execution_timeout");
+            set => Q("task_execution_timeout", value);
+        }
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+
+        /// <summary>Should this request wait until the operation has completed before returning.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
+        public bool? WaitForCompletion
+        {
+            get => Q<bool?>("wait_for_completion");
+            set => Q("wait_for_completion", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface ICloseIndexRequest : IRequest<CloseIndexRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    /// <summary>Request for Close <para>https://opensearch.org/docs/latest/api-reference/index-apis/close-index/</para></summary>
+    public partial class CloseIndexRequest
+        : PlainRequestBase<CloseIndexRequestParameters>,
+            ICloseIndexRequest
+    {
+        protected ICloseIndexRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesClose;
+
+        /// <summary>/{index}/_close</summary>
+        /// <param name="index">this parameter is required</param>
+        public CloseIndexRequest(Indices index)
+            : base(r => r.Required("index", index)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected CloseIndexRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices ICloseIndexRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface ICreateIndexRequest : IRequest<CreateIndexRequestParameters>
+    {
+        [IgnoreDataMember]
+        IndexName Index { get; }
+    }
+
+    /// <summary>Request for Create <para>https://opensearch.org/docs/latest/api-reference/index-apis/create-index/</para></summary>
+    public partial class CreateIndexRequest
+        : PlainRequestBase<CreateIndexRequestParameters>,
+            ICreateIndexRequest
+    {
+        protected ICreateIndexRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesCreate;
+
+        /// <summary>/{index}</summary>
+        /// <param name="index">this parameter is required</param>
+        public CreateIndexRequest(IndexName index)
+            : base(r => r.Required("index", index)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected CreateIndexRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        IndexName ICreateIndexRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IDeleteIndexRequest : IRequest<DeleteIndexRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    /// <summary>Request for Delete <para>https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/</para></summary>
+    public partial class DeleteIndexRequest
+        : PlainRequestBase<DeleteIndexRequestParameters>,
+            IDeleteIndexRequest
+    {
+        protected IDeleteIndexRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesDelete;
+
+        /// <summary>/{index}</summary>
+        /// <param name="index">this parameter is required</param>
+        public DeleteIndexRequest(Indices index)
+            : base(r => r.Required("index", index)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected DeleteIndexRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IDeleteIndexRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IDeleteAliasRequest : IRequest<DeleteAliasRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+
+        [IgnoreDataMember]
+        Names Name { get; }
+    }
+
+    /// <summary>Request for DeleteAlias <para>https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases</para></summary>
+    public partial class DeleteAliasRequest
+        : PlainRequestBase<DeleteAliasRequestParameters>,
+            IDeleteAliasRequest
+    {
+        protected IDeleteAliasRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesDeleteAlias;
+
+        /// <summary>/{index}/_alias/{name}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="name">this parameter is required</param>
+        public DeleteAliasRequest(Indices index, Names name)
+            : base(r => r.Required("index", index).Required("name", name)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected DeleteAliasRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IDeleteAliasRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        [IgnoreDataMember]
+        Names IDeleteAliasRequest.Name => Self.RouteValues.Get<Names>("name");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
     public partial interface IDeleteComposableIndexTemplateRequest
         : IRequest<DeleteComposableIndexTemplateRequestParameters>
     {
@@ -115,6 +737,232 @@ namespace OpenSearch.Client
         {
             get => Q<Time>("timeout");
             set => Q("timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IDeleteIndexTemplateRequest
+        : IRequest<DeleteIndexTemplateRequestParameters>
+    {
+        [IgnoreDataMember]
+        Name Name { get; }
+    }
+
+    /// <summary>Request for DeleteTemplate <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class DeleteIndexTemplateRequest
+        : PlainRequestBase<DeleteIndexTemplateRequestParameters>,
+            IDeleteIndexTemplateRequest
+    {
+        protected IDeleteIndexTemplateRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesDeleteTemplate;
+
+        /// <summary>/_template/{name}</summary>
+        /// <param name="name">this parameter is required</param>
+        public DeleteIndexTemplateRequest(Name name)
+            : base(r => r.Required("name", name)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected DeleteIndexTemplateRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Name IDeleteIndexTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IIndexExistsRequest : IRequest<IndexExistsRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    /// <summary>Request for Exists <para>https://opensearch.org/docs/latest/api-reference/index-apis/exists/</para></summary>
+    public partial class IndexExistsRequest
+        : PlainRequestBase<IndexExistsRequestParameters>,
+            IIndexExistsRequest
+    {
+        protected IIndexExistsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesExists;
+
+        /// <summary>/{index}</summary>
+        /// <param name="index">this parameter is required</param>
+        public IndexExistsRequest(Indices index)
+            : base(r => r.Required("index", index)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected IndexExistsRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IIndexExistsRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `true`, returns settings in flat format.</summary>
+        public bool? FlatSettings
+        {
+            get => Q<bool?>("flat_settings");
+            set => Q("flat_settings", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>If `true`, return all default settings in the response.</summary>
+        public bool? IncludeDefaults
+        {
+            get => Q<bool?>("include_defaults");
+            set => Q("include_defaults", value);
+        }
+
+        /// <summary>If `true`, the request retrieves information from the local node only.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IAliasExistsRequest : IRequest<AliasExistsRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+
+        [IgnoreDataMember]
+        Names Name { get; }
+    }
+
+    /// <summary>Request for AliasExists <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class AliasExistsRequest
+        : PlainRequestBase<AliasExistsRequestParameters>,
+            IAliasExistsRequest
+    {
+        protected IAliasExistsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesAliasExists;
+
+        /// <summary>/{index}/_alias/{name}</summary>
+        /// <param name="index">Optional, accepts null</param>
+        /// <param name="name">this parameter is required</param>
+        public AliasExistsRequest(Indices index, Names name)
+            : base(r => r.Optional("index", index).Required("name", name)) { }
+
+        /// <summary>/_alias/{name}</summary>
+        /// <param name="name">this parameter is required</param>
+        public AliasExistsRequest(Names name)
+            : base(r => r.Required("name", name)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected AliasExistsRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IAliasExistsRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        [IgnoreDataMember]
+        Names IAliasExistsRequest.Name => Self.RouteValues.Get<Names>("name");
+
+        // Request parameters
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `false`, requests that include a missing data stream or index in the target indices or data streams return an error.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>If `true`, the request retrieves information from the local node only.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
         }
     }
 
@@ -182,6 +1030,508 @@ namespace OpenSearch.Client
         {
             get => Q<Time>("master_timeout");
             set => Q("master_timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IIndexTemplateExistsRequest
+        : IRequest<IndexTemplateExistsRequestParameters>
+    {
+        [IgnoreDataMember]
+        Names Name { get; }
+    }
+
+    /// <summary>Request for TemplateExists <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class IndexTemplateExistsRequest
+        : PlainRequestBase<IndexTemplateExistsRequestParameters>,
+            IIndexTemplateExistsRequest
+    {
+        protected IIndexTemplateExistsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesTemplateExists;
+
+        /// <summary>/_template/{name}</summary>
+        /// <param name="name">this parameter is required</param>
+        public IndexTemplateExistsRequest(Names name)
+            : base(r => r.Required("name", name)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected IndexTemplateExistsRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Names IIndexTemplateExistsRequest.Name => Self.RouteValues.Get<Names>("name");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>Return settings in flat format.</summary>
+        public bool? FlatSettings
+        {
+            get => Q<bool?>("flat_settings");
+            set => Q("flat_settings", value);
+        }
+
+        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        /// <summary>Explicit operation timeout for connection to master node.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IFlushRequest : IRequest<FlushRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    /// <summary>Request for Flush <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class FlushRequest : PlainRequestBase<FlushRequestParameters>, IFlushRequest
+    {
+        protected IFlushRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesFlush;
+
+        /// <summary>/_flush</summary>
+        public FlushRequest()
+            : base() { }
+
+        /// <summary>/{index}/_flush</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public FlushRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IFlushRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `true`, the request forces a flush even if there are no changes to commit to the index.</summary>
+        public bool? Force
+        {
+            get => Q<bool?>("force");
+            set => Q("force", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>
+        /// If `true`, the flush operation blocks until execution when another flush operation is running. If `false`, OpenSearch returns an error if
+        /// you request a flush when another flush operation is running.
+        /// </summary>
+        public bool? WaitIfOngoing
+        {
+            get => Q<bool?>("wait_if_ongoing");
+            set => Q("wait_if_ongoing", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IForceMergeRequest : IRequest<ForceMergeRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    /// <summary>Request for ForceMerge <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class ForceMergeRequest
+        : PlainRequestBase<ForceMergeRequestParameters>,
+            IForceMergeRequest
+    {
+        protected IForceMergeRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesForceMerge;
+
+        /// <summary>/_forcemerge</summary>
+        public ForceMergeRequest()
+            : base() { }
+
+        /// <summary>/{index}/_forcemerge</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public ForceMergeRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IForceMergeRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have
+        /// been specified).
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>Specify whether the index should be flushed after performing the operation.</summary>
+        public bool? Flush
+        {
+            get => Q<bool?>("flush");
+            set => Q("flush", value);
+        }
+
+        /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed).</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>
+        /// The number of larger segments into which smaller segments are merged. Set this parameter to 1 to merge all segments into one segment. The
+        /// default behavior is to perform the merge as necessary.
+        /// </summary>
+        public long? MaxNumSegments
+        {
+            get => Q<long?>("max_num_segments");
+            set => Q("max_num_segments", value);
+        }
+
+        /// <summary>Specify whether the operation should only expunge deleted documents.</summary>
+        public bool? OnlyExpungeDeletes
+        {
+            get => Q<bool?>("only_expunge_deletes");
+            set => Q("only_expunge_deletes", value);
+        }
+
+        /// <summary>Specify whether the operation should only perform on primary shards. Defaults to false.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.13.0 or greater.</remarks>
+        public bool? PrimaryOnly
+        {
+            get => Q<bool?>("primary_only");
+            set => Q("primary_only", value);
+        }
+
+        /// <summary>Should the request wait until the force merge is completed.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
+        public bool? WaitForCompletion
+        {
+            get => Q<bool?>("wait_for_completion");
+            set => Q("wait_for_completion", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IGetIndexRequest : IRequest<GetIndexRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    /// <summary>Request for Get <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-index/</para></summary>
+    public partial class GetIndexRequest
+        : PlainRequestBase<GetIndexRequestParameters>,
+            IGetIndexRequest
+    {
+        protected IGetIndexRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesGet;
+
+        /// <summary>/{index}</summary>
+        /// <param name="index">this parameter is required</param>
+        public GetIndexRequest(Indices index)
+            : base(r => r.Required("index", index)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected GetIndexRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IGetIndexRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// If false, the request returns an error if any wildcard expression, index alias, or _all value targets only missing or closed indices. This
+        /// behavior applies even if the request targets other open indices. For example, a request targeting foo*,bar* returns an error if an index
+        /// starts with foo but no index starts with bar.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard expressions can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as open,hidden.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If true, returns settings in flat format.</summary>
+        public bool? FlatSettings
+        {
+            get => Q<bool?>("flat_settings");
+            set => Q("flat_settings", value);
+        }
+
+        /// <summary>If false, requests that target a missing index return an error.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>If true, return all default settings in the response.</summary>
+        public bool? IncludeDefaults
+        {
+            get => Q<bool?>("include_defaults");
+            set => Q("include_defaults", value);
+        }
+
+        /// <summary>
+        /// If true, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the
+        /// master node.
+        /// </summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IGetAliasRequest : IRequest<GetAliasRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+
+        [IgnoreDataMember]
+        Names Name { get; }
+    }
+
+    /// <summary>Request for GetAlias <para>https://opensearch.org/docs/latest/im-plugin/index-alias/</para></summary>
+    public partial class GetAliasRequest
+        : PlainRequestBase<GetAliasRequestParameters>,
+            IGetAliasRequest
+    {
+        protected IGetAliasRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesGetAlias;
+
+        /// <summary>/_alias</summary>
+        public GetAliasRequest()
+            : base() { }
+
+        /// <summary>/{index}/_alias</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public GetAliasRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        /// <summary>/{index}/_alias/{name}</summary>
+        /// <param name="index">Optional, accepts null</param>
+        /// <param name="name">Optional, accepts null</param>
+        public GetAliasRequest(Indices index, Names name)
+            : base(r => r.Optional("index", index).Optional("name", name)) { }
+
+        /// <summary>/_alias/{name}</summary>
+        /// <param name="name">Optional, accepts null</param>
+        public GetAliasRequest(Names name)
+            : base(r => r.Optional("name", name)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IGetAliasRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        [IgnoreDataMember]
+        Names IGetAliasRequest.Name => Self.RouteValues.Get<Names>("name");
+
+        // Request parameters
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>If `true`, the request retrieves information from the local node only.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IGetFieldMappingRequest : IRequest<GetFieldMappingRequestParameters>
+    {
+        [IgnoreDataMember]
+        Fields Fields { get; }
+
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    /// <summary>Request for GetFieldMapping <para>https://opensearch.org/docs/latest/field-types/index/</para></summary>
+    public partial class GetFieldMappingRequest
+        : PlainRequestBase<GetFieldMappingRequestParameters>,
+            IGetFieldMappingRequest
+    {
+        protected IGetFieldMappingRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesGetFieldMapping;
+
+        /// <summary>/_mapping/field/{fields}</summary>
+        /// <param name="fields">this parameter is required</param>
+        public GetFieldMappingRequest(Fields fields)
+            : base(r => r.Required("fields", fields)) { }
+
+        /// <summary>/{index}/_mapping/field/{fields}</summary>
+        /// <param name="index">Optional, accepts null</param>
+        /// <param name="fields">this parameter is required</param>
+        public GetFieldMappingRequest(Indices index, Fields fields)
+            : base(r => r.Optional("index", index).Required("fields", fields)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected GetFieldMappingRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Fields IGetFieldMappingRequest.Fields => Self.RouteValues.Get<Fields>("fields");
+
+        [IgnoreDataMember]
+        Indices IGetFieldMappingRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>If `true`, return all default settings in the response.</summary>
+        public bool? IncludeDefaults
+        {
+            get => Q<bool?>("include_defaults");
+            set => Q("include_defaults", value);
+        }
+
+        /// <summary>If `true`, the request retrieves information from the local node only.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
         }
     }
 
@@ -255,6 +1605,461 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
+    public partial interface IGetMappingRequest : IRequest<GetMappingRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    /// <summary>Request for GetMapping <para>https://opensearch.org/docs/latest/field-types/index/#get-a-mapping</para></summary>
+    public partial class GetMappingRequest
+        : PlainRequestBase<GetMappingRequestParameters>,
+            IGetMappingRequest
+    {
+        protected IGetMappingRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesGetMapping;
+
+        /// <summary>/_mapping</summary>
+        public GetMappingRequest()
+            : base() { }
+
+        /// <summary>/{index}/_mapping</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public GetMappingRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IGetMappingRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>If `true`, the request retrieves information from the local node only.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IGetIndexSettingsRequest : IRequest<GetIndexSettingsRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+
+        [IgnoreDataMember]
+        Names Name { get; }
+    }
+
+    /// <summary>Request for GetSettings <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</para></summary>
+    public partial class GetIndexSettingsRequest
+        : PlainRequestBase<GetIndexSettingsRequestParameters>,
+            IGetIndexSettingsRequest
+    {
+        protected IGetIndexSettingsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesGetSettings;
+
+        /// <summary>/_settings</summary>
+        public GetIndexSettingsRequest()
+            : base() { }
+
+        /// <summary>/{index}/_settings</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public GetIndexSettingsRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        /// <summary>/{index}/_settings/{name}</summary>
+        /// <param name="index">Optional, accepts null</param>
+        /// <param name="name">Optional, accepts null</param>
+        public GetIndexSettingsRequest(Indices index, Names name)
+            : base(r => r.Optional("index", index).Optional("name", name)) { }
+
+        /// <summary>/_settings/{name}</summary>
+        /// <param name="name">Optional, accepts null</param>
+        public GetIndexSettingsRequest(Names name)
+            : base(r => r.Optional("name", name)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IGetIndexSettingsRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        [IgnoreDataMember]
+        Names IGetIndexSettingsRequest.Name => Self.RouteValues.Get<Names>("name");
+
+        // Request parameters
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// index starts with foo but no index starts with `bar`.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `true`, returns settings in flat format.</summary>
+        public bool? FlatSettings
+        {
+            get => Q<bool?>("flat_settings");
+            set => Q("flat_settings", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>If `true`, return all default settings in the response.</summary>
+        public bool? IncludeDefaults
+        {
+            get => Q<bool?>("include_defaults");
+            set => Q("include_defaults", value);
+        }
+
+        /// <summary>If `true`, the request retrieves information from the local node only. If `false`, information is retrieved from the master node.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IGetIndexTemplateRequest : IRequest<GetIndexTemplateRequestParameters>
+    {
+        [IgnoreDataMember]
+        Names Name { get; }
+    }
+
+    /// <summary>Request for GetTemplate <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class GetIndexTemplateRequest
+        : PlainRequestBase<GetIndexTemplateRequestParameters>,
+            IGetIndexTemplateRequest
+    {
+        protected IGetIndexTemplateRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesGetTemplate;
+
+        /// <summary>/_template</summary>
+        public GetIndexTemplateRequest()
+            : base() { }
+
+        /// <summary>/_template/{name}</summary>
+        /// <param name="name">Optional, accepts null</param>
+        public GetIndexTemplateRequest(Names name)
+            : base(r => r.Optional("name", name)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Names IGetIndexTemplateRequest.Name => Self.RouteValues.Get<Names>("name");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>If `true`, returns settings in flat format.</summary>
+        public bool? FlatSettings
+        {
+            get => Q<bool?>("flat_settings");
+            set => Q("flat_settings", value);
+        }
+
+        /// <summary>If `true`, the request retrieves information from the local node only.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IOpenIndexRequest : IRequest<OpenIndexRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    /// <summary>Request for Open <para>https://opensearch.org/docs/latest/api-reference/index-apis/open-index/</para></summary>
+    public partial class OpenIndexRequest
+        : PlainRequestBase<OpenIndexRequestParameters>,
+            IOpenIndexRequest
+    {
+        protected IOpenIndexRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesOpen;
+
+        /// <summary>/{index}/_open</summary>
+        /// <param name="index">this parameter is required</param>
+        public OpenIndexRequest(Indices index)
+            : base(r => r.Required("index", index)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected OpenIndexRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IOpenIndexRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Explicit task execution timeout, only useful when wait_for_completion is false, defaults to 1h.</summary>
+        public Time TaskExecutionTimeout
+        {
+            get => Q<Time>("task_execution_timeout");
+            set => Q("task_execution_timeout", value);
+        }
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+
+        /// <summary>Should this request wait until the operation has completed before returning.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
+        public bool? WaitForCompletion
+        {
+            get => Q<bool?>("wait_for_completion");
+            set => Q("wait_for_completion", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IPutAliasRequest : IRequest<PutAliasRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+
+        [IgnoreDataMember]
+        Name Name { get; }
+    }
+
+    /// <summary>Request for PutAlias <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</para></summary>
+    public partial class PutAliasRequest
+        : PlainRequestBase<PutAliasRequestParameters>,
+            IPutAliasRequest
+    {
+        protected IPutAliasRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesPutAlias;
+
+        /// <summary>/_alias</summary>
+        public PutAliasRequest()
+            : base() { }
+
+        /// <summary>/{index}/_alias</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public PutAliasRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        /// <summary>/{index}/_alias/{name}</summary>
+        /// <param name="index">Optional, accepts null</param>
+        /// <param name="name">Optional, accepts null</param>
+        public PutAliasRequest(Indices index, Name name)
+            : base(r => r.Optional("index", index).Optional("name", name)) { }
+
+        /// <summary>/_alias/{name}</summary>
+        /// <param name="name">Optional, accepts null</param>
+        public PutAliasRequest(Name name)
+            : base(r => r.Optional("name", name)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IPutAliasRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        [IgnoreDataMember]
+        Name IPutAliasRequest.Name => Self.RouteValues.Get<Name>("name");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
     public partial interface IPutComposableIndexTemplateRequest
         : IRequest<PutComposableIndexTemplateRequestParameters>
     {
@@ -315,6 +2120,648 @@ namespace OpenSearch.Client
         {
             get => Q<Time>("master_timeout");
             set => Q("master_timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IPutMappingRequest : IRequest<PutMappingRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    public partial interface IPutMappingRequest<TDocument> : IPutMappingRequest { }
+
+    /// <summary>Request for PutMapping <para>https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/</para></summary>
+    public partial class PutMappingRequest
+        : PlainRequestBase<PutMappingRequestParameters>,
+            IPutMappingRequest
+    {
+        protected IPutMappingRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesPutMapping;
+
+        /// <summary>/{index}/_mapping</summary>
+        /// <param name="index">this parameter is required</param>
+        public PutMappingRequest(Indices index)
+            : base(r => r.Required("index", index)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected PutMappingRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IPutMappingRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>If `true`, the mappings are applied only to the current write index for the target.</summary>
+        public bool? WriteIndexOnly
+        {
+            get => Q<bool?>("write_index_only");
+            set => Q("write_index_only", value);
+        }
+    }
+
+    public partial class PutMappingRequest<TDocument>
+        : PutMappingRequest,
+            IPutMappingRequest<TDocument>
+    {
+        protected IPutMappingRequest<TDocument> TypedSelf => this;
+
+        /// <summary>/{index}/_mapping</summary>
+        /// <param name="index">this parameter is required</param>
+        public PutMappingRequest(Indices index)
+            : base(index) { }
+
+        /// <summary>/{index}/_mapping</summary>
+        public PutMappingRequest()
+            : base(typeof(TDocument)) { }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IUpdateIndexSettingsRequest
+        : IRequest<UpdateIndexSettingsRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    /// <summary>Request for UpdateSettings <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/</para></summary>
+    public partial class UpdateIndexSettingsRequest
+        : PlainRequestBase<UpdateIndexSettingsRequestParameters>,
+            IUpdateIndexSettingsRequest
+    {
+        protected IUpdateIndexSettingsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesUpdateSettings;
+
+        /// <summary>/_settings</summary>
+        public UpdateIndexSettingsRequest()
+            : base() { }
+
+        /// <summary>/{index}/_settings</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public UpdateIndexSettingsRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IUpdateIndexSettingsRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// index starts with `foo` but no index starts with `bar`.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `true`, returns settings in flat format.</summary>
+        public bool? FlatSettings
+        {
+            get => Q<bool?>("flat_settings");
+            set => Q("flat_settings", value);
+        }
+
+        /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed).</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>If `true`, existing index settings remain unchanged.</summary>
+        public bool? PreserveExisting
+        {
+            get => Q<bool?>("preserve_existing");
+            set => Q("preserve_existing", value);
+        }
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IPutIndexTemplateRequest : IRequest<PutIndexTemplateRequestParameters>
+    {
+        [IgnoreDataMember]
+        Name Name { get; }
+    }
+
+    /// <summary>Request for PutTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
+    public partial class PutIndexTemplateRequest
+        : PlainRequestBase<PutIndexTemplateRequestParameters>,
+            IPutIndexTemplateRequest
+    {
+        protected IPutIndexTemplateRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesPutTemplate;
+
+        /// <summary>/_template/{name}</summary>
+        /// <param name="name">this parameter is required</param>
+        public PutIndexTemplateRequest(Name name)
+            : base(r => r.Required("name", name)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected PutIndexTemplateRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Name IPutIndexTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>If true, this request cannot replace or update existing index templates.</summary>
+        public bool? Create
+        {
+            get => Q<bool?>("create");
+            set => Q("create", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IRefreshRequest : IRequest<RefreshRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    /// <summary>Request for Refresh <para>https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability</para></summary>
+    public partial class RefreshRequest
+        : PlainRequestBase<RefreshRequestParameters>,
+            IRefreshRequest
+    {
+        protected IRefreshRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesRefresh;
+
+        /// <summary>/_refresh</summary>
+        public RefreshRequest()
+            : base() { }
+
+        /// <summary>/{index}/_refresh</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public RefreshRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IRefreshRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IResolveIndexRequest : IRequest<ResolveIndexRequestParameters>
+    {
+        [IgnoreDataMember]
+        Names Name { get; }
+    }
+
+    /// <summary>Request for Resolve <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class ResolveIndexRequest
+        : PlainRequestBase<ResolveIndexRequestParameters>,
+            IResolveIndexRequest
+    {
+        protected IResolveIndexRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesResolve;
+
+        /// <summary>/_resolve/index/{name}</summary>
+        /// <param name="name">this parameter is required</param>
+        public ResolveIndexRequest(Names name)
+            : base(r => r.Required("name", name)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected ResolveIndexRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Names IResolveIndexRequest.Name => Self.RouteValues.Get<Names>("name");
+
+        // Request parameters
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IRolloverIndexRequest : IRequest<RolloverIndexRequestParameters>
+    {
+        [IgnoreDataMember]
+        Name Alias { get; }
+
+        [IgnoreDataMember]
+        IndexName NewIndex { get; }
+    }
+
+    /// <summary>Request for Rollover <para>https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/</para></summary>
+    public partial class RolloverIndexRequest
+        : PlainRequestBase<RolloverIndexRequestParameters>,
+            IRolloverIndexRequest
+    {
+        protected IRolloverIndexRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesRollover;
+
+        /// <summary>/{alias}/_rollover</summary>
+        /// <param name="alias">this parameter is required</param>
+        public RolloverIndexRequest(Name alias)
+            : base(r => r.Required("alias", alias)) { }
+
+        /// <summary>/{alias}/_rollover/{new_index}</summary>
+        /// <param name="alias">this parameter is required</param>
+        /// <param name="newIndex">Optional, accepts null</param>
+        public RolloverIndexRequest(Name alias, IndexName newIndex)
+            : base(r => r.Required("alias", alias).Optional("new_index", newIndex)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected RolloverIndexRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Name IRolloverIndexRequest.Alias => Self.RouteValues.Get<Name>("alias");
+
+        [IgnoreDataMember]
+        IndexName IRolloverIndexRequest.NewIndex => Self.RouteValues.Get<IndexName>("new_index");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>If `true`, checks whether the current index satisfies the specified conditions but does not perform a rollover.</summary>
+        public bool? DryRun
+        {
+            get => Q<bool?>("dry_run");
+            set => Q("dry_run", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to all or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IShrinkIndexRequest : IRequest<ShrinkIndexRequestParameters>
+    {
+        [IgnoreDataMember]
+        IndexName Index { get; }
+
+        [IgnoreDataMember]
+        IndexName Target { get; }
+    }
+
+    /// <summary>Request for Shrink <para>https://opensearch.org/docs/latest/api-reference/index-apis/shrink-index/</para></summary>
+    public partial class ShrinkIndexRequest
+        : PlainRequestBase<ShrinkIndexRequestParameters>,
+            IShrinkIndexRequest
+    {
+        protected IShrinkIndexRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesShrink;
+
+        /// <summary>/{index}/_shrink/{target}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="target">this parameter is required</param>
+        public ShrinkIndexRequest(IndexName index, IndexName target)
+            : base(r => r.Required("index", index).Required("target", target)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected ShrinkIndexRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        IndexName IShrinkIndexRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        [IgnoreDataMember]
+        IndexName IShrinkIndexRequest.Target => Self.RouteValues.Get<IndexName>("target");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Explicit task execution timeout, only useful when wait_for_completion is false, defaults to 1h.</summary>
+        public Time TaskExecutionTimeout
+        {
+            get => Q<Time>("task_execution_timeout");
+            set => Q("task_execution_timeout", value);
+        }
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+
+        /// <summary>Should this request wait until the operation has completed before returning.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
+        public bool? WaitForCompletion
+        {
+            get => Q<bool?>("wait_for_completion");
+            set => Q("wait_for_completion", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface ISplitIndexRequest : IRequest<SplitIndexRequestParameters>
+    {
+        [IgnoreDataMember]
+        IndexName Index { get; }
+
+        [IgnoreDataMember]
+        IndexName Target { get; }
+    }
+
+    /// <summary>Request for Split <para>https://opensearch.org/docs/latest/api-reference/index-apis/split/</para></summary>
+    public partial class SplitIndexRequest
+        : PlainRequestBase<SplitIndexRequestParameters>,
+            ISplitIndexRequest
+    {
+        protected ISplitIndexRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesSplit;
+
+        /// <summary>/{index}/_split/{target}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="target">this parameter is required</param>
+        public SplitIndexRequest(IndexName index, IndexName target)
+            : base(r => r.Required("index", index).Required("target", target)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected SplitIndexRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        IndexName ISplitIndexRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        [IgnoreDataMember]
+        IndexName ISplitIndexRequest.Target => Self.RouteValues.Get<IndexName>("target");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Explicit task execution timeout, only useful when wait_for_completion is false, defaults to 1h.</summary>
+        public Time TaskExecutionTimeout
+        {
+            get => Q<Time>("task_execution_timeout");
+            set => Q("task_execution_timeout", value);
+        }
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+
+        /// <summary>Should this request wait until the operation has completed before returning.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
+        public bool? WaitForCompletion
+        {
+            get => Q<bool?>("wait_for_completion");
+            set => Q("wait_for_completion", value);
         }
     }
 
@@ -429,5 +2876,190 @@ namespace OpenSearch.Client
             get => Q<Level?>("level");
             set => Q("level", value);
         }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IBulkAliasRequest : IRequest<BulkAliasRequestParameters> { }
+
+    /// <summary>Request for BulkAlias <para>https://opensearch.org/docs/latest/api-reference/index-apis/alias/</para></summary>
+    public partial class BulkAliasRequest
+        : PlainRequestBase<BulkAliasRequestParameters>,
+            IBulkAliasRequest
+    {
+        protected IBulkAliasRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesBulkAlias;
+
+        // values part of the url path
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IValidateQueryRequest : IRequest<ValidateQueryRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    public partial interface IValidateQueryRequest<TDocument> : IValidateQueryRequest { }
+
+    /// <summary>Request for ValidateQuery <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class ValidateQueryRequest
+        : PlainRequestBase<ValidateQueryRequestParameters>,
+            IValidateQueryRequest
+    {
+        protected IValidateQueryRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.IndicesValidateQuery;
+
+        /// <summary>/_validate/query</summary>
+        public ValidateQueryRequest()
+            : base() { }
+
+        /// <summary>/{index}/_validate/query</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public ValidateQueryRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IValidateQueryRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>If `true`, the validation is executed on all shards instead of one random shard per index.</summary>
+        public bool? AllShards
+        {
+            get => Q<bool?>("all_shards");
+            set => Q("all_shards", value);
+        }
+
+        /// <summary>Analyzer to use for the query string. This parameter can only be used when the `q` query string parameter is specified.</summary>
+        public string Analyzer
+        {
+            get => Q<string>("analyzer");
+            set => Q("analyzer", value);
+        }
+
+        /// <summary>If `true`, wildcard and prefix queries are analyzed.</summary>
+        public bool? AnalyzeWildcard
+        {
+            get => Q<bool?>("analyze_wildcard");
+            set => Q("analyze_wildcard", value);
+        }
+
+        /// <summary>The default operator for query string query: `AND` or `OR`.</summary>
+        public DefaultOperator? DefaultOperator
+        {
+            get => Q<DefaultOperator?>("default_operator");
+            set => Q("default_operator", value);
+        }
+
+        /// <summary>
+        /// Field to use as default where no field prefix is given in the query string. This parameter can only be used when the `q` query string
+        /// parameter is specified.
+        /// </summary>
+        public string Df
+        {
+            get => Q<string>("df");
+            set => Q("df", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `true`, the response returns detailed information if an error has occurred.</summary>
+        public bool? Explain
+        {
+            get => Q<bool?>("explain");
+            set => Q("explain", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>If `true`, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
+        public bool? Lenient
+        {
+            get => Q<bool?>("lenient");
+            set => Q("lenient", value);
+        }
+
+        /// <summary>Query in the Lucene query string syntax.</summary>
+        public string QueryOnQueryString
+        {
+            get => Q<string>("q");
+            set => Q("q", value);
+        }
+
+        /// <summary>If `true`, returns a more detailed explanation showing the actual Lucene query that will be executed.</summary>
+        public bool? Rewrite
+        {
+            get => Q<bool?>("rewrite");
+            set => Q("rewrite", value);
+        }
+    }
+
+    public partial class ValidateQueryRequest<TDocument>
+        : ValidateQueryRequest,
+            IValidateQueryRequest<TDocument>
+    {
+        protected IValidateQueryRequest<TDocument> TypedSelf => this;
+
+        /// <summary>/{index}/_validate/query</summary>
+        public ValidateQueryRequest()
+            : base(typeof(TDocument)) { }
+
+        /// <summary>/{index}/_validate/query</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public ValidateQueryRequest(Indices index)
+            : base(index) { }
     }
 }

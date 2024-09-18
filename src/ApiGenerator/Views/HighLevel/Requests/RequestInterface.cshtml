@@ -4,9 +4,9 @@
 	var name = Model.CsharpNames.RequestInterfaceName;
 }
     [InterfaceDataContract]
-    public partial interface @Raw(Model.Name) : IRequest@(Raw(string.Format("<{0}>", Model.CsharpNames.ParametersName)))
-{
-@foreach (var part in Model.UrlParts)
+    public partial interface @Raw(Model.Name) : IRequest@(Raw($"<{Model.CsharpNames.ParametersName}>"))
+    {
+@foreach (var part in Model.UrlParts.OrderBy(p => p.Name))
 {
 <text>      [IgnoreDataMember]
             @(Raw(part.HighLevelTypeName)) @(part.InterfaceName) { get; }

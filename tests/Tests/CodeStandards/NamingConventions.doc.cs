@@ -157,7 +157,6 @@ namespace Tests.CodeStandards
 				typeof(SourceRequest<>),
 				typeof(ValidateQueryRequest<>),
 				typeof(GetAliasRequest),
-				typeof(IndicesShardStoresRequest),
 				typeof(RenderSearchTemplateRequest),
 				typeof(MultiSearchTemplateRequest),
 				typeof(CreateRequest<>),
