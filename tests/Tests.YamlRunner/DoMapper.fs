@@ -49,6 +49,8 @@ type FastApiInvoke(instance: Object, restName:string, pathParams:KeyedCollection
     member private this.SupportsBody = pathParams.IndexOf "body" >= 0
     member this.PathParameters =
         pathParams |> Seq.map (fun k -> k) |> Seq.filter (fun k -> k <> "body") |> Set.ofSeq
+    member private this.ParameterTypes =
+        methodInfo.GetParameters() |> Seq.map (fun p -> p.Name, p.ParameterType) |> Map.ofSeq
         
     member private this.CreateRequestParameters = 
         let t = methodInfo.GetParameters() |> Array.find (fun p -> typeof<IRequestParameters>.IsAssignableFrom(p.ParameterType))
@@ -126,16 +128,12 @@ type FastApiInvoke(instance: Object, restName:string, pathParams:KeyedCollection
             |> Map.filter (fun _ v -> not <| String.IsNullOrWhiteSpace(this.ArgString v))
             |> Map.toSeq
             |> Seq.map (fun (k, v) ->
-                match k with
-                // category_id is mapped as long (only path param that is not string)
-                | "category_id" ->
-                    match v with
-                    // Some test use a string e.g "1"
-                    | :? String as v -> (k, Int64.Parse(v) :> Object)
-                    // Yaml reads numbers as int32
-                    | :? Int32 as v -> (k, Convert.ToInt64(v) :> Object)
-                    | _ -> (k, v)
-                | _ -> (k, this.ArgString v :> Object)
+                match this.ParameterTypes.TryFind(k) with
+                | Some t ->
+                    match t with
+                    | t when t = typeof<String> -> (k, this.ArgString v :> Object)
+                    | t -> failwithf $"unable to convert argument to type %s{t.FullName}"
+                | None -> failwithf $"unable to find parameter %s{k} (have {this.ParameterTypes.Keys})"
             ) 
             |> Seq.sortBy (fun (k, _) -> this.IndexOfParam k)
             |> Seq.map (fun (_, v) -> v)
