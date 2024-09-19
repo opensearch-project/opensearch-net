@@ -106,6 +106,37 @@ namespace OpenSearch.Net
     }
 
     [Flags, StringEnum]
+    public enum ClusterRerouteMetric
+    {
+        [EnumMember(Value = "blocks")]
+        Blocks = 1 << 0,
+
+        [EnumMember(Value = "cluster_manager_node")]
+        ClusterManagerNode = 1 << 1,
+
+        [EnumMember(Value = "master_node")]
+        MasterNode = 1 << 2,
+
+        [EnumMember(Value = "metadata")]
+        Metadata = 1 << 3,
+
+        [EnumMember(Value = "nodes")]
+        Nodes = 1 << 4,
+
+        [EnumMember(Value = "routing_nodes")]
+        RoutingNodes = 1 << 5,
+
+        [EnumMember(Value = "routing_table")]
+        RoutingTable = 1 << 6,
+
+        [EnumMember(Value = "version")]
+        Version = 1 << 7,
+
+        [EnumMember(Value = "_all")]
+        All = 1 << 8,
+    }
+
+    [Flags, StringEnum]
     public enum ClusterStateMetric
     {
         [EnumMember(Value = "blocks")]
@@ -134,6 +165,16 @@ namespace OpenSearch.Net
 
         [EnumMember(Value = "_all")]
         All = 1 << 8,
+    }
+
+    [StringEnum]
+    public enum Conflicts
+    {
+        [EnumMember(Value = "abort")]
+        Abort,
+
+        [EnumMember(Value = "proceed")]
+        Proceed,
     }
 
     [StringEnum]
@@ -195,7 +236,7 @@ namespace OpenSearch.Net
     }
 
     [Flags, StringEnum]
-    public enum IndicesShardStoresShardStoreStatus
+    public enum IndicesShardStoresStatus
     {
         [EnumMember(Value = "all")]
         All = 1 << 0,
@@ -208,6 +249,64 @@ namespace OpenSearch.Net
 
         [EnumMember(Value = "yellow")]
         Yellow = 1 << 3,
+    }
+
+    [Flags, StringEnum]
+    public enum IndicesStatsMetric
+    {
+        [EnumMember(Value = "completion")]
+        Completion = 1 << 0,
+
+        [EnumMember(Value = "docs")]
+        Docs = 1 << 1,
+
+        [EnumMember(Value = "fielddata")]
+        Fielddata = 1 << 2,
+
+        [EnumMember(Value = "flush")]
+        Flush = 1 << 3,
+
+        [EnumMember(Value = "get")]
+        Get = 1 << 4,
+
+        [EnumMember(Value = "indexing")]
+        Indexing = 1 << 5,
+
+        [EnumMember(Value = "merge")]
+        Merge = 1 << 6,
+
+        [EnumMember(Value = "query_cache")]
+        QueryCache = 1 << 7,
+
+        [EnumMember(Value = "recovery")]
+        Recovery = 1 << 8,
+
+        [EnumMember(Value = "refresh")]
+        Refresh = 1 << 9,
+
+        [EnumMember(Value = "request_cache")]
+        RequestCache = 1 << 10,
+
+        [EnumMember(Value = "search")]
+        Search = 1 << 11,
+
+        [EnumMember(Value = "segments")]
+        Segments = 1 << 12,
+
+        [EnumMember(Value = "store")]
+        Store = 1 << 13,
+
+        [EnumMember(Value = "suggest")]
+        Suggest = 1 << 14,
+
+        [EnumMember(Value = "translog")]
+        Translog = 1 << 15,
+
+        [EnumMember(Value = "warmer")]
+        Warmer = 1 << 16,
+
+        [EnumMember(Value = "_all")]
+        All = 1 << 17,
     }
 
     [StringEnum]
@@ -436,6 +535,59 @@ namespace OpenSearch.Net
     }
 
     [StringEnum]
+    public enum OpType
+    {
+        [EnumMember(Value = "create")]
+        Create,
+
+        [EnumMember(Value = "index")]
+        Index,
+    }
+
+    [StringEnum]
+    public enum Refresh
+    {
+        [EnumMember(Value = "false")]
+        False,
+
+        [EnumMember(Value = "true")]
+        True,
+
+        [EnumMember(Value = "wait_for")]
+        WaitFor,
+    }
+
+    [StringEnum]
+    public enum SearchType
+    {
+        [EnumMember(Value = "dfs_query_then_fetch")]
+        DfsQueryThenFetch,
+
+        [EnumMember(Value = "query_then_fetch")]
+        QueryThenFetch,
+    }
+
+    [StringEnum]
+    public enum SlicesCalculation
+    {
+        [EnumMember(Value = "auto")]
+        Auto,
+    }
+
+    [StringEnum]
+    public enum SuggestMode
+    {
+        [EnumMember(Value = "always")]
+        Always,
+
+        [EnumMember(Value = "missing")]
+        Missing,
+
+        [EnumMember(Value = "popular")]
+        Popular,
+    }
+
+    [StringEnum]
     public enum TasksGroupBy
     {
         [EnumMember(Value = "nodes")]
@@ -471,6 +623,22 @@ namespace OpenSearch.Net
 
         [EnumMember(Value = "s")]
         S,
+    }
+
+    [StringEnum]
+    public enum VersionType
+    {
+        [EnumMember(Value = "external")]
+        External,
+
+        [EnumMember(Value = "external_gte")]
+        ExternalGte,
+
+        [EnumMember(Value = "force")]
+        Force,
+
+        [EnumMember(Value = "internal")]
+        Internal,
     }
 
     [StringEnum]
@@ -511,20 +679,29 @@ namespace OpenSearch.Net
         {
             AddEnumStringResolver<ByteUnit>(GetStringValue);
             AddEnumStringResolver<ClusterHealthLevel>(GetStringValue);
+            AddEnumStringResolver<ClusterRerouteMetric>(GetStringValue);
             AddEnumStringResolver<ClusterStateMetric>(GetStringValue);
+            AddEnumStringResolver<Conflicts>(GetStringValue);
             AddEnumStringResolver<DefaultOperator>(GetStringValue);
             AddEnumStringResolver<ExpandWildcards>(GetStringValue);
             AddEnumStringResolver<HealthStatus>(GetStringValue);
             AddEnumStringResolver<IndexApiBlock>(GetStringValue);
-            AddEnumStringResolver<IndicesShardStoresShardStoreStatus>(GetStringValue);
+            AddEnumStringResolver<IndicesShardStoresStatus>(GetStringValue);
+            AddEnumStringResolver<IndicesStatsMetric>(GetStringValue);
             AddEnumStringResolver<Level>(GetStringValue);
             AddEnumStringResolver<NodesInfoMetric>(GetStringValue);
             AddEnumStringResolver<NodesSampleType>(GetStringValue);
             AddEnumStringResolver<NodesStatsIndexMetric>(GetStringValue);
             AddEnumStringResolver<NodesStatsMetric>(GetStringValue);
             AddEnumStringResolver<NodesUsageMetric>(GetStringValue);
+            AddEnumStringResolver<OpType>(GetStringValue);
+            AddEnumStringResolver<Refresh>(GetStringValue);
+            AddEnumStringResolver<SearchType>(GetStringValue);
+            AddEnumStringResolver<SlicesCalculation>(GetStringValue);
+            AddEnumStringResolver<SuggestMode>(GetStringValue);
             AddEnumStringResolver<TasksGroupBy>(GetStringValue);
             AddEnumStringResolver<TimeUnit>(GetStringValue);
+            AddEnumStringResolver<VersionType>(GetStringValue);
             AddEnumStringResolver<WaitForActiveShardOptions>(GetStringValue);
             AddEnumStringResolver<WaitForEvents>(GetStringValue);
         }
@@ -560,6 +737,30 @@ namespace OpenSearch.Net
                 ),
             };
 
+        public static string GetStringValue(this ClusterRerouteMetric enumValue)
+        {
+            if ((enumValue & ClusterRerouteMetric.All) != 0)
+                return "_all";
+            var list = new List<string>();
+            if ((enumValue & ClusterRerouteMetric.Blocks) != 0)
+                list.Add("blocks");
+            if ((enumValue & ClusterRerouteMetric.ClusterManagerNode) != 0)
+                list.Add("cluster_manager_node");
+            if ((enumValue & ClusterRerouteMetric.MasterNode) != 0)
+                list.Add("master_node");
+            if ((enumValue & ClusterRerouteMetric.Metadata) != 0)
+                list.Add("metadata");
+            if ((enumValue & ClusterRerouteMetric.Nodes) != 0)
+                list.Add("nodes");
+            if ((enumValue & ClusterRerouteMetric.RoutingNodes) != 0)
+                list.Add("routing_nodes");
+            if ((enumValue & ClusterRerouteMetric.RoutingTable) != 0)
+                list.Add("routing_table");
+            if ((enumValue & ClusterRerouteMetric.Version) != 0)
+                list.Add("version");
+            return string.Join(",", list);
+        }
+
         public static string GetStringValue(this ClusterStateMetric enumValue)
         {
             if ((enumValue & ClusterStateMetric.All) != 0)
@@ -583,6 +784,16 @@ namespace OpenSearch.Net
                 list.Add("version");
             return string.Join(",", list);
         }
+
+        public static string GetStringValue(this Conflicts enumValue) =>
+            enumValue switch
+            {
+                Conflicts.Abort => "abort",
+                Conflicts.Proceed => "proceed",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'Conflicts'"
+                ),
+            };
 
         public static string GetStringValue(this DefaultOperator enumValue) =>
             enumValue switch
@@ -633,17 +844,59 @@ namespace OpenSearch.Net
                 ),
             };
 
-        public static string GetStringValue(this IndicesShardStoresShardStoreStatus enumValue)
+        public static string GetStringValue(this IndicesShardStoresStatus enumValue)
         {
             var list = new List<string>();
-            if ((enumValue & IndicesShardStoresShardStoreStatus.All) != 0)
+            if ((enumValue & IndicesShardStoresStatus.All) != 0)
                 list.Add("all");
-            if ((enumValue & IndicesShardStoresShardStoreStatus.Green) != 0)
+            if ((enumValue & IndicesShardStoresStatus.Green) != 0)
                 list.Add("green");
-            if ((enumValue & IndicesShardStoresShardStoreStatus.Red) != 0)
+            if ((enumValue & IndicesShardStoresStatus.Red) != 0)
                 list.Add("red");
-            if ((enumValue & IndicesShardStoresShardStoreStatus.Yellow) != 0)
+            if ((enumValue & IndicesShardStoresStatus.Yellow) != 0)
                 list.Add("yellow");
+            return string.Join(",", list);
+        }
+
+        public static string GetStringValue(this IndicesStatsMetric enumValue)
+        {
+            if ((enumValue & IndicesStatsMetric.All) != 0)
+                return "_all";
+            var list = new List<string>();
+            if ((enumValue & IndicesStatsMetric.Completion) != 0)
+                list.Add("completion");
+            if ((enumValue & IndicesStatsMetric.Docs) != 0)
+                list.Add("docs");
+            if ((enumValue & IndicesStatsMetric.Fielddata) != 0)
+                list.Add("fielddata");
+            if ((enumValue & IndicesStatsMetric.Flush) != 0)
+                list.Add("flush");
+            if ((enumValue & IndicesStatsMetric.Get) != 0)
+                list.Add("get");
+            if ((enumValue & IndicesStatsMetric.Indexing) != 0)
+                list.Add("indexing");
+            if ((enumValue & IndicesStatsMetric.Merge) != 0)
+                list.Add("merge");
+            if ((enumValue & IndicesStatsMetric.QueryCache) != 0)
+                list.Add("query_cache");
+            if ((enumValue & IndicesStatsMetric.Recovery) != 0)
+                list.Add("recovery");
+            if ((enumValue & IndicesStatsMetric.Refresh) != 0)
+                list.Add("refresh");
+            if ((enumValue & IndicesStatsMetric.RequestCache) != 0)
+                list.Add("request_cache");
+            if ((enumValue & IndicesStatsMetric.Search) != 0)
+                list.Add("search");
+            if ((enumValue & IndicesStatsMetric.Segments) != 0)
+                list.Add("segments");
+            if ((enumValue & IndicesStatsMetric.Store) != 0)
+                list.Add("store");
+            if ((enumValue & IndicesStatsMetric.Suggest) != 0)
+                list.Add("suggest");
+            if ((enumValue & IndicesStatsMetric.Translog) != 0)
+                list.Add("translog");
+            if ((enumValue & IndicesStatsMetric.Warmer) != 0)
+                list.Add("warmer");
             return string.Join(",", list);
         }
 
@@ -815,6 +1068,57 @@ namespace OpenSearch.Net
             return string.Join(",", list);
         }
 
+        public static string GetStringValue(this OpType enumValue) =>
+            enumValue switch
+            {
+                OpType.Create => "create",
+                OpType.Index => "index",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'OpType'"
+                ),
+            };
+
+        public static string GetStringValue(this Refresh enumValue) =>
+            enumValue switch
+            {
+                Refresh.False => "false",
+                Refresh.True => "true",
+                Refresh.WaitFor => "wait_for",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'Refresh'"
+                ),
+            };
+
+        public static string GetStringValue(this SearchType enumValue) =>
+            enumValue switch
+            {
+                SearchType.DfsQueryThenFetch => "dfs_query_then_fetch",
+                SearchType.QueryThenFetch => "query_then_fetch",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'SearchType'"
+                ),
+            };
+
+        public static string GetStringValue(this SlicesCalculation enumValue) =>
+            enumValue switch
+            {
+                SlicesCalculation.Auto => "auto",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'SlicesCalculation'"
+                ),
+            };
+
+        public static string GetStringValue(this SuggestMode enumValue) =>
+            enumValue switch
+            {
+                SuggestMode.Always => "always",
+                SuggestMode.Missing => "missing",
+                SuggestMode.Popular => "popular",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'SuggestMode'"
+                ),
+            };
+
         public static string GetStringValue(this TasksGroupBy enumValue) =>
             enumValue switch
             {
@@ -838,6 +1142,18 @@ namespace OpenSearch.Net
                 TimeUnit.S => "s",
                 _ => throw new ArgumentException(
                     $"'{enumValue.ToString()}' is not a valid value for enum 'TimeUnit'"
+                ),
+            };
+
+        public static string GetStringValue(this VersionType enumValue) =>
+            enumValue switch
+            {
+                VersionType.External => "external",
+                VersionType.ExternalGte => "external_gte",
+                VersionType.Force => "force",
+                VersionType.Internal => "internal",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'VersionType'"
                 ),
             };
 

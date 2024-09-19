@@ -45,6 +45,8 @@ namespace OpenSearch.Client
 {
     internal static partial class ApiUrlsLookups
     {
+        internal static readonly ApiUrls NoNamespaceBulk = new(["_bulk", "{index}/_bulk"]);
+
         internal static readonly ApiUrls CatAliases = new(["_cat/aliases", "_cat/aliases/{name}"]);
 
         internal static readonly ApiUrls CatAllPitSegments = new(["_cat/pit_segments/_all"]);
@@ -101,6 +103,8 @@ namespace OpenSearch.Client
         internal static readonly ApiUrls CatThreadPool =
             new(["_cat/thread_pool", "_cat/thread_pool/{thread_pool_patterns}"]);
 
+        internal static readonly ApiUrls NoNamespaceClearScroll = new(["_search/scroll"]);
+
         internal static readonly ApiUrls ClusterAllocationExplain =
             new(["_cluster/allocation/explain"]);
 
@@ -141,6 +145,10 @@ namespace OpenSearch.Client
         internal static readonly ApiUrls ClusterStats =
             new(["_cluster/stats", "_cluster/stats/nodes/{node_id}"]);
 
+        internal static readonly ApiUrls NoNamespaceCount = new(["_count", "{index}/_count"]);
+
+        internal static readonly ApiUrls NoNamespaceCreate = new(["{index}/_create/{id}"]);
+
         internal static readonly ApiUrls NoNamespaceCreatePit =
             new(["{index}/_search/point_in_time"]);
 
@@ -152,13 +160,41 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls DanglingIndicesList = new(["_dangling"]);
 
+        internal static readonly ApiUrls NoNamespaceDelete = new(["{index}/_doc/{id}"]);
+
         internal static readonly ApiUrls NoNamespaceDeleteAllPits =
             new(["_search/point_in_time/_all"]);
 
+        internal static readonly ApiUrls NoNamespaceDeleteByQuery =
+            new(["{index}/_delete_by_query"]);
+
+        internal static readonly ApiUrls NoNamespaceDeleteByQueryRethrottle =
+            new(["_delete_by_query/{task_id}/_rethrottle"]);
+
         internal static readonly ApiUrls NoNamespaceDeletePit = new(["_search/point_in_time"]);
+
+        internal static readonly ApiUrls NoNamespaceDeleteScript = new(["_scripts/{id}"]);
+
+        internal static readonly ApiUrls NoNamespaceDocumentExists = new(["{index}/_doc/{id}"]);
+
+        internal static readonly ApiUrls NoNamespaceSourceExists = new(["{index}/_source/{id}"]);
+
+        internal static readonly ApiUrls NoNamespaceExplain = new(["{index}/_explain/{id}"]);
+
+        internal static readonly ApiUrls NoNamespaceFieldCapabilities =
+            new(["_field_caps", "{index}/_field_caps"]);
+
+        internal static readonly ApiUrls NoNamespaceGet = new(["{index}/_doc/{id}"]);
 
         internal static readonly ApiUrls NoNamespaceGetAllPits =
             new(["_search/point_in_time/_all"]);
+
+        internal static readonly ApiUrls NoNamespaceGetScript = new(["_scripts/{id}"]);
+
+        internal static readonly ApiUrls NoNamespaceSource = new(["{index}/_source/{id}"]);
+
+        internal static readonly ApiUrls NoNamespaceIndex =
+            new(["{index}/_doc", "{index}/_doc/{id}"]);
 
         internal static readonly ApiUrls IndicesAddBlock = new(["{index}/_block/{block}"]);
 
@@ -250,6 +286,8 @@ namespace OpenSearch.Client
         internal static readonly ApiUrls IndicesValidateQuery =
             new(["_validate/query", "{index}/_validate/query"]);
 
+        internal static readonly ApiUrls NoNamespaceRootNodeInfo = new([""]);
+
         internal static readonly ApiUrls IngestDeletePipeline = new(["_ingest/pipeline/{id}"]);
 
         internal static readonly ApiUrls IngestGetPipeline =
@@ -262,6 +300,17 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls IngestSimulatePipeline =
             new(["_ingest/pipeline/_simulate", "_ingest/pipeline/{id}/_simulate"]);
+
+        internal static readonly ApiUrls NoNamespaceMultiGet = new(["_mget", "{index}/_mget"]);
+
+        internal static readonly ApiUrls NoNamespaceMultiSearch =
+            new(["_msearch", "{index}/_msearch"]);
+
+        internal static readonly ApiUrls NoNamespaceMultiSearchTemplate =
+            new(["_msearch/template", "{index}/_msearch/template"]);
+
+        internal static readonly ApiUrls NoNamespaceMultiTermVectors =
+            new(["_mtermvectors", "{index}/_mtermvectors"]);
 
         internal static readonly ApiUrls NodesHotThreads =
             new(["_nodes/hot_threads", "_nodes/{node_id}/hot_threads"]);
@@ -293,6 +342,32 @@ namespace OpenSearch.Client
                     "_nodes/{node_id}/usage/{metric}",
                 ]
             );
+
+        internal static readonly ApiUrls NoNamespacePing = new([""]);
+
+        internal static readonly ApiUrls NoNamespacePutScript =
+            new(["_scripts/{id}", "_scripts/{id}/{context}"]);
+
+        internal static readonly ApiUrls NoNamespaceReindexOnServer = new(["_reindex"]);
+
+        internal static readonly ApiUrls NoNamespaceReindexRethrottle =
+            new(["_reindex/{task_id}/_rethrottle"]);
+
+        internal static readonly ApiUrls NoNamespaceRenderSearchTemplate =
+            new(["_render/template", "_render/template/{id}"]);
+
+        internal static readonly ApiUrls NoNamespaceExecutePainlessScript =
+            new(["_scripts/painless/_execute"]);
+
+        internal static readonly ApiUrls NoNamespaceScroll = new(["_search/scroll"]);
+
+        internal static readonly ApiUrls NoNamespaceSearch = new(["_search", "{index}/_search"]);
+
+        internal static readonly ApiUrls NoNamespaceSearchShards =
+            new(["_search_shards", "{index}/_search_shards"]);
+
+        internal static readonly ApiUrls NoNamespaceSearchTemplate =
+            new(["_search/template", "{index}/_search/template"]);
 
         internal static readonly ApiUrls SnapshotCleanupRepository =
             new(["_snapshot/{repository}/_cleanup"]);
@@ -336,5 +411,16 @@ namespace OpenSearch.Client
         internal static readonly ApiUrls TasksGetTask = new(["_tasks/{task_id}"]);
 
         internal static readonly ApiUrls TasksList = new(["_tasks"]);
+
+        internal static readonly ApiUrls NoNamespaceTermVectors =
+            new(["{index}/_termvectors", "{index}/_termvectors/{id}"]);
+
+        internal static readonly ApiUrls NoNamespaceUpdate = new(["{index}/_update/{id}"]);
+
+        internal static readonly ApiUrls NoNamespaceUpdateByQuery =
+            new(["{index}/_update_by_query"]);
+
+        internal static readonly ApiUrls NoNamespaceUpdateByQueryRethrottle =
+            new(["_update_by_query/{task_id}/_rethrottle"]);
     }
 }

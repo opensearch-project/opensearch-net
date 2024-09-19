@@ -56,6 +56,272 @@ using OpenSearch.Net.Utf8Json;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
+    /// <summary>Descriptor for Bulk <para>https://opensearch.org/docs/latest/api-reference/document-apis/bulk/</para></summary>
+    public partial class BulkDescriptor
+        : RequestDescriptorBase<BulkDescriptor, BulkRequestParameters, IBulkRequest>,
+            IBulkRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceBulk;
+
+        /// <summary>/_bulk</summary>
+        public BulkDescriptor()
+            : base() { }
+
+        /// <summary>/{index}/_bulk</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public BulkDescriptor(IndexName index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        IndexName IBulkRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        /// <summary>Name of the data stream, index, or index alias to perform bulk actions on.</summary>
+        public BulkDescriptor Index(IndexName index) =>
+            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public BulkDescriptor Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (IndexName)v));
+
+        // Request parameters
+        /// <summary>ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value to `_none` disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of the value of this parameter.</summary>
+        public BulkDescriptor Pipeline(string pipeline) => Qs("pipeline", pipeline);
+
+        /// <summary>If `true`, OpenSearch refreshes the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh to make this operation visible to search, if `false` do nothing with refreshes. Valid values: `true`, `false`, `wait_for`.</summary>
+        public BulkDescriptor Refresh(Refresh? refresh) => Qs("refresh", refresh);
+
+        /// <summary>If `true`, the request's actions must target an index alias.</summary>
+        public BulkDescriptor RequireAlias(bool? requirealias = true) =>
+            Qs("require_alias", requirealias);
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public BulkDescriptor Routing(Routing routing) => Qs("routing", routing);
+
+        /// <summary>Whether the _source should be included in the response.</summary>
+        public BulkDescriptor SourceEnabled(bool? sourceenabled = true) =>
+            Qs("_source", sourceenabled);
+
+        /// <summary>A comma-separated list of source fields to exclude from the response.</summary>
+        public BulkDescriptor SourceExcludes(Fields sourceexcludes) =>
+            Qs("_source_excludes", sourceexcludes);
+
+        /// <summary>A comma-separated list of source fields to exclude from the response.</summary>
+        public BulkDescriptor SourceExcludes<T>(params Expression<Func<T, object>>[] fields)
+            where T : class => Qs("_source_excludes", fields?.Select(e => (Field)e));
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public BulkDescriptor SourceIncludes(Fields sourceincludes) =>
+            Qs("_source_includes", sourceincludes);
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public BulkDescriptor SourceIncludes<T>(params Expression<Func<T, object>>[] fields)
+            where T : class => Qs("_source_includes", fields?.Select(e => (Field)e));
+
+        /// <summary>Period each action waits for the following operations: automatic index creation, dynamic mapping updates, waiting for active shards.</summary>
+        public BulkDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
+
+        /// <summary>Default document type for items which don't provide one.</summary>
+        public BulkDescriptor Type(string type) => Qs("type", type);
+
+        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to all or any positive integer up to the total number of shards in the index (`number_of_replicas+1`).</summary>
+        public BulkDescriptor WaitForActiveShards(string waitforactiveshards) =>
+            Qs("wait_for_active_shards", waitforactiveshards);
+    }
+
+    /// <summary>Descriptor for ClearScroll <para>https://opensearch.org/docs/latest/api-reference/scroll/</para></summary>
+    public partial class ClearScrollDescriptor
+        : RequestDescriptorBase<
+            ClearScrollDescriptor,
+            ClearScrollRequestParameters,
+            IClearScrollRequest
+        >,
+            IClearScrollRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceClearScroll;
+        // values part of the url path
+        // Request parameters
+    }
+
+    /// <summary>Descriptor for Count <para>https://opensearch.org/docs/latest/api-reference/count/</para></summary>
+    public partial class CountDescriptor<TDocument>
+        : RequestDescriptorBase<
+            CountDescriptor<TDocument>,
+            CountRequestParameters,
+            ICountRequest<TDocument>
+        >,
+            ICountRequest<TDocument>
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceCount;
+
+        /// <summary>/{index}/_count</summary>
+        public CountDescriptor()
+            : this(typeof(TDocument)) { }
+
+        /// <summary>/{index}/_count</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public CountDescriptor(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        Indices ICountRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        /// <summary>Comma-separated list of data streams, indices, and aliases to search. Supports wildcards (`*`). To search all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
+        public CountDescriptor<TDocument> Index(Indices index) =>
+            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public CountDescriptor<TDocument> Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
+
+        /// <summary>A shortcut into calling Index(Indices.All)</summary>
+        public CountDescriptor<TDocument> AllIndices() => Index(Indices.All);
+
+        // Request parameters
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices.</summary>
+        public CountDescriptor<TDocument> AllowNoIndices(bool? allownoindices = true) =>
+            Qs("allow_no_indices", allownoindices);
+
+        /// <summary>Analyzer to use for the query string. This parameter can only be used when the `q` query string parameter is specified.</summary>
+        public CountDescriptor<TDocument> Analyzer(string analyzer) => Qs("analyzer", analyzer);
+
+        /// <summary>If `true`, wildcard and prefix queries are analyzed. This parameter can only be used when the `q` query string parameter is specified.</summary>
+        public CountDescriptor<TDocument> AnalyzeWildcard(bool? analyzewildcard = true) =>
+            Qs("analyze_wildcard", analyzewildcard);
+
+        /// <summary>The default operator for query string query: `AND` or `OR`. This parameter can only be used when the `q` query string parameter is specified.</summary>
+        public CountDescriptor<TDocument> DefaultOperator(DefaultOperator? defaultoperator) =>
+            Qs("default_operator", defaultoperator);
+
+        /// <summary>Field to use as default where no field prefix is given in the query string. This parameter can only be used when the `q` query string parameter is specified.</summary>
+        public CountDescriptor<TDocument> Df(string df) => Qs("df", df);
+
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.</summary>
+        public CountDescriptor<TDocument> ExpandWildcards(ExpandWildcards? expandwildcards) =>
+            Qs("expand_wildcards", expandwildcards);
+
+        /// <summary>If `true`, concrete, expanded or aliased indices are ignored when frozen.</summary>
+        public CountDescriptor<TDocument> IgnoreThrottled(bool? ignorethrottled = true) =>
+            Qs("ignore_throttled", ignorethrottled);
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public CountDescriptor<TDocument> IgnoreUnavailable(bool? ignoreunavailable = true) =>
+            Qs("ignore_unavailable", ignoreunavailable);
+
+        /// <summary>If `true`, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
+        public CountDescriptor<TDocument> Lenient(bool? lenient = true) => Qs("lenient", lenient);
+
+        /// <summary>Sets the minimum `_score` value that documents must have to be included in the result.</summary>
+        public CountDescriptor<TDocument> MinScore(double? minscore) => Qs("min_score", minscore);
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public CountDescriptor<TDocument> Preference(string preference) =>
+            Qs("preference", preference);
+
+        /// <summary>Query in the Lucene query string syntax.</summary>
+        public CountDescriptor<TDocument> QueryOnQueryString(string queryonquerystring) =>
+            Qs("q", queryonquerystring);
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public CountDescriptor<TDocument> Routing(Routing routing) => Qs("routing", routing);
+
+        /// <summary>Maximum number of documents to collect for each shard. If a query reaches this limit, OpenSearch terminates the query early. OpenSearch collects documents before sorting.</summary>
+        public CountDescriptor<TDocument> TerminateAfter(long? terminateafter) =>
+            Qs("terminate_after", terminateafter);
+    }
+
+    /// <summary>Descriptor for Create <para>https://opensearch.org/docs/latest/api-reference/document-apis/index-document/</para></summary>
+    public partial class CreateDescriptor<TDocument>
+        : RequestDescriptorBase<
+            CreateDescriptor<TDocument>,
+            CreateRequestParameters,
+            ICreateRequest<TDocument>
+        >,
+            ICreateRequest<TDocument>
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceCreate;
+
+        /// <summary>/{index}/_create/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">this parameter is required</param>
+        public CreateDescriptor(IndexName index, Id id)
+            : base(r => r.Required("index", index).Required("id", id)) { }
+
+        /// <summary>/{index}/_create/{id}</summary>
+        /// <param name="id">this parameter is required</param>
+        public CreateDescriptor(Id id)
+            : this(typeof(TDocument), id) { }
+
+        /// <summary>/{index}/_create/{id}</summary>
+        /// <param name="id">The document used to resolve the path from</param>
+        public CreateDescriptor(TDocument documentWithId, IndexName index = null, Id id = null)
+            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
+            DocumentFromPath(documentWithId);
+
+        partial void DocumentFromPath(TDocument document);
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected CreateDescriptor()
+            : base() { }
+
+        // values part of the url path
+        Id ICreateRequest<TDocument>.Id => Self.RouteValues.Get<Id>("id");
+        IndexName ICreateRequest<TDocument>.Index => Self.RouteValues.Get<IndexName>("index");
+
+        /// <summary>Name of the data stream or index to target. If the target doesn't exist and matches the name or wildcard (`*`) pattern of an index template with a `data_stream` definition, this request creates the data stream. If the target doesn't exist and doesn't match a data stream template, this request creates the index.</summary>
+        public CreateDescriptor<TDocument> Index(IndexName index) =>
+            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public CreateDescriptor<TDocument> Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (IndexName)v));
+
+        // Request parameters
+        /// <summary>ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value to `_none` disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of the value of this parameter.</summary>
+        public CreateDescriptor<TDocument> Pipeline(string pipeline) => Qs("pipeline", pipeline);
+
+        /// <summary>If `true`, OpenSearch refreshes the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh to make this operation visible to search, if `false` do nothing with refreshes. Valid values: `true`, `false`, `wait_for`.</summary>
+        public CreateDescriptor<TDocument> Refresh(Refresh? refresh) => Qs("refresh", refresh);
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public CreateDescriptor<TDocument> Routing(Routing routing) => Qs("routing", routing);
+
+        /// <summary>Period the request waits for the following operations: automatic index creation, dynamic mapping updates, waiting for active shards.</summary>
+        public CreateDescriptor<TDocument> Timeout(Time timeout) => Qs("timeout", timeout);
+
+        /// <summary>Explicit version number for concurrency control. The specified version must match the current version of the document for the request to succeed.</summary>
+        public CreateDescriptor<TDocument> Version(long? version) => Qs("version", version);
+
+        /// <summary>Specific version type: `external`, `external_gte`.</summary>
+        public CreateDescriptor<TDocument> VersionType(VersionType? versiontype) =>
+            Qs("version_type", versiontype);
+
+        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total number of shards in the index (`number_of_replicas+1`).</summary>
+        public CreateDescriptor<TDocument> WaitForActiveShards(string waitforactiveshards) =>
+            Qs("wait_for_active_shards", waitforactiveshards);
+    }
+
     /// <summary>Descriptor for CreatePit <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</para></summary>
     public partial class CreatePitDescriptor
         : RequestDescriptorBase<CreatePitDescriptor, CreatePitRequestParameters, ICreatePitRequest>,
@@ -113,6 +379,90 @@ namespace OpenSearch.Client
         public CreatePitDescriptor Routing(Routing routing) => Qs("routing", routing);
     }
 
+    /// <summary>Descriptor for Delete <para>https://opensearch.org/docs/latest/api-reference/document-apis/delete-document/</para></summary>
+    public partial class DeleteDescriptor<TDocument>
+        : RequestDescriptorBase<
+            DeleteDescriptor<TDocument>,
+            DeleteRequestParameters,
+            IDeleteRequest<TDocument>
+        >,
+            IDeleteRequest<TDocument>
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceDelete;
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">this parameter is required</param>
+        public DeleteDescriptor(IndexName index, Id id)
+            : base(r => r.Required("index", index).Required("id", id)) { }
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="id">this parameter is required</param>
+        public DeleteDescriptor(Id id)
+            : this(typeof(TDocument), id) { }
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="id">The document used to resolve the path from</param>
+        public DeleteDescriptor(TDocument documentWithId, IndexName index = null, Id id = null)
+            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
+            DocumentFromPath(documentWithId);
+
+        partial void DocumentFromPath(TDocument document);
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected DeleteDescriptor()
+            : base() { }
+
+        // values part of the url path
+        Id IDeleteRequest.Id => Self.RouteValues.Get<Id>("id");
+        IndexName IDeleteRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        /// <summary>Name of the target index.</summary>
+        public DeleteDescriptor<TDocument> Index(IndexName index) =>
+            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public DeleteDescriptor<TDocument> Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (IndexName)v));
+
+        // Request parameters
+        /// <summary>Only perform the operation if the document has this primary term.</summary>
+        public DeleteDescriptor<TDocument> IfPrimaryTerm(long? ifprimaryterm) =>
+            Qs("if_primary_term", ifprimaryterm);
+
+        /// <summary>Only perform the operation if the document has this sequence number.</summary>
+        public DeleteDescriptor<TDocument> IfSequenceNumber(long? ifsequencenumber) =>
+            Qs("if_seq_no", ifsequencenumber);
+
+        /// <summary>If `true`, OpenSearch refreshes the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh to make this operation visible to search, if `false` do nothing with refreshes. Valid values: `true`, `false`, `wait_for`.</summary>
+        public DeleteDescriptor<TDocument> Refresh(Refresh? refresh) => Qs("refresh", refresh);
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public DeleteDescriptor<TDocument> Routing(Routing routing) => Qs("routing", routing);
+
+        /// <summary>Period to wait for active shards.</summary>
+        public DeleteDescriptor<TDocument> Timeout(Time timeout) => Qs("timeout", timeout);
+
+        /// <summary>Explicit version number for concurrency control. The specified version must match the current version of the document for the request to succeed.</summary>
+        public DeleteDescriptor<TDocument> Version(long? version) => Qs("version", version);
+
+        /// <summary>Specific version type: `external`, `external_gte`.</summary>
+        public DeleteDescriptor<TDocument> VersionType(VersionType? versiontype) =>
+            Qs("version_type", versiontype);
+
+        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total number of shards in the index (`number_of_replicas+1`).</summary>
+        public DeleteDescriptor<TDocument> WaitForActiveShards(string waitforactiveshards) =>
+            Qs("wait_for_active_shards", waitforactiveshards);
+    }
+
     /// <summary>Descriptor for DeleteAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
     public partial class DeleteAllPitsDescriptor
         : RequestDescriptorBase<
@@ -127,6 +477,211 @@ namespace OpenSearch.Client
         // Request parameters
     }
 
+    /// <summary>Descriptor for DeleteByQuery <para>https://opensearch.org/docs/latest/api-reference/document-apis/delete-by-query/</para></summary>
+    public partial class DeleteByQueryDescriptor<TDocument>
+        : RequestDescriptorBase<
+            DeleteByQueryDescriptor<TDocument>,
+            DeleteByQueryRequestParameters,
+            IDeleteByQueryRequest<TDocument>
+        >,
+            IDeleteByQueryRequest<TDocument>
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceDeleteByQuery;
+
+        /// <summary>/{index}/_delete_by_query</summary>
+        /// <param name="index">this parameter is required</param>
+        public DeleteByQueryDescriptor(Indices index)
+            : base(r => r.Required("index", index)) { }
+
+        /// <summary>/{index}/_delete_by_query</summary>
+        public DeleteByQueryDescriptor()
+            : this(typeof(TDocument)) { }
+
+        // values part of the url path
+        Indices IDeleteByQueryRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        /// <summary>Comma-separated list of data streams, indices, and aliases to search. Supports wildcards (`*`). To search all data streams or indices, omit this parameter or use `*` or `_all`.</summary>
+        public DeleteByQueryDescriptor<TDocument> Index(Indices index) =>
+            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public DeleteByQueryDescriptor<TDocument> Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (Indices)v));
+
+        /// <summary>A shortcut into calling Index(Indices.All)</summary>
+        public DeleteByQueryDescriptor<TDocument> AllIndices() => Index(Indices.All);
+
+        // Request parameters
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an index starts with `foo` but no index starts with `bar`.</summary>
+        public DeleteByQueryDescriptor<TDocument> AllowNoIndices(bool? allownoindices = true) =>
+            Qs("allow_no_indices", allownoindices);
+
+        /// <summary>Analyzer to use for the query string.</summary>
+        public DeleteByQueryDescriptor<TDocument> Analyzer(string analyzer) =>
+            Qs("analyzer", analyzer);
+
+        /// <summary>If `true`, wildcard and prefix queries are analyzed.</summary>
+        public DeleteByQueryDescriptor<TDocument> AnalyzeWildcard(bool? analyzewildcard = true) =>
+            Qs("analyze_wildcard", analyzewildcard);
+
+        /// <summary>What to do if delete by query hits version conflicts: `abort` or `proceed`.</summary>
+        public DeleteByQueryDescriptor<TDocument> Conflicts(Conflicts? conflicts) =>
+            Qs("conflicts", conflicts);
+
+        /// <summary>The default operator for query string query: `AND` or `OR`.</summary>
+        public DeleteByQueryDescriptor<TDocument> DefaultOperator(
+            DefaultOperator? defaultoperator
+        ) => Qs("default_operator", defaultoperator);
+
+        /// <summary>Field to use as default where no field prefix is given in the query string.</summary>
+        public DeleteByQueryDescriptor<TDocument> Df(string df) => Qs("df", df);
+
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`, `hidden`, `none`.</summary>
+        public DeleteByQueryDescriptor<TDocument> ExpandWildcards(
+            ExpandWildcards? expandwildcards
+        ) => Qs("expand_wildcards", expandwildcards);
+
+        /// <summary>Starting offset.</summary>
+        public DeleteByQueryDescriptor<TDocument> From(long? from) => Qs("from", from);
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public DeleteByQueryDescriptor<TDocument> IgnoreUnavailable(
+            bool? ignoreunavailable = true
+        ) => Qs("ignore_unavailable", ignoreunavailable);
+
+        /// <summary>If `true`, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
+        public DeleteByQueryDescriptor<TDocument> Lenient(bool? lenient = true) =>
+            Qs("lenient", lenient);
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public DeleteByQueryDescriptor<TDocument> Preference(string preference) =>
+            Qs("preference", preference);
+
+        /// <summary>Query in the Lucene query string syntax.</summary>
+        public DeleteByQueryDescriptor<TDocument> QueryOnQueryString(string queryonquerystring) =>
+            Qs("q", queryonquerystring);
+
+        /// <summary>If `true`, OpenSearch refreshes all shards involved in the delete by query after the request completes.</summary>
+        public DeleteByQueryDescriptor<TDocument> Refresh(bool? refresh = true) =>
+            Qs("refresh", refresh);
+
+        /// <summary>If `true`, the request cache is used for this request. Defaults to the index-level setting.</summary>
+        public DeleteByQueryDescriptor<TDocument> RequestCache(bool? requestcache = true) =>
+            Qs("request_cache", requestcache);
+
+        /// <summary>The throttle for this request in sub-requests per second.</summary>
+        public DeleteByQueryDescriptor<TDocument> RequestsPerSecond(long? requestspersecond) =>
+            Qs("requests_per_second", requestspersecond);
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public DeleteByQueryDescriptor<TDocument> Routing(Routing routing) =>
+            Qs("routing", routing);
+
+        /// <summary>Period to retain the search context for scrolling.</summary>
+        public DeleteByQueryDescriptor<TDocument> Scroll(Time scroll) => Qs("scroll", scroll);
+
+        /// <summary>Size of the scroll request that powers the operation.</summary>
+        public DeleteByQueryDescriptor<TDocument> ScrollSize(long? scrollsize) =>
+            Qs("scroll_size", scrollsize);
+
+        /// <summary>Explicit timeout for each search request. Defaults to no timeout.</summary>
+        public DeleteByQueryDescriptor<TDocument> SearchTimeout(Time searchtimeout) =>
+            Qs("search_timeout", searchtimeout);
+
+        /// <summary>The type of the search operation. Available options: `query_then_fetch`, `dfs_query_then_fetch`.</summary>
+        public DeleteByQueryDescriptor<TDocument> SearchType(SearchType? searchtype) =>
+            Qs("search_type", searchtype);
+
+        /// <summary>Deprecated, please use `max_docs` instead.</summary>
+        public DeleteByQueryDescriptor<TDocument> Size(long? size) => Qs("size", size);
+
+        /// <summary>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs.</summary>
+        public DeleteByQueryDescriptor<TDocument> Sort(params string[] sort) => Qs("sort", sort);
+
+        /// <summary>Whether the _source should be included in the response.</summary>
+        public DeleteByQueryDescriptor<TDocument> SourceEnabled(bool? sourceenabled = true) =>
+            Qs("_source", sourceenabled);
+
+        /// <summary>List of fields to exclude from the returned _source field.</summary>
+        public DeleteByQueryDescriptor<TDocument> SourceExcludes(Fields sourceexcludes) =>
+            Qs("_source_excludes", sourceexcludes);
+
+        /// <summary>List of fields to exclude from the returned _source field.</summary>
+        public DeleteByQueryDescriptor<TDocument> SourceExcludes(
+            params Expression<Func<TDocument, object>>[] fields
+        ) => Qs("_source_excludes", fields?.Select(e => (Field)e));
+
+        /// <summary>List of fields to extract and return from the _source field.</summary>
+        public DeleteByQueryDescriptor<TDocument> SourceIncludes(Fields sourceincludes) =>
+            Qs("_source_includes", sourceincludes);
+
+        /// <summary>List of fields to extract and return from the _source field.</summary>
+        public DeleteByQueryDescriptor<TDocument> SourceIncludes(
+            params Expression<Func<TDocument, object>>[] fields
+        ) => Qs("_source_includes", fields?.Select(e => (Field)e));
+
+        /// <summary>Specific `tag` of the request for logging and statistical purposes.</summary>
+        public DeleteByQueryDescriptor<TDocument> Stats(params string[] stats) =>
+            Qs("stats", stats);
+
+        /// <summary>Maximum number of documents to collect for each shard. If a query reaches this limit, OpenSearch terminates the query early. OpenSearch collects documents before sorting. Use with caution. OpenSearch applies this parameter to each shard handling the request. When possible, let OpenSearch perform early termination automatically. Avoid specifying this parameter for requests that target data streams with backing indices across multiple data tiers.</summary>
+        public DeleteByQueryDescriptor<TDocument> TerminateAfter(long? terminateafter) =>
+            Qs("terminate_after", terminateafter);
+
+        /// <summary>Period each deletion request waits for active shards.</summary>
+        public DeleteByQueryDescriptor<TDocument> Timeout(Time timeout) => Qs("timeout", timeout);
+
+        /// <summary>If `true`, returns the document version as part of a hit.</summary>
+        public DeleteByQueryDescriptor<TDocument> Version(bool? version = true) =>
+            Qs("version", version);
+
+        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to all or any positive integer up to the total number of shards in the index (`number_of_replicas+1`).</summary>
+        public DeleteByQueryDescriptor<TDocument> WaitForActiveShards(string waitforactiveshards) =>
+            Qs("wait_for_active_shards", waitforactiveshards);
+
+        /// <summary>If `true`, the request blocks until the operation is complete.</summary>
+        public DeleteByQueryDescriptor<TDocument> WaitForCompletion(
+            bool? waitforcompletion = true
+        ) => Qs("wait_for_completion", waitforcompletion);
+    }
+
+    /// <summary>Descriptor for DeleteByQueryRethrottle <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class DeleteByQueryRethrottleDescriptor
+        : RequestDescriptorBase<
+            DeleteByQueryRethrottleDescriptor,
+            DeleteByQueryRethrottleRequestParameters,
+            IDeleteByQueryRethrottleRequest
+        >,
+            IDeleteByQueryRethrottleRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceDeleteByQueryRethrottle;
+
+        /// <summary>/_delete_by_query/{task_id}/_rethrottle</summary>
+        /// <param name="taskId">this parameter is required</param>
+        public DeleteByQueryRethrottleDescriptor(TaskId taskId)
+            : base(r => r.Required("task_id", taskId)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected DeleteByQueryRethrottleDescriptor()
+            : base() { }
+
+        // values part of the url path
+        TaskId IDeleteByQueryRethrottleRequest.TaskId => Self.RouteValues.Get<TaskId>("task_id");
+
+        // Request parameters
+        /// <summary>The throttle for this request in sub-requests per second.</summary>
+        public DeleteByQueryRethrottleDescriptor RequestsPerSecond(long? requestspersecond) =>
+            Qs("requests_per_second", requestspersecond);
+    }
+
     /// <summary>Descriptor for DeletePit <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
     public partial class DeletePitDescriptor
         : RequestDescriptorBase<DeletePitDescriptor, DeletePitRequestParameters, IDeletePitRequest>,
@@ -135,6 +690,538 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceDeletePit;
         // values part of the url path
         // Request parameters
+    }
+
+    /// <summary>Descriptor for DeleteScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/delete-script/</para></summary>
+    public partial class DeleteScriptDescriptor
+        : RequestDescriptorBase<
+            DeleteScriptDescriptor,
+            DeleteScriptRequestParameters,
+            IDeleteScriptRequest
+        >,
+            IDeleteScriptRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceDeleteScript;
+
+        /// <summary>/_scripts/{id}</summary>
+        /// <param name="id">this parameter is required</param>
+        public DeleteScriptDescriptor(Id id)
+            : base(r => r.Required("id", id)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected DeleteScriptDescriptor()
+            : base() { }
+
+        // values part of the url path
+        Id IDeleteScriptRequest.Id => Self.RouteValues.Get<Id>("id");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public DeleteScriptDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
+
+        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public DeleteScriptDescriptor MasterTimeout(Time mastertimeout) =>
+            Qs("master_timeout", mastertimeout);
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public DeleteScriptDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
+    }
+
+    /// <summary>Descriptor for DocumentExists <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    public partial class DocumentExistsDescriptor<TDocument>
+        : RequestDescriptorBase<
+            DocumentExistsDescriptor<TDocument>,
+            DocumentExistsRequestParameters,
+            IDocumentExistsRequest<TDocument>
+        >,
+            IDocumentExistsRequest<TDocument>
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceDocumentExists;
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">this parameter is required</param>
+        public DocumentExistsDescriptor(IndexName index, Id id)
+            : base(r => r.Required("index", index).Required("id", id)) { }
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="id">this parameter is required</param>
+        public DocumentExistsDescriptor(Id id)
+            : this(typeof(TDocument), id) { }
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="id">The document used to resolve the path from</param>
+        public DocumentExistsDescriptor(
+            TDocument documentWithId,
+            IndexName index = null,
+            Id id = null
+        )
+            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
+            DocumentFromPath(documentWithId);
+
+        partial void DocumentFromPath(TDocument document);
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected DocumentExistsDescriptor()
+            : base() { }
+
+        // values part of the url path
+        Id IDocumentExistsRequest.Id => Self.RouteValues.Get<Id>("id");
+        IndexName IDocumentExistsRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        /// <summary>Comma-separated list of data streams, indices, and aliases. Supports wildcards (`*`).</summary>
+        public DocumentExistsDescriptor<TDocument> Index(IndexName index) =>
+            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public DocumentExistsDescriptor<TDocument> Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (IndexName)v));
+
+        // Request parameters
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public DocumentExistsDescriptor<TDocument> Preference(string preference) =>
+            Qs("preference", preference);
+
+        /// <summary>If `true`, the request is real-time as opposed to near-real-time.</summary>
+        public DocumentExistsDescriptor<TDocument> Realtime(bool? realtime = true) =>
+            Qs("realtime", realtime);
+
+        /// <summary>If `true`, OpenSearch refreshes all shards involved in the delete by query after the request completes.</summary>
+        public DocumentExistsDescriptor<TDocument> Refresh(bool? refresh = true) =>
+            Qs("refresh", refresh);
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public DocumentExistsDescriptor<TDocument> Routing(Routing routing) =>
+            Qs("routing", routing);
+
+        /// <summary>Whether the _source should be included in the response.</summary>
+        public DocumentExistsDescriptor<TDocument> SourceEnabled(bool? sourceenabled = true) =>
+            Qs("_source", sourceenabled);
+
+        /// <summary>A comma-separated list of source fields to exclude in the response.</summary>
+        public DocumentExistsDescriptor<TDocument> SourceExcludes(Fields sourceexcludes) =>
+            Qs("_source_excludes", sourceexcludes);
+
+        /// <summary>A comma-separated list of source fields to exclude in the response.</summary>
+        public DocumentExistsDescriptor<TDocument> SourceExcludes(
+            params Expression<Func<TDocument, object>>[] fields
+        ) => Qs("_source_excludes", fields?.Select(e => (Field)e));
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public DocumentExistsDescriptor<TDocument> SourceIncludes(Fields sourceincludes) =>
+            Qs("_source_includes", sourceincludes);
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public DocumentExistsDescriptor<TDocument> SourceIncludes(
+            params Expression<Func<TDocument, object>>[] fields
+        ) => Qs("_source_includes", fields?.Select(e => (Field)e));
+
+        /// <summary>List of stored fields to return as part of a hit. If no fields are specified, no stored fields are included in the response. If this field is specified, the `_source` parameter defaults to false.</summary>
+        public DocumentExistsDescriptor<TDocument> StoredFields(Fields storedfields) =>
+            Qs("stored_fields", storedfields);
+
+        /// <summary>List of stored fields to return as part of a hit. If no fields are specified, no stored fields are included in the response. If this field is specified, the `_source` parameter defaults to false.</summary>
+        public DocumentExistsDescriptor<TDocument> StoredFields(
+            params Expression<Func<TDocument, object>>[] fields
+        ) => Qs("stored_fields", fields?.Select(e => (Field)e));
+
+        /// <summary>Explicit version number for concurrency control. The specified version must match the current version of the document for the request to succeed.</summary>
+        public DocumentExistsDescriptor<TDocument> Version(long? version) => Qs("version", version);
+
+        /// <summary>Specific version type: `external`, `external_gte`.</summary>
+        public DocumentExistsDescriptor<TDocument> VersionType(VersionType? versiontype) =>
+            Qs("version_type", versiontype);
+    }
+
+    /// <summary>Descriptor for SourceExists <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    public partial class SourceExistsDescriptor<TDocument>
+        : RequestDescriptorBase<
+            SourceExistsDescriptor<TDocument>,
+            SourceExistsRequestParameters,
+            ISourceExistsRequest<TDocument>
+        >,
+            ISourceExistsRequest<TDocument>
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceSourceExists;
+
+        /// <summary>/{index}/_source/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">this parameter is required</param>
+        public SourceExistsDescriptor(IndexName index, Id id)
+            : base(r => r.Required("index", index).Required("id", id)) { }
+
+        /// <summary>/{index}/_source/{id}</summary>
+        /// <param name="id">this parameter is required</param>
+        public SourceExistsDescriptor(Id id)
+            : this(typeof(TDocument), id) { }
+
+        /// <summary>/{index}/_source/{id}</summary>
+        /// <param name="id">The document used to resolve the path from</param>
+        public SourceExistsDescriptor(
+            TDocument documentWithId,
+            IndexName index = null,
+            Id id = null
+        )
+            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
+            DocumentFromPath(documentWithId);
+
+        partial void DocumentFromPath(TDocument document);
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected SourceExistsDescriptor()
+            : base() { }
+
+        // values part of the url path
+        Id ISourceExistsRequest.Id => Self.RouteValues.Get<Id>("id");
+        IndexName ISourceExistsRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        /// <summary>Comma-separated list of data streams, indices, and aliases. Supports wildcards (`*`).</summary>
+        public SourceExistsDescriptor<TDocument> Index(IndexName index) =>
+            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public SourceExistsDescriptor<TDocument> Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (IndexName)v));
+
+        // Request parameters
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public SourceExistsDescriptor<TDocument> Preference(string preference) =>
+            Qs("preference", preference);
+
+        /// <summary>If true, the request is real-time as opposed to near-real-time.</summary>
+        public SourceExistsDescriptor<TDocument> Realtime(bool? realtime = true) =>
+            Qs("realtime", realtime);
+
+        /// <summary>If `true`, OpenSearch refreshes all shards involved in the delete by query after the request completes.</summary>
+        public SourceExistsDescriptor<TDocument> Refresh(bool? refresh = true) =>
+            Qs("refresh", refresh);
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public SourceExistsDescriptor<TDocument> Routing(Routing routing) => Qs("routing", routing);
+
+        /// <summary>Whether the _source should be included in the response.</summary>
+        public SourceExistsDescriptor<TDocument> SourceEnabled(bool? sourceenabled = true) =>
+            Qs("_source", sourceenabled);
+
+        /// <summary>A comma-separated list of source fields to exclude in the response.</summary>
+        public SourceExistsDescriptor<TDocument> SourceExcludes(Fields sourceexcludes) =>
+            Qs("_source_excludes", sourceexcludes);
+
+        /// <summary>A comma-separated list of source fields to exclude in the response.</summary>
+        public SourceExistsDescriptor<TDocument> SourceExcludes(
+            params Expression<Func<TDocument, object>>[] fields
+        ) => Qs("_source_excludes", fields?.Select(e => (Field)e));
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public SourceExistsDescriptor<TDocument> SourceIncludes(Fields sourceincludes) =>
+            Qs("_source_includes", sourceincludes);
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public SourceExistsDescriptor<TDocument> SourceIncludes(
+            params Expression<Func<TDocument, object>>[] fields
+        ) => Qs("_source_includes", fields?.Select(e => (Field)e));
+
+        /// <summary>Explicit version number for concurrency control. The specified version must match the current version of the document for the request to succeed.</summary>
+        public SourceExistsDescriptor<TDocument> Version(long? version) => Qs("version", version);
+
+        /// <summary>Specific version type: `external`, `external_gte`.</summary>
+        public SourceExistsDescriptor<TDocument> VersionType(VersionType? versiontype) =>
+            Qs("version_type", versiontype);
+    }
+
+    /// <summary>Descriptor for Explain <para>https://opensearch.org/docs/latest/api-reference/explain/</para></summary>
+    public partial class ExplainDescriptor<TDocument>
+        : RequestDescriptorBase<
+            ExplainDescriptor<TDocument>,
+            ExplainRequestParameters,
+            IExplainRequest<TDocument>
+        >,
+            IExplainRequest<TDocument>
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceExplain;
+
+        /// <summary>/{index}/_explain/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">this parameter is required</param>
+        public ExplainDescriptor(IndexName index, Id id)
+            : base(r => r.Required("index", index).Required("id", id)) { }
+
+        /// <summary>/{index}/_explain/{id}</summary>
+        /// <param name="id">this parameter is required</param>
+        public ExplainDescriptor(Id id)
+            : this(typeof(TDocument), id) { }
+
+        /// <summary>/{index}/_explain/{id}</summary>
+        /// <param name="id">The document used to resolve the path from</param>
+        public ExplainDescriptor(TDocument documentWithId, IndexName index = null, Id id = null)
+            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
+            DocumentFromPath(documentWithId);
+
+        partial void DocumentFromPath(TDocument document);
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected ExplainDescriptor()
+            : base() { }
+
+        // values part of the url path
+        Id IExplainRequest.Id => Self.RouteValues.Get<Id>("id");
+        IndexName IExplainRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        /// <summary>Index names used to limit the request. Only a single index name can be provided to this parameter.</summary>
+        public ExplainDescriptor<TDocument> Index(IndexName index) =>
+            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public ExplainDescriptor<TDocument> Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (IndexName)v));
+
+        // Request parameters
+        /// <summary>Analyzer to use for the query string. This parameter can only be used when the `q` query string parameter is specified.</summary>
+        public ExplainDescriptor<TDocument> Analyzer(string analyzer) => Qs("analyzer", analyzer);
+
+        /// <summary>If `true`, wildcard and prefix queries are analyzed.</summary>
+        public ExplainDescriptor<TDocument> AnalyzeWildcard(bool? analyzewildcard = true) =>
+            Qs("analyze_wildcard", analyzewildcard);
+
+        /// <summary>The default operator for query string query: `AND` or `OR`.</summary>
+        public ExplainDescriptor<TDocument> DefaultOperator(DefaultOperator? defaultoperator) =>
+            Qs("default_operator", defaultoperator);
+
+        /// <summary>Field to use as default where no field prefix is given in the query string.</summary>
+        public ExplainDescriptor<TDocument> Df(string df) => Qs("df", df);
+
+        /// <summary>If `true`, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
+        public ExplainDescriptor<TDocument> Lenient(bool? lenient = true) => Qs("lenient", lenient);
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public ExplainDescriptor<TDocument> Preference(string preference) =>
+            Qs("preference", preference);
+
+        /// <summary>Query in the Lucene query string syntax.</summary>
+        public ExplainDescriptor<TDocument> QueryOnQueryString(string queryonquerystring) =>
+            Qs("q", queryonquerystring);
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public ExplainDescriptor<TDocument> Routing(Routing routing) => Qs("routing", routing);
+
+        /// <summary>Whether the _source should be included in the response.</summary>
+        public ExplainDescriptor<TDocument> SourceEnabled(bool? sourceenabled = true) =>
+            Qs("_source", sourceenabled);
+
+        /// <summary>A comma-separated list of source fields to exclude from the response.</summary>
+        public ExplainDescriptor<TDocument> SourceExcludes(Fields sourceexcludes) =>
+            Qs("_source_excludes", sourceexcludes);
+
+        /// <summary>A comma-separated list of source fields to exclude from the response.</summary>
+        public ExplainDescriptor<TDocument> SourceExcludes(
+            params Expression<Func<TDocument, object>>[] fields
+        ) => Qs("_source_excludes", fields?.Select(e => (Field)e));
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public ExplainDescriptor<TDocument> SourceIncludes(Fields sourceincludes) =>
+            Qs("_source_includes", sourceincludes);
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public ExplainDescriptor<TDocument> SourceIncludes(
+            params Expression<Func<TDocument, object>>[] fields
+        ) => Qs("_source_includes", fields?.Select(e => (Field)e));
+    }
+
+    /// <summary>Descriptor for FieldCapabilities <para>https://opensearch.org/docs/latest/field-types/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations</para></summary>
+    public partial class FieldCapabilitiesDescriptor
+        : RequestDescriptorBase<
+            FieldCapabilitiesDescriptor,
+            FieldCapabilitiesRequestParameters,
+            IFieldCapabilitiesRequest
+        >,
+            IFieldCapabilitiesRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceFieldCapabilities;
+
+        /// <summary>/_field_caps</summary>
+        public FieldCapabilitiesDescriptor()
+            : base() { }
+
+        /// <summary>/{index}/_field_caps</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public FieldCapabilitiesDescriptor(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        Indices IFieldCapabilitiesRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        /// <summary>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (*). To target all data streams and indices, omit this parameter or use * or _all.</summary>
+        public FieldCapabilitiesDescriptor Index(Indices index) =>
+            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public FieldCapabilitiesDescriptor Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
+
+        /// <summary>A shortcut into calling Index(Indices.All)</summary>
+        public FieldCapabilitiesDescriptor AllIndices() => Index(Indices.All);
+
+        // Request parameters
+        /// <summary>If false, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an index starts with foo but no index starts with bar.</summary>
+        public FieldCapabilitiesDescriptor AllowNoIndices(bool? allownoindices = true) =>
+            Qs("allow_no_indices", allownoindices);
+
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.</summary>
+        public FieldCapabilitiesDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
+            Qs("expand_wildcards", expandwildcards);
+
+        /// <summary>Comma-separated list of fields to retrieve capabilities for. Wildcard (`*`) expressions are supported.</summary>
+        public FieldCapabilitiesDescriptor Fields(Fields fields) => Qs("fields", fields);
+
+        /// <summary>Comma-separated list of fields to retrieve capabilities for. Wildcard (`*`) expressions are supported.</summary>
+        public FieldCapabilitiesDescriptor Fields<T>(params Expression<Func<T, object>>[] fields)
+            where T : class => Qs("fields", fields?.Select(e => (Field)e));
+
+        /// <summary>If `true`, missing or closed indices are not included in the response.</summary>
+        public FieldCapabilitiesDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
+            Qs("ignore_unavailable", ignoreunavailable);
+
+        /// <summary>If true, unmapped fields are included in the response.</summary>
+        public FieldCapabilitiesDescriptor IncludeUnmapped(bool? includeunmapped = true) =>
+            Qs("include_unmapped", includeunmapped);
+    }
+
+    /// <summary>Descriptor for Get <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    public partial class GetDescriptor<TDocument>
+        : RequestDescriptorBase<
+            GetDescriptor<TDocument>,
+            GetRequestParameters,
+            IGetRequest<TDocument>
+        >,
+            IGetRequest<TDocument>
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceGet;
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">this parameter is required</param>
+        public GetDescriptor(IndexName index, Id id)
+            : base(r => r.Required("index", index).Required("id", id)) { }
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="id">this parameter is required</param>
+        public GetDescriptor(Id id)
+            : this(typeof(TDocument), id) { }
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="id">The document used to resolve the path from</param>
+        public GetDescriptor(TDocument documentWithId, IndexName index = null, Id id = null)
+            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
+            DocumentFromPath(documentWithId);
+
+        partial void DocumentFromPath(TDocument document);
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected GetDescriptor()
+            : base() { }
+
+        // values part of the url path
+        Id IGetRequest.Id => Self.RouteValues.Get<Id>("id");
+        IndexName IGetRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        /// <summary>Name of the index that contains the document.</summary>
+        public GetDescriptor<TDocument> Index(IndexName index) =>
+            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public GetDescriptor<TDocument> Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (IndexName)v));
+
+        // Request parameters
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public GetDescriptor<TDocument> Preference(string preference) =>
+            Qs("preference", preference);
+
+        /// <summary>If `true`, the request is real-time as opposed to near-real-time.</summary>
+        public GetDescriptor<TDocument> Realtime(bool? realtime = true) => Qs("realtime", realtime);
+
+        /// <summary>If true, OpenSearch refreshes the affected shards to make this operation visible to search. If false, do nothing with refreshes.</summary>
+        public GetDescriptor<TDocument> Refresh(bool? refresh = true) => Qs("refresh", refresh);
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public GetDescriptor<TDocument> Routing(Routing routing) => Qs("routing", routing);
+
+        /// <summary>Whether the _source should be included in the response.</summary>
+        public GetDescriptor<TDocument> SourceEnabled(bool? sourceenabled = true) =>
+            Qs("_source", sourceenabled);
+
+        /// <summary>A comma-separated list of source fields to exclude in the response.</summary>
+        public GetDescriptor<TDocument> SourceExcludes(Fields sourceexcludes) =>
+            Qs("_source_excludes", sourceexcludes);
+
+        /// <summary>A comma-separated list of source fields to exclude in the response.</summary>
+        public GetDescriptor<TDocument> SourceExcludes(
+            params Expression<Func<TDocument, object>>[] fields
+        ) => Qs("_source_excludes", fields?.Select(e => (Field)e));
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public GetDescriptor<TDocument> SourceIncludes(Fields sourceincludes) =>
+            Qs("_source_includes", sourceincludes);
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public GetDescriptor<TDocument> SourceIncludes(
+            params Expression<Func<TDocument, object>>[] fields
+        ) => Qs("_source_includes", fields?.Select(e => (Field)e));
+
+        /// <summary>List of stored fields to return as part of a hit. If no fields are specified, no stored fields are included in the response. If this field is specified, the `_source` parameter defaults to false.</summary>
+        public GetDescriptor<TDocument> StoredFields(Fields storedfields) =>
+            Qs("stored_fields", storedfields);
+
+        /// <summary>List of stored fields to return as part of a hit. If no fields are specified, no stored fields are included in the response. If this field is specified, the `_source` parameter defaults to false.</summary>
+        public GetDescriptor<TDocument> StoredFields(
+            params Expression<Func<TDocument, object>>[] fields
+        ) => Qs("stored_fields", fields?.Select(e => (Field)e));
+
+        /// <summary>Explicit version number for concurrency control. The specified version must match the current version of the document for the request to succeed.</summary>
+        public GetDescriptor<TDocument> Version(long? version) => Qs("version", version);
+
+        /// <summary>Specific version type: internal, external, external_gte.</summary>
+        public GetDescriptor<TDocument> VersionType(VersionType? versiontype) =>
+            Qs("version_type", versiontype);
     }
 
     /// <summary>Descriptor for GetAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</para></summary>
@@ -149,5 +1236,1478 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceGetAllPits;
         // values part of the url path
         // Request parameters
+    }
+
+    /// <summary>Descriptor for GetScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/get-stored-script/</para></summary>
+    public partial class GetScriptDescriptor
+        : RequestDescriptorBase<GetScriptDescriptor, GetScriptRequestParameters, IGetScriptRequest>,
+            IGetScriptRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceGetScript;
+
+        /// <summary>/_scripts/{id}</summary>
+        /// <param name="id">this parameter is required</param>
+        public GetScriptDescriptor(Id id)
+            : base(r => r.Required("id", id)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected GetScriptDescriptor()
+            : base() { }
+
+        // values part of the url path
+        Id IGetScriptRequest.Id => Self.RouteValues.Get<Id>("id");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public GetScriptDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
+
+        /// <summary>Specify timeout for connection to master.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public GetScriptDescriptor MasterTimeout(Time mastertimeout) =>
+            Qs("master_timeout", mastertimeout);
+    }
+
+    /// <summary>Descriptor for Source <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    public partial class SourceDescriptor<TDocument>
+        : RequestDescriptorBase<
+            SourceDescriptor<TDocument>,
+            SourceRequestParameters,
+            ISourceRequest<TDocument>
+        >,
+            ISourceRequest<TDocument>
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceSource;
+
+        /// <summary>/{index}/_source/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">this parameter is required</param>
+        public SourceDescriptor(IndexName index, Id id)
+            : base(r => r.Required("index", index).Required("id", id)) { }
+
+        /// <summary>/{index}/_source/{id}</summary>
+        /// <param name="id">this parameter is required</param>
+        public SourceDescriptor(Id id)
+            : this(typeof(TDocument), id) { }
+
+        /// <summary>/{index}/_source/{id}</summary>
+        /// <param name="id">The document used to resolve the path from</param>
+        public SourceDescriptor(TDocument documentWithId, IndexName index = null, Id id = null)
+            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
+            DocumentFromPath(documentWithId);
+
+        partial void DocumentFromPath(TDocument document);
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected SourceDescriptor()
+            : base() { }
+
+        // values part of the url path
+        Id ISourceRequest.Id => Self.RouteValues.Get<Id>("id");
+        IndexName ISourceRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        /// <summary>Name of the index that contains the document.</summary>
+        public SourceDescriptor<TDocument> Index(IndexName index) =>
+            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public SourceDescriptor<TDocument> Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (IndexName)v));
+
+        // Request parameters
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public SourceDescriptor<TDocument> Preference(string preference) =>
+            Qs("preference", preference);
+
+        /// <summary>Boolean) If true, the request is real-time as opposed to near-real-time.</summary>
+        public SourceDescriptor<TDocument> Realtime(bool? realtime = true) =>
+            Qs("realtime", realtime);
+
+        /// <summary>If true, OpenSearch refreshes the affected shards to make this operation visible to search. If false, do nothing with refreshes.</summary>
+        public SourceDescriptor<TDocument> Refresh(bool? refresh = true) => Qs("refresh", refresh);
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public SourceDescriptor<TDocument> Routing(Routing routing) => Qs("routing", routing);
+
+        /// <summary>Whether the _source should be included in the response.</summary>
+        public SourceDescriptor<TDocument> SourceEnabled(bool? sourceenabled = true) =>
+            Qs("_source", sourceenabled);
+
+        /// <summary>A comma-separated list of source fields to exclude in the response.</summary>
+        public SourceDescriptor<TDocument> SourceExcludes(Fields sourceexcludes) =>
+            Qs("_source_excludes", sourceexcludes);
+
+        /// <summary>A comma-separated list of source fields to exclude in the response.</summary>
+        public SourceDescriptor<TDocument> SourceExcludes(
+            params Expression<Func<TDocument, object>>[] fields
+        ) => Qs("_source_excludes", fields?.Select(e => (Field)e));
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public SourceDescriptor<TDocument> SourceIncludes(Fields sourceincludes) =>
+            Qs("_source_includes", sourceincludes);
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public SourceDescriptor<TDocument> SourceIncludes(
+            params Expression<Func<TDocument, object>>[] fields
+        ) => Qs("_source_includes", fields?.Select(e => (Field)e));
+
+        /// <summary>Explicit version number for concurrency control. The specified version must match the current version of the document for the request to succeed.</summary>
+        public SourceDescriptor<TDocument> Version(long? version) => Qs("version", version);
+
+        /// <summary>Specific version type: internal, external, external_gte.</summary>
+        public SourceDescriptor<TDocument> VersionType(VersionType? versiontype) =>
+            Qs("version_type", versiontype);
+    }
+
+    /// <summary>Descriptor for Index <para>https://opensearch.org/docs/latest/api-reference/document-apis/index-document/</para></summary>
+    public partial class IndexDescriptor<TDocument>
+        : RequestDescriptorBase<
+            IndexDescriptor<TDocument>,
+            IndexRequestParameters,
+            IIndexRequest<TDocument>
+        >,
+            IIndexRequest<TDocument>
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceIndex;
+
+        /// <summary>/{index}/_doc</summary>
+        /// <param name="index">this parameter is required</param>
+        public IndexDescriptor(IndexName index)
+            : base(r => r.Required("index", index)) { }
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">Optional, accepts null</param>
+        public IndexDescriptor(IndexName index, Id id)
+            : base(r => r.Required("index", index).Optional("id", id)) { }
+
+        /// <summary>/{index}/_doc</summary>
+        public IndexDescriptor()
+            : this(typeof(TDocument)) { }
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="id">Optional, accepts null</param>
+        public IndexDescriptor(Id id)
+            : this(typeof(TDocument), id) { }
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="id">The document used to resolve the path from</param>
+        public IndexDescriptor(TDocument documentWithId, IndexName index = null, Id id = null)
+            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
+            DocumentFromPath(documentWithId);
+
+        partial void DocumentFromPath(TDocument document);
+
+        // values part of the url path
+        Id IIndexRequest<TDocument>.Id => Self.RouteValues.Get<Id>("id");
+        IndexName IIndexRequest<TDocument>.Index => Self.RouteValues.Get<IndexName>("index");
+
+        /// <summary>Unique identifier for the document.</summary>
+        public IndexDescriptor<TDocument> Id(Id id) =>
+            Assign(id, (a, v) => a.RouteValues.Optional("id", v));
+
+        /// <summary>Name of the data stream or index to target.</summary>
+        public IndexDescriptor<TDocument> Index(IndexName index) =>
+            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public IndexDescriptor<TDocument> Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (IndexName)v));
+
+        // Request parameters
+        /// <summary>Only perform the operation if the document has this primary term.</summary>
+        public IndexDescriptor<TDocument> IfPrimaryTerm(long? ifprimaryterm) =>
+            Qs("if_primary_term", ifprimaryterm);
+
+        /// <summary>Only perform the operation if the document has this sequence number.</summary>
+        public IndexDescriptor<TDocument> IfSequenceNumber(long? ifsequencenumber) =>
+            Qs("if_seq_no", ifsequencenumber);
+
+        /// <summary>Set to create to only index the document if it does not already exist (put if absent). If a document with the specified `_id` already exists, the indexing operation will fail. Same as using the `&lt;index&gt;/_create` endpoint. Valid values: `index`, `create`. If document id is specified, it defaults to `index`. Otherwise, it defaults to `create`.</summary>
+        public IndexDescriptor<TDocument> OpType(OpType? optype) => Qs("op_type", optype);
+
+        /// <summary>ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value to `_none` disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of the value of this parameter.</summary>
+        public IndexDescriptor<TDocument> Pipeline(string pipeline) => Qs("pipeline", pipeline);
+
+        /// <summary>If `true`, OpenSearch refreshes the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh to make this operation visible to search, if `false` do nothing with refreshes. Valid values: `true`, `false`, `wait_for`.</summary>
+        public IndexDescriptor<TDocument> Refresh(Refresh? refresh) => Qs("refresh", refresh);
+
+        /// <summary>If `true`, the destination must be an index alias.</summary>
+        public IndexDescriptor<TDocument> RequireAlias(bool? requirealias = true) =>
+            Qs("require_alias", requirealias);
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public IndexDescriptor<TDocument> Routing(Routing routing) => Qs("routing", routing);
+
+        /// <summary>Period the request waits for the following operations: automatic index creation, dynamic mapping updates, waiting for active shards.</summary>
+        public IndexDescriptor<TDocument> Timeout(Time timeout) => Qs("timeout", timeout);
+
+        /// <summary>Explicit version number for concurrency control. The specified version must match the current version of the document for the request to succeed.</summary>
+        public IndexDescriptor<TDocument> Version(long? version) => Qs("version", version);
+
+        /// <summary>Specific version type: `external`, `external_gte`.</summary>
+        public IndexDescriptor<TDocument> VersionType(VersionType? versiontype) =>
+            Qs("version_type", versiontype);
+
+        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to all or any positive integer up to the total number of shards in the index (`number_of_replicas+1`).</summary>
+        public IndexDescriptor<TDocument> WaitForActiveShards(string waitforactiveshards) =>
+            Qs("wait_for_active_shards", waitforactiveshards);
+    }
+
+    /// <summary>Descriptor for RootNodeInfo <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class RootNodeInfoDescriptor
+        : RequestDescriptorBase<
+            RootNodeInfoDescriptor,
+            RootNodeInfoRequestParameters,
+            IRootNodeInfoRequest
+        >,
+            IRootNodeInfoRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceRootNodeInfo;
+        // values part of the url path
+        // Request parameters
+    }
+
+    /// <summary>Descriptor for MultiGet <para>https://opensearch.org/docs/latest/api-reference/document-apis/multi-get/</para></summary>
+    public partial class MultiGetDescriptor
+        : RequestDescriptorBase<MultiGetDescriptor, MultiGetRequestParameters, IMultiGetRequest>,
+            IMultiGetRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceMultiGet;
+
+        /// <summary>/_mget</summary>
+        public MultiGetDescriptor()
+            : base() { }
+
+        /// <summary>/{index}/_mget</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public MultiGetDescriptor(IndexName index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        IndexName IMultiGetRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        /// <summary>Name of the index to retrieve documents from when `ids` are specified, or when a document in the `docs` array does not specify an index.</summary>
+        public MultiGetDescriptor Index(IndexName index) =>
+            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public MultiGetDescriptor Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (IndexName)v));
+
+        // Request parameters
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public MultiGetDescriptor Preference(string preference) => Qs("preference", preference);
+
+        /// <summary>If `true`, the request is real-time as opposed to near-real-time.</summary>
+        public MultiGetDescriptor Realtime(bool? realtime = true) => Qs("realtime", realtime);
+
+        /// <summary>If `true`, the request refreshes relevant shards before retrieving documents.</summary>
+        public MultiGetDescriptor Refresh(bool? refresh = true) => Qs("refresh", refresh);
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public MultiGetDescriptor Routing(Routing routing) => Qs("routing", routing);
+
+        /// <summary>Whether the _source should be included in the response.</summary>
+        public MultiGetDescriptor SourceEnabled(bool? sourceenabled = true) =>
+            Qs("_source", sourceenabled);
+
+        /// <summary>A comma-separated list of source fields to exclude from the response. You can also use this parameter to exclude fields from the subset specified in `_source_includes` query parameter.</summary>
+        public MultiGetDescriptor SourceExcludes(Fields sourceexcludes) =>
+            Qs("_source_excludes", sourceexcludes);
+
+        /// <summary>A comma-separated list of source fields to exclude from the response. You can also use this parameter to exclude fields from the subset specified in `_source_includes` query parameter.</summary>
+        public MultiGetDescriptor SourceExcludes<T>(params Expression<Func<T, object>>[] fields)
+            where T : class => Qs("_source_excludes", fields?.Select(e => (Field)e));
+
+        /// <summary>A comma-separated list of source fields to include in the response. If this parameter is specified, only these source fields are returned. You can exclude fields from this subset using the `_source_excludes` query parameter. If the `_source` parameter is `false`, this parameter is ignored.</summary>
+        public MultiGetDescriptor SourceIncludes(Fields sourceincludes) =>
+            Qs("_source_includes", sourceincludes);
+
+        /// <summary>A comma-separated list of source fields to include in the response. If this parameter is specified, only these source fields are returned. You can exclude fields from this subset using the `_source_excludes` query parameter. If the `_source` parameter is `false`, this parameter is ignored.</summary>
+        public MultiGetDescriptor SourceIncludes<T>(params Expression<Func<T, object>>[] fields)
+            where T : class => Qs("_source_includes", fields?.Select(e => (Field)e));
+    }
+
+    /// <summary>Descriptor for MultiSearch <para>https://opensearch.org/docs/latest/api-reference/multi-search/</para></summary>
+    public partial class MultiSearchDescriptor
+        : RequestDescriptorBase<
+            MultiSearchDescriptor,
+            MultiSearchRequestParameters,
+            IMultiSearchRequest
+        >,
+            IMultiSearchRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceMultiSearch;
+
+        /// <summary>/_msearch</summary>
+        public MultiSearchDescriptor()
+            : base() { }
+
+        /// <summary>/{index}/_msearch</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public MultiSearchDescriptor(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        Indices IMultiSearchRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        /// <summary>Comma-separated list of data streams, indices, and index aliases to search.</summary>
+        public MultiSearchDescriptor Index(Indices index) =>
+            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public MultiSearchDescriptor Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
+
+        /// <summary>A shortcut into calling Index(Indices.All)</summary>
+        public MultiSearchDescriptor AllIndices() => Index(Indices.All);
+
+        // Request parameters
+        /// <summary>If true, network roundtrips between the coordinating node and remote clusters are minimized for cross-cluster search requests.</summary>
+        public MultiSearchDescriptor CcsMinimizeRoundtrips(bool? ccsminimizeroundtrips = true) =>
+            Qs("ccs_minimize_roundtrips", ccsminimizeroundtrips);
+
+        /// <summary>Maximum number of concurrent searches the multi search API can execute.</summary>
+        public MultiSearchDescriptor MaxConcurrentSearches(long? maxconcurrentsearches) =>
+            Qs("max_concurrent_searches", maxconcurrentsearches);
+
+        /// <summary>Maximum number of concurrent shard requests that each sub-search request executes per node.</summary>
+        public MultiSearchDescriptor MaxConcurrentShardRequests(long? maxconcurrentshardrequests) =>
+            Qs("max_concurrent_shard_requests", maxconcurrentshardrequests);
+
+        /// <summary>Defines a threshold that enforces a pre-filter roundtrip to prefilter search shards based on query rewriting if the number of shards the search request expands to exceeds the threshold. This filter roundtrip can limit the number of shards significantly if for instance a shard can not match any documents based on its rewrite method i.e., if date filters are mandatory to match but the shard bounds and the query are disjoint.</summary>
+        public MultiSearchDescriptor PreFilterShardSize(long? prefiltershardsize) =>
+            Qs("pre_filter_shard_size", prefiltershardsize);
+
+        /// <summary>Indicates whether global term and document frequencies should be used when scoring returned documents.</summary>
+        public MultiSearchDescriptor SearchType(SearchType? searchtype) =>
+            Qs("search_type", searchtype);
+
+        /// <summary>If true, hits.total are returned as an integer in the response. Defaults to false, which returns an object.</summary>
+        public MultiSearchDescriptor TotalHitsAsInteger(bool? totalhitsasinteger = true) =>
+            Qs("rest_total_hits_as_int", totalhitsasinteger);
+
+        /// <summary>Specifies whether aggregation and suggester names should be prefixed by their respective types in the response.</summary>
+        public MultiSearchDescriptor TypedKeys(bool? typedkeys = true) =>
+            Qs("typed_keys", typedkeys);
+    }
+
+    /// <summary>Descriptor for MultiSearchTemplate <para>https://opensearch.org/docs/latest/search-plugins/search-template/</para></summary>
+    public partial class MultiSearchTemplateDescriptor
+        : RequestDescriptorBase<
+            MultiSearchTemplateDescriptor,
+            MultiSearchTemplateRequestParameters,
+            IMultiSearchTemplateRequest
+        >,
+            IMultiSearchTemplateRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceMultiSearchTemplate;
+
+        /// <summary>/_msearch/template</summary>
+        public MultiSearchTemplateDescriptor()
+            : base() { }
+
+        /// <summary>/{index}/_msearch/template</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public MultiSearchTemplateDescriptor(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        Indices IMultiSearchTemplateRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        /// <summary>Comma-separated list of data streams, indices, and aliases to search. Supports wildcards (`*`). To search all data streams and indices, omit this parameter or use `*`.</summary>
+        public MultiSearchTemplateDescriptor Index(Indices index) =>
+            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public MultiSearchTemplateDescriptor Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
+
+        /// <summary>A shortcut into calling Index(Indices.All)</summary>
+        public MultiSearchTemplateDescriptor AllIndices() => Index(Indices.All);
+
+        // Request parameters
+        /// <summary>If `true`, network round-trips are minimized for cross-cluster search requests.</summary>
+        public MultiSearchTemplateDescriptor CcsMinimizeRoundtrips(
+            bool? ccsminimizeroundtrips = true
+        ) => Qs("ccs_minimize_roundtrips", ccsminimizeroundtrips);
+
+        /// <summary>Maximum number of concurrent searches the API can run.</summary>
+        public MultiSearchTemplateDescriptor MaxConcurrentSearches(long? maxconcurrentsearches) =>
+            Qs("max_concurrent_searches", maxconcurrentsearches);
+
+        /// <summary>The type of the search operation. Available options: `query_then_fetch`, `dfs_query_then_fetch`.</summary>
+        public MultiSearchTemplateDescriptor SearchType(SearchType? searchtype) =>
+            Qs("search_type", searchtype);
+
+        /// <summary>If `true`, the response returns `hits.total` as an integer. If `false`, it returns `hits.total` as an object.</summary>
+        public MultiSearchTemplateDescriptor TotalHitsAsInteger(bool? totalhitsasinteger = true) =>
+            Qs("rest_total_hits_as_int", totalhitsasinteger);
+
+        /// <summary>If `true`, the response prefixes aggregation and suggester names with their respective types.</summary>
+        public MultiSearchTemplateDescriptor TypedKeys(bool? typedkeys = true) =>
+            Qs("typed_keys", typedkeys);
+    }
+
+    /// <summary>Descriptor for MultiTermVectors <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class MultiTermVectorsDescriptor
+        : RequestDescriptorBase<
+            MultiTermVectorsDescriptor,
+            MultiTermVectorsRequestParameters,
+            IMultiTermVectorsRequest
+        >,
+            IMultiTermVectorsRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceMultiTermVectors;
+
+        /// <summary>/_mtermvectors</summary>
+        public MultiTermVectorsDescriptor()
+            : base() { }
+
+        /// <summary>/{index}/_mtermvectors</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public MultiTermVectorsDescriptor(IndexName index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        IndexName IMultiTermVectorsRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        /// <summary>Name of the index that contains the documents.</summary>
+        public MultiTermVectorsDescriptor Index(IndexName index) =>
+            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public MultiTermVectorsDescriptor Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (IndexName)v));
+
+        // Request parameters
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in the statistics. Used as the default list unless a specific field list is provided in the `completion_fields` or `fielddata_fields` parameters.</summary>
+        public MultiTermVectorsDescriptor Fields(Fields fields) => Qs("fields", fields);
+
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in the statistics. Used as the default list unless a specific field list is provided in the `completion_fields` or `fielddata_fields` parameters.</summary>
+        public MultiTermVectorsDescriptor Fields<T>(params Expression<Func<T, object>>[] fields)
+            where T : class => Qs("fields", fields?.Select(e => (Field)e));
+
+        /// <summary>If `true`, the response includes the document count, sum of document frequencies, and sum of total term frequencies.</summary>
+        public MultiTermVectorsDescriptor FieldStatistics(bool? fieldstatistics = true) =>
+            Qs("field_statistics", fieldstatistics);
+
+        /// <summary>If `true`, the response includes term offsets.</summary>
+        public MultiTermVectorsDescriptor Offsets(bool? offsets = true) => Qs("offsets", offsets);
+
+        /// <summary>If `true`, the response includes term payloads.</summary>
+        public MultiTermVectorsDescriptor Payloads(bool? payloads = true) =>
+            Qs("payloads", payloads);
+
+        /// <summary>If `true`, the response includes term positions.</summary>
+        public MultiTermVectorsDescriptor Positions(bool? positions = true) =>
+            Qs("positions", positions);
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public MultiTermVectorsDescriptor Preference(string preference) =>
+            Qs("preference", preference);
+
+        /// <summary>If true, the request is real-time as opposed to near-real-time.</summary>
+        public MultiTermVectorsDescriptor Realtime(bool? realtime = true) =>
+            Qs("realtime", realtime);
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public MultiTermVectorsDescriptor Routing(Routing routing) => Qs("routing", routing);
+
+        /// <summary>If true, the response includes term frequency and document frequency.</summary>
+        public MultiTermVectorsDescriptor TermStatistics(bool? termstatistics = true) =>
+            Qs("term_statistics", termstatistics);
+
+        /// <summary>If `true`, returns the document version as part of a hit.</summary>
+        public MultiTermVectorsDescriptor Version(long? version) => Qs("version", version);
+
+        /// <summary>Specific version type.</summary>
+        public MultiTermVectorsDescriptor VersionType(VersionType? versiontype) =>
+            Qs("version_type", versiontype);
+    }
+
+    /// <summary>Descriptor for Ping <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class PingDescriptor
+        : RequestDescriptorBase<PingDescriptor, PingRequestParameters, IPingRequest>,
+            IPingRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespacePing;
+        // values part of the url path
+        // Request parameters
+    }
+
+    /// <summary>Descriptor for PutScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/create-stored-script/</para></summary>
+    public partial class PutScriptDescriptor
+        : RequestDescriptorBase<PutScriptDescriptor, PutScriptRequestParameters, IPutScriptRequest>,
+            IPutScriptRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespacePutScript;
+
+        /// <summary>/_scripts/{id}</summary>
+        /// <param name="id">this parameter is required</param>
+        public PutScriptDescriptor(Id id)
+            : base(r => r.Required("id", id)) { }
+
+        /// <summary>/_scripts/{id}/{context}</summary>
+        /// <param name="id">this parameter is required</param>
+        /// <param name="context">Optional, accepts null</param>
+        public PutScriptDescriptor(Id id, Name context)
+            : base(r => r.Required("id", id).Optional("context", context)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected PutScriptDescriptor()
+            : base() { }
+
+        // values part of the url path
+        Name IPutScriptRequest.Context => Self.RouteValues.Get<Name>("context");
+        Id IPutScriptRequest.Id => Self.RouteValues.Get<Id>("id");
+
+        /// <summary>Context in which the script or search template should run. To prevent errors, the API immediately compiles the script or template in this context.</summary>
+        public PutScriptDescriptor Context(Name context) =>
+            Assign(context, (a, v) => a.RouteValues.Optional("context", v));
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public PutScriptDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
+
+        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public PutScriptDescriptor MasterTimeout(Time mastertimeout) =>
+            Qs("master_timeout", mastertimeout);
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public PutScriptDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
+    }
+
+    /// <summary>Descriptor for ReindexOnServer <para>https://opensearch.org/docs/latest/im-plugin/reindex-data/</para></summary>
+    public partial class ReindexOnServerDescriptor
+        : RequestDescriptorBase<
+            ReindexOnServerDescriptor,
+            ReindexOnServerRequestParameters,
+            IReindexOnServerRequest
+        >,
+            IReindexOnServerRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceReindexOnServer;
+
+        // values part of the url path
+        // Request parameters
+        /// <summary>If `true`, the request refreshes affected shards to make this operation visible to search.</summary>
+        public ReindexOnServerDescriptor Refresh(bool? refresh = true) => Qs("refresh", refresh);
+
+        /// <summary>The throttle for this request in sub-requests per second. Defaults to no throttle.</summary>
+        public ReindexOnServerDescriptor RequestsPerSecond(long? requestspersecond) =>
+            Qs("requests_per_second", requestspersecond);
+
+        /// <summary>Specifies how long a consistent view of the index should be maintained for scrolled search.</summary>
+        public ReindexOnServerDescriptor Scroll(Time scroll) => Qs("scroll", scroll);
+
+        /// <summary>Period each indexing waits for automatic index creation, dynamic mapping updates, and waiting for active shards.</summary>
+        public ReindexOnServerDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
+
+        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total number of shards in the index (`number_of_replicas+1`).</summary>
+        public ReindexOnServerDescriptor WaitForActiveShards(string waitforactiveshards) =>
+            Qs("wait_for_active_shards", waitforactiveshards);
+
+        /// <summary>If `true`, the request blocks until the operation is complete.</summary>
+        public ReindexOnServerDescriptor WaitForCompletion(bool? waitforcompletion = true) =>
+            Qs("wait_for_completion", waitforcompletion);
+    }
+
+    /// <summary>Descriptor for ReindexRethrottle <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class ReindexRethrottleDescriptor
+        : RequestDescriptorBase<
+            ReindexRethrottleDescriptor,
+            ReindexRethrottleRequestParameters,
+            IReindexRethrottleRequest
+        >,
+            IReindexRethrottleRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceReindexRethrottle;
+
+        /// <summary>/_reindex/{task_id}/_rethrottle</summary>
+        /// <param name="taskId">this parameter is required</param>
+        public ReindexRethrottleDescriptor(TaskId taskId)
+            : base(r => r.Required("task_id", taskId)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected ReindexRethrottleDescriptor()
+            : base() { }
+
+        // values part of the url path
+        TaskId IReindexRethrottleRequest.TaskId => Self.RouteValues.Get<TaskId>("task_id");
+
+        // Request parameters
+        /// <summary>The throttle for this request in sub-requests per second.</summary>
+        public ReindexRethrottleDescriptor RequestsPerSecond(long? requestspersecond) =>
+            Qs("requests_per_second", requestspersecond);
+    }
+
+    /// <summary>Descriptor for RenderSearchTemplate <para>https://opensearch.org/docs/latest/search-plugins/search-template/</para></summary>
+    public partial class RenderSearchTemplateDescriptor
+        : RequestDescriptorBase<
+            RenderSearchTemplateDescriptor,
+            RenderSearchTemplateRequestParameters,
+            IRenderSearchTemplateRequest
+        >,
+            IRenderSearchTemplateRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceRenderSearchTemplate;
+
+        /// <summary>/_render/template</summary>
+        public RenderSearchTemplateDescriptor()
+            : base() { }
+
+        /// <summary>/_render/template/{id}</summary>
+        /// <param name="id">Optional, accepts null</param>
+        public RenderSearchTemplateDescriptor(Id id)
+            : base(r => r.Optional("id", id)) { }
+
+        // values part of the url path
+        Id IRenderSearchTemplateRequest.Id => Self.RouteValues.Get<Id>("id");
+
+        /// <summary>ID of the search template to render. If no `source` is specified, this or the `id` request body parameter is required.</summary>
+        public RenderSearchTemplateDescriptor Id(Id id) =>
+            Assign(id, (a, v) => a.RouteValues.Optional("id", v));
+        // Request parameters
+    }
+
+    /// <summary>Descriptor for ExecutePainlessScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/exec-script/</para></summary>
+    public partial class ExecutePainlessScriptDescriptor
+        : RequestDescriptorBase<
+            ExecutePainlessScriptDescriptor,
+            ExecutePainlessScriptRequestParameters,
+            IExecutePainlessScriptRequest
+        >,
+            IExecutePainlessScriptRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceExecutePainlessScript;
+        // values part of the url path
+        // Request parameters
+    }
+
+    /// <summary>Descriptor for Scroll <para>https://opensearch.org/docs/latest/api-reference/scroll/#path-and-http-methods</para></summary>
+    public partial class ScrollDescriptor<TInferDocument>
+        : RequestDescriptorBase<
+            ScrollDescriptor<TInferDocument>,
+            ScrollRequestParameters,
+            IScrollRequest
+        >,
+            IScrollRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceScroll;
+
+        // values part of the url path
+        // Request parameters
+        /// <summary>If true, the API response's hit.total property is returned as an integer. If false, the API response's hit.total property is returned as an object.</summary>
+        public ScrollDescriptor<TInferDocument> TotalHitsAsInteger(
+            bool? totalhitsasinteger = true
+        ) => Qs("rest_total_hits_as_int", totalhitsasinteger);
+    }
+
+    /// <summary>Descriptor for Search <para>https://opensearch.org/docs/latest/api-reference/search/</para></summary>
+    public partial class SearchDescriptor<TInferDocument>
+        : RequestDescriptorBase<
+            SearchDescriptor<TInferDocument>,
+            SearchRequestParameters,
+            ISearchRequest<TInferDocument>
+        >,
+            ISearchRequest<TInferDocument>
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceSearch;
+
+        /// <summary>/{index}/_search</summary>
+        public SearchDescriptor()
+            : this(typeof(TInferDocument)) { }
+
+        /// <summary>/{index}/_search</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public SearchDescriptor(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        Indices ISearchRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        /// <summary>Comma-separated list of data streams, indices, and aliases to search. Supports wildcards (`*`). To search all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
+        public SearchDescriptor<TInferDocument> Index(Indices index) =>
+            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public SearchDescriptor<TInferDocument> Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
+
+        /// <summary>A shortcut into calling Index(Indices.All)</summary>
+        public SearchDescriptor<TInferDocument> AllIndices() => Index(Indices.All);
+
+        // Request parameters
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an index starts with `foo` but no index starts with `bar`.</summary>
+        public SearchDescriptor<TInferDocument> AllowNoIndices(bool? allownoindices = true) =>
+            Qs("allow_no_indices", allownoindices);
+
+        /// <summary>If true, returns partial results if there are shard request timeouts or shard failures. If false, returns an error with no partial results.</summary>
+        public SearchDescriptor<TInferDocument> AllowPartialSearchResults(
+            bool? allowpartialsearchresults = true
+        ) => Qs("allow_partial_search_results", allowpartialsearchresults);
+
+        /// <summary>Analyzer to use for the query string. This parameter can only be used when the q query string parameter is specified.</summary>
+        public SearchDescriptor<TInferDocument> Analyzer(string analyzer) =>
+            Qs("analyzer", analyzer);
+
+        /// <summary>If true, wildcard and prefix queries are analyzed. This parameter can only be used when the q query string parameter is specified.</summary>
+        public SearchDescriptor<TInferDocument> AnalyzeWildcard(bool? analyzewildcard = true) =>
+            Qs("analyze_wildcard", analyzewildcard);
+
+        /// <summary>The number of shard results that should be reduced at once on the coordinating node. This value should be used as a protection mechanism to reduce the memory overhead per search request if the potential number of shards in the request can be large.</summary>
+        public SearchDescriptor<TInferDocument> BatchedReduceSize(long? batchedreducesize) =>
+            Qs("batched_reduce_size", batchedreducesize);
+
+        /// <summary>The time after which the search request will be canceled. Request-level parameter takes precedence over `cancel_after_time_interval` cluster setting.</summary>
+        public SearchDescriptor<TInferDocument> CancelAfterTimeInterval(
+            Time cancelaftertimeinterval
+        ) => Qs("cancel_after_time_interval", cancelaftertimeinterval);
+
+        /// <summary>If true, network round-trips between the coordinating node and the remote clusters are minimized when executing cross-cluster search (CCS) requests.</summary>
+        public SearchDescriptor<TInferDocument> CcsMinimizeRoundtrips(
+            bool? ccsminimizeroundtrips = true
+        ) => Qs("ccs_minimize_roundtrips", ccsminimizeroundtrips);
+
+        /// <summary>The default operator for query string query: AND or OR. This parameter can only be used when the `q` query string parameter is specified.</summary>
+        public SearchDescriptor<TInferDocument> DefaultOperator(DefaultOperator? defaultoperator) =>
+            Qs("default_operator", defaultoperator);
+
+        /// <summary>Field to use as default where no field prefix is given in the query string. This parameter can only be used when the q query string parameter is specified.</summary>
+        public SearchDescriptor<TInferDocument> Df(string df) => Qs("df", df);
+
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.</summary>
+        public SearchDescriptor<TInferDocument> ExpandWildcards(ExpandWildcards? expandwildcards) =>
+            Qs("expand_wildcards", expandwildcards);
+
+        /// <summary>If `true`, concrete, expanded or aliased indices will be ignored when frozen.</summary>
+        public SearchDescriptor<TInferDocument> IgnoreThrottled(bool? ignorethrottled = true) =>
+            Qs("ignore_throttled", ignorethrottled);
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public SearchDescriptor<TInferDocument> IgnoreUnavailable(bool? ignoreunavailable = true) =>
+            Qs("ignore_unavailable", ignoreunavailable);
+
+        /// <summary>Indicates whether hit.matched_queries should be rendered as a map that includes the name of the matched query associated with its score (true) or as an array containing the name of the matched queries (false).</summary>
+        public SearchDescriptor<TInferDocument> IncludeNamedQueriesScore(
+            bool? includenamedqueriesscore = true
+        ) => Qs("include_named_queries_score", includenamedqueriesscore);
+
+        /// <summary>If `true`, format-based query failures (such as providing text to a numeric field) in the query string will be ignored. This parameter can only be used when the `q` query string parameter is specified.</summary>
+        public SearchDescriptor<TInferDocument> Lenient(bool? lenient = true) =>
+            Qs("lenient", lenient);
+
+        /// <summary>Defines the number of concurrent shard requests per node this search executes concurrently. This value should be used to limit the impact of the search on the cluster in order to limit the number of concurrent shard requests.</summary>
+        public SearchDescriptor<TInferDocument> MaxConcurrentShardRequests(
+            long? maxconcurrentshardrequests
+        ) => Qs("max_concurrent_shard_requests", maxconcurrentshardrequests);
+
+        /// <summary>Indicates whether to return phase-level `took` time values in the response.</summary>
+        public SearchDescriptor<TInferDocument> PhaseTook(bool? phasetook = true) =>
+            Qs("phase_took", phasetook);
+
+        /// <summary>Nodes and shards used for the search. By default, OpenSearch selects from eligible nodes and shards using adaptive replica selection, accounting for allocation awareness. Valid values are: `_only_local` to run the search only on shards on the local node; `_local` to, if possible, run the search on shards on the local node, or if not, select shards using the default method; `_only_nodes:&lt;node-id&gt;,&lt;node-id&gt;` to run the search on only the specified nodes IDs, where, if suitable shards exist on more than one selected node, use shards on those nodes using the default method, or if none of the specified nodes are available, select shards from any available node using the default method; `_prefer_nodes:&lt;node-id&gt;,&lt;node-id&gt;` to if possible, run the search on the specified nodes IDs, or if not, select shards using the default method; `_shards:&lt;shard&gt;,&lt;shard&gt;` to run the search only on the specified shards; `&lt;custom-string&gt;` (any string that does not start with `_`) to route searches with the same `&lt;custom-string&gt;` to the same shards in the same order.</summary>
+        public SearchDescriptor<TInferDocument> Preference(string preference) =>
+            Qs("preference", preference);
+
+        /// <summary>Defines a threshold that enforces a pre-filter roundtrip to prefilter search shards based on query rewriting if the number of shards the search request expands to exceeds the threshold. This filter roundtrip can limit the number of shards significantly if for instance a shard can not match any documents based on its rewrite method (if date filters are mandatory to match but the shard bounds and the query are disjoint). When unspecified, the pre-filter phase is executed if any of these conditions is met: the request targets more than 128 shards; the request targets one or more read-only index; the primary sort of the query targets an indexed field.</summary>
+        public SearchDescriptor<TInferDocument> PreFilterShardSize(long? prefiltershardsize) =>
+            Qs("pre_filter_shard_size", prefiltershardsize);
+
+        /// <summary>Query in the Lucene query string syntax using query parameter search. Query parameter searches do not support the full OpenSearch Query DSL but are handy for testing.</summary>
+        public SearchDescriptor<TInferDocument> QueryOnQueryString(string queryonquerystring) =>
+            Qs("q", queryonquerystring);
+
+        /// <summary>If `true`, the caching of search results is enabled for requests where `size` is `0`. Defaults to index level settings.</summary>
+        public SearchDescriptor<TInferDocument> RequestCache(bool? requestcache = true) =>
+            Qs("request_cache", requestcache);
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public SearchDescriptor<TInferDocument> Routing(Routing routing) => Qs("routing", routing);
+
+        /// <summary>Period to retain the search context for scrolling. See Scroll search results. By default, this value cannot exceed `1d` (24 hours). You can change this limit using the `search.max_keep_alive` cluster-level setting.</summary>
+        public SearchDescriptor<TInferDocument> Scroll(Time scroll) => Qs("scroll", scroll);
+
+        /// <summary>Customizable sequence of processing stages applied to search queries.</summary>
+        public SearchDescriptor<TInferDocument> SearchPipeline(string searchpipeline) =>
+            Qs("search_pipeline", searchpipeline);
+
+        /// <summary>How distributed term frequencies are calculated for relevance scoring.</summary>
+        public SearchDescriptor<TInferDocument> SearchType(SearchType? searchtype) =>
+            Qs("search_type", searchtype);
+
+        /// <summary>If `true`, returns sequence number and primary term of the last modification of each hit.</summary>
+        public SearchDescriptor<TInferDocument> SequenceNumberPrimaryTerm(
+            bool? sequencenumberprimaryterm = true
+        ) => Qs("seq_no_primary_term", sequencenumberprimaryterm);
+
+        /// <summary>Specific `tag` of the request for logging and statistical purposes.</summary>
+        public SearchDescriptor<TInferDocument> Stats(params string[] stats) => Qs("stats", stats);
+
+        /// <summary>Specifies which field to use for suggestions.</summary>
+        public SearchDescriptor<TInferDocument> SuggestField(Field suggestfield) =>
+            Qs("suggest_field", suggestfield);
+
+        /// <summary>Specifies which field to use for suggestions.</summary>
+        public SearchDescriptor<TInferDocument> SuggestField(
+            Expression<Func<TInferDocument, object>> field
+        ) => Qs("suggest_field", (Field)field);
+
+        /// <summary>Specifies the suggest mode. This parameter can only be used when the `suggest_field` and `suggest_text` query string parameters are specified.</summary>
+        public SearchDescriptor<TInferDocument> SuggestMode(SuggestMode? suggestmode) =>
+            Qs("suggest_mode", suggestmode);
+
+        /// <summary>Number of suggestions to return. This parameter can only be used when the `suggest_field` and `suggest_text` query string parameters are specified.</summary>
+        public SearchDescriptor<TInferDocument> SuggestSize(long? suggestsize) =>
+            Qs("suggest_size", suggestsize);
+
+        /// <summary>The source text for which the suggestions should be returned. This parameter can only be used when the `suggest_field` and `suggest_text` query string parameters are specified.</summary>
+        public SearchDescriptor<TInferDocument> SuggestText(string suggesttext) =>
+            Qs("suggest_text", suggesttext);
+
+        /// <summary>Indicates whether `hits.total` should be rendered as an integer or an object in the rest search response.</summary>
+        public SearchDescriptor<TInferDocument> TotalHitsAsInteger(
+            bool? totalhitsasinteger = true
+        ) => Qs("rest_total_hits_as_int", totalhitsasinteger);
+
+        /// <summary>If `true`, aggregation and suggester names are be prefixed by their respective types in the response.</summary>
+        public SearchDescriptor<TInferDocument> TypedKeys(bool? typedkeys = true) =>
+            Qs("typed_keys", typedkeys);
+    }
+
+    /// <summary>Descriptor for SearchShards <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class SearchShardsDescriptor<TDocument>
+        : RequestDescriptorBase<
+            SearchShardsDescriptor<TDocument>,
+            SearchShardsRequestParameters,
+            ISearchShardsRequest<TDocument>
+        >,
+            ISearchShardsRequest<TDocument>
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceSearchShards;
+
+        /// <summary>/{index}/_search_shards</summary>
+        public SearchShardsDescriptor()
+            : this(typeof(TDocument)) { }
+
+        /// <summary>/{index}/_search_shards</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public SearchShardsDescriptor(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        Indices ISearchShardsRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        /// <summary>Returns the indices and shards that a search request would be executed against.</summary>
+        public SearchShardsDescriptor<TDocument> Index(Indices index) =>
+            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public SearchShardsDescriptor<TDocument> Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
+
+        /// <summary>A shortcut into calling Index(Indices.All)</summary>
+        public SearchShardsDescriptor<TDocument> AllIndices() => Index(Indices.All);
+
+        // Request parameters
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an index starts with `foo` but no index starts with `bar`.</summary>
+        public SearchShardsDescriptor<TDocument> AllowNoIndices(bool? allownoindices = true) =>
+            Qs("allow_no_indices", allownoindices);
+
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`, `hidden`, `none`.</summary>
+        public SearchShardsDescriptor<TDocument> ExpandWildcards(
+            ExpandWildcards? expandwildcards
+        ) => Qs("expand_wildcards", expandwildcards);
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public SearchShardsDescriptor<TDocument> IgnoreUnavailable(
+            bool? ignoreunavailable = true
+        ) => Qs("ignore_unavailable", ignoreunavailable);
+
+        /// <summary>If `true`, the request retrieves information from the local node only.</summary>
+        public SearchShardsDescriptor<TDocument> Local(bool? local = true) => Qs("local", local);
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public SearchShardsDescriptor<TDocument> Preference(string preference) =>
+            Qs("preference", preference);
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public SearchShardsDescriptor<TDocument> Routing(Routing routing) => Qs("routing", routing);
+    }
+
+    /// <summary>Descriptor for SearchTemplate <para>https://opensearch.org/docs/latest/search-plugins/search-template/</para></summary>
+    public partial class SearchTemplateDescriptor<TDocument>
+        : RequestDescriptorBase<
+            SearchTemplateDescriptor<TDocument>,
+            SearchTemplateRequestParameters,
+            ISearchTemplateRequest
+        >,
+            ISearchTemplateRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceSearchTemplate;
+
+        /// <summary>/{index}/_search/template</summary>
+        public SearchTemplateDescriptor()
+            : this(typeof(TDocument)) { }
+
+        /// <summary>/{index}/_search/template</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public SearchTemplateDescriptor(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        Indices ISearchTemplateRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        /// <summary>Comma-separated list of data streams, indices, and aliases to search. Supports wildcards (*).</summary>
+        public SearchTemplateDescriptor<TDocument> Index(Indices index) =>
+            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public SearchTemplateDescriptor<TDocument> Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
+
+        /// <summary>A shortcut into calling Index(Indices.All)</summary>
+        public SearchTemplateDescriptor<TDocument> AllIndices() => Index(Indices.All);
+
+        // Request parameters
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an index starts with `foo` but no index starts with `bar`.</summary>
+        public SearchTemplateDescriptor<TDocument> AllowNoIndices(bool? allownoindices = true) =>
+            Qs("allow_no_indices", allownoindices);
+
+        /// <summary>If `true`, network round-trips are minimized for cross-cluster search requests.</summary>
+        public SearchTemplateDescriptor<TDocument> CcsMinimizeRoundtrips(
+            bool? ccsminimizeroundtrips = true
+        ) => Qs("ccs_minimize_roundtrips", ccsminimizeroundtrips);
+
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`, `hidden`, `none`.</summary>
+        public SearchTemplateDescriptor<TDocument> ExpandWildcards(
+            ExpandWildcards? expandwildcards
+        ) => Qs("expand_wildcards", expandwildcards);
+
+        /// <summary>If `true`, the response includes additional details about score computation as part of a hit.</summary>
+        public SearchTemplateDescriptor<TDocument> Explain(bool? explain = true) =>
+            Qs("explain", explain);
+
+        /// <summary>If `true`, specified concrete, expanded, or aliased indices are not included in the response when throttled.</summary>
+        public SearchTemplateDescriptor<TDocument> IgnoreThrottled(bool? ignorethrottled = true) =>
+            Qs("ignore_throttled", ignorethrottled);
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public SearchTemplateDescriptor<TDocument> IgnoreUnavailable(
+            bool? ignoreunavailable = true
+        ) => Qs("ignore_unavailable", ignoreunavailable);
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public SearchTemplateDescriptor<TDocument> Preference(string preference) =>
+            Qs("preference", preference);
+
+        /// <summary>If `true`, the query execution is profiled.</summary>
+        public SearchTemplateDescriptor<TDocument> Profile(bool? profile = true) =>
+            Qs("profile", profile);
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public SearchTemplateDescriptor<TDocument> Routing(Routing routing) =>
+            Qs("routing", routing);
+
+        /// <summary>Specifies how long a consistent view of the index should be maintained for scrolled search.</summary>
+        public SearchTemplateDescriptor<TDocument> Scroll(Time scroll) => Qs("scroll", scroll);
+
+        /// <summary>The type of the search operation.</summary>
+        public SearchTemplateDescriptor<TDocument> SearchType(SearchType? searchtype) =>
+            Qs("search_type", searchtype);
+
+        /// <summary>If true, hits.total are rendered as an integer in the response.</summary>
+        public SearchTemplateDescriptor<TDocument> TotalHitsAsInteger(
+            bool? totalhitsasinteger = true
+        ) => Qs("rest_total_hits_as_int", totalhitsasinteger);
+
+        /// <summary>If `true`, the response prefixes aggregation and suggester names with their respective types.</summary>
+        public SearchTemplateDescriptor<TDocument> TypedKeys(bool? typedkeys = true) =>
+            Qs("typed_keys", typedkeys);
+    }
+
+    /// <summary>Descriptor for TermVectors <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class TermVectorsDescriptor<TDocument>
+        : RequestDescriptorBase<
+            TermVectorsDescriptor<TDocument>,
+            TermVectorsRequestParameters,
+            ITermVectorsRequest<TDocument>
+        >,
+            ITermVectorsRequest<TDocument>
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceTermVectors;
+
+        /// <summary>/{index}/_termvectors</summary>
+        /// <param name="index">this parameter is required</param>
+        public TermVectorsDescriptor(IndexName index)
+            : base(r => r.Required("index", index)) { }
+
+        /// <summary>/{index}/_termvectors/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">Optional, accepts null</param>
+        public TermVectorsDescriptor(IndexName index, Id id)
+            : base(r => r.Required("index", index).Optional("id", id)) { }
+
+        /// <summary>/{index}/_termvectors</summary>
+        public TermVectorsDescriptor()
+            : this(typeof(TDocument)) { }
+
+        /// <summary>/{index}/_termvectors/{id}</summary>
+        /// <param name="id">Optional, accepts null</param>
+        public TermVectorsDescriptor(Id id)
+            : this(typeof(TDocument), id) { }
+
+        /// <summary>/{index}/_termvectors/{id}</summary>
+        /// <param name="id">The document used to resolve the path from</param>
+        public TermVectorsDescriptor(TDocument documentWithId, IndexName index = null, Id id = null)
+            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
+            DocumentFromPath(documentWithId);
+
+        partial void DocumentFromPath(TDocument document);
+
+        // values part of the url path
+        Id ITermVectorsRequest<TDocument>.Id => Self.RouteValues.Get<Id>("id");
+        IndexName ITermVectorsRequest<TDocument>.Index => Self.RouteValues.Get<IndexName>("index");
+
+        /// <summary>Unique identifier of the document.</summary>
+        public TermVectorsDescriptor<TDocument> Id(Id id) =>
+            Assign(id, (a, v) => a.RouteValues.Optional("id", v));
+
+        /// <summary>Name of the index that contains the document.</summary>
+        public TermVectorsDescriptor<TDocument> Index(IndexName index) =>
+            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public TermVectorsDescriptor<TDocument> Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (IndexName)v));
+
+        // Request parameters
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in the statistics. Used as the default list unless a specific field list is provided in the `completion_fields` or `fielddata_fields` parameters.</summary>
+        public TermVectorsDescriptor<TDocument> Fields(Fields fields) => Qs("fields", fields);
+
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in the statistics. Used as the default list unless a specific field list is provided in the `completion_fields` or `fielddata_fields` parameters.</summary>
+        public TermVectorsDescriptor<TDocument> Fields(
+            params Expression<Func<TDocument, object>>[] fields
+        ) => Qs("fields", fields?.Select(e => (Field)e));
+
+        /// <summary>If `true`, the response includes the document count, sum of document frequencies, and sum of total term frequencies.</summary>
+        public TermVectorsDescriptor<TDocument> FieldStatistics(bool? fieldstatistics = true) =>
+            Qs("field_statistics", fieldstatistics);
+
+        /// <summary>If `true`, the response includes term offsets.</summary>
+        public TermVectorsDescriptor<TDocument> Offsets(bool? offsets = true) =>
+            Qs("offsets", offsets);
+
+        /// <summary>If `true`, the response includes term payloads.</summary>
+        public TermVectorsDescriptor<TDocument> Payloads(bool? payloads = true) =>
+            Qs("payloads", payloads);
+
+        /// <summary>If `true`, the response includes term positions.</summary>
+        public TermVectorsDescriptor<TDocument> Positions(bool? positions = true) =>
+            Qs("positions", positions);
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public TermVectorsDescriptor<TDocument> Preference(string preference) =>
+            Qs("preference", preference);
+
+        /// <summary>If true, the request is real-time as opposed to near-real-time.</summary>
+        public TermVectorsDescriptor<TDocument> Realtime(bool? realtime = true) =>
+            Qs("realtime", realtime);
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public TermVectorsDescriptor<TDocument> Routing(Routing routing) => Qs("routing", routing);
+
+        /// <summary>If `true`, the response includes term frequency and document frequency.</summary>
+        public TermVectorsDescriptor<TDocument> TermStatistics(bool? termstatistics = true) =>
+            Qs("term_statistics", termstatistics);
+
+        /// <summary>If `true`, returns the document version as part of a hit.</summary>
+        public TermVectorsDescriptor<TDocument> Version(long? version) => Qs("version", version);
+
+        /// <summary>Specific version type.</summary>
+        public TermVectorsDescriptor<TDocument> VersionType(VersionType? versiontype) =>
+            Qs("version_type", versiontype);
+    }
+
+    /// <summary>Descriptor for Update <para>https://opensearch.org/docs/latest/api-reference/document-apis/update-document/</para></summary>
+    public partial class UpdateDescriptor<TDocument, TPartialDocument>
+        : RequestDescriptorBase<
+            UpdateDescriptor<TDocument, TPartialDocument>,
+            UpdateRequestParameters,
+            IUpdateRequest<TDocument, TPartialDocument>
+        >,
+            IUpdateRequest<TDocument, TPartialDocument>
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceUpdate;
+
+        /// <summary>/{index}/_update/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">this parameter is required</param>
+        public UpdateDescriptor(IndexName index, Id id)
+            : base(r => r.Required("index", index).Required("id", id)) { }
+
+        /// <summary>/{index}/_update/{id}</summary>
+        /// <param name="id">this parameter is required</param>
+        public UpdateDescriptor(Id id)
+            : this(typeof(TDocument), id) { }
+
+        /// <summary>/{index}/_update/{id}</summary>
+        /// <param name="id">The document used to resolve the path from</param>
+        public UpdateDescriptor(TDocument documentWithId, IndexName index = null, Id id = null)
+            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
+            DocumentFromPath(documentWithId);
+
+        partial void DocumentFromPath(TDocument document);
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected UpdateDescriptor()
+            : base() { }
+
+        // values part of the url path
+        Id IUpdateRequest<TDocument, TPartialDocument>.Id => Self.RouteValues.Get<Id>("id");
+        IndexName IUpdateRequest<TDocument, TPartialDocument>.Index =>
+            Self.RouteValues.Get<IndexName>("index");
+
+        /// <summary>The name of the index.</summary>
+        public UpdateDescriptor<TDocument, TPartialDocument> Index(IndexName index) =>
+            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public UpdateDescriptor<TDocument, TPartialDocument> Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (IndexName)v));
+
+        // Request parameters
+        /// <summary>Only perform the operation if the document has this primary term.</summary>
+        public UpdateDescriptor<TDocument, TPartialDocument> IfPrimaryTerm(long? ifprimaryterm) =>
+            Qs("if_primary_term", ifprimaryterm);
+
+        /// <summary>Only perform the operation if the document has this sequence number.</summary>
+        public UpdateDescriptor<TDocument, TPartialDocument> IfSequenceNumber(
+            long? ifsequencenumber
+        ) => Qs("if_seq_no", ifsequencenumber);
+
+        /// <summary>The script language.</summary>
+        public UpdateDescriptor<TDocument, TPartialDocument> Lang(string lang) => Qs("lang", lang);
+
+        /// <summary>If 'true', OpenSearch refreshes the affected shards to make this operation visible to search, if 'wait_for' then wait for a refresh to make this operation visible to search, if 'false' do nothing with refreshes.</summary>
+        public UpdateDescriptor<TDocument, TPartialDocument> Refresh(Refresh? refresh) =>
+            Qs("refresh", refresh);
+
+        /// <summary>If true, the destination must be an index alias.</summary>
+        public UpdateDescriptor<TDocument, TPartialDocument> RequireAlias(
+            bool? requirealias = true
+        ) => Qs("require_alias", requirealias);
+
+        /// <summary>Specify how many times should the operation be retried when a conflict occurs.</summary>
+        public UpdateDescriptor<TDocument, TPartialDocument> RetryOnConflict(
+            long? retryonconflict
+        ) => Qs("retry_on_conflict", retryonconflict);
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public UpdateDescriptor<TDocument, TPartialDocument> Routing(Routing routing) =>
+            Qs("routing", routing);
+
+        /// <summary>Whether the _source should be included in the response.</summary>
+        public UpdateDescriptor<TDocument, TPartialDocument> SourceEnabled(
+            bool? sourceenabled = true
+        ) => Qs("_source", sourceenabled);
+
+        /// <summary>Period to wait for dynamic mapping updates and active shards. This guarantees OpenSearch waits for at least the timeout before failing. The actual wait time could be longer, particularly when multiple waits occur.</summary>
+        public UpdateDescriptor<TDocument, TPartialDocument> Timeout(Time timeout) =>
+            Qs("timeout", timeout);
+
+        /// <summary>The number of shard copies that must be active before proceeding with the operations. Set to 'all' or any positive integer up to the total number of shards in the index (number_of_replicas+1). Defaults to 1 meaning the primary shard.</summary>
+        public UpdateDescriptor<TDocument, TPartialDocument> WaitForActiveShards(
+            string waitforactiveshards
+        ) => Qs("wait_for_active_shards", waitforactiveshards);
+    }
+
+    /// <summary>Descriptor for UpdateByQuery <para>https://opensearch.org/docs/latest/api-reference/document-apis/update-by-query/</para></summary>
+    public partial class UpdateByQueryDescriptor<TDocument>
+        : RequestDescriptorBase<
+            UpdateByQueryDescriptor<TDocument>,
+            UpdateByQueryRequestParameters,
+            IUpdateByQueryRequest<TDocument>
+        >,
+            IUpdateByQueryRequest<TDocument>
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceUpdateByQuery;
+
+        /// <summary>/{index}/_update_by_query</summary>
+        /// <param name="index">this parameter is required</param>
+        public UpdateByQueryDescriptor(Indices index)
+            : base(r => r.Required("index", index)) { }
+
+        /// <summary>/{index}/_update_by_query</summary>
+        public UpdateByQueryDescriptor()
+            : this(typeof(TDocument)) { }
+
+        // values part of the url path
+        Indices IUpdateByQueryRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        /// <summary>Comma-separated list of data streams, indices, and aliases to search. Supports wildcards (`*`). To search all data streams or indices, omit this parameter or use `*` or `_all`.</summary>
+        public UpdateByQueryDescriptor<TDocument> Index(Indices index) =>
+            Assign(index, (a, v) => a.RouteValues.Required("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public UpdateByQueryDescriptor<TDocument> Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Required("index", (Indices)v));
+
+        /// <summary>A shortcut into calling Index(Indices.All)</summary>
+        public UpdateByQueryDescriptor<TDocument> AllIndices() => Index(Indices.All);
+
+        // Request parameters
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an index starts with `foo` but no index starts with `bar`.</summary>
+        public UpdateByQueryDescriptor<TDocument> AllowNoIndices(bool? allownoindices = true) =>
+            Qs("allow_no_indices", allownoindices);
+
+        /// <summary>Analyzer to use for the query string.</summary>
+        public UpdateByQueryDescriptor<TDocument> Analyzer(string analyzer) =>
+            Qs("analyzer", analyzer);
+
+        /// <summary>If `true`, wildcard and prefix queries are analyzed.</summary>
+        public UpdateByQueryDescriptor<TDocument> AnalyzeWildcard(bool? analyzewildcard = true) =>
+            Qs("analyze_wildcard", analyzewildcard);
+
+        /// <summary>What to do if update by query hits version conflicts: `abort` or `proceed`.</summary>
+        public UpdateByQueryDescriptor<TDocument> Conflicts(Conflicts? conflicts) =>
+            Qs("conflicts", conflicts);
+
+        /// <summary>The default operator for query string query: `AND` or `OR`.</summary>
+        public UpdateByQueryDescriptor<TDocument> DefaultOperator(
+            DefaultOperator? defaultoperator
+        ) => Qs("default_operator", defaultoperator);
+
+        /// <summary>Field to use as default where no field prefix is given in the query string.</summary>
+        public UpdateByQueryDescriptor<TDocument> Df(string df) => Qs("df", df);
+
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`, `hidden`, `none`.</summary>
+        public UpdateByQueryDescriptor<TDocument> ExpandWildcards(
+            ExpandWildcards? expandwildcards
+        ) => Qs("expand_wildcards", expandwildcards);
+
+        /// <summary>Starting offset.</summary>
+        public UpdateByQueryDescriptor<TDocument> From(long? from) => Qs("from", from);
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public UpdateByQueryDescriptor<TDocument> IgnoreUnavailable(
+            bool? ignoreunavailable = true
+        ) => Qs("ignore_unavailable", ignoreunavailable);
+
+        /// <summary>If `true`, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
+        public UpdateByQueryDescriptor<TDocument> Lenient(bool? lenient = true) =>
+            Qs("lenient", lenient);
+
+        /// <summary>ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value to `_none` disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of the value of this parameter.</summary>
+        public UpdateByQueryDescriptor<TDocument> Pipeline(string pipeline) =>
+            Qs("pipeline", pipeline);
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public UpdateByQueryDescriptor<TDocument> Preference(string preference) =>
+            Qs("preference", preference);
+
+        /// <summary>Query in the Lucene query string syntax.</summary>
+        public UpdateByQueryDescriptor<TDocument> QueryOnQueryString(string queryonquerystring) =>
+            Qs("q", queryonquerystring);
+
+        /// <summary>If `true`, OpenSearch refreshes affected shards to make the operation visible to search.</summary>
+        public UpdateByQueryDescriptor<TDocument> Refresh(bool? refresh = true) =>
+            Qs("refresh", refresh);
+
+        /// <summary>If `true`, the request cache is used for this request.</summary>
+        public UpdateByQueryDescriptor<TDocument> RequestCache(bool? requestcache = true) =>
+            Qs("request_cache", requestcache);
+
+        /// <summary>The throttle for this request in sub-requests per second.</summary>
+        public UpdateByQueryDescriptor<TDocument> RequestsPerSecond(long? requestspersecond) =>
+            Qs("requests_per_second", requestspersecond);
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public UpdateByQueryDescriptor<TDocument> Routing(Routing routing) =>
+            Qs("routing", routing);
+
+        /// <summary>Period to retain the search context for scrolling.</summary>
+        public UpdateByQueryDescriptor<TDocument> Scroll(Time scroll) => Qs("scroll", scroll);
+
+        /// <summary>Size of the scroll request that powers the operation.</summary>
+        public UpdateByQueryDescriptor<TDocument> ScrollSize(long? scrollsize) =>
+            Qs("scroll_size", scrollsize);
+
+        /// <summary>Explicit timeout for each search request.</summary>
+        public UpdateByQueryDescriptor<TDocument> SearchTimeout(Time searchtimeout) =>
+            Qs("search_timeout", searchtimeout);
+
+        /// <summary>The type of the search operation. Available options: `query_then_fetch`, `dfs_query_then_fetch`.</summary>
+        public UpdateByQueryDescriptor<TDocument> SearchType(SearchType? searchtype) =>
+            Qs("search_type", searchtype);
+
+        /// <summary>Deprecated, please use `max_docs` instead.</summary>
+        public UpdateByQueryDescriptor<TDocument> Size(long? size) => Qs("size", size);
+
+        /// <summary>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs.</summary>
+        public UpdateByQueryDescriptor<TDocument> Sort(params string[] sort) => Qs("sort", sort);
+
+        /// <summary>Whether the _source should be included in the response.</summary>
+        public UpdateByQueryDescriptor<TDocument> SourceEnabled(bool? sourceenabled = true) =>
+            Qs("_source", sourceenabled);
+
+        /// <summary>List of fields to exclude from the returned _source field.</summary>
+        public UpdateByQueryDescriptor<TDocument> SourceExcludes(Fields sourceexcludes) =>
+            Qs("_source_excludes", sourceexcludes);
+
+        /// <summary>List of fields to exclude from the returned _source field.</summary>
+        public UpdateByQueryDescriptor<TDocument> SourceExcludes(
+            params Expression<Func<TDocument, object>>[] fields
+        ) => Qs("_source_excludes", fields?.Select(e => (Field)e));
+
+        /// <summary>List of fields to extract and return from the _source field.</summary>
+        public UpdateByQueryDescriptor<TDocument> SourceIncludes(Fields sourceincludes) =>
+            Qs("_source_includes", sourceincludes);
+
+        /// <summary>List of fields to extract and return from the _source field.</summary>
+        public UpdateByQueryDescriptor<TDocument> SourceIncludes(
+            params Expression<Func<TDocument, object>>[] fields
+        ) => Qs("_source_includes", fields?.Select(e => (Field)e));
+
+        /// <summary>Specific `tag` of the request for logging and statistical purposes.</summary>
+        public UpdateByQueryDescriptor<TDocument> Stats(params string[] stats) =>
+            Qs("stats", stats);
+
+        /// <summary>Maximum number of documents to collect for each shard. If a query reaches this limit, OpenSearch terminates the query early. OpenSearch collects documents before sorting. Use with caution. OpenSearch applies this parameter to each shard handling the request. When possible, let OpenSearch perform early termination automatically. Avoid specifying this parameter for requests that target data streams with backing indices across multiple data tiers.</summary>
+        public UpdateByQueryDescriptor<TDocument> TerminateAfter(long? terminateafter) =>
+            Qs("terminate_after", terminateafter);
+
+        /// <summary>Period each update request waits for the following operations: dynamic mapping updates, waiting for active shards.</summary>
+        public UpdateByQueryDescriptor<TDocument> Timeout(Time timeout) => Qs("timeout", timeout);
+
+        /// <summary>If `true`, returns the document version as part of a hit.</summary>
+        public UpdateByQueryDescriptor<TDocument> Version(bool? version = true) =>
+            Qs("version", version);
+
+        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total number of shards in the index (`number_of_replicas+1`).</summary>
+        public UpdateByQueryDescriptor<TDocument> WaitForActiveShards(string waitforactiveshards) =>
+            Qs("wait_for_active_shards", waitforactiveshards);
+
+        /// <summary>If `true`, the request blocks until the operation is complete.</summary>
+        public UpdateByQueryDescriptor<TDocument> WaitForCompletion(
+            bool? waitforcompletion = true
+        ) => Qs("wait_for_completion", waitforcompletion);
+    }
+
+    /// <summary>Descriptor for UpdateByQueryRethrottle <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class UpdateByQueryRethrottleDescriptor
+        : RequestDescriptorBase<
+            UpdateByQueryRethrottleDescriptor,
+            UpdateByQueryRethrottleRequestParameters,
+            IUpdateByQueryRethrottleRequest
+        >,
+            IUpdateByQueryRethrottleRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceUpdateByQueryRethrottle;
+
+        /// <summary>/_update_by_query/{task_id}/_rethrottle</summary>
+        /// <param name="taskId">this parameter is required</param>
+        public UpdateByQueryRethrottleDescriptor(TaskId taskId)
+            : base(r => r.Required("task_id", taskId)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected UpdateByQueryRethrottleDescriptor()
+            : base() { }
+
+        // values part of the url path
+        TaskId IUpdateByQueryRethrottleRequest.TaskId => Self.RouteValues.Get<TaskId>("task_id");
+
+        // Request parameters
+        /// <summary>The throttle for this request in sub-requests per second.</summary>
+        public UpdateByQueryRethrottleDescriptor RequestsPerSecond(long? requestspersecond) =>
+            Qs("requests_per_second", requestspersecond);
     }
 }

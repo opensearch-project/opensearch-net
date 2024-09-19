@@ -1901,9 +1901,9 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
 
         /// <summary>List of shard health statuses used to limit the request.</summary>
-        public IndicesShardStoresShardStoreStatus? Status
+        public IndicesShardStoresStatus? Status
         {
-            get => Q<IndicesShardStoresShardStoreStatus?>("status");
+            get => Q<IndicesShardStoresStatus?>("status");
             set => Q("status", value);
         }
     }

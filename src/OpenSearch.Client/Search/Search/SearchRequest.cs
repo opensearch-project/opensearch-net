@@ -203,6 +203,9 @@ namespace OpenSearch.Client
 		[DataMember(Name = "track_scores")]
 		bool? TrackScores { get; set; }
 
+        [DataMember(Name = "track_total_hits")]
+        TrackTotalHits TrackTotalHits { get; set; }
+
 		/// <summary>
 		/// Return a version for each search hit
 		/// </summary>

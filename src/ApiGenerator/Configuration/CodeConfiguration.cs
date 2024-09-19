@@ -39,9 +39,6 @@ namespace ApiGenerator.Configuration
 	{
 		private static readonly Glob[] OperationsToInclude =
         [
-            new("{create,delete}_pit"),
-			new("{delete,get}_all_pits"),
-
 			new("cat.*"),
 			new("cluster.*"),
 			new("dangling_indices.*"),
@@ -52,7 +49,7 @@ namespace ApiGenerator.Configuration
 			new("tasks.*")
         ];
 
-		public static bool IncludeOperation(string name) => OperationsToInclude.Any(g => g.IsMatch(name));
+		public static bool IncludeOperation(string name) => !name.Contains('.') || OperationsToInclude.Any(g => g.IsMatch(name));
 
 		/// <summary>
         /// Map API default names for API's we are only supporting on the low level client first

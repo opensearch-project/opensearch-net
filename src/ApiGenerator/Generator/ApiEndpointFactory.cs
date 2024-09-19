@@ -242,8 +242,8 @@ namespace ApiGenerator.Generator
                     {
                         case ("string", "list"): return second;
                         case ("boolean", "string"): return first;
-                        case ("string", "number"): return first;
                         case ("number", _): return "string";
+                        case (_,"number"): return "string";
                     }
                 }
             }

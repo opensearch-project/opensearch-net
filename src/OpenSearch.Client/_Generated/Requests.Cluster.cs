@@ -768,9 +768,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Limits the information returned to the specified metrics.</summary>
-        public string[] Metric
+        public ClusterRerouteMetric? Metric
         {
-            get => Q<string[]>("metric");
+            get => Q<ClusterRerouteMetric?>("metric");
             set => Q("metric", value);
         }
 

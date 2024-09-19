@@ -58,6 +58,420 @@ using OpenSearch.Net.Utf8Json;
 namespace OpenSearch.Client
 {
     [InterfaceDataContract]
+    public partial interface IBulkRequest : IRequest<BulkRequestParameters>
+    {
+        [IgnoreDataMember]
+        IndexName Index { get; }
+    }
+
+    /// <summary>Request for Bulk <para>https://opensearch.org/docs/latest/api-reference/document-apis/bulk/</para></summary>
+    public partial class BulkRequest : PlainRequestBase<BulkRequestParameters>, IBulkRequest
+    {
+        protected IBulkRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceBulk;
+
+        /// <summary>/_bulk</summary>
+        public BulkRequest()
+            : base() { }
+
+        /// <summary>/{index}/_bulk</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public BulkRequest(IndexName index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        IndexName IBulkRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        // Request parameters
+        /// <summary>
+        /// ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value
+        /// to `_none` disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of the
+        /// value of this parameter.
+        /// </summary>
+        public string Pipeline
+        {
+            get => Q<string>("pipeline");
+            set => Q("pipeline", value);
+        }
+
+        /// <summary>
+        /// If `true`, OpenSearch refreshes the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh to
+        /// make this operation visible to search, if `false` do nothing with refreshes. Valid values: `true`, `false`, `wait_for`.
+        /// </summary>
+        public Refresh? Refresh
+        {
+            get => Q<Refresh?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>If `true`, the request's actions must target an index alias.</summary>
+        public bool? RequireAlias
+        {
+            get => Q<bool?>("require_alias");
+            set => Q("require_alias", value);
+        }
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see
+        /// cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public Routing Routing
+        {
+            get => Q<Routing>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Whether the _source should be included in the response.</summary>
+        public bool? SourceEnabled
+        {
+            get => Q<bool?>("_source");
+            set => Q("_source", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to exclude from the response.</summary>
+        public Fields SourceExcludes
+        {
+            get => Q<Fields>("_source_excludes");
+            set => Q("_source_excludes", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public Fields SourceIncludes
+        {
+            get => Q<Fields>("_source_includes");
+            set => Q("_source_includes", value);
+        }
+
+        /// <summary>Period each action waits for the following operations: automatic index creation, dynamic mapping updates, waiting for active shards.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>Default document type for items which don't provide one.</summary>
+        public string Type
+        {
+            get => Q<string>("type");
+            set => Q("type", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to all or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IClearScrollRequest : IRequest<ClearScrollRequestParameters> { }
+
+    /// <summary>Request for ClearScroll <para>https://opensearch.org/docs/latest/api-reference/scroll/</para></summary>
+    public partial class ClearScrollRequest
+        : PlainRequestBase<ClearScrollRequestParameters>,
+            IClearScrollRequest
+    {
+        protected IClearScrollRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceClearScroll;
+        // values part of the url path
+
+        // Request parameters
+    }
+
+    [InterfaceDataContract]
+    public partial interface ICountRequest : IRequest<CountRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    public partial interface ICountRequest<TDocument> : ICountRequest { }
+
+    /// <summary>Request for Count <para>https://opensearch.org/docs/latest/api-reference/count/</para></summary>
+    public partial class CountRequest : PlainRequestBase<CountRequestParameters>, ICountRequest
+    {
+        protected ICountRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceCount;
+
+        /// <summary>/_count</summary>
+        public CountRequest()
+            : base() { }
+
+        /// <summary>/{index}/_count</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public CountRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices ICountRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>Analyzer to use for the query string. This parameter can only be used when the `q` query string parameter is specified.</summary>
+        public string Analyzer
+        {
+            get => Q<string>("analyzer");
+            set => Q("analyzer", value);
+        }
+
+        /// <summary>If `true`, wildcard and prefix queries are analyzed. This parameter can only be used when the `q` query string parameter is specified.</summary>
+        public bool? AnalyzeWildcard
+        {
+            get => Q<bool?>("analyze_wildcard");
+            set => Q("analyze_wildcard", value);
+        }
+
+        /// <summary>
+        /// The default operator for query string query: `AND` or `OR`. This parameter can only be used when the `q` query string parameter is
+        /// specified.
+        /// </summary>
+        public DefaultOperator? DefaultOperator
+        {
+            get => Q<DefaultOperator?>("default_operator");
+            set => Q("default_operator", value);
+        }
+
+        /// <summary>
+        /// Field to use as default where no field prefix is given in the query string. This parameter can only be used when the `q` query string
+        /// parameter is specified.
+        /// </summary>
+        public string Df
+        {
+            get => Q<string>("df");
+            set => Q("df", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `true`, concrete, expanded or aliased indices are ignored when frozen.</summary>
+        public bool? IgnoreThrottled
+        {
+            get => Q<bool?>("ignore_throttled");
+            set => Q("ignore_throttled", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>If `true`, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
+        public bool? Lenient
+        {
+            get => Q<bool?>("lenient");
+            set => Q("lenient", value);
+        }
+
+        /// <summary>Sets the minimum `_score` value that documents must have to be included in the result.</summary>
+        public double? MinScore
+        {
+            get => Q<double?>("min_score");
+            set => Q("min_score", value);
+        }
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>Query in the Lucene query string syntax.</summary>
+        public string QueryOnQueryString
+        {
+            get => Q<string>("q");
+            set => Q("q", value);
+        }
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see
+        /// cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public Routing Routing
+        {
+            get => Q<Routing>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>
+        /// Maximum number of documents to collect for each shard. If a query reaches this limit, OpenSearch terminates the query early. OpenSearch
+        /// collects documents before sorting.
+        /// </summary>
+        public long? TerminateAfter
+        {
+            get => Q<long?>("terminate_after");
+            set => Q("terminate_after", value);
+        }
+    }
+
+    public partial class CountRequest<TDocument> : CountRequest, ICountRequest<TDocument>
+    {
+        protected ICountRequest<TDocument> TypedSelf => this;
+
+        /// <summary>/{index}/_count</summary>
+        public CountRequest()
+            : base(typeof(TDocument)) { }
+
+        /// <summary>/{index}/_count</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public CountRequest(Indices index)
+            : base(index) { }
+    }
+
+    [InterfaceDataContract]
+    public partial interface ICreateRequest<TDocument> : IRequest<CreateRequestParameters>
+    {
+        [IgnoreDataMember]
+        Id Id { get; }
+
+        [IgnoreDataMember]
+        IndexName Index { get; }
+    }
+
+    /// <summary>Request for Create <para>https://opensearch.org/docs/latest/api-reference/document-apis/index-document/</para></summary>
+    public partial class CreateRequest<TDocument>
+        : PlainRequestBase<CreateRequestParameters>,
+            ICreateRequest<TDocument>
+    {
+        protected ICreateRequest<TDocument> Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceCreate;
+
+        /// <summary>/{index}/_create/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">this parameter is required</param>
+        public CreateRequest(IndexName index, Id id)
+            : base(r => r.Required("index", index).Required("id", id)) { }
+
+        /// <summary>/{index}/_create/{id}</summary>
+        /// <param name="id">this parameter is required</param>
+        public CreateRequest(Id id)
+            : this(typeof(TDocument), id) { }
+
+        /// <summary>/{index}/_create/{id}</summary>
+        /// <param name="id">The document used to resolve the path from</param>
+        public CreateRequest(TDocument documentWithId, IndexName index = null, Id id = null)
+            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
+            DocumentFromPath(documentWithId);
+
+        partial void DocumentFromPath(TDocument document);
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected CreateRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Id ICreateRequest<TDocument>.Id => Self.RouteValues.Get<Id>("id");
+
+        [IgnoreDataMember]
+        IndexName ICreateRequest<TDocument>.Index => Self.RouteValues.Get<IndexName>("index");
+
+        // Request parameters
+        /// <summary>
+        /// ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value
+        /// to `_none` disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of the
+        /// value of this parameter.
+        /// </summary>
+        public string Pipeline
+        {
+            get => Q<string>("pipeline");
+            set => Q("pipeline", value);
+        }
+
+        /// <summary>
+        /// If `true`, OpenSearch refreshes the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh to
+        /// make this operation visible to search, if `false` do nothing with refreshes. Valid values: `true`, `false`, `wait_for`.
+        /// </summary>
+        public Refresh? Refresh
+        {
+            get => Q<Refresh?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see
+        /// cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public Routing Routing
+        {
+            get => Q<Routing>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Period the request waits for the following operations: automatic index creation, dynamic mapping updates, waiting for active shards.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>
+        /// Explicit version number for concurrency control. The specified version must match the current version of the document for the request to
+        /// succeed.
+        /// </summary>
+        public long? Version
+        {
+            get => Q<long?>("version");
+            set => Q("version", value);
+        }
+
+        /// <summary>Specific version type: `external`, `external_gte`.</summary>
+        public VersionType? VersionType
+        {
+            get => Q<VersionType?>("version_type");
+            set => Q("version_type", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+    }
+
+    [InterfaceDataContract]
     public partial interface ICreatePitRequest : IRequest<CreatePitRequestParameters>
     {
         [IgnoreDataMember]
@@ -131,6 +545,145 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
+    public partial interface IDeleteRequest : IRequest<DeleteRequestParameters>
+    {
+        [IgnoreDataMember]
+        Id Id { get; }
+
+        [IgnoreDataMember]
+        IndexName Index { get; }
+    }
+
+    public partial interface IDeleteRequest<TDocument> : IDeleteRequest { }
+
+    /// <summary>Request for Delete <para>https://opensearch.org/docs/latest/api-reference/document-apis/delete-document/</para></summary>
+    public partial class DeleteRequest : PlainRequestBase<DeleteRequestParameters>, IDeleteRequest
+    {
+        protected IDeleteRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceDelete;
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">this parameter is required</param>
+        public DeleteRequest(IndexName index, Id id)
+            : base(r => r.Required("index", index).Required("id", id)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected DeleteRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Id IDeleteRequest.Id => Self.RouteValues.Get<Id>("id");
+
+        [IgnoreDataMember]
+        IndexName IDeleteRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        // Request parameters
+        /// <summary>Only perform the operation if the document has this primary term.</summary>
+        public long? IfPrimaryTerm
+        {
+            get => Q<long?>("if_primary_term");
+            set => Q("if_primary_term", value);
+        }
+
+        /// <summary>Only perform the operation if the document has this sequence number.</summary>
+        public long? IfSequenceNumber
+        {
+            get => Q<long?>("if_seq_no");
+            set => Q("if_seq_no", value);
+        }
+
+        /// <summary>
+        /// If `true`, OpenSearch refreshes the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh to
+        /// make this operation visible to search, if `false` do nothing with refreshes. Valid values: `true`, `false`, `wait_for`.
+        /// </summary>
+        public Refresh? Refresh
+        {
+            get => Q<Refresh?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see
+        /// cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public Routing Routing
+        {
+            get => Q<Routing>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Period to wait for active shards.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>
+        /// Explicit version number for concurrency control. The specified version must match the current version of the document for the request to
+        /// succeed.
+        /// </summary>
+        public long? Version
+        {
+            get => Q<long?>("version");
+            set => Q("version", value);
+        }
+
+        /// <summary>Specific version type: `external`, `external_gte`.</summary>
+        public VersionType? VersionType
+        {
+            get => Q<VersionType?>("version_type");
+            set => Q("version_type", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+    }
+
+    public partial class DeleteRequest<TDocument> : DeleteRequest, IDeleteRequest<TDocument>
+    {
+        protected IDeleteRequest<TDocument> TypedSelf => this;
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">this parameter is required</param>
+        public DeleteRequest(IndexName index, Id id)
+            : base(index, id) { }
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="id">this parameter is required</param>
+        public DeleteRequest(Id id)
+            : base(typeof(TDocument), id) { }
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="id">The document used to resolve the path from</param>
+        public DeleteRequest(TDocument documentWithId, IndexName index = null, Id id = null)
+            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
+            DocumentFromPath(documentWithId);
+
+        partial void DocumentFromPath(TDocument document);
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected DeleteRequest()
+            : base() { }
+    }
+
+    [InterfaceDataContract]
     public partial interface IDeleteAllPitsRequest : IRequest<DeleteAllPitsRequestParameters> { }
 
     /// <summary>Request for DeleteAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
@@ -143,6 +696,334 @@ namespace OpenSearch.Client
         // values part of the url path
 
         // Request parameters
+    }
+
+    [InterfaceDataContract]
+    public partial interface IDeleteByQueryRequest : IRequest<DeleteByQueryRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    public partial interface IDeleteByQueryRequest<TDocument> : IDeleteByQueryRequest { }
+
+    /// <summary>Request for DeleteByQuery <para>https://opensearch.org/docs/latest/api-reference/document-apis/delete-by-query/</para></summary>
+    public partial class DeleteByQueryRequest
+        : PlainRequestBase<DeleteByQueryRequestParameters>,
+            IDeleteByQueryRequest
+    {
+        protected IDeleteByQueryRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceDeleteByQuery;
+
+        /// <summary>/{index}/_delete_by_query</summary>
+        /// <param name="index">this parameter is required</param>
+        public DeleteByQueryRequest(Indices index)
+            : base(r => r.Required("index", index)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected DeleteByQueryRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IDeleteByQueryRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// index starts with `foo` but no index starts with `bar`.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>Analyzer to use for the query string.</summary>
+        public string Analyzer
+        {
+            get => Q<string>("analyzer");
+            set => Q("analyzer", value);
+        }
+
+        /// <summary>If `true`, wildcard and prefix queries are analyzed.</summary>
+        public bool? AnalyzeWildcard
+        {
+            get => Q<bool?>("analyze_wildcard");
+            set => Q("analyze_wildcard", value);
+        }
+
+        /// <summary>What to do if delete by query hits version conflicts: `abort` or `proceed`.</summary>
+        public Conflicts? Conflicts
+        {
+            get => Q<Conflicts?>("conflicts");
+            set => Q("conflicts", value);
+        }
+
+        /// <summary>The default operator for query string query: `AND` or `OR`.</summary>
+        public DefaultOperator? DefaultOperator
+        {
+            get => Q<DefaultOperator?>("default_operator");
+            set => Q("default_operator", value);
+        }
+
+        /// <summary>Field to use as default where no field prefix is given in the query string.</summary>
+        public string Df
+        {
+            get => Q<string>("df");
+            set => Q("df", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>Starting offset.</summary>
+        public long? From
+        {
+            get => Q<long?>("from");
+            set => Q("from", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>If `true`, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
+        public bool? Lenient
+        {
+            get => Q<bool?>("lenient");
+            set => Q("lenient", value);
+        }
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>Query in the Lucene query string syntax.</summary>
+        public string QueryOnQueryString
+        {
+            get => Q<string>("q");
+            set => Q("q", value);
+        }
+
+        /// <summary>If `true`, OpenSearch refreshes all shards involved in the delete by query after the request completes.</summary>
+        public bool? Refresh
+        {
+            get => Q<bool?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>If `true`, the request cache is used for this request. Defaults to the index-level setting.</summary>
+        public bool? RequestCache
+        {
+            get => Q<bool?>("request_cache");
+            set => Q("request_cache", value);
+        }
+
+        /// <summary>The throttle for this request in sub-requests per second.</summary>
+        public long? RequestsPerSecond
+        {
+            get => Q<long?>("requests_per_second");
+            set => Q("requests_per_second", value);
+        }
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see
+        /// cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public Routing Routing
+        {
+            get => Q<Routing>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Period to retain the search context for scrolling.</summary>
+        public Time Scroll
+        {
+            get => Q<Time>("scroll");
+            set => Q("scroll", value);
+        }
+
+        /// <summary>Size of the scroll request that powers the operation.</summary>
+        public long? ScrollSize
+        {
+            get => Q<long?>("scroll_size");
+            set => Q("scroll_size", value);
+        }
+
+        /// <summary>Explicit timeout for each search request. Defaults to no timeout.</summary>
+        public Time SearchTimeout
+        {
+            get => Q<Time>("search_timeout");
+            set => Q("search_timeout", value);
+        }
+
+        /// <summary>The type of the search operation. Available options: `query_then_fetch`, `dfs_query_then_fetch`.</summary>
+        public SearchType? SearchType
+        {
+            get => Q<SearchType?>("search_type");
+            set => Q("search_type", value);
+        }
+
+        /// <summary>Deprecated, please use `max_docs` instead.</summary>
+        public long? Size
+        {
+            get => Q<long?>("size");
+            set => Q("size", value);
+        }
+
+        /// <summary>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs.</summary>
+        public string[] Sort
+        {
+            get => Q<string[]>("sort");
+            set => Q("sort", value);
+        }
+
+        /// <summary>Whether the _source should be included in the response.</summary>
+        public bool? SourceEnabled
+        {
+            get => Q<bool?>("_source");
+            set => Q("_source", value);
+        }
+
+        /// <summary>List of fields to exclude from the returned _source field.</summary>
+        public Fields SourceExcludes
+        {
+            get => Q<Fields>("_source_excludes");
+            set => Q("_source_excludes", value);
+        }
+
+        /// <summary>List of fields to extract and return from the _source field.</summary>
+        public Fields SourceIncludes
+        {
+            get => Q<Fields>("_source_includes");
+            set => Q("_source_includes", value);
+        }
+
+        /// <summary>Specific `tag` of the request for logging and statistical purposes.</summary>
+        public string[] Stats
+        {
+            get => Q<string[]>("stats");
+            set => Q("stats", value);
+        }
+
+        /// <summary>
+        /// Maximum number of documents to collect for each shard. If a query reaches this limit, OpenSearch terminates the query early. OpenSearch
+        /// collects documents before sorting. Use with caution. OpenSearch applies this parameter to each shard handling the request. When possible,
+        /// let OpenSearch perform early termination automatically. Avoid specifying this parameter for requests that target data streams with backing
+        /// indices across multiple data tiers.
+        /// </summary>
+        public long? TerminateAfter
+        {
+            get => Q<long?>("terminate_after");
+            set => Q("terminate_after", value);
+        }
+
+        /// <summary>Period each deletion request waits for active shards.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>If `true`, returns the document version as part of a hit.</summary>
+        public bool? Version
+        {
+            get => Q<bool?>("version");
+            set => Q("version", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to all or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+
+        /// <summary>If `true`, the request blocks until the operation is complete.</summary>
+        public bool? WaitForCompletion
+        {
+            get => Q<bool?>("wait_for_completion");
+            set => Q("wait_for_completion", value);
+        }
+    }
+
+    public partial class DeleteByQueryRequest<TDocument>
+        : DeleteByQueryRequest,
+            IDeleteByQueryRequest<TDocument>
+    {
+        protected IDeleteByQueryRequest<TDocument> TypedSelf => this;
+
+        /// <summary>/{index}/_delete_by_query</summary>
+        /// <param name="index">this parameter is required</param>
+        public DeleteByQueryRequest(Indices index)
+            : base(index) { }
+
+        /// <summary>/{index}/_delete_by_query</summary>
+        public DeleteByQueryRequest()
+            : base(typeof(TDocument)) { }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IDeleteByQueryRethrottleRequest
+        : IRequest<DeleteByQueryRethrottleRequestParameters>
+    {
+        [IgnoreDataMember]
+        TaskId TaskId { get; }
+    }
+
+    /// <summary>Request for DeleteByQueryRethrottle <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class DeleteByQueryRethrottleRequest
+        : PlainRequestBase<DeleteByQueryRethrottleRequestParameters>,
+            IDeleteByQueryRethrottleRequest
+    {
+        protected IDeleteByQueryRethrottleRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceDeleteByQueryRethrottle;
+
+        /// <summary>/_delete_by_query/{task_id}/_rethrottle</summary>
+        /// <param name="taskId">this parameter is required</param>
+        public DeleteByQueryRethrottleRequest(TaskId taskId)
+            : base(r => r.Required("task_id", taskId)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected DeleteByQueryRethrottleRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        TaskId IDeleteByQueryRethrottleRequest.TaskId => Self.RouteValues.Get<TaskId>("task_id");
+
+        // Request parameters
+        /// <summary>The throttle for this request in sub-requests per second.</summary>
+        public long? RequestsPerSecond
+        {
+            get => Q<long?>("requests_per_second");
+            set => Q("requests_per_second", value);
+        }
     }
 
     [InterfaceDataContract]
@@ -161,6 +1042,742 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
+    public partial interface IDeleteScriptRequest : IRequest<DeleteScriptRequestParameters>
+    {
+        [IgnoreDataMember]
+        Id Id { get; }
+    }
+
+    /// <summary>Request for DeleteScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/delete-script/</para></summary>
+    public partial class DeleteScriptRequest
+        : PlainRequestBase<DeleteScriptRequestParameters>,
+            IDeleteScriptRequest
+    {
+        protected IDeleteScriptRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceDeleteScript;
+
+        /// <summary>/_scripts/{id}</summary>
+        /// <param name="id">this parameter is required</param>
+        public DeleteScriptRequest(Id id)
+            : base(r => r.Required("id", id)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected DeleteScriptRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Id IDeleteScriptRequest.Id => Self.RouteValues.Get<Id>("id");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IDocumentExistsRequest : IRequest<DocumentExistsRequestParameters>
+    {
+        [IgnoreDataMember]
+        Id Id { get; }
+
+        [IgnoreDataMember]
+        IndexName Index { get; }
+    }
+
+    public partial interface IDocumentExistsRequest<TDocument> : IDocumentExistsRequest { }
+
+    /// <summary>Request for DocumentExists <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    public partial class DocumentExistsRequest
+        : PlainRequestBase<DocumentExistsRequestParameters>,
+            IDocumentExistsRequest
+    {
+        protected IDocumentExistsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceDocumentExists;
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">this parameter is required</param>
+        public DocumentExistsRequest(IndexName index, Id id)
+            : base(r => r.Required("index", index).Required("id", id)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected DocumentExistsRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Id IDocumentExistsRequest.Id => Self.RouteValues.Get<Id>("id");
+
+        [IgnoreDataMember]
+        IndexName IDocumentExistsRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        // Request parameters
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>If `true`, the request is real-time as opposed to near-real-time.</summary>
+        public bool? Realtime
+        {
+            get => Q<bool?>("realtime");
+            set => Q("realtime", value);
+        }
+
+        /// <summary>If `true`, OpenSearch refreshes all shards involved in the delete by query after the request completes.</summary>
+        public bool? Refresh
+        {
+            get => Q<bool?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see
+        /// cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public Routing Routing
+        {
+            get => Q<Routing>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Whether the _source should be included in the response.</summary>
+        public bool? SourceEnabled
+        {
+            get => Q<bool?>("_source");
+            set => Q("_source", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to exclude in the response.</summary>
+        public Fields SourceExcludes
+        {
+            get => Q<Fields>("_source_excludes");
+            set => Q("_source_excludes", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public Fields SourceIncludes
+        {
+            get => Q<Fields>("_source_includes");
+            set => Q("_source_includes", value);
+        }
+
+        /// <summary>
+        /// List of stored fields to return as part of a hit. If no fields are specified, no stored fields are included in the response. If this field
+        /// is specified, the `_source` parameter defaults to false.
+        /// </summary>
+        public Fields StoredFields
+        {
+            get => Q<Fields>("stored_fields");
+            set => Q("stored_fields", value);
+        }
+
+        /// <summary>
+        /// Explicit version number for concurrency control. The specified version must match the current version of the document for the request to
+        /// succeed.
+        /// </summary>
+        public long? Version
+        {
+            get => Q<long?>("version");
+            set => Q("version", value);
+        }
+
+        /// <summary>Specific version type: `external`, `external_gte`.</summary>
+        public VersionType? VersionType
+        {
+            get => Q<VersionType?>("version_type");
+            set => Q("version_type", value);
+        }
+    }
+
+    public partial class DocumentExistsRequest<TDocument>
+        : DocumentExistsRequest,
+            IDocumentExistsRequest<TDocument>
+    {
+        protected IDocumentExistsRequest<TDocument> TypedSelf => this;
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">this parameter is required</param>
+        public DocumentExistsRequest(IndexName index, Id id)
+            : base(index, id) { }
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="id">this parameter is required</param>
+        public DocumentExistsRequest(Id id)
+            : base(typeof(TDocument), id) { }
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="id">The document used to resolve the path from</param>
+        public DocumentExistsRequest(TDocument documentWithId, IndexName index = null, Id id = null)
+            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
+            DocumentFromPath(documentWithId);
+
+        partial void DocumentFromPath(TDocument document);
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected DocumentExistsRequest()
+            : base() { }
+    }
+
+    [InterfaceDataContract]
+    public partial interface ISourceExistsRequest : IRequest<SourceExistsRequestParameters>
+    {
+        [IgnoreDataMember]
+        Id Id { get; }
+
+        [IgnoreDataMember]
+        IndexName Index { get; }
+    }
+
+    public partial interface ISourceExistsRequest<TDocument> : ISourceExistsRequest { }
+
+    /// <summary>Request for SourceExists <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    public partial class SourceExistsRequest
+        : PlainRequestBase<SourceExistsRequestParameters>,
+            ISourceExistsRequest
+    {
+        protected ISourceExistsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceSourceExists;
+
+        /// <summary>/{index}/_source/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">this parameter is required</param>
+        public SourceExistsRequest(IndexName index, Id id)
+            : base(r => r.Required("index", index).Required("id", id)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected SourceExistsRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Id ISourceExistsRequest.Id => Self.RouteValues.Get<Id>("id");
+
+        [IgnoreDataMember]
+        IndexName ISourceExistsRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        // Request parameters
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>If true, the request is real-time as opposed to near-real-time.</summary>
+        public bool? Realtime
+        {
+            get => Q<bool?>("realtime");
+            set => Q("realtime", value);
+        }
+
+        /// <summary>If `true`, OpenSearch refreshes all shards involved in the delete by query after the request completes.</summary>
+        public bool? Refresh
+        {
+            get => Q<bool?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see
+        /// cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public Routing Routing
+        {
+            get => Q<Routing>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Whether the _source should be included in the response.</summary>
+        public bool? SourceEnabled
+        {
+            get => Q<bool?>("_source");
+            set => Q("_source", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to exclude in the response.</summary>
+        public Fields SourceExcludes
+        {
+            get => Q<Fields>("_source_excludes");
+            set => Q("_source_excludes", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public Fields SourceIncludes
+        {
+            get => Q<Fields>("_source_includes");
+            set => Q("_source_includes", value);
+        }
+
+        /// <summary>
+        /// Explicit version number for concurrency control. The specified version must match the current version of the document for the request to
+        /// succeed.
+        /// </summary>
+        public long? Version
+        {
+            get => Q<long?>("version");
+            set => Q("version", value);
+        }
+
+        /// <summary>Specific version type: `external`, `external_gte`.</summary>
+        public VersionType? VersionType
+        {
+            get => Q<VersionType?>("version_type");
+            set => Q("version_type", value);
+        }
+    }
+
+    public partial class SourceExistsRequest<TDocument>
+        : SourceExistsRequest,
+            ISourceExistsRequest<TDocument>
+    {
+        protected ISourceExistsRequest<TDocument> TypedSelf => this;
+
+        /// <summary>/{index}/_source/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">this parameter is required</param>
+        public SourceExistsRequest(IndexName index, Id id)
+            : base(index, id) { }
+
+        /// <summary>/{index}/_source/{id}</summary>
+        /// <param name="id">this parameter is required</param>
+        public SourceExistsRequest(Id id)
+            : base(typeof(TDocument), id) { }
+
+        /// <summary>/{index}/_source/{id}</summary>
+        /// <param name="id">The document used to resolve the path from</param>
+        public SourceExistsRequest(TDocument documentWithId, IndexName index = null, Id id = null)
+            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
+            DocumentFromPath(documentWithId);
+
+        partial void DocumentFromPath(TDocument document);
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected SourceExistsRequest()
+            : base() { }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IExplainRequest : IRequest<ExplainRequestParameters>
+    {
+        [IgnoreDataMember]
+        Id Id { get; }
+
+        [IgnoreDataMember]
+        IndexName Index { get; }
+
+        [DataMember(Name = "stored_fields")]
+        Fields StoredFields { get; set; }
+    }
+
+    public partial interface IExplainRequest<TDocument> : IExplainRequest { }
+
+    /// <summary>Request for Explain <para>https://opensearch.org/docs/latest/api-reference/explain/</para></summary>
+    public partial class ExplainRequest
+        : PlainRequestBase<ExplainRequestParameters>,
+            IExplainRequest
+    {
+        protected IExplainRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceExplain;
+
+        /// <summary>/{index}/_explain/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">this parameter is required</param>
+        public ExplainRequest(IndexName index, Id id)
+            : base(r => r.Required("index", index).Required("id", id)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected ExplainRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Id IExplainRequest.Id => Self.RouteValues.Get<Id>("id");
+
+        [IgnoreDataMember]
+        IndexName IExplainRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        // Request parameters
+        /// <summary>Analyzer to use for the query string. This parameter can only be used when the `q` query string parameter is specified.</summary>
+        public string Analyzer
+        {
+            get => Q<string>("analyzer");
+            set => Q("analyzer", value);
+        }
+
+        /// <summary>If `true`, wildcard and prefix queries are analyzed.</summary>
+        public bool? AnalyzeWildcard
+        {
+            get => Q<bool?>("analyze_wildcard");
+            set => Q("analyze_wildcard", value);
+        }
+
+        /// <summary>The default operator for query string query: `AND` or `OR`.</summary>
+        public DefaultOperator? DefaultOperator
+        {
+            get => Q<DefaultOperator?>("default_operator");
+            set => Q("default_operator", value);
+        }
+
+        /// <summary>Field to use as default where no field prefix is given in the query string.</summary>
+        public string Df
+        {
+            get => Q<string>("df");
+            set => Q("df", value);
+        }
+
+        /// <summary>If `true`, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
+        public bool? Lenient
+        {
+            get => Q<bool?>("lenient");
+            set => Q("lenient", value);
+        }
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>Query in the Lucene query string syntax.</summary>
+        public string QueryOnQueryString
+        {
+            get => Q<string>("q");
+            set => Q("q", value);
+        }
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see
+        /// cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public Routing Routing
+        {
+            get => Q<Routing>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Whether the _source should be included in the response.</summary>
+        public bool? SourceEnabled
+        {
+            get => Q<bool?>("_source");
+            set => Q("_source", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to exclude from the response.</summary>
+        public Fields SourceExcludes
+        {
+            get => Q<Fields>("_source_excludes");
+            set => Q("_source_excludes", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public Fields SourceIncludes
+        {
+            get => Q<Fields>("_source_includes");
+            set => Q("_source_includes", value);
+        }
+    }
+
+    public partial class ExplainRequest<TDocument> : ExplainRequest, IExplainRequest<TDocument>
+    {
+        protected IExplainRequest<TDocument> TypedSelf => this;
+
+        /// <summary>/{index}/_explain/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">this parameter is required</param>
+        public ExplainRequest(IndexName index, Id id)
+            : base(index, id) { }
+
+        /// <summary>/{index}/_explain/{id}</summary>
+        /// <param name="id">this parameter is required</param>
+        public ExplainRequest(Id id)
+            : base(typeof(TDocument), id) { }
+
+        /// <summary>/{index}/_explain/{id}</summary>
+        /// <param name="id">The document used to resolve the path from</param>
+        public ExplainRequest(TDocument documentWithId, IndexName index = null, Id id = null)
+            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
+            DocumentFromPath(documentWithId);
+
+        partial void DocumentFromPath(TDocument document);
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected ExplainRequest()
+            : base() { }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IFieldCapabilitiesRequest
+        : IRequest<FieldCapabilitiesRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    /// <summary>Request for FieldCapabilities <para>https://opensearch.org/docs/latest/field-types/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations</para></summary>
+    public partial class FieldCapabilitiesRequest
+        : PlainRequestBase<FieldCapabilitiesRequestParameters>,
+            IFieldCapabilitiesRequest
+    {
+        protected IFieldCapabilitiesRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceFieldCapabilities;
+
+        /// <summary>/_field_caps</summary>
+        public FieldCapabilitiesRequest()
+            : base() { }
+
+        /// <summary>/{index}/_field_caps</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public FieldCapabilitiesRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IFieldCapabilitiesRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// If false, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// index starts with foo but no index starts with bar.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>Comma-separated list of fields to retrieve capabilities for. Wildcard (`*`) expressions are supported.</summary>
+        public Fields Fields
+        {
+            get => Q<Fields>("fields");
+            set => Q("fields", value);
+        }
+
+        /// <summary>If `true`, missing or closed indices are not included in the response.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>If true, unmapped fields are included in the response.</summary>
+        public bool? IncludeUnmapped
+        {
+            get => Q<bool?>("include_unmapped");
+            set => Q("include_unmapped", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IGetRequest : IRequest<GetRequestParameters>
+    {
+        [IgnoreDataMember]
+        Id Id { get; }
+
+        [IgnoreDataMember]
+        IndexName Index { get; }
+    }
+
+    public partial interface IGetRequest<TDocument> : IGetRequest { }
+
+    /// <summary>Request for Get <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    public partial class GetRequest : PlainRequestBase<GetRequestParameters>, IGetRequest
+    {
+        protected IGetRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceGet;
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">this parameter is required</param>
+        public GetRequest(IndexName index, Id id)
+            : base(r => r.Required("index", index).Required("id", id)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected GetRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Id IGetRequest.Id => Self.RouteValues.Get<Id>("id");
+
+        [IgnoreDataMember]
+        IndexName IGetRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        // Request parameters
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>If `true`, the request is real-time as opposed to near-real-time.</summary>
+        public bool? Realtime
+        {
+            get => Q<bool?>("realtime");
+            set => Q("realtime", value);
+        }
+
+        /// <summary>If true, OpenSearch refreshes the affected shards to make this operation visible to search. If false, do nothing with refreshes.</summary>
+        public bool? Refresh
+        {
+            get => Q<bool?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see
+        /// cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public Routing Routing
+        {
+            get => Q<Routing>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Whether the _source should be included in the response.</summary>
+        public bool? SourceEnabled
+        {
+            get => Q<bool?>("_source");
+            set => Q("_source", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to exclude in the response.</summary>
+        public Fields SourceExcludes
+        {
+            get => Q<Fields>("_source_excludes");
+            set => Q("_source_excludes", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public Fields SourceIncludes
+        {
+            get => Q<Fields>("_source_includes");
+            set => Q("_source_includes", value);
+        }
+
+        /// <summary>
+        /// List of stored fields to return as part of a hit. If no fields are specified, no stored fields are included in the response. If this field
+        /// is specified, the `_source` parameter defaults to false.
+        /// </summary>
+        public Fields StoredFields
+        {
+            get => Q<Fields>("stored_fields");
+            set => Q("stored_fields", value);
+        }
+
+        /// <summary>
+        /// Explicit version number for concurrency control. The specified version must match the current version of the document for the request to
+        /// succeed.
+        /// </summary>
+        public long? Version
+        {
+            get => Q<long?>("version");
+            set => Q("version", value);
+        }
+
+        /// <summary>Specific version type: internal, external, external_gte.</summary>
+        public VersionType? VersionType
+        {
+            get => Q<VersionType?>("version_type");
+            set => Q("version_type", value);
+        }
+    }
+
+    public partial class GetRequest<TDocument> : GetRequest, IGetRequest<TDocument>
+    {
+        protected IGetRequest<TDocument> TypedSelf => this;
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">this parameter is required</param>
+        public GetRequest(IndexName index, Id id)
+            : base(index, id) { }
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="id">this parameter is required</param>
+        public GetRequest(Id id)
+            : base(typeof(TDocument), id) { }
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="id">The document used to resolve the path from</param>
+        public GetRequest(TDocument documentWithId, IndexName index = null, Id id = null)
+            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
+            DocumentFromPath(documentWithId);
+
+        partial void DocumentFromPath(TDocument document);
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected GetRequest()
+            : base() { }
+    }
+
+    [InterfaceDataContract]
     public partial interface IGetAllPitsRequest : IRequest<GetAllPitsRequestParameters> { }
 
     /// <summary>Request for GetAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</para></summary>
@@ -173,5 +1790,2189 @@ namespace OpenSearch.Client
         // values part of the url path
 
         // Request parameters
+    }
+
+    [InterfaceDataContract]
+    public partial interface IGetScriptRequest : IRequest<GetScriptRequestParameters>
+    {
+        [IgnoreDataMember]
+        Id Id { get; }
+    }
+
+    /// <summary>Request for GetScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/get-stored-script/</para></summary>
+    public partial class GetScriptRequest
+        : PlainRequestBase<GetScriptRequestParameters>,
+            IGetScriptRequest
+    {
+        protected IGetScriptRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceGetScript;
+
+        /// <summary>/_scripts/{id}</summary>
+        /// <param name="id">this parameter is required</param>
+        public GetScriptRequest(Id id)
+            : base(r => r.Required("id", id)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected GetScriptRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Id IGetScriptRequest.Id => Self.RouteValues.Get<Id>("id");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>Specify timeout for connection to master.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface ISourceRequest : IRequest<SourceRequestParameters>
+    {
+        [IgnoreDataMember]
+        Id Id { get; }
+
+        [IgnoreDataMember]
+        IndexName Index { get; }
+    }
+
+    public partial interface ISourceRequest<TDocument> : ISourceRequest { }
+
+    /// <summary>Request for Source <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    public partial class SourceRequest : PlainRequestBase<SourceRequestParameters>, ISourceRequest
+    {
+        protected ISourceRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceSource;
+
+        /// <summary>/{index}/_source/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">this parameter is required</param>
+        public SourceRequest(IndexName index, Id id)
+            : base(r => r.Required("index", index).Required("id", id)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected SourceRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Id ISourceRequest.Id => Self.RouteValues.Get<Id>("id");
+
+        [IgnoreDataMember]
+        IndexName ISourceRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        // Request parameters
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>Boolean) If true, the request is real-time as opposed to near-real-time.</summary>
+        public bool? Realtime
+        {
+            get => Q<bool?>("realtime");
+            set => Q("realtime", value);
+        }
+
+        /// <summary>If true, OpenSearch refreshes the affected shards to make this operation visible to search. If false, do nothing with refreshes.</summary>
+        public bool? Refresh
+        {
+            get => Q<bool?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see
+        /// cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public Routing Routing
+        {
+            get => Q<Routing>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Whether the _source should be included in the response.</summary>
+        public bool? SourceEnabled
+        {
+            get => Q<bool?>("_source");
+            set => Q("_source", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to exclude in the response.</summary>
+        public Fields SourceExcludes
+        {
+            get => Q<Fields>("_source_excludes");
+            set => Q("_source_excludes", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public Fields SourceIncludes
+        {
+            get => Q<Fields>("_source_includes");
+            set => Q("_source_includes", value);
+        }
+
+        /// <summary>
+        /// Explicit version number for concurrency control. The specified version must match the current version of the document for the request to
+        /// succeed.
+        /// </summary>
+        public long? Version
+        {
+            get => Q<long?>("version");
+            set => Q("version", value);
+        }
+
+        /// <summary>Specific version type: internal, external, external_gte.</summary>
+        public VersionType? VersionType
+        {
+            get => Q<VersionType?>("version_type");
+            set => Q("version_type", value);
+        }
+    }
+
+    public partial class SourceRequest<TDocument> : SourceRequest, ISourceRequest<TDocument>
+    {
+        protected ISourceRequest<TDocument> TypedSelf => this;
+
+        /// <summary>/{index}/_source/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">this parameter is required</param>
+        public SourceRequest(IndexName index, Id id)
+            : base(index, id) { }
+
+        /// <summary>/{index}/_source/{id}</summary>
+        /// <param name="id">this parameter is required</param>
+        public SourceRequest(Id id)
+            : base(typeof(TDocument), id) { }
+
+        /// <summary>/{index}/_source/{id}</summary>
+        /// <param name="id">The document used to resolve the path from</param>
+        public SourceRequest(TDocument documentWithId, IndexName index = null, Id id = null)
+            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
+            DocumentFromPath(documentWithId);
+
+        partial void DocumentFromPath(TDocument document);
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected SourceRequest()
+            : base() { }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IIndexRequest<TDocument> : IRequest<IndexRequestParameters>
+    {
+        [IgnoreDataMember]
+        Id Id { get; }
+
+        [IgnoreDataMember]
+        IndexName Index { get; }
+    }
+
+    /// <summary>Request for Index <para>https://opensearch.org/docs/latest/api-reference/document-apis/index-document/</para></summary>
+    public partial class IndexRequest<TDocument>
+        : PlainRequestBase<IndexRequestParameters>,
+            IIndexRequest<TDocument>
+    {
+        protected IIndexRequest<TDocument> Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceIndex;
+
+        /// <summary>/{index}/_doc</summary>
+        /// <param name="index">this parameter is required</param>
+        public IndexRequest(IndexName index)
+            : base(r => r.Required("index", index)) { }
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">Optional, accepts null</param>
+        public IndexRequest(IndexName index, Id id)
+            : base(r => r.Required("index", index).Optional("id", id)) { }
+
+        /// <summary>/{index}/_doc</summary>
+        public IndexRequest()
+            : this(typeof(TDocument)) { }
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="id">Optional, accepts null</param>
+        public IndexRequest(Id id)
+            : this(typeof(TDocument), id) { }
+
+        /// <summary>/{index}/_doc/{id}</summary>
+        /// <param name="id">The document used to resolve the path from</param>
+        public IndexRequest(TDocument documentWithId, IndexName index = null, Id id = null)
+            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
+            DocumentFromPath(documentWithId);
+
+        partial void DocumentFromPath(TDocument document);
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Id IIndexRequest<TDocument>.Id => Self.RouteValues.Get<Id>("id");
+
+        [IgnoreDataMember]
+        IndexName IIndexRequest<TDocument>.Index => Self.RouteValues.Get<IndexName>("index");
+
+        // Request parameters
+        /// <summary>Only perform the operation if the document has this primary term.</summary>
+        public long? IfPrimaryTerm
+        {
+            get => Q<long?>("if_primary_term");
+            set => Q("if_primary_term", value);
+        }
+
+        /// <summary>Only perform the operation if the document has this sequence number.</summary>
+        public long? IfSequenceNumber
+        {
+            get => Q<long?>("if_seq_no");
+            set => Q("if_seq_no", value);
+        }
+
+        /// <summary>
+        /// Set to create to only index the document if it does not already exist (put if absent). If a document with the specified `_id` already
+        /// exists, the indexing operation will fail. Same as using the `&lt;index&gt;/_create` endpoint. Valid values: `index`, `create`. If document
+        /// id is specified, it defaults to `index`. Otherwise, it defaults to `create`.
+        /// </summary>
+        public OpType? OpType
+        {
+            get => Q<OpType?>("op_type");
+            set => Q("op_type", value);
+        }
+
+        /// <summary>
+        /// ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value
+        /// to `_none` disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of the
+        /// value of this parameter.
+        /// </summary>
+        public string Pipeline
+        {
+            get => Q<string>("pipeline");
+            set => Q("pipeline", value);
+        }
+
+        /// <summary>
+        /// If `true`, OpenSearch refreshes the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh to
+        /// make this operation visible to search, if `false` do nothing with refreshes. Valid values: `true`, `false`, `wait_for`.
+        /// </summary>
+        public Refresh? Refresh
+        {
+            get => Q<Refresh?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>If `true`, the destination must be an index alias.</summary>
+        public bool? RequireAlias
+        {
+            get => Q<bool?>("require_alias");
+            set => Q("require_alias", value);
+        }
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see
+        /// cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public Routing Routing
+        {
+            get => Q<Routing>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Period the request waits for the following operations: automatic index creation, dynamic mapping updates, waiting for active shards.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>
+        /// Explicit version number for concurrency control. The specified version must match the current version of the document for the request to
+        /// succeed.
+        /// </summary>
+        public long? Version
+        {
+            get => Q<long?>("version");
+            set => Q("version", value);
+        }
+
+        /// <summary>Specific version type: `external`, `external_gte`.</summary>
+        public VersionType? VersionType
+        {
+            get => Q<VersionType?>("version_type");
+            set => Q("version_type", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to all or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IRootNodeInfoRequest : IRequest<RootNodeInfoRequestParameters> { }
+
+    /// <summary>Request for RootNodeInfo <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class RootNodeInfoRequest
+        : PlainRequestBase<RootNodeInfoRequestParameters>,
+            IRootNodeInfoRequest
+    {
+        protected IRootNodeInfoRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceRootNodeInfo;
+        // values part of the url path
+
+        // Request parameters
+    }
+
+    [InterfaceDataContract]
+    public partial interface IMultiGetRequest : IRequest<MultiGetRequestParameters>
+    {
+        [IgnoreDataMember]
+        IndexName Index { get; }
+
+        [DataMember(Name = "stored_fields")]
+        Fields StoredFields { get; set; }
+    }
+
+    /// <summary>Request for MultiGet <para>https://opensearch.org/docs/latest/api-reference/document-apis/multi-get/</para></summary>
+    public partial class MultiGetRequest
+        : PlainRequestBase<MultiGetRequestParameters>,
+            IMultiGetRequest
+    {
+        protected IMultiGetRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceMultiGet;
+
+        /// <summary>/_mget</summary>
+        public MultiGetRequest()
+            : base() { }
+
+        /// <summary>/{index}/_mget</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public MultiGetRequest(IndexName index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        IndexName IMultiGetRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        // Request parameters
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>If `true`, the request is real-time as opposed to near-real-time.</summary>
+        public bool? Realtime
+        {
+            get => Q<bool?>("realtime");
+            set => Q("realtime", value);
+        }
+
+        /// <summary>If `true`, the request refreshes relevant shards before retrieving documents.</summary>
+        public bool? Refresh
+        {
+            get => Q<bool?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see
+        /// cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public Routing Routing
+        {
+            get => Q<Routing>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Whether the _source should be included in the response.</summary>
+        public bool? SourceEnabled
+        {
+            get => Q<bool?>("_source");
+            set => Q("_source", value);
+        }
+
+        /// <summary>
+        /// A comma-separated list of source fields to exclude from the response. You can also use this parameter to exclude fields from the subset
+        /// specified in `_source_includes` query parameter.
+        /// </summary>
+        public Fields SourceExcludes
+        {
+            get => Q<Fields>("_source_excludes");
+            set => Q("_source_excludes", value);
+        }
+
+        /// <summary>
+        /// A comma-separated list of source fields to include in the response. If this parameter is specified, only these source fields are returned.
+        /// You can exclude fields from this subset using the `_source_excludes` query parameter. If the `_source` parameter is `false`, this
+        /// parameter is ignored.
+        /// </summary>
+        public Fields SourceIncludes
+        {
+            get => Q<Fields>("_source_includes");
+            set => Q("_source_includes", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IMultiSearchRequest : IRequest<MultiSearchRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    /// <summary>Request for MultiSearch <para>https://opensearch.org/docs/latest/api-reference/multi-search/</para></summary>
+    public partial class MultiSearchRequest
+        : PlainRequestBase<MultiSearchRequestParameters>,
+            IMultiSearchRequest
+    {
+        protected IMultiSearchRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceMultiSearch;
+
+        /// <summary>/_msearch</summary>
+        public MultiSearchRequest()
+            : base() { }
+
+        /// <summary>/{index}/_msearch</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public MultiSearchRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IMultiSearchRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>If true, network roundtrips between the coordinating node and remote clusters are minimized for cross-cluster search requests.</summary>
+        public bool? CcsMinimizeRoundtrips
+        {
+            get => Q<bool?>("ccs_minimize_roundtrips");
+            set => Q("ccs_minimize_roundtrips", value);
+        }
+
+        /// <summary>Maximum number of concurrent searches the multi search API can execute.</summary>
+        public long? MaxConcurrentSearches
+        {
+            get => Q<long?>("max_concurrent_searches");
+            set => Q("max_concurrent_searches", value);
+        }
+
+        /// <summary>Maximum number of concurrent shard requests that each sub-search request executes per node.</summary>
+        public long? MaxConcurrentShardRequests
+        {
+            get => Q<long?>("max_concurrent_shard_requests");
+            set => Q("max_concurrent_shard_requests", value);
+        }
+
+        /// <summary>
+        /// Defines a threshold that enforces a pre-filter roundtrip to prefilter search shards based on query rewriting if the number of shards the
+        /// search request expands to exceeds the threshold. This filter roundtrip can limit the number of shards significantly if for instance a
+        /// shard can not match any documents based on its rewrite method i.e., if date filters are mandatory to match but the shard bounds and the
+        /// query are disjoint.
+        /// </summary>
+        public long? PreFilterShardSize
+        {
+            get => Q<long?>("pre_filter_shard_size");
+            set => Q("pre_filter_shard_size", value);
+        }
+
+        /// <summary>Indicates whether global term and document frequencies should be used when scoring returned documents.</summary>
+        public SearchType? SearchType
+        {
+            get => Q<SearchType?>("search_type");
+            set => Q("search_type", value);
+        }
+
+        /// <summary>If true, hits.total are returned as an integer in the response. Defaults to false, which returns an object.</summary>
+        public bool? TotalHitsAsInteger
+        {
+            get => Q<bool?>("rest_total_hits_as_int");
+            set => Q("rest_total_hits_as_int", value);
+        }
+
+        /// <summary>Specifies whether aggregation and suggester names should be prefixed by their respective types in the response.</summary>
+        public bool? TypedKeys
+        {
+            get => Q<bool?>("typed_keys");
+            set => Q("typed_keys", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IMultiSearchTemplateRequest
+        : IRequest<MultiSearchTemplateRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    /// <summary>Request for MultiSearchTemplate <para>https://opensearch.org/docs/latest/search-plugins/search-template/</para></summary>
+    public partial class MultiSearchTemplateRequest
+        : PlainRequestBase<MultiSearchTemplateRequestParameters>,
+            IMultiSearchTemplateRequest
+    {
+        protected IMultiSearchTemplateRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceMultiSearchTemplate;
+
+        /// <summary>/_msearch/template</summary>
+        public MultiSearchTemplateRequest()
+            : base() { }
+
+        /// <summary>/{index}/_msearch/template</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public MultiSearchTemplateRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IMultiSearchTemplateRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>If `true`, network round-trips are minimized for cross-cluster search requests.</summary>
+        public bool? CcsMinimizeRoundtrips
+        {
+            get => Q<bool?>("ccs_minimize_roundtrips");
+            set => Q("ccs_minimize_roundtrips", value);
+        }
+
+        /// <summary>Maximum number of concurrent searches the API can run.</summary>
+        public long? MaxConcurrentSearches
+        {
+            get => Q<long?>("max_concurrent_searches");
+            set => Q("max_concurrent_searches", value);
+        }
+
+        /// <summary>The type of the search operation. Available options: `query_then_fetch`, `dfs_query_then_fetch`.</summary>
+        public SearchType? SearchType
+        {
+            get => Q<SearchType?>("search_type");
+            set => Q("search_type", value);
+        }
+
+        /// <summary>If `true`, the response returns `hits.total` as an integer. If `false`, it returns `hits.total` as an object.</summary>
+        public bool? TotalHitsAsInteger
+        {
+            get => Q<bool?>("rest_total_hits_as_int");
+            set => Q("rest_total_hits_as_int", value);
+        }
+
+        /// <summary>If `true`, the response prefixes aggregation and suggester names with their respective types.</summary>
+        public bool? TypedKeys
+        {
+            get => Q<bool?>("typed_keys");
+            set => Q("typed_keys", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IMultiTermVectorsRequest : IRequest<MultiTermVectorsRequestParameters>
+    {
+        [IgnoreDataMember]
+        IndexName Index { get; }
+    }
+
+    /// <summary>Request for MultiTermVectors <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class MultiTermVectorsRequest
+        : PlainRequestBase<MultiTermVectorsRequestParameters>,
+            IMultiTermVectorsRequest
+    {
+        protected IMultiTermVectorsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceMultiTermVectors;
+
+        /// <summary>/_mtermvectors</summary>
+        public MultiTermVectorsRequest()
+            : base() { }
+
+        /// <summary>/{index}/_mtermvectors</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public MultiTermVectorsRequest(IndexName index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        IndexName IMultiTermVectorsRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        // Request parameters
+        /// <summary>
+        /// Comma-separated list or wildcard expressions of fields to include in the statistics. Used as the default list unless a specific field list
+        /// is provided in the `completion_fields` or `fielddata_fields` parameters.
+        /// </summary>
+        public Fields Fields
+        {
+            get => Q<Fields>("fields");
+            set => Q("fields", value);
+        }
+
+        /// <summary>If `true`, the response includes the document count, sum of document frequencies, and sum of total term frequencies.</summary>
+        public bool? FieldStatistics
+        {
+            get => Q<bool?>("field_statistics");
+            set => Q("field_statistics", value);
+        }
+
+        /// <summary>If `true`, the response includes term offsets.</summary>
+        public bool? Offsets
+        {
+            get => Q<bool?>("offsets");
+            set => Q("offsets", value);
+        }
+
+        /// <summary>If `true`, the response includes term payloads.</summary>
+        public bool? Payloads
+        {
+            get => Q<bool?>("payloads");
+            set => Q("payloads", value);
+        }
+
+        /// <summary>If `true`, the response includes term positions.</summary>
+        public bool? Positions
+        {
+            get => Q<bool?>("positions");
+            set => Q("positions", value);
+        }
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>If true, the request is real-time as opposed to near-real-time.</summary>
+        public bool? Realtime
+        {
+            get => Q<bool?>("realtime");
+            set => Q("realtime", value);
+        }
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see
+        /// cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public Routing Routing
+        {
+            get => Q<Routing>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>If true, the response includes term frequency and document frequency.</summary>
+        public bool? TermStatistics
+        {
+            get => Q<bool?>("term_statistics");
+            set => Q("term_statistics", value);
+        }
+
+        /// <summary>If `true`, returns the document version as part of a hit.</summary>
+        public long? Version
+        {
+            get => Q<long?>("version");
+            set => Q("version", value);
+        }
+
+        /// <summary>Specific version type.</summary>
+        public VersionType? VersionType
+        {
+            get => Q<VersionType?>("version_type");
+            set => Q("version_type", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IPingRequest : IRequest<PingRequestParameters> { }
+
+    /// <summary>Request for Ping <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class PingRequest : PlainRequestBase<PingRequestParameters>, IPingRequest
+    {
+        protected IPingRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespacePing;
+        // values part of the url path
+
+        // Request parameters
+    }
+
+    [InterfaceDataContract]
+    public partial interface IPutScriptRequest : IRequest<PutScriptRequestParameters>
+    {
+        [IgnoreDataMember]
+        Name Context { get; }
+
+        [IgnoreDataMember]
+        Id Id { get; }
+    }
+
+    /// <summary>Request for PutScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/create-stored-script/</para></summary>
+    public partial class PutScriptRequest
+        : PlainRequestBase<PutScriptRequestParameters>,
+            IPutScriptRequest
+    {
+        protected IPutScriptRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespacePutScript;
+
+        /// <summary>/_scripts/{id}</summary>
+        /// <param name="id">this parameter is required</param>
+        public PutScriptRequest(Id id)
+            : base(r => r.Required("id", id)) { }
+
+        /// <summary>/_scripts/{id}/{context}</summary>
+        /// <param name="id">this parameter is required</param>
+        /// <param name="context">Optional, accepts null</param>
+        public PutScriptRequest(Id id, Name context)
+            : base(r => r.Required("id", id).Optional("context", context)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected PutScriptRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Name IPutScriptRequest.Context => Self.RouteValues.Get<Name>("context");
+
+        [IgnoreDataMember]
+        Id IPutScriptRequest.Id => Self.RouteValues.Get<Id>("id");
+
+        // Request parameters
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public Time ClusterManagerTimeout
+        {
+            get => Q<Time>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public Time MasterTimeout
+        {
+            get => Q<Time>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IReindexOnServerRequest
+        : IRequest<ReindexOnServerRequestParameters> { }
+
+    /// <summary>Request for ReindexOnServer <para>https://opensearch.org/docs/latest/im-plugin/reindex-data/</para></summary>
+    public partial class ReindexOnServerRequest
+        : PlainRequestBase<ReindexOnServerRequestParameters>,
+            IReindexOnServerRequest
+    {
+        protected IReindexOnServerRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceReindexOnServer;
+
+        // values part of the url path
+
+        // Request parameters
+        /// <summary>If `true`, the request refreshes affected shards to make this operation visible to search.</summary>
+        public bool? Refresh
+        {
+            get => Q<bool?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>The throttle for this request in sub-requests per second. Defaults to no throttle.</summary>
+        public long? RequestsPerSecond
+        {
+            get => Q<long?>("requests_per_second");
+            set => Q("requests_per_second", value);
+        }
+
+        /// <summary>Specifies how long a consistent view of the index should be maintained for scrolled search.</summary>
+        public Time Scroll
+        {
+            get => Q<Time>("scroll");
+            set => Q("scroll", value);
+        }
+
+        /// <summary>Period each indexing waits for automatic index creation, dynamic mapping updates, and waiting for active shards.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+
+        /// <summary>If `true`, the request blocks until the operation is complete.</summary>
+        public bool? WaitForCompletion
+        {
+            get => Q<bool?>("wait_for_completion");
+            set => Q("wait_for_completion", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IReindexRethrottleRequest
+        : IRequest<ReindexRethrottleRequestParameters>
+    {
+        [IgnoreDataMember]
+        TaskId TaskId { get; }
+    }
+
+    /// <summary>Request for ReindexRethrottle <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class ReindexRethrottleRequest
+        : PlainRequestBase<ReindexRethrottleRequestParameters>,
+            IReindexRethrottleRequest
+    {
+        protected IReindexRethrottleRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceReindexRethrottle;
+
+        /// <summary>/_reindex/{task_id}/_rethrottle</summary>
+        /// <param name="taskId">this parameter is required</param>
+        public ReindexRethrottleRequest(TaskId taskId)
+            : base(r => r.Required("task_id", taskId)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected ReindexRethrottleRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        TaskId IReindexRethrottleRequest.TaskId => Self.RouteValues.Get<TaskId>("task_id");
+
+        // Request parameters
+        /// <summary>The throttle for this request in sub-requests per second.</summary>
+        public long? RequestsPerSecond
+        {
+            get => Q<long?>("requests_per_second");
+            set => Q("requests_per_second", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IRenderSearchTemplateRequest
+        : IRequest<RenderSearchTemplateRequestParameters>
+    {
+        [IgnoreDataMember]
+        Id Id { get; }
+    }
+
+    /// <summary>Request for RenderSearchTemplate <para>https://opensearch.org/docs/latest/search-plugins/search-template/</para></summary>
+    public partial class RenderSearchTemplateRequest
+        : PlainRequestBase<RenderSearchTemplateRequestParameters>,
+            IRenderSearchTemplateRequest
+    {
+        protected IRenderSearchTemplateRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceRenderSearchTemplate;
+
+        /// <summary>/_render/template</summary>
+        public RenderSearchTemplateRequest()
+            : base() { }
+
+        /// <summary>/_render/template/{id}</summary>
+        /// <param name="id">Optional, accepts null</param>
+        public RenderSearchTemplateRequest(Id id)
+            : base(r => r.Optional("id", id)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Id IRenderSearchTemplateRequest.Id => Self.RouteValues.Get<Id>("id");
+
+        // Request parameters
+    }
+
+    [InterfaceDataContract]
+    public partial interface IExecutePainlessScriptRequest
+        : IRequest<ExecutePainlessScriptRequestParameters> { }
+
+    /// <summary>Request for ExecutePainlessScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/exec-script/</para></summary>
+    public partial class ExecutePainlessScriptRequest
+        : PlainRequestBase<ExecutePainlessScriptRequestParameters>,
+            IExecutePainlessScriptRequest
+    {
+        protected IExecutePainlessScriptRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceExecutePainlessScript;
+        // values part of the url path
+
+        // Request parameters
+    }
+
+    [InterfaceDataContract]
+    public partial interface IScrollRequest : IRequest<ScrollRequestParameters> { }
+
+    /// <summary>Request for Scroll <para>https://opensearch.org/docs/latest/api-reference/scroll/#path-and-http-methods</para></summary>
+    public partial class ScrollRequest : PlainRequestBase<ScrollRequestParameters>, IScrollRequest
+    {
+        protected IScrollRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceScroll;
+
+        // values part of the url path
+
+        // Request parameters
+        /// <summary>
+        /// If true, the API response's hit.total property is returned as an integer. If false, the API response's hit.total property is returned as
+        /// an object.
+        /// </summary>
+        public bool? TotalHitsAsInteger
+        {
+            get => Q<bool?>("rest_total_hits_as_int");
+            set => Q("rest_total_hits_as_int", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface ISearchRequest : IRequest<SearchRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+
+        [DataMember(Name = "docvalue_fields")]
+        Fields DocValueFields { get; set; }
+
+        [DataMember(Name = "stored_fields")]
+        Fields StoredFields { get; set; }
+    }
+
+    public partial interface ISearchRequest<TInferDocument> : ISearchRequest { }
+
+    /// <summary>Request for Search <para>https://opensearch.org/docs/latest/api-reference/search/</para></summary>
+    public partial class SearchRequest : PlainRequestBase<SearchRequestParameters>, ISearchRequest
+    {
+        protected ISearchRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceSearch;
+
+        /// <summary>/_search</summary>
+        public SearchRequest()
+            : base() { }
+
+        /// <summary>/{index}/_search</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public SearchRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices ISearchRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// index starts with `foo` but no index starts with `bar`.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>
+        /// If true, returns partial results if there are shard request timeouts or shard failures. If false, returns an error with no partial
+        /// results.
+        /// </summary>
+        public bool? AllowPartialSearchResults
+        {
+            get => Q<bool?>("allow_partial_search_results");
+            set => Q("allow_partial_search_results", value);
+        }
+
+        /// <summary>Analyzer to use for the query string. This parameter can only be used when the q query string parameter is specified.</summary>
+        public string Analyzer
+        {
+            get => Q<string>("analyzer");
+            set => Q("analyzer", value);
+        }
+
+        /// <summary>If true, wildcard and prefix queries are analyzed. This parameter can only be used when the q query string parameter is specified.</summary>
+        public bool? AnalyzeWildcard
+        {
+            get => Q<bool?>("analyze_wildcard");
+            set => Q("analyze_wildcard", value);
+        }
+
+        /// <summary>
+        /// The number of shard results that should be reduced at once on the coordinating node. This value should be used as a protection mechanism
+        /// to reduce the memory overhead per search request if the potential number of shards in the request can be large.
+        /// </summary>
+        public long? BatchedReduceSize
+        {
+            get => Q<long?>("batched_reduce_size");
+            set => Q("batched_reduce_size", value);
+        }
+
+        /// <summary>
+        /// The time after which the search request will be canceled. Request-level parameter takes precedence over `cancel_after_time_interval`
+        /// cluster setting.
+        /// </summary>
+        public Time CancelAfterTimeInterval
+        {
+            get => Q<Time>("cancel_after_time_interval");
+            set => Q("cancel_after_time_interval", value);
+        }
+
+        /// <summary>
+        /// If true, network round-trips between the coordinating node and the remote clusters are minimized when executing cross-cluster search (CCS)
+        /// requests.
+        /// </summary>
+        public bool? CcsMinimizeRoundtrips
+        {
+            get => Q<bool?>("ccs_minimize_roundtrips");
+            set => Q("ccs_minimize_roundtrips", value);
+        }
+
+        /// <summary>The default operator for query string query: AND or OR. This parameter can only be used when the `q` query string parameter is specified.</summary>
+        public DefaultOperator? DefaultOperator
+        {
+            get => Q<DefaultOperator?>("default_operator");
+            set => Q("default_operator", value);
+        }
+
+        /// <summary>
+        /// Field to use as default where no field prefix is given in the query string. This parameter can only be used when the q query string
+        /// parameter is specified.
+        /// </summary>
+        public string Df
+        {
+            get => Q<string>("df");
+            set => Q("df", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `true`, concrete, expanded or aliased indices will be ignored when frozen.</summary>
+        public bool? IgnoreThrottled
+        {
+            get => Q<bool?>("ignore_throttled");
+            set => Q("ignore_throttled", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>
+        /// Indicates whether hit.matched_queries should be rendered as a map that includes the name of the matched query associated with its score
+        /// (true) or as an array containing the name of the matched queries (false).
+        /// </summary>
+        public bool? IncludeNamedQueriesScore
+        {
+            get => Q<bool?>("include_named_queries_score");
+            set => Q("include_named_queries_score", value);
+        }
+
+        /// <summary>
+        /// If `true`, format-based query failures (such as providing text to a numeric field) in the query string will be ignored. This parameter can
+        /// only be used when the `q` query string parameter is specified.
+        /// </summary>
+        public bool? Lenient
+        {
+            get => Q<bool?>("lenient");
+            set => Q("lenient", value);
+        }
+
+        /// <summary>
+        /// Defines the number of concurrent shard requests per node this search executes concurrently. This value should be used to limit the impact
+        /// of the search on the cluster in order to limit the number of concurrent shard requests.
+        /// </summary>
+        public long? MaxConcurrentShardRequests
+        {
+            get => Q<long?>("max_concurrent_shard_requests");
+            set => Q("max_concurrent_shard_requests", value);
+        }
+
+        /// <summary>Indicates whether to return phase-level `took` time values in the response.</summary>
+        public bool? PhaseTook
+        {
+            get => Q<bool?>("phase_took");
+            set => Q("phase_took", value);
+        }
+
+        /// <summary>
+        /// Nodes and shards used for the search. By default, OpenSearch selects from eligible nodes and shards using adaptive replica selection,
+        /// accounting for allocation awareness. Valid values are: `_only_local` to run the search only on shards on the local node; `_local` to, if
+        /// possible, run the search on shards on the local node, or if not, select shards using the default method;
+        /// `_only_nodes:&lt;node-id&gt;,&lt;node-id&gt;` to run the search on only the specified nodes IDs, where, if suitable shards exist on more
+        /// than one selected node, use shards on those nodes using the default method, or if none of the specified nodes are available, select shards
+        /// from any available node using the default method; `_prefer_nodes:&lt;node-id&gt;,&lt;node-id&gt;` to if possible, run the search on the
+        /// specified nodes IDs, or if not, select shards using the default method; `_shards:&lt;shard&gt;,&lt;shard&gt;` to run the search only on
+        /// the specified shards; `&lt;custom-string&gt;` (any string that does not start with `_`) to route searches with the same
+        /// `&lt;custom-string&gt;` to the same shards in the same order.
+        /// </summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>
+        /// Defines a threshold that enforces a pre-filter roundtrip to prefilter search shards based on query rewriting if the number of shards the
+        /// search request expands to exceeds the threshold. This filter roundtrip can limit the number of shards significantly if for instance a
+        /// shard can not match any documents based on its rewrite method (if date filters are mandatory to match but the shard bounds and the query
+        /// are disjoint). When unspecified, the pre-filter phase is executed if any of these conditions is met: the request targets more than 128
+        /// shards; the request targets one or more read-only index; the primary sort of the query targets an indexed field.
+        /// </summary>
+        public long? PreFilterShardSize
+        {
+            get => Q<long?>("pre_filter_shard_size");
+            set => Q("pre_filter_shard_size", value);
+        }
+
+        /// <summary>
+        /// Query in the Lucene query string syntax using query parameter search. Query parameter searches do not support the full OpenSearch Query
+        /// DSL but are handy for testing.
+        /// </summary>
+        public string QueryOnQueryString
+        {
+            get => Q<string>("q");
+            set => Q("q", value);
+        }
+
+        /// <summary>If `true`, the caching of search results is enabled for requests where `size` is `0`. Defaults to index level settings.</summary>
+        public bool? RequestCache
+        {
+            get => Q<bool?>("request_cache");
+            set => Q("request_cache", value);
+        }
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see
+        /// cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public Routing Routing
+        {
+            get => Q<Routing>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>
+        /// Period to retain the search context for scrolling. See Scroll search results. By default, this value cannot exceed `1d` (24 hours). You
+        /// can change this limit using the `search.max_keep_alive` cluster-level setting.
+        /// </summary>
+        public Time Scroll
+        {
+            get => Q<Time>("scroll");
+            set => Q("scroll", value);
+        }
+
+        /// <summary>Customizable sequence of processing stages applied to search queries.</summary>
+        public string SearchPipeline
+        {
+            get => Q<string>("search_pipeline");
+            set => Q("search_pipeline", value);
+        }
+
+        /// <summary>How distributed term frequencies are calculated for relevance scoring.</summary>
+        public SearchType? SearchType
+        {
+            get => Q<SearchType?>("search_type");
+            set => Q("search_type", value);
+        }
+
+        /// <summary>If `true`, returns sequence number and primary term of the last modification of each hit.</summary>
+        public bool? SequenceNumberPrimaryTerm
+        {
+            get => Q<bool?>("seq_no_primary_term");
+            set => Q("seq_no_primary_term", value);
+        }
+
+        /// <summary>Specific `tag` of the request for logging and statistical purposes.</summary>
+        public string[] Stats
+        {
+            get => Q<string[]>("stats");
+            set => Q("stats", value);
+        }
+
+        /// <summary>Specifies which field to use for suggestions.</summary>
+        public Field SuggestField
+        {
+            get => Q<Field>("suggest_field");
+            set => Q("suggest_field", value);
+        }
+
+        /// <summary>
+        /// Specifies the suggest mode. This parameter can only be used when the `suggest_field` and `suggest_text` query string parameters are
+        /// specified.
+        /// </summary>
+        public SuggestMode? SuggestMode
+        {
+            get => Q<SuggestMode?>("suggest_mode");
+            set => Q("suggest_mode", value);
+        }
+
+        /// <summary>
+        /// Number of suggestions to return. This parameter can only be used when the `suggest_field` and `suggest_text` query string parameters are
+        /// specified.
+        /// </summary>
+        public long? SuggestSize
+        {
+            get => Q<long?>("suggest_size");
+            set => Q("suggest_size", value);
+        }
+
+        /// <summary>
+        /// The source text for which the suggestions should be returned. This parameter can only be used when the `suggest_field` and `suggest_text`
+        /// query string parameters are specified.
+        /// </summary>
+        public string SuggestText
+        {
+            get => Q<string>("suggest_text");
+            set => Q("suggest_text", value);
+        }
+
+        /// <summary>Indicates whether `hits.total` should be rendered as an integer or an object in the rest search response.</summary>
+        public bool? TotalHitsAsInteger
+        {
+            get => Q<bool?>("rest_total_hits_as_int");
+            set => Q("rest_total_hits_as_int", value);
+        }
+
+        /// <summary>If `true`, aggregation and suggester names are be prefixed by their respective types in the response.</summary>
+        public bool? TypedKeys
+        {
+            get => Q<bool?>("typed_keys");
+            set => Q("typed_keys", value);
+        }
+    }
+
+    public partial class SearchRequest<TInferDocument>
+        : SearchRequest,
+            ISearchRequest<TInferDocument>
+    {
+        protected ISearchRequest<TInferDocument> TypedSelf => this;
+
+        /// <summary>/{index}/_search</summary>
+        public SearchRequest()
+            : base(typeof(TInferDocument)) { }
+
+        /// <summary>/{index}/_search</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public SearchRequest(Indices index)
+            : base(index) { }
+    }
+
+    [InterfaceDataContract]
+    public partial interface ISearchShardsRequest : IRequest<SearchShardsRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    public partial interface ISearchShardsRequest<TDocument> : ISearchShardsRequest { }
+
+    /// <summary>Request for SearchShards <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class SearchShardsRequest
+        : PlainRequestBase<SearchShardsRequestParameters>,
+            ISearchShardsRequest
+    {
+        protected ISearchShardsRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceSearchShards;
+
+        /// <summary>/_search_shards</summary>
+        public SearchShardsRequest()
+            : base() { }
+
+        /// <summary>/{index}/_search_shards</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public SearchShardsRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices ISearchShardsRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// index starts with `foo` but no index starts with `bar`.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>If `true`, the request retrieves information from the local node only.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see
+        /// cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public Routing Routing
+        {
+            get => Q<Routing>("routing");
+            set => Q("routing", value);
+        }
+    }
+
+    public partial class SearchShardsRequest<TDocument>
+        : SearchShardsRequest,
+            ISearchShardsRequest<TDocument>
+    {
+        protected ISearchShardsRequest<TDocument> TypedSelf => this;
+
+        /// <summary>/{index}/_search_shards</summary>
+        public SearchShardsRequest()
+            : base(typeof(TDocument)) { }
+
+        /// <summary>/{index}/_search_shards</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public SearchShardsRequest(Indices index)
+            : base(index) { }
+    }
+
+    [InterfaceDataContract]
+    public partial interface ISearchTemplateRequest : IRequest<SearchTemplateRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    /// <summary>Request for SearchTemplate <para>https://opensearch.org/docs/latest/search-plugins/search-template/</para></summary>
+    public partial class SearchTemplateRequest
+        : PlainRequestBase<SearchTemplateRequestParameters>,
+            ISearchTemplateRequest
+    {
+        protected ISearchTemplateRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceSearchTemplate;
+
+        /// <summary>/_search/template</summary>
+        public SearchTemplateRequest()
+            : base() { }
+
+        /// <summary>/{index}/_search/template</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public SearchTemplateRequest(Indices index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices ISearchTemplateRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// index starts with `foo` but no index starts with `bar`.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>If `true`, network round-trips are minimized for cross-cluster search requests.</summary>
+        public bool? CcsMinimizeRoundtrips
+        {
+            get => Q<bool?>("ccs_minimize_roundtrips");
+            set => Q("ccs_minimize_roundtrips", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `true`, the response includes additional details about score computation as part of a hit.</summary>
+        public bool? Explain
+        {
+            get => Q<bool?>("explain");
+            set => Q("explain", value);
+        }
+
+        /// <summary>If `true`, specified concrete, expanded, or aliased indices are not included in the response when throttled.</summary>
+        public bool? IgnoreThrottled
+        {
+            get => Q<bool?>("ignore_throttled");
+            set => Q("ignore_throttled", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>If `true`, the query execution is profiled.</summary>
+        public bool? Profile
+        {
+            get => Q<bool?>("profile");
+            set => Q("profile", value);
+        }
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see
+        /// cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public Routing Routing
+        {
+            get => Q<Routing>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Specifies how long a consistent view of the index should be maintained for scrolled search.</summary>
+        public Time Scroll
+        {
+            get => Q<Time>("scroll");
+            set => Q("scroll", value);
+        }
+
+        /// <summary>The type of the search operation.</summary>
+        public SearchType? SearchType
+        {
+            get => Q<SearchType?>("search_type");
+            set => Q("search_type", value);
+        }
+
+        /// <summary>If true, hits.total are rendered as an integer in the response.</summary>
+        public bool? TotalHitsAsInteger
+        {
+            get => Q<bool?>("rest_total_hits_as_int");
+            set => Q("rest_total_hits_as_int", value);
+        }
+
+        /// <summary>If `true`, the response prefixes aggregation and suggester names with their respective types.</summary>
+        public bool? TypedKeys
+        {
+            get => Q<bool?>("typed_keys");
+            set => Q("typed_keys", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface ITermVectorsRequest<TDocument> : IRequest<TermVectorsRequestParameters>
+    {
+        [IgnoreDataMember]
+        Id Id { get; }
+
+        [IgnoreDataMember]
+        IndexName Index { get; }
+    }
+
+    /// <summary>Request for TermVectors <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class TermVectorsRequest<TDocument>
+        : PlainRequestBase<TermVectorsRequestParameters>,
+            ITermVectorsRequest<TDocument>
+    {
+        protected ITermVectorsRequest<TDocument> Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceTermVectors;
+
+        /// <summary>/{index}/_termvectors</summary>
+        /// <param name="index">this parameter is required</param>
+        public TermVectorsRequest(IndexName index)
+            : base(r => r.Required("index", index)) { }
+
+        /// <summary>/{index}/_termvectors/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">Optional, accepts null</param>
+        public TermVectorsRequest(IndexName index, Id id)
+            : base(r => r.Required("index", index).Optional("id", id)) { }
+
+        /// <summary>/{index}/_termvectors</summary>
+        public TermVectorsRequest()
+            : this(typeof(TDocument)) { }
+
+        /// <summary>/{index}/_termvectors/{id}</summary>
+        /// <param name="id">Optional, accepts null</param>
+        public TermVectorsRequest(Id id)
+            : this(typeof(TDocument), id) { }
+
+        /// <summary>/{index}/_termvectors/{id}</summary>
+        /// <param name="id">The document used to resolve the path from</param>
+        public TermVectorsRequest(TDocument documentWithId, IndexName index = null, Id id = null)
+            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
+            DocumentFromPath(documentWithId);
+
+        partial void DocumentFromPath(TDocument document);
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Id ITermVectorsRequest<TDocument>.Id => Self.RouteValues.Get<Id>("id");
+
+        [IgnoreDataMember]
+        IndexName ITermVectorsRequest<TDocument>.Index => Self.RouteValues.Get<IndexName>("index");
+
+        // Request parameters
+        /// <summary>
+        /// Comma-separated list or wildcard expressions of fields to include in the statistics. Used as the default list unless a specific field list
+        /// is provided in the `completion_fields` or `fielddata_fields` parameters.
+        /// </summary>
+        public Fields Fields
+        {
+            get => Q<Fields>("fields");
+            set => Q("fields", value);
+        }
+
+        /// <summary>If `true`, the response includes the document count, sum of document frequencies, and sum of total term frequencies.</summary>
+        public bool? FieldStatistics
+        {
+            get => Q<bool?>("field_statistics");
+            set => Q("field_statistics", value);
+        }
+
+        /// <summary>If `true`, the response includes term offsets.</summary>
+        public bool? Offsets
+        {
+            get => Q<bool?>("offsets");
+            set => Q("offsets", value);
+        }
+
+        /// <summary>If `true`, the response includes term payloads.</summary>
+        public bool? Payloads
+        {
+            get => Q<bool?>("payloads");
+            set => Q("payloads", value);
+        }
+
+        /// <summary>If `true`, the response includes term positions.</summary>
+        public bool? Positions
+        {
+            get => Q<bool?>("positions");
+            set => Q("positions", value);
+        }
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>If true, the request is real-time as opposed to near-real-time.</summary>
+        public bool? Realtime
+        {
+            get => Q<bool?>("realtime");
+            set => Q("realtime", value);
+        }
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see
+        /// cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public Routing Routing
+        {
+            get => Q<Routing>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>If `true`, the response includes term frequency and document frequency.</summary>
+        public bool? TermStatistics
+        {
+            get => Q<bool?>("term_statistics");
+            set => Q("term_statistics", value);
+        }
+
+        /// <summary>If `true`, returns the document version as part of a hit.</summary>
+        public long? Version
+        {
+            get => Q<long?>("version");
+            set => Q("version", value);
+        }
+
+        /// <summary>Specific version type.</summary>
+        public VersionType? VersionType
+        {
+            get => Q<VersionType?>("version_type");
+            set => Q("version_type", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IUpdateRequest<TDocument, TPartialDocument>
+        : IRequest<UpdateRequestParameters>
+    {
+        [IgnoreDataMember]
+        Id Id { get; }
+
+        [IgnoreDataMember]
+        IndexName Index { get; }
+    }
+
+    /// <summary>Request for Update <para>https://opensearch.org/docs/latest/api-reference/document-apis/update-document/</para></summary>
+    public partial class UpdateRequest<TDocument, TPartialDocument>
+        : PlainRequestBase<UpdateRequestParameters>,
+            IUpdateRequest<TDocument, TPartialDocument>
+    {
+        protected IUpdateRequest<TDocument, TPartialDocument> Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceUpdate;
+
+        /// <summary>/{index}/_update/{id}</summary>
+        /// <param name="index">this parameter is required</param>
+        /// <param name="id">this parameter is required</param>
+        public UpdateRequest(IndexName index, Id id)
+            : base(r => r.Required("index", index).Required("id", id)) { }
+
+        /// <summary>/{index}/_update/{id}</summary>
+        /// <param name="id">this parameter is required</param>
+        public UpdateRequest(Id id)
+            : this(typeof(TDocument), id) { }
+
+        /// <summary>/{index}/_update/{id}</summary>
+        /// <param name="id">The document used to resolve the path from</param>
+        public UpdateRequest(TDocument documentWithId, IndexName index = null, Id id = null)
+            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
+            DocumentFromPath(documentWithId);
+
+        partial void DocumentFromPath(TDocument document);
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected UpdateRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Id IUpdateRequest<TDocument, TPartialDocument>.Id => Self.RouteValues.Get<Id>("id");
+
+        [IgnoreDataMember]
+        IndexName IUpdateRequest<TDocument, TPartialDocument>.Index =>
+            Self.RouteValues.Get<IndexName>("index");
+
+        // Request parameters
+        /// <summary>Only perform the operation if the document has this primary term.</summary>
+        public long? IfPrimaryTerm
+        {
+            get => Q<long?>("if_primary_term");
+            set => Q("if_primary_term", value);
+        }
+
+        /// <summary>Only perform the operation if the document has this sequence number.</summary>
+        public long? IfSequenceNumber
+        {
+            get => Q<long?>("if_seq_no");
+            set => Q("if_seq_no", value);
+        }
+
+        /// <summary>The script language.</summary>
+        public string Lang
+        {
+            get => Q<string>("lang");
+            set => Q("lang", value);
+        }
+
+        /// <summary>
+        /// If 'true', OpenSearch refreshes the affected shards to make this operation visible to search, if 'wait_for' then wait for a refresh to
+        /// make this operation visible to search, if 'false' do nothing with refreshes.
+        /// </summary>
+        public Refresh? Refresh
+        {
+            get => Q<Refresh?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>If true, the destination must be an index alias.</summary>
+        public bool? RequireAlias
+        {
+            get => Q<bool?>("require_alias");
+            set => Q("require_alias", value);
+        }
+
+        /// <summary>Specify how many times should the operation be retried when a conflict occurs.</summary>
+        public long? RetryOnConflict
+        {
+            get => Q<long?>("retry_on_conflict");
+            set => Q("retry_on_conflict", value);
+        }
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see
+        /// cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public Routing Routing
+        {
+            get => Q<Routing>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Whether the _source should be included in the response.</summary>
+        public bool? SourceEnabled
+        {
+            get => Q<bool?>("_source");
+            set => Q("_source", value);
+        }
+
+        /// <summary>
+        /// Period to wait for dynamic mapping updates and active shards. This guarantees OpenSearch waits for at least the timeout before failing.
+        /// The actual wait time could be longer, particularly when multiple waits occur.
+        /// </summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operations. Set to 'all' or any positive integer up to the total
+        /// number of shards in the index (number_of_replicas+1). Defaults to 1 meaning the primary shard.
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IUpdateByQueryRequest : IRequest<UpdateByQueryRequestParameters>
+    {
+        [IgnoreDataMember]
+        Indices Index { get; }
+    }
+
+    public partial interface IUpdateByQueryRequest<TDocument> : IUpdateByQueryRequest { }
+
+    /// <summary>Request for UpdateByQuery <para>https://opensearch.org/docs/latest/api-reference/document-apis/update-by-query/</para></summary>
+    public partial class UpdateByQueryRequest
+        : PlainRequestBase<UpdateByQueryRequestParameters>,
+            IUpdateByQueryRequest
+    {
+        protected IUpdateByQueryRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceUpdateByQuery;
+
+        /// <summary>/{index}/_update_by_query</summary>
+        /// <param name="index">this parameter is required</param>
+        public UpdateByQueryRequest(Indices index)
+            : base(r => r.Required("index", index)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected UpdateByQueryRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Indices IUpdateByQueryRequest.Index => Self.RouteValues.Get<Indices>("index");
+
+        // Request parameters
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// index starts with `foo` but no index starts with `bar`.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>Analyzer to use for the query string.</summary>
+        public string Analyzer
+        {
+            get => Q<string>("analyzer");
+            set => Q("analyzer", value);
+        }
+
+        /// <summary>If `true`, wildcard and prefix queries are analyzed.</summary>
+        public bool? AnalyzeWildcard
+        {
+            get => Q<bool?>("analyze_wildcard");
+            set => Q("analyze_wildcard", value);
+        }
+
+        /// <summary>What to do if update by query hits version conflicts: `abort` or `proceed`.</summary>
+        public Conflicts? Conflicts
+        {
+            get => Q<Conflicts?>("conflicts");
+            set => Q("conflicts", value);
+        }
+
+        /// <summary>The default operator for query string query: `AND` or `OR`.</summary>
+        public DefaultOperator? DefaultOperator
+        {
+            get => Q<DefaultOperator?>("default_operator");
+            set => Q("default_operator", value);
+        }
+
+        /// <summary>Field to use as default where no field prefix is given in the query string.</summary>
+        public string Df
+        {
+            get => Q<string>("df");
+            set => Q("df", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>Starting offset.</summary>
+        public long? From
+        {
+            get => Q<long?>("from");
+            set => Q("from", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>If `true`, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
+        public bool? Lenient
+        {
+            get => Q<bool?>("lenient");
+            set => Q("lenient", value);
+        }
+
+        /// <summary>
+        /// ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value
+        /// to `_none` disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of the
+        /// value of this parameter.
+        /// </summary>
+        public string Pipeline
+        {
+            get => Q<string>("pipeline");
+            set => Q("pipeline", value);
+        }
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>Query in the Lucene query string syntax.</summary>
+        public string QueryOnQueryString
+        {
+            get => Q<string>("q");
+            set => Q("q", value);
+        }
+
+        /// <summary>If `true`, OpenSearch refreshes affected shards to make the operation visible to search.</summary>
+        public bool? Refresh
+        {
+            get => Q<bool?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>If `true`, the request cache is used for this request.</summary>
+        public bool? RequestCache
+        {
+            get => Q<bool?>("request_cache");
+            set => Q("request_cache", value);
+        }
+
+        /// <summary>The throttle for this request in sub-requests per second.</summary>
+        public long? RequestsPerSecond
+        {
+            get => Q<long?>("requests_per_second");
+            set => Q("requests_per_second", value);
+        }
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see
+        /// cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public Routing Routing
+        {
+            get => Q<Routing>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Period to retain the search context for scrolling.</summary>
+        public Time Scroll
+        {
+            get => Q<Time>("scroll");
+            set => Q("scroll", value);
+        }
+
+        /// <summary>Size of the scroll request that powers the operation.</summary>
+        public long? ScrollSize
+        {
+            get => Q<long?>("scroll_size");
+            set => Q("scroll_size", value);
+        }
+
+        /// <summary>Explicit timeout for each search request.</summary>
+        public Time SearchTimeout
+        {
+            get => Q<Time>("search_timeout");
+            set => Q("search_timeout", value);
+        }
+
+        /// <summary>The type of the search operation. Available options: `query_then_fetch`, `dfs_query_then_fetch`.</summary>
+        public SearchType? SearchType
+        {
+            get => Q<SearchType?>("search_type");
+            set => Q("search_type", value);
+        }
+
+        /// <summary>Deprecated, please use `max_docs` instead.</summary>
+        public long? Size
+        {
+            get => Q<long?>("size");
+            set => Q("size", value);
+        }
+
+        /// <summary>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs.</summary>
+        public string[] Sort
+        {
+            get => Q<string[]>("sort");
+            set => Q("sort", value);
+        }
+
+        /// <summary>Whether the _source should be included in the response.</summary>
+        public bool? SourceEnabled
+        {
+            get => Q<bool?>("_source");
+            set => Q("_source", value);
+        }
+
+        /// <summary>List of fields to exclude from the returned _source field.</summary>
+        public Fields SourceExcludes
+        {
+            get => Q<Fields>("_source_excludes");
+            set => Q("_source_excludes", value);
+        }
+
+        /// <summary>List of fields to extract and return from the _source field.</summary>
+        public Fields SourceIncludes
+        {
+            get => Q<Fields>("_source_includes");
+            set => Q("_source_includes", value);
+        }
+
+        /// <summary>Specific `tag` of the request for logging and statistical purposes.</summary>
+        public string[] Stats
+        {
+            get => Q<string[]>("stats");
+            set => Q("stats", value);
+        }
+
+        /// <summary>
+        /// Maximum number of documents to collect for each shard. If a query reaches this limit, OpenSearch terminates the query early. OpenSearch
+        /// collects documents before sorting. Use with caution. OpenSearch applies this parameter to each shard handling the request. When possible,
+        /// let OpenSearch perform early termination automatically. Avoid specifying this parameter for requests that target data streams with backing
+        /// indices across multiple data tiers.
+        /// </summary>
+        public long? TerminateAfter
+        {
+            get => Q<long?>("terminate_after");
+            set => Q("terminate_after", value);
+        }
+
+        /// <summary>Period each update request waits for the following operations: dynamic mapping updates, waiting for active shards.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>If `true`, returns the document version as part of a hit.</summary>
+        public bool? Version
+        {
+            get => Q<bool?>("version");
+            set => Q("version", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+
+        /// <summary>If `true`, the request blocks until the operation is complete.</summary>
+        public bool? WaitForCompletion
+        {
+            get => Q<bool?>("wait_for_completion");
+            set => Q("wait_for_completion", value);
+        }
+    }
+
+    public partial class UpdateByQueryRequest<TDocument>
+        : UpdateByQueryRequest,
+            IUpdateByQueryRequest<TDocument>
+    {
+        protected IUpdateByQueryRequest<TDocument> TypedSelf => this;
+
+        /// <summary>/{index}/_update_by_query</summary>
+        /// <param name="index">this parameter is required</param>
+        public UpdateByQueryRequest(Indices index)
+            : base(index) { }
+
+        /// <summary>/{index}/_update_by_query</summary>
+        public UpdateByQueryRequest()
+            : base(typeof(TDocument)) { }
+    }
+
+    [InterfaceDataContract]
+    public partial interface IUpdateByQueryRethrottleRequest
+        : IRequest<UpdateByQueryRethrottleRequestParameters>
+    {
+        [IgnoreDataMember]
+        TaskId TaskId { get; }
+    }
+
+    /// <summary>Request for UpdateByQueryRethrottle <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class UpdateByQueryRethrottleRequest
+        : PlainRequestBase<UpdateByQueryRethrottleRequestParameters>,
+            IUpdateByQueryRethrottleRequest
+    {
+        protected IUpdateByQueryRethrottleRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceUpdateByQueryRethrottle;
+
+        /// <summary>/_update_by_query/{task_id}/_rethrottle</summary>
+        /// <param name="taskId">this parameter is required</param>
+        public UpdateByQueryRethrottleRequest(TaskId taskId)
+            : base(r => r.Required("task_id", taskId)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected UpdateByQueryRethrottleRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        TaskId IUpdateByQueryRethrottleRequest.TaskId => Self.RouteValues.Get<TaskId>("task_id");
+
+        // Request parameters
+        /// <summary>The throttle for this request in sub-requests per second.</summary>
+        public long? RequestsPerSecond
+        {
+            get => Q<long?>("requests_per_second");
+            set => Q("requests_per_second", value);
+        }
     }
 }
