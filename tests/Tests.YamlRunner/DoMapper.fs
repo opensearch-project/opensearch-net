@@ -50,7 +50,7 @@ type FastApiInvoke(instance: Object, restName:string, pathParams:KeyedCollection
     member this.PathParameters =
         pathParams |> Seq.map (fun k -> k) |> Seq.filter (fun k -> k <> "body") |> Set.ofSeq
     member private this.ParameterTypes =
-        methodInfo.GetParameters() |> Seq.map (fun p -> p.Name, p.ParameterType) |> Map.ofSeq
+        methodInfo.GetParameters() |> Array.map (_.ParameterType)
         
     member private this.CreateRequestParameters = 
         let t = methodInfo.GetParameters() |> Array.find (fun p -> typeof<IRequestParameters>.IsAssignableFrom(p.ParameterType))
@@ -81,6 +81,15 @@ type FastApiInvoke(instance: Object, restName:string, pathParams:KeyedCollection
         Expression.Lambda<ApiInvoke>(invokeExpression, instanceExpression, argumentsExpression).Compile();
     
     member private this.toMap (o:YamlMap) = o |> Seq.map (fun o -> o.Key :?> String , o.Value) |> Map.ofSeq
+    
+    member this.ArgConvert (v:Object, t:Type) =
+        match t with
+        | t when t = typeof<String> -> this.ArgString v :> Object
+        | t when Nullable.GetUnderlyingType(t) <> null ->
+            let underlyingType = Nullable.GetUnderlyingType(t)
+            if v = null then null
+            else this.ArgConvert(v, underlyingType)
+        | t -> failwithf $"unable to convert argument to type %s{t.FullName}"
     
     member this.ArgString (v:Object) =
         let toString (value:Object) = 
@@ -127,14 +136,7 @@ type FastApiInvoke(instance: Object, restName:string, pathParams:KeyedCollection
             |> Map.filter (fun k _ -> this.PathParameters.Contains(k))
             |> Map.filter (fun _ v -> not <| String.IsNullOrWhiteSpace(this.ArgString v))
             |> Map.toSeq
-            |> Seq.map (fun (k, v) ->
-                match this.ParameterTypes.TryFind(k) with
-                | Some t ->
-                    match t with
-                    | t when t = typeof<String> -> (k, this.ArgString v :> Object)
-                    | t -> failwithf $"unable to convert argument to type %s{t.FullName}"
-                | None -> failwithf $"unable to find parameter %s{k} (have {this.ParameterTypes.Keys})"
-            ) 
+            |> Seq.map (fun (k, v) -> (k, this.ArgConvert (v, this.ParameterTypes[this.IndexOfParam k]))) 
             |> Seq.sortBy (fun (k, _) -> this.IndexOfParam k)
             |> Seq.map (fun (_, v) -> v)
             |> Seq.toArray
