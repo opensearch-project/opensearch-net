@@ -55,6 +55,7 @@ namespace OpenSearch.Net
 	public static partial class KnownEnums
 	{
 		private static readonly ConcurrentDictionary<Type, Func<Enum, string>> EnumStringResolvers = new();
+        private static readonly ConcurrentDictionary<Type, Func<string, Enum>> EnumStringParsers = new();
 
 		static KnownEnums() => RegisterEnumStringResolvers();
 
@@ -84,9 +85,36 @@ namespace OpenSearch.Net
 			}
 
 			var isFlag = type.GetCustomAttributes(typeof(FlagsAttribute), false).Length > 0;
-			return e => !isFlag
-				? dictionary[e]
-				: string.Join(",", dictionary.Where(kv => e.HasFlag(kv.Key)).Select(kv => kv.Value));
+            return isFlag
+                ? e => string.Join(",", dictionary.Where(kv => e.HasFlag(kv.Key)).Select(kv => kv.Value))
+                : e => dictionary[e];
 		}
+
+        public static TEnum Parse<TEnum>(string value)
+            where TEnum : struct, Enum
+        {
+            var parser = EnumStringParsers.GetOrAdd(typeof(TEnum), GetEnumStringParser);
+            return (TEnum) parser(value);
+        }
+
+        private static Func<string, Enum> GetEnumStringParser(Type type)
+        {
+            var values = Enum.GetValues(type);
+            var dictionary = new Dictionary<string, Enum>(values.Length);
+            for (var index = 0; index < values.Length; index++)
+            {
+                var value = values.GetValue(index);
+                var info = type.GetField(value.ToString());
+                var da = (EnumMemberAttribute[])info.GetCustomAttributes(typeof(EnumMemberAttribute), false);
+                var stringValue = da.Length > 0 ? da[0].Value : Enum.GetName(type, value)!;
+                dictionary.Add(stringValue.ToLowerInvariant(), (Enum)value);
+            }
+
+            var isFlag = type.GetCustomAttributes(typeof(FlagsAttribute), false).Length > 0;
+
+            return isFlag
+                ? s => (Enum) Convert.ChangeType(s.ToLowerInvariant().Split(',').Aggregate(0ul, (acc, value) => acc | Convert.ToUInt64(dictionary[value])), type)
+                : s => dictionary[s.ToLowerInvariant()];
+        }
 	}
 }

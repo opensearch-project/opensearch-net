@@ -89,7 +89,7 @@ type FastApiInvoke(instance: Object, restName:string, pathParams:KeyedCollection
             let underlyingType = Nullable.GetUnderlyingType(t)
             if v = null then null
             else this.ArgConvert(v, underlyingType)
-        | t when t.IsEnum -> Enum.Parse(t, this.ArgString v, true)
+        | t when t.IsEnum -> typeof<KnownEnums>.GetMethod("Parse").MakeGenericMethod(t).Invoke(null, [|v|])
         | t -> failwithf $"unable to convert argument to type %s{t.FullName}"
     
     member this.ArgString (v:Object): string =
