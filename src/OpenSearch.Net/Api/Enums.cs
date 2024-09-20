@@ -90,7 +90,7 @@ namespace OpenSearch.Net
                 : e => dictionary[e];
 		}
 
-        public static TEnum Parse<TEnum>(string value)
+        internal static TEnum Parse<TEnum>(string value)
             where TEnum : struct, Enum
         {
             var parser = EnumStringParsers.GetOrAdd(typeof(TEnum), GetEnumStringParser);
@@ -113,7 +113,7 @@ namespace OpenSearch.Net
             var isFlag = type.GetCustomAttributes(typeof(FlagsAttribute), false).Length > 0;
 
             return isFlag
-                ? s => (Enum) Convert.ChangeType(s.ToLowerInvariant().Split(',').Aggregate(0ul, (acc, value) => acc | Convert.ToUInt64(dictionary[value])), type)
+                ? s => (Enum)Enum.ToObject(type, s.ToLowerInvariant().Split(',').Aggregate(0, (acc, value) => acc | Convert.ToInt32(dictionary[value])))
                 : s => dictionary[s.ToLowerInvariant()];
         }
 	}
