@@ -55,7 +55,6 @@ namespace OpenSearch.Net
 	public static partial class KnownEnums
 	{
 		private static readonly ConcurrentDictionary<Type, Func<Enum, string>> EnumStringResolvers = new();
-        private static readonly ConcurrentDictionary<Type, Func<string, Enum>> EnumStringParsers = new();
 
 		static KnownEnums() => RegisterEnumStringResolvers();
 
@@ -77,44 +76,17 @@ namespace OpenSearch.Net
 			var dictionary = new Dictionary<Enum, string>(values.Length);
 			for (var index = 0; index < values.Length; index++)
 			{
-				var value = values.GetValue(index);
+				var value = (Enum) values.GetValue(index);
 				var info = type.GetField(value.ToString());
-				var da = (EnumMemberAttribute[])info.GetCustomAttributes(typeof(EnumMemberAttribute), false);
-				var stringValue = da.Length > 0 ? da[0].Value : Enum.GetName(type, value);
-				dictionary.Add((Enum)value, stringValue);
+                var attr = info.GetCustomAttribute<EnumMemberAttribute>(false);
+				var stringValue = attr != null ? attr.Value : Enum.GetName(type, value);
+				dictionary.Add(value, stringValue);
 			}
 
-			var isFlag = type.GetCustomAttributes(typeof(FlagsAttribute), false).Length > 0;
+			var isFlag = type.GetCustomAttribute<FlagsAttribute>(false) != null;
             return isFlag
                 ? e => string.Join(",", dictionary.Where(kv => e.HasFlag(kv.Key)).Select(kv => kv.Value))
                 : e => dictionary[e];
 		}
-
-        internal static TEnum Parse<TEnum>(string value)
-            where TEnum : struct, Enum
-        {
-            var parser = EnumStringParsers.GetOrAdd(typeof(TEnum), GetEnumStringParser);
-            return (TEnum) parser(value);
-        }
-
-        private static Func<string, Enum> GetEnumStringParser(Type type)
-        {
-            var values = Enum.GetValues(type);
-            var dictionary = new Dictionary<string, Enum>(values.Length);
-            for (var index = 0; index < values.Length; index++)
-            {
-                var value = values.GetValue(index);
-                var info = type.GetField(value.ToString());
-                var da = (EnumMemberAttribute[])info.GetCustomAttributes(typeof(EnumMemberAttribute), false);
-                var stringValue = da.Length > 0 ? da[0].Value : Enum.GetName(type, value)!;
-                dictionary.Add(stringValue.ToLowerInvariant(), (Enum)value);
-            }
-
-            var isFlag = type.GetCustomAttributes(typeof(FlagsAttribute), false).Length > 0;
-
-            return isFlag
-                ? s => (Enum)Enum.ToObject(type, s.ToLowerInvariant().Split(',').Aggregate(0, (acc, value) => acc | Convert.ToInt32(dictionary[value])))
-                : s => dictionary[s.ToLowerInvariant()];
-        }
 	}
 }
