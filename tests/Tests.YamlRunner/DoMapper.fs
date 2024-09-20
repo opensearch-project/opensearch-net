@@ -82,16 +82,17 @@ type FastApiInvoke(instance: Object, restName:string, pathParams:KeyedCollection
     
     member private this.toMap (o:YamlMap) = o |> Seq.map (fun o -> o.Key :?> String , o.Value) |> Map.ofSeq
     
-    member this.ArgConvert (v:Object, t:Type) =
+    member this.ArgConvert (v:Object, t:Type): Object =
         match t with
-        | t when t = typeof<String> -> this.ArgString v :> Object
+        | t when t = typeof<String> -> this.ArgString v
         | t when Nullable.GetUnderlyingType(t) <> null ->
             let underlyingType = Nullable.GetUnderlyingType(t)
             if v = null then null
             else this.ArgConvert(v, underlyingType)
+        | t when t.IsEnum -> Enum.Parse(t, this.ArgString v, true)
         | t -> failwithf $"unable to convert argument to type %s{t.FullName}"
     
-    member this.ArgString (v:Object) =
+    member this.ArgString (v:Object): string =
         let toString (value:Object) = 
             match value with
             | null -> null
