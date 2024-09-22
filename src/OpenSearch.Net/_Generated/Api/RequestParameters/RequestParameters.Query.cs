@@ -42,6 +42,53 @@
 //
 // -----------------------------------------------
 
-namespace OpenSearch.Client;
+// ReSharper disable RedundantUsingDirective
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Text;
 
-public abstract partial class PlainRequestBase<TParameters> { }
+// ReSharper disable once CheckNamespace
+namespace OpenSearch.Net.Specification.QueryApi
+{
+    /// <summary>Request options for DatasourceDelete</summary>
+    public partial class DatasourceDeleteRequestParameters
+        : RequestParameters<DatasourceDeleteRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
+        public override bool SupportsBody => false;
+    }
+
+    /// <summary>Request options for DatasourceRetrieve</summary>
+    public partial class DatasourceRetrieveRequestParameters
+        : RequestParameters<DatasourceRetrieveRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+    }
+
+    /// <summary>Request options for DatasourcesCreate</summary>
+    public partial class DatasourcesCreateRequestParameters
+        : RequestParameters<DatasourcesCreateRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+    }
+
+    /// <summary>Request options for DatasourcesList</summary>
+    public partial class DatasourcesListRequestParameters
+        : RequestParameters<DatasourcesListRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+    }
+
+    /// <summary>Request options for DatasourcesUpdate</summary>
+    public partial class DatasourcesUpdateRequestParameters
+        : RequestParameters<DatasourcesUpdateRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+        public override bool SupportsBody => true;
+    }
+}

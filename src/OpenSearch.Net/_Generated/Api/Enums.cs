@@ -310,6 +310,39 @@ namespace OpenSearch.Net
     }
 
     [StringEnum]
+    public enum KnnDefaultOperator
+    {
+        [EnumMember(Value = "AND")]
+        And,
+
+        [EnumMember(Value = "OR")]
+        Or,
+    }
+
+    [StringEnum]
+    public enum KnnSearchType
+    {
+        [EnumMember(Value = "dfs_query_then_fetch")]
+        DfsQueryThenFetch,
+
+        [EnumMember(Value = "query_then_fetch")]
+        QueryThenFetch,
+    }
+
+    [StringEnum]
+    public enum KnnSuggestMode
+    {
+        [EnumMember(Value = "always")]
+        Always,
+
+        [EnumMember(Value = "missing")]
+        Missing,
+
+        [EnumMember(Value = "popular")]
+        Popular,
+    }
+
+    [StringEnum]
     public enum Level
     {
         [EnumMember(Value = "cluster")]
@@ -535,6 +568,37 @@ namespace OpenSearch.Net
     }
 
     [StringEnum]
+    public enum NotificationsNotificationConfigType
+    {
+        [EnumMember(Value = "chime")]
+        Chime,
+
+        [EnumMember(Value = "email")]
+        Email,
+
+        [EnumMember(Value = "email_group")]
+        EmailGroup,
+
+        [EnumMember(Value = "microsoft_teams")]
+        MicrosoftTeams,
+
+        [EnumMember(Value = "ses_account")]
+        SesAccount,
+
+        [EnumMember(Value = "slack")]
+        Slack,
+
+        [EnumMember(Value = "smtp_account")]
+        SmtpAccount,
+
+        [EnumMember(Value = "sns")]
+        Sns,
+
+        [EnumMember(Value = "webhook")]
+        Webhook,
+    }
+
+    [StringEnum]
     public enum OpType
     {
         [EnumMember(Value = "create")]
@@ -688,12 +752,16 @@ namespace OpenSearch.Net
             AddEnumStringResolver<IndexApiBlock>(GetStringValue);
             AddEnumStringResolver<IndicesShardStoresStatus>(GetStringValue);
             AddEnumStringResolver<IndicesStatsMetric>(GetStringValue);
+            AddEnumStringResolver<KnnDefaultOperator>(GetStringValue);
+            AddEnumStringResolver<KnnSearchType>(GetStringValue);
+            AddEnumStringResolver<KnnSuggestMode>(GetStringValue);
             AddEnumStringResolver<Level>(GetStringValue);
             AddEnumStringResolver<NodesInfoMetric>(GetStringValue);
             AddEnumStringResolver<NodesSampleType>(GetStringValue);
             AddEnumStringResolver<NodesStatsIndexMetric>(GetStringValue);
             AddEnumStringResolver<NodesStatsMetric>(GetStringValue);
             AddEnumStringResolver<NodesUsageMetric>(GetStringValue);
+            AddEnumStringResolver<NotificationsNotificationConfigType>(GetStringValue);
             AddEnumStringResolver<OpType>(GetStringValue);
             AddEnumStringResolver<Refresh>(GetStringValue);
             AddEnumStringResolver<SearchType>(GetStringValue);
@@ -900,6 +968,37 @@ namespace OpenSearch.Net
             return string.Join(",", list);
         }
 
+        public static string GetStringValue(this KnnDefaultOperator enumValue) =>
+            enumValue switch
+            {
+                KnnDefaultOperator.And => "AND",
+                KnnDefaultOperator.Or => "OR",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'KnnDefaultOperator'"
+                ),
+            };
+
+        public static string GetStringValue(this KnnSearchType enumValue) =>
+            enumValue switch
+            {
+                KnnSearchType.DfsQueryThenFetch => "dfs_query_then_fetch",
+                KnnSearchType.QueryThenFetch => "query_then_fetch",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'KnnSearchType'"
+                ),
+            };
+
+        public static string GetStringValue(this KnnSuggestMode enumValue) =>
+            enumValue switch
+            {
+                KnnSuggestMode.Always => "always",
+                KnnSuggestMode.Missing => "missing",
+                KnnSuggestMode.Popular => "popular",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'KnnSuggestMode'"
+                ),
+            };
+
         public static string GetStringValue(this Level enumValue) =>
             enumValue switch
             {
@@ -1067,6 +1166,23 @@ namespace OpenSearch.Net
                 list.Add("rest_actions");
             return string.Join(",", list);
         }
+
+        public static string GetStringValue(this NotificationsNotificationConfigType enumValue) =>
+            enumValue switch
+            {
+                NotificationsNotificationConfigType.Chime => "chime",
+                NotificationsNotificationConfigType.Email => "email",
+                NotificationsNotificationConfigType.EmailGroup => "email_group",
+                NotificationsNotificationConfigType.MicrosoftTeams => "microsoft_teams",
+                NotificationsNotificationConfigType.SesAccount => "ses_account",
+                NotificationsNotificationConfigType.Slack => "slack",
+                NotificationsNotificationConfigType.SmtpAccount => "smtp_account",
+                NotificationsNotificationConfigType.Sns => "sns",
+                NotificationsNotificationConfigType.Webhook => "webhook",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'NotificationsNotificationConfigType'"
+                ),
+            };
 
         public static string GetStringValue(this OpType enumValue) =>
             enumValue switch

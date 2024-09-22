@@ -50,15 +50,30 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Net;
+using OpenSearch.Net.Specification.AsynchronousSearchApi;
 using OpenSearch.Net.Specification.CatApi;
 using OpenSearch.Net.Specification.ClusterApi;
 using OpenSearch.Net.Specification.DanglingIndicesApi;
+using OpenSearch.Net.Specification.FlowFrameworkApi;
 using OpenSearch.Net.Specification.HttpApi;
 using OpenSearch.Net.Specification.IndicesApi;
 using OpenSearch.Net.Specification.IngestApi;
+using OpenSearch.Net.Specification.IsmApi;
+using OpenSearch.Net.Specification.KnnApi;
+using OpenSearch.Net.Specification.MlApi;
 using OpenSearch.Net.Specification.NodesApi;
+using OpenSearch.Net.Specification.NotificationsApi;
+using OpenSearch.Net.Specification.ObservabilityApi;
+using OpenSearch.Net.Specification.PplApi;
+using OpenSearch.Net.Specification.QueryApi;
+using OpenSearch.Net.Specification.RemoteStoreApi;
+using OpenSearch.Net.Specification.RollupsApi;
+using OpenSearch.Net.Specification.SearchPipelineApi;
+using OpenSearch.Net.Specification.SecurityApi;
 using OpenSearch.Net.Specification.SnapshotApi;
+using OpenSearch.Net.Specification.SqlApi;
 using OpenSearch.Net.Specification.TasksApi;
+using OpenSearch.Net.Specification.TransformsApi;
 
 namespace OpenSearch.Net
 {
@@ -67,6 +82,9 @@ namespace OpenSearch.Net
     /// </summary>
     public partial interface IOpenSearchLowLevelClient
     {
+        /// <summary>Asynchronous Search APIs</summary>
+        LowLevelAsynchronousSearchNamespace AsynchronousSearch { get; }
+
         /// <summary>Cat APIs</summary>
         LowLevelCatNamespace Cat { get; }
 
@@ -76,11 +94,23 @@ namespace OpenSearch.Net
         /// <summary>Dangling Indices APIs</summary>
         LowLevelDanglingIndicesNamespace DanglingIndices { get; }
 
+        /// <summary>Flow Framework APIs</summary>
+        LowLevelFlowFrameworkNamespace FlowFramework { get; }
+
         /// <summary>Indices APIs</summary>
         LowLevelIndicesNamespace Indices { get; }
 
         /// <summary>Ingest APIs</summary>
         LowLevelIngestNamespace Ingest { get; }
+
+        /// <summary>Ism APIs</summary>
+        LowLevelIsmNamespace Ism { get; }
+
+        /// <summary>Knn APIs</summary>
+        LowLevelKnnNamespace Knn { get; }
+
+        /// <summary>Ml APIs</summary>
+        LowLevelMlNamespace Ml { get; }
 
         /// <summary>Nodes APIs</summary>
         LowLevelNodesNamespace Nodes { get; }
@@ -88,11 +118,41 @@ namespace OpenSearch.Net
         /// <summary>Http APIs</summary>
         LowLevelHttpNamespace Http { get; }
 
+        /// <summary>Notifications APIs</summary>
+        LowLevelNotificationsNamespace Notifications { get; }
+
+        /// <summary>Observability APIs</summary>
+        LowLevelObservabilityNamespace Observability { get; }
+
+        /// <summary>Ppl APIs</summary>
+        LowLevelPplNamespace Ppl { get; }
+
+        /// <summary>Query APIs</summary>
+        LowLevelQueryNamespace Query { get; }
+
+        /// <summary>Remote Store APIs</summary>
+        LowLevelRemoteStoreNamespace RemoteStore { get; }
+
+        /// <summary>Rollups APIs</summary>
+        LowLevelRollupsNamespace Rollups { get; }
+
+        /// <summary>Search Pipeline APIs</summary>
+        LowLevelSearchPipelineNamespace SearchPipeline { get; }
+
+        /// <summary>Security APIs</summary>
+        LowLevelSecurityNamespace Security { get; }
+
         /// <summary>Snapshot APIs</summary>
         LowLevelSnapshotNamespace Snapshot { get; }
 
+        /// <summary>Sql APIs</summary>
+        LowLevelSqlNamespace Sql { get; }
+
         /// <summary>Tasks APIs</summary>
         LowLevelTasksNamespace Tasks { get; }
+
+        /// <summary>Transforms APIs</summary>
+        LowLevelTransformsNamespace Transforms { get; }
 
         /// <summary>POST on /_bulk <para>https://opensearch.org/docs/latest/api-reference/document-apis/bulk/</para></summary>
         /// <param name="body"></param>

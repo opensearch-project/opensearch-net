@@ -50,15 +50,30 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using OpenSearch.Net;
+using OpenSearch.Net.Specification.AsynchronousSearchApi;
 using OpenSearch.Net.Specification.CatApi;
 using OpenSearch.Net.Specification.ClusterApi;
 using OpenSearch.Net.Specification.DanglingIndicesApi;
+using OpenSearch.Net.Specification.FlowFrameworkApi;
 using OpenSearch.Net.Specification.HttpApi;
 using OpenSearch.Net.Specification.IndicesApi;
 using OpenSearch.Net.Specification.IngestApi;
+using OpenSearch.Net.Specification.IsmApi;
+using OpenSearch.Net.Specification.KnnApi;
+using OpenSearch.Net.Specification.MlApi;
 using OpenSearch.Net.Specification.NodesApi;
+using OpenSearch.Net.Specification.NotificationsApi;
+using OpenSearch.Net.Specification.ObservabilityApi;
+using OpenSearch.Net.Specification.PplApi;
+using OpenSearch.Net.Specification.QueryApi;
+using OpenSearch.Net.Specification.RemoteStoreApi;
+using OpenSearch.Net.Specification.RollupsApi;
+using OpenSearch.Net.Specification.SearchPipelineApi;
+using OpenSearch.Net.Specification.SecurityApi;
 using OpenSearch.Net.Specification.SnapshotApi;
+using OpenSearch.Net.Specification.SqlApi;
 using OpenSearch.Net.Specification.TasksApi;
+using OpenSearch.Net.Specification.TransformsApi;
 using static OpenSearch.Net.HttpMethod;
 
 // ReSharper disable InterpolatedStringExpressionIsNotIFormattable
@@ -70,27 +85,57 @@ namespace OpenSearch.Net
     /// </summary>
     public partial class OpenSearchLowLevelClient : IOpenSearchLowLevelClient
     {
+        public LowLevelAsynchronousSearchNamespace AsynchronousSearch { get; private set; }
         public LowLevelCatNamespace Cat { get; private set; }
         public LowLevelClusterNamespace Cluster { get; private set; }
         public LowLevelDanglingIndicesNamespace DanglingIndices { get; private set; }
+        public LowLevelFlowFrameworkNamespace FlowFramework { get; private set; }
         public LowLevelIndicesNamespace Indices { get; private set; }
         public LowLevelIngestNamespace Ingest { get; private set; }
+        public LowLevelIsmNamespace Ism { get; private set; }
+        public LowLevelKnnNamespace Knn { get; private set; }
+        public LowLevelMlNamespace Ml { get; private set; }
         public LowLevelNodesNamespace Nodes { get; private set; }
         public LowLevelHttpNamespace Http { get; private set; }
+        public LowLevelNotificationsNamespace Notifications { get; private set; }
+        public LowLevelObservabilityNamespace Observability { get; private set; }
+        public LowLevelPplNamespace Ppl { get; private set; }
+        public LowLevelQueryNamespace Query { get; private set; }
+        public LowLevelRemoteStoreNamespace RemoteStore { get; private set; }
+        public LowLevelRollupsNamespace Rollups { get; private set; }
+        public LowLevelSearchPipelineNamespace SearchPipeline { get; private set; }
+        public LowLevelSecurityNamespace Security { get; private set; }
         public LowLevelSnapshotNamespace Snapshot { get; private set; }
+        public LowLevelSqlNamespace Sql { get; private set; }
         public LowLevelTasksNamespace Tasks { get; private set; }
+        public LowLevelTransformsNamespace Transforms { get; private set; }
 
         partial void SetupGeneratedNamespaces()
         {
+            AsynchronousSearch = new LowLevelAsynchronousSearchNamespace(this);
             Cat = new LowLevelCatNamespace(this);
             Cluster = new LowLevelClusterNamespace(this);
             DanglingIndices = new LowLevelDanglingIndicesNamespace(this);
+            FlowFramework = new LowLevelFlowFrameworkNamespace(this);
             Indices = new LowLevelIndicesNamespace(this);
             Ingest = new LowLevelIngestNamespace(this);
+            Ism = new LowLevelIsmNamespace(this);
+            Knn = new LowLevelKnnNamespace(this);
+            Ml = new LowLevelMlNamespace(this);
             Nodes = new LowLevelNodesNamespace(this);
             Http = new LowLevelHttpNamespace(this);
+            Notifications = new LowLevelNotificationsNamespace(this);
+            Observability = new LowLevelObservabilityNamespace(this);
+            Ppl = new LowLevelPplNamespace(this);
+            Query = new LowLevelQueryNamespace(this);
+            RemoteStore = new LowLevelRemoteStoreNamespace(this);
+            Rollups = new LowLevelRollupsNamespace(this);
+            SearchPipeline = new LowLevelSearchPipelineNamespace(this);
+            Security = new LowLevelSecurityNamespace(this);
             Snapshot = new LowLevelSnapshotNamespace(this);
+            Sql = new LowLevelSqlNamespace(this);
             Tasks = new LowLevelTasksNamespace(this);
+            Transforms = new LowLevelTransformsNamespace(this);
         }
 
         /// <summary>POST on /_bulk <para>https://opensearch.org/docs/latest/api-reference/document-apis/bulk/</para></summary>

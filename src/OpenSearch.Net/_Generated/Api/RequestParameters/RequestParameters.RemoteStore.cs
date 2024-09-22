@@ -42,6 +42,35 @@
 //
 // -----------------------------------------------
 
-namespace OpenSearch.Client;
+// ReSharper disable RedundantUsingDirective
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Text;
 
-public abstract partial class PlainRequestBase<TParameters> { }
+// ReSharper disable once CheckNamespace
+namespace OpenSearch.Net.Specification.RemoteStoreApi
+{
+    /// <summary>Request options for Restore <para>https://opensearch.org/docs/latest/opensearch/remote/#restoring-from-a-backup</para></summary>
+    public partial class RestoreRequestParameters : RequestParameters<RestoreRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public TimeSpan ClusterManagerTimeout
+        {
+            get => Q<TimeSpan>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>Should this request wait until the operation has completed before returning.</summary>
+        public bool? WaitForCompletion
+        {
+            get => Q<bool?>("wait_for_completion");
+            set => Q("wait_for_completion", value);
+        }
+    }
+}

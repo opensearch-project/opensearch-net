@@ -38,24 +38,11 @@ let SkipList = dict<SkipFile,SkipSection> [
     SkipFile "cat.indices/10_basic.yml", Section "Test cat indices output for closed index (pre 7.2.0)"
     SkipFile "cluster.health/10_basic.yml", Section "cluster health with closed index (pre 7.2.0)"
 
-    // TODO: Uses `indices.create_data_stream` which doesn't yet exist in the client
-    SkipFile "indices.delete_index_template/10_basic.yml", Section "Delete index template which is not used by data stream but index pattern matches"
-
-    // Variations of `indices.put_alias` that accept index/alias in request body rather than path which are not supported by .NET client
-    // https://github.com/opensearch-project/opensearch-net/issues/718
-    SkipFile "indices.put_alias/10_basic.yml", All
-
     // .NET method arg typings make this not possible, index is a required parameter
     SkipFile "indices.put_mapping/all_path_options_with_types.yml", Section "put mapping with blank index"
 
     // argument is an enum in .NET client, meaning invalid value can't be passed
     SkipFile "indices.stats/10_index.yml", Section "Indices stats unrecognized parameter"
-    
-    // The client doesn't support the indices.upgrade API
-    SkipFile "indices.upgrade/10_basic.yml", All
-
-    // TODO: Add support for search pipeline APIs
-    SkipFile "search_pipeline/10_basic.yml", All
 
     // TODO: Better support parsing and asserting unsigned longs (hitting long vs double precision issues)
     SkipFile "search.aggregation/20_terms.yml", Section "Unsigned Long test"
