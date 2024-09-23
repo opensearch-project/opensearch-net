@@ -32,6 +32,6 @@ namespace ApiGenerator.Configuration.Overrides.Endpoints
 {
     public class UpdateByQueryOverrides : EndpointOverridesBase
     {
-        public override IEnumerable<string> SkipQueryStringParams => new[] { "max_docs", };
+        public override IEnumerable<string> SkipQueryStringParams => ["max_docs", "slices"];
     }
 }

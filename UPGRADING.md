@@ -3,6 +3,11 @@
   * [1.x.y to 2.0.0](#1xy-to-200)
     * [OpenSearch.Net](#opensearchnet)
       * [General](#general)
+      * [Bulk Action](#bulk-action)
+      * [DeleteByQuery Action](#deletebyquery-action)
+      * [ReindexOnServer Action](#reindexonserver-action)
+      * [Search Action](#search-action)
+      * [UpdateByQuery Action](#updatebyquery-action)
       * [Cat.Help Action](#cathelp-action)
       * [Cat.Indices Action](#catindices-action)
       * [Cat.Master Action](#catmaster-action)
@@ -11,17 +16,25 @@
       * [Cluster.ExistsComponentTemplate Action](#clusterexistscomponenttemplate-action)
       * [Cluster.Health Action](#clusterhealth-action)
       * [Cluster.PostVotingConfigExclusions Action](#clusterpostvotingconfigexclusions-action)
+      * [Cluster.Reroute Action](#clusterreroute-action)
       * [Features Namespace](#features-namespace)
+      * [Indices.AddBlock Action](#indicesaddblock-action)
+      * [Indices.Analyze Action](#indicesanalyze-action)
+      * [Indices.ClearCache Action](#indicesclearcache-action)
       * [Indices.DeleteTemplateV2 Action](#indicesdeletetemplatev2-action)
       * [Indices.ExistsTemplate Action](#indicesexiststemplate-action)
       * [Indices.GetTemplateV2 Action](#indicesgettemplatev2-action)
       * [Indices.PutTemplateV2 Action](#indicesputtemplatev2-action)
+      * [Indices.ShardStores Action](#indicesshardstores-action)
+      * [Indices.Stats Action](#indicesstats-action)
       * [Nodes.HotThreads Action](#nodeshotthreads-action)
       * [Nodes.Stats Action](#nodesstats-action)
       * [Snapshot.CleanupRepository Action](#snapshotcleanuprepository-action)
       * [Tasks.List Action](#taskslist-action)
     * [OpenSearch.Client](#opensearchclient)
       * [General](#general-1)
+      * [Bulk Action](#bulk-action-1)
+      * [UpdateByQuery Action](#updatebyquery-action-1)
       * [Cat.Help Action](#cathelp-action-1)
       * [Cat.Indices Action](#catindices-action-1)
       * [Cat.Master Action](#catmaster-action-1)
@@ -29,6 +42,7 @@
       * [Cluster.GetComponentTemplate Action](#clustergetcomponenttemplate-action)
       * [Cluster.Health Action](#clusterhealth-action-1)
       * [Cluster.PostVotingConfigExclusions Action](#clusterpostvotingconfigexclusions-action-1)
+      * [Cluster.Reroute Action](#clusterreroute-action-1)
       * [Cluster.Stats Action](#clusterstats-action)
       * [Indices.GetComposableTemplate Action](#indicesgetcomposabletemplate-action)
       * [Nodes.HotThreads Action](#nodeshotthreads-action-1)
@@ -48,6 +62,23 @@
 - The `MasterTimeout` parameters on all actions have been marked `[Obsolete]`, please migrate to using `ClusterManagerTimeout` if your OpenSearch cluster is at least version `2.0.0` as `MasterTimeout` may be removed in future major versions.
 - The `ExpandWildcards` enum is now attributed with `[Flags]` to allow combining of multiple values e.g. `ExpandWildcards.Open | ExpandWildcards.Closed` to match open and closed indexes but not hidden.
 - The `Bytes` enum has been renamed to `ByteUnit`.
+- All instances of the `Routing` parameter now accept an array of strings instead of a single string to better represent the underlying API that accepts comma-separated lists.
+
+#### Bulk Action
+- The `TypeQueryString` parameter has been renamed to simply `Type`.
+
+#### DeleteByQuery Action
+- The `Slices` parameter now accepts a `string` instead of a `long` as the API can also accept the string `"auto"`.
+
+#### ReindexOnServer Action
+- The `Slices` parameter now accepts a `string` instead of a `long` as the API can also accept the string `"auto"`.
+
+#### Search Action
+- The `MinCompatibleShardNode` parameter has been removed as it was never supported by OpenSearch.
+
+#### UpdateByQuery Action
+- The `Slices` parameter now accepts a `string` instead of a `long` as the API can also accept the string `"auto"`.
+- The `VersionType` parameter has been removed as it was never supported by OpenSearch.
 
 #### Cat.Help Action
 - The `Help` and `SortByColumns` parameters have been removed as they are unsupported by OpenSearch.
@@ -62,7 +93,7 @@
 - The `IncludeBootstrap` parameter has been removed as it was never supported by OpenSearch.
 
 #### Cat.Recovery Action
-- The `IndexQueryString` parameter has been renamed to simply `Index` 
+- The `IndexQueryString` parameter has been renamed to simply `Index`.
 
 #### Cluster.ExistsComponentTemplate Action
 - This action has been removed in favour of the correctly named `Cluster.ComponentTemplateExists` action.
@@ -74,6 +105,9 @@
 #### Cluster.PostVotingConfigExclusions Action
 - The `NodeIds` & `NodeNames` parameters now accept an array of strings instead of a single string to better represent the underlying API that accepts comma-separated lists.
 
+#### Cluster.Reroute Action
+- The `Metric` parameter has been changed from a `string` to an `ClusterRerouteMetric` enum.
+
 #### Features Namespace
 - The entire `Features` API namespace has been removed, there is no migration path as it was never supported by OpenSearch.
 
@@ -81,10 +115,10 @@
 - The `block` parameter has been changed from a `string` to an `IndexApiBlock` enum.
 
 #### Indices.Analyze Action
-- The `IndexQueryString` parameter has been renamed to simply `Index`
+- The `IndexQueryString` parameter has been renamed to simply `Index`.
 
 #### Indices.ClearCache Action
-- The `IndexQueryString` parameter has been renamed to simply `Index`
+- The `IndexQueryString` parameter has been renamed to simply `Index`.
 
 #### Indices.DeleteTemplateV2 Action
 - This action has been removed in favour of the more descriptively named and typed `Indices.DeleteComposableTemplate` action.
@@ -101,7 +135,10 @@
 - This action has been removed in favour of the more descriptively named and typed `Indices.PutComposableTemplate` action.
 
 #### Indices.ShardStores Action
-- The `Status` parameter now takes an `IndicesShardStoresShardStoreStatus` flag enum instead of a `string` array.
+- The `Status` parameter now takes an `IndicesShardStoresStatus` flag enum instead of a `string` array.
+
+#### Indices.Stats Action
+- The `metric` parameter has been changed from a `string` to an `IndicesStatsMetric` enum.
 
 #### Nodes.HotThreads Action
 - The `ThreadType` parameter has been renamed to just `Type` to match the query parameter it represents. Its corresponding `ThreadType` enum has been renamed to `NodesSampleType`.
@@ -122,6 +159,12 @@
 - The `ExpandWildcards` enum is now attributed with `[Flags]` to allow combining of multiple values e.g. `ExpandWildcards.Open | ExpandWildcards.Closed` to match open and closed indexes but not hidden.
 - The namespaced APIs exposed in `IOpenSearchClient` have each gained a corresponding interface and the types of the properties on `IOpenSearchClient` and `OpenSearchClient` have been changed from the concrete implementations to the matching interfaces. For example, `IOpenSearchClient.Cluster` was `ClusterNamespace` and now is `IClusterNamespace`.
 - The `Bytes` enum has been renamed to `ByteUnit`.
+
+#### Bulk Action
+- The `TypeQueryString` parameter has been renamed to simply `Type`.
+
+#### UpdateByQuery Action
+- The `VersionType` parameter has been removed as it was never supported by OpenSearch.
 
 #### Cat.Help Action
 - The `Help` and `SortByColumns` parameters have been removed as they are unsupported by OpenSearch.
@@ -145,6 +188,9 @@
 
 #### Cluster.PostVotingConfigExclusions Action
 - The `NodeIds` & `NodeNames` parameters now accept an array of strings instead of a single string to better represent the underlying API that accepts comma-separated lists.
+
+#### Cluster.Reroute Action
+- The `Metric` parameter has been changed from a `string` to an `ClusterRerouteMetric` enum.
 
 #### Cluster.Stats Action
 - The `Nodes.OperatingSystem.PrettyNames` property in the response object's item type has been renamed from `ClusterOperatingSystemPrettyNane` to `ClusterOperatingSystemPrettyName` to correct a spelling mistake. 

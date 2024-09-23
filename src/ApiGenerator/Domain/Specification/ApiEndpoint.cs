@@ -39,7 +39,7 @@ namespace ApiGenerator.Domain.Specification
 {
     public class ApiEndpoint
     {
-		/// <summary> The original name as declared in the spec </summary>
+        /// <summary> The original name as declared in the spec </summary>
         public string Name { get; set; }
 
         /// <summary> The original namespace as declared in the spec </summary>
@@ -63,102 +63,121 @@ namespace ApiGenerator.Domain.Specification
 
         public IEndpointOverrides Overrides { get; internal set; }
 
-		private IEnumerable<QueryParameters> ParamsToGenerate => Url.Params.Values.Where(p => !p.Skip).OrderBy(p => p.ClsName);
+        private IEnumerable<QueryParameters> ParamsToGenerate =>
+            Url.Params.Values.Where(p => !p.Skip).OrderBy(p => p.ClsName);
 
-        public RequestInterface RequestInterface => new()
-		{
-            CsharpNames = CsharpNames,
-            UrlParts = Url.Parts,
-            PartialParameters =
-                Body == null ? Enumerable.Empty<QueryParameters>().ToList() : ParamsToGenerate.Where(p => p.RenderPartial).ToList(),
-            OfficialDocumentationLink = OfficialDocumentationLink?.Url
-        };
+        public RequestInterface RequestInterface =>
+            new()
+            {
+                CsharpNames = CsharpNames,
+                UrlParts = Url.Parts,
+                PartialParameters =
+                    Body == null
+                        ? Enumerable.Empty<QueryParameters>().ToList()
+                        : ParamsToGenerate.Where(p => p.RenderPartial).ToList(),
+                OfficialDocumentationLink = OfficialDocumentationLink?.Url,
+            };
 
-        public RequestPartialImplementation RequestPartialImplementation => new()
-		{
-            CsharpNames = CsharpNames,
-            OfficialDocumentationLink = OfficialDocumentationLink?.Url,
-            Stability = Stability,
-            Paths = Url.Paths.ToList(),
-            Parts = Url.Parts,
-            Params = ParamsToGenerate.ToList(),
-            Constructors = Constructor.RequestConstructors(CsharpNames, Url, inheritsFromPlainRequestBase: true).ToList(),
-            GenericConstructors = Constructor.RequestConstructors(CsharpNames, Url, inheritsFromPlainRequestBase: false).ToList(),
-            HasBody = Body != null,
-        };
+        public RequestPartialImplementation RequestPartialImplementation =>
+            new()
+            {
+                CsharpNames = CsharpNames,
+                OfficialDocumentationLink = OfficialDocumentationLink?.Url,
+                Stability = Stability,
+                Paths = Url.Paths.ToList(),
+                Parts = Url.Parts,
+                Params = ParamsToGenerate.ToList(),
+                Constructors = Constructor
+                    .RequestConstructors(CsharpNames, Url, inheritsFromPlainRequestBase: true)
+                    .ToList(),
+                GenericConstructors = Constructor
+                    .RequestConstructors(CsharpNames, Url, inheritsFromPlainRequestBase: false)
+                    .ToList(),
+                HasBody = Body != null,
+            };
 
-        public DescriptorPartialImplementation DescriptorPartialImplementation => new()
-		{
-            CsharpNames = CsharpNames,
-            OfficialDocumentationLink = OfficialDocumentationLink?.Url,
-            Constructors = Constructor.DescriptorConstructors(CsharpNames, Url).ToList(),
-            Paths = Url.Paths.ToList(),
-            Parts = Url.Parts,
-            Params = ParamsToGenerate.ToList(),
-            HasBody = Body != null,
-        };
+        public DescriptorPartialImplementation DescriptorPartialImplementation =>
+            new()
+            {
+                CsharpNames = CsharpNames,
+                OfficialDocumentationLink = OfficialDocumentationLink?.Url,
+                Constructors = Constructor.DescriptorConstructors(CsharpNames, Url).ToList(),
+                Paths = Url.Paths.ToList(),
+                Parts = Url.Parts,
+                Params = ParamsToGenerate.ToList(),
+                HasBody = Body != null,
+            };
 
-        public RequestParameterImplementation RequestParameterImplementation => new()
-		{
-            CsharpNames = CsharpNames,
-            OfficialDocumentationLink = OfficialDocumentationLink?.Url,
-            Params = ParamsToGenerate.ToList(),
-            HttpMethod = PreferredHttpMethod
-        };
+        public RequestParameterImplementation RequestParameterImplementation =>
+            new()
+            {
+                CsharpNames = CsharpNames,
+                OfficialDocumentationLink = OfficialDocumentationLink?.Url,
+                Params = ParamsToGenerate.ToList(),
+                HttpMethod = PreferredHttpMethod,
+            };
 
         public string PreferredHttpMethod =>
-            HttpMethods.OrderByDescending(m => m switch
-            {
-                "GET" => 0,
-                "POST" => 1,
-                "PUT" or "DELETE" or "PATCH" or "HEAD" => 2, // Prefer "resource" methods over GET/POST methods
-                _ => -1
-            }).First();
+            Name == "bulk"
+                ? "POST"
+                : HttpMethods
+                    .OrderByDescending(m =>
+                        m switch
+                        {
+                            "GET" => 0,
+                            "POST" => 1,
+                            "PUT" or "DELETE" or "PATCH" or "HEAD" => 2, // Prefer "resource" methods over GET/POST methods
+                            _ => -1,
+                        }
+                    )
+                    .First();
 
         public string HighLevelMethodXmlDocDescription =>
             $"<c>{PreferredHttpMethod}</c> request to the <c>{Name}</c> API, read more about this API online:";
 
-		private bool BodyIsOptional => Body is not { Required: true } || HttpMethods.Contains("GET");
+        private bool BodyIsOptional =>
+            Body is not { Required: true } || HttpMethods.Contains("GET");
 
-		private Deprecation Deprecated =>
-			!Url.Paths.Any() && Url.AllPaths.Count > 0
-				? Url.DeprecatedPaths
-					.Select(p => p.Deprecation)
-					.MaxBy(d => d.Version)
-				: null;
+        private Deprecation Deprecated =>
+            !Url.Paths.Any() && Url.AllPaths.Count > 0
+                ? Url.DeprecatedPaths.Select(p => p.Deprecation).MaxBy(d => d.Version)
+                : null;
 
-		private Version VersionAdded =>
-			Url.AllPaths
-				.Select(p => p.VersionAdded)
-				.Where(v => v != null)
-				.Min();
+        private Version VersionAdded =>
+            Url.AllPaths.Select(p => p.VersionAdded).Where(v => v != null).Min();
 
-        public HighLevelModel HighLevelModel => new()
-		{
-            CsharpNames = CsharpNames,
-            Fluent = new FluentMethod(CsharpNames, Url.Parts,
-                selectorIsOptional: BodyIsOptional,
-                link: OfficialDocumentationLink?.Url,
-                summary: HighLevelMethodXmlDocDescription,
-				deprecated: Deprecated,
-				versionAdded: VersionAdded
-            ),
-            FluentBound = !CsharpNames.DescriptorBindsOverMultipleDocuments
-                ? null
-                : new BoundFluentMethod(CsharpNames, Url.Parts,
+        public HighLevelModel HighLevelModel =>
+            new()
+            {
+                CsharpNames = CsharpNames,
+                Fluent = new FluentMethod(
+                    CsharpNames,
+                    Url.Parts,
                     selectorIsOptional: BodyIsOptional,
                     link: OfficialDocumentationLink?.Url,
                     summary: HighLevelMethodXmlDocDescription,
-					deprecated: Deprecated,
-					versionAdded: VersionAdded
+                    deprecated: Deprecated,
+                    versionAdded: VersionAdded
                 ),
-            Initializer = new InitializerMethod(CsharpNames,
-                link: OfficialDocumentationLink?.Url,
-                summary: HighLevelMethodXmlDocDescription,
-				deprecated: Deprecated,
-				versionAdded: VersionAdded
-            )
-        };
+                FluentBound = !CsharpNames.DescriptorBindsOverMultipleDocuments
+                    ? null
+                    : new BoundFluentMethod(
+                        CsharpNames,
+                        Url.Parts,
+                        selectorIsOptional: BodyIsOptional,
+                        link: OfficialDocumentationLink?.Url,
+                        summary: HighLevelMethodXmlDocDescription,
+                        deprecated: Deprecated,
+                        versionAdded: VersionAdded
+                    ),
+                Initializer = new InitializerMethod(
+                    CsharpNames,
+                    link: OfficialDocumentationLink?.Url,
+                    summary: HighLevelMethodXmlDocDescription,
+                    deprecated: Deprecated,
+                    versionAdded: VersionAdded
+                ),
+            };
 
         private List<LowLevelClientMethod> _lowLevelClientMethods;
 
@@ -166,7 +185,8 @@ namespace ApiGenerator.Domain.Specification
         {
             get
             {
-                if (_lowLevelClientMethods != null && _lowLevelClientMethods.Count > 0) return _lowLevelClientMethods;
+                if (_lowLevelClientMethods != null && _lowLevelClientMethods.Count > 0)
+                    return _lowLevelClientMethods;
 
                 // enumerate once and cache
                 _lowLevelClientMethods = new List<LowLevelClientMethod>();
@@ -183,11 +203,19 @@ namespace ApiGenerator.Domain.Specification
                     // TODO This is hack until we stop transforming the new spec format into the old
                     if (Name == "index" && !mapsApiArgumentHints.Contains("id"))
                         httpMethod = "POST";
-                    else if (Name == "index") httpMethod = PreferredHttpMethod;
+                    else if (Name == "index")
+                        httpMethod = PreferredHttpMethod;
 
                     if (Body != null)
                     {
-                        parts.Add(new UrlPart { Name = "body", Type = "PostData", Description = Body.Description });
+                        parts.Add(
+                            new UrlPart
+                            {
+                                Name = "body",
+                                Type = "PostData",
+                                Description = Body.Description,
+                            }
+                        );
                         mapsApiArgumentHints.Add("body");
                     }
 
@@ -210,7 +238,7 @@ namespace ApiGenerator.Domain.Specification
                         Parts = parts,
                         Url = Url,
                         HasBody = Body != null,
-						VersionAdded = path.VersionAdded,
+                        VersionAdded = path.VersionAdded,
                     };
                     _lowLevelClientMethods.Add(apiMethod);
                 }

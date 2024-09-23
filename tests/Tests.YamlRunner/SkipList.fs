@@ -32,6 +32,8 @@ type SkipSection = All | Section of string | Sections of string list
 type SkipFile = SkipFile of string
 
 let SkipList = dict<SkipFile,SkipSection> [
+    SkipFile "index/91_flat_object_null_value.yml", Section "Supported queries"
+    
     // Incorrectly being run due to OpenSearch 1.x/2.x being numerically <7.2.0, but feature-wise >7.10
     SkipFile "cat.indices/10_basic.yml", Section "Test cat indices output for closed index (pre 7.2.0)"
     SkipFile "cluster.health/10_basic.yml", Section "cluster health with closed index (pre 7.2.0)"
@@ -46,6 +48,9 @@ let SkipList = dict<SkipFile,SkipSection> [
     // .NET method arg typings make this not possible, index is a required parameter
     SkipFile "indices.put_mapping/all_path_options_with_types.yml", Section "put mapping with blank index"
 
+    // argument is an enum in .NET client, meaning invalid value can't be passed
+    SkipFile "indices.stats/10_index.yml", Section "Indices stats unrecognized parameter"
+    
     // The client doesn't support the indices.upgrade API
     SkipFile "indices.upgrade/10_basic.yml", All
 
@@ -56,5 +61,6 @@ let SkipList = dict<SkipFile,SkipSection> [
     SkipFile "search.aggregation/20_terms.yml", Section "Unsigned Long test"
     SkipFile "search.aggregation/230_composite_unsigned.yml", All
     SkipFile "search.aggregation/370_multi_terms.yml", Section "Unsigned Long test"
+    SkipFile "search.aggregation/410_nested_aggs.yml", Section "Supported queries"
     SkipFile "search/90_search_after.yml", Section "unsigned long"
 ]

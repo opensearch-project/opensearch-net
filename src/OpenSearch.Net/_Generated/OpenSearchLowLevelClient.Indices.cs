@@ -2435,7 +2435,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Stats<TResponse>(
             string index,
-            string metric,
+            IndicesStatsMetric? metric,
             IndicesStatsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -2453,7 +2453,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         [MapsApi("indices.stats", "index, metric")]
         public Task<TResponse> StatsAsync<TResponse>(
             string index,
-            string metric,
+            IndicesStatsMetric? metric,
             IndicesStatsRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
@@ -2470,7 +2470,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// <param name="metric">Limit the information returned the specific metrics.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse StatsForAll<TResponse>(
-            string metric,
+            IndicesStatsMetric? metric,
             IndicesStatsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -2486,7 +2486,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.stats", "metric")]
         public Task<TResponse> StatsForAllAsync<TResponse>(
-            string metric,
+            IndicesStatsMetric? metric,
             IndicesStatsRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )

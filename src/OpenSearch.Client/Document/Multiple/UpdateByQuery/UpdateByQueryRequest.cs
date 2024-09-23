@@ -74,6 +74,13 @@ namespace OpenSearch.Client
 		public IScript Script { get; set; }
 		/// <inheritdoc />
 		public long? MaximumDocuments { get; set; }
+
+        ///<summary>The number of slices this task should be divided into. Defaults to 1, meaning the task isn't sliced into subtasks. Can be set to `auto`.</summary>
+        public Slices Slices
+        {
+            get => Q<Slices>("slices");
+            set => Q("slices", value);
+        }
 	}
 
 	// ReSharper disable once UnusedTypeParameter
@@ -112,5 +119,8 @@ namespace OpenSearch.Client
 		/// <inheritdoc cref="IUpdateByQueryRequest.Slice"/>
 		public UpdateByQueryDescriptor<TDocument> Slice(Func<SlicedScrollDescriptor<TDocument>, ISlicedScroll> selector) =>
 			Assign(selector, (a, v) => a.Slice = v?.Invoke(new SlicedScrollDescriptor<TDocument>()));
+
+        ///<summary>The number of slices this task should be divided into. Defaults to 1, meaning the task isn't sliced into subtasks. Can be set to `auto`.</summary>
+        public UpdateByQueryDescriptor<TDocument> Slices(Slices slices) => Qs("slices", slices);
 	}
 }

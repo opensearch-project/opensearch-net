@@ -532,7 +532,8 @@ namespace OpenSearch.Client
             Qs("master_timeout", mastertimeout);
 
         /// <summary>Limits the information returned to the specified metrics.</summary>
-        public ClusterRerouteDescriptor Metric(params string[] metric) => Qs("metric", metric);
+        public ClusterRerouteDescriptor Metric(ClusterRerouteMetric? metric) =>
+            Qs("metric", metric);
 
         /// <summary>If true, then retries allocation of shards that are blocked due to too many subsequent allocation failures.</summary>
         public ClusterRerouteDescriptor RetryFailed(bool? retryfailed = true) =>

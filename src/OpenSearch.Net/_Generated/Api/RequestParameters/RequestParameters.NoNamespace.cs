@@ -52,6 +52,290 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net
 {
+    /// <summary>Request options for Bulk <para>https://opensearch.org/docs/latest/api-reference/document-apis/bulk/</para></summary>
+    public partial class BulkRequestParameters : RequestParameters<BulkRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+
+        /// <summary>
+        /// ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value
+        /// to `_none` disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of the
+        /// value of this parameter.
+        /// </summary>
+        public string Pipeline
+        {
+            get => Q<string>("pipeline");
+            set => Q("pipeline", value);
+        }
+
+        /// <summary>
+        /// If `true`, OpenSearch refreshes the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh to
+        /// make this operation visible to search, if `false` do nothing with refreshes. Valid values: `true`, `false`, `wait_for`.
+        /// </summary>
+        public Refresh? Refresh
+        {
+            get => Q<Refresh?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>If `true`, the request's actions must target an index alias.</summary>
+        public bool? RequireAlias
+        {
+            get => Q<bool?>("require_alias");
+            set => Q("require_alias", value);
+        }
+
+        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        public string[] Routing
+        {
+            get => Q<string[]>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>`true` or `false` to return the `_source` field or not, or a list of fields to return.</summary>
+        public bool? SourceEnabled
+        {
+            get => Q<bool?>("_source");
+            set => Q("_source", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to exclude from the response.</summary>
+        public string[] SourceExcludes
+        {
+            get => Q<string[]>("_source_excludes");
+            set => Q("_source_excludes", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public string[] SourceIncludes
+        {
+            get => Q<string[]>("_source_includes");
+            set => Q("_source_includes", value);
+        }
+
+        /// <summary>Period each action waits for the following operations: automatic index creation, dynamic mapping updates, waiting for active shards.</summary>
+        public TimeSpan Timeout
+        {
+            get => Q<TimeSpan>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>Default document type for items which don't provide one.</summary>
+        public string Type
+        {
+            get => Q<string>("type");
+            set => Q("type", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to all or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+    }
+
+    /// <summary>Request options for ClearScroll <para>https://opensearch.org/docs/latest/api-reference/scroll/</para></summary>
+    public partial class ClearScrollRequestParameters
+        : RequestParameters<ClearScrollRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
+        public override bool SupportsBody => true;
+    }
+
+    /// <summary>Request options for Count <para>https://opensearch.org/docs/latest/api-reference/count/</para></summary>
+    public partial class CountRequestParameters : RequestParameters<CountRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>Analyzer to use for the query string. This parameter can only be used when the `q` query string parameter is specified.</summary>
+        public string Analyzer
+        {
+            get => Q<string>("analyzer");
+            set => Q("analyzer", value);
+        }
+
+        /// <summary>If `true`, wildcard and prefix queries are analyzed. This parameter can only be used when the `q` query string parameter is specified.</summary>
+        public bool? AnalyzeWildcard
+        {
+            get => Q<bool?>("analyze_wildcard");
+            set => Q("analyze_wildcard", value);
+        }
+
+        /// <summary>
+        /// The default operator for query string query: `AND` or `OR`. This parameter can only be used when the `q` query string parameter is
+        /// specified.
+        /// </summary>
+        public DefaultOperator? DefaultOperator
+        {
+            get => Q<DefaultOperator?>("default_operator");
+            set => Q("default_operator", value);
+        }
+
+        /// <summary>
+        /// Field to use as default where no field prefix is given in the query string. This parameter can only be used when the `q` query string
+        /// parameter is specified.
+        /// </summary>
+        public string Df
+        {
+            get => Q<string>("df");
+            set => Q("df", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `true`, concrete, expanded or aliased indices are ignored when frozen.</summary>
+        public bool? IgnoreThrottled
+        {
+            get => Q<bool?>("ignore_throttled");
+            set => Q("ignore_throttled", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>If `true`, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
+        public bool? Lenient
+        {
+            get => Q<bool?>("lenient");
+            set => Q("lenient", value);
+        }
+
+        /// <summary>Sets the minimum `_score` value that documents must have to be included in the result.</summary>
+        public double? MinScore
+        {
+            get => Q<double?>("min_score");
+            set => Q("min_score", value);
+        }
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>Query in the Lucene query string syntax.</summary>
+        public string QueryOnQueryString
+        {
+            get => Q<string>("q");
+            set => Q("q", value);
+        }
+
+        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        public string[] Routing
+        {
+            get => Q<string[]>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>
+        /// Maximum number of documents to collect for each shard. If a query reaches this limit, OpenSearch terminates the query early. OpenSearch
+        /// collects documents before sorting.
+        /// </summary>
+        public long? TerminateAfter
+        {
+            get => Q<long?>("terminate_after");
+            set => Q("terminate_after", value);
+        }
+    }
+
+    /// <summary>Request options for Create <para>https://opensearch.org/docs/latest/api-reference/document-apis/index-document/</para></summary>
+    public partial class CreateRequestParameters : RequestParameters<CreateRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+        public override bool SupportsBody => true;
+
+        /// <summary>
+        /// ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value
+        /// to `_none` disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of the
+        /// value of this parameter.
+        /// </summary>
+        public string Pipeline
+        {
+            get => Q<string>("pipeline");
+            set => Q("pipeline", value);
+        }
+
+        /// <summary>
+        /// If `true`, OpenSearch refreshes the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh to
+        /// make this operation visible to search, if `false` do nothing with refreshes. Valid values: `true`, `false`, `wait_for`.
+        /// </summary>
+        public Refresh? Refresh
+        {
+            get => Q<Refresh?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        public string[] Routing
+        {
+            get => Q<string[]>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Period the request waits for the following operations: automatic index creation, dynamic mapping updates, waiting for active shards.</summary>
+        public TimeSpan Timeout
+        {
+            get => Q<TimeSpan>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>
+        /// Explicit version number for concurrency control. The specified version must match the current version of the document for the request to
+        /// succeed.
+        /// </summary>
+        public long? Version
+        {
+            get => Q<long?>("version");
+            set => Q("version", value);
+        }
+
+        /// <summary>Specific version type: `external`, `external_gte`.</summary>
+        public VersionType? VersionType
+        {
+            get => Q<VersionType?>("version_type");
+            set => Q("version_type", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+    }
+
     /// <summary>Request options for CreatePit <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</para></summary>
     public partial class CreatePitRequestParameters : RequestParameters<CreatePitRequestParameters>
     {
@@ -94,12 +378,340 @@ namespace OpenSearch.Net
         }
     }
 
+    /// <summary>Request options for Delete <para>https://opensearch.org/docs/latest/api-reference/document-apis/delete-document/</para></summary>
+    public partial class DeleteRequestParameters : RequestParameters<DeleteRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
+        public override bool SupportsBody => false;
+
+        /// <summary>Only perform the operation if the document has this primary term.</summary>
+        public long? IfPrimaryTerm
+        {
+            get => Q<long?>("if_primary_term");
+            set => Q("if_primary_term", value);
+        }
+
+        /// <summary>Only perform the operation if the document has this sequence number.</summary>
+        public long? IfSequenceNumber
+        {
+            get => Q<long?>("if_seq_no");
+            set => Q("if_seq_no", value);
+        }
+
+        /// <summary>
+        /// If `true`, OpenSearch refreshes the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh to
+        /// make this operation visible to search, if `false` do nothing with refreshes. Valid values: `true`, `false`, `wait_for`.
+        /// </summary>
+        public Refresh? Refresh
+        {
+            get => Q<Refresh?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        public string[] Routing
+        {
+            get => Q<string[]>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Period to wait for active shards.</summary>
+        public TimeSpan Timeout
+        {
+            get => Q<TimeSpan>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>
+        /// Explicit version number for concurrency control. The specified version must match the current version of the document for the request to
+        /// succeed.
+        /// </summary>
+        public long? Version
+        {
+            get => Q<long?>("version");
+            set => Q("version", value);
+        }
+
+        /// <summary>Specific version type: `external`, `external_gte`.</summary>
+        public VersionType? VersionType
+        {
+            get => Q<VersionType?>("version_type");
+            set => Q("version_type", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+    }
+
     /// <summary>Request options for DeleteAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
     public partial class DeleteAllPitsRequestParameters
         : RequestParameters<DeleteAllPitsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+    }
+
+    /// <summary>Request options for DeleteByQuery <para>https://opensearch.org/docs/latest/api-reference/document-apis/delete-by-query/</para></summary>
+    public partial class DeleteByQueryRequestParameters
+        : RequestParameters<DeleteByQueryRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// index starts with `foo` but no index starts with `bar`.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>Analyzer to use for the query string.</summary>
+        public string Analyzer
+        {
+            get => Q<string>("analyzer");
+            set => Q("analyzer", value);
+        }
+
+        /// <summary>If `true`, wildcard and prefix queries are analyzed.</summary>
+        public bool? AnalyzeWildcard
+        {
+            get => Q<bool?>("analyze_wildcard");
+            set => Q("analyze_wildcard", value);
+        }
+
+        /// <summary>What to do if delete by query hits version conflicts: `abort` or `proceed`.</summary>
+        public Conflicts? Conflicts
+        {
+            get => Q<Conflicts?>("conflicts");
+            set => Q("conflicts", value);
+        }
+
+        /// <summary>The default operator for query string query: `AND` or `OR`.</summary>
+        public DefaultOperator? DefaultOperator
+        {
+            get => Q<DefaultOperator?>("default_operator");
+            set => Q("default_operator", value);
+        }
+
+        /// <summary>Field to use as default where no field prefix is given in the query string.</summary>
+        public string Df
+        {
+            get => Q<string>("df");
+            set => Q("df", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>Starting offset.</summary>
+        public long? From
+        {
+            get => Q<long?>("from");
+            set => Q("from", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>If `true`, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
+        public bool? Lenient
+        {
+            get => Q<bool?>("lenient");
+            set => Q("lenient", value);
+        }
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>Query in the Lucene query string syntax.</summary>
+        public string QueryOnQueryString
+        {
+            get => Q<string>("q");
+            set => Q("q", value);
+        }
+
+        /// <summary>If `true`, OpenSearch refreshes all shards involved in the delete by query after the request completes.</summary>
+        public bool? Refresh
+        {
+            get => Q<bool?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>If `true`, the request cache is used for this request. Defaults to the index-level setting.</summary>
+        public bool? RequestCache
+        {
+            get => Q<bool?>("request_cache");
+            set => Q("request_cache", value);
+        }
+
+        /// <summary>The throttle for this request in sub-requests per second.</summary>
+        public long? RequestsPerSecond
+        {
+            get => Q<long?>("requests_per_second");
+            set => Q("requests_per_second", value);
+        }
+
+        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        public string[] Routing
+        {
+            get => Q<string[]>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Period to retain the search context for scrolling.</summary>
+        public TimeSpan Scroll
+        {
+            get => Q<TimeSpan>("scroll");
+            set => Q("scroll", value);
+        }
+
+        /// <summary>Size of the scroll request that powers the operation.</summary>
+        public long? ScrollSize
+        {
+            get => Q<long?>("scroll_size");
+            set => Q("scroll_size", value);
+        }
+
+        /// <summary>Explicit timeout for each search request. Defaults to no timeout.</summary>
+        public TimeSpan SearchTimeout
+        {
+            get => Q<TimeSpan>("search_timeout");
+            set => Q("search_timeout", value);
+        }
+
+        /// <summary>The type of the search operation. Available options: `query_then_fetch`, `dfs_query_then_fetch`.</summary>
+        public SearchType? SearchType
+        {
+            get => Q<SearchType?>("search_type");
+            set => Q("search_type", value);
+        }
+
+        /// <summary>Deprecated, please use `max_docs` instead.</summary>
+        public long? Size
+        {
+            get => Q<long?>("size");
+            set => Q("size", value);
+        }
+
+        /// <summary>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs.</summary>
+        public string[] Sort
+        {
+            get => Q<string[]>("sort");
+            set => Q("sort", value);
+        }
+
+        /// <summary>True or false to return the _source field or not, or a list of fields to return.</summary>
+        public bool? SourceEnabled
+        {
+            get => Q<bool?>("_source");
+            set => Q("_source", value);
+        }
+
+        /// <summary>List of fields to exclude from the returned _source field.</summary>
+        public string[] SourceExcludes
+        {
+            get => Q<string[]>("_source_excludes");
+            set => Q("_source_excludes", value);
+        }
+
+        /// <summary>List of fields to extract and return from the _source field.</summary>
+        public string[] SourceIncludes
+        {
+            get => Q<string[]>("_source_includes");
+            set => Q("_source_includes", value);
+        }
+
+        /// <summary>Specific `tag` of the request for logging and statistical purposes.</summary>
+        public string[] Stats
+        {
+            get => Q<string[]>("stats");
+            set => Q("stats", value);
+        }
+
+        /// <summary>
+        /// Maximum number of documents to collect for each shard. If a query reaches this limit, OpenSearch terminates the query early. OpenSearch
+        /// collects documents before sorting. Use with caution. OpenSearch applies this parameter to each shard handling the request. When possible,
+        /// let OpenSearch perform early termination automatically. Avoid specifying this parameter for requests that target data streams with backing
+        /// indices across multiple data tiers.
+        /// </summary>
+        public long? TerminateAfter
+        {
+            get => Q<long?>("terminate_after");
+            set => Q("terminate_after", value);
+        }
+
+        /// <summary>Period each deletion request waits for active shards.</summary>
+        public TimeSpan Timeout
+        {
+            get => Q<TimeSpan>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>If `true`, returns the document version as part of a hit.</summary>
+        public bool? Version
+        {
+            get => Q<bool?>("version");
+            set => Q("version", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to all or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+
+        /// <summary>If `true`, the request blocks until the operation is complete.</summary>
+        public bool? WaitForCompletion
+        {
+            get => Q<bool?>("wait_for_completion");
+            set => Q("wait_for_completion", value);
+        }
+    }
+
+    /// <summary>Request options for DeleteByQueryRethrottle <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class DeleteByQueryRethrottleRequestParameters
+        : RequestParameters<DeleteByQueryRethrottleRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => false;
+
+        /// <summary>The throttle for this request in sub-requests per second.</summary>
+        public long? RequestsPerSecond
+        {
+            get => Q<long?>("requests_per_second");
+            set => Q("requests_per_second", value);
+        }
     }
 
     /// <summary>Request options for DeletePit <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
@@ -109,11 +721,2024 @@ namespace OpenSearch.Net
         public override bool SupportsBody => true;
     }
 
+    /// <summary>Request options for DeleteScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/delete-script/</para></summary>
+    public partial class DeleteScriptRequestParameters
+        : RequestParameters<DeleteScriptRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
+        public override bool SupportsBody => false;
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public TimeSpan ClusterManagerTimeout
+        {
+            get => Q<TimeSpan>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public TimeSpan MasterTimeout
+        {
+            get => Q<TimeSpan>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public TimeSpan Timeout
+        {
+            get => Q<TimeSpan>("timeout");
+            set => Q("timeout", value);
+        }
+    }
+
+    /// <summary>Request options for DocumentExists <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    public partial class DocumentExistsRequestParameters
+        : RequestParameters<DocumentExistsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
+        public override bool SupportsBody => false;
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>If `true`, the request is real-time as opposed to near-real-time.</summary>
+        public bool? Realtime
+        {
+            get => Q<bool?>("realtime");
+            set => Q("realtime", value);
+        }
+
+        /// <summary>If `true`, OpenSearch refreshes all shards involved in the delete by query after the request completes.</summary>
+        public bool? Refresh
+        {
+            get => Q<bool?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>Target the specified primary shard.</summary>
+        public string[] Routing
+        {
+            get => Q<string[]>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>`true` or `false` to return the `_source` field or not, or a list of fields to return.</summary>
+        public bool? SourceEnabled
+        {
+            get => Q<bool?>("_source");
+            set => Q("_source", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to exclude in the response.</summary>
+        public string[] SourceExcludes
+        {
+            get => Q<string[]>("_source_excludes");
+            set => Q("_source_excludes", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public string[] SourceIncludes
+        {
+            get => Q<string[]>("_source_includes");
+            set => Q("_source_includes", value);
+        }
+
+        /// <summary>
+        /// List of stored fields to return as part of a hit. If no fields are specified, no stored fields are included in the response. If this field
+        /// is specified, the `_source` parameter defaults to false.
+        /// </summary>
+        public string[] StoredFields
+        {
+            get => Q<string[]>("stored_fields");
+            set => Q("stored_fields", value);
+        }
+
+        /// <summary>
+        /// Explicit version number for concurrency control. The specified version must match the current version of the document for the request to
+        /// succeed.
+        /// </summary>
+        public long? Version
+        {
+            get => Q<long?>("version");
+            set => Q("version", value);
+        }
+
+        /// <summary>Specific version type: `external`, `external_gte`.</summary>
+        public VersionType? VersionType
+        {
+            get => Q<VersionType?>("version_type");
+            set => Q("version_type", value);
+        }
+    }
+
+    /// <summary>Request options for SourceExists <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    public partial class SourceExistsRequestParameters
+        : RequestParameters<SourceExistsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
+        public override bool SupportsBody => false;
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>If true, the request is real-time as opposed to near-real-time.</summary>
+        public bool? Realtime
+        {
+            get => Q<bool?>("realtime");
+            set => Q("realtime", value);
+        }
+
+        /// <summary>If `true`, OpenSearch refreshes all shards involved in the delete by query after the request completes.</summary>
+        public bool? Refresh
+        {
+            get => Q<bool?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>Target the specified primary shard.</summary>
+        public string[] Routing
+        {
+            get => Q<string[]>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>`true` or `false` to return the `_source` field or not, or a list of fields to return.</summary>
+        public bool? SourceEnabled
+        {
+            get => Q<bool?>("_source");
+            set => Q("_source", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to exclude in the response.</summary>
+        public string[] SourceExcludes
+        {
+            get => Q<string[]>("_source_excludes");
+            set => Q("_source_excludes", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public string[] SourceIncludes
+        {
+            get => Q<string[]>("_source_includes");
+            set => Q("_source_includes", value);
+        }
+
+        /// <summary>
+        /// Explicit version number for concurrency control. The specified version must match the current version of the document for the request to
+        /// succeed.
+        /// </summary>
+        public long? Version
+        {
+            get => Q<long?>("version");
+            set => Q("version", value);
+        }
+
+        /// <summary>Specific version type: `external`, `external_gte`.</summary>
+        public VersionType? VersionType
+        {
+            get => Q<VersionType?>("version_type");
+            set => Q("version_type", value);
+        }
+    }
+
+    /// <summary>Request options for Explain <para>https://opensearch.org/docs/latest/api-reference/explain/</para></summary>
+    public partial class ExplainRequestParameters : RequestParameters<ExplainRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+
+        /// <summary>Analyzer to use for the query string. This parameter can only be used when the `q` query string parameter is specified.</summary>
+        public string Analyzer
+        {
+            get => Q<string>("analyzer");
+            set => Q("analyzer", value);
+        }
+
+        /// <summary>If `true`, wildcard and prefix queries are analyzed.</summary>
+        public bool? AnalyzeWildcard
+        {
+            get => Q<bool?>("analyze_wildcard");
+            set => Q("analyze_wildcard", value);
+        }
+
+        /// <summary>The default operator for query string query: `AND` or `OR`.</summary>
+        public DefaultOperator? DefaultOperator
+        {
+            get => Q<DefaultOperator?>("default_operator");
+            set => Q("default_operator", value);
+        }
+
+        /// <summary>Field to use as default where no field prefix is given in the query string.</summary>
+        public string Df
+        {
+            get => Q<string>("df");
+            set => Q("df", value);
+        }
+
+        /// <summary>If `true`, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
+        public bool? Lenient
+        {
+            get => Q<bool?>("lenient");
+            set => Q("lenient", value);
+        }
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>Query in the Lucene query string syntax.</summary>
+        public string QueryOnQueryString
+        {
+            get => Q<string>("q");
+            set => Q("q", value);
+        }
+
+        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        public string[] Routing
+        {
+            get => Q<string[]>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>True or false to return the `_source` field or not, or a list of fields to return.</summary>
+        public bool? SourceEnabled
+        {
+            get => Q<bool?>("_source");
+            set => Q("_source", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to exclude from the response.</summary>
+        public string[] SourceExcludes
+        {
+            get => Q<string[]>("_source_excludes");
+            set => Q("_source_excludes", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public string[] SourceIncludes
+        {
+            get => Q<string[]>("_source_includes");
+            set => Q("_source_includes", value);
+        }
+
+        /// <summary>A comma-separated list of stored fields to return in the response.</summary>
+        public string[] StoredFields
+        {
+            get => Q<string[]>("stored_fields");
+            set => Q("stored_fields", value);
+        }
+    }
+
+    /// <summary>Request options for FieldCapabilities <para>https://opensearch.org/docs/latest/field-types/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations</para></summary>
+    public partial class FieldCapabilitiesRequestParameters
+        : RequestParameters<FieldCapabilitiesRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+
+        /// <summary>
+        /// If false, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// index starts with foo but no index starts with bar.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>Comma-separated list of fields to retrieve capabilities for. Wildcard (`*`) expressions are supported.</summary>
+        public string[] Fields
+        {
+            get => Q<string[]>("fields");
+            set => Q("fields", value);
+        }
+
+        /// <summary>If `true`, missing or closed indices are not included in the response.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>If true, unmapped fields are included in the response.</summary>
+        public bool? IncludeUnmapped
+        {
+            get => Q<bool?>("include_unmapped");
+            set => Q("include_unmapped", value);
+        }
+    }
+
+    /// <summary>Request options for Get <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    public partial class GetRequestParameters : RequestParameters<GetRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>If `true`, the request is real-time as opposed to near-real-time.</summary>
+        public bool? Realtime
+        {
+            get => Q<bool?>("realtime");
+            set => Q("realtime", value);
+        }
+
+        /// <summary>If true, OpenSearch refreshes the affected shards to make this operation visible to search. If false, do nothing with refreshes.</summary>
+        public bool? Refresh
+        {
+            get => Q<bool?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>Target the specified primary shard.</summary>
+        public string[] Routing
+        {
+            get => Q<string[]>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>True or false to return the _source field or not, or a list of fields to return.</summary>
+        public bool? SourceEnabled
+        {
+            get => Q<bool?>("_source");
+            set => Q("_source", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to exclude in the response.</summary>
+        public string[] SourceExcludes
+        {
+            get => Q<string[]>("_source_excludes");
+            set => Q("_source_excludes", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public string[] SourceIncludes
+        {
+            get => Q<string[]>("_source_includes");
+            set => Q("_source_includes", value);
+        }
+
+        /// <summary>
+        /// List of stored fields to return as part of a hit. If no fields are specified, no stored fields are included in the response. If this field
+        /// is specified, the `_source` parameter defaults to false.
+        /// </summary>
+        public string[] StoredFields
+        {
+            get => Q<string[]>("stored_fields");
+            set => Q("stored_fields", value);
+        }
+
+        /// <summary>
+        /// Explicit version number for concurrency control. The specified version must match the current version of the document for the request to
+        /// succeed.
+        /// </summary>
+        public long? Version
+        {
+            get => Q<long?>("version");
+            set => Q("version", value);
+        }
+
+        /// <summary>Specific version type: internal, external, external_gte.</summary>
+        public VersionType? VersionType
+        {
+            get => Q<VersionType?>("version_type");
+            set => Q("version_type", value);
+        }
+    }
+
     /// <summary>Request options for GetAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</para></summary>
     public partial class GetAllPitsRequestParameters
         : RequestParameters<GetAllPitsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+    }
+
+    /// <summary>Request options for GetScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/get-stored-script/</para></summary>
+    public partial class GetScriptRequestParameters : RequestParameters<GetScriptRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public TimeSpan ClusterManagerTimeout
+        {
+            get => Q<TimeSpan>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>Specify timeout for connection to master.</summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public TimeSpan MasterTimeout
+        {
+            get => Q<TimeSpan>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+    }
+
+    /// <summary>Request options for GetScriptContext <para>https://opensearch.org/docs/latest/api-reference/script-apis/get-script-contexts/</para></summary>
+    public partial class GetScriptContextRequestParameters
+        : RequestParameters<GetScriptContextRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+    }
+
+    /// <summary>Request options for GetScriptLanguages <para>https://opensearch.org/docs/latest/api-reference/script-apis/get-script-language/</para></summary>
+    public partial class GetScriptLanguagesRequestParameters
+        : RequestParameters<GetScriptLanguagesRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+    }
+
+    /// <summary>Request options for Source <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    public partial class SourceRequestParameters : RequestParameters<SourceRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>Boolean) If true, the request is real-time as opposed to near-real-time.</summary>
+        public bool? Realtime
+        {
+            get => Q<bool?>("realtime");
+            set => Q("realtime", value);
+        }
+
+        /// <summary>If true, OpenSearch refreshes the affected shards to make this operation visible to search. If false, do nothing with refreshes.</summary>
+        public bool? Refresh
+        {
+            get => Q<bool?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>Target the specified primary shard.</summary>
+        public string[] Routing
+        {
+            get => Q<string[]>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>True or false to return the _source field or not, or a list of fields to return.</summary>
+        public bool? SourceEnabled
+        {
+            get => Q<bool?>("_source");
+            set => Q("_source", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to exclude in the response.</summary>
+        public string[] SourceExcludes
+        {
+            get => Q<string[]>("_source_excludes");
+            set => Q("_source_excludes", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public string[] SourceIncludes
+        {
+            get => Q<string[]>("_source_includes");
+            set => Q("_source_includes", value);
+        }
+
+        /// <summary>
+        /// Explicit version number for concurrency control. The specified version must match the current version of the document for the request to
+        /// succeed.
+        /// </summary>
+        public long? Version
+        {
+            get => Q<long?>("version");
+            set => Q("version", value);
+        }
+
+        /// <summary>Specific version type: internal, external, external_gte.</summary>
+        public VersionType? VersionType
+        {
+            get => Q<VersionType?>("version_type");
+            set => Q("version_type", value);
+        }
+    }
+
+    /// <summary>Request options for Index <para>https://opensearch.org/docs/latest/api-reference/document-apis/index-document/</para></summary>
+    public partial class IndexRequestParameters : RequestParameters<IndexRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+        public override bool SupportsBody => true;
+
+        /// <summary>Only perform the operation if the document has this primary term.</summary>
+        public long? IfPrimaryTerm
+        {
+            get => Q<long?>("if_primary_term");
+            set => Q("if_primary_term", value);
+        }
+
+        /// <summary>Only perform the operation if the document has this sequence number.</summary>
+        public long? IfSequenceNumber
+        {
+            get => Q<long?>("if_seq_no");
+            set => Q("if_seq_no", value);
+        }
+
+        /// <summary>
+        /// Set to create to only index the document if it does not already exist (put if absent). If a document with the specified `_id` already
+        /// exists, the indexing operation will fail. Same as using the `&lt;index&gt;/_create` endpoint. Valid values: `index`, `create`. If document
+        /// id is specified, it defaults to `index`. Otherwise, it defaults to `create`.
+        /// </summary>
+        public OpType? OpType
+        {
+            get => Q<OpType?>("op_type");
+            set => Q("op_type", value);
+        }
+
+        /// <summary>
+        /// ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value
+        /// to `_none` disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of the
+        /// value of this parameter.
+        /// </summary>
+        public string Pipeline
+        {
+            get => Q<string>("pipeline");
+            set => Q("pipeline", value);
+        }
+
+        /// <summary>
+        /// If `true`, OpenSearch refreshes the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh to
+        /// make this operation visible to search, if `false` do nothing with refreshes. Valid values: `true`, `false`, `wait_for`.
+        /// </summary>
+        public Refresh? Refresh
+        {
+            get => Q<Refresh?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>If `true`, the destination must be an index alias.</summary>
+        public bool? RequireAlias
+        {
+            get => Q<bool?>("require_alias");
+            set => Q("require_alias", value);
+        }
+
+        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        public string[] Routing
+        {
+            get => Q<string[]>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Period the request waits for the following operations: automatic index creation, dynamic mapping updates, waiting for active shards.</summary>
+        public TimeSpan Timeout
+        {
+            get => Q<TimeSpan>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>
+        /// Explicit version number for concurrency control. The specified version must match the current version of the document for the request to
+        /// succeed.
+        /// </summary>
+        public long? Version
+        {
+            get => Q<long?>("version");
+            set => Q("version", value);
+        }
+
+        /// <summary>Specific version type: `external`, `external_gte`.</summary>
+        public VersionType? VersionType
+        {
+            get => Q<VersionType?>("version_type");
+            set => Q("version_type", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to all or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+    }
+
+    /// <summary>Request options for RootNodeInfo <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class RootNodeInfoRequestParameters
+        : RequestParameters<RootNodeInfoRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+    }
+
+    /// <summary>Request options for MultiGet <para>https://opensearch.org/docs/latest/api-reference/document-apis/multi-get/</para></summary>
+    public partial class MultiGetRequestParameters : RequestParameters<MultiGetRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>If `true`, the request is real-time as opposed to near-real-time.</summary>
+        public bool? Realtime
+        {
+            get => Q<bool?>("realtime");
+            set => Q("realtime", value);
+        }
+
+        /// <summary>If `true`, the request refreshes relevant shards before retrieving documents.</summary>
+        public bool? Refresh
+        {
+            get => Q<bool?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        public string[] Routing
+        {
+            get => Q<string[]>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>True or false to return the `_source` field or not, or a list of fields to return.</summary>
+        public bool? SourceEnabled
+        {
+            get => Q<bool?>("_source");
+            set => Q("_source", value);
+        }
+
+        /// <summary>
+        /// A comma-separated list of source fields to exclude from the response. You can also use this parameter to exclude fields from the subset
+        /// specified in `_source_includes` query parameter.
+        /// </summary>
+        public string[] SourceExcludes
+        {
+            get => Q<string[]>("_source_excludes");
+            set => Q("_source_excludes", value);
+        }
+
+        /// <summary>
+        /// A comma-separated list of source fields to include in the response. If this parameter is specified, only these source fields are returned.
+        /// You can exclude fields from this subset using the `_source_excludes` query parameter. If the `_source` parameter is `false`, this
+        /// parameter is ignored.
+        /// </summary>
+        public string[] SourceIncludes
+        {
+            get => Q<string[]>("_source_includes");
+            set => Q("_source_includes", value);
+        }
+
+        /// <summary>If `true`, retrieves the document fields stored in the index rather than the document `_source`.</summary>
+        public string[] StoredFields
+        {
+            get => Q<string[]>("stored_fields");
+            set => Q("stored_fields", value);
+        }
+    }
+
+    /// <summary>Request options for MultiSearch <para>https://opensearch.org/docs/latest/api-reference/multi-search/</para></summary>
+    public partial class MultiSearchRequestParameters
+        : RequestParameters<MultiSearchRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+
+        /// <summary>If true, network roundtrips between the coordinating node and remote clusters are minimized for cross-cluster search requests.</summary>
+        public bool? CcsMinimizeRoundtrips
+        {
+            get => Q<bool?>("ccs_minimize_roundtrips");
+            set => Q("ccs_minimize_roundtrips", value);
+        }
+
+        /// <summary>Maximum number of concurrent searches the multi search API can execute.</summary>
+        public long? MaxConcurrentSearches
+        {
+            get => Q<long?>("max_concurrent_searches");
+            set => Q("max_concurrent_searches", value);
+        }
+
+        /// <summary>Maximum number of concurrent shard requests that each sub-search request executes per node.</summary>
+        public long? MaxConcurrentShardRequests
+        {
+            get => Q<long?>("max_concurrent_shard_requests");
+            set => Q("max_concurrent_shard_requests", value);
+        }
+
+        /// <summary>
+        /// Defines a threshold that enforces a pre-filter roundtrip to prefilter search shards based on query rewriting if the number of shards the
+        /// search request expands to exceeds the threshold. This filter roundtrip can limit the number of shards significantly if for instance a
+        /// shard can not match any documents based on its rewrite method i.e., if date filters are mandatory to match but the shard bounds and the
+        /// query are disjoint.
+        /// </summary>
+        public long? PreFilterShardSize
+        {
+            get => Q<long?>("pre_filter_shard_size");
+            set => Q("pre_filter_shard_size", value);
+        }
+
+        /// <summary>Indicates whether global term and document frequencies should be used when scoring returned documents.</summary>
+        public SearchType? SearchType
+        {
+            get => Q<SearchType?>("search_type");
+            set => Q("search_type", value);
+        }
+
+        /// <summary>If true, hits.total are returned as an integer in the response. Defaults to false, which returns an object.</summary>
+        public bool? TotalHitsAsInteger
+        {
+            get => Q<bool?>("rest_total_hits_as_int");
+            set => Q("rest_total_hits_as_int", value);
+        }
+
+        /// <summary>Specifies whether aggregation and suggester names should be prefixed by their respective types in the response.</summary>
+        public bool? TypedKeys
+        {
+            get => Q<bool?>("typed_keys");
+            set => Q("typed_keys", value);
+        }
+    }
+
+    /// <summary>Request options for MultiSearchTemplate <para>https://opensearch.org/docs/latest/search-plugins/search-template/</para></summary>
+    public partial class MultiSearchTemplateRequestParameters
+        : RequestParameters<MultiSearchTemplateRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+
+        /// <summary>If `true`, network round-trips are minimized for cross-cluster search requests.</summary>
+        public bool? CcsMinimizeRoundtrips
+        {
+            get => Q<bool?>("ccs_minimize_roundtrips");
+            set => Q("ccs_minimize_roundtrips", value);
+        }
+
+        /// <summary>Maximum number of concurrent searches the API can run.</summary>
+        public long? MaxConcurrentSearches
+        {
+            get => Q<long?>("max_concurrent_searches");
+            set => Q("max_concurrent_searches", value);
+        }
+
+        /// <summary>The type of the search operation. Available options: `query_then_fetch`, `dfs_query_then_fetch`.</summary>
+        public SearchType? SearchType
+        {
+            get => Q<SearchType?>("search_type");
+            set => Q("search_type", value);
+        }
+
+        /// <summary>If `true`, the response returns `hits.total` as an integer. If `false`, it returns `hits.total` as an object.</summary>
+        public bool? TotalHitsAsInteger
+        {
+            get => Q<bool?>("rest_total_hits_as_int");
+            set => Q("rest_total_hits_as_int", value);
+        }
+
+        /// <summary>If `true`, the response prefixes aggregation and suggester names with their respective types.</summary>
+        public bool? TypedKeys
+        {
+            get => Q<bool?>("typed_keys");
+            set => Q("typed_keys", value);
+        }
+    }
+
+    /// <summary>Request options for MultiTermVectors <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class MultiTermVectorsRequestParameters
+        : RequestParameters<MultiTermVectorsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+
+        /// <summary>
+        /// Comma-separated list or wildcard expressions of fields to include in the statistics. Used as the default list unless a specific field list
+        /// is provided in the `completion_fields` or `fielddata_fields` parameters.
+        /// </summary>
+        public string[] Fields
+        {
+            get => Q<string[]>("fields");
+            set => Q("fields", value);
+        }
+
+        /// <summary>If `true`, the response includes the document count, sum of document frequencies, and sum of total term frequencies.</summary>
+        public bool? FieldStatistics
+        {
+            get => Q<bool?>("field_statistics");
+            set => Q("field_statistics", value);
+        }
+
+        /// <summary>If `true`, the response includes term offsets.</summary>
+        public bool? Offsets
+        {
+            get => Q<bool?>("offsets");
+            set => Q("offsets", value);
+        }
+
+        /// <summary>If `true`, the response includes term payloads.</summary>
+        public bool? Payloads
+        {
+            get => Q<bool?>("payloads");
+            set => Q("payloads", value);
+        }
+
+        /// <summary>If `true`, the response includes term positions.</summary>
+        public bool? Positions
+        {
+            get => Q<bool?>("positions");
+            set => Q("positions", value);
+        }
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>If true, the request is real-time as opposed to near-real-time.</summary>
+        public bool? Realtime
+        {
+            get => Q<bool?>("realtime");
+            set => Q("realtime", value);
+        }
+
+        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        public string[] Routing
+        {
+            get => Q<string[]>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>If true, the response includes term frequency and document frequency.</summary>
+        public bool? TermStatistics
+        {
+            get => Q<bool?>("term_statistics");
+            set => Q("term_statistics", value);
+        }
+
+        /// <summary>If `true`, returns the document version as part of a hit.</summary>
+        public long? Version
+        {
+            get => Q<long?>("version");
+            set => Q("version", value);
+        }
+
+        /// <summary>Specific version type.</summary>
+        public VersionType? VersionType
+        {
+            get => Q<VersionType?>("version_type");
+            set => Q("version_type", value);
+        }
+    }
+
+    /// <summary>Request options for Ping <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class PingRequestParameters : RequestParameters<PingRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
+        public override bool SupportsBody => false;
+    }
+
+    /// <summary>Request options for PutScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/create-stored-script/</para></summary>
+    public partial class PutScriptRequestParameters : RequestParameters<PutScriptRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+        public override bool SupportsBody => true;
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public TimeSpan ClusterManagerTimeout
+        {
+            get => Q<TimeSpan>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// Context in which the script or search template should run. To prevent errors, the API immediately compiles the script or template in this
+        /// context.
+        /// </summary>
+        public string Context
+        {
+            get => Q<string>("context");
+            set => Q("context", value);
+        }
+
+        /// <summary>
+        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
+        /// an error.
+        /// </summary>
+        [Obsolete(
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+        )]
+        public TimeSpan MasterTimeout
+        {
+            get => Q<TimeSpan>("master_timeout");
+            set => Q("master_timeout", value);
+        }
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public TimeSpan Timeout
+        {
+            get => Q<TimeSpan>("timeout");
+            set => Q("timeout", value);
+        }
+    }
+
+    /// <summary>Request options for RankEval <para>https://opensearch.org/docs/latest/api-reference/rank-eval/</para></summary>
+    public partial class RankEvalRequestParameters : RequestParameters<RankEvalRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// index starts with `foo` but no index starts with `bar`.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `true`, missing or closed indices are not included in the response.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>Search operation type.</summary>
+        public SearchType? SearchType
+        {
+            get => Q<SearchType?>("search_type");
+            set => Q("search_type", value);
+        }
+    }
+
+    /// <summary>Request options for ReindexOnServer <para>https://opensearch.org/docs/latest/im-plugin/reindex-data/</para></summary>
+    public partial class ReindexOnServerRequestParameters
+        : RequestParameters<ReindexOnServerRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+
+        /// <summary>If `true`, the request refreshes affected shards to make this operation visible to search.</summary>
+        public bool? Refresh
+        {
+            get => Q<bool?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>The throttle for this request in sub-requests per second. Defaults to no throttle.</summary>
+        public long? RequestsPerSecond
+        {
+            get => Q<long?>("requests_per_second");
+            set => Q("requests_per_second", value);
+        }
+
+        /// <summary>Specifies how long a consistent view of the index should be maintained for scrolled search.</summary>
+        public TimeSpan Scroll
+        {
+            get => Q<TimeSpan>("scroll");
+            set => Q("scroll", value);
+        }
+
+        /// <summary>Period each indexing waits for automatic index creation, dynamic mapping updates, and waiting for active shards.</summary>
+        public TimeSpan Timeout
+        {
+            get => Q<TimeSpan>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+
+        /// <summary>If `true`, the request blocks until the operation is complete.</summary>
+        public bool? WaitForCompletion
+        {
+            get => Q<bool?>("wait_for_completion");
+            set => Q("wait_for_completion", value);
+        }
+    }
+
+    /// <summary>Request options for ReindexRethrottle <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class ReindexRethrottleRequestParameters
+        : RequestParameters<ReindexRethrottleRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => false;
+
+        /// <summary>The throttle for this request in sub-requests per second.</summary>
+        public long? RequestsPerSecond
+        {
+            get => Q<long?>("requests_per_second");
+            set => Q("requests_per_second", value);
+        }
+    }
+
+    /// <summary>Request options for RenderSearchTemplate <para>https://opensearch.org/docs/latest/search-plugins/search-template/</para></summary>
+    public partial class RenderSearchTemplateRequestParameters
+        : RequestParameters<RenderSearchTemplateRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+    }
+
+    /// <summary>Request options for ExecutePainlessScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/exec-script/</para></summary>
+    public partial class ExecutePainlessScriptRequestParameters
+        : RequestParameters<ExecutePainlessScriptRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+    }
+
+    /// <summary>Request options for Scroll <para>https://opensearch.org/docs/latest/api-reference/scroll/#path-and-http-methods</para></summary>
+    public partial class ScrollRequestParameters : RequestParameters<ScrollRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+
+        /// <summary>
+        /// If true, the API response's hit.total property is returned as an integer. If false, the API response's hit.total property is returned as
+        /// an object.
+        /// </summary>
+        public bool? TotalHitsAsInteger
+        {
+            get => Q<bool?>("rest_total_hits_as_int");
+            set => Q("rest_total_hits_as_int", value);
+        }
+    }
+
+    /// <summary>Request options for Search <para>https://opensearch.org/docs/latest/api-reference/search/</para></summary>
+    public partial class SearchRequestParameters : RequestParameters<SearchRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// index starts with `foo` but no index starts with `bar`.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>
+        /// If true, returns partial results if there are shard request timeouts or shard failures. If false, returns an error with no partial
+        /// results.
+        /// </summary>
+        public bool? AllowPartialSearchResults
+        {
+            get => Q<bool?>("allow_partial_search_results");
+            set => Q("allow_partial_search_results", value);
+        }
+
+        /// <summary>Analyzer to use for the query string. This parameter can only be used when the q query string parameter is specified.</summary>
+        public string Analyzer
+        {
+            get => Q<string>("analyzer");
+            set => Q("analyzer", value);
+        }
+
+        /// <summary>If true, wildcard and prefix queries are analyzed. This parameter can only be used when the q query string parameter is specified.</summary>
+        public bool? AnalyzeWildcard
+        {
+            get => Q<bool?>("analyze_wildcard");
+            set => Q("analyze_wildcard", value);
+        }
+
+        /// <summary>
+        /// The number of shard results that should be reduced at once on the coordinating node. This value should be used as a protection mechanism
+        /// to reduce the memory overhead per search request if the potential number of shards in the request can be large.
+        /// </summary>
+        public long? BatchedReduceSize
+        {
+            get => Q<long?>("batched_reduce_size");
+            set => Q("batched_reduce_size", value);
+        }
+
+        /// <summary>
+        /// The time after which the search request will be canceled. Request-level parameter takes precedence over `cancel_after_time_interval`
+        /// cluster setting.
+        /// </summary>
+        public TimeSpan CancelAfterTimeInterval
+        {
+            get => Q<TimeSpan>("cancel_after_time_interval");
+            set => Q("cancel_after_time_interval", value);
+        }
+
+        /// <summary>
+        /// If true, network round-trips between the coordinating node and the remote clusters are minimized when executing cross-cluster search (CCS)
+        /// requests.
+        /// </summary>
+        public bool? CcsMinimizeRoundtrips
+        {
+            get => Q<bool?>("ccs_minimize_roundtrips");
+            set => Q("ccs_minimize_roundtrips", value);
+        }
+
+        /// <summary>The default operator for query string query: AND or OR. This parameter can only be used when the `q` query string parameter is specified.</summary>
+        public DefaultOperator? DefaultOperator
+        {
+            get => Q<DefaultOperator?>("default_operator");
+            set => Q("default_operator", value);
+        }
+
+        /// <summary>
+        /// Field to use as default where no field prefix is given in the query string. This parameter can only be used when the q query string
+        /// parameter is specified.
+        /// </summary>
+        public string Df
+        {
+            get => Q<string>("df");
+            set => Q("df", value);
+        }
+
+        /// <summary>A comma-separated list of fields to return as the docvalue representation for each hit.</summary>
+        public string[] DocValueFields
+        {
+            get => Q<string[]>("docvalue_fields");
+            set => Q("docvalue_fields", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `true`, concrete, expanded or aliased indices will be ignored when frozen.</summary>
+        public bool? IgnoreThrottled
+        {
+            get => Q<bool?>("ignore_throttled");
+            set => Q("ignore_throttled", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>
+        /// Indicates whether hit.matched_queries should be rendered as a map that includes the name of the matched query associated with its score
+        /// (true) or as an array containing the name of the matched queries (false).
+        /// </summary>
+        public bool? IncludeNamedQueriesScore
+        {
+            get => Q<bool?>("include_named_queries_score");
+            set => Q("include_named_queries_score", value);
+        }
+
+        /// <summary>
+        /// If `true`, format-based query failures (such as providing text to a numeric field) in the query string will be ignored. This parameter can
+        /// only be used when the `q` query string parameter is specified.
+        /// </summary>
+        public bool? Lenient
+        {
+            get => Q<bool?>("lenient");
+            set => Q("lenient", value);
+        }
+
+        /// <summary>
+        /// Defines the number of concurrent shard requests per node this search executes concurrently. This value should be used to limit the impact
+        /// of the search on the cluster in order to limit the number of concurrent shard requests.
+        /// </summary>
+        public long? MaxConcurrentShardRequests
+        {
+            get => Q<long?>("max_concurrent_shard_requests");
+            set => Q("max_concurrent_shard_requests", value);
+        }
+
+        /// <summary>Indicates whether to return phase-level `took` time values in the response.</summary>
+        public bool? PhaseTook
+        {
+            get => Q<bool?>("phase_took");
+            set => Q("phase_took", value);
+        }
+
+        /// <summary>
+        /// Nodes and shards used for the search. By default, OpenSearch selects from eligible nodes and shards using adaptive replica selection,
+        /// accounting for allocation awareness. Valid values are: `_only_local` to run the search only on shards on the local node; `_local` to, if
+        /// possible, run the search on shards on the local node, or if not, select shards using the default method;
+        /// `_only_nodes:&lt;node-id&gt;,&lt;node-id&gt;` to run the search on only the specified nodes IDs, where, if suitable shards exist on more
+        /// than one selected node, use shards on those nodes using the default method, or if none of the specified nodes are available, select shards
+        /// from any available node using the default method; `_prefer_nodes:&lt;node-id&gt;,&lt;node-id&gt;` to if possible, run the search on the
+        /// specified nodes IDs, or if not, select shards using the default method; `_shards:&lt;shard&gt;,&lt;shard&gt;` to run the search only on
+        /// the specified shards; `&lt;custom-string&gt;` (any string that does not start with `_`) to route searches with the same
+        /// `&lt;custom-string&gt;` to the same shards in the same order.
+        /// </summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>
+        /// Defines a threshold that enforces a pre-filter roundtrip to prefilter search shards based on query rewriting if the number of shards the
+        /// search request expands to exceeds the threshold. This filter roundtrip can limit the number of shards significantly if for instance a
+        /// shard can not match any documents based on its rewrite method (if date filters are mandatory to match but the shard bounds and the query
+        /// are disjoint). When unspecified, the pre-filter phase is executed if any of these conditions is met: the request targets more than 128
+        /// shards; the request targets one or more read-only index; the primary sort of the query targets an indexed field.
+        /// </summary>
+        public long? PreFilterShardSize
+        {
+            get => Q<long?>("pre_filter_shard_size");
+            set => Q("pre_filter_shard_size", value);
+        }
+
+        /// <summary>
+        /// Query in the Lucene query string syntax using query parameter search. Query parameter searches do not support the full OpenSearch Query
+        /// DSL but are handy for testing.
+        /// </summary>
+        public string QueryOnQueryString
+        {
+            get => Q<string>("q");
+            set => Q("q", value);
+        }
+
+        /// <summary>If `true`, the caching of search results is enabled for requests where `size` is `0`. Defaults to index level settings.</summary>
+        public bool? RequestCache
+        {
+            get => Q<bool?>("request_cache");
+            set => Q("request_cache", value);
+        }
+
+        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        public string[] Routing
+        {
+            get => Q<string[]>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>
+        /// Period to retain the search context for scrolling. See Scroll search results. By default, this value cannot exceed `1d` (24 hours). You
+        /// can change this limit using the `search.max_keep_alive` cluster-level setting.
+        /// </summary>
+        public TimeSpan Scroll
+        {
+            get => Q<TimeSpan>("scroll");
+            set => Q("scroll", value);
+        }
+
+        /// <summary>Customizable sequence of processing stages applied to search queries.</summary>
+        public string SearchPipeline
+        {
+            get => Q<string>("search_pipeline");
+            set => Q("search_pipeline", value);
+        }
+
+        /// <summary>How distributed term frequencies are calculated for relevance scoring.</summary>
+        public SearchType? SearchType
+        {
+            get => Q<SearchType?>("search_type");
+            set => Q("search_type", value);
+        }
+
+        /// <summary>If `true`, returns sequence number and primary term of the last modification of each hit.</summary>
+        public bool? SequenceNumberPrimaryTerm
+        {
+            get => Q<bool?>("seq_no_primary_term");
+            set => Q("seq_no_primary_term", value);
+        }
+
+        /// <summary>Specific `tag` of the request for logging and statistical purposes.</summary>
+        public string[] Stats
+        {
+            get => Q<string[]>("stats");
+            set => Q("stats", value);
+        }
+
+        /// <summary>
+        /// A comma-separated list of stored fields to return as part of a hit. If no fields are specified, no stored fields are included in the
+        /// response. If this field is specified, the `_source` parameter defaults to `false`. You can pass `_source: true` to return both source
+        /// fields and stored fields in the search response.
+        /// </summary>
+        public string[] StoredFields
+        {
+            get => Q<string[]>("stored_fields");
+            set => Q("stored_fields", value);
+        }
+
+        /// <summary>Specifies which field to use for suggestions.</summary>
+        public string SuggestField
+        {
+            get => Q<string>("suggest_field");
+            set => Q("suggest_field", value);
+        }
+
+        /// <summary>
+        /// Specifies the suggest mode. This parameter can only be used when the `suggest_field` and `suggest_text` query string parameters are
+        /// specified.
+        /// </summary>
+        public SuggestMode? SuggestMode
+        {
+            get => Q<SuggestMode?>("suggest_mode");
+            set => Q("suggest_mode", value);
+        }
+
+        /// <summary>
+        /// Number of suggestions to return. This parameter can only be used when the `suggest_field` and `suggest_text` query string parameters are
+        /// specified.
+        /// </summary>
+        public long? SuggestSize
+        {
+            get => Q<long?>("suggest_size");
+            set => Q("suggest_size", value);
+        }
+
+        /// <summary>
+        /// The source text for which the suggestions should be returned. This parameter can only be used when the `suggest_field` and `suggest_text`
+        /// query string parameters are specified.
+        /// </summary>
+        public string SuggestText
+        {
+            get => Q<string>("suggest_text");
+            set => Q("suggest_text", value);
+        }
+
+        /// <summary>Indicates whether `hits.total` should be rendered as an integer or an object in the rest search response.</summary>
+        public bool? TotalHitsAsInteger
+        {
+            get => Q<bool?>("rest_total_hits_as_int");
+            set => Q("rest_total_hits_as_int", value);
+        }
+
+        /// <summary>If `true`, aggregation and suggester names are be prefixed by their respective types in the response.</summary>
+        public bool? TypedKeys
+        {
+            get => Q<bool?>("typed_keys");
+            set => Q("typed_keys", value);
+        }
+    }
+
+    /// <summary>Request options for SearchShards <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class SearchShardsRequestParameters
+        : RequestParameters<SearchShardsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => false;
+
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// index starts with `foo` but no index starts with `bar`.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>If `true`, the request retrieves information from the local node only.</summary>
+        public bool? Local
+        {
+            get => Q<bool?>("local");
+            set => Q("local", value);
+        }
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        public string[] Routing
+        {
+            get => Q<string[]>("routing");
+            set => Q("routing", value);
+        }
+    }
+
+    /// <summary>Request options for SearchTemplate <para>https://opensearch.org/docs/latest/search-plugins/search-template/</para></summary>
+    public partial class SearchTemplateRequestParameters
+        : RequestParameters<SearchTemplateRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// index starts with `foo` but no index starts with `bar`.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>If `true`, network round-trips are minimized for cross-cluster search requests.</summary>
+        public bool? CcsMinimizeRoundtrips
+        {
+            get => Q<bool?>("ccs_minimize_roundtrips");
+            set => Q("ccs_minimize_roundtrips", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If `true`, the response includes additional details about score computation as part of a hit.</summary>
+        public bool? Explain
+        {
+            get => Q<bool?>("explain");
+            set => Q("explain", value);
+        }
+
+        /// <summary>If `true`, specified concrete, expanded, or aliased indices are not included in the response when throttled.</summary>
+        public bool? IgnoreThrottled
+        {
+            get => Q<bool?>("ignore_throttled");
+            set => Q("ignore_throttled", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>If `true`, the query execution is profiled.</summary>
+        public bool? Profile
+        {
+            get => Q<bool?>("profile");
+            set => Q("profile", value);
+        }
+
+        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        public string[] Routing
+        {
+            get => Q<string[]>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Specifies how long a consistent view of the index should be maintained for scrolled search.</summary>
+        public TimeSpan Scroll
+        {
+            get => Q<TimeSpan>("scroll");
+            set => Q("scroll", value);
+        }
+
+        /// <summary>The type of the search operation.</summary>
+        public SearchType? SearchType
+        {
+            get => Q<SearchType?>("search_type");
+            set => Q("search_type", value);
+        }
+
+        /// <summary>If true, hits.total are rendered as an integer in the response.</summary>
+        public bool? TotalHitsAsInteger
+        {
+            get => Q<bool?>("rest_total_hits_as_int");
+            set => Q("rest_total_hits_as_int", value);
+        }
+
+        /// <summary>If `true`, the response prefixes aggregation and suggester names with their respective types.</summary>
+        public bool? TypedKeys
+        {
+            get => Q<bool?>("typed_keys");
+            set => Q("typed_keys", value);
+        }
+    }
+
+    /// <summary>Request options for TermVectors <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class TermVectorsRequestParameters
+        : RequestParameters<TermVectorsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+
+        /// <summary>
+        /// Comma-separated list or wildcard expressions of fields to include in the statistics. Used as the default list unless a specific field list
+        /// is provided in the `completion_fields` or `fielddata_fields` parameters.
+        /// </summary>
+        public string[] Fields
+        {
+            get => Q<string[]>("fields");
+            set => Q("fields", value);
+        }
+
+        /// <summary>If `true`, the response includes the document count, sum of document frequencies, and sum of total term frequencies.</summary>
+        public bool? FieldStatistics
+        {
+            get => Q<bool?>("field_statistics");
+            set => Q("field_statistics", value);
+        }
+
+        /// <summary>If `true`, the response includes term offsets.</summary>
+        public bool? Offsets
+        {
+            get => Q<bool?>("offsets");
+            set => Q("offsets", value);
+        }
+
+        /// <summary>If `true`, the response includes term payloads.</summary>
+        public bool? Payloads
+        {
+            get => Q<bool?>("payloads");
+            set => Q("payloads", value);
+        }
+
+        /// <summary>If `true`, the response includes term positions.</summary>
+        public bool? Positions
+        {
+            get => Q<bool?>("positions");
+            set => Q("positions", value);
+        }
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>If true, the request is real-time as opposed to near-real-time.</summary>
+        public bool? Realtime
+        {
+            get => Q<bool?>("realtime");
+            set => Q("realtime", value);
+        }
+
+        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        public string[] Routing
+        {
+            get => Q<string[]>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>If `true`, the response includes term frequency and document frequency.</summary>
+        public bool? TermStatistics
+        {
+            get => Q<bool?>("term_statistics");
+            set => Q("term_statistics", value);
+        }
+
+        /// <summary>If `true`, returns the document version as part of a hit.</summary>
+        public long? Version
+        {
+            get => Q<long?>("version");
+            set => Q("version", value);
+        }
+
+        /// <summary>Specific version type.</summary>
+        public VersionType? VersionType
+        {
+            get => Q<VersionType?>("version_type");
+            set => Q("version_type", value);
+        }
+    }
+
+    /// <summary>Request options for Update <para>https://opensearch.org/docs/latest/api-reference/document-apis/update-document/</para></summary>
+    public partial class UpdateRequestParameters : RequestParameters<UpdateRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+
+        /// <summary>Only perform the operation if the document has this primary term.</summary>
+        public long? IfPrimaryTerm
+        {
+            get => Q<long?>("if_primary_term");
+            set => Q("if_primary_term", value);
+        }
+
+        /// <summary>Only perform the operation if the document has this sequence number.</summary>
+        public long? IfSequenceNumber
+        {
+            get => Q<long?>("if_seq_no");
+            set => Q("if_seq_no", value);
+        }
+
+        /// <summary>The script language.</summary>
+        public string Lang
+        {
+            get => Q<string>("lang");
+            set => Q("lang", value);
+        }
+
+        /// <summary>
+        /// If 'true', OpenSearch refreshes the affected shards to make this operation visible to search, if 'wait_for' then wait for a refresh to
+        /// make this operation visible to search, if 'false' do nothing with refreshes.
+        /// </summary>
+        public Refresh? Refresh
+        {
+            get => Q<Refresh?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>If true, the destination must be an index alias.</summary>
+        public bool? RequireAlias
+        {
+            get => Q<bool?>("require_alias");
+            set => Q("require_alias", value);
+        }
+
+        /// <summary>Specify how many times should the operation be retried when a conflict occurs.</summary>
+        public long? RetryOnConflict
+        {
+            get => Q<long?>("retry_on_conflict");
+            set => Q("retry_on_conflict", value);
+        }
+
+        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        public string[] Routing
+        {
+            get => Q<string[]>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Set to false to disable source retrieval. You can also specify a comma-separated list of the fields you want to retrieve.</summary>
+        public bool? SourceEnabled
+        {
+            get => Q<bool?>("_source");
+            set => Q("_source", value);
+        }
+
+        /// <summary>
+        /// Period to wait for dynamic mapping updates and active shards. This guarantees OpenSearch waits for at least the timeout before failing.
+        /// The actual wait time could be longer, particularly when multiple waits occur.
+        /// </summary>
+        public TimeSpan Timeout
+        {
+            get => Q<TimeSpan>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operations. Set to 'all' or any positive integer up to the total
+        /// number of shards in the index (number_of_replicas+1). Defaults to 1 meaning the primary shard.
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+    }
+
+    /// <summary>Request options for UpdateByQuery <para>https://opensearch.org/docs/latest/api-reference/document-apis/update-by-query/</para></summary>
+    public partial class UpdateByQueryRequestParameters
+        : RequestParameters<UpdateByQueryRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+
+        /// <summary>
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
+        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// index starts with `foo` but no index starts with `bar`.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
+        /// <summary>Analyzer to use for the query string.</summary>
+        public string Analyzer
+        {
+            get => Q<string>("analyzer");
+            set => Q("analyzer", value);
+        }
+
+        /// <summary>If `true`, wildcard and prefix queries are analyzed.</summary>
+        public bool? AnalyzeWildcard
+        {
+            get => Q<bool?>("analyze_wildcard");
+            set => Q("analyze_wildcard", value);
+        }
+
+        /// <summary>What to do if update by query hits version conflicts: `abort` or `proceed`.</summary>
+        public Conflicts? Conflicts
+        {
+            get => Q<Conflicts?>("conflicts");
+            set => Q("conflicts", value);
+        }
+
+        /// <summary>The default operator for query string query: `AND` or `OR`.</summary>
+        public DefaultOperator? DefaultOperator
+        {
+            get => Q<DefaultOperator?>("default_operator");
+            set => Q("default_operator", value);
+        }
+
+        /// <summary>Field to use as default where no field prefix is given in the query string.</summary>
+        public string Df
+        {
+            get => Q<string>("df");
+            set => Q("df", value);
+        }
+
+        /// <summary>
+        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
+        /// `hidden`, `none`.
+        /// </summary>
+        public ExpandWildcards? ExpandWildcards
+        {
+            get => Q<ExpandWildcards?>("expand_wildcards");
+            set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>Starting offset.</summary>
+        public long? From
+        {
+            get => Q<long?>("from");
+            set => Q("from", value);
+        }
+
+        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
+        }
+
+        /// <summary>If `true`, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
+        public bool? Lenient
+        {
+            get => Q<bool?>("lenient");
+            set => Q("lenient", value);
+        }
+
+        /// <summary>
+        /// ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value
+        /// to `_none` disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of the
+        /// value of this parameter.
+        /// </summary>
+        public string Pipeline
+        {
+            get => Q<string>("pipeline");
+            set => Q("pipeline", value);
+        }
+
+        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        public string Preference
+        {
+            get => Q<string>("preference");
+            set => Q("preference", value);
+        }
+
+        /// <summary>Query in the Lucene query string syntax.</summary>
+        public string QueryOnQueryString
+        {
+            get => Q<string>("q");
+            set => Q("q", value);
+        }
+
+        /// <summary>If `true`, OpenSearch refreshes affected shards to make the operation visible to search.</summary>
+        public bool? Refresh
+        {
+            get => Q<bool?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>If `true`, the request cache is used for this request.</summary>
+        public bool? RequestCache
+        {
+            get => Q<bool?>("request_cache");
+            set => Q("request_cache", value);
+        }
+
+        /// <summary>The throttle for this request in sub-requests per second.</summary>
+        public long? RequestsPerSecond
+        {
+            get => Q<long?>("requests_per_second");
+            set => Q("requests_per_second", value);
+        }
+
+        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        public string[] Routing
+        {
+            get => Q<string[]>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Period to retain the search context for scrolling.</summary>
+        public TimeSpan Scroll
+        {
+            get => Q<TimeSpan>("scroll");
+            set => Q("scroll", value);
+        }
+
+        /// <summary>Size of the scroll request that powers the operation.</summary>
+        public long? ScrollSize
+        {
+            get => Q<long?>("scroll_size");
+            set => Q("scroll_size", value);
+        }
+
+        /// <summary>Explicit timeout for each search request.</summary>
+        public TimeSpan SearchTimeout
+        {
+            get => Q<TimeSpan>("search_timeout");
+            set => Q("search_timeout", value);
+        }
+
+        /// <summary>The type of the search operation. Available options: `query_then_fetch`, `dfs_query_then_fetch`.</summary>
+        public SearchType? SearchType
+        {
+            get => Q<SearchType?>("search_type");
+            set => Q("search_type", value);
+        }
+
+        /// <summary>Deprecated, please use `max_docs` instead.</summary>
+        public long? Size
+        {
+            get => Q<long?>("size");
+            set => Q("size", value);
+        }
+
+        /// <summary>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs.</summary>
+        public string[] Sort
+        {
+            get => Q<string[]>("sort");
+            set => Q("sort", value);
+        }
+
+        /// <summary>True or false to return the _source field or not, or a list of fields to return.</summary>
+        public bool? SourceEnabled
+        {
+            get => Q<bool?>("_source");
+            set => Q("_source", value);
+        }
+
+        /// <summary>List of fields to exclude from the returned _source field.</summary>
+        public string[] SourceExcludes
+        {
+            get => Q<string[]>("_source_excludes");
+            set => Q("_source_excludes", value);
+        }
+
+        /// <summary>List of fields to extract and return from the _source field.</summary>
+        public string[] SourceIncludes
+        {
+            get => Q<string[]>("_source_includes");
+            set => Q("_source_includes", value);
+        }
+
+        /// <summary>Specific `tag` of the request for logging and statistical purposes.</summary>
+        public string[] Stats
+        {
+            get => Q<string[]>("stats");
+            set => Q("stats", value);
+        }
+
+        /// <summary>
+        /// Maximum number of documents to collect for each shard. If a query reaches this limit, OpenSearch terminates the query early. OpenSearch
+        /// collects documents before sorting. Use with caution. OpenSearch applies this parameter to each shard handling the request. When possible,
+        /// let OpenSearch perform early termination automatically. Avoid specifying this parameter for requests that target data streams with backing
+        /// indices across multiple data tiers.
+        /// </summary>
+        public long? TerminateAfter
+        {
+            get => Q<long?>("terminate_after");
+            set => Q("terminate_after", value);
+        }
+
+        /// <summary>Period each update request waits for the following operations: dynamic mapping updates, waiting for active shards.</summary>
+        public TimeSpan Timeout
+        {
+            get => Q<TimeSpan>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>If `true`, returns the document version as part of a hit.</summary>
+        public bool? Version
+        {
+            get => Q<bool?>("version");
+            set => Q("version", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+
+        /// <summary>If `true`, the request blocks until the operation is complete.</summary>
+        public bool? WaitForCompletion
+        {
+            get => Q<bool?>("wait_for_completion");
+            set => Q("wait_for_completion", value);
+        }
+    }
+
+    /// <summary>Request options for UpdateByQueryRethrottle <para>https://opensearch.org/docs/latest</para></summary>
+    public partial class UpdateByQueryRethrottleRequestParameters
+        : RequestParameters<UpdateByQueryRethrottleRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => false;
+
+        /// <summary>The throttle for this request in sub-requests per second.</summary>
+        public long? RequestsPerSecond
+        {
+            get => Q<long?>("requests_per_second");
+            set => Q("requests_per_second", value);
+        }
     }
 }

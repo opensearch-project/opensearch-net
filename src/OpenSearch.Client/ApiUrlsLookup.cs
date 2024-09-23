@@ -45,42 +45,7 @@ namespace OpenSearch.Client
 {
 	internal static partial class ApiUrlsLookups
 	{
-		internal static ApiUrls NoNamespaceBulk = new ApiUrls(new[]{"_bulk", "{index}/_bulk"});
-		internal static ApiUrls NoNamespaceClearScroll = new ApiUrls(new[]{"_search/scroll"});
-		internal static ApiUrls NoNamespaceCount = new ApiUrls(new[]{"_count", "{index}/_count"});
-		internal static ApiUrls NoNamespaceCreate = new ApiUrls(new[]{"{index}/_create/{id}"});
-		internal static ApiUrls NoNamespaceDelete = new ApiUrls(new[]{"{index}/_doc/{id}"});
-		internal static ApiUrls NoNamespaceDeleteByQuery = new ApiUrls(new[]{"{index}/_delete_by_query"});
-		internal static ApiUrls NoNamespaceDeleteByQueryRethrottle = new ApiUrls(new[]{"_delete_by_query/{task_id}/_rethrottle"});
-		internal static ApiUrls NoNamespaceDeleteScript = new ApiUrls(new[]{"_scripts/{id}"});
-		internal static ApiUrls NoNamespaceDocumentExists = new ApiUrls(new[]{"{index}/_doc/{id}"});
-		internal static ApiUrls NoNamespaceSourceExists = new ApiUrls(new[]{"{index}/_source/{id}"});
-		internal static ApiUrls NoNamespaceExplain = new ApiUrls(new[]{"{index}/_explain/{id}"});
-		internal static ApiUrls NoNamespaceFieldCapabilities = new ApiUrls(new[]{"_field_caps", "{index}/_field_caps"});
-		internal static ApiUrls NoNamespaceGet = new ApiUrls(new[]{"{index}/_doc/{id}"});
-		internal static ApiUrls NoNamespaceGetScript = new ApiUrls(new[]{"_scripts/{id}"});
-		internal static ApiUrls NoNamespaceSource = new ApiUrls(new[]{"{index}/_source/{id}"});
-		internal static ApiUrls NoNamespaceIndex = new ApiUrls(new[]{"{index}/_doc/{id}", "{index}/_doc"});
 		///<remarks>Deprecated as of OpenSearch 2.0</remarks>
-		internal static ApiUrls IndicesTypeExists = new ApiUrls(new[]{"{index}/_mapping/{type}"});
-		internal static ApiUrls NoNamespaceRootNodeInfo = new ApiUrls(new[]{""});
-		internal static ApiUrls NoNamespaceMultiGet = new ApiUrls(new[]{"_mget", "{index}/_mget"});
-		internal static ApiUrls NoNamespaceMultiSearch = new ApiUrls(new[]{"_msearch", "{index}/_msearch"});
-		internal static ApiUrls NoNamespaceMultiSearchTemplate = new ApiUrls(new[]{"_msearch/template", "{index}/_msearch/template"});
-		internal static ApiUrls NoNamespaceMultiTermVectors = new ApiUrls(new[]{"_mtermvectors", "{index}/_mtermvectors"});
-		internal static ApiUrls NoNamespacePing = new ApiUrls(new[]{""});
-		internal static ApiUrls NoNamespacePutScript = new ApiUrls(new[]{"_scripts/{id}", "_scripts/{id}/{context}"});
-		internal static ApiUrls NoNamespaceReindexOnServer = new ApiUrls(new[]{"_reindex"});
-		internal static ApiUrls NoNamespaceReindexRethrottle = new ApiUrls(new[]{"_reindex/{task_id}/_rethrottle"});
-		internal static ApiUrls NoNamespaceRenderSearchTemplate = new ApiUrls(new[]{"_render/template", "_render/template/{id}"});
-		internal static ApiUrls NoNamespaceExecutePainlessScript = new ApiUrls(new[]{"_scripts/painless/_execute"});
-		internal static ApiUrls NoNamespaceScroll = new ApiUrls(new[]{"_search/scroll"});
-		internal static ApiUrls NoNamespaceSearch = new ApiUrls(new[]{"_search", "{index}/_search"});
-		internal static ApiUrls NoNamespaceSearchShards = new ApiUrls(new[]{"_search_shards", "{index}/_search_shards"});
-		internal static ApiUrls NoNamespaceSearchTemplate = new ApiUrls(new[]{"_search/template", "{index}/_search/template"});
-		internal static ApiUrls NoNamespaceTermVectors = new ApiUrls(new[]{"{index}/_termvectors/{id}", "{index}/_termvectors"});
-		internal static ApiUrls NoNamespaceUpdate = new ApiUrls(new[]{"{index}/_update/{id}"});
-		internal static ApiUrls NoNamespaceUpdateByQuery = new ApiUrls(new[]{"{index}/_update_by_query"});
-		internal static ApiUrls NoNamespaceUpdateByQueryRethrottle = new ApiUrls(new[]{"_update_by_query/{task_id}/_rethrottle"});
+		internal static ApiUrls IndicesTypeExists = new(["{index}/_mapping/{type}"]);
 	}
 }

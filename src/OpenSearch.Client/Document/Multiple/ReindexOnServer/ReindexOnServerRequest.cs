@@ -92,6 +92,13 @@ namespace OpenSearch.Client
 
 		/// <inheritdoc />
 		public IReindexSource Source { get; set; }
+
+        ///<summary>The number of slices this task should be divided into. Defaults to 1, meaning the task isn't sliced into subtasks. Can be set to `auto`.</summary>
+        public Slices Slices
+        {
+            get => Q<Slices>("slices");
+            set => Q("slices", value);
+        }
 	}
 
 	public partial class ReindexOnServerDescriptor
@@ -123,5 +130,8 @@ namespace OpenSearch.Client
 		/// <inheritdoc cref="IReindexOnServerRequest.MaximumDocuments"/>
 		public ReindexOnServerDescriptor MaximumDocuments(long? maximumDocuments) =>
 			Assign(maximumDocuments, (a, v) => a.MaximumDocuments = v);
+
+        ///<summary>The number of slices this task should be divided into. Defaults to 1, meaning the task isn't sliced into subtasks. Can be set to `auto`.</summary>
+        public ReindexOnServerDescriptor Slices(Slices slices) => Qs("slices", slices);
 	}
 }

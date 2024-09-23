@@ -74,7 +74,7 @@ namespace Tests.Document.Single.Get
 			GET($"/project/_doc/{escaped}?routing={escaped}")
 				.LowLevel(c => c.Get<DynamicResponse>("project", urlId, new GetRequestParameters
 					{
-						Routing = urlId
+						Routing = [urlId]
 					})
 				);
 		}

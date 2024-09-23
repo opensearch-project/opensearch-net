@@ -41,6 +41,7 @@
     <InternalsVisibleTo Include="OpenSearch.Net.DynamicObjectResolverAllowPrivateFalseExcludeNullTrueNameMutateSnakeCase" Key="$(ExposedPublicKey)" />
     
     <InternalsVisibleTo Include="Tests" Key="$(ExposedPublicKey)" />
+    <InternalsVisibleTo Include="Tests.YamlRunner" Key="$(ExposedPublicKey)" />
 
   </ItemGroup>
   <ItemGroup>

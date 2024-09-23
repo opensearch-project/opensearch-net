@@ -72,6 +72,13 @@ namespace OpenSearch.Client
 
 		/// <inheritdoc />
 		public long? MaximumDocuments { get; set; }
+
+        ///<summary>The number of slices this task should be divided into. Defaults to 1, meaning the task isn't sliced into subtasks.</summary>
+        public Slices Slices
+        {
+            get => Q<Slices>("slices");
+            set => Q("slices", value);
+        }
 	}
 
 	/// <inheritdoc cref="IDeleteByQueryRequest" />
@@ -106,5 +113,8 @@ namespace OpenSearch.Client
 		/// <inheritdoc cref="IDeleteByQueryRequest.MaximumDocuments"/>
 		public DeleteByQueryDescriptor<TDocument> MaximumDocuments(long? maximumDocuments) =>
 			Assign(maximumDocuments, (a, v) => a.MaximumDocuments = v);
+
+        ///<summary>The number of slices this task should be divided into. Defaults to 1, meaning the task isn't sliced into subtasks.</summary>
+        public DeleteByQueryDescriptor<TDocument> Slices(Slices slices) => Qs("slices", slices);
 	}
 }

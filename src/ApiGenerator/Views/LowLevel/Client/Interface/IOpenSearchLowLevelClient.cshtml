@@ -35,7 +35,7 @@ namespace OpenSearch.Net
 </text>
 			}
 
-			if(Model.EndpointsPerNamespaceHighLevel.TryGetValue(CsharpNames.RootNamespace, out var endpoints))
+			if(Model.EndpointsPerNamespaceLowLevel.TryGetValue(CsharpNames.RootNamespace, out var endpoints))
 			{
 				foreach(var m in endpoints.SelectMany(e => e.LowLevelClientMethods))
 			    {
