@@ -28,6 +28,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `FluentAssertions` from 6.12.0 to 6.12.1
 - Bumps `Microsoft.NET.Test.Sdk` from 17.11.0 to 17.11.1
 - Bumps `Microsoft.TestPlatform.ObjectModel` from 17.11.0 to 17.11.1
+- Bumps `BenchMarkDotNet` from 0.13.12 to 0.14.0
 
 ## [1.8.0]
 ### Added
