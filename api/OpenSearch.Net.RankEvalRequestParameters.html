@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class RankEvalRequestParameters | OpenSearch.Net ">
     
-    <meta name="description" content="Request options for RankEval">
+    <meta name="description" content="Request options for RankEval https://opensearch.org/docs/latest/api-reference/rank-eval/">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -81,7 +81,7 @@
 
 
   <h1 id="OpenSearch_Net_RankEvalRequestParameters" data-uid="OpenSearch.Net.RankEvalRequestParameters" class="text-break">Class RankEvalRequestParameters</h1>
-  <div class="markdown level0 summary"><p>Request options for RankEval <p></p>
+  <div class="markdown level0 summary"><p>Request options for RankEval <p>https://opensearch.org/docs/latest/api-reference/rank-eval/</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -164,12 +164,13 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RankEvalRequestParameters_AllowNoIndices.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RankEvalRequestParameters.AllowNoIndices%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1524">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1699">View Source</a>
   </span>
   <a id="OpenSearch_Net_RankEvalRequestParameters_AllowNoIndices_" data-uid="OpenSearch.Net.RankEvalRequestParameters.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Net_RankEvalRequestParameters_AllowNoIndices" data-uid="OpenSearch.Net.RankEvalRequestParameters.AllowNoIndices">AllowNoIndices</h4>
-  <div class="markdown level1 summary"><p>Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes <code>_all</code> string or when no indices have
-been specified)</p>
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indices.
+This behavior applies even if the request targets other open indices. For example, a request targeting <code>foo*,bar*</code> returns an error if an
+index starts with <code>foo</code> but no index starts with <code>bar</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -196,7 +197,7 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RankEvalRequestParameters_DefaultHttpMethod.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RankEvalRequestParameters.DefaultHttpMethod%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1518">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1691">View Source</a>
   </span>
   <a id="OpenSearch_Net_RankEvalRequestParameters_DefaultHttpMethod_" data-uid="OpenSearch.Net.RankEvalRequestParameters.DefaultHttpMethod*"></a>
   <h4 id="OpenSearch_Net_RankEvalRequestParameters_DefaultHttpMethod" data-uid="OpenSearch.Net.RankEvalRequestParameters.DefaultHttpMethod">DefaultHttpMethod</h4>
@@ -228,7 +229,7 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RankEvalRequestParameters_ExpandWildcards.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RankEvalRequestParameters.ExpandWildcards%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1531">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1706">View Source</a>
   </span>
   <a id="OpenSearch_Net_RankEvalRequestParameters_ExpandWildcards_" data-uid="OpenSearch.Net.RankEvalRequestParameters.ExpandWildcards*"></a>
   <h4 id="OpenSearch_Net_RankEvalRequestParameters_ExpandWildcards" data-uid="OpenSearch.Net.RankEvalRequestParameters.ExpandWildcards">ExpandWildcards</h4>
@@ -259,11 +260,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RankEvalRequestParameters_IgnoreUnavailable.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RankEvalRequestParameters.IgnoreUnavailable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1538">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1713">View Source</a>
   </span>
   <a id="OpenSearch_Net_RankEvalRequestParameters_IgnoreUnavailable_" data-uid="OpenSearch.Net.RankEvalRequestParameters.IgnoreUnavailable*"></a>
   <h4 id="OpenSearch_Net_RankEvalRequestParameters_IgnoreUnavailable" data-uid="OpenSearch.Net.RankEvalRequestParameters.IgnoreUnavailable">IgnoreUnavailable</h4>
-  <div class="markdown level1 summary"><p>Whether specified concrete indices should be ignored when unavailable (missing or closed)</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, missing or closed indices are not included in the response.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -290,11 +291,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RankEvalRequestParameters_SearchType.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RankEvalRequestParameters.SearchType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1545">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1720">View Source</a>
   </span>
   <a id="OpenSearch_Net_RankEvalRequestParameters_SearchType_" data-uid="OpenSearch.Net.RankEvalRequestParameters.SearchType*"></a>
   <h4 id="OpenSearch_Net_RankEvalRequestParameters_SearchType" data-uid="OpenSearch.Net.RankEvalRequestParameters.SearchType">SearchType</h4>
-  <div class="markdown level1 summary"><p>Search operation type</p>
+  <div class="markdown level1 summary"><p>Search operation type.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -321,7 +322,7 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RankEvalRequestParameters_SupportsBody.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RankEvalRequestParameters.SupportsBody%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1519">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1692">View Source</a>
   </span>
   <a id="OpenSearch_Net_RankEvalRequestParameters_SupportsBody_" data-uid="OpenSearch.Net.RankEvalRequestParameters.SupportsBody*"></a>
   <h4 id="OpenSearch_Net_RankEvalRequestParameters_SupportsBody" data-uid="OpenSearch.Net.RankEvalRequestParameters.SupportsBody">SupportsBody</h4>
@@ -368,7 +369,7 @@ been specified)</p>
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_RankEvalRequestParameters.md&amp;value=---%0Auid%3A%20OpenSearch.Net.RankEvalRequestParameters%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1516" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1689" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

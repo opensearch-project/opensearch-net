@@ -28902,16 +28902,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.IndicesShardStoresShardStoreStatus.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Net.IndicesShardStoresShardStoreStatus.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.IndicesShardStoresStatus.yml",
       "output": {
         ".html": {
@@ -29512,10 +29502,10 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Size.yml",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.SlicesCalculation.yml",
       "output": {
         ".html": {
-          "relative_path": "api/OpenSearch.Net.Size.html"
+          "relative_path": "api/OpenSearch.Net.SlicesCalculation.html"
         }
       },
       "version": ""
@@ -31116,16 +31106,6 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.TermVectorsRequestParameters.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.ThreadType.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Net.ThreadType.html"
         }
       },
       "version": ""

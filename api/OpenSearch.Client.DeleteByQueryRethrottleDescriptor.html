@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class DeleteByQueryRethrottleDescriptor | OpenSearch.Net ">
     
-    <meta name="description" content="Descriptor for DeleteByQueryRethrottle https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/delete-by-query/">
+    <meta name="description" content="Rethrottles a running delete by query">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -81,7 +81,7 @@
 
 
   <h1 id="OpenSearch_Client_DeleteByQueryRethrottleDescriptor" data-uid="OpenSearch.Client.DeleteByQueryRethrottleDescriptor" class="text-break">Class DeleteByQueryRethrottleDescriptor</h1>
-  <div class="markdown level0 summary"><p>Descriptor for DeleteByQueryRethrottle <p>https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/delete-by-query/</p>
+  <div class="markdown level0 summary"><p>Rethrottles a running delete by query</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -189,7 +189,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRethrottleDescriptor__ctor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRethrottleDescriptor.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.NoNamespace.cs/#L413">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L672">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRethrottleDescriptor__ctor_" data-uid="OpenSearch.Client.DeleteByQueryRethrottleDescriptor.#ctor*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRethrottleDescriptor__ctor" data-uid="OpenSearch.Client.DeleteByQueryRethrottleDescriptor.#ctor">DeleteByQueryRethrottleDescriptor()</h4>
@@ -205,7 +205,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRethrottleDescriptor__ctor_OpenSearch_Client_TaskId_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRethrottleDescriptor.%23ctor(OpenSearch.Client.TaskId)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.NoNamespace.cs/#L408">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L668">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRethrottleDescriptor__ctor_" data-uid="OpenSearch.Client.DeleteByQueryRethrottleDescriptor.#ctor*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRethrottleDescriptor__ctor_OpenSearch_Client_TaskId_" data-uid="OpenSearch.Client.DeleteByQueryRethrottleDescriptor.#ctor(OpenSearch.Client.TaskId)">DeleteByQueryRethrottleDescriptor(TaskId)</h4>
@@ -241,11 +241,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRethrottleDescriptor_RequestsPerSecond_System_Nullable_System_Int64__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRethrottleDescriptor.RequestsPerSecond(System.Nullable%7BSystem.Int64%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.NoNamespace.cs/#L422">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L681">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRethrottleDescriptor_RequestsPerSecond_" data-uid="OpenSearch.Client.DeleteByQueryRethrottleDescriptor.RequestsPerSecond*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRethrottleDescriptor_RequestsPerSecond_System_Nullable_System_Int64__" data-uid="OpenSearch.Client.DeleteByQueryRethrottleDescriptor.RequestsPerSecond(System.Nullable{System.Int64})">RequestsPerSecond(long?)</h4>
-  <div class="markdown level1 summary"><p>The throttle to set on this request in floating sub-requests per second. -1 means set no throttle.</p>
+  <div class="markdown level1 summary"><p>The throttle for this request in sub-requests per second.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -313,7 +313,7 @@
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRethrottleDescriptor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRethrottleDescriptor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/DeleteByQueryRethrottle/DeleteByQueryRethrottleRequest.cs/#L41" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L656" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

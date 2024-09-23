@@ -10514,19 +10514,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_LowLevelIndicesNamespace_StatsAsync__1_System_String_System_String_OpenSearch_Net_Specification_IndicesApi_IndicesStatsRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.LowLevelIndicesNamespace.StatsAsync%60%601(System.String%2CSystem.String%2COpenSearch.Net.Specification.IndicesApi.IndicesStatsRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_LowLevelIndicesNamespace_StatsAsync__1_System_String_System_Nullable_OpenSearch_Net_IndicesStatsMetric__OpenSearch_Net_Specification_IndicesApi_IndicesStatsRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.LowLevelIndicesNamespace.StatsAsync%60%601(System.String%2CSystem.Nullable%7BOpenSearch.Net.IndicesStatsMetric%7D%2COpenSearch.Net.Specification.IndicesApi.IndicesStatsRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Indices.cs/#L2453">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_LowLevelIndicesNamespace_StatsAsync_" data-uid="OpenSearch.Net.Specification.IndicesApi.LowLevelIndicesNamespace.StatsAsync*"></a>
-  <h4 id="OpenSearch_Net_Specification_IndicesApi_LowLevelIndicesNamespace_StatsAsync__1_System_String_System_String_OpenSearch_Net_Specification_IndicesApi_IndicesStatsRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.IndicesApi.LowLevelIndicesNamespace.StatsAsync``1(System.String,System.String,OpenSearch.Net.Specification.IndicesApi.IndicesStatsRequestParameters,System.Threading.CancellationToken)">StatsAsync&lt;TResponse&gt;(string, string, IndicesStatsRequestParameters, CancellationToken)</h4>
+  <h4 id="OpenSearch_Net_Specification_IndicesApi_LowLevelIndicesNamespace_StatsAsync__1_System_String_System_Nullable_OpenSearch_Net_IndicesStatsMetric__OpenSearch_Net_Specification_IndicesApi_IndicesStatsRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.IndicesApi.LowLevelIndicesNamespace.StatsAsync``1(System.String,System.Nullable{OpenSearch.Net.IndicesStatsMetric},OpenSearch.Net.Specification.IndicesApi.IndicesStatsRequestParameters,System.Threading.CancellationToken)">StatsAsync&lt;TResponse&gt;(string, IndicesStatsMetric?, IndicesStatsRequestParameters, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>GET on /{index}/_stats/{metric} <p>https://opensearch.org/docs/latest</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; StatsAsync&lt;TResponse&gt;(string index, string metric, IndicesStatsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; StatsAsync&lt;TResponse&gt;(string index, IndicesStatsMetric? metric, IndicesStatsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -10545,7 +10545,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="OpenSearch.Net.IndicesStatsMetric.html">IndicesStatsMetric</a>?</td>
         <td><span class="parametername">metric</span></td>
         <td><p>Limit the information returned the specific metrics.</p>
 </td>
@@ -10664,19 +10664,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_LowLevelIndicesNamespace_StatsForAllAsync__1_System_String_OpenSearch_Net_Specification_IndicesApi_IndicesStatsRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.LowLevelIndicesNamespace.StatsForAllAsync%60%601(System.String%2COpenSearch.Net.Specification.IndicesApi.IndicesStatsRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_LowLevelIndicesNamespace_StatsForAllAsync__1_System_Nullable_OpenSearch_Net_IndicesStatsMetric__OpenSearch_Net_Specification_IndicesApi_IndicesStatsRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.LowLevelIndicesNamespace.StatsForAllAsync%60%601(System.Nullable%7BOpenSearch.Net.IndicesStatsMetric%7D%2COpenSearch.Net.Specification.IndicesApi.IndicesStatsRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Indices.cs/#L2487">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_LowLevelIndicesNamespace_StatsForAllAsync_" data-uid="OpenSearch.Net.Specification.IndicesApi.LowLevelIndicesNamespace.StatsForAllAsync*"></a>
-  <h4 id="OpenSearch_Net_Specification_IndicesApi_LowLevelIndicesNamespace_StatsForAllAsync__1_System_String_OpenSearch_Net_Specification_IndicesApi_IndicesStatsRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.IndicesApi.LowLevelIndicesNamespace.StatsForAllAsync``1(System.String,OpenSearch.Net.Specification.IndicesApi.IndicesStatsRequestParameters,System.Threading.CancellationToken)">StatsForAllAsync&lt;TResponse&gt;(string, IndicesStatsRequestParameters, CancellationToken)</h4>
+  <h4 id="OpenSearch_Net_Specification_IndicesApi_LowLevelIndicesNamespace_StatsForAllAsync__1_System_Nullable_OpenSearch_Net_IndicesStatsMetric__OpenSearch_Net_Specification_IndicesApi_IndicesStatsRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.IndicesApi.LowLevelIndicesNamespace.StatsForAllAsync``1(System.Nullable{OpenSearch.Net.IndicesStatsMetric},OpenSearch.Net.Specification.IndicesApi.IndicesStatsRequestParameters,System.Threading.CancellationToken)">StatsForAllAsync&lt;TResponse&gt;(IndicesStatsMetric?, IndicesStatsRequestParameters, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>GET on /_stats/{metric} <p>https://opensearch.org/docs/latest</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; StatsForAllAsync&lt;TResponse&gt;(string metric, IndicesStatsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; StatsForAllAsync&lt;TResponse&gt;(IndicesStatsMetric? metric, IndicesStatsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -10689,7 +10689,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="OpenSearch.Net.IndicesStatsMetric.html">IndicesStatsMetric</a>?</td>
         <td><span class="parametername">metric</span></td>
         <td><p>Limit the information returned the specific metrics.</p>
 </td>
@@ -10803,19 +10803,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_LowLevelIndicesNamespace_StatsForAll__1_System_String_OpenSearch_Net_Specification_IndicesApi_IndicesStatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.LowLevelIndicesNamespace.StatsForAll%60%601(System.String%2COpenSearch.Net.Specification.IndicesApi.IndicesStatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_LowLevelIndicesNamespace_StatsForAll__1_System_Nullable_OpenSearch_Net_IndicesStatsMetric__OpenSearch_Net_Specification_IndicesApi_IndicesStatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.LowLevelIndicesNamespace.StatsForAll%60%601(System.Nullable%7BOpenSearch.Net.IndicesStatsMetric%7D%2COpenSearch.Net.Specification.IndicesApi.IndicesStatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Indices.cs/#L2472">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_LowLevelIndicesNamespace_StatsForAll_" data-uid="OpenSearch.Net.Specification.IndicesApi.LowLevelIndicesNamespace.StatsForAll*"></a>
-  <h4 id="OpenSearch_Net_Specification_IndicesApi_LowLevelIndicesNamespace_StatsForAll__1_System_String_OpenSearch_Net_Specification_IndicesApi_IndicesStatsRequestParameters_" data-uid="OpenSearch.Net.Specification.IndicesApi.LowLevelIndicesNamespace.StatsForAll``1(System.String,OpenSearch.Net.Specification.IndicesApi.IndicesStatsRequestParameters)">StatsForAll&lt;TResponse&gt;(string, IndicesStatsRequestParameters)</h4>
+  <h4 id="OpenSearch_Net_Specification_IndicesApi_LowLevelIndicesNamespace_StatsForAll__1_System_Nullable_OpenSearch_Net_IndicesStatsMetric__OpenSearch_Net_Specification_IndicesApi_IndicesStatsRequestParameters_" data-uid="OpenSearch.Net.Specification.IndicesApi.LowLevelIndicesNamespace.StatsForAll``1(System.Nullable{OpenSearch.Net.IndicesStatsMetric},OpenSearch.Net.Specification.IndicesApi.IndicesStatsRequestParameters)">StatsForAll&lt;TResponse&gt;(IndicesStatsMetric?, IndicesStatsRequestParameters)</h4>
   <div class="markdown level1 summary"><p>GET on /_stats/{metric} <p>https://opensearch.org/docs/latest</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse StatsForAll&lt;TResponse&gt;(string metric, IndicesStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public TResponse StatsForAll&lt;TResponse&gt;(IndicesStatsMetric? metric, IndicesStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -10828,7 +10828,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="OpenSearch.Net.IndicesStatsMetric.html">IndicesStatsMetric</a>?</td>
         <td><span class="parametername">metric</span></td>
         <td><p>Limit the information returned the specific metrics.</p>
 </td>
@@ -10943,19 +10943,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_LowLevelIndicesNamespace_Stats__1_System_String_System_String_OpenSearch_Net_Specification_IndicesApi_IndicesStatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.LowLevelIndicesNamespace.Stats%60%601(System.String%2CSystem.String%2COpenSearch.Net.Specification.IndicesApi.IndicesStatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_IndicesApi_LowLevelIndicesNamespace_Stats__1_System_String_System_Nullable_OpenSearch_Net_IndicesStatsMetric__OpenSearch_Net_Specification_IndicesApi_IndicesStatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.IndicesApi.LowLevelIndicesNamespace.Stats%60%601(System.String%2CSystem.Nullable%7BOpenSearch.Net.IndicesStatsMetric%7D%2COpenSearch.Net.Specification.IndicesApi.IndicesStatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Indices.cs/#L2436">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_IndicesApi_LowLevelIndicesNamespace_Stats_" data-uid="OpenSearch.Net.Specification.IndicesApi.LowLevelIndicesNamespace.Stats*"></a>
-  <h4 id="OpenSearch_Net_Specification_IndicesApi_LowLevelIndicesNamespace_Stats__1_System_String_System_String_OpenSearch_Net_Specification_IndicesApi_IndicesStatsRequestParameters_" data-uid="OpenSearch.Net.Specification.IndicesApi.LowLevelIndicesNamespace.Stats``1(System.String,System.String,OpenSearch.Net.Specification.IndicesApi.IndicesStatsRequestParameters)">Stats&lt;TResponse&gt;(string, string, IndicesStatsRequestParameters)</h4>
+  <h4 id="OpenSearch_Net_Specification_IndicesApi_LowLevelIndicesNamespace_Stats__1_System_String_System_Nullable_OpenSearch_Net_IndicesStatsMetric__OpenSearch_Net_Specification_IndicesApi_IndicesStatsRequestParameters_" data-uid="OpenSearch.Net.Specification.IndicesApi.LowLevelIndicesNamespace.Stats``1(System.String,System.Nullable{OpenSearch.Net.IndicesStatsMetric},OpenSearch.Net.Specification.IndicesApi.IndicesStatsRequestParameters)">Stats&lt;TResponse&gt;(string, IndicesStatsMetric?, IndicesStatsRequestParameters)</h4>
   <div class="markdown level1 summary"><p>GET on /{index}/_stats/{metric} <p>https://opensearch.org/docs/latest</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse Stats&lt;TResponse&gt;(string index, string metric, IndicesStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public TResponse Stats&lt;TResponse&gt;(string index, IndicesStatsMetric? metric, IndicesStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -10974,7 +10974,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="OpenSearch.Net.IndicesStatsMetric.html">IndicesStatsMetric</a>?</td>
         <td><span class="parametername">metric</span></td>
         <td><p>Limit the information returned the specific metrics.</p>
 </td>

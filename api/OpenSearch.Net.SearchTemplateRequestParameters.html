@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class SearchTemplateRequestParameters | OpenSearch.Net ">
     
-    <meta name="description" content="Request options for SearchTemplate https://opensearch.org/docs/latest/opensearch/search-template/">
+    <meta name="description" content="Request options for SearchTemplate https://opensearch.org/docs/latest/search-plugins/search-template/">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -81,7 +81,7 @@
 
 
   <h1 id="OpenSearch_Net_SearchTemplateRequestParameters" data-uid="OpenSearch.Net.SearchTemplateRequestParameters" class="text-break">Class SearchTemplateRequestParameters</h1>
-  <div class="markdown level0 summary"><p>Request options for SearchTemplate <p>https://opensearch.org/docs/latest/opensearch/search-template/</p>
+  <div class="markdown level0 summary"><p>Request options for SearchTemplate <p>https://opensearch.org/docs/latest/search-plugins/search-template/</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -164,12 +164,13 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_SearchTemplateRequestParameters_AllowNoIndices.md&amp;value=---%0Auid%3A%20OpenSearch.Net.SearchTemplateRequestParameters.AllowNoIndices%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1955">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L2209">View Source</a>
   </span>
   <a id="OpenSearch_Net_SearchTemplateRequestParameters_AllowNoIndices_" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Net_SearchTemplateRequestParameters_AllowNoIndices" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.AllowNoIndices">AllowNoIndices</h4>
-  <div class="markdown level1 summary"><p>Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes <code>_all</code> string or when no indices have
-been specified)</p>
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indices.
+This behavior applies even if the request targets other open indices. For example, a request targeting <code>foo*,bar*</code> returns an error if an
+index starts with <code>foo</code> but no index starts with <code>bar</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -196,11 +197,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_SearchTemplateRequestParameters_CcsMinimizeRoundtrips.md&amp;value=---%0Auid%3A%20OpenSearch.Net.SearchTemplateRequestParameters.CcsMinimizeRoundtrips%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1962">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L2216">View Source</a>
   </span>
   <a id="OpenSearch_Net_SearchTemplateRequestParameters_CcsMinimizeRoundtrips_" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.CcsMinimizeRoundtrips*"></a>
   <h4 id="OpenSearch_Net_SearchTemplateRequestParameters_CcsMinimizeRoundtrips" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.CcsMinimizeRoundtrips">CcsMinimizeRoundtrips</h4>
-  <div class="markdown level1 summary"><p>Indicates whether network round-trips should be minimized as part of cross-cluster search requests execution</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, network round-trips are minimized for cross-cluster search requests.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -227,7 +228,7 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_SearchTemplateRequestParameters_DefaultHttpMethod.md&amp;value=---%0Auid%3A%20OpenSearch.Net.SearchTemplateRequestParameters.DefaultHttpMethod%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1949">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L2201">View Source</a>
   </span>
   <a id="OpenSearch_Net_SearchTemplateRequestParameters_DefaultHttpMethod_" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.DefaultHttpMethod*"></a>
   <h4 id="OpenSearch_Net_SearchTemplateRequestParameters_DefaultHttpMethod" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.DefaultHttpMethod">DefaultHttpMethod</h4>
@@ -259,11 +260,13 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_SearchTemplateRequestParameters_ExpandWildcards.md&amp;value=---%0Auid%3A%20OpenSearch.Net.SearchTemplateRequestParameters.ExpandWildcards%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1969">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L2227">View Source</a>
   </span>
   <a id="OpenSearch_Net_SearchTemplateRequestParameters_ExpandWildcards_" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.ExpandWildcards*"></a>
   <h4 id="OpenSearch_Net_SearchTemplateRequestParameters_ExpandWildcards" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.ExpandWildcards">ExpandWildcards</h4>
-  <div class="markdown level1 summary"><p>Whether to expand wildcard expression to concrete indices that are open, closed or both.</p>
+  <div class="markdown level1 summary"><p>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+expressions match hidden data streams. Supports comma-separated values, such as <code>open,hidden</code>. Valid values are: <code>all</code>, <code>open</code>, <code>closed</code>,
+<code>hidden</code>, <code>none</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -290,11 +293,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_SearchTemplateRequestParameters_Explain.md&amp;value=---%0Auid%3A%20OpenSearch.Net.SearchTemplateRequestParameters.Explain%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1976">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L2234">View Source</a>
   </span>
   <a id="OpenSearch_Net_SearchTemplateRequestParameters_Explain_" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.Explain*"></a>
   <h4 id="OpenSearch_Net_SearchTemplateRequestParameters_Explain" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.Explain">Explain</h4>
-  <div class="markdown level1 summary"><p>Specify whether to return detailed information about score computation as part of a hit</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, the response includes additional details about score computation as part of a hit.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -321,11 +324,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_SearchTemplateRequestParameters_IgnoreThrottled.md&amp;value=---%0Auid%3A%20OpenSearch.Net.SearchTemplateRequestParameters.IgnoreThrottled%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1983">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L2241">View Source</a>
   </span>
   <a id="OpenSearch_Net_SearchTemplateRequestParameters_IgnoreThrottled_" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.IgnoreThrottled*"></a>
   <h4 id="OpenSearch_Net_SearchTemplateRequestParameters_IgnoreThrottled" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.IgnoreThrottled">IgnoreThrottled</h4>
-  <div class="markdown level1 summary"><p>Whether specified concrete, expanded or aliased indices should be ignored when throttled</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, specified concrete, expanded, or aliased indices are not included in the response when throttled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -352,11 +355,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_SearchTemplateRequestParameters_IgnoreUnavailable.md&amp;value=---%0Auid%3A%20OpenSearch.Net.SearchTemplateRequestParameters.IgnoreUnavailable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1990">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L2248">View Source</a>
   </span>
   <a id="OpenSearch_Net_SearchTemplateRequestParameters_IgnoreUnavailable_" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.IgnoreUnavailable*"></a>
   <h4 id="OpenSearch_Net_SearchTemplateRequestParameters_IgnoreUnavailable" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.IgnoreUnavailable">IgnoreUnavailable</h4>
-  <div class="markdown level1 summary"><p>Whether specified concrete indices should be ignored when unavailable (missing or closed)</p>
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if it targets a missing or closed index.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -383,11 +386,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_SearchTemplateRequestParameters_Preference.md&amp;value=---%0Auid%3A%20OpenSearch.Net.SearchTemplateRequestParameters.Preference%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1997">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L2255">View Source</a>
   </span>
   <a id="OpenSearch_Net_SearchTemplateRequestParameters_Preference_" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.Preference*"></a>
   <h4 id="OpenSearch_Net_SearchTemplateRequestParameters_Preference" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.Preference">Preference</h4>
-  <div class="markdown level1 summary"><p>Specify the node or shard the operation should be performed on (default: random)</p>
+  <div class="markdown level1 summary"><p>Specifies the node or shard the operation should be performed on. Random by default.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -414,11 +417,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_SearchTemplateRequestParameters_Profile.md&amp;value=---%0Auid%3A%20OpenSearch.Net.SearchTemplateRequestParameters.Profile%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L2004">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L2262">View Source</a>
   </span>
   <a id="OpenSearch_Net_SearchTemplateRequestParameters_Profile_" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.Profile*"></a>
   <h4 id="OpenSearch_Net_SearchTemplateRequestParameters_Profile" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.Profile">Profile</h4>
-  <div class="markdown level1 summary"><p>Specify whether to profile the query execution</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, the query execution is profiled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -445,11 +448,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_SearchTemplateRequestParameters_Routing.md&amp;value=---%0Auid%3A%20OpenSearch.Net.SearchTemplateRequestParameters.Routing%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L2011">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L2269">View Source</a>
   </span>
   <a id="OpenSearch_Net_SearchTemplateRequestParameters_Routing_" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.Routing*"></a>
   <h4 id="OpenSearch_Net_SearchTemplateRequestParameters_Routing" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.Routing">Routing</h4>
-  <div class="markdown level1 summary"><p>A comma-separated list of specific routing values</p>
+  <div class="markdown level1 summary"><p>Custom value used to route operations to a specific shard.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -476,11 +479,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_SearchTemplateRequestParameters_Scroll.md&amp;value=---%0Auid%3A%20OpenSearch.Net.SearchTemplateRequestParameters.Scroll%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L2018">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L2276">View Source</a>
   </span>
   <a id="OpenSearch_Net_SearchTemplateRequestParameters_Scroll_" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.Scroll*"></a>
   <h4 id="OpenSearch_Net_SearchTemplateRequestParameters_Scroll" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.Scroll">Scroll</h4>
-  <div class="markdown level1 summary"><p>Specify how long a consistent view of the index should be maintained for scrolled search</p>
+  <div class="markdown level1 summary"><p>Specifies how long a consistent view of the index should be maintained for scrolled search.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -507,11 +510,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_SearchTemplateRequestParameters_SearchType.md&amp;value=---%0Auid%3A%20OpenSearch.Net.SearchTemplateRequestParameters.SearchType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L2025">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L2283">View Source</a>
   </span>
   <a id="OpenSearch_Net_SearchTemplateRequestParameters_SearchType_" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.SearchType*"></a>
   <h4 id="OpenSearch_Net_SearchTemplateRequestParameters_SearchType" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.SearchType">SearchType</h4>
-  <div class="markdown level1 summary"><p>Search operation type</p>
+  <div class="markdown level1 summary"><p>The type of the search operation.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -538,7 +541,7 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_SearchTemplateRequestParameters_SupportsBody.md&amp;value=---%0Auid%3A%20OpenSearch.Net.SearchTemplateRequestParameters.SupportsBody%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1950">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L2202">View Source</a>
   </span>
   <a id="OpenSearch_Net_SearchTemplateRequestParameters_SupportsBody_" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.SupportsBody*"></a>
   <h4 id="OpenSearch_Net_SearchTemplateRequestParameters_SupportsBody" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.SupportsBody">SupportsBody</h4>
@@ -570,11 +573,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_SearchTemplateRequestParameters_TotalHitsAsInteger.md&amp;value=---%0Auid%3A%20OpenSearch.Net.SearchTemplateRequestParameters.TotalHitsAsInteger%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L2032">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L2290">View Source</a>
   </span>
   <a id="OpenSearch_Net_SearchTemplateRequestParameters_TotalHitsAsInteger_" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.TotalHitsAsInteger*"></a>
   <h4 id="OpenSearch_Net_SearchTemplateRequestParameters_TotalHitsAsInteger" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.TotalHitsAsInteger">TotalHitsAsInteger</h4>
-  <div class="markdown level1 summary"><p>Indicates whether hits.total should be rendered as an integer or an object in the rest search response</p>
+  <div class="markdown level1 summary"><p>If true, hits.total are rendered as an integer in the response.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -601,11 +604,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_SearchTemplateRequestParameters_TypedKeys.md&amp;value=---%0Auid%3A%20OpenSearch.Net.SearchTemplateRequestParameters.TypedKeys%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L2039">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L2297">View Source</a>
   </span>
   <a id="OpenSearch_Net_SearchTemplateRequestParameters_TypedKeys_" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.TypedKeys*"></a>
   <h4 id="OpenSearch_Net_SearchTemplateRequestParameters_TypedKeys" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.TypedKeys">TypedKeys</h4>
-  <div class="markdown level1 summary"><p>Specify whether aggregation and suggester names should be prefixed by their respective types in the response</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, the response prefixes aggregation and suggester names with their respective types.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -647,7 +650,7 @@ been specified)</p>
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_SearchTemplateRequestParameters.md&amp;value=---%0Auid%3A%20OpenSearch.Net.SearchTemplateRequestParameters%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1947" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L2198" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

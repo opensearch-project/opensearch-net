@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class FieldCapabilitiesRequestParameters | OpenSearch.Net ">
     
-    <meta name="description" content="Request options for FieldCapabilities">
+    <meta name="description" content="Request options for FieldCapabilities https://opensearch.org/docs/latest/field-types/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -81,7 +81,7 @@
 
 
   <h1 id="OpenSearch_Net_FieldCapabilitiesRequestParameters" data-uid="OpenSearch.Net.FieldCapabilitiesRequestParameters" class="text-break">Class FieldCapabilitiesRequestParameters</h1>
-  <div class="markdown level0 summary"><p>Request options for FieldCapabilities <p></p>
+  <div class="markdown level0 summary"><p>Request options for FieldCapabilities <p>https://opensearch.org/docs/latest/field-types/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -164,12 +164,13 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_FieldCapabilitiesRequestParameters_AllowNoIndices.md&amp;value=---%0Auid%3A%20OpenSearch.Net.FieldCapabilitiesRequestParameters.AllowNoIndices%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L898">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1021">View Source</a>
   </span>
   <a id="OpenSearch_Net_FieldCapabilitiesRequestParameters_AllowNoIndices_" data-uid="OpenSearch.Net.FieldCapabilitiesRequestParameters.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Net_FieldCapabilitiesRequestParameters_AllowNoIndices" data-uid="OpenSearch.Net.FieldCapabilitiesRequestParameters.AllowNoIndices">AllowNoIndices</h4>
-  <div class="markdown level1 summary"><p>Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes <code>_all</code> string or when no indices have
-been specified)</p>
+  <div class="markdown level1 summary"><p>If false, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indices.
+This behavior applies even if the request targets other open indices. For example, a request targeting <code>foo*,bar*</code> returns an error if an
+index starts with foo but no index starts with bar.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -196,7 +197,7 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_FieldCapabilitiesRequestParameters_DefaultHttpMethod.md&amp;value=---%0Auid%3A%20OpenSearch.Net.FieldCapabilitiesRequestParameters.DefaultHttpMethod%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L892">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1013">View Source</a>
   </span>
   <a id="OpenSearch_Net_FieldCapabilitiesRequestParameters_DefaultHttpMethod_" data-uid="OpenSearch.Net.FieldCapabilitiesRequestParameters.DefaultHttpMethod*"></a>
   <h4 id="OpenSearch_Net_FieldCapabilitiesRequestParameters_DefaultHttpMethod" data-uid="OpenSearch.Net.FieldCapabilitiesRequestParameters.DefaultHttpMethod">DefaultHttpMethod</h4>
@@ -228,11 +229,12 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_FieldCapabilitiesRequestParameters_ExpandWildcards.md&amp;value=---%0Auid%3A%20OpenSearch.Net.FieldCapabilitiesRequestParameters.ExpandWildcards%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L905">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1031">View Source</a>
   </span>
   <a id="OpenSearch_Net_FieldCapabilitiesRequestParameters_ExpandWildcards_" data-uid="OpenSearch.Net.FieldCapabilitiesRequestParameters.ExpandWildcards*"></a>
   <h4 id="OpenSearch_Net_FieldCapabilitiesRequestParameters_ExpandWildcards" data-uid="OpenSearch.Net.FieldCapabilitiesRequestParameters.ExpandWildcards">ExpandWildcards</h4>
-  <div class="markdown level1 summary"><p>Whether to expand wildcard expression to concrete indices that are open, closed or both.</p>
+  <div class="markdown level1 summary"><p>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+expressions match hidden data streams. Supports comma-separated values, such as <code>open,hidden</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -259,11 +261,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_FieldCapabilitiesRequestParameters_Fields.md&amp;value=---%0Auid%3A%20OpenSearch.Net.FieldCapabilitiesRequestParameters.Fields%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L912">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1038">View Source</a>
   </span>
   <a id="OpenSearch_Net_FieldCapabilitiesRequestParameters_Fields_" data-uid="OpenSearch.Net.FieldCapabilitiesRequestParameters.Fields*"></a>
   <h4 id="OpenSearch_Net_FieldCapabilitiesRequestParameters_Fields" data-uid="OpenSearch.Net.FieldCapabilitiesRequestParameters.Fields">Fields</h4>
-  <div class="markdown level1 summary"><p>A comma-separated list of field names</p>
+  <div class="markdown level1 summary"><p>Comma-separated list of fields to retrieve capabilities for. Wildcard (<code>*</code>) expressions are supported.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -290,11 +292,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_FieldCapabilitiesRequestParameters_IgnoreUnavailable.md&amp;value=---%0Auid%3A%20OpenSearch.Net.FieldCapabilitiesRequestParameters.IgnoreUnavailable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L919">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1045">View Source</a>
   </span>
   <a id="OpenSearch_Net_FieldCapabilitiesRequestParameters_IgnoreUnavailable_" data-uid="OpenSearch.Net.FieldCapabilitiesRequestParameters.IgnoreUnavailable*"></a>
   <h4 id="OpenSearch_Net_FieldCapabilitiesRequestParameters_IgnoreUnavailable" data-uid="OpenSearch.Net.FieldCapabilitiesRequestParameters.IgnoreUnavailable">IgnoreUnavailable</h4>
-  <div class="markdown level1 summary"><p>Whether specified concrete indices should be ignored when unavailable (missing or closed)</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, missing or closed indices are not included in the response.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -321,11 +323,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_FieldCapabilitiesRequestParameters_IncludeUnmapped.md&amp;value=---%0Auid%3A%20OpenSearch.Net.FieldCapabilitiesRequestParameters.IncludeUnmapped%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L926">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1052">View Source</a>
   </span>
   <a id="OpenSearch_Net_FieldCapabilitiesRequestParameters_IncludeUnmapped_" data-uid="OpenSearch.Net.FieldCapabilitiesRequestParameters.IncludeUnmapped*"></a>
   <h4 id="OpenSearch_Net_FieldCapabilitiesRequestParameters_IncludeUnmapped" data-uid="OpenSearch.Net.FieldCapabilitiesRequestParameters.IncludeUnmapped">IncludeUnmapped</h4>
-  <div class="markdown level1 summary"><p>Indicates whether unmapped fields should be included in the response.</p>
+  <div class="markdown level1 summary"><p>If true, unmapped fields are included in the response.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -352,7 +354,7 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_FieldCapabilitiesRequestParameters_SupportsBody.md&amp;value=---%0Auid%3A%20OpenSearch.Net.FieldCapabilitiesRequestParameters.SupportsBody%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L893">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1014">View Source</a>
   </span>
   <a id="OpenSearch_Net_FieldCapabilitiesRequestParameters_SupportsBody_" data-uid="OpenSearch.Net.FieldCapabilitiesRequestParameters.SupportsBody*"></a>
   <h4 id="OpenSearch_Net_FieldCapabilitiesRequestParameters_SupportsBody" data-uid="OpenSearch.Net.FieldCapabilitiesRequestParameters.SupportsBody">SupportsBody</h4>
@@ -399,7 +401,7 @@ been specified)</p>
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_FieldCapabilitiesRequestParameters.md&amp;value=---%0Auid%3A%20OpenSearch.Net.FieldCapabilitiesRequestParameters%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L890" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.NoNamespace.cs/#L1010" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -177,7 +177,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest__ctor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L629">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L724">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest__ctor_" data-uid="OpenSearch.Client.DeleteByQueryRequest.#ctor*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest__ctor" data-uid="OpenSearch.Client.DeleteByQueryRequest.#ctor">DeleteByQueryRequest()</h4>
@@ -193,7 +193,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest__ctor_OpenSearch_Client_Indices_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.%23ctor(OpenSearch.Client.Indices)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L624">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L720">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest__ctor_" data-uid="OpenSearch.Client.DeleteByQueryRequest.#ctor*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest__ctor_OpenSearch_Client_Indices_" data-uid="OpenSearch.Client.DeleteByQueryRequest.#ctor(OpenSearch.Client.Indices)">DeleteByQueryRequest(Indices)</h4>
@@ -229,12 +229,13 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_AllowNoIndices.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.AllowNoIndices%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L642">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L738">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_AllowNoIndices_" data-uid="OpenSearch.Client.DeleteByQueryRequest.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_AllowNoIndices" data-uid="OpenSearch.Client.DeleteByQueryRequest.AllowNoIndices">AllowNoIndices</h4>
-  <div class="markdown level1 summary"><p>Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes <code>_all</code> string or when no indices have
-been specified)</p>
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indices.
+This behavior applies even if the request targets other open indices. For example, a request targeting <code>foo*,bar*</code> returns an error if an
+index starts with <code>foo</code> but no index starts with <code>bar</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -261,11 +262,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_AnalyzeWildcard.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.AnalyzeWildcard%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L649">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L752">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_AnalyzeWildcard_" data-uid="OpenSearch.Client.DeleteByQueryRequest.AnalyzeWildcard*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_AnalyzeWildcard" data-uid="OpenSearch.Client.DeleteByQueryRequest.AnalyzeWildcard">AnalyzeWildcard</h4>
-  <div class="markdown level1 summary"><p>Specify whether wildcard and prefix queries should be analyzed (default: false)</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, wildcard and prefix queries are analyzed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -292,11 +293,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_Analyzer.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.Analyzer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L656">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L745">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_Analyzer_" data-uid="OpenSearch.Client.DeleteByQueryRequest.Analyzer*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_Analyzer" data-uid="OpenSearch.Client.DeleteByQueryRequest.Analyzer">Analyzer</h4>
-  <div class="markdown level1 summary"><p>The analyzer to use for the query string</p>
+  <div class="markdown level1 summary"><p>Analyzer to use for the query string.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -323,11 +324,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_Conflicts.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.Conflicts%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L663">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L759">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_Conflicts_" data-uid="OpenSearch.Client.DeleteByQueryRequest.Conflicts*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_Conflicts" data-uid="OpenSearch.Client.DeleteByQueryRequest.Conflicts">Conflicts</h4>
-  <div class="markdown level1 summary"><p>What to do when the delete by query hits version conflicts?</p>
+  <div class="markdown level1 summary"><p>What to do if delete by query hits version conflicts: <code>abort</code> or <code>proceed</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -354,11 +355,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_DefaultOperator.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.DefaultOperator%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L670">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L766">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_DefaultOperator_" data-uid="OpenSearch.Client.DeleteByQueryRequest.DefaultOperator*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_DefaultOperator" data-uid="OpenSearch.Client.DeleteByQueryRequest.DefaultOperator">DefaultOperator</h4>
-  <div class="markdown level1 summary"><p>The default operator for query string query (AND or OR)</p>
+  <div class="markdown level1 summary"><p>The default operator for query string query: <code>AND</code> or <code>OR</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -385,11 +386,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_Df.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.Df%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L677">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L773">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_Df_" data-uid="OpenSearch.Client.DeleteByQueryRequest.Df*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_Df" data-uid="OpenSearch.Client.DeleteByQueryRequest.Df">Df</h4>
-  <div class="markdown level1 summary"><p>The field to use as default where no field prefix is given in the query string</p>
+  <div class="markdown level1 summary"><p>Field to use as default where no field prefix is given in the query string.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -416,11 +417,13 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_ExpandWildcards.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.ExpandWildcards%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L684">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L784">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_ExpandWildcards_" data-uid="OpenSearch.Client.DeleteByQueryRequest.ExpandWildcards*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_ExpandWildcards" data-uid="OpenSearch.Client.DeleteByQueryRequest.ExpandWildcards">ExpandWildcards</h4>
-  <div class="markdown level1 summary"><p>Whether to expand wildcard expression to concrete indices that are open, closed or both.</p>
+  <div class="markdown level1 summary"><p>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+expressions match hidden data streams. Supports comma-separated values, such as <code>open,hidden</code>. Valid values are: <code>all</code>, <code>open</code>, <code>closed</code>,
+<code>hidden</code>, <code>none</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -447,11 +450,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_From.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.From%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L691">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L791">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_From_" data-uid="OpenSearch.Client.DeleteByQueryRequest.From*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_From" data-uid="OpenSearch.Client.DeleteByQueryRequest.From">From</h4>
-  <div class="markdown level1 summary"><p>Starting offset (default: 0)</p>
+  <div class="markdown level1 summary"><p>Starting offset.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -478,11 +481,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_IgnoreUnavailable.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.IgnoreUnavailable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L698">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L798">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_IgnoreUnavailable_" data-uid="OpenSearch.Client.DeleteByQueryRequest.IgnoreUnavailable*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_IgnoreUnavailable" data-uid="OpenSearch.Client.DeleteByQueryRequest.IgnoreUnavailable">IgnoreUnavailable</h4>
-  <div class="markdown level1 summary"><p>Whether specified concrete indices should be ignored when unavailable (missing or closed)</p>
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if it targets a missing or closed index.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -509,11 +512,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_Lenient.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.Lenient%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L705">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L805">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_Lenient_" data-uid="OpenSearch.Client.DeleteByQueryRequest.Lenient*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_Lenient" data-uid="OpenSearch.Client.DeleteByQueryRequest.Lenient">Lenient</h4>
-  <div class="markdown level1 summary"><p>Specify whether format-based query failures (such as providing text to a numeric field) should be ignored</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -571,11 +574,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_Preference.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.Preference%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L712">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L812">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_Preference_" data-uid="OpenSearch.Client.DeleteByQueryRequest.Preference*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_Preference" data-uid="OpenSearch.Client.DeleteByQueryRequest.Preference">Preference</h4>
-  <div class="markdown level1 summary"><p>Specify the node or shard the operation should be performed on (default: random)</p>
+  <div class="markdown level1 summary"><p>Specifies the node or shard the operation should be performed on. Random by default.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -633,11 +636,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_QueryOnQueryString.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.QueryOnQueryString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L719">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L819">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_QueryOnQueryString_" data-uid="OpenSearch.Client.DeleteByQueryRequest.QueryOnQueryString*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_QueryOnQueryString" data-uid="OpenSearch.Client.DeleteByQueryRequest.QueryOnQueryString">QueryOnQueryString</h4>
-  <div class="markdown level1 summary"><p>Query in the Lucene query string syntax</p>
+  <div class="markdown level1 summary"><p>Query in the Lucene query string syntax.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -664,11 +667,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_Refresh.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.Refresh%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L726">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L826">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_Refresh_" data-uid="OpenSearch.Client.DeleteByQueryRequest.Refresh*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_Refresh" data-uid="OpenSearch.Client.DeleteByQueryRequest.Refresh">Refresh</h4>
-  <div class="markdown level1 summary"><p>Should the effected indexes be refreshed?</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, OpenSearch refreshes all shards involved in the delete by query after the request completes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -695,11 +698,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_RequestCache.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.RequestCache%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L733">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L833">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_RequestCache_" data-uid="OpenSearch.Client.DeleteByQueryRequest.RequestCache*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_RequestCache" data-uid="OpenSearch.Client.DeleteByQueryRequest.RequestCache">RequestCache</h4>
-  <div class="markdown level1 summary"><p>Specify if request cache should be used for this request or not, defaults to index level setting</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, the request cache is used for this request. Defaults to the index-level setting.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -726,11 +729,11 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_RequestsPerSecond.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.RequestsPerSecond%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L740">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L840">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_RequestsPerSecond_" data-uid="OpenSearch.Client.DeleteByQueryRequest.RequestsPerSecond*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_RequestsPerSecond" data-uid="OpenSearch.Client.DeleteByQueryRequest.RequestsPerSecond">RequestsPerSecond</h4>
-  <div class="markdown level1 summary"><p>The throttle for this request in sub-requests per second. -1 means no throttle.</p>
+  <div class="markdown level1 summary"><p>The throttle for this request in sub-requests per second.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -757,12 +760,12 @@ been specified)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_Routing.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.Routing%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L754">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L854">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_Routing_" data-uid="OpenSearch.Client.DeleteByQueryRequest.Routing*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_Routing" data-uid="OpenSearch.Client.DeleteByQueryRequest.Routing">Routing</h4>
   <div class="markdown level1 summary"><p>A document is routed to a particular shard in an index using the following formula</p>
-<p> shard_num = hash(_routing) % num_primary_shards</p><p>OpenSearch will use the document id if not provided. </p><p>For requests that are constructed from/for a document OSC will automatically infer the routing key
+<p> shard_num = hash(_routing) % num_primary_shards</p><p>OpenSearch will use the document id if not provided. </p><p>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
 if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">JoinField</a> or a routing mapping on for its type exists on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -790,11 +793,11 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_Scroll.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.Scroll%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L761">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L861">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_Scroll_" data-uid="OpenSearch.Client.DeleteByQueryRequest.Scroll*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_Scroll" data-uid="OpenSearch.Client.DeleteByQueryRequest.Scroll">Scroll</h4>
-  <div class="markdown level1 summary"><p>Specify how long a consistent view of the index should be maintained for scrolled search</p>
+  <div class="markdown level1 summary"><p>Period to retain the search context for scrolling.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -821,11 +824,11 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_ScrollSize.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.ScrollSize%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L768">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L868">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_ScrollSize_" data-uid="OpenSearch.Client.DeleteByQueryRequest.ScrollSize*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_ScrollSize" data-uid="OpenSearch.Client.DeleteByQueryRequest.ScrollSize">ScrollSize</h4>
-  <div class="markdown level1 summary"><p>Size on the scroll request powering the delete by query</p>
+  <div class="markdown level1 summary"><p>Size of the scroll request that powers the operation.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -852,7 +855,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_SearchTimeout.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.SearchTimeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L775">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L875">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_SearchTimeout_" data-uid="OpenSearch.Client.DeleteByQueryRequest.SearchTimeout*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_SearchTimeout" data-uid="OpenSearch.Client.DeleteByQueryRequest.SearchTimeout">SearchTimeout</h4>
@@ -883,11 +886,11 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_SearchType.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.SearchType%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L782">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L882">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_SearchType_" data-uid="OpenSearch.Client.DeleteByQueryRequest.SearchType*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_SearchType" data-uid="OpenSearch.Client.DeleteByQueryRequest.SearchType">SearchType</h4>
-  <div class="markdown level1 summary"><p>Search operation type</p>
+  <div class="markdown level1 summary"><p>The type of the search operation. Available options: <code>query_then_fetch</code>, <code>dfs_query_then_fetch</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -914,7 +917,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_Self.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.Self%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L620">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L715">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_Self_" data-uid="OpenSearch.Client.DeleteByQueryRequest.Self*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_Self" data-uid="OpenSearch.Client.DeleteByQueryRequest.Self">Self</h4>
@@ -935,6 +938,37 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <tbody>
       <tr>
         <td><a class="xref" href="OpenSearch.Client.IDeleteByQueryRequest.html">IDeleteByQueryRequest</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_Size.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.Size%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L889">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_DeleteByQueryRequest_Size_" data-uid="OpenSearch.Client.DeleteByQueryRequest.Size*"></a>
+  <h4 id="OpenSearch_Client_DeleteByQueryRequest_Size" data-uid="OpenSearch.Client.DeleteByQueryRequest.Size">Size</h4>
+  <div class="markdown level1 summary"><p>Deprecated, please use <code>max_docs</code> instead.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long? Size { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">long</a>?</td>
         <td></td>
       </tr>
     </tbody>
@@ -976,7 +1010,7 @@ provide a convenient way to break the request down into smaller parts.</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_Slices.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.Slices%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L789">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Document/Multiple/DeleteByQuery/DeleteByQueryRequest.cs/#L77">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_Slices_" data-uid="OpenSearch.Client.DeleteByQueryRequest.Slices*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_Slices" data-uid="OpenSearch.Client.DeleteByQueryRequest.Slices">Slices</h4>
@@ -1007,11 +1041,11 @@ provide a convenient way to break the request down into smaller parts.</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_Sort.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.Sort%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L796">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L896">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_Sort_" data-uid="OpenSearch.Client.DeleteByQueryRequest.Sort*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_Sort" data-uid="OpenSearch.Client.DeleteByQueryRequest.Sort">Sort</h4>
-  <div class="markdown level1 summary"><p>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs</p>
+  <div class="markdown level1 summary"><p>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1038,7 +1072,7 @@ provide a convenient way to break the request down into smaller parts.</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_SourceEnabled.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.SourceEnabled%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L803">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L903">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_SourceEnabled_" data-uid="OpenSearch.Client.DeleteByQueryRequest.SourceEnabled*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_SourceEnabled" data-uid="OpenSearch.Client.DeleteByQueryRequest.SourceEnabled">SourceEnabled</h4>
@@ -1069,11 +1103,11 @@ provide a convenient way to break the request down into smaller parts.</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_SourceExcludes.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.SourceExcludes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L810">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L910">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_SourceExcludes_" data-uid="OpenSearch.Client.DeleteByQueryRequest.SourceExcludes*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_SourceExcludes" data-uid="OpenSearch.Client.DeleteByQueryRequest.SourceExcludes">SourceExcludes</h4>
-  <div class="markdown level1 summary"><p>A list of fields to exclude from the returned _source field</p>
+  <div class="markdown level1 summary"><p>List of fields to exclude from the returned _source field.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1100,11 +1134,11 @@ provide a convenient way to break the request down into smaller parts.</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_SourceIncludes.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.SourceIncludes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L817">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L917">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_SourceIncludes_" data-uid="OpenSearch.Client.DeleteByQueryRequest.SourceIncludes*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_SourceIncludes" data-uid="OpenSearch.Client.DeleteByQueryRequest.SourceIncludes">SourceIncludes</h4>
-  <div class="markdown level1 summary"><p>A list of fields to extract and return from the _source field</p>
+  <div class="markdown level1 summary"><p>List of fields to extract and return from the _source field.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1131,11 +1165,11 @@ provide a convenient way to break the request down into smaller parts.</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_Stats.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.Stats%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L824">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L924">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_Stats_" data-uid="OpenSearch.Client.DeleteByQueryRequest.Stats*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_Stats" data-uid="OpenSearch.Client.DeleteByQueryRequest.Stats">Stats</h4>
-  <div class="markdown level1 summary"><p>Specific 'tag' of the request for logging and statistical purposes</p>
+  <div class="markdown level1 summary"><p>Specific <code>tag</code> of the request for logging and statistical purposes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1162,11 +1196,14 @@ provide a convenient way to break the request down into smaller parts.</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_TerminateAfter.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.TerminateAfter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L831">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L936">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_TerminateAfter_" data-uid="OpenSearch.Client.DeleteByQueryRequest.TerminateAfter*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_TerminateAfter" data-uid="OpenSearch.Client.DeleteByQueryRequest.TerminateAfter">TerminateAfter</h4>
-  <div class="markdown level1 summary"><p>The maximum number of documents to collect for each shard, upon reaching which the query execution will terminate early.</p>
+  <div class="markdown level1 summary"><p>Maximum number of documents to collect for each shard. If a query reaches this limit, OpenSearch terminates the query early. OpenSearch
+collects documents before sorting. Use with caution. OpenSearch applies this parameter to each shard handling the request. When possible,
+let OpenSearch perform early termination automatically. Avoid specifying this parameter for requests that target data streams with backing
+indices across multiple data tiers.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1193,11 +1230,11 @@ provide a convenient way to break the request down into smaller parts.</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_Timeout.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.Timeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L838">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L943">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_Timeout_" data-uid="OpenSearch.Client.DeleteByQueryRequest.Timeout*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_Timeout" data-uid="OpenSearch.Client.DeleteByQueryRequest.Timeout">Timeout</h4>
-  <div class="markdown level1 summary"><p>Time each individual bulk request should wait for shards that are unavailable.</p>
+  <div class="markdown level1 summary"><p>Period each deletion request waits for active shards.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1224,11 +1261,11 @@ provide a convenient way to break the request down into smaller parts.</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_Version.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.Version%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L845">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L950">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_Version_" data-uid="OpenSearch.Client.DeleteByQueryRequest.Version*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_Version" data-uid="OpenSearch.Client.DeleteByQueryRequest.Version">Version</h4>
-  <div class="markdown level1 summary"><p>Specify whether to return document version as part of a hit</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, returns the document version as part of a hit.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1255,13 +1292,12 @@ provide a convenient way to break the request down into smaller parts.</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_WaitForActiveShards.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.WaitForActiveShards%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L856">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L960">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_WaitForActiveShards_" data-uid="OpenSearch.Client.DeleteByQueryRequest.WaitForActiveShards*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_WaitForActiveShards" data-uid="OpenSearch.Client.DeleteByQueryRequest.WaitForActiveShards">WaitForActiveShards</h4>
-  <div class="markdown level1 summary"><p>Sets the number of shard copies that must be active before proceeding with the delete by query operation. Defaults to 1, meaning the
-primary shard only. Set to <code>all</code> for all shard copies, otherwise set to any non-negative value less than or equal to the total number of
-copies for the shard (number of replicas + 1)</p>
+  <div class="markdown level1 summary"><p>The number of shard copies that must be active before proceeding with the operation. Set to all or any positive integer up to the total
+number of shards in the index (<code>number_of_replicas+1</code>).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1288,11 +1324,11 @@ copies for the shard (number of replicas + 1)</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest_WaitForCompletion.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest.WaitForCompletion%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L863">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L967">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryRequest_WaitForCompletion_" data-uid="OpenSearch.Client.DeleteByQueryRequest.WaitForCompletion*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryRequest_WaitForCompletion" data-uid="OpenSearch.Client.DeleteByQueryRequest.WaitForCompletion">WaitForCompletion</h4>
-  <div class="markdown level1 summary"><p>Should the request should block until the delete by query is complete.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, the request blocks until the operation is complete.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1340,7 +1376,7 @@ copies for the shard (number of replicas + 1)</p>
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryRequest.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryRequest%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L618" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L711" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

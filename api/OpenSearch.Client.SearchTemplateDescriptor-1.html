@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class SearchTemplateDescriptor&lt;TDocument&gt; | OpenSearch.Net ">
     
-    <meta name="description" content="Descriptor for SearchTemplate https://opensearch.org/docs/latest/opensearch/search-template/">
+    <meta name="description" content="Descriptor for SearchTemplate https://opensearch.org/docs/latest/search-plugins/search-template/">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -81,7 +81,7 @@
 
 
   <h1 id="OpenSearch_Client_SearchTemplateDescriptor_1" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1" class="text-break">Class SearchTemplateDescriptor&lt;TDocument&gt;</h1>
-  <div class="markdown level0 summary"><p>Descriptor for SearchTemplate <p>https://opensearch.org/docs/latest/opensearch/search-template/</p>
+  <div class="markdown level0 summary"><p>Descriptor for SearchTemplate <p>https://opensearch.org/docs/latest/search-plugins/search-template/</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -95,9 +95,9 @@
     <h5>Implements</h5>
     <div><a class="xref" href="OpenSearch.Client.IDescriptor.html">IDescriptor</a></div>
     <div><a class="xref" href="OpenSearch.Client.ISearchTemplateRequest.html">ISearchTemplateRequest</a></div>
+    <div><a class="xref" href="OpenSearch.Client.ITypedSearchRequest.html">ITypedSearchRequest</a></div>
     <div><a class="xref" href="OpenSearch.Client.IRequest-1.html">IRequest</a>&lt;<a class="xref" href="OpenSearch.Net.SearchTemplateRequestParameters.html">SearchTemplateRequestParameters</a>&gt;</div>
     <div><a class="xref" href="OpenSearch.Client.IRequest.html">IRequest</a></div>
-    <div><a class="xref" href="OpenSearch.Client.ITypedSearchRequest.html">ITypedSearchRequest</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -178,7 +178,7 @@
   <h6><strong>Assembly</strong>: OpenSearch.Client.dll</h6>
   <h5 id="OpenSearch_Client_SearchTemplateDescriptor_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SearchTemplateDescriptor&lt;TDocument&gt; : RequestDescriptorBase&lt;SearchTemplateDescriptor&lt;TDocument&gt;, SearchTemplateRequestParameters, ISearchTemplateRequest&gt;, IDescriptor, ISearchTemplateRequest, IRequest&lt;SearchTemplateRequestParameters&gt;, IRequest, ITypedSearchRequest where TDocument : class</code></pre>
+    <pre><code class="lang-csharp hljs">public class SearchTemplateDescriptor&lt;TDocument&gt; : RequestDescriptorBase&lt;SearchTemplateDescriptor&lt;TDocument&gt;, SearchTemplateRequestParameters, ISearchTemplateRequest&gt;, IDescriptor, ISearchTemplateRequest, ITypedSearchRequest, IRequest&lt;SearchTemplateRequestParameters&gt;, IRequest where TDocument : class</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -202,7 +202,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchTemplateDescriptor_1__ctor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchTemplateDescriptor%601.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.NoNamespace.cs/#L1402">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L2208">View Source</a>
   </span>
   <a id="OpenSearch_Client_SearchTemplateDescriptor_1__ctor_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.#ctor*"></a>
   <h4 id="OpenSearch_Client_SearchTemplateDescriptor_1__ctor" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.#ctor">SearchTemplateDescriptor()</h4>
@@ -218,7 +218,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchTemplateDescriptor_1__ctor_OpenSearch_Client_Indices_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchTemplateDescriptor%601.%23ctor(OpenSearch.Client.Indices)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.NoNamespace.cs/#L1408">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L2213">View Source</a>
   </span>
   <a id="OpenSearch_Client_SearchTemplateDescriptor_1__ctor_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.#ctor*"></a>
   <h4 id="OpenSearch_Client_SearchTemplateDescriptor_1__ctor_OpenSearch_Client_Indices_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.#ctor(OpenSearch.Client.Indices)">SearchTemplateDescriptor(Indices)</h4>
@@ -254,7 +254,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchTemplateDescriptor_1_AllIndices.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchTemplateDescriptor%601.AllIndices%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.NoNamespace.cs/#L1420">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L2229">View Source</a>
   </span>
   <a id="OpenSearch_Client_SearchTemplateDescriptor_1_AllIndices_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.AllIndices*"></a>
   <h4 id="OpenSearch_Client_SearchTemplateDescriptor_1_AllIndices" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.AllIndices">AllIndices()</h4>
@@ -285,11 +285,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchTemplateDescriptor_1_AllowNoIndices_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchTemplateDescriptor%601.AllowNoIndices(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.NoNamespace.cs/#L1423">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L2233">View Source</a>
   </span>
   <a id="OpenSearch_Client_SearchTemplateDescriptor_1_AllowNoIndices_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Client_SearchTemplateDescriptor_1_AllowNoIndices_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.AllowNoIndices(System.Nullable{System.Boolean})">AllowNoIndices(bool?)</h4>
-  <div class="markdown level1 summary"><p>Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes <code>_all</code> string or when no indices have been specified)</p>
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indices. This behavior applies even if the request targets other open indices. For example, a request targeting <code>foo*,bar*</code> returns an error if an index starts with <code>foo</code> but no index starts with <code>bar</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -333,11 +333,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchTemplateDescriptor_1_CcsMinimizeRoundtrips_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchTemplateDescriptor%601.CcsMinimizeRoundtrips(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.NoNamespace.cs/#L1425">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L2237">View Source</a>
   </span>
   <a id="OpenSearch_Client_SearchTemplateDescriptor_1_CcsMinimizeRoundtrips_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.CcsMinimizeRoundtrips*"></a>
   <h4 id="OpenSearch_Client_SearchTemplateDescriptor_1_CcsMinimizeRoundtrips_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.CcsMinimizeRoundtrips(System.Nullable{System.Boolean})">CcsMinimizeRoundtrips(bool?)</h4>
-  <div class="markdown level1 summary"><p>Indicates whether network round-trips should be minimized as part of cross-cluster search requests execution</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, network round-trips are minimized for cross-cluster search requests.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -381,11 +381,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchTemplateDescriptor_1_ExpandWildcards_System_Nullable_OpenSearch_Net_ExpandWildcards__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchTemplateDescriptor%601.ExpandWildcards(System.Nullable%7BOpenSearch.Net.ExpandWildcards%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.NoNamespace.cs/#L1427">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L2242">View Source</a>
   </span>
   <a id="OpenSearch_Client_SearchTemplateDescriptor_1_ExpandWildcards_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.ExpandWildcards*"></a>
   <h4 id="OpenSearch_Client_SearchTemplateDescriptor_1_ExpandWildcards_System_Nullable_OpenSearch_Net_ExpandWildcards__" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.ExpandWildcards(System.Nullable{OpenSearch.Net.ExpandWildcards})">ExpandWildcards(ExpandWildcards?)</h4>
-  <div class="markdown level1 summary"><p>Whether to expand wildcard expression to concrete indices that are open, closed or both.</p>
+  <div class="markdown level1 summary"><p>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <code>open,hidden</code>. Valid values are: <code>all</code>, <code>open</code>, <code>closed</code>, <code>hidden</code>, <code>none</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -429,11 +429,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchTemplateDescriptor_1_Explain_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchTemplateDescriptor%601.Explain(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.NoNamespace.cs/#L1429">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L2247">View Source</a>
   </span>
   <a id="OpenSearch_Client_SearchTemplateDescriptor_1_Explain_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.Explain*"></a>
   <h4 id="OpenSearch_Client_SearchTemplateDescriptor_1_Explain_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.Explain(System.Nullable{System.Boolean})">Explain(bool?)</h4>
-  <div class="markdown level1 summary"><p>Specify whether to return detailed information about score computation as part of a hit</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, the response includes additional details about score computation as part of a hit.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -524,11 +524,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchTemplateDescriptor_1_IgnoreThrottled_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchTemplateDescriptor%601.IgnoreThrottled(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.NoNamespace.cs/#L1431">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L2251">View Source</a>
   </span>
   <a id="OpenSearch_Client_SearchTemplateDescriptor_1_IgnoreThrottled_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.IgnoreThrottled*"></a>
   <h4 id="OpenSearch_Client_SearchTemplateDescriptor_1_IgnoreThrottled_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.IgnoreThrottled(System.Nullable{System.Boolean})">IgnoreThrottled(bool?)</h4>
-  <div class="markdown level1 summary"><p>Whether specified concrete, expanded or aliased indices should be ignored when throttled</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, specified concrete, expanded, or aliased indices are not included in the response when throttled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -572,11 +572,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchTemplateDescriptor_1_IgnoreUnavailable_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchTemplateDescriptor%601.IgnoreUnavailable(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.NoNamespace.cs/#L1433">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L2255">View Source</a>
   </span>
   <a id="OpenSearch_Client_SearchTemplateDescriptor_1_IgnoreUnavailable_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.IgnoreUnavailable*"></a>
   <h4 id="OpenSearch_Client_SearchTemplateDescriptor_1_IgnoreUnavailable_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.IgnoreUnavailable(System.Nullable{System.Boolean})">IgnoreUnavailable(bool?)</h4>
-  <div class="markdown level1 summary"><p>Whether specified concrete indices should be ignored when unavailable (missing or closed)</p>
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if it targets a missing or closed index.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -620,11 +620,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchTemplateDescriptor_1_Index_OpenSearch_Client_Indices_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchTemplateDescriptor%601.Index(OpenSearch.Client.Indices)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.NoNamespace.cs/#L1415">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L2220">View Source</a>
   </span>
   <a id="OpenSearch_Client_SearchTemplateDescriptor_1_Index_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.Index*"></a>
   <h4 id="OpenSearch_Client_SearchTemplateDescriptor_1_Index_OpenSearch_Client_Indices_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.Index(OpenSearch.Client.Indices)">Index(Indices)</h4>
-  <div class="markdown level1 summary"><p>A comma-separated list of index names to search; use the special string <code>_all</code> or Indices.All to perform the operation on all indices</p>
+  <div class="markdown level1 summary"><p>Comma-separated list of data streams, indices, and aliases to search. Supports wildcards (*).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -668,7 +668,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchTemplateDescriptor_1_Index__1.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchTemplateDescriptor%601.Index%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.NoNamespace.cs/#L1417">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L2224">View Source</a>
   </span>
   <a id="OpenSearch_Client_SearchTemplateDescriptor_1_Index_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.Index*"></a>
   <h4 id="OpenSearch_Client_SearchTemplateDescriptor_1_Index__1" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.Index``1">Index&lt;TOther&gt;()</h4>
@@ -808,11 +808,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchTemplateDescriptor_1_Preference_System_String_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchTemplateDescriptor%601.Preference(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.NoNamespace.cs/#L1435">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L2260">View Source</a>
   </span>
   <a id="OpenSearch_Client_SearchTemplateDescriptor_1_Preference_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.Preference*"></a>
   <h4 id="OpenSearch_Client_SearchTemplateDescriptor_1_Preference_System_String_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.Preference(System.String)">Preference(string)</h4>
-  <div class="markdown level1 summary"><p>Specify the node or shard the operation should be performed on (default: random)</p>
+  <div class="markdown level1 summary"><p>Specifies the node or shard the operation should be performed on. Random by default.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -856,11 +856,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchTemplateDescriptor_1_Profile_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchTemplateDescriptor%601.Profile(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.NoNamespace.cs/#L1437">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L2264">View Source</a>
   </span>
   <a id="OpenSearch_Client_SearchTemplateDescriptor_1_Profile_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.Profile*"></a>
   <h4 id="OpenSearch_Client_SearchTemplateDescriptor_1_Profile_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.Profile(System.Nullable{System.Boolean})">Profile(bool?)</h4>
-  <div class="markdown level1 summary"><p>Specify whether to profile the query execution</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, the query execution is profiled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -939,12 +939,12 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchTemplateDescriptor_1_Routing_OpenSearch_Client_Routing_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchTemplateDescriptor%601.Routing(OpenSearch.Client.Routing)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.NoNamespace.cs/#L1445">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L2274">View Source</a>
   </span>
   <a id="OpenSearch_Client_SearchTemplateDescriptor_1_Routing_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.Routing*"></a>
   <h4 id="OpenSearch_Client_SearchTemplateDescriptor_1_Routing_OpenSearch_Client_Routing_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.Routing(OpenSearch.Client.Routing)">Routing(Routing)</h4>
   <div class="markdown level1 summary"><p>A document is routed to a particular shard in an index using the following formula</p>
-<p> shard_num = hash(_routing) % num_primary_shards</p><p>OpenSearch will use the document id if not provided. </p><p>For requests that are constructed from/for a document OSC will automatically infer the routing key
+<p> shard_num = hash(_routing) % num_primary_shards</p><p>OpenSearch will use the document id if not provided. </p><p>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
 if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">JoinField</a> or a routing mapping on for its type exists on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -989,11 +989,11 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchTemplateDescriptor_1_Scroll_OpenSearch_Client_Time_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchTemplateDescriptor%601.Scroll(OpenSearch.Client.Time)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.NoNamespace.cs/#L1447">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L2278">View Source</a>
   </span>
   <a id="OpenSearch_Client_SearchTemplateDescriptor_1_Scroll_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.Scroll*"></a>
   <h4 id="OpenSearch_Client_SearchTemplateDescriptor_1_Scroll_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.Scroll(OpenSearch.Client.Time)">Scroll(Time)</h4>
-  <div class="markdown level1 summary"><p>Specify how long a consistent view of the index should be maintained for scrolled search</p>
+  <div class="markdown level1 summary"><p>Specifies how long a consistent view of the index should be maintained for scrolled search.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1037,11 +1037,11 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchTemplateDescriptor_1_SearchType_System_Nullable_OpenSearch_Net_SearchType__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchTemplateDescriptor%601.SearchType(System.Nullable%7BOpenSearch.Net.SearchType%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.NoNamespace.cs/#L1449">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L2281">View Source</a>
   </span>
   <a id="OpenSearch_Client_SearchTemplateDescriptor_1_SearchType_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.SearchType*"></a>
   <h4 id="OpenSearch_Client_SearchTemplateDescriptor_1_SearchType_System_Nullable_OpenSearch_Net_SearchType__" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.SearchType(System.Nullable{OpenSearch.Net.SearchType})">SearchType(SearchType?)</h4>
-  <div class="markdown level1 summary"><p>Search operation type</p>
+  <div class="markdown level1 summary"><p>The type of the search operation.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1132,11 +1132,11 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchTemplateDescriptor_1_TotalHitsAsInteger_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchTemplateDescriptor%601.TotalHitsAsInteger(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.NoNamespace.cs/#L1451">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L2285">View Source</a>
   </span>
   <a id="OpenSearch_Client_SearchTemplateDescriptor_1_TotalHitsAsInteger_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.TotalHitsAsInteger*"></a>
   <h4 id="OpenSearch_Client_SearchTemplateDescriptor_1_TotalHitsAsInteger_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.TotalHitsAsInteger(System.Nullable{System.Boolean})">TotalHitsAsInteger(bool?)</h4>
-  <div class="markdown level1 summary"><p>Indicates whether hits.total should be rendered as an integer or an object in the rest search response</p>
+  <div class="markdown level1 summary"><p>If true, hits.total are rendered as an integer in the response.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1180,11 +1180,11 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchTemplateDescriptor_1_TypedKeys_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchTemplateDescriptor%601.TypedKeys(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Descriptors.NoNamespace.cs/#L1453">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L2290">View Source</a>
   </span>
   <a id="OpenSearch_Client_SearchTemplateDescriptor_1_TypedKeys_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.TypedKeys*"></a>
   <h4 id="OpenSearch_Client_SearchTemplateDescriptor_1_TypedKeys_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.TypedKeys(System.Nullable{System.Boolean})">TypedKeys(bool?)</h4>
-  <div class="markdown level1 summary"><p>Specify whether aggregation and suggester names should be prefixed by their respective types in the response</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, the response prefixes aggregation and suggester names with their respective types.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1231,13 +1231,13 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
       <a class="xref" href="OpenSearch.Client.ISearchTemplateRequest.html">ISearchTemplateRequest</a>
   </div>
   <div>
+      <a class="xref" href="OpenSearch.Client.ITypedSearchRequest.html">ITypedSearchRequest</a>
+  </div>
+  <div>
       <a class="xref" href="OpenSearch.Client.IRequest-1.html">IRequest&lt;TParameters&gt;</a>
   </div>
   <div>
       <a class="xref" href="OpenSearch.Client.IRequest.html">IRequest</a>
-  </div>
-  <div>
-      <a class="xref" href="OpenSearch.Client.ITypedSearchRequest.html">ITypedSearchRequest</a>
   </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
@@ -1255,7 +1255,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchTemplateDescriptor_1.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchTemplateDescriptor%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Search/SearchTemplate/SearchTemplateRequest.cs/#L71" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L2197" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

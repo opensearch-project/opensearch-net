@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Class BulkRequest | OpenSearch.Net ">
     
-    <meta name="description" content="Request for Bulk https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/bulk/">
+    <meta name="description" content="Request for Bulk https://opensearch.org/docs/latest/api-reference/document-apis/bulk/">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -81,7 +81,7 @@
 
 
   <h1 id="OpenSearch_Client_BulkRequest" data-uid="OpenSearch.Client.BulkRequest" class="text-break">Class BulkRequest</h1>
-  <div class="markdown level0 summary"><p>Request for Bulk <p>https://opensearch.org/docs/latest/opensearch/rest-api/document-apis/bulk/</p>
+  <div class="markdown level0 summary"><p>Request for Bulk <p>https://opensearch.org/docs/latest/api-reference/document-apis/bulk/</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -176,7 +176,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkRequest__ctor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkRequest.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L76">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L74">View Source</a>
   </span>
   <a id="OpenSearch_Client_BulkRequest__ctor_" data-uid="OpenSearch.Client.BulkRequest.#ctor*"></a>
   <h4 id="OpenSearch_Client_BulkRequest__ctor" data-uid="OpenSearch.Client.BulkRequest.#ctor">BulkRequest()</h4>
@@ -192,7 +192,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkRequest__ctor_OpenSearch_Client_IndexName_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkRequest.%23ctor(OpenSearch.Client.IndexName)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L82">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L79">View Source</a>
   </span>
   <a id="OpenSearch_Client_BulkRequest__ctor_" data-uid="OpenSearch.Client.BulkRequest.#ctor*"></a>
   <h4 id="OpenSearch_Client_BulkRequest__ctor_OpenSearch_Client_IndexName_" data-uid="OpenSearch.Client.BulkRequest.#ctor(OpenSearch.Client.IndexName)">BulkRequest(IndexName)</h4>
@@ -258,11 +258,13 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkRequest_Pipeline.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkRequest.Pipeline%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L91">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L92">View Source</a>
   </span>
   <a id="OpenSearch_Client_BulkRequest_Pipeline_" data-uid="OpenSearch.Client.BulkRequest.Pipeline*"></a>
   <h4 id="OpenSearch_Client_BulkRequest_Pipeline" data-uid="OpenSearch.Client.BulkRequest.Pipeline">Pipeline</h4>
-  <div class="markdown level1 summary"><p>The pipeline id to preprocess incoming documents with</p>
+  <div class="markdown level1 summary"><p>ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value
+to <code>_none</code> disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of the
+value of this parameter.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -289,12 +291,12 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkRequest_Refresh.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkRequest.Refresh%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L101">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L102">View Source</a>
   </span>
   <a id="OpenSearch_Client_BulkRequest_Refresh_" data-uid="OpenSearch.Client.BulkRequest.Refresh*"></a>
   <h4 id="OpenSearch_Client_BulkRequest_Refresh" data-uid="OpenSearch.Client.BulkRequest.Refresh">Refresh</h4>
-  <div class="markdown level1 summary"><p>If <code>true</code> then refresh the affected shards to make this operation visible to search, if <code>wait_for</code> then wait for a refresh to make this
-operation visible to search, if <code>false</code> (the default) then do nothing with refreshes.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, OpenSearch refreshes the affected shards to make this operation visible to search, if <code>wait_for</code> then wait for a refresh to
+make this operation visible to search, if <code>false</code> do nothing with refreshes. Valid values: <code>true</code>, <code>false</code>, <code>wait_for</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -321,11 +323,11 @@ operation visible to search, if <code>false</code> (the default) then do nothing
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkRequest_RequireAlias.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkRequest.RequireAlias%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L108">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L109">View Source</a>
   </span>
   <a id="OpenSearch_Client_BulkRequest_RequireAlias_" data-uid="OpenSearch.Client.BulkRequest.RequireAlias*"></a>
   <h4 id="OpenSearch_Client_BulkRequest_RequireAlias" data-uid="OpenSearch.Client.BulkRequest.RequireAlias">RequireAlias</h4>
-  <div class="markdown level1 summary"><p>Sets require_alias for all incoming documents. Defaults to unset (false)</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, the request's actions must target an index alias.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -352,12 +354,12 @@ operation visible to search, if <code>false</code> (the default) then do nothing
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkRequest_Routing.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkRequest.Routing%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L122">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L123">View Source</a>
   </span>
   <a id="OpenSearch_Client_BulkRequest_Routing_" data-uid="OpenSearch.Client.BulkRequest.Routing*"></a>
   <h4 id="OpenSearch_Client_BulkRequest_Routing" data-uid="OpenSearch.Client.BulkRequest.Routing">Routing</h4>
   <div class="markdown level1 summary"><p>A document is routed to a particular shard in an index using the following formula</p>
-<p> shard_num = hash(_routing) % num_primary_shards</p><p>OpenSearch will use the document id if not provided. </p><p>For requests that are constructed from/for a document OSC will automatically infer the routing key
+<p> shard_num = hash(_routing) % num_primary_shards</p><p>OpenSearch will use the document id if not provided. </p><p>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
 if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">JoinField</a> or a routing mapping on for its type exists on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -385,7 +387,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkRequest_Self.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkRequest.Self%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L73">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L70">View Source</a>
   </span>
   <a id="OpenSearch_Client_BulkRequest_Self_" data-uid="OpenSearch.Client.BulkRequest.Self*"></a>
   <h4 id="OpenSearch_Client_BulkRequest_Self" data-uid="OpenSearch.Client.BulkRequest.Self">Self</h4>
@@ -415,7 +417,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkRequest_SourceEnabled.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkRequest.SourceEnabled%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L129">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L130">View Source</a>
   </span>
   <a id="OpenSearch_Client_BulkRequest_SourceEnabled_" data-uid="OpenSearch.Client.BulkRequest.SourceEnabled*"></a>
   <h4 id="OpenSearch_Client_BulkRequest_SourceEnabled" data-uid="OpenSearch.Client.BulkRequest.SourceEnabled">SourceEnabled</h4>
@@ -446,11 +448,11 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkRequest_SourceExcludes.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkRequest.SourceExcludes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L136">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L137">View Source</a>
   </span>
   <a id="OpenSearch_Client_BulkRequest_SourceExcludes_" data-uid="OpenSearch.Client.BulkRequest.SourceExcludes*"></a>
   <h4 id="OpenSearch_Client_BulkRequest_SourceExcludes" data-uid="OpenSearch.Client.BulkRequest.SourceExcludes">SourceExcludes</h4>
-  <div class="markdown level1 summary"><p>Default list of fields to exclude from the returned _source field, can be overridden on each sub-request</p>
+  <div class="markdown level1 summary"><p>A comma-separated list of source fields to exclude from the response.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -477,11 +479,11 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkRequest_SourceIncludes.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkRequest.SourceIncludes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L143">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L144">View Source</a>
   </span>
   <a id="OpenSearch_Client_BulkRequest_SourceIncludes_" data-uid="OpenSearch.Client.BulkRequest.SourceIncludes*"></a>
   <h4 id="OpenSearch_Client_BulkRequest_SourceIncludes" data-uid="OpenSearch.Client.BulkRequest.SourceIncludes">SourceIncludes</h4>
-  <div class="markdown level1 summary"><p>Default list of fields to extract and return from the _source field, can be overridden on each sub-request</p>
+  <div class="markdown level1 summary"><p>A comma-separated list of source fields to include in the response.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -508,11 +510,11 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkRequest_Timeout.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkRequest.Timeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L150">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L151">View Source</a>
   </span>
   <a id="OpenSearch_Client_BulkRequest_Timeout_" data-uid="OpenSearch.Client.BulkRequest.Timeout*"></a>
   <h4 id="OpenSearch_Client_BulkRequest_Timeout" data-uid="OpenSearch.Client.BulkRequest.Timeout">Timeout</h4>
-  <div class="markdown level1 summary"><p>Explicit operation timeout</p>
+  <div class="markdown level1 summary"><p>Period each action waits for the following operations: automatic index creation, dynamic mapping updates, waiting for active shards.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -536,19 +538,19 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkRequest_TypeQueryString.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkRequest.TypeQueryString%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkRequest_Type.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkRequest.Type%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L157">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L158">View Source</a>
   </span>
-  <a id="OpenSearch_Client_BulkRequest_TypeQueryString_" data-uid="OpenSearch.Client.BulkRequest.TypeQueryString*"></a>
-  <h4 id="OpenSearch_Client_BulkRequest_TypeQueryString" data-uid="OpenSearch.Client.BulkRequest.TypeQueryString">TypeQueryString</h4>
-  <div class="markdown level1 summary"><p>Default document type for items which don't provide one</p>
+  <a id="OpenSearch_Client_BulkRequest_Type_" data-uid="OpenSearch.Client.BulkRequest.Type*"></a>
+  <h4 id="OpenSearch_Client_BulkRequest_Type" data-uid="OpenSearch.Client.BulkRequest.Type">Type</h4>
+  <div class="markdown level1 summary"><p>Default document type for items which don't provide one.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string TypeQueryString { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string Type { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -570,13 +572,12 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkRequest_WaitForActiveShards.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkRequest.WaitForActiveShards%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L168">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L168">View Source</a>
   </span>
   <a id="OpenSearch_Client_BulkRequest_WaitForActiveShards_" data-uid="OpenSearch.Client.BulkRequest.WaitForActiveShards*"></a>
   <h4 id="OpenSearch_Client_BulkRequest_WaitForActiveShards" data-uid="OpenSearch.Client.BulkRequest.WaitForActiveShards">WaitForActiveShards</h4>
-  <div class="markdown level1 summary"><p>Sets the number of shard copies that must be active before proceeding with the bulk operation. Defaults to 1, meaning the primary shard
-only. Set to <code>all</code> for all shard copies, otherwise set to any non-negative value less than or equal to the total number of copies for the
-shard (number of replicas + 1)</p>
+  <div class="markdown level1 summary"><p>The number of shard copies that must be active before proceeding with the operation. Set to all or any positive integer up to the total
+number of shards in the index (<code>number_of_replicas+1</code>).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -624,7 +625,7 @@ shard (number of replicas + 1)</p>
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_BulkRequest.md&amp;value=---%0Auid%3A%20OpenSearch.Client.BulkRequest%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/Requests.NoNamespace.cs/#L71" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.NoNamespace.cs/#L68" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
