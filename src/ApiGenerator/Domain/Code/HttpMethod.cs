@@ -15,7 +15,7 @@ public class HttpMethod
 	public static readonly HttpMethod Patch = new("Patch", true);
 	public static readonly HttpMethod Post = new("Post", true);
 	public static readonly HttpMethod Put = new("Put", true);
-	public static readonly HttpMethod[] All = { Delete, Get, Head, Patch, Post, Put };
+	public static readonly HttpMethod[] All = [Delete, Get, Head, Patch, Post, Put];
 
 	private readonly string _method;
 

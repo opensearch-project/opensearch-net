@@ -33,8 +33,8 @@ namespace ApiGenerator.Configuration.Overrides.Endpoints
     // ReSharper disable once UnusedMember.Global
     public class SearchOverrides : EndpointOverridesBase
     {
-        public override IEnumerable<string> SkipQueryStringParams => new[]
-        {
+        public override IEnumerable<string> SkipQueryStringParams =>
+        [
             "size",
             "from",
             "timeout",
@@ -45,12 +45,8 @@ namespace ApiGenerator.Configuration.Overrides.Endpoints
             "_source_includes",
             "_source_excludes",
             "track_scores",
-            "terminate_after",
-        };
-
-        public override IEnumerable<string> RenderPartial => new[]
-        {
-            "track_total_hits"
-        };
+            "track_total_hits",
+            "terminate_after"
+        ];
     }
 }

@@ -34,6 +34,7 @@ open System.Collections.ObjectModel
 open System.Globalization
 open System.Linq
 open System.Linq.Expressions
+open System.Runtime.Serialization
 open System.Threading.Tasks
 open Tests.YamlRunner.Models
 open OpenSearch.Net
@@ -49,6 +50,8 @@ type FastApiInvoke(instance: Object, restName:string, pathParams:KeyedCollection
     member private this.SupportsBody = pathParams.IndexOf "body" >= 0
     member this.PathParameters =
         pathParams |> Seq.map (fun k -> k) |> Seq.filter (fun k -> k <> "body") |> Set.ofSeq
+    member private this.ParameterTypes =
+        methodInfo.GetParameters() |> Array.map (_.ParameterType)
         
     member private this.CreateRequestParameters = 
         let t = methodInfo.GetParameters() |> Array.find (fun p -> typeof<IRequestParameters>.IsAssignableFrom(p.ParameterType))
@@ -80,7 +83,17 @@ type FastApiInvoke(instance: Object, restName:string, pathParams:KeyedCollection
     
     member private this.toMap (o:YamlMap) = o |> Seq.map (fun o -> o.Key :?> String , o.Value) |> Map.ofSeq
     
-    member this.ArgString (v:Object) =
+    member this.ArgConvert (v:Object, t:Type): Object =
+        match t with
+        | t when t = typeof<String> -> this.ArgString v
+        | t when Nullable.GetUnderlyingType(t) <> null ->
+            let underlyingType = Nullable.GetUnderlyingType(t)
+            if v = null then null
+            else this.ArgConvert(v, underlyingType)
+        | t when t.IsEnum -> this.ArgEnum(this.ArgString v, t)
+        | t -> failwithf $"unable to convert argument to type %s{t.FullName}"
+    
+    member this.ArgString (v:Object): string =
         let toString (value:Object) = 
             match value with
             | null -> null
@@ -89,7 +102,7 @@ type FastApiInvoke(instance: Object, restName:string, pathParams:KeyedCollection
             | :? double as i -> i.ToString(CultureInfo.InvariantCulture)
             | :? int64 as i -> i.ToString(CultureInfo.InvariantCulture)
             | :? Boolean as b -> if b then "false" else "true"
-            | e -> failwithf "unknown type %s " (e.GetType().Name)
+            | e -> failwithf $"unknown type %s{e.GetType().Name}"
         
         match v with
         | :? List<Object> as a ->
@@ -99,7 +112,33 @@ type FastApiInvoke(instance: Object, restName:string, pathParams:KeyedCollection
             | [] -> "_all" 
             | _ -> String.Join(',', values)
         | e -> toString e
-                
+    
+    member this.ArgEnum (v:String, t:Type): Enum =
+        let values = Enum.GetValues(t)
+        
+        let lookup =
+            values
+            |> Seq.cast<Enum>
+            |> Seq.map (fun e ->
+                let field = t.GetField(e.ToString())
+                let attr = field.GetCustomAttribute<EnumMemberAttribute>()
+                let stringValue = if attr <> null then attr.Value else Enum.GetName(t, e)
+                (stringValue.ToLowerInvariant(), e)
+                )
+            |> Map.ofSeq
+        
+        let result = 
+            v.ToLowerInvariant().Split(',')
+            |> Seq.map (_.Trim())
+            |> Seq.map (fun s -> 
+                match lookup.TryGetValue(s) with
+                | true, e -> e
+                | false, _ -> failwithf $"unable to find enum value %s{s}"
+                )
+            |> Seq.map Convert.ToInt32
+            |> Seq.reduce (fun acc e -> acc ||| e)
+        
+        Enum.ToObject(t, result) :?> Enum
         
     member this.CanInvoke (o:YamlMap) =
         let operationKeys =
@@ -125,18 +164,7 @@ type FastApiInvoke(instance: Object, restName:string, pathParams:KeyedCollection
             |> Map.filter (fun k _ -> this.PathParameters.Contains(k))
             |> Map.filter (fun _ v -> not <| String.IsNullOrWhiteSpace(this.ArgString v))
             |> Map.toSeq
-            |> Seq.map (fun (k, v) ->
-                match k with
-                // category_id is mapped as long (only path param that is not string)
-                | "category_id" ->
-                    match v with
-                    // Some test use a string e.g "1"
-                    | :? String as v -> (k, Int64.Parse(v) :> Object)
-                    // Yaml reads numbers as int32
-                    | :? Int32 as v -> (k, Convert.ToInt64(v) :> Object)
-                    | _ -> (k, v)
-                | _ -> (k, this.ArgString v :> Object)
-            ) 
+            |> Seq.map (fun (k, v) -> (k, this.ArgConvert (v, this.ParameterTypes[this.IndexOfParam k]))) 
             |> Seq.sortBy (fun (k, _) -> this.IndexOfParam k)
             |> Seq.map (fun (_, v) -> v)
             |> Seq.toArray

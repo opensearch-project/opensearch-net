@@ -108,6 +108,64 @@ namespace OpenSearch.Net
         Open = 1 << 4,
     }
 
+    [Flags, StringEnum]
+    public enum IndicesStatsMetric
+    {
+        [EnumMember(Value = "completion")]
+        Completion = 1 << 0,
+
+        [EnumMember(Value = "docs")]
+        Docs = 1 << 1,
+
+        [EnumMember(Value = "fielddata")]
+        Fielddata = 1 << 2,
+
+        [EnumMember(Value = "flush")]
+        Flush = 1 << 3,
+
+        [EnumMember(Value = "get")]
+        Get = 1 << 4,
+
+        [EnumMember(Value = "indexing")]
+        Indexing = 1 << 5,
+
+        [EnumMember(Value = "merge")]
+        Merge = 1 << 6,
+
+        [EnumMember(Value = "query_cache")]
+        QueryCache = 1 << 7,
+
+        [EnumMember(Value = "recovery")]
+        Recovery = 1 << 8,
+
+        [EnumMember(Value = "refresh")]
+        Refresh = 1 << 9,
+
+        [EnumMember(Value = "request_cache")]
+        RequestCache = 1 << 10,
+
+        [EnumMember(Value = "search")]
+        Search = 1 << 11,
+
+        [EnumMember(Value = "segments")]
+        Segments = 1 << 12,
+
+        [EnumMember(Value = "store")]
+        Store = 1 << 13,
+
+        [EnumMember(Value = "suggest")]
+        Suggest = 1 << 14,
+
+        [EnumMember(Value = "translog")]
+        Translog = 1 << 15,
+
+        [EnumMember(Value = "warmer")]
+        Warmer = 1 << 16,
+
+        [EnumMember(Value = "_all")]
+        All = 1 << 17,
+    }
+
     [StringEnum]
     public enum Level
     {
@@ -152,6 +210,7 @@ namespace OpenSearch.Net
         {
             AddEnumStringResolver<Bytes>(GetStringValue);
             AddEnumStringResolver<ExpandWildcards>(GetStringValue);
+            AddEnumStringResolver<IndicesStatsMetric>(GetStringValue);
             AddEnumStringResolver<Level>(GetStringValue);
             AddEnumStringResolver<TimeUnit>(GetStringValue);
         }
@@ -188,6 +247,48 @@ namespace OpenSearch.Net
                 list.Add("none");
             if ((enumValue & ExpandWildcards.Open) != 0)
                 list.Add("open");
+            return string.Join(",", list);
+        }
+
+        public static string GetStringValue(this IndicesStatsMetric enumValue)
+        {
+            if ((enumValue & IndicesStatsMetric.All) != 0)
+                return "_all";
+            var list = new List<string>();
+            if ((enumValue & IndicesStatsMetric.Completion) != 0)
+                list.Add("completion");
+            if ((enumValue & IndicesStatsMetric.Docs) != 0)
+                list.Add("docs");
+            if ((enumValue & IndicesStatsMetric.Fielddata) != 0)
+                list.Add("fielddata");
+            if ((enumValue & IndicesStatsMetric.Flush) != 0)
+                list.Add("flush");
+            if ((enumValue & IndicesStatsMetric.Get) != 0)
+                list.Add("get");
+            if ((enumValue & IndicesStatsMetric.Indexing) != 0)
+                list.Add("indexing");
+            if ((enumValue & IndicesStatsMetric.Merge) != 0)
+                list.Add("merge");
+            if ((enumValue & IndicesStatsMetric.QueryCache) != 0)
+                list.Add("query_cache");
+            if ((enumValue & IndicesStatsMetric.Recovery) != 0)
+                list.Add("recovery");
+            if ((enumValue & IndicesStatsMetric.Refresh) != 0)
+                list.Add("refresh");
+            if ((enumValue & IndicesStatsMetric.RequestCache) != 0)
+                list.Add("request_cache");
+            if ((enumValue & IndicesStatsMetric.Search) != 0)
+                list.Add("search");
+            if ((enumValue & IndicesStatsMetric.Segments) != 0)
+                list.Add("segments");
+            if ((enumValue & IndicesStatsMetric.Store) != 0)
+                list.Add("store");
+            if ((enumValue & IndicesStatsMetric.Suggest) != 0)
+                list.Add("suggest");
+            if ((enumValue & IndicesStatsMetric.Translog) != 0)
+                list.Add("translog");
+            if ((enumValue & IndicesStatsMetric.Warmer) != 0)
+                list.Add("warmer");
             return string.Join(",", list);
         }
 
