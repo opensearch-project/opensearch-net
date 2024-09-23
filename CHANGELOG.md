@@ -29,6 +29,9 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Microsoft.NET.Test.Sdk` from 17.11.0 to 17.11.1
 - Bumps `Microsoft.TestPlatform.ObjectModel` from 17.11.0 to 17.11.1
 - Bumps `BenchMarkDotNet` from 0.13.12 to 0.14.0
+- Bumps `Fake.IO.FileSystem` from 6.1.0 to 6.1.1
+- Bumps `Fake.IO.Zip` from 6.1.0 to 6.1.1
+- Bumps `Fake.Tools.Git` from 6.1.0 to 6.1.1
 
 ## [1.8.0]
 ### Added
