@@ -39,9 +39,9 @@
 
     <PackageReference Include="Fake.Core.Environment" Version="6.1.1" />
     <PackageReference Include="Fake.Core.SemVer" Version="6.1.1" />
-    <PackageReference Include="Fake.IO.FileSystem" Version="6.1.0" />
-    <PackageReference Include="Fake.IO.Zip" Version="6.1.0" />
-    <PackageReference Include="Fake.Tools.Git" Version="6.1.0" />
+    <PackageReference Include="Fake.IO.FileSystem" Version="6.1.1" />
+    <PackageReference Include="Fake.IO.Zip" Version="6.1.1" />
+    <PackageReference Include="Fake.Tools.Git" Version="6.1.1" />
 
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 
