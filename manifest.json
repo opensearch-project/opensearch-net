@@ -28922,6 +28922,36 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.KnnDefaultOperator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.KnnDefaultOperator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.KnnSearchType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.KnnSearchType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.KnnSuggestMode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.KnnSuggestMode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.KnownEnums.yml",
       "output": {
         ".html": {
@@ -29076,6 +29106,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.NodesUsageMetric.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.NotificationsNotificationConfigType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.NotificationsNotificationConfigType.html"
         }
       },
       "version": ""
@@ -29546,6 +29586,66 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.SourceRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.AsynchronousSearchApi.DeleteRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.AsynchronousSearchApi.DeleteRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.AsynchronousSearchApi.GetRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.AsynchronousSearchApi.GetRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.AsynchronousSearchApi.LowLevelAsynchronousSearchNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.AsynchronousSearchApi.LowLevelAsynchronousSearchNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.AsynchronousSearchApi.SearchRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.AsynchronousSearchApi.SearchRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.AsynchronousSearchApi.StatsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.AsynchronousSearchApi.StatsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.AsynchronousSearchApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.AsynchronousSearchApi.html"
         }
       },
       "version": ""
@@ -30086,6 +30186,126 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.Specification.DanglingIndicesApi.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.FlowFrameworkApi.CreateRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.FlowFrameworkApi.CreateRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.FlowFrameworkApi.DeleteRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.FlowFrameworkApi.DeleteRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.FlowFrameworkApi.DeprovisionRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.FlowFrameworkApi.DeprovisionRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.FlowFrameworkApi.GetRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.FlowFrameworkApi.GetRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.FlowFrameworkApi.GetStatusRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.FlowFrameworkApi.GetStatusRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.FlowFrameworkApi.GetStepsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.FlowFrameworkApi.GetStepsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.FlowFrameworkApi.LowLevelFlowFrameworkNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.FlowFrameworkApi.LowLevelFlowFrameworkNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.FlowFrameworkApi.ProvisionRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.FlowFrameworkApi.ProvisionRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.FlowFrameworkApi.SearchRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.FlowFrameworkApi.SearchRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.FlowFrameworkApi.SearchStateRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.FlowFrameworkApi.SearchStateRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.FlowFrameworkApi.UpdateRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.FlowFrameworkApi.UpdateRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.FlowFrameworkApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.FlowFrameworkApi.html"
         }
       },
       "version": ""
@@ -30772,6 +30992,346 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IsmApi.AddPolicyRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IsmApi.AddPolicyRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IsmApi.ChangePolicyRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IsmApi.ChangePolicyRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IsmApi.DeletePolicyRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IsmApi.DeletePolicyRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IsmApi.ExistsPolicyRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IsmApi.ExistsPolicyRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IsmApi.ExplainPolicyRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IsmApi.ExplainPolicyRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IsmApi.GetPoliciesRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IsmApi.GetPoliciesRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IsmApi.GetPolicyRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IsmApi.GetPolicyRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IsmApi.LowLevelIsmNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IsmApi.LowLevelIsmNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IsmApi.PutPoliciesRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IsmApi.PutPoliciesRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IsmApi.PutPolicyRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IsmApi.PutPolicyRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IsmApi.RefreshSearchAnalyzersRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IsmApi.RefreshSearchAnalyzersRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IsmApi.RemovePolicyRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IsmApi.RemovePolicyRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IsmApi.RetryIndexRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IsmApi.RetryIndexRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IsmApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IsmApi.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.KnnApi.DeleteModelRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.KnnApi.DeleteModelRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.KnnApi.GetModelRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.KnnApi.GetModelRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.KnnApi.LowLevelKnnNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.KnnApi.LowLevelKnnNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.KnnApi.SearchModelsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.KnnApi.SearchModelsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.KnnApi.StatsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.KnnApi.StatsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.KnnApi.TrainModelRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.KnnApi.TrainModelRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.KnnApi.WarmupRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.KnnApi.WarmupRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.KnnApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.KnnApi.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.MlApi.DeleteModelGroupRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.MlApi.DeleteModelGroupRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.MlApi.DeleteModelRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.MlApi.DeleteModelRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.MlApi.DeleteTaskRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.MlApi.DeleteTaskRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.MlApi.DeployModelRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.MlApi.DeployModelRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.MlApi.GetModelGroupRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.MlApi.GetModelGroupRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.MlApi.GetTaskRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.MlApi.GetTaskRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.MlApi.RegisterModelGroupRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.MlApi.RegisterModelGroupRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.MlApi.RegisterModelRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.MlApi.RegisterModelRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.MlApi.SearchModelsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.MlApi.SearchModelsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.MlApi.UndeployModelRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.MlApi.UndeployModelRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.MlApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.MlApi.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.NodesApi.LowLevelNodesNamespace.yml",
       "output": {
         ".html": {
@@ -30836,6 +31396,1286 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.Specification.NodesApi.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.NotificationsApi.CreateConfigRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.NotificationsApi.CreateConfigRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.NotificationsApi.DeleteConfigRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.NotificationsApi.DeleteConfigRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.NotificationsApi.DeleteConfigsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.NotificationsApi.DeleteConfigsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.NotificationsApi.GetConfigRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.NotificationsApi.GetConfigRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.NotificationsApi.GetConfigsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.NotificationsApi.GetConfigsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.NotificationsApi.ListChannelsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.NotificationsApi.ListChannelsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.NotificationsApi.ListFeaturesRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.NotificationsApi.ListFeaturesRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.NotificationsApi.LowLevelNotificationsNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.NotificationsApi.LowLevelNotificationsNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.NotificationsApi.SendTestRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.NotificationsApi.SendTestRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.NotificationsApi.UpdateConfigRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.NotificationsApi.UpdateConfigRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.NotificationsApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.NotificationsApi.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.ObservabilityApi.CreateObjectRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.ObservabilityApi.CreateObjectRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.ObservabilityApi.DeleteObjectRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.ObservabilityApi.DeleteObjectRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.ObservabilityApi.DeleteObjectsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.ObservabilityApi.DeleteObjectsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.ObservabilityApi.GetLocalstatsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.ObservabilityApi.GetLocalstatsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.ObservabilityApi.GetObjectRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.ObservabilityApi.GetObjectRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.ObservabilityApi.ListObjectsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.ObservabilityApi.ListObjectsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.ObservabilityApi.LowLevelObservabilityNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.ObservabilityApi.LowLevelObservabilityNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.ObservabilityApi.UpdateObjectRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.ObservabilityApi.UpdateObjectRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.ObservabilityApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.ObservabilityApi.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.PplApi.ExplainRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.PplApi.ExplainRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.PplApi.GetStatsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.PplApi.GetStatsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.PplApi.LowLevelPplNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.PplApi.LowLevelPplNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.PplApi.PostStatsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.PplApi.PostStatsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.PplApi.QueryRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.PplApi.QueryRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.PplApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.PplApi.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.QueryApi.DatasourceDeleteRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.QueryApi.DatasourceDeleteRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.QueryApi.DatasourceRetrieveRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.QueryApi.DatasourceRetrieveRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.QueryApi.DatasourcesCreateRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.QueryApi.DatasourcesCreateRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.QueryApi.DatasourcesListRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.QueryApi.DatasourcesListRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.QueryApi.DatasourcesUpdateRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.QueryApi.DatasourcesUpdateRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.QueryApi.LowLevelQueryNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.QueryApi.LowLevelQueryNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.QueryApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.QueryApi.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.RemoteStoreApi.LowLevelRemoteStoreNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.RemoteStoreApi.LowLevelRemoteStoreNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.RemoteStoreApi.RestoreRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.RemoteStoreApi.RestoreRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.RemoteStoreApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.RemoteStoreApi.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.RollupsApi.DeleteRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.RollupsApi.DeleteRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.RollupsApi.ExplainRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.RollupsApi.ExplainRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.RollupsApi.GetRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.RollupsApi.GetRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.RollupsApi.LowLevelRollupsNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.RollupsApi.LowLevelRollupsNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.RollupsApi.PutRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.RollupsApi.PutRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.RollupsApi.StartRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.RollupsApi.StartRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.RollupsApi.StopRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.RollupsApi.StopRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.RollupsApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.RollupsApi.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SearchPipelineApi.DeleteRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SearchPipelineApi.DeleteRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SearchPipelineApi.GetRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SearchPipelineApi.GetRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SearchPipelineApi.LowLevelSearchPipelineNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SearchPipelineApi.LowLevelSearchPipelineNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SearchPipelineApi.PutRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SearchPipelineApi.PutRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SearchPipelineApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SearchPipelineApi.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.AuthinfoRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.AuthinfoRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.AuthtokenRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.AuthtokenRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.CacheRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.CacheRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.ChangePasswordRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.ChangePasswordRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.ConfigUpgradeCheckRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.ConfigUpgradeCheckRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.ConfigUpgradePerformRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.ConfigUpgradePerformRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.CreateActionGroupRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.CreateActionGroupRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.CreateAllowlistRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.CreateAllowlistRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.CreateRoleMappingRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.CreateRoleMappingRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.CreateRoleRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.CreateRoleRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.CreateTenantRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.CreateTenantRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.CreateUpdateTenancyConfigRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.CreateUpdateTenancyConfigRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.CreateUserLegacyRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.CreateUserLegacyRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.CreateUserRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.CreateUserRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.DeleteActionGroupRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.DeleteActionGroupRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.DeleteDistinguishedNameRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.DeleteDistinguishedNameRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.DeleteRoleMappingRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.DeleteRoleMappingRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.DeleteRoleRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.DeleteRoleRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.DeleteTenantRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.DeleteTenantRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.DeleteUserLegacyRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.DeleteUserLegacyRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.DeleteUserRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.DeleteUserRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.FlushCacheRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.FlushCacheRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GenerateOboTokenRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GenerateOboTokenRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GenerateUserTokenLegacyRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GenerateUserTokenLegacyRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GenerateUserTokenRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GenerateUserTokenRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetAccountDetailsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetAccountDetailsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetActionGroupRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetActionGroupRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetActionGroupsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetActionGroupsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetAllCertificatesRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetAllCertificatesRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetAllowlistRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetAllowlistRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetAuditConfigurationRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetAuditConfigurationRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetCertificatesRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetCertificatesRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetConfigurationRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetConfigurationRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetDashboardsInfoRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetDashboardsInfoRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetDistinguishedNameRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetDistinguishedNameRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetDistinguishedNamesRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetDistinguishedNamesRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetNodeCertificatesRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetNodeCertificatesRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetPermissionsInfoRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetPermissionsInfoRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetRoleMappingRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetRoleMappingRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetRoleMappingsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetRoleMappingsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetRoleRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetRoleRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetRolesRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetRolesRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetSslinfoRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetSslinfoRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetTenancyConfigRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetTenancyConfigRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetTenantRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetTenantRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetTenantsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetTenantsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetUserLegacyRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetUserLegacyRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetUserRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetUserRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetUsersLegacyRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetUsersLegacyRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.GetUsersRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.GetUsersRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.HealthRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.HealthRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.LowLevelSecurityNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.LowLevelSecurityNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.MigrateRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.MigrateRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.PatchActionGroupRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.PatchActionGroupRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.PatchActionGroupsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.PatchActionGroupsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.PatchAllowlistRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.PatchAllowlistRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.PatchAuditConfigurationRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.PatchAuditConfigurationRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.PatchConfigurationRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.PatchConfigurationRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.PatchDistinguishedNameRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.PatchDistinguishedNameRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.PatchDistinguishedNamesRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.PatchDistinguishedNamesRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.PatchRoleMappingRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.PatchRoleMappingRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.PatchRoleMappingsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.PatchRoleMappingsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.PatchRoleRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.PatchRoleRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.PatchRolesRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.PatchRolesRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.PatchTenantRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.PatchTenantRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.PatchTenantsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.PatchTenantsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.PatchUserRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.PatchUserRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.PatchUsersRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.PatchUsersRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.PostDashboardsInfoRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.PostDashboardsInfoRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.ReloadHttpCertificatesRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.ReloadHttpCertificatesRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.ReloadTransportCertificatesRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.ReloadTransportCertificatesRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.TenantInfoRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.TenantInfoRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.UpdateAuditConfigurationRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.UpdateAuditConfigurationRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.UpdateConfigurationRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.UpdateConfigurationRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.UpdateDistinguishedNameRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.UpdateDistinguishedNameRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.ValidateRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.ValidateRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.WhoAmIProtectedRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.WhoAmIProtectedRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.WhoAmIRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.WhoAmIRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityApi.html"
         }
       },
       "version": ""
@@ -30972,6 +32812,86 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SqlApi.CloseRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SqlApi.CloseRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SqlApi.ExplainRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SqlApi.ExplainRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SqlApi.GetStatsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SqlApi.GetStatsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SqlApi.LowLevelSqlNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SqlApi.LowLevelSqlNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SqlApi.PostStatsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SqlApi.PostStatsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SqlApi.QueryRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SqlApi.QueryRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SqlApi.SettingsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SqlApi.SettingsRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SqlApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SqlApi.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.TasksApi.CancelTasksRequestParameters.yml",
       "output": {
         ".html": {
@@ -31016,6 +32936,106 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.Specification.TasksApi.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.TransformsApi.DeleteRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.TransformsApi.DeleteRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.TransformsApi.ExplainRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.TransformsApi.ExplainRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.TransformsApi.GetRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.TransformsApi.GetRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.TransformsApi.LowLevelTransformsNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.TransformsApi.LowLevelTransformsNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.TransformsApi.PreviewRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.TransformsApi.PreviewRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.TransformsApi.PutRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.TransformsApi.PutRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.TransformsApi.SearchRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.TransformsApi.SearchRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.TransformsApi.StartRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.TransformsApi.StartRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.TransformsApi.StopRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.TransformsApi.StopRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.TransformsApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.TransformsApi.html"
         }
       },
       "version": ""
