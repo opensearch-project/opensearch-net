@@ -52,6 +52,7 @@ jobs:
         with:
           version: ${{ matrix.version }}
           secured: true
+          opensearch_args: ${{ matrix.version == '2.8.0' && '-Eopensearch.experimental.feature.search_pipeline.enabled=true' || '' }}
 
       - name: Run YAML tests
         working-directory: client

@@ -1,6 +1,9 @@
 name: Start OpenSearch
 description: Configures and starts an OpenSearch daemon
 inputs:
+  opensearch_args:
+    description: Additional arguments to pass to the OpenSearch process
+    default: ''
   secured:
     description: Whether to enable the security plugin
     default: 'false'
@@ -74,9 +77,9 @@ runs:
         fi
 
         if [[ "$RUNNER_OS" != "Windows" ]]; then
-          $OPENSEARCH_HOME/bin/opensearch &
+          $OPENSEARCH_HOME/bin/opensearch ${OPENSEARCH_ARGS} &
         else
-          $OPENSEARCH_HOME/bin/opensearch.bat -d &
+          $OPENSEARCH_HOME/bin/opensearch.bat ${OPENSEARCH_ARGS} -d &
         fi
 
         for attempt in {1..20}; do
@@ -91,3 +94,4 @@ runs:
       env:
         SECURED: ${{ inputs.secured }}
         RUNNER_OS: ${{ runner.os }}
+        OPENSEARCH_ARGS: ${{ inputs.opensearch_args }}
