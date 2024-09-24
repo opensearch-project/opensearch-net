@@ -49,8 +49,8 @@ namespace ApiGenerator.Domain.Specification
                         return Type;
                     case "list":
                         return "string";
-                    case "enum":
-                        return Name.ToPascalCase();
+                    case "IndicesStatsMetric?":
+                        return "string";
                     default:
                         return Type;
                 }
