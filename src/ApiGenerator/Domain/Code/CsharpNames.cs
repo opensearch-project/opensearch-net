@@ -123,13 +123,16 @@ namespace ApiGenerator.Domain.Code
             var method = MethodName;
             // This is temporary for transition period
             // TODO: remove in branch once it in opensearch is scrubbed
-            if (path.Contains("{type}") && !method.Contains("Type")) method += "UsingType";
+            if (pc("{type}") && !method.Contains("Type")) method += "UsingType";
 
             if (ms("Indices") && !pc("{index}"))
                 return (method + "ForAll").Replace("AsyncForAll", "ForAllAsync");
 
             if (ms("Nodes") && !pc("{node_id}"))
                 return (method + "ForAll").Replace("AsyncForAll", "ForAllAsync");
+
+            if (Namespace == "Knn" && method.StartsWith("Stats") && !pc("{node_id}"))
+                return method.Replace("Stats", "StatsForAll");
 
             return method;
         }
