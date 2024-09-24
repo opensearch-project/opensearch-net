@@ -7,6 +7,9 @@ inputs:
   secured:
     description: Whether to enable the security plugin
     required: true
+  opensearch_args:
+    description: Additional arguments to pass to the OpenSearch process
+    default: ''
 outputs:
   opensearch_url:
     description: The URL where the OpenSearch node is accessible
@@ -49,4 +52,5 @@ runs:
       id: opensearch
       uses: ./client/.github/actions/start-opensearch
       with:
+        opensearch_args: ${{ inputs.opensearch_args }}
         secured: ${{ inputs.secured }}

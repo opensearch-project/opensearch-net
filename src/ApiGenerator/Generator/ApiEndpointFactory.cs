@@ -238,14 +238,17 @@ namespace ApiGenerator.Generator
                     if (first.EndsWith("?")) return first;
                     if (first == second) return first;
 
-                    switch (first, second)
+                    return (first, second) switch
                     {
-                        case ("string", "list"): return second;
-                        case ("boolean", "string"): return first;
-                        case ("number", _): return "string";
-                        case (_,"number"): return "string";
-                    }
+                        (_, "list") => second,
+                        ("boolean", "string") => first,
+                        ("number", _) => "string",
+                        (_, "number") => "string",
+                        (_, _) => throw new Exception($"Unable to determine type of: {first} and {second}")
+                    };
                 }
+
+                throw new Exception("Unable to determine type of oneOf");
             }
 
             var enumOptions = schema.Enumeration.Where(e => e != null).Select(e => e.ToString()).ToList();
@@ -259,7 +262,19 @@ namespace ApiGenerator.Generator
             if (schema.Type == JsonObjectType.Array && (schema.Item?.HasReference ?? false))
                 _ = GetOpenSearchType(schema.Item, trackEnumToGenerate, true);
 
-            return schema.Type switch
+            var types = Enum.GetValues<JsonObjectType>()
+                .Where(t => t != JsonObjectType.None && schema.Type.HasFlag(t))
+                .ToHashSet();
+
+            var type = types.Count switch
+            {
+                0 => throw new Exception("No type specified"),
+                1 => types.First(),
+                2 when types.Contains(JsonObjectType.Boolean) && types.Contains(JsonObjectType.String) => JsonObjectType.String,
+                _ => throw new Exception($"Unable to determine type of: {string.Join(", ", types)}")
+            };
+
+            return type switch
             {
                 JsonObjectType.Integer => "number",
                 JsonObjectType.Array => "list",

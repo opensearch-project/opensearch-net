@@ -1,21 +1,9 @@
 @using ApiGenerator.Domain
 @inherits ApiGenerator.CodeTemplatePage<RestApiSpec>
 @{ await IncludeLegacyGeneratorNotice(); }
-// ReSharper disable RedundantUsingDirective
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Linq.Expressions;
-using System.Runtime.Serialization;
-using OpenSearch.Net;
-using OpenSearch.Net.Utf8Json;
-@{ await IncludeAsync("LowLevel/Client/Usings.cshtml", Model);}
 
-// ReSharper disable UnusedTypeParameter
-namespace OpenSearch.Client
+namespace OpenSearch.Client;
+
+public abstract partial class @Raw("PlainRequestBase<TParameters>")
 {
-    public abstract partial class @Raw("PlainRequestBase<TParameters>")
-    {
-    }
 }
