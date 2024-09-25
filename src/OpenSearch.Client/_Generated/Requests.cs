@@ -41,22 +41,7 @@
 //      Windows     :   build.bat codegen
 //
 // -----------------------------------------------
-// ReSharper disable RedundantUsingDirective
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Runtime.Serialization;
-using System.Text;
-using OpenSearch.Net;
-using OpenSearch.Net.Specification.CatApi;
-using OpenSearch.Net.Specification.ClusterApi;
-using OpenSearch.Net.Specification.HttpApi;
-using OpenSearch.Net.Specification.IndicesApi;
-using OpenSearch.Net.Utf8Json;
 
-// ReSharper disable UnusedTypeParameter
-namespace OpenSearch.Client
-{
-    public abstract partial class PlainRequestBase<TParameters> { }
-}
+namespace OpenSearch.Client;
+
+public abstract partial class PlainRequestBase<TParameters> { }
