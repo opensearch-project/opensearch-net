@@ -37,11 +37,11 @@
     <PackageReference Include="Bullseye" Version="5.0.0" />
     <ProjectReference Include="$(SolutionRoot)\abstractions\src\OpenSearch.OpenSearch.Managed\OpenSearch.OpenSearch.Managed.csproj" />
 
-    <PackageReference Include="Fake.Core.Environment" Version="6.1.1" />
+    <PackageReference Include="Fake.Core.Environment" Version="6.1.3" />
     <PackageReference Include="Fake.Core.SemVer" Version="6.1.3" />
-    <PackageReference Include="Fake.IO.FileSystem" Version="6.1.1" />
-    <PackageReference Include="Fake.IO.Zip" Version="6.1.1" />
-    <PackageReference Include="Fake.Tools.Git" Version="6.1.1" />
+    <PackageReference Include="Fake.IO.FileSystem" Version="6.1.3" />
+    <PackageReference Include="Fake.IO.Zip" Version="6.1.3" />
+    <PackageReference Include="Fake.Tools.Git" Version="6.1.3" />
 
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 
