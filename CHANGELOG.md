@@ -32,6 +32,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Fake.IO.FileSystem` from 6.1.0 to 6.1.3
 - Bumps `Fake.IO.Zip` from 6.1.0 to 6.1.3
 - Bumps `Fake.Tools.Git` from 6.1.0 to 6.1.3
+- Bumps `CSharpier.Core` from 0.29.1 to 0.29.2
 
 ## [1.8.0]
 ### Added
