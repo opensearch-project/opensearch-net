@@ -46,6 +46,6 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 
     <PackageReference Include="Octokit" Version="13.0.1" />
-    <PackageReference Include="Proc" Version="0.8.1" />
+    <PackageReference Include="Proc" Version="0.8.2" />
   </ItemGroup>
 </Project>
