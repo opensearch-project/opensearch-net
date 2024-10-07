@@ -52,6 +52,30 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.MlApi
 {
+    /// <summary>Request options for CreateConnector</summary>
+    public partial class CreateConnectorRequestParameters
+        : RequestParameters<CreateConnectorRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+    }
+
+    /// <summary>Request options for DeleteAgent</summary>
+    public partial class DeleteAgentRequestParameters
+        : RequestParameters<DeleteAgentRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
+        public override bool SupportsBody => false;
+    }
+
+    /// <summary>Request options for DeleteConnector</summary>
+    public partial class DeleteConnectorRequestParameters
+        : RequestParameters<DeleteConnectorRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
+        public override bool SupportsBody => false;
+    }
+
     /// <summary>Request options for DeleteModel</summary>
     public partial class DeleteModelRequestParameters
         : RequestParameters<DeleteModelRequestParameters>
@@ -97,6 +121,14 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+    }
+
+    /// <summary>Request options for RegisterAgents</summary>
+    public partial class RegisterAgentsRequestParameters
+        : RequestParameters<RegisterAgentsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
     }
 
     /// <summary>Request options for RegisterModel</summary>

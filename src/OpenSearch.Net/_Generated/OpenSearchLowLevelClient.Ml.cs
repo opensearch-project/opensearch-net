@@ -69,6 +69,105 @@ namespace OpenSearch.Net.Specification.MlApi
         internal LowLevelMlNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
+        /// <summary>POST on /_plugins/_ml/connectors/_create</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse CreateConnector<TResponse>(
+            PostData body,
+            CreateConnectorRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_plugins/_ml/connectors/_create",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/connectors/_create</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("ml.create_connector", "body")]
+        public Task<TResponse> CreateConnectorAsync<TResponse>(
+            PostData body,
+            CreateConnectorRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_plugins/_ml/connectors/_create",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_plugins/_ml/agents/{agent_id}</summary>
+        /// <param name="agentId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse DeleteAgent<TResponse>(
+            string agentId,
+            DeleteAgentRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                Url($"_plugins/_ml/agents/{agentId:agentId}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_plugins/_ml/agents/{agent_id}</summary>
+        /// <param name="agentId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("ml.delete_agent", "agent_id")]
+        public Task<TResponse> DeleteAgentAsync<TResponse>(
+            string agentId,
+            DeleteAgentRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                Url($"_plugins/_ml/agents/{agentId:agentId}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_plugins/_ml/connectors/{connector_id}</summary>
+        /// <param name="connectorId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse DeleteConnector<TResponse>(
+            string connectorId,
+            DeleteConnectorRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                Url($"_plugins/_ml/connectors/{connectorId:connectorId}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_plugins/_ml/connectors/{connector_id}</summary>
+        /// <param name="connectorId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("ml.delete_connector", "connector_id")]
+        public Task<TResponse> DeleteConnectorAsync<TResponse>(
+            string connectorId,
+            DeleteConnectorRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                Url($"_plugins/_ml/connectors/{connectorId:connectorId}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>DELETE on /_plugins/_ml/models/{model_id}</summary>
         /// <param name="modelId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -264,6 +363,39 @@ namespace OpenSearch.Net.Specification.MlApi
                 Url($"_plugins/_ml/tasks/{taskId:taskId}"),
                 ctx,
                 null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/agents/_register</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse RegisterAgents<TResponse>(
+            PostData body,
+            RegisterAgentsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_plugins/_ml/agents/_register",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/agents/_register</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("ml.register_agents", "body")]
+        public Task<TResponse> RegisterAgentsAsync<TResponse>(
+            PostData body,
+            RegisterAgentsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_plugins/_ml/agents/_register",
+                ctx,
+                body,
                 RequestParams(requestParameters)
             );
 
