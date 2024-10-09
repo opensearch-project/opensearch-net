@@ -197,6 +197,75 @@ namespace OpenSearch.Net
                 RequestParams(requestParameters)
             );
 
+        /// <summary>PUT on /_bulk/stream <para>https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</para></summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.0 or greater.</remarks>
+        public TResponse BulkStream<TResponse>(
+            PostData body,
+            BulkStreamRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(PUT, "_bulk/stream", body, RequestParams(requestParameters));
+
+        /// <summary>PUT on /_bulk/stream <para>https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</para></summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.0 or greater.</remarks>
+        [MapsApi("bulk_stream", "body")]
+        public Task<TResponse> BulkStreamAsync<TResponse>(
+            PostData body,
+            BulkStreamRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                "_bulk/stream",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /{index}/_bulk/stream <para>https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</para></summary>
+        /// <param name="index">Name of the data stream, index, or index alias to perform bulk actions on.</param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.0 or greater.</remarks>
+        public TResponse BulkStream<TResponse>(
+            string index,
+            PostData body,
+            BulkStreamRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"{index:index}/_bulk/stream"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /{index}/_bulk/stream <para>https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</para></summary>
+        /// <param name="index">Name of the data stream, index, or index alias to perform bulk actions on.</param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.0 or greater.</remarks>
+        [MapsApi("bulk_stream", "index, body")]
+        public Task<TResponse> BulkStreamAsync<TResponse>(
+            string index,
+            PostData body,
+            BulkStreamRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"{index:index}/_bulk/stream"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>DELETE on /_search/scroll <para>https://opensearch.org/docs/latest/api-reference/scroll/</para></summary>
         /// <param name="body">Comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

@@ -193,6 +193,52 @@ namespace OpenSearch.Net
         )
             where TResponse : class, IOpenSearchResponse, new();
 
+        /// <summary>PUT on /_bulk/stream <para>https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</para></summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.0 or greater.</remarks>
+        TResponse BulkStream<TResponse>(
+            PostData body,
+            BulkStreamRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new();
+
+        /// <summary>PUT on /_bulk/stream <para>https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</para></summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.0 or greater.</remarks>
+        Task<TResponse> BulkStreamAsync<TResponse>(
+            PostData body,
+            BulkStreamRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new();
+
+        /// <summary>PUT on /{index}/_bulk/stream <para>https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</para></summary>
+        /// <param name="index">Name of the data stream, index, or index alias to perform bulk actions on.</param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.0 or greater.</remarks>
+        TResponse BulkStream<TResponse>(
+            string index,
+            PostData body,
+            BulkStreamRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new();
+
+        /// <summary>PUT on /{index}/_bulk/stream <para>https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</para></summary>
+        /// <param name="index">Name of the data stream, index, or index alias to perform bulk actions on.</param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.0 or greater.</remarks>
+        Task<TResponse> BulkStreamAsync<TResponse>(
+            string index,
+            PostData body,
+            BulkStreamRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new();
+
         /// <summary>DELETE on /_search/scroll <para>https://opensearch.org/docs/latest/api-reference/scroll/</para></summary>
         /// <param name="body">Comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

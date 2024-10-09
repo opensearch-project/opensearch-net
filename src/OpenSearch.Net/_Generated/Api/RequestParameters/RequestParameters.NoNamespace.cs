@@ -139,6 +139,108 @@ namespace OpenSearch.Net
         }
     }
 
+    /// <summary>Request options for BulkStream <para>https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</para></summary>
+    public partial class BulkStreamRequestParameters
+        : RequestParameters<BulkStreamRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+        public override bool SupportsBody => true;
+
+        /// <summary>Specifies for how long bulk operations should be accumulated into a batch before sending the batch to data nodes.</summary>
+        public TimeSpan BatchInterval
+        {
+            get => Q<TimeSpan>("batch_interval");
+            set => Q("batch_interval", value);
+        }
+
+        /// <summary>Specifies how many bulk operations should be accumulated into a batch before sending the batch to data nodes.</summary>
+        public long? BatchSize
+        {
+            get => Q<long?>("batch_size");
+            set => Q("batch_size", value);
+        }
+
+        /// <summary>
+        /// ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value
+        /// to `_none` disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of the
+        /// value of this parameter.
+        /// </summary>
+        public string Pipeline
+        {
+            get => Q<string>("pipeline");
+            set => Q("pipeline", value);
+        }
+
+        /// <summary>
+        /// If `true`, OpenSearch refreshes the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh to
+        /// make this operation visible to search, if `false` do nothing with refreshes. Valid values: `true`, `false`, `wait_for`.
+        /// </summary>
+        public Refresh? Refresh
+        {
+            get => Q<Refresh?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>If `true`, the request's actions must target an index alias.</summary>
+        public bool? RequireAlias
+        {
+            get => Q<bool?>("require_alias");
+            set => Q("require_alias", value);
+        }
+
+        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        public string[] Routing
+        {
+            get => Q<string[]>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>`true` or `false` to return the `_source` field or not, or a list of fields to return.</summary>
+        public bool? SourceEnabled
+        {
+            get => Q<bool?>("_source");
+            set => Q("_source", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to exclude from the response.</summary>
+        public string[] SourceExcludes
+        {
+            get => Q<string[]>("_source_excludes");
+            set => Q("_source_excludes", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public string[] SourceIncludes
+        {
+            get => Q<string[]>("_source_includes");
+            set => Q("_source_includes", value);
+        }
+
+        /// <summary>Period each action waits for the following operations: automatic index creation, dynamic mapping updates, waiting for active shards.</summary>
+        public TimeSpan Timeout
+        {
+            get => Q<TimeSpan>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>Default document type for items which don't provide one.</summary>
+        public string Type
+        {
+            get => Q<string>("type");
+            set => Q("type", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to all or any positive integer up to the total
+        /// number of shards in the index (`number_of_replicas+1`).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+    }
+
     /// <summary>Request options for ClearScroll <para>https://opensearch.org/docs/latest/api-reference/scroll/</para></summary>
     public partial class ClearScrollRequestParameters
         : RequestParameters<ClearScrollRequestParameters>
