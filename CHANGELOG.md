@@ -34,6 +34,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Fake.Tools.Git` from 6.1.0 to 6.1.3
 - Bumps `CSharpier.Core` from 0.29.1 to 0.29.2
 - Bumps `Proc` from 0.8.1 to 0.8.2
+- Bumps `System.Text.Json` from 8.0.4 to 8.0.5
 
 ## [1.8.0]
 ### Added
