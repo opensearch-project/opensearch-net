@@ -28142,6 +28142,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.BulkStreamRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.BulkStreamRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.ByteUnit.yml",
       "output": {
         ".html": {
@@ -31212,6 +31222,36 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.MlApi.CreateConnectorRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.MlApi.CreateConnectorRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.MlApi.DeleteAgentRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.MlApi.DeleteAgentRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.MlApi.DeleteConnectorRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.MlApi.DeleteConnectorRequestParameters.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.MlApi.DeleteModelGroupRequestParameters.yml",
       "output": {
         ".html": {
@@ -31276,6 +31316,16 @@
       "output": {
         ".html": {
           "relative_path": "api/OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.MlApi.RegisterAgentsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.MlApi.RegisterAgentsRequestParameters.html"
         }
       },
       "version": ""

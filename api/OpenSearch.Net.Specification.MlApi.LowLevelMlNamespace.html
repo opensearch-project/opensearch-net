@@ -145,10 +145,439 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteModelAsync__1_System_String_OpenSearch_Net_Specification_MlApi_DeleteModelRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteModelAsync%60%601(System.String%2COpenSearch.Net.Specification.MlApi.DeleteModelRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_CreateConnectorAsync__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_CreateConnectorRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.CreateConnectorAsync%60%601(OpenSearch.Net.PostData%2COpenSearch.Net.Specification.MlApi.CreateConnectorRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L90">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_CreateConnectorAsync_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.CreateConnectorAsync*"></a>
+  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_CreateConnectorAsync__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_CreateConnectorRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.CreateConnectorAsync``1(OpenSearch.Net.PostData,OpenSearch.Net.Specification.MlApi.CreateConnectorRequestParameters,System.Threading.CancellationToken)">CreateConnectorAsync&lt;TResponse&gt;(PostData, CreateConnectorRequestParameters, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>POST on /_plugins/_ml/connectors/_create</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; CreateConnectorAsync&lt;TResponse&gt;(PostData body, CreateConnectorRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.PostData.html">PostData</a></td>
+        <td><span class="parametername">body</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.Specification.MlApi.CreateConnectorRequestParameters.html">CreateConnectorRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">ctx</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TResponse&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_CreateConnector__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_CreateConnectorRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.CreateConnector%60%601(OpenSearch.Net.PostData%2COpenSearch.Net.Specification.MlApi.CreateConnectorRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L75">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_CreateConnector_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.CreateConnector*"></a>
+  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_CreateConnector__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_CreateConnectorRequestParameters_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.CreateConnector``1(OpenSearch.Net.PostData,OpenSearch.Net.Specification.MlApi.CreateConnectorRequestParameters)">CreateConnector&lt;TResponse&gt;(PostData, CreateConnectorRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>POST on /_plugins/_ml/connectors/_create</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResponse CreateConnector&lt;TResponse&gt;(PostData body, CreateConnectorRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.PostData.html">PostData</a></td>
+        <td><span class="parametername">body</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.Specification.MlApi.CreateConnectorRequestParameters.html">CreateConnectorRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteAgentAsync__1_System_String_OpenSearch_Net_Specification_MlApi_DeleteAgentRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteAgentAsync%60%601(System.String%2COpenSearch.Net.Specification.MlApi.DeleteAgentRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L123">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteAgentAsync_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteAgentAsync*"></a>
+  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteAgentAsync__1_System_String_OpenSearch_Net_Specification_MlApi_DeleteAgentRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteAgentAsync``1(System.String,OpenSearch.Net.Specification.MlApi.DeleteAgentRequestParameters,System.Threading.CancellationToken)">DeleteAgentAsync&lt;TResponse&gt;(string, DeleteAgentRequestParameters, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>DELETE on /_plugins/_ml/agents/{agent_id}</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; DeleteAgentAsync&lt;TResponse&gt;(string agentId, DeleteAgentRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">agentId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.Specification.MlApi.DeleteAgentRequestParameters.html">DeleteAgentRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">ctx</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TResponse&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteAgent__1_System_String_OpenSearch_Net_Specification_MlApi_DeleteAgentRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteAgent%60%601(System.String%2COpenSearch.Net.Specification.MlApi.DeleteAgentRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L108">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteAgent_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteAgent*"></a>
+  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteAgent__1_System_String_OpenSearch_Net_Specification_MlApi_DeleteAgentRequestParameters_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteAgent``1(System.String,OpenSearch.Net.Specification.MlApi.DeleteAgentRequestParameters)">DeleteAgent&lt;TResponse&gt;(string, DeleteAgentRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>DELETE on /_plugins/_ml/agents/{agent_id}</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResponse DeleteAgent&lt;TResponse&gt;(string agentId, DeleteAgentRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">agentId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.Specification.MlApi.DeleteAgentRequestParameters.html">DeleteAgentRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteConnectorAsync__1_System_String_OpenSearch_Net_Specification_MlApi_DeleteConnectorRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteConnectorAsync%60%601(System.String%2COpenSearch.Net.Specification.MlApi.DeleteConnectorRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L156">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteConnectorAsync_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteConnectorAsync*"></a>
+  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteConnectorAsync__1_System_String_OpenSearch_Net_Specification_MlApi_DeleteConnectorRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteConnectorAsync``1(System.String,OpenSearch.Net.Specification.MlApi.DeleteConnectorRequestParameters,System.Threading.CancellationToken)">DeleteConnectorAsync&lt;TResponse&gt;(string, DeleteConnectorRequestParameters, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>DELETE on /_plugins/_ml/connectors/{connector_id}</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; DeleteConnectorAsync&lt;TResponse&gt;(string connectorId, DeleteConnectorRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">connectorId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.Specification.MlApi.DeleteConnectorRequestParameters.html">DeleteConnectorRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">ctx</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TResponse&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteConnector__1_System_String_OpenSearch_Net_Specification_MlApi_DeleteConnectorRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteConnector%60%601(System.String%2COpenSearch.Net.Specification.MlApi.DeleteConnectorRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L141">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteConnector_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteConnector*"></a>
+  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteConnector__1_System_String_OpenSearch_Net_Specification_MlApi_DeleteConnectorRequestParameters_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteConnector``1(System.String,OpenSearch.Net.Specification.MlApi.DeleteConnectorRequestParameters)">DeleteConnector&lt;TResponse&gt;(string, DeleteConnectorRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>DELETE on /_plugins/_ml/connectors/{connector_id}</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResponse DeleteConnector&lt;TResponse&gt;(string connectorId, DeleteConnectorRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">connectorId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.Specification.MlApi.DeleteConnectorRequestParameters.html">DeleteConnectorRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteModelAsync__1_System_String_OpenSearch_Net_Specification_MlApi_DeleteModelRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteModelAsync%60%601(System.String%2COpenSearch.Net.Specification.MlApi.DeleteModelRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L189">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteModelAsync_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteModelAsync*"></a>
   <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteModelAsync__1_System_String_OpenSearch_Net_Specification_MlApi_DeleteModelRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteModelAsync``1(System.String,OpenSearch.Net.Specification.MlApi.DeleteModelRequestParameters,System.Threading.CancellationToken)">DeleteModelAsync&lt;TResponse&gt;(string, DeleteModelRequestParameters, CancellationToken)</h4>
@@ -222,7 +651,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteModelGroupAsync__1_System_String_OpenSearch_Net_Specification_MlApi_DeleteModelGroupRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteModelGroupAsync%60%601(System.String%2COpenSearch.Net.Specification.MlApi.DeleteModelGroupRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L123">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L222">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteModelGroupAsync_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteModelGroupAsync*"></a>
   <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteModelGroupAsync__1_System_String_OpenSearch_Net_Specification_MlApi_DeleteModelGroupRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteModelGroupAsync``1(System.String,OpenSearch.Net.Specification.MlApi.DeleteModelGroupRequestParameters,System.Threading.CancellationToken)">DeleteModelGroupAsync&lt;TResponse&gt;(string, DeleteModelGroupRequestParameters, CancellationToken)</h4>
@@ -296,7 +725,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteModelGroup__1_System_String_OpenSearch_Net_Specification_MlApi_DeleteModelGroupRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteModelGroup%60%601(System.String%2COpenSearch.Net.Specification.MlApi.DeleteModelGroupRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L108">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L207">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteModelGroup_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteModelGroup*"></a>
   <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteModelGroup__1_System_String_OpenSearch_Net_Specification_MlApi_DeleteModelGroupRequestParameters_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteModelGroup``1(System.String,OpenSearch.Net.Specification.MlApi.DeleteModelGroupRequestParameters)">DeleteModelGroup&lt;TResponse&gt;(string, DeleteModelGroupRequestParameters)</h4>
@@ -365,7 +794,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteModel__1_System_String_OpenSearch_Net_Specification_MlApi_DeleteModelRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteModel%60%601(System.String%2COpenSearch.Net.Specification.MlApi.DeleteModelRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L75">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L174">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteModel_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteModel*"></a>
   <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteModel__1_System_String_OpenSearch_Net_Specification_MlApi_DeleteModelRequestParameters_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteModel``1(System.String,OpenSearch.Net.Specification.MlApi.DeleteModelRequestParameters)">DeleteModel&lt;TResponse&gt;(string, DeleteModelRequestParameters)</h4>
@@ -434,7 +863,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteTaskAsync__1_System_String_OpenSearch_Net_Specification_MlApi_DeleteTaskRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteTaskAsync%60%601(System.String%2COpenSearch.Net.Specification.MlApi.DeleteTaskRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L156">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L255">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteTaskAsync_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteTaskAsync*"></a>
   <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteTaskAsync__1_System_String_OpenSearch_Net_Specification_MlApi_DeleteTaskRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteTaskAsync``1(System.String,OpenSearch.Net.Specification.MlApi.DeleteTaskRequestParameters,System.Threading.CancellationToken)">DeleteTaskAsync&lt;TResponse&gt;(string, DeleteTaskRequestParameters, CancellationToken)</h4>
@@ -508,7 +937,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteTask__1_System_String_OpenSearch_Net_Specification_MlApi_DeleteTaskRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteTask%60%601(System.String%2COpenSearch.Net.Specification.MlApi.DeleteTaskRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L141">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L240">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteTask_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteTask*"></a>
   <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeleteTask__1_System_String_OpenSearch_Net_Specification_MlApi_DeleteTaskRequestParameters_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeleteTask``1(System.String,OpenSearch.Net.Specification.MlApi.DeleteTaskRequestParameters)">DeleteTask&lt;TResponse&gt;(string, DeleteTaskRequestParameters)</h4>
@@ -577,7 +1006,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeployModelAsync__1_System_String_OpenSearch_Net_Specification_MlApi_DeployModelRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeployModelAsync%60%601(System.String%2COpenSearch.Net.Specification.MlApi.DeployModelRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L189">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L288">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeployModelAsync_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeployModelAsync*"></a>
   <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeployModelAsync__1_System_String_OpenSearch_Net_Specification_MlApi_DeployModelRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeployModelAsync``1(System.String,OpenSearch.Net.Specification.MlApi.DeployModelRequestParameters,System.Threading.CancellationToken)">DeployModelAsync&lt;TResponse&gt;(string, DeployModelRequestParameters, CancellationToken)</h4>
@@ -651,7 +1080,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeployModel__1_System_String_OpenSearch_Net_Specification_MlApi_DeployModelRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeployModel%60%601(System.String%2COpenSearch.Net.Specification.MlApi.DeployModelRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L174">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L273">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeployModel_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeployModel*"></a>
   <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_DeployModel__1_System_String_OpenSearch_Net_Specification_MlApi_DeployModelRequestParameters_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.DeployModel``1(System.String,OpenSearch.Net.Specification.MlApi.DeployModelRequestParameters)">DeployModel&lt;TResponse&gt;(string, DeployModelRequestParameters)</h4>
@@ -720,7 +1149,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetModelGroupAsync__1_System_String_OpenSearch_Net_Specification_MlApi_GetModelGroupRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetModelGroupAsync%60%601(System.String%2COpenSearch.Net.Specification.MlApi.GetModelGroupRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L222">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L321">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetModelGroupAsync_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetModelGroupAsync*"></a>
   <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetModelGroupAsync__1_System_String_OpenSearch_Net_Specification_MlApi_GetModelGroupRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetModelGroupAsync``1(System.String,OpenSearch.Net.Specification.MlApi.GetModelGroupRequestParameters,System.Threading.CancellationToken)">GetModelGroupAsync&lt;TResponse&gt;(string, GetModelGroupRequestParameters, CancellationToken)</h4>
@@ -794,7 +1223,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetModelGroup__1_System_String_OpenSearch_Net_Specification_MlApi_GetModelGroupRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetModelGroup%60%601(System.String%2COpenSearch.Net.Specification.MlApi.GetModelGroupRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L207">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L306">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetModelGroup_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetModelGroup*"></a>
   <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetModelGroup__1_System_String_OpenSearch_Net_Specification_MlApi_GetModelGroupRequestParameters_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetModelGroup``1(System.String,OpenSearch.Net.Specification.MlApi.GetModelGroupRequestParameters)">GetModelGroup&lt;TResponse&gt;(string, GetModelGroupRequestParameters)</h4>
@@ -863,7 +1292,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetTaskAsync__1_System_String_OpenSearch_Net_Specification_MlApi_GetTaskRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetTaskAsync%60%601(System.String%2COpenSearch.Net.Specification.MlApi.GetTaskRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L255">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L354">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetTaskAsync_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetTaskAsync*"></a>
   <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetTaskAsync__1_System_String_OpenSearch_Net_Specification_MlApi_GetTaskRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetTaskAsync``1(System.String,OpenSearch.Net.Specification.MlApi.GetTaskRequestParameters,System.Threading.CancellationToken)">GetTaskAsync&lt;TResponse&gt;(string, GetTaskRequestParameters, CancellationToken)</h4>
@@ -937,7 +1366,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetTask__1_System_String_OpenSearch_Net_Specification_MlApi_GetTaskRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetTask%60%601(System.String%2COpenSearch.Net.Specification.MlApi.GetTaskRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L240">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L339">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetTask_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetTask*"></a>
   <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetTask__1_System_String_OpenSearch_Net_Specification_MlApi_GetTaskRequestParameters_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetTask``1(System.String,OpenSearch.Net.Specification.MlApi.GetTaskRequestParameters)">GetTask&lt;TResponse&gt;(string, GetTaskRequestParameters)</h4>
@@ -1003,10 +1432,153 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_RegisterAgentsAsync__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_RegisterAgentsRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.RegisterAgentsAsync%60%601(OpenSearch.Net.PostData%2COpenSearch.Net.Specification.MlApi.RegisterAgentsRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L387">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_RegisterAgentsAsync_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.RegisterAgentsAsync*"></a>
+  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_RegisterAgentsAsync__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_RegisterAgentsRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.RegisterAgentsAsync``1(OpenSearch.Net.PostData,OpenSearch.Net.Specification.MlApi.RegisterAgentsRequestParameters,System.Threading.CancellationToken)">RegisterAgentsAsync&lt;TResponse&gt;(PostData, RegisterAgentsRequestParameters, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>POST on /_plugins/_ml/agents/_register</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; RegisterAgentsAsync&lt;TResponse&gt;(PostData body, RegisterAgentsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.PostData.html">PostData</a></td>
+        <td><span class="parametername">body</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.Specification.MlApi.RegisterAgentsRequestParameters.html">RegisterAgentsRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken">CancellationToken</a></td>
+        <td><span class="parametername">ctx</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;TResponse&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_RegisterAgents__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_RegisterAgentsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.RegisterAgents%60%601(OpenSearch.Net.PostData%2COpenSearch.Net.Specification.MlApi.RegisterAgentsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L372">View Source</a>
+  </span>
+  <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_RegisterAgents_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.RegisterAgents*"></a>
+  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_RegisterAgents__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_RegisterAgentsRequestParameters_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.RegisterAgents``1(OpenSearch.Net.PostData,OpenSearch.Net.Specification.MlApi.RegisterAgentsRequestParameters)">RegisterAgents&lt;TResponse&gt;(PostData, RegisterAgentsRequestParameters)</h4>
+  <div class="markdown level1 summary"><p>POST on /_plugins/_ml/agents/_register</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TResponse RegisterAgents&lt;TResponse&gt;(PostData body, RegisterAgentsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.PostData.html">PostData</a></td>
+        <td><span class="parametername">body</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Net.Specification.MlApi.RegisterAgentsRequestParameters.html">RegisterAgentsRequestParameters</a></td>
+        <td><span class="parametername">requestParameters</span></td>
+        <td><p>Request specific configuration such as querystring parameters &amp; request specific connection settings.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_RegisterModelAsync__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_RegisterModelRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.RegisterModelAsync%60%601(OpenSearch.Net.PostData%2COpenSearch.Net.Specification.MlApi.RegisterModelRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L288">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L420">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_RegisterModelAsync_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.RegisterModelAsync*"></a>
   <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_RegisterModelAsync__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_RegisterModelRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.RegisterModelAsync``1(OpenSearch.Net.PostData,OpenSearch.Net.Specification.MlApi.RegisterModelRequestParameters,System.Threading.CancellationToken)">RegisterModelAsync&lt;TResponse&gt;(PostData, RegisterModelRequestParameters, CancellationToken)</h4>
@@ -1080,7 +1652,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_RegisterModelGroupAsync__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_RegisterModelGroupRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.RegisterModelGroupAsync%60%601(OpenSearch.Net.PostData%2COpenSearch.Net.Specification.MlApi.RegisterModelGroupRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L321">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L453">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_RegisterModelGroupAsync_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.RegisterModelGroupAsync*"></a>
   <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_RegisterModelGroupAsync__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_RegisterModelGroupRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.RegisterModelGroupAsync``1(OpenSearch.Net.PostData,OpenSearch.Net.Specification.MlApi.RegisterModelGroupRequestParameters,System.Threading.CancellationToken)">RegisterModelGroupAsync&lt;TResponse&gt;(PostData, RegisterModelGroupRequestParameters, CancellationToken)</h4>
@@ -1154,7 +1726,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_RegisterModelGroup__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_RegisterModelGroupRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.RegisterModelGroup%60%601(OpenSearch.Net.PostData%2COpenSearch.Net.Specification.MlApi.RegisterModelGroupRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L306">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L438">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_RegisterModelGroup_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.RegisterModelGroup*"></a>
   <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_RegisterModelGroup__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_RegisterModelGroupRequestParameters_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.RegisterModelGroup``1(OpenSearch.Net.PostData,OpenSearch.Net.Specification.MlApi.RegisterModelGroupRequestParameters)">RegisterModelGroup&lt;TResponse&gt;(PostData, RegisterModelGroupRequestParameters)</h4>
@@ -1223,7 +1795,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_RegisterModel__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_RegisterModelRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.RegisterModel%60%601(OpenSearch.Net.PostData%2COpenSearch.Net.Specification.MlApi.RegisterModelRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L273">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L405">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_RegisterModel_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.RegisterModel*"></a>
   <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_RegisterModel__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_RegisterModelRequestParameters_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.RegisterModel``1(OpenSearch.Net.PostData,OpenSearch.Net.Specification.MlApi.RegisterModelRequestParameters)">RegisterModel&lt;TResponse&gt;(PostData, RegisterModelRequestParameters)</h4>
@@ -1292,7 +1864,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_SearchModelsAsync__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_SearchModelsRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.SearchModelsAsync%60%601(OpenSearch.Net.PostData%2COpenSearch.Net.Specification.MlApi.SearchModelsRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L354">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L486">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_SearchModelsAsync_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.SearchModelsAsync*"></a>
   <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_SearchModelsAsync__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_SearchModelsRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.SearchModelsAsync``1(OpenSearch.Net.PostData,OpenSearch.Net.Specification.MlApi.SearchModelsRequestParameters,System.Threading.CancellationToken)">SearchModelsAsync&lt;TResponse&gt;(PostData, SearchModelsRequestParameters, CancellationToken)</h4>
@@ -1366,7 +1938,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_SearchModels__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_SearchModelsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.SearchModels%60%601(OpenSearch.Net.PostData%2COpenSearch.Net.Specification.MlApi.SearchModelsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L339">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L471">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_SearchModels_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.SearchModels*"></a>
   <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_SearchModels__1_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_SearchModelsRequestParameters_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.SearchModels``1(OpenSearch.Net.PostData,OpenSearch.Net.Specification.MlApi.SearchModelsRequestParameters)">SearchModels&lt;TResponse&gt;(PostData, SearchModelsRequestParameters)</h4>
@@ -1435,7 +2007,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_UndeployModelAsync__1_System_String_OpenSearch_Net_Specification_MlApi_UndeployModelRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.UndeployModelAsync%60%601(System.String%2COpenSearch.Net.Specification.MlApi.UndeployModelRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L387">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L519">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_UndeployModelAsync_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.UndeployModelAsync*"></a>
   <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_UndeployModelAsync__1_System_String_OpenSearch_Net_Specification_MlApi_UndeployModelRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.UndeployModelAsync``1(System.String,OpenSearch.Net.Specification.MlApi.UndeployModelRequestParameters,System.Threading.CancellationToken)">UndeployModelAsync&lt;TResponse&gt;(string, UndeployModelRequestParameters, CancellationToken)</h4>
@@ -1509,7 +2081,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_UndeployModel__1_System_String_OpenSearch_Net_Specification_MlApi_UndeployModelRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.UndeployModel%60%601(System.String%2COpenSearch.Net.Specification.MlApi.UndeployModelRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L372">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L504">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_UndeployModel_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.UndeployModel*"></a>
   <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_UndeployModel__1_System_String_OpenSearch_Net_Specification_MlApi_UndeployModelRequestParameters_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.UndeployModel``1(System.String,OpenSearch.Net.Specification.MlApi.UndeployModelRequestParameters)">UndeployModel&lt;TResponse&gt;(string, UndeployModelRequestParameters)</h4>
