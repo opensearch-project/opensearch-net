@@ -29,7 +29,7 @@
   </ItemGroup>
  
   <ItemGroup>
-    <PackageReference Update="FSharp.Core" Version="8.0.400" />
+    <PackageReference Update="FSharp.Core" Version="8.0.401" />
     
     <PackageReference Include="Argu" Version="6.2.4" />
     <PackageReference Include="FSharp.Data" Version="6.4.0" />
