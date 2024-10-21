@@ -124,7 +124,7 @@ namespace ApiGenerator.Generator
 				{
 					Name = CsharpNames.GetEnumName(kvp.Key),
 					IsFlag = kvp.Value,
-					Options = document.Components.Schemas[kvp.Key].Enumeration.Where(e => e != null).Select(e => e.ToString()).ToImmutableList()
+					Options = document.Components.Schemas[kvp.Key].GetEnumValues()
 				})
 				.OrderBy(e => e.Name)
 				.ToImmutableList();

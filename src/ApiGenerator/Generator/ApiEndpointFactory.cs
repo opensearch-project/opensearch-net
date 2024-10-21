@@ -139,9 +139,7 @@ namespace ApiGenerator.Generator
 
             Body body = null;
             if (variants.Select(v => v.Operation.RequestBody).FirstOrDefault() is { } requestBody)
-            {
                 body = new Body { Description = GetDescription(requestBody)?.SanitizeDescription(), Required = requestBody.IsRequired };
-            }
 
             return new ApiEndpoint
             {
@@ -175,11 +173,11 @@ namespace ApiGenerator.Generator
                 List<PathParameter> paramCombo
             )
             {
-                if (i == paramCount) return new[] { (variantHttpPath, paramCombo) };
+                if (i == paramCount) return [(variantHttpPath, paramCombo)];
 
                 var originalParameter = pathParams[i];
                 var overloads = !originalParameter.IsOverloaded()
-                    ? new[] { (variantHttpPath, new PathParameter(originalParameter)) }
+                    ? [(variantHttpPath, new PathParameter(originalParameter))]
                     : originalParameter.Schema.AnyOf
                         .Select(overload =>
                             (
@@ -188,7 +186,7 @@ namespace ApiGenerator.Generator
                             )
                         );
 
-                return overloads.SelectMany(o => GenerateVariants(o.HttpPath, i + 1, new List<PathParameter>(paramCombo) { o.PathParameter }));
+                return overloads.SelectMany(o => GenerateVariants(o.HttpPath, i + 1, [..paramCombo, o.PathParameter]));
             }
         }
 
@@ -227,36 +225,31 @@ namespace ApiGenerator.Generator
             var schemaKey = ((IJsonReference)schema).ReferencePath?.Split('/').Last();
             schema = schema.ActualSchema;
 
+            if (schemaKey != null && schema.IsEnum())
+            {
+                trackEnumToGenerate(schemaKey, isListContext);
+                return CsharpNames.GetEnumName(schemaKey) + "?";
+            }
+
             if (schema.OneOf.Count > 0 || schema.AnyOf.Count > 0)
             {
                 var oneOf = (schema.OneOf.Count > 0 ? schema.OneOf : schema.AnyOf).ToArray();
 
-                if (oneOf.Length == 2)
+                if (oneOf.Length != 2) throw new Exception("Unable to determine type of oneOf");
+
+                var first = GetOpenSearchType(oneOf[0], trackEnumToGenerate);
+                var second = GetOpenSearchType(oneOf[1], trackEnumToGenerate);
+                if (first.EndsWith("?")) return first;
+                if (first == second) return first;
+
+                return (first, second) switch
                 {
-                    var first = GetOpenSearchType(oneOf[0], trackEnumToGenerate);
-                    var second = GetOpenSearchType(oneOf[1], trackEnumToGenerate);
-                    if (first.EndsWith("?")) return first;
-                    if (first == second) return first;
-
-                    return (first, second) switch
-                    {
-                        (_, "list") => second,
-                        ("boolean", "string") => first,
-                        ("number", _) => "string",
-                        (_, "number") => "string",
-                        (_, _) => throw new Exception($"Unable to determine type of: {first} and {second}")
-                    };
-                }
-
-                throw new Exception("Unable to determine type of oneOf");
-            }
-
-            var enumOptions = schema.Enumeration.Where(e => e != null).Select(e => e.ToString()).ToList();
-
-            if (schemaKey != null && schema.Type == JsonObjectType.String && enumOptions.Count > 0)
-            {
-                trackEnumToGenerate(schemaKey, isListContext);
-                return CsharpNames.GetEnumName(schemaKey) + "?";
+                    (_, "list") => second,
+                    ("boolean", "string") => first,
+                    ("number", _) => "string",
+                    (_, "number") => "string",
+                    (_, _) => throw new Exception($"Unable to determine type of: {first} and {second}")
+                };
             }
 
             if (schema.Type == JsonObjectType.Array && (schema.Item?.HasReference ?? false))
@@ -340,8 +333,5 @@ namespace ApiGenerator.Generator
                 2 => new Version($"{s}.0"),
                 _ => new Version(s),
             };
-
-        private static object GetExtension(this IJsonExtensionObject schema, string key) =>
-            schema.ExtensionData?.TryGetValue(key, out var value) ?? false ? value : null;
     }
 }
