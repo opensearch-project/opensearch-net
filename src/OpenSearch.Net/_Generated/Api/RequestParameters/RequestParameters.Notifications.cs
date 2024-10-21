@@ -114,6 +114,20 @@ namespace OpenSearch.Net.Specification.NotificationsApi
             set => Q("chime.url.keyword", value);
         }
 
+        /// <summary>Notification configuration ID.</summary>
+        public string ConfigId
+        {
+            get => Q<string>("config_id");
+            set => Q("config_id", value);
+        }
+
+        /// <summary>Notification configuration IDs.</summary>
+        public string[] ConfigIdList
+        {
+            get => Q<string[]>("config_id_list");
+            set => Q("config_id_list", value);
+        }
+
         /// <summary>Type of notification configuration.</summary>
         public NotificationsNotificationConfigType? ConfigType
         {
