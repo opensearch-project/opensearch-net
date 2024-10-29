@@ -11,6 +11,7 @@
   <ItemGroup>
     <PackageReference Include="CSharpier.Core" Version="0.29.2" />
     <PackageReference Include="Glob" Version="1.1.9" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="8.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="NSwag.Core" Version="14.1.0" />
     <PackageReference Include="YamlDotNet" Version="16.1.3" />

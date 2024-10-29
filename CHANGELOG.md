@@ -38,6 +38,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `JunitXml.TestLogger` from 4.0.254 to 4.1.0
 - Bumps `FSharp.Core` from 8.0.400 to 8.0.401
 - Bumps `JetBrains.Annotations` from 2024.2.0 to 2024.3.0
+- Bumps `Microsoft.Extensions.Caching.Memory` from 6.0.0 to 8.0.1
 
 ## [1.8.0]
 ### Added
