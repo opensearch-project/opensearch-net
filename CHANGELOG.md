@@ -6,7 +6,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Dependencies
 - Bumps `YamlDotNet` from 16.0.0 to 16.1.3
-- Bumps `AWSSDK.Core` from 3.7.400.11 to 3.7.400.40
+- Bumps `AWSSDK.Core` from 3.7.400.11 to 3.7.400.45
 - Bumps `Fake.Core.SemVer` from 6.1.0 to 6.1.3
 - Bumps `Bogus` from 35.6.0 to 35.6.1
 - Bumps `Fake.Core.Environment` from 6.1.0 to 6.1.3
