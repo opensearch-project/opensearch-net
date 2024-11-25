@@ -72,7 +72,7 @@ namespace Tests.Document.Multiple.ReindexOnServer
 				.Pipeline($"{Pipeline}")
 			)
 			.Conflicts(Conflicts.Proceed)
-			.Refresh();
+			.Refresh(Refresh.True);
 
 		protected override HttpMethod HttpMethod => HttpMethod.POST;
 
@@ -88,14 +88,14 @@ namespace Tests.Document.Multiple.ReindexOnServer
 				Pipeline = $"{Pipeline}"
 			},
 			Conflicts = Conflicts.Proceed,
-			Refresh = true,
+			Refresh = Refresh.True,
 		};
 
-		protected virtual string Pipeline { get; } = "pipeline-id";
+		protected virtual string Pipeline => "pipeline-id";
 
-		protected override bool SupportsDeserialization => false;
+        protected override bool SupportsDeserialization => false;
 
-		protected override string UrlPath => $"/_reindex?refresh=true";
+		protected override string UrlPath => "/_reindex?refresh=true";
 
 		protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
 		{

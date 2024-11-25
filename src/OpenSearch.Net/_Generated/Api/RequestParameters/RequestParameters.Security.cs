@@ -356,7 +356,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>A boolean flag to include/exclude static nodes DN from final result.</summary>
+        /// <summary>A Boolean flag to include/exclude static nodes DN from final result.</summary>
         public bool? ShowAll
         {
             get => Q<bool?>("show_all");
@@ -371,7 +371,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>A boolean flag to include/exclude static nodes DN from final result.</summary>
+        /// <summary>A Boolean flag to include/exclude static nodes DN from final result.</summary>
         public bool? ShowAll
         {
             get => Q<bool?>("show_all");
@@ -446,7 +446,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>A boolean flag to indicate whether all domain names should be returned.</summary>
+        /// <summary>A Boolean flag to indicate whether all domain names should be returned.</summary>
         public string ShowDn
         {
             get => Q<string>("show_dn");
@@ -515,7 +515,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
 
         /// <summary>
         /// A flag to indicate whether service should consider security-plugin's status before returning health response. `strict` mode indicates
-        /// service should check security plugin status.
+        /// service should check Security plugin status.
         /// </summary>
         public string Mode
         {
@@ -711,7 +711,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>A boolean flag to indicate whether invalid v6 configuration should be allowed.</summary>
+        /// <summary>A Boolean flag to indicate whether invalid v6 configuration should be allowed.</summary>
         public bool? AcceptInvalid
         {
             get => Q<bool?>("accept_invalid");

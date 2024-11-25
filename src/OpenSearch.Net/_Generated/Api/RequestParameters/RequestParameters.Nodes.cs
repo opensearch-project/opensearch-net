@@ -73,7 +73,7 @@ namespace OpenSearch.Net.Specification.NodesApi
             set => Q("interval", value);
         }
 
-        /// <summary>Number of samples of thread stacktrace.</summary>
+        /// <summary>Number of samples of thread stack trace.</summary>
         public long? Snapshots
         {
             get => Q<long?>("snapshots");
@@ -108,7 +108,7 @@ namespace OpenSearch.Net.Specification.NodesApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>If true, returns settings in flat format.</summary>
+        /// <summary>If `true`, returns settings in flat format.</summary>
         public bool? FlatSettings
         {
             get => Q<bool?>("flat_settings");
@@ -145,14 +145,14 @@ namespace OpenSearch.Net.Specification.NodesApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata and suggest statistics.</summary>
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
         public string[] CompletionFields
         {
             get => Q<string[]>("completion_fields");
             set => Q("completion_fields", value);
         }
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata statistics.</summary>
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data statistics.</summary>
         public string[] FielddataFields
         {
             get => Q<string[]>("fielddata_fields");
@@ -173,7 +173,7 @@ namespace OpenSearch.Net.Specification.NodesApi
             set => Q("groups", value);
         }
 
-        /// <summary>If true, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
+        /// <summary>If `true`, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
         public bool? IncludeSegmentFileSizes
         {
             get => Q<bool?>("include_segment_file_sizes");

@@ -256,8 +256,8 @@ namespace OpenSearch.Net
         public override bool SupportsBody => true;
 
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
-        /// This behavior applies even if the request targets other open indices.
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -309,7 +309,7 @@ namespace OpenSearch.Net
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `true`, concrete, expanded or aliased indices are ignored when frozen.</summary>
+        /// <summary>If `true`, concrete, expanded or aliased indexes are ignored when frozen.</summary>
         public bool? IgnoreThrottled
         {
             get => Q<bool?>("ignore_throttled");
@@ -451,7 +451,7 @@ namespace OpenSearch.Net
             set => Q("allow_partial_pit_creation", value);
         }
 
-        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        /// <summary>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
@@ -568,8 +568,8 @@ namespace OpenSearch.Net
         public override bool SupportsBody => true;
 
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
-        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an
         /// index starts with `foo` but no index starts with `bar`.
         /// </summary>
         public bool? AllowNoIndices
@@ -660,9 +660,9 @@ namespace OpenSearch.Net
         }
 
         /// <summary>If `true`, OpenSearch refreshes all shards involved in the delete by query after the request completes.</summary>
-        public bool? Refresh
+        public Refresh? Refresh
         {
-            get => Q<bool?>("refresh");
+            get => Q<Refresh?>("refresh");
             set => Q("refresh", value);
         }
 
@@ -715,7 +715,7 @@ namespace OpenSearch.Net
             set => Q("search_type", value);
         }
 
-        /// <summary>Deprecated, please use `max_docs` instead.</summary>
+        /// <summary>Deprecated, use `max_docs` instead.</summary>
         public long? Size
         {
             get => Q<long?>("size");
@@ -729,21 +729,21 @@ namespace OpenSearch.Net
             set => Q("sort", value);
         }
 
-        /// <summary>True or false to return the _source field or not, or a list of fields to return.</summary>
+        /// <summary>Set to `true` or `false` to return the `_source` field or not, or a list of fields to return.</summary>
         public bool? SourceEnabled
         {
             get => Q<bool?>("_source");
             set => Q("_source", value);
         }
 
-        /// <summary>List of fields to exclude from the returned _source field.</summary>
+        /// <summary>List of fields to exclude from the returned `_source` field.</summary>
         public string[] SourceExcludes
         {
             get => Q<string[]>("_source_excludes");
             set => Q("_source_excludes", value);
         }
 
-        /// <summary>List of fields to extract and return from the _source field.</summary>
+        /// <summary>List of fields to extract and return from the `_source` field.</summary>
         public string[] SourceIncludes
         {
             get => Q<string[]>("_source_includes");
@@ -761,7 +761,7 @@ namespace OpenSearch.Net
         /// Maximum number of documents to collect for each shard. If a query reaches this limit, OpenSearch terminates the query early. OpenSearch
         /// collects documents before sorting. Use with caution. OpenSearch applies this parameter to each shard handling the request. When possible,
         /// let OpenSearch perform early termination automatically. Avoid specifying this parameter for requests that target data streams with backing
-        /// indices across multiple data tiers.
+        /// indexes across multiple data tiers.
         /// </summary>
         public long? TerminateAfter
         {
@@ -839,11 +839,11 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -881,9 +881,9 @@ namespace OpenSearch.Net
         }
 
         /// <summary>If `true`, OpenSearch refreshes all shards involved in the delete by query after the request completes.</summary>
-        public bool? Refresh
+        public Refresh? Refresh
         {
-            get => Q<bool?>("refresh");
+            get => Q<Refresh?>("refresh");
             set => Q("refresh", value);
         }
 
@@ -957,7 +957,7 @@ namespace OpenSearch.Net
             set => Q("preference", value);
         }
 
-        /// <summary>If true, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If `true`, the request is real-time as opposed to near-real-time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
@@ -965,9 +965,9 @@ namespace OpenSearch.Net
         }
 
         /// <summary>If `true`, OpenSearch refreshes all shards involved in the delete by query after the request completes.</summary>
-        public bool? Refresh
+        public Refresh? Refresh
         {
-            get => Q<bool?>("refresh");
+            get => Q<Refresh?>("refresh");
             set => Q("refresh", value);
         }
 
@@ -1079,7 +1079,7 @@ namespace OpenSearch.Net
             set => Q("routing", value);
         }
 
-        /// <summary>True or false to return the `_source` field or not, or a list of fields to return.</summary>
+        /// <summary>Set to `true` or `false` to return the `_source` field or not, or a list of fields to return.</summary>
         public bool? SourceEnabled
         {
             get => Q<bool?>("_source");
@@ -1116,8 +1116,8 @@ namespace OpenSearch.Net
         public override bool SupportsBody => true;
 
         /// <summary>
-        /// If false, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
-        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an
         /// index starts with foo but no index starts with bar.
         /// </summary>
         public bool? AllowNoIndices
@@ -1143,14 +1143,14 @@ namespace OpenSearch.Net
             set => Q("fields", value);
         }
 
-        /// <summary>If `true`, missing or closed indices are not included in the response.</summary>
+        /// <summary>If `true`, missing or closed indexes are not included in the response.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>If true, unmapped fields are included in the response.</summary>
+        /// <summary>If `true`, unmapped fields are included in the response.</summary>
         public bool? IncludeUnmapped
         {
             get => Q<bool?>("include_unmapped");
@@ -1178,10 +1178,10 @@ namespace OpenSearch.Net
             set => Q("realtime", value);
         }
 
-        /// <summary>If true, OpenSearch refreshes the affected shards to make this operation visible to search. If false, do nothing with refreshes.</summary>
-        public bool? Refresh
+        /// <summary>If `true`, OpenSearch refreshes the affected shards to make this operation visible to search. If `false`, do nothing with refreshes.</summary>
+        public Refresh? Refresh
         {
-            get => Q<bool?>("refresh");
+            get => Q<Refresh?>("refresh");
             set => Q("refresh", value);
         }
 
@@ -1192,7 +1192,7 @@ namespace OpenSearch.Net
             set => Q("routing", value);
         }
 
-        /// <summary>True or false to return the _source field or not, or a list of fields to return.</summary>
+        /// <summary>Set to `true` or `false` to return the `_source` field or not, or a list of fields to return.</summary>
         public bool? SourceEnabled
         {
             get => Q<bool?>("_source");
@@ -1233,7 +1233,7 @@ namespace OpenSearch.Net
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: internal, external, external_gte.</summary>
+        /// <summary>Specific version type: `internal`, `external`, `external_gte`.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -1265,7 +1265,7 @@ namespace OpenSearch.Net
 
         /// <summary>Specify timeout for connection to master.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -1303,17 +1303,17 @@ namespace OpenSearch.Net
             set => Q("preference", value);
         }
 
-        /// <summary>Boolean) If true, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>Boolean) If `true`, the request is real-time as opposed to near-real-time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
             set => Q("realtime", value);
         }
 
-        /// <summary>If true, OpenSearch refreshes the affected shards to make this operation visible to search. If false, do nothing with refreshes.</summary>
-        public bool? Refresh
+        /// <summary>If `true`, OpenSearch refreshes the affected shards to make this operation visible to search. If `false`, do nothing with refreshes.</summary>
+        public Refresh? Refresh
         {
-            get => Q<bool?>("refresh");
+            get => Q<Refresh?>("refresh");
             set => Q("refresh", value);
         }
 
@@ -1324,7 +1324,7 @@ namespace OpenSearch.Net
             set => Q("routing", value);
         }
 
-        /// <summary>True or false to return the _source field or not, or a list of fields to return.</summary>
+        /// <summary>Set to `true` or `false` to return the `_source` field or not, or a list of fields to return.</summary>
         public bool? SourceEnabled
         {
             get => Q<bool?>("_source");
@@ -1355,7 +1355,7 @@ namespace OpenSearch.Net
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: internal, external, external_gte.</summary>
+        /// <summary>Specific version type. One of `internal`, `external`, `external_gte`.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -1493,9 +1493,9 @@ namespace OpenSearch.Net
         }
 
         /// <summary>If `true`, the request refreshes relevant shards before retrieving documents.</summary>
-        public bool? Refresh
+        public Refresh? Refresh
         {
-            get => Q<bool?>("refresh");
+            get => Q<Refresh?>("refresh");
             set => Q("refresh", value);
         }
 
@@ -1506,7 +1506,7 @@ namespace OpenSearch.Net
             set => Q("routing", value);
         }
 
-        /// <summary>True or false to return the `_source` field or not, or a list of fields to return.</summary>
+        /// <summary>Set to `true` or `false` to return the `_source` field or not, or a list of fields to return.</summary>
         public bool? SourceEnabled
         {
             get => Q<bool?>("_source");
@@ -1549,7 +1549,7 @@ namespace OpenSearch.Net
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>If true, network roundtrips between the coordinating node and remote clusters are minimized for cross-cluster search requests.</summary>
+        /// <summary>If `true`, network round-trips between the coordinating node and remote clusters are minimized for cross-cluster search requests.</summary>
         public bool? CcsMinimizeRoundtrips
         {
             get => Q<bool?>("ccs_minimize_roundtrips");
@@ -1589,7 +1589,7 @@ namespace OpenSearch.Net
             set => Q("search_type", value);
         }
 
-        /// <summary>If true, hits.total are returned as an integer in the response. Defaults to false, which returns an object.</summary>
+        /// <summary>If `true`, `hits.total` are returned as an integer in the response. Defaults to false, which returns an object.</summary>
         public bool? TotalHitsAsInteger
         {
             get => Q<bool?>("rest_total_hits_as_int");
@@ -1699,7 +1699,7 @@ namespace OpenSearch.Net
             set => Q("preference", value);
         }
 
-        /// <summary>If true, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If `true`, the request is real-time as opposed to near-real-time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
@@ -1713,7 +1713,7 @@ namespace OpenSearch.Net
             set => Q("routing", value);
         }
 
-        /// <summary>If true, the response includes term frequency and document frequency.</summary>
+        /// <summary>If `true`, the response includes term frequency and document frequency.</summary>
         public bool? TermStatistics
         {
             get => Q<bool?>("term_statistics");
@@ -1767,11 +1767,11 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -1794,8 +1794,8 @@ namespace OpenSearch.Net
         public override bool SupportsBody => true;
 
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
-        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an
         /// index starts with `foo` but no index starts with `bar`.
         /// </summary>
         public bool? AllowNoIndices
@@ -1804,14 +1804,14 @@ namespace OpenSearch.Net
             set => Q("allow_no_indices", value);
         }
 
-        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        /// <summary>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `true`, missing or closed indices are not included in the response.</summary>
+        /// <summary>If `true`, missing or closed indexes are not included in the response.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
@@ -1834,9 +1834,9 @@ namespace OpenSearch.Net
         public override bool SupportsBody => true;
 
         /// <summary>If `true`, the request refreshes affected shards to make this operation visible to search.</summary>
-        public bool? Refresh
+        public Refresh? Refresh
         {
-            get => Q<bool?>("refresh");
+            get => Q<Refresh?>("refresh");
             set => Q("refresh", value);
         }
 
@@ -1917,8 +1917,8 @@ namespace OpenSearch.Net
         public override bool SupportsBody => true;
 
         /// <summary>
-        /// If true, the API response's hit.total property is returned as an integer. If false, the API response's hit.total property is returned as
-        /// an object.
+        /// If `true`, the API response's `hit.total` property is returned as an integer. If `false`, the API response's `hit.total` property is
+        /// returned as an object.
         /// </summary>
         public bool? TotalHitsAsInteger
         {
@@ -1934,8 +1934,8 @@ namespace OpenSearch.Net
         public override bool SupportsBody => true;
 
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
-        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an
         /// index starts with `foo` but no index starts with `bar`.
         /// </summary>
         public bool? AllowNoIndices
@@ -1945,7 +1945,7 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// If true, returns partial results if there are shard request timeouts or shard failures. If false, returns an error with no partial
+        /// If `true`, returns partial results if there are shard request timeouts or shard failures. If `false`, returns an error with no partial
         /// results.
         /// </summary>
         public bool? AllowPartialSearchResults
@@ -1961,7 +1961,7 @@ namespace OpenSearch.Net
             set => Q("analyzer", value);
         }
 
-        /// <summary>If true, wildcard and prefix queries are analyzed. This parameter can only be used when the q query string parameter is specified.</summary>
+        /// <summary>If `true`, wildcard and prefix queries are analyzed. This parameter can only be used when the q query string parameter is specified.</summary>
         public bool? AnalyzeWildcard
         {
             get => Q<bool?>("analyze_wildcard");
@@ -1989,8 +1989,8 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// If true, network round-trips between the coordinating node and the remote clusters are minimized when executing cross-cluster search (CCS)
-        /// requests.
+        /// If `true`, network round-trips between the coordinating node and the remote clusters are minimized when executing cross-cluster search
+        /// (CCS) requests.
         /// </summary>
         public bool? CcsMinimizeRoundtrips
         {
@@ -2032,7 +2032,7 @@ namespace OpenSearch.Net
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `true`, concrete, expanded or aliased indices will be ignored when frozen.</summary>
+        /// <summary>If `true`, concrete, expanded or aliased indexes will be ignored when frozen.</summary>
         public bool? IgnoreThrottled
         {
             get => Q<bool?>("ignore_throttled");
@@ -2047,7 +2047,7 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// Indicates whether hit.matched_queries should be rendered as a map that includes the name of the matched query associated with its score
+        /// Indicates whether `hit.matched_queries` should be rendered as a map that includes the name of the matched query associated with its score
         /// (true) or as an array containing the name of the matched queries (false).
         /// </summary>
         public bool? IncludeNamedQueriesScore
@@ -2246,8 +2246,8 @@ namespace OpenSearch.Net
         public override bool SupportsBody => false;
 
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
-        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an
         /// index starts with `foo` but no index starts with `bar`.
         /// </summary>
         public bool? AllowNoIndices
@@ -2304,8 +2304,8 @@ namespace OpenSearch.Net
         public override bool SupportsBody => true;
 
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
-        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an
         /// index starts with `foo` but no index starts with `bar`.
         /// </summary>
         public bool? AllowNoIndices
@@ -2339,7 +2339,7 @@ namespace OpenSearch.Net
             set => Q("explain", value);
         }
 
-        /// <summary>If `true`, specified concrete, expanded, or aliased indices are not included in the response when throttled.</summary>
+        /// <summary>If `true`, specified concrete, expanded, or aliased indexes are not included in the response when throttled.</summary>
         public bool? IgnoreThrottled
         {
             get => Q<bool?>("ignore_throttled");
@@ -2388,7 +2388,7 @@ namespace OpenSearch.Net
             set => Q("search_type", value);
         }
 
-        /// <summary>If true, hits.total are rendered as an integer in the response.</summary>
+        /// <summary>If `true`, `hits.total` are rendered as an integer in the response.</summary>
         public bool? TotalHitsAsInteger
         {
             get => Q<bool?>("rest_total_hits_as_int");
@@ -2455,7 +2455,7 @@ namespace OpenSearch.Net
             set => Q("preference", value);
         }
 
-        /// <summary>If true, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If `true`, the request is real-time as opposed to near-real-time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
@@ -2519,8 +2519,8 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// If 'true', OpenSearch refreshes the affected shards to make this operation visible to search, if 'wait_for' then wait for a refresh to
-        /// make this operation visible to search, if 'false' do nothing with refreshes.
+        /// If 'true', OpenSearch refreshes the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh to
+        /// make this operation visible to search, if `false` do nothing with refreshes.
         /// </summary>
         public Refresh? Refresh
         {
@@ -2528,7 +2528,7 @@ namespace OpenSearch.Net
             set => Q("refresh", value);
         }
 
-        /// <summary>If true, the destination must be an index alias.</summary>
+        /// <summary>If `true`, the destination must be an index alias.</summary>
         public bool? RequireAlias
         {
             get => Q<bool?>("require_alias");
@@ -2549,7 +2549,7 @@ namespace OpenSearch.Net
             set => Q("routing", value);
         }
 
-        /// <summary>Set to false to disable source retrieval. You can also specify a comma-separated list of the fields you want to retrieve.</summary>
+        /// <summary>Set to `false` to disable source retrieval. You can also specify a comma-separated list of the fields you want to retrieve.</summary>
         public bool? SourceEnabled
         {
             get => Q<bool?>("_source");
@@ -2585,8 +2585,8 @@ namespace OpenSearch.Net
         public override bool SupportsBody => true;
 
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
-        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an
         /// index starts with `foo` but no index starts with `bar`.
         /// </summary>
         public bool? AllowNoIndices
@@ -2688,9 +2688,9 @@ namespace OpenSearch.Net
         }
 
         /// <summary>If `true`, OpenSearch refreshes affected shards to make the operation visible to search.</summary>
-        public bool? Refresh
+        public Refresh? Refresh
         {
-            get => Q<bool?>("refresh");
+            get => Q<Refresh?>("refresh");
             set => Q("refresh", value);
         }
 
@@ -2743,7 +2743,7 @@ namespace OpenSearch.Net
             set => Q("search_type", value);
         }
 
-        /// <summary>Deprecated, please use `max_docs` instead.</summary>
+        /// <summary>Deprecated, use `max_docs` instead.</summary>
         public long? Size
         {
             get => Q<long?>("size");
@@ -2757,21 +2757,21 @@ namespace OpenSearch.Net
             set => Q("sort", value);
         }
 
-        /// <summary>True or false to return the _source field or not, or a list of fields to return.</summary>
+        /// <summary>Set to `true` or `false` to return the `_source` field or not, or a list of fields to return.</summary>
         public bool? SourceEnabled
         {
             get => Q<bool?>("_source");
             set => Q("_source", value);
         }
 
-        /// <summary>List of fields to exclude from the returned _source field.</summary>
+        /// <summary>List of fields to exclude from the returned `_source` field.</summary>
         public string[] SourceExcludes
         {
             get => Q<string[]>("_source_excludes");
             set => Q("_source_excludes", value);
         }
 
-        /// <summary>List of fields to extract and return from the _source field.</summary>
+        /// <summary>List of fields to extract and return from the `_source` field.</summary>
         public string[] SourceIncludes
         {
             get => Q<string[]>("_source_includes");
@@ -2789,7 +2789,7 @@ namespace OpenSearch.Net
         /// Maximum number of documents to collect for each shard. If a query reaches this limit, OpenSearch terminates the query early. OpenSearch
         /// collects documents before sorting. Use with caution. OpenSearch applies this parameter to each shard handling the request. When possible,
         /// let OpenSearch perform early termination automatically. Avoid specifying this parameter for requests that target data streams with backing
-        /// indices across multiple data tiers.
+        /// indexes across multiple data tiers.
         /// </summary>
         public long? TerminateAfter
         {

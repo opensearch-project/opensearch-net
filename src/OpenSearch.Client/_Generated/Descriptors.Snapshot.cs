@@ -87,9 +87,9 @@ namespace OpenSearch.Client
         public CleanupRepositoryDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Period to wait for a connection to the master node.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CleanupRepositoryDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -136,9 +136,9 @@ namespace OpenSearch.Client
         public CloneSnapshotDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Explicit operation timeout for connection to master node.</summary>
+        /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CloneSnapshotDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -172,9 +172,9 @@ namespace OpenSearch.Client
         public SnapshotDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public SnapshotDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -214,9 +214,9 @@ namespace OpenSearch.Client
         public CreateRepositoryDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Explicit operation timeout for connection to master node.</summary>
+        /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CreateRepositoryDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -260,9 +260,9 @@ namespace OpenSearch.Client
         public DeleteSnapshotDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Explicit operation timeout for connection to master node.</summary>
+        /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public DeleteSnapshotDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -298,9 +298,9 @@ namespace OpenSearch.Client
         public DeleteRepositoryDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Explicit operation timeout for connection to master node.</summary>
+        /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public DeleteRepositoryDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -341,18 +341,18 @@ namespace OpenSearch.Client
         public GetSnapshotDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>If false, the request returns an error for any snapshots that are unavailable.</summary>
+        /// <summary>If `false`, the request returns an error for any snapshots that are unavailable.</summary>
         public GetSnapshotDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public GetSnapshotDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>If true, returns additional information about each snapshot such as the version of OpenSearch which took the snapshot, the start and end times of the snapshot, and the number of shards snapshotted.</summary>
+        /// <summary>If `true`, returns additional information about each snapshot such as the version of OpenSearch which took the snapshot, the start and end times of the snapshot, and the number of shards snapshotted.</summary>
         public GetSnapshotDescriptor Verbose(bool? verbose = true) => Qs("verbose", verbose);
     }
 
@@ -392,9 +392,9 @@ namespace OpenSearch.Client
         /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public GetRepositoryDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Explicit operation timeout for connection to master node.</summary>
+        /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public GetRepositoryDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -428,9 +428,9 @@ namespace OpenSearch.Client
         public RestoreDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Explicit operation timeout for connection to master node.</summary>
+        /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public RestoreDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -484,13 +484,13 @@ namespace OpenSearch.Client
         public SnapshotStatusDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Whether to ignore unavailable snapshots, defaults to false which means a SnapshotMissingException is thrown.</summary>
+        /// <summary>Whether to ignore unavailable snapshots, defaults to `false` which means a SnapshotMissingException is thrown.</summary>
         public SnapshotStatusDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>Explicit operation timeout for connection to master node.</summary>
+        /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public SnapshotStatusDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -526,9 +526,9 @@ namespace OpenSearch.Client
         public VerifyRepositoryDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Explicit operation timeout for connection to master node.</summary>
+        /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public VerifyRepositoryDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);

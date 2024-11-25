@@ -301,7 +301,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 
         /// <summary>GET on /_snapshot/{repository}/{snapshot} <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="repository">Comma-separated list of snapshot repository names used to limit the request. Wildcard (*) expressions are supported.</param>
-        /// <param name="snapshot">Comma-separated list of snapshot names to retrieve. Also accepts wildcards (*). - To get information about all snapshots in a registered repository, use a wildcard (*) or _all. - To get information about any snapshots that are currently running, use _current.</param>
+        /// <param name="snapshot">Comma-separated list of snapshot names to retrieve. Also accepts wildcards (`*`). - To get information about all snapshots in a registered repository, use a wildcard (`*`) or `_all`. - To get information about any snapshots that are currently running, use `_current`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Get<TResponse>(
             string repository,
@@ -318,7 +318,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 
         /// <summary>GET on /_snapshot/{repository}/{snapshot} <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="repository">Comma-separated list of snapshot repository names used to limit the request. Wildcard (*) expressions are supported.</param>
-        /// <param name="snapshot">Comma-separated list of snapshot names to retrieve. Also accepts wildcards (*). - To get information about all snapshots in a registered repository, use a wildcard (*) or _all. - To get information about any snapshots that are currently running, use _current.</param>
+        /// <param name="snapshot">Comma-separated list of snapshot names to retrieve. Also accepts wildcards (`*`). - To get information about all snapshots in a registered repository, use a wildcard (`*`) or `_all`. - To get information about any snapshots that are currently running, use `_current`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("snapshot.get", "repository, snapshot")]
         public Task<TResponse> GetAsync<TResponse>(

@@ -74,7 +74,7 @@ namespace Tests.Document.Multiple.ReindexOnServer
 				.Index(CallIsolatedValue + "-clone")
 			)
 			.Conflicts(Conflicts.Proceed)
-			.Refresh();
+			.Refresh(Refresh.True);
 
 		protected override HttpMethod HttpMethod => HttpMethod.POST;
 
@@ -93,7 +93,7 @@ namespace Tests.Document.Multiple.ReindexOnServer
 				Index = CallIsolatedValue + "-clone",
 			},
 			Conflicts = Conflicts.Proceed,
-			Refresh = true,
+			Refresh = Refresh.True,
 		};
 
 		protected override bool SupportsDeserialization => false;

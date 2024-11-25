@@ -167,6 +167,77 @@ namespace OpenSearch.Net
         All = 1 << 8,
     }
 
+    [Flags, StringEnum]
+    public enum ClusterStatsIndexMetric
+    {
+        [EnumMember(Value = "analysis")]
+        Analysis = 1 << 0,
+
+        [EnumMember(Value = "completion")]
+        Completion = 1 << 1,
+
+        [EnumMember(Value = "docs")]
+        Docs = 1 << 2,
+
+        [EnumMember(Value = "fielddata")]
+        Fielddata = 1 << 3,
+
+        [EnumMember(Value = "mappings")]
+        Mappings = 1 << 4,
+
+        [EnumMember(Value = "query_cache")]
+        QueryCache = 1 << 5,
+
+        [EnumMember(Value = "segments")]
+        Segments = 1 << 6,
+
+        [EnumMember(Value = "shards")]
+        Shards = 1 << 7,
+
+        [EnumMember(Value = "store")]
+        Store = 1 << 8,
+
+        [EnumMember(Value = "_all")]
+        All = 1 << 9,
+    }
+
+    [Flags, StringEnum]
+    public enum ClusterStatsMetric
+    {
+        [EnumMember(Value = "discovery_type")]
+        DiscoveryType = 1 << 0,
+
+        [EnumMember(Value = "fs")]
+        Fs = 1 << 1,
+
+        [EnumMember(Value = "indices")]
+        Indices = 1 << 2,
+
+        [EnumMember(Value = "ingest")]
+        Ingest = 1 << 3,
+
+        [EnumMember(Value = "jvm")]
+        Jvm = 1 << 4,
+
+        [EnumMember(Value = "network_types")]
+        NetworkTypes = 1 << 5,
+
+        [EnumMember(Value = "os")]
+        Os = 1 << 6,
+
+        [EnumMember(Value = "packaging_types")]
+        PackagingTypes = 1 << 7,
+
+        [EnumMember(Value = "plugins")]
+        Plugins = 1 << 8,
+
+        [EnumMember(Value = "process")]
+        Process = 1 << 9,
+
+        [EnumMember(Value = "_all")]
+        All = 1 << 10,
+    }
+
     [StringEnum]
     public enum Conflicts
     {
@@ -745,6 +816,8 @@ namespace OpenSearch.Net
             AddEnumStringResolver<ClusterHealthLevel>(GetStringValue);
             AddEnumStringResolver<ClusterRerouteMetric>(GetStringValue);
             AddEnumStringResolver<ClusterStateMetric>(GetStringValue);
+            AddEnumStringResolver<ClusterStatsIndexMetric>(GetStringValue);
+            AddEnumStringResolver<ClusterStatsMetric>(GetStringValue);
             AddEnumStringResolver<Conflicts>(GetStringValue);
             AddEnumStringResolver<DefaultOperator>(GetStringValue);
             AddEnumStringResolver<ExpandWildcards>(GetStringValue);
@@ -850,6 +923,60 @@ namespace OpenSearch.Net
                 list.Add("routing_table");
             if ((enumValue & ClusterStateMetric.Version) != 0)
                 list.Add("version");
+            return string.Join(",", list);
+        }
+
+        public static string GetStringValue(this ClusterStatsIndexMetric enumValue)
+        {
+            if ((enumValue & ClusterStatsIndexMetric.All) != 0)
+                return "_all";
+            var list = new List<string>();
+            if ((enumValue & ClusterStatsIndexMetric.Analysis) != 0)
+                list.Add("analysis");
+            if ((enumValue & ClusterStatsIndexMetric.Completion) != 0)
+                list.Add("completion");
+            if ((enumValue & ClusterStatsIndexMetric.Docs) != 0)
+                list.Add("docs");
+            if ((enumValue & ClusterStatsIndexMetric.Fielddata) != 0)
+                list.Add("fielddata");
+            if ((enumValue & ClusterStatsIndexMetric.Mappings) != 0)
+                list.Add("mappings");
+            if ((enumValue & ClusterStatsIndexMetric.QueryCache) != 0)
+                list.Add("query_cache");
+            if ((enumValue & ClusterStatsIndexMetric.Segments) != 0)
+                list.Add("segments");
+            if ((enumValue & ClusterStatsIndexMetric.Shards) != 0)
+                list.Add("shards");
+            if ((enumValue & ClusterStatsIndexMetric.Store) != 0)
+                list.Add("store");
+            return string.Join(",", list);
+        }
+
+        public static string GetStringValue(this ClusterStatsMetric enumValue)
+        {
+            if ((enumValue & ClusterStatsMetric.All) != 0)
+                return "_all";
+            var list = new List<string>();
+            if ((enumValue & ClusterStatsMetric.DiscoveryType) != 0)
+                list.Add("discovery_type");
+            if ((enumValue & ClusterStatsMetric.Fs) != 0)
+                list.Add("fs");
+            if ((enumValue & ClusterStatsMetric.Indices) != 0)
+                list.Add("indices");
+            if ((enumValue & ClusterStatsMetric.Ingest) != 0)
+                list.Add("ingest");
+            if ((enumValue & ClusterStatsMetric.Jvm) != 0)
+                list.Add("jvm");
+            if ((enumValue & ClusterStatsMetric.NetworkTypes) != 0)
+                list.Add("network_types");
+            if ((enumValue & ClusterStatsMetric.Os) != 0)
+                list.Add("os");
+            if ((enumValue & ClusterStatsMetric.PackagingTypes) != 0)
+                list.Add("packaging_types");
+            if ((enumValue & ClusterStatsMetric.Plugins) != 0)
+                list.Add("plugins");
+            if ((enumValue & ClusterStatsMetric.Process) != 0)
+                list.Add("process");
             return string.Join(",", list);
         }
 

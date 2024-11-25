@@ -67,9 +67,9 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Period to wait for a connection to the master node.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -100,9 +100,9 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Explicit operation timeout for connection to master node.</summary>
+        /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -126,11 +126,11 @@ namespace OpenSearch.Net.Specification.SnapshotApi
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -164,9 +164,9 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Explicit operation timeout for connection to master node.</summary>
+        /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -204,9 +204,9 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Explicit operation timeout for connection to master node.</summary>
+        /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -230,9 +230,9 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Explicit operation timeout for connection to master node.</summary>
+        /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -263,7 +263,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>If false, the request returns an error for any snapshots that are unavailable.</summary>
+        /// <summary>If `false`, the request returns an error for any snapshots that are unavailable.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
@@ -271,11 +271,11 @@ namespace OpenSearch.Net.Specification.SnapshotApi
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -284,7 +284,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
         }
 
         /// <summary>
-        /// If true, returns additional information about each snapshot such as the version of OpenSearch which took the snapshot, the start and end
+        /// If `true`, returns additional information about each snapshot such as the version of OpenSearch which took the snapshot, the start and end
         /// times of the snapshot, and the number of shards snapshotted.
         /// </summary>
         public bool? Verbose
@@ -316,9 +316,9 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             set => Q("local", value);
         }
 
-        /// <summary>Explicit operation timeout for connection to master node.</summary>
+        /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -341,9 +341,9 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Explicit operation timeout for connection to master node.</summary>
+        /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -374,16 +374,16 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Whether to ignore unavailable snapshots, defaults to false which means a SnapshotMissingException is thrown.</summary>
+        /// <summary>Whether to ignore unavailable snapshots, defaults to `false` which means a SnapshotMissingException is thrown.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>Explicit operation timeout for connection to master node.</summary>
+        /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -407,9 +407,9 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Explicit operation timeout for connection to master node.</summary>
+        /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {

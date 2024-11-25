@@ -54,7 +54,7 @@ namespace Tests.Document.Multiple.ReindexRethrottle
 					.Index(CallIsolatedValue)
 					.OpType(OpType.Create)
 				)
-				.Refresh()
+				.Refresh(Refresh.True)
 				.RequestsPerSecond(1)
 				.WaitForCompletion(false)
 			);
@@ -74,7 +74,7 @@ namespace Tests.Document.Multiple.ReindexRethrottle
 				.Conflicts(Conflicts.Proceed)
 				.Query(q => q.MatchAll())
 				.Script(s => s.Source("ctx._source.numberOfCommits+10"))
-				.Refresh()
+				.Refresh(Refresh.True)
 				.RequestsPerSecond(1)
 				.WaitForCompletion(false)
 			);

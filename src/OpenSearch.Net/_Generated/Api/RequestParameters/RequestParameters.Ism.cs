@@ -58,7 +58,7 @@ namespace OpenSearch.Net.Specification.IsmApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases. Supports wildcards (`*`).</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases. Supports wildcards (`*`).</summary>
         public string Index
         {
             get => Q<string>("index");
@@ -73,7 +73,7 @@ namespace OpenSearch.Net.Specification.IsmApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases. Supports wildcards (`*`).</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases. Supports wildcards (`*`).</summary>
         public string Index
         {
             get => Q<string>("index");
@@ -183,7 +183,7 @@ namespace OpenSearch.Net.Specification.IsmApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases. Supports wildcards (`*`).</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases. Supports wildcards (`*`).</summary>
         public string Index
         {
             get => Q<string>("index");
@@ -198,7 +198,7 @@ namespace OpenSearch.Net.Specification.IsmApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases. Supports wildcards (`*`).</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases. Supports wildcards (`*`).</summary>
         public string Index
         {
             get => Q<string>("index");

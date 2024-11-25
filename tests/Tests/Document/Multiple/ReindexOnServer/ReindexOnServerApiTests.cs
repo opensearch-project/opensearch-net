@@ -91,7 +91,7 @@ namespace Tests.Document.Multiple.ReindexOnServer
 			)
 			.Script(ss => ss.Source(PainlessScript))
 			.Conflicts(Conflicts.Proceed)
-			.Refresh();
+			.Refresh(Refresh.True);
 
 		protected override HttpMethod HttpMethod => HttpMethod.POST;
 
@@ -112,12 +112,12 @@ namespace Tests.Document.Multiple.ReindexOnServer
 			},
 			Script = new InlineScript(PainlessScript),
 			Conflicts = Conflicts.Proceed,
-			Refresh = true,
+			Refresh = Refresh.True,
 		};
 
-		protected virtual string PainlessScript { get; } = "if (ctx._source.flag == 'bar') {ctx._source.remove('flag')}";
+		protected virtual string PainlessScript => "if (ctx._source.flag == 'bar') {ctx._source.remove('flag')}";
 
-		protected override bool SupportsDeserialization => false;
+        protected override bool SupportsDeserialization => false;
 
 		protected override string UrlPath => $"/_reindex?refresh=true";
 

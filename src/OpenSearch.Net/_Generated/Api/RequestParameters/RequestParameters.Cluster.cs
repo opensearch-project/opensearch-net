@@ -59,14 +59,14 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>If true, returns information about disk usage and shard sizes.</summary>
+        /// <summary>If `true`, returns information about disk usage and shard sizes.</summary>
         public bool? IncludeDiskInfo
         {
             get => Q<bool?>("include_disk_info");
             set => Q("include_disk_info", value);
         }
 
-        /// <summary>If true, returns YES decisions in explanation.</summary>
+        /// <summary>If `true`, returns YES decisions in explanation.</summary>
         public bool? IncludeYesDecisions
         {
             get => Q<bool?>("include_yes_decisions");
@@ -90,11 +90,11 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -127,8 +127,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// Specifies whether to wait for all excluded nodes to be removed from the cluster before clearing the voting configuration exclusions list.
-        /// Defaults to true, meaning that all excluded nodes must be removed from the cluster before this API takes any action. If set to false then
-        /// the voting configuration exclusions list is cleared even if some excluded nodes are still in the cluster.
+        /// Defaults to true, meaning that all excluded nodes must be removed from the cluster before this API takes any action. If set to `false`
+        /// then the voting configuration exclusions list is cleared even if some excluded nodes are still in the cluster.
         /// </summary>
         public bool? WaitForRemoval
         {
@@ -161,8 +161,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// If true, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the
-        /// master node.
+        /// If `true`, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the
+        /// cluster-manager node.
         /// </summary>
         public bool? Local
         {
@@ -171,11 +171,11 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -199,7 +199,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>If `true`, the request retrieves information from the local node only. If `false`, information is retrieved from the master node.</summary>
+        /// <summary>If `true`, the request retrieves information from the local node only. If `false`, information is retrieved from the cluster-manager node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
@@ -207,11 +207,11 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -258,11 +258,11 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -308,14 +308,14 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        /// <summary>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>Can be one of cluster, indices or shards. Controls the details level of the health information returned.</summary>
+        /// <summary>Can be one of cluster, indexes or shards. Controls the details level of the health information returned.</summary>
         public ClusterHealthLevel? Level
         {
             get => Q<ClusterHealthLevel?>("level");
@@ -323,8 +323,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// If true, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the
-        /// master node.
+        /// If `true`, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the
+        /// cluster-manager node.
         /// </summary>
         public bool? Local
         {
@@ -333,11 +333,11 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -377,7 +377,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// A boolean value which controls whether to wait (until the timeout provided) for the cluster to have no shard initializations. Defaults to
+        /// A Boolean value which controls whether to wait (until the timeout provided) for the cluster to have no shard initializations. Defaults to
         /// false, which means it will not wait for initializing shards.
         /// </summary>
         public bool? WaitForNoInitializingShards
@@ -387,7 +387,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// A boolean value which controls whether to wait (until the timeout provided) for the cluster to have no shard relocations. Defaults to
+        /// A Boolean value which controls whether to wait (until the timeout provided) for the cluster to have no shard relocations. Defaults to
         /// false, which means it will not wait for relocating shards.
         /// </summary>
         public bool? WaitForNoRelocatingShards
@@ -422,7 +422,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>If `true`, the request retrieves information from the local node only. If `false`, information is retrieved from the master node.</summary>
+        /// <summary>If `true`, the request retrieves information from the local node only. If `false`, information is retrieved from the cluster-manager node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
@@ -430,11 +430,11 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -452,7 +452,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// A comma-separated list of the persistent ids of the nodes to exclude from the voting configuration. If specified, you may not also specify
-        /// node_names.
+        /// `node_names`.
         /// </summary>
         public string[] NodeIds
         {
@@ -462,7 +462,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// A comma-separated list of the names of the nodes to exclude from the voting configuration. If specified, you may not also specify
-        /// node_ids.
+        /// `node_ids`.
         /// </summary>
         public string[] NodeNames
         {
@@ -504,11 +504,11 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -554,9 +554,9 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("flat_settings", value);
         }
 
-        /// <summary>Explicit operation timeout for connection to master node.</summary>
+        /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -603,14 +603,14 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>If true, then the request simulates the operation only and returns the resulting state.</summary>
+        /// <summary>If `true`, then the request simulates the operation only and returns the resulting state.</summary>
         public bool? DryRun
         {
             get => Q<bool?>("dry_run");
             set => Q("dry_run", value);
         }
 
-        /// <summary>If true, then the response contains an explanation of why the commands can or cannot be executed.</summary>
+        /// <summary>If `true`, then the response contains an explanation of why the commands can or cannot be executed.</summary>
         public bool? Explain
         {
             get => Q<bool?>("explain");
@@ -618,11 +618,11 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -637,7 +637,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("metric", value);
         }
 
-        /// <summary>If true, then retries allocation of shards that are blocked due to too many subsequent allocation failures.</summary>
+        /// <summary>If `true`, then retries allocation of shards that are blocked due to too many subsequent allocation failures.</summary>
         public bool? RetryFailed
         {
             get => Q<bool?>("retry_failed");
@@ -660,7 +660,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override bool SupportsBody => false;
 
         /// <summary>
-        /// Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have
+        /// Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes `_all` string or when no indexes have
         /// been specified).
         /// </summary>
         public bool? AllowNoIndices
@@ -677,7 +677,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        /// <summary>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
@@ -691,7 +691,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("flat_settings", value);
         }
 
-        /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed).</summary>
+        /// <summary>Whether specified concrete indexes should be ignored when unavailable (missing or closed).</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
@@ -705,9 +705,9 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("local", value);
         }
 
-        /// <summary>Specify timeout for connection to master.</summary>
+        /// <summary>Specify timeout for connection to cluster manager.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -722,7 +722,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("wait_for_metadata_version", value);
         }
 
-        /// <summary>The maximum time to wait for wait_for_metadata_version before timing out.</summary>
+        /// <summary>The maximum time to wait for `wait_for_metadata_version` before timing out.</summary>
         public TimeSpan WaitForTimeout
         {
             get => Q<TimeSpan>("wait_for_timeout");

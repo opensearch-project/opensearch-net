@@ -438,7 +438,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>GET on /_cluster/health/{index} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and index aliases used to limit the request. Wildcard expressions (*) are supported. To target all data streams and indices in a cluster, omit this parameter or use `_all` or `*`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and index aliases used to limit the request. Wildcard expressions (*) are supported. To target all data streams and indexes in a cluster, omit this parameter or use `_all` or `*`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Health<TResponse>(
             string index,
@@ -453,7 +453,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>GET on /_cluster/health/{index} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and index aliases used to limit the request. Wildcard expressions (*) are supported. To target all data streams and indices in a cluster, omit this parameter or use `_all` or `*`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and index aliases used to limit the request. Wildcard expressions (*) are supported. To target all data streams and indexes in a cluster, omit this parameter or use `_all` or `*`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.health", "index")]
         public Task<TResponse> HealthAsync<TResponse>(
@@ -529,7 +529,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>PUT on /_component_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</para></summary>
-        /// <param name="name">Name of the component template to create. OpenSearch includes the following built-in component templates: `logs-mappings`; &#x27;logs-settings`; `metrics-mappings`; `metrics-settings`;`synthetics-mapping`; `synthetics-settings`. OpenSearch Agent uses these templates to configure backing indices for its data streams. If you use OpenSearch Agent and want to overwrite one of these templates, set the `version` for your replacement template higher than the current version. If you don&#x27;t use OpenSearch Agent and want to disable all built-in component and index templates, set `stack.templates.enabled` to `false` using the cluster update settings API.</param>
+        /// <param name="name">Name of the component template to create. OpenSearch includes the following built-in component templates: `logs-mappings`; &#x27;logs-settings`; `metrics-mappings`; `metrics-settings`;`synthetics-mapping`; `synthetics-settings`. OpenSearch Agent uses these templates to configure backing indexes for its data streams. If you use OpenSearch Agent and want to overwrite one of these templates, set the `version` for your replacement template higher than the current version. If you don&#x27;t use OpenSearch Agent and want to disable all built-in component and index templates, set `stack.templates.enabled` to `false` using the cluster update settings API.</param>
         /// <param name="body">The template definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse PutComponentTemplate<TResponse>(
@@ -546,7 +546,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>PUT on /_component_template/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</para></summary>
-        /// <param name="name">Name of the component template to create. OpenSearch includes the following built-in component templates: `logs-mappings`; &#x27;logs-settings`; `metrics-mappings`; `metrics-settings`;`synthetics-mapping`; `synthetics-settings`. OpenSearch Agent uses these templates to configure backing indices for its data streams. If you use OpenSearch Agent and want to overwrite one of these templates, set the `version` for your replacement template higher than the current version. If you don&#x27;t use OpenSearch Agent and want to disable all built-in component and index templates, set `stack.templates.enabled` to `false` using the cluster update settings API.</param>
+        /// <param name="name">Name of the component template to create. OpenSearch includes the following built-in component templates: `logs-mappings`; &#x27;logs-settings`; `metrics-mappings`; `metrics-settings`;`synthetics-mapping`; `synthetics-settings`. OpenSearch Agent uses these templates to configure backing indexes for its data streams. If you use OpenSearch Agent and want to overwrite one of these templates, set the `version` for your replacement template higher than the current version. If you don&#x27;t use OpenSearch Agent and want to disable all built-in component and index templates, set `stack.templates.enabled` to `false` using the cluster update settings API.</param>
         /// <param name="body">The template definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.put_component_template", "name, body")]
@@ -781,7 +781,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>GET on /_cluster/state/{metric}/{index} <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="metric">Limit the information returned to the specified metrics.</param>
-        /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse State<TResponse>(
             string metric,
@@ -798,7 +798,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>GET on /_cluster/state/{metric}/{index} <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="metric">Limit the information returned to the specified metrics.</param>
-        /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.state", "metric, index")]
         public Task<TResponse> StateAsync<TResponse>(
@@ -833,6 +833,92 @@ namespace OpenSearch.Net.Specification.ClusterApi
             DoRequestAsync<TResponse>(
                 GET,
                 "_cluster/stats",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cluster/stats/{metric}/{index_metric}/nodes/{node_id} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</para></summary>
+        /// <param name="metric">Limit the information returned to the specified metrics.</param>
+        /// <param name="indexMetric">Limit the information returned for indexes metric to the specific index metrics. It can be used only if indexes (or all) metric is specified.</param>
+        /// <param name="nodeId">Comma-separated list of node filters used to limit returned information. Defaults to all nodes in the cluster.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
+        public TResponse Stats<TResponse>(
+            string metric,
+            string indexMetric,
+            string nodeId,
+            ClusterStatsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url(
+                    $"_cluster/stats/{metric:metric}/{indexMetric:indexMetric}/nodes/{nodeId:nodeId}"
+                ),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cluster/stats/{metric}/{index_metric}/nodes/{node_id} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</para></summary>
+        /// <param name="metric">Limit the information returned to the specified metrics.</param>
+        /// <param name="indexMetric">Limit the information returned for indexes metric to the specific index metrics. It can be used only if indexes (or all) metric is specified.</param>
+        /// <param name="nodeId">Comma-separated list of node filters used to limit returned information. Defaults to all nodes in the cluster.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
+        [MapsApi("cluster.stats", "metric, index_metric, node_id")]
+        public Task<TResponse> StatsAsync<TResponse>(
+            string metric,
+            string indexMetric,
+            string nodeId,
+            ClusterStatsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url(
+                    $"_cluster/stats/{metric:metric}/{indexMetric:indexMetric}/nodes/{nodeId:nodeId}"
+                ),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cluster/stats/{metric}/nodes/{node_id} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</para></summary>
+        /// <param name="metric">Limit the information returned to the specified metrics.</param>
+        /// <param name="nodeId">Comma-separated list of node filters used to limit returned information. Defaults to all nodes in the cluster.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
+        public TResponse Stats<TResponse>(
+            string metric,
+            string nodeId,
+            ClusterStatsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_cluster/stats/{metric:metric}/nodes/{nodeId:nodeId}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cluster/stats/{metric}/nodes/{node_id} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</para></summary>
+        /// <param name="metric">Limit the information returned to the specified metrics.</param>
+        /// <param name="nodeId">Comma-separated list of node filters used to limit returned information. Defaults to all nodes in the cluster.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
+        [MapsApi("cluster.stats", "metric, node_id")]
+        public Task<TResponse> StatsAsync<TResponse>(
+            string metric,
+            string nodeId,
+            ClusterStatsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_cluster/stats/{metric:metric}/nodes/{nodeId:nodeId}"),
                 ctx,
                 null,
                 RequestParams(requestParameters)

@@ -68,11 +68,11 @@ namespace OpenSearch.Net.Specification.IngestApi
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -104,11 +104,11 @@ namespace OpenSearch.Net.Specification.IngestApi
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -123,6 +123,13 @@ namespace OpenSearch.Net.Specification.IngestApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+
+        /// <summary>Sort returned patterns by key name.</summary>
+        public bool? SortByColumns
+        {
+            get => Q<bool?>("s");
+            set => Q("s", value);
+        }
     }
 
     /// <summary>Request options for PutPipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</para></summary>
@@ -141,11 +148,11 @@ namespace OpenSearch.Net.Specification.IngestApi
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {

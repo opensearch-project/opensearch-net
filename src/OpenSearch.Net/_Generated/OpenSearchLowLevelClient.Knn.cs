@@ -369,7 +369,7 @@ namespace OpenSearch.Net.Specification.KnnApi
             );
 
         /// <summary>GET on /_plugins/_knn/warmup/{index} <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#warmup-operation</para></summary>
-        /// <param name="index">Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="index">Comma-separated list of indexes; use the special string `_all` or Indices.All to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Warmup<TResponse>(
             string index,
@@ -384,7 +384,7 @@ namespace OpenSearch.Net.Specification.KnnApi
             );
 
         /// <summary>GET on /_plugins/_knn/warmup/{index} <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#warmup-operation</para></summary>
-        /// <param name="index">Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="index">Comma-separated list of indexes; use the special string `_all` or Indices.All to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("knn.warmup", "index")]
         public Task<TResponse> WarmupAsync<TResponse>(

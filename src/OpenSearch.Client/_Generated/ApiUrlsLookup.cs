@@ -143,7 +143,14 @@ namespace OpenSearch.Client
             new(["_cluster/state", "_cluster/state/{metric}", "_cluster/state/{metric}/{index}"]);
 
         internal static readonly ApiUrls ClusterStats =
-            new(["_cluster/stats", "_cluster/stats/nodes/{node_id}"]);
+            new(
+                [
+                    "_cluster/stats",
+                    "_cluster/stats/{metric}/{index_metric}/nodes/{node_id}",
+                    "_cluster/stats/{metric}/nodes/{node_id}",
+                    "_cluster/stats/nodes/{node_id}",
+                ]
+            );
 
         internal static readonly ApiUrls NoNamespaceCount = new(["_count", "{index}/_count"]);
 

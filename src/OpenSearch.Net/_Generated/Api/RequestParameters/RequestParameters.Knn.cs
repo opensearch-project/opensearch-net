@@ -75,7 +75,7 @@ namespace OpenSearch.Net.Specification.KnnApi
         public override bool SupportsBody => true;
 
         /// <summary>
-        /// Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have
+        /// Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes `_all` string or when no indexes have
         /// been specified).
         /// </summary>
         public bool? AllowNoIndices
@@ -143,7 +143,7 @@ namespace OpenSearch.Net.Specification.KnnApi
             set => Q("docvalue_fields", value);
         }
 
-        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        /// <summary>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
@@ -164,14 +164,14 @@ namespace OpenSearch.Net.Specification.KnnApi
             set => Q("from", value);
         }
 
-        /// <summary>Whether specified concrete, expanded or aliased indices should be ignored when throttled.</summary>
+        /// <summary>Whether specified concrete, expanded or aliased indexes should be ignored when throttled.</summary>
         public bool? IgnoreThrottled
         {
             get => Q<bool?>("ignore_throttled");
             set => Q("ignore_throttled", value);
         }
 
-        /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed).</summary>
+        /// <summary>Whether specified concrete indexes should be ignored when unavailable (missing or closed).</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
@@ -205,7 +205,7 @@ namespace OpenSearch.Net.Specification.KnnApi
         /// <summary>
         /// Threshold that enforces a pre-filter round-trip to prefilter search shards based on query rewriting if the number of shards the search
         /// request expands to exceeds the threshold. This filter round-trip can limit the number of shards significantly if for instance a shard can
-        /// not match any documents based on its rewrite method ie. if date filters are mandatory to match but the shard bounds and the query are
+        /// not match any documents based on its rewrite method, that is if date filters are mandatory to match but the shard bounds and the query are
         /// disjoint.
         /// </summary>
         public long? PreFilterShardSize
@@ -270,21 +270,21 @@ namespace OpenSearch.Net.Specification.KnnApi
             set => Q("sort", value);
         }
 
-        /// <summary>True or false to return the _source field or not, or a list of fields to return.</summary>
+        /// <summary>Set to `true` or `false` to return the `_source` field or not, or a list of fields to return.</summary>
         public bool? SourceEnabled
         {
             get => Q<bool?>("_source");
             set => Q("_source", value);
         }
 
-        /// <summary>List of fields to exclude from the returned _source field.</summary>
+        /// <summary>List of fields to exclude from the returned `_source` field.</summary>
         public string[] SourceExcludes
         {
             get => Q<string[]>("_source_excludes");
             set => Q("_source_excludes", value);
         }
 
-        /// <summary>List of fields to extract and return from the _source field.</summary>
+        /// <summary>List of fields to extract and return from the `_source` field.</summary>
         public string[] SourceIncludes
         {
             get => Q<string[]>("_source_includes");
@@ -347,7 +347,7 @@ namespace OpenSearch.Net.Specification.KnnApi
             set => Q("timeout", value);
         }
 
-        /// <summary>Indicates whether hits.total should be rendered as an integer or an object in the rest search response.</summary>
+        /// <summary>Indicates whether `hits.total` should be rendered as an integer or an object in the rest search response.</summary>
         public bool? TotalHitsAsInteger
         {
             get => Q<bool?>("rest_total_hits_as_int");

@@ -83,7 +83,7 @@ namespace OpenSearch.Client
         IndexBlock IAddIndexBlockRequest.Block => Self.RouteValues.Get<IndexBlock>("block");
         Indices IAddIndexBlockRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>A comma separated list of indices to add a block to.</summary>
+        /// <summary>A comma separated list of indexes to add a block to.</summary>
         public AddIndexBlockDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -96,7 +96,7 @@ namespace OpenSearch.Client
         public AddIndexBlockDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have been specified).</summary>
+        /// <summary>Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes `_all` string or when no indexes have been specified).</summary>
         public AddIndexBlockDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -105,17 +105,17 @@ namespace OpenSearch.Client
         public AddIndexBlockDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        /// <summary>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</summary>
         public AddIndexBlockDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed).</summary>
+        /// <summary>Whether specified concrete indexes should be ignored when unavailable (missing or closed).</summary>
         public AddIndexBlockDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>Specify timeout for connection to master.</summary>
+        /// <summary>Specify timeout for connection to cluster manager.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public AddIndexBlockDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -177,7 +177,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IClearCacheRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
         public ClearCacheDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -190,7 +190,7 @@ namespace OpenSearch.Client
         public ClearCacheDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices.</summary>
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public ClearCacheDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -208,7 +208,7 @@ namespace OpenSearch.Client
         public ClearCacheDescriptor Fields<T>(params Expression<Func<T, object>>[] fields)
             where T : class => Qs("fields", fields?.Select(e => (Field)e));
 
-        /// <summary>If true, clears the unused entries from the file cache on nodes with the Search role.</summary>
+        /// <summary>If `true`, clears the unused entries from the file cache on nodes with the Search role.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.8.0 or greater.</remarks>
         public ClearCacheDescriptor File(bool? file = true) => Qs("file", file);
 
@@ -264,14 +264,14 @@ namespace OpenSearch.Client
         public CloneIndexDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CloneIndexDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Explicit task execution timeout, only useful when wait_for_completion is false, defaults to 1h.</summary>
+        /// <summary>Explicit task execution timeout, only useful when `wait_for_completion` is false, defaults to `1h`.</summary>
         public CloneIndexDescriptor TaskExecutionTimeout(Time taskexecutiontimeout) =>
             Qs("task_execution_timeout", taskexecutiontimeout);
 
@@ -325,7 +325,7 @@ namespace OpenSearch.Client
         public CloseIndexDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices.</summary>
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public CloseIndexDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -342,9 +342,9 @@ namespace OpenSearch.Client
         public CloseIndexDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CloseIndexDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -396,9 +396,9 @@ namespace OpenSearch.Client
         public CreateIndexDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CreateIndexDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -435,7 +435,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IDeleteIndexRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of indices to delete. You cannot specify index aliases. By default, this parameter does not support wildcards (`*`) or `_all`. To use wildcards or `_all`, set the `action.destructive_requires_name` cluster setting to `false`.</summary>
+        /// <summary>Comma-separated list of indexes to delete. You cannot specify index aliases. By default, this parameter does not support wildcards (`*`) or `_all`. To use wildcards or `_all`, set the `action.destructive_requires_name` cluster setting to `false`.</summary>
         public DeleteIndexDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -448,7 +448,7 @@ namespace OpenSearch.Client
         public DeleteIndexDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices.</summary>
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public DeleteIndexDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -465,9 +465,9 @@ namespace OpenSearch.Client
         public DeleteIndexDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public DeleteIndexDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -502,7 +502,7 @@ namespace OpenSearch.Client
         Indices IDeleteAliasRequest.Index => Self.RouteValues.Get<Indices>("index");
         Names IDeleteAliasRequest.Name => Self.RouteValues.Get<Names>("name");
 
-        /// <summary>Comma-separated list of data streams or indices used to limit the request. Supports wildcards (`*`).</summary>
+        /// <summary>Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (`*`).</summary>
         public DeleteAliasDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -520,9 +520,9 @@ namespace OpenSearch.Client
         public DeleteAliasDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public DeleteAliasDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -562,9 +562,9 @@ namespace OpenSearch.Client
             Time clustermanagertimeout
         ) => Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public DeleteComposableIndexTemplateDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -604,9 +604,9 @@ namespace OpenSearch.Client
         public DeleteIndexTemplateDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public DeleteIndexTemplateDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -639,7 +639,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IIndexExistsRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases. Supports wildcards (`*`).</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases. Supports wildcards (`*`).</summary>
         public IndexExistsDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -652,7 +652,7 @@ namespace OpenSearch.Client
         public IndexExistsDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices.</summary>
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public IndexExistsDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -712,7 +712,7 @@ namespace OpenSearch.Client
         Indices IAliasExistsRequest.Index => Self.RouteValues.Get<Indices>("index");
         Names IAliasExistsRequest.Name => Self.RouteValues.Get<Names>("name");
 
-        /// <summary>Comma-separated list of data streams or indices used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
         public AliasExistsDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -725,7 +725,7 @@ namespace OpenSearch.Client
         public AliasExistsDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices.</summary>
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public AliasExistsDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -733,7 +733,7 @@ namespace OpenSearch.Client
         public AliasExistsDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>If `false`, requests that include a missing data stream or index in the target indices or data streams return an error.</summary>
+        /// <summary>If `false`, requests that include a missing data stream or index in the target indexes or data streams return an error.</summary>
         public AliasExistsDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
@@ -780,9 +780,9 @@ namespace OpenSearch.Client
         public ComposableIndexTemplateExistsDescriptor Local(bool? local = true) =>
             Qs("local", local);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public ComposableIndexTemplateExistsDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -825,9 +825,9 @@ namespace OpenSearch.Client
         /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public IndexTemplateExistsDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Explicit operation timeout for connection to master node.</summary>
+        /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public IndexTemplateExistsDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -852,7 +852,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IFlushRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases to flush. Supports wildcards (`*`). To flush all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases to flush. Supports wildcards (`*`). To flush all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
         public FlushDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -865,7 +865,7 @@ namespace OpenSearch.Client
         public FlushDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices.</summary>
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public FlushDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -908,7 +908,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IForceMergeRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices.</summary>
+        /// <summary>A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indexes.</summary>
         public ForceMergeDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -921,18 +921,18 @@ namespace OpenSearch.Client
         public ForceMergeDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have been specified).</summary>
+        /// <summary>Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes `_all` string or when no indexes have been specified).</summary>
         public ForceMergeDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
-        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        /// <summary>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</summary>
         public ForceMergeDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
         /// <summary>Specify whether the index should be flushed after performing the operation.</summary>
         public ForceMergeDescriptor Flush(bool? flush = true) => Qs("flush", flush);
 
-        /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed).</summary>
+        /// <summary>Whether specified concrete indexes should be ignored when unavailable (missing or closed).</summary>
         public ForceMergeDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
@@ -975,7 +975,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IGetIndexRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indices, and index aliases used to limit the request. Wildcard expressions (*) are supported.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and index aliases used to limit the request. Wildcard expressions (*) are supported.</summary>
         public GetIndexDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -988,7 +988,7 @@ namespace OpenSearch.Client
         public GetIndexDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If false, the request returns an error if any wildcard expression, index alias, or _all value targets only missing or closed indices. This behavior applies even if the request targets other open indices. For example, a request targeting foo*,bar* returns an error if an index starts with foo but no index starts with bar.</summary>
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting foo*,bar* returns an error if an index starts with foo but no index starts with bar.</summary>
         public GetIndexDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -997,28 +997,28 @@ namespace OpenSearch.Client
         public GetIndexDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Type of index that wildcard expressions can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as open,hidden.</summary>
+        /// <summary>Type of index that wildcard expressions can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.</summary>
         public GetIndexDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>If true, returns settings in flat format.</summary>
+        /// <summary>If `true`, returns settings in flat format.</summary>
         public GetIndexDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
-        /// <summary>If false, requests that target a missing index return an error.</summary>
+        /// <summary>If `false`, requests that target a missing index return an error.</summary>
         public GetIndexDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>If true, return all default settings in the response.</summary>
+        /// <summary>If `true`, return all default settings in the response.</summary>
         public GetIndexDescriptor IncludeDefaults(bool? includedefaults = true) =>
             Qs("include_defaults", includedefaults);
 
-        /// <summary>If true, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the master node.</summary>
+        /// <summary>If `true`, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the cluster-manager node.</summary>
         public GetIndexDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public GetIndexDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -1055,7 +1055,7 @@ namespace OpenSearch.Client
         Indices IGetAliasRequest.Index => Self.RouteValues.Get<Indices>("index");
         Names IGetAliasRequest.Name => Self.RouteValues.Get<Names>("name");
 
-        /// <summary>Comma-separated list of data streams or indices used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
         public GetAliasDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1072,7 +1072,7 @@ namespace OpenSearch.Client
             Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices.</summary>
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public GetAliasDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -1119,7 +1119,7 @@ namespace OpenSearch.Client
         Fields IGetFieldMappingRequest.Fields => Self.RouteValues.Get<Fields>("fields");
         Indices IGetFieldMappingRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
         public GetFieldMappingDescriptor<TDocument> Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1132,7 +1132,7 @@ namespace OpenSearch.Client
         public GetFieldMappingDescriptor<TDocument> AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices.</summary>
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public GetFieldMappingDescriptor<TDocument> AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -1188,16 +1188,16 @@ namespace OpenSearch.Client
             Time clustermanagertimeout
         ) => Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>If true, returns settings in flat format.</summary>
+        /// <summary>If `true`, returns settings in flat format.</summary>
         public GetComposableIndexTemplateDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
-        /// <summary>If true, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the master node.</summary>
+        /// <summary>If `true`, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the cluster-manager node.</summary>
         public GetComposableIndexTemplateDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public GetComposableIndexTemplateDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -1226,7 +1226,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IGetMappingRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
         public GetMappingDescriptor<TDocument> Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1239,7 +1239,7 @@ namespace OpenSearch.Client
         public GetMappingDescriptor<TDocument> AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices.</summary>
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public GetMappingDescriptor<TDocument> AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -1259,9 +1259,9 @@ namespace OpenSearch.Client
         /// <summary>If `true`, the request retrieves information from the local node only.</summary>
         public GetMappingDescriptor<TDocument> Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public GetMappingDescriptor<TDocument> MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -1302,7 +1302,7 @@ namespace OpenSearch.Client
         Indices IGetIndexSettingsRequest.Index => Self.RouteValues.Get<Indices>("index");
         Names IGetIndexSettingsRequest.Name => Self.RouteValues.Get<Names>("name");
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
         public GetIndexSettingsDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1319,7 +1319,7 @@ namespace OpenSearch.Client
             Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an index starts with foo but no index starts with `bar`.</summary>
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an index starts with foo but no index starts with `bar`.</summary>
         public GetIndexSettingsDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -1344,12 +1344,12 @@ namespace OpenSearch.Client
         public GetIndexSettingsDescriptor IncludeDefaults(bool? includedefaults = true) =>
             Qs("include_defaults", includedefaults);
 
-        /// <summary>If `true`, the request retrieves information from the local node only. If `false`, information is retrieved from the master node.</summary>
+        /// <summary>If `true`, the request retrieves information from the local node only. If `false`, information is retrieved from the cluster-manager node.</summary>
         public GetIndexSettingsDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public GetIndexSettingsDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -1395,9 +1395,9 @@ namespace OpenSearch.Client
         /// <summary>If `true`, the request retrieves information from the local node only.</summary>
         public GetIndexTemplateDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public GetIndexTemplateDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -1423,7 +1423,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IOpenIndexRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). By default, you must explicitly name the indices you using to limit the request. To limit a request using `_all`, `*`, or other wildcard expressions, change the `action.destructive_requires_name` setting to false. You can update this setting in the `opensearch.yml` file or using the cluster update settings API.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). By default, you must explicitly name the indexes you using to limit the request. To limit a request using `_all`, `*`, or other wildcard expressions, change the `action.destructive_requires_name` setting to false. You can update this setting in the `opensearch.yml` file or using the cluster update settings API.</summary>
         public OpenIndexDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -1436,7 +1436,7 @@ namespace OpenSearch.Client
         public OpenIndexDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices.</summary>
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public OpenIndexDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -1453,14 +1453,14 @@ namespace OpenSearch.Client
         public OpenIndexDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public OpenIndexDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Explicit task execution timeout, only useful when wait_for_completion is false, defaults to 1h.</summary>
+        /// <summary>Explicit task execution timeout, only useful when `wait_for_completion` is false, defaults to `1h`.</summary>
         public OpenIndexDescriptor TaskExecutionTimeout(Time taskexecutiontimeout) =>
             Qs("task_execution_timeout", taskexecutiontimeout);
 
@@ -1508,7 +1508,7 @@ namespace OpenSearch.Client
         Indices IPutAliasRequest.Index => Self.RouteValues.Get<Indices>("index");
         Name IPutAliasRequest.Name => Self.RouteValues.Get<Name>("name");
 
-        /// <summary>Comma-separated list of data streams or indices to add. Supports wildcards (`*`). Wildcard patterns that match both data streams and indices return an error.</summary>
+        /// <summary>Comma-separated list of data streams or indexes to add. Supports wildcards (`*`). Wildcard patterns that match both data streams and indexes return an error.</summary>
         public PutAliasDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1530,9 +1530,9 @@ namespace OpenSearch.Client
         public PutAliasDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public PutAliasDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -1579,9 +1579,9 @@ namespace OpenSearch.Client
         public PutComposableIndexTemplateDescriptor Create(bool? create = true) =>
             Qs("create", create);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public PutComposableIndexTemplateDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -1610,7 +1610,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IPutMappingRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</summary>
+        /// <summary>A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indexes.</summary>
         public PutMappingDescriptor<TDocument> Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -1623,7 +1623,7 @@ namespace OpenSearch.Client
         public PutMappingDescriptor<TDocument> AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices.</summary>
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public PutMappingDescriptor<TDocument> AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -1640,9 +1640,9 @@ namespace OpenSearch.Client
         public PutMappingDescriptor<TDocument> IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public PutMappingDescriptor<TDocument> MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -1678,7 +1678,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IUpdateIndexSettingsRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
         public UpdateIndexSettingsDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1691,7 +1691,7 @@ namespace OpenSearch.Client
         public UpdateIndexSettingsDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an index starts with `foo` but no index starts with `bar`.</summary>
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an index starts with `foo` but no index starts with `bar`.</summary>
         public UpdateIndexSettingsDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -1708,13 +1708,13 @@ namespace OpenSearch.Client
         public UpdateIndexSettingsDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
-        /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed).</summary>
+        /// <summary>Whether specified concrete indexes should be ignored when unavailable (missing or closed).</summary>
         public UpdateIndexSettingsDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public UpdateIndexSettingsDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -1757,12 +1757,12 @@ namespace OpenSearch.Client
         public PutIndexTemplateDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>If true, this request cannot replace or update existing index templates.</summary>
+        /// <summary>If `true`, this request cannot replace or update existing index templates.</summary>
         public PutIndexTemplateDescriptor Create(bool? create = true) => Qs("create", create);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public PutIndexTemplateDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -1787,7 +1787,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IRefreshRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
         public RefreshDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1800,7 +1800,7 @@ namespace OpenSearch.Client
         public RefreshDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices.</summary>
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public RefreshDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -1887,9 +1887,9 @@ namespace OpenSearch.Client
         /// <summary>If `true`, checks whether the current index satisfies the specified conditions but does not perform a rollover.</summary>
         public RolloverIndexDescriptor DryRun(bool? dryrun = true) => Qs("dry_run", dryrun);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public RolloverIndexDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -1943,14 +1943,14 @@ namespace OpenSearch.Client
         public ShrinkIndexDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public ShrinkIndexDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Explicit task execution timeout, only useful when wait_for_completion is false, defaults to 1h.</summary>
+        /// <summary>Explicit task execution timeout, only useful when `wait_for_completion` is false, defaults to `1h`.</summary>
         public ShrinkIndexDescriptor TaskExecutionTimeout(Time taskexecutiontimeout) =>
             Qs("task_execution_timeout", taskexecutiontimeout);
 
@@ -2008,14 +2008,14 @@ namespace OpenSearch.Client
         public SplitIndexDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public SplitIndexDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Explicit task execution timeout, only useful when wait_for_completion is false, defaults to 1h.</summary>
+        /// <summary>Explicit task execution timeout, only useful when `wait_for_completion` is false, defaults to `1h`.</summary>
         public SplitIndexDescriptor TaskExecutionTimeout(Time taskexecutiontimeout) =>
             Qs("task_execution_timeout", taskexecutiontimeout);
 
@@ -2067,7 +2067,7 @@ namespace OpenSearch.Client
         Indices IIndicesStatsRequest.Index => Self.RouteValues.Get<Indices>("index");
         Metrics IIndicesStatsRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
 
-        /// <summary>A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices.</summary>
+        /// <summary>A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indexes.</summary>
         public IndicesStatsDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -2084,11 +2084,11 @@ namespace OpenSearch.Client
             Assign(metric, (a, v) => a.RouteValues.Optional("metric", v));
 
         // Request parameters
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata and suggest statistics.</summary>
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
         public IndicesStatsDescriptor CompletionFields(Fields completionfields) =>
             Qs("completion_fields", completionfields);
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata and suggest statistics.</summary>
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
         public IndicesStatsDescriptor CompletionFields<T>(
             params Expression<Func<T, object>>[] fields
         )
@@ -2098,11 +2098,11 @@ namespace OpenSearch.Client
         public IndicesStatsDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata statistics.</summary>
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data statistics.</summary>
         public IndicesStatsDescriptor FielddataFields(Fields fielddatafields) =>
             Qs("fielddata_fields", fielddatafields);
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata statistics.</summary>
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data statistics.</summary>
         public IndicesStatsDescriptor FielddataFields<T>(
             params Expression<Func<T, object>>[] fields
         )
@@ -2115,19 +2115,19 @@ namespace OpenSearch.Client
         public IndicesStatsDescriptor Fields<T>(params Expression<Func<T, object>>[] fields)
             where T : class => Qs("fields", fields?.Select(e => (Field)e));
 
-        /// <summary>If true, statistics are not collected from closed indices.</summary>
+        /// <summary>If `true`, statistics are not collected from closed indexes.</summary>
         public IndicesStatsDescriptor ForbidClosedIndices(bool? forbidclosedindices = true) =>
             Qs("forbid_closed_indices", forbidclosedindices);
 
         /// <summary>Comma-separated list of search groups to include in the search statistics.</summary>
         public IndicesStatsDescriptor Groups(params string[] groups) => Qs("groups", groups);
 
-        /// <summary>If true, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
+        /// <summary>If `true`, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
         public IndicesStatsDescriptor IncludeSegmentFileSizes(
             bool? includesegmentfilesizes = true
         ) => Qs("include_segment_file_sizes", includesegmentfilesizes);
 
-        /// <summary>If true, the response includes information from segments that are not loaded into memory.</summary>
+        /// <summary>If `true`, the response includes information from segments that are not loaded into memory.</summary>
         public IndicesStatsDescriptor IncludeUnloadedSegments(
             bool? includeunloadedsegments = true
         ) => Qs("include_unloaded_segments", includeunloadedsegments);
@@ -2150,9 +2150,9 @@ namespace OpenSearch.Client
         public BulkAliasDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public BulkAliasDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -2184,7 +2184,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IValidateQueryRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases to search. Supports wildcards (`*`). To search all data streams or indices, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (`*`). To search all data streams or indexes, omit this parameter or use `*` or `_all`.</summary>
         public ValidateQueryDescriptor<TDocument> Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -2197,7 +2197,7 @@ namespace OpenSearch.Client
         public ValidateQueryDescriptor<TDocument> AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices.</summary>
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public ValidateQueryDescriptor<TDocument> AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 

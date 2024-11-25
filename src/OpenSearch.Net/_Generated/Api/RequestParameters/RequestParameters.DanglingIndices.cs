@@ -74,9 +74,9 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Specify timeout for connection to master.</summary>
+        /// <summary>Specify timeout for connection to cluster manager.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -114,9 +114,9 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Specify timeout for connection to master.</summary>
+        /// <summary>Specify timeout for connection to cluster manager.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
