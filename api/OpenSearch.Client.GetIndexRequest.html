@@ -232,9 +232,9 @@
   </span>
   <a id="OpenSearch_Client_GetIndexRequest_AllowNoIndices_" data-uid="OpenSearch.Client.GetIndexRequest.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Client_GetIndexRequest_AllowNoIndices" data-uid="OpenSearch.Client.GetIndexRequest.AllowNoIndices">AllowNoIndices</h4>
-  <div class="markdown level1 summary"><p>If false, the request returns an error if any wildcard expression, index alias, or _all value targets only missing or closed indices. This
-behavior applies even if the request targets other open indices. For example, a request targeting foo*,bar* returns an error if an index
-starts with foo but no index starts with bar.</p>
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indexes.
+This behavior applies even if the request targets other open indexes. For example, a request targeting foo*,bar* returns an error if an
+index starts with foo but no index starts with bar.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -300,7 +300,7 @@ starts with foo but no index starts with bar.</p>
   <a id="OpenSearch_Client_GetIndexRequest_ExpandWildcards_" data-uid="OpenSearch.Client.GetIndexRequest.ExpandWildcards*"></a>
   <h4 id="OpenSearch_Client_GetIndexRequest_ExpandWildcards" data-uid="OpenSearch.Client.GetIndexRequest.ExpandWildcards">ExpandWildcards</h4>
   <div class="markdown level1 summary"><p>Type of index that wildcard expressions can match. If the request can target data streams, this argument determines whether wildcard
-expressions match hidden data streams. Supports comma-separated values, such as open,hidden.</p>
+expressions match hidden data streams. Supports comma-separated values, such as <code>open,hidden</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -331,7 +331,7 @@ expressions match hidden data streams. Supports comma-separated values, such as 
   </span>
   <a id="OpenSearch_Client_GetIndexRequest_FlatSettings_" data-uid="OpenSearch.Client.GetIndexRequest.FlatSettings*"></a>
   <h4 id="OpenSearch_Client_GetIndexRequest_FlatSettings" data-uid="OpenSearch.Client.GetIndexRequest.FlatSettings">FlatSettings</h4>
-  <div class="markdown level1 summary"><p>If true, returns settings in flat format.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, returns settings in flat format.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -362,7 +362,7 @@ expressions match hidden data streams. Supports comma-separated values, such as 
   </span>
   <a id="OpenSearch_Client_GetIndexRequest_IgnoreUnavailable_" data-uid="OpenSearch.Client.GetIndexRequest.IgnoreUnavailable*"></a>
   <h4 id="OpenSearch_Client_GetIndexRequest_IgnoreUnavailable" data-uid="OpenSearch.Client.GetIndexRequest.IgnoreUnavailable">IgnoreUnavailable</h4>
-  <div class="markdown level1 summary"><p>If false, requests that target a missing index return an error.</p>
+  <div class="markdown level1 summary"><p>If <code>false</code>, requests that target a missing index return an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -393,7 +393,7 @@ expressions match hidden data streams. Supports comma-separated values, such as 
   </span>
   <a id="OpenSearch_Client_GetIndexRequest_IncludeDefaults_" data-uid="OpenSearch.Client.GetIndexRequest.IncludeDefaults*"></a>
   <h4 id="OpenSearch_Client_GetIndexRequest_IncludeDefaults" data-uid="OpenSearch.Client.GetIndexRequest.IncludeDefaults">IncludeDefaults</h4>
-  <div class="markdown level1 summary"><p>If true, return all default settings in the response.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, return all default settings in the response.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -458,8 +458,8 @@ expressions match hidden data streams. Supports comma-separated values, such as 
   </span>
   <a id="OpenSearch_Client_GetIndexRequest_Local_" data-uid="OpenSearch.Client.GetIndexRequest.Local*"></a>
   <h4 id="OpenSearch_Client_GetIndexRequest_Local" data-uid="OpenSearch.Client.GetIndexRequest.Local">Local</h4>
-  <div class="markdown level1 summary"><p>If true, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the
-master node.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the
+cluster-manager node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -490,13 +490,13 @@ master node.</p>
   </span>
   <a id="OpenSearch_Client_GetIndexRequest_MasterTimeout_" data-uid="OpenSearch.Client.GetIndexRequest.MasterTimeout*"></a>
   <h4 id="OpenSearch_Client_GetIndexRequest_MasterTimeout" data-uid="OpenSearch.Client.GetIndexRequest.MasterTimeout">MasterTimeout</h4>
-  <div class="markdown level1 summary"><p>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-an error.</p>
+  <div class="markdown level1 summary"><p>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+returns an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated as of: 2.0.0, reason: To promote inclusive language, use &#39;cluster_manager_timeout&#39; instead.&quot;)]
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.&quot;)]
 public Time MasterTimeout { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>

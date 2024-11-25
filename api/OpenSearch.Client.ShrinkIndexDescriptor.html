@@ -443,12 +443,12 @@
   </span>
   <a id="OpenSearch_Client_ShrinkIndexDescriptor_MasterTimeout_" data-uid="OpenSearch.Client.ShrinkIndexDescriptor.MasterTimeout*"></a>
   <h4 id="OpenSearch_Client_ShrinkIndexDescriptor_MasterTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.ShrinkIndexDescriptor.MasterTimeout(OpenSearch.Client.Time)">MasterTimeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</p>
+  <div class="markdown level1 summary"><p>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated as of: 2.0.0, reason: To promote inclusive language, use &#39;cluster_manager_timeout&#39; instead.&quot;)]
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.&quot;)]
 public ShrinkIndexDescriptor MasterTimeout(Time mastertimeout)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -539,7 +539,7 @@ public ShrinkIndexDescriptor MasterTimeout(Time mastertimeout)</code></pre>
   </span>
   <a id="OpenSearch_Client_ShrinkIndexDescriptor_TaskExecutionTimeout_" data-uid="OpenSearch.Client.ShrinkIndexDescriptor.TaskExecutionTimeout*"></a>
   <h4 id="OpenSearch_Client_ShrinkIndexDescriptor_TaskExecutionTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.ShrinkIndexDescriptor.TaskExecutionTimeout(OpenSearch.Client.Time)">TaskExecutionTimeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Explicit task execution timeout, only useful when wait_for_completion is false, defaults to 1h.</p>
+  <div class="markdown level1 summary"><p>Explicit task execution timeout, only useful when <code>wait_for_completion</code> is false, defaults to <code>1h</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

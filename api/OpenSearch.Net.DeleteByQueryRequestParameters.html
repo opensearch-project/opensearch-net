@@ -168,8 +168,8 @@
   </span>
   <a id="OpenSearch_Net_DeleteByQueryRequestParameters_AllowNoIndices_" data-uid="OpenSearch.Net.DeleteByQueryRequestParameters.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Net_DeleteByQueryRequestParameters_AllowNoIndices" data-uid="OpenSearch.Net.DeleteByQueryRequestParameters.AllowNoIndices">AllowNoIndices</h4>
-  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indices.
-This behavior applies even if the request targets other open indices. For example, a request targeting <code>foo*,bar*</code> returns an error if an
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indexes.
+This behavior applies even if the request targets other open indexes. For example, a request targeting <code>foo*,bar*</code> returns an error if an
 index starts with <code>foo</code> but no index starts with <code>bar</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -581,7 +581,7 @@ expressions match hidden data streams. Supports comma-separated values, such as 
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool? Refresh { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Refresh? Refresh { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -593,7 +593,7 @@ expressions match hidden data streams. Supports comma-separated values, such as 
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><a class="xref" href="OpenSearch.Net.Refresh.html">Refresh</a>?</td>
         <td></td>
       </tr>
     </tbody>
@@ -824,7 +824,7 @@ expressions match hidden data streams. Supports comma-separated values, such as 
   </span>
   <a id="OpenSearch_Net_DeleteByQueryRequestParameters_Size_" data-uid="OpenSearch.Net.DeleteByQueryRequestParameters.Size*"></a>
   <h4 id="OpenSearch_Net_DeleteByQueryRequestParameters_Size" data-uid="OpenSearch.Net.DeleteByQueryRequestParameters.Size">Size</h4>
-  <div class="markdown level1 summary"><p>Deprecated, please use <code>max_docs</code> instead.</p>
+  <div class="markdown level1 summary"><p>Deprecated, use <code>max_docs</code> instead.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -886,7 +886,7 @@ expressions match hidden data streams. Supports comma-separated values, such as 
   </span>
   <a id="OpenSearch_Net_DeleteByQueryRequestParameters_SourceEnabled_" data-uid="OpenSearch.Net.DeleteByQueryRequestParameters.SourceEnabled*"></a>
   <h4 id="OpenSearch_Net_DeleteByQueryRequestParameters_SourceEnabled" data-uid="OpenSearch.Net.DeleteByQueryRequestParameters.SourceEnabled">SourceEnabled</h4>
-  <div class="markdown level1 summary"><p>True or false to return the _source field or not, or a list of fields to return.</p>
+  <div class="markdown level1 summary"><p>Set to <code>true</code> or <code>false</code> to return the <code>_source</code> field or not, or a list of fields to return.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -917,7 +917,7 @@ expressions match hidden data streams. Supports comma-separated values, such as 
   </span>
   <a id="OpenSearch_Net_DeleteByQueryRequestParameters_SourceExcludes_" data-uid="OpenSearch.Net.DeleteByQueryRequestParameters.SourceExcludes*"></a>
   <h4 id="OpenSearch_Net_DeleteByQueryRequestParameters_SourceExcludes" data-uid="OpenSearch.Net.DeleteByQueryRequestParameters.SourceExcludes">SourceExcludes</h4>
-  <div class="markdown level1 summary"><p>List of fields to exclude from the returned _source field.</p>
+  <div class="markdown level1 summary"><p>List of fields to exclude from the returned <code>_source</code> field.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -948,7 +948,7 @@ expressions match hidden data streams. Supports comma-separated values, such as 
   </span>
   <a id="OpenSearch_Net_DeleteByQueryRequestParameters_SourceIncludes_" data-uid="OpenSearch.Net.DeleteByQueryRequestParameters.SourceIncludes*"></a>
   <h4 id="OpenSearch_Net_DeleteByQueryRequestParameters_SourceIncludes" data-uid="OpenSearch.Net.DeleteByQueryRequestParameters.SourceIncludes">SourceIncludes</h4>
-  <div class="markdown level1 summary"><p>List of fields to extract and return from the _source field.</p>
+  <div class="markdown level1 summary"><p>List of fields to extract and return from the <code>_source</code> field.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1045,7 +1045,7 @@ expressions match hidden data streams. Supports comma-separated values, such as 
   <div class="markdown level1 summary"><p>Maximum number of documents to collect for each shard. If a query reaches this limit, OpenSearch terminates the query early. OpenSearch
 collects documents before sorting. Use with caution. OpenSearch applies this parameter to each shard handling the request. When possible,
 let OpenSearch perform early termination automatically. Avoid specifying this parameter for requests that target data streams with backing
-indices across multiple data tiers.</p>
+indexes across multiple data tiers.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

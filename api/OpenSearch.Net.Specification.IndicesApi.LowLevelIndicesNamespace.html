@@ -172,13 +172,13 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>A comma separated list of indices to add a block to.</p>
+        <td><p>A comma separated list of indexes to add a block to.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="OpenSearch.Net.IndexApiBlock.html">IndexApiBlock</a>?</td>
         <td><span class="parametername">block</span></td>
-        <td><p>The block to add (one of read, write, read_only or metadata).</p>
+        <td><p>The block to add (one of <code>read</code>, <code>write</code>, <code>read_only</code> or <code>metadata</code>).</p>
 </td>
       </tr>
       <tr>
@@ -253,13 +253,13 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>A comma separated list of indices to add a block to.</p>
+        <td><p>A comma separated list of indexes to add a block to.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="OpenSearch.Net.IndexApiBlock.html">IndexApiBlock</a>?</td>
         <td><span class="parametername">block</span></td>
-        <td><p>The block to add (one of read, write, read_only or metadata).</p>
+        <td><p>The block to add (one of <code>read</code>, <code>write</code>, <code>read_only</code> or <code>metadata</code>).</p>
 </td>
       </tr>
       <tr>
@@ -329,7 +329,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams or indices used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -555,7 +555,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams or indices used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -1078,7 +1078,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -1286,7 +1286,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -2407,7 +2407,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams or indices used to limit the request. Supports wildcards (<code>*</code>).</p>
+        <td><p>Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (<code>*</code>).</p>
 </td>
       </tr>
       <tr>
@@ -2488,7 +2488,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams or indices used to limit the request. Supports wildcards (<code>*</code>).</p>
+        <td><p>Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (<code>*</code>).</p>
 </td>
       </tr>
       <tr>
@@ -2564,7 +2564,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of indices to delete. You cannot specify index aliases. By default, this parameter does not support wildcards (<code>*</code>) or <code>_all</code>. To use wildcards or <code>_all</code>, set the <code>action.destructive_requires_name</code> cluster setting to <code>false</code>.</p>
+        <td><p>Comma-separated list of indexes to delete. You cannot specify index aliases. By default, this parameter does not support wildcards (<code>*</code>) or <code>_all</code>. To use wildcards or <code>_all</code>, set the <code>action.destructive_requires_name</code> cluster setting to <code>false</code>.</p>
 </td>
       </tr>
       <tr>
@@ -3074,7 +3074,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of indices to delete. You cannot specify index aliases. By default, this parameter does not support wildcards (<code>*</code>) or <code>_all</code>. To use wildcards or <code>_all</code>, set the <code>action.destructive_requires_name</code> cluster setting to <code>false</code>.</p>
+        <td><p>Comma-separated list of indexes to delete. You cannot specify index aliases. By default, this parameter does not support wildcards (<code>*</code>) or <code>_all</code>. To use wildcards or <code>_all</code>, set the <code>action.destructive_requires_name</code> cluster setting to <code>false</code>.</p>
 </td>
       </tr>
       <tr>
@@ -3144,7 +3144,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases. Supports wildcards (<code>*</code>).</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases. Supports wildcards (<code>*</code>).</p>
 </td>
       </tr>
       <tr>
@@ -3219,7 +3219,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases. Supports wildcards (<code>*</code>).</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases. Supports wildcards (<code>*</code>).</p>
 </td>
       </tr>
       <tr>
@@ -3289,7 +3289,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases to flush. Supports wildcards (<code>*</code>). To flush all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases to flush. Supports wildcards (<code>*</code>). To flush all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -3497,7 +3497,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases to flush. Supports wildcards (<code>*</code>). To flush all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases to flush. Supports wildcards (<code>*</code>). To flush all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -3567,7 +3567,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>A comma-separated list of index names; use the special string <code>_all</code> or Indices.All to perform the operation on all indices.</p>
+        <td><p>A comma-separated list of index names; use the special string <code>_all</code> or Indices.All to perform the operation on all indexes.</p>
 </td>
       </tr>
       <tr>
@@ -3775,7 +3775,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>A comma-separated list of index names; use the special string <code>_all</code> or Indices.All to perform the operation on all indices.</p>
+        <td><p>A comma-separated list of index names; use the special string <code>_all</code> or Indices.All to perform the operation on all indexes.</p>
 </td>
       </tr>
       <tr>
@@ -3845,7 +3845,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams or indices used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -3920,7 +3920,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams or indices used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -4279,7 +4279,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams or indices used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -4349,7 +4349,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams or indices used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -4425,7 +4425,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and index aliases used to limit the request. Wildcard expressions (*) are supported.</p>
+        <td><p>Comma-separated list of data streams, indexes, and index aliases used to limit the request. Wildcard expressions (*) are supported.</p>
 </td>
       </tr>
       <tr>
@@ -5056,7 +5056,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -5282,7 +5282,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -5358,7 +5358,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -5566,7 +5566,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -5636,7 +5636,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -5711,7 +5711,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -6070,7 +6070,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -6140,7 +6140,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -6494,7 +6494,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of indices; use the special string <code>_all</code> or Indices.All to perform the operation on all indices.</p>
+        <td><p>Comma-separated list of indexes; use the special string <code>_all</code> or Indices.All to perform the operation on all indexes.</p>
 </td>
       </tr>
       <tr>
@@ -6702,7 +6702,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of indices; use the special string <code>_all</code> or Indices.All to perform the operation on all indices.</p>
+        <td><p>Comma-separated list of indexes; use the special string <code>_all</code> or Indices.All to perform the operation on all indexes.</p>
 </td>
       </tr>
       <tr>
@@ -6772,7 +6772,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and index aliases used to limit the request. Wildcard expressions (*) are supported.</p>
+        <td><p>Comma-separated list of data streams, indexes, and index aliases used to limit the request. Wildcard expressions (*) are supported.</p>
 </td>
       </tr>
       <tr>
@@ -6842,7 +6842,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (<code>*</code>). By default, you must explicitly name the indices you using to limit the request. To limit a request using <code>_all</code>, <code>*</code>, or other wildcard expressions, change the <code>action.destructive_requires_name</code> setting to false. You can update this setting in the <code>opensearch.yml</code> file or using the cluster update settings API.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<code>*</code>). By default, you must explicitly name the indexes you using to limit the request. To limit a request using <code>_all</code>, <code>*</code>, or other wildcard expressions, change the <code>action.destructive_requires_name</code> setting to false. You can update this setting in the <code>opensearch.yml</code> file or using the cluster update settings API.</p>
 </td>
       </tr>
       <tr>
@@ -6917,7 +6917,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (<code>*</code>). By default, you must explicitly name the indices you using to limit the request. To limit a request using <code>_all</code>, <code>*</code>, or other wildcard expressions, change the <code>action.destructive_requires_name</code> setting to false. You can update this setting in the <code>opensearch.yml</code> file or using the cluster update settings API.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<code>*</code>). By default, you must explicitly name the indexes you using to limit the request. To limit a request using <code>_all</code>, <code>*</code>, or other wildcard expressions, change the <code>action.destructive_requires_name</code> setting to false. You can update this setting in the <code>opensearch.yml</code> file or using the cluster update settings API.</p>
 </td>
       </tr>
       <tr>
@@ -6987,7 +6987,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams or indices to add. Supports wildcards (<code>*</code>). Wildcard patterns that match both data streams and indices return an error.</p>
+        <td><p>Comma-separated list of data streams or indexes to add. Supports wildcards (<code>*</code>). Wildcard patterns that match both data streams and indexes return an error.</p>
 </td>
       </tr>
       <tr>
@@ -7068,7 +7068,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams or indices to add. Supports wildcards (<code>*</code>). Wildcard patterns that match both data streams and indices return an error.</p>
+        <td><p>Comma-separated list of data streams or indexes to add. Supports wildcards (<code>*</code>). Wildcard patterns that match both data streams and indexes return an error.</p>
 </td>
       </tr>
       <tr>
@@ -7457,7 +7457,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams or indices to add. Supports wildcards (<code>*</code>). Wildcard patterns that match both data streams and indices return an error.</p>
+        <td><p>Comma-separated list of data streams or indexes to add. Supports wildcards (<code>*</code>). Wildcard patterns that match both data streams and indexes return an error.</p>
 </td>
       </tr>
       <tr>
@@ -7533,7 +7533,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams or indices to add. Supports wildcards (<code>*</code>). Wildcard patterns that match both data streams and indices return an error.</p>
+        <td><p>Comma-separated list of data streams or indexes to add. Supports wildcards (<code>*</code>). Wildcard patterns that match both data streams and indexes return an error.</p>
 </td>
       </tr>
       <tr>
@@ -7772,7 +7772,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>A comma-separated list of index names the mapping should be added to (supports wildcards); use <code>_all</code> or omit to add the mapping on all indices.</p>
+        <td><p>A comma-separated list of index names the mapping should be added to (supports wildcards); use <code>_all</code> or omit to add the mapping on all indexes.</p>
 </td>
       </tr>
       <tr>
@@ -7853,7 +7853,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>A comma-separated list of index names the mapping should be added to (supports wildcards); use <code>_all</code> or omit to add the mapping on all indices.</p>
+        <td><p>A comma-separated list of index names the mapping should be added to (supports wildcards); use <code>_all</code> or omit to add the mapping on all indexes.</p>
 </td>
       </tr>
       <tr>
@@ -8086,7 +8086,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -8294,7 +8294,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -8364,7 +8364,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -8572,7 +8572,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -8642,7 +8642,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">name</span></td>
-        <td><p>Comma-separated name(s) or index pattern(s) of the indices, aliases, and data streams to resolve. Resources on remote clusters can be specified using the <code>&amp;lt;cluster&amp;gt;</code>:<code>&amp;lt;name&amp;gt;</code> syntax.</p>
+        <td><p>Comma-separated name(s) or index pattern(s) of the indexes, aliases, and data streams to resolve. Resources on remote clusters can be specified using the <code>&amp;lt;cluster&amp;gt;</code>:<code>&amp;lt;name&amp;gt;</code> syntax.</p>
 </td>
       </tr>
       <tr>
@@ -8717,7 +8717,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">name</span></td>
-        <td><p>Comma-separated name(s) or index pattern(s) of the indices, aliases, and data streams to resolve. Resources on remote clusters can be specified using the <code>&amp;lt;cluster&amp;gt;</code>:<code>&amp;lt;name&amp;gt;</code> syntax.</p>
+        <td><p>Comma-separated name(s) or index pattern(s) of the indexes, aliases, and data streams to resolve. Resources on remote clusters can be specified using the <code>&amp;lt;cluster&amp;gt;</code>:<code>&amp;lt;name&amp;gt;</code> syntax.</p>
 </td>
       </tr>
       <tr>
@@ -9113,7 +9113,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -9321,7 +9321,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -9391,7 +9391,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>List of data streams, indices, and aliases used to limit the request.</p>
+        <td><p>List of data streams, indexes, and aliases used to limit the request.</p>
 </td>
       </tr>
       <tr>
@@ -9599,7 +9599,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>List of data streams, indices, and aliases used to limit the request.</p>
+        <td><p>List of data streams, indexes, and aliases used to limit the request.</p>
 </td>
       </tr>
       <tr>
@@ -10466,7 +10466,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>A comma-separated list of index names; use the special string <code>_all</code> or Indices.All to perform the operation on all indices.</p>
+        <td><p>A comma-separated list of index names; use the special string <code>_all</code> or Indices.All to perform the operation on all indexes.</p>
 </td>
       </tr>
       <tr>
@@ -10541,7 +10541,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>A comma-separated list of index names; use the special string <code>_all</code> or Indices.All to perform the operation on all indices.</p>
+        <td><p>A comma-separated list of index names; use the special string <code>_all</code> or Indices.All to perform the operation on all indexes.</p>
 </td>
       </tr>
       <tr>
@@ -10900,7 +10900,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>A comma-separated list of index names; use the special string <code>_all</code> or Indices.All to perform the operation on all indices.</p>
+        <td><p>A comma-separated list of index names; use the special string <code>_all</code> or Indices.All to perform the operation on all indexes.</p>
 </td>
       </tr>
       <tr>
@@ -10970,7 +10970,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>A comma-separated list of index names; use the special string <code>_all</code> or Indices.All to perform the operation on all indices.</p>
+        <td><p>A comma-separated list of index names; use the special string <code>_all</code> or Indices.All to perform the operation on all indexes.</p>
 </td>
       </tr>
       <tr>
@@ -11354,7 +11354,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -11580,7 +11580,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -11656,7 +11656,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of indices; use the special string <code>_all</code> or Indices.All to perform the operation on all indices.</p>
+        <td><p>Comma-separated list of indexes; use the special string <code>_all</code> or Indices.All to perform the operation on all indexes.</p>
 </td>
       </tr>
       <tr>
@@ -11864,7 +11864,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of indices; use the special string <code>_all</code> or Indices.All to perform the operation on all indices.</p>
+        <td><p>Comma-separated list of indexes; use the special string <code>_all</code> or Indices.All to perform the operation on all indexes.</p>
 </td>
       </tr>
       <tr>
@@ -11934,7 +11934,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases to search. Supports wildcards (<code>*</code>). To search all data streams or indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (<code>*</code>). To search all data streams or indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>
@@ -12160,7 +12160,7 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">index</span></td>
-        <td><p>Comma-separated list of data streams, indices, and aliases to search. Supports wildcards (<code>*</code>). To search all data streams or indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+        <td><p>Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (<code>*</code>). To search all data streams or indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </td>
       </tr>
       <tr>

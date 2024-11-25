@@ -316,7 +316,7 @@
   </span>
   <a id="OpenSearch_Client_ClusterStateDescriptor_AllowNoIndices_" data-uid="OpenSearch.Client.ClusterStateDescriptor.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Client_ClusterStateDescriptor_AllowNoIndices_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.ClusterStateDescriptor.AllowNoIndices(System.Nullable{System.Boolean})">AllowNoIndices(bool?)</h4>
-  <div class="markdown level1 summary"><p>Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes <code>_all</code> string or when no indices have been specified).</p>
+  <div class="markdown level1 summary"><p>Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes <code>_all</code> string or when no indexes have been specified).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -415,7 +415,7 @@
   </span>
   <a id="OpenSearch_Client_ClusterStateDescriptor_ExpandWildcards_" data-uid="OpenSearch.Client.ClusterStateDescriptor.ExpandWildcards*"></a>
   <h4 id="OpenSearch_Client_ClusterStateDescriptor_ExpandWildcards_System_Nullable_OpenSearch_Net_ExpandWildcards__" data-uid="OpenSearch.Client.ClusterStateDescriptor.ExpandWildcards(System.Nullable{OpenSearch.Net.ExpandWildcards})">ExpandWildcards(ExpandWildcards?)</h4>
-  <div class="markdown level1 summary"><p>Whether to expand wildcard expression to concrete indices that are open, closed or both.</p>
+  <div class="markdown level1 summary"><p>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -511,7 +511,7 @@
   </span>
   <a id="OpenSearch_Client_ClusterStateDescriptor_IgnoreUnavailable_" data-uid="OpenSearch.Client.ClusterStateDescriptor.IgnoreUnavailable*"></a>
   <h4 id="OpenSearch_Client_ClusterStateDescriptor_IgnoreUnavailable_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.ClusterStateDescriptor.IgnoreUnavailable(System.Nullable{System.Boolean})">IgnoreUnavailable(bool?)</h4>
-  <div class="markdown level1 summary"><p>Whether specified concrete indices should be ignored when unavailable (missing or closed).</p>
+  <div class="markdown level1 summary"><p>Whether specified concrete indexes should be ignored when unavailable (missing or closed).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -559,7 +559,7 @@
   </span>
   <a id="OpenSearch_Client_ClusterStateDescriptor_Index_" data-uid="OpenSearch.Client.ClusterStateDescriptor.Index*"></a>
   <h4 id="OpenSearch_Client_ClusterStateDescriptor_Index_OpenSearch_Client_Indices_" data-uid="OpenSearch.Client.ClusterStateDescriptor.Index(OpenSearch.Client.Indices)">Index(Indices)</h4>
-  <div class="markdown level1 summary"><p>A comma-separated list of index names; use the special string <code>_all</code> or Indices.All to perform the operation on all indices.</p>
+  <div class="markdown level1 summary"><p>A comma-separated list of index names; use the special string <code>_all</code> or Indices.All to perform the operation on all indexes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -701,12 +701,12 @@
   </span>
   <a id="OpenSearch_Client_ClusterStateDescriptor_MasterTimeout_" data-uid="OpenSearch.Client.ClusterStateDescriptor.MasterTimeout*"></a>
   <h4 id="OpenSearch_Client_ClusterStateDescriptor_MasterTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.ClusterStateDescriptor.MasterTimeout(OpenSearch.Client.Time)">MasterTimeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Specify timeout for connection to master.</p>
+  <div class="markdown level1 summary"><p>Specify timeout for connection to cluster manager.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated as of: 2.0.0, reason: To promote inclusive language, use &#39;cluster_manager_timeout&#39; instead.&quot;)]
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.&quot;)]
 public ClusterStateDescriptor MasterTimeout(Time mastertimeout)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -846,7 +846,7 @@ public ClusterStateDescriptor MasterTimeout(Time mastertimeout)</code></pre>
   </span>
   <a id="OpenSearch_Client_ClusterStateDescriptor_WaitForTimeout_" data-uid="OpenSearch.Client.ClusterStateDescriptor.WaitForTimeout*"></a>
   <h4 id="OpenSearch_Client_ClusterStateDescriptor_WaitForTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.ClusterStateDescriptor.WaitForTimeout(OpenSearch.Client.Time)">WaitForTimeout(Time)</h4>
-  <div class="markdown level1 summary"><p>The maximum time to wait for wait_for_metadata_version before timing out.</p>
+  <div class="markdown level1 summary"><p>The maximum time to wait for <code>wait_for_metadata_version</code> before timing out.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

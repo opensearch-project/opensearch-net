@@ -244,7 +244,7 @@
   </span>
   <a id="OpenSearch_Client_ClusterRerouteRequest_DryRun_" data-uid="OpenSearch.Client.ClusterRerouteRequest.DryRun*"></a>
   <h4 id="OpenSearch_Client_ClusterRerouteRequest_DryRun" data-uid="OpenSearch.Client.ClusterRerouteRequest.DryRun">DryRun</h4>
-  <div class="markdown level1 summary"><p>If true, then the request simulates the operation only and returns the resulting state.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, then the request simulates the operation only and returns the resulting state.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -275,7 +275,7 @@
   </span>
   <a id="OpenSearch_Client_ClusterRerouteRequest_Explain_" data-uid="OpenSearch.Client.ClusterRerouteRequest.Explain*"></a>
   <h4 id="OpenSearch_Client_ClusterRerouteRequest_Explain" data-uid="OpenSearch.Client.ClusterRerouteRequest.Explain">Explain</h4>
-  <div class="markdown level1 summary"><p>If true, then the response contains an explanation of why the commands can or cannot be executed.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, then the response contains an explanation of why the commands can or cannot be executed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -306,13 +306,13 @@
   </span>
   <a id="OpenSearch_Client_ClusterRerouteRequest_MasterTimeout_" data-uid="OpenSearch.Client.ClusterRerouteRequest.MasterTimeout*"></a>
   <h4 id="OpenSearch_Client_ClusterRerouteRequest_MasterTimeout" data-uid="OpenSearch.Client.ClusterRerouteRequest.MasterTimeout">MasterTimeout</h4>
-  <div class="markdown level1 summary"><p>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-an error.</p>
+  <div class="markdown level1 summary"><p>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+returns an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated as of: 2.0.0, reason: To promote inclusive language, use &#39;cluster_manager_timeout&#39; instead.&quot;)]
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.&quot;)]
 public Time MasterTimeout { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -370,7 +370,7 @@ public Time MasterTimeout { get; set; }</code></pre>
   </span>
   <a id="OpenSearch_Client_ClusterRerouteRequest_RetryFailed_" data-uid="OpenSearch.Client.ClusterRerouteRequest.RetryFailed*"></a>
   <h4 id="OpenSearch_Client_ClusterRerouteRequest_RetryFailed" data-uid="OpenSearch.Client.ClusterRerouteRequest.RetryFailed">RetryFailed</h4>
-  <div class="markdown level1 summary"><p>If true, then retries allocation of shards that are blocked due to too many subsequent allocation failures.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, then retries allocation of shards that are blocked due to too many subsequent allocation failures.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

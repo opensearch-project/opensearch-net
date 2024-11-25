@@ -168,8 +168,8 @@
   </span>
   <a id="OpenSearch_Net_SearchTemplateRequestParameters_AllowNoIndices_" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Net_SearchTemplateRequestParameters_AllowNoIndices" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.AllowNoIndices">AllowNoIndices</h4>
-  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indices.
-This behavior applies even if the request targets other open indices. For example, a request targeting <code>foo*,bar*</code> returns an error if an
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indexes.
+This behavior applies even if the request targets other open indexes. For example, a request targeting <code>foo*,bar*</code> returns an error if an
 index starts with <code>foo</code> but no index starts with <code>bar</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -328,7 +328,7 @@ expressions match hidden data streams. Supports comma-separated values, such as 
   </span>
   <a id="OpenSearch_Net_SearchTemplateRequestParameters_IgnoreThrottled_" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.IgnoreThrottled*"></a>
   <h4 id="OpenSearch_Net_SearchTemplateRequestParameters_IgnoreThrottled" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.IgnoreThrottled">IgnoreThrottled</h4>
-  <div class="markdown level1 summary"><p>If <code>true</code>, specified concrete, expanded, or aliased indices are not included in the response when throttled.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, specified concrete, expanded, or aliased indexes are not included in the response when throttled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -577,7 +577,7 @@ expressions match hidden data streams. Supports comma-separated values, such as 
   </span>
   <a id="OpenSearch_Net_SearchTemplateRequestParameters_TotalHitsAsInteger_" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.TotalHitsAsInteger*"></a>
   <h4 id="OpenSearch_Net_SearchTemplateRequestParameters_TotalHitsAsInteger" data-uid="OpenSearch.Net.SearchTemplateRequestParameters.TotalHitsAsInteger">TotalHitsAsInteger</h4>
-  <div class="markdown level1 summary"><p>If true, hits.total are rendered as an integer in the response.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, <code>hits.total</code> are rendered as an integer in the response.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

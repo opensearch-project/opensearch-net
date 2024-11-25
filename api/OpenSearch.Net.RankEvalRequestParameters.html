@@ -168,8 +168,8 @@
   </span>
   <a id="OpenSearch_Net_RankEvalRequestParameters_AllowNoIndices_" data-uid="OpenSearch.Net.RankEvalRequestParameters.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Net_RankEvalRequestParameters_AllowNoIndices" data-uid="OpenSearch.Net.RankEvalRequestParameters.AllowNoIndices">AllowNoIndices</h4>
-  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indices.
-This behavior applies even if the request targets other open indices. For example, a request targeting <code>foo*,bar*</code> returns an error if an
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indexes.
+This behavior applies even if the request targets other open indexes. For example, a request targeting <code>foo*,bar*</code> returns an error if an
 index starts with <code>foo</code> but no index starts with <code>bar</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -233,7 +233,7 @@ index starts with <code>foo</code> but no index starts with <code>bar</code>.</p
   </span>
   <a id="OpenSearch_Net_RankEvalRequestParameters_ExpandWildcards_" data-uid="OpenSearch.Net.RankEvalRequestParameters.ExpandWildcards*"></a>
   <h4 id="OpenSearch_Net_RankEvalRequestParameters_ExpandWildcards" data-uid="OpenSearch.Net.RankEvalRequestParameters.ExpandWildcards">ExpandWildcards</h4>
-  <div class="markdown level1 summary"><p>Whether to expand wildcard expression to concrete indices that are open, closed or both.</p>
+  <div class="markdown level1 summary"><p>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -264,7 +264,7 @@ index starts with <code>foo</code> but no index starts with <code>bar</code>.</p
   </span>
   <a id="OpenSearch_Net_RankEvalRequestParameters_IgnoreUnavailable_" data-uid="OpenSearch.Net.RankEvalRequestParameters.IgnoreUnavailable*"></a>
   <h4 id="OpenSearch_Net_RankEvalRequestParameters_IgnoreUnavailable" data-uid="OpenSearch.Net.RankEvalRequestParameters.IgnoreUnavailable">IgnoreUnavailable</h4>
-  <div class="markdown level1 summary"><p>If <code>true</code>, missing or closed indices are not included in the response.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, missing or closed indexes are not included in the response.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

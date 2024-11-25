@@ -265,7 +265,7 @@
   </span>
   <a id="OpenSearch_Net_Specification_ClusterApi_ClusterHealthRequestParameters_ExpandWildcards_" data-uid="OpenSearch.Net.Specification.ClusterApi.ClusterHealthRequestParameters.ExpandWildcards*"></a>
   <h4 id="OpenSearch_Net_Specification_ClusterApi_ClusterHealthRequestParameters_ExpandWildcards" data-uid="OpenSearch.Net.Specification.ClusterApi.ClusterHealthRequestParameters.ExpandWildcards">ExpandWildcards</h4>
-  <div class="markdown level1 summary"><p>Whether to expand wildcard expression to concrete indices that are open, closed or both.</p>
+  <div class="markdown level1 summary"><p>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -296,7 +296,7 @@
   </span>
   <a id="OpenSearch_Net_Specification_ClusterApi_ClusterHealthRequestParameters_Level_" data-uid="OpenSearch.Net.Specification.ClusterApi.ClusterHealthRequestParameters.Level*"></a>
   <h4 id="OpenSearch_Net_Specification_ClusterApi_ClusterHealthRequestParameters_Level" data-uid="OpenSearch.Net.Specification.ClusterApi.ClusterHealthRequestParameters.Level">Level</h4>
-  <div class="markdown level1 summary"><p>Can be one of cluster, indices or shards. Controls the details level of the health information returned.</p>
+  <div class="markdown level1 summary"><p>Can be one of cluster, indexes or shards. Controls the details level of the health information returned.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -327,8 +327,8 @@
   </span>
   <a id="OpenSearch_Net_Specification_ClusterApi_ClusterHealthRequestParameters_Local_" data-uid="OpenSearch.Net.Specification.ClusterApi.ClusterHealthRequestParameters.Local*"></a>
   <h4 id="OpenSearch_Net_Specification_ClusterApi_ClusterHealthRequestParameters_Local" data-uid="OpenSearch.Net.Specification.ClusterApi.ClusterHealthRequestParameters.Local">Local</h4>
-  <div class="markdown level1 summary"><p>If true, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the
-master node.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the
+cluster-manager node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -359,13 +359,13 @@ master node.</p>
   </span>
   <a id="OpenSearch_Net_Specification_ClusterApi_ClusterHealthRequestParameters_MasterTimeout_" data-uid="OpenSearch.Net.Specification.ClusterApi.ClusterHealthRequestParameters.MasterTimeout*"></a>
   <h4 id="OpenSearch_Net_Specification_ClusterApi_ClusterHealthRequestParameters_MasterTimeout" data-uid="OpenSearch.Net.Specification.ClusterApi.ClusterHealthRequestParameters.MasterTimeout">MasterTimeout</h4>
-  <div class="markdown level1 summary"><p>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-an error.</p>
+  <div class="markdown level1 summary"><p>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+returns an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated as of: 2.0.0, reason: To promote inclusive language, use &#39;cluster_manager_timeout&#39; instead.&quot;)]
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.&quot;)]
 public TimeSpan MasterTimeout { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -517,7 +517,7 @@ public TimeSpan MasterTimeout { get; set; }</code></pre>
   </span>
   <a id="OpenSearch_Net_Specification_ClusterApi_ClusterHealthRequestParameters_WaitForNoInitializingShards_" data-uid="OpenSearch.Net.Specification.ClusterApi.ClusterHealthRequestParameters.WaitForNoInitializingShards*"></a>
   <h4 id="OpenSearch_Net_Specification_ClusterApi_ClusterHealthRequestParameters_WaitForNoInitializingShards" data-uid="OpenSearch.Net.Specification.ClusterApi.ClusterHealthRequestParameters.WaitForNoInitializingShards">WaitForNoInitializingShards</h4>
-  <div class="markdown level1 summary"><p>A boolean value which controls whether to wait (until the timeout provided) for the cluster to have no shard initializations. Defaults to
+  <div class="markdown level1 summary"><p>A Boolean value which controls whether to wait (until the timeout provided) for the cluster to have no shard initializations. Defaults to
 false, which means it will not wait for initializing shards.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -549,7 +549,7 @@ false, which means it will not wait for initializing shards.</p>
   </span>
   <a id="OpenSearch_Net_Specification_ClusterApi_ClusterHealthRequestParameters_WaitForNoRelocatingShards_" data-uid="OpenSearch.Net.Specification.ClusterApi.ClusterHealthRequestParameters.WaitForNoRelocatingShards*"></a>
   <h4 id="OpenSearch_Net_Specification_ClusterApi_ClusterHealthRequestParameters_WaitForNoRelocatingShards" data-uid="OpenSearch.Net.Specification.ClusterApi.ClusterHealthRequestParameters.WaitForNoRelocatingShards">WaitForNoRelocatingShards</h4>
-  <div class="markdown level1 summary"><p>A boolean value which controls whether to wait (until the timeout provided) for the cluster to have no shard relocations. Defaults to
+  <div class="markdown level1 summary"><p>A Boolean value which controls whether to wait (until the timeout provided) for the cluster to have no shard relocations. Defaults to
 false, which means it will not wait for relocating shards.</p>
 </div>
   <div class="markdown level1 conceptual"></div>

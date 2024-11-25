@@ -292,7 +292,7 @@
   </span>
   <a id="OpenSearch_Client_SearchShardsDescriptor_1_AllowNoIndices_" data-uid="OpenSearch.Client.SearchShardsDescriptor`1.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Client_SearchShardsDescriptor_1_AllowNoIndices_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.SearchShardsDescriptor`1.AllowNoIndices(System.Nullable{System.Boolean})">AllowNoIndices(bool?)</h4>
-  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indices. This behavior applies even if the request targets other open indices. For example, a request targeting <code>foo*,bar*</code> returns an error if an index starts with <code>foo</code> but no index starts with <code>bar</code>.</p>
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting <code>foo*,bar*</code> returns an error if an index starts with <code>foo</code> but no index starts with <code>bar</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -436,7 +436,7 @@
   </span>
   <a id="OpenSearch_Client_SearchShardsDescriptor_1_Index_" data-uid="OpenSearch.Client.SearchShardsDescriptor`1.Index*"></a>
   <h4 id="OpenSearch_Client_SearchShardsDescriptor_1_Index_OpenSearch_Client_Indices_" data-uid="OpenSearch.Client.SearchShardsDescriptor`1.Index(OpenSearch.Client.Indices)">Index(Indices)</h4>
-  <div class="markdown level1 summary"><p>Returns the indices and shards that a search request would be executed against.</p>
+  <div class="markdown level1 summary"><p>Returns the indexes and shards that a search request would be executed against.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

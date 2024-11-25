@@ -517,7 +517,7 @@
   </span>
   <a id="OpenSearch_Client_SourceDescriptor_1_Realtime_" data-uid="OpenSearch.Client.SourceDescriptor`1.Realtime*"></a>
   <h4 id="OpenSearch_Client_SourceDescriptor_1_Realtime_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.SourceDescriptor`1.Realtime(System.Nullable{System.Boolean})">Realtime(bool?)</h4>
-  <div class="markdown level1 summary"><p>Boolean) If true, the request is real-time as opposed to near-real-time.</p>
+  <div class="markdown level1 summary"><p>Boolean) If <code>true</code>, the request is real-time as opposed to near-real-time.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -558,19 +558,19 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SourceDescriptor_1_Refresh_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SourceDescriptor%601.Refresh(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SourceDescriptor_1_Refresh_System_Nullable_OpenSearch_Net_Refresh__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SourceDescriptor%601.Refresh(System.Nullable%7BOpenSearch.Net.Refresh%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L1333">View Source</a>
   </span>
   <a id="OpenSearch_Client_SourceDescriptor_1_Refresh_" data-uid="OpenSearch.Client.SourceDescriptor`1.Refresh*"></a>
-  <h4 id="OpenSearch_Client_SourceDescriptor_1_Refresh_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.SourceDescriptor`1.Refresh(System.Nullable{System.Boolean})">Refresh(bool?)</h4>
-  <div class="markdown level1 summary"><p>If true, OpenSearch refreshes the affected shards to make this operation visible to search. If false, do nothing with refreshes.</p>
+  <h4 id="OpenSearch_Client_SourceDescriptor_1_Refresh_System_Nullable_OpenSearch_Net_Refresh__" data-uid="OpenSearch.Client.SourceDescriptor`1.Refresh(System.Nullable{OpenSearch.Net.Refresh})">Refresh(Refresh?)</h4>
+  <div class="markdown level1 summary"><p>If <code>true</code>, OpenSearch refreshes the affected shards to make this operation visible to search. If <code>false</code>, do nothing with refreshes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SourceDescriptor&lt;TDocument&gt; Refresh(bool? refresh = true)</code></pre>
+    <pre><code class="lang-csharp hljs">public SourceDescriptor&lt;TDocument&gt; Refresh(Refresh? refresh)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -583,7 +583,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><a class="xref" href="OpenSearch.Net.Refresh.html">Refresh</a>?</td>
         <td><span class="parametername">refresh</span></td>
         <td></td>
       </tr>
@@ -951,7 +951,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
   </span>
   <a id="OpenSearch_Client_SourceDescriptor_1_VersionType_" data-uid="OpenSearch.Client.SourceDescriptor`1.VersionType*"></a>
   <h4 id="OpenSearch_Client_SourceDescriptor_1_VersionType_System_Nullable_OpenSearch_Net_VersionType__" data-uid="OpenSearch.Client.SourceDescriptor`1.VersionType(System.Nullable{OpenSearch.Net.VersionType})">VersionType(VersionType?)</h4>
-  <div class="markdown level1 summary"><p>Specific version type: internal, external, external_gte.</p>
+  <div class="markdown level1 summary"><p>Specific version type. One of <code>internal</code>, <code>external</code>, <code>external_gte</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

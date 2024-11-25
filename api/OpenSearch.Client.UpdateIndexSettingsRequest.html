@@ -232,8 +232,8 @@
   </span>
   <a id="OpenSearch_Client_UpdateIndexSettingsRequest_AllowNoIndices_" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Client_UpdateIndexSettingsRequest_AllowNoIndices" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.AllowNoIndices">AllowNoIndices</h4>
-  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indices.
-This behavior applies even if the request targets other open indices. For example, a request targeting <code>foo*,bar*</code> returns an error if an
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indexes.
+This behavior applies even if the request targets other open indexes. For example, a request targeting <code>foo*,bar*</code> returns an error if an
 index starts with <code>foo</code> but no index starts with <code>bar</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -362,7 +362,7 @@ expressions match hidden data streams. Supports comma-separated values, such as 
   </span>
   <a id="OpenSearch_Client_UpdateIndexSettingsRequest_IgnoreUnavailable_" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.IgnoreUnavailable*"></a>
   <h4 id="OpenSearch_Client_UpdateIndexSettingsRequest_IgnoreUnavailable" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.IgnoreUnavailable">IgnoreUnavailable</h4>
-  <div class="markdown level1 summary"><p>Whether specified concrete indices should be ignored when unavailable (missing or closed).</p>
+  <div class="markdown level1 summary"><p>Whether specified concrete indexes should be ignored when unavailable (missing or closed).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -423,13 +423,13 @@ expressions match hidden data streams. Supports comma-separated values, such as 
   </span>
   <a id="OpenSearch_Client_UpdateIndexSettingsRequest_MasterTimeout_" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.MasterTimeout*"></a>
   <h4 id="OpenSearch_Client_UpdateIndexSettingsRequest_MasterTimeout" data-uid="OpenSearch.Client.UpdateIndexSettingsRequest.MasterTimeout">MasterTimeout</h4>
-  <div class="markdown level1 summary"><p>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-an error.</p>
+  <div class="markdown level1 summary"><p>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+returns an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated as of: 2.0.0, reason: To promote inclusive language, use &#39;cluster_manager_timeout&#39; instead.&quot;)]
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.&quot;)]
 public Time MasterTimeout { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>

@@ -168,7 +168,7 @@
   </span>
   <a id="OpenSearch_Net_Specification_KnnApi_SearchModelsRequestParameters_AllowNoIndices_" data-uid="OpenSearch.Net.Specification.KnnApi.SearchModelsRequestParameters.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Net_Specification_KnnApi_SearchModelsRequestParameters_AllowNoIndices" data-uid="OpenSearch.Net.Specification.KnnApi.SearchModelsRequestParameters.AllowNoIndices">AllowNoIndices</h4>
-  <div class="markdown level1 summary"><p>Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes <code>_all</code> string or when no indices have
+  <div class="markdown level1 summary"><p>Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes <code>_all</code> string or when no indexes have
 been specified).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -481,7 +481,7 @@ to reduce the memory overhead per search request if the potential number of shar
   </span>
   <a id="OpenSearch_Net_Specification_KnnApi_SearchModelsRequestParameters_ExpandWildcards_" data-uid="OpenSearch.Net.Specification.KnnApi.SearchModelsRequestParameters.ExpandWildcards*"></a>
   <h4 id="OpenSearch_Net_Specification_KnnApi_SearchModelsRequestParameters_ExpandWildcards" data-uid="OpenSearch.Net.Specification.KnnApi.SearchModelsRequestParameters.ExpandWildcards">ExpandWildcards</h4>
-  <div class="markdown level1 summary"><p>Whether to expand wildcard expression to concrete indices that are open, closed or both.</p>
+  <div class="markdown level1 summary"><p>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -574,7 +574,7 @@ to reduce the memory overhead per search request if the potential number of shar
   </span>
   <a id="OpenSearch_Net_Specification_KnnApi_SearchModelsRequestParameters_IgnoreThrottled_" data-uid="OpenSearch.Net.Specification.KnnApi.SearchModelsRequestParameters.IgnoreThrottled*"></a>
   <h4 id="OpenSearch_Net_Specification_KnnApi_SearchModelsRequestParameters_IgnoreThrottled" data-uid="OpenSearch.Net.Specification.KnnApi.SearchModelsRequestParameters.IgnoreThrottled">IgnoreThrottled</h4>
-  <div class="markdown level1 summary"><p>Whether specified concrete, expanded or aliased indices should be ignored when throttled.</p>
+  <div class="markdown level1 summary"><p>Whether specified concrete, expanded or aliased indexes should be ignored when throttled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -605,7 +605,7 @@ to reduce the memory overhead per search request if the potential number of shar
   </span>
   <a id="OpenSearch_Net_Specification_KnnApi_SearchModelsRequestParameters_IgnoreUnavailable_" data-uid="OpenSearch.Net.Specification.KnnApi.SearchModelsRequestParameters.IgnoreUnavailable*"></a>
   <h4 id="OpenSearch_Net_Specification_KnnApi_SearchModelsRequestParameters_IgnoreUnavailable" data-uid="OpenSearch.Net.Specification.KnnApi.SearchModelsRequestParameters.IgnoreUnavailable">IgnoreUnavailable</h4>
-  <div class="markdown level1 summary"><p>Whether specified concrete indices should be ignored when unavailable (missing or closed).</p>
+  <div class="markdown level1 summary"><p>Whether specified concrete indexes should be ignored when unavailable (missing or closed).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -701,7 +701,7 @@ search on the cluster in order to limit the number of concurrent shard requests.
   <h4 id="OpenSearch_Net_Specification_KnnApi_SearchModelsRequestParameters_PreFilterShardSize" data-uid="OpenSearch.Net.Specification.KnnApi.SearchModelsRequestParameters.PreFilterShardSize">PreFilterShardSize</h4>
   <div class="markdown level1 summary"><p>Threshold that enforces a pre-filter round-trip to prefilter search shards based on query rewriting if the number of shards the search
 request expands to exceeds the threshold. This filter round-trip can limit the number of shards significantly if for instance a shard can
-not match any documents based on its rewrite method ie. if date filters are mandatory to match but the shard bounds and the query are
+not match any documents based on its rewrite method, that is if date filters are mandatory to match but the shard bounds and the query are
 disjoint.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1012,7 +1012,7 @@ disjoint.</p>
   </span>
   <a id="OpenSearch_Net_Specification_KnnApi_SearchModelsRequestParameters_SourceEnabled_" data-uid="OpenSearch.Net.Specification.KnnApi.SearchModelsRequestParameters.SourceEnabled*"></a>
   <h4 id="OpenSearch_Net_Specification_KnnApi_SearchModelsRequestParameters_SourceEnabled" data-uid="OpenSearch.Net.Specification.KnnApi.SearchModelsRequestParameters.SourceEnabled">SourceEnabled</h4>
-  <div class="markdown level1 summary"><p>True or false to return the _source field or not, or a list of fields to return.</p>
+  <div class="markdown level1 summary"><p>Set to <code>true</code> or <code>false</code> to return the <code>_source</code> field or not, or a list of fields to return.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1043,7 +1043,7 @@ disjoint.</p>
   </span>
   <a id="OpenSearch_Net_Specification_KnnApi_SearchModelsRequestParameters_SourceExcludes_" data-uid="OpenSearch.Net.Specification.KnnApi.SearchModelsRequestParameters.SourceExcludes*"></a>
   <h4 id="OpenSearch_Net_Specification_KnnApi_SearchModelsRequestParameters_SourceExcludes" data-uid="OpenSearch.Net.Specification.KnnApi.SearchModelsRequestParameters.SourceExcludes">SourceExcludes</h4>
-  <div class="markdown level1 summary"><p>List of fields to exclude from the returned _source field.</p>
+  <div class="markdown level1 summary"><p>List of fields to exclude from the returned <code>_source</code> field.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1074,7 +1074,7 @@ disjoint.</p>
   </span>
   <a id="OpenSearch_Net_Specification_KnnApi_SearchModelsRequestParameters_SourceIncludes_" data-uid="OpenSearch.Net.Specification.KnnApi.SearchModelsRequestParameters.SourceIncludes*"></a>
   <h4 id="OpenSearch_Net_Specification_KnnApi_SearchModelsRequestParameters_SourceIncludes" data-uid="OpenSearch.Net.Specification.KnnApi.SearchModelsRequestParameters.SourceIncludes">SourceIncludes</h4>
-  <div class="markdown level1 summary"><p>List of fields to extract and return from the _source field.</p>
+  <div class="markdown level1 summary"><p>List of fields to extract and return from the <code>_source</code> field.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1385,7 +1385,7 @@ disjoint.</p>
   </span>
   <a id="OpenSearch_Net_Specification_KnnApi_SearchModelsRequestParameters_TotalHitsAsInteger_" data-uid="OpenSearch.Net.Specification.KnnApi.SearchModelsRequestParameters.TotalHitsAsInteger*"></a>
   <h4 id="OpenSearch_Net_Specification_KnnApi_SearchModelsRequestParameters_TotalHitsAsInteger" data-uid="OpenSearch.Net.Specification.KnnApi.SearchModelsRequestParameters.TotalHitsAsInteger">TotalHitsAsInteger</h4>
-  <div class="markdown level1 summary"><p>Indicates whether hits.total should be rendered as an integer or an object in the rest search response.</p>
+  <div class="markdown level1 summary"><p>Indicates whether <code>hits.total</code> should be rendered as an integer or an object in the rest search response.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

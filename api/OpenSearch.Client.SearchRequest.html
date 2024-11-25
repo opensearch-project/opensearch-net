@@ -257,8 +257,8 @@ public class SearchRequest : PlainRequestBase&lt;SearchRequestParameters&gt;, IS
   </span>
   <a id="OpenSearch_Client_SearchRequest_AllowNoIndices_" data-uid="OpenSearch.Client.SearchRequest.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Client_SearchRequest_AllowNoIndices" data-uid="OpenSearch.Client.SearchRequest.AllowNoIndices">AllowNoIndices</h4>
-  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indices.
-This behavior applies even if the request targets other open indices. For example, a request targeting <code>foo*,bar*</code> returns an error if an
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indexes.
+This behavior applies even if the request targets other open indexes. For example, a request targeting <code>foo*,bar*</code> returns an error if an
 index starts with <code>foo</code> but no index starts with <code>bar</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -290,7 +290,7 @@ index starts with <code>foo</code> but no index starts with <code>bar</code>.</p
   </span>
   <a id="OpenSearch_Client_SearchRequest_AllowPartialSearchResults_" data-uid="OpenSearch.Client.SearchRequest.AllowPartialSearchResults*"></a>
   <h4 id="OpenSearch_Client_SearchRequest_AllowPartialSearchResults" data-uid="OpenSearch.Client.SearchRequest.AllowPartialSearchResults">AllowPartialSearchResults</h4>
-  <div class="markdown level1 summary"><p>If true, returns partial results if there are shard request timeouts or shard failures. If false, returns an error with no partial
+  <div class="markdown level1 summary"><p>If <code>true</code>, returns partial results if there are shard request timeouts or shard failures. If <code>false</code>, returns an error with no partial
 results.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -322,7 +322,7 @@ results.</p>
   </span>
   <a id="OpenSearch_Client_SearchRequest_AnalyzeWildcard_" data-uid="OpenSearch.Client.SearchRequest.AnalyzeWildcard*"></a>
   <h4 id="OpenSearch_Client_SearchRequest_AnalyzeWildcard" data-uid="OpenSearch.Client.SearchRequest.AnalyzeWildcard">AnalyzeWildcard</h4>
-  <div class="markdown level1 summary"><p>If true, wildcard and prefix queries are analyzed. This parameter can only be used when the q query string parameter is specified.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, wildcard and prefix queries are analyzed. This parameter can only be used when the q query string parameter is specified.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -448,8 +448,8 @@ cluster setting.</p>
   </span>
   <a id="OpenSearch_Client_SearchRequest_CcsMinimizeRoundtrips_" data-uid="OpenSearch.Client.SearchRequest.CcsMinimizeRoundtrips*"></a>
   <h4 id="OpenSearch_Client_SearchRequest_CcsMinimizeRoundtrips" data-uid="OpenSearch.Client.SearchRequest.CcsMinimizeRoundtrips">CcsMinimizeRoundtrips</h4>
-  <div class="markdown level1 summary"><p>If true, network round-trips between the coordinating node and the remote clusters are minimized when executing cross-cluster search (CCS)
-requests.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, network round-trips between the coordinating node and the remote clusters are minimized when executing cross-cluster search
+(CCS) requests.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -830,7 +830,7 @@ fast-vector-highlighter or highlighter.</p>
   </span>
   <a id="OpenSearch_Client_SearchRequest_IgnoreThrottled_" data-uid="OpenSearch.Client.SearchRequest.IgnoreThrottled*"></a>
   <h4 id="OpenSearch_Client_SearchRequest_IgnoreThrottled" data-uid="OpenSearch.Client.SearchRequest.IgnoreThrottled">IgnoreThrottled</h4>
-  <div class="markdown level1 summary"><p>If <code>true</code>, concrete, expanded or aliased indices will be ignored when frozen.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, concrete, expanded or aliased indexes will be ignored when frozen.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -892,7 +892,7 @@ fast-vector-highlighter or highlighter.</p>
   </span>
   <a id="OpenSearch_Client_SearchRequest_IncludeNamedQueriesScore_" data-uid="OpenSearch.Client.SearchRequest.IncludeNamedQueriesScore*"></a>
   <h4 id="OpenSearch_Client_SearchRequest_IncludeNamedQueriesScore" data-uid="OpenSearch.Client.SearchRequest.IncludeNamedQueriesScore">IncludeNamedQueriesScore</h4>
-  <div class="markdown level1 summary"><p>Indicates whether hit.matched_queries should be rendered as a map that includes the name of the matched query associated with its score
+  <div class="markdown level1 summary"><p>Indicates whether <code>hit.matched_queries</code> should be rendered as a map that includes the name of the matched query associated with its score
 (true) or as an array containing the name of the matched queries (false).</p>
 </div>
   <div class="markdown level1 conceptual"></div>

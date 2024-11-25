@@ -229,8 +229,8 @@
   </span>
   <a id="OpenSearch_Client_FieldCapabilitiesRequest_AllowNoIndices_" data-uid="OpenSearch.Client.FieldCapabilitiesRequest.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Client_FieldCapabilitiesRequest_AllowNoIndices" data-uid="OpenSearch.Client.FieldCapabilitiesRequest.AllowNoIndices">AllowNoIndices</h4>
-  <div class="markdown level1 summary"><p>If false, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indices.
-This behavior applies even if the request targets other open indices. For example, a request targeting <code>foo*,bar*</code> returns an error if an
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indexes.
+This behavior applies even if the request targets other open indexes. For example, a request targeting <code>foo*,bar*</code> returns an error if an
 index starts with foo but no index starts with bar.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -357,7 +357,7 @@ expressions match hidden data streams. Supports comma-separated values, such as 
   </span>
   <a id="OpenSearch_Client_FieldCapabilitiesRequest_IgnoreUnavailable_" data-uid="OpenSearch.Client.FieldCapabilitiesRequest.IgnoreUnavailable*"></a>
   <h4 id="OpenSearch_Client_FieldCapabilitiesRequest_IgnoreUnavailable" data-uid="OpenSearch.Client.FieldCapabilitiesRequest.IgnoreUnavailable">IgnoreUnavailable</h4>
-  <div class="markdown level1 summary"><p>If <code>true</code>, missing or closed indices are not included in the response.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, missing or closed indexes are not included in the response.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -388,7 +388,7 @@ expressions match hidden data streams. Supports comma-separated values, such as 
   </span>
   <a id="OpenSearch_Client_FieldCapabilitiesRequest_IncludeUnmapped_" data-uid="OpenSearch.Client.FieldCapabilitiesRequest.IncludeUnmapped*"></a>
   <h4 id="OpenSearch_Client_FieldCapabilitiesRequest_IncludeUnmapped" data-uid="OpenSearch.Client.FieldCapabilitiesRequest.IncludeUnmapped">IncludeUnmapped</h4>
-  <div class="markdown level1 summary"><p>If true, unmapped fields are included in the response.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, unmapped fields are included in the response.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

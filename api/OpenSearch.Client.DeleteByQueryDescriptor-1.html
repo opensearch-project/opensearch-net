@@ -292,7 +292,7 @@
   </span>
   <a id="OpenSearch_Client_DeleteByQueryDescriptor_1_AllowNoIndices_" data-uid="OpenSearch.Client.DeleteByQueryDescriptor`1.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryDescriptor_1_AllowNoIndices_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.DeleteByQueryDescriptor`1.AllowNoIndices(System.Nullable{System.Boolean})">AllowNoIndices(bool?)</h4>
-  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indices. This behavior applies even if the request targets other open indices. For example, a request targeting <code>foo*,bar*</code> returns an error if an index starts with <code>foo</code> but no index starts with <code>bar</code>.</p>
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting <code>foo*,bar*</code> returns an error if an index starts with <code>foo</code> but no index starts with <code>bar</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -724,7 +724,7 @@
   </span>
   <a id="OpenSearch_Client_DeleteByQueryDescriptor_1_Index_" data-uid="OpenSearch.Client.DeleteByQueryDescriptor`1.Index*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryDescriptor_1_Index_OpenSearch_Client_Indices_" data-uid="OpenSearch.Client.DeleteByQueryDescriptor`1.Index(OpenSearch.Client.Indices)">Index(Indices)</h4>
-  <div class="markdown level1 summary"><p>Comma-separated list of data streams, indices, and aliases to search. Supports wildcards (<code>*</code>). To search all data streams or indices, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+  <div class="markdown level1 summary"><p>Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (<code>*</code>). To search all data streams or indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1083,19 +1083,19 @@ a match_all query using <a class="xref" href="OpenSearch.Client.DeleteByQueryDes
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryDescriptor_1_Refresh_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryDescriptor%601.Refresh(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_DeleteByQueryDescriptor_1_Refresh_System_Nullable_OpenSearch_Net_Refresh__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.DeleteByQueryDescriptor%601.Refresh(System.Nullable%7BOpenSearch.Net.Refresh%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L566">View Source</a>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryDescriptor_1_Refresh_" data-uid="OpenSearch.Client.DeleteByQueryDescriptor`1.Refresh*"></a>
-  <h4 id="OpenSearch_Client_DeleteByQueryDescriptor_1_Refresh_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.DeleteByQueryDescriptor`1.Refresh(System.Nullable{System.Boolean})">Refresh(bool?)</h4>
+  <h4 id="OpenSearch_Client_DeleteByQueryDescriptor_1_Refresh_System_Nullable_OpenSearch_Net_Refresh__" data-uid="OpenSearch.Client.DeleteByQueryDescriptor`1.Refresh(System.Nullable{OpenSearch.Net.Refresh})">Refresh(Refresh?)</h4>
   <div class="markdown level1 summary"><p>If <code>true</code>, OpenSearch refreshes all shards involved in the delete by query after the request completes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DeleteByQueryDescriptor&lt;TDocument&gt; Refresh(bool? refresh = true)</code></pre>
+    <pre><code class="lang-csharp hljs">public DeleteByQueryDescriptor&lt;TDocument&gt; Refresh(Refresh? refresh)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1108,7 +1108,7 @@ a match_all query using <a class="xref" href="OpenSearch.Client.DeleteByQueryDes
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><a class="xref" href="OpenSearch.Net.Refresh.html">Refresh</a>?</td>
         <td><span class="parametername">refresh</span></td>
         <td></td>
       </tr>
@@ -1476,7 +1476,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
   </span>
   <a id="OpenSearch_Client_DeleteByQueryDescriptor_1_Size_" data-uid="OpenSearch.Client.DeleteByQueryDescriptor`1.Size*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryDescriptor_1_Size_System_Nullable_System_Int64__" data-uid="OpenSearch.Client.DeleteByQueryDescriptor`1.Size(System.Nullable{System.Int64})">Size(long?)</h4>
-  <div class="markdown level1 summary"><p>Deprecated, please use <code>max_docs</code> instead.</p>
+  <div class="markdown level1 summary"><p>Deprecated, use <code>max_docs</code> instead.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1717,7 +1717,7 @@ provide a convenient way to break the request down into smaller parts.</p>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryDescriptor_1_SourceExcludes_" data-uid="OpenSearch.Client.DeleteByQueryDescriptor`1.SourceExcludes*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryDescriptor_1_SourceExcludes_OpenSearch_Client_Fields_" data-uid="OpenSearch.Client.DeleteByQueryDescriptor`1.SourceExcludes(OpenSearch.Client.Fields)">SourceExcludes(Fields)</h4>
-  <div class="markdown level1 summary"><p>List of fields to exclude from the returned _source field.</p>
+  <div class="markdown level1 summary"><p>List of fields to exclude from the returned <code>_source</code> field.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1765,7 +1765,7 @@ provide a convenient way to break the request down into smaller parts.</p>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryDescriptor_1_SourceExcludes_" data-uid="OpenSearch.Client.DeleteByQueryDescriptor`1.SourceExcludes*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryDescriptor_1_SourceExcludes_System_Linq_Expressions_Expression_System_Func__0_System_Object_____" data-uid="OpenSearch.Client.DeleteByQueryDescriptor`1.SourceExcludes(System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])">SourceExcludes(params Expression&lt;Func&lt;TDocument, object&gt;&gt;[])</h4>
-  <div class="markdown level1 summary"><p>List of fields to exclude from the returned _source field.</p>
+  <div class="markdown level1 summary"><p>List of fields to exclude from the returned <code>_source</code> field.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1813,7 +1813,7 @@ provide a convenient way to break the request down into smaller parts.</p>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryDescriptor_1_SourceIncludes_" data-uid="OpenSearch.Client.DeleteByQueryDescriptor`1.SourceIncludes*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryDescriptor_1_SourceIncludes_OpenSearch_Client_Fields_" data-uid="OpenSearch.Client.DeleteByQueryDescriptor`1.SourceIncludes(OpenSearch.Client.Fields)">SourceIncludes(Fields)</h4>
-  <div class="markdown level1 summary"><p>List of fields to extract and return from the _source field.</p>
+  <div class="markdown level1 summary"><p>List of fields to extract and return from the <code>_source</code> field.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1861,7 +1861,7 @@ provide a convenient way to break the request down into smaller parts.</p>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryDescriptor_1_SourceIncludes_" data-uid="OpenSearch.Client.DeleteByQueryDescriptor`1.SourceIncludes*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryDescriptor_1_SourceIncludes_System_Linq_Expressions_Expression_System_Func__0_System_Object_____" data-uid="OpenSearch.Client.DeleteByQueryDescriptor`1.SourceIncludes(System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])">SourceIncludes(params Expression&lt;Func&lt;TDocument, object&gt;&gt;[])</h4>
-  <div class="markdown level1 summary"><p>List of fields to extract and return from the _source field.</p>
+  <div class="markdown level1 summary"><p>List of fields to extract and return from the <code>_source</code> field.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1957,7 +1957,7 @@ provide a convenient way to break the request down into smaller parts.</p>
   </span>
   <a id="OpenSearch_Client_DeleteByQueryDescriptor_1_TerminateAfter_" data-uid="OpenSearch.Client.DeleteByQueryDescriptor`1.TerminateAfter*"></a>
   <h4 id="OpenSearch_Client_DeleteByQueryDescriptor_1_TerminateAfter_System_Nullable_System_Int64__" data-uid="OpenSearch.Client.DeleteByQueryDescriptor`1.TerminateAfter(System.Nullable{System.Int64})">TerminateAfter(long?)</h4>
-  <div class="markdown level1 summary"><p>Maximum number of documents to collect for each shard. If a query reaches this limit, OpenSearch terminates the query early. OpenSearch collects documents before sorting. Use with caution. OpenSearch applies this parameter to each shard handling the request. When possible, let OpenSearch perform early termination automatically. Avoid specifying this parameter for requests that target data streams with backing indices across multiple data tiers.</p>
+  <div class="markdown level1 summary"><p>Maximum number of documents to collect for each shard. If a query reaches this limit, OpenSearch terminates the query early. OpenSearch collects documents before sorting. Use with caution. OpenSearch applies this parameter to each shard handling the request. When possible, let OpenSearch perform early termination automatically. Avoid specifying this parameter for requests that target data streams with backing indexes across multiple data tiers.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

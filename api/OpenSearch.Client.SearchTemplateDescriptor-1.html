@@ -289,7 +289,7 @@
   </span>
   <a id="OpenSearch_Client_SearchTemplateDescriptor_1_AllowNoIndices_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Client_SearchTemplateDescriptor_1_AllowNoIndices_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.AllowNoIndices(System.Nullable{System.Boolean})">AllowNoIndices(bool?)</h4>
-  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indices. This behavior applies even if the request targets other open indices. For example, a request targeting <code>foo*,bar*</code> returns an error if an index starts with <code>foo</code> but no index starts with <code>bar</code>.</p>
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting <code>foo*,bar*</code> returns an error if an index starts with <code>foo</code> but no index starts with <code>bar</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -528,7 +528,7 @@
   </span>
   <a id="OpenSearch_Client_SearchTemplateDescriptor_1_IgnoreThrottled_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.IgnoreThrottled*"></a>
   <h4 id="OpenSearch_Client_SearchTemplateDescriptor_1_IgnoreThrottled_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.IgnoreThrottled(System.Nullable{System.Boolean})">IgnoreThrottled(bool?)</h4>
-  <div class="markdown level1 summary"><p>If <code>true</code>, specified concrete, expanded, or aliased indices are not included in the response when throttled.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, specified concrete, expanded, or aliased indexes are not included in the response when throttled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -624,7 +624,7 @@
   </span>
   <a id="OpenSearch_Client_SearchTemplateDescriptor_1_Index_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.Index*"></a>
   <h4 id="OpenSearch_Client_SearchTemplateDescriptor_1_Index_OpenSearch_Client_Indices_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.Index(OpenSearch.Client.Indices)">Index(Indices)</h4>
-  <div class="markdown level1 summary"><p>Comma-separated list of data streams, indices, and aliases to search. Supports wildcards (*).</p>
+  <div class="markdown level1 summary"><p>Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (*).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1136,7 +1136,7 @@ if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">J
   </span>
   <a id="OpenSearch_Client_SearchTemplateDescriptor_1_TotalHitsAsInteger_" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.TotalHitsAsInteger*"></a>
   <h4 id="OpenSearch_Client_SearchTemplateDescriptor_1_TotalHitsAsInteger_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.SearchTemplateDescriptor`1.TotalHitsAsInteger(System.Nullable{System.Boolean})">TotalHitsAsInteger(bool?)</h4>
-  <div class="markdown level1 summary"><p>If true, hits.total are rendered as an integer in the response.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, <code>hits.total</code> are rendered as an integer in the response.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

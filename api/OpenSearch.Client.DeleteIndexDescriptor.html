@@ -276,7 +276,7 @@
   </span>
   <a id="OpenSearch_Client_DeleteIndexDescriptor_AllowNoIndices_" data-uid="OpenSearch.Client.DeleteIndexDescriptor.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Client_DeleteIndexDescriptor_AllowNoIndices_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.DeleteIndexDescriptor.AllowNoIndices(System.Nullable{System.Boolean})">AllowNoIndices(bool?)</h4>
-  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indices. This behavior applies even if the request targets other open indices.</p>
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -471,7 +471,7 @@
   </span>
   <a id="OpenSearch_Client_DeleteIndexDescriptor_Index_" data-uid="OpenSearch.Client.DeleteIndexDescriptor.Index*"></a>
   <h4 id="OpenSearch_Client_DeleteIndexDescriptor_Index_OpenSearch_Client_Indices_" data-uid="OpenSearch.Client.DeleteIndexDescriptor.Index(OpenSearch.Client.Indices)">Index(Indices)</h4>
-  <div class="markdown level1 summary"><p>Comma-separated list of indices to delete. You cannot specify index aliases. By default, this parameter does not support wildcards (<code>*</code>) or <code>_all</code>. To use wildcards or <code>_all</code>, set the <code>action.destructive_requires_name</code> cluster setting to <code>false</code>.</p>
+  <div class="markdown level1 summary"><p>Comma-separated list of indexes to delete. You cannot specify index aliases. By default, this parameter does not support wildcards (<code>*</code>) or <code>_all</code>. To use wildcards or <code>_all</code>, set the <code>action.destructive_requires_name</code> cluster setting to <code>false</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -565,12 +565,12 @@
   </span>
   <a id="OpenSearch_Client_DeleteIndexDescriptor_MasterTimeout_" data-uid="OpenSearch.Client.DeleteIndexDescriptor.MasterTimeout*"></a>
   <h4 id="OpenSearch_Client_DeleteIndexDescriptor_MasterTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.DeleteIndexDescriptor.MasterTimeout(OpenSearch.Client.Time)">MasterTimeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</p>
+  <div class="markdown level1 summary"><p>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated as of: 2.0.0, reason: To promote inclusive language, use &#39;cluster_manager_timeout&#39; instead.&quot;)]
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.&quot;)]
 public DeleteIndexDescriptor MasterTimeout(Time mastertimeout)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>

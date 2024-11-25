@@ -238,7 +238,7 @@
   </span>
   <a id="OpenSearch_Client_AddIndexBlockRequest_AllowNoIndices_" data-uid="OpenSearch.Client.AddIndexBlockRequest.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Client_AddIndexBlockRequest_AllowNoIndices" data-uid="OpenSearch.Client.AddIndexBlockRequest.AllowNoIndices">AllowNoIndices</h4>
-  <div class="markdown level1 summary"><p>Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes <code>_all</code> string or when no indices have
+  <div class="markdown level1 summary"><p>Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes <code>_all</code> string or when no indexes have
 been specified).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -304,7 +304,7 @@ been specified).</p>
   </span>
   <a id="OpenSearch_Client_AddIndexBlockRequest_ExpandWildcards_" data-uid="OpenSearch.Client.AddIndexBlockRequest.ExpandWildcards*"></a>
   <h4 id="OpenSearch_Client_AddIndexBlockRequest_ExpandWildcards" data-uid="OpenSearch.Client.AddIndexBlockRequest.ExpandWildcards">ExpandWildcards</h4>
-  <div class="markdown level1 summary"><p>Whether to expand wildcard expression to concrete indices that are open, closed or both.</p>
+  <div class="markdown level1 summary"><p>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -335,7 +335,7 @@ been specified).</p>
   </span>
   <a id="OpenSearch_Client_AddIndexBlockRequest_IgnoreUnavailable_" data-uid="OpenSearch.Client.AddIndexBlockRequest.IgnoreUnavailable*"></a>
   <h4 id="OpenSearch_Client_AddIndexBlockRequest_IgnoreUnavailable" data-uid="OpenSearch.Client.AddIndexBlockRequest.IgnoreUnavailable">IgnoreUnavailable</h4>
-  <div class="markdown level1 summary"><p>Whether specified concrete indices should be ignored when unavailable (missing or closed).</p>
+  <div class="markdown level1 summary"><p>Whether specified concrete indexes should be ignored when unavailable (missing or closed).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -366,12 +366,12 @@ been specified).</p>
   </span>
   <a id="OpenSearch_Client_AddIndexBlockRequest_MasterTimeout_" data-uid="OpenSearch.Client.AddIndexBlockRequest.MasterTimeout*"></a>
   <h4 id="OpenSearch_Client_AddIndexBlockRequest_MasterTimeout" data-uid="OpenSearch.Client.AddIndexBlockRequest.MasterTimeout">MasterTimeout</h4>
-  <div class="markdown level1 summary"><p>Specify timeout for connection to master.</p>
+  <div class="markdown level1 summary"><p>Specify timeout for connection to cluster manager.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated as of: 2.0.0, reason: To promote inclusive language, use &#39;cluster_manager_timeout&#39; instead.&quot;)]
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.&quot;)]
 public Time MasterTimeout { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
