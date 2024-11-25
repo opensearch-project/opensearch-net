@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -63,7 +63,7 @@
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -641,7 +641,7 @@ Out of the box <a class="xref" href="OpenSearch.Client.IOpenSearchClient.html#Op
   <div class="markdown level1 summary"><p>BulkAll is a generic helper that will partition any lazy stream of documents and send them to OpenSearch as concurrent bulk requests</p>
 <p></p>
 The index to target will be inferred from <code class="typeparamref">T</code>. If no default index has been mapped for <code class="typeparamref">T</code>
-using <a class="xref" href="OpenSearch.Client.ConnectionSettingsBase-1.html#OpenSearch_Client_ConnectionSettingsBase_1_DefaultMappingFor__1_System_Func_OpenSearch_Client_ClrTypeMappingDescriptor___0__OpenSearch_Client_IClrTypeMapping___0___">DefaultMappingFor&lt;TDocument&gt;(Func&lt;ClrTypeMappingDescriptor&lt;TDocument&gt;, IClrTypeMapping&lt;TDocument&gt;&gt;)</a> on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a>, an exception will be thrown.
+using <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">DefaultMappingFor&lt;TDocument&gt;(Func&lt;ClrTypeMappingDescriptor&lt;TDocument&gt;, IClrTypeMapping&lt;TDocument&gt;&gt;)</a> on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a>, an exception will be thrown.
 Inference can be overridden using <a class="xref" href="OpenSearch.Client.IBulkAllRequest-1.html#OpenSearch_Client_IBulkAllRequest_1_Index">Index</a>, and in addition,
 an index can be specified for each document using <a class="xref" href="OpenSearch.Client.IBulkAllRequest-1.html#OpenSearch_Client_IBulkAllRequest_1_BufferToBulk">BufferToBulk</a>.
 </div>
@@ -714,7 +714,7 @@ an index can be specified for each document using <a class="xref" href="OpenSear
   <div class="markdown level1 summary"><p>BulkAll is a generic helper that will partition any lazy stream of documents and send them to OpenSearch as concurrent bulk requests.</p>
 <p></p>
 The index to target will be inferred from <code class="typeparamref">T</code>. If no default index has been mapped for <code class="typeparamref">T</code>
-using <a class="xref" href="OpenSearch.Client.ConnectionSettingsBase-1.html#OpenSearch_Client_ConnectionSettingsBase_1_DefaultMappingFor__1_System_Func_OpenSearch_Client_ClrTypeMappingDescriptor___0__OpenSearch_Client_IClrTypeMapping___0___">DefaultMappingFor&lt;TDocument&gt;(Func&lt;ClrTypeMappingDescriptor&lt;TDocument&gt;, IClrTypeMapping&lt;TDocument&gt;&gt;)</a> on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a>, an exception will be thrown.
+using <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">DefaultMappingFor&lt;TDocument&gt;(Func&lt;ClrTypeMappingDescriptor&lt;TDocument&gt;, IClrTypeMapping&lt;TDocument&gt;&gt;)</a> on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a>, an exception will be thrown.
 Inference can be overridden using <a class="xref" href="OpenSearch.Client.BulkAllDescriptor-1.html#OpenSearch_Client_BulkAllDescriptor_1_Index_OpenSearch_Client_IndexName_">Index(IndexName)</a>, and in addition,
 an index can be specified for each document using <a class="xref" href="OpenSearch.Client.BulkAllDescriptor-1.html#OpenSearch_Client_BulkAllDescriptor_1_BufferToBulk_System_Action_OpenSearch_Client_BulkDescriptor_System_Collections_Generic_IList__0___">BufferToBulk(Action&lt;BulkDescriptor, IList&lt;T&gt;&gt;)</a>.
 </div>
