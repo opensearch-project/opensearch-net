@@ -27,7 +27,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Fake.Core.Environment` from 6.1.0 to 6.1.3
 - Bumps `FluentAssertions` from 6.12.0 to 6.12.1
 - Bumps `Microsoft.NET.Test.Sdk` from 17.11.0 to 17.11.1
-- Bumps `Microsoft.TestPlatform.ObjectModel` from 17.11.0 to 17.11.1
+- Bumps `Microsoft.TestPlatform.ObjectModel` from 17.11.0 to 17.12.0
 - Bumps `BenchMarkDotNet` from 0.13.12 to 0.14.0
 - Bumps `Fake.IO.FileSystem` from 6.1.0 to 6.1.3
 - Bumps `Fake.IO.Zip` from 6.1.0 to 6.1.3
