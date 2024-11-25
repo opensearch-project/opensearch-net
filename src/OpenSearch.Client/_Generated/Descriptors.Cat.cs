@@ -85,11 +85,11 @@ namespace OpenSearch.Client
             Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
         // Request parameters
-        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        /// <summary>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</summary>
         public CatAliasesDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public CatAliasesDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>Comma-separated list of column names to display.</summary>
@@ -125,7 +125,7 @@ namespace OpenSearch.Client
         /// <summary>The unit in which to display byte values.</summary>
         public CatAllPitSegmentsDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public CatAllPitSegmentsDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>Comma-separated list of column names to display.</summary>
@@ -178,7 +178,7 @@ namespace OpenSearch.Client
         public CatAllocationDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public CatAllocationDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>Comma-separated list of column names to display.</summary>
@@ -190,9 +190,9 @@ namespace OpenSearch.Client
         /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public CatAllocationDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatAllocationDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -223,7 +223,7 @@ namespace OpenSearch.Client
         public CatClusterManagerDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public CatClusterManagerDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>Comma-separated list of column names to display.</summary>
@@ -235,9 +235,9 @@ namespace OpenSearch.Client
         /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public CatClusterManagerDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatClusterManagerDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -269,7 +269,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICatCountRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
         public CatCountDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -282,7 +282,7 @@ namespace OpenSearch.Client
         public CatCountDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public CatCountDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>Comma-separated list of column names to display.</summary>
@@ -334,7 +334,7 @@ namespace OpenSearch.Client
         /// <summary>The unit used to display byte values.</summary>
         public CatFielddataDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public CatFielddataDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>Comma-separated list of column names to display.</summary>
@@ -360,7 +360,7 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public CatHealthDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>Comma-separated list of column names to display.</summary>
@@ -369,7 +369,7 @@ namespace OpenSearch.Client
         /// <summary>Return help information.</summary>
         public CatHealthDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>If true, returns `HH:MM:SS` and Unix epoch timestamps.</summary>
+        /// <summary>If `true`, returns `HH:MM:SS` and Unix epoch timestamps.</summary>
         public CatHealthDescriptor IncludeTimestamp(bool? includetimestamp = true) =>
             Qs("ts", includetimestamp);
 
@@ -414,7 +414,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICatIndicesRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
         public CatIndicesDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -439,33 +439,33 @@ namespace OpenSearch.Client
         public CatIndicesDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public CatIndicesDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>Comma-separated list of column names to display.</summary>
         public CatIndicesDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>The health status used to limit returned indices. By default, the response includes indices of any health status.</summary>
+        /// <summary>The health status used to limit returned indexes. By default, the response includes indexes of any health status.</summary>
         public CatIndicesDescriptor Health(HealthStatus? health) => Qs("health", health);
 
         /// <summary>Return help information.</summary>
         public CatIndicesDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>If true, the response includes information from segments that are not loaded into memory.</summary>
+        /// <summary>If `true`, the response includes information from segments that are not loaded into memory.</summary>
         public CatIndicesDescriptor IncludeUnloadedSegments(bool? includeunloadedsegments = true) =>
             Qs("include_unloaded_segments", includeunloadedsegments);
 
         /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public CatIndicesDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatIndicesDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>If true, the response only includes information from primary shards.</summary>
+        /// <summary>If `true`, the response only includes information from primary shards.</summary>
         public CatIndicesDescriptor Pri(bool? pri = true) => Qs("pri", pri);
 
         /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
@@ -490,7 +490,7 @@ namespace OpenSearch.Client
         public CatMasterDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public CatMasterDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>Comma-separated list of column names to display.</summary>
@@ -502,9 +502,9 @@ namespace OpenSearch.Client
         /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public CatMasterDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatMasterDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -535,7 +535,7 @@ namespace OpenSearch.Client
         public CatNodeAttributesDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public CatNodeAttributesDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>Comma-separated list of column names to display.</summary>
@@ -547,9 +547,9 @@ namespace OpenSearch.Client
         /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public CatNodeAttributesDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatNodeAttributesDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -579,7 +579,7 @@ namespace OpenSearch.Client
         public CatNodesDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public CatNodesDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>If `true`, return the full node ID. If `false`, return the shortened node ID.</summary>
@@ -597,9 +597,9 @@ namespace OpenSearch.Client
         )]
         public CatNodesDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatNodesDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -630,7 +630,7 @@ namespace OpenSearch.Client
         public CatPendingTasksDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public CatPendingTasksDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>Comma-separated list of column names to display.</summary>
@@ -642,9 +642,9 @@ namespace OpenSearch.Client
         /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public CatPendingTasksDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatPendingTasksDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -673,7 +673,7 @@ namespace OpenSearch.Client
         /// <summary>The unit in which to display byte values.</summary>
         public CatPitSegmentsDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public CatPitSegmentsDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>Comma-separated list of column names to display.</summary>
@@ -708,7 +708,7 @@ namespace OpenSearch.Client
         public CatPluginsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public CatPluginsDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>Comma-separated list of column names to display.</summary>
@@ -720,9 +720,9 @@ namespace OpenSearch.Client
         /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public CatPluginsDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatPluginsDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -758,7 +758,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICatRecoveryRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>A comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
         public CatRecoveryDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -781,7 +781,7 @@ namespace OpenSearch.Client
         /// <summary>If `true`, the response includes detailed information about shard recoveries.</summary>
         public CatRecoveryDescriptor Detailed(bool? detailed = true) => Qs("detailed", detailed);
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public CatRecoveryDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>Comma-separated list of column names to display.</summary>
@@ -816,7 +816,7 @@ namespace OpenSearch.Client
         public CatRepositoriesDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public CatRepositoriesDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>Comma-separated list of column names to display.</summary>
@@ -828,9 +828,9 @@ namespace OpenSearch.Client
         /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public CatRepositoriesDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatRepositoriesDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -883,7 +883,7 @@ namespace OpenSearch.Client
         public CatSegmentReplicationDescriptor ActiveOnly(bool? activeonly = true) =>
             Qs("active_only", activeonly);
 
-        /// <summary>Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have been specified).</summary>
+        /// <summary>Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes `_all` string or when no indexes have been specified).</summary>
         public CatSegmentReplicationDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -898,11 +898,11 @@ namespace OpenSearch.Client
         public CatSegmentReplicationDescriptor Detailed(bool? detailed = true) =>
             Qs("detailed", detailed);
 
-        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        /// <summary>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</summary>
         public CatSegmentReplicationDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public CatSegmentReplicationDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>Comma-separated list of column names to display.</summary>
@@ -911,11 +911,11 @@ namespace OpenSearch.Client
         /// <summary>Return help information.</summary>
         public CatSegmentReplicationDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Whether specified concrete, expanded or aliased indices should be ignored when throttled.</summary>
+        /// <summary>Whether specified concrete, expanded or aliased indexes should be ignored when throttled.</summary>
         public CatSegmentReplicationDescriptor IgnoreThrottled(bool? ignorethrottled = true) =>
             Qs("ignore_throttled", ignorethrottled);
 
-        /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed).</summary>
+        /// <summary>Whether specified concrete indexes should be ignored when unavailable (missing or closed).</summary>
         public CatSegmentReplicationDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
@@ -957,7 +957,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICatSegmentsRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>A comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
         public CatSegmentsDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -978,7 +978,7 @@ namespace OpenSearch.Client
         public CatSegmentsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public CatSegmentsDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>Comma-separated list of column names to display.</summary>
@@ -987,9 +987,9 @@ namespace OpenSearch.Client
         /// <summary>Return help information.</summary>
         public CatSegmentsDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatSegmentsDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -1021,7 +1021,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICatShardsRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>A comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
         public CatShardsDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1042,7 +1042,7 @@ namespace OpenSearch.Client
         public CatShardsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public CatShardsDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>Comma-separated list of column names to display.</summary>
@@ -1054,9 +1054,9 @@ namespace OpenSearch.Client
         /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public CatShardsDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatShardsDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -1102,7 +1102,7 @@ namespace OpenSearch.Client
         public CatSnapshotsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public CatSnapshotsDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>Comma-separated list of column names to display.</summary>
@@ -1115,9 +1115,9 @@ namespace OpenSearch.Client
         public CatSnapshotsDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatSnapshotsDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -1145,7 +1145,7 @@ namespace OpenSearch.Client
         /// <summary>If `true`, the response includes detailed information about shard recoveries.</summary>
         public CatTasksDescriptor Detailed(bool? detailed = true) => Qs("detailed", detailed);
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public CatTasksDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>Comma-separated list of column names to display.</summary>
@@ -1202,7 +1202,7 @@ namespace OpenSearch.Client
         public CatTemplatesDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public CatTemplatesDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>Comma-separated list of column names to display.</summary>
@@ -1214,9 +1214,9 @@ namespace OpenSearch.Client
         /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public CatTemplatesDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatTemplatesDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -1263,7 +1263,7 @@ namespace OpenSearch.Client
         public CatThreadPoolDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public CatThreadPoolDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>Comma-separated list of column names to display.</summary>
@@ -1275,9 +1275,9 @@ namespace OpenSearch.Client
         /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
         public CatThreadPoolDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatThreadPoolDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);

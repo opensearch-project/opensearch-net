@@ -92,9 +92,9 @@ namespace OpenSearch.Client
         public DeleteDanglingIndexDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Specify timeout for connection to master.</summary>
+        /// <summary>Specify timeout for connection to cluster manager.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public DeleteDanglingIndexDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -138,9 +138,9 @@ namespace OpenSearch.Client
         public ImportDanglingIndexDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Specify timeout for connection to master.</summary>
+        /// <summary>Specify timeout for connection to cluster manager.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public ImportDanglingIndexDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);

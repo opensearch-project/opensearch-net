@@ -58,7 +58,7 @@ namespace OpenSearch.Net.Specification.PplApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -79,7 +79,7 @@ namespace OpenSearch.Net.Specification.PplApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -100,7 +100,7 @@ namespace OpenSearch.Net.Specification.PplApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -121,7 +121,7 @@ namespace OpenSearch.Net.Specification.PplApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");

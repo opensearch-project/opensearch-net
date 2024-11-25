@@ -94,7 +94,7 @@ namespace Tests.Document.Multiple.DeleteByQueryRethrottle
 				.Index(CallIsolatedValue)
 				.Conflicts(Conflicts.Proceed)
 				.Query(q => q.MatchAll())
-				.Refresh()
+				.Refresh(Refresh.True)
 				.RequestsPerSecond(1)
 				.WaitForCompletion(false)
 			);

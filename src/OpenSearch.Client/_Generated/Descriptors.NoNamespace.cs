@@ -172,7 +172,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICountRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases to search. Supports wildcards (`*`). To search all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (`*`). To search all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
         public CountDescriptor<TDocument> Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -185,7 +185,7 @@ namespace OpenSearch.Client
         public CountDescriptor<TDocument> AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices.</summary>
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public CountDescriptor<TDocument> AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -207,7 +207,7 @@ namespace OpenSearch.Client
         public CountDescriptor<TDocument> ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>If `true`, concrete, expanded or aliased indices are ignored when frozen.</summary>
+        /// <summary>If `true`, concrete, expanded or aliased indexes are ignored when frozen.</summary>
         public CountDescriptor<TDocument> IgnoreThrottled(bool? ignorethrottled = true) =>
             Qs("ignore_throttled", ignorethrottled);
 
@@ -342,7 +342,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICreatePitRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</summary>
+        /// <summary>Comma-separated list of indexes; use the special string `_all` or Indices.All to perform the operation on all indexes.</summary>
         public CreatePitDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -359,7 +359,7 @@ namespace OpenSearch.Client
         public CreatePitDescriptor AllowPartialPitCreation(bool? allowpartialpitcreation = true) =>
             Qs("allow_partial_pit_creation", allowpartialpitcreation);
 
-        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        /// <summary>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</summary>
         public CreatePitDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
@@ -500,7 +500,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IDeleteByQueryRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases to search. Supports wildcards (`*`). To search all data streams or indices, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (`*`). To search all data streams or indexes, omit this parameter or use `*` or `_all`.</summary>
         public DeleteByQueryDescriptor<TDocument> Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -513,7 +513,7 @@ namespace OpenSearch.Client
         public DeleteByQueryDescriptor<TDocument> AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an index starts with `foo` but no index starts with `bar`.</summary>
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an index starts with `foo` but no index starts with `bar`.</summary>
         public DeleteByQueryDescriptor<TDocument> AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -563,7 +563,7 @@ namespace OpenSearch.Client
             Qs("q", queryonquerystring);
 
         /// <summary>If `true`, OpenSearch refreshes all shards involved in the delete by query after the request completes.</summary>
-        public DeleteByQueryDescriptor<TDocument> Refresh(bool? refresh = true) =>
+        public DeleteByQueryDescriptor<TDocument> Refresh(Refresh? refresh) =>
             Qs("refresh", refresh);
 
         /// <summary>If `true`, the request cache is used for this request. Defaults to the index-level setting.</summary>
@@ -599,7 +599,7 @@ namespace OpenSearch.Client
         public DeleteByQueryDescriptor<TDocument> SearchType(SearchType? searchtype) =>
             Qs("search_type", searchtype);
 
-        /// <summary>Deprecated, please use `max_docs` instead.</summary>
+        /// <summary>Deprecated, use `max_docs` instead.</summary>
         public DeleteByQueryDescriptor<TDocument> Size(long? size) => Qs("size", size);
 
         /// <summary>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs.</summary>
@@ -609,20 +609,20 @@ namespace OpenSearch.Client
         public DeleteByQueryDescriptor<TDocument> SourceEnabled(bool? sourceenabled = true) =>
             Qs("_source", sourceenabled);
 
-        /// <summary>List of fields to exclude from the returned _source field.</summary>
+        /// <summary>List of fields to exclude from the returned `_source` field.</summary>
         public DeleteByQueryDescriptor<TDocument> SourceExcludes(Fields sourceexcludes) =>
             Qs("_source_excludes", sourceexcludes);
 
-        /// <summary>List of fields to exclude from the returned _source field.</summary>
+        /// <summary>List of fields to exclude from the returned `_source` field.</summary>
         public DeleteByQueryDescriptor<TDocument> SourceExcludes(
             params Expression<Func<TDocument, object>>[] fields
         ) => Qs("_source_excludes", fields?.Select(e => (Field)e));
 
-        /// <summary>List of fields to extract and return from the _source field.</summary>
+        /// <summary>List of fields to extract and return from the `_source` field.</summary>
         public DeleteByQueryDescriptor<TDocument> SourceIncludes(Fields sourceincludes) =>
             Qs("_source_includes", sourceincludes);
 
-        /// <summary>List of fields to extract and return from the _source field.</summary>
+        /// <summary>List of fields to extract and return from the `_source` field.</summary>
         public DeleteByQueryDescriptor<TDocument> SourceIncludes(
             params Expression<Func<TDocument, object>>[] fields
         ) => Qs("_source_includes", fields?.Select(e => (Field)e));
@@ -631,7 +631,7 @@ namespace OpenSearch.Client
         public DeleteByQueryDescriptor<TDocument> Stats(params string[] stats) =>
             Qs("stats", stats);
 
-        /// <summary>Maximum number of documents to collect for each shard. If a query reaches this limit, OpenSearch terminates the query early. OpenSearch collects documents before sorting. Use with caution. OpenSearch applies this parameter to each shard handling the request. When possible, let OpenSearch perform early termination automatically. Avoid specifying this parameter for requests that target data streams with backing indices across multiple data tiers.</summary>
+        /// <summary>Maximum number of documents to collect for each shard. If a query reaches this limit, OpenSearch terminates the query early. OpenSearch collects documents before sorting. Use with caution. OpenSearch applies this parameter to each shard handling the request. When possible, let OpenSearch perform early termination automatically. Avoid specifying this parameter for requests that target data streams with backing indexes across multiple data tiers.</summary>
         public DeleteByQueryDescriptor<TDocument> TerminateAfter(long? terminateafter) =>
             Qs("terminate_after", terminateafter);
 
@@ -722,9 +722,9 @@ namespace OpenSearch.Client
         public DeleteScriptDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public DeleteScriptDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -776,7 +776,7 @@ namespace OpenSearch.Client
         Id IDocumentExistsRequest.Id => Self.RouteValues.Get<Id>("id");
         IndexName IDocumentExistsRequest.Index => Self.RouteValues.Get<IndexName>("index");
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases. Supports wildcards (`*`).</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases. Supports wildcards (`*`).</summary>
         public DocumentExistsDescriptor<TDocument> Index(IndexName index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -795,7 +795,7 @@ namespace OpenSearch.Client
             Qs("realtime", realtime);
 
         /// <summary>If `true`, OpenSearch refreshes all shards involved in the delete by query after the request completes.</summary>
-        public DocumentExistsDescriptor<TDocument> Refresh(bool? refresh = true) =>
+        public DocumentExistsDescriptor<TDocument> Refresh(Refresh? refresh) =>
             Qs("refresh", refresh);
 
         /// <summary>
@@ -890,7 +890,7 @@ namespace OpenSearch.Client
         Id ISourceExistsRequest.Id => Self.RouteValues.Get<Id>("id");
         IndexName ISourceExistsRequest.Index => Self.RouteValues.Get<IndexName>("index");
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases. Supports wildcards (`*`).</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases. Supports wildcards (`*`).</summary>
         public SourceExistsDescriptor<TDocument> Index(IndexName index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -904,12 +904,12 @@ namespace OpenSearch.Client
         public SourceExistsDescriptor<TDocument> Preference(string preference) =>
             Qs("preference", preference);
 
-        /// <summary>If true, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If `true`, the request is real-time as opposed to near-real-time.</summary>
         public SourceExistsDescriptor<TDocument> Realtime(bool? realtime = true) =>
             Qs("realtime", realtime);
 
         /// <summary>If `true`, OpenSearch refreshes all shards involved in the delete by query after the request completes.</summary>
-        public SourceExistsDescriptor<TDocument> Refresh(bool? refresh = true) =>
+        public SourceExistsDescriptor<TDocument> Refresh(Refresh? refresh) =>
             Qs("refresh", refresh);
 
         /// <summary>
@@ -1080,7 +1080,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IFieldCapabilitiesRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (*). To target all data streams and indices, omit this parameter or use * or _all.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (*). To target all data streams and indexes, omit this parameter or use * or `_all`.</summary>
         public FieldCapabilitiesDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1093,7 +1093,7 @@ namespace OpenSearch.Client
         public FieldCapabilitiesDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If false, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an index starts with foo but no index starts with bar.</summary>
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an index starts with foo but no index starts with bar.</summary>
         public FieldCapabilitiesDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -1108,11 +1108,11 @@ namespace OpenSearch.Client
         public FieldCapabilitiesDescriptor Fields<T>(params Expression<Func<T, object>>[] fields)
             where T : class => Qs("fields", fields?.Select(e => (Field)e));
 
-        /// <summary>If `true`, missing or closed indices are not included in the response.</summary>
+        /// <summary>If `true`, missing or closed indexes are not included in the response.</summary>
         public FieldCapabilitiesDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>If true, unmapped fields are included in the response.</summary>
+        /// <summary>If `true`, unmapped fields are included in the response.</summary>
         public FieldCapabilitiesDescriptor IncludeUnmapped(bool? includeunmapped = true) =>
             Qs("include_unmapped", includeunmapped);
     }
@@ -1173,8 +1173,8 @@ namespace OpenSearch.Client
         /// <summary>If `true`, the request is real-time as opposed to near-real-time.</summary>
         public GetDescriptor<TDocument> Realtime(bool? realtime = true) => Qs("realtime", realtime);
 
-        /// <summary>If true, OpenSearch refreshes the affected shards to make this operation visible to search. If false, do nothing with refreshes.</summary>
-        public GetDescriptor<TDocument> Refresh(bool? refresh = true) => Qs("refresh", refresh);
+        /// <summary>If `true`, OpenSearch refreshes the affected shards to make this operation visible to search. If `false`, do nothing with refreshes.</summary>
+        public GetDescriptor<TDocument> Refresh(Refresh? refresh) => Qs("refresh", refresh);
 
         /// <summary>
         /// A document is routed to a particular shard in an index using the following formula
@@ -1219,7 +1219,7 @@ namespace OpenSearch.Client
         /// <summary>Explicit version number for concurrency control. The specified version must match the current version of the document for the request to succeed.</summary>
         public GetDescriptor<TDocument> Version(long? version) => Qs("version", version);
 
-        /// <summary>Specific version type: internal, external, external_gte.</summary>
+        /// <summary>Specific version type: `internal`, `external`, `external_gte`.</summary>
         public GetDescriptor<TDocument> VersionType(VersionType? versiontype) =>
             Qs("version_type", versiontype);
     }
@@ -1266,7 +1266,7 @@ namespace OpenSearch.Client
 
         /// <summary>Specify timeout for connection to master.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public GetScriptDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -1325,12 +1325,12 @@ namespace OpenSearch.Client
         public SourceDescriptor<TDocument> Preference(string preference) =>
             Qs("preference", preference);
 
-        /// <summary>Boolean) If true, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>Boolean) If `true`, the request is real-time as opposed to near-real-time.</summary>
         public SourceDescriptor<TDocument> Realtime(bool? realtime = true) =>
             Qs("realtime", realtime);
 
-        /// <summary>If true, OpenSearch refreshes the affected shards to make this operation visible to search. If false, do nothing with refreshes.</summary>
-        public SourceDescriptor<TDocument> Refresh(bool? refresh = true) => Qs("refresh", refresh);
+        /// <summary>If `true`, OpenSearch refreshes the affected shards to make this operation visible to search. If `false`, do nothing with refreshes.</summary>
+        public SourceDescriptor<TDocument> Refresh(Refresh? refresh) => Qs("refresh", refresh);
 
         /// <summary>
         /// A document is routed to a particular shard in an index using the following formula
@@ -1366,7 +1366,7 @@ namespace OpenSearch.Client
         /// <summary>Explicit version number for concurrency control. The specified version must match the current version of the document for the request to succeed.</summary>
         public SourceDescriptor<TDocument> Version(long? version) => Qs("version", version);
 
-        /// <summary>Specific version type: internal, external, external_gte.</summary>
+        /// <summary>Specific version type. One of `internal`, `external`, `external_gte`.</summary>
         public SourceDescriptor<TDocument> VersionType(VersionType? versiontype) =>
             Qs("version_type", versiontype);
     }
@@ -1523,7 +1523,7 @@ namespace OpenSearch.Client
         public MultiGetDescriptor Realtime(bool? realtime = true) => Qs("realtime", realtime);
 
         /// <summary>If `true`, the request refreshes relevant shards before retrieving documents.</summary>
-        public MultiGetDescriptor Refresh(bool? refresh = true) => Qs("refresh", refresh);
+        public MultiGetDescriptor Refresh(Refresh? refresh) => Qs("refresh", refresh);
 
         /// <summary>
         /// A document is routed to a particular shard in an index using the following formula
@@ -1578,7 +1578,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IMultiSearchRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indices, and index aliases to search.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and index aliases to search.</summary>
         public MultiSearchDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1591,7 +1591,7 @@ namespace OpenSearch.Client
         public MultiSearchDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If true, network roundtrips between the coordinating node and remote clusters are minimized for cross-cluster search requests.</summary>
+        /// <summary>If `true`, network round-trips between the coordinating node and remote clusters are minimized for cross-cluster search requests.</summary>
         public MultiSearchDescriptor CcsMinimizeRoundtrips(bool? ccsminimizeroundtrips = true) =>
             Qs("ccs_minimize_roundtrips", ccsminimizeroundtrips);
 
@@ -1611,7 +1611,7 @@ namespace OpenSearch.Client
         public MultiSearchDescriptor SearchType(SearchType? searchtype) =>
             Qs("search_type", searchtype);
 
-        /// <summary>If true, hits.total are returned as an integer in the response. Defaults to false, which returns an object.</summary>
+        /// <summary>If `true`, `hits.total` are returned as an integer in the response. Defaults to false, which returns an object.</summary>
         public MultiSearchDescriptor TotalHitsAsInteger(bool? totalhitsasinteger = true) =>
             Qs("rest_total_hits_as_int", totalhitsasinteger);
 
@@ -1643,7 +1643,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IMultiSearchTemplateRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases to search. Supports wildcards (`*`). To search all data streams and indices, omit this parameter or use `*`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (`*`). To search all data streams and indexes, omit this parameter or use `*`.</summary>
         public MultiSearchTemplateDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1737,7 +1737,7 @@ namespace OpenSearch.Client
         public MultiTermVectorsDescriptor Preference(string preference) =>
             Qs("preference", preference);
 
-        /// <summary>If true, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If `true`, the request is real-time as opposed to near-real-time.</summary>
         public MultiTermVectorsDescriptor Realtime(bool? realtime = true) =>
             Qs("realtime", realtime);
 
@@ -1750,7 +1750,7 @@ namespace OpenSearch.Client
         /// </summary>
         public MultiTermVectorsDescriptor Routing(Routing routing) => Qs("routing", routing);
 
-        /// <summary>If true, the response includes term frequency and document frequency.</summary>
+        /// <summary>If `true`, the response includes term frequency and document frequency.</summary>
         public MultiTermVectorsDescriptor TermStatistics(bool? termstatistics = true) =>
             Qs("term_statistics", termstatistics);
 
@@ -1809,9 +1809,9 @@ namespace OpenSearch.Client
         public PutScriptDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public PutScriptDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
@@ -1834,7 +1834,7 @@ namespace OpenSearch.Client
         // values part of the url path
         // Request parameters
         /// <summary>If `true`, the request refreshes affected shards to make this operation visible to search.</summary>
-        public ReindexOnServerDescriptor Refresh(bool? refresh = true) => Qs("refresh", refresh);
+        public ReindexOnServerDescriptor Refresh(Refresh? refresh) => Qs("refresh", refresh);
 
         /// <summary>The throttle for this request in sub-requests per second. Defaults to no throttle.</summary>
         public ReindexOnServerDescriptor RequestsPerSecond(long? requestspersecond) =>
@@ -1941,7 +1941,7 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>If true, the API response's hit.total property is returned as an integer. If false, the API response's hit.total property is returned as an object.</summary>
+        /// <summary>If `true`, the API response's `hit.total` property is returned as an integer. If `false`, the API response's `hit.total` property is returned as an object.</summary>
         public ScrollDescriptor<TInferDocument> TotalHitsAsInteger(
             bool? totalhitsasinteger = true
         ) => Qs("rest_total_hits_as_int", totalhitsasinteger);
@@ -1970,7 +1970,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ISearchRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases to search. Supports wildcards (`*`). To search all data streams and indices, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (`*`). To search all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
         public SearchDescriptor<TInferDocument> Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1983,11 +1983,11 @@ namespace OpenSearch.Client
         public SearchDescriptor<TInferDocument> AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an index starts with `foo` but no index starts with `bar`.</summary>
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an index starts with `foo` but no index starts with `bar`.</summary>
         public SearchDescriptor<TInferDocument> AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
-        /// <summary>If true, returns partial results if there are shard request timeouts or shard failures. If false, returns an error with no partial results.</summary>
+        /// <summary>If `true`, returns partial results if there are shard request timeouts or shard failures. If `false`, returns an error with no partial results.</summary>
         public SearchDescriptor<TInferDocument> AllowPartialSearchResults(
             bool? allowpartialsearchresults = true
         ) => Qs("allow_partial_search_results", allowpartialsearchresults);
@@ -1996,7 +1996,7 @@ namespace OpenSearch.Client
         public SearchDescriptor<TInferDocument> Analyzer(string analyzer) =>
             Qs("analyzer", analyzer);
 
-        /// <summary>If true, wildcard and prefix queries are analyzed. This parameter can only be used when the q query string parameter is specified.</summary>
+        /// <summary>If `true`, wildcard and prefix queries are analyzed. This parameter can only be used when the q query string parameter is specified.</summary>
         public SearchDescriptor<TInferDocument> AnalyzeWildcard(bool? analyzewildcard = true) =>
             Qs("analyze_wildcard", analyzewildcard);
 
@@ -2009,7 +2009,7 @@ namespace OpenSearch.Client
             Time cancelaftertimeinterval
         ) => Qs("cancel_after_time_interval", cancelaftertimeinterval);
 
-        /// <summary>If true, network round-trips between the coordinating node and the remote clusters are minimized when executing cross-cluster search (CCS) requests.</summary>
+        /// <summary>If `true`, network round-trips between the coordinating node and the remote clusters are minimized when executing cross-cluster search (CCS) requests.</summary>
         public SearchDescriptor<TInferDocument> CcsMinimizeRoundtrips(
             bool? ccsminimizeroundtrips = true
         ) => Qs("ccs_minimize_roundtrips", ccsminimizeroundtrips);
@@ -2025,7 +2025,7 @@ namespace OpenSearch.Client
         public SearchDescriptor<TInferDocument> ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>If `true`, concrete, expanded or aliased indices will be ignored when frozen.</summary>
+        /// <summary>If `true`, concrete, expanded or aliased indexes will be ignored when frozen.</summary>
         public SearchDescriptor<TInferDocument> IgnoreThrottled(bool? ignorethrottled = true) =>
             Qs("ignore_throttled", ignorethrottled);
 
@@ -2033,7 +2033,7 @@ namespace OpenSearch.Client
         public SearchDescriptor<TInferDocument> IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>Indicates whether hit.matched_queries should be rendered as a map that includes the name of the matched query associated with its score (true) or as an array containing the name of the matched queries (false).</summary>
+        /// <summary>Indicates whether `hit.matched_queries` should be rendered as a map that includes the name of the matched query associated with its score (true) or as an array containing the name of the matched queries (false).</summary>
         public SearchDescriptor<TInferDocument> IncludeNamedQueriesScore(
             bool? includenamedqueriesscore = true
         ) => Qs("include_named_queries_score", includenamedqueriesscore);
@@ -2149,7 +2149,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ISearchShardsRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Returns the indices and shards that a search request would be executed against.</summary>
+        /// <summary>Returns the indexes and shards that a search request would be executed against.</summary>
         public SearchShardsDescriptor<TDocument> Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -2162,7 +2162,7 @@ namespace OpenSearch.Client
         public SearchShardsDescriptor<TDocument> AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an index starts with `foo` but no index starts with `bar`.</summary>
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an index starts with `foo` but no index starts with `bar`.</summary>
         public SearchShardsDescriptor<TDocument> AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -2216,7 +2216,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ISearchTemplateRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases to search. Supports wildcards (*).</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (*).</summary>
         public SearchTemplateDescriptor<TDocument> Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -2229,7 +2229,7 @@ namespace OpenSearch.Client
         public SearchTemplateDescriptor<TDocument> AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an index starts with `foo` but no index starts with `bar`.</summary>
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an index starts with `foo` but no index starts with `bar`.</summary>
         public SearchTemplateDescriptor<TDocument> AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -2247,7 +2247,7 @@ namespace OpenSearch.Client
         public SearchTemplateDescriptor<TDocument> Explain(bool? explain = true) =>
             Qs("explain", explain);
 
-        /// <summary>If `true`, specified concrete, expanded, or aliased indices are not included in the response when throttled.</summary>
+        /// <summary>If `true`, specified concrete, expanded, or aliased indexes are not included in the response when throttled.</summary>
         public SearchTemplateDescriptor<TDocument> IgnoreThrottled(bool? ignorethrottled = true) =>
             Qs("ignore_throttled", ignorethrottled);
 
@@ -2281,7 +2281,7 @@ namespace OpenSearch.Client
         public SearchTemplateDescriptor<TDocument> SearchType(SearchType? searchtype) =>
             Qs("search_type", searchtype);
 
-        /// <summary>If true, hits.total are rendered as an integer in the response.</summary>
+        /// <summary>If `true`, `hits.total` are rendered as an integer in the response.</summary>
         public SearchTemplateDescriptor<TDocument> TotalHitsAsInteger(
             bool? totalhitsasinteger = true
         ) => Qs("rest_total_hits_as_int", totalhitsasinteger);
@@ -2376,7 +2376,7 @@ namespace OpenSearch.Client
         public TermVectorsDescriptor<TDocument> Preference(string preference) =>
             Qs("preference", preference);
 
-        /// <summary>If true, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If `true`, the request is real-time as opposed to near-real-time.</summary>
         public TermVectorsDescriptor<TDocument> Realtime(bool? realtime = true) =>
             Qs("realtime", realtime);
 
@@ -2463,11 +2463,11 @@ namespace OpenSearch.Client
         /// <summary>The script language.</summary>
         public UpdateDescriptor<TDocument, TPartialDocument> Lang(string lang) => Qs("lang", lang);
 
-        /// <summary>If 'true', OpenSearch refreshes the affected shards to make this operation visible to search, if 'wait_for' then wait for a refresh to make this operation visible to search, if 'false' do nothing with refreshes.</summary>
+        /// <summary>If 'true', OpenSearch refreshes the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh to make this operation visible to search, if `false` do nothing with refreshes.</summary>
         public UpdateDescriptor<TDocument, TPartialDocument> Refresh(Refresh? refresh) =>
             Qs("refresh", refresh);
 
-        /// <summary>If true, the destination must be an index alias.</summary>
+        /// <summary>If `true`, the destination must be an index alias.</summary>
         public UpdateDescriptor<TDocument, TPartialDocument> RequireAlias(
             bool? requirealias = true
         ) => Qs("require_alias", requirealias);
@@ -2525,7 +2525,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IUpdateByQueryRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indices, and aliases to search. Supports wildcards (`*`). To search all data streams or indices, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (`*`). To search all data streams or indexes, omit this parameter or use `*` or `_all`.</summary>
         public UpdateByQueryDescriptor<TDocument> Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -2538,7 +2538,7 @@ namespace OpenSearch.Client
         public UpdateByQueryDescriptor<TDocument> AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices. This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an index starts with `foo` but no index starts with `bar`.</summary>
+        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an index starts with `foo` but no index starts with `bar`.</summary>
         public UpdateByQueryDescriptor<TDocument> AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -2592,7 +2592,7 @@ namespace OpenSearch.Client
             Qs("q", queryonquerystring);
 
         /// <summary>If `true`, OpenSearch refreshes affected shards to make the operation visible to search.</summary>
-        public UpdateByQueryDescriptor<TDocument> Refresh(bool? refresh = true) =>
+        public UpdateByQueryDescriptor<TDocument> Refresh(Refresh? refresh) =>
             Qs("refresh", refresh);
 
         /// <summary>If `true`, the request cache is used for this request.</summary>
@@ -2628,7 +2628,7 @@ namespace OpenSearch.Client
         public UpdateByQueryDescriptor<TDocument> SearchType(SearchType? searchtype) =>
             Qs("search_type", searchtype);
 
-        /// <summary>Deprecated, please use `max_docs` instead.</summary>
+        /// <summary>Deprecated, use `max_docs` instead.</summary>
         public UpdateByQueryDescriptor<TDocument> Size(long? size) => Qs("size", size);
 
         /// <summary>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs.</summary>
@@ -2638,20 +2638,20 @@ namespace OpenSearch.Client
         public UpdateByQueryDescriptor<TDocument> SourceEnabled(bool? sourceenabled = true) =>
             Qs("_source", sourceenabled);
 
-        /// <summary>List of fields to exclude from the returned _source field.</summary>
+        /// <summary>List of fields to exclude from the returned `_source` field.</summary>
         public UpdateByQueryDescriptor<TDocument> SourceExcludes(Fields sourceexcludes) =>
             Qs("_source_excludes", sourceexcludes);
 
-        /// <summary>List of fields to exclude from the returned _source field.</summary>
+        /// <summary>List of fields to exclude from the returned `_source` field.</summary>
         public UpdateByQueryDescriptor<TDocument> SourceExcludes(
             params Expression<Func<TDocument, object>>[] fields
         ) => Qs("_source_excludes", fields?.Select(e => (Field)e));
 
-        /// <summary>List of fields to extract and return from the _source field.</summary>
+        /// <summary>List of fields to extract and return from the `_source` field.</summary>
         public UpdateByQueryDescriptor<TDocument> SourceIncludes(Fields sourceincludes) =>
             Qs("_source_includes", sourceincludes);
 
-        /// <summary>List of fields to extract and return from the _source field.</summary>
+        /// <summary>List of fields to extract and return from the `_source` field.</summary>
         public UpdateByQueryDescriptor<TDocument> SourceIncludes(
             params Expression<Func<TDocument, object>>[] fields
         ) => Qs("_source_includes", fields?.Select(e => (Field)e));
@@ -2660,7 +2660,7 @@ namespace OpenSearch.Client
         public UpdateByQueryDescriptor<TDocument> Stats(params string[] stats) =>
             Qs("stats", stats);
 
-        /// <summary>Maximum number of documents to collect for each shard. If a query reaches this limit, OpenSearch terminates the query early. OpenSearch collects documents before sorting. Use with caution. OpenSearch applies this parameter to each shard handling the request. When possible, let OpenSearch perform early termination automatically. Avoid specifying this parameter for requests that target data streams with backing indices across multiple data tiers.</summary>
+        /// <summary>Maximum number of documents to collect for each shard. If a query reaches this limit, OpenSearch terminates the query early. OpenSearch collects documents before sorting. Use with caution. OpenSearch applies this parameter to each shard handling the request. When possible, let OpenSearch perform early termination automatically. Avoid specifying this parameter for requests that target data streams with backing indexes across multiple data tiers.</summary>
         public UpdateByQueryDescriptor<TDocument> TerminateAfter(long? terminateafter) =>
             Qs("terminate_after", terminateafter);
 

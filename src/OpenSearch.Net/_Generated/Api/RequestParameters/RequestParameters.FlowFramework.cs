@@ -75,7 +75,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             set => Q("update_fields", value);
         }
 
-        /// <summary>To use a workflow template, specify it in the use_case query parameter when creating a workflow.</summary>
+        /// <summary>To use a workflow template, specify it in the `use_case` query parameter when creating a workflow.</summary>
         public string UseCase
         {
             get => Q<string>("use_case");
@@ -191,7 +191,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             set => Q("update_fields", value);
         }
 
-        /// <summary>To use a workflow template, specify it in the use_case query parameter when creating a workflow.</summary>
+        /// <summary>To use a workflow template, specify it in the `use_case` query parameter when creating a workflow.</summary>
         public string UseCase
         {
             get => Q<string>("use_case");

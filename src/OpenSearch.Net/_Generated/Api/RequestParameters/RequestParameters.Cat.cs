@@ -59,14 +59,14 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        /// <summary>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -127,7 +127,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("bytes", value);
         }
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -189,7 +189,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -221,9 +221,9 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -261,7 +261,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -293,9 +293,9 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -324,7 +324,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -385,7 +385,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("fields", value);
         }
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -431,7 +431,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -456,7 +456,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("help", value);
         }
 
-        /// <summary>If true, returns `HH:MM:SS` and Unix epoch timestamps.</summary>
+        /// <summary>If `true`, returns `HH:MM:SS` and Unix epoch timestamps.</summary>
         public bool? IncludeTimestamp
         {
             get => Q<bool?>("ts");
@@ -514,7 +514,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -532,7 +532,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("h", value);
         }
 
-        /// <summary>The health status used to limit returned indices. By default, the response includes indices of any health status.</summary>
+        /// <summary>The health status used to limit returned indexes. By default, the response includes indexes of any health status.</summary>
         public HealthStatus? Health
         {
             get => Q<HealthStatus?>("health");
@@ -546,7 +546,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("help", value);
         }
 
-        /// <summary>If true, the response includes information from segments that are not loaded into memory.</summary>
+        /// <summary>If `true`, the response includes information from segments that are not loaded into memory.</summary>
         public bool? IncludeUnloadedSegments
         {
             get => Q<bool?>("include_unloaded_segments");
@@ -560,9 +560,9 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -570,7 +570,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("master_timeout", value);
         }
 
-        /// <summary>If true, the response only includes information from primary shards.</summary>
+        /// <summary>If `true`, the response only includes information from primary shards.</summary>
         public bool? Pri
         {
             get => Q<bool?>("pri");
@@ -606,7 +606,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -638,9 +638,9 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -678,7 +678,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -710,9 +710,9 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -756,7 +756,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -798,9 +798,9 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -838,7 +838,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -870,9 +870,9 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -909,7 +909,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("bytes", value);
         }
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -964,7 +964,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -996,9 +996,9 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -1049,7 +1049,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("detailed", value);
         }
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1111,7 +1111,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1143,9 +1143,9 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -1183,7 +1183,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>
-        /// Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have
+        /// Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes `_all` string or when no indexes have
         /// been specified).
         /// </summary>
         public bool? AllowNoIndices
@@ -1213,14 +1213,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("detailed", value);
         }
 
-        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        /// <summary>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1245,14 +1245,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("help", value);
         }
 
-        /// <summary>Whether specified concrete, expanded or aliased indices should be ignored when throttled.</summary>
+        /// <summary>Whether specified concrete, expanded or aliased indexes should be ignored when throttled.</summary>
         public bool? IgnoreThrottled
         {
             get => Q<bool?>("ignore_throttled");
             set => Q("ignore_throttled", value);
         }
 
-        /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed).</summary>
+        /// <summary>Whether specified concrete indexes should be ignored when unavailable (missing or closed).</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
@@ -1317,7 +1317,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1342,9 +1342,9 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("help", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -1388,7 +1388,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1420,9 +1420,9 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -1460,7 +1460,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1492,9 +1492,9 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -1537,7 +1537,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("detailed", value);
         }
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1609,7 +1609,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1641,9 +1641,9 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {
@@ -1681,7 +1681,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header, e.g. json, yaml.</summary>
+        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1713,9 +1713,9 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public TimeSpan MasterTimeout
         {

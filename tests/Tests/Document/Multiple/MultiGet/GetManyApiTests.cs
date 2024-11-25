@@ -110,7 +110,7 @@ namespace Tests.Document.Multiple.MultiGet
 				)
 				.Destination(d => d
 					.Index(reindexName))
-				.Refresh()
+				.Refresh(Refresh.True)
 			);
 
 			if (!reindexResponse.IsValid)
@@ -156,7 +156,7 @@ namespace Tests.Document.Multiple.MultiGet
 				)
 				.Destination(d => d
 					.Index(reindexName))
-				.Refresh()
+				.Refresh(Refresh.True)
 			);
 
 			if (!reindexResponse.IsValid)

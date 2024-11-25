@@ -92,7 +92,7 @@ namespace OpenSearch.Client
         /// <summary>The interval for the second sampling of threads.</summary>
         public NodesHotThreadsDescriptor Interval(Time interval) => Qs("interval", interval);
 
-        /// <summary>Number of samples of thread stacktrace.</summary>
+        /// <summary>Number of samples of thread stack trace.</summary>
         public NodesHotThreadsDescriptor Snapshots(long? snapshots) => Qs("snapshots", snapshots);
 
         /// <summary>Specify the number of threads to provide information for.</summary>
@@ -136,7 +136,7 @@ namespace OpenSearch.Client
         Metrics INodesInfoRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
         NodeIds INodesInfoRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
-        /// <summary>Limits the information returned to the specific metrics. Supports a comma-separated list, such as http,ingest.</summary>
+        /// <summary>Limits the information returned to the specific metrics. Supports a comma-separated list, such as `http,ingest`.</summary>
         public NodesInfoDescriptor Metric(Metrics metric) =>
             Assign(metric, (a, v) => a.RouteValues.Optional("metric", v));
 
@@ -145,7 +145,7 @@ namespace OpenSearch.Client
             Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
 
         // Request parameters
-        /// <summary>If true, returns settings in flat format.</summary>
+        /// <summary>If `true`, returns settings in flat format.</summary>
         public NodesInfoDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
@@ -239,7 +239,7 @@ namespace OpenSearch.Client
         Metrics INodesStatsRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
         NodeIds INodesStatsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
-        /// <summary>Limit the information returned for indices metric to the specific index metrics. It can be used only if indices (or all) metric is specified.</summary>
+        /// <summary>Limit the information returned for indexes metric to the specific index metrics. It can be used only if indexes (or all) metric is specified.</summary>
         public NodesStatsDescriptor IndexMetric(IndexMetrics indexMetric) =>
             Assign(indexMetric, (a, v) => a.RouteValues.Optional("index_metric", v));
 
@@ -252,19 +252,19 @@ namespace OpenSearch.Client
             Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
 
         // Request parameters
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata and suggest statistics.</summary>
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
         public NodesStatsDescriptor CompletionFields(Fields completionfields) =>
             Qs("completion_fields", completionfields);
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata and suggest statistics.</summary>
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
         public NodesStatsDescriptor CompletionFields<T>(params Expression<Func<T, object>>[] fields)
             where T : class => Qs("completion_fields", fields?.Select(e => (Field)e));
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata statistics.</summary>
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data statistics.</summary>
         public NodesStatsDescriptor FielddataFields(Fields fielddatafields) =>
             Qs("fielddata_fields", fielddatafields);
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata statistics.</summary>
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data statistics.</summary>
         public NodesStatsDescriptor FielddataFields<T>(params Expression<Func<T, object>>[] fields)
             where T : class => Qs("fielddata_fields", fields?.Select(e => (Field)e));
 
@@ -278,7 +278,7 @@ namespace OpenSearch.Client
         /// <summary>Comma-separated list of search groups to include in the search statistics.</summary>
         public NodesStatsDescriptor Groups(params string[] groups) => Qs("groups", groups);
 
-        /// <summary>If true, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
+        /// <summary>If `true`, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
         public NodesStatsDescriptor IncludeSegmentFileSizes(bool? includesegmentfilesizes = true) =>
             Qs("include_segment_file_sizes", includesegmentfilesizes);
 

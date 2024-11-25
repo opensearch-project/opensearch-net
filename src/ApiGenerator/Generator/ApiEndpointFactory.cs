@@ -237,6 +237,12 @@ namespace ApiGenerator.Generator
 
                 if (oneOf.Length != 2) throw new Exception("Unable to determine type of oneOf");
 
+                if (oneOf[0].Type == JsonObjectType.Boolean && oneOf[1].IsEnum())
+                {
+                    trackEnumToGenerate(schemaKey, isListContext);
+                    return CsharpNames.GetEnumName(schemaKey) + "?";
+                }
+
                 var first = GetOpenSearchType(oneOf[0], trackEnumToGenerate);
                 var second = GetOpenSearchType(oneOf[1], trackEnumToGenerate);
                 if (first.EndsWith("?")) return first;
@@ -256,7 +262,7 @@ namespace ApiGenerator.Generator
                 _ = GetOpenSearchType(schema.Item, trackEnumToGenerate, true);
 
             var types = Enum.GetValues<JsonObjectType>()
-                .Where(t => t != JsonObjectType.None && schema.Type.HasFlag(t))
+                .Where(t => t != JsonObjectType.None && t != JsonObjectType.Null && schema.Type.HasFlag(t))
                 .ToHashSet();
 
             var type = types.Count switch
@@ -271,7 +277,7 @@ namespace ApiGenerator.Generator
             {
                 JsonObjectType.Integer => "number",
                 JsonObjectType.Array => "list",
-                JsonObjectType.String when schema.Pattern == @"^([0-9\.]+)(?:d|h|m|s|ms|micros|nanos)$" => "time",
+                JsonObjectType.String when schema.Pattern == @"^(?:(-1)|([0-9\.]+)(?:d|h|m|s|ms|micros|nanos))$" => "time",
                 var t => t.ToString().ToLowerInvariant()
             };
         }

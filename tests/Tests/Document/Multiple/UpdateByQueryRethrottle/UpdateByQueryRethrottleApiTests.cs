@@ -94,7 +94,7 @@ namespace Tests.Document.Multiple.UpdateByQueryRethrottle
 				.Conflicts(Conflicts.Proceed)
 				.Query(q => q.MatchAll())
 				.Script(s => s.Source("ctx._source.numberOfCommits+=10"))
-				.Refresh()
+				.Refresh(Refresh.True)
 				.RequestsPerSecond(1)
 				.WaitForCompletion(false)
 			);

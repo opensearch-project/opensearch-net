@@ -53,7 +53,7 @@ namespace Tests.Document.Multiple.UpdateByQuery
 		protected override Func<UpdateByQueryDescriptor<Test>, IUpdateByQueryRequest> Fluent => d => d
 			.Index(CallIsolatedValue)
 			.Query(q => q.MatchAll())
-			.Refresh()
+			.Refresh(Refresh.True)
 			.Conflicts(Conflicts.Proceed);
 
 		protected override HttpMethod HttpMethod => HttpMethod.POST;
@@ -61,7 +61,7 @@ namespace Tests.Document.Multiple.UpdateByQuery
 		protected override UpdateByQueryRequest Initializer => new UpdateByQueryRequest(CallIsolatedValue)
 		{
 			Query = new MatchAllQuery(),
-			Refresh = true,
+			Refresh = Refresh.True,
 			Conflicts = Conflicts.Proceed
 		};
 

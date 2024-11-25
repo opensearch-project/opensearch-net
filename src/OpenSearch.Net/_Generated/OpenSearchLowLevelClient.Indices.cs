@@ -70,8 +70,8 @@ namespace OpenSearch.Net.Specification.IndicesApi
             : base(client) { }
 
         /// <summary>PUT on /{index}/_block/{block} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">A comma separated list of indices to add a block to.</param>
-        /// <param name="block">The block to add (one of read, write, read_only or metadata).</param>
+        /// <param name="index">A comma separated list of indexes to add a block to.</param>
+        /// <param name="block">The block to add (one of `read`, `write`, `read_only` or `metadata`).</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse AddBlock<TResponse>(
             string index,
@@ -87,8 +87,8 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>PUT on /{index}/_block/{block} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">A comma separated list of indices to add a block to.</param>
-        /// <param name="block">The block to add (one of read, write, read_only or metadata).</param>
+        /// <param name="index">A comma separated list of indexes to add a block to.</param>
+        /// <param name="block">The block to add (one of `read`, `write`, `read_only` or `metadata`).</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.add_block", "index, block")]
         public Task<TResponse> AddBlockAsync<TResponse>(
@@ -196,7 +196,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>POST on /{index}/_cache/clear <para>https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse ClearCache<TResponse>(
             string index,
@@ -211,7 +211,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>POST on /{index}/_cache/clear <para>https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.clear_cache", "index")]
         public Task<TResponse> ClearCacheAsync<TResponse>(
@@ -439,7 +439,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>DELETE on /{index} <para>https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/</para></summary>
-        /// <param name="index">Comma-separated list of indices to delete. You cannot specify index aliases. By default, this parameter does not support wildcards (`*`) or `_all`. To use wildcards or `_all`, set the `action.destructive_requires_name` cluster setting to `false`.</param>
+        /// <param name="index">Comma-separated list of indexes to delete. You cannot specify index aliases. By default, this parameter does not support wildcards (`*`) or `_all`. To use wildcards or `_all`, set the `action.destructive_requires_name` cluster setting to `false`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Delete<TResponse>(
             string index,
@@ -454,7 +454,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>DELETE on /{index} <para>https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/</para></summary>
-        /// <param name="index">Comma-separated list of indices to delete. You cannot specify index aliases. By default, this parameter does not support wildcards (`*`) or `_all`. To use wildcards or `_all`, set the `action.destructive_requires_name` cluster setting to `false`.</param>
+        /// <param name="index">Comma-separated list of indexes to delete. You cannot specify index aliases. By default, this parameter does not support wildcards (`*`) or `_all`. To use wildcards or `_all`, set the `action.destructive_requires_name` cluster setting to `false`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.delete", "index")]
         public Task<TResponse> DeleteAsync<TResponse>(
@@ -472,7 +472,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>DELETE on /{index}/_alias/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases</para></summary>
-        /// <param name="index">Comma-separated list of data streams or indices used to limit the request. Supports wildcards (`*`).</param>
+        /// <param name="index">Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (`*`).</param>
         /// <param name="name">Comma-separated list of aliases to remove. Supports wildcards (`*`). To remove all aliases, use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse DeleteAlias<TResponse>(
@@ -489,7 +489,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>DELETE on /{index}/_alias/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases</para></summary>
-        /// <param name="index">Comma-separated list of data streams or indices used to limit the request. Supports wildcards (`*`).</param>
+        /// <param name="index">Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (`*`).</param>
         /// <param name="name">Comma-separated list of aliases to remove. Supports wildcards (`*`). To remove all aliases, use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.delete_alias", "index, name")]
@@ -608,7 +608,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>HEAD on /{index} <para>https://opensearch.org/docs/latest/api-reference/index-apis/exists/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases. Supports wildcards (`*`).</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases. Supports wildcards (`*`).</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Exists<TResponse>(
             string index,
@@ -623,7 +623,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>HEAD on /{index} <para>https://opensearch.org/docs/latest/api-reference/index-apis/exists/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases. Supports wildcards (`*`).</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases. Supports wildcards (`*`).</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.exists", "index")]
         public Task<TResponse> ExistsAsync<TResponse>(
@@ -641,7 +641,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>HEAD on /{index}/_alias/{name} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">Comma-separated list of data streams or indices used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="name">Comma-separated list of aliases to check. Supports wildcards (`*`).</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse AliasExists<TResponse>(
@@ -658,7 +658,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>HEAD on /{index}/_alias/{name} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">Comma-separated list of data streams or indices used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="name">Comma-separated list of aliases to check. Supports wildcards (`*`).</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.exists_alias", "index, name")]
@@ -793,7 +793,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             DoRequestAsync<TResponse>(POST, "_flush", ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /{index}/_flush <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases to flush. Supports wildcards (`*`). To flush all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to flush. Supports wildcards (`*`). To flush all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Flush<TResponse>(
             string index,
@@ -808,7 +808,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>POST on /{index}/_flush <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases to flush. Supports wildcards (`*`). To flush all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to flush. Supports wildcards (`*`). To flush all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.flush", "index")]
         public Task<TResponse> FlushAsync<TResponse>(
@@ -850,7 +850,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>POST on /{index}/_forcemerge <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse ForceMerge<TResponse>(
             string index,
@@ -865,7 +865,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>POST on /{index}/_forcemerge <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.forcemerge", "index")]
         public Task<TResponse> ForceMergeAsync<TResponse>(
@@ -883,7 +883,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index} <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-index/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and index aliases used to limit the request. Wildcard expressions (*) are supported.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and index aliases used to limit the request. Wildcard expressions (*) are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Get<TResponse>(
             string index,
@@ -898,7 +898,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index} <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-index/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and index aliases used to limit the request. Wildcard expressions (*) are supported.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and index aliases used to limit the request. Wildcard expressions (*) are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.get", "index")]
         public Task<TResponse> GetAsync<TResponse>(
@@ -934,7 +934,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             DoRequestAsync<TResponse>(GET, "_alias", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /{index}/_alias <para>https://opensearch.org/docs/latest/im-plugin/index-alias/</para></summary>
-        /// <param name="index">Comma-separated list of data streams or indices used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetAlias<TResponse>(
             string index,
@@ -949,7 +949,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index}/_alias <para>https://opensearch.org/docs/latest/im-plugin/index-alias/</para></summary>
-        /// <param name="index">Comma-separated list of data streams or indices used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.get_alias", "index")]
         public Task<TResponse> GetAliasAsync<TResponse>(
@@ -967,7 +967,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index}/_alias/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-alias/</para></summary>
-        /// <param name="index">Comma-separated list of data streams or indices used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="name">Comma-separated list of aliases to retrieve. Supports wildcards (`*`). To retrieve all aliases, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetAlias<TResponse>(
@@ -984,7 +984,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index}/_alias/{name} <para>https://opensearch.org/docs/latest/im-plugin/index-alias/</para></summary>
-        /// <param name="index">Comma-separated list of data streams or indices used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="name">Comma-separated list of aliases to retrieve. Supports wildcards (`*`). To retrieve all aliases, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.get_alias", "index, name")]
@@ -1127,7 +1127,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index}/_mapping/field/{fields} <para>https://opensearch.org/docs/latest/field-types/index/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="fields">Comma-separated list or wildcard expression of fields used to limit returned information.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetFieldMapping<TResponse>(
@@ -1144,7 +1144,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index}/_mapping/field/{fields} <para>https://opensearch.org/docs/latest/field-types/index/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="fields">Comma-separated list or wildcard expression of fields used to limit returned information.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.get_field_mapping", "index, fields")]
@@ -1239,7 +1239,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             DoRequestAsync<TResponse>(GET, "_mapping", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /{index}/_mapping <para>https://opensearch.org/docs/latest/field-types/index/#get-a-mapping</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetMapping<TResponse>(
             string index,
@@ -1254,7 +1254,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index}/_mapping <para>https://opensearch.org/docs/latest/field-types/index/#get-a-mapping</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.get_mapping", "index")]
         public Task<TResponse> GetMappingAsync<TResponse>(
@@ -1296,7 +1296,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index}/_settings <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetSettings<TResponse>(
             string index,
@@ -1311,7 +1311,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index}/_settings <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.get_settings", "index")]
         public Task<TResponse> GetSettingsAsync<TResponse>(
@@ -1329,7 +1329,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index}/_settings/{name} <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="name">Comma-separated list or wildcard expression of settings to retrieve.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetSettings<TResponse>(
@@ -1346,7 +1346,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index}/_settings/{name} <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="name">Comma-separated list or wildcard expression of settings to retrieve.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.get_settings", "index, name")]
@@ -1474,7 +1474,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             DoRequestAsync<TResponse>(GET, "_upgrade", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /{index}/_upgrade <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="index">Comma-separated list of indexes; use the special string `_all` or Indices.All to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetUpgrade<TResponse>(
             string index,
@@ -1489,7 +1489,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index}/_upgrade <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="index">Comma-separated list of indexes; use the special string `_all` or Indices.All to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.get_upgrade", "index")]
         public Task<TResponse> GetUpgradeAsync<TResponse>(
@@ -1507,7 +1507,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>POST on /{index}/_open <para>https://opensearch.org/docs/latest/api-reference/index-apis/open-index/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). By default, you must explicitly name the indices you using to limit the request. To limit a request using `_all`, `*`, or other wildcard expressions, change the `action.destructive_requires_name` setting to false. You can update this setting in the `opensearch.yml` file or using the cluster update settings API.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). By default, you must explicitly name the indexes you using to limit the request. To limit a request using `_all`, `*`, or other wildcard expressions, change the `action.destructive_requires_name` setting to false. You can update this setting in the `opensearch.yml` file or using the cluster update settings API.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Open<TResponse>(
             string index,
@@ -1522,7 +1522,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>POST on /{index}/_open <para>https://opensearch.org/docs/latest/api-reference/index-apis/open-index/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). By default, you must explicitly name the indices you using to limit the request. To limit a request using `_all`, `*`, or other wildcard expressions, change the `action.destructive_requires_name` setting to false. You can update this setting in the `opensearch.yml` file or using the cluster update settings API.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). By default, you must explicitly name the indexes you using to limit the request. To limit a request using `_all`, `*`, or other wildcard expressions, change the `action.destructive_requires_name` setting to false. You can update this setting in the `opensearch.yml` file or using the cluster update settings API.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.open", "index")]
         public Task<TResponse> OpenAsync<TResponse>(
@@ -1562,7 +1562,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             DoRequestAsync<TResponse>(PUT, "_alias", ctx, body, RequestParams(requestParameters));
 
         /// <summary>PUT on /{index}/_alias <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</para></summary>
-        /// <param name="index">Comma-separated list of data streams or indices to add. Supports wildcards (`*`). Wildcard patterns that match both data streams and indices return an error.</param>
+        /// <param name="index">Comma-separated list of data streams or indexes to add. Supports wildcards (`*`). Wildcard patterns that match both data streams and indexes return an error.</param>
         /// <param name="body">The settings for the alias, such as `routing` or `filter`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse PutAlias<TResponse>(
@@ -1579,7 +1579,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>PUT on /{index}/_alias <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</para></summary>
-        /// <param name="index">Comma-separated list of data streams or indices to add. Supports wildcards (`*`). Wildcard patterns that match both data streams and indices return an error.</param>
+        /// <param name="index">Comma-separated list of data streams or indexes to add. Supports wildcards (`*`). Wildcard patterns that match both data streams and indexes return an error.</param>
         /// <param name="body">The settings for the alias, such as `routing` or `filter`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.put_alias", "index, body")]
@@ -1599,7 +1599,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>PUT on /{index}/_alias/{name} <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</para></summary>
-        /// <param name="index">Comma-separated list of data streams or indices to add. Supports wildcards (`*`). Wildcard patterns that match both data streams and indices return an error.</param>
+        /// <param name="index">Comma-separated list of data streams or indexes to add. Supports wildcards (`*`). Wildcard patterns that match both data streams and indexes return an error.</param>
         /// <param name="name">Alias to update. If the alias doesn&#x27;t exist, the request creates it. Index alias names support date math.</param>
         /// <param name="body">The settings for the alias, such as `routing` or `filter`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1618,7 +1618,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>PUT on /{index}/_alias/{name} <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</para></summary>
-        /// <param name="index">Comma-separated list of data streams or indices to add. Supports wildcards (`*`). Wildcard patterns that match both data streams and indices return an error.</param>
+        /// <param name="index">Comma-separated list of data streams or indexes to add. Supports wildcards (`*`). Wildcard patterns that match both data streams and indexes return an error.</param>
         /// <param name="name">Alias to update. If the alias doesn&#x27;t exist, the request creates it. Index alias names support date math.</param>
         /// <param name="body">The settings for the alias, such as `routing` or `filter`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1714,7 +1714,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>PUT on /{index}/_mapping <para>https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/</para></summary>
-        /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
+        /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indexes.</param>
         /// <param name="body">The mapping definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse PutMapping<TResponse>(
@@ -1731,7 +1731,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>PUT on /{index}/_mapping <para>https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/</para></summary>
-        /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
+        /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indexes.</param>
         /// <param name="body">The mapping definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.put_mapping", "index, body")]
@@ -1779,7 +1779,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>PUT on /{index}/_settings <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="body">The index settings to be updated.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse UpdateSettings<TResponse>(
@@ -1796,7 +1796,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>PUT on /{index}/_settings <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="body">The index settings to be updated.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.put_settings", "index, body")]
@@ -1877,7 +1877,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index}/_recovery <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse RecoveryStatus<TResponse>(
             string index,
@@ -1892,7 +1892,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index}/_recovery <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.recovery", "index")]
         public Task<TResponse> RecoveryStatusAsync<TResponse>(
@@ -1932,7 +1932,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>POST on /{index}/_refresh <para>https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Refresh<TResponse>(
             string index,
@@ -1947,7 +1947,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>POST on /{index}/_refresh <para>https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.refresh", "index")]
         public Task<TResponse> RefreshAsync<TResponse>(
@@ -1965,7 +1965,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /_resolve/index/{name} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="name">Comma-separated name(s) or index pattern(s) of the indices, aliases, and data streams to resolve. Resources on remote clusters can be specified using the `&amp;lt;cluster&amp;gt;`:`&amp;lt;name&amp;gt;` syntax.</param>
+        /// <param name="name">Comma-separated name(s) or index pattern(s) of the indexes, aliases, and data streams to resolve. Resources on remote clusters can be specified using the `&amp;lt;cluster&amp;gt;`:`&amp;lt;name&amp;gt;` syntax.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse ResolveForAll<TResponse>(
             string name,
@@ -1980,7 +1980,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /_resolve/index/{name} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="name">Comma-separated name(s) or index pattern(s) of the indices, aliases, and data streams to resolve. Resources on remote clusters can be specified using the `&amp;lt;cluster&amp;gt;`:`&amp;lt;name&amp;gt;` syntax.</param>
+        /// <param name="name">Comma-separated name(s) or index pattern(s) of the indexes, aliases, and data streams to resolve. Resources on remote clusters can be specified using the `&amp;lt;cluster&amp;gt;`:`&amp;lt;name&amp;gt;` syntax.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.resolve_index", "name")]
         public Task<TResponse> ResolveForAllAsync<TResponse>(
@@ -2100,7 +2100,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index}/_segments <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Segments<TResponse>(
             string index,
@@ -2115,7 +2115,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index}/_segments <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.segments", "index")]
         public Task<TResponse> SegmentsAsync<TResponse>(
@@ -2157,7 +2157,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index}/_shard_stores <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">List of data streams, indices, and aliases used to limit the request.</param>
+        /// <param name="index">List of data streams, indexes, and aliases used to limit the request.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse ShardStores<TResponse>(
             string index,
@@ -2172,7 +2172,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index}/_shard_stores <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">List of data streams, indices, and aliases used to limit the request.</param>
+        /// <param name="index">List of data streams, indexes, and aliases used to limit the request.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.shard_stores", "index")]
         public Task<TResponse> ShardStoresAsync<TResponse>(
@@ -2397,7 +2397,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             DoRequestAsync<TResponse>(GET, "_stats", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /{index}/_stats <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Stats<TResponse>(
             string index,
@@ -2412,7 +2412,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index}/_stats <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.stats", "index")]
         public Task<TResponse> StatsAsync<TResponse>(
@@ -2430,7 +2430,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index}/_stats/{metric} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indexes.</param>
         /// <param name="metric">Limit the information returned the specific metrics.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Stats<TResponse>(
@@ -2447,7 +2447,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index}/_stats/{metric} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="index">A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indexes.</param>
         /// <param name="metric">Limit the information returned the specific metrics.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.stats", "index, metric")]
@@ -2550,7 +2550,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>POST on /{index}/_upgrade <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="index">Comma-separated list of indexes; use the special string `_all` or Indices.All to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Upgrade<TResponse>(
             string index,
@@ -2565,7 +2565,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>POST on /{index}/_upgrade <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">Comma-separated list of indices; use the special string `_all` or Indices.All to perform the operation on all indices.</param>
+        /// <param name="index">Comma-separated list of indexes; use the special string `_all` or Indices.All to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.upgrade", "index")]
         public Task<TResponse> UpgradeAsync<TResponse>(
@@ -2611,7 +2611,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>POST on /{index}/_validate/query <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases to search. Supports wildcards (`*`). To search all data streams or indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (`*`). To search all data streams or indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="body">The query definition specified with the Query DSL.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse ValidateQuery<TResponse>(
@@ -2628,7 +2628,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>POST on /{index}/_validate/query <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indices, and aliases to search. Supports wildcards (`*`). To search all data streams or indices, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (`*`). To search all data streams or indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="body">The query definition specified with the Query DSL.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.validate_query", "index, body")]

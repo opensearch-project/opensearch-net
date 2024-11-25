@@ -102,7 +102,7 @@ namespace Tests.Cluster.TaskManagement.GetTask
 				)
 				.Conflicts(Conflicts.Proceed)
 				.WaitForCompletion(false)
-				.Refresh()
+				.Refresh(Refresh.True)
 			);
 
 			_taskId = response.Task;
@@ -182,7 +182,7 @@ namespace Tests.Cluster.TaskManagement.GetTask
 				)
 				.Conflicts(Conflicts.Proceed)
 				.WaitForCompletion(false)
-				.Refresh()
+				.Refresh(Refresh.True)
 			);
 
 			_taskId = response.Task;

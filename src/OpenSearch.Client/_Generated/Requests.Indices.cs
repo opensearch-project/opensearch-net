@@ -96,7 +96,7 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have
+        /// Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes `_all` string or when no indexes have
         /// been specified).
         /// </summary>
         public bool? AllowNoIndices
@@ -113,23 +113,23 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        /// <summary>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed).</summary>
+        /// <summary>Whether specified concrete indexes should be ignored when unavailable (missing or closed).</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>Specify timeout for connection to master.</summary>
+        /// <summary>Specify timeout for connection to cluster manager.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -206,8 +206,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
-        /// This behavior applies even if the request targets other open indices.
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -240,7 +240,7 @@ namespace OpenSearch.Client
             set => Q("fields", value);
         }
 
-        /// <summary>If true, clears the unused entries from the file cache on nodes with the Search role.</summary>
+        /// <summary>If `true`, clears the unused entries from the file cache on nodes with the Search role.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.8.0 or greater.</remarks>
         public bool? File
         {
@@ -316,11 +316,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -328,7 +328,7 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Explicit task execution timeout, only useful when wait_for_completion is false, defaults to 1h.</summary>
+        /// <summary>Explicit task execution timeout, only useful when `wait_for_completion` is false, defaults to `1h`.</summary>
         public Time TaskExecutionTimeout
         {
             get => Q<Time>("task_execution_timeout");
@@ -392,8 +392,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
-        /// This behavior applies even if the request targets other open indices.
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -428,11 +428,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -497,11 +497,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -558,8 +558,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
-        /// This behavior applies even if the request targets other open indices.
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -594,11 +594,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -660,11 +660,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -720,11 +720,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -780,11 +780,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -831,8 +831,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
-        /// This behavior applies even if the request targets other open indices.
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -931,8 +931,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
-        /// This behavior applies even if the request targets other open indices.
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -951,7 +951,7 @@ namespace OpenSearch.Client
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `false`, requests that include a missing data stream or index in the target indices or data streams return an error.</summary>
+        /// <summary>If `false`, requests that include a missing data stream or index in the target indexes or data streams return an error.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
@@ -1020,11 +1020,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -1086,9 +1086,9 @@ namespace OpenSearch.Client
             set => Q("local", value);
         }
 
-        /// <summary>Explicit operation timeout for connection to master node.</summary>
+        /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -1125,8 +1125,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
-        /// This behavior applies even if the request targets other open indices.
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -1200,7 +1200,7 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have
+        /// Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes `_all` string or when no indexes have
         /// been specified).
         /// </summary>
         public bool? AllowNoIndices
@@ -1209,7 +1209,7 @@ namespace OpenSearch.Client
             set => Q("allow_no_indices", value);
         }
 
-        /// <summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        /// <summary>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
@@ -1223,7 +1223,7 @@ namespace OpenSearch.Client
             set => Q("flush", value);
         }
 
-        /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed).</summary>
+        /// <summary>Whether specified concrete indexes should be ignored when unavailable (missing or closed).</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
@@ -1295,9 +1295,9 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If false, the request returns an error if any wildcard expression, index alias, or _all value targets only missing or closed indices. This
-        /// behavior applies even if the request targets other open indices. For example, a request targeting foo*,bar* returns an error if an index
-        /// starts with foo but no index starts with bar.
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes. For example, a request targeting foo*,bar* returns an error if an
+        /// index starts with foo but no index starts with bar.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -1315,7 +1315,7 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// Type of index that wildcard expressions can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as open,hidden.
+        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -1323,21 +1323,21 @@ namespace OpenSearch.Client
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If true, returns settings in flat format.</summary>
+        /// <summary>If `true`, returns settings in flat format.</summary>
         public bool? FlatSettings
         {
             get => Q<bool?>("flat_settings");
             set => Q("flat_settings", value);
         }
 
-        /// <summary>If false, requests that target a missing index return an error.</summary>
+        /// <summary>If `false`, requests that target a missing index return an error.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>If true, return all default settings in the response.</summary>
+        /// <summary>If `true`, return all default settings in the response.</summary>
         public bool? IncludeDefaults
         {
             get => Q<bool?>("include_defaults");
@@ -1345,8 +1345,8 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// If true, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the
-        /// master node.
+        /// If `true`, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the
+        /// cluster-manager node.
         /// </summary>
         public bool? Local
         {
@@ -1355,11 +1355,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -1415,8 +1415,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
-        /// This behavior applies even if the request targets other open indices.
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -1493,8 +1493,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
-        /// This behavior applies even if the request targets other open indices.
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -1573,7 +1573,7 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>If true, returns settings in flat format.</summary>
+        /// <summary>If `true`, returns settings in flat format.</summary>
         public bool? FlatSettings
         {
             get => Q<bool?>("flat_settings");
@@ -1581,8 +1581,8 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// If true, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the
-        /// master node.
+        /// If `true`, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the
+        /// cluster-manager node.
         /// </summary>
         public bool? Local
         {
@@ -1591,11 +1591,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -1634,8 +1634,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
-        /// This behavior applies even if the request targets other open indices.
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -1677,11 +1677,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -1737,8 +1737,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
-        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an
         /// index starts with foo but no index starts with `bar`.
         /// </summary>
         public bool? AllowNoIndices
@@ -1786,7 +1786,7 @@ namespace OpenSearch.Client
             set => Q("include_defaults", value);
         }
 
-        /// <summary>If `true`, the request retrieves information from the local node only. If `false`, information is retrieved from the master node.</summary>
+        /// <summary>If `true`, the request retrieves information from the local node only. If `false`, information is retrieved from the cluster-manager node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
@@ -1794,11 +1794,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -1859,11 +1859,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -1903,8 +1903,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
-        /// This behavior applies even if the request targets other open indices.
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -1939,11 +1939,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -1951,7 +1951,7 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Explicit task execution timeout, only useful when wait_for_completion is false, defaults to 1h.</summary>
+        /// <summary>Explicit task execution timeout, only useful when `wait_for_completion` is false, defaults to `1h`.</summary>
         public Time TaskExecutionTimeout
         {
             get => Q<Time>("task_execution_timeout");
@@ -2039,11 +2039,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -2112,9 +2112,9 @@ namespace OpenSearch.Client
             set => Q("create", value);
         }
 
-        /// <summary>Operation timeout for connection to master node.</summary>
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -2156,8 +2156,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
-        /// This behavior applies even if the request targets other open indices.
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -2192,11 +2192,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -2266,8 +2266,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
-        /// This behavior applies even if the request targets other open indices. For example, a request targeting `foo*,bar*` returns an error if an
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an
         /// index starts with `foo` but no index starts with `bar`.
         /// </summary>
         public bool? AllowNoIndices
@@ -2301,7 +2301,7 @@ namespace OpenSearch.Client
             set => Q("flat_settings", value);
         }
 
-        /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed).</summary>
+        /// <summary>Whether specified concrete indexes should be ignored when unavailable (missing or closed).</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
@@ -2309,11 +2309,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -2374,7 +2374,7 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>If true, this request cannot replace or update existing index templates.</summary>
+        /// <summary>If `true`, this request cannot replace or update existing index templates.</summary>
         public bool? Create
         {
             get => Q<bool?>("create");
@@ -2382,11 +2382,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -2425,8 +2425,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
-        /// This behavior applies even if the request targets other open indices.
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -2553,11 +2553,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -2629,11 +2629,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -2641,7 +2641,7 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Explicit task execution timeout, only useful when wait_for_completion is false, defaults to 1h.</summary>
+        /// <summary>Explicit task execution timeout, only useful when `wait_for_completion` is false, defaults to `1h`.</summary>
         public Time TaskExecutionTimeout
         {
             get => Q<Time>("task_execution_timeout");
@@ -2720,11 +2720,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -2732,7 +2732,7 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Explicit task execution timeout, only useful when wait_for_completion is false, defaults to 1h.</summary>
+        /// <summary>Explicit task execution timeout, only useful when `wait_for_completion` is false, defaults to `1h`.</summary>
         public Time TaskExecutionTimeout
         {
             get => Q<Time>("task_execution_timeout");
@@ -2811,7 +2811,7 @@ namespace OpenSearch.Client
         Metrics IIndicesStatsRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
 
         // Request parameters
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata and suggest statistics.</summary>
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
         public Fields CompletionFields
         {
             get => Q<Fields>("completion_fields");
@@ -2828,7 +2828,7 @@ namespace OpenSearch.Client
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in fielddata statistics.</summary>
+        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data statistics.</summary>
         public Fields FielddataFields
         {
             get => Q<Fields>("fielddata_fields");
@@ -2842,7 +2842,7 @@ namespace OpenSearch.Client
             set => Q("fields", value);
         }
 
-        /// <summary>If true, statistics are not collected from closed indices.</summary>
+        /// <summary>If `true`, statistics are not collected from closed indexes.</summary>
         public bool? ForbidClosedIndices
         {
             get => Q<bool?>("forbid_closed_indices");
@@ -2856,14 +2856,14 @@ namespace OpenSearch.Client
             set => Q("groups", value);
         }
 
-        /// <summary>If true, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
+        /// <summary>If `true`, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
         public bool? IncludeSegmentFileSizes
         {
             get => Q<bool?>("include_segment_file_sizes");
             set => Q("include_segment_file_sizes", value);
         }
 
-        /// <summary>If true, the response includes information from segments that are not loaded into memory.</summary>
+        /// <summary>If `true`, the response includes information from segments that are not loaded into memory.</summary>
         public bool? IncludeUnloadedSegments
         {
             get => Q<bool?>("include_unloaded_segments");
@@ -2901,11 +2901,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -2953,8 +2953,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indices.
-        /// This behavior applies even if the request targets other open indices.
+        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
+        /// This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {

@@ -97,11 +97,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -155,11 +155,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
@@ -179,9 +179,16 @@ namespace OpenSearch.Client
     {
         protected IGrokProcessorPatternsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.IngestGrokProcessorPatterns;
+
         // values part of the url path
 
         // Request parameters
+        /// <summary>Sort returned patterns by key name.</summary>
+        public bool? SortByColumns
+        {
+            get => Q<bool?>("s");
+            set => Q("s", value);
+        }
     }
 
     [InterfaceDataContract]
@@ -223,11 +230,11 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for a connection to the master node. If no response is received before the timeout expires, the request fails and returns
-        /// an error.
+        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
+        /// returns an error.
         /// </summary>
         [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use 'cluster_manager_timeout' instead."
+            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public Time MasterTimeout
         {
