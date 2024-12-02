@@ -2486,9 +2486,7 @@ paths:
         url: https://opensearch.org/docs/latest
       parameters:
         - $ref: '#/components/parameters/indices.simulate_index_template___path.name'
-        - $ref: '#/components/parameters/indices.simulate_index_template___query.cause'
         - $ref: '#/components/parameters/indices.simulate_index_template___query.cluster_manager_timeout'
-        - $ref: '#/components/parameters/indices.simulate_index_template___query.create'
         - $ref: '#/components/parameters/indices.simulate_index_template___query.master_timeout'
         - $ref: '#/components/parameters/_global___query.pretty'
         - $ref: '#/components/parameters/_global___query.human'
@@ -9487,6 +9485,7 @@ paths:
       operationId: indices.get_upgrade.0
       x-operation-group: indices.get_upgrade
       x-version-added: '1.0'
+      x-version-deprecated: '1.0'
       description: The `_upgrade` API is no longer useful and will be removed.
       externalDocs:
         url: https://opensearch.org/docs/latest
@@ -9506,6 +9505,7 @@ paths:
       operationId: indices.upgrade.0
       x-operation-group: indices.upgrade
       x-version-added: '1.0'
+      x-version-deprecated: '1.0'
       description: The `_upgrade` API is no longer useful and will be removed.
       externalDocs:
         url: https://opensearch.org/docs/latest
@@ -9520,6 +9520,8 @@ paths:
         - $ref: '#/components/parameters/_global___query.error_trace'
         - $ref: '#/components/parameters/_global___query.source'
         - $ref: '#/components/parameters/_global___query.filter_path'
+      requestBody:
+        $ref: '#/components/requestBodies/indices.upgrade'
       responses:
         '200':
           $ref: '#/components/responses/indices.upgrade___200'
@@ -12217,6 +12219,7 @@ paths:
       operationId: indices.get_upgrade.1
       x-operation-group: indices.get_upgrade
       x-version-added: '1.0'
+      x-version-deprecated: '1.0'
       description: The `_upgrade` API is no longer useful and will be removed.
       externalDocs:
         url: https://opensearch.org/docs/latest
@@ -12237,6 +12240,7 @@ paths:
       operationId: indices.upgrade.1
       x-operation-group: indices.upgrade
       x-version-added: '1.0'
+      x-version-deprecated: '1.0'
       description: The `_upgrade` API is no longer useful and will be removed.
       externalDocs:
         url: https://opensearch.org/docs/latest
@@ -12252,6 +12256,8 @@ paths:
         - $ref: '#/components/parameters/_global___query.error_trace'
         - $ref: '#/components/parameters/_global___query.source'
         - $ref: '#/components/parameters/_global___query.filter_path'
+      requestBody:
+        $ref: '#/components/requestBodies/indices.upgrade'
       responses:
         '200':
           $ref: '#/components/responses/indices.upgrade___200'
@@ -14824,13 +14830,13 @@ components:
     asynchronous_search.search___query.index:
       name: index
       in: query
-      description: The name of the index to be searched.
+      description: The name of the index to be searched. Can be an individual name, a comma-separated list of indexes, or a wildcard expression of index names.
       schema:
         type: string
     asynchronous_search.search___query.keep_alive:
       name: keep_alive
       in: query
-      description: The amount of time that the result is saved in the cluster.
+      description: The amount of time that the result is saved in the cluster. For example, `2d` means that the results are stored in the cluster for 48 hours. The saved search results are deleted after this period or if the search is canceled. Note that this includes the query execution time. If the query overruns this time, the process cancels this query automatically.
       schema:
         type: string
     asynchronous_search.search___query.keep_on_completion:
@@ -14842,7 +14848,7 @@ components:
     asynchronous_search.search___query.wait_for_completion_timeout:
       name: wait_for_completion_timeout
       in: query
-      description: The amount of time that you plan to wait for the results.
+      description: The amount of time that you plan to wait for the results. You can poll the remaining results based on an ID. The maximum value is `300s`. Default is `1s`.
       schema:
         type: string
     bulk_stream___path.index:
@@ -21163,14 +21169,6 @@ components:
       schema:
         $ref: '#/components/schemas/_common___Name'
       style: simple
-    indices.simulate_index_template___query.cause:
-      name: cause
-      in: query
-      description: User defined reason for dry-run creating the new template for simulation purposes.
-      schema:
-        type: string
-        default: 'false'
-        description: User defined reason for dry-run creating the new template for simulation purposes.
     indices.simulate_index_template___query.cluster_manager_timeout:
       name: cluster_manager_timeout
       in: query
@@ -21178,19 +21176,6 @@ components:
       schema:
         $ref: '#/components/schemas/_common___Duration'
       x-version-added: '2.0'
-    indices.simulate_index_template___query.create:
-      in: query
-      name: create
-      description: |-
-        If `true`, the template passed in the body is only used if no existing
-        templates match the same index patterns. If `false`, the simulation uses
-        the template with the highest priority. Note that the template is not
-        permanently added or updated in either case; it is only used for the
-        simulation.
-      schema:
-        type: boolean
-        default: false
-      style: form
     indices.simulate_index_template___query.master_timeout:
       in: query
       name: master_timeout
@@ -26682,6 +26667,11 @@ components:
                   $ref: '#/components/schemas/indices.update_aliases___Action'
             description: The definition of `actions` to perform
       required: true
+    indices.upgrade:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/indices._common___UpgradeRequest'
     indices.validate_query:
       content:
         application/json:
@@ -29201,6 +29191,10 @@ components:
               $ref: '#/components/schemas/indices._common___TemplateMapping'
       description: ''
     indices.get_upgrade___200:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/indices._common___IndexGetUpgradeStatus'
       description: ''
     indices.get___200:
       content:
@@ -29438,6 +29432,10 @@ components:
             $ref: '#/components/schemas/_common___AcknowledgedResponseBase'
       description: ''
     indices.upgrade___200:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/indices._common___IndexPostUpgradeStatus'
       description: ''
     indices.validate_query___200:
       content:
@@ -30360,7 +30358,10 @@ components:
             type: object
             properties:
               result:
-                type: object
+                oneOf:
+                  - type: number
+                  - type: string
+                  - type: boolean
             required:
               - result
       description: ''
@@ -33140,6 +33141,35 @@ components:
           type: number
         total:
           type: number
+    _common___ResourceStat:
+      type: object
+      properties:
+        cpu_time_in_nanos:
+          $ref: '#/components/schemas/_common___DurationValueUnitNanos'
+        memory_in_bytes:
+          $ref: '#/components/schemas/_common___ByteCount'
+      required:
+        - cpu_time_in_nanos
+        - memory_in_bytes
+    _common___ResourceStats:
+      type: object
+      properties:
+        average:
+          $ref: '#/components/schemas/_common___ResourceStat'
+        total:
+          $ref: '#/components/schemas/_common___ResourceStat'
+        min:
+          $ref: '#/components/schemas/_common___ResourceStat'
+        max:
+          $ref: '#/components/schemas/_common___ResourceStat'
+        thread_info:
+          $ref: '#/components/schemas/_common___ThreadInfo'
+      required:
+        - average
+        - max
+        - min
+        - thread_info
+        - total
     _common___ResourceType:
       type: string
       enum:
@@ -33733,6 +33763,16 @@ components:
         - h3
         - 'no'
         - z
+    _common___ThreadInfo:
+      type: object
+      properties:
+        thread_executions:
+          type: number
+        active_threads:
+          type: number
+      required:
+        - active_threads
+        - thread_executions
     _common___TimeOfDay:
       description: Time of day, expressed as HH:MM:SS.
       type: string
@@ -43588,7 +43628,6 @@ components:
       required:
         - document
         - index
-        - query
     _core.search_shards___ShardStoreIndex:
       type: object
       properties:
@@ -44077,8 +44116,7 @@ components:
           $ref: '#/components/schemas/_core.explain___Explanation'
         fields:
           type: object
-          additionalProperties:
-            type: object
+          additionalProperties: true
         highlight:
           type: object
           additionalProperties:
@@ -49082,6 +49120,19 @@ components:
       additionalProperties:
         title: metadata
         description: Additional details about the error.
+    indices._common___IndexGetUpgradeStatus:
+      type: object
+      properties:
+        size_in_bytes:
+          $ref: '#/components/schemas/_common___ByteCount'
+        size_to_upgrade_in_bytes:
+          $ref: '#/components/schemas/_common___ByteCount'
+        size_to_upgrade_ancient_in_bytes:
+          $ref: '#/components/schemas/_common___ByteCount'
+        indices:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/indices._common___UpgradeStatus'
     indices._common___IndexingPressure:
       type: object
       properties:
@@ -49117,6 +49168,15 @@ components:
       properties:
         index:
           $ref: '#/components/schemas/indices._common___SlowlogThresholdLevels'
+    indices._common___IndexPostUpgradeStatus:
+      type: object
+      properties:
+        _shards:
+          $ref: '#/components/schemas/_common___ShardStatistics'
+        upgraded_indices:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/indices._common___UpgradeVersionStatus'
     indices._common___IndexRouting:
       type: object
       properties:
@@ -50081,6 +50141,38 @@ components:
           $ref: '#/components/schemas/_common___HumanReadableByteCount'
         age:
           $ref: '#/components/schemas/_common___Duration'
+    indices._common___UpgradeRequest:
+      type: object
+      properties:
+        allow_no_indices:
+          type: boolean
+        expand_wildcards:
+          type: string
+          enum:
+            - all
+            - closed
+            - none
+            - open
+        ignore_unavailable:
+          type: boolean
+        wait_for_completion:
+          type: boolean
+    indices._common___UpgradeStatus:
+      type: object
+      properties:
+        size_in_bytes:
+          $ref: '#/components/schemas/_common___ByteCount'
+        size_to_upgrade_in_bytes:
+          $ref: '#/components/schemas/_common___ByteCount'
+        size_to_upgrade_ancient_in_bytes:
+          $ref: '#/components/schemas/_common___ByteCount'
+    indices._common___UpgradeVersionStatus:
+      type: object
+      properties:
+        upgrade_version:
+          $ref: '#/components/schemas/_common___VersionString'
+        oldest_lucene_segment_version:
+          $ref: '#/components/schemas/_common___VersionString'
     indices.add_block___IndicesBlockOptions:
       type: string
       enum:
@@ -50767,7 +50859,6 @@ components:
           $ref: '#/components/schemas/indices._common___IndexSettings'
       required:
         - aliases
-        - mappings
         - settings
     indices.stats___AllIndicesStats:
       type: object
@@ -53765,17 +53856,22 @@ components:
           description: Size of buffer pools in bytes.
           $ref: '#/components/schemas/_common___ByteCount'
     nodes._common___NodeReloadError:
+      allOf:
+        - $ref: '#/components/schemas/nodes._common___NodeReloadResponse'
+        - type: object
+          properties:
+            reload_exception:
+              $ref: '#/components/schemas/_common___ErrorCause'
+    nodes._common___NodeReloadResponse:
       type: object
       properties:
         name:
           $ref: '#/components/schemas/_common___Name'
-        reload_exception:
-          $ref: '#/components/schemas/_common___ErrorCause'
       required:
         - name
     nodes._common___NodeReloadResult:
-      oneOf:
-        - $ref: '#/components/schemas/nodes._common___Stats'
+      anyOf:
+        - $ref: '#/components/schemas/nodes._common___NodeReloadResponse'
         - $ref: '#/components/schemas/nodes._common___NodeReloadError'
     nodes._common___NodesResponseBase:
       type: object
@@ -55174,6 +55270,7 @@ components:
       type: string
       enum:
         - _all
+        - aggregations
         - rest_actions
     nodes.usage___NodeUsage:
       type: object
@@ -55191,8 +55288,6 @@ components:
           additionalProperties:
             type: object
       required:
-        - aggregations
-        - rest_actions
         - since
         - timestamp
     nodes.usage___ResponseBase:
@@ -58022,6 +58117,8 @@ components:
           type: string
         parent_task_id:
           $ref: '#/components/schemas/_common___TaskId'
+        resource_stats:
+          $ref: '#/components/schemas/_common___ResourceStats'
       required:
         - action
         - cancellable
