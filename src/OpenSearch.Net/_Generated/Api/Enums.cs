@@ -631,11 +631,14 @@ namespace OpenSearch.Net
     [Flags, StringEnum]
     public enum NodesUsageMetric
     {
+        [EnumMember(Value = "aggregations")]
+        Aggregations = 1 << 0,
+
         [EnumMember(Value = "rest_actions")]
-        RestActions = 1 << 0,
+        RestActions = 1 << 1,
 
         [EnumMember(Value = "_all")]
-        All = 1 << 1,
+        All = 1 << 2,
     }
 
     [StringEnum]
@@ -1289,6 +1292,8 @@ namespace OpenSearch.Net
             if ((enumValue & NodesUsageMetric.All) != 0)
                 return "_all";
             var list = new List<string>();
+            if ((enumValue & NodesUsageMetric.Aggregations) != 0)
+                list.Add("aggregations");
             if ((enumValue & NodesUsageMetric.RestActions) != 0)
                 list.Add("rest_actions");
             return string.Join(",", list);
