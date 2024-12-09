@@ -1502,6 +1502,16 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("master_timeout", value);
         }
 
+        /// <summary>
+        /// A comma-separated list of snapshot repositories used to limit the request. Accepts wildcard expressions. `_all` returns all repositories.
+        /// If any repository fails during the request, OpenSearch returns an error.
+        /// </summary>
+        public string[] Repository
+        {
+            get => Q<string[]>("repository");
+            set => Q("repository", value);
+        }
+
         /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
