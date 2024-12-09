@@ -1976,30 +1976,12 @@ namespace OpenSearch.Net.Specification.IndicesApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>User defined reason for dry-run creating the new template for simulation purposes.</summary>
-        public string Cause
-        {
-            get => Q<string>("cause");
-            set => Q("cause", value);
-        }
-
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
             get => Q<TimeSpan>("cluster_manager_timeout");
             set => Q("cluster_manager_timeout", value);
-        }
-
-        /// <summary>
-        /// If `true`, the template passed in the body is only used if no existing templates match the same index patterns. If `false`, the simulation
-        /// uses the template with the highest priority. Note that the template is not permanently added or updated in either case; it is only used
-        /// for the simulation.
-        /// </summary>
-        public bool? Create
-        {
-            get => Q<bool?>("create");
-            set => Q("create", value);
         }
 
         /// <summary>
@@ -2237,7 +2219,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     public partial class UpgradeRequestParameters : RequestParameters<UpgradeRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
-        public override bool SupportsBody => false;
+        public override bool SupportsBody => true;
 
         /// <summary>
         /// Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes `_all` string or when no indexes have
