@@ -45,51 +45,66 @@ namespace OpenSearch.Client
 {
     internal static partial class ApiUrlsLookups
     {
-        internal static readonly ApiUrls CatAllPitSegments =
-            new(new[] { "_cat/pit_segments/_all" });
+        internal static readonly ApiUrls CatAllPitSegments = new(
+            new[] { "_cat/pit_segments/_all" }
+        );
 
         internal static readonly ApiUrls CatPitSegments = new(new[] { "_cat/pit_segments" });
 
-        internal static readonly ApiUrls CatSegmentReplication =
-            new(new[] { "_cat/segment_replication", "_cat/segment_replication/{index}" });
+        internal static readonly ApiUrls CatSegmentReplication = new(
+            new[] { "_cat/segment_replication", "_cat/segment_replication/{index}" }
+        );
 
-        internal static readonly ApiUrls ClusterDeleteComponentTemplate =
-            new(new[] { "_component_template/{name}" });
+        internal static readonly ApiUrls ClusterDeleteComponentTemplate = new(
+            new[] { "_component_template/{name}" }
+        );
 
-        internal static readonly ApiUrls ClusterComponentTemplateExists =
-            new(new[] { "_component_template/{name}" });
+        internal static readonly ApiUrls ClusterComponentTemplateExists = new(
+            new[] { "_component_template/{name}" }
+        );
 
-        internal static readonly ApiUrls ClusterGetComponentTemplate =
-            new(new[] { "_component_template", "_component_template/{name}" });
+        internal static readonly ApiUrls ClusterGetComponentTemplate = new(
+            new[] { "_component_template", "_component_template/{name}" }
+        );
 
-        internal static readonly ApiUrls ClusterPutComponentTemplate =
-            new(new[] { "_component_template/{name}" });
+        internal static readonly ApiUrls ClusterPutComponentTemplate = new(
+            new[] { "_component_template/{name}" }
+        );
 
-        internal static readonly ApiUrls NoNamespaceCreatePit =
-            new(new[] { "{index}/_search/point_in_time" });
+        internal static readonly ApiUrls NoNamespaceCreatePit = new(
+            new[] { "{index}/_search/point_in_time" }
+        );
 
-        internal static readonly ApiUrls NoNamespaceDeleteAllPits =
-            new(new[] { "_search/point_in_time/_all" });
+        internal static readonly ApiUrls NoNamespaceDeleteAllPits = new(
+            new[] { "_search/point_in_time/_all" }
+        );
 
-        internal static readonly ApiUrls NoNamespaceDeletePit =
-            new(new[] { "_search/point_in_time" });
+        internal static readonly ApiUrls NoNamespaceDeletePit = new(
+            new[] { "_search/point_in_time" }
+        );
 
-        internal static readonly ApiUrls NoNamespaceGetAllPits =
-            new(new[] { "_search/point_in_time/_all" });
+        internal static readonly ApiUrls NoNamespaceGetAllPits = new(
+            new[] { "_search/point_in_time/_all" }
+        );
 
-        internal static readonly ApiUrls IndicesDeleteComposableTemplate =
-            new(new[] { "_index_template/{name}" });
+        internal static readonly ApiUrls IndicesDeleteComposableTemplate = new(
+            new[] { "_index_template/{name}" }
+        );
 
-        internal static readonly ApiUrls IndicesComposableTemplateExists =
-            new(new[] { "_index_template/{name}" });
+        internal static readonly ApiUrls IndicesComposableTemplateExists = new(
+            new[] { "_index_template/{name}" }
+        );
 
-        internal static readonly ApiUrls IndicesGetComposableTemplate =
-            new(new[] { "_index_template", "_index_template/{name}" });
+        internal static readonly ApiUrls IndicesGetComposableTemplate = new(
+            new[] { "_index_template", "_index_template/{name}" }
+        );
 
-        internal static readonly ApiUrls IndicesPutComposableTemplate =
-            new(new[] { "_index_template/{name}" });
+        internal static readonly ApiUrls IndicesPutComposableTemplate = new(
+            new[] { "_index_template/{name}" }
+        );
 
-        internal static readonly ApiUrls IndicesStats =
-            new(new[] { "_stats", "{index}/_stats", "{index}/_stats/{metric}", "_stats/{metric}" });
+        internal static readonly ApiUrls IndicesStats = new(
+            new[] { "_stats", "{index}/_stats", "{index}/_stats/{metric}", "_stats/{metric}" }
+        );
     }
 }

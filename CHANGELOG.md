@@ -5,8 +5,8 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 ### Dependencies
-- Bumps `YamlDotNet` from 16.0.0 to 16.1.3
-- Bumps `AWSSDK.Core` from 3.7.400.11 to 3.7.400.45
+- Bumps `YamlDotNet` from 16.0.0 to 16.2.0
+- Bumps `AWSSDK.Core` from 3.7.400.11 to 3.7.400.59
 - Bumps `Fake.Core.SemVer` from 6.1.0 to 6.1.3
 - Bumps `Bogus` from 35.6.0 to 35.6.1
 - Bumps `Fake.Core.Environment` from 6.1.0 to 6.1.3
@@ -17,12 +17,15 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Fake.IO.FileSystem` from 6.1.0 to 6.1.3
 - Bumps `Fake.IO.Zip` from 6.1.0 to 6.1.3
 - Bumps `Fake.Tools.Git` from 6.1.0 to 6.1.3
-- Bumps `CSharpier.Core` from 0.29.1 to 0.29.2
+- Bumps `CSharpier.Core` from 0.29.1 to 0.30.2
 - Bumps `Proc` from 0.8.1 to 0.8.2
 - Bumps `System.Text.Json` from 8.0.4 to 8.0.5
 - Bumps `JunitXml.TestLogger` from 4.0.254 to 4.1.0
 - Bumps `FSharp.Core` from 8.0.400 to 8.0.401
 - Bumps `JetBrains.Annotations` from 2024.2.0 to 2024.3.0
+- Bumps `xunit` from 2.8.0 to 2.9.2
+- Bumps `NSwag.Core` from 14.1.0 to 14.2.0
+- Bumps `Argu` from 6.2.4 to 6.2.5
 
 ## [1.8.0]
 ### Added
