@@ -24,7 +24,6 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `FSharp.Core` from 8.0.400 to 8.0.401
 - Bumps `JetBrains.Annotations` from 2024.2.0 to 2024.3.0
 - Bumps `xunit` from 2.8.0 to 2.9.2
-- Bumps `System.Buffers` from 4.5.1 to 4.6.0
 - Bumps `NSwag.Core` from 14.1.0 to 14.2.0
 - Bumps `Argu` from 6.2.4 to 6.2.5
 
