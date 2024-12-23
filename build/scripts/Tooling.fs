@@ -44,11 +44,13 @@ module Tooling =
     
     let private defaultConsoleWriter = Some <| (ConsoleOutColorWriter() :> IConsoleOutWriter)
     
-    let readInWithTimeout timeout workinDir bin (writer: IConsoleOutWriter option) args = 
+    let readInWithTimeout (timeout: TimeSpan) workinDir bin (writer: IConsoleOutWriter option) args = 
         let startArgs = StartArguments(bin, args |> List.toArray)
         if (Option.isSome workinDir) then
             startArgs.WorkingDirectory <- Option.defaultValue "" workinDir
-        let result = Proc.Start(startArgs, timeout, Option.defaultValue<IConsoleOutWriter> (NoopWriter())  writer)
+        startArgs.Timeout <- timeout
+        startArgs.ConsoleOutWriter <- Option.defaultValue<IConsoleOutWriter> (NoopWriter()) writer
+        let result = Proc.Start(startArgs)
         
         if not result.Completed then failwithf "process failed to complete within %O: %s" timeout bin
         if not result.ExitCode.HasValue then failwithf "process yielded no exit code: %s" bin
@@ -57,16 +59,17 @@ module Tooling =
     let read bin args = readInWithTimeout defaultTimeout None bin defaultConsoleWriter args 
     let readQuiet bin args = readInWithTimeout defaultTimeout None bin None args
     
-    let execInWithTimeout timeout workinDir bin args = 
+    let execInWithTimeout (timeout: TimeSpan) workinDir bin args = 
         let startArgs = ExecArguments(bin, args |> List.toArray)
         if (Option.isSome workinDir) then
             startArgs.WorkingDirectory <- Option.defaultValue "" workinDir
+        startArgs.Timeout <- timeout
         let options = args |> String.concat " "
         printfn ":: Running command: %s %s" bin options
-        let result = Proc.Exec(startArgs, timeout)
         try
-            if not result.HasValue || result.Value > 0 then
-                failwithf "process returned %i: %s" result.Value bin
+            let result = Proc.Exec(startArgs)
+            if result > 0 then
+                failwithf "process returned %i: %s" result bin
         with
         | :? ProcExecException as ex -> failwithf "%s" ex.Message
 
