@@ -200,10 +200,12 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks
 			var timeout = TimeSpan.FromSeconds(420);
 			var processStartArguments = new StartArguments(binary, arguments)
 			{
-				Environment = environment
+				Environment = environment,
+                Timeout = timeout,
+                ConsoleOutWriter = new ConsoleOutWriter()
 			};
 
-			var result = Proc.Start(processStartArguments, timeout, new ConsoleOutColorWriter());
+			var result = Proc.Start(processStartArguments);
 
 			if (!result.Completed)
 				throw new Exception($"Timeout while executing {description} exceeded {timeout}");
