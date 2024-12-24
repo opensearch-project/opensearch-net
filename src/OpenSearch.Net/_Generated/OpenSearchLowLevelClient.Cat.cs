@@ -182,7 +182,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/allocation/{node_id} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/</para></summary>
-        /// <param name="nodeId">Comma-separated list of node identifiers or names used to limit the returned information.</param>
+        /// <param name="nodeId">A comma-separated list of node IDs or names used to limit the returned information.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Allocation<TResponse>(
             string nodeId,
@@ -197,7 +197,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/allocation/{node_id} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/</para></summary>
-        /// <param name="nodeId">Comma-separated list of node identifiers or names used to limit the returned information.</param>
+        /// <param name="nodeId">A comma-separated list of node IDs or names used to limit the returned information.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cat.allocation", "node_id")]
         public Task<TResponse> AllocationAsync<TResponse>(

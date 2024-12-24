@@ -2243,7 +2243,7 @@ namespace OpenSearch.Net
         : RequestParameters<SearchShardsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
-        public override bool SupportsBody => false;
+        public override bool SupportsBody => true;
 
         /// <summary>
         /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
