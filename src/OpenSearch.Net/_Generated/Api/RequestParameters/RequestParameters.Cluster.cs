@@ -199,6 +199,13 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("cluster_manager_timeout", value);
         }
 
+        /// <summary>If `true`, returns settings in flat format.</summary>
+        public bool? FlatSettings
+        {
+            get => Q<bool?>("flat_settings");
+            set => Q("flat_settings", value);
+        }
+
         /// <summary>If `true`, the request retrieves information from the local node only. If `false`, information is retrieved from the cluster-manager node.</summary>
         public bool? Local
         {
