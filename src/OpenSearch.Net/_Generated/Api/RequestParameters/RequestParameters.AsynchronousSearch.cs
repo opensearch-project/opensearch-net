@@ -72,14 +72,21 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>The name of the index to be searched.</summary>
+        /// <summary>
+        /// The name of the index to be searched. Can be an individual name, a comma-separated list of indexes, or a wildcard expression of index
+        /// names.
+        /// </summary>
         public string Index
         {
             get => Q<string>("index");
             set => Q("index", value);
         }
 
-        /// <summary>The amount of time that the result is saved in the cluster.</summary>
+        /// <summary>
+        /// The amount of time that the result is saved in the cluster. For example, `2d` means that the results are stored in the cluster for 48
+        /// hours. The saved search results are deleted after this period or if the search is canceled. Note that this includes the query execution
+        /// time. If the query overruns this time, the process cancels this query automatically.
+        /// </summary>
         public string KeepAlive
         {
             get => Q<string>("keep_alive");
@@ -93,7 +100,10 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
             set => Q("keep_on_completion", value);
         }
 
-        /// <summary>The amount of time that you plan to wait for the results.</summary>
+        /// <summary>
+        /// The amount of time that you plan to wait for the results. You can poll the remaining results based on an ID. The maximum value is `300s`.
+        /// Default is `1s`.
+        /// </summary>
         public string WaitForCompletionTimeout
         {
             get => Q<string>("wait_for_completion_timeout");

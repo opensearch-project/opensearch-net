@@ -1457,6 +1457,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 
         /// <summary>GET on /_upgrade <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [Obsolete("Deprecated in version 1.0.0: ")]
         public TResponse GetUpgradeForAll<TResponse>(
             GetUpgradeRequestParameters requestParameters = null
         )
@@ -1465,6 +1466,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
 
         /// <summary>GET on /_upgrade <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [Obsolete("Deprecated in version 1.0.0: ")]
         [MapsApi("indices.get_upgrade", "")]
         public Task<TResponse> GetUpgradeForAllAsync<TResponse>(
             GetUpgradeRequestParameters requestParameters = null,
@@ -1476,6 +1478,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// <summary>GET on /{index}/_upgrade <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="index">Comma-separated list of indexes; use the special string `_all` or Indices.All to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [Obsolete("Deprecated in version 1.0.0: ")]
         public TResponse GetUpgrade<TResponse>(
             string index,
             GetUpgradeRequestParameters requestParameters = null
@@ -1491,6 +1494,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// <summary>GET on /{index}/_upgrade <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="index">Comma-separated list of indexes; use the special string `_all` or Indices.All to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [Obsolete("Deprecated in version 1.0.0: ")]
         [MapsApi("indices.get_upgrade", "index")]
         public Task<TResponse> GetUpgradeAsync<TResponse>(
             string index,
@@ -2529,12 +2533,14 @@ namespace OpenSearch.Net.Specification.IndicesApi
 
         /// <summary>POST on /_upgrade <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [Obsolete("Deprecated in version 1.0.0: ")]
         public TResponse UpgradeForAll<TResponse>(UpgradeRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(POST, "_upgrade", null, RequestParams(requestParameters));
 
         /// <summary>POST on /_upgrade <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [Obsolete("Deprecated in version 1.0.0: ")]
         [MapsApi("indices.upgrade", "")]
         public Task<TResponse> UpgradeForAllAsync<TResponse>(
             UpgradeRequestParameters requestParameters = null,
@@ -2552,6 +2558,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// <summary>POST on /{index}/_upgrade <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="index">Comma-separated list of indexes; use the special string `_all` or Indices.All to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [Obsolete("Deprecated in version 1.0.0: ")]
         public TResponse Upgrade<TResponse>(
             string index,
             UpgradeRequestParameters requestParameters = null
@@ -2567,6 +2574,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         /// <summary>POST on /{index}/_upgrade <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="index">Comma-separated list of indexes; use the special string `_all` or Indices.All to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [Obsolete("Deprecated in version 1.0.0: ")]
         [MapsApi("indices.upgrade", "index")]
         public Task<TResponse> UpgradeAsync<TResponse>(
             string index,
