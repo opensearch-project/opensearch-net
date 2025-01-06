@@ -17,7 +17,7 @@
 
     <PackageReference Include="xunit" Version="2.9.2" />
     <ProjectReference Include="$(SolutionRoot)\abstractions\src\OpenSearch.OpenSearch.Xunit\OpenSearch.OpenSearch.Xunit.csproj" />
-    <PackageReference Include="JunitXml.TestLogger" Version="4.1.0" />
+    <PackageReference Include="JunitXml.TestLogger" Version="5.0.0" />
 
     <PackageReference Include="Nullean.VsTest.Pretty.TestLogger" Version="0.4.0" />
     <PackageReference Include="FluentAssertions" Version="7.0.0" />
