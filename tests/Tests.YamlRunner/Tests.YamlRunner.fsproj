@@ -34,7 +34,7 @@
     <PackageReference Include="Argu" Version="6.2.5" />
     <PackageReference Include="FSharp.Data" Version="6.4.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="SemanticVersioning" Version="2.0.2" />
+    <PackageReference Include="SemanticVersioning" Version="3.0.0" />
     <PackageReference Include="SharpYaml" Version="2.1.1" />
     <PackageReference Include="ShellProgressBar" Version="5.2.0" />
   </ItemGroup>
