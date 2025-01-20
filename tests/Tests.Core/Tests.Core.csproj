@@ -15,7 +15,7 @@
     <ProjectReference Include="$(SolutionRoot)\tests\Tests.Domain\Tests.Domain.csproj" />
     <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="17.12.0" />
 
-    <PackageReference Include="xunit" Version="2.9.2" />
+    <PackageReference Include="xunit" Version="2.9.3" />
     <ProjectReference Include="$(SolutionRoot)\abstractions\src\OpenSearch.OpenSearch.Xunit\OpenSearch.OpenSearch.Xunit.csproj" />
     <PackageReference Include="JunitXml.TestLogger" Version="5.0.0" />
 
