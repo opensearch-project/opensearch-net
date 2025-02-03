@@ -203,7 +203,7 @@ namespace OpenSearch.Client
         /// <summary>Field to use as default where no field prefix is given in the query string. This parameter can only be used when the `q` query string parameter is specified.</summary>
         public CountDescriptor<TDocument> Df(string df) => Qs("df", df);
 
-        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.</summary>
+        /// <summary>TODO</summary>
         public CountDescriptor<TDocument> ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
@@ -1839,6 +1839,10 @@ namespace OpenSearch.Client
         /// <summary>The throttle for this request in sub-requests per second. Defaults to no throttle.</summary>
         public ReindexOnServerDescriptor RequestsPerSecond(long? requestspersecond) =>
             Qs("requests_per_second", requestspersecond);
+
+        /// <summary>TODO</summary>
+        public ReindexOnServerDescriptor RequireAlias(bool? requirealias = true) =>
+            Qs("require_alias", requirealias);
 
         /// <summary>Specifies how long a consistent view of the index should be maintained for scrolled search.</summary>
         public ReindexOnServerDescriptor Scroll(Time scroll) => Qs("scroll", scroll);

@@ -80,32 +80,32 @@ namespace OpenSearch.Client
         // values part of the url path
         Names ICatAliasesRequest.Name => Self.RouteValues.Get<Names>("name");
 
-        /// <summary>A comma-separated list of aliases to retrieve. Supports wildcards (`*`). To retrieve all aliases, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary></summary>
         public CatAliasesDescriptor Name(Names name) =>
             Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
         // Request parameters
-        /// <summary>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</summary>
+        /// <summary>TODO</summary>
         public CatAliasesDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public CatAliasesDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public CatAliasesDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public CatAliasesDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Whether to return information from the local node only instead of from the cluster manager node.</summary>
         public CatAliasesDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatAliasesDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatAliasesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
@@ -122,23 +122,23 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The units used to display byte values.</summary>
         public CatAllPitSegmentsDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public CatAllPitSegmentsDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public CatAllPitSegmentsDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public CatAllPitSegmentsDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatAllPitSegmentsDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatAllPitSegmentsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
@@ -165,43 +165,43 @@ namespace OpenSearch.Client
         // values part of the url path
         NodeIds ICatAllocationRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
-        /// <summary>Comma-separated list of node identifiers or names used to limit the returned information.</summary>
+        /// <summary>A comma-separated list of node IDs or names used to limit the returned information.</summary>
         public CatAllocationDescriptor NodeId(NodeIds nodeId) =>
             Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
 
         // Request parameters
-        /// <summary>The unit used to display byte values.</summary>
+        /// <summary>The units used to display byte values.</summary>
         public CatAllocationDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>A timeout for connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public CatAllocationDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the HTTP `Accept` header, such as `json` or `yaml`.</summary>
         public CatAllocationDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public CatAllocationDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public CatAllocationDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from cluster-manager node.</summary>
         public CatAllocationDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>A timeout for connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatAllocationDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatAllocationDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatAllocationDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
@@ -218,35 +218,35 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>A timeout for connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public CatClusterManagerDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the HTTP `Accept` header, such as `json` or `yaml`.</summary>
         public CatClusterManagerDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public CatClusterManagerDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public CatClusterManagerDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public CatClusterManagerDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>A timeout for connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatClusterManagerDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatClusterManagerDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatClusterManagerDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
@@ -282,20 +282,20 @@ namespace OpenSearch.Client
         public CatCountDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public CatCountDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public CatCountDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public CatCountDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatCountDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatCountDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
@@ -322,32 +322,32 @@ namespace OpenSearch.Client
         // values part of the url path
         Fields ICatFielddataRequest.Fields => Self.RouteValues.Get<Fields>("fields");
 
-        /// <summary>Comma-separated list of fields used to limit returned information. To retrieve all fields, omit this parameter.</summary>
+        /// <summary>A comma-separated list of fields used to limit the amount of returned information. To retrieve all fields, omit this parameter.</summary>
         public CatFielddataDescriptor Fields(Fields fields) =>
             Assign(fields, (a, v) => a.RouteValues.Optional("fields", v));
 
-        /// <summary>Comma-separated list of fields used to limit returned information. To retrieve all fields, omit this parameter.</summary>
+        /// <summary>A comma-separated list of fields used to limit the amount of returned information. To retrieve all fields, omit this parameter.</summary>
         public CatFielddataDescriptor Fields<T>(params Expression<Func<T, object>>[] fields) =>
             Assign(fields, (a, v) => a.RouteValues.Optional("fields", (Fields)v));
 
         // Request parameters
-        /// <summary>The unit used to display byte values.</summary>
+        /// <summary>The units used to display byte values.</summary>
         public CatFielddataDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public CatFielddataDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public CatFielddataDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public CatFielddataDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatFielddataDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatFielddataDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
@@ -360,24 +360,24 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public CatHealthDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public CatHealthDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public CatHealthDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>If `true`, returns `HH:MM:SS` and Unix epoch timestamps.</summary>
+        /// <summary>When `true`, returns `HH:MM:SS` and Unix epoch timestamps.</summary>
         public CatHealthDescriptor IncludeTimestamp(bool? includetimestamp = true) =>
             Qs("ts", includetimestamp);
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatHealthDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatHealthDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
@@ -414,7 +414,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICatIndicesRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
         public CatIndicesDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -427,52 +427,52 @@ namespace OpenSearch.Client
         public CatIndicesDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>The unit used to display byte values.</summary>
+        /// <summary>The units used to display byte values.</summary>
         public CatIndicesDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public CatIndicesDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>The type of index that wildcard patterns can match.</summary>
+        /// <summary>TODO</summary>
         public CatIndicesDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public CatIndicesDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public CatIndicesDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>The health status used to limit returned indexes. By default, the response includes indexes of any health status.</summary>
+        /// <summary>Limits indexes based on their health status. Supported values are `green`, `yellow`, and `red`.</summary>
         public CatIndicesDescriptor Health(HealthStatus? health) => Qs("health", health);
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public CatIndicesDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>If `true`, the response includes information from segments that are not loaded into memory.</summary>
+        /// <summary>Whether to include information from segments not loaded into memory.</summary>
         public CatIndicesDescriptor IncludeUnloadedSegments(bool? includeunloadedsegments = true) =>
             Qs("include_unloaded_segments", includeunloadedsegments);
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public CatIndicesDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatIndicesDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>If `true`, the response only includes information from primary shards.</summary>
+        /// <summary>When `true`, returns information only from the primary shards.</summary>
         public CatIndicesDescriptor Pri(bool? pri = true) => Qs("pri", pri);
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatIndicesDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatIndicesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
@@ -485,35 +485,35 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public CatMasterDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public CatMasterDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public CatMasterDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public CatMasterDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public CatMasterDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatMasterDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatMasterDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatMasterDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
@@ -530,35 +530,35 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public CatNodeAttributesDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public CatNodeAttributesDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public CatNodeAttributesDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public CatNodeAttributesDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public CatNodeAttributesDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatNodeAttributesDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatNodeAttributesDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatNodeAttributesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
@@ -571,44 +571,44 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>The unit used to display byte values.</summary>
+        /// <summary>The units used to display byte values.</summary>
         public CatNodesDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public CatNodesDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public CatNodesDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>If `true`, return the full node ID. If `false`, return the shortened node ID.</summary>
+        /// <summary>When `true`, returns the full node ID. When `false`, returns the shortened node ID.</summary>
         public CatNodesDescriptor FullId(bool? fullid = true) => Qs("full_id", fullid);
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public CatNodesDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public CatNodesDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 1.0.0, reason: This parameter does not cause this API to act locally."
         )]
         public CatNodesDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatNodesDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatNodesDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatNodesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
@@ -625,35 +625,35 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public CatPendingTasksDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public CatPendingTasksDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public CatPendingTasksDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public CatPendingTasksDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public CatPendingTasksDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatPendingTasksDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatPendingTasksDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatPendingTasksDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
@@ -670,23 +670,23 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The units used to display byte values.</summary>
         public CatPitSegmentsDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public CatPitSegmentsDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public CatPitSegmentsDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public CatPitSegmentsDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatPitSegmentsDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatPitSegmentsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
@@ -703,35 +703,35 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public CatPluginsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public CatPluginsDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public CatPluginsDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public CatPluginsDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public CatPluginsDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatPluginsDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatPluginsDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatPluginsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
@@ -775,26 +775,26 @@ namespace OpenSearch.Client
         public CatRecoveryDescriptor ActiveOnly(bool? activeonly = true) =>
             Qs("active_only", activeonly);
 
-        /// <summary>The unit used to display byte values.</summary>
+        /// <summary>The units used to display byte values.</summary>
         public CatRecoveryDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
-        /// <summary>If `true`, the response includes detailed information about shard recoveries.</summary>
+        /// <summary>When `true`, includes detailed information about shard recoveries.</summary>
         public CatRecoveryDescriptor Detailed(bool? detailed = true) => Qs("detailed", detailed);
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public CatRecoveryDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public CatRecoveryDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public CatRecoveryDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatRecoveryDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatRecoveryDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
@@ -811,35 +811,35 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public CatRepositoriesDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public CatRepositoriesDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public CatRepositoriesDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public CatRepositoriesDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public CatRepositoriesDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatRepositoriesDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatRepositoriesDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatRepositoriesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
@@ -866,7 +866,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICatSegmentReplicationRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list or wildcard expression of index names to limit the returned information.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
         public CatSegmentReplicationDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -879,58 +879,58 @@ namespace OpenSearch.Client
         public CatSegmentReplicationDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `true`, the response only includes ongoing segment replication events.</summary>
+        /// <summary>When `true`, the response only includes ongoing segment replication events.</summary>
         public CatSegmentReplicationDescriptor ActiveOnly(bool? activeonly = true) =>
             Qs("active_only", activeonly);
 
-        /// <summary>Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes `_all` string or when no indexes have been specified).</summary>
+        /// <summary>Whether to ignore the index if a wildcard index expression resolves to no concrete indexes. This includes the `_all` string or when no indexes have been specified.</summary>
         public CatSegmentReplicationDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The units used to display byte values.</summary>
         public CatSegmentReplicationDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
-        /// <summary>If `true`, the response only includes latest completed segment replication events.</summary>
+        /// <summary>When `true`, the response only includes the last-completed segment replication events.</summary>
         public CatSegmentReplicationDescriptor CompletedOnly(bool? completedonly = true) =>
             Qs("completed_only", completedonly);
 
-        /// <summary>If `true`, the response includes detailed information about segment replications.</summary>
+        /// <summary>When `true`, the response includes additional metrics for each stage of a segment replication event.</summary>
         public CatSegmentReplicationDescriptor Detailed(bool? detailed = true) =>
             Qs("detailed", detailed);
 
-        /// <summary>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</summary>
+        /// <summary>TODO</summary>
         public CatSegmentReplicationDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public CatSegmentReplicationDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public CatSegmentReplicationDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public CatSegmentReplicationDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Whether specified concrete, expanded or aliased indexes should be ignored when throttled.</summary>
+        /// <summary>Whether specified concrete, expanded, or aliased indexes should be ignored when throttled.</summary>
         public CatSegmentReplicationDescriptor IgnoreThrottled(bool? ignorethrottled = true) =>
             Qs("ignore_throttled", ignorethrottled);
 
-        /// <summary>Whether specified concrete indexes should be ignored when unavailable (missing or closed).</summary>
+        /// <summary>Whether the specified concrete indexes should be ignored when missing or closed.</summary>
         public CatSegmentReplicationDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>Comma-separated list of shards to display.</summary>
+        /// <summary>A comma-separated list of shards to display.</summary>
         public CatSegmentReplicationDescriptor Shards(params string[] shards) =>
             Qs("shards", shards);
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatSegmentReplicationDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>The operation timeout.</summary>
         public CatSegmentReplicationDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatSegmentReplicationDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
@@ -970,35 +970,35 @@ namespace OpenSearch.Client
         public CatSegmentsDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>The unit used to display byte values.</summary>
+        /// <summary>The units used to display byte values.</summary>
         public CatSegmentsDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public CatSegmentsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public CatSegmentsDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public CatSegmentsDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public CatSegmentsDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatSegmentsDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatSegmentsDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatSegmentsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
@@ -1021,7 +1021,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICatShardsRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary></summary>
         public CatShardsDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1034,38 +1034,38 @@ namespace OpenSearch.Client
         public CatShardsDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>The unit used to display byte values.</summary>
+        /// <summary>The units used to display byte values.</summary>
         public CatShardsDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public CatShardsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public CatShardsDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public CatShardsDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public CatShardsDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public CatShardsDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatShardsDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatShardsDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatShardsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
@@ -1097,36 +1097,36 @@ namespace OpenSearch.Client
             Assign(repository, (a, v) => a.RouteValues.Optional("repository", v));
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public CatSnapshotsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public CatSnapshotsDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public CatSnapshotsDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public CatSnapshotsDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>If `true`, the response does not include information from unavailable snapshots.</summary>
+        /// <summary>When `true`, the response does not include information from unavailable snapshots.</summary>
         public CatSnapshotsDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatSnapshotsDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatSnapshotsDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatSnapshotsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
@@ -1139,33 +1139,33 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>The task action names, which are used to limit the response.</summary>
+        /// <summary>The task action names used to limit the response.</summary>
         public CatTasksDescriptor Actions(params string[] actions) => Qs("actions", actions);
 
         /// <summary>If `true`, the response includes detailed information about shard recoveries.</summary>
         public CatTasksDescriptor Detailed(bool? detailed = true) => Qs("detailed", detailed);
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public CatTasksDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public CatTasksDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public CatTasksDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.</summary>
+        /// <summary>A comma-separated list of node IDs or names used to limit the returned information. Use `_local` to return information from the node to which you're connecting, specify a specific node from which to get information, or keep the parameter empty to get information from all nodes.</summary>
         public CatTasksDescriptor Nodes(params string[] nodes) => Qs("nodes", nodes);
 
         /// <summary>The parent task identifier, which is used to limit the response.</summary>
         public CatTasksDescriptor ParentTaskId(string parenttaskid) =>
             Qs("parent_task_id", parenttaskid);
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatTasksDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatTasksDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
@@ -1197,35 +1197,35 @@ namespace OpenSearch.Client
             Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public CatTemplatesDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public CatTemplatesDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public CatTemplatesDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public CatTemplatesDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public CatTemplatesDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public CatTemplatesDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatTemplatesDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatTemplatesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
@@ -1258,24 +1258,24 @@ namespace OpenSearch.Client
             Assign(threadPoolPatterns, (a, v) => a.RouteValues.Optional("thread_pool_patterns", v));
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>A timeout for connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public CatThreadPoolDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public CatThreadPoolDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public CatThreadPoolDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public CatThreadPoolDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public CatThreadPoolDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -1285,11 +1285,11 @@ namespace OpenSearch.Client
         /// <summary>The multiplier in which to display values.</summary>
         public CatThreadPoolDescriptor Size(long? size) => Qs("size", size);
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatThreadPoolDescriptor SortByColumns(params string[] sortbycolumns) =>
             Qs("s", sortbycolumns);
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatThreadPoolDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 }
