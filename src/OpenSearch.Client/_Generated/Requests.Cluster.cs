@@ -73,14 +73,14 @@ namespace OpenSearch.Client
         // values part of the url path
 
         // Request parameters
-        /// <summary>If `true`, returns information about disk usage and shard sizes.</summary>
+        /// <summary>When `true`, returns information about disk usage and shard sizes.</summary>
         public bool? IncludeDiskInfo
         {
             get => Q<bool?>("include_disk_info");
             set => Q("include_disk_info", value);
         }
 
-        /// <summary>If `true`, returns YES decisions in explanation.</summary>
+        /// <summary>When `true`, returns any `YES` decisions in the allocation explanation.</summary>
         public bool? IncludeYesDecisions
         {
             get => Q<bool?>("include_yes_decisions");
@@ -127,10 +127,7 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>
-        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
-        /// returns an error.
-        /// </summary>
+        /// <summary>TODO</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -140,7 +137,7 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>TODO</summary>
         public Time Timeout
         {
             get => Q<Time>("timeout");
@@ -165,8 +162,8 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>
         /// Specifies whether to wait for all excluded nodes to be removed from the cluster before clearing the voting configuration exclusions list.
-        /// Defaults to true, meaning that all excluded nodes must be removed from the cluster before this API takes any action. If set to `false`
-        /// then the voting configuration exclusions list is cleared even if some excluded nodes are still in the cluster.
+        /// When `true`, all excluded nodes are removed from the cluster before this API takes any action. When `false`, the voting configuration
+        /// exclusions list is cleared even if some excluded nodes are still in the cluster.
         /// </summary>
         public bool? WaitForRemoval
         {
@@ -206,7 +203,7 @@ namespace OpenSearch.Client
         Name IComponentTemplateExistsRequest.Name => Self.RouteValues.Get<Name>("name");
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>TODO</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
@@ -215,8 +212,8 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// If `true`, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the
-        /// cluster-manager node.
+        /// When `true`, the request retrieves information from the local node only. When `false, information is retrieved from the cluster manager
+        /// node.
         /// </summary>
         public bool? Local
         {
@@ -224,10 +221,7 @@ namespace OpenSearch.Client
             set => Q("local", value);
         }
 
-        /// <summary>
-        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
-        /// returns an error.
-        /// </summary>
+        /// <summary>TODO</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -268,7 +262,7 @@ namespace OpenSearch.Client
         Name IGetComponentTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>TODO</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
@@ -276,17 +270,24 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>If `true`, the request retrieves information from the local node only. If `false`, information is retrieved from the cluster-manager node.</summary>
+        /// <summary>If `true`, returns settings in flat format.</summary>
+        public bool? FlatSettings
+        {
+            get => Q<bool?>("flat_settings");
+            set => Q("flat_settings", value);
+        }
+
+        /// <summary>
+        /// When `true`, the request retrieves information from the local node only. When `false`, information is retrieved from the cluster manager
+        /// node.
+        /// </summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
 
-        /// <summary>
-        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
-        /// returns an error.
-        /// </summary>
+        /// <summary>TODO</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -312,7 +313,7 @@ namespace OpenSearch.Client
         // values part of the url path
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>TODO</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
@@ -320,24 +321,21 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>If `true`, returns settings in flat format.</summary>
+        /// <summary>When `true`, returns cluster settings in a flat format.</summary>
         public bool? FlatSettings
         {
             get => Q<bool?>("flat_settings");
             set => Q("flat_settings", value);
         }
 
-        /// <summary>If `true`, returns default cluster settings from the local node.</summary>
+        /// <summary>When `true`, returns default cluster settings from the local node.</summary>
         public bool? IncludeDefaults
         {
             get => Q<bool?>("include_defaults");
             set => Q("include_defaults", value);
         }
 
-        /// <summary>
-        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
-        /// returns an error.
-        /// </summary>
+        /// <summary>TODO</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -347,7 +345,7 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>TODO</summary>
         public Time Timeout
         {
             get => Q<Time>("timeout");
@@ -384,14 +382,17 @@ namespace OpenSearch.Client
         Indices IClusterHealthRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         // Request parameters
-        /// <summary>The awareness attribute for which the health is required.</summary>
+        /// <summary>
+        /// The name of the awareness attribute for which to return the cluster health status (for example, `zone`). Applicable only if `level` is set
+        /// to `awareness_attributes`.
+        /// </summary>
         public string AwarenessAttribute
         {
             get => Q<string>("awareness_attribute");
             set => Q("awareness_attribute", value);
         }
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>TODO</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
@@ -399,34 +400,28 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</summary>
+        /// <summary>TODO</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>Can be one of cluster, indexes or shards. Controls the details level of the health information returned.</summary>
+        /// <summary>TODO</summary>
         public ClusterHealthLevel? Level
         {
             get => Q<ClusterHealthLevel?>("level");
             set => Q("level", value);
         }
 
-        /// <summary>
-        /// If `true`, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the
-        /// cluster-manager node.
-        /// </summary>
+        /// <summary>Whether to return information from the local node only instead of from the cluster manager node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
 
-        /// <summary>
-        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
-        /// returns an error.
-        /// </summary>
+        /// <summary>TODO</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -436,21 +431,21 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>TODO</summary>
         public Time Timeout
         {
             get => Q<Time>("timeout");
             set => Q("timeout", value);
         }
 
-        /// <summary>A number controlling to how many active shards to wait for, all to wait for all shards in the cluster to be active, or 0 to not wait.</summary>
+        /// <summary>TODO</summary>
         public string WaitForActiveShards
         {
             get => Q<string>("wait_for_active_shards");
             set => Q("wait_for_active_shards", value);
         }
 
-        /// <summary>Can be one of immediate, urgent, high, normal, low, languid. Wait until all currently queued events with the given priority are processed.</summary>
+        /// <summary>TODO</summary>
         public WaitForEvents? WaitForEvents
         {
             get => Q<WaitForEvents?>("wait_for_events");
@@ -458,8 +453,8 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// The request waits until the specified number N of nodes is available. It also accepts &gt;=N, &lt;=N, &gt;N and &lt;N. Alternatively, it
-        /// is possible to use ge(N), le(N), gt(N) and lt(N) notation.
+        /// Waits until the specified number of nodes (`N`) is available. Accepts `&gt;=N`, `&lt;=N`, `&gt;N`, and `&lt;N`. You can also use `ge(N)`,
+        /// `le(N)`, `gt(N)`, and `lt(N)` notation.
         /// </summary>
         public string WaitForNodes
         {
@@ -467,30 +462,21 @@ namespace OpenSearch.Client
             set => Q("wait_for_nodes", value);
         }
 
-        /// <summary>
-        /// A Boolean value which controls whether to wait (until the timeout provided) for the cluster to have no shard initializations. Defaults to
-        /// false, which means it will not wait for initializing shards.
-        /// </summary>
+        /// <summary>Whether to wait until there are no initializing shards in the cluster.</summary>
         public bool? WaitForNoInitializingShards
         {
             get => Q<bool?>("wait_for_no_initializing_shards");
             set => Q("wait_for_no_initializing_shards", value);
         }
 
-        /// <summary>
-        /// A Boolean value which controls whether to wait (until the timeout provided) for the cluster to have no shard relocations. Defaults to
-        /// false, which means it will not wait for relocating shards.
-        /// </summary>
+        /// <summary>Whether to wait until there are no relocating shards in the cluster.</summary>
         public bool? WaitForNoRelocatingShards
         {
             get => Q<bool?>("wait_for_no_relocating_shards");
             set => Q("wait_for_no_relocating_shards", value);
         }
 
-        /// <summary>
-        /// One of green, yellow or red. Will wait (until the timeout provided) until the status of the cluster changes to the one provided or better,
-        /// i.e. green &gt; yellow &gt; red. By default, will not wait for any status.
-        /// </summary>
+        /// <summary>Waits until the cluster health reaches the specified status or better.</summary>
         public HealthStatus? WaitForStatus
         {
             get => Q<HealthStatus?>("wait_for_status");
@@ -513,7 +499,7 @@ namespace OpenSearch.Client
         // values part of the url path
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>TODO</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
@@ -521,17 +507,17 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>If `true`, the request retrieves information from the local node only. If `false`, information is retrieved from the cluster-manager node.</summary>
+        /// <summary>
+        /// When `true`, the request retrieves information from the local node only. When `false`, information is retrieved from the cluster manager
+        /// node.
+        /// </summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
 
-        /// <summary>
-        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
-        /// returns an error.
-        /// </summary>
+        /// <summary>TODO</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -558,7 +544,7 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// A comma-separated list of the persistent ids of the nodes to exclude from the voting configuration. If specified, you may not also specify
+        /// A comma-separated list of node IDs to exclude from the voting configuration. When using this setting, you cannot also specify
         /// `node_names`.
         /// </summary>
         public string[] NodeIds
@@ -568,7 +554,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// A comma-separated list of the names of the nodes to exclude from the voting configuration. If specified, you may not also specify
+        /// A comma-separated list of node names to exclude from the voting configuration. When using this setting, you cannot also specify
         /// `node_ids`.
         /// </summary>
         public string[] NodeNames
@@ -579,7 +565,7 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// When adding a voting configuration exclusion, the API waits for the specified nodes to be excluded from the voting configuration before
-        /// returning. If the timeout expires before the appropriate condition is satisfied, the request fails and returns an error.
+        /// returning a response. If the timeout expires before the appropriate condition is satisfied, the request fails and returns an error.
         /// </summary>
         public Time Timeout
         {
@@ -619,7 +605,7 @@ namespace OpenSearch.Client
         Name IPutComponentTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>TODO</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
@@ -627,17 +613,14 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>If `true`, this request cannot replace or update existing component templates.</summary>
+        /// <summary>When `true`, this request cannot replace or update existing component templates.</summary>
         public bool? Create
         {
             get => Q<bool?>("create");
             set => Q("create", value);
         }
 
-        /// <summary>
-        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
-        /// returns an error.
-        /// </summary>
+        /// <summary>TODO</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -647,7 +630,7 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>TODO</summary>
         public Time Timeout
         {
             get => Q<Time>("timeout");
@@ -670,7 +653,7 @@ namespace OpenSearch.Client
         // values part of the url path
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>TODO</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
@@ -678,14 +661,14 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Return settings in flat format.</summary>
+        /// <summary>Returns settings in a flat format.</summary>
         public bool? FlatSettings
         {
             get => Q<bool?>("flat_settings");
             set => Q("flat_settings", value);
         }
 
-        /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>TODO</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -695,7 +678,7 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Explicit operation timeout.</summary>
+        /// <summary>TODO</summary>
         public Time Timeout
         {
             get => Q<Time>("timeout");
@@ -732,7 +715,7 @@ namespace OpenSearch.Client
         // values part of the url path
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>TODO</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
@@ -740,24 +723,21 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>If `true`, then the request simulates the operation only and returns the resulting state.</summary>
+        /// <summary>When `true`, the request simulates the operation and returns the resulting state.</summary>
         public bool? DryRun
         {
             get => Q<bool?>("dry_run");
             set => Q("dry_run", value);
         }
 
-        /// <summary>If `true`, then the response contains an explanation of why the commands can or cannot be executed.</summary>
+        /// <summary>When `true`, the response contains an explanation of why certain commands can or cannot be executed.</summary>
         public bool? Explain
         {
             get => Q<bool?>("explain");
             set => Q("explain", value);
         }
 
-        /// <summary>
-        /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
-        /// returns an error.
-        /// </summary>
+        /// <summary>TODO</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -774,14 +754,14 @@ namespace OpenSearch.Client
             set => Q("metric", value);
         }
 
-        /// <summary>If `true`, then retries allocation of shards that are blocked due to too many subsequent allocation failures.</summary>
+        /// <summary>When `true`, retries shard allocation if it was blocked because of too many subsequent failures.</summary>
         public bool? RetryFailed
         {
             get => Q<bool?>("retry_failed");
             set => Q("retry_failed", value);
         }
 
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>TODO</summary>
         public Time Timeout
         {
             get => Q<Time>("timeout");
@@ -831,8 +811,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes `_all` string or when no indexes have
-        /// been specified).
+        /// Whether to ignore a wildcard index expression that resolves into no concrete indexes. This includes the `_all` string or when no indexes
+        /// have been specified.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -840,7 +820,7 @@ namespace OpenSearch.Client
             set => Q("allow_no_indices", value);
         }
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>TODO</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
@@ -848,35 +828,35 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</summary>
+        /// <summary>TODO</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>Return settings in flat format.</summary>
+        /// <summary>Returns settings in a flat format.</summary>
         public bool? FlatSettings
         {
             get => Q<bool?>("flat_settings");
             set => Q("flat_settings", value);
         }
 
-        /// <summary>Whether specified concrete indexes should be ignored when unavailable (missing or closed).</summary>
+        /// <summary>Whether the specified concrete indexes should be ignored when unavailable (missing or closed).</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Whether to return information from the local node only instead of from the cluster manager node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
 
-        /// <summary>Specify timeout for connection to cluster manager.</summary>
+        /// <summary>TODO</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -960,7 +940,7 @@ namespace OpenSearch.Client
         NodeIds IClusterStatsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
         // Request parameters
-        /// <summary>If `true`, returns settings in flat format.</summary>
+        /// <summary>When `true`, returns settings in a flat format.</summary>
         public bool? FlatSettings
         {
             get => Q<bool?>("flat_settings");
@@ -968,8 +948,8 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Period to wait for each node to respond. If a node does not respond before its timeout expires, the response does not include its stats.
-        /// However, timed out nodes are included in the response's `_nodes.failed` property. Defaults to no timeout.
+        /// The amount of time to wait for each node to respond. If a node does not respond before its timeout expires, the response does not include
+        /// its stats. However, timed out nodes are included in the response's `_nodes.failed` property. Defaults to no timeout.
         /// </summary>
         public Time Timeout
         {
