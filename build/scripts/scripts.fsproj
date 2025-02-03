@@ -32,7 +32,7 @@
     <Content Include="..\..\.github\license-header-fs.txt"><Link>license-header-fs.txt</Link></Content>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Update="FSharp.Core" Version="8.0.401" />
+    <PackageReference Update="FSharp.Core" Version="9.0.101" />
 
     <PackageReference Include="Bullseye" Version="5.0.0" />
     <ProjectReference Include="$(SolutionRoot)\abstractions\src\OpenSearch.OpenSearch.Managed\OpenSearch.OpenSearch.Managed.csproj" />
