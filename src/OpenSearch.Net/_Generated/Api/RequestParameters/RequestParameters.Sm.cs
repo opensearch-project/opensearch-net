@@ -84,9 +84,9 @@ namespace OpenSearch.Net.Specification.SmApi
         public override bool SupportsBody => false;
 
         /// <summary>The starting index (default: 0).</summary>
-        public long? From
+        public int? From
         {
-            get => Q<long?>("from");
+            get => Q<int?>("from");
             set => Q("from", value);
         }
 
@@ -98,9 +98,9 @@ namespace OpenSearch.Net.Specification.SmApi
         }
 
         /// <summary>The number of policies to return.</summary>
-        public long? Size
+        public int? Size
         {
-            get => Q<long?>("size");
+            get => Q<int?>("size");
             set => Q("size", value);
         }
 
@@ -150,16 +150,16 @@ namespace OpenSearch.Net.Specification.SmApi
         public override bool SupportsBody => true;
 
         /// <summary>The primary term of the policy to update.</summary>
-        public long? IfPrimaryTerm
+        public int? IfPrimaryTerm
         {
-            get => Q<long?>("if_primary_term");
+            get => Q<int?>("if_primary_term");
             set => Q("if_primary_term", value);
         }
 
         /// <summary>The sequence number of the policy to update.</summary>
-        public long? IfSequenceNumber
+        public int? IfSequenceNumber
         {
-            get => Q<long?>("if_seq_no");
+            get => Q<int?>("if_seq_no");
             set => Q("if_seq_no", value);
         }
     }

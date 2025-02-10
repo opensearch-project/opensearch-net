@@ -252,8 +252,9 @@ namespace ApiGenerator.Generator
                 {
                     (_, "list") => second,
                     ("boolean", "string") => first,
-                    ("number", _) => "string",
-                    (_, "number") => "string",
+                    ("int", _) => "string",
+                    (_, "double") => "string",
+                    (_, "int") => "string",
                     (_, _) => throw new Exception($"Unable to determine type of: {first} and {second}")
                 };
             }
@@ -275,7 +276,9 @@ namespace ApiGenerator.Generator
 
             return type switch
             {
-                JsonObjectType.Integer => "number",
+                JsonObjectType.Integer when schema.Format is null or "int32" => "int",
+                JsonObjectType.Integer when schema.Format == "int64" => "long",
+                JsonObjectType.Number => schema.Format ?? "double",
                 JsonObjectType.Array => "list",
                 JsonObjectType.String when schema.Pattern == @"^(?:(-1)|([0-9\.]+)(?:d|h|m|s|ms|micros|nanos))$" => "time",
                 var t => t.ToString().ToLowerInvariant()

@@ -1283,7 +1283,7 @@ namespace OpenSearch.Client
             Qs("master_timeout", mastertimeout);
 
         /// <summary>The multiplier in which to display values.</summary>
-        public CatThreadPoolDescriptor Size(long? size) => Qs("size", size);
+        public CatThreadPoolDescriptor Size(int? size) => Qs("size", size);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public CatThreadPoolDescriptor SortByColumns(params string[] sortbycolumns) =>

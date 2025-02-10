@@ -93,10 +93,10 @@ namespace OpenSearch.Client
         public NodesHotThreadsDescriptor Interval(Time interval) => Qs("interval", interval);
 
         /// <summary>Number of samples of thread stack trace.</summary>
-        public NodesHotThreadsDescriptor Snapshots(long? snapshots) => Qs("snapshots", snapshots);
+        public NodesHotThreadsDescriptor Snapshots(int? snapshots) => Qs("snapshots", snapshots);
 
         /// <summary>Specify the number of threads to provide information for.</summary>
-        public NodesHotThreadsDescriptor Threads(long? threads) => Qs("threads", threads);
+        public NodesHotThreadsDescriptor Threads(int? threads) => Qs("threads", threads);
 
         /// <summary>Operation timeout.</summary>
         public NodesHotThreadsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);

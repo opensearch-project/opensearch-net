@@ -80,9 +80,9 @@ namespace OpenSearch.Net.Specification.RollupsApi
         public override bool SupportsBody => true;
 
         /// <summary>Only perform the operation if the document has this primary term.</summary>
-        public long? IfPrimaryTerm
+        public double? IfPrimaryTerm
         {
-            get => Q<long?>("if_primary_term");
+            get => Q<double?>("if_primary_term");
             set => Q("if_primary_term", value);
         }
 

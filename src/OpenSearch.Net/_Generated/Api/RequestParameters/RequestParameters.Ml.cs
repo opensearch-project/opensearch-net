@@ -198,9 +198,9 @@ namespace OpenSearch.Net.Specification.MlApi
         /// The maximum number of results to return. If there are fewer memories than the number set in `max_results`, the response returns only the
         /// number of memories that exist. Default is `10`.
         /// </summary>
-        public long? MaxResults
+        public int? MaxResults
         {
-            get => Q<long?>("max_results");
+            get => Q<int?>("max_results");
             set => Q("max_results", value);
         }
 
@@ -208,9 +208,9 @@ namespace OpenSearch.Net.Specification.MlApi
         /// The index of the first memory in the sorted list of memories to return. Memories are ordered by `create_time`. For example, if memories
         /// `A`, `B`, and `C` exist, `next_token=1` returns memories `B` and `C`. Default is `0` (return all memories).
         /// </summary>
-        public long? NextToken
+        public int? NextToken
         {
-            get => Q<long?>("next_token");
+            get => Q<int?>("next_token");
             set => Q("next_token", value);
         }
     }
@@ -221,14 +221,14 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
-        public long? MaxResults
+        public int? MaxResults
         {
-            get => Q<long?>("max_results");
+            get => Q<int?>("max_results");
             set => Q("max_results", value);
         }
-        public long? NextToken
+        public int? NextToken
         {
-            get => Q<long?>("next_token");
+            get => Q<int?>("next_token");
             set => Q("next_token", value);
         }
     }
@@ -278,14 +278,14 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
-        public long? MaxResults
+        public int? MaxResults
         {
-            get => Q<long?>("max_results");
+            get => Q<int?>("max_results");
             set => Q("max_results", value);
         }
-        public long? NextToken
+        public int? NextToken
         {
-            get => Q<long?>("next_token");
+            get => Q<int?>("next_token");
             set => Q("next_token", value);
         }
     }

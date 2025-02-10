@@ -2072,9 +2072,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>The multiplier in which to display values.</summary>
-        public long? Size
+        public int? Size
         {
-            get => Q<long?>("size");
+            get => Q<int?>("size");
             set => Q("size", value);
         }
 

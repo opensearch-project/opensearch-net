@@ -77,7 +77,7 @@ namespace OpenSearch.Net.Specification.MlApi
         [Obsolete("Deprecated in version 2.7.0: Use `upload_chunk` instead.")]
         public TResponse ChunkModel<TResponse>(
             string modelId,
-            number chunkNumber,
+            long? chunkNumber,
             PostData body,
             ChunkModelRequestParameters requestParameters = null
         )
@@ -98,7 +98,7 @@ namespace OpenSearch.Net.Specification.MlApi
         [MapsApi("ml.chunk_model", "model_id, chunk_number, body")]
         public Task<TResponse> ChunkModelAsync<TResponse>(
             string modelId,
-            number chunkNumber,
+            long? chunkNumber,
             PostData body,
             ChunkModelRequestParameters requestParameters = null,
             CancellationToken ctx = default
@@ -2375,7 +2375,7 @@ namespace OpenSearch.Net.Specification.MlApi
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         public TResponse UploadChunk<TResponse>(
             string modelId,
-            number chunkNumber,
+            long? chunkNumber,
             PostData body,
             UploadChunkRequestParameters requestParameters = null
         )
@@ -2398,7 +2398,7 @@ namespace OpenSearch.Net.Specification.MlApi
         [MapsApi("ml.upload_chunk", "model_id, chunk_number, body")]
         public Task<TResponse> UploadChunkAsync<TResponse>(
             string modelId,
-            number chunkNumber,
+            long? chunkNumber,
             PostData body,
             UploadChunkRequestParameters requestParameters = null,
             CancellationToken ctx = default
