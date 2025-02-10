@@ -172,7 +172,7 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
 
         /// <summary>GET on /_plugins/_observability/_local/stats</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
+        /// <remarks>Supported by OpenSearch servers of version 2.5.0 or greater.</remarks>
         public TResponse GetLocalstats<TResponse>(
             GetLocalstatsRequestParameters requestParameters = null
         )
@@ -186,7 +186,7 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
 
         /// <summary>GET on /_plugins/_observability/_local/stats</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
+        /// <remarks>Supported by OpenSearch servers of version 2.5.0 or greater.</remarks>
         [MapsApi("observability.get_localstats", "")]
         public Task<TResponse> GetLocalstatsAsync<TResponse>(
             GetLocalstatsRequestParameters requestParameters = null,

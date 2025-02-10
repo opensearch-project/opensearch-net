@@ -260,10 +260,7 @@ namespace OpenSearch.Client
             set => Q("df", value);
         }
 
-        /// <summary>
-        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.
-        /// </summary>
+        /// <summary>TODO</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
@@ -2626,6 +2623,13 @@ namespace OpenSearch.Client
         {
             get => Q<long?>("requests_per_second");
             set => Q("requests_per_second", value);
+        }
+
+        /// <summary>TODO</summary>
+        public bool? RequireAlias
+        {
+            get => Q<bool?>("require_alias");
+            set => Q("require_alias", value);
         }
 
         /// <summary>Specifies how long a consistent view of the index should be maintained for scrolled search.</summary>

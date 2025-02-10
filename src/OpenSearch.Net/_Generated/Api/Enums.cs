@@ -254,7 +254,13 @@ namespace OpenSearch.Net
         [EnumMember(Value = "and")]
         And,
 
+        [EnumMember(Value = "AND")]
+        And,
+
         [EnumMember(Value = "or")]
+        Or,
+
+        [EnumMember(Value = "OR")]
         Or,
     }
 
@@ -283,10 +289,19 @@ namespace OpenSearch.Net
         [EnumMember(Value = "green")]
         Green,
 
+        [EnumMember(Value = "GREEN")]
+        Green,
+
         [EnumMember(Value = "red")]
         Red,
 
+        [EnumMember(Value = "RED")]
+        Red,
+
         [EnumMember(Value = "yellow")]
+        Yellow,
+
+        [EnumMember(Value = "YELLOW")]
         Yellow,
     }
 
@@ -307,7 +322,7 @@ namespace OpenSearch.Net
     }
 
     [Flags, StringEnum]
-    public enum IndicesShardStoresStatus
+    public enum IndicesShardStoresShardStoreStatus
     {
         [EnumMember(Value = "all")]
         All = 1 << 0,
@@ -631,11 +646,14 @@ namespace OpenSearch.Net
     [Flags, StringEnum]
     public enum NodesUsageMetric
     {
+        [EnumMember(Value = "aggregations")]
+        Aggregations = 1 << 0,
+
         [EnumMember(Value = "rest_actions")]
-        RestActions = 1 << 0,
+        RestActions = 1 << 1,
 
         [EnumMember(Value = "_all")]
-        All = 1 << 1,
+        All = 1 << 2,
     }
 
     [StringEnum]
@@ -823,7 +841,7 @@ namespace OpenSearch.Net
             AddEnumStringResolver<ExpandWildcards>(GetStringValue);
             AddEnumStringResolver<HealthStatus>(GetStringValue);
             AddEnumStringResolver<IndexApiBlock>(GetStringValue);
-            AddEnumStringResolver<IndicesShardStoresStatus>(GetStringValue);
+            AddEnumStringResolver<IndicesShardStoresShardStoreStatus>(GetStringValue);
             AddEnumStringResolver<IndicesStatsMetric>(GetStringValue);
             AddEnumStringResolver<KnnDefaultOperator>(GetStringValue);
             AddEnumStringResolver<KnnSearchType>(GetStringValue);
@@ -994,7 +1012,9 @@ namespace OpenSearch.Net
             enumValue switch
             {
                 DefaultOperator.And => "and",
+                DefaultOperator.And => "AND",
                 DefaultOperator.Or => "or",
+                DefaultOperator.Or => "OR",
                 _ => throw new ArgumentException(
                     $"'{enumValue.ToString()}' is not a valid value for enum 'DefaultOperator'"
                 ),
@@ -1020,8 +1040,11 @@ namespace OpenSearch.Net
             enumValue switch
             {
                 HealthStatus.Green => "green",
+                HealthStatus.Green => "GREEN",
                 HealthStatus.Red => "red",
+                HealthStatus.Red => "RED",
                 HealthStatus.Yellow => "yellow",
+                HealthStatus.Yellow => "YELLOW",
                 _ => throw new ArgumentException(
                     $"'{enumValue.ToString()}' is not a valid value for enum 'HealthStatus'"
                 ),
@@ -1039,16 +1062,16 @@ namespace OpenSearch.Net
                 ),
             };
 
-        public static string GetStringValue(this IndicesShardStoresStatus enumValue)
+        public static string GetStringValue(this IndicesShardStoresShardStoreStatus enumValue)
         {
             var list = new List<string>();
-            if ((enumValue & IndicesShardStoresStatus.All) != 0)
+            if ((enumValue & IndicesShardStoresShardStoreStatus.All) != 0)
                 list.Add("all");
-            if ((enumValue & IndicesShardStoresStatus.Green) != 0)
+            if ((enumValue & IndicesShardStoresShardStoreStatus.Green) != 0)
                 list.Add("green");
-            if ((enumValue & IndicesShardStoresStatus.Red) != 0)
+            if ((enumValue & IndicesShardStoresShardStoreStatus.Red) != 0)
                 list.Add("red");
-            if ((enumValue & IndicesShardStoresStatus.Yellow) != 0)
+            if ((enumValue & IndicesShardStoresShardStoreStatus.Yellow) != 0)
                 list.Add("yellow");
             return string.Join(",", list);
         }
@@ -1289,6 +1312,8 @@ namespace OpenSearch.Net
             if ((enumValue & NodesUsageMetric.All) != 0)
                 return "_all";
             var list = new List<string>();
+            if ((enumValue & NodesUsageMetric.Aggregations) != 0)
+                list.Add("aggregations");
             if ((enumValue & NodesUsageMetric.RestActions) != 0)
                 list.Add("rest_actions");
             return string.Join(",", list);

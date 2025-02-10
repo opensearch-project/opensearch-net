@@ -69,6 +69,49 @@ namespace OpenSearch.Net.Specification.MlApi
         internal LowLevelMlNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
+        /// <summary>POST on /_plugins/_ml/models/{model_id}/chunk/{chunk_number}</summary>
+        /// <param name="modelId"></param>
+        /// <param name="chunkNumber"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [Obsolete("Deprecated in version 2.7.0: Use `upload_chunk` instead.")]
+        public TResponse ChunkModel<TResponse>(
+            string modelId,
+            number chunkNumber,
+            PostData body,
+            ChunkModelRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_plugins/_ml/models/{modelId:modelId}/chunk/{chunkNumber:chunkNumber}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/models/{model_id}/chunk/{chunk_number}</summary>
+        /// <param name="modelId"></param>
+        /// <param name="chunkNumber"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [Obsolete("Deprecated in version 2.7.0: Use `upload_chunk` instead.")]
+        [MapsApi("ml.chunk_model", "model_id, chunk_number, body")]
+        public Task<TResponse> ChunkModelAsync<TResponse>(
+            string modelId,
+            number chunkNumber,
+            PostData body,
+            ChunkModelRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_plugins/_ml/models/{modelId:modelId}/chunk/{chunkNumber:chunkNumber}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>POST on /_plugins/_ml/connectors/_create</summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -102,9 +145,158 @@ namespace OpenSearch.Net.Specification.MlApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>POST on /_plugins/_ml/controllers/{model_id}</summary>
+        /// <param name="modelId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        public TResponse CreateController<TResponse>(
+            string modelId,
+            PostData body,
+            CreateControllerRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_plugins/_ml/controllers/{modelId:modelId}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/controllers/{model_id}</summary>
+        /// <param name="modelId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        [MapsApi("ml.create_controller", "model_id, body")]
+        public Task<TResponse> CreateControllerAsync<TResponse>(
+            string modelId,
+            PostData body,
+            CreateControllerRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_plugins/_ml/controllers/{modelId:modelId}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/memory</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        public TResponse CreateMemory<TResponse>(
+            PostData body,
+            CreateMemoryRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_plugins/_ml/memory",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/memory</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        [MapsApi("ml.create_memory", "body")]
+        public Task<TResponse> CreateMemoryAsync<TResponse>(
+            PostData body,
+            CreateMemoryRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_plugins/_ml/memory",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/memory/{memory_id}/messages</summary>
+        /// <param name="memoryId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        public TResponse CreateMessage<TResponse>(
+            string memoryId,
+            PostData body,
+            CreateMessageRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_plugins/_ml/memory/{memoryId:memoryId}/messages"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/memory/{memory_id}/messages</summary>
+        /// <param name="memoryId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        [MapsApi("ml.create_message", "memory_id, body")]
+        public Task<TResponse> CreateMessageAsync<TResponse>(
+            string memoryId,
+            PostData body,
+            CreateMessageRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_plugins/_ml/memory/{memoryId:memoryId}/messages"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/models/meta</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [Obsolete("Deprecated in version 2.7.0: Use `_register_meta` instead.")]
+        public TResponse CreateModelMeta<TResponse>(
+            PostData body,
+            CreateModelMetaRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_plugins/_ml/models/meta",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/models/meta</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [Obsolete("Deprecated in version 2.7.0: Use `_register_meta` instead.")]
+        [MapsApi("ml.create_model_meta", "body")]
+        public Task<TResponse> CreateModelMetaAsync<TResponse>(
+            PostData body,
+            CreateModelMetaRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_plugins/_ml/models/meta",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>DELETE on /_plugins/_ml/agents/{agent_id}</summary>
         /// <param name="agentId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.13.0 or greater.</remarks>
         public TResponse DeleteAgent<TResponse>(
             string agentId,
             DeleteAgentRequestParameters requestParameters = null
@@ -120,6 +312,7 @@ namespace OpenSearch.Net.Specification.MlApi
         /// <summary>DELETE on /_plugins/_ml/agents/{agent_id}</summary>
         /// <param name="agentId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.13.0 or greater.</remarks>
         [MapsApi("ml.delete_agent", "agent_id")]
         public Task<TResponse> DeleteAgentAsync<TResponse>(
             string agentId,
@@ -168,9 +361,80 @@ namespace OpenSearch.Net.Specification.MlApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>DELETE on /_plugins/_ml/controllers/{model_id}</summary>
+        /// <param name="modelId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        public TResponse DeleteController<TResponse>(
+            string modelId,
+            DeleteControllerRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                Url($"_plugins/_ml/controllers/{modelId:modelId}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_plugins/_ml/controllers/{model_id}</summary>
+        /// <param name="modelId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        [MapsApi("ml.delete_controller", "model_id")]
+        public Task<TResponse> DeleteControllerAsync<TResponse>(
+            string modelId,
+            DeleteControllerRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                Url($"_plugins/_ml/controllers/{modelId:modelId}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_plugins/_ml/memory/{memory_id}</summary>
+        /// <param name="memoryId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        public TResponse DeleteMemory<TResponse>(
+            string memoryId,
+            DeleteMemoryRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                Url($"_plugins/_ml/memory/{memoryId:memoryId}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_plugins/_ml/memory/{memory_id}</summary>
+        /// <param name="memoryId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        [MapsApi("ml.delete_memory", "memory_id")]
+        public Task<TResponse> DeleteMemoryAsync<TResponse>(
+            string memoryId,
+            DeleteMemoryRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                Url($"_plugins/_ml/memory/{memoryId:memoryId}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>DELETE on /_plugins/_ml/models/{model_id}</summary>
         /// <param name="modelId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         public TResponse DeleteModel<TResponse>(
             string modelId,
             DeleteModelRequestParameters requestParameters = null
@@ -186,6 +450,7 @@ namespace OpenSearch.Net.Specification.MlApi
         /// <summary>DELETE on /_plugins/_ml/models/{model_id}</summary>
         /// <param name="modelId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         [MapsApi("ml.delete_model", "model_id")]
         public Task<TResponse> DeleteModelAsync<TResponse>(
             string modelId,
@@ -237,6 +502,7 @@ namespace OpenSearch.Net.Specification.MlApi
         /// <summary>DELETE on /_plugins/_ml/tasks/{task_id}</summary>
         /// <param name="taskId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         public TResponse DeleteTask<TResponse>(
             string taskId,
             DeleteTaskRequestParameters requestParameters = null
@@ -252,6 +518,7 @@ namespace OpenSearch.Net.Specification.MlApi
         /// <summary>DELETE on /_plugins/_ml/tasks/{task_id}</summary>
         /// <param name="taskId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         [MapsApi("ml.delete_task", "task_id")]
         public Task<TResponse> DeleteTaskAsync<TResponse>(
             string taskId,
@@ -270,6 +537,7 @@ namespace OpenSearch.Net.Specification.MlApi
         /// <summary>POST on /_plugins/_ml/models/{model_id}/_deploy</summary>
         /// <param name="modelId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         public TResponse DeployModel<TResponse>(
             string modelId,
             DeployModelRequestParameters requestParameters = null
@@ -285,6 +553,7 @@ namespace OpenSearch.Net.Specification.MlApi
         /// <summary>POST on /_plugins/_ml/models/{model_id}/_deploy</summary>
         /// <param name="modelId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         [MapsApi("ml.deploy_model", "model_id")]
         public Task<TResponse> DeployModelAsync<TResponse>(
             string modelId,
@@ -295,6 +564,421 @@ namespace OpenSearch.Net.Specification.MlApi
             DoRequestAsync<TResponse>(
                 POST,
                 Url($"_plugins/_ml/models/{modelId:modelId}/_deploy"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/agents/{agent_id}/_execute</summary>
+        /// <param name="agentId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.13.0 or greater.</remarks>
+        public TResponse ExecuteAgent<TResponse>(
+            string agentId,
+            PostData body,
+            ExecuteAgentRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_plugins/_ml/agents/{agentId:agentId}/_execute"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/agents/{agent_id}/_execute</summary>
+        /// <param name="agentId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.13.0 or greater.</remarks>
+        [MapsApi("ml.execute_agent", "agent_id, body")]
+        public Task<TResponse> ExecuteAgentAsync<TResponse>(
+            string agentId,
+            PostData body,
+            ExecuteAgentRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_plugins/_ml/agents/{agentId:agentId}/_execute"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/_execute/{algorithm_name}</summary>
+        /// <param name="algorithmName"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        public TResponse ExecuteAlgorithm<TResponse>(
+            string algorithmName,
+            PostData body,
+            ExecuteAlgorithmRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_plugins/_ml/_execute/{algorithmName:algorithmName}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/_execute/{algorithm_name}</summary>
+        /// <param name="algorithmName"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
+        [MapsApi("ml.execute_algorithm", "algorithm_name, body")]
+        public Task<TResponse> ExecuteAlgorithmAsync<TResponse>(
+            string algorithmName,
+            PostData body,
+            ExecuteAlgorithmRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_plugins/_ml/_execute/{algorithmName:algorithmName}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/agents/{agent_id}</summary>
+        /// <param name="agentId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.13.0 or greater.</remarks>
+        public TResponse GetAgent<TResponse>(
+            string agentId,
+            GetAgentRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_ml/agents/{agentId:agentId}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/agents/{agent_id}</summary>
+        /// <param name="agentId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.13.0 or greater.</remarks>
+        [MapsApi("ml.get_agent", "agent_id")]
+        public Task<TResponse> GetAgentAsync<TResponse>(
+            string agentId,
+            GetAgentRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_ml/agents/{agentId:agentId}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/memory</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        public TResponse GetAllMemories<TResponse>(
+            GetAllMemoriesRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                "_plugins/_ml/memory",
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/memory</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        [MapsApi("ml.get_all_memories", "")]
+        public Task<TResponse> GetAllMemoriesAsync<TResponse>(
+            GetAllMemoriesRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_plugins/_ml/memory",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/memory/{memory_id}/messages</summary>
+        /// <param name="memoryId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        public TResponse GetAllMessages<TResponse>(
+            string memoryId,
+            GetAllMessagesRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_ml/memory/{memoryId:memoryId}/messages"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/memory/{memory_id}/messages</summary>
+        /// <param name="memoryId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        [MapsApi("ml.get_all_messages", "memory_id")]
+        public Task<TResponse> GetAllMessagesAsync<TResponse>(
+            string memoryId,
+            GetAllMessagesRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_ml/memory/{memoryId:memoryId}/messages"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/tools</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        public TResponse GetAllTools<TResponse>(
+            GetAllToolsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_plugins/_ml/tools", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_plugins/_ml/tools</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        [MapsApi("ml.get_all_tools", "")]
+        public Task<TResponse> GetAllToolsAsync<TResponse>(
+            GetAllToolsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_plugins/_ml/tools",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/connectors/{connector_id}</summary>
+        /// <param name="connectorId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.11.0 or greater.</remarks>
+        public TResponse GetConnector<TResponse>(
+            string connectorId,
+            GetConnectorRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_ml/connectors/{connectorId:connectorId}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/connectors/{connector_id}</summary>
+        /// <param name="connectorId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.11.0 or greater.</remarks>
+        [MapsApi("ml.get_connector", "connector_id")]
+        public Task<TResponse> GetConnectorAsync<TResponse>(
+            string connectorId,
+            GetConnectorRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_ml/connectors/{connectorId:connectorId}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/controllers/{model_id}</summary>
+        /// <param name="modelId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        public TResponse GetController<TResponse>(
+            string modelId,
+            GetControllerRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_ml/controllers/{modelId:modelId}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/controllers/{model_id}</summary>
+        /// <param name="modelId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        [MapsApi("ml.get_controller", "model_id")]
+        public Task<TResponse> GetControllerAsync<TResponse>(
+            string modelId,
+            GetControllerRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_ml/controllers/{modelId:modelId}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/memory/{memory_id}</summary>
+        /// <param name="memoryId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        public TResponse GetMemory<TResponse>(
+            string memoryId,
+            GetMemoryRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_ml/memory/{memoryId:memoryId}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/memory/{memory_id}</summary>
+        /// <param name="memoryId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        [MapsApi("ml.get_memory", "memory_id")]
+        public Task<TResponse> GetMemoryAsync<TResponse>(
+            string memoryId,
+            GetMemoryRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_ml/memory/{memoryId:memoryId}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/memory/message/{message_id}</summary>
+        /// <param name="messageId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        public TResponse GetMessage<TResponse>(
+            string messageId,
+            GetMessageRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_ml/memory/message/{messageId:messageId}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/memory/message/{message_id}</summary>
+        /// <param name="messageId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        [MapsApi("ml.get_message", "message_id")]
+        public Task<TResponse> GetMessageAsync<TResponse>(
+            string messageId,
+            GetMessageRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_ml/memory/message/{messageId:messageId}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/memory/message/{message_id}/traces</summary>
+        /// <param name="messageId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        public TResponse GetMessageTraces<TResponse>(
+            string messageId,
+            GetMessageTracesRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_ml/memory/message/{messageId:messageId}/traces"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/memory/message/{message_id}/traces</summary>
+        /// <param name="messageId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        [MapsApi("ml.get_message_traces", "message_id")]
+        public Task<TResponse> GetMessageTracesAsync<TResponse>(
+            string messageId,
+            GetMessageTracesRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_ml/memory/message/{messageId:messageId}/traces"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/models/{model_id}</summary>
+        /// <param name="modelId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        public TResponse GetModel<TResponse>(
+            string modelId,
+            GetModelRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_ml/models/{modelId:modelId}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/models/{model_id}</summary>
+        /// <param name="modelId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        [MapsApi("ml.get_model", "model_id")]
+        public Task<TResponse> GetModelAsync<TResponse>(
+            string modelId,
+            GetModelRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_ml/models/{modelId:modelId}"),
                 ctx,
                 null,
                 RequestParams(requestParameters)
@@ -333,9 +1017,326 @@ namespace OpenSearch.Net.Specification.MlApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>GET on /_plugins/_ml/profile</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        public TResponse GetProfile<TResponse>(
+            PostData body,
+            GetProfileRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                "_plugins/_ml/profile",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/profile</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        [MapsApi("ml.get_profile", "body")]
+        public Task<TResponse> GetProfileAsync<TResponse>(
+            PostData body,
+            GetProfileRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_plugins/_ml/profile",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/profile/models</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        public TResponse GetProfileModels<TResponse>(
+            PostData body,
+            GetProfileModelsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                "_plugins/_ml/profile/models",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/profile/models</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        [MapsApi("ml.get_profile_models", "body")]
+        public Task<TResponse> GetProfileModelsAsync<TResponse>(
+            PostData body,
+            GetProfileModelsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_plugins/_ml/profile/models",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/profile/models/{model_id}</summary>
+        /// <param name="modelId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.11.0 or greater.</remarks>
+        public TResponse GetProfileModels<TResponse>(
+            string modelId,
+            PostData body,
+            GetProfileModelsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_ml/profile/models/{modelId:modelId}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/profile/models/{model_id}</summary>
+        /// <param name="modelId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.11.0 or greater.</remarks>
+        [MapsApi("ml.get_profile_models", "model_id, body")]
+        public Task<TResponse> GetProfileModelsAsync<TResponse>(
+            string modelId,
+            PostData body,
+            GetProfileModelsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_ml/profile/models/{modelId:modelId}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/profile/tasks</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        public TResponse GetProfileTasks<TResponse>(
+            PostData body,
+            GetProfileTasksRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                "_plugins/_ml/profile/tasks",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/profile/tasks</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
+        [MapsApi("ml.get_profile_tasks", "body")]
+        public Task<TResponse> GetProfileTasksAsync<TResponse>(
+            PostData body,
+            GetProfileTasksRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_plugins/_ml/profile/tasks",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/profile/tasks/{task_id}</summary>
+        /// <param name="taskId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.11.0 or greater.</remarks>
+        public TResponse GetProfileTasks<TResponse>(
+            string taskId,
+            PostData body,
+            GetProfileTasksRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_ml/profile/tasks/{taskId:taskId}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/profile/tasks/{task_id}</summary>
+        /// <param name="taskId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.11.0 or greater.</remarks>
+        [MapsApi("ml.get_profile_tasks", "task_id, body")]
+        public Task<TResponse> GetProfileTasksAsync<TResponse>(
+            string taskId,
+            PostData body,
+            GetProfileTasksRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_ml/profile/tasks/{taskId:taskId}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/stats</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        public TResponse GetStats<TResponse>(GetStatsRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_plugins/_ml/stats", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_plugins/_ml/stats</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        [MapsApi("ml.get_stats", "")]
+        public Task<TResponse> GetStatsAsync<TResponse>(
+            GetStatsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_plugins/_ml/stats",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/{node_id}/stats</summary>
+        /// <param name="nodeId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        public TResponse GetStats<TResponse>(
+            string nodeId,
+            GetStatsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_ml/{nodeId:nodeId}/stats"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/{node_id}/stats</summary>
+        /// <param name="nodeId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        [MapsApi("ml.get_stats", "node_id")]
+        public Task<TResponse> GetStatsAsync<TResponse>(
+            string nodeId,
+            GetStatsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_ml/{nodeId:nodeId}/stats"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/{node_id}/stats/{stat}</summary>
+        /// <param name="nodeId"></param>
+        /// <param name="stat"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        public TResponse GetStats<TResponse>(
+            string nodeId,
+            string stat,
+            GetStatsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_ml/{nodeId:nodeId}/stats/{stat:stat}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/{node_id}/stats/{stat}</summary>
+        /// <param name="nodeId"></param>
+        /// <param name="stat"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        [MapsApi("ml.get_stats", "node_id, stat")]
+        public Task<TResponse> GetStatsAsync<TResponse>(
+            string nodeId,
+            string stat,
+            GetStatsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_ml/{nodeId:nodeId}/stats/{stat:stat}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/stats/{stat}</summary>
+        /// <param name="stat"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        public TResponse GetStats<TResponse>(
+            string stat,
+            GetStatsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_ml/stats/{stat:stat}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/stats/{stat}</summary>
+        /// <param name="stat"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        [MapsApi("ml.get_stats", "stat")]
+        public Task<TResponse> GetStatsAsync<TResponse>(
+            string stat,
+            GetStatsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_ml/stats/{stat:stat}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>GET on /_plugins/_ml/tasks/{task_id}</summary>
         /// <param name="taskId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         public TResponse GetTask<TResponse>(
             string taskId,
             GetTaskRequestParameters requestParameters = null
@@ -351,6 +1352,7 @@ namespace OpenSearch.Net.Specification.MlApi
         /// <summary>GET on /_plugins/_ml/tasks/{task_id}</summary>
         /// <param name="taskId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         [MapsApi("ml.get_task", "task_id")]
         public Task<TResponse> GetTaskAsync<TResponse>(
             string taskId,
@@ -366,9 +1368,162 @@ namespace OpenSearch.Net.Specification.MlApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>GET on /_plugins/_ml/tools/{tool_name}</summary>
+        /// <param name="toolName"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        public TResponse GetTool<TResponse>(
+            string toolName,
+            GetToolRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_ml/tools/{toolName:toolName}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/tools/{tool_name}</summary>
+        /// <param name="toolName"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        [MapsApi("ml.get_tool", "tool_name")]
+        public Task<TResponse> GetToolAsync<TResponse>(
+            string toolName,
+            GetToolRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_ml/tools/{toolName:toolName}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/models/{model_id}/_load</summary>
+        /// <param name="modelId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [Obsolete("Deprecated in version 2.7.0: Use `deploy_model` instead.")]
+        public TResponse LoadModel<TResponse>(
+            string modelId,
+            LoadModelRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_plugins/_ml/models/{modelId:modelId}/_load"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/models/{model_id}/_load</summary>
+        /// <param name="modelId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [Obsolete("Deprecated in version 2.7.0: Use `deploy_model` instead.")]
+        [MapsApi("ml.load_model", "model_id")]
+        public Task<TResponse> LoadModelAsync<TResponse>(
+            string modelId,
+            LoadModelRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_plugins/_ml/models/{modelId:modelId}/_load"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/_predict/{algorithm_name}/{model_id}</summary>
+        /// <param name="algorithmName"></param>
+        /// <param name="modelId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        public TResponse Predict<TResponse>(
+            string algorithmName,
+            string modelId,
+            PostData body,
+            PredictRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_plugins/_ml/_predict/{algorithmName:algorithmName}/{modelId:modelId}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/_predict/{algorithm_name}/{model_id}</summary>
+        /// <param name="algorithmName"></param>
+        /// <param name="modelId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        [MapsApi("ml.predict", "algorithm_name, model_id, body")]
+        public Task<TResponse> PredictAsync<TResponse>(
+            string algorithmName,
+            string modelId,
+            PostData body,
+            PredictRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_plugins/_ml/_predict/{algorithmName:algorithmName}/{modelId:modelId}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/models/{model_id}/_predict</summary>
+        /// <param name="modelId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        public TResponse PredictModel<TResponse>(
+            string modelId,
+            PostData body,
+            PredictModelRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_plugins/_ml/models/{modelId:modelId}/_predict"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/models/{model_id}/_predict</summary>
+        /// <param name="modelId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        [MapsApi("ml.predict_model", "model_id, body")]
+        public Task<TResponse> PredictModelAsync<TResponse>(
+            string modelId,
+            PostData body,
+            PredictModelRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_plugins/_ml/models/{modelId:modelId}/_predict"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>POST on /_plugins/_ml/agents/_register</summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.13.0 or greater.</remarks>
         public TResponse RegisterAgents<TResponse>(
             PostData body,
             RegisterAgentsRequestParameters requestParameters = null
@@ -384,6 +1539,7 @@ namespace OpenSearch.Net.Specification.MlApi
         /// <summary>POST on /_plugins/_ml/agents/_register</summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.13.0 or greater.</remarks>
         [MapsApi("ml.register_agents", "body")]
         public Task<TResponse> RegisterAgentsAsync<TResponse>(
             PostData body,
@@ -402,6 +1558,7 @@ namespace OpenSearch.Net.Specification.MlApi
         /// <summary>POST on /_plugins/_ml/models/_register</summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         public TResponse RegisterModel<TResponse>(
             PostData body,
             RegisterModelRequestParameters requestParameters = null
@@ -417,6 +1574,7 @@ namespace OpenSearch.Net.Specification.MlApi
         /// <summary>POST on /_plugins/_ml/models/_register</summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         [MapsApi("ml.register_model", "body")]
         public Task<TResponse> RegisterModelAsync<TResponse>(
             PostData body,
@@ -465,24 +1623,240 @@ namespace OpenSearch.Net.Specification.MlApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_ml/models/_search</summary>
+        /// <summary>POST on /_plugins/_ml/models/_register_meta</summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
+        public TResponse RegisterModelMeta<TResponse>(
+            PostData body,
+            RegisterModelMetaRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_plugins/_ml/models/_register_meta",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/models/_register_meta</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
+        [MapsApi("ml.register_model_meta", "body")]
+        public Task<TResponse> RegisterModelMetaAsync<TResponse>(
+            PostData body,
+            RegisterModelMetaRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_plugins/_ml/models/_register_meta",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/agents/_search</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.13.0 or greater.</remarks>
+        public TResponse SearchAgents<TResponse>(
+            PostData body,
+            SearchAgentsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_plugins/_ml/agents/_search",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/agents/_search</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.13.0 or greater.</remarks>
+        [MapsApi("ml.search_agents", "body")]
+        public Task<TResponse> SearchAgentsAsync<TResponse>(
+            PostData body,
+            SearchAgentsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_plugins/_ml/agents/_search",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/connectors/_search</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.11.0 or greater.</remarks>
+        public TResponse SearchConnectors<TResponse>(
+            PostData body,
+            SearchConnectorsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_plugins/_ml/connectors/_search",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/connectors/_search</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.11.0 or greater.</remarks>
+        [MapsApi("ml.search_connectors", "body")]
+        public Task<TResponse> SearchConnectorsAsync<TResponse>(
+            PostData body,
+            SearchConnectorsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_plugins/_ml/connectors/_search",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/memory/_search</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        public TResponse SearchMemory<TResponse>(
+            PostData body,
+            SearchMemoryRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_plugins/_ml/memory/_search",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/memory/_search</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        [MapsApi("ml.search_memory", "body")]
+        public Task<TResponse> SearchMemoryAsync<TResponse>(
+            PostData body,
+            SearchMemoryRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_plugins/_ml/memory/_search",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/memory/{memory_id}/_search</summary>
+        /// <param name="memoryId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        public TResponse SearchMessage<TResponse>(
+            string memoryId,
+            PostData body,
+            SearchMessageRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_plugins/_ml/memory/{memoryId:memoryId}/_search"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/memory/{memory_id}/_search</summary>
+        /// <param name="memoryId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        [MapsApi("ml.search_message", "memory_id, body")]
+        public Task<TResponse> SearchMessageAsync<TResponse>(
+            string memoryId,
+            PostData body,
+            SearchMessageRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_plugins/_ml/memory/{memoryId:memoryId}/_search"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/model_groups/_search</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
+        public TResponse SearchModelGroup<TResponse>(
+            PostData body,
+            SearchModelGroupRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_plugins/_ml/model_groups/_search",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/model_groups/_search</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
+        [MapsApi("ml.search_model_group", "body")]
+        public Task<TResponse> SearchModelGroupAsync<TResponse>(
+            PostData body,
+            SearchModelGroupRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_plugins/_ml/model_groups/_search",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/models/_search</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         public TResponse SearchModels<TResponse>(
             PostData body,
             SearchModelsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
-                GET,
+                POST,
                 "_plugins/_ml/models/_search",
                 body,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_ml/models/_search</summary>
+        /// <summary>POST on /_plugins/_ml/models/_search</summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         [MapsApi("ml.search_models", "body")]
         public Task<TResponse> SearchModelsAsync<TResponse>(
             PostData body,
@@ -491,8 +1865,156 @@ namespace OpenSearch.Net.Specification.MlApi
         )
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequestAsync<TResponse>(
-                GET,
+                POST,
                 "_plugins/_ml/models/_search",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/tasks/_search</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        public TResponse SearchTasks<TResponse>(
+            PostData body,
+            SearchTasksRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_plugins/_ml/tasks/_search",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/tasks/_search</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        [MapsApi("ml.search_tasks", "body")]
+        public Task<TResponse> SearchTasksAsync<TResponse>(
+            PostData body,
+            SearchTasksRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_plugins/_ml/tasks/_search",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/_train/{algorithm_name}</summary>
+        /// <param name="algorithmName"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        public TResponse Train<TResponse>(
+            string algorithmName,
+            PostData body,
+            TrainRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_plugins/_ml/_train/{algorithmName:algorithmName}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/_train/{algorithm_name}</summary>
+        /// <param name="algorithmName"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        [MapsApi("ml.train", "algorithm_name, body")]
+        public Task<TResponse> TrainAsync<TResponse>(
+            string algorithmName,
+            PostData body,
+            TrainRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_plugins/_ml/_train/{algorithmName:algorithmName}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/_train_predict/{algorithm_name}</summary>
+        /// <param name="algorithmName"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        public TResponse TrainPredict<TResponse>(
+            string algorithmName,
+            PostData body,
+            TrainPredictRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_plugins/_ml/_train_predict/{algorithmName:algorithmName}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/_train_predict/{algorithm_name}</summary>
+        /// <param name="algorithmName"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
+        [MapsApi("ml.train_predict", "algorithm_name, body")]
+        public Task<TResponse> TrainPredictAsync<TResponse>(
+            string algorithmName,
+            PostData body,
+            TrainPredictRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_plugins/_ml/_train_predict/{algorithmName:algorithmName}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/models/_undeploy</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
+        public TResponse UndeployModel<TResponse>(
+            PostData body,
+            UndeployModelRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_plugins/_ml/models/_undeploy",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/models/_undeploy</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
+        [MapsApi("ml.undeploy_model", "body")]
+        public Task<TResponse> UndeployModelAsync<TResponse>(
+            PostData body,
+            UndeployModelRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_plugins/_ml/models/_undeploy",
                 ctx,
                 body,
                 RequestParams(requestParameters)
@@ -500,25 +2022,31 @@ namespace OpenSearch.Net.Specification.MlApi
 
         /// <summary>POST on /_plugins/_ml/models/{model_id}/_undeploy</summary>
         /// <param name="modelId"></param>
+        /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         public TResponse UndeployModel<TResponse>(
             string modelId,
+            PostData body,
             UndeployModelRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
                 POST,
                 Url($"_plugins/_ml/models/{modelId:modelId}/_undeploy"),
-                null,
+                body,
                 RequestParams(requestParameters)
             );
 
         /// <summary>POST on /_plugins/_ml/models/{model_id}/_undeploy</summary>
         /// <param name="modelId"></param>
+        /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        [MapsApi("ml.undeploy_model", "model_id")]
+        /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
+        [MapsApi("ml.undeploy_model", "model_id, body")]
         public Task<TResponse> UndeployModelAsync<TResponse>(
             string modelId,
+            PostData body,
             UndeployModelRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
@@ -527,7 +2055,397 @@ namespace OpenSearch.Net.Specification.MlApi
                 POST,
                 Url($"_plugins/_ml/models/{modelId:modelId}/_undeploy"),
                 ctx,
-                null,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/models/_unload</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [Obsolete("Deprecated in version 2.7.0: Use `undeploy_model` instead.")]
+        public TResponse UnloadModel<TResponse>(
+            PostData body,
+            UnloadModelRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_plugins/_ml/models/_unload",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/models/_unload</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [Obsolete("Deprecated in version 2.7.0: Use `undeploy_model` instead.")]
+        [MapsApi("ml.unload_model", "body")]
+        public Task<TResponse> UnloadModelAsync<TResponse>(
+            PostData body,
+            UnloadModelRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_plugins/_ml/models/_unload",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/models/{model_id}/_unload</summary>
+        /// <param name="modelId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [Obsolete("Deprecated in version 2.7.0: Use `undeploy_model` instead.")]
+        public TResponse UnloadModel<TResponse>(
+            string modelId,
+            PostData body,
+            UnloadModelRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_plugins/_ml/models/{modelId:modelId}/_unload"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/models/{model_id}/_unload</summary>
+        /// <param name="modelId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [Obsolete("Deprecated in version 2.7.0: Use `undeploy_model` instead.")]
+        [MapsApi("ml.unload_model", "model_id, body")]
+        public Task<TResponse> UnloadModelAsync<TResponse>(
+            string modelId,
+            PostData body,
+            UnloadModelRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_plugins/_ml/models/{modelId:modelId}/_unload"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_plugins/_ml/connectors/{connector_id}</summary>
+        /// <param name="connectorId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        public TResponse UpdateConnector<TResponse>(
+            string connectorId,
+            PostData body,
+            UpdateConnectorRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"_plugins/_ml/connectors/{connectorId:connectorId}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_plugins/_ml/connectors/{connector_id}</summary>
+        /// <param name="connectorId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        [MapsApi("ml.update_connector", "connector_id, body")]
+        public Task<TResponse> UpdateConnectorAsync<TResponse>(
+            string connectorId,
+            PostData body,
+            UpdateConnectorRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"_plugins/_ml/connectors/{connectorId:connectorId}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_plugins/_ml/controllers/{model_id}</summary>
+        /// <param name="modelId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        public TResponse UpdateController<TResponse>(
+            string modelId,
+            PostData body,
+            UpdateControllerRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"_plugins/_ml/controllers/{modelId:modelId}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_plugins/_ml/controllers/{model_id}</summary>
+        /// <param name="modelId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        [MapsApi("ml.update_controller", "model_id, body")]
+        public Task<TResponse> UpdateControllerAsync<TResponse>(
+            string modelId,
+            PostData body,
+            UpdateControllerRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"_plugins/_ml/controllers/{modelId:modelId}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_plugins/_ml/memory/{memory_id}</summary>
+        /// <param name="memoryId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        public TResponse UpdateMemory<TResponse>(
+            string memoryId,
+            PostData body,
+            UpdateMemoryRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"_plugins/_ml/memory/{memoryId:memoryId}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_plugins/_ml/memory/{memory_id}</summary>
+        /// <param name="memoryId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        [MapsApi("ml.update_memory", "memory_id, body")]
+        public Task<TResponse> UpdateMemoryAsync<TResponse>(
+            string memoryId,
+            PostData body,
+            UpdateMemoryRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"_plugins/_ml/memory/{memoryId:memoryId}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_plugins/_ml/memory/message/{message_id}</summary>
+        /// <param name="messageId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        public TResponse UpdateMessage<TResponse>(
+            string messageId,
+            PostData body,
+            UpdateMessageRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"_plugins/_ml/memory/message/{messageId:messageId}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_plugins/_ml/memory/message/{message_id}</summary>
+        /// <param name="messageId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        [MapsApi("ml.update_message", "message_id, body")]
+        public Task<TResponse> UpdateMessageAsync<TResponse>(
+            string messageId,
+            PostData body,
+            UpdateMessageRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"_plugins/_ml/memory/message/{messageId:messageId}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_plugins/_ml/models/{model_id}</summary>
+        /// <param name="modelId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        public TResponse UpdateModel<TResponse>(
+            string modelId,
+            PostData body,
+            UpdateModelRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"_plugins/_ml/models/{modelId:modelId}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_plugins/_ml/models/{model_id}</summary>
+        /// <param name="modelId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
+        [MapsApi("ml.update_model", "model_id, body")]
+        public Task<TResponse> UpdateModelAsync<TResponse>(
+            string modelId,
+            PostData body,
+            UpdateModelRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"_plugins/_ml/models/{modelId:modelId}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_plugins/_ml/model_groups/{model_group_id}</summary>
+        /// <param name="modelGroupId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
+        public TResponse UpdateModelGroup<TResponse>(
+            string modelGroupId,
+            PostData body,
+            UpdateModelGroupRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"_plugins/_ml/model_groups/{modelGroupId:modelGroupId}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_plugins/_ml/model_groups/{model_group_id}</summary>
+        /// <param name="modelGroupId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
+        [MapsApi("ml.update_model_group", "model_group_id, body")]
+        public Task<TResponse> UpdateModelGroupAsync<TResponse>(
+            string modelGroupId,
+            PostData body,
+            UpdateModelGroupRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"_plugins/_ml/model_groups/{modelGroupId:modelGroupId}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/models/{model_id}/upload_chunk/{chunk_number}</summary>
+        /// <param name="modelId"></param>
+        /// <param name="chunkNumber"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
+        public TResponse UploadChunk<TResponse>(
+            string modelId,
+            number chunkNumber,
+            PostData body,
+            UploadChunkRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url(
+                    $"_plugins/_ml/models/{modelId:modelId}/upload_chunk/{chunkNumber:chunkNumber}"
+                ),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/models/{model_id}/upload_chunk/{chunk_number}</summary>
+        /// <param name="modelId"></param>
+        /// <param name="chunkNumber"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
+        [MapsApi("ml.upload_chunk", "model_id, chunk_number, body")]
+        public Task<TResponse> UploadChunkAsync<TResponse>(
+            string modelId,
+            number chunkNumber,
+            PostData body,
+            UploadChunkRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url(
+                    $"_plugins/_ml/models/{modelId:modelId}/upload_chunk/{chunkNumber:chunkNumber}"
+                ),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/models/_upload</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [Obsolete("Deprecated in version 2.7.0: Use `register_model` instead.")]
+        public TResponse UploadModel<TResponse>(
+            PostData body,
+            UploadModelRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_plugins/_ml/models/_upload",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/models/_upload</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [Obsolete("Deprecated in version 2.7.0: Use `register_model` instead.")]
+        [MapsApi("ml.upload_model", "body")]
+        public Task<TResponse> UploadModelAsync<TResponse>(
+            PostData body,
+            UploadModelRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_plugins/_ml/models/_upload",
+                ctx,
+                body,
                 RequestParams(requestParameters)
             );
     }

@@ -73,6 +73,7 @@ using OpenSearch.Net.Specification.ReplicationApi;
 using OpenSearch.Net.Specification.RollupsApi;
 using OpenSearch.Net.Specification.SearchPipelineApi;
 using OpenSearch.Net.Specification.SecurityApi;
+using OpenSearch.Net.Specification.SmApi;
 using OpenSearch.Net.Specification.SnapshotApi;
 using OpenSearch.Net.Specification.SqlApi;
 using OpenSearch.Net.Specification.TasksApi;
@@ -154,6 +155,9 @@ namespace OpenSearch.Net
 
         /// <summary>Security APIs</summary>
         LowLevelSecurityNamespace Security { get; }
+
+        /// <summary>Sm APIs</summary>
+        LowLevelSmNamespace Sm { get; }
 
         /// <summary>Snapshot APIs</summary>
         LowLevelSnapshotNamespace Snapshot { get; }
@@ -1171,13 +1175,13 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /_search/scroll <para>https://opensearch.org/docs/latest/api-reference/scroll/#path-and-http-methods</para></summary>
-        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse Scroll<TResponse>(PostData body, ScrollRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /_search/scroll <para>https://opensearch.org/docs/latest/api-reference/scroll/#path-and-http-methods</para></summary>
-        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> ScrollAsync<TResponse>(
             PostData body,
@@ -1188,7 +1192,7 @@ namespace OpenSearch.Net
 
         /// <summary>POST on /_search/scroll/{scroll_id} <para>https://opensearch.org/docs/latest/api-reference/scroll/#path-and-http-methods</para></summary>
         /// <param name="scrollId">The scroll ID.</param>
-        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [Obsolete(
             "Deprecated in version 1.0.0: A scroll id can be quite large and should be specified as part of the body."
@@ -1202,7 +1206,7 @@ namespace OpenSearch.Net
 
         /// <summary>POST on /_search/scroll/{scroll_id} <para>https://opensearch.org/docs/latest/api-reference/scroll/#path-and-http-methods</para></summary>
         /// <param name="scrollId">The scroll ID.</param>
-        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [Obsolete(
             "Deprecated in version 1.0.0: A scroll id can be quite large and should be specified as part of the body."
