@@ -254,13 +254,7 @@ namespace OpenSearch.Net
         [EnumMember(Value = "and")]
         And,
 
-        [EnumMember(Value = "AND")]
-        And,
-
         [EnumMember(Value = "or")]
-        Or,
-
-        [EnumMember(Value = "OR")]
         Or,
     }
 
@@ -289,19 +283,10 @@ namespace OpenSearch.Net
         [EnumMember(Value = "green")]
         Green,
 
-        [EnumMember(Value = "GREEN")]
-        Green,
-
         [EnumMember(Value = "red")]
         Red,
 
-        [EnumMember(Value = "RED")]
-        Red,
-
         [EnumMember(Value = "yellow")]
-        Yellow,
-
-        [EnumMember(Value = "YELLOW")]
         Yellow,
     }
 
@@ -1012,9 +997,7 @@ namespace OpenSearch.Net
             enumValue switch
             {
                 DefaultOperator.And => "and",
-                DefaultOperator.And => "AND",
                 DefaultOperator.Or => "or",
-                DefaultOperator.Or => "OR",
                 _ => throw new ArgumentException(
                     $"'{enumValue.ToString()}' is not a valid value for enum 'DefaultOperator'"
                 ),
@@ -1040,11 +1023,8 @@ namespace OpenSearch.Net
             enumValue switch
             {
                 HealthStatus.Green => "green",
-                HealthStatus.Green => "GREEN",
                 HealthStatus.Red => "red",
-                HealthStatus.Red => "RED",
                 HealthStatus.Yellow => "yellow",
-                HealthStatus.Yellow => "YELLOW",
                 _ => throw new ArgumentException(
                     $"'{enumValue.ToString()}' is not a valid value for enum 'HealthStatus'"
                 ),
