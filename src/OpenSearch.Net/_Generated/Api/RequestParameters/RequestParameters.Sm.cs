@@ -83,14 +83,14 @@ namespace OpenSearch.Net.Specification.SmApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>The index to retrieve snapshot management policies from.</summary>
+        /// <summary>The starting index from which to retrieve snapshot management policies.</summary>
         public int? From
         {
             get => Q<int?>("from");
             set => Q("from", value);
         }
 
-        /// <summary>Filters the returned snapshot management policies based on query string.</summary>
+        /// <summary>The query string to filter the returned snapshot management policies.</summary>
         public string QueryStringParam
         {
             get => Q<string>("queryString");
@@ -104,14 +104,14 @@ namespace OpenSearch.Net.Specification.SmApi
             set => Q("size", value);
         }
 
-        /// <summary>The name of the query field to sort on.</summary>
+        /// <summary>The name of the field to sort the snapshot management policies by.</summary>
         public string SortField
         {
             get => Q<string>("sortField");
             set => Q("sortField", value);
         }
 
-        /// <summary>The order to sort the snapshot management policy result.</summary>
+        /// <summary>The order to sort the snapshot management policies.</summary>
         public string SortOrder
         {
             get => Q<string>("sortOrder");

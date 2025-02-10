@@ -237,12 +237,6 @@ namespace ApiGenerator.Generator
 
                 if (oneOf.Length != 2) throw new Exception("Unable to determine type of oneOf");
 
-                if (oneOf[0].Type == JsonObjectType.Boolean && oneOf[1].IsEnum())
-                {
-                    trackEnumToGenerate(schemaKey, isListContext);
-                    return CsharpNames.GetEnumName(schemaKey) + "?";
-                }
-
                 var first = GetOpenSearchType(oneOf[0], trackEnumToGenerate);
                 var second = GetOpenSearchType(oneOf[1], trackEnumToGenerate);
                 if (first.EndsWith("?")) return first;
