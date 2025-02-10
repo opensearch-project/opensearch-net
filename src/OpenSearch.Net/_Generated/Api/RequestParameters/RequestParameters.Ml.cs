@@ -193,11 +193,21 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+
+        /// <summary>
+        /// The maximum number of results to return. If there are fewer memories than the number set in `max_results`, the response returns only the
+        /// number of memories that exist. Default is `10`.
+        /// </summary>
         public long? MaxResults
         {
             get => Q<long?>("max_results");
             set => Q("max_results", value);
         }
+
+        /// <summary>
+        /// The index of the first memory in the sorted list of memories to return. Memories are ordered by `create_time`. For example, if memories
+        /// `A`, `B`, and `C` exist, `next_token=1` returns memories `B` and `C`. Default is `0` (return all memories).
+        /// </summary>
         public long? NextToken
         {
             get => Q<long?>("next_token");

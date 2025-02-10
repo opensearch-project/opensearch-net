@@ -89,6 +89,10 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("cluster_manager_timeout", value);
         }
 
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -97,6 +101,11 @@ namespace OpenSearch.Net.Specification.ClusterApi
             get => Q<TimeSpan>("master_timeout");
             set => Q("master_timeout", value);
         }
+
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
@@ -146,6 +155,10 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
         public override bool SupportsBody => false;
 
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -163,6 +176,10 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("local", value);
         }
 
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -180,6 +197,10 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -204,6 +225,10 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("local", value);
         }
 
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -229,6 +254,10 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -250,6 +279,10 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("include_defaults", value);
         }
 
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -258,6 +291,11 @@ namespace OpenSearch.Net.Specification.ClusterApi
             get => Q<TimeSpan>("master_timeout");
             set => Q("master_timeout", value);
         }
+
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
@@ -290,12 +328,18 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("awareness_attribute", value);
         }
 
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
             get => Q<TimeSpan>("cluster_manager_timeout");
             set => Q("cluster_manager_timeout", value);
         }
+
+        /// <summary>Specifies the type of index that wildcard expressions can match. Supports comma-separated values.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
@@ -314,6 +358,10 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("local", value);
         }
 
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -322,16 +370,25 @@ namespace OpenSearch.Net.Specification.ClusterApi
             get => Q<TimeSpan>("master_timeout");
             set => Q("master_timeout", value);
         }
+
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
             set => Q("timeout", value);
         }
+
+        /// <summary>Waits until the specified number of shards is active before returning a response. Use `all` for all shards.</summary>
         public string WaitForActiveShards
         {
             get => Q<string>("wait_for_active_shards");
             set => Q("wait_for_active_shards", value);
         }
+
+        /// <summary>Waits until all currently queued events with the given priority are processed.</summary>
         public WaitForEvents? WaitForEvents
         {
             get => Q<WaitForEvents?>("wait_for_events");
@@ -377,6 +434,10 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -394,6 +455,10 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("local", value);
         }
 
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -449,6 +514,10 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
 
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -463,6 +532,10 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("create", value);
         }
 
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -471,6 +544,11 @@ namespace OpenSearch.Net.Specification.ClusterApi
             get => Q<TimeSpan>("master_timeout");
             set => Q("master_timeout", value);
         }
+
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
@@ -493,6 +571,10 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
 
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -507,6 +589,10 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("flat_settings", value);
         }
 
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -515,6 +601,11 @@ namespace OpenSearch.Net.Specification.ClusterApi
             get => Q<TimeSpan>("master_timeout");
             set => Q("master_timeout", value);
         }
+
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
@@ -545,6 +636,10 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -566,6 +661,10 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("explain", value);
         }
 
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -588,6 +687,11 @@ namespace OpenSearch.Net.Specification.ClusterApi
             get => Q<bool?>("retry_failed");
             set => Q("retry_failed", value);
         }
+
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
@@ -612,12 +716,18 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("allow_no_indices", value);
         }
 
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
             get => Q<TimeSpan>("cluster_manager_timeout");
             set => Q("cluster_manager_timeout", value);
         }
+
+        /// <summary>Specifies the type of index that wildcard expressions can match. Supports comma-separated values.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
@@ -645,6 +755,10 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("local", value);
         }
 
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]

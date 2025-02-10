@@ -57,6 +57,8 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+
+        /// <summary>Provision the workflow as part of the request.</summary>
         public bool? Provision
         {
             get => Q<bool?>("provision");
@@ -69,6 +71,8 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             get => Q<bool?>("reprovision");
             set => Q("reprovision", value);
         }
+
+        /// <summary>Update only the fields included in the request body.</summary>
         public bool? UpdateFields
         {
             get => Q<bool?>("update_fields");
@@ -81,6 +85,8 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             get => Q<string>("use_case");
             set => Q("use_case", value);
         }
+
+        /// <summary>Validate the workflow. Valid values are all (validate the template) and none (do not validate the template). Default is all.</summary>
         public string Validation
         {
             get => Q<string>("validation");
@@ -93,6 +99,11 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+
+        /// <summary>
+        /// Delete the workflow state (without deprovisioning resources) after deleting the template. OpenSearch deletes the workflow state only if
+        /// the provisioning status is not IN_PROGRESS. Default is false.
+        /// </summary>
         public bool? ClearStatus
         {
             get => Q<bool?>("clear_status");
@@ -106,6 +117,8 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+
+        /// <summary>Required when deleting resources involves a high potential for data loss.</summary>
         public string AllowDelete
         {
             get => Q<string>("allow_delete");
@@ -139,6 +152,8 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+
+        /// <summary>The name of the step to retrieve.</summary>
         public string WorkflowStep
         {
             get => Q<string>("workflow_step");
@@ -173,6 +188,8 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+
+        /// <summary>Provision the workflow as part of the request.</summary>
         public bool? Provision
         {
             get => Q<bool?>("provision");
@@ -185,6 +202,8 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             get => Q<bool?>("reprovision");
             set => Q("reprovision", value);
         }
+
+        /// <summary>Update only the fields included in the request body.</summary>
         public bool? UpdateFields
         {
             get => Q<bool?>("update_fields");
@@ -197,6 +216,8 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             get => Q<string>("use_case");
             set => Q("use_case", value);
         }
+
+        /// <summary>Validate the workflow. Valid values are all (validate the template) and none (do not validate the template). Default is all.</summary>
         public string Validation
         {
             get => Q<string>("validation");

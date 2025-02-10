@@ -50,4 +50,6 @@ let SkipList = dict<SkipFile,SkipSection> [
     SkipFile "search.aggregation/370_multi_terms.yml", Section "Unsigned Long test"
     SkipFile "search.aggregation/410_nested_aggs.yml", Section "Supported queries"
     SkipFile "search/90_search_after.yml", Section "unsigned long"
+    
+    SkipFile "search_shards/20_slice.yml", Section "Search shards with slice specified in body"
 ]

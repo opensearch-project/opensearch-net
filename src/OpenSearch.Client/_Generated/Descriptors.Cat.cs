@@ -80,12 +80,12 @@ namespace OpenSearch.Client
         // values part of the url path
         Names ICatAliasesRequest.Name => Self.RouteValues.Get<Names>("name");
 
-        /// <summary></summary>
+        /// <summary>A comma-separated list of aliases to retrieve. Supports wildcards (`*`). To retrieve all aliases, omit this parameter or use `*` or `_all`.</summary>
         public CatAliasesDescriptor Name(Names name) =>
             Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
         // Request parameters
-        /// <summary>TODO</summary>
+        /// <summary>Specifies the type of index that wildcard expressions can match. Supports comma-separated values.</summary>
         public CatAliasesDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
@@ -435,7 +435,7 @@ namespace OpenSearch.Client
         public CatIndicesDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>TODO</summary>
+        /// <summary>Specifies the type of index that wildcard expressions can match. Supports comma-separated values.</summary>
         public CatIndicesDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
@@ -898,7 +898,7 @@ namespace OpenSearch.Client
         public CatSegmentReplicationDescriptor Detailed(bool? detailed = true) =>
             Qs("detailed", detailed);
 
-        /// <summary>TODO</summary>
+        /// <summary>Specifies the type of index that wildcard expressions can match. Supports comma-separated values.</summary>
         public CatSegmentReplicationDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
@@ -1021,7 +1021,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICatShardsRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary></summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
         public CatShardsDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 

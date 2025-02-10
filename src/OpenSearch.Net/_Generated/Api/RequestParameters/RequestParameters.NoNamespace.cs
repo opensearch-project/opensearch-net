@@ -298,6 +298,8 @@ namespace OpenSearch.Net
             get => Q<string>("df");
             set => Q("df", value);
         }
+
+        /// <summary>Specifies the type of index that wildcard expressions can match. Supports comma-separated values.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");

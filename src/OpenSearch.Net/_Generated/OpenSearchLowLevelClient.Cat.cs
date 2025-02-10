@@ -94,7 +94,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/aliases/{name} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/</para></summary>
-        /// <param name="name"></param>
+        /// <param name="name">A comma-separated list of aliases to retrieve. Supports wildcards (`*`). To retrieve all aliases, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Aliases<TResponse>(
             string name,
@@ -109,7 +109,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/aliases/{name} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/</para></summary>
-        /// <param name="name"></param>
+        /// <param name="name">A comma-separated list of aliases to retrieve. Supports wildcards (`*`). To retrieve all aliases, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cat.aliases", "name")]
         public Task<TResponse> AliasesAsync<TResponse>(
@@ -823,7 +823,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/shards/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</para></summary>
-        /// <param name="index"></param>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Shards<TResponse>(
             string index,
@@ -838,7 +838,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/shards/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</para></summary>
-        /// <param name="index"></param>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cat.shards", "index")]
         public Task<TResponse> ShardsAsync<TResponse>(

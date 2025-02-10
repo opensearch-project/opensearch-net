@@ -87,7 +87,7 @@ namespace OpenSearch.Client
         Names ICatAliasesRequest.Name => Self.RouteValues.Get<Names>("name");
 
         // Request parameters
-        /// <summary>TODO</summary>
+        /// <summary>Specifies the type of index that wildcard expressions can match. Supports comma-separated values.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
@@ -649,7 +649,7 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>Specifies the type of index that wildcard expressions can match. Supports comma-separated values.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
@@ -1447,7 +1447,7 @@ namespace OpenSearch.Client
             set => Q("detailed", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>Specifies the type of index that wildcard expressions can match. Supports comma-separated values.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");

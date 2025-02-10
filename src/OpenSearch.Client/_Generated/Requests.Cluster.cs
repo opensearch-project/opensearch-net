@@ -127,7 +127,10 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -137,7 +140,10 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         public Time Timeout
         {
             get => Q<Time>("timeout");
@@ -203,7 +209,10 @@ namespace OpenSearch.Client
         Name IComponentTemplateExistsRequest.Name => Self.RouteValues.Get<Name>("name");
 
         // Request parameters
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
@@ -221,7 +230,10 @@ namespace OpenSearch.Client
             set => Q("local", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -262,7 +274,10 @@ namespace OpenSearch.Client
         Name IGetComponentTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
 
         // Request parameters
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
@@ -287,7 +302,10 @@ namespace OpenSearch.Client
             set => Q("local", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -313,7 +331,10 @@ namespace OpenSearch.Client
         // values part of the url path
 
         // Request parameters
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
@@ -335,7 +356,10 @@ namespace OpenSearch.Client
             set => Q("include_defaults", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -345,7 +369,10 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         public Time Timeout
         {
             get => Q<Time>("timeout");
@@ -392,7 +419,10 @@ namespace OpenSearch.Client
             set => Q("awareness_attribute", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
@@ -400,7 +430,7 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>Specifies the type of index that wildcard expressions can match. Supports comma-separated values.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
@@ -421,7 +451,10 @@ namespace OpenSearch.Client
             set => Q("local", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -431,21 +464,24 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         public Time Timeout
         {
             get => Q<Time>("timeout");
             set => Q("timeout", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>Waits until the specified number of shards is active before returning a response. Use `all` for all shards.</summary>
         public string WaitForActiveShards
         {
             get => Q<string>("wait_for_active_shards");
             set => Q("wait_for_active_shards", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>Waits until all currently queued events with the given priority are processed.</summary>
         public WaitForEvents? WaitForEvents
         {
             get => Q<WaitForEvents?>("wait_for_events");
@@ -499,7 +535,10 @@ namespace OpenSearch.Client
         // values part of the url path
 
         // Request parameters
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
@@ -517,7 +556,10 @@ namespace OpenSearch.Client
             set => Q("local", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -605,7 +647,10 @@ namespace OpenSearch.Client
         Name IPutComponentTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
 
         // Request parameters
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
@@ -620,7 +665,10 @@ namespace OpenSearch.Client
             set => Q("create", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -630,7 +678,10 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         public Time Timeout
         {
             get => Q<Time>("timeout");
@@ -653,7 +704,10 @@ namespace OpenSearch.Client
         // values part of the url path
 
         // Request parameters
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
@@ -668,7 +722,10 @@ namespace OpenSearch.Client
             set => Q("flat_settings", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -678,7 +735,10 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         public Time Timeout
         {
             get => Q<Time>("timeout");
@@ -715,7 +775,10 @@ namespace OpenSearch.Client
         // values part of the url path
 
         // Request parameters
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
@@ -737,7 +800,10 @@ namespace OpenSearch.Client
             set => Q("explain", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -761,7 +827,10 @@ namespace OpenSearch.Client
             set => Q("retry_failed", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         public Time Timeout
         {
             get => Q<Time>("timeout");
@@ -820,7 +889,10 @@ namespace OpenSearch.Client
             set => Q("allow_no_indices", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
@@ -828,7 +900,7 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>Specifies the type of index that wildcard expressions can match. Supports comma-separated values.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
@@ -856,7 +928,10 @@ namespace OpenSearch.Client
             set => Q("local", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>
+        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
+        /// "0" without a unit and "-1" to indicate an unspecified value.
+        /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]

@@ -203,7 +203,7 @@ namespace OpenSearch.Client
         /// <summary>Field to use as default where no field prefix is given in the query string. This parameter can only be used when the `q` query string parameter is specified.</summary>
         public CountDescriptor<TDocument> Df(string df) => Qs("df", df);
 
-        /// <summary>TODO</summary>
+        /// <summary>Specifies the type of index that wildcard expressions can match. Supports comma-separated values.</summary>
         public CountDescriptor<TDocument> ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 

@@ -438,7 +438,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>GET on /_cluster/health/{index} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
-        /// <param name="index"></param>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Health<TResponse>(
             string index,
@@ -453,7 +453,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>GET on /_cluster/health/{index} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
-        /// <param name="index"></param>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.health", "index")]
         public Task<TResponse> HealthAsync<TResponse>(
@@ -781,7 +781,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>GET on /_cluster/state/{metric}/{index} <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="metric">Limits the information returned to only the specified metrics.</param>
-        /// <param name="index"></param>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse State<TResponse>(
             string metric,
@@ -798,7 +798,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>GET on /_cluster/state/{metric}/{index} <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="metric">Limits the information returned to only the specified metrics.</param>
-        /// <param name="index"></param>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.state", "metric, index")]
         public Task<TResponse> StateAsync<TResponse>(
@@ -841,7 +841,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         /// <summary>GET on /_cluster/stats/{metric}/{index_metric}/nodes/{node_id} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</para></summary>
         /// <param name="metric">Limit the information returned to the specified metrics.</param>
         /// <param name="indexMetric">A comma-separated list of index metric groups, for example, `docs,store`.</param>
-        /// <param name="nodeId"></param>
+        /// <param name="nodeId">A comma-separated list of node IDs used to filter results. Supports [node filters](https://opensearch.org/docs/latest/api-reference/nodes-apis/index/#node-filters).</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
         public TResponse Stats<TResponse>(
@@ -863,7 +863,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         /// <summary>GET on /_cluster/stats/{metric}/{index_metric}/nodes/{node_id} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</para></summary>
         /// <param name="metric">Limit the information returned to the specified metrics.</param>
         /// <param name="indexMetric">A comma-separated list of index metric groups, for example, `docs,store`.</param>
-        /// <param name="nodeId"></param>
+        /// <param name="nodeId">A comma-separated list of node IDs used to filter results. Supports [node filters](https://opensearch.org/docs/latest/api-reference/nodes-apis/index/#node-filters).</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
         [MapsApi("cluster.stats", "metric, index_metric, node_id")]
@@ -887,7 +887,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>GET on /_cluster/stats/{metric}/nodes/{node_id} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</para></summary>
         /// <param name="metric">Limit the information returned to the specified metrics.</param>
-        /// <param name="nodeId"></param>
+        /// <param name="nodeId">A comma-separated list of node IDs used to filter results. Supports [node filters](https://opensearch.org/docs/latest/api-reference/nodes-apis/index/#node-filters).</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
         public TResponse Stats<TResponse>(
@@ -905,7 +905,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>GET on /_cluster/stats/{metric}/nodes/{node_id} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</para></summary>
         /// <param name="metric">Limit the information returned to the specified metrics.</param>
-        /// <param name="nodeId"></param>
+        /// <param name="nodeId">A comma-separated list of node IDs used to filter results. Supports [node filters](https://opensearch.org/docs/latest/api-reference/nodes-apis/index/#node-filters).</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
         [MapsApi("cluster.stats", "metric, node_id")]
@@ -925,7 +925,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>GET on /_cluster/stats/nodes/{node_id} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</para></summary>
-        /// <param name="nodeId"></param>
+        /// <param name="nodeId">A comma-separated list of node IDs used to filter results. Supports [node filters](https://opensearch.org/docs/latest/api-reference/nodes-apis/index/#node-filters).</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Stats<TResponse>(
             string nodeId,
@@ -940,7 +940,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>GET on /_cluster/stats/nodes/{node_id} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</para></summary>
-        /// <param name="nodeId"></param>
+        /// <param name="nodeId">A comma-separated list of node IDs used to filter results. Supports [node filters](https://opensearch.org/docs/latest/api-reference/nodes-apis/index/#node-filters).</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.stats", "node_id")]
         public Task<TResponse> StatsAsync<TResponse>(
