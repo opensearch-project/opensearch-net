@@ -76,7 +76,7 @@ namespace Tests.Document.Multiple.BulkAll
 				b =>
 				{
 					Interlocked.Increment(ref seenPages);
-					b.Page.Should().BeLessOrEqualTo(FailAfterPage - 1);
+					b.Page.Should().BeLessThanOrEqualTo(FailAfterPage - 1);
 				},
 				e =>
 				{

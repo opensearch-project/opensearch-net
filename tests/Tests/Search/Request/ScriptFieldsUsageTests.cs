@@ -114,8 +114,8 @@ namespace Tests.Search.Request
 		{
 			foreach (var fields in response.Fields)
 			{
-				fields.Value<int>("test1").Should().BeGreaterOrEqualTo(0);
-				fields.Value<double>("test2").Should().BeGreaterOrEqualTo(0);
+				fields.Value<int>("test1").Should().BeGreaterThanOrEqualTo(0);
+				fields.Value<double>("test2").Should().BeGreaterThanOrEqualTo(0);
 			}
 		}
 	}

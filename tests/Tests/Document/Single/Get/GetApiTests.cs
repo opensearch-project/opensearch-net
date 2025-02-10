@@ -75,8 +75,8 @@ namespace Tests.Document.Single.Get
 			response.SequenceNumber.Should().HaveValue();
 			response.PrimaryTerm.Should().HaveValue();
 			response.Source.ShouldAdhereToSourceSerializerWhenSet();
-			response.SequenceNumber.Should().BeGreaterOrEqualTo(0);
-			response.PrimaryTerm.Should().BeGreaterOrEqualTo(1);
+			response.SequenceNumber.Should().BeGreaterThanOrEqualTo(0);
+			response.PrimaryTerm.Should().BeGreaterThanOrEqualTo(1);
 		}
 	}
 

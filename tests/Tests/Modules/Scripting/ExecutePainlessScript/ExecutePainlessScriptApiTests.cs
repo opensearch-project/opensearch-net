@@ -177,7 +177,7 @@ namespace Tests.Modules.Scripting.ExecutePainlessScript
 		protected override void ExpectResponse(ExecutePainlessScriptResponse<double> response)
 		{
 			response.ShouldBeValid();
-			response.Result.Should().BeGreaterOrEqualTo(0);
+			response.Result.Should().BeGreaterThanOrEqualTo(0);
 		}
 
 		[SuppressMessage("ReSharper", "UnusedMember.Local")]

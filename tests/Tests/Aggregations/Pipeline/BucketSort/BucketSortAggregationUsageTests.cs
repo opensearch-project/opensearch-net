@@ -134,7 +134,7 @@ namespace Tests.Aggregations.Pipeline.BucketSort
 
 				var numberOfCommits = value.Value;
 				if (Math.Abs(previousCommits - (-1)) > double.Epsilon)
-					numberOfCommits.Should().BeLessOrEqualTo(previousCommits);
+					numberOfCommits.Should().BeLessThanOrEqualTo(previousCommits);
 
 				previousCommits = numberOfCommits;
 			}

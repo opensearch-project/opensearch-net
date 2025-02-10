@@ -122,7 +122,7 @@ namespace Tests.Aggregations.Pipeline.BucketSelector
 			{
 				var commits = item.Sum("commits");
 				commits.Should().NotBeNull();
-				commits.Value.Should().BeGreaterOrEqualTo(500);
+				commits.Value.Should().BeGreaterThanOrEqualTo(500);
 			}
 		}
 	}

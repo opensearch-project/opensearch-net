@@ -268,7 +268,7 @@ namespace Tests.Aggregations.Bucket.SignificantTerms
 			foreach (var item in commits.Buckets)
 			{
 				item.Key.Should().BeGreaterThan(0);
-				item.DocCount.Should().BeGreaterOrEqualTo(1);
+				item.DocCount.Should().BeGreaterThanOrEqualTo(1);
 			}
 		}
 	}

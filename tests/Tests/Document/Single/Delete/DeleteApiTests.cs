@@ -73,8 +73,8 @@ namespace Tests.Document.Single.Delete
 			response.ShouldBeValid();
 			response.Result.Should().Be(Result.Deleted);
 			response.Shards.Should().NotBeNull();
-			response.Shards.Total.Should().BeGreaterOrEqualTo(1);
-			response.Shards.Successful.Should().BeGreaterOrEqualTo(1);
+			response.Shards.Total.Should().BeGreaterThanOrEqualTo(1);
+			response.Shards.Successful.Should().BeGreaterThanOrEqualTo(1);
 			response.PrimaryTerm.Should().BeGreaterThan(0);
 			response.SequenceNumber.Should().BeGreaterThan(0);
 		}
@@ -113,8 +113,8 @@ namespace Tests.Document.Single.Delete
 			if (Cluster.ClusterConfiguration.Version < "2.0.0")
 				response.Type.Should().Be("_doc");
 			response.Id.Should().Be(CallIsolatedValue);
-			response.Shards.Total.Should().BeGreaterOrEqualTo(1);
-			response.Shards.Successful.Should().BeGreaterOrEqualTo(1);
+			response.Shards.Total.Should().BeGreaterThanOrEqualTo(1);
+			response.Shards.Successful.Should().BeGreaterThanOrEqualTo(1);
 			response.PrimaryTerm.Should().BeGreaterThan(0);
 			response.SequenceNumber.Should().BeGreaterThan(0);
 		}

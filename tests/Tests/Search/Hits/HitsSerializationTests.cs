@@ -318,12 +318,12 @@ namespace Tests.Search.Hits
 
 				nestedIdentity.Should().NotBeNull();
 				nestedIdentity.Field.Should().NotBeNull();
-				nestedIdentity.Offset.Should().BeGreaterOrEqualTo(0);
+				nestedIdentity.Offset.Should().BeGreaterThanOrEqualTo(0);
 
 				var nestedNestedIdentity = nestedIdentity.Nested;
 				nestedNestedIdentity.Should().NotBeNull();
 				nestedNestedIdentity.Field.Should().NotBeNull();
-				nestedNestedIdentity.Offset.Should().BeGreaterOrEqualTo(0);
+				nestedNestedIdentity.Offset.Should().BeGreaterThanOrEqualTo(0);
 			}
 		}
 

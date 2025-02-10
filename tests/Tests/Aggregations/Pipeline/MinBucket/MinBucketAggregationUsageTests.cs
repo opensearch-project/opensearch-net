@@ -105,7 +105,7 @@ namespace Tests.Aggregations.Pipeline.MinBucket
 			minCommits.Should().NotBeNull();
 			minCommits.Value.Should().BeGreaterThan(0);
 			minCommits.Keys.Should().NotBeNull();
-			minCommits.Keys.Count.Should().BeGreaterOrEqualTo(1);
+			minCommits.Keys.Count.Should().BeGreaterThanOrEqualTo(1);
 			foreach (var key in minCommits.Keys)
 				key.Should().NotBeNullOrEmpty();
 		}

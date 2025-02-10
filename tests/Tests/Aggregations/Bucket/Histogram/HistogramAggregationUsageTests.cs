@@ -148,7 +148,7 @@ namespace Tests.Aggregations.Bucket.Histogram
 			commits.Buckets.Should().NotBeNull();
 
 			foreach (var bucket in commits.Buckets)
-				bucket.Key.Should().BeGreaterOrEqualTo(HardBoundsMinimum).And.BeLessOrEqualTo(HardBoundsMaximum);
+				bucket.Key.Should().BeGreaterThanOrEqualTo(HardBoundsMinimum).And.BeLessThanOrEqualTo(HardBoundsMaximum);
 		}
 	}
 }

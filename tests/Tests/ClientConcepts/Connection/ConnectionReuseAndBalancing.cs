@@ -89,7 +89,7 @@ namespace Tests.ClientConcepts.Connection
 			{
 				node.Http.TotalOpened.Should().BeGreaterThan(2, "We want to see some concurrency");
 				var h = node.Http;
-				node.Http.CurrentOpen.Should().BeLessOrEqualTo(maxCurrentOpen, $"CurrentOpen exceed our connection limit {maxCurrent}");
+				node.Http.CurrentOpen.Should().BeLessThanOrEqualTo(maxCurrentOpen, $"CurrentOpen exceed our connection limit {maxCurrent}");
 
 				string errorMessage;
 				int iterationMax;
@@ -109,7 +109,7 @@ namespace Tests.ClientConcepts.Connection
 					errorMessage =
 						$"Expected some socket bleeding but iteration {i} exceeded iteration specific max {iterationMax} = (({maxCurrent} * {m}) / 2) + {leeWay}";
 				}
-				node.Http.TotalOpened.Should().BeLessOrEqualTo(iterationMax, errorMessage);
+				node.Http.TotalOpened.Should().BeLessThanOrEqualTo(iterationMax, errorMessage);
 				if (i == -1) return;
 
 				Console.WriteLine(
