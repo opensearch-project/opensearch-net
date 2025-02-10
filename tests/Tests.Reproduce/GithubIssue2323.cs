@@ -71,7 +71,7 @@ namespace Tests.Reproduce
 
 			hitMetadata.Nested.Should().NotBeNull();
 			hitMetadata.Nested.Field.Should().Be(new Field("tags"));
-			hitMetadata.Nested.Offset.Should().BeGreaterOrEqualTo(0);
+			hitMetadata.Nested.Offset.Should().BeGreaterThanOrEqualTo(0);
 		}
 	}
 }

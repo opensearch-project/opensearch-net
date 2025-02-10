@@ -57,8 +57,8 @@ namespace Tests.Cluster.ReloadSecureSettings
 		{
 			response.Nodes.Should().NotBeEmpty();
 			response.NodeStatistics.Should().NotBeNull();
-			response.NodeStatistics.Total.Should().BeGreaterOrEqualTo(1);
-			response.NodeStatistics.Successful.Should().BeGreaterOrEqualTo(1);
+			response.NodeStatistics.Total.Should().BeGreaterThanOrEqualTo(1);
+			response.NodeStatistics.Successful.Should().BeGreaterThanOrEqualTo(1);
 			response.ClusterName.Should().NotBeNullOrWhiteSpace();
 
 		}

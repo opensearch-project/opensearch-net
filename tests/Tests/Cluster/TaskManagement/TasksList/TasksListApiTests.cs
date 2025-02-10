@@ -77,7 +77,7 @@ namespace Tests.Cluster.TaskManagement.TasksList
 			taskExecutingNode.Name.Should().NotBeNullOrWhiteSpace();
 			taskExecutingNode.TransportAddress.Should().NotBeNullOrWhiteSpace();
 			taskExecutingNode.Tasks.Should().NotBeEmpty();
-			taskExecutingNode.Tasks.Count().Should().BeGreaterOrEqualTo(2);
+			taskExecutingNode.Tasks.Count().Should().BeGreaterThanOrEqualTo(2);
 
 			var task = taskExecutingNode.Tasks.Values.First(p => p.ParentTaskId != null);
 			task.Action.Should().NotBeNullOrWhiteSpace();
@@ -163,7 +163,7 @@ namespace Tests.Cluster.TaskManagement.TasksList
 			taskExecutingNode.Name.Should().NotBeNullOrWhiteSpace();
 			taskExecutingNode.TransportAddress.Should().NotBeNullOrWhiteSpace();
 			taskExecutingNode.Tasks.Should().NotBeEmpty();
-			taskExecutingNode.Tasks.Count().Should().BeGreaterOrEqualTo(1);
+			taskExecutingNode.Tasks.Count.Should().BeGreaterThanOrEqualTo(1);
 
 			var task = taskExecutingNode.Tasks[_taskId];
 			task.Action.Should().NotBeNullOrWhiteSpace();
@@ -175,8 +175,8 @@ namespace Tests.Cluster.TaskManagement.TasksList
 
 			var status = task.Status;
 			status.Should().NotBeNull();
-			status.Total.Should().BeGreaterOrEqualTo(0);
-			status.Batches.Should().BeGreaterOrEqualTo(0);
+			status.Total.Should().BeGreaterThanOrEqualTo(0);
+			status.Batches.Should().BeGreaterThanOrEqualTo(0);
 		}
 	}
 }

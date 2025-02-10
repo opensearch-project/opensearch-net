@@ -105,7 +105,7 @@ namespace Tests.Aggregations.Pipeline.MaxBucket
 			maxCommits.Should().NotBeNull();
 			maxCommits.Value.Should().BeGreaterThan(0);
 			maxCommits.Keys.Should().NotBeNull();
-			maxCommits.Keys.Count.Should().BeGreaterOrEqualTo(1);
+			maxCommits.Keys.Count.Should().BeGreaterThanOrEqualTo(1);
 			foreach (var key in maxCommits.Keys)
 				key.Should().NotBeNull();
 		}

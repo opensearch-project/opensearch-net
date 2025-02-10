@@ -123,8 +123,8 @@ namespace Tests.QueryDsl.Geo.GeoShape
 			foreach (var lineString in multiLineString.Coordinates)
 			foreach (var coordinate in lineString)
 			{
-				coordinate.Latitude.Should().BeGreaterOrEqualTo(0).And.BeLessOrEqualTo(3);
-				coordinate.Longitude.Should().BeGreaterOrEqualTo(100).And.BeLessOrEqualTo(103);
+				coordinate.Latitude.Should().BeGreaterThanOrEqualTo(0).And.BeLessThanOrEqualTo(3);
+				coordinate.Longitude.Should().BeGreaterThanOrEqualTo(100).And.BeLessThanOrEqualTo(103);
 			}
 		}
 
@@ -168,8 +168,8 @@ namespace Tests.QueryDsl.Geo.GeoShape
 			foreach (var ring in polygon.Coordinates)
 			foreach (var coordinate in ring)
 			{
-				coordinate.Latitude.Should().BeLessOrEqualTo(1.0);
-				coordinate.Longitude.Should().BeGreaterOrEqualTo(100.0);
+				coordinate.Latitude.Should().BeLessThanOrEqualTo(1.0);
+				coordinate.Longitude.Should().BeGreaterThanOrEqualTo(100.0);
 			}
 		}
 
@@ -219,8 +219,8 @@ namespace Tests.QueryDsl.Geo.GeoShape
 				ring.Should().HaveCount(5);
 				foreach (var coordinate in ring)
 				{
-					coordinate.Latitude.Should().BeLessOrEqualTo(3.0).And.BeGreaterOrEqualTo(0);
-					coordinate.Longitude.Should().BeGreaterOrEqualTo(100.0).And.BeLessOrEqualTo(103.0);
+					coordinate.Latitude.Should().BeLessThanOrEqualTo(3.0).And.BeGreaterThanOrEqualTo(0);
+					coordinate.Longitude.Should().BeGreaterThanOrEqualTo(100.0).And.BeLessThanOrEqualTo(103.0);
 				}
 			}
 		}

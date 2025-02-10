@@ -61,10 +61,10 @@ namespace Tests.Cluster.ClusterHealth
 			response.ClusterName.Should().NotBeNullOrWhiteSpace();
 			response.Status.Should().NotBe(HealthStatus.Red);
 			response.TimedOut.Should().BeFalse();
-			response.NumberOfNodes.Should().BeGreaterOrEqualTo(1);
-			response.NumberOfDataNodes.Should().BeGreaterOrEqualTo(1);
-			response.ActivePrimaryShards.Should().BeGreaterOrEqualTo(1);
-			response.ActiveShards.Should().BeGreaterOrEqualTo(1);
+			response.NumberOfNodes.Should().BeGreaterThanOrEqualTo(1);
+			response.NumberOfDataNodes.Should().BeGreaterThanOrEqualTo(1);
+			response.ActivePrimaryShards.Should().BeGreaterThanOrEqualTo(1);
+			response.ActiveShards.Should().BeGreaterThanOrEqualTo(1);
 		}
 	}
 
@@ -93,14 +93,14 @@ namespace Tests.Cluster.ClusterHealth
 			response.ClusterName.Should().NotBeNullOrWhiteSpace();
 			response.Status.Should().NotBe(HealthStatus.Red);
 			response.TimedOut.Should().BeFalse();
-			response.NumberOfNodes.Should().BeGreaterOrEqualTo(1);
-			response.NumberOfDataNodes.Should().BeGreaterOrEqualTo(1);
-			response.ActivePrimaryShards.Should().BeGreaterOrEqualTo(1);
-			response.ActiveShards.Should().BeGreaterOrEqualTo(1);
+			response.NumberOfNodes.Should().BeGreaterThanOrEqualTo(1);
+			response.NumberOfDataNodes.Should().BeGreaterThanOrEqualTo(1);
+			response.ActivePrimaryShards.Should().BeGreaterThanOrEqualTo(1);
+			response.ActiveShards.Should().BeGreaterThanOrEqualTo(1);
 			response.ActiveShardsPercentAsNumber.Should().BePositive();
 			response.DelayedUnassignedShards.Should().Be(0);
-			response.NumberOfInFlightFetch.Should().BeGreaterOrEqualTo(0);
-			response.TaskMaxWaitTimeInQueueInMilliseconds.Should().BeGreaterOrEqualTo(0);
+			response.NumberOfInFlightFetch.Should().BeGreaterThanOrEqualTo(0);
+			response.TaskMaxWaitTimeInQueueInMilliseconds.Should().BeGreaterThanOrEqualTo(0);
 
 			response.Indices.Should()
 				.NotBeEmpty()

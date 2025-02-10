@@ -129,7 +129,7 @@ namespace Tests.Aggregations.Bucket.Terms
 			foreach (var item in states.Buckets)
 			{
 				item.Key.Should().NotBeNullOrEmpty();
-				item.DocCount.Should().BeGreaterOrEqualTo(1);
+				item.DocCount.Should().BeGreaterThanOrEqualTo(1);
 			}
 			states.Meta.Should().NotBeNull().And.HaveCount(1);
 			states.Meta["foo"].Should().Be("bar");
@@ -225,7 +225,7 @@ namespace Tests.Aggregations.Bucket.Terms
 			foreach (var item in states.Buckets)
 			{
 				item.Key.Should().BeDefined();
-				item.DocCount.Should().BeGreaterOrEqualTo(1);
+				item.DocCount.Should().BeGreaterThanOrEqualTo(1);
 			}
 			states.Meta.Should().NotBeNull().And.HaveCount(1);
 			states.Meta["foo"].Should().Be("bar");
@@ -321,7 +321,7 @@ namespace Tests.Aggregations.Bucket.Terms
 			foreach (var item in states.Buckets)
 			{
 				item.Key.Should().NotBeNullOrEmpty();
-				item.DocCount.Should().BeGreaterOrEqualTo(1);
+				item.DocCount.Should().BeGreaterThanOrEqualTo(1);
 			}
 			states.Meta.Should().NotBeNull().And.HaveCount(1);
 			states.Meta["foo"].Should().Be("bar");
@@ -383,7 +383,7 @@ namespace Tests.Aggregations.Bucket.Terms
 			foreach (var item in commits.Buckets)
 			{
 				item.Key.Should().BeGreaterThan(0);
-				item.DocCount.Should().BeGreaterOrEqualTo(1);
+				item.DocCount.Should().BeGreaterThanOrEqualTo(1);
 			}
 		}
 	}
@@ -438,7 +438,7 @@ namespace Tests.Aggregations.Bucket.Terms
 			foreach (var item in commits.Buckets)
 			{
 				item.Key.Should().BeGreaterThan(0);
-				item.DocCount.Should().BeGreaterOrEqualTo(1);
+				item.DocCount.Should().BeGreaterThanOrEqualTo(1);
 			}
 			commits.Buckets.Should().Contain(b => b.DocCountErrorUpperBound.HasValue);
 		}
@@ -504,7 +504,7 @@ namespace Tests.Aggregations.Bucket.Terms
 			foreach (var item in commits.Buckets)
 			{
 				item.Key.Should().BeGreaterThan(0);
-				item.DocCount.Should().BeGreaterOrEqualTo(1);
+				item.DocCount.Should().BeGreaterThanOrEqualTo(1);
 				var states = item.Terms("state");
 				states.Should().NotBeNull();
 				states.Buckets.Should().NotBeEmpty();

@@ -25,7 +25,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Fake.Core.SemVer` from 6.1.0 to 6.1.3
 - Bumps `Bogus` from 35.6.0 to 35.6.1
 - Bumps `Fake.Core.Environment` from 6.1.0 to 6.1.3
-- Bumps `FluentAssertions` from 6.12.0 to 7.0.0
+- Bumps `FluentAssertions` from 6.12.0 to 8.0.1
 - Bumps `Microsoft.NET.Test.Sdk` from 17.11.0 to 17.12.0
 - Bumps `Microsoft.TestPlatform.ObjectModel` from 17.11.0 to 17.12.0
 - Bumps `BenchMarkDotNet` from 0.13.12 to 0.14.0
@@ -44,6 +44,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `NSwag.Core` from 14.1.0 to 14.2.0
 - Bumps `Argu` from 6.2.4 to 6.2.5
 - Bumps `SemanticVersioning` from 2.0.2 to 3.0.0
+- Bumps `FSharp.Data` from 6.4.0 to 6.4.1
 
 ## [1.8.0]
 ### Added

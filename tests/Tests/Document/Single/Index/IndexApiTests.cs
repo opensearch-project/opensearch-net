@@ -159,9 +159,9 @@ namespace Tests.Document.Single.Index
 			indexResult.Id.Should().Be(commitActivity.Id);
 			indexResult.Version.Should().Be(1);
 			indexResult.Shards.Should().NotBeNull();
-			indexResult.Shards.Total.Should().BeGreaterOrEqualTo(1);
-			indexResult.Shards.Successful.Should().BeGreaterOrEqualTo(1);
-			indexResult.SequenceNumber.Should().BeGreaterOrEqualTo(0);
+			indexResult.Shards.Total.Should().BeGreaterThanOrEqualTo(1);
+			indexResult.Shards.Successful.Should().BeGreaterThanOrEqualTo(1);
+			indexResult.SequenceNumber.Should().BeGreaterThanOrEqualTo(0);
 			indexResult.PrimaryTerm.Should().BeGreaterThan(0);
 
 			indexResult = Client.Index(commitActivity, f => f.Index(indexName));
@@ -213,9 +213,9 @@ namespace Tests.Document.Single.Index
 			if (Cluster.ClusterConfiguration.Version < "2.0.0")
 				indexResult.Type.Should().Be("_doc");
 			indexResult.Shards.Should().NotBeNull();
-			indexResult.Shards.Total.Should().BeGreaterOrEqualTo(1);
-			indexResult.Shards.Successful.Should().BeGreaterOrEqualTo(1);
-			indexResult.SequenceNumber.Should().BeGreaterOrEqualTo(0);
+			indexResult.Shards.Total.Should().BeGreaterThanOrEqualTo(1);
+			indexResult.Shards.Successful.Should().BeGreaterThanOrEqualTo(1);
+			indexResult.SequenceNumber.Should().BeGreaterThanOrEqualTo(0);
 			indexResult.PrimaryTerm.Should().BeGreaterThan(0);
 
 			var bulkResponse = Client.Bulk(b => b
@@ -231,9 +231,9 @@ namespace Tests.Document.Single.Index
 				item.IsValid.Should().BeTrue();
 				item.Status.Should().Be(201);
 				item.Shards.Should().NotBeNull();
-				item.Shards.Total.Should().BeGreaterOrEqualTo(1);
-				item.Shards.Successful.Should().BeGreaterOrEqualTo(1);
-				item.SequenceNumber.Should().BeGreaterOrEqualTo(0);
+				item.Shards.Total.Should().BeGreaterThanOrEqualTo(1);
+				item.Shards.Successful.Should().BeGreaterThanOrEqualTo(1);
+				item.SequenceNumber.Should().BeGreaterThanOrEqualTo(0);
 				item.PrimaryTerm.Should().BeGreaterThan(0);
 			}
 		}
@@ -270,9 +270,9 @@ namespace Tests.Document.Single.Index
 			if (Cluster.ClusterConfiguration.Version < "2.0.0")
 				indexResult.Type.Should().StartWith("_doc");
 			indexResult.Shards.Should().NotBeNull();
-			indexResult.Shards.Total.Should().BeGreaterOrEqualTo(1);
-			indexResult.Shards.Successful.Should().BeGreaterOrEqualTo(1);
-			indexResult.SequenceNumber.Should().BeGreaterOrEqualTo(0);
+			indexResult.Shards.Total.Should().BeGreaterThanOrEqualTo(1);
+			indexResult.Shards.Successful.Should().BeGreaterThanOrEqualTo(1);
+			indexResult.SequenceNumber.Should().BeGreaterThanOrEqualTo(0);
 			indexResult.PrimaryTerm.Should().BeGreaterThan(0);
 		}
 	}

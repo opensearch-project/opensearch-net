@@ -199,8 +199,8 @@ namespace Tests.Document.Multiple.MultiGet
 				hit.Id.Should().NotBeNullOrWhiteSpace();
 				hit.Found.Should().BeTrue();
 				hit.Version.Should().Be(1);
-			    hit.PrimaryTerm.Should().BeGreaterOrEqualTo(1);
-			    hit.SequenceNumber.Should().BeGreaterOrEqualTo(0);
+			    hit.PrimaryTerm.Should().BeGreaterThanOrEqualTo(1);
+			    hit.SequenceNumber.Should().BeGreaterThanOrEqualTo(0);
 				hit.Source.ShouldAdhereToSourceSerializerWhenSet();
 			}
 		}

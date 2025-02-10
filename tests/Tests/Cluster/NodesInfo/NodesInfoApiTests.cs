@@ -132,8 +132,8 @@ namespace Tests.Cluster.NodesInfo
 			jvm.GcCollectors.Should().NotBeEmpty();
 			jvm.MemoryPools.Should().NotBeEmpty();
 			jvm.Memory.Should().NotBeNull();
-			jvm.Memory.DirectMaxInBytes.Should().BeGreaterOrEqualTo(0);
-			jvm.Memory.NonHeapMaxInBytes.Should().BeGreaterOrEqualTo(0);
+			jvm.Memory.DirectMaxInBytes.Should().BeGreaterThanOrEqualTo(0);
+			jvm.Memory.NonHeapMaxInBytes.Should().BeGreaterThanOrEqualTo(0);
 			jvm.Memory.NonHeapInitInBytes.Should().BeGreaterThan(0);
 			jvm.Memory.HeapMaxInBytes.Should().BeGreaterThan(0);
 			jvm.Memory.HeapInitInBytes.Should().BeGreaterThan(0);
@@ -145,7 +145,7 @@ namespace Tests.Cluster.NodesInfo
 			var pool = pools["fetch_shard_store"];
 			pool.KeepAlive.Should().NotBeNullOrWhiteSpace();
 			pool.Type.Should().Be("scaling");
-			pool.QueueSize.Should().BeGreaterOrEqualTo(-1);
+			pool.QueueSize.Should().BeGreaterThanOrEqualTo(-1);
 
 			// both should have a value for a scaling pool
 			pool.Core.Should().HaveValue();

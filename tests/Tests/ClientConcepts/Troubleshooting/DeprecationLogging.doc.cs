@@ -77,7 +77,7 @@ namespace Tests.ClientConcepts.Troubleshooting
 			var response = this.Client.Search<Project>(request);
 
 			response.ApiCall.DeprecationWarnings.Should().NotBeNullOrEmpty();
-			response.ApiCall.DeprecationWarnings.Should().HaveCountGreaterOrEqualTo(2);
+			response.ApiCall.DeprecationWarnings.Should().HaveCountGreaterThanOrEqualTo(2);
 			response.DebugInformation.Should().Contain("Deprecated aggregation order key"); // <1> `DebugInformation` also contains the deprecation warnings
 		}
 	}

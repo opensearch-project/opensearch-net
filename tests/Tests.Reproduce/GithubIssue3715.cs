@@ -667,7 +667,7 @@ namespace Tests.Reproduce
 		{
 			var extendedStatsAggregate = bucket.ExtendedStats(name);
 			extendedStatsAggregate.Should().NotBeNull();
-			extendedStatsAggregate.Count.Should().BeGreaterOrEqualTo(0);
+			extendedStatsAggregate.Count.Should().BeGreaterThanOrEqualTo(0);
 			extendedStatsAggregate.StdDeviationBounds.Should().NotBeNull();
 		}
 

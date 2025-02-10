@@ -99,7 +99,7 @@ namespace Tests.Aggregations.Bucket.RareTerms
 			foreach (var item in rareTerms.Buckets)
 			{
 				item.Key.Should().NotBeNullOrEmpty();
-				item.DocCount.Should().BeGreaterOrEqualTo(1);
+				item.DocCount.Should().BeGreaterThanOrEqualTo(1);
 			}
 			rareTerms.Meta.Should().NotBeNull().And.HaveCount(1);
 			rareTerms.Meta["foo"].Should().Be("bar");
