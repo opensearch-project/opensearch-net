@@ -117,7 +117,6 @@ namespace ApiGenerator.Domain.Code
 
         public string PerPathMethodName(string path)
         {
-            Func<string, bool> ms = s => Namespace != null && Namespace.StartsWith(s);
             Func<string, bool> pc = path.Contains;
 
             var method = MethodName;
@@ -125,14 +124,17 @@ namespace ApiGenerator.Domain.Code
             // TODO: remove in branch once it in opensearch is scrubbed
             if (pc("{type}") && !method.Contains("Type")) method += "UsingType";
 
-            if (ms("Indices") && !pc("{index}"))
+            if (Namespace == "Indices" && !pc("{index}"))
                 return (method + "ForAll").Replace("AsyncForAll", "ForAllAsync");
 
-            if (ms("Nodes") && !pc("{node_id}"))
+            if (Namespace == "Nodes" && !pc("{node_id}"))
                 return (method + "ForAll").Replace("AsyncForAll", "ForAllAsync");
 
             if (Namespace == "Knn" && method.StartsWith("Stats") && !pc("{node_id}"))
                 return method.Replace("Stats", "StatsForAll");
+
+            if (Namespace == "Ml" && method == "GetStats" && !pc("{node_id}"))
+                return method.Replace("GetStats", "GetStatsForAll");
 
             return method;
         }

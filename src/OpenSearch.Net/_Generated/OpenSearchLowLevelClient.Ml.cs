@@ -1203,7 +1203,9 @@ namespace OpenSearch.Net.Specification.MlApi
         /// <summary>GET on /_plugins/_ml/stats</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        public TResponse GetStats<TResponse>(GetStatsRequestParameters requestParameters = null)
+        public TResponse GetStatsForAll<TResponse>(
+            GetStatsRequestParameters requestParameters = null
+        )
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_plugins/_ml/stats", null, RequestParams(requestParameters));
 
@@ -1211,7 +1213,7 @@ namespace OpenSearch.Net.Specification.MlApi
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         [MapsApi("ml.get_stats", "")]
-        public Task<TResponse> GetStatsAsync<TResponse>(
+        public Task<TResponse> GetStatsForAllAsync<TResponse>(
             GetStatsRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
@@ -1302,7 +1304,7 @@ namespace OpenSearch.Net.Specification.MlApi
         /// <param name="stat"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        public TResponse GetStats<TResponse>(
+        public TResponse GetStatsForAll<TResponse>(
             string stat,
             GetStatsRequestParameters requestParameters = null
         )
@@ -1319,7 +1321,7 @@ namespace OpenSearch.Net.Specification.MlApi
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         [MapsApi("ml.get_stats", "stat")]
-        public Task<TResponse> GetStatsAsync<TResponse>(
+        public Task<TResponse> GetStatsForAllAsync<TResponse>(
             string stat,
             GetStatsRequestParameters requestParameters = null,
             CancellationToken ctx = default
