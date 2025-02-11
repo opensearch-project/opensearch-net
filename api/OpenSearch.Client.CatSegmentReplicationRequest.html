@@ -232,7 +232,7 @@
   </span>
   <a id="OpenSearch_Client_CatSegmentReplicationRequest_ActiveOnly_" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.ActiveOnly*"></a>
   <h4 id="OpenSearch_Client_CatSegmentReplicationRequest_ActiveOnly" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.ActiveOnly">ActiveOnly</h4>
-  <div class="markdown level1 summary"><p>If <code>true</code>, the response only includes ongoing segment replication events.</p>
+  <div class="markdown level1 summary"><p>When <code>true</code>, the response only includes ongoing segment replication events.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -263,8 +263,8 @@
   </span>
   <a id="OpenSearch_Client_CatSegmentReplicationRequest_AllowNoIndices_" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Client_CatSegmentReplicationRequest_AllowNoIndices" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.AllowNoIndices">AllowNoIndices</h4>
-  <div class="markdown level1 summary"><p>Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes <code>_all</code> string or when no indexes have
-been specified).</p>
+  <div class="markdown level1 summary"><p>Whether to ignore the index if a wildcard index expression resolves to no concrete indexes. This includes the <code>_all</code> string or when no
+indexes have been specified.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -295,7 +295,7 @@ been specified).</p>
   </span>
   <a id="OpenSearch_Client_CatSegmentReplicationRequest_Bytes_" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.Bytes*"></a>
   <h4 id="OpenSearch_Client_CatSegmentReplicationRequest_Bytes" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.Bytes">Bytes</h4>
-  <div class="markdown level1 summary"><p>The unit in which to display byte values.</p>
+  <div class="markdown level1 summary"><p>The units used to display byte values.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -326,7 +326,7 @@ been specified).</p>
   </span>
   <a id="OpenSearch_Client_CatSegmentReplicationRequest_CompletedOnly_" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.CompletedOnly*"></a>
   <h4 id="OpenSearch_Client_CatSegmentReplicationRequest_CompletedOnly" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.CompletedOnly">CompletedOnly</h4>
-  <div class="markdown level1 summary"><p>If <code>true</code>, the response only includes latest completed segment replication events.</p>
+  <div class="markdown level1 summary"><p>When <code>true</code>, the response only includes the last-completed segment replication events.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -357,7 +357,7 @@ been specified).</p>
   </span>
   <a id="OpenSearch_Client_CatSegmentReplicationRequest_Detailed_" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.Detailed*"></a>
   <h4 id="OpenSearch_Client_CatSegmentReplicationRequest_Detailed" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.Detailed">Detailed</h4>
-  <div class="markdown level1 summary"><p>If <code>true</code>, the response includes detailed information about segment replications.</p>
+  <div class="markdown level1 summary"><p>When <code>true</code>, the response includes additional metrics for each stage of a segment replication event.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -388,7 +388,7 @@ been specified).</p>
   </span>
   <a id="OpenSearch_Client_CatSegmentReplicationRequest_ExpandWildcards_" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.ExpandWildcards*"></a>
   <h4 id="OpenSearch_Client_CatSegmentReplicationRequest_ExpandWildcards" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.ExpandWildcards">ExpandWildcards</h4>
-  <div class="markdown level1 summary"><p>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</p>
+  <div class="markdown level1 summary"><p>Specifies the type of index that wildcard expressions can match. Supports comma-separated values.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -419,7 +419,7 @@ been specified).</p>
   </span>
   <a id="OpenSearch_Client_CatSegmentReplicationRequest_Format_" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.Format*"></a>
   <h4 id="OpenSearch_Client_CatSegmentReplicationRequest_Format" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.Format">Format</h4>
-  <div class="markdown level1 summary"><p>A short version of the Accept header (for example, <code>json</code>, <code>yaml</code>).</p>
+  <div class="markdown level1 summary"><p>A short version of the <code>Accept</code> header, such as <code>json</code> or <code>yaml</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -450,7 +450,7 @@ been specified).</p>
   </span>
   <a id="OpenSearch_Client_CatSegmentReplicationRequest_Headers_" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.Headers*"></a>
   <h4 id="OpenSearch_Client_CatSegmentReplicationRequest_Headers" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.Headers">Headers</h4>
-  <div class="markdown level1 summary"><p>Comma-separated list of column names to display.</p>
+  <div class="markdown level1 summary"><p>A comma-separated list of column names to display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -481,7 +481,7 @@ been specified).</p>
   </span>
   <a id="OpenSearch_Client_CatSegmentReplicationRequest_Help_" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.Help*"></a>
   <h4 id="OpenSearch_Client_CatSegmentReplicationRequest_Help" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.Help">Help</h4>
-  <div class="markdown level1 summary"><p>Return help information.</p>
+  <div class="markdown level1 summary"><p>Returns help information.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -512,7 +512,7 @@ been specified).</p>
   </span>
   <a id="OpenSearch_Client_CatSegmentReplicationRequest_IgnoreThrottled_" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.IgnoreThrottled*"></a>
   <h4 id="OpenSearch_Client_CatSegmentReplicationRequest_IgnoreThrottled" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.IgnoreThrottled">IgnoreThrottled</h4>
-  <div class="markdown level1 summary"><p>Whether specified concrete, expanded or aliased indexes should be ignored when throttled.</p>
+  <div class="markdown level1 summary"><p>Whether specified concrete, expanded, or aliased indexes should be ignored when throttled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -543,7 +543,7 @@ been specified).</p>
   </span>
   <a id="OpenSearch_Client_CatSegmentReplicationRequest_IgnoreUnavailable_" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.IgnoreUnavailable*"></a>
   <h4 id="OpenSearch_Client_CatSegmentReplicationRequest_IgnoreUnavailable" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.IgnoreUnavailable">IgnoreUnavailable</h4>
-  <div class="markdown level1 summary"><p>Whether specified concrete indexes should be ignored when unavailable (missing or closed).</p>
+  <div class="markdown level1 summary"><p>Whether the specified concrete indexes should be ignored when missing or closed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -604,7 +604,7 @@ been specified).</p>
   </span>
   <a id="OpenSearch_Client_CatSegmentReplicationRequest_Shards_" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.Shards*"></a>
   <h4 id="OpenSearch_Client_CatSegmentReplicationRequest_Shards" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.Shards">Shards</h4>
-  <div class="markdown level1 summary"><p>Comma-separated list of shards to display.</p>
+  <div class="markdown level1 summary"><p>A comma-separated list of shards to display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -635,7 +635,7 @@ been specified).</p>
   </span>
   <a id="OpenSearch_Client_CatSegmentReplicationRequest_SortByColumns_" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.SortByColumns*"></a>
   <h4 id="OpenSearch_Client_CatSegmentReplicationRequest_SortByColumns" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.SortByColumns">SortByColumns</h4>
-  <div class="markdown level1 summary"><p>Comma-separated list of column names or column aliases to sort by.</p>
+  <div class="markdown level1 summary"><p>A comma-separated list of column names or column aliases to sort by.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -666,7 +666,7 @@ been specified).</p>
   </span>
   <a id="OpenSearch_Client_CatSegmentReplicationRequest_Timeout_" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.Timeout*"></a>
   <h4 id="OpenSearch_Client_CatSegmentReplicationRequest_Timeout" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.Timeout">Timeout</h4>
-  <div class="markdown level1 summary"><p>Operation timeout.</p>
+  <div class="markdown level1 summary"><p>The operation timeout.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -697,7 +697,7 @@ been specified).</p>
   </span>
   <a id="OpenSearch_Client_CatSegmentReplicationRequest_Verbose_" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.Verbose*"></a>
   <h4 id="OpenSearch_Client_CatSegmentReplicationRequest_Verbose" data-uid="OpenSearch.Client.CatSegmentReplicationRequest.Verbose">Verbose</h4>
-  <div class="markdown level1 summary"><p>Verbose mode. Display column headers.</p>
+  <div class="markdown level1 summary"><p>Enables verbose mode, which displays column headers.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

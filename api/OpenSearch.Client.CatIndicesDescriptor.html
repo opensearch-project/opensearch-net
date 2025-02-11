@@ -276,7 +276,7 @@
   </span>
   <a id="OpenSearch_Client_CatIndicesDescriptor_Bytes_" data-uid="OpenSearch.Client.CatIndicesDescriptor.Bytes*"></a>
   <h4 id="OpenSearch_Client_CatIndicesDescriptor_Bytes_System_Nullable_OpenSearch_Net_ByteUnit__" data-uid="OpenSearch.Client.CatIndicesDescriptor.Bytes(System.Nullable{OpenSearch.Net.ByteUnit})">Bytes(ByteUnit?)</h4>
-  <div class="markdown level1 summary"><p>The unit used to display byte values.</p>
+  <div class="markdown level1 summary"><p>The units used to display byte values.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -324,7 +324,7 @@
   </span>
   <a id="OpenSearch_Client_CatIndicesDescriptor_ClusterManagerTimeout_" data-uid="OpenSearch.Client.CatIndicesDescriptor.ClusterManagerTimeout*"></a>
   <h4 id="OpenSearch_Client_CatIndicesDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.CatIndicesDescriptor.ClusterManagerTimeout(OpenSearch.Client.Time)">ClusterManagerTimeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Operation timeout for connection to cluster-manager node.</p>
+  <div class="markdown level1 summary"><p>The amount of time allowed to establish a connection to the cluster manager node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -375,7 +375,7 @@
   </span>
   <a id="OpenSearch_Client_CatIndicesDescriptor_ExpandWildcards_" data-uid="OpenSearch.Client.CatIndicesDescriptor.ExpandWildcards*"></a>
   <h4 id="OpenSearch_Client_CatIndicesDescriptor_ExpandWildcards_System_Nullable_OpenSearch_Net_ExpandWildcards__" data-uid="OpenSearch.Client.CatIndicesDescriptor.ExpandWildcards(System.Nullable{OpenSearch.Net.ExpandWildcards})">ExpandWildcards(ExpandWildcards?)</h4>
-  <div class="markdown level1 summary"><p>The type of index that wildcard patterns can match.</p>
+  <div class="markdown level1 summary"><p>Specifies the type of index that wildcard expressions can match. Supports comma-separated values.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -423,7 +423,7 @@
   </span>
   <a id="OpenSearch_Client_CatIndicesDescriptor_Format_" data-uid="OpenSearch.Client.CatIndicesDescriptor.Format*"></a>
   <h4 id="OpenSearch_Client_CatIndicesDescriptor_Format_System_String_" data-uid="OpenSearch.Client.CatIndicesDescriptor.Format(System.String)">Format(string)</h4>
-  <div class="markdown level1 summary"><p>A short version of the Accept header (for example, <code>json</code>, <code>yaml</code>).</p>
+  <div class="markdown level1 summary"><p>A short version of the <code>Accept</code> header, such as <code>json</code> or <code>yaml</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -471,7 +471,7 @@
   </span>
   <a id="OpenSearch_Client_CatIndicesDescriptor_Headers_" data-uid="OpenSearch.Client.CatIndicesDescriptor.Headers*"></a>
   <h4 id="OpenSearch_Client_CatIndicesDescriptor_Headers_System_String___" data-uid="OpenSearch.Client.CatIndicesDescriptor.Headers(System.String[])">Headers(params string[])</h4>
-  <div class="markdown level1 summary"><p>Comma-separated list of column names to display.</p>
+  <div class="markdown level1 summary"><p>A comma-separated list of column names to display.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -519,7 +519,7 @@
   </span>
   <a id="OpenSearch_Client_CatIndicesDescriptor_Health_" data-uid="OpenSearch.Client.CatIndicesDescriptor.Health*"></a>
   <h4 id="OpenSearch_Client_CatIndicesDescriptor_Health_System_Nullable_OpenSearch_Net_HealthStatus__" data-uid="OpenSearch.Client.CatIndicesDescriptor.Health(System.Nullable{OpenSearch.Net.HealthStatus})">Health(HealthStatus?)</h4>
-  <div class="markdown level1 summary"><p>The health status used to limit returned indexes. By default, the response includes indexes of any health status.</p>
+  <div class="markdown level1 summary"><p>Limits indexes based on their health status. Supported values are <code>green</code>, <code>yellow</code>, and <code>red</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -567,7 +567,7 @@
   </span>
   <a id="OpenSearch_Client_CatIndicesDescriptor_Help_" data-uid="OpenSearch.Client.CatIndicesDescriptor.Help*"></a>
   <h4 id="OpenSearch_Client_CatIndicesDescriptor_Help_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.CatIndicesDescriptor.Help(System.Nullable{System.Boolean})">Help(bool?)</h4>
-  <div class="markdown level1 summary"><p>Return help information.</p>
+  <div class="markdown level1 summary"><p>Returns help information.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -615,7 +615,7 @@
   </span>
   <a id="OpenSearch_Client_CatIndicesDescriptor_IncludeUnloadedSegments_" data-uid="OpenSearch.Client.CatIndicesDescriptor.IncludeUnloadedSegments*"></a>
   <h4 id="OpenSearch_Client_CatIndicesDescriptor_IncludeUnloadedSegments_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.CatIndicesDescriptor.IncludeUnloadedSegments(System.Nullable{System.Boolean})">IncludeUnloadedSegments(bool?)</h4>
-  <div class="markdown level1 summary"><p>If <code>true</code>, the response includes information from segments that are not loaded into memory.</p>
+  <div class="markdown level1 summary"><p>Whether to include information from segments not loaded into memory.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -663,7 +663,7 @@
   </span>
   <a id="OpenSearch_Client_CatIndicesDescriptor_Index_" data-uid="OpenSearch.Client.CatIndicesDescriptor.Index*"></a>
   <h4 id="OpenSearch_Client_CatIndicesDescriptor_Index_OpenSearch_Client_Indices_" data-uid="OpenSearch.Client.CatIndicesDescriptor.Index(OpenSearch.Client.Indices)">Index(Indices)</h4>
-  <div class="markdown level1 summary"><p>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+  <div class="markdown level1 summary"><p>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<code>*</code>). To target all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -757,7 +757,7 @@
   </span>
   <a id="OpenSearch_Client_CatIndicesDescriptor_Local_" data-uid="OpenSearch.Client.CatIndicesDescriptor.Local*"></a>
   <h4 id="OpenSearch_Client_CatIndicesDescriptor_Local_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.CatIndicesDescriptor.Local(System.Nullable{System.Boolean})">Local(bool?)</h4>
-  <div class="markdown level1 summary"><p>Return local information, do not retrieve the state from cluster-manager node.</p>
+  <div class="markdown level1 summary"><p>Returns local information but does not retrieve the state from the cluster manager node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -805,7 +805,7 @@
   </span>
   <a id="OpenSearch_Client_CatIndicesDescriptor_MasterTimeout_" data-uid="OpenSearch.Client.CatIndicesDescriptor.MasterTimeout*"></a>
   <h4 id="OpenSearch_Client_CatIndicesDescriptor_MasterTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.CatIndicesDescriptor.MasterTimeout(OpenSearch.Client.Time)">MasterTimeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Operation timeout for connection to cluster-manager node.</p>
+  <div class="markdown level1 summary"><p>The amount of time allowed to establish a connection to the cluster manager node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -854,7 +854,7 @@ public CatIndicesDescriptor MasterTimeout(Time mastertimeout)</code></pre>
   </span>
   <a id="OpenSearch_Client_CatIndicesDescriptor_Pri_" data-uid="OpenSearch.Client.CatIndicesDescriptor.Pri*"></a>
   <h4 id="OpenSearch_Client_CatIndicesDescriptor_Pri_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.CatIndicesDescriptor.Pri(System.Nullable{System.Boolean})">Pri(bool?)</h4>
-  <div class="markdown level1 summary"><p>If <code>true</code>, the response only includes information from primary shards.</p>
+  <div class="markdown level1 summary"><p>When <code>true</code>, returns information only from the primary shards.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -902,7 +902,7 @@ public CatIndicesDescriptor MasterTimeout(Time mastertimeout)</code></pre>
   </span>
   <a id="OpenSearch_Client_CatIndicesDescriptor_SortByColumns_" data-uid="OpenSearch.Client.CatIndicesDescriptor.SortByColumns*"></a>
   <h4 id="OpenSearch_Client_CatIndicesDescriptor_SortByColumns_System_String___" data-uid="OpenSearch.Client.CatIndicesDescriptor.SortByColumns(System.String[])">SortByColumns(params string[])</h4>
-  <div class="markdown level1 summary"><p>Comma-separated list of column names or column aliases to sort by.</p>
+  <div class="markdown level1 summary"><p>A comma-separated list of column names or column aliases to sort by.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -950,7 +950,7 @@ public CatIndicesDescriptor MasterTimeout(Time mastertimeout)</code></pre>
   </span>
   <a id="OpenSearch_Client_CatIndicesDescriptor_Verbose_" data-uid="OpenSearch.Client.CatIndicesDescriptor.Verbose*"></a>
   <h4 id="OpenSearch_Client_CatIndicesDescriptor_Verbose_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.CatIndicesDescriptor.Verbose(System.Nullable{System.Boolean})">Verbose(bool?)</h4>
-  <div class="markdown level1 summary"><p>Verbose mode. Display column headers.</p>
+  <div class="markdown level1 summary"><p>Enables verbose mode, which displays column headers.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

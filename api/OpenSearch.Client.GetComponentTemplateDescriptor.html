@@ -245,7 +245,7 @@
   </span>
   <a id="OpenSearch_Client_GetComponentTemplateDescriptor_ClusterManagerTimeout_" data-uid="OpenSearch.Client.GetComponentTemplateDescriptor.ClusterManagerTimeout*"></a>
   <h4 id="OpenSearch_Client_GetComponentTemplateDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.GetComponentTemplateDescriptor.ClusterManagerTimeout(OpenSearch.Client.Time)">ClusterManagerTimeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Operation timeout for connection to cluster-manager node.</p>
+  <div class="markdown level1 summary"><p>A duration. Units can be <code>nanos</code>, <code>micros</code>, <code>ms</code> (milliseconds), <code>s</code> (seconds), <code>m</code> (minutes), <code>h</code> (hours) and <code>d</code> (days). Also accepts &quot;0&quot; without a unit and &quot;-1&quot; to indicate an unspecified value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -289,14 +289,62 @@
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GetComponentTemplateDescriptor_Local_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GetComponentTemplateDescriptor.Local(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GetComponentTemplateDescriptor_FlatSettings_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GetComponentTemplateDescriptor.FlatSettings(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Cluster.cs/#L219">View Source</a>
   </span>
+  <a id="OpenSearch_Client_GetComponentTemplateDescriptor_FlatSettings_" data-uid="OpenSearch.Client.GetComponentTemplateDescriptor.FlatSettings*"></a>
+  <h4 id="OpenSearch_Client_GetComponentTemplateDescriptor_FlatSettings_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.GetComponentTemplateDescriptor.FlatSettings(System.Nullable{System.Boolean})">FlatSettings(bool?)</h4>
+  <div class="markdown level1 summary"><p>If <code>true</code>, returns settings in flat format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GetComponentTemplateDescriptor FlatSettings(bool? flatsettings = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">flatsettings</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.GetComponentTemplateDescriptor.html">GetComponentTemplateDescriptor</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GetComponentTemplateDescriptor_Local_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GetComponentTemplateDescriptor.Local(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Cluster.cs/#L223">View Source</a>
+  </span>
   <a id="OpenSearch_Client_GetComponentTemplateDescriptor_Local_" data-uid="OpenSearch.Client.GetComponentTemplateDescriptor.Local*"></a>
   <h4 id="OpenSearch_Client_GetComponentTemplateDescriptor_Local_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.GetComponentTemplateDescriptor.Local(System.Nullable{System.Boolean})">Local(bool?)</h4>
-  <div class="markdown level1 summary"><p>If <code>true</code>, the request retrieves information from the local node only. If <code>false</code>, information is retrieved from the cluster-manager node.</p>
+  <div class="markdown level1 summary"><p>When <code>true</code>, the request retrieves information from the local node only. When <code>false</code>, information is retrieved from the cluster manager node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -340,11 +388,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GetComponentTemplateDescriptor_MasterTimeout_OpenSearch_Client_Time_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GetComponentTemplateDescriptor.MasterTimeout(OpenSearch.Client.Time)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Cluster.cs/#L222">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.Cluster.cs/#L226">View Source</a>
   </span>
   <a id="OpenSearch_Client_GetComponentTemplateDescriptor_MasterTimeout_" data-uid="OpenSearch.Client.GetComponentTemplateDescriptor.MasterTimeout*"></a>
   <h4 id="OpenSearch_Client_GetComponentTemplateDescriptor_MasterTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.GetComponentTemplateDescriptor.MasterTimeout(OpenSearch.Client.Time)">MasterTimeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</p>
+  <div class="markdown level1 summary"><p>A duration. Units can be <code>nanos</code>, <code>micros</code>, <code>ms</code> (milliseconds), <code>s</code> (seconds), <code>m</code> (minutes), <code>h</code> (hours) and <code>d</code> (days). Also accepts &quot;0&quot; without a unit and &quot;-1&quot; to indicate an unspecified value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -393,7 +441,7 @@ public GetComponentTemplateDescriptor MasterTimeout(Time mastertimeout)</code></
   </span>
   <a id="OpenSearch_Client_GetComponentTemplateDescriptor_Name_" data-uid="OpenSearch.Client.GetComponentTemplateDescriptor.Name*"></a>
   <h4 id="OpenSearch_Client_GetComponentTemplateDescriptor_Name_OpenSearch_Client_Name_" data-uid="OpenSearch.Client.GetComponentTemplateDescriptor.Name(OpenSearch.Client.Name)">Name(Name)</h4>
-  <div class="markdown level1 summary"><p>Name of the component template to retrieve. Wildcard (<code>*</code>) expressions are supported.</p>
+  <div class="markdown level1 summary"><p>The name of the component template to retrieve. Wildcard (<code>*</code>) expressions are supported.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

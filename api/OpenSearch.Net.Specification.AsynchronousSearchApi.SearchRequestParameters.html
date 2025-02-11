@@ -196,11 +196,12 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_AsynchronousSearchApi_SearchRequestParameters_Index.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.AsynchronousSearchApi.SearchRequestParameters.Index%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.AsynchronousSearch.cs/#L76">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.AsynchronousSearch.cs/#L79">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_AsynchronousSearchApi_SearchRequestParameters_Index_" data-uid="OpenSearch.Net.Specification.AsynchronousSearchApi.SearchRequestParameters.Index*"></a>
   <h4 id="OpenSearch_Net_Specification_AsynchronousSearchApi_SearchRequestParameters_Index" data-uid="OpenSearch.Net.Specification.AsynchronousSearchApi.SearchRequestParameters.Index">Index</h4>
-  <div class="markdown level1 summary"><p>The name of the index to be searched.</p>
+  <div class="markdown level1 summary"><p>The name of the index to be searched. Can be an individual name, a comma-separated list of indexes, or a wildcard expression of index
+names.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -227,11 +228,13 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_AsynchronousSearchApi_SearchRequestParameters_KeepAlive.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.AsynchronousSearchApi.SearchRequestParameters.KeepAlive%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.AsynchronousSearch.cs/#L83">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.AsynchronousSearch.cs/#L90">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_AsynchronousSearchApi_SearchRequestParameters_KeepAlive_" data-uid="OpenSearch.Net.Specification.AsynchronousSearchApi.SearchRequestParameters.KeepAlive*"></a>
   <h4 id="OpenSearch_Net_Specification_AsynchronousSearchApi_SearchRequestParameters_KeepAlive" data-uid="OpenSearch.Net.Specification.AsynchronousSearchApi.SearchRequestParameters.KeepAlive">KeepAlive</h4>
-  <div class="markdown level1 summary"><p>The amount of time that the result is saved in the cluster.</p>
+  <div class="markdown level1 summary"><p>The amount of time that the result is saved in the cluster. For example, <code>2d</code> means that the results are stored in the cluster for 48
+hours. The saved search results are deleted after this period or if the search is canceled. Note that this includes the query execution
+time. If the query exceeds this amount of time, the process cancels this query automatically.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -258,11 +261,11 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_AsynchronousSearchApi_SearchRequestParameters_KeepOnCompletion.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.AsynchronousSearchApi.SearchRequestParameters.KeepOnCompletion%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.AsynchronousSearch.cs/#L90">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.AsynchronousSearch.cs/#L97">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_AsynchronousSearchApi_SearchRequestParameters_KeepOnCompletion_" data-uid="OpenSearch.Net.Specification.AsynchronousSearchApi.SearchRequestParameters.KeepOnCompletion*"></a>
   <h4 id="OpenSearch_Net_Specification_AsynchronousSearchApi_SearchRequestParameters_KeepOnCompletion" data-uid="OpenSearch.Net.Specification.AsynchronousSearchApi.SearchRequestParameters.KeepOnCompletion">KeepOnCompletion</h4>
-  <div class="markdown level1 summary"><p>Whether you want to save the results in the cluster after the search is complete.</p>
+  <div class="markdown level1 summary"><p>Whether to save the results in the cluster after the search is complete. You can examine the stored results at a later time.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -321,11 +324,12 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_AsynchronousSearchApi_SearchRequestParameters_WaitForCompletionTimeout.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.AsynchronousSearchApi.SearchRequestParameters.WaitForCompletionTimeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.AsynchronousSearch.cs/#L97">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/Api/RequestParameters/RequestParameters.AsynchronousSearch.cs/#L107">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_AsynchronousSearchApi_SearchRequestParameters_WaitForCompletionTimeout_" data-uid="OpenSearch.Net.Specification.AsynchronousSearchApi.SearchRequestParameters.WaitForCompletionTimeout*"></a>
   <h4 id="OpenSearch_Net_Specification_AsynchronousSearchApi_SearchRequestParameters_WaitForCompletionTimeout" data-uid="OpenSearch.Net.Specification.AsynchronousSearchApi.SearchRequestParameters.WaitForCompletionTimeout">WaitForCompletionTimeout</h4>
-  <div class="markdown level1 summary"><p>The amount of time that you plan to wait for the results.</p>
+  <div class="markdown level1 summary"><p>The amount of time to wait for the results. You can poll the remaining results based on an ID. The maximum value is 300 seconds. Default
+is <code>1s</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
