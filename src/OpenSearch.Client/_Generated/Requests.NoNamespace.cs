@@ -260,10 +260,7 @@ namespace OpenSearch.Client
             set => Q("df", value);
         }
 
-        /// <summary>
-        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.
-        /// </summary>
+        /// <summary>Specifies the type of index that wildcard expressions can match. Supports comma-separated values.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
@@ -292,9 +289,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Sets the minimum `_score` value that documents must have to be included in the result.</summary>
-        public double? MinScore
+        public float? MinScore
         {
-            get => Q<double?>("min_score");
+            get => Q<float?>("min_score");
             set => Q("min_score", value);
         }
 
@@ -330,9 +327,9 @@ namespace OpenSearch.Client
         /// Maximum number of documents to collect for each shard. If a query reaches this limit, OpenSearch terminates the query early. OpenSearch
         /// collects documents before sorting.
         /// </summary>
-        public long? TerminateAfter
+        public int? TerminateAfter
         {
-            get => Q<long?>("terminate_after");
+            get => Q<int?>("terminate_after");
             set => Q("terminate_after", value);
         }
     }
@@ -788,9 +785,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Starting offset.</summary>
-        public long? From
+        public int? From
         {
-            get => Q<long?>("from");
+            get => Q<int?>("from");
             set => Q("from", value);
         }
 
@@ -837,9 +834,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>The throttle for this request in sub-requests per second.</summary>
-        public long? RequestsPerSecond
+        public float? RequestsPerSecond
         {
-            get => Q<long?>("requests_per_second");
+            get => Q<float?>("requests_per_second");
             set => Q("requests_per_second", value);
         }
 
@@ -865,9 +862,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Size of the scroll request that powers the operation.</summary>
-        public long? ScrollSize
+        public int? ScrollSize
         {
-            get => Q<long?>("scroll_size");
+            get => Q<int?>("scroll_size");
             set => Q("scroll_size", value);
         }
 
@@ -886,9 +883,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Deprecated, use `max_docs` instead.</summary>
-        public long? Size
+        public int? Size
         {
-            get => Q<long?>("size");
+            get => Q<int?>("size");
             set => Q("size", value);
         }
 
@@ -933,9 +930,9 @@ namespace OpenSearch.Client
         /// let OpenSearch perform early termination automatically. Avoid specifying this parameter for requests that target data streams with backing
         /// indexes across multiple data tiers.
         /// </summary>
-        public long? TerminateAfter
+        public int? TerminateAfter
         {
-            get => Q<long?>("terminate_after");
+            get => Q<int?>("terminate_after");
             set => Q("terminate_after", value);
         }
 
@@ -1019,9 +1016,9 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>The throttle for this request in sub-requests per second.</summary>
-        public long? RequestsPerSecond
+        public float? RequestsPerSecond
         {
-            get => Q<long?>("requests_per_second");
+            get => Q<float?>("requests_per_second");
             set => Q("requests_per_second", value);
         }
     }
@@ -2285,16 +2282,16 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Maximum number of concurrent searches the multi search API can execute.</summary>
-        public long? MaxConcurrentSearches
+        public int? MaxConcurrentSearches
         {
-            get => Q<long?>("max_concurrent_searches");
+            get => Q<int?>("max_concurrent_searches");
             set => Q("max_concurrent_searches", value);
         }
 
         /// <summary>Maximum number of concurrent shard requests that each sub-search request executes per node.</summary>
-        public long? MaxConcurrentShardRequests
+        public int? MaxConcurrentShardRequests
         {
-            get => Q<long?>("max_concurrent_shard_requests");
+            get => Q<int?>("max_concurrent_shard_requests");
             set => Q("max_concurrent_shard_requests", value);
         }
 
@@ -2304,9 +2301,9 @@ namespace OpenSearch.Client
         /// shard can not match any documents based on its rewrite method i.e., if date filters are mandatory to match but the shard bounds and the
         /// query are disjoint.
         /// </summary>
-        public long? PreFilterShardSize
+        public int? PreFilterShardSize
         {
-            get => Q<long?>("pre_filter_shard_size");
+            get => Q<int?>("pre_filter_shard_size");
             set => Q("pre_filter_shard_size", value);
         }
 
@@ -2370,9 +2367,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Maximum number of concurrent searches the API can run.</summary>
-        public long? MaxConcurrentSearches
+        public int? MaxConcurrentSearches
         {
-            get => Q<long?>("max_concurrent_searches");
+            get => Q<int?>("max_concurrent_searches");
             set => Q("max_concurrent_searches", value);
         }
 
@@ -2622,10 +2619,17 @@ namespace OpenSearch.Client
         }
 
         /// <summary>The throttle for this request in sub-requests per second. Defaults to no throttle.</summary>
-        public long? RequestsPerSecond
+        public float? RequestsPerSecond
         {
-            get => Q<long?>("requests_per_second");
+            get => Q<float?>("requests_per_second");
             set => Q("requests_per_second", value);
+        }
+
+        /// <summary>TODO</summary>
+        public bool? RequireAlias
+        {
+            get => Q<bool?>("require_alias");
+            set => Q("require_alias", value);
         }
 
         /// <summary>Specifies how long a consistent view of the index should be maintained for scrolled search.</summary>
@@ -2692,9 +2696,9 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>The throttle for this request in sub-requests per second.</summary>
-        public long? RequestsPerSecond
+        public float? RequestsPerSecond
         {
-            get => Q<long?>("requests_per_second");
+            get => Q<float?>("requests_per_second");
             set => Q("requests_per_second", value);
         }
     }
@@ -2844,9 +2848,9 @@ namespace OpenSearch.Client
         /// The number of shard results that should be reduced at once on the coordinating node. This value should be used as a protection mechanism
         /// to reduce the memory overhead per search request if the potential number of shards in the request can be large.
         /// </summary>
-        public long? BatchedReduceSize
+        public int? BatchedReduceSize
         {
-            get => Q<long?>("batched_reduce_size");
+            get => Q<int?>("batched_reduce_size");
             set => Q("batched_reduce_size", value);
         }
 
@@ -2935,9 +2939,9 @@ namespace OpenSearch.Client
         /// Defines the number of concurrent shard requests per node this search executes concurrently. This value should be used to limit the impact
         /// of the search on the cluster in order to limit the number of concurrent shard requests.
         /// </summary>
-        public long? MaxConcurrentShardRequests
+        public int? MaxConcurrentShardRequests
         {
-            get => Q<long?>("max_concurrent_shard_requests");
+            get => Q<int?>("max_concurrent_shard_requests");
             set => Q("max_concurrent_shard_requests", value);
         }
 
@@ -2972,9 +2976,9 @@ namespace OpenSearch.Client
         /// are disjoint). When unspecified, the pre-filter phase is executed if any of these conditions is met: the request targets more than 128
         /// shards; the request targets one or more read-only index; the primary sort of the query targets an indexed field.
         /// </summary>
-        public long? PreFilterShardSize
+        public int? PreFilterShardSize
         {
-            get => Q<long?>("pre_filter_shard_size");
+            get => Q<int?>("pre_filter_shard_size");
             set => Q("pre_filter_shard_size", value);
         }
 
@@ -3068,9 +3072,9 @@ namespace OpenSearch.Client
         /// Number of suggestions to return. This parameter can only be used when the `suggest_field` and `suggest_text` query string parameters are
         /// specified.
         /// </summary>
-        public long? SuggestSize
+        public int? SuggestSize
         {
-            get => Q<long?>("suggest_size");
+            get => Q<int?>("suggest_size");
             set => Q("suggest_size", value);
         }
 
@@ -3589,9 +3593,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Specify how many times should the operation be retried when a conflict occurs.</summary>
-        public long? RetryOnConflict
+        public int? RetryOnConflict
         {
-            get => Q<long?>("retry_on_conflict");
+            get => Q<int?>("retry_on_conflict");
             set => Q("retry_on_conflict", value);
         }
 
@@ -3727,9 +3731,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Starting offset.</summary>
-        public long? From
+        public int? From
         {
-            get => Q<long?>("from");
+            get => Q<int?>("from");
             set => Q("from", value);
         }
 
@@ -3787,9 +3791,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>The throttle for this request in sub-requests per second.</summary>
-        public long? RequestsPerSecond
+        public float? RequestsPerSecond
         {
-            get => Q<long?>("requests_per_second");
+            get => Q<float?>("requests_per_second");
             set => Q("requests_per_second", value);
         }
 
@@ -3815,9 +3819,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Size of the scroll request that powers the operation.</summary>
-        public long? ScrollSize
+        public int? ScrollSize
         {
-            get => Q<long?>("scroll_size");
+            get => Q<int?>("scroll_size");
             set => Q("scroll_size", value);
         }
 
@@ -3836,9 +3840,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Deprecated, use `max_docs` instead.</summary>
-        public long? Size
+        public int? Size
         {
-            get => Q<long?>("size");
+            get => Q<int?>("size");
             set => Q("size", value);
         }
 
@@ -3883,9 +3887,9 @@ namespace OpenSearch.Client
         /// let OpenSearch perform early termination automatically. Avoid specifying this parameter for requests that target data streams with backing
         /// indexes across multiple data tiers.
         /// </summary>
-        public long? TerminateAfter
+        public int? TerminateAfter
         {
-            get => Q<long?>("terminate_after");
+            get => Q<int?>("terminate_after");
             set => Q("terminate_after", value);
         }
 
@@ -3969,9 +3973,9 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>The throttle for this request in sub-requests per second.</summary>
-        public long? RequestsPerSecond
+        public float? RequestsPerSecond
         {
-            get => Q<long?>("requests_per_second");
+            get => Q<float?>("requests_per_second");
             set => Q("requests_per_second", value);
         }
     }

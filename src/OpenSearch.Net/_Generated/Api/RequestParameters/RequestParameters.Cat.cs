@@ -59,14 +59,14 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</summary>
+        /// <summary>Specifies the type of index that wildcard expressions can match. Supports comma-separated values.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -77,35 +77,35 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Whether to return information from the local node only instead of from the cluster manager node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -120,14 +120,14 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The units used to display byte values.</summary>
         public ByteUnit? Bytes
         {
             get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -138,28 +138,28 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -174,14 +174,14 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>The unit used to display byte values.</summary>
+        /// <summary>The units used to display byte values.</summary>
         public ByteUnit? Bytes
         {
             get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>A timeout for connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -189,7 +189,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the HTTP `Accept` header, such as `json` or `yaml`.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -200,28 +200,28 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from cluster-manager node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>A timeout for connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -231,14 +231,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -253,7 +253,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>A timeout for connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -261,7 +261,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the HTTP `Accept` header, such as `json` or `yaml`.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -272,28 +272,28 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>A timeout for connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -303,14 +303,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -324,7 +324,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -335,28 +335,28 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -371,21 +371,21 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>The unit used to display byte values.</summary>
+        /// <summary>The units used to display byte values.</summary>
         public ByteUnit? Bytes
         {
             get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
-        /// <summary>Comma-separated list of fields used to limit returned information.</summary>
+        /// <summary>A comma-separated list of fields used to limit the amount of returned information.</summary>
         public string[] Fields
         {
             get => Q<string[]>("fields");
             set => Q("fields", value);
         }
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -396,28 +396,28 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -431,7 +431,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -442,35 +442,35 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        /// <summary>If `true`, returns `HH:MM:SS` and Unix epoch timestamps.</summary>
+        /// <summary>When `true`, returns `HH:MM:SS` and Unix epoch timestamps.</summary>
         public bool? IncludeTimestamp
         {
             get => Q<bool?>("ts");
             set => Q("ts", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -492,14 +492,14 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>The unit used to display byte values.</summary>
+        /// <summary>The units used to display byte values.</summary>
         public ByteUnit? Bytes
         {
             get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -507,14 +507,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>The type of index that wildcard patterns can match.</summary>
+        /// <summary>Specifies the type of index that wildcard expressions can match. Supports comma-separated values.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -525,42 +525,42 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        /// <summary>The health status used to limit returned indexes. By default, the response includes indexes of any health status.</summary>
+        /// <summary>Limits indexes based on their health status. Supported values are `green`, `yellow`, and `red`.</summary>
         public HealthStatus? Health
         {
             get => Q<HealthStatus?>("health");
             set => Q("health", value);
         }
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        /// <summary>If `true`, the response includes information from segments that are not loaded into memory.</summary>
+        /// <summary>Whether to include information from segments not loaded into memory.</summary>
         public bool? IncludeUnloadedSegments
         {
             get => Q<bool?>("include_unloaded_segments");
             set => Q("include_unloaded_segments", value);
         }
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -570,21 +570,21 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("master_timeout", value);
         }
 
-        /// <summary>If `true`, the response only includes information from primary shards.</summary>
+        /// <summary>When `true`, returns information only from the primary shards.</summary>
         public bool? Pri
         {
             get => Q<bool?>("pri");
             set => Q("pri", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -598,7 +598,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -606,7 +606,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -617,28 +617,28 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -648,14 +648,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -670,7 +670,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -678,7 +678,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -689,28 +689,28 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -720,14 +720,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -741,14 +741,14 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>The unit used to display byte values.</summary>
+        /// <summary>The units used to display byte values.</summary>
         public ByteUnit? Bytes
         {
             get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -756,7 +756,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -767,28 +767,28 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>If `true`, return the full node ID. If `false`, return the shortened node ID.</summary>
+        /// <summary>When `true`, returns the full node ID. When `false`, returns the shortened node ID.</summary>
         public bool? FullId
         {
             get => Q<bool?>("full_id");
             set => Q("full_id", value);
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 1.0.0, reason: This parameter does not cause this API to act locally."
         )]
@@ -798,7 +798,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -808,14 +808,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -830,7 +830,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -838,7 +838,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -849,28 +849,28 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -880,14 +880,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -902,14 +902,14 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => true;
 
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The units used to display byte values.</summary>
         public ByteUnit? Bytes
         {
             get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -920,28 +920,28 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -956,7 +956,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -964,7 +964,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -975,28 +975,28 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -1006,14 +1006,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -1035,21 +1035,21 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("active_only", value);
         }
 
-        /// <summary>The unit used to display byte values.</summary>
+        /// <summary>The units used to display byte values.</summary>
         public ByteUnit? Bytes
         {
             get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
-        /// <summary>If `true`, the response includes detailed information about shard recoveries.</summary>
+        /// <summary>When `true`, includes detailed information about shard recoveries.</summary>
         public bool? Detailed
         {
             get => Q<bool?>("detailed");
             set => Q("detailed", value);
         }
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1060,35 +1060,38 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        /// <summary>Comma-separated list or wildcard expression of index names to limit the returned information.</summary>
+        /// <summary>
+        /// A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data
+        /// streams and indexes, omit this parameter or use `*` or `_all`.
+        /// </summary>
         public string[] Index
         {
             get => Q<string[]>("index");
             set => Q("index", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -1103,7 +1106,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -1111,7 +1114,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1122,28 +1125,28 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -1153,14 +1156,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -1175,7 +1178,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>If `true`, the response only includes ongoing segment replication events.</summary>
+        /// <summary>When `true`, the response only includes ongoing segment replication events.</summary>
         public bool? ActiveOnly
         {
             get => Q<bool?>("active_only");
@@ -1183,8 +1186,8 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>
-        /// Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes `_all` string or when no indexes have
-        /// been specified).
+        /// Whether to ignore the index if a wildcard index expression resolves to no concrete indexes. This includes the `_all` string or when no
+        /// indexes have been specified.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -1192,35 +1195,35 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("allow_no_indices", value);
         }
 
-        /// <summary>The unit in which to display byte values.</summary>
+        /// <summary>The units used to display byte values.</summary>
         public ByteUnit? Bytes
         {
             get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
-        /// <summary>If `true`, the response only includes latest completed segment replication events.</summary>
+        /// <summary>When `true`, the response only includes the last-completed segment replication events.</summary>
         public bool? CompletedOnly
         {
             get => Q<bool?>("completed_only");
             set => Q("completed_only", value);
         }
 
-        /// <summary>If `true`, the response includes detailed information about segment replications.</summary>
+        /// <summary>When `true`, the response includes additional metrics for each stage of a segment replication event.</summary>
         public bool? Detailed
         {
             get => Q<bool?>("detailed");
             set => Q("detailed", value);
         }
 
-        /// <summary>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</summary>
+        /// <summary>Specifies the type of index that wildcard expressions can match. Supports comma-separated values.</summary>
         public ExpandWildcards? ExpandWildcards
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1231,63 +1234,66 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        /// <summary>Whether specified concrete, expanded or aliased indexes should be ignored when throttled.</summary>
+        /// <summary>Whether specified concrete, expanded, or aliased indexes should be ignored when throttled.</summary>
         public bool? IgnoreThrottled
         {
             get => Q<bool?>("ignore_throttled");
             set => Q("ignore_throttled", value);
         }
 
-        /// <summary>Whether specified concrete indexes should be ignored when unavailable (missing or closed).</summary>
+        /// <summary>Whether the specified concrete indexes should be ignored when missing or closed.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>Comma-separated list or wildcard expression of index names to limit the returned information.</summary>
+        /// <summary>
+        /// A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data
+        /// streams and indexes, omit this parameter or use `*` or `_all`.
+        /// </summary>
         public string[] Index
         {
             get => Q<string[]>("index");
             set => Q("index", value);
         }
 
-        /// <summary>Comma-separated list of shards to display.</summary>
+        /// <summary>A comma-separated list of shards to display.</summary>
         public string[] Shards
         {
             get => Q<string[]>("shards");
             set => Q("shards", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>The operation timeout.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
             set => Q("timeout", value);
         }
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -1302,14 +1308,14 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>The unit used to display byte values.</summary>
+        /// <summary>The units used to display byte values.</summary>
         public ByteUnit? Bytes
         {
             get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -1317,7 +1323,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1328,21 +1334,21 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -1352,14 +1358,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -1373,14 +1379,14 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>The unit used to display byte values.</summary>
+        /// <summary>The units used to display byte values.</summary>
         public ByteUnit? Bytes
         {
             get => Q<ByteUnit?>("bytes");
             set => Q("bytes", value);
         }
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -1388,7 +1394,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1399,28 +1405,28 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -1430,14 +1436,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -1452,7 +1458,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -1460,7 +1466,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1471,28 +1477,28 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        /// <summary>If `true`, the response does not include information from unavailable snapshots.</summary>
+        /// <summary>When `true`, the response does not include information from unavailable snapshots.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -1502,14 +1508,24 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>
+        /// A comma-separated list of snapshot repositories used to limit the request. Accepts wildcard expressions. `_all` returns all repositories.
+        /// If any repository fails during the request, OpenSearch returns an error.
+        /// </summary>
+        public string[] Repository
+        {
+            get => Q<string[]>("repository");
+            set => Q("repository", value);
+        }
+
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -1523,7 +1539,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>The task action names, which are used to limit the response.</summary>
+        /// <summary>The task action names used to limit the response.</summary>
         public string[] Actions
         {
             get => Q<string[]>("actions");
@@ -1537,7 +1553,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("detailed", value);
         }
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1548,14 +1564,14 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
@@ -1563,8 +1579,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>
-        /// Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're
-        /// connecting to, leave empty to get information from all nodes.
+        /// A comma-separated list of node IDs or names used to limit the returned information. Use `_local` to return information from the node to
+        /// which you're connecting, specify a specific node from which to get information, or keep the parameter empty to get information from all
+        /// nodes.
         /// </summary>
         public string[] Nodes
         {
@@ -1579,14 +1596,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("parent_task_id", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -1601,7 +1618,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -1609,7 +1626,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1620,28 +1637,28 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -1651,14 +1668,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");
@@ -1673,7 +1690,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>A timeout for connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -1681,7 +1698,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1692,28 +1709,28 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
             set => Q("h", value);
         }
 
-        /// <summary>Return help information.</summary>
+        /// <summary>Returns help information.</summary>
         public bool? Help
         {
             get => Q<bool?>("help");
             set => Q("help", value);
         }
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
             set => Q("local", value);
         }
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -1724,20 +1741,20 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>The multiplier in which to display values.</summary>
-        public long? Size
+        public int? Size
         {
-            get => Q<long?>("size");
+            get => Q<int?>("size");
             set => Q("size", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
             set => Q("s", value);
         }
 
-        /// <summary>Verbose mode. Display column headers.</summary>
+        /// <summary>Enables verbose mode, which displays column headers.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("v");

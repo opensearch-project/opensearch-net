@@ -97,7 +97,7 @@ namespace ApiGenerator.Domain
             if (queryStringKey == "format" && endpointName == "text_structure.find_structure")
                 return "TextStructureFindStructureFormat";
 
-			return queryStringKey.ToPascalCase();
+			return queryStringKey.SplitPascalCase().ToPascalCase();
 		}
 
         private static IList<string> CreateSkipList(IEndpointOverrides local, ICollection<string> declaredKeys) =>

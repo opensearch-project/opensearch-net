@@ -26,18 +26,24 @@ public static class OpenApiUtils
 
     public static IImmutableList<string> GetEnumValues(this JsonSchema schema)
     {
+        var normalized = new HashSet<string>();
         var values = new SortedSet<string>();
         Visit(schema);
         return values.ToImmutableList();
+
+        void Add(string v)
+        {
+            if (normalized.Add(v.ToLowerInvariant())) values.Add(v);
+        }
 
         void Visit(JsonSchema s)
         {
             if (s.HasOneOf())
                 foreach (var oneOf in schema.OneOf) Visit(oneOf);
             else if (s.Enumeration.Count > 0)
-                foreach (var v in s.Enumeration.Where(v => v != null)) values.Add((string) v);
+                foreach (var v in s.Enumeration.Where(v => v != null)) Add((string) v);
             else if (s.Const<string>() != null)
-                values.Add(s.Const<string>());
+                Add(s.Const<string>());
         }
     }
 

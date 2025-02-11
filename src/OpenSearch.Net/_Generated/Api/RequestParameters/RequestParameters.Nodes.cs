@@ -74,16 +74,16 @@ namespace OpenSearch.Net.Specification.NodesApi
         }
 
         /// <summary>Number of samples of thread stack trace.</summary>
-        public long? Snapshots
+        public int? Snapshots
         {
-            get => Q<long?>("snapshots");
+            get => Q<int?>("snapshots");
             set => Q("snapshots", value);
         }
 
         /// <summary>Specify the number of threads to provide information for.</summary>
-        public long? Threads
+        public int? Threads
         {
-            get => Q<long?>("threads");
+            get => Q<int?>("threads");
             set => Q("threads", value);
         }
 

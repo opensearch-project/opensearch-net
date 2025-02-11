@@ -109,9 +109,9 @@ namespace OpenSearch.Net.Specification.KnnApi
         /// The number of shard results that should be reduced at once on the coordinating node. This value should be used as a protection mechanism
         /// to reduce the memory overhead per search request if the potential number of shards in the request can be large.
         /// </summary>
-        public long? BatchedReduceSize
+        public int? BatchedReduceSize
         {
-            get => Q<long?>("batched_reduce_size");
+            get => Q<int?>("batched_reduce_size");
             set => Q("batched_reduce_size", value);
         }
 
@@ -158,9 +158,9 @@ namespace OpenSearch.Net.Specification.KnnApi
         }
 
         /// <summary>Starting offset.</summary>
-        public long? From
+        public int? From
         {
-            get => Q<long?>("from");
+            get => Q<int?>("from");
             set => Q("from", value);
         }
 
@@ -189,9 +189,9 @@ namespace OpenSearch.Net.Specification.KnnApi
         /// The number of concurrent shard requests per node this search executes concurrently. This value should be used to limit the impact of the
         /// search on the cluster in order to limit the number of concurrent shard requests.
         /// </summary>
-        public long? MaxConcurrentShardRequests
+        public int? MaxConcurrentShardRequests
         {
-            get => Q<long?>("max_concurrent_shard_requests");
+            get => Q<int?>("max_concurrent_shard_requests");
             set => Q("max_concurrent_shard_requests", value);
         }
 
@@ -208,9 +208,9 @@ namespace OpenSearch.Net.Specification.KnnApi
         /// not match any documents based on its rewrite method, that is if date filters are mandatory to match but the shard bounds and the query are
         /// disjoint.
         /// </summary>
-        public long? PreFilterShardSize
+        public int? PreFilterShardSize
         {
-            get => Q<long?>("pre_filter_shard_size");
+            get => Q<int?>("pre_filter_shard_size");
             set => Q("pre_filter_shard_size", value);
         }
 
@@ -257,9 +257,9 @@ namespace OpenSearch.Net.Specification.KnnApi
         }
 
         /// <summary>Number of hits to return.</summary>
-        public long? Size
+        public int? Size
         {
-            get => Q<long?>("size");
+            get => Q<int?>("size");
             set => Q("size", value);
         }
 
@@ -320,9 +320,9 @@ namespace OpenSearch.Net.Specification.KnnApi
         }
 
         /// <summary>How many suggestions to return in response.</summary>
-        public long? SuggestSize
+        public int? SuggestSize
         {
-            get => Q<long?>("suggest_size");
+            get => Q<int?>("suggest_size");
             set => Q("suggest_size", value);
         }
 
@@ -334,9 +334,9 @@ namespace OpenSearch.Net.Specification.KnnApi
         }
 
         /// <summary>The maximum number of documents to collect for each shard, upon reaching which the query execution will terminate early.</summary>
-        public long? TerminateAfter
+        public int? TerminateAfter
         {
-            get => Q<long?>("terminate_after");
+            get => Q<int?>("terminate_after");
             set => Q("terminate_after", value);
         }
 

@@ -128,9 +128,9 @@ namespace OpenSearch.Net.Specification.IsmApi
         public override bool SupportsBody => true;
 
         /// <summary>Only perform the operation if the document has this primary term.</summary>
-        public long? IfPrimaryTerm
+        public double? IfPrimaryTerm
         {
-            get => Q<long?>("if_primary_term");
+            get => Q<double?>("if_primary_term");
             set => Q("if_primary_term", value);
         }
 
@@ -140,7 +140,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             get => Q<long?>("if_seq_no");
             set => Q("if_seq_no", value);
         }
-        public string Policyid
+        public string PolicyId
         {
             get => Q<string>("policyID");
             set => Q("policyID", value);
@@ -154,9 +154,9 @@ namespace OpenSearch.Net.Specification.IsmApi
         public override bool SupportsBody => true;
 
         /// <summary>Only perform the operation if the document has this primary term.</summary>
-        public long? IfPrimaryTerm
+        public double? IfPrimaryTerm
         {
-            get => Q<long?>("if_primary_term");
+            get => Q<double?>("if_primary_term");
             set => Q("if_primary_term", value);
         }
 

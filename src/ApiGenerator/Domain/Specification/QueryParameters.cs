@@ -150,33 +150,21 @@ namespace ApiGenerator.Domain.Specification
             }
         }
 
-        public string TypeLowLevel
-        {
-            get
+        public string TypeLowLevel =>
+            Type switch
             {
-                switch (Type)
-                {
-                    case "boolean": return "bool?";
-                    case "list": return "string[]";
-                    case "int": return "int?";
-                    case "date": return "DateTimeOffset?";
-                    case "enum": return $"{ClsName}?";
-                    case "number":
-                        return new[] { "boost", "percen", "score" }.Any(s => QueryStringKey.ToLowerInvariant().Contains(s))
-                            ? "double?"
-                            : "long?";
-                    case "duration":
-                    case "time":
-                        return "TimeSpan";
-                    case "text":
-                    case "":
-                    case null:
-                        return "string";
-                    default:
-                        return Type;
-                }
-            }
-        }
+                "boolean" => "bool?",
+                "list" => "string[]",
+                "int" => "int?",
+                "long" => "long?",
+                "date" => "DateTimeOffset?",
+                "enum" => $"{ClsName}?",
+                "float" => "float?",
+                "double" => "double?",
+                "duration" or "time" => "TimeSpan",
+                "text" or "" or null => "string",
+                _ => Type
+            };
 
 
         public string InitializerGenerator(string @namespace, string type, string name, string key, string setter, Version versionAdded, params string[] doc) =>

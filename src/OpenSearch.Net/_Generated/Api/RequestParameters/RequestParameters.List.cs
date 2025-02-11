@@ -154,9 +154,9 @@ namespace OpenSearch.Net.Specification.ListApi
         }
 
         /// <summary>Maximum number of indexes to be displayed in a page.</summary>
-        public long? Size
+        public int? Size
         {
-            get => Q<long?>("size");
+            get => Q<int?>("size");
             set => Q("size", value);
         }
 
@@ -252,9 +252,9 @@ namespace OpenSearch.Net.Specification.ListApi
         }
 
         /// <summary>Maximum number of shards to be displayed in a page.</summary>
-        public long? Size
+        public int? Size
         {
-            get => Q<long?>("size");
+            get => Q<int?>("size");
             set => Q("size", value);
         }
 

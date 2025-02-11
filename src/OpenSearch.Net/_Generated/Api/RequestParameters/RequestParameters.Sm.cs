@@ -50,74 +50,117 @@ using System.Linq.Expressions;
 using System.Text;
 
 // ReSharper disable once CheckNamespace
-namespace OpenSearch.Net.Specification.ObservabilityApi
+namespace OpenSearch.Net.Specification.SmApi
 {
-    /// <summary>Request options for CreateObject</summary>
-    public partial class CreateObjectRequestParameters
-        : RequestParameters<CreateObjectRequestParameters>
+    /// <summary>Request options for CreatePolicy</summary>
+    public partial class CreatePolicyRequestParameters
+        : RequestParameters<CreatePolicyRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
     }
 
-    /// <summary>Request options for DeleteObject</summary>
-    public partial class DeleteObjectRequestParameters
-        : RequestParameters<DeleteObjectRequestParameters>
+    /// <summary>Request options for DeletePolicy</summary>
+    public partial class DeletePolicyRequestParameters
+        : RequestParameters<DeletePolicyRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
     }
 
-    /// <summary>Request options for DeleteObjects</summary>
-    public partial class DeleteObjectsRequestParameters
-        : RequestParameters<DeleteObjectsRequestParameters>
+    /// <summary>Request options for ExplainPolicy</summary>
+    public partial class ExplainPolicyRequestParameters
+        : RequestParameters<ExplainPolicyRequestParameters>
     {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+    }
+
+    /// <summary>Request options for GetPolicies</summary>
+    public partial class GetPoliciesRequestParameters
+        : RequestParameters<GetPoliciesRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>The ID of a single Observability Object to delete.</summary>
-        public string ObjectId
+        /// <summary>The starting index (default: 0).</summary>
+        public int? From
         {
-            get => Q<string>("objectId");
-            set => Q("objectId", value);
+            get => Q<int?>("from");
+            set => Q("from", value);
         }
 
-        /// <summary>A comma-separated list of Observability Object IDs to delete.</summary>
-        public string ObjectIdList
+        /// <summary>A query string to filter policies.</summary>
+        public string QueryStringParam
         {
-            get => Q<string>("objectIdList");
-            set => Q("objectIdList", value);
+            get => Q<string>("queryString");
+            set => Q("queryString", value);
+        }
+
+        /// <summary>The number of policies to return.</summary>
+        public int? Size
+        {
+            get => Q<int?>("size");
+            set => Q("size", value);
+        }
+
+        /// <summary>The field to sort on.</summary>
+        public string SortField
+        {
+            get => Q<string>("sortField");
+            set => Q("sortField", value);
+        }
+
+        /// <summary>The order of sorting.</summary>
+        public string SortOrder
+        {
+            get => Q<string>("sortOrder");
+            set => Q("sortOrder", value);
         }
     }
 
-    /// <summary>Request options for GetLocalstats</summary>
-    public partial class GetLocalstatsRequestParameters
-        : RequestParameters<GetLocalstatsRequestParameters>
+    /// <summary>Request options for GetPolicy</summary>
+    public partial class GetPolicyRequestParameters : RequestParameters<GetPolicyRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
     }
 
-    /// <summary>Request options for GetObject</summary>
-    public partial class GetObjectRequestParameters : RequestParameters<GetObjectRequestParameters>
+    /// <summary>Request options for StartPolicy</summary>
+    public partial class StartPolicyRequestParameters
+        : RequestParameters<StartPolicyRequestParameters>
     {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
     }
 
-    /// <summary>Request options for ListObjects</summary>
-    public partial class ListObjectsRequestParameters
-        : RequestParameters<ListObjectsRequestParameters>
+    /// <summary>Request options for StopPolicy</summary>
+    public partial class StopPolicyRequestParameters
+        : RequestParameters<StopPolicyRequestParameters>
     {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
     }
 
-    /// <summary>Request options for UpdateObject</summary>
-    public partial class UpdateObjectRequestParameters
-        : RequestParameters<UpdateObjectRequestParameters>
+    /// <summary>Request options for UpdatePolicy</summary>
+    public partial class UpdatePolicyRequestParameters
+        : RequestParameters<UpdatePolicyRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+
+        /// <summary>The primary term of the policy to update.</summary>
+        public int? IfPrimaryTerm
+        {
+            get => Q<int?>("if_primary_term");
+            set => Q("if_primary_term", value);
+        }
+
+        /// <summary>The sequence number of the policy to update.</summary>
+        public int? IfSequenceNumber
+        {
+            get => Q<int?>("if_seq_no");
+            set => Q("if_seq_no", value);
+        }
     }
 }

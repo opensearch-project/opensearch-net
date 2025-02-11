@@ -139,7 +139,7 @@ namespace ApiGenerator.Generator
 
             Body body = null;
             if (variants.Select(v => v.Operation.RequestBody).FirstOrDefault() is { } requestBody)
-                body = new Body { Description = GetDescription(requestBody)?.SanitizeDescription(), Required = requestBody.IsRequired };
+                body = new Body { Description = requestBody.GetDescription()?.SanitizeDescription(), Required = requestBody.IsRequired };
 
             return new ApiEndpoint
             {
@@ -193,9 +193,9 @@ namespace ApiGenerator.Generator
         private record PathParameter(string Name, JsonSchema Schema, string Description, bool IsDeprecated)
         {
             public PathParameter(OpenApiParameter parameter) :
-                this(parameter.Name, parameter.Schema, parameter.Description, parameter.IsDeprecated) { }
+                this(parameter.Name, parameter.Schema, parameter.GetDescription(), parameter.IsDeprecated) { }
 
-            public PathParameter(string name, OpenApiParameter parameter, JsonSchema schema) : this(name, schema, parameter.Description,
+            public PathParameter(string name, OpenApiParameter parameter, JsonSchema schema) : this(name, schema, parameter.GetDescription(),
                 parameter.IsDeprecated) { }
         }
 
@@ -215,7 +215,7 @@ namespace ApiGenerator.Generator
             new()
             {
                 Type = GetOpenSearchType(p.Schema, trackEnumToGenerate),
-                Description = p.Description?.SanitizeDescription(),
+                Description = p.GetDescription()?.SanitizeDescription(),
                 Deprecated = GetDeprecation(p) ?? GetDeprecation(p.ActualSchema),
                 VersionAdded = p.XVersionAdded(),
             };
@@ -252,8 +252,9 @@ namespace ApiGenerator.Generator
                 {
                     (_, "list") => second,
                     ("boolean", "string") => first,
-                    ("number", _) => "string",
-                    (_, "number") => "string",
+                    ("int", _) => "string",
+                    (_, "double") => "string",
+                    (_, "int") => "string",
                     (_, _) => throw new Exception($"Unable to determine type of: {first} and {second}")
                 };
             }
@@ -275,7 +276,9 @@ namespace ApiGenerator.Generator
 
             return type switch
             {
-                JsonObjectType.Integer => "number",
+                JsonObjectType.Integer when schema.Format is null or "int32" => "int",
+                JsonObjectType.Integer when schema.Format == "int64" => "long",
+                JsonObjectType.Number => schema.Format ?? "double",
                 JsonObjectType.Array => "list",
                 JsonObjectType.String when schema.Pattern == @"^(?:(-1)|([0-9\.]+)(?:d|h|m|s|ms|micros|nanos))$" => "time",
                 var t => t.ToString().ToLowerInvariant()
@@ -289,7 +292,7 @@ namespace ApiGenerator.Generator
                 var (m, v) => new Deprecation { Description = m?.SanitizeDescription(), Version = v }
             };
 
-        private static string GetDescription(OpenApiRequestBody requestBody)
+        private static string GetDescription(this OpenApiRequestBody requestBody)
         {
             if (!string.IsNullOrWhiteSpace(requestBody.Description))
                 return requestBody.Description;
@@ -297,6 +300,23 @@ namespace ApiGenerator.Generator
             return requestBody.Content.TryGetValue(MediaTypeNames.Application.Json, out var content)
                 ? content.Schema?.ActualSchema.Description
                 : null;
+        }
+
+        private static string GetDescription(this OpenApiParameter parameter) =>
+            !string.IsNullOrWhiteSpace(parameter.Description)
+                ? parameter.Description
+                : parameter.Schema.GetDescription();
+
+        private static string GetDescription(this JsonSchema schema)
+        {
+            while (true)
+            {
+                if (!string.IsNullOrWhiteSpace(schema.Description)) return schema.Description;
+
+                if (!schema.HasReference) return null;
+
+                schema = schema.ActualSchema;
+            }
         }
 
         private static string SanitizeDescription(this string description)

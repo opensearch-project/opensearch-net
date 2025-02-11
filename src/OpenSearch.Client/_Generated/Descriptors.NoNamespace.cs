@@ -203,7 +203,7 @@ namespace OpenSearch.Client
         /// <summary>Field to use as default where no field prefix is given in the query string. This parameter can only be used when the `q` query string parameter is specified.</summary>
         public CountDescriptor<TDocument> Df(string df) => Qs("df", df);
 
-        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.</summary>
+        /// <summary>Specifies the type of index that wildcard expressions can match. Supports comma-separated values.</summary>
         public CountDescriptor<TDocument> ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
@@ -219,7 +219,7 @@ namespace OpenSearch.Client
         public CountDescriptor<TDocument> Lenient(bool? lenient = true) => Qs("lenient", lenient);
 
         /// <summary>Sets the minimum `_score` value that documents must have to be included in the result.</summary>
-        public CountDescriptor<TDocument> MinScore(double? minscore) => Qs("min_score", minscore);
+        public CountDescriptor<TDocument> MinScore(float? minscore) => Qs("min_score", minscore);
 
         /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
         public CountDescriptor<TDocument> Preference(string preference) =>
@@ -239,7 +239,7 @@ namespace OpenSearch.Client
         public CountDescriptor<TDocument> Routing(Routing routing) => Qs("routing", routing);
 
         /// <summary>Maximum number of documents to collect for each shard. If a query reaches this limit, OpenSearch terminates the query early. OpenSearch collects documents before sorting.</summary>
-        public CountDescriptor<TDocument> TerminateAfter(long? terminateafter) =>
+        public CountDescriptor<TDocument> TerminateAfter(int? terminateafter) =>
             Qs("terminate_after", terminateafter);
     }
 
@@ -543,7 +543,7 @@ namespace OpenSearch.Client
         ) => Qs("expand_wildcards", expandwildcards);
 
         /// <summary>Starting offset.</summary>
-        public DeleteByQueryDescriptor<TDocument> From(long? from) => Qs("from", from);
+        public DeleteByQueryDescriptor<TDocument> From(int? from) => Qs("from", from);
 
         /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
         public DeleteByQueryDescriptor<TDocument> IgnoreUnavailable(
@@ -571,7 +571,7 @@ namespace OpenSearch.Client
             Qs("request_cache", requestcache);
 
         /// <summary>The throttle for this request in sub-requests per second.</summary>
-        public DeleteByQueryDescriptor<TDocument> RequestsPerSecond(long? requestspersecond) =>
+        public DeleteByQueryDescriptor<TDocument> RequestsPerSecond(float? requestspersecond) =>
             Qs("requests_per_second", requestspersecond);
 
         /// <summary>
@@ -588,7 +588,7 @@ namespace OpenSearch.Client
         public DeleteByQueryDescriptor<TDocument> Scroll(Time scroll) => Qs("scroll", scroll);
 
         /// <summary>Size of the scroll request that powers the operation.</summary>
-        public DeleteByQueryDescriptor<TDocument> ScrollSize(long? scrollsize) =>
+        public DeleteByQueryDescriptor<TDocument> ScrollSize(int? scrollsize) =>
             Qs("scroll_size", scrollsize);
 
         /// <summary>Explicit timeout for each search request. Defaults to no timeout.</summary>
@@ -600,7 +600,7 @@ namespace OpenSearch.Client
             Qs("search_type", searchtype);
 
         /// <summary>Deprecated, use `max_docs` instead.</summary>
-        public DeleteByQueryDescriptor<TDocument> Size(long? size) => Qs("size", size);
+        public DeleteByQueryDescriptor<TDocument> Size(int? size) => Qs("size", size);
 
         /// <summary>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs.</summary>
         public DeleteByQueryDescriptor<TDocument> Sort(params string[] sort) => Qs("sort", sort);
@@ -632,7 +632,7 @@ namespace OpenSearch.Client
             Qs("stats", stats);
 
         /// <summary>Maximum number of documents to collect for each shard. If a query reaches this limit, OpenSearch terminates the query early. OpenSearch collects documents before sorting. Use with caution. OpenSearch applies this parameter to each shard handling the request. When possible, let OpenSearch perform early termination automatically. Avoid specifying this parameter for requests that target data streams with backing indexes across multiple data tiers.</summary>
-        public DeleteByQueryDescriptor<TDocument> TerminateAfter(long? terminateafter) =>
+        public DeleteByQueryDescriptor<TDocument> TerminateAfter(int? terminateafter) =>
             Qs("terminate_after", terminateafter);
 
         /// <summary>Period each deletion request waits for active shards.</summary>
@@ -678,7 +678,7 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>The throttle for this request in sub-requests per second.</summary>
-        public DeleteByQueryRethrottleDescriptor RequestsPerSecond(long? requestspersecond) =>
+        public DeleteByQueryRethrottleDescriptor RequestsPerSecond(float? requestspersecond) =>
             Qs("requests_per_second", requestspersecond);
     }
 
@@ -1596,15 +1596,15 @@ namespace OpenSearch.Client
             Qs("ccs_minimize_roundtrips", ccsminimizeroundtrips);
 
         /// <summary>Maximum number of concurrent searches the multi search API can execute.</summary>
-        public MultiSearchDescriptor MaxConcurrentSearches(long? maxconcurrentsearches) =>
+        public MultiSearchDescriptor MaxConcurrentSearches(int? maxconcurrentsearches) =>
             Qs("max_concurrent_searches", maxconcurrentsearches);
 
         /// <summary>Maximum number of concurrent shard requests that each sub-search request executes per node.</summary>
-        public MultiSearchDescriptor MaxConcurrentShardRequests(long? maxconcurrentshardrequests) =>
+        public MultiSearchDescriptor MaxConcurrentShardRequests(int? maxconcurrentshardrequests) =>
             Qs("max_concurrent_shard_requests", maxconcurrentshardrequests);
 
         /// <summary>Defines a threshold that enforces a pre-filter roundtrip to prefilter search shards based on query rewriting if the number of shards the search request expands to exceeds the threshold. This filter roundtrip can limit the number of shards significantly if for instance a shard can not match any documents based on its rewrite method i.e., if date filters are mandatory to match but the shard bounds and the query are disjoint.</summary>
-        public MultiSearchDescriptor PreFilterShardSize(long? prefiltershardsize) =>
+        public MultiSearchDescriptor PreFilterShardSize(int? prefiltershardsize) =>
             Qs("pre_filter_shard_size", prefiltershardsize);
 
         /// <summary>Indicates whether global term and document frequencies should be used when scoring returned documents.</summary>
@@ -1662,7 +1662,7 @@ namespace OpenSearch.Client
         ) => Qs("ccs_minimize_roundtrips", ccsminimizeroundtrips);
 
         /// <summary>Maximum number of concurrent searches the API can run.</summary>
-        public MultiSearchTemplateDescriptor MaxConcurrentSearches(long? maxconcurrentsearches) =>
+        public MultiSearchTemplateDescriptor MaxConcurrentSearches(int? maxconcurrentsearches) =>
             Qs("max_concurrent_searches", maxconcurrentsearches);
 
         /// <summary>The type of the search operation. Available options: `query_then_fetch`, `dfs_query_then_fetch`.</summary>
@@ -1837,8 +1837,12 @@ namespace OpenSearch.Client
         public ReindexOnServerDescriptor Refresh(Refresh? refresh) => Qs("refresh", refresh);
 
         /// <summary>The throttle for this request in sub-requests per second. Defaults to no throttle.</summary>
-        public ReindexOnServerDescriptor RequestsPerSecond(long? requestspersecond) =>
+        public ReindexOnServerDescriptor RequestsPerSecond(float? requestspersecond) =>
             Qs("requests_per_second", requestspersecond);
+
+        /// <summary>TODO</summary>
+        public ReindexOnServerDescriptor RequireAlias(bool? requirealias = true) =>
+            Qs("require_alias", requirealias);
 
         /// <summary>Specifies how long a consistent view of the index should be maintained for scrolled search.</summary>
         public ReindexOnServerDescriptor Scroll(Time scroll) => Qs("scroll", scroll);
@@ -1881,7 +1885,7 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>The throttle for this request in sub-requests per second.</summary>
-        public ReindexRethrottleDescriptor RequestsPerSecond(long? requestspersecond) =>
+        public ReindexRethrottleDescriptor RequestsPerSecond(float? requestspersecond) =>
             Qs("requests_per_second", requestspersecond);
     }
 
@@ -2001,7 +2005,7 @@ namespace OpenSearch.Client
             Qs("analyze_wildcard", analyzewildcard);
 
         /// <summary>The number of shard results that should be reduced at once on the coordinating node. This value should be used as a protection mechanism to reduce the memory overhead per search request if the potential number of shards in the request can be large.</summary>
-        public SearchDescriptor<TInferDocument> BatchedReduceSize(long? batchedreducesize) =>
+        public SearchDescriptor<TInferDocument> BatchedReduceSize(int? batchedreducesize) =>
             Qs("batched_reduce_size", batchedreducesize);
 
         /// <summary>The time after which the search request will be canceled. Request-level parameter takes precedence over `cancel_after_time_interval` cluster setting.</summary>
@@ -2044,7 +2048,7 @@ namespace OpenSearch.Client
 
         /// <summary>Defines the number of concurrent shard requests per node this search executes concurrently. This value should be used to limit the impact of the search on the cluster in order to limit the number of concurrent shard requests.</summary>
         public SearchDescriptor<TInferDocument> MaxConcurrentShardRequests(
-            long? maxconcurrentshardrequests
+            int? maxconcurrentshardrequests
         ) => Qs("max_concurrent_shard_requests", maxconcurrentshardrequests);
 
         /// <summary>Indicates whether to return phase-level `took` time values in the response.</summary>
@@ -2056,7 +2060,7 @@ namespace OpenSearch.Client
             Qs("preference", preference);
 
         /// <summary>Defines a threshold that enforces a pre-filter roundtrip to prefilter search shards based on query rewriting if the number of shards the search request expands to exceeds the threshold. This filter roundtrip can limit the number of shards significantly if for instance a shard can not match any documents based on its rewrite method (if date filters are mandatory to match but the shard bounds and the query are disjoint). When unspecified, the pre-filter phase is executed if any of these conditions is met: the request targets more than 128 shards; the request targets one or more read-only index; the primary sort of the query targets an indexed field.</summary>
-        public SearchDescriptor<TInferDocument> PreFilterShardSize(long? prefiltershardsize) =>
+        public SearchDescriptor<TInferDocument> PreFilterShardSize(int? prefiltershardsize) =>
             Qs("pre_filter_shard_size", prefiltershardsize);
 
         /// <summary>Query in the Lucene query string syntax using query parameter search. Query parameter searches do not support the full OpenSearch Query DSL but are handy for testing.</summary>
@@ -2109,7 +2113,7 @@ namespace OpenSearch.Client
             Qs("suggest_mode", suggestmode);
 
         /// <summary>Number of suggestions to return. This parameter can only be used when the `suggest_field` and `suggest_text` query string parameters are specified.</summary>
-        public SearchDescriptor<TInferDocument> SuggestSize(long? suggestsize) =>
+        public SearchDescriptor<TInferDocument> SuggestSize(int? suggestsize) =>
             Qs("suggest_size", suggestsize);
 
         /// <summary>The source text for which the suggestions should be returned. This parameter can only be used when the `suggest_field` and `suggest_text` query string parameters are specified.</summary>
@@ -2474,7 +2478,7 @@ namespace OpenSearch.Client
 
         /// <summary>Specify how many times should the operation be retried when a conflict occurs.</summary>
         public UpdateDescriptor<TDocument, TPartialDocument> RetryOnConflict(
-            long? retryonconflict
+            int? retryonconflict
         ) => Qs("retry_on_conflict", retryonconflict);
 
         /// <summary>
@@ -2568,7 +2572,7 @@ namespace OpenSearch.Client
         ) => Qs("expand_wildcards", expandwildcards);
 
         /// <summary>Starting offset.</summary>
-        public UpdateByQueryDescriptor<TDocument> From(long? from) => Qs("from", from);
+        public UpdateByQueryDescriptor<TDocument> From(int? from) => Qs("from", from);
 
         /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
         public UpdateByQueryDescriptor<TDocument> IgnoreUnavailable(
@@ -2600,7 +2604,7 @@ namespace OpenSearch.Client
             Qs("request_cache", requestcache);
 
         /// <summary>The throttle for this request in sub-requests per second.</summary>
-        public UpdateByQueryDescriptor<TDocument> RequestsPerSecond(long? requestspersecond) =>
+        public UpdateByQueryDescriptor<TDocument> RequestsPerSecond(float? requestspersecond) =>
             Qs("requests_per_second", requestspersecond);
 
         /// <summary>
@@ -2617,7 +2621,7 @@ namespace OpenSearch.Client
         public UpdateByQueryDescriptor<TDocument> Scroll(Time scroll) => Qs("scroll", scroll);
 
         /// <summary>Size of the scroll request that powers the operation.</summary>
-        public UpdateByQueryDescriptor<TDocument> ScrollSize(long? scrollsize) =>
+        public UpdateByQueryDescriptor<TDocument> ScrollSize(int? scrollsize) =>
             Qs("scroll_size", scrollsize);
 
         /// <summary>Explicit timeout for each search request.</summary>
@@ -2629,7 +2633,7 @@ namespace OpenSearch.Client
             Qs("search_type", searchtype);
 
         /// <summary>Deprecated, use `max_docs` instead.</summary>
-        public UpdateByQueryDescriptor<TDocument> Size(long? size) => Qs("size", size);
+        public UpdateByQueryDescriptor<TDocument> Size(int? size) => Qs("size", size);
 
         /// <summary>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs.</summary>
         public UpdateByQueryDescriptor<TDocument> Sort(params string[] sort) => Qs("sort", sort);
@@ -2661,7 +2665,7 @@ namespace OpenSearch.Client
             Qs("stats", stats);
 
         /// <summary>Maximum number of documents to collect for each shard. If a query reaches this limit, OpenSearch terminates the query early. OpenSearch collects documents before sorting. Use with caution. OpenSearch applies this parameter to each shard handling the request. When possible, let OpenSearch perform early termination automatically. Avoid specifying this parameter for requests that target data streams with backing indexes across multiple data tiers.</summary>
-        public UpdateByQueryDescriptor<TDocument> TerminateAfter(long? terminateafter) =>
+        public UpdateByQueryDescriptor<TDocument> TerminateAfter(int? terminateafter) =>
             Qs("terminate_after", terminateafter);
 
         /// <summary>Period each update request waits for the following operations: dynamic mapping updates, waiting for active shards.</summary>
@@ -2707,7 +2711,7 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>The throttle for this request in sub-requests per second.</summary>
-        public UpdateByQueryRethrottleDescriptor RequestsPerSecond(long? requestspersecond) =>
+        public UpdateByQueryRethrottleDescriptor RequestsPerSecond(float? requestspersecond) =>
             Qs("requests_per_second", requestspersecond);
     }
 }

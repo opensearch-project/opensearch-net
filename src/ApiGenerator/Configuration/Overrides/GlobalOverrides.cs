@@ -56,6 +56,7 @@ namespace ApiGenerator.Configuration.Overrides
             { "rest_total_hits_as_int", "total_hits_as_integer" },
             { "docvalue_fields", "doc_value_fields" },
             { "q", "query_on_query_string" },
+            { "queryString", "query_string_param" },
             //make cat parameters more descriptive
             { "h", "Headers" },
             { "s", "sort_by_columns" },
