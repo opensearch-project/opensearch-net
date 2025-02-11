@@ -115,14 +115,14 @@ namespace OpenSearch.Net.Specification.TransformsApi
         }
 
         /// <summary>Specifies the direction to sort results in. Can be `ASC` or `DESC`. Default is `ASC`.</summary>
-        public string Sortdirection
+        public string SortDirection
         {
             get => Q<string>("sortDirection");
             set => Q("sortDirection", value);
         }
 
         /// <summary>The field to sort results with.</summary>
-        public string Sortfield
+        public string SortField
         {
             get => Q<string>("sortField");
             set => Q("sortField", value);

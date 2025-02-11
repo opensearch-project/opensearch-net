@@ -91,7 +91,7 @@ namespace OpenSearch.Net.Specification.SmApi
         }
 
         /// <summary>A query string to filter policies.</summary>
-        public string Querystring
+        public string QueryStringParam
         {
             get => Q<string>("queryString");
             set => Q("queryString", value);
@@ -105,14 +105,14 @@ namespace OpenSearch.Net.Specification.SmApi
         }
 
         /// <summary>The field to sort on.</summary>
-        public string Sortfield
+        public string SortField
         {
             get => Q<string>("sortField");
             set => Q("sortField", value);
         }
 
         /// <summary>The order of sorting.</summary>
-        public string Sortorder
+        public string SortOrder
         {
             get => Q<string>("sortOrder");
             set => Q("sortOrder", value);

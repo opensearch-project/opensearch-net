@@ -140,7 +140,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             get => Q<long?>("if_seq_no");
             set => Q("if_seq_no", value);
         }
-        public string Policyid
+        public string PolicyId
         {
             get => Q<string>("policyID");
             set => Q("policyID", value);

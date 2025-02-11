@@ -76,14 +76,14 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
         public override bool SupportsBody => false;
 
         /// <summary>The ID of a single Observability Object to delete.</summary>
-        public string Objectid
+        public string ObjectId
         {
             get => Q<string>("objectId");
             set => Q("objectId", value);
         }
 
         /// <summary>A comma-separated list of Observability Object IDs to delete.</summary>
-        public string Objectidlist
+        public string ObjectIdList
         {
             get => Q<string>("objectIdList");
             set => Q("objectIdList", value);
