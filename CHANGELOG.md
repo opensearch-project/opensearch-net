@@ -45,6 +45,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `Argu` from 6.2.4 to 6.2.5
 - Bumps `SemanticVersioning` from 2.0.2 to 3.0.0
 - Bumps `FSharp.Data` from 6.4.0 to 6.4.1
+- Bumps `Octokit` from 13.0.1 to 14.0.0
 
 ## [1.8.0]
 ### Added
