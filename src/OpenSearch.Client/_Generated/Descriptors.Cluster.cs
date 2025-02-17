@@ -316,7 +316,7 @@ namespace OpenSearch.Client
         public ClusterHealthDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>TODO</summary>
+        /// <summary>Controls the amount of detail included in the cluster health response.</summary>
         public ClusterHealthDescriptor Level(ClusterHealthLevel? level) => Qs("level", level);
 
         /// <summary>Whether to return information from the local node only instead of from the cluster manager node.</summary>

@@ -437,7 +437,7 @@ namespace OpenSearch.Client
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>TODO</summary>
+        /// <summary>Controls the amount of detail included in the cluster health response.</summary>
         public ClusterHealthLevel? Level
         {
             get => Q<ClusterHealthLevel?>("level");
