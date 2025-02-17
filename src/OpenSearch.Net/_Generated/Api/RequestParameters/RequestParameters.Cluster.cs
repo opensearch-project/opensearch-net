@@ -345,6 +345,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
             get => Q<ExpandWildcards?>("expand_wildcards");
             set => Q("expand_wildcards", value);
         }
+
+        /// <summary>Controls the amount of detail included in the cluster health response.</summary>
         public ClusterHealthLevel? Level
         {
             get => Q<ClusterHealthLevel?>("level");
