@@ -58,14 +58,14 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
 
-        /// <summary>The type of current authentication request.</summary>
+        /// <summary>The type of the current authentication request.</summary>
         public string AuthType
         {
             get => Q<string>("auth_type");
             set => Q("auth_type", value);
         }
 
-        /// <summary>Indicates whether a verbose response should be returned.</summary>
+        /// <summary>Whether to return a verbose response.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("verbose");
@@ -294,14 +294,14 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>The type of certificates (HTTP, TRANSPORT, ALL) to retrieve from all nodes.</summary>
+        /// <summary>The type of certificates (`HTTP`, `TRANSPORT`, or `ALL`) to retrieve from all nodes.</summary>
         public string CertType
         {
             get => Q<string>("cert_type");
             set => Q("cert_type", value);
         }
 
-        /// <summary>The maximum duration, in seconds, to be spent to retrieve certificates from all nodes.</summary>
+        /// <summary>The maximum duration, in seconds, to spend retrieving certificates from all nodes before a timeout.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
@@ -356,7 +356,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>A Boolean flag to include/exclude static nodes DN from final result.</summary>
+        /// <summary>Whether to include or exclude any static node's DN settings from the final result.</summary>
         public bool? ShowAll
         {
             get => Q<bool?>("show_all");
@@ -371,7 +371,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>A Boolean flag to include/exclude static nodes DN from final result.</summary>
+        /// <summary>Whether to include or exclude any static node's DN settings from the final result.</summary>
         public bool? ShowAll
         {
             get => Q<bool?>("show_all");
@@ -386,14 +386,14 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>The type of certificates (HTTP, TRANSPORT, ALL) to retrieve for a node.</summary>
+        /// <summary>The type of certificates (`HTTP`, `TRANSPORT`, or `ALL`) to retrieve from a node.</summary>
         public string CertType
         {
             get => Q<string>("cert_type");
             set => Q("cert_type", value);
         }
 
-        /// <summary>The maximum duration, in seconds, to be spent to retrieve a node's certificates.</summary>
+        /// <summary>The maximum duration, in seconds, to spend retrieving certificates from all nodes before a timeout.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
@@ -446,7 +446,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>A Boolean flag to indicate whether all domain names should be returned.</summary>
+        /// <summary>Whether to include all domain names in the response.</summary>
         public string ShowDn
         {
             get => Q<string>("show_dn");
@@ -514,8 +514,8 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override bool SupportsBody => false;
 
         /// <summary>
-        /// A flag to indicate whether service should consider security-plugin's status before returning health response. `strict` mode indicates
-        /// service should check Security plugin status.
+        /// A flag that determines whether to consider the security status before returning a response for a health query response. For example,
+        /// `strict` mode indicates service should check the Security plugin status.
         /// </summary>
         public string Mode
         {
@@ -711,7 +711,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>A Boolean flag to indicate whether invalid v6 configuration should be allowed.</summary>
+        /// <summary>Whether an invalid v6 configuration should be allowed.</summary>
         public bool? AcceptInvalid
         {
             get => Q<bool?>("accept_invalid");
