@@ -1084,7 +1084,8 @@ of the search on the cluster in order to limit the number of concurrent shard re
   <a id="OpenSearch_Client_SearchRequest_PointInTime_" data-uid="OpenSearch.Client.SearchRequest.PointInTime*"></a>
   <h4 id="OpenSearch_Client_SearchRequest_PointInTime" data-uid="OpenSearch.Client.SearchRequest.PointInTime">PointInTime</h4>
   <div class="markdown level1 summary"><p>Search against a dataset frozen at a point-in-time (PIT)</p>
-<p></p><a href="https://opensearch.org/docs/latest/search-plugins/point-in-time/">https://opensearch.org/docs/latest/search-plugins/point-in-time/</a>
+<p></p>
+<a href="https://opensearch.org/docs/latest/search-plugins/point-in-time/">https://opensearch.org/docs/latest/search-plugins/point-in-time/</a>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1389,7 +1390,9 @@ DSL but are handy for testing.</p>
   <a id="OpenSearch_Client_SearchRequest_Routing_" data-uid="OpenSearch.Client.SearchRequest.Routing*"></a>
   <h4 id="OpenSearch_Client_SearchRequest_Routing" data-uid="OpenSearch.Client.SearchRequest.Routing">Routing</h4>
   <div class="markdown level1 summary"><p>A document is routed to a particular shard in an index using the following formula</p>
-<p> shard_num = hash(_routing) % num_primary_shards</p><p>OpenSearch will use the document id if not provided. </p><p>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+<p> shard_num = hash(_routing) % num_primary_shards</p>
+<p>OpenSearch will use the document id if not provided. </p>
+<p>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
 if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">JoinField</a> or a routing mapping on for its type exists on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1764,7 +1767,9 @@ consumed independently</p>
   <a id="OpenSearch_Client_SearchRequest_Source_" data-uid="OpenSearch.Client.SearchRequest.Source*"></a>
   <h4 id="OpenSearch_Client_SearchRequest_Source" data-uid="OpenSearch.Client.SearchRequest.Source">Source</h4>
   <div class="markdown level1 summary"><p>Specify how the _source field is returned for each search hit.</p>
-<p>When <code>true</code>, _source retrieval is enabled (default)</p><p>When <code>false</code>, _source retrieval is disabled, and no _source will be returned for each hit</p><p>When <a class="xref" href="OpenSearch.Client.ISourceFilter.html">ISourceFilter</a> is specified, fields to include/exclude can be controlled</p>
+<p>When <code>true</code>, _source retrieval is enabled (default)</p>
+<p>When <code>false</code>, _source retrieval is disabled, and no _source will be returned for each hit</p>
+<p>When <a class="xref" href="OpenSearch.Client.ISourceFilter.html">ISourceFilter</a> is specified, fields to include/exclude can be controlled</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Interface IReindexRequest&lt;TSource, TTarget&gt; | OpenSearch.Net ">
     
-    <meta name="description" content="A reindex implementation that uses ScrollAll() BulkAll() to compose a reindex pipeline.  This differs from ReindexOnServer() in that documents are fetched from OpenSearch, transformed on the client side,  then sent back to OpenSearch.   This will create the target index if it doesn&#39;t exist already. If  is not specified  and the source of the reindex  points to a single index we try and reuse the settings from source.  You can completely opt out of all of this using">
+    <meta name="description" content="A reindex implementation that uses ScrollAll() BulkAll() to compose a reindex pipeline.  This differs from ReindexOnServer() in that documents are fetched from OpenSearch, transformed on the client side,  then sent back to OpenSearch.     This will create the target index if it doesn&#39;t exist already. If  is not specified  and the source of the reindex  points to a single index we try and reuse the settings from source.  You can completely opt out of all of this using">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -85,10 +85,12 @@
 <p>
 This differs from ReindexOnServer() in that documents are fetched from OpenSearch, transformed on the client side,
  then sent back to OpenSearch.
- </p><p>
+ </p>
+ <p>
 This will create the target index if it doesn't exist already. If <a class="xref" href="OpenSearch.Client.IReindexRequest-2.html#OpenSearch_Client_IReindexRequest_2_CreateIndexRequest">CreateIndexRequest</a> is not specified
  and the source of the reindex  points to a single index we try and reuse the settings from source.
- You can completely opt out of all of this using <a class="xref" href="OpenSearch.Client.IReindexRequest-2.html#OpenSearch_Client_IReindexRequest_2_OmitIndexCreation">OmitIndexCreation</a></p>
+ You can completely opt out of all of this using <a class="xref" href="OpenSearch.Client.IReindexRequest-2.html#OpenSearch_Client_IReindexRequest_2_OmitIndexCreation">OmitIndexCreation</a>
+ </p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="OpenSearch.html">OpenSearch</a>.<a class="xref" href="OpenSearch.Client.html">Client</a></h6>
@@ -165,9 +167,11 @@ be lower and with this factor we can dampen the overall pending scroll requests 
   <a id="OpenSearch_Client_IReindexRequest_2_BulkAll_" data-uid="OpenSearch.Client.IReindexRequest`2.BulkAll*"></a>
   <h4 id="OpenSearch_Client_IReindexRequest_2_BulkAll" data-uid="OpenSearch.Client.IReindexRequest`2.BulkAll">BulkAll</h4>
   <div class="markdown level1 summary"><p>Provide a factory for the bulk all request, the first argument is the lazy collection of scroll results which is a mandatory
-argument to create <a class="xref" href="OpenSearch.Client.BulkAllRequest-1.html">BulkAllRequest&lt;T&gt;</a> or <a class="xref" href="OpenSearch.Client.BulkAllDescriptor-1.html">BulkAllDescriptor&lt;T&gt;</a><p>
+argument to create <a class="xref" href="OpenSearch.Client.BulkAllRequest-1.html">BulkAllRequest&lt;T&gt;</a> or <a class="xref" href="OpenSearch.Client.BulkAllDescriptor-1.html">BulkAllDescriptor&lt;T&gt;</a></p>
+<p>
 Note that <a class="xref" href="OpenSearch.Client.IBulkAllRequest-1.html#OpenSearch_Client_IBulkAllRequest_1_BufferToBulk">BufferToBulk</a> is always overriden as well as
-<a class="xref" href="OpenSearch.Client.IBulkAllRequest-1.html#OpenSearch_Client_IBulkAllRequest_1_BackPressure">BackPressure</a></p>
+<a class="xref" href="OpenSearch.Client.IBulkAllRequest-1.html#OpenSearch_Client_IBulkAllRequest_1_BackPressure">BackPressure</a>
+</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

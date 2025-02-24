@@ -158,7 +158,9 @@
   <h4 id="OpenSearch_Client_TypeMappingDescriptor_1_AutoMap_OpenSearch_Client_IPropertyVisitor_System_Int32_" data-uid="OpenSearch.Client.TypeMappingDescriptor`1.AutoMap(OpenSearch.Client.IPropertyVisitor,System.Int32)">AutoMap(IPropertyVisitor, int)</h4>
   <div class="markdown level1 summary"><p>Convenience method to map as much as it can based on <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html">OpenSearchTypeAttribute</a> attributes set on the
 type, as well as inferring mappings from the CLR property types.</p>
-<pre>This method also automatically sets up mappings for known values types (int, long, double, datetime, etc)</pre><pre>Class types default to object and Enums to int</pre><pre>Later calls can override whatever is set is by this call.</pre>
+<pre>This method also automatically sets up mappings for known values types (int, long, double, datetime, etc)</pre>
+<pre>Class types default to object and Enums to int</pre>
+<pre>Later calls can override whatever is set is by this call.</pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -264,7 +266,9 @@ This overload determines how deep automapping should recurse on a complex CLR ty
   <div class="markdown level1 summary"><p>Convenience method to map as much as it can based on <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html">OpenSearchTypeAttribute</a> attributes set on the
 type, as well as inferring mappings from the CLR property types.
 This particular overload is useful for automapping any children</p>
-<pre>This method also automatically sets up mappings for known values types (int, long, double, datetime, etc)</pre><pre>Class types default to object and Enums to int</pre><pre>Later calls can override whatever is set is by this call.</pre>
+<pre>This method also automatically sets up mappings for known values types (int, long, double, datetime, etc)</pre>
+<pre>Class types default to object and Enums to int</pre>
+<pre>Later calls can override whatever is set is by this call.</pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -325,7 +329,9 @@ This particular overload is useful for automapping any children</p>
   <div class="markdown level1 summary"><p>Convenience method to map as much as it can based on <a class="xref" href="OpenSearch.Client.OpenSearchTypeAttribute.html">OpenSearchTypeAttribute</a> attributes set on the
 type, as well as inferring mappings from the CLR property types.
 This particular overload is useful for automapping any children</p>
-<pre>This method also automatically sets up mappings for known values types (int, long, double, datetime, etc)</pre><pre>Class types default to object and Enums to int</pre><pre>Later calls can override whatever is set is by this call.</pre>
+<pre>This method also automatically sets up mappings for known values types (int, long, double, datetime, etc)</pre>
+<pre>Class types default to object and Enums to int</pre>
+<pre>Later calls can override whatever is set is by this call.</pre>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -641,9 +647,12 @@ will result in an error if an unknown field is encountered in a document.</p>
   <a id="OpenSearch_Client_TypeMappingDescriptor_1_DynamicTemplates_" data-uid="OpenSearch.Client.TypeMappingDescriptor`1.DynamicTemplates*"></a>
   <h4 id="OpenSearch_Client_TypeMappingDescriptor_1_DynamicTemplates_System_Func_OpenSearch_Client_DynamicTemplateContainerDescriptor__0__OpenSearch_Client_IPromise_OpenSearch_Client_IDynamicTemplateContainer___" data-uid="OpenSearch.Client.TypeMappingDescriptor`1.DynamicTemplates(System.Func{OpenSearch.Client.DynamicTemplateContainerDescriptor{`0},OpenSearch.Client.IPromise{OpenSearch.Client.IDynamicTemplateContainer}})">DynamicTemplates(Func&lt;DynamicTemplateContainerDescriptor&lt;T&gt;, IPromise&lt;IDynamicTemplateContainer&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Dynamic templates allow you to define custom mappings that can be applied to dynamically added fields based on</p>
-<p>- the datatype detected by OpenSearch, with <a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_MatchMappingType">MatchMappingType</a>.</p><p>- the name of the field, with <a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_Match">Match</a> and <a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_Unmatch">Unmatch</a> or
-<a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_MatchPattern">MatchPattern</a>.</p><p>- the full dotted path to the field, with <a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_PathMatch">PathMatch</a> and
-<a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_PathUnmatch">PathUnmatch</a>.</p><p>The original field name <code>{name}</code> and the detected datatype <code>{dynamic_type}</code> template variables can be
+<p>- the datatype detected by OpenSearch, with <a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_MatchMappingType">MatchMappingType</a>.</p>
+<p>- the name of the field, with <a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_Match">Match</a> and <a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_Unmatch">Unmatch</a> or
+<a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_MatchPattern">MatchPattern</a>.</p>
+<p>- the full dotted path to the field, with <a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_PathMatch">PathMatch</a> and
+<a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_PathUnmatch">PathUnmatch</a>.</p>
+<p>The original field name <code>{name}</code> and the detected datatype <code>{dynamic_type}</code> template variables can be
 used in the mapping specification as placeholders.</p>
 </div>
   <div class="markdown level1 conceptual"></div>

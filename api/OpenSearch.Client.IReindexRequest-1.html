@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Interface IReindexRequest&lt;TSource&gt; | OpenSearch.Net ">
     
-    <meta name="description" content="A reindex implementation that uses ScrollAll() BulkAll() to compose a reindex pipeline.  This differs from ReindexOnServer() in that documents are fetched from OpenSearch, transformed on the client side,  then sent back to OpenSearch.   This will create the target index if it doesn&#39;t exist already. If  is not specified  and the source of the reindex  points to a single index we try and reuse the settings from source.  You can completely opt out of all of this using">
+    <meta name="description" content="A reindex implementation that uses ScrollAll() BulkAll() to compose a reindex pipeline.  This differs from ReindexOnServer() in that documents are fetched from OpenSearch, transformed on the client side,  then sent back to OpenSearch.     This will create the target index if it doesn&#39;t exist already. If  is not specified  and the source of the reindex  points to a single index we try and reuse the settings from source.  You can completely opt out of all of this using">
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -85,10 +85,12 @@
 <p>
 This differs from ReindexOnServer() in that documents are fetched from OpenSearch, transformed on the client side,
  then sent back to OpenSearch.
- </p><p>
+ </p>
+ <p>
 This will create the target index if it doesn't exist already. If <a class="xref" href="OpenSearch.Client.IReindexRequest-2.html#OpenSearch_Client_IReindexRequest_2_CreateIndexRequest">CreateIndexRequest</a> is not specified
  and the source of the reindex  points to a single index we try and reuse the settings from source.
- You can completely opt out of all of this using <a class="xref" href="OpenSearch.Client.IReindexRequest-2.html#OpenSearch_Client_IReindexRequest_2_OmitIndexCreation">OmitIndexCreation</a></p>
+ You can completely opt out of all of this using <a class="xref" href="OpenSearch.Client.IReindexRequest-2.html#OpenSearch_Client_IReindexRequest_2_OmitIndexCreation">OmitIndexCreation</a>
+ </p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritedMembers">

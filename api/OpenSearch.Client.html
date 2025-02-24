@@ -3068,11 +3068,19 @@ and aggregations.</p>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.NoriAnalyzer.html">NoriAnalyzer</a></h4>
       <section><p>The nori analyzer consists of the following tokenizer and token filters:</p>
-<p> - nori_tokenizer</p><p> - nori_part_of_speech token filter</p><p> - nori_readingform token filter</p><p> - nori_number token filter</p><p> - lowercase token filter</p>
+<p> - nori_tokenizer</p>
+<p> - nori_part_of_speech token filter</p>
+<p> - nori_readingform token filter</p>
+<p> - nori_number token filter</p>
+<p> - lowercase token filter</p>
 </section>
       <h4><a class="xref" href="OpenSearch.Client.NoriAnalyzerDescriptor.html">NoriAnalyzerDescriptor</a></h4>
       <section><p>The nori analyzer consists of the following tokenizer and token filters:</p>
-<p> - nori_tokenizer</p><p> - nori_part_of_speech token filter</p><p> - nori_readingform token filter</p><p> - nori_number token filter</p><p> - lowercase token filter</p>
+<p> - nori_tokenizer</p>
+<p> - nori_part_of_speech token filter</p>
+<p> - nori_readingform token filter</p>
+<p> - nori_number token filter</p>
+<p> - lowercase token filter</p>
 </section>
       <h4><a class="xref" href="OpenSearch.Client.NoriPartOfSpeechTokenFilter.html">NoriPartOfSpeechTokenFilter</a></h4>
       <section><p>The nori_part_of_speech token filter removes tokens that match a set of part-of-speech tags.</p>
@@ -5862,7 +5870,9 @@ separated by spaces.
 </section>
       <h4><a class="xref" href="OpenSearch.Client.ILowercaseTokenizer.html">ILowercaseTokenizer</a></h4>
       <section><p>A tokenizer of type lowercase that performs the function of Letter Tokenizer and Lower Case Token Filter together.</p>
-<p>It divides text at non-letters and converts them to lower case. </p><p>While it is functionally equivalent to the combination of Letter Tokenizer and Lower Case Token Filter, </p><p>there is a performance advantage to doing the two tasks at once, hence this (redundant) implementation.</p>
+<p>It divides text at non-letters and converts them to lower case. </p>
+<p>While it is functionally equivalent to the combination of Letter Tokenizer and Lower Case Token Filter, </p>
+<p>there is a performance advantage to doing the two tasks at once, hence this (redundant) implementation.</p>
 </section>
       <h4><a class="xref" href="OpenSearch.Client.IMappingCharFilter.html">IMappingCharFilter</a></h4>
       <section><p>A char filter of type mapping replacing characters of an analyzed text with given mapping.</p>
@@ -6002,7 +6012,11 @@ and aggregations.</p>
       <section></section>
       <h4><a class="xref" href="OpenSearch.Client.INoriAnalyzer.html">INoriAnalyzer</a></h4>
       <section><p>The nori analyzer consists of the following tokenizer and token filters:</p>
-<p> - nori_tokenizer</p><p> - nori_part_of_speech token filter</p><p> - nori_readingform token filter</p><p> - nori_number token filter</p><p> - lowercase token filter</p>
+<p> - nori_tokenizer</p>
+<p> - nori_part_of_speech token filter</p>
+<p> - nori_readingform token filter</p>
+<p> - nori_number token filter</p>
+<p> - lowercase token filter</p>
 </section>
       <h4><a class="xref" href="OpenSearch.Client.INoriPartOfSpeechTokenFilter.html">INoriPartOfSpeechTokenFilter</a></h4>
       <section><p>The nori_part_of_speech token filter removes tokens that match a set of part-of-speech tags.</p>
@@ -6041,7 +6055,12 @@ have the specified type, as defined in a join field.</p>
 </section>
       <h4><a class="xref" href="OpenSearch.Client.IPathHierarchyTokenizer.html">IPathHierarchyTokenizer</a></h4>
       <section><p>The path_hierarchy tokenizer takes something like this:</p>
-<p>/something/something/else</p><p>And produces tokens:</p><p></p><p>/something</p><p>/something/something</p><p>/something/something/else</p>
+<p>/something/something/else</p>
+<p>And produces tokens:</p>
+<p></p>
+<p>/something</p>
+<p>/something/something</p>
+<p>/something/something/else</p>
 </section>
       <h4><a class="xref" href="OpenSearch.Client.IPatternAnalyzer.html">IPatternAnalyzer</a></h4>
       <section><p>An analyzer of type pattern that can flexibly separate text into terms via a regular expression.</p>
@@ -6257,20 +6276,24 @@ The URL specified in the url parameter should point to the root of the shared fi
 <p>
 This differs from ReindexOnServer() in that documents are fetched from OpenSearch, transformed on the client side,
  then sent back to OpenSearch.
- </p><p>
+ </p>
+ <p>
 This will create the target index if it doesn't exist already. If <a class="xref" href="OpenSearch.Client.IReindexRequest-2.html#OpenSearch_Client_IReindexRequest_2_CreateIndexRequest">CreateIndexRequest</a> is not specified
  and the source of the reindex  points to a single index we try and reuse the settings from source.
- You can completely opt out of all of this using <a class="xref" href="OpenSearch.Client.IReindexRequest-2.html#OpenSearch_Client_IReindexRequest_2_OmitIndexCreation">OmitIndexCreation</a></p>
+ You can completely opt out of all of this using <a class="xref" href="OpenSearch.Client.IReindexRequest-2.html#OpenSearch_Client_IReindexRequest_2_OmitIndexCreation">OmitIndexCreation</a>
+ </p>
 </section>
       <h4><a class="xref" href="OpenSearch.Client.IReindexRequest-2.html">IReindexRequest&lt;TSource, TTarget&gt;</a></h4>
       <section><p>A reindex implementation that uses ScrollAll() BulkAll() to compose a reindex pipeline.</p>
 <p>
 This differs from ReindexOnServer() in that documents are fetched from OpenSearch, transformed on the client side,
  then sent back to OpenSearch.
- </p><p>
+ </p>
+ <p>
 This will create the target index if it doesn't exist already. If <a class="xref" href="OpenSearch.Client.IReindexRequest-2.html#OpenSearch_Client_IReindexRequest_2_CreateIndexRequest">CreateIndexRequest</a> is not specified
  and the source of the reindex  points to a single index we try and reuse the settings from source.
- You can completely opt out of all of this using <a class="xref" href="OpenSearch.Client.IReindexRequest-2.html#OpenSearch_Client_IReindexRequest_2_OmitIndexCreation">OmitIndexCreation</a></p>
+ You can completely opt out of all of this using <a class="xref" href="OpenSearch.Client.IReindexRequest-2.html#OpenSearch_Client_IReindexRequest_2_OmitIndexCreation">OmitIndexCreation</a>
+ </p>
 </section>
       <h4><a class="xref" href="OpenSearch.Client.IReindexRethrottleRequest.html">IReindexRethrottleRequest</a></h4>
       <section></section>

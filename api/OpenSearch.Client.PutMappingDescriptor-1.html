@@ -410,7 +410,9 @@ public class PutMappingDescriptor&lt;TDocument&gt; : RequestDescriptorBase&lt;Pu
   <a id="OpenSearch_Client_PutMappingDescriptor_1_AutoMap_" data-uid="OpenSearch.Client.PutMappingDescriptor`1.AutoMap*"></a>
   <h4 id="OpenSearch_Client_PutMappingDescriptor_1_AutoMap_OpenSearch_Client_IPropertyVisitor_System_Int32_" data-uid="OpenSearch.Client.PutMappingDescriptor`1.AutoMap(OpenSearch.Client.IPropertyVisitor,System.Int32)">AutoMap(IPropertyVisitor, int)</h4>
   <div class="markdown level1 summary"><p>Convenience method to map as much as it can based on OpenSearchType attributes set on the type.</p>
-<p>This method also automatically sets up mappings for primitive values types (e.g. int, long, double, DateTime...)</p><p>Class types default to object and Enums to int</p><p>Later calls can override whatever is set by this call.</p>
+<p>This method also automatically sets up mappings for primitive values types (e.g. int, long, double, DateTime...)</p>
+<p>Class types default to object and Enums to int</p>
+<p>Later calls can override whatever is set by this call.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -464,7 +466,9 @@ public class PutMappingDescriptor&lt;TDocument&gt; : RequestDescriptorBase&lt;Pu
   <a id="OpenSearch_Client_PutMappingDescriptor_1_AutoMap_" data-uid="OpenSearch.Client.PutMappingDescriptor`1.AutoMap*"></a>
   <h4 id="OpenSearch_Client_PutMappingDescriptor_1_AutoMap_System_Int32_" data-uid="OpenSearch.Client.PutMappingDescriptor`1.AutoMap(System.Int32)">AutoMap(int)</h4>
   <div class="markdown level1 summary"><p>Convenience method to map as much as it can based on OpenSearchType attributes set on the type.</p>
-<p>This method also automatically sets up mappings for primitive values types (e.g. int, long, double, DateTime...)</p><p>Class types default to object and Enums to int</p><p>Later calls can override whatever is set by this call.</p>
+<p>This method also automatically sets up mappings for primitive values types (e.g. int, long, double, DateTime...)</p>
+<p>Class types default to object and Enums to int</p>
+<p>Later calls can override whatever is set by this call.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -811,9 +815,12 @@ will result in an error if an unknown field is encountered in a document.</p>
   <a id="OpenSearch_Client_PutMappingDescriptor_1_DynamicTemplates_" data-uid="OpenSearch.Client.PutMappingDescriptor`1.DynamicTemplates*"></a>
   <h4 id="OpenSearch_Client_PutMappingDescriptor_1_DynamicTemplates_System_Func_OpenSearch_Client_DynamicTemplateContainerDescriptor__0__OpenSearch_Client_IPromise_OpenSearch_Client_IDynamicTemplateContainer___" data-uid="OpenSearch.Client.PutMappingDescriptor`1.DynamicTemplates(System.Func{OpenSearch.Client.DynamicTemplateContainerDescriptor{`0},OpenSearch.Client.IPromise{OpenSearch.Client.IDynamicTemplateContainer}})">DynamicTemplates(Func&lt;DynamicTemplateContainerDescriptor&lt;TDocument&gt;, IPromise&lt;IDynamicTemplateContainer&gt;&gt;)</h4>
   <div class="markdown level1 summary"><p>Dynamic templates allow you to define custom mappings that can be applied to dynamically added fields based on</p>
-<p>- the datatype detected by OpenSearch, with <a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_MatchMappingType">MatchMappingType</a>.</p><p>- the name of the field, with <a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_Match">Match</a> and <a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_Unmatch">Unmatch</a> or
-<a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_MatchPattern">MatchPattern</a>.</p><p>- the full dotted path to the field, with <a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_PathMatch">PathMatch</a> and
-<a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_PathUnmatch">PathUnmatch</a>.</p><p>The original field name <code>{name}</code> and the detected datatype <code>{dynamic_type}</code> template variables can be
+<p>- the datatype detected by OpenSearch, with <a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_MatchMappingType">MatchMappingType</a>.</p>
+<p>- the name of the field, with <a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_Match">Match</a> and <a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_Unmatch">Unmatch</a> or
+<a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_MatchPattern">MatchPattern</a>.</p>
+<p>- the full dotted path to the field, with <a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_PathMatch">PathMatch</a> and
+<a class="xref" href="OpenSearch.Client.IDynamicTemplate.html#OpenSearch_Client_IDynamicTemplate_PathUnmatch">PathUnmatch</a>.</p>
+<p>The original field name <code>{name}</code> and the detected datatype <code>{dynamic_type}</code> template variables can be
 used in the mapping specification as placeholders.</p>
 </div>
   <div class="markdown level1 conceptual"></div>

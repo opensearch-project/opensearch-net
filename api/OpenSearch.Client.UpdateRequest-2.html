@@ -613,7 +613,9 @@ make this operation visible to search, if <code>false</code> do nothing with ref
   <a id="OpenSearch_Client_UpdateRequest_2_Routing_" data-uid="OpenSearch.Client.UpdateRequest`2.Routing*"></a>
   <h4 id="OpenSearch_Client_UpdateRequest_2_Routing" data-uid="OpenSearch.Client.UpdateRequest`2.Routing">Routing</h4>
   <div class="markdown level1 summary"><p>A document is routed to a particular shard in an index using the following formula</p>
-<p> shard_num = hash(_routing) % num_primary_shards</p><p>OpenSearch will use the document id if not provided. </p><p>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+<p> shard_num = hash(_routing) % num_primary_shards</p>
+<p>OpenSearch will use the document id if not provided. </p>
+<p>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
 if that document has a <a class="xref" href="OpenSearch.Client.JoinField.html">JoinField</a> or a routing mapping on for its type exists on <a class="xref" href="OpenSearch.Client.ConnectionSettings.html">ConnectionSettings</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>

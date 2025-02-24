@@ -273,7 +273,8 @@ request using <a class="xref" href="OpenSearch.Net.RequestConfiguration.html#Ope
 <p>
 For Desktop CLR, this setting applies to the DefaultConnectionLimit property on the  ServicePointManager object when creating
 ServicePoint objects, affecting the default <a class="xref" href="OpenSearch.Net.IConnection.html">IConnection</a> implementation.
-</p><p>
+</p>
+<p>
 For Core CLR, this setting applies to the MaxConnectionsPerServer property on the HttpClientHandler instances used by the HttpClient
 inside the default <a class="xref" href="OpenSearch.Net.IConnection.html">IConnection</a> implementation
 </p>
@@ -812,7 +813,8 @@ amount of times we should retry the call to OpenSearch</p>
   </span>
   <a id="OpenSearch_Net_IConnectionConfigurationValues_MaxRetryTimeout_" data-uid="OpenSearch.Net.IConnectionConfigurationValues.MaxRetryTimeout*"></a>
   <h4 id="OpenSearch_Net_IConnectionConfigurationValues_MaxRetryTimeout" data-uid="OpenSearch.Net.IConnectionConfigurationValues.MaxRetryTimeout">MaxRetryTimeout</h4>
-  <div class="markdown level1 summary"><p>Limits the total runtime including retries separately from <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_RequestTimeout">RequestTimeout</a><pre>
+  <div class="markdown level1 summary"><p>Limits the total runtime including retries separately from <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_RequestTimeout">RequestTimeout</a></p>
+<pre>
 When not specified defaults to <a class="xref" href="OpenSearch.Net.IConnectionConfigurationValues.html#OpenSearch_Net_IConnectionConfigurationValues_RequestTimeout">RequestTimeout</a> which itself defaults to 60 seconds
 </pre>
 </div>
@@ -1412,11 +1414,15 @@ the specified timespan</p>
   </span>
   <a id="OpenSearch_Net_IConnectionConfigurationValues_StatusCodeToResponseSuccess_" data-uid="OpenSearch.Net.IConnectionConfigurationValues.StatusCodeToResponseSuccess*"></a>
   <h4 id="OpenSearch_Net_IConnectionConfigurationValues_StatusCodeToResponseSuccess" data-uid="OpenSearch.Net.IConnectionConfigurationValues.StatusCodeToResponseSuccess">StatusCodeToResponseSuccess</h4>
-  <div class="markdown level1 summary"><p>Allow you to override the status code inspection that sets <a class="xref" href="OpenSearch.Net.OpenSearchResponseBase.html#OpenSearch_Net_OpenSearchResponseBase_Success">Success</a><p>
-Defaults to validating the statusCode is greater or equal to 200 and less then 300</p>
+  <div class="markdown level1 summary"><p>Allow you to override the status code inspection that sets <a class="xref" href="OpenSearch.Net.OpenSearchResponseBase.html#OpenSearch_Net_OpenSearchResponseBase_Success">Success</a></p>
+<p>
+Defaults to validating the statusCode is greater or equal to 200 and less then 300
+</p>
 <p>
 When the request is using <a class="xref" href="OpenSearch.Net.HttpMethod.html#OpenSearch_Net_HttpMethod_HEAD">HEAD</a> 404 is valid out of the box as well
-</p><p></p><p>NOTE: if a request specifies <a class="xref" href="OpenSearch.Net.IRequestConfiguration.html#OpenSearch_Net_IRequestConfiguration_AllowedStatusCodes">AllowedStatusCodes</a> this takes precedence</p>
+</p>
+<p></p>
+<p>NOTE: if a request specifies <a class="xref" href="OpenSearch.Net.IRequestConfiguration.html#OpenSearch_Net_IRequestConfiguration_AllowedStatusCodes">AllowedStatusCodes</a> this takes precedence</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
