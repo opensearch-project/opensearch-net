@@ -20,7 +20,7 @@
     <PackageReference Include="JunitXml.TestLogger" Version="5.0.0" />
 
     <PackageReference Include="Nullean.VsTest.Pretty.TestLogger" Version="0.4.0" />
-    <PackageReference Include="FluentAssertions" Version="8.0.1" />
+    <PackageReference Include="FluentAssertions" Version="8.1.1" />
 
     <PackageReference Include="DiffPlex" Version="1.7.2" />
     <PackageReference Include="Proc" Version="0.9.1" />
