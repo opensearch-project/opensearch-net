@@ -9,7 +9,7 @@
 | Maintainer         | GitHub ID                                           | Affiliation |
 | ------------------ | --------------------------------------------------- | ----------- |
 | Anirudha Jadhav    | [anirudha](https://github.com/anirudha)             | Amazon      |
-| Daniel Doubrovkine | [dblock](https://github.com/dblock)                 | Amazon      |
+| Daniel Doubrovkine | [dblock](https://github.com/dblock)                 | Independent |
 | Joshua Li          | [joshuali925](https://github.com/joshuali925)       | Amazon      |
 | Thomas Farr        | [Xtansia](https://github.com/Xtansia)               | Amazon      |
 | Vacha Shah         | [VachaShah](https://github.com/VachaShah)           | Amazon      |
