@@ -123,9 +123,9 @@ namespace OpenSearch.Net.Specification.KnnApi
         }
 
         /// <summary>The default operator for query string query (AND or OR).</summary>
-        public KnnDefaultOperator? DefaultOperator
+        public DefaultOperator? DefaultOperator
         {
-            get => Q<KnnDefaultOperator?>("default_operator");
+            get => Q<DefaultOperator?>("default_operator");
             set => Q("default_operator", value);
         }
 
@@ -243,9 +243,9 @@ namespace OpenSearch.Net.Specification.KnnApi
         }
 
         /// <summary>Search operation type.</summary>
-        public KnnSearchType? SearchType
+        public SearchType? SearchType
         {
-            get => Q<KnnSearchType?>("search_type");
+            get => Q<SearchType?>("search_type");
             set => Q("search_type", value);
         }
 
@@ -313,9 +313,9 @@ namespace OpenSearch.Net.Specification.KnnApi
         }
 
         /// <summary>Specify suggest mode.</summary>
-        public KnnSuggestMode? SuggestMode
+        public SuggestMode? SuggestMode
         {
-            get => Q<KnnSuggestMode?>("suggest_mode");
+            get => Q<SuggestMode?>("suggest_mode");
             set => Q("suggest_mode", value);
         }
 
