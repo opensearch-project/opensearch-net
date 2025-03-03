@@ -16,7 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="$(SolutionRoot)\tests\Tests.Core\Tests.Core.csproj" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
-    <PackageReference Include="FSharp.Core" Version="9.0.101" />
+    <PackageReference Include="FSharp.Core" Version="9.0.201" />
     <PackageReference Include="System.Reactive" Version="6.0.1" />
     <PackageReference Include="SemanticVersioning" Version="3.0.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
