@@ -35,7 +35,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `CSharpier.Core` from 0.29.1 to 0.30.6
 - Bumps `Proc` from 0.8.1 to 0.9.1
 - Bumps `System.Text.Json` from 8.0.4 to 8.0.5
-- Bumps `JunitXml.TestLogger` from 4.0.254 to 5.0.0
+- Bumps `JunitXml.TestLogger` from 4.0.254 to 6.0.0
 - Bumps `FSharp.Core` from 8.0.400 to 9.0.201
 - Bumps `JetBrains.Annotations` from 2024.2.0 to 2024.3.0
 - Bumps `Microsoft.Extensions.Caching.Memory` from 6.0.0 to 8.0.1
