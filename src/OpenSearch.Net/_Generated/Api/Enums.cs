@@ -381,39 +381,6 @@ namespace OpenSearch.Net
     }
 
     [StringEnum]
-    public enum KnnDefaultOperator
-    {
-        [EnumMember(Value = "AND")]
-        And,
-
-        [EnumMember(Value = "OR")]
-        Or,
-    }
-
-    [StringEnum]
-    public enum KnnSearchType
-    {
-        [EnumMember(Value = "dfs_query_then_fetch")]
-        DfsQueryThenFetch,
-
-        [EnumMember(Value = "query_then_fetch")]
-        QueryThenFetch,
-    }
-
-    [StringEnum]
-    public enum KnnSuggestMode
-    {
-        [EnumMember(Value = "always")]
-        Always,
-
-        [EnumMember(Value = "missing")]
-        Missing,
-
-        [EnumMember(Value = "popular")]
-        Popular,
-    }
-
-    [StringEnum]
     public enum Level
     {
         [EnumMember(Value = "cluster")]
@@ -828,9 +795,6 @@ namespace OpenSearch.Net
             AddEnumStringResolver<IndexApiBlock>(GetStringValue);
             AddEnumStringResolver<IndicesShardStoresShardStoreStatus>(GetStringValue);
             AddEnumStringResolver<IndicesStatsMetric>(GetStringValue);
-            AddEnumStringResolver<KnnDefaultOperator>(GetStringValue);
-            AddEnumStringResolver<KnnSearchType>(GetStringValue);
-            AddEnumStringResolver<KnnSuggestMode>(GetStringValue);
             AddEnumStringResolver<Level>(GetStringValue);
             AddEnumStringResolver<NodesInfoMetric>(GetStringValue);
             AddEnumStringResolver<NodesSampleType>(GetStringValue);
@@ -1097,37 +1061,6 @@ namespace OpenSearch.Net
                 list.Add("warmer");
             return string.Join(",", list);
         }
-
-        public static string GetStringValue(this KnnDefaultOperator enumValue) =>
-            enumValue switch
-            {
-                KnnDefaultOperator.And => "AND",
-                KnnDefaultOperator.Or => "OR",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'KnnDefaultOperator'"
-                ),
-            };
-
-        public static string GetStringValue(this KnnSearchType enumValue) =>
-            enumValue switch
-            {
-                KnnSearchType.DfsQueryThenFetch => "dfs_query_then_fetch",
-                KnnSearchType.QueryThenFetch => "query_then_fetch",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'KnnSearchType'"
-                ),
-            };
-
-        public static string GetStringValue(this KnnSuggestMode enumValue) =>
-            enumValue switch
-            {
-                KnnSuggestMode.Always => "always",
-                KnnSuggestMode.Missing => "missing",
-                KnnSuggestMode.Popular => "popular",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'KnnSuggestMode'"
-                ),
-            };
 
         public static string GetStringValue(this Level enumValue) =>
             enumValue switch

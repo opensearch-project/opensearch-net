@@ -567,7 +567,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>PUT on /_cluster/decommission/awareness/{awareness_attribute_name}/{awareness_attribute_value} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-decommission/#example-decommissioning-and-recommissioning-a-zone</para></summary>
         /// <param name="awarenessAttributeName">The name of the awareness attribute.</param>
-        /// <param name="awarenessAttributeValue">The value of the awareness attribute.</param>
+        /// <param name="awarenessAttributeValue">The value of the awareness attribute. For example, if you have shards allocated in two different zones, you can give each zone a value of `zone-a` or `zoneb`. The cluster decommission operation decommissions the zone listed in the method.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse PutDecommissionAwareness<TResponse>(
             string awarenessAttributeName,
@@ -586,7 +586,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>PUT on /_cluster/decommission/awareness/{awareness_attribute_name}/{awareness_attribute_value} <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-decommission/#example-decommissioning-and-recommissioning-a-zone</para></summary>
         /// <param name="awarenessAttributeName">The name of the awareness attribute.</param>
-        /// <param name="awarenessAttributeValue">The value of the awareness attribute.</param>
+        /// <param name="awarenessAttributeValue">The value of the awareness attribute. For example, if you have shards allocated in two different zones, you can give each zone a value of `zone-a` or `zoneb`. The cluster decommission operation decommissions the zone listed in the method.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi(
             "cluster.put_decommission_awareness",
@@ -638,7 +638,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>PUT on /_cluster/routing/awareness/{attribute}/weights <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-weighted-round-robin-search</para></summary>
-        /// <param name="attribute">The name of the awareness attribute.</param>
+        /// <param name="attribute">The name of awareness attribute, usually `zone`.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse PutWeightedRouting<TResponse>(
@@ -655,7 +655,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             );
 
         /// <summary>PUT on /_cluster/routing/awareness/{attribute}/weights <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-weighted-round-robin-search</para></summary>
-        /// <param name="attribute">The name of the awareness attribute.</param>
+        /// <param name="attribute">The name of awareness attribute, usually `zone`.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cluster.put_weighted_routing", "attribute, body")]
