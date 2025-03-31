@@ -82,7 +82,7 @@ namespace OpenSearch.Client
         Name ICleanupRepositoryRequest.RepositoryName => Self.RouteValues.Get<Name>("repository");
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public CleanupRepositoryDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
@@ -94,7 +94,7 @@ namespace OpenSearch.Client
         public CleanupRepositoryDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Period to wait for a response.</summary>
+        /// <summary>The amount of time to wait for a response.</summary>
         public CleanupRepositoryDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
@@ -131,7 +131,7 @@ namespace OpenSearch.Client
         Name ICloneSnapshotRequest.TargetSnapshot => Self.RouteValues.Get<Name>("target_snapshot");
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public CloneSnapshotDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
@@ -167,7 +167,7 @@ namespace OpenSearch.Client
         Name ISnapshotRequest.Snapshot => Self.RouteValues.Get<Name>("snapshot");
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public SnapshotDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
@@ -179,7 +179,7 @@ namespace OpenSearch.Client
         public SnapshotDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>If `true`, the request returns a response when the snapshot is complete. If `false`, the request returns a response when the snapshot initializes.</summary>
+        /// <summary>When `true`, the request returns a response when the snapshot is complete. When `false`, the request returns a response when the snapshot initializes.</summary>
         public SnapshotDescriptor WaitForCompletion(bool? waitforcompletion = true) =>
             Qs("wait_for_completion", waitforcompletion);
     }
@@ -209,7 +209,7 @@ namespace OpenSearch.Client
         Name ICreateRepositoryRequest.RepositoryName => Self.RouteValues.Get<Name>("repository");
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public CreateRepositoryDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
@@ -221,10 +221,10 @@ namespace OpenSearch.Client
         public CreateRepositoryDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Explicit operation timeout.</summary>
+        /// <summary>The amount of time to wait for a response.</summary>
         public CreateRepositoryDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 
-        /// <summary>Whether to verify the repository after creation.</summary>
+        /// <summary>When `true`, verifies the creation of the snapshot repository.</summary>
         public CreateRepositoryDescriptor Verify(bool? verify = true) => Qs("verify", verify);
     }
 
@@ -255,7 +255,7 @@ namespace OpenSearch.Client
         Name IDeleteSnapshotRequest.Snapshot => Self.RouteValues.Get<Name>("snapshot");
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public DeleteSnapshotDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
@@ -293,7 +293,7 @@ namespace OpenSearch.Client
         Names IDeleteRepositoryRequest.RepositoryName => Self.RouteValues.Get<Names>("repository");
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public DeleteRepositoryDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
@@ -305,7 +305,7 @@ namespace OpenSearch.Client
         public DeleteRepositoryDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Explicit operation timeout.</summary>
+        /// <summary>The amount of time to wait for a response.</summary>
         public DeleteRepositoryDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
@@ -336,12 +336,12 @@ namespace OpenSearch.Client
         Names IGetSnapshotRequest.Snapshot => Self.RouteValues.Get<Names>("snapshot");
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public GetSnapshotDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>If `false`, the request returns an error for any snapshots that are unavailable.</summary>
+        /// <summary>When `false`, the request returns an error for any snapshots that are unavailable.</summary>
         public GetSnapshotDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
@@ -352,7 +352,7 @@ namespace OpenSearch.Client
         public GetSnapshotDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>If `true`, returns additional information about each snapshot such as the version of OpenSearch which took the snapshot, the start and end times of the snapshot, and the number of shards snapshotted.</summary>
+        /// <summary>When `true`, returns additional information about each snapshot such as the version of OpenSearch which took the snapshot, the start and end times of the snapshot, and the number of shards contained in the snapshot.</summary>
         public GetSnapshotDescriptor Verbose(bool? verbose = true) => Qs("verbose", verbose);
     }
 
@@ -384,12 +384,12 @@ namespace OpenSearch.Client
             Assign(repository, (a, v) => a.RouteValues.Optional("repository", v));
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public GetRepositoryDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Return local information, do not retrieve the state from cluster-manager node.</summary>
+        /// <summary>Whether to get information from the local node.</summary>
         public GetRepositoryDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
@@ -423,7 +423,7 @@ namespace OpenSearch.Client
         Name IRestoreRequest.Snapshot => Self.RouteValues.Get<Name>("snapshot");
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public RestoreDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
@@ -435,7 +435,7 @@ namespace OpenSearch.Client
         public RestoreDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Should this request wait until the operation has completed before returning.</summary>
+        /// <summary>-| Whether to return a response after the restore operation has completed. When `false`, the request returns a response when the restore operation initializes. When `true`, the request returns a response when the restore operation completes.</summary>
         public RestoreDescriptor WaitForCompletion(bool? waitforcompletion = true) =>
             Qs("wait_for_completion", waitforcompletion);
     }
@@ -470,7 +470,7 @@ namespace OpenSearch.Client
         Name ISnapshotStatusRequest.RepositoryName => Self.RouteValues.Get<Name>("repository");
         Names ISnapshotStatusRequest.Snapshot => Self.RouteValues.Get<Names>("snapshot");
 
-        /// <summary>A repository name.</summary>
+        /// <summary>The name of the repository containing the snapshot.</summary>
         public SnapshotStatusDescriptor RepositoryName(Name repository) =>
             Assign(repository, (a, v) => a.RouteValues.Optional("repository", v));
 
@@ -479,12 +479,12 @@ namespace OpenSearch.Client
             Assign(snapshot, (a, v) => a.RouteValues.Optional("snapshot", v));
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public SnapshotStatusDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Whether to ignore unavailable snapshots, defaults to `false` which means a SnapshotMissingException is thrown.</summary>
+        /// <summary>Whether to ignore any unavailable snapshots, When `false`, a `SnapshotMissingException` is thrown.</summary>
         public SnapshotStatusDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
@@ -521,7 +521,7 @@ namespace OpenSearch.Client
         Name IVerifyRepositoryRequest.RepositoryName => Self.RouteValues.Get<Name>("repository");
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public VerifyRepositoryDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
@@ -533,7 +533,7 @@ namespace OpenSearch.Client
         public VerifyRepositoryDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Explicit operation timeout.</summary>
+        /// <summary>The amount of time to wait for a response.</summary>
         public VerifyRepositoryDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 }

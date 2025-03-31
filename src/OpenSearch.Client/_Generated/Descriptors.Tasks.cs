@@ -80,22 +80,22 @@ namespace OpenSearch.Client
         // values part of the url path
         TaskId ICancelTasksRequest.TaskId => Self.RouteValues.Get<TaskId>("task_id");
 
-        /// <summary>ID of the task.</summary>
+        /// <summary>The task ID.</summary>
         public CancelTasksDescriptor TaskId(TaskId taskId) =>
             Assign(taskId, (a, v) => a.RouteValues.Optional("task_id", v));
 
         // Request parameters
-        /// <summary>Comma-separated list or wildcard expression of actions used to limit the request.</summary>
+        /// <summary>A comma-separated list of actions that should be returned. Keep empty to return all.</summary>
         public CancelTasksDescriptor Actions(params string[] actions) => Qs("actions", actions);
 
-        /// <summary>Comma-separated list of node IDs or names used to limit the request.</summary>
+        /// <summary>A comma-separated list of node IDs or names used to limit the returned information. Use `_local` to return information from the node you're connecting to, specify the node name to get information from a specific node, or keep the parameter empty to get information from all nodes.</summary>
         public CancelTasksDescriptor Nodes(params string[] nodes) => Qs("nodes", nodes);
 
-        /// <summary>Parent task ID used to limit the tasks.</summary>
+        /// <summary>Returns tasks with a specified parent task ID (`node_id:task_number`). Keep empty or set to -1 to return all.</summary>
         public CancelTasksDescriptor ParentTaskId(string parenttaskid) =>
             Qs("parent_task_id", parenttaskid);
 
-        /// <summary>Should the request block until the cancellation of the task and its descendant tasks is completed. Defaults to false.</summary>
+        /// <summary>Waits for the matching task to complete. When `true`, the request is blocked until the task has completed.</summary>
         public CancelTasksDescriptor WaitForCompletion(bool? waitforcompletion = true) =>
             Qs("wait_for_completion", waitforcompletion);
     }
@@ -121,10 +121,10 @@ namespace OpenSearch.Client
         TaskId IGetTaskRequest.TaskId => Self.RouteValues.Get<TaskId>("task_id");
 
         // Request parameters
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>The amount of time to wait for a response.</summary>
         public GetTaskDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 
-        /// <summary>If `true`, the request blocks until the task has completed.</summary>
+        /// <summary>Waits for the matching task to complete. When `true`, the request is blocked until the task has completed.</summary>
         public GetTaskDescriptor WaitForCompletion(bool? waitforcompletion = true) =>
             Qs("wait_for_completion", waitforcompletion);
     }
@@ -138,26 +138,26 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>Comma-separated list or wildcard expression of actions used to limit the request.</summary>
+        /// <summary>A comma-separated list of actions that should be returned. Keep empty to return all.</summary>
         public ListTasksDescriptor Actions(params string[] actions) => Qs("actions", actions);
 
-        /// <summary>If `true`, the response includes detailed information about shard recoveries.</summary>
+        /// <summary>When `true`, the response includes detailed information about shard recoveries.</summary>
         public ListTasksDescriptor Detailed(bool? detailed = true) => Qs("detailed", detailed);
 
-        /// <summary>Key used to group tasks in the response.</summary>
+        /// <summary>Groups tasks by parent/child relationships or nodes.</summary>
         public ListTasksDescriptor GroupBy(TasksGroupBy? groupby) => Qs("group_by", groupby);
 
-        /// <summary>Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.</summary>
+        /// <summary>A comma-separated list of node IDs or names used to limit the returned information. Use `_local` to return information from the node you're connecting to, specify the node name to get information from a specific node, or keep the parameter empty to get information from all nodes.</summary>
         public ListTasksDescriptor Nodes(params string[] nodes) => Qs("nodes", nodes);
 
-        /// <summary>Parent task ID used to limit returned information. To return all tasks, omit this parameter or use a value of `-1`.</summary>
+        /// <summary>Returns tasks with a specified parent task ID (`node_id:task_number`). Keep empty or set to -1 to return all.</summary>
         public ListTasksDescriptor ParentTaskId(string parenttaskid) =>
             Qs("parent_task_id", parenttaskid);
 
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>The amount of time to wait for a response.</summary>
         public ListTasksDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 
-        /// <summary>If `true`, the request blocks until the operation is complete.</summary>
+        /// <summary>Waits for the matching task to complete. When `true`, the request is blocked until the task has completed.</summary>
         public ListTasksDescriptor WaitForCompletion(bool? waitforcompletion = true) =>
             Qs("wait_for_completion", waitforcompletion);
     }

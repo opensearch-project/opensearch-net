@@ -62,6 +62,7 @@ using OpenSearch.Net.Specification.InsightsApi;
 using OpenSearch.Net.Specification.IsmApi;
 using OpenSearch.Net.Specification.KnnApi;
 using OpenSearch.Net.Specification.ListApi;
+using OpenSearch.Net.Specification.LtrApi;
 using OpenSearch.Net.Specification.MlApi;
 using OpenSearch.Net.Specification.NodesApi;
 using OpenSearch.Net.Specification.NotificationsApi;
@@ -119,6 +120,9 @@ namespace OpenSearch.Net
 
         /// <summary>List APIs</summary>
         LowLevelListNamespace List { get; }
+
+        /// <summary>Ltr APIs</summary>
+        LowLevelLtrNamespace Ltr { get; }
 
         /// <summary>Ml APIs</summary>
         LowLevelMlNamespace Ml { get; }

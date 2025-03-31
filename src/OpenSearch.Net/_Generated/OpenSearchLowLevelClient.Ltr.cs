@@ -56,121 +56,147 @@ using static OpenSearch.Net.HttpMethod;
 // ReSharper disable once CheckNamespace
 // ReSharper disable InterpolatedStringExpressionIsNotIFormattable
 // ReSharper disable RedundantExtendsListEntry
-namespace OpenSearch.Net.Specification.TasksApi
+namespace OpenSearch.Net.Specification.LtrApi
 {
     /// <summary>
-    /// Tasks APIs.
-    /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchLowLevelClient.Tasks"/> property
+    /// Ltr APIs.
+    /// <para>Not intended to be instantiated directly. Use the <see cref="IOpenSearchLowLevelClient.Ltr"/> property
     /// on <see cref="IOpenSearchLowLevelClient"/>.
     /// </para>
     /// </summary>
-    public partial class LowLevelTasksNamespace : NamespacedClientProxy
+    public partial class LowLevelLtrNamespace : NamespacedClientProxy
     {
-        internal LowLevelTasksNamespace(OpenSearchLowLevelClient client)
+        internal LowLevelLtrNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
-        /// <summary>POST on /_tasks/_cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
+        /// <summary>GET on /_plugins/_ltr/stats</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Cancel<TResponse>(CancelTasksRequestParameters requestParameters = null)
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(POST, "_tasks/_cancel", null, RequestParams(requestParameters));
-
-        /// <summary>POST on /_tasks/_cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
-        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        [MapsApi("tasks.cancel", "")]
-        public Task<TResponse> CancelAsync<TResponse>(
-            CancelTasksRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_tasks/_cancel",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
-        /// <summary>POST on /_tasks/{task_id}/_cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
-        /// <param name="taskId">The task ID.</param>
-        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Cancel<TResponse>(
-            string taskId,
-            CancelTasksRequestParameters requestParameters = null
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_tasks/{taskId:taskId}/_cancel"),
-                null,
-                RequestParams(requestParameters)
-            );
-
-        /// <summary>POST on /_tasks/{task_id}/_cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
-        /// <param name="taskId">The task ID.</param>
-        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        [MapsApi("tasks.cancel", "task_id")]
-        public Task<TResponse> CancelAsync<TResponse>(
-            string taskId,
-            CancelTasksRequestParameters requestParameters = null,
-            CancellationToken ctx = default
-        )
-            where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_tasks/{taskId:taskId}/_cancel"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
-
-        /// <summary>GET on /_tasks/{task_id} <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
-        /// <param name="taskId">The task ID.</param>
-        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetTask<TResponse>(
-            string taskId,
-            GetTaskRequestParameters requestParameters = null
-        )
+        public TResponse Stats<TResponse>(StatsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
                 GET,
-                Url($"_tasks/{taskId:taskId}"),
+                "_plugins/_ltr/stats",
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_tasks/{task_id} <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
-        /// <param name="taskId">The task ID.</param>
+        /// <summary>GET on /_plugins/_ltr/stats</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        [MapsApi("tasks.get", "task_id")]
-        public Task<TResponse> GetTaskAsync<TResponse>(
-            string taskId,
-            GetTaskRequestParameters requestParameters = null,
+        [MapsApi("ltr.stats", "")]
+        public Task<TResponse> StatsAsync<TResponse>(
+            StatsRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequestAsync<TResponse>(
                 GET,
-                Url($"_tasks/{taskId:taskId}"),
+                "_plugins/_ltr/stats",
                 ctx,
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_tasks <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
+        /// <summary>GET on /_plugins/_ltr/{node_id}/stats</summary>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse List<TResponse>(ListTasksRequestParameters requestParameters = null)
+        public TResponse Stats<TResponse>(
+            string nodeId,
+            StatsRequestParameters requestParameters = null
+        )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(GET, "_tasks", null, RequestParams(requestParameters));
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_ltr/{nodeId:nodeId}/stats"),
+                null,
+                RequestParams(requestParameters)
+            );
 
-        /// <summary>GET on /_tasks <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
+        /// <summary>GET on /_plugins/_ltr/{node_id}/stats</summary>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        [MapsApi("tasks.list", "")]
-        public Task<TResponse> ListAsync<TResponse>(
-            ListTasksRequestParameters requestParameters = null,
+        [MapsApi("ltr.stats", "node_id")]
+        public Task<TResponse> StatsAsync<TResponse>(
+            string nodeId,
+            StatsRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(GET, "_tasks", ctx, null, RequestParams(requestParameters));
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_ltr/{nodeId:nodeId}/stats"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ltr/{node_id}/stats/{stat}</summary>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="stat">Comma-separated list of stats to retrieve; use the special string `_all` or Indices.All to retrieve all stats.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Stats<TResponse>(
+            string nodeId,
+            string stat,
+            StatsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_ltr/{nodeId:nodeId}/stats/{stat:stat}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ltr/{node_id}/stats/{stat}</summary>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="stat">Comma-separated list of stats to retrieve; use the special string `_all` or Indices.All to retrieve all stats.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("ltr.stats", "node_id, stat")]
+        public Task<TResponse> StatsAsync<TResponse>(
+            string nodeId,
+            string stat,
+            StatsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_ltr/{nodeId:nodeId}/stats/{stat:stat}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ltr/stats/{stat}</summary>
+        /// <param name="stat">Comma-separated list of stats to retrieve; use the special string `_all` or Indices.All to retrieve all stats.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        public TResponse Stats<TResponse>(
+            string stat,
+            StatsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_ltr/stats/{stat:stat}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ltr/stats/{stat}</summary>
+        /// <param name="stat">Comma-separated list of stats to retrieve; use the special string `_all` or Indices.All to retrieve all stats.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        [MapsApi("ltr.stats", "stat")]
+        public Task<TResponse> StatsAsync<TResponse>(
+            string stat,
+            StatsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_ltr/stats/{stat:stat}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
     }
 }

@@ -59,7 +59,7 @@ namespace OpenSearch.Net.Specification.IngestApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -80,7 +80,7 @@ namespace OpenSearch.Net.Specification.IngestApi
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>The amount of time to wait for a response.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
@@ -95,7 +95,7 @@ namespace OpenSearch.Net.Specification.IngestApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -124,7 +124,7 @@ namespace OpenSearch.Net.Specification.IngestApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>Sort returned patterns by key name.</summary>
+        /// <summary>Determines how to sort returned grok patterns by key name.</summary>
         public bool? SortByColumns
         {
             get => Q<bool?>("s");
@@ -139,7 +139,7 @@ namespace OpenSearch.Net.Specification.IngestApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
 
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
         {
@@ -160,7 +160,7 @@ namespace OpenSearch.Net.Specification.IngestApi
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>The amount of time to wait for a response.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
@@ -175,7 +175,7 @@ namespace OpenSearch.Net.Specification.IngestApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>If `true`, the response includes output data for each processor in the executed pipeline.</summary>
+        /// <summary>When `true`, the response includes output data for each processor in the pipeline.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("verbose");

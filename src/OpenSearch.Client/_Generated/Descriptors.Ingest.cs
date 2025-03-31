@@ -82,7 +82,7 @@ namespace OpenSearch.Client
         Id IDeletePipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public DeletePipelineDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
@@ -94,7 +94,7 @@ namespace OpenSearch.Client
         public DeletePipelineDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>The amount of time to wait for a response.</summary>
         public DeletePipelineDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
@@ -121,12 +121,12 @@ namespace OpenSearch.Client
         // values part of the url path
         Id IGetPipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 
-        /// <summary>Comma-separated list of pipeline IDs to retrieve. Wildcard (`*`) expressions are supported. To get all ingest pipelines, omit this parameter or use `*`.</summary>
+        /// <summary>A comma-separated list of pipeline IDs to retrieve. Wildcard (`*`) expressions are supported. To get all ingest pipelines, omit this parameter or use `*`.</summary>
         public GetPipelineDescriptor Id(Id id) =>
             Assign(id, (a, v) => a.RouteValues.Optional("id", v));
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public GetPipelineDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
@@ -152,7 +152,7 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>Sort returned patterns by key name.</summary>
+        /// <summary>Determines how to sort returned grok patterns by key name.</summary>
         public GrokProcessorPatternsDescriptor SortByColumns(bool? sortbycolumns = true) =>
             Qs("s", sortbycolumns);
     }
@@ -182,7 +182,7 @@ namespace OpenSearch.Client
         Id IPutPipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public PutPipelineDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
@@ -194,7 +194,7 @@ namespace OpenSearch.Client
         public PutPipelineDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>The amount of time to wait for a response.</summary>
         public PutPipelineDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
@@ -221,12 +221,12 @@ namespace OpenSearch.Client
         // values part of the url path
         Id ISimulatePipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 
-        /// <summary>Pipeline to test. If you don't specify a `pipeline` in the request body, this parameter is required.</summary>
+        /// <summary>The pipeline to test. If you don't specify a `pipeline` in the request body, this parameter is required.</summary>
         public SimulatePipelineDescriptor Id(Id id) =>
             Assign(id, (a, v) => a.RouteValues.Optional("id", v));
 
         // Request parameters
-        /// <summary>If `true`, the response includes output data for each processor in the executed pipeline.</summary>
+        /// <summary>When `true`, the response includes output data for each processor in the pipeline.</summary>
         public SimulatePipelineDescriptor Verbose(bool? verbose = true) => Qs("verbose", verbose);
     }
 }

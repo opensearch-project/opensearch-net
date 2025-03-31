@@ -88,7 +88,7 @@ namespace OpenSearch.Client
         Id IDeletePipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
@@ -109,7 +109,7 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>The amount of time to wait for a response.</summary>
         public Time Timeout
         {
             get => Q<Time>("timeout");
@@ -146,7 +146,7 @@ namespace OpenSearch.Client
         Id IGetPipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
@@ -183,7 +183,7 @@ namespace OpenSearch.Client
         // values part of the url path
 
         // Request parameters
-        /// <summary>Sort returned patterns by key name.</summary>
+        /// <summary>Determines how to sort returned grok patterns by key name.</summary>
         public bool? SortByColumns
         {
             get => Q<bool?>("s");
@@ -221,7 +221,7 @@ namespace OpenSearch.Client
         Id IPutPipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 
         // Request parameters
-        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
         {
@@ -242,7 +242,7 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>The amount of time to wait for a response.</summary>
         public Time Timeout
         {
             get => Q<Time>("timeout");
@@ -279,7 +279,7 @@ namespace OpenSearch.Client
         Id ISimulatePipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 
         // Request parameters
-        /// <summary>If `true`, the response includes output data for each processor in the executed pipeline.</summary>
+        /// <summary>When `true`, the response includes output data for each processor in the pipeline.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("verbose");
