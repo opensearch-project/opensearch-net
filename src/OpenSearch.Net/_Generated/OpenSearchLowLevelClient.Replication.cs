@@ -233,7 +233,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             );
 
         /// <summary>POST on /_plugins/_replication/{index}/_pause <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#pause-replication</para></summary>
-        /// <param name="index">Name of the data stream, index, or index alias to perform bulk actions on.</param>
+        /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
@@ -251,7 +251,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             );
 
         /// <summary>POST on /_plugins/_replication/{index}/_pause <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#pause-replication</para></summary>
-        /// <param name="index">Name of the data stream, index, or index alias to perform bulk actions on.</param>
+        /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
@@ -272,7 +272,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             );
 
         /// <summary>POST on /_plugins/_replication/{index}/_resume <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#resume-replication</para></summary>
-        /// <param name="index">Name of the data stream, index, or index alias to perform bulk actions on.</param>
+        /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
@@ -290,7 +290,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             );
 
         /// <summary>POST on /_plugins/_replication/{index}/_resume <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#resume-replication</para></summary>
-        /// <param name="index">Name of the data stream, index, or index alias to perform bulk actions on.</param>
+        /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
@@ -311,7 +311,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             );
 
         /// <summary>PUT on /_plugins/_replication/{index}/_start <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#start-replication</para></summary>
-        /// <param name="index">Name of the data stream, index, or index alias to perform bulk actions on.</param>
+        /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
@@ -329,7 +329,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             );
 
         /// <summary>PUT on /_plugins/_replication/{index}/_start <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#start-replication</para></summary>
-        /// <param name="index">Name of the data stream, index, or index alias to perform bulk actions on.</param>
+        /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
@@ -350,7 +350,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             );
 
         /// <summary>GET on /_plugins/_replication/{index}/_status <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#get-replication-status</para></summary>
-        /// <param name="index">Name of the data stream, index, or index alias to perform bulk actions on.</param>
+        /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
         public TResponse Status<TResponse>(
@@ -366,7 +366,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             );
 
         /// <summary>GET on /_plugins/_replication/{index}/_status <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#get-replication-status</para></summary>
-        /// <param name="index">Name of the data stream, index, or index alias to perform bulk actions on.</param>
+        /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
         [MapsApi("replication.status", "index")]
@@ -385,7 +385,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             );
 
         /// <summary>POST on /_plugins/_replication/{index}/_stop <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#stop-replication</para></summary>
-        /// <param name="index">Name of the data stream, index, or index alias to perform bulk actions on.</param>
+        /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
@@ -403,7 +403,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             );
 
         /// <summary>POST on /_plugins/_replication/{index}/_stop <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#stop-replication</para></summary>
-        /// <param name="index">Name of the data stream, index, or index alias to perform bulk actions on.</param>
+        /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
@@ -424,7 +424,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             );
 
         /// <summary>PUT on /_plugins/_replication/{index}/_update <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#update-settings</para></summary>
-        /// <param name="index">Name of the data stream, index, or index alias to perform bulk actions on.</param>
+        /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
@@ -442,7 +442,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
             );
 
         /// <summary>PUT on /_plugins/_replication/{index}/_update <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#update-settings</para></summary>
-        /// <param name="index">Name of the data stream, index, or index alias to perform bulk actions on.</param>
+        /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>

@@ -70,7 +70,7 @@ namespace OpenSearch.Net.Specification.SmApi
             : base(client) { }
 
         /// <summary>POST on /_plugins/_sm/policies/{policy_name}</summary>
-        /// <param name="policyName">The name of the snapshot management policy.</param>
+        /// <param name="policyName">The name of the snapshot management policy to create.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>
@@ -88,7 +88,7 @@ namespace OpenSearch.Net.Specification.SmApi
             );
 
         /// <summary>POST on /_plugins/_sm/policies/{policy_name}</summary>
-        /// <param name="policyName">The name of the snapshot management policy.</param>
+        /// <param name="policyName">The name of the snapshot management policy to create.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>
@@ -109,7 +109,7 @@ namespace OpenSearch.Net.Specification.SmApi
             );
 
         /// <summary>DELETE on /_plugins/_sm/policies/{policy_name}</summary>
-        /// <param name="policyName">The name of the snapshot management policy.</param>
+        /// <param name="policyName">The name of the snapshot management policy to delete.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>
         public TResponse DeletePolicy<TResponse>(
@@ -125,7 +125,7 @@ namespace OpenSearch.Net.Specification.SmApi
             );
 
         /// <summary>DELETE on /_plugins/_sm/policies/{policy_name}</summary>
-        /// <param name="policyName">The name of the snapshot management policy.</param>
+        /// <param name="policyName">The name of the snapshot management policy to delete.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>
         [MapsApi("sm.delete_policy", "policy_name")]
@@ -144,7 +144,7 @@ namespace OpenSearch.Net.Specification.SmApi
             );
 
         /// <summary>GET on /_plugins/_sm/policies/{policy_name}/_explain</summary>
-        /// <param name="policyName">The name of the snapshot management policy.</param>
+        /// <param name="policyName">The name of the snapshot management policy to explain.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>
         public TResponse ExplainPolicy<TResponse>(
@@ -160,7 +160,7 @@ namespace OpenSearch.Net.Specification.SmApi
             );
 
         /// <summary>GET on /_plugins/_sm/policies/{policy_name}/_explain</summary>
-        /// <param name="policyName">The name of the snapshot management policy.</param>
+        /// <param name="policyName">The name of the snapshot management policy to explain.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>
         [MapsApi("sm.explain_policy", "policy_name")]
@@ -210,7 +210,7 @@ namespace OpenSearch.Net.Specification.SmApi
             );
 
         /// <summary>GET on /_plugins/_sm/policies/{policy_name}</summary>
-        /// <param name="policyName">The name of the snapshot management policy.</param>
+        /// <param name="policyName">The name of the snapshot management policy to retrieve.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>
         public TResponse GetPolicy<TResponse>(
@@ -226,7 +226,7 @@ namespace OpenSearch.Net.Specification.SmApi
             );
 
         /// <summary>GET on /_plugins/_sm/policies/{policy_name}</summary>
-        /// <param name="policyName">The name of the snapshot management policy.</param>
+        /// <param name="policyName">The name of the snapshot management policy to retrieve.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>
         [MapsApi("sm.get_policy", "policy_name")]
@@ -245,7 +245,7 @@ namespace OpenSearch.Net.Specification.SmApi
             );
 
         /// <summary>POST on /_plugins/_sm/policies/{policy_name}/_start</summary>
-        /// <param name="policyName">The name of the snapshot management policy.</param>
+        /// <param name="policyName">The name of the snapshot management policy to start.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>
         public TResponse StartPolicy<TResponse>(
@@ -261,7 +261,7 @@ namespace OpenSearch.Net.Specification.SmApi
             );
 
         /// <summary>POST on /_plugins/_sm/policies/{policy_name}/_start</summary>
-        /// <param name="policyName">The name of the snapshot management policy.</param>
+        /// <param name="policyName">The name of the snapshot management policy to start.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>
         [MapsApi("sm.start_policy", "policy_name")]
@@ -280,7 +280,7 @@ namespace OpenSearch.Net.Specification.SmApi
             );
 
         /// <summary>POST on /_plugins/_sm/policies/{policy_name}/_stop</summary>
-        /// <param name="policyName">The name of the snapshot management policy.</param>
+        /// <param name="policyName">The name of the snapshot management policy to stop.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>
         public TResponse StopPolicy<TResponse>(
@@ -296,7 +296,7 @@ namespace OpenSearch.Net.Specification.SmApi
             );
 
         /// <summary>POST on /_plugins/_sm/policies/{policy_name}/_stop</summary>
-        /// <param name="policyName">The name of the snapshot management policy.</param>
+        /// <param name="policyName">The name of the snapshot management policy to stop.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>
         [MapsApi("sm.stop_policy", "policy_name")]
@@ -315,7 +315,7 @@ namespace OpenSearch.Net.Specification.SmApi
             );
 
         /// <summary>PUT on /_plugins/_sm/policies/{policy_name}</summary>
-        /// <param name="policyName">The name of the snapshot management policy.</param>
+        /// <param name="policyName">The name of the snapshot management policy to update.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>
@@ -333,7 +333,7 @@ namespace OpenSearch.Net.Specification.SmApi
             );
 
         /// <summary>PUT on /_plugins/_sm/policies/{policy_name}</summary>
-        /// <param name="policyName">The name of the snapshot management policy.</param>
+        /// <param name="policyName">The name of the snapshot management policy to update.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>

@@ -62,6 +62,7 @@ using OpenSearch.Net.Specification.InsightsApi;
 using OpenSearch.Net.Specification.IsmApi;
 using OpenSearch.Net.Specification.KnnApi;
 using OpenSearch.Net.Specification.ListApi;
+using OpenSearch.Net.Specification.LtrApi;
 using OpenSearch.Net.Specification.MlApi;
 using OpenSearch.Net.Specification.NodesApi;
 using OpenSearch.Net.Specification.NotificationsApi;
@@ -101,6 +102,7 @@ namespace OpenSearch.Net
         public LowLevelIsmNamespace Ism { get; private set; }
         public LowLevelKnnNamespace Knn { get; private set; }
         public LowLevelListNamespace List { get; private set; }
+        public LowLevelLtrNamespace Ltr { get; private set; }
         public LowLevelMlNamespace Ml { get; private set; }
         public LowLevelNodesNamespace Nodes { get; private set; }
         public LowLevelHttpNamespace Http { get; private set; }
@@ -133,6 +135,7 @@ namespace OpenSearch.Net
             Ism = new LowLevelIsmNamespace(this);
             Knn = new LowLevelKnnNamespace(this);
             List = new LowLevelListNamespace(this);
+            Ltr = new LowLevelLtrNamespace(this);
             Ml = new LowLevelMlNamespace(this);
             Nodes = new LowLevelNodesNamespace(this);
             Http = new LowLevelHttpNamespace(this);

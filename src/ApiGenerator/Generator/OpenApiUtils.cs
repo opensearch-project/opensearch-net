@@ -18,10 +18,23 @@ public static class OpenApiUtils
 
     public static bool IsEnum(this JsonSchema schema)
     {
-        if (schema.Type == JsonObjectType.String)
-            return schema.Enumeration.Count > 0 || schema.Const<string>() != null;
+        if (!schema.HasOneOf())
+            return schema.Type == JsonObjectType.String && (schema.Enumeration.Count > 0 || schema.Const<string>() != null);
 
-        return schema.HasOneOf() && schema.OneOf.All(IsEnum);
+        var enumCount = 0;
+        var booleanCount = 0;
+        var totalCount = 0;
+
+        foreach (var s in schema.OneOf)
+        {
+            if (s.Type == JsonObjectType.Boolean)
+                booleanCount++;
+            else if (s.IsEnum()) enumCount++;
+
+            totalCount++;
+        }
+
+        return enumCount == totalCount || (booleanCount == 1 && enumCount == totalCount - 1);
     }
 
     public static IImmutableList<string> GetEnumValues(this JsonSchema schema)
