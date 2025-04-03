@@ -54,12 +54,15 @@ public abstract class QueryDslUsageTestsBase<TCluster, TDocument>
     protected abstract IndexName IndexName { get; }
     protected abstract string ExpectedIndexString { get; }
 
+    protected virtual string SearchPipeline => null;
+
     protected virtual ConditionlessWhen ConditionlessWhen => null;
 
     protected override object ExpectJson => new { query = QueryJson };
 
     protected override Func<SearchDescriptor<TDocument>, ISearchRequest> Fluent => s => s
         .Index(IndexName)
+        .SearchPipeline(SearchPipeline)
         .Query(QueryFluent);
 
     protected override HttpMethod HttpMethod => HttpMethod.POST;
@@ -67,6 +70,7 @@ public abstract class QueryDslUsageTestsBase<TCluster, TDocument>
     protected override SearchRequest<TDocument> Initializer =>
         new(IndexName)
         {
+            SearchPipeline = SearchPipeline,
             Query = QueryInitializer
         };
 
@@ -75,7 +79,8 @@ public abstract class QueryDslUsageTestsBase<TCluster, TDocument>
     protected abstract QueryContainer QueryInitializer { get; }
 
     protected abstract object QueryJson { get; }
-    protected override string UrlPath => $"/{ExpectedIndexString}/_search";
+    protected override string UrlPath =>
+        $"/{ExpectedIndexString}/_search{(string.IsNullOrWhiteSpace(SearchPipeline) ? "" : $"?search_pipeline={SearchPipeline}")}";
 
     protected override LazyResponses ClientUsage() => Calls(
         (client, f) => client.Search(f),

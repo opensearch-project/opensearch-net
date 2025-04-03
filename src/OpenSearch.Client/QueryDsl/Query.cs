@@ -85,6 +85,9 @@ namespace OpenSearch.Client
 		public static QueryContainer HasParent<TParent>(Func<HasParentQueryDescriptor<TParent>, IHasParentQuery> selector) where TParent : class =>
 			new QueryContainerDescriptor<T>().HasParent(selector);
 
+        public static QueryContainer Hybrid(Func<HybridQueryDescriptor<T>, IHybridQuery> selector) =>
+            new QueryContainerDescriptor<T>().Hybrid(selector);
+
 		public static QueryContainer Ids(Func<IdsQueryDescriptor, IIdsQuery> selector) =>
 			new QueryContainerDescriptor<T>().Ids(selector);
 

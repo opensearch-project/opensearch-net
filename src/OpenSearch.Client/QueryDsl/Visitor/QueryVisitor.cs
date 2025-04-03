@@ -76,6 +76,8 @@ namespace OpenSearch.Client
 
 		void Visit(IHasParentQuery query);
 
+        void Visit(IHybridQuery query);
+
 		void Visit(IIdsQuery query);
 
 		void Visit(IIntervalsQuery query);
@@ -224,6 +226,8 @@ namespace OpenSearch.Client
 		public virtual void Visit(IHasChildQuery query) { }
 
 		public virtual void Visit(IHasParentQuery query) { }
+
+        public virtual void Visit(IHybridQuery query) { }
 
 		public virtual void Visit(IIdsQuery query) { }
 
