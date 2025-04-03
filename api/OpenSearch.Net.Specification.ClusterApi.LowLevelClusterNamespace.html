@@ -2261,7 +2261,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">name</span></td>
-        <td><p>The name of the component template to create. OpenSearch includes the following built-in component templates: <code>logs-mappings</code>; <code>logs-settings</code>; <code>metrics-mappings</code>; <code>metrics-settings</code>; <code>synthetics-mapping</code>; <code>synthetics-settings</code>. OpenSearch uses these templates to configure backing indexes for its data streams. If you want to overwrite one of these templates, set the replacement template <code>version</code> to a higher value than the current version. If you want to disable all built-in component and index templates, set <code>stack.templates.enabled</code> to <code>false</code> using the Cluster Update Settings API.</p>
+        <td><p>The name of the component template to create. OpenSearch includes the following built-in component templates: <code>logs-mappings</code>, <code>logs-settings</code>, <code>metrics-mappings</code>, <code>metrics-settings</code>, <code>synthetics-mapping</code>, and <code>synthetics-settings</code>. OpenSearch uses these templates to configure backing indexes for its data streams. If you want to overwrite one of these templates, set the replacement template <code>version</code> to a higher value than the current version. If you want to disable all built-in component and index templates, set <code>stack.templates.enabled</code> to <code>false</code> using the <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/">Cluster Update Settings API</a>.</p>
 </td>
       </tr>
       <tr>
@@ -2342,7 +2342,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">name</span></td>
-        <td><p>The name of the component template to create. OpenSearch includes the following built-in component templates: <code>logs-mappings</code>; <code>logs-settings</code>; <code>metrics-mappings</code>; <code>metrics-settings</code>; <code>synthetics-mapping</code>; <code>synthetics-settings</code>. OpenSearch uses these templates to configure backing indexes for its data streams. If you want to overwrite one of these templates, set the replacement template <code>version</code> to a higher value than the current version. If you want to disable all built-in component and index templates, set <code>stack.templates.enabled</code> to <code>false</code> using the Cluster Update Settings API.</p>
+        <td><p>The name of the component template to create. OpenSearch includes the following built-in component templates: <code>logs-mappings</code>, <code>logs-settings</code>, <code>metrics-mappings</code>, <code>metrics-settings</code>, <code>synthetics-mapping</code>, and <code>synthetics-settings</code>. OpenSearch uses these templates to configure backing indexes for its data streams. If you want to overwrite one of these templates, set the replacement template <code>version</code> to a higher value than the current version. If you want to disable all built-in component and index templates, set <code>stack.templates.enabled</code> to <code>false</code> using the <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/">Cluster Update Settings API</a>.</p>
 </td>
       </tr>
       <tr>
@@ -2424,7 +2424,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">awarenessAttributeValue</span></td>
-        <td><p>The value of the awareness attribute.</p>
+        <td><p>The value of the awareness attribute. For example, if you have shards allocated in two different zones, you can give each zone a value of <code>zone-a</code> or <code>zoneb</code>. The cluster decommission operation decommissions the zone listed in the method.</p>
 </td>
       </tr>
       <tr>
@@ -2505,7 +2505,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">awarenessAttributeValue</span></td>
-        <td><p>The value of the awareness attribute.</p>
+        <td><p>The value of the awareness attribute. For example, if you have shards allocated in two different zones, you can give each zone a value of <code>zone-a</code> or <code>zoneb</code>. The cluster decommission operation decommissions the zone listed in the method.</p>
 </td>
       </tr>
       <tr>
@@ -2720,7 +2720,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">attribute</span></td>
-        <td><p>The name of the awareness attribute.</p>
+        <td><p>The name of awareness attribute, usually <code>zone</code>.</p>
 </td>
       </tr>
       <tr>
@@ -2800,7 +2800,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">attribute</span></td>
-        <td><p>The name of the awareness attribute.</p>
+        <td><p>The name of awareness attribute, usually <code>zone</code>.</p>
 </td>
       </tr>
       <tr>
@@ -3222,7 +3222,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">metric</span></td>
-        <td><p>Limits the information returned to only the specified metrics.</p>
+        <td><p>Limits the information returned to only the <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/#metric-groups">specified metric groups</a>.</p>
 </td>
       </tr>
       <tr>
@@ -3297,7 +3297,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">metric</span></td>
-        <td><p>Limits the information returned to only the specified metrics.</p>
+        <td><p>Limits the information returned to only the <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/#metric-groups">specified metric groups</a>.</p>
 </td>
       </tr>
       <tr>
@@ -3442,7 +3442,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">metric</span></td>
-        <td><p>Limits the information returned to only the specified metrics.</p>
+        <td><p>Limits the information returned to only the <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/#metric-groups">specified metric groups</a>.</p>
 </td>
       </tr>
       <tr>
@@ -3512,7 +3512,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">metric</span></td>
-        <td><p>Limits the information returned to only the specified metrics.</p>
+        <td><p>Limits the information returned to only the <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/#metric-groups">specified metric groups</a>.</p>
 </td>
       </tr>
       <tr>
@@ -3822,7 +3822,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">indexMetric</span></td>
-        <td><p>A comma-separated list of index metric groups, for example, <code>docs,store</code>.</p>
+        <td><p>A comma-separated list of <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/#index-metric-groups">index metric groups</a>, for example, <code>docs,store</code>.</p>
 </td>
       </tr>
       <tr>
@@ -4125,7 +4125,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">indexMetric</span></td>
-        <td><p>A comma-separated list of index metric groups, for example, <code>docs,store</code>.</p>
+        <td><p>A comma-separated list of <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/#index-metric-groups">index metric groups</a>, for example, <code>docs,store</code>.</p>
 </td>
       </tr>
       <tr>

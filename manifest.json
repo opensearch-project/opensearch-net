@@ -40516,48 +40516,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.KnnDefaultOperator.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Net.KnnDefaultOperator.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "OpenSearch.Net.KnnDefaultOperator",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.KnnSearchType.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Net.KnnSearchType.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "OpenSearch.Net.KnnSearchType",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.KnnSuggestMode.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Net.KnnSuggestMode.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "OpenSearch.Net.KnnSuggestMode",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.KnownEnums.yml",
       "output": {
         ".html": {
@@ -43830,6 +43788,48 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "OpenSearch.Net.Specification.ListApi",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.LowLevelLtrNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.LowLevelLtrNamespace.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.LowLevelLtrNamespace",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.LowLevelLtrNamespace.yml\" sourcestartlinenumber=\"1\">Ltr APIs.</p>\n<p>Not intended to be instantiated directly. Use the <xref href=\"OpenSearch.Net.IOpenSearchLowLevelClient.Ltr\" data-throw-if-not-resolved=\"false\"></xref> property\non <xref href=\"OpenSearch.Net.IOpenSearchLowLevelClient\" data-throw-if-not-resolved=\"false\"></xref>.\n</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.StatsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.StatsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.StatsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.StatsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for Stats</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi",
       "Summary": null
     },
     {

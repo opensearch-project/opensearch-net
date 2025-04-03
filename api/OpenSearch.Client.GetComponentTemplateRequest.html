@@ -176,7 +176,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GetComponentTemplateRequest__ctor.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GetComponentTemplateRequest.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Cluster.cs/#L264">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Cluster.cs/#L270">View Source</a>
   </span>
   <a id="OpenSearch_Client_GetComponentTemplateRequest__ctor_" data-uid="OpenSearch.Client.GetComponentTemplateRequest.#ctor*"></a>
   <h4 id="OpenSearch_Client_GetComponentTemplateRequest__ctor" data-uid="OpenSearch.Client.GetComponentTemplateRequest.#ctor">GetComponentTemplateRequest()</h4>
@@ -192,7 +192,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GetComponentTemplateRequest__ctor_OpenSearch_Client_Name_.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GetComponentTemplateRequest.%23ctor(OpenSearch.Client.Name)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Cluster.cs/#L269">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Cluster.cs/#L275">View Source</a>
   </span>
   <a id="OpenSearch_Client_GetComponentTemplateRequest__ctor_" data-uid="OpenSearch.Client.GetComponentTemplateRequest.#ctor*"></a>
   <h4 id="OpenSearch_Client_GetComponentTemplateRequest__ctor_OpenSearch_Client_Name_" data-uid="OpenSearch.Client.GetComponentTemplateRequest.#ctor(OpenSearch.Client.Name)">GetComponentTemplateRequest(Name)</h4>
@@ -228,12 +228,12 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GetComponentTemplateRequest_ClusterManagerTimeout.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GetComponentTemplateRequest.ClusterManagerTimeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Cluster.cs/#L282">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Cluster.cs/#L288">View Source</a>
   </span>
   <a id="OpenSearch_Client_GetComponentTemplateRequest_ClusterManagerTimeout_" data-uid="OpenSearch.Client.GetComponentTemplateRequest.ClusterManagerTimeout*"></a>
   <h4 id="OpenSearch_Client_GetComponentTemplateRequest_ClusterManagerTimeout" data-uid="OpenSearch.Client.GetComponentTemplateRequest.ClusterManagerTimeout">ClusterManagerTimeout</h4>
-  <div class="markdown level1 summary"><p>A duration. Units can be <code>nanos</code>, <code>micros</code>, <code>ms</code> (milliseconds), <code>s</code> (seconds), <code>m</code> (minutes), <code>h</code> (hours) and <code>d</code> (days). Also accepts
-&quot;0&quot; without a unit and &quot;-1&quot; to indicate an unspecified value.</p>
+  <div class="markdown level1 summary"><p>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common
+parameters</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -263,11 +263,12 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GetComponentTemplateRequest_FlatSettings.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GetComponentTemplateRequest.FlatSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Cluster.cs/#L289">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Cluster.cs/#L298">View Source</a>
   </span>
   <a id="OpenSearch_Client_GetComponentTemplateRequest_FlatSettings_" data-uid="OpenSearch.Client.GetComponentTemplateRequest.FlatSettings*"></a>
   <h4 id="OpenSearch_Client_GetComponentTemplateRequest_FlatSettings" data-uid="OpenSearch.Client.GetComponentTemplateRequest.FlatSettings">FlatSettings</h4>
-  <div class="markdown level1 summary"><p>If <code>true</code>, returns settings in flat format.</p>
+  <div class="markdown level1 summary"><p>Whether to return settings in the flat form, which can improve readability, especially for heavily nested settings. For example, the flat
+form of <code>&quot;cluster&quot;: { &quot;max_shards_per_node&quot;: 500 }</code> is <code>&quot;cluster.max_shards_per_node&quot;: &quot;500&quot;</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -294,7 +295,7 @@
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GetComponentTemplateRequest_Local.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GetComponentTemplateRequest.Local%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Cluster.cs/#L299">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Cluster.cs/#L308">View Source</a>
   </span>
   <a id="OpenSearch_Client_GetComponentTemplateRequest_Local_" data-uid="OpenSearch.Client.GetComponentTemplateRequest.Local*"></a>
   <h4 id="OpenSearch_Client_GetComponentTemplateRequest_Local" data-uid="OpenSearch.Client.GetComponentTemplateRequest.Local">Local</h4>
@@ -326,12 +327,12 @@ node.</p>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GetComponentTemplateRequest_MasterTimeout.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GetComponentTemplateRequest.MasterTimeout%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Cluster.cs/#L309">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Cluster.cs/#L318">View Source</a>
   </span>
   <a id="OpenSearch_Client_GetComponentTemplateRequest_MasterTimeout_" data-uid="OpenSearch.Client.GetComponentTemplateRequest.MasterTimeout*"></a>
   <h4 id="OpenSearch_Client_GetComponentTemplateRequest_MasterTimeout" data-uid="OpenSearch.Client.GetComponentTemplateRequest.MasterTimeout">MasterTimeout</h4>
   <div class="markdown level1 summary"><p>A duration. Units can be <code>nanos</code>, <code>micros</code>, <code>ms</code> (milliseconds), <code>s</code> (seconds), <code>m</code> (minutes), <code>h</code> (hours) and <code>d</code> (days). Also accepts
-&quot;0&quot; without a unit and &quot;-1&quot; to indicate an unspecified value.</p>
+<code>0</code> without a unit and <code>-1</code> to indicate an unspecified value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -359,7 +360,7 @@ public Time MasterTimeout { get; set; }</code></pre>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GetComponentTemplateRequest_Self.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GetComponentTemplateRequest.Self%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Cluster.cs/#L260">View Source</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Cluster.cs/#L266">View Source</a>
   </span>
   <a id="OpenSearch_Client_GetComponentTemplateRequest_Self_" data-uid="OpenSearch.Client.GetComponentTemplateRequest.Self*"></a>
   <h4 id="OpenSearch_Client_GetComponentTemplateRequest_Self" data-uid="OpenSearch.Client.GetComponentTemplateRequest.Self">Self</h4>
@@ -410,7 +411,7 @@ public Time MasterTimeout { get; set; }</code></pre>
                     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_GetComponentTemplateRequest.md&amp;value=---%0Auid%3A%20OpenSearch.Client.GetComponentTemplateRequest%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
                   </li>
                   <li>
-                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Cluster.cs/#L256" class="contribution-link">View Source</a>
+                    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Requests.Cluster.cs/#L262" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

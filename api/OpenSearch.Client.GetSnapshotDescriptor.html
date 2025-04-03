@@ -251,7 +251,7 @@
   </span>
   <a id="OpenSearch_Client_GetSnapshotDescriptor_ClusterManagerTimeout_" data-uid="OpenSearch.Client.GetSnapshotDescriptor.ClusterManagerTimeout*"></a>
   <h4 id="OpenSearch_Client_GetSnapshotDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.GetSnapshotDescriptor.ClusterManagerTimeout(OpenSearch.Client.Time)">ClusterManagerTimeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Operation timeout for connection to cluster-manager node.</p>
+  <div class="markdown level1 summary"><p>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -302,7 +302,7 @@
   </span>
   <a id="OpenSearch_Client_GetSnapshotDescriptor_IgnoreUnavailable_" data-uid="OpenSearch.Client.GetSnapshotDescriptor.IgnoreUnavailable*"></a>
   <h4 id="OpenSearch_Client_GetSnapshotDescriptor_IgnoreUnavailable_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.GetSnapshotDescriptor.IgnoreUnavailable(System.Nullable{System.Boolean})">IgnoreUnavailable(bool?)</h4>
-  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error for any snapshots that are unavailable.</p>
+  <div class="markdown level1 summary"><p>When <code>false</code>, the request returns an error for any snapshots that are unavailable.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -399,7 +399,7 @@ public GetSnapshotDescriptor MasterTimeout(Time mastertimeout)</code></pre>
   </span>
   <a id="OpenSearch_Client_GetSnapshotDescriptor_Verbose_" data-uid="OpenSearch.Client.GetSnapshotDescriptor.Verbose*"></a>
   <h4 id="OpenSearch_Client_GetSnapshotDescriptor_Verbose_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.GetSnapshotDescriptor.Verbose(System.Nullable{System.Boolean})">Verbose(bool?)</h4>
-  <div class="markdown level1 summary"><p>If <code>true</code>, returns additional information about each snapshot such as the version of OpenSearch which took the snapshot, the start and end times of the snapshot, and the number of shards snapshotted.</p>
+  <div class="markdown level1 summary"><p>When <code>true</code>, returns additional information about each snapshot such as the version of OpenSearch which took the snapshot, the start and end times of the snapshot, and the number of shards contained in the snapshot.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

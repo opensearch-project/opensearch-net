@@ -331,7 +331,7 @@
   </span>
   <a id="OpenSearch_Client_ClusterStatsDescriptor_FlatSettings_" data-uid="OpenSearch.Client.ClusterStatsDescriptor.FlatSettings*"></a>
   <h4 id="OpenSearch_Client_ClusterStatsDescriptor_FlatSettings_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.ClusterStatsDescriptor.FlatSettings(System.Nullable{System.Boolean})">FlatSettings(bool?)</h4>
-  <div class="markdown level1 summary"><p>When <code>true</code>, returns settings in a flat format.</p>
+  <div class="markdown level1 summary"><p>Whether to return settings in the flat form, which can improve readability, especially for heavily nested settings. For example, the flat form of <code>&quot;cluster&quot;: { &quot;max_shards_per_node&quot;: 500 }</code> is <code>&quot;cluster.max_shards_per_node&quot;: &quot;500&quot;</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -379,7 +379,7 @@
   </span>
   <a id="OpenSearch_Client_ClusterStatsDescriptor_IndexMetric_" data-uid="OpenSearch.Client.ClusterStatsDescriptor.IndexMetric*"></a>
   <h4 id="OpenSearch_Client_ClusterStatsDescriptor_IndexMetric_OpenSearch_Client_IndexMetrics_" data-uid="OpenSearch.Client.ClusterStatsDescriptor.IndexMetric(OpenSearch.Client.IndexMetrics)">IndexMetric(IndexMetrics)</h4>
-  <div class="markdown level1 summary"><p>A comma-separated list of index metric groups, for example, <code>docs,store</code>.</p>
+  <div class="markdown level1 summary"><p>A comma-separated list of <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/#index-metric-groups">index metric groups</a>, for example, <code>docs,store</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

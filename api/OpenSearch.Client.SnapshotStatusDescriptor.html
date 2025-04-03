@@ -285,7 +285,7 @@
   </span>
   <a id="OpenSearch_Client_SnapshotStatusDescriptor_ClusterManagerTimeout_" data-uid="OpenSearch.Client.SnapshotStatusDescriptor.ClusterManagerTimeout*"></a>
   <h4 id="OpenSearch_Client_SnapshotStatusDescriptor_ClusterManagerTimeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.SnapshotStatusDescriptor.ClusterManagerTimeout(OpenSearch.Client.Time)">ClusterManagerTimeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Operation timeout for connection to cluster-manager node.</p>
+  <div class="markdown level1 summary"><p>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -336,7 +336,7 @@
   </span>
   <a id="OpenSearch_Client_SnapshotStatusDescriptor_IgnoreUnavailable_" data-uid="OpenSearch.Client.SnapshotStatusDescriptor.IgnoreUnavailable*"></a>
   <h4 id="OpenSearch_Client_SnapshotStatusDescriptor_IgnoreUnavailable_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.SnapshotStatusDescriptor.IgnoreUnavailable(System.Nullable{System.Boolean})">IgnoreUnavailable(bool?)</h4>
-  <div class="markdown level1 summary"><p>Whether to ignore unavailable snapshots, defaults to <code>false</code> which means a SnapshotMissingException is thrown.</p>
+  <div class="markdown level1 summary"><p>Whether to ignore any unavailable snapshots, When <code>false</code>, a <code>SnapshotMissingException</code> is thrown.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -433,7 +433,7 @@ public SnapshotStatusDescriptor MasterTimeout(Time mastertimeout)</code></pre>
   </span>
   <a id="OpenSearch_Client_SnapshotStatusDescriptor_RepositoryName_" data-uid="OpenSearch.Client.SnapshotStatusDescriptor.RepositoryName*"></a>
   <h4 id="OpenSearch_Client_SnapshotStatusDescriptor_RepositoryName_OpenSearch_Client_Name_" data-uid="OpenSearch.Client.SnapshotStatusDescriptor.RepositoryName(OpenSearch.Client.Name)">RepositoryName(Name)</h4>
-  <div class="markdown level1 summary"><p>A repository name.</p>
+  <div class="markdown level1 summary"><p>The name of the repository containing the snapshot.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
