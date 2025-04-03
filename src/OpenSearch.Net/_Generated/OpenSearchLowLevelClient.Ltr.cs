@@ -71,7 +71,7 @@ namespace OpenSearch.Net.Specification.LtrApi
 
         /// <summary>GET on /_plugins/_ltr/stats</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Stats<TResponse>(StatsRequestParameters requestParameters = null)
+        public TResponse StatsForAll<TResponse>(StatsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
                 GET,
@@ -83,7 +83,7 @@ namespace OpenSearch.Net.Specification.LtrApi
         /// <summary>GET on /_plugins/_ltr/stats</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ltr.stats", "")]
-        public Task<TResponse> StatsAsync<TResponse>(
+        public Task<TResponse> StatsForAllAsync<TResponse>(
             StatsRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
@@ -169,7 +169,7 @@ namespace OpenSearch.Net.Specification.LtrApi
         /// <summary>GET on /_plugins/_ltr/stats/{stat}</summary>
         /// <param name="stat">Comma-separated list of stats to retrieve; use the special string `_all` or Indices.All to retrieve all stats.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Stats<TResponse>(
+        public TResponse StatsForAll<TResponse>(
             string stat,
             StatsRequestParameters requestParameters = null
         )
@@ -185,7 +185,7 @@ namespace OpenSearch.Net.Specification.LtrApi
         /// <param name="stat">Comma-separated list of stats to retrieve; use the special string `_all` or Indices.All to retrieve all stats.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ltr.stats", "stat")]
-        public Task<TResponse> StatsAsync<TResponse>(
+        public Task<TResponse> StatsForAllAsync<TResponse>(
             string stat,
             StatsRequestParameters requestParameters = null,
             CancellationToken ctx = default
