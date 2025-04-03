@@ -46,6 +46,7 @@ namespace OpenSearch.Client
 		private IGeoDistanceQuery _geoDistance;
 		private IGeoPolygonQuery _geoPolygon;
 		private IGeoShapeQuery _geoShape;
+        private IHybridQuery _hybrid;
 		private IShapeQuery _shape;
 		private IHasChildQuery _hasChild;
 		private IHasParentQuery _hasParent;
@@ -182,6 +183,12 @@ namespace OpenSearch.Client
 			get => _hasParent;
 			set => _hasParent = Set(value);
 		}
+
+        IHybridQuery IQueryContainer.Hybrid
+        {
+            get => _hybrid;
+            set => _hybrid = Set(value);
+        }
 
 		IIdsQuery IQueryContainer.Ids
 		{

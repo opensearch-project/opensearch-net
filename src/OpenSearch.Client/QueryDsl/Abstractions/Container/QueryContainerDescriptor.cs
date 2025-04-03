@@ -512,5 +512,8 @@ namespace OpenSearch.Client
 
         public QueryContainer Neural(Func<NeuralQueryDescriptor<T>, INeuralQuery> selector) =>
             WrapInContainer(selector, (query, container) => container.Neural = query);
+
+        public QueryContainer Hybrid(Func<HybridQueryDescriptor<T>, IHybridQuery> selector) =>
+            WrapInContainer(selector, (query, container) => container.Hybrid = query);
     }
 }

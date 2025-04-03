@@ -206,6 +206,9 @@ namespace OpenSearch.Client
         [DataMember(Name = "neural")]
         INeuralQuery Neural { get; set; }
 
+        [DataMember(Name = "hybrid")]
+        IHybridQuery Hybrid { get; set; }
+
 		void Accept(IQueryVisitor visitor);
 	}
 }
