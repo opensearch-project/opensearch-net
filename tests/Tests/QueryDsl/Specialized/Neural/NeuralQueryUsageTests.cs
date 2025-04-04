@@ -7,6 +7,7 @@
 
 using System;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using FluentAssertions;
 using OpenSearch.Client;
@@ -30,17 +31,91 @@ public class NeuralQueryCluster : ClientTestClusterBase
             OpenSearchPlugin.Knn,
             OpenSearchPlugin.MachineLearning,
             OpenSearchPlugin.NeuralSearch,
-            OpenSearchPlugin.Security)
-        {
-            MaxConcurrency = 4,
-            ValidatePluginsToInstall = false,
-        };
+            OpenSearchPlugin.Security) { MaxConcurrency = 4, ValidatePluginsToInstall = false, };
 
+        config.DefaultNodeSettings.Add("indices.breaker.total.limit", "100%");
         config.DefaultNodeSettings.Add("plugins.ml_commons.only_run_on_ml_node", "false");
-        config.DefaultNodeSettings.Add("plugins.ml_commons.native_memory_threshold", "99");
+        config.DefaultNodeSettings.Add("plugins.ml_commons.native_memory_threshold", "100");
+        config.DefaultNodeSettings.Add("plugins.ml_commons.jvm_heap_memory_threshold", "100", ">=2.9.0");
         config.DefaultNodeSettings.Add("plugins.ml_commons.model_access_control_enabled", "true", ">=2.8.0");
 
         return config;
+    }
+
+    public string ModelGroupId { get; private set; }
+    public string ModelId { get; private set; }
+
+    protected override void SeedNode()
+    {
+        var baseVersion = ClusterConfiguration.Version.BaseVersion();
+        var renamedToRegisterDeploy = baseVersion >= new Version("2.7.0");
+        var hasModelAccessControl = baseVersion >= new Version("2.8.0");
+
+        if (hasModelAccessControl)
+        {
+            var registerModelGroupResp = Client.Http.Post<DynamicResponse>(
+                "/_plugins/_ml/model_groups/_register",
+                r => r.SerializableBody(new { name = "Neural Search Model Group", access_mode = "public", model_access_mode = "public" }));
+            registerModelGroupResp.ShouldBeCreated();
+            ModelGroupId = (string)registerModelGroupResp.Body.model_group_id;
+        }
+
+        var registerModelResp = Client.Http.Post<DynamicResponse>(
+            $"/_plugins/_ml/models/{(renamedToRegisterDeploy ? "_register" : "_upload")}",
+            r => r.SerializableBody(new
+            {
+                name = "huggingface/sentence-transformers/msmarco-distilbert-base-tas-b",
+                version = "1.0.1",
+                model_group_id = ModelGroupId,
+                model_format = "TORCH_SCRIPT"
+            }));
+        registerModelResp.ShouldBeCreated();
+        var modelRegistrationTaskId = (string)registerModelResp.Body.task_id;
+
+        while (true)
+        {
+            var getTaskResp = Client.Http.Get<DynamicResponse>($"/_plugins/_ml/tasks/{modelRegistrationTaskId}");
+            getTaskResp.ShouldNotBeFailed();
+            if (((string)getTaskResp.Body.state).StartsWith("COMPLETED"))
+            {
+                ModelId = getTaskResp.Body.model_id;
+                break;
+            }
+            Thread.Sleep(5000);
+        }
+
+        var deployModelResp =
+            Client.Http.Post<DynamicResponse>($"/_plugins/_ml/models/{ModelId}/{(renamedToRegisterDeploy ? "_deploy" : "_load")}");
+        deployModelResp.ShouldBeCreated();
+        var modelDeployTaskId = (string)deployModelResp.Body.task_id;
+
+        while (true)
+        {
+            var getTaskResp = Client.Http.Get<DynamicResponse>($"/_plugins/_ml/tasks/{modelDeployTaskId}");
+            getTaskResp.ShouldNotBeFailed();
+            if (((string)getTaskResp.Body.state).StartsWith("COMPLETED")) break;
+
+            Thread.Sleep(5000);
+        }
+
+        var updateIndexSettingsResp = AdminCertClient.Indices.UpdateSettings(".plugins-ml-*",
+            u => u.ExpandWildcards(ExpandWildcards.All).IndexSettings(s => s.NumberOfReplicas(0)));
+        updateIndexSettingsResp.ShouldBeValid();
+    }
+
+    private IOpenSearchClient _adminCertClient;
+
+    private IOpenSearchClient AdminCertClient
+    {
+        get
+        {
+            if (_adminCertClient != null) return _adminCertClient;
+
+            var settings = this.CreateConnectionSettings()
+                .ClientCertificate(X509Certificate2.CreateFromPemFile(FileSystem.ConfigPath + "/kirk.pem", FileSystem.ConfigPath + "/kirk-key.pem"));
+            _adminCertClient = new OpenSearchClient(this.UpdateSettings(settings));
+            return _adminCertClient;
+        }
     }
 }
 
@@ -57,8 +132,7 @@ public class NeuralQueryUsageTests
 {
     private static readonly string TestName = nameof(NeuralQueryUsageTests).ToLowerInvariant();
 
-    private string _modelGroupId;
-    private string _modelId = "default-for-unit-tests";
+    public string ModelId => Cluster?.ModelId ?? "default-for-unit-tests";
 
     public NeuralQueryUsageTests(NeuralQueryCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
@@ -67,31 +141,17 @@ public class NeuralQueryUsageTests
 
     protected override QueryContainer QueryInitializer => new NeuralQuery
     {
-        Field = Infer.Field<NeuralSearchDoc>(d => d.PassageEmbedding),
-        QueryText = "wild west",
-        K = 5,
-        ModelId = _modelId
+        Field = Infer.Field<NeuralSearchDoc>(d => d.PassageEmbedding), QueryText = "wild west", K = 5, ModelId = ModelId
     };
 
-    protected override object QueryJson => new
-    {
-        neural = new
-        {
-            passage_embedding = new
-            {
-                query_text = "wild west",
-                k = 5,
-                model_id = _modelId
-            }
-        }
-    };
+    protected override object QueryJson => new { neural = new { passage_embedding = new { query_text = "wild west", k = 5, model_id = ModelId } } };
 
     protected override QueryContainer QueryFluent(QueryContainerDescriptor<NeuralSearchDoc> q) => q
         .Neural(n => n
             .Field(f => f.PassageEmbedding)
             .QueryText("wild west")
             .K(5)
-            .ModelId(_modelId));
+            .ModelId(ModelId));
 
     protected override ConditionlessWhen ConditionlessWhen => new ConditionlessWhen<INeuralQuery>(a => a.Neural)
     {
@@ -148,64 +208,10 @@ public class NeuralQueryUsageTests
 
     protected override void IntegrationSetup(IOpenSearchClient client, CallUniqueValues values)
     {
-        var baseVersion = Cluster.ClusterConfiguration.Version.BaseVersion();
-        var renamedToRegisterDeploy = baseVersion >= new Version("2.7.0");
-        var hasModelAccessControl = baseVersion >= new Version("2.8.0");
-
-        if (hasModelAccessControl)
-        {
-            var registerModelGroupResp = client.Http.Post<DynamicResponse>(
-                "/_plugins/_ml/model_groups/_register",
-                r => r.SerializableBody(new
-                {
-                    name = TestName,
-                    access_mode = "public",
-                    model_access_mode = "public"
-                }));
-            registerModelGroupResp.ShouldBeCreated();
-            _modelGroupId = (string)registerModelGroupResp.Body.model_group_id;
-        }
-
-        var registerModelResp = client.Http.Post<DynamicResponse>(
-            $"/_plugins/_ml/models/{(renamedToRegisterDeploy ? "_register" : "_upload")}",
-            r => r.SerializableBody(new
-            {
-                name = "huggingface/sentence-transformers/msmarco-distilbert-base-tas-b",
-                version = "1.0.1",
-                model_group_id = _modelGroupId,
-                model_format = "TORCH_SCRIPT"
-            }));
-        registerModelResp.ShouldBeCreated();
-        var modelRegistrationTaskId = (string) registerModelResp.Body.task_id;
-
-        while (true)
-        {
-            var getTaskResp = client.Http.Get<DynamicResponse>($"/_plugins/_ml/tasks/{modelRegistrationTaskId}");
-            getTaskResp.ShouldNotBeFailed();
-            if (((string)getTaskResp.Body.state).StartsWith("COMPLETED"))
-            {
-                _modelId = getTaskResp.Body.model_id;
-                break;
-            }
-            Thread.Sleep(5000);
-        }
-
-        var deployModelResp = client.Http.Post<DynamicResponse>($"/_plugins/_ml/models/{_modelId}/{(renamedToRegisterDeploy ? "_deploy" : "_load")}");
-        deployModelResp.ShouldBeCreated();
-        var modelDeployTaskId = (string) deployModelResp.Body.task_id;
-
-        while (true)
-        {
-            var getTaskResp = client.Http.Get<DynamicResponse>($"/_plugins/_ml/tasks/{modelDeployTaskId}");
-            getTaskResp.ShouldNotBeFailed();
-            if (((string)getTaskResp.Body.state).StartsWith("COMPLETED")) break;
-            Thread.Sleep(5000);
-        }
-
         var putIngestPipelineResp = client.Ingest.PutPipeline(TestName, p => p
             .Processors(pp => pp
                 .TextEmbedding<NeuralSearchDoc>(te => te
-                    .ModelId(_modelId)
+                    .ModelId(ModelId)
                     .FieldMap(fm => fm
                         .Map(d => d.Text, d => d.PassageEmbedding)))));
         putIngestPipelineResp.ShouldBeValid();
@@ -231,9 +237,18 @@ public class NeuralQueryUsageTests
 
         var documents = new NeuralSearchDoc[]
         {
-            new() { Id = "4319130149.jpg", Text = "A West Virginia university women 's basketball team , officials , and a small gathering of fans are in a West Virginia arena ." },
+            new()
+            {
+                Id = "4319130149.jpg",
+                Text =
+                    "A West Virginia university women 's basketball team , officials , and a small gathering of fans are in a West Virginia arena ."
+            },
             new() { Id = "1775029934.jpg", Text = "A wild animal races across an uncut field with a minimal amount of trees ." },
-            new() { Id = "2664027527.jpg", Text = "People line the stands which advertise Freemont 's orthopedics , a cowboy rides a light brown bucking bronco ." },
+            new()
+            {
+                Id = "2664027527.jpg",
+                Text = "People line the stands which advertise Freemont 's orthopedics , a cowboy rides a light brown bucking bronco ."
+            },
             new() { Id = "4427058951.jpg", Text = "A man who is riding a wild horse in the rodeo is very near to falling off ." },
             new() { Id = "2691147709.jpg", Text = "A rodeo cowboy , wearing a cowboy hat , is being thrown off of a wild white horse ." }
         };
@@ -261,23 +276,6 @@ public class NeuralQueryUsageTests
     {
         client.Indices.Delete(IndexName);
         client.Ingest.DeletePipeline(TestName);
-
-        if (_modelId != "default-for-unit-tests")
-        {
-            while (true)
-            {
-                var deleteModelResp = client.Http.Delete<DynamicResponse>($"/_plugins/_ml/models/{_modelId}");
-                if (deleteModelResp.Success || !(((string)deleteModelResp.Body.error?.reason)?.Contains("Try undeploy") ?? false)) break;
-
-                client.Http.Post<DynamicResponse>($"/_plugins/_ml/models/{_modelId}/_undeploy");
-                Thread.Sleep(5000);
-            }
-        }
-
-        if (_modelGroupId != null)
-        {
-            client.Http.Delete<DynamicResponse>($"/_plugins/_ml/model_groups/{_modelGroupId}");
-        }
     }
 }
 
