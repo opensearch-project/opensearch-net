@@ -7,6 +7,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Changed
 - Changed the namespace client properties on `IOpenSearchClient` to return corresponding interfaces to better enable mocking & unit testing ([#646](https://github.com/opensearch-project/opensearch-net/pull/646))
+- Changed `NeuralQuery`'s `ModelId` to be optional ([#917](https://github.com/opensearch-project/opensearch-net/pull/917))
 
 ### Added
 - Added support for Hybrid query ([#917](https://github.com/opensearch-project/opensearch-net/pull/917))
