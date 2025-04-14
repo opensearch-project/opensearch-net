@@ -62,8 +62,8 @@ namespace Tests.Core.Extensions
 			});
 		}
 
-		public static ConnectionConfiguration<TConnectionSettings> UpdateSettings<TConfig, TConnectionSettings>
-			(this IEphemeralCluster<TConfig> cluster, ConnectionConfiguration<TConnectionSettings> settings)
+		public static TConnectionSettings UpdateSettings<TConfig, TConnectionSettings>
+			(this IEphemeralCluster<TConfig> cluster, TConnectionSettings settings)
 			where TConfig : EphemeralClusterConfiguration
 			where TConnectionSettings : ConnectionConfiguration<TConnectionSettings>
 		{
