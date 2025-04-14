@@ -35696,9 +35696,6 @@ components:
         - type: string
           pattern: top_terms(_blended_freqs|_boost)?_\d+
           description: The top terms query rewrite method with optional parameters.
-        - type: string
-          pattern: top_terms(_blended_freqs|_boost)?_\d+
-          description: The top terms query rewrite method with optional parameters.
     _common___Name:
       type: string
       description: The name of a resource or configuration element.
@@ -44235,9 +44232,9 @@ components:
           required:
             - queries
     _common.query_dsl___DistanceFeatureQuery:
-      allOf:
-        - $ref: '#/components/schemas/_common.query_dsl___QueryBase'
-        - oneOf:
+      oneOf:
+        - allOf:
+            - $ref: '#/components/schemas/_common.query_dsl___QueryBase'
             - type: object
               properties:
                 origin:
@@ -44250,6 +44247,8 @@ components:
                 - field
                 - origin
                 - pivot
+        - allOf:
+            - $ref: '#/components/schemas/_common.query_dsl___QueryBase'
             - type: object
               properties:
                 origin:
@@ -45710,10 +45709,12 @@ components:
               format: int32
             - type: string
     _common.query_dsl___RangeQuery:
-      allOf:
-        - $ref: '#/components/schemas/_common.query_dsl___RangeQueryBase'
-        - oneOf:
+      oneOf:
+        - allOf:
+            - $ref: '#/components/schemas/_common.query_dsl___RangeQueryBase'
             - $ref: '#/components/schemas/_common.query_dsl___NumberRangeQueryParameters'
+        - allOf:
+            - $ref: '#/components/schemas/_common.query_dsl___RangeQueryBase'
             - $ref: '#/components/schemas/_common.query_dsl___DateRangeQueryParameters'
     _common.query_dsl___RangeQueryBase:
       allOf:
@@ -51847,7 +51848,6 @@ components:
         - max_uptime_in_millis
         - mem
         - threads
-        - versions
     cluster.stats___ClusterJvmMemory:
       type: object
       properties:
@@ -52088,7 +52088,6 @@ components:
           $ref: '#/components/schemas/_common___Name'
       required:
         - count
-        - name
     cluster.stats___ClusterOperatingSystemPrettyName:
       type: object
       properties:
@@ -52100,7 +52099,6 @@ components:
           $ref: '#/components/schemas/_common___Name'
       required:
         - count
-        - pretty_name
     cluster.stats___ClusterProcess:
       type: object
       properties:
