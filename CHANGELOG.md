@@ -23,7 +23,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `YamlDotNet` from 16.0.0 to 16.3.0
 - Bumps `AWSSDK.Core` from 3.7.400.11 to 3.7.402.15
 - Bumps `Fake.Core.SemVer` from 6.1.0 to 6.1.3
-- Bumps `Bogus` from 35.6.0 to 35.6.2
+- Bumps `Bogus` from 35.6.0 to 35.6.3
 - Bumps `Fake.Core.Environment` from 6.1.0 to 6.1.3
 - Bumps `FluentAssertions` from 6.12.0 to 8.2.0
 - Bumps `Microsoft.NET.Test.Sdk` from 17.11.0 to 17.13.0
