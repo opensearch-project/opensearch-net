@@ -79,14 +79,14 @@ namespace OpenSearch.Net.Specification.RollupsApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
 
-        /// <summary>Only perform the operation if the document has this primary term.</summary>
+        /// <summary>Only performs the operation if the document has the specified primary term.</summary>
         public double? IfPrimaryTerm
         {
             get => Q<double?>("if_primary_term");
             set => Q("if_primary_term", value);
         }
 
-        /// <summary>Only perform the operation if the document has this sequence number.</summary>
+        /// <summary>Only performs the operation if the document has the specified sequence number.</summary>
         public long? IfSequenceNumber
         {
             get => Q<long?>("if_seq_no");

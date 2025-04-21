@@ -70,7 +70,7 @@ namespace OpenSearch.Net.Specification.RollupsApi
             : base(client) { }
 
         /// <summary>DELETE on /_plugins/_rollup/jobs/{id} <para>https://opensearch.org/docs/latest/im-plugin/index-rollups/rollup-api/#delete-an-index-rollup-job</para></summary>
-        /// <param name="id">Rollup to access.</param>
+        /// <param name="id">The ID of the rollup job.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Delete<TResponse>(
             string id,
@@ -85,7 +85,7 @@ namespace OpenSearch.Net.Specification.RollupsApi
             );
 
         /// <summary>DELETE on /_plugins/_rollup/jobs/{id} <para>https://opensearch.org/docs/latest/im-plugin/index-rollups/rollup-api/#delete-an-index-rollup-job</para></summary>
-        /// <param name="id">Rollup to access.</param>
+        /// <param name="id">The ID of the rollup job.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("rollups.delete", "id")]
         public Task<TResponse> DeleteAsync<TResponse>(
@@ -103,7 +103,7 @@ namespace OpenSearch.Net.Specification.RollupsApi
             );
 
         /// <summary>GET on /_plugins/_rollup/jobs/{id}/_explain <para>https://opensearch.org/docs/latest/im-plugin/index-rollups/rollup-api/#explain-an-index-rollup-job</para></summary>
-        /// <param name="id">Rollup to access.</param>
+        /// <param name="id">The ID of the rollup job.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Explain<TResponse>(
             string id,
@@ -118,7 +118,7 @@ namespace OpenSearch.Net.Specification.RollupsApi
             );
 
         /// <summary>GET on /_plugins/_rollup/jobs/{id}/_explain <para>https://opensearch.org/docs/latest/im-plugin/index-rollups/rollup-api/#explain-an-index-rollup-job</para></summary>
-        /// <param name="id">Rollup to access.</param>
+        /// <param name="id">The ID of the rollup job.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("rollups.explain", "id")]
         public Task<TResponse> ExplainAsync<TResponse>(
@@ -136,7 +136,7 @@ namespace OpenSearch.Net.Specification.RollupsApi
             );
 
         /// <summary>GET on /_plugins/_rollup/jobs/{id} <para>https://opensearch.org/docs/latest/im-plugin/index-rollups/rollup-api/#get-an-index-rollup-job</para></summary>
-        /// <param name="id">Rollup to access.</param>
+        /// <param name="id">The ID of the rollup job.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Get<TResponse>(string id, GetRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -148,7 +148,7 @@ namespace OpenSearch.Net.Specification.RollupsApi
             );
 
         /// <summary>GET on /_plugins/_rollup/jobs/{id} <para>https://opensearch.org/docs/latest/im-plugin/index-rollups/rollup-api/#get-an-index-rollup-job</para></summary>
-        /// <param name="id">Rollup to access.</param>
+        /// <param name="id">The ID of the rollup job.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("rollups.get", "id")]
         public Task<TResponse> GetAsync<TResponse>(
@@ -166,8 +166,8 @@ namespace OpenSearch.Net.Specification.RollupsApi
             );
 
         /// <summary>PUT on /_plugins/_rollup/jobs/{id} <para>https://opensearch.org/docs/latest/im-plugin/index-rollups/rollup-api/#create-or-update-an-index-rollup-job</para></summary>
-        /// <param name="id">Rollup to access.</param>
-        /// <param name="body"></param>
+        /// <param name="id">The ID of the rollup job.</param>
+        /// <param name="body">Updates the rollup job configuration.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Put<TResponse>(
             string id,
@@ -183,8 +183,8 @@ namespace OpenSearch.Net.Specification.RollupsApi
             );
 
         /// <summary>PUT on /_plugins/_rollup/jobs/{id} <para>https://opensearch.org/docs/latest/im-plugin/index-rollups/rollup-api/#create-or-update-an-index-rollup-job</para></summary>
-        /// <param name="id">Rollup to access.</param>
-        /// <param name="body"></param>
+        /// <param name="id">The ID of the rollup job.</param>
+        /// <param name="body">Updates the rollup job configuration.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("rollups.put", "id, body")]
         public Task<TResponse> PutAsync<TResponse>(
@@ -203,7 +203,7 @@ namespace OpenSearch.Net.Specification.RollupsApi
             );
 
         /// <summary>POST on /_plugins/_rollup/jobs/{id}/_start <para>https://opensearch.org/docs/latest/im-plugin/index-rollups/rollup-api/#start-or-stop-an-index-rollup-job</para></summary>
-        /// <param name="id">Rollup to access.</param>
+        /// <param name="id">The ID of the rollup job.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Start<TResponse>(
             string id,
@@ -218,7 +218,7 @@ namespace OpenSearch.Net.Specification.RollupsApi
             );
 
         /// <summary>POST on /_plugins/_rollup/jobs/{id}/_start <para>https://opensearch.org/docs/latest/im-plugin/index-rollups/rollup-api/#start-or-stop-an-index-rollup-job</para></summary>
-        /// <param name="id">Rollup to access.</param>
+        /// <param name="id">The ID of the rollup job.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("rollups.start", "id")]
         public Task<TResponse> StartAsync<TResponse>(
@@ -236,7 +236,7 @@ namespace OpenSearch.Net.Specification.RollupsApi
             );
 
         /// <summary>POST on /_plugins/_rollup/jobs/{id}/_stop <para>https://opensearch.org/docs/latest/im-plugin/index-rollups/rollup-api/#start-or-stop-an-index-rollup-job</para></summary>
-        /// <param name="id">Rollup to access.</param>
+        /// <param name="id">The ID of the rollup job.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Stop<TResponse>(string id, StopRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -248,7 +248,7 @@ namespace OpenSearch.Net.Specification.RollupsApi
             );
 
         /// <summary>POST on /_plugins/_rollup/jobs/{id}/_stop <para>https://opensearch.org/docs/latest/im-plugin/index-rollups/rollup-api/#start-or-stop-an-index-rollup-job</para></summary>
-        /// <param name="id">Rollup to access.</param>
+        /// <param name="id">The ID of the rollup job.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("rollups.stop", "id")]
         public Task<TResponse> StopAsync<TResponse>(

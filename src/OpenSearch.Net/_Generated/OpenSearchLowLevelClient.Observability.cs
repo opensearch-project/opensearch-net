@@ -70,7 +70,7 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
             : base(client) { }
 
         /// <summary>POST on /_plugins/_observability/object</summary>
-        /// <param name="body"></param>
+        /// <param name="body">The core observability object containing visualization and query data.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
         public TResponse CreateObject<TResponse>(
@@ -86,7 +86,7 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
             );
 
         /// <summary>POST on /_plugins/_observability/object</summary>
-        /// <param name="body"></param>
+        /// <param name="body">The core observability object containing visualization and query data.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
         [MapsApi("observability.create_object", "body")]
@@ -105,7 +105,7 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
             );
 
         /// <summary>DELETE on /_plugins/_observability/object/{object_id}</summary>
-        /// <param name="objectId">The ID of the Observability Object.</param>
+        /// <param name="objectId">The ID of the observability object to delete.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
         public TResponse DeleteObject<TResponse>(
@@ -121,7 +121,7 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
             );
 
         /// <summary>DELETE on /_plugins/_observability/object/{object_id}</summary>
-        /// <param name="objectId">The ID of the Observability Object.</param>
+        /// <param name="objectId">The ID of the observability object to delete.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
         [MapsApi("observability.delete_object", "object_id")]
@@ -202,7 +202,7 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
             );
 
         /// <summary>GET on /_plugins/_observability/object/{object_id}</summary>
-        /// <param name="objectId">The ID of the Observability Object.</param>
+        /// <param name="objectId">The ID of the observability object to retrieve.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
         public TResponse GetObject<TResponse>(
@@ -218,7 +218,7 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
             );
 
         /// <summary>GET on /_plugins/_observability/object/{object_id}</summary>
-        /// <param name="objectId">The ID of the Observability Object.</param>
+        /// <param name="objectId">The ID of the observability object to retrieve.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
         [MapsApi("observability.get_object", "object_id")]
@@ -268,8 +268,8 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
             );
 
         /// <summary>PUT on /_plugins/_observability/object/{object_id}</summary>
-        /// <param name="objectId">The ID of the Observability Object.</param>
-        /// <param name="body"></param>
+        /// <param name="objectId">The ID of the observability object to update.</param>
+        /// <param name="body">The core observability object containing visualization and query data.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
         public TResponse UpdateObject<TResponse>(
@@ -286,8 +286,8 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
             );
 
         /// <summary>PUT on /_plugins/_observability/object/{object_id}</summary>
-        /// <param name="objectId">The ID of the Observability Object.</param>
-        /// <param name="body"></param>
+        /// <param name="objectId">The ID of the observability object to update.</param>
+        /// <param name="body">The core observability object containing visualization and query data.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
         [MapsApi("observability.update_object", "object_id, body")]

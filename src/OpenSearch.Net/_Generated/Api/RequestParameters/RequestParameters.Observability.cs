@@ -75,14 +75,14 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
 
-        /// <summary>The ID of a single Observability Object to delete.</summary>
+        /// <summary>The ID of a single observability object to delete.</summary>
         public string ObjectId
         {
             get => Q<string>("objectId");
             set => Q("objectId", value);
         }
 
-        /// <summary>A comma-separated list of Observability Object IDs to delete.</summary>
+        /// <summary>A comma-separated list of observability object IDs to delete.</summary>
         public string ObjectIdList
         {
             get => Q<string>("objectIdList");

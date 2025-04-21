@@ -58,14 +58,14 @@ namespace OpenSearch.Net.Specification.PplApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>Specifies the response format (JSON, YAML).</summary>
         public string Format
         {
             get => Q<string>("format");
             set => Q("format", value);
         }
 
-        /// <summary>Specifies whether to escape special characters in the results.</summary>
+        /// <summary>Whether to escape special characters in the results.</summary>
         public bool? Sanitize
         {
             get => Q<bool?>("sanitize");
@@ -79,14 +79,14 @@ namespace OpenSearch.Net.Specification.PplApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>Specifies the response format (JSON, YAML).</summary>
         public string Format
         {
             get => Q<string>("format");
             set => Q("format", value);
         }
 
-        /// <summary>Specifies whether to escape special characters in the results.</summary>
+        /// <summary>Whether to escape special characters in the results.</summary>
         public bool? Sanitize
         {
             get => Q<bool?>("sanitize");
@@ -100,14 +100,14 @@ namespace OpenSearch.Net.Specification.PplApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>Specifies the response format (JSON, YAML).</summary>
         public string Format
         {
             get => Q<string>("format");
             set => Q("format", value);
         }
 
-        /// <summary>Specifies whether to escape special characters in the results.</summary>
+        /// <summary>Whether to escape special characters in the results.</summary>
         public bool? Sanitize
         {
             get => Q<bool?>("sanitize");
@@ -121,14 +121,14 @@ namespace OpenSearch.Net.Specification.PplApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>A short version of the Accept header (for example, `json`, `yaml`).</summary>
+        /// <summary>Specifies the response format (JSON OR YAML).</summary>
         public string Format
         {
             get => Q<string>("format");
             set => Q("format", value);
         }
 
-        /// <summary>Specifies whether to escape special characters in the results.</summary>
+        /// <summary>Whether to sanitize special characters in the results.</summary>
         public bool? Sanitize
         {
             get => Q<bool?>("sanitize");
