@@ -155,6 +155,8 @@ namespace OpenSearch.Client
 
 		public virtual void Visit(IHasParentQuery query) => Write("has_parent");
 
+        public virtual void Visit(IHybridQuery query) => Write("hybrid");
+
 		public virtual void Visit(IIdsQuery query) => Write("ids");
 
 		public virtual void Visit(IIntervalsQuery query) => Write("intervals");

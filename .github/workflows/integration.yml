@@ -71,6 +71,7 @@ jobs:
   integration-opensearch-unreleased:
     name: Integration OpenSearch Unreleased
     runs-on: ubuntu-latest
+    if: false # Temporarily disabled due to k-NN build issues
     strategy:
       fail-fast: false
       matrix:
