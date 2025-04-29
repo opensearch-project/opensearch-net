@@ -58,13 +58,14 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>Provision the workflow as part of the request.</summary>
+        /// <summary>Whether to provision the workflow as part of the request.</summary>
         public bool? Provision
         {
             get => Q<bool?>("provision");
             set => Q("provision", value);
         }
 
+        /// <summary>Whether to reprovision an existing workflow.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.17.0 or greater.</remarks>
         public bool? Reprovision
         {
@@ -72,21 +73,21 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             set => Q("reprovision", value);
         }
 
-        /// <summary>Update only the fields included in the request body.</summary>
+        /// <summary>Whether to update only the fields included in the request body..</summary>
         public bool? UpdateFields
         {
             get => Q<bool?>("update_fields");
             set => Q("update_fields", value);
         }
 
-        /// <summary>To use a workflow template, specify it in the `use_case` query parameter when creating a workflow.</summary>
+        /// <summary>Specifies the workflow template to use.</summary>
         public string UseCase
         {
             get => Q<string>("use_case");
             set => Q("use_case", value);
         }
 
-        /// <summary>Validate the workflow. Valid values are all (validate the template) and none (do not validate the template). Default is all.</summary>
+        /// <summary>Specifies the validation type. Valid values are `all` (validate the template) and `none` (do not validate the template).</summary>
         public string Validation
         {
             get => Q<string>("validation");
@@ -101,8 +102,8 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
         public override bool SupportsBody => false;
 
         /// <summary>
-        /// Delete the workflow state (without deprovisioning resources) after deleting the template. OpenSearch deletes the workflow state only if
-        /// the provisioning status is not IN_PROGRESS. Default is false.
+        /// Whether to delete the workflow state without deprovisioning resources. OpenSearch deletes the workflow state only if the provisioning
+        /// status is not `IN_PROGRESS`. .
         /// </summary>
         public bool? ClearStatus
         {
@@ -118,7 +119,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
 
-        /// <summary>Required when deleting resources involves a high potential for data loss.</summary>
+        /// <summary>Specifies whether to allow deletion of resources with potential data loss.</summary>
         public string AllowDelete
         {
             get => Q<string>("allow_delete");
@@ -139,7 +140,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>The all parameter specifies whether the response should return all fields.</summary>
+        /// <summary>Whether to return all fields in the response.</summary>
         public bool? All
         {
             get => Q<bool?>("all");
@@ -189,13 +190,14 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
 
-        /// <summary>Provision the workflow as part of the request.</summary>
+        /// <summary>Whether to provision the workflow as part of the request.</summary>
         public bool? Provision
         {
             get => Q<bool?>("provision");
             set => Q("provision", value);
         }
 
+        /// <summary>Whether to reprovision an existing workflow.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.17.0 or greater.</remarks>
         public bool? Reprovision
         {
@@ -203,21 +205,21 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             set => Q("reprovision", value);
         }
 
-        /// <summary>Update only the fields included in the request body.</summary>
+        /// <summary>Whether to update only the fields included in the request body..</summary>
         public bool? UpdateFields
         {
             get => Q<bool?>("update_fields");
             set => Q("update_fields", value);
         }
 
-        /// <summary>To use a workflow template, specify it in the `use_case` query parameter when creating a workflow.</summary>
+        /// <summary>Specifies the workflow template to use.</summary>
         public string UseCase
         {
             get => Q<string>("use_case");
             set => Q("use_case", value);
         }
 
-        /// <summary>Validate the workflow. Valid values are all (validate the template) and none (do not validate the template). Default is all.</summary>
+        /// <summary>Specifies the validation type. Valid values are `all` (validate the template) and `none` (do not validate the template).</summary>
         public string Validation
         {
             get => Q<string>("validation");

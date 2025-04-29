@@ -105,7 +105,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             );
 
         /// <summary>DELETE on /_plugins/_flow_framework/workflow/{workflow_id} <para>https://opensearch.org/docs/latest/automating-configurations/api/delete-workflow/</para></summary>
-        /// <param name="workflowId"></param>
+        /// <param name="workflowId">The ID of the workflow.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public TResponse Delete<TResponse>(
@@ -121,7 +121,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             );
 
         /// <summary>DELETE on /_plugins/_flow_framework/workflow/{workflow_id} <para>https://opensearch.org/docs/latest/automating-configurations/api/delete-workflow/</para></summary>
-        /// <param name="workflowId"></param>
+        /// <param name="workflowId">The ID of the workflow.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         [MapsApi("flow_framework.delete", "workflow_id")]
@@ -140,7 +140,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             );
 
         /// <summary>POST on /_plugins/_flow_framework/workflow/{workflow_id}/_deprovision <para>https://opensearch.org/docs/latest/automating-configurations/api/deprovision-workflow/</para></summary>
-        /// <param name="workflowId"></param>
+        /// <param name="workflowId">The ID of the workflow.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public TResponse Deprovision<TResponse>(
@@ -156,7 +156,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             );
 
         /// <summary>POST on /_plugins/_flow_framework/workflow/{workflow_id}/_deprovision <para>https://opensearch.org/docs/latest/automating-configurations/api/deprovision-workflow/</para></summary>
-        /// <param name="workflowId"></param>
+        /// <param name="workflowId">The ID of the workflow.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         [MapsApi("flow_framework.deprovision", "workflow_id")]
@@ -175,7 +175,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             );
 
         /// <summary>GET on /_plugins/_flow_framework/workflow/{workflow_id} <para>https://opensearch.org/docs/latest/automating-configurations/api/get-workflow/</para></summary>
-        /// <param name="workflowId"></param>
+        /// <param name="workflowId">The ID of the workflow.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public TResponse Get<TResponse>(
@@ -191,7 +191,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             );
 
         /// <summary>GET on /_plugins/_flow_framework/workflow/{workflow_id} <para>https://opensearch.org/docs/latest/automating-configurations/api/get-workflow/</para></summary>
-        /// <param name="workflowId"></param>
+        /// <param name="workflowId">The ID of the workflow.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         [MapsApi("flow_framework.get", "workflow_id")]
@@ -210,7 +210,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             );
 
         /// <summary>GET on /_plugins/_flow_framework/workflow/{workflow_id}/_status <para>https://opensearch.org/docs/latest/automating-configurations/api/get-workflow-status/</para></summary>
-        /// <param name="workflowId"></param>
+        /// <param name="workflowId">The ID of the workflow.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public TResponse GetStatus<TResponse>(
@@ -226,7 +226,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             );
 
         /// <summary>GET on /_plugins/_flow_framework/workflow/{workflow_id}/_status <para>https://opensearch.org/docs/latest/automating-configurations/api/get-workflow-status/</para></summary>
-        /// <param name="workflowId"></param>
+        /// <param name="workflowId">The ID of the workflow.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         [MapsApi("flow_framework.get_status", "workflow_id")]
@@ -274,8 +274,8 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             );
 
         /// <summary>POST on /_plugins/_flow_framework/workflow/{workflow_id}/_provision <para>https://opensearch.org/docs/latest/automating-configurations/api/provision-workflow/</para></summary>
-        /// <param name="workflowId"></param>
-        /// <param name="body"></param>
+        /// <param name="workflowId">The ID of the workflow.</param>
+        /// <param name="body">A map of user-provided substitution expressions and their values.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public TResponse Provision<TResponse>(
@@ -292,8 +292,8 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             );
 
         /// <summary>POST on /_plugins/_flow_framework/workflow/{workflow_id}/_provision <para>https://opensearch.org/docs/latest/automating-configurations/api/provision-workflow/</para></summary>
-        /// <param name="workflowId"></param>
-        /// <param name="body"></param>
+        /// <param name="workflowId">The ID of the workflow.</param>
+        /// <param name="body">A map of user-provided substitution expressions and their values.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         [MapsApi("flow_framework.provision", "workflow_id, body")]
@@ -383,7 +383,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             );
 
         /// <summary>PUT on /_plugins/_flow_framework/workflow/{workflow_id} <para>https://opensearch.org/docs/latest/automating-configurations/api/create-workflow/</para></summary>
-        /// <param name="workflowId"></param>
+        /// <param name="workflowId">The ID of the workflow.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
@@ -401,7 +401,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             );
 
         /// <summary>PUT on /_plugins/_flow_framework/workflow/{workflow_id} <para>https://opensearch.org/docs/latest/automating-configurations/api/create-workflow/</para></summary>
-        /// <param name="workflowId"></param>
+        /// <param name="workflowId">The ID of the workflow.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>

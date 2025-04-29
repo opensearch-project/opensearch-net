@@ -70,7 +70,7 @@ namespace OpenSearch.Net.Specification.QueryApi
             : base(client) { }
 
         /// <summary>DELETE on /_plugins/_query/_datasources/{datasource_name}</summary>
-        /// <param name="datasourceName">The Name of the DataSource to delete.</param>
+        /// <param name="datasourceName">The name of the data source to delete.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         public TResponse DatasourceDelete<TResponse>(
@@ -86,7 +86,7 @@ namespace OpenSearch.Net.Specification.QueryApi
             );
 
         /// <summary>DELETE on /_plugins/_query/_datasources/{datasource_name}</summary>
-        /// <param name="datasourceName">The Name of the DataSource to delete.</param>
+        /// <param name="datasourceName">The name of the data source to delete.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         [MapsApi("query.datasource_delete", "datasource_name")]
@@ -105,7 +105,7 @@ namespace OpenSearch.Net.Specification.QueryApi
             );
 
         /// <summary>GET on /_plugins/_query/_datasources/{datasource_name}</summary>
-        /// <param name="datasourceName">The Name of the DataSource to retrieve.</param>
+        /// <param name="datasourceName">The name of the data source to retrieve.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         public TResponse DatasourceRetrieve<TResponse>(
@@ -121,7 +121,7 @@ namespace OpenSearch.Net.Specification.QueryApi
             );
 
         /// <summary>GET on /_plugins/_query/_datasources/{datasource_name}</summary>
-        /// <param name="datasourceName">The Name of the DataSource to retrieve.</param>
+        /// <param name="datasourceName">The name of the data source to retrieve.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         [MapsApi("query.datasource_retrieve", "datasource_name")]
@@ -140,7 +140,7 @@ namespace OpenSearch.Net.Specification.QueryApi
             );
 
         /// <summary>POST on /_plugins/_query/_datasources</summary>
-        /// <param name="body"></param>
+        /// <param name="body">The data source configuration to create.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         public TResponse DatasourcesCreate<TResponse>(
@@ -156,7 +156,7 @@ namespace OpenSearch.Net.Specification.QueryApi
             );
 
         /// <summary>POST on /_plugins/_query/_datasources</summary>
-        /// <param name="body"></param>
+        /// <param name="body">The data source configuration to create.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         [MapsApi("query.datasources_create", "body")]
@@ -206,7 +206,7 @@ namespace OpenSearch.Net.Specification.QueryApi
             );
 
         /// <summary>PUT on /_plugins/_query/_datasources</summary>
-        /// <param name="body"></param>
+        /// <param name="body">The updated data source configuration.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         public TResponse DatasourcesUpdate<TResponse>(
@@ -222,7 +222,7 @@ namespace OpenSearch.Net.Specification.QueryApi
             );
 
         /// <summary>PUT on /_plugins/_query/_datasources</summary>
-        /// <param name="body"></param>
+        /// <param name="body">The updated data source configuration.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         [MapsApi("query.datasources_update", "body")]
