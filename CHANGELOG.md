@@ -22,31 +22,35 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Dependencies
 - Bumps `System.Diagnostics.DiagnosticSource` from 6.0.1 to 8.0.1
 - Bumps `YamlDotNet` from 16.0.0 to 16.3.0
-- Bumps `AWSSDK.Core` from 3.7.400.11 to 3.7.402.43
+- Bumps `AWSSDK.Core` from 3.7.400.11 to 4.0.0.7
 - Bumps `Fake.Core.SemVer` from 6.1.0 to 6.1.3
 - Bumps `Bogus` from 35.6.0 to 35.6.3
 - Bumps `Fake.Core.Environment` from 6.1.0 to 6.1.3
-- Bumps `FluentAssertions` from 6.12.0 to 8.2.0
+- Bumps `FluentAssertions` from 6.12.0 to 8.3.0
 - Bumps `Microsoft.NET.Test.Sdk` from 17.11.0 to 17.13.0
-- Bumps `Microsoft.TestPlatform.ObjectModel` from 17.11.0 to 17.13.0
-- Bumps `BenchMarkDotNet` from 0.13.12 to 0.14.0
+- Bumps `Microsoft.TestPlatform.ObjectModel` from 17.11.0 to 17.14.1
+- Bumps `BenchMarkDotNet` from 0.13.12 to 0.15.0
 - Bumps `Fake.IO.FileSystem` from 6.1.0 to 6.1.3
 - Bumps `Fake.IO.Zip` from 6.1.0 to 6.1.3
 - Bumps `Fake.Tools.Git` from 6.1.0 to 6.1.3
-- Bumps `CSharpier.Core` from 0.29.1 to 0.30.6
+- Bumps `CSharpier.Core` from 0.29.1 to 1.0.2
 - Bumps `Proc` from 0.8.1 to 0.9.1
 - Bumps `System.Text.Json` from 8.0.4 to 8.0.5
 - Bumps `JunitXml.TestLogger` from 4.0.254 to 6.1.0
-- Bumps `FSharp.Core` from 8.0.400 to 9.0.201
+- Bumps `FSharp.Core` from 8.0.400 to 9.0.300
 - Bumps `JetBrains.Annotations` from 2024.2.0 to 2024.3.0
 - Bumps `Microsoft.Extensions.Caching.Memory` from 6.0.0 to 8.0.1
 - Bumps `xunit` from 2.8.0 to 2.9.3
 - Bumps `System.Buffers` from 4.5.1 to 4.6.1
-- Bumps `NSwag.Core` from 14.1.0 to 14.2.0
+- Bumps `NSwag.Core` from 14.1.0 to 14.4.0
 - Bumps `Argu` from 6.2.4 to 6.2.5
 - Bumps `SemanticVersioning` from 2.0.2 to 3.0.0
 - Bumps `FSharp.Data` from 6.4.0 to 6.6.0
 - Bumps `Octokit` from 13.0.1 to 14.0.0
+- Bumps `Spectre.Console` from 0.49.1 to 0.50.0
+- Bumps `System.CommandLine.DragonFruit` from 0.3.0-alpha.20371.2 to 0.3.0-alpha.21216.1
+- Bumps `DiffPlex` from 1.7.2 to 1.8.0
+- Bumps `SharpYaml` from 2.1.1 to 2.1.2
 
 ## [1.8.0]
 ### Added

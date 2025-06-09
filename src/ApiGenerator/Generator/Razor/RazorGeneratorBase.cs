@@ -33,6 +33,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using ApiGenerator.Domain;
 using CSharpier;
+using CSharpier.Core.CSharp;
 using RazorLight;
 using RazorLight.Generation;
 using RazorLight.Razor;
@@ -86,7 +87,7 @@ namespace ApiGenerator.Generator.Razor
 
         private static async Task WriteFormattedCsharpFile(string path, string contents)
         {
-			contents = (await CodeFormatter.FormatAsync(contents)).Code;
+			contents = (await CSharpFormatter.FormatAsync(contents)).Code;
 
 			if (Directory.GetParent(path) is { Exists: false } dir) dir.Create();
 
