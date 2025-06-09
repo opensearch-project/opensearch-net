@@ -8,6 +8,7 @@
 using System;
 using Amazon;
 using Amazon.Runtime;
+using Amazon.Runtime.Credentials;
 
 namespace OpenSearch.Net.Auth.AwsSigV4
 {
@@ -64,7 +65,7 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 		/// </remarks>
 		public AwsSigV4HttpConnection(AWSCredentials credentials, RegionEndpoint region, string service = OpenSearchService, IDateTimeProvider dateTimeProvider = null)
 		{
-			_credentials = credentials ?? FallbackCredentialsFactory.GetCredentials(); // FallbackCredentialsFactory throws in case of not finding credentials.
+			_credentials = credentials ?? DefaultAWSCredentialsIdentityResolver.GetCredentials(); // DefaultAWSCredentialsIdentityResolver throws in case of not finding credentials.
 			_region = region
 				?? FallbackRegionFactory.GetRegionEndpoint() // FallbackRegionFactory can return null.
 				?? throw new ArgumentNullException(nameof(region), "A RegionEndpoint was not provided and was unable to be determined from the environment.");
