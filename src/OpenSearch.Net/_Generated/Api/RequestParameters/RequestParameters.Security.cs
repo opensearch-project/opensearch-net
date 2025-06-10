@@ -294,7 +294,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>The type of certificates (`HTTP`, `TRANSPORT`, or `ALL`) to retrieve from all nodes.</summary>
+        /// <summary>The type of certificates (<c>HTTP</c>, <c>TRANSPORT</c>, or <c>ALL</c>) to retrieve from all nodes.</summary>
         public string CertType
         {
             get => Q<string>("cert_type");
@@ -386,7 +386,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>The type of certificates (`HTTP`, `TRANSPORT`, or `ALL`) to retrieve from a node.</summary>
+        /// <summary>The type of certificates (<c>HTTP</c>, <c>TRANSPORT</c>, or <c>ALL</c>) to retrieve from a node.</summary>
         public string CertType
         {
             get => Q<string>("cert_type");
@@ -447,9 +447,9 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override bool SupportsBody => false;
 
         /// <summary>Whether to include all domain names in the response.</summary>
-        public string ShowDn
+        public bool? ShowDn
         {
-            get => Q<string>("show_dn");
+            get => Q<bool?>("show_dn");
             set => Q("show_dn", value);
         }
     }
@@ -515,7 +515,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
 
         /// <summary>
         /// A flag that determines whether to consider the security status before returning a response for a health query response. For example,
-        /// `strict` mode indicates service should check the Security plugin status.
+        /// <c>strict</c> mode indicates service should check the Security plugin status.
         /// </summary>
         public string Mode
         {

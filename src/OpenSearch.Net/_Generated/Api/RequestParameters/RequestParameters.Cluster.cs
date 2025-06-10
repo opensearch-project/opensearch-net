@@ -59,7 +59,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>When `true`, returns information about disk usage and shard sizes.</summary>
+        /// <summary>When <c>true</c>, returns information about disk usage and shard sizes.</summary>
         public bool? IncludeDiskInfo
         {
             get => Q<bool?>("include_disk_info");
@@ -67,8 +67,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// When `true`, returns any `YES` decisions in the allocation explanation. `YES` decisions indicate when a particular shard allocation
-        /// attempt was successful for the given node.
+        /// When <c>true</c>, returns any <c>YES</c> decisions in the allocation explanation. <c>YES</c> decisions indicate when a particular shard
+        /// allocation attempt was successful for the given node.
         /// </summary>
         public bool? IncludeYesDecisions
         {
@@ -85,8 +85,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override bool SupportsBody => false;
 
         /// <summary>
-        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common
-        /// parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).
+        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
+        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -96,8 +96,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
-        /// `0` without a unit and `-1` to indicate an unspecified value.
+        /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
+        /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
@@ -109,8 +109,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
-        /// `0` without a unit and `-1` to indicate an unspecified value.
+        /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
+        /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
         public TimeSpan Timeout
         {
@@ -136,8 +136,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// Specifies whether to wait for all excluded nodes to be removed from the cluster before clearing the voting configuration exclusions list.
-        /// When `true`, all excluded nodes are removed from the cluster before this API takes any action. When `false`, the voting configuration
-        /// exclusions list is cleared even if some excluded nodes are still in the cluster.
+        /// When <c>true</c>, all excluded nodes are removed from the cluster before this API takes any action. When <c>false</c>, the voting
+        /// configuration exclusions list is cleared even if some excluded nodes are still in the cluster.
         /// </summary>
         public bool? WaitForRemoval
         {
@@ -162,8 +162,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override bool SupportsBody => false;
 
         /// <summary>
-        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common
-        /// parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).
+        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
+        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -173,8 +173,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// When `true`, the request retrieves information from the local node only. When `false, information is retrieved from the cluster manager
-        /// node.
+        /// When <c>true</c>, the request retrieves information from the local node only. When <c>false</c>, information is retrieved from the cluster
+        /// manager node.
         /// </summary>
         public bool? Local
         {
@@ -183,8 +183,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
-        /// `0` without a unit and `-1` to indicate an unspecified value.
+        /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
+        /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
@@ -204,8 +204,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override bool SupportsBody => false;
 
         /// <summary>
-        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common
-        /// parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).
+        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
+        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -216,7 +216,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// Whether to return settings in the flat form, which can improve readability, especially for heavily nested settings. For example, the flat
-        /// form of `"cluster": { "max_shards_per_node": 500 }` is `"cluster.max_shards_per_node": "500"`.
+        /// form of <c>&quot;cluster&quot;: { &quot;max_shards_per_node&quot;: 500 }</c> is <c>&quot;cluster.max_shards_per_node&quot;:
+        /// &quot;500&quot;</c>.
         /// </summary>
         public bool? FlatSettings
         {
@@ -225,8 +226,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// When `true`, the request retrieves information from the local node only. When `false`, information is retrieved from the cluster manager
-        /// node.
+        /// When <c>true</c>, the request retrieves information from the local node only. When <c>false</c>, information is retrieved from the cluster
+        /// manager node.
         /// </summary>
         public bool? Local
         {
@@ -235,8 +236,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
-        /// `0` without a unit and `-1` to indicate an unspecified value.
+        /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
+        /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
@@ -264,8 +265,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override bool SupportsBody => false;
 
         /// <summary>
-        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common
-        /// parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).
+        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
+        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -276,7 +277,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// Whether to return settings in the flat form, which can improve readability, especially for heavily nested settings. For example, the flat
-        /// form of `"cluster": { "max_shards_per_node": 500 }` is `"cluster.max_shards_per_node": "500"`.
+        /// form of <c>&quot;cluster&quot;: { &quot;max_shards_per_node&quot;: 500 }</c> is <c>&quot;cluster.max_shards_per_node&quot;:
+        /// &quot;500&quot;</c>.
         /// </summary>
         public bool? FlatSettings
         {
@@ -284,7 +286,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("flat_settings", value);
         }
 
-        /// <summary>When `true`, returns default cluster settings from the local node.</summary>
+        /// <summary>When <c>true</c>, returns default cluster settings from the local node.</summary>
         public bool? IncludeDefaults
         {
             get => Q<bool?>("include_defaults");
@@ -292,8 +294,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
-        /// `0` without a unit and `-1` to indicate an unspecified value.
+        /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
+        /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
@@ -305,8 +307,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
-        /// `0` without a unit and `-1` to indicate an unspecified value.
+        /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
+        /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
         public TimeSpan Timeout
         {
@@ -331,8 +333,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override bool SupportsBody => false;
 
         /// <summary>
-        /// The name of the awareness attribute for which to return the cluster health status (for example, `zone`). Applicable only if `level` is set
-        /// to `awareness_attributes`.
+        /// The name of the awareness attribute for which to return the cluster health status (for example, <c>zone</c>). Applicable only if
+        /// <c>level</c> is set to <c>awareness_attributes</c>.
         /// </summary>
         public string AwarenessAttribute
         {
@@ -341,8 +343,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common
-        /// parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).
+        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
+        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -373,8 +375,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
-        /// `0` without a unit and `-1` to indicate an unspecified value.
+        /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
+        /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
@@ -386,8 +388,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common
-        /// parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).
+        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
+        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         public TimeSpan Timeout
         {
@@ -395,7 +397,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("timeout", value);
         }
 
-        /// <summary>Waits until the specified number of shards is active before returning a response. Use `all` for all shards.</summary>
+        /// <summary>Waits until the specified number of shards is active before returning a response. Use <c>all</c> for all shards.</summary>
         public string WaitForActiveShards
         {
             get => Q<string>("wait_for_active_shards");
@@ -410,8 +412,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// Waits until the specified number of nodes (`N`) is available. Accepts `&gt;=N`, `&lt;=N`, `&gt;N`, and `&lt;N`. You can also use `ge(N)`,
-        /// `le(N)`, `gt(N)`, and `lt(N)` notation.
+        /// Waits until the specified number of nodes (<c>N</c>) is available. Accepts <c>&gt;=N</c>, <c>&lt;=N</c>, <c>&gt;N</c>, and <c>&lt;N</c>.
+        /// You can also use <c>ge(N)</c>, <c>le(N)</c>, <c>gt(N)</c>, and <c>lt(N)</c> notation.
         /// </summary>
         public string WaitForNodes
         {
@@ -449,8 +451,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override bool SupportsBody => false;
 
         /// <summary>
-        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common
-        /// parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).
+        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
+        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -460,8 +462,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// When `true`, the request retrieves information from the local node only. When `false`, information is retrieved from the cluster manager
-        /// node.
+        /// When <c>true</c>, the request retrieves information from the local node only. When <c>false</c>, information is retrieved from the cluster
+        /// manager node.
         /// </summary>
         public bool? Local
         {
@@ -470,8 +472,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
-        /// `0` without a unit and `-1` to indicate an unspecified value.
+        /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
+        /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
@@ -492,7 +494,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// A comma-separated list of node IDs to exclude from the voting configuration. When using this setting, you cannot also specify
-        /// `node_names`. Either `node_ids` or `node_names` are required to receive a valid response.
+        /// <c>node_names</c>. Either <c>node_ids</c> or <c>node_names</c> are required to receive a valid response.
         /// </summary>
         public string[] NodeIds
         {
@@ -502,7 +504,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// A comma-separated list of node names to exclude from the voting configuration. When using this setting, you cannot also specify
-        /// `node_ids`. Either `node_ids` or `node_names` are required to receive a valid response.
+        /// <c>node_ids</c>. Either <c>node_ids</c> or <c>node_names</c> are required to receive a valid response.
         /// </summary>
         public string[] NodeNames
         {
@@ -529,8 +531,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override bool SupportsBody => true;
 
         /// <summary>
-        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common
-        /// parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).
+        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
+        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -539,7 +541,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>When `true`, this request cannot replace or update existing component templates.</summary>
+        /// <summary>When <c>true</c>, this request cannot replace or update existing component templates.</summary>
         public bool? Create
         {
             get => Q<bool?>("create");
@@ -547,8 +549,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
-        /// `0` without a unit and `-1` to indicate an unspecified value.
+        /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
+        /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
@@ -560,8 +562,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
-        /// `0` without a unit and `-1` to indicate an unspecified value.
+        /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
+        /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
         public TimeSpan Timeout
         {
@@ -586,8 +588,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override bool SupportsBody => true;
 
         /// <summary>
-        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common
-        /// parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).
+        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
+        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -598,7 +600,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// Whether to return settings in the flat form, which can improve readability, especially for heavily nested settings. For example, the flat
-        /// form of `"cluster": { "max_shards_per_node": 500 }` is `"cluster.max_shards_per_node": "500"`.
+        /// form of <c>&quot;cluster&quot;: { &quot;max_shards_per_node&quot;: 500 }</c> is <c>&quot;cluster.max_shards_per_node&quot;:
+        /// &quot;500&quot;</c>.
         /// </summary>
         public bool? FlatSettings
         {
@@ -607,8 +610,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
-        /// `0` without a unit and `-1` to indicate an unspecified value.
+        /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
+        /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
@@ -620,8 +623,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
-        /// `0` without a unit and `-1` to indicate an unspecified value.
+        /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
+        /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
         public TimeSpan Timeout
         {
@@ -654,8 +657,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override bool SupportsBody => true;
 
         /// <summary>
-        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common
-        /// parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).
+        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
+        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -664,14 +667,14 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>When `true`, the request simulates the operation and returns the resulting state.</summary>
+        /// <summary>When <c>true</c>, the request simulates the operation and returns the resulting state.</summary>
         public bool? DryRun
         {
             get => Q<bool?>("dry_run");
             set => Q("dry_run", value);
         }
 
-        /// <summary>When `true`, the response contains an explanation of why reroute certain commands can or cannot be executed.</summary>
+        /// <summary>When <c>true</c>, the response contains an explanation of why reroute certain commands can or cannot be executed.</summary>
         public bool? Explain
         {
             get => Q<bool?>("explain");
@@ -679,8 +682,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
-        /// `0` without a unit and `-1` to indicate an unspecified value.
+        /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
+        /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
@@ -698,7 +701,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("metric", value);
         }
 
-        /// <summary>When `true`, retries shard allocation if it was blocked because of too many subsequent failures.</summary>
+        /// <summary>When <c>true</c>, retries shard allocation if it was blocked because of too many subsequent failures.</summary>
         public bool? RetryFailed
         {
             get => Q<bool?>("retry_failed");
@@ -706,8 +709,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
-        /// `0` without a unit and `-1` to indicate an unspecified value.
+        /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
+        /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
         public TimeSpan Timeout
         {
@@ -724,8 +727,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override bool SupportsBody => false;
 
         /// <summary>
-        /// Whether to ignore a wildcard index expression that resolves into no concrete indexes. This includes the `_all` string or when no indexes
-        /// have been specified.
+        /// Whether to ignore a wildcard index expression that resolves into no concrete indexes. This includes the <c>_all</c> string or when no
+        /// indexes have been specified.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -734,8 +737,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common
-        /// parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).
+        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
+        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -753,7 +756,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// Whether to return settings in the flat form, which can improve readability, especially for heavily nested settings. For example, the flat
-        /// form of `"cluster": { "max_shards_per_node": 500 }` is `"cluster.max_shards_per_node": "500"`.
+        /// form of <c>&quot;cluster&quot;: { &quot;max_shards_per_node&quot;: 500 }</c> is <c>&quot;cluster.max_shards_per_node&quot;:
+        /// &quot;500&quot;</c>.
         /// </summary>
         public bool? FlatSettings
         {
@@ -776,8 +780,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
 
         /// <summary>
-        /// A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts
-        /// `0` without a unit and `-1` to indicate an unspecified value.
+        /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
+        /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
@@ -795,7 +799,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
             set => Q("wait_for_metadata_version", value);
         }
 
-        /// <summary>The maximum time to wait for `wait_for_metadata_version` before timing out.</summary>
+        /// <summary>The maximum time to wait for <c>wait_for_metadata_version</c> before timing out.</summary>
         public TimeSpan WaitForTimeout
         {
             get => Q<TimeSpan>("wait_for_timeout");
@@ -812,7 +816,8 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// Whether to return settings in the flat form, which can improve readability, especially for heavily nested settings. For example, the flat
-        /// form of `"cluster": { "max_shards_per_node": 500 }` is `"cluster.max_shards_per_node": "500"`.
+        /// form of <c>&quot;cluster&quot;: { &quot;max_shards_per_node&quot;: 500 }</c> is <c>&quot;cluster.max_shards_per_node&quot;:
+        /// &quot;500&quot;</c>.
         /// </summary>
         public bool? FlatSettings
         {
@@ -822,7 +827,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// The amount of time to wait for each node to respond. If a node does not respond before its timeout expires, the response does not include
-        /// its stats. However, timed out nodes are included in the response's `_nodes.failed` property. Defaults to no timeout.
+        /// its stats. However, timed out nodes are included in the response's <c>_nodes.failed</c> property. Defaults to no timeout.
         /// </summary>
         public TimeSpan Timeout
         {

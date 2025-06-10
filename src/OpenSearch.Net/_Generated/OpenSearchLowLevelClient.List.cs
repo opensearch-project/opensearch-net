@@ -112,7 +112,7 @@ namespace OpenSearch.Net.Specification.ListApi
             );
 
         /// <summary>GET on /_list/indices/{index} <para>https://opensearch.org/docs/latest/api-reference/list/list-indices/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
         public TResponse Indices<TResponse>(
@@ -128,7 +128,7 @@ namespace OpenSearch.Net.Specification.ListApi
             );
 
         /// <summary>GET on /_list/indices/{index} <para>https://opensearch.org/docs/latest/api-reference/list/list-indices/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
         [MapsApi("list.indices", "index")]
@@ -171,7 +171,7 @@ namespace OpenSearch.Net.Specification.ListApi
             );
 
         /// <summary>GET on /_list/shards/{index} <para>https://opensearch.org/docs/latest/api-reference/list/list-shards/</para></summary>
-        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
         public TResponse Shards<TResponse>(
@@ -187,7 +187,7 @@ namespace OpenSearch.Net.Specification.ListApi
             );
 
         /// <summary>GET on /_list/shards/{index} <para>https://opensearch.org/docs/latest/api-reference/list/list-shards/</para></summary>
-        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
         [MapsApi("list.shards", "index")]

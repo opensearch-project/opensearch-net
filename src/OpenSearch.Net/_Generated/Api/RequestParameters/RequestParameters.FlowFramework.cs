@@ -87,7 +87,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             set => Q("use_case", value);
         }
 
-        /// <summary>Specifies the validation type. Valid values are `all` (validate the template) and `none` (do not validate the template).</summary>
+        /// <summary>Specifies the validation type. Valid values are <c>all</c> (validate the template) and <c>none</c> (do not validate the template).</summary>
         public string Validation
         {
             get => Q<string>("validation");
@@ -103,7 +103,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
 
         /// <summary>
         /// Whether to delete the workflow state without deprovisioning resources. OpenSearch deletes the workflow state only if the provisioning
-        /// status is not `IN_PROGRESS`. .
+        /// status is not <c>IN_PROGRESS</c>. .
         /// </summary>
         public bool? ClearStatus
         {
@@ -219,7 +219,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             set => Q("use_case", value);
         }
 
-        /// <summary>Specifies the validation type. Valid values are `all` (validate the template) and `none` (do not validate the template).</summary>
+        /// <summary>Specifies the validation type. Valid values are <c>all</c> (validate the template) and <c>none</c> (do not validate the template).</summary>
         public string Validation
         {
             get => Q<string>("validation");

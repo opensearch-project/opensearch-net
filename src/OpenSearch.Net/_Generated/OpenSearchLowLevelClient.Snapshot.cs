@@ -267,7 +267,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             );
 
         /// <summary>DELETE on /_snapshot/{repository} <para>https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/</para></summary>
-        /// <param name="repository">The name of the snapshot repository to unregister. Wildcard (`*`) patterns are supported.</param>
+        /// <param name="repository">The name of the snapshot repository to unregister. Wildcard (&lt;c&gt;*&lt;/c&gt;) patterns are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse DeleteRepository<TResponse>(
             string repository,
@@ -282,7 +282,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
             );
 
         /// <summary>DELETE on /_snapshot/{repository} <para>https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/</para></summary>
-        /// <param name="repository">The name of the snapshot repository to unregister. Wildcard (`*`) patterns are supported.</param>
+        /// <param name="repository">The name of the snapshot repository to unregister. Wildcard (&lt;c&gt;*&lt;/c&gt;) patterns are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("snapshot.delete_repository", "repository")]
         public Task<TResponse> DeleteRepositoryAsync<TResponse>(
@@ -301,7 +301,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 
         /// <summary>GET on /_snapshot/{repository}/{snapshot} <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="repository">A comma-separated list of snapshot repository names used to limit the request. Wildcard (*) expressions are supported.</param>
-        /// <param name="snapshot">A comma-separated list of snapshot names to retrieve. Also accepts wildcard expressions. (`*`). - To get information about all snapshots in a registered repository, use a wildcard (`*`) or `_all`. - To get information about any snapshots that are currently running, use `_current`.</param>
+        /// <param name="snapshot">A comma-separated list of snapshot names to retrieve. Also accepts wildcard expressions. (&lt;c&gt;*&lt;/c&gt;). - To get information about all snapshots in a registered repository, use a wildcard (&lt;c&gt;*&lt;/c&gt;) or &lt;c&gt;_all&lt;/c&gt;. - To get information about any snapshots that are currently running, use &lt;c&gt;_current&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Get<TResponse>(
             string repository,
@@ -318,7 +318,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 
         /// <summary>GET on /_snapshot/{repository}/{snapshot} <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="repository">A comma-separated list of snapshot repository names used to limit the request. Wildcard (*) expressions are supported.</param>
-        /// <param name="snapshot">A comma-separated list of snapshot names to retrieve. Also accepts wildcard expressions. (`*`). - To get information about all snapshots in a registered repository, use a wildcard (`*`) or `_all`. - To get information about any snapshots that are currently running, use `_current`.</param>
+        /// <param name="snapshot">A comma-separated list of snapshot names to retrieve. Also accepts wildcard expressions. (&lt;c&gt;*&lt;/c&gt;). - To get information about all snapshots in a registered repository, use a wildcard (&lt;c&gt;*&lt;/c&gt;) or &lt;c&gt;_all&lt;/c&gt;. - To get information about any snapshots that are currently running, use &lt;c&gt;_current&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("snapshot.get", "repository, snapshot")]
         public Task<TResponse> GetAsync<TResponse>(

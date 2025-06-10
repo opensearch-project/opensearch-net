@@ -59,35 +59,35 @@ namespace OpenSearch.Net.Specification.NodesApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>Don't show threads that are in known-idle places, such as waiting on a socket select or pulling from an empty task queue.</summary>
+        /// <summary>Whether to show threads that are in known-idle places, such as waiting on a socket select or pulling from an empty task queue.</summary>
         public bool? IgnoreIdleThreads
         {
             get => Q<bool?>("ignore_idle_threads");
             set => Q("ignore_idle_threads", value);
         }
 
-        /// <summary>The interval for the second sampling of threads.</summary>
+        /// <summary>The time interval between thread stack trace samples.</summary>
         public TimeSpan Interval
         {
             get => Q<TimeSpan>("interval");
             set => Q("interval", value);
         }
 
-        /// <summary>Number of samples of thread stack trace.</summary>
+        /// <summary>The number of thread stack trace samples to collect.</summary>
         public int? Snapshots
         {
             get => Q<int?>("snapshots");
             set => Q("snapshots", value);
         }
 
-        /// <summary>Specify the number of threads to provide information for.</summary>
+        /// <summary>The number of threads to provide information for.</summary>
         public int? Threads
         {
             get => Q<int?>("threads");
             set => Q("threads", value);
         }
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>The amount of time to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
@@ -108,14 +108,14 @@ namespace OpenSearch.Net.Specification.NodesApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>If `true`, returns settings in flat format.</summary>
+        /// <summary>When <c>true</c>, returns settings in flat format.</summary>
         public bool? FlatSettings
         {
             get => Q<bool?>("flat_settings");
             set => Q("flat_settings", value);
         }
 
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>The amount of time to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
@@ -130,7 +130,7 @@ namespace OpenSearch.Net.Specification.NodesApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>The amount of time to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
@@ -145,35 +145,35 @@ namespace OpenSearch.Net.Specification.NodesApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
+        /// <summary>A comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
         public string[] CompletionFields
         {
             get => Q<string[]>("completion_fields");
             set => Q("completion_fields", value);
         }
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data statistics.</summary>
+        /// <summary>A comma-separated list or wildcard expressions of fields to include in field data statistics.</summary>
         public string[] FielddataFields
         {
             get => Q<string[]>("fielddata_fields");
             set => Q("fielddata_fields", value);
         }
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
+        /// <summary>A comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
         public string[] Fields
         {
             get => Q<string[]>("fields");
             set => Q("fields", value);
         }
 
-        /// <summary>Comma-separated list of search groups to include in the search statistics.</summary>
+        /// <summary>A comma-separated list of search groups to include in the search statistics.</summary>
         public string[] Groups
         {
             get => Q<string[]>("groups");
             set => Q("groups", value);
         }
 
-        /// <summary>If `true`, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
+        /// <summary>When <c>true</c>, reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
         public bool? IncludeSegmentFileSizes
         {
             get => Q<bool?>("include_segment_file_sizes");
@@ -187,7 +187,7 @@ namespace OpenSearch.Net.Specification.NodesApi
             set => Q("level", value);
         }
 
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>The amount of time to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
