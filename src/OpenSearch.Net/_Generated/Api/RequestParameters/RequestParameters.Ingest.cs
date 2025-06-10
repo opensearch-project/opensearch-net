@@ -175,7 +175,7 @@ namespace OpenSearch.Net.Specification.IngestApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>When `true`, the response includes output data for each processor in the pipeline.</summary>
+        /// <summary>When <c>true</c>, the response includes output data for each processor in the pipeline.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("verbose");

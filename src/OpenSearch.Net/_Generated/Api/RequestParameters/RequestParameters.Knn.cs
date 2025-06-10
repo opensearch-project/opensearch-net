@@ -75,8 +75,8 @@ namespace OpenSearch.Net.Specification.KnnApi
         public override bool SupportsBody => true;
 
         /// <summary>
-        /// Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes `_all` string or when no indexes have
-        /// been specified).
+        /// Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes <c>_all</c> string or when no indexes
+        /// have been specified).
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -270,21 +270,21 @@ namespace OpenSearch.Net.Specification.KnnApi
             set => Q("sort", value);
         }
 
-        /// <summary>Set to `true` or `false` to return the `_source` field or not, or a list of fields to return.</summary>
+        /// <summary>Set to <c>true</c> or <c>false</c> to return the <c>_source</c> field or not, or a list of fields to return.</summary>
         public bool? SourceEnabled
         {
             get => Q<bool?>("_source");
             set => Q("_source", value);
         }
 
-        /// <summary>List of fields to exclude from the returned `_source` field.</summary>
+        /// <summary>List of fields to exclude from the returned <c>_source</c> field.</summary>
         public string[] SourceExcludes
         {
             get => Q<string[]>("_source_excludes");
             set => Q("_source_excludes", value);
         }
 
-        /// <summary>List of fields to extract and return from the `_source` field.</summary>
+        /// <summary>List of fields to extract and return from the <c>_source</c> field.</summary>
         public string[] SourceIncludes
         {
             get => Q<string[]>("_source_includes");
@@ -347,7 +347,7 @@ namespace OpenSearch.Net.Specification.KnnApi
             set => Q("timeout", value);
         }
 
-        /// <summary>Indicates whether `hits.total` should be rendered as an integer or an object in the rest search response.</summary>
+        /// <summary>Indicates whether <c>hits.total</c> should be rendered as an integer or an object in the rest search response.</summary>
         public bool? TotalHitsAsInteger
         {
             get => Q<bool?>("rest_total_hits_as_int");

@@ -95,7 +95,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// A comma-separated list of node IDs or names used to limit the returned information. Use `_local` to return information from the node
+        /// A comma-separated list of node IDs or names used to limit the returned information. Use <c>_local</c> to return information from the node
         /// you're connecting to, specify the node name to get information from a specific node, or keep the parameter empty to get information from
         /// all nodes.
         /// </summary>
@@ -105,14 +105,14 @@ namespace OpenSearch.Client
             set => Q("nodes", value);
         }
 
-        /// <summary>Returns tasks with a specified parent task ID (`node_id:task_number`). Keep empty or set to -1 to return all.</summary>
+        /// <summary>Returns tasks with a specified parent task ID (<c>node_id:task_number</c>). Keep empty or set to -1 to return all.</summary>
         public string ParentTaskId
         {
             get => Q<string>("parent_task_id");
             set => Q("parent_task_id", value);
         }
 
-        /// <summary>Waits for the matching task to complete. When `true`, the request is blocked until the task has completed.</summary>
+        /// <summary>Waits for the matching task to complete. When <c>true</c>, the request is blocked until the task has completed.</summary>
         public bool? WaitForCompletion
         {
             get => Q<bool?>("wait_for_completion");
@@ -157,7 +157,7 @@ namespace OpenSearch.Client
             set => Q("timeout", value);
         }
 
-        /// <summary>Waits for the matching task to complete. When `true`, the request is blocked until the task has completed.</summary>
+        /// <summary>Waits for the matching task to complete. When <c>true</c>, the request is blocked until the task has completed.</summary>
         public bool? WaitForCompletion
         {
             get => Q<bool?>("wait_for_completion");
@@ -186,7 +186,7 @@ namespace OpenSearch.Client
             set => Q("actions", value);
         }
 
-        /// <summary>When `true`, the response includes detailed information about shard recoveries.</summary>
+        /// <summary>When <c>true</c>, the response includes detailed information about shard recoveries.</summary>
         public bool? Detailed
         {
             get => Q<bool?>("detailed");
@@ -201,7 +201,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// A comma-separated list of node IDs or names used to limit the returned information. Use `_local` to return information from the node
+        /// A comma-separated list of node IDs or names used to limit the returned information. Use <c>_local</c> to return information from the node
         /// you're connecting to, specify the node name to get information from a specific node, or keep the parameter empty to get information from
         /// all nodes.
         /// </summary>
@@ -211,7 +211,7 @@ namespace OpenSearch.Client
             set => Q("nodes", value);
         }
 
-        /// <summary>Returns tasks with a specified parent task ID (`node_id:task_number`). Keep empty or set to -1 to return all.</summary>
+        /// <summary>Returns tasks with a specified parent task ID (<c>node_id:task_number</c>). Keep empty or set to -1 to return all.</summary>
         public string ParentTaskId
         {
             get => Q<string>("parent_task_id");
@@ -225,7 +225,7 @@ namespace OpenSearch.Client
             set => Q("timeout", value);
         }
 
-        /// <summary>Waits for the matching task to complete. When `true`, the request is blocked until the task has completed.</summary>
+        /// <summary>Waits for the matching task to complete. When <c>true</c>, the request is blocked until the task has completed.</summary>
         public bool? WaitForCompletion
         {
             get => Q<bool?>("wait_for_completion");

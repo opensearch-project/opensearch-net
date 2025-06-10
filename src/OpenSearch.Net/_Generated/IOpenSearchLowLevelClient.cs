@@ -55,6 +55,7 @@ using OpenSearch.Net.Specification.CatApi;
 using OpenSearch.Net.Specification.ClusterApi;
 using OpenSearch.Net.Specification.DanglingIndicesApi;
 using OpenSearch.Net.Specification.FlowFrameworkApi;
+using OpenSearch.Net.Specification.GeospatialApi;
 using OpenSearch.Net.Specification.HttpApi;
 using OpenSearch.Net.Specification.IndicesApi;
 using OpenSearch.Net.Specification.IngestApi;
@@ -64,6 +65,7 @@ using OpenSearch.Net.Specification.KnnApi;
 using OpenSearch.Net.Specification.ListApi;
 using OpenSearch.Net.Specification.LtrApi;
 using OpenSearch.Net.Specification.MlApi;
+using OpenSearch.Net.Specification.NeuralApi;
 using OpenSearch.Net.Specification.NodesApi;
 using OpenSearch.Net.Specification.NotificationsApi;
 using OpenSearch.Net.Specification.ObservabilityApi;
@@ -103,6 +105,9 @@ namespace OpenSearch.Net
         /// <summary>Flow Framework APIs</summary>
         LowLevelFlowFrameworkNamespace FlowFramework { get; }
 
+        /// <summary>Geospatial APIs</summary>
+        LowLevelGeospatialNamespace Geospatial { get; }
+
         /// <summary>Indices APIs</summary>
         LowLevelIndicesNamespace Indices { get; }
 
@@ -126,6 +131,9 @@ namespace OpenSearch.Net
 
         /// <summary>Ml APIs</summary>
         LowLevelMlNamespace Ml { get; }
+
+        /// <summary>Neural APIs</summary>
+        LowLevelNeuralNamespace Neural { get; }
 
         /// <summary>Nodes APIs</summary>
         LowLevelNodesNamespace Nodes { get; }
@@ -264,7 +272,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>DELETE on /_search/scroll <para>https://opensearch.org/docs/latest/api-reference/scroll/</para></summary>
-        /// <param name="body">Comma-separated list of scroll IDs to clear if none was specified using the `scroll_id` parameter.</param>
+        /// <param name="body">Comma-separated list of scroll IDs to clear if none was specified using the &lt;c&gt;scroll_id&lt;/c&gt; parameter.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse ClearScroll<TResponse>(
             PostData body,
@@ -273,7 +281,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>DELETE on /_search/scroll <para>https://opensearch.org/docs/latest/api-reference/scroll/</para></summary>
-        /// <param name="body">Comma-separated list of scroll IDs to clear if none was specified using the `scroll_id` parameter.</param>
+        /// <param name="body">Comma-separated list of scroll IDs to clear if none was specified using the &lt;c&gt;scroll_id&lt;/c&gt; parameter.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> ClearScrollAsync<TResponse>(
             PostData body,
@@ -283,8 +291,8 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>DELETE on /_search/scroll/{scroll_id} <para>https://opensearch.org/docs/latest/api-reference/scroll/</para></summary>
-        /// <param name="scrollId">Comma-separated list of scroll IDs to clear. To clear all scroll IDs, use `_all`.</param>
-        /// <param name="body">Comma-separated list of scroll IDs to clear if none was specified using the `scroll_id` parameter.</param>
+        /// <param name="scrollId">Comma-separated list of scroll IDs to clear. To clear all scroll IDs, use &lt;c&gt;_all&lt;/c&gt;.</param>
+        /// <param name="body">Comma-separated list of scroll IDs to clear if none was specified using the &lt;c&gt;scroll_id&lt;/c&gt; parameter.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [Obsolete(
             "Deprecated in version 1.0.0: A scroll id can be quite large and should be specified as part of the body."
@@ -297,8 +305,8 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>DELETE on /_search/scroll/{scroll_id} <para>https://opensearch.org/docs/latest/api-reference/scroll/</para></summary>
-        /// <param name="scrollId">Comma-separated list of scroll IDs to clear. To clear all scroll IDs, use `_all`.</param>
-        /// <param name="body">Comma-separated list of scroll IDs to clear if none was specified using the `scroll_id` parameter.</param>
+        /// <param name="scrollId">Comma-separated list of scroll IDs to clear. To clear all scroll IDs, use &lt;c&gt;_all&lt;/c&gt;.</param>
+        /// <param name="body">Comma-separated list of scroll IDs to clear if none was specified using the &lt;c&gt;scroll_id&lt;/c&gt; parameter.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [Obsolete(
             "Deprecated in version 1.0.0: A scroll id can be quite large and should be specified as part of the body."
@@ -328,7 +336,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_count <para>https://opensearch.org/docs/latest/api-reference/count/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (`*`). To search all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To search all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="body">Query to restrict the results specified with the Query DSL (optional).</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse Count<TResponse>(
@@ -339,7 +347,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_count <para>https://opensearch.org/docs/latest/api-reference/count/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (`*`). To search all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To search all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="body">Query to restrict the results specified with the Query DSL (optional).</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> CountAsync<TResponse>(
@@ -351,7 +359,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>PUT on /{index}/_create/{id} <para>https://opensearch.org/docs/latest/api-reference/document-apis/index-document/</para></summary>
-        /// <param name="index">Name of the data stream or index to target. If the target doesn&#x27;t exist and matches the name or wildcard (`*`) pattern of an index template with a `data_stream` definition, this request creates the data stream. If the target doesn&#x27;t exist and doesn&#x27;t match a data stream template, this request creates the index.</param>
+        /// <param name="index">Name of the data stream or index to target. If the target doesn&#x27;t exist and matches the name or wildcard (&lt;c&gt;*&lt;/c&gt;) pattern of an index template with a &lt;c&gt;data_stream&lt;/c&gt; definition, this request creates the data stream. If the target doesn&#x27;t exist and doesn&#x27;t match a data stream template, this request creates the index.</param>
         /// <param name="id">Unique identifier for the document.</param>
         /// <param name="body">The document.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -364,7 +372,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>PUT on /{index}/_create/{id} <para>https://opensearch.org/docs/latest/api-reference/document-apis/index-document/</para></summary>
-        /// <param name="index">Name of the data stream or index to target. If the target doesn&#x27;t exist and matches the name or wildcard (`*`) pattern of an index template with a `data_stream` definition, this request creates the data stream. If the target doesn&#x27;t exist and doesn&#x27;t match a data stream template, this request creates the index.</param>
+        /// <param name="index">Name of the data stream or index to target. If the target doesn&#x27;t exist and matches the name or wildcard (&lt;c&gt;*&lt;/c&gt;) pattern of an index template with a &lt;c&gt;data_stream&lt;/c&gt; definition, this request creates the data stream. If the target doesn&#x27;t exist and doesn&#x27;t match a data stream template, this request creates the index.</param>
         /// <param name="id">Unique identifier for the document.</param>
         /// <param name="body">The document.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -378,7 +386,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_search/point_in_time <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</para></summary>
-        /// <param name="index">Comma-separated list of indexes; use the special string `_all` or Indices.All to perform the operation on all indexes.</param>
+        /// <param name="index">Comma-separated list of indexes; use &lt;c&gt;_all&lt;/c&gt; or empty string to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         TResponse CreatePit<TResponse>(
@@ -388,7 +396,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_search/point_in_time <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</para></summary>
-        /// <param name="index">Comma-separated list of indexes; use the special string `_all` or Indices.All to perform the operation on all indexes.</param>
+        /// <param name="index">Comma-separated list of indexes; use &lt;c&gt;_all&lt;/c&gt; or empty string to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         Task<TResponse> CreatePitAsync<TResponse>(
@@ -437,7 +445,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_delete_by_query <para>https://opensearch.org/docs/latest/api-reference/document-apis/delete-by-query/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (`*`). To search all data streams or indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To search all data streams or indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="body">The search definition using the Query DSL.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse DeleteByQuery<TResponse>(
@@ -448,7 +456,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_delete_by_query <para>https://opensearch.org/docs/latest/api-reference/document-apis/delete-by-query/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (`*`). To search all data streams or indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To search all data streams or indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="body">The search definition using the Query DSL.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> DeleteByQueryAsync<TResponse>(
@@ -519,7 +527,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>HEAD on /{index}/_doc/{id} <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and aliases. Supports wildcards (`*`).</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases. Supports wildcards (&lt;c&gt;*&lt;/c&gt;).</param>
         /// <param name="id">Identifier of the document.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse DocumentExists<TResponse>(
@@ -530,7 +538,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>HEAD on /{index}/_doc/{id} <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and aliases. Supports wildcards (`*`).</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases. Supports wildcards (&lt;c&gt;*&lt;/c&gt;).</param>
         /// <param name="id">Identifier of the document.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> DocumentExistsAsync<TResponse>(
@@ -542,7 +550,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>HEAD on /{index}/_source/{id} <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and aliases. Supports wildcards (`*`).</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases. Supports wildcards (&lt;c&gt;*&lt;/c&gt;).</param>
         /// <param name="id">Identifier of the document.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse SourceExists<TResponse>(
@@ -553,7 +561,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>HEAD on /{index}/_source/{id} <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and aliases. Supports wildcards (`*`).</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases. Supports wildcards (&lt;c&gt;*&lt;/c&gt;).</param>
         /// <param name="id">Identifier of the document.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> SourceExistsAsync<TResponse>(
@@ -611,7 +619,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_field_caps <para>https://opensearch.org/docs/latest/field-types/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (*). To target all data streams and indexes, omit this parameter or use * or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (*). To target all data streams and indexes, omit this parameter or use * or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="body">An index filter specified with the Query DSL.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse FieldCapabilities<TResponse>(
@@ -622,7 +630,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_field_caps <para>https://opensearch.org/docs/latest/field-types/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (*). To target all data streams and indexes, omit this parameter or use * or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (*). To target all data streams and indexes, omit this parameter or use * or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="body">An index filter specified with the Query DSL.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> FieldCapabilitiesAsync<TResponse>(
@@ -634,8 +642,8 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>GET on /{index}/_doc/{id} <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
-        /// <param name="index">Name of the index that contains the document.</param>
-        /// <param name="id">Unique identifier of the document.</param>
+        /// <param name="index">The name of the index that contains the document.</param>
+        /// <param name="id">The unique identifier of the document.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse Get<TResponse>(
             string index,
@@ -645,8 +653,8 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>GET on /{index}/_doc/{id} <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
-        /// <param name="index">Name of the index that contains the document.</param>
-        /// <param name="id">Unique identifier of the document.</param>
+        /// <param name="index">The name of the index that contains the document.</param>
+        /// <param name="id">The unique identifier of the document.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> GetAsync<TResponse>(
             string index,
@@ -721,8 +729,8 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>GET on /{index}/_source/{id} <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
-        /// <param name="index">Name of the index that contains the document.</param>
-        /// <param name="id">Unique identifier of the document.</param>
+        /// <param name="index">The name of the index that contains the document.</param>
+        /// <param name="id">The unique identifier of the document.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse Source<TResponse>(
             string index,
@@ -732,8 +740,8 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>GET on /{index}/_source/{id} <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
-        /// <param name="index">Name of the index that contains the document.</param>
-        /// <param name="id">Unique identifier of the document.</param>
+        /// <param name="index">The name of the index that contains the document.</param>
+        /// <param name="id">The unique identifier of the document.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> SourceAsync<TResponse>(
             string index,
@@ -807,7 +815,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /_mget <para>https://opensearch.org/docs/latest/api-reference/document-apis/multi-get/</para></summary>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index is provided in the URL.</param>
+        /// <param name="body">Document identifiers; can be either &lt;c&gt;docs&lt;/c&gt; (containing full document information) or &lt;c&gt;ids&lt;/c&gt; (when index is provided in the URL.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse MultiGet<TResponse>(
             PostData body,
@@ -816,7 +824,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /_mget <para>https://opensearch.org/docs/latest/api-reference/document-apis/multi-get/</para></summary>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index is provided in the URL.</param>
+        /// <param name="body">Document identifiers; can be either &lt;c&gt;docs&lt;/c&gt; (containing full document information) or &lt;c&gt;ids&lt;/c&gt; (when index is provided in the URL.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> MultiGetAsync<TResponse>(
             PostData body,
@@ -826,8 +834,8 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_mget <para>https://opensearch.org/docs/latest/api-reference/document-apis/multi-get/</para></summary>
-        /// <param name="index">Name of the index to retrieve documents from when `ids` are specified, or when a document in the `docs` array does not specify an index.</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index is provided in the URL.</param>
+        /// <param name="index">Name of the index to retrieve documents from when &lt;c&gt;ids&lt;/c&gt; are specified, or when a document in the &lt;c&gt;docs&lt;/c&gt; array does not specify an index.</param>
+        /// <param name="body">Document identifiers; can be either &lt;c&gt;docs&lt;/c&gt; (containing full document information) or &lt;c&gt;ids&lt;/c&gt; (when index is provided in the URL.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse MultiGet<TResponse>(
             string index,
@@ -837,8 +845,8 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_mget <para>https://opensearch.org/docs/latest/api-reference/document-apis/multi-get/</para></summary>
-        /// <param name="index">Name of the index to retrieve documents from when `ids` are specified, or when a document in the `docs` array does not specify an index.</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index is provided in the URL.</param>
+        /// <param name="index">Name of the index to retrieve documents from when &lt;c&gt;ids&lt;/c&gt; are specified, or when a document in the &lt;c&gt;docs&lt;/c&gt; array does not specify an index.</param>
+        /// <param name="body">Document identifiers; can be either &lt;c&gt;docs&lt;/c&gt; (containing full document information) or &lt;c&gt;ids&lt;/c&gt; (when index is provided in the URL.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> MultiGetAsync<TResponse>(
             string index,
@@ -910,7 +918,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_msearch/template <para>https://opensearch.org/docs/latest/search-plugins/search-template/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (`*`). To search all data streams and indexes, omit this parameter or use `*`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To search all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt;.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse MultiSearchTemplate<TResponse>(
@@ -921,7 +929,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_msearch/template <para>https://opensearch.org/docs/latest/search-plugins/search-template/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (`*`). To search all data streams and indexes, omit this parameter or use `*`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To search all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt;.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> MultiSearchTemplateAsync<TResponse>(
@@ -952,7 +960,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_mtermvectors <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">Name of the index that contains the documents.</param>
+        /// <param name="index">The name of the index that contains the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse MultiTermVectors<TResponse>(
@@ -963,7 +971,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_mtermvectors <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">Name of the index that contains the documents.</param>
+        /// <param name="index">The name of the index that contains the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> MultiTermVectorsAsync<TResponse>(
@@ -1057,7 +1065,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_rank_eval <para>https://opensearch.org/docs/latest/api-reference/rank-eval/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and index aliases used to limit the request. Wildcard (`*`) expressions are supported. To target all data streams and indexes in a cluster, omit this parameter or use `_all` or `*`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and index aliases used to limit the request. Wildcard (&lt;c&gt;*&lt;/c&gt;) expressions are supported. To target all data streams and indexes in a cluster, omit this parameter or use &lt;c&gt;_all&lt;/c&gt; or &lt;c&gt;*&lt;/c&gt;.</param>
         /// <param name="body">The ranking evaluation search definition, including search requests, document ratings and ranking metric definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse RankEval<TResponse>(
@@ -1068,7 +1076,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_rank_eval <para>https://opensearch.org/docs/latest/api-reference/rank-eval/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and index aliases used to limit the request. Wildcard (`*`) expressions are supported. To target all data streams and indexes in a cluster, omit this parameter or use `_all` or `*`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and index aliases used to limit the request. Wildcard (&lt;c&gt;*&lt;/c&gt;) expressions are supported. To target all data streams and indexes in a cluster, omit this parameter or use &lt;c&gt;_all&lt;/c&gt; or &lt;c&gt;*&lt;/c&gt;.</param>
         /// <param name="body">The ranking evaluation search definition, including search requests, document ratings and ranking metric definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> RankEvalAsync<TResponse>(
@@ -1137,7 +1145,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /_render/template/{id} <para>https://opensearch.org/docs/latest/search-plugins/search-template/</para></summary>
-        /// <param name="id">ID of the search template to render. If no `source` is specified, this or the `id` request body parameter is required.</param>
+        /// <param name="id">ID of the search template to render. If no &lt;c&gt;source&lt;/c&gt; is specified, this or the &lt;c&gt;id&lt;/c&gt; request body parameter is required.</param>
         /// <param name="body">The search definition template and its parameters.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse RenderSearchTemplate<TResponse>(
@@ -1148,7 +1156,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /_render/template/{id} <para>https://opensearch.org/docs/latest/search-plugins/search-template/</para></summary>
-        /// <param name="id">ID of the search template to render. If no `source` is specified, this or the `id` request body parameter is required.</param>
+        /// <param name="id">ID of the search template to render. If no &lt;c&gt;source&lt;/c&gt; is specified, this or the &lt;c&gt;id&lt;/c&gt; request body parameter is required.</param>
         /// <param name="body">The search definition template and its parameters.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> RenderSearchTemplateAsync<TResponse>(
@@ -1240,7 +1248,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_search <para>https://opensearch.org/docs/latest/api-reference/search/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (`*`). To search all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To search all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="body">The search definition using the Query DSL.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse Search<TResponse>(
@@ -1251,7 +1259,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_search <para>https://opensearch.org/docs/latest/api-reference/search/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (`*`). To search all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To search all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="body">The search definition using the Query DSL.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> SearchAsync<TResponse>(
@@ -1263,13 +1271,19 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /_search_shards <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        TResponse SearchShards<TResponse>(SearchShardsRequestParameters requestParameters = null)
+        TResponse SearchShards<TResponse>(
+            PostData body,
+            SearchShardsRequestParameters requestParameters = null
+        )
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /_search_shards <para>https://opensearch.org/docs/latest</para></summary>
+        /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> SearchShardsAsync<TResponse>(
+            PostData body,
             SearchShardsRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
@@ -1277,18 +1291,22 @@ namespace OpenSearch.Net
 
         /// <summary>POST on /{index}/_search_shards <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="index">Returns the indexes and shards that a search request would be executed against.</param>
+        /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse SearchShards<TResponse>(
             string index,
+            PostData body,
             SearchShardsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_search_shards <para>https://opensearch.org/docs/latest</para></summary>
         /// <param name="index">Returns the indexes and shards that a search request would be executed against.</param>
+        /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> SearchShardsAsync<TResponse>(
             string index,
+            PostData body,
             SearchShardsRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
@@ -1337,7 +1355,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_termvectors <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">Name of the index that contains the document.</param>
+        /// <param name="index">The name of the index that contains the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse TermVectors<TResponse>(
@@ -1348,7 +1366,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_termvectors <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">Name of the index that contains the document.</param>
+        /// <param name="index">The name of the index that contains the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> TermVectorsAsync<TResponse>(
@@ -1360,8 +1378,8 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_termvectors/{id} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">Name of the index that contains the document.</param>
-        /// <param name="id">Unique identifier of the document.</param>
+        /// <param name="index">The name of the index that contains the document.</param>
+        /// <param name="id">The unique identifier of the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse TermVectors<TResponse>(
@@ -1373,8 +1391,8 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_termvectors/{id} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">Name of the index that contains the document.</param>
-        /// <param name="id">Unique identifier of the document.</param>
+        /// <param name="index">The name of the index that contains the document.</param>
+        /// <param name="id">The unique identifier of the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> TermVectorsAsync<TResponse>(
@@ -1389,7 +1407,7 @@ namespace OpenSearch.Net
         /// <summary>POST on /{index}/_update/{id} <para>https://opensearch.org/docs/latest/api-reference/document-apis/update-document/</para></summary>
         /// <param name="index">The name of the index.</param>
         /// <param name="id">Document ID.</param>
-        /// <param name="body">The request definition requires either `script` or partial `doc`.</param>
+        /// <param name="body">The request definition requires either &lt;c&gt;script&lt;/c&gt; or partial &lt;c&gt;doc&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse Update<TResponse>(
             string index,
@@ -1402,7 +1420,7 @@ namespace OpenSearch.Net
         /// <summary>POST on /{index}/_update/{id} <para>https://opensearch.org/docs/latest/api-reference/document-apis/update-document/</para></summary>
         /// <param name="index">The name of the index.</param>
         /// <param name="id">Document ID.</param>
-        /// <param name="body">The request definition requires either `script` or partial `doc`.</param>
+        /// <param name="body">The request definition requires either &lt;c&gt;script&lt;/c&gt; or partial &lt;c&gt;doc&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> UpdateAsync<TResponse>(
             string index,
@@ -1414,7 +1432,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_update_by_query <para>https://opensearch.org/docs/latest/api-reference/document-apis/update-by-query/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (`*`). To search all data streams or indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To search all data streams or indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="body">The search definition using the Query DSL.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse UpdateByQuery<TResponse>(
@@ -1425,7 +1443,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_update_by_query <para>https://opensearch.org/docs/latest/api-reference/document-apis/update-by-query/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (`*`). To search all data streams or indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To search all data streams or indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="body">The search definition using the Query DSL.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> UpdateByQueryAsync<TResponse>(

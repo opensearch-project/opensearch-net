@@ -130,7 +130,7 @@ namespace ApiGenerator.Domain.Code
             if (Namespace == "Nodes" && !pc("{node_id}"))
                 return (method + "ForAll").Replace("AsyncForAll", "ForAllAsync");
 
-            if (Namespace is "Knn" or "Ltr" && method.StartsWith("Stats") && !pc("{node_id}"))
+            if (Namespace is "Knn" or "Ltr" or "Neural" && method.StartsWith("Stats") && !pc("{node_id}"))
                 return method.Replace("Stats", "StatsForAll");
 
             if (Namespace == "Ml" && method == "GetStats" && !pc("{node_id}"))

@@ -80,7 +80,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Names ICatAliasesRequest.Name => Self.RouteValues.Get<Names>("name");
 
-        /// <summary>A comma-separated list of aliases to retrieve. Supports wildcards (`*`). To retrieve all aliases, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>A comma-separated list of aliases to retrieve. Supports wildcards (<c>*</c>). To retrieve all aliases, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public CatAliasesDescriptor Name(Names name) =>
             Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
@@ -89,7 +89,7 @@ namespace OpenSearch.Client
         public CatAliasesDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatAliasesDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
@@ -125,7 +125,7 @@ namespace OpenSearch.Client
         /// <summary>The units used to display byte values.</summary>
         public CatAllPitSegmentsDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatAllPitSegmentsDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
@@ -178,7 +178,7 @@ namespace OpenSearch.Client
         public CatAllocationDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the HTTP `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the HTTP <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatAllocationDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
@@ -223,7 +223,7 @@ namespace OpenSearch.Client
         public CatClusterManagerDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the HTTP `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the HTTP <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatClusterManagerDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
@@ -269,7 +269,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICatCountRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public CatCountDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -282,7 +282,7 @@ namespace OpenSearch.Client
         public CatCountDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatCountDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
@@ -334,7 +334,7 @@ namespace OpenSearch.Client
         /// <summary>The units used to display byte values.</summary>
         public CatFielddataDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatFielddataDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
@@ -360,7 +360,7 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatHealthDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
@@ -369,7 +369,7 @@ namespace OpenSearch.Client
         /// <summary>Returns help information.</summary>
         public CatHealthDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>When `true`, returns `HH:MM:SS` and Unix epoch timestamps.</summary>
+        /// <summary>When <c>true</c>, returns <c>HH:MM:SS</c> and Unix epoch timestamps.</summary>
         public CatHealthDescriptor IncludeTimestamp(bool? includetimestamp = true) =>
             Qs("ts", includetimestamp);
 
@@ -414,7 +414,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICatIndicesRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public CatIndicesDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -439,13 +439,13 @@ namespace OpenSearch.Client
         public CatIndicesDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatIndicesDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatIndicesDescriptor Headers(params string[] headers) => Qs("h", headers);
 
-        /// <summary>Limits indexes based on their health status. Supported values are `green`, `yellow`, and `red`.</summary>
+        /// <summary>Limits indexes based on their health status. Supported values are <c>green</c>, <c>yellow</c>, and <c>red</c>.</summary>
         public CatIndicesDescriptor Health(HealthStatus? health) => Qs("health", health);
 
         /// <summary>Returns help information.</summary>
@@ -465,7 +465,7 @@ namespace OpenSearch.Client
         public CatIndicesDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>When `true`, returns information only from the primary shards.</summary>
+        /// <summary>When <c>true</c>, returns information only from the primary shards.</summary>
         public CatIndicesDescriptor Pri(bool? pri = true) => Qs("pri", pri);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
@@ -490,7 +490,7 @@ namespace OpenSearch.Client
         public CatMasterDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatMasterDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
@@ -535,7 +535,7 @@ namespace OpenSearch.Client
         public CatNodeAttributesDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatNodeAttributesDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
@@ -579,10 +579,10 @@ namespace OpenSearch.Client
         public CatNodesDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatNodesDescriptor Format(string format) => Qs("format", format);
 
-        /// <summary>When `true`, returns the full node ID. When `false`, returns the shortened node ID.</summary>
+        /// <summary>When <c>true</c>, returns the full node ID. When <c>false</c>, returns the shortened node ID.</summary>
         public CatNodesDescriptor FullId(bool? fullid = true) => Qs("full_id", fullid);
 
         /// <summary>A comma-separated list of column names to display.</summary>
@@ -630,7 +630,7 @@ namespace OpenSearch.Client
         public CatPendingTasksDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatPendingTasksDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
@@ -673,7 +673,7 @@ namespace OpenSearch.Client
         /// <summary>The units used to display byte values.</summary>
         public CatPitSegmentsDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatPitSegmentsDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
@@ -708,7 +708,7 @@ namespace OpenSearch.Client
         public CatPluginsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatPluginsDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
@@ -758,7 +758,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICatRecoveryRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public CatRecoveryDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -771,17 +771,17 @@ namespace OpenSearch.Client
         public CatRecoveryDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `true`, the response only includes ongoing shard recoveries.</summary>
+        /// <summary>If <c>true</c>, the response only includes ongoing shard recoveries.</summary>
         public CatRecoveryDescriptor ActiveOnly(bool? activeonly = true) =>
             Qs("active_only", activeonly);
 
         /// <summary>The units used to display byte values.</summary>
         public CatRecoveryDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
-        /// <summary>When `true`, includes detailed information about shard recoveries.</summary>
+        /// <summary>When <c>true</c>, includes detailed information about shard recoveries.</summary>
         public CatRecoveryDescriptor Detailed(bool? detailed = true) => Qs("detailed", detailed);
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatRecoveryDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
@@ -816,7 +816,7 @@ namespace OpenSearch.Client
         public CatRepositoriesDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatRepositoriesDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
@@ -866,7 +866,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICatSegmentReplicationRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public CatSegmentReplicationDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -879,22 +879,22 @@ namespace OpenSearch.Client
         public CatSegmentReplicationDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>When `true`, the response only includes ongoing segment replication events.</summary>
+        /// <summary>When <c>true</c>, the response only includes ongoing segment replication events.</summary>
         public CatSegmentReplicationDescriptor ActiveOnly(bool? activeonly = true) =>
             Qs("active_only", activeonly);
 
-        /// <summary>Whether to ignore the index if a wildcard index expression resolves to no concrete indexes. This includes the `_all` string or when no indexes have been specified.</summary>
+        /// <summary>Whether to ignore the index if a wildcard index expression resolves to no concrete indexes. This includes the <c>_all</c> string or when no indexes have been specified.</summary>
         public CatSegmentReplicationDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
         /// <summary>The units used to display byte values.</summary>
         public CatSegmentReplicationDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
-        /// <summary>When `true`, the response only includes the last-completed segment replication events.</summary>
+        /// <summary>When <c>true</c>, the response only includes the last-completed segment replication events.</summary>
         public CatSegmentReplicationDescriptor CompletedOnly(bool? completedonly = true) =>
             Qs("completed_only", completedonly);
 
-        /// <summary>When `true`, the response includes additional metrics for each stage of a segment replication event.</summary>
+        /// <summary>When <c>true</c>, the response includes additional metrics for each stage of a segment replication event.</summary>
         public CatSegmentReplicationDescriptor Detailed(bool? detailed = true) =>
             Qs("detailed", detailed);
 
@@ -902,7 +902,7 @@ namespace OpenSearch.Client
         public CatSegmentReplicationDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatSegmentReplicationDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
@@ -957,7 +957,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICatSegmentsRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public CatSegmentsDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -978,7 +978,7 @@ namespace OpenSearch.Client
         public CatSegmentsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatSegmentsDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
@@ -1021,7 +1021,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICatShardsRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public CatShardsDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1042,7 +1042,7 @@ namespace OpenSearch.Client
         public CatShardsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatShardsDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
@@ -1092,7 +1092,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Names ICatSnapshotsRequest.RepositoryName => Self.RouteValues.Get<Names>("repository");
 
-        /// <summary>A comma-separated list of snapshot repositories used to limit the request. Accepts wildcard expressions. `_all` returns all repositories. If any repository fails during the request, OpenSearch returns an error.</summary>
+        /// <summary>A comma-separated list of snapshot repositories used to limit the request. Accepts wildcard expressions. <c>_all</c> returns all repositories. If any repository fails during the request, OpenSearch returns an error.</summary>
         public CatSnapshotsDescriptor RepositoryName(Names repository) =>
             Assign(repository, (a, v) => a.RouteValues.Optional("repository", v));
 
@@ -1102,7 +1102,7 @@ namespace OpenSearch.Client
         public CatSnapshotsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatSnapshotsDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
@@ -1111,7 +1111,7 @@ namespace OpenSearch.Client
         /// <summary>Returns help information.</summary>
         public CatSnapshotsDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>When `true`, the response does not include information from unavailable snapshots.</summary>
+        /// <summary>When <c>true</c>, the response does not include information from unavailable snapshots.</summary>
         public CatSnapshotsDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
@@ -1142,10 +1142,10 @@ namespace OpenSearch.Client
         /// <summary>The task action names used to limit the response.</summary>
         public CatTasksDescriptor Actions(params string[] actions) => Qs("actions", actions);
 
-        /// <summary>If `true`, the response includes detailed information about shard recoveries.</summary>
+        /// <summary>If <c>true</c>, the response includes detailed information about shard recoveries.</summary>
         public CatTasksDescriptor Detailed(bool? detailed = true) => Qs("detailed", detailed);
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatTasksDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
@@ -1154,7 +1154,7 @@ namespace OpenSearch.Client
         /// <summary>Returns help information.</summary>
         public CatTasksDescriptor Help(bool? help = true) => Qs("help", help);
 
-        /// <summary>A comma-separated list of node IDs or names used to limit the returned information. Use `_local` to return information from the node to which you're connecting, specify a specific node from which to get information, or keep the parameter empty to get information from all nodes.</summary>
+        /// <summary>A comma-separated list of node IDs or names used to limit the returned information. Use <c>_local</c> to return information from the node to which you're connecting, specify a specific node from which to get information, or keep the parameter empty to get information from all nodes.</summary>
         public CatTasksDescriptor Nodes(params string[] nodes) => Qs("nodes", nodes);
 
         /// <summary>The parent task identifier, which is used to limit the response.</summary>
@@ -1202,7 +1202,7 @@ namespace OpenSearch.Client
         public CatTemplatesDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatTemplatesDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
@@ -1263,7 +1263,7 @@ namespace OpenSearch.Client
         public CatThreadPoolDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public CatThreadPoolDescriptor Format(string format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>

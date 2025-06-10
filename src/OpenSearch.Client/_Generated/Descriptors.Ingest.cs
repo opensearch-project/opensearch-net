@@ -121,7 +121,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Id IGetPipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 
-        /// <summary>A comma-separated list of pipeline IDs to retrieve. Wildcard (`*`) expressions are supported. To get all ingest pipelines, omit this parameter or use `*`.</summary>
+        /// <summary>A comma-separated list of pipeline IDs to retrieve. Wildcard (<c>*</c>) expressions are supported. To get all ingest pipelines, omit this parameter or use <c>*</c>.</summary>
         public GetPipelineDescriptor Id(Id id) =>
             Assign(id, (a, v) => a.RouteValues.Optional("id", v));
 
@@ -221,12 +221,12 @@ namespace OpenSearch.Client
         // values part of the url path
         Id ISimulatePipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 
-        /// <summary>The pipeline to test. If you don't specify a `pipeline` in the request body, this parameter is required.</summary>
+        /// <summary>The pipeline to test. If you don't specify a <c>pipeline</c> in the request body, this parameter is required.</summary>
         public SimulatePipelineDescriptor Id(Id id) =>
             Assign(id, (a, v) => a.RouteValues.Optional("id", v));
 
         // Request parameters
-        /// <summary>When `true`, the response includes output data for each processor in the pipeline.</summary>
+        /// <summary>When <c>true</c>, the response includes output data for each processor in the pipeline.</summary>
         public SimulatePipelineDescriptor Verbose(bool? verbose = true) => Qs("verbose", verbose);
     }
 }

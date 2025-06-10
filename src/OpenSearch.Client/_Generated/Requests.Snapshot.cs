@@ -90,8 +90,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common
-        /// parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).
+        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
+        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -167,8 +167,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common
-        /// parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).
+        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
+        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -226,8 +226,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common
-        /// parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).
+        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
+        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -250,8 +250,8 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// When `true`, the request returns a response when the snapshot is complete. When `false`, the request returns a response when the snapshot
-        /// initializes.
+        /// When <c>true</c>, the request returns a response when the snapshot is complete. When <c>false</c>, the request returns a response when the
+        /// snapshot initializes.
         /// </summary>
         public bool? WaitForCompletion
         {
@@ -291,8 +291,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common
-        /// parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).
+        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
+        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -318,7 +318,7 @@ namespace OpenSearch.Client
             set => Q("timeout", value);
         }
 
-        /// <summary>When `true`, verifies the creation of the snapshot repository.</summary>
+        /// <summary>When <c>true</c>, verifies the creation of the snapshot repository.</summary>
         public bool? Verify
         {
             get => Q<bool?>("verify");
@@ -364,8 +364,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common
-        /// parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).
+        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
+        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -416,8 +416,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common
-        /// parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).
+        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
+        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -482,8 +482,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common
-        /// parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).
+        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
+        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -492,7 +492,7 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>When `false`, the request returns an error for any snapshots that are unavailable.</summary>
+        /// <summary>When <c>false</c>, the request returns an error for any snapshots that are unavailable.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
@@ -513,8 +513,8 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// When `true`, returns additional information about each snapshot such as the version of OpenSearch which took the snapshot, the start and
-        /// end times of the snapshot, and the number of shards contained in the snapshot.
+        /// When <c>true</c>, returns additional information about each snapshot such as the version of OpenSearch which took the snapshot, the start
+        /// and end times of the snapshot, and the number of shards contained in the snapshot.
         /// </summary>
         public bool? Verbose
         {
@@ -553,8 +553,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common
-        /// parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).
+        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
+        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -619,8 +619,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common
-        /// parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).
+        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
+        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -640,8 +640,8 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// -| Whether to return a response after the restore operation has completed. When `false`, the request returns a response when the restore
-        /// operation initializes. When `true`, the request returns a response when the restore operation completes.
+        /// -| Whether to return a response after the restore operation has completed. When <c>false</c>, the request returns a response when the
+        /// restore operation initializes. When <c>true</c>, the request returns a response when the restore operation completes.
         /// </summary>
         public bool? WaitForCompletion
         {
@@ -692,8 +692,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common
-        /// parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).
+        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
+        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -702,7 +702,7 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>Whether to ignore any unavailable snapshots, When `false`, a `SnapshotMissingException` is thrown.</summary>
+        /// <summary>Whether to ignore any unavailable snapshots, When <c>false</c>, a <c>SnapshotMissingException</c> is thrown.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
@@ -751,8 +751,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common
-        /// parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).
+        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
+        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout

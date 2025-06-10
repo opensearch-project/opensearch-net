@@ -96,7 +96,7 @@ namespace OpenSearch.Client
         public AddIndexBlockDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes `_all` string or when no indexes have been specified).</summary>
+        /// <summary>Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes <c>_all</c> string or when no indexes have been specified).</summary>
         public AddIndexBlockDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -143,7 +143,7 @@ namespace OpenSearch.Client
         // values part of the url path
         IndexName IAnalyzeRequest.Index => Self.RouteValues.Get<IndexName>("index");
 
-        /// <summary>Index used to derive the analyzer. If specified, the `analyzer` or field parameter overrides this value. If no index is specified or the index does not have a default analyzer, the analyze API uses the standard analyzer.</summary>
+        /// <summary>Index used to derive the analyzer. If specified, the <c>analyzer</c> or field parameter overrides this value. If no index is specified or the index does not have a default analyzer, the analyze API uses the standard analyzer.</summary>
         public AnalyzeDescriptor Index(IndexName index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -177,7 +177,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IClearCacheRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public ClearCacheDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -190,36 +190,36 @@ namespace OpenSearch.Client
         public ClearCacheDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public ClearCacheDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
-        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`, `hidden`, `none`.</summary>
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>, <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.</summary>
         public ClearCacheDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>If `true`, clears the fields cache. Use the `fields` parameter to clear the cache of specific fields only.</summary>
+        /// <summary>If <c>true</c>, clears the fields cache. Use the <c>fields</c> parameter to clear the cache of specific fields only.</summary>
         public ClearCacheDescriptor Fielddata(bool? fielddata = true) => Qs("fielddata", fielddata);
 
-        /// <summary>Comma-separated list of field names used to limit the `fielddata` parameter.</summary>
+        /// <summary>Comma-separated list of field names used to limit the <c>fielddata</c> parameter.</summary>
         public ClearCacheDescriptor Fields(Fields fields) => Qs("fields", fields);
 
-        /// <summary>Comma-separated list of field names used to limit the `fielddata` parameter.</summary>
+        /// <summary>Comma-separated list of field names used to limit the &lt;c&gt;fielddata&lt;/c&gt; parameter.</summary>
         public ClearCacheDescriptor Fields<T>(params Expression<Func<T, object>>[] fields)
             where T : class => Qs("fields", fields?.Select(e => (Field)e));
 
-        /// <summary>If `true`, clears the unused entries from the file cache on nodes with the Search role.</summary>
+        /// <summary>If <c>true</c>, clears the unused entries from the file cache on nodes with the Search role.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.8.0 or greater.</remarks>
         public ClearCacheDescriptor File(bool? file = true) => Qs("file", file);
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public ClearCacheDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>If `true`, clears the query cache.</summary>
+        /// <summary>If <c>true</c>, clears the query cache.</summary>
         public ClearCacheDescriptor Query(bool? query = true) => Qs("query", query);
 
-        /// <summary>If `true`, clears the request cache.</summary>
+        /// <summary>If <c>true</c>, clears the request cache.</summary>
         public ClearCacheDescriptor Request(bool? request = true) => Qs("request", request);
     }
 
@@ -271,14 +271,14 @@ namespace OpenSearch.Client
         public CloneIndexDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Explicit task execution timeout, only useful when `wait_for_completion` is false, defaults to `1h`.</summary>
+        /// <summary>Explicit task execution timeout, only useful when <c>wait_for_completion</c> is false, defaults to <c>1h</c>.</summary>
         public CloneIndexDescriptor TaskExecutionTimeout(Time taskexecutiontimeout) =>
             Qs("task_execution_timeout", taskexecutiontimeout);
 
         /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public CloneIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 
-        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total number of shards in the index (`number_of_replicas+1`).</summary>
+        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to <c>all</c> or any positive integer up to the total number of shards in the index (<c>number_of_replicas+1</c>).</summary>
         public CloneIndexDescriptor WaitForActiveShards(string waitforactiveshards) =>
             Qs("wait_for_active_shards", waitforactiveshards);
 
@@ -325,7 +325,7 @@ namespace OpenSearch.Client
         public CloseIndexDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public CloseIndexDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -334,11 +334,11 @@ namespace OpenSearch.Client
         public CloseIndexDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`, `hidden`, `none`.</summary>
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>, <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.</summary>
         public CloseIndexDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public CloseIndexDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
@@ -352,7 +352,7 @@ namespace OpenSearch.Client
         /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public CloseIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 
-        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total number of shards in the index (`number_of_replicas+1`).</summary>
+        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to <c>all</c> or any positive integer up to the total number of shards in the index (<c>number_of_replicas+1</c>).</summary>
         public CloseIndexDescriptor WaitForActiveShards(string waitforactiveshards) =>
             Qs("wait_for_active_shards", waitforactiveshards);
     }
@@ -406,7 +406,7 @@ namespace OpenSearch.Client
         /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public CreateIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 
-        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total number of shards in the index (`number_of_replicas+1`).</summary>
+        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to <c>all</c> or any positive integer up to the total number of shards in the index (<c>number_of_replicas+1</c>).</summary>
         public CreateIndexDescriptor WaitForActiveShards(string waitforactiveshards) =>
             Qs("wait_for_active_shards", waitforactiveshards);
     }
@@ -435,7 +435,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IDeleteIndexRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of indexes to delete. You cannot specify index aliases. By default, this parameter does not support wildcards (`*`) or `_all`. To use wildcards or `_all`, set the `action.destructive_requires_name` cluster setting to `false`.</summary>
+        /// <summary>Comma-separated list of indexes to delete. You cannot specify index aliases. By default, this parameter does not support wildcards (<c>*</c>) or <c>_all</c>. To use wildcards or <c>_all</c>, set the <c>action.destructive_requires_name</c> cluster setting to <c>false</c>.</summary>
         public DeleteIndexDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -448,7 +448,7 @@ namespace OpenSearch.Client
         public DeleteIndexDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public DeleteIndexDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -457,11 +457,11 @@ namespace OpenSearch.Client
         public DeleteIndexDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`, `hidden`, `none`.</summary>
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>, <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.</summary>
         public DeleteIndexDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public DeleteIndexDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
@@ -502,7 +502,7 @@ namespace OpenSearch.Client
         Indices IDeleteAliasRequest.Index => Self.RouteValues.Get<Indices>("index");
         Names IDeleteAliasRequest.Name => Self.RouteValues.Get<Names>("name");
 
-        /// <summary>Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (`*`).</summary>
+        /// <summary>Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (<c>*</c>).</summary>
         public DeleteAliasDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -639,7 +639,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IIndexExistsRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases. Supports wildcards (`*`).</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases. Supports wildcards (<c>*</c>).</summary>
         public IndexExistsDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -652,7 +652,7 @@ namespace OpenSearch.Client
         public IndexExistsDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public IndexExistsDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -661,23 +661,23 @@ namespace OpenSearch.Client
         public IndexExistsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`, `hidden`, `none`.</summary>
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>, <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.</summary>
         public IndexExistsDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>If `true`, returns settings in flat format.</summary>
+        /// <summary>If <c>true</c>, returns settings in flat format.</summary>
         public IndexExistsDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public IndexExistsDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>If `true`, return all default settings in the response.</summary>
+        /// <summary>If <c>true</c>, return all default settings in the response.</summary>
         public IndexExistsDescriptor IncludeDefaults(bool? includedefaults = true) =>
             Qs("include_defaults", includedefaults);
 
-        /// <summary>If `true`, the request retrieves information from the local node only.</summary>
+        /// <summary>If <c>true</c>, the request retrieves information from the local node only.</summary>
         public IndexExistsDescriptor Local(bool? local = true) => Qs("local", local);
     }
 
@@ -712,7 +712,7 @@ namespace OpenSearch.Client
         Indices IAliasExistsRequest.Index => Self.RouteValues.Get<Indices>("index");
         Names IAliasExistsRequest.Name => Self.RouteValues.Get<Names>("name");
 
-        /// <summary>Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public AliasExistsDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -725,19 +725,19 @@ namespace OpenSearch.Client
         public AliasExistsDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public AliasExistsDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
-        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`, `hidden`, `none`.</summary>
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>, <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.</summary>
         public AliasExistsDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>If `false`, requests that include a missing data stream or index in the target indexes or data streams return an error.</summary>
+        /// <summary>If <c>false</c>, requests that include a missing data stream or index in the target indexes or data streams return an error.</summary>
         public AliasExistsDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>If `true`, the request retrieves information from the local node only.</summary>
+        /// <summary>If <c>true</c>, the request retrieves information from the local node only.</summary>
         public AliasExistsDescriptor Local(bool? local = true) => Qs("local", local);
     }
 
@@ -852,7 +852,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IFlushRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases to flush. Supports wildcards (`*`). To flush all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases to flush. Supports wildcards (<c>*</c>). To flush all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public FlushDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -865,22 +865,22 @@ namespace OpenSearch.Client
         public FlushDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public FlushDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
-        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`, `hidden`, `none`.</summary>
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>, <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.</summary>
         public FlushDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>If `true`, the request forces a flush even if there are no changes to commit to the index.</summary>
+        /// <summary>If <c>true</c>, the request forces a flush even if there are no changes to commit to the index.</summary>
         public FlushDescriptor Force(bool? force = true) => Qs("force", force);
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public FlushDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>If `true`, the flush operation blocks until execution when another flush operation is running. If `false`, OpenSearch returns an error if you request a flush when another flush operation is running.</summary>
+        /// <summary>If <c>true</c>, the flush operation blocks until execution when another flush operation is running. If <c>false</c>, OpenSearch returns an error if you request a flush when another flush operation is running.</summary>
         public FlushDescriptor WaitIfOngoing(bool? waitifongoing = true) =>
             Qs("wait_if_ongoing", waitifongoing);
     }
@@ -908,7 +908,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IForceMergeRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indexes.</summary>
+        /// <summary>A comma-separated list of index names; use <c>_all</c> or empty string to perform the operation on all indexes.</summary>
         public ForceMergeDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -921,7 +921,7 @@ namespace OpenSearch.Client
         public ForceMergeDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes `_all` string or when no indexes have been specified).</summary>
+        /// <summary>Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes <c>_all</c> string or when no indexes have been specified).</summary>
         public ForceMergeDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -988,7 +988,7 @@ namespace OpenSearch.Client
         public GetIndexDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting foo*,bar* returns an error if an index starts with foo but no index starts with bar.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting foo*,bar* returns an error if an index starts with foo but no index starts with bar.</summary>
         public GetIndexDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -997,23 +997,23 @@ namespace OpenSearch.Client
         public GetIndexDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Type of index that wildcard expressions can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.</summary>
+        /// <summary>Type of index that wildcard expressions can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>.</summary>
         public GetIndexDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>If `true`, returns settings in flat format.</summary>
+        /// <summary>If <c>true</c>, returns settings in flat format.</summary>
         public GetIndexDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
-        /// <summary>If `false`, requests that target a missing index return an error.</summary>
+        /// <summary>If <c>false</c>, requests that target a missing index return an error.</summary>
         public GetIndexDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>If `true`, return all default settings in the response.</summary>
+        /// <summary>If <c>true</c>, return all default settings in the response.</summary>
         public GetIndexDescriptor IncludeDefaults(bool? includedefaults = true) =>
             Qs("include_defaults", includedefaults);
 
-        /// <summary>If `true`, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the cluster-manager node.</summary>
+        /// <summary>If <c>true</c>, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the cluster-manager node.</summary>
         public GetIndexDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
@@ -1055,7 +1055,7 @@ namespace OpenSearch.Client
         Indices IGetAliasRequest.Index => Self.RouteValues.Get<Indices>("index");
         Names IGetAliasRequest.Name => Self.RouteValues.Get<Names>("name");
 
-        /// <summary>Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public GetAliasDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1067,24 +1067,24 @@ namespace OpenSearch.Client
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
         public GetAliasDescriptor AllIndices() => Index(Indices.All);
 
-        /// <summary>Comma-separated list of aliases to retrieve. Supports wildcards (`*`). To retrieve all aliases, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of aliases to retrieve. Supports wildcards (<c>*</c>). To retrieve all aliases, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public GetAliasDescriptor Name(Names name) =>
             Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public GetAliasDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
-        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`, `hidden`, `none`.</summary>
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>, <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.</summary>
         public GetAliasDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public GetAliasDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>If `true`, the request retrieves information from the local node only.</summary>
+        /// <summary>If <c>true</c>, the request retrieves information from the local node only.</summary>
         public GetAliasDescriptor Local(bool? local = true) => Qs("local", local);
     }
 
@@ -1119,7 +1119,7 @@ namespace OpenSearch.Client
         Fields IGetFieldMappingRequest.Fields => Self.RouteValues.Get<Fields>("fields");
         Indices IGetFieldMappingRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public GetFieldMappingDescriptor<TDocument> Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1132,25 +1132,25 @@ namespace OpenSearch.Client
         public GetFieldMappingDescriptor<TDocument> AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public GetFieldMappingDescriptor<TDocument> AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
-        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`, `hidden`, `none`.</summary>
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>, <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.</summary>
         public GetFieldMappingDescriptor<TDocument> ExpandWildcards(
             ExpandWildcards? expandwildcards
         ) => Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public GetFieldMappingDescriptor<TDocument> IgnoreUnavailable(
             bool? ignoreunavailable = true
         ) => Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>If `true`, return all default settings in the response.</summary>
+        /// <summary>If <c>true</c>, return all default settings in the response.</summary>
         public GetFieldMappingDescriptor<TDocument> IncludeDefaults(bool? includedefaults = true) =>
             Qs("include_defaults", includedefaults);
 
-        /// <summary>If `true`, the request retrieves information from the local node only.</summary>
+        /// <summary>If <c>true</c>, the request retrieves information from the local node only.</summary>
         public GetFieldMappingDescriptor<TDocument> Local(bool? local = true) => Qs("local", local);
     }
 
@@ -1188,11 +1188,11 @@ namespace OpenSearch.Client
             Time clustermanagertimeout
         ) => Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>If `true`, returns settings in flat format.</summary>
+        /// <summary>If <c>true</c>, returns settings in flat format.</summary>
         public GetComposableIndexTemplateDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
-        /// <summary>If `true`, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the cluster-manager node.</summary>
+        /// <summary>If <c>true</c>, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the cluster-manager node.</summary>
         public GetComposableIndexTemplateDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
@@ -1226,7 +1226,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IGetMappingRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public GetMappingDescriptor<TDocument> Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1239,7 +1239,7 @@ namespace OpenSearch.Client
         public GetMappingDescriptor<TDocument> AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public GetMappingDescriptor<TDocument> AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -1248,15 +1248,15 @@ namespace OpenSearch.Client
         public GetMappingDescriptor<TDocument> ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`, `hidden`, `none`.</summary>
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>, <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.</summary>
         public GetMappingDescriptor<TDocument> ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public GetMappingDescriptor<TDocument> IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>If `true`, the request retrieves information from the local node only.</summary>
+        /// <summary>If <c>true</c>, the request retrieves information from the local node only.</summary>
         public GetMappingDescriptor<TDocument> Local(bool? local = true) => Qs("local", local);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
@@ -1302,7 +1302,7 @@ namespace OpenSearch.Client
         Indices IGetIndexSettingsRequest.Index => Self.RouteValues.Get<Indices>("index");
         Names IGetIndexSettingsRequest.Name => Self.RouteValues.Get<Names>("name");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public GetIndexSettingsDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1319,7 +1319,7 @@ namespace OpenSearch.Client
             Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an index starts with foo but no index starts with `bar`.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting <c>foo*,bar*</c> returns an error if an index starts with foo but no index starts with <c>bar</c>.</summary>
         public GetIndexSettingsDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -1328,23 +1328,23 @@ namespace OpenSearch.Client
         public GetIndexSettingsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.</summary>
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>.</summary>
         public GetIndexSettingsDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>If `true`, returns settings in flat format.</summary>
+        /// <summary>If <c>true</c>, returns settings in flat format.</summary>
         public GetIndexSettingsDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public GetIndexSettingsDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>If `true`, return all default settings in the response.</summary>
+        /// <summary>If <c>true</c>, return all default settings in the response.</summary>
         public GetIndexSettingsDescriptor IncludeDefaults(bool? includedefaults = true) =>
             Qs("include_defaults", includedefaults);
 
-        /// <summary>If `true`, the request retrieves information from the local node only. If `false`, information is retrieved from the cluster-manager node.</summary>
+        /// <summary>If <c>true</c>, the request retrieves information from the local node only. If <c>false</c>, information is retrieved from the cluster-manager node.</summary>
         public GetIndexSettingsDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
@@ -1378,7 +1378,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Names IGetIndexTemplateRequest.Name => Self.RouteValues.Get<Names>("name");
 
-        /// <summary>Comma-separated list of index template names used to limit the request. Wildcard (`*`) expressions are supported. To return all index templates, omit this parameter or use a value of `_all` or `*`.</summary>
+        /// <summary>Comma-separated list of index template names used to limit the request. Wildcard (<c>*</c>) expressions are supported. To return all index templates, omit this parameter or use a value of <c>_all</c> or <c>*</c>.</summary>
         public GetIndexTemplateDescriptor Name(Names name) =>
             Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
@@ -1388,11 +1388,11 @@ namespace OpenSearch.Client
         public GetIndexTemplateDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>If `true`, returns settings in flat format.</summary>
+        /// <summary>If <c>true</c>, returns settings in flat format.</summary>
         public GetIndexTemplateDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
-        /// <summary>If `true`, the request retrieves information from the local node only.</summary>
+        /// <summary>If <c>true</c>, the request retrieves information from the local node only.</summary>
         public GetIndexTemplateDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
@@ -1423,7 +1423,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IOpenIndexRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). By default, you must explicitly name the indexes you using to limit the request. To limit a request using `_all`, `*`, or other wildcard expressions, change the `action.destructive_requires_name` setting to false. You can update this setting in the `opensearch.yml` file or using the cluster update settings API.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). By default, you must explicitly name the indexes you using to limit the request. To limit a request using <c>_all</c>, <c>*</c>, or other wildcard expressions, change the <c>action.destructive_requires_name</c> setting to false. You can update this setting in the <c>opensearch.yml</c> file or using the cluster update settings API.</summary>
         public OpenIndexDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -1436,7 +1436,7 @@ namespace OpenSearch.Client
         public OpenIndexDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public OpenIndexDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -1445,11 +1445,11 @@ namespace OpenSearch.Client
         public OpenIndexDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`, `hidden`, `none`.</summary>
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>, <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.</summary>
         public OpenIndexDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public OpenIndexDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
@@ -1460,14 +1460,14 @@ namespace OpenSearch.Client
         public OpenIndexDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Explicit task execution timeout, only useful when `wait_for_completion` is false, defaults to `1h`.</summary>
+        /// <summary>Explicit task execution timeout, only useful when <c>wait_for_completion</c> is false, defaults to <c>1h</c>.</summary>
         public OpenIndexDescriptor TaskExecutionTimeout(Time taskexecutiontimeout) =>
             Qs("task_execution_timeout", taskexecutiontimeout);
 
         /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public OpenIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 
-        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total number of shards in the index (`number_of_replicas+1`).</summary>
+        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to <c>all</c> or any positive integer up to the total number of shards in the index (<c>number_of_replicas+1</c>).</summary>
         public OpenIndexDescriptor WaitForActiveShards(string waitforactiveshards) =>
             Qs("wait_for_active_shards", waitforactiveshards);
 
@@ -1508,7 +1508,7 @@ namespace OpenSearch.Client
         Indices IPutAliasRequest.Index => Self.RouteValues.Get<Indices>("index");
         Name IPutAliasRequest.Name => Self.RouteValues.Get<Name>("name");
 
-        /// <summary>Comma-separated list of data streams or indexes to add. Supports wildcards (`*`). Wildcard patterns that match both data streams and indexes return an error.</summary>
+        /// <summary>Comma-separated list of data streams or indexes to add. Supports wildcards (<c>*</c>). Wildcard patterns that match both data streams and indexes return an error.</summary>
         public PutAliasDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1575,7 +1575,7 @@ namespace OpenSearch.Client
             Time clustermanagertimeout
         ) => Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>If `true`, this request cannot replace or update existing index templates.</summary>
+        /// <summary>If <c>true</c>, this request cannot replace or update existing index templates.</summary>
         public PutComposableIndexTemplateDescriptor Create(bool? create = true) =>
             Qs("create", create);
 
@@ -1610,7 +1610,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IPutMappingRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indexes.</summary>
+        /// <summary>A comma-separated list of index names the mapping should be added to (supports wildcards); use <c>_all</c> or omit to add the mapping on all indexes.</summary>
         public PutMappingDescriptor<TDocument> Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -1623,7 +1623,7 @@ namespace OpenSearch.Client
         public PutMappingDescriptor<TDocument> AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public PutMappingDescriptor<TDocument> AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -1632,11 +1632,11 @@ namespace OpenSearch.Client
         public PutMappingDescriptor<TDocument> ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`, `hidden`, `none`.</summary>
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>, <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.</summary>
         public PutMappingDescriptor<TDocument> ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public PutMappingDescriptor<TDocument> IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
 
@@ -1650,7 +1650,7 @@ namespace OpenSearch.Client
         /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public PutMappingDescriptor<TDocument> Timeout(Time timeout) => Qs("timeout", timeout);
 
-        /// <summary>If `true`, the mappings are applied only to the current write index for the target.</summary>
+        /// <summary>If <c>true</c>, the mappings are applied only to the current write index for the target.</summary>
         public PutMappingDescriptor<TDocument> WriteIndexOnly(bool? writeindexonly = true) =>
             Qs("write_index_only", writeindexonly);
     }
@@ -1678,7 +1678,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IUpdateIndexSettingsRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public UpdateIndexSettingsDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1691,7 +1691,7 @@ namespace OpenSearch.Client
         public UpdateIndexSettingsDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an index starts with `foo` but no index starts with `bar`.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting <c>foo*,bar*</c> returns an error if an index starts with <c>foo</c> but no index starts with <c>bar</c>.</summary>
         public UpdateIndexSettingsDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
@@ -1700,11 +1700,11 @@ namespace OpenSearch.Client
         public UpdateIndexSettingsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.</summary>
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>.</summary>
         public UpdateIndexSettingsDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>If `true`, returns settings in flat format.</summary>
+        /// <summary>If <c>true</c>, returns settings in flat format.</summary>
         public UpdateIndexSettingsDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
@@ -1719,7 +1719,7 @@ namespace OpenSearch.Client
         public UpdateIndexSettingsDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>If `true`, existing index settings remain unchanged.</summary>
+        /// <summary>If <c>true</c>, existing index settings remain unchanged.</summary>
         public UpdateIndexSettingsDescriptor PreserveExisting(bool? preserveexisting = true) =>
             Qs("preserve_existing", preserveexisting);
 
@@ -1757,7 +1757,7 @@ namespace OpenSearch.Client
         public PutIndexTemplateDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>If `true`, this request cannot replace or update existing index templates.</summary>
+        /// <summary>If <c>true</c>, this request cannot replace or update existing index templates.</summary>
         public PutIndexTemplateDescriptor Create(bool? create = true) => Qs("create", create);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
@@ -1787,7 +1787,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IRefreshRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public RefreshDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1800,15 +1800,15 @@ namespace OpenSearch.Client
         public RefreshDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public RefreshDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
-        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`, `hidden`, `none`.</summary>
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>, <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.</summary>
         public RefreshDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public RefreshDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
             Qs("ignore_unavailable", ignoreunavailable);
     }
@@ -1838,7 +1838,7 @@ namespace OpenSearch.Client
         Names IResolveIndexRequest.Name => Self.RouteValues.Get<Names>("name");
 
         // Request parameters
-        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`, `hidden`, `none`.</summary>
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>, <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.</summary>
         public ResolveIndexDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
     }
@@ -1884,7 +1884,7 @@ namespace OpenSearch.Client
         public RolloverIndexDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>If `true`, checks whether the current index satisfies the specified conditions but does not perform a rollover.</summary>
+        /// <summary>If <c>true</c>, checks whether the current index satisfies the specified conditions but does not perform a rollover.</summary>
         public RolloverIndexDescriptor DryRun(bool? dryrun = true) => Qs("dry_run", dryrun);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
@@ -1897,7 +1897,7 @@ namespace OpenSearch.Client
         /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public RolloverIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 
-        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to all or any positive integer up to the total number of shards in the index (`number_of_replicas+1`).</summary>
+        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to all or any positive integer up to the total number of shards in the index (<c>number_of_replicas+1</c>).</summary>
         public RolloverIndexDescriptor WaitForActiveShards(string waitforactiveshards) =>
             Qs("wait_for_active_shards", waitforactiveshards);
     }
@@ -1950,14 +1950,14 @@ namespace OpenSearch.Client
         public ShrinkIndexDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Explicit task execution timeout, only useful when `wait_for_completion` is false, defaults to `1h`.</summary>
+        /// <summary>Explicit task execution timeout, only useful when <c>wait_for_completion</c> is false, defaults to <c>1h</c>.</summary>
         public ShrinkIndexDescriptor TaskExecutionTimeout(Time taskexecutiontimeout) =>
             Qs("task_execution_timeout", taskexecutiontimeout);
 
         /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public ShrinkIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 
-        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total number of shards in the index (`number_of_replicas+1`).</summary>
+        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to <c>all</c> or any positive integer up to the total number of shards in the index (<c>number_of_replicas+1</c>).</summary>
         public ShrinkIndexDescriptor WaitForActiveShards(string waitforactiveshards) =>
             Qs("wait_for_active_shards", waitforactiveshards);
 
@@ -2015,14 +2015,14 @@ namespace OpenSearch.Client
         public SplitIndexDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>Explicit task execution timeout, only useful when `wait_for_completion` is false, defaults to `1h`.</summary>
+        /// <summary>Explicit task execution timeout, only useful when <c>wait_for_completion</c> is false, defaults to <c>1h</c>.</summary>
         public SplitIndexDescriptor TaskExecutionTimeout(Time taskexecutiontimeout) =>
             Qs("task_execution_timeout", taskexecutiontimeout);
 
         /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public SplitIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 
-        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total number of shards in the index (`number_of_replicas+1`).</summary>
+        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to <c>all</c> or any positive integer up to the total number of shards in the index (<c>number_of_replicas+1</c>).</summary>
         public SplitIndexDescriptor WaitForActiveShards(string waitforactiveshards) =>
             Qs("wait_for_active_shards", waitforactiveshards);
 
@@ -2067,7 +2067,7 @@ namespace OpenSearch.Client
         Indices IIndicesStatsRequest.Index => Self.RouteValues.Get<Indices>("index");
         Metrics IIndicesStatsRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
 
-        /// <summary>A comma-separated list of index names; use the special string `_all` or Indices.All to perform the operation on all indexes.</summary>
+        /// <summary>A comma-separated list of index names; use <c>_all</c> or empty string to perform the operation on all indexes.</summary>
         public IndicesStatsDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -2094,7 +2094,7 @@ namespace OpenSearch.Client
         )
             where T : class => Qs("completion_fields", fields?.Select(e => (Field)e));
 
-        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.</summary>
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>.</summary>
         public IndicesStatsDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
@@ -2115,19 +2115,19 @@ namespace OpenSearch.Client
         public IndicesStatsDescriptor Fields<T>(params Expression<Func<T, object>>[] fields)
             where T : class => Qs("fields", fields?.Select(e => (Field)e));
 
-        /// <summary>If `true`, statistics are not collected from closed indexes.</summary>
+        /// <summary>If <c>true</c>, statistics are not collected from closed indexes.</summary>
         public IndicesStatsDescriptor ForbidClosedIndices(bool? forbidclosedindices = true) =>
             Qs("forbid_closed_indices", forbidclosedindices);
 
         /// <summary>Comma-separated list of search groups to include in the search statistics.</summary>
         public IndicesStatsDescriptor Groups(params string[] groups) => Qs("groups", groups);
 
-        /// <summary>If `true`, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
+        /// <summary>If <c>true</c>, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
         public IndicesStatsDescriptor IncludeSegmentFileSizes(
             bool? includesegmentfilesizes = true
         ) => Qs("include_segment_file_sizes", includesegmentfilesizes);
 
-        /// <summary>If `true`, the response includes information from segments that are not loaded into memory.</summary>
+        /// <summary>If <c>true</c>, the response includes information from segments that are not loaded into memory.</summary>
         public IndicesStatsDescriptor IncludeUnloadedSegments(
             bool? includeunloadedsegments = true
         ) => Qs("include_unloaded_segments", includeunloadedsegments);
@@ -2184,7 +2184,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IValidateQueryRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (`*`). To search all data streams or indexes, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (<c>*</c>). To search all data streams or indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public ValidateQueryDescriptor<TDocument> Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -2197,45 +2197,45 @@ namespace OpenSearch.Client
         public ValidateQueryDescriptor<TDocument> AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
         public ValidateQueryDescriptor<TDocument> AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
-        /// <summary>If `true`, the validation is executed on all shards instead of one random shard per index.</summary>
+        /// <summary>If <c>true</c>, the validation is executed on all shards instead of one random shard per index.</summary>
         public ValidateQueryDescriptor<TDocument> AllShards(bool? allshards = true) =>
             Qs("all_shards", allshards);
 
-        /// <summary>Analyzer to use for the query string. This parameter can only be used when the `q` query string parameter is specified.</summary>
+        /// <summary>Analyzer to use for the query string. This parameter can only be used when the <c>q</c> query string parameter is specified.</summary>
         public ValidateQueryDescriptor<TDocument> Analyzer(string analyzer) =>
             Qs("analyzer", analyzer);
 
-        /// <summary>If `true`, wildcard and prefix queries are analyzed.</summary>
+        /// <summary>If <c>true</c>, wildcard and prefix queries are analyzed.</summary>
         public ValidateQueryDescriptor<TDocument> AnalyzeWildcard(bool? analyzewildcard = true) =>
             Qs("analyze_wildcard", analyzewildcard);
 
-        /// <summary>The default operator for query string query: `AND` or `OR`.</summary>
+        /// <summary>The default operator for query string query: <c>AND</c> or <c>OR</c>.</summary>
         public ValidateQueryDescriptor<TDocument> DefaultOperator(
             DefaultOperator? defaultoperator
         ) => Qs("default_operator", defaultoperator);
 
-        /// <summary>Field to use as default where no field prefix is given in the query string. This parameter can only be used when the `q` query string parameter is specified.</summary>
+        /// <summary>Field to use as default where no field prefix is given in the query string. This parameter can only be used when the <c>q</c> query string parameter is specified.</summary>
         public ValidateQueryDescriptor<TDocument> Df(string df) => Qs("df", df);
 
-        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`, `hidden`, `none`.</summary>
+        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>, <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.</summary>
         public ValidateQueryDescriptor<TDocument> ExpandWildcards(
             ExpandWildcards? expandwildcards
         ) => Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>If `true`, the response returns detailed information if an error has occurred.</summary>
+        /// <summary>If <c>true</c>, the response returns detailed information if an error has occurred.</summary>
         public ValidateQueryDescriptor<TDocument> Explain(bool? explain = true) =>
             Qs("explain", explain);
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public ValidateQueryDescriptor<TDocument> IgnoreUnavailable(
             bool? ignoreunavailable = true
         ) => Qs("ignore_unavailable", ignoreunavailable);
 
-        /// <summary>If `true`, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
+        /// <summary>If <c>true</c>, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
         public ValidateQueryDescriptor<TDocument> Lenient(bool? lenient = true) =>
             Qs("lenient", lenient);
 
@@ -2243,7 +2243,7 @@ namespace OpenSearch.Client
         public ValidateQueryDescriptor<TDocument> QueryOnQueryString(string queryonquerystring) =>
             Qs("q", queryonquerystring);
 
-        /// <summary>If `true`, returns a more detailed explanation showing the actual Lucene query that will be executed.</summary>
+        /// <summary>If <c>true</c>, returns a more detailed explanation showing the actual Lucene query that will be executed.</summary>
         public ValidateQueryDescriptor<TDocument> Rewrite(bool? rewrite = true) =>
             Qs("rewrite", rewrite);
     }

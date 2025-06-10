@@ -69,8 +69,255 @@ namespace OpenSearch.Net.Specification.LtrApi
         internal LowLevelLtrNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
+        /// <summary>GET on /_ltr/_cachestats</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse CacheStats<TResponse>(CacheStatsRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_ltr/_cachestats", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_ltr/_cachestats</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.cache_stats", "")]
+        public Task<TResponse> CacheStatsAsync<TResponse>(
+            CacheStatsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_ltr/_cachestats",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_ltr/_clearcache</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse ClearCache<TResponse>(ClearCacheRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(POST, "_ltr/_clearcache", null, RequestParams(requestParameters));
+
+        /// <summary>POST on /_ltr/_clearcache</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.clear_cache", "")]
+        public Task<TResponse> ClearCacheAsync<TResponse>(
+            ClearCacheRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_ltr/_clearcache",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_ltr/{store}/_clearcache</summary>
+        /// <param name="store">The name of the feature store for which to clear the cache.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse ClearCache<TResponse>(
+            string store,
+            ClearCacheRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_ltr/{store:store}/_clearcache"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_ltr/{store}/_clearcache</summary>
+        /// <param name="store">The name of the feature store for which to clear the cache.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.clear_cache", "store")]
+        public Task<TResponse> ClearCacheAsync<TResponse>(
+            string store,
+            ClearCacheRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_ltr/{store:store}/_clearcache"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_ltr</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.1 or greater.</remarks>
+        public TResponse CreateDefaultStore<TResponse>(
+            CreateDefaultStoreRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(PUT, "_ltr", null, RequestParams(requestParameters));
+
+        /// <summary>PUT on /_ltr</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.1 or greater.</remarks>
+        [MapsApi("ltr.create_default_store", "")]
+        public Task<TResponse> CreateDefaultStoreAsync<TResponse>(
+            CreateDefaultStoreRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(PUT, "_ltr", ctx, null, RequestParams(requestParameters));
+
+        /// <summary>PUT on /_ltr/{store}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.1 or greater.</remarks>
+        public TResponse CreateStore<TResponse>(
+            string store,
+            CreateStoreRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"_ltr/{store:store}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_ltr/{store}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.1 or greater.</remarks>
+        [MapsApi("ltr.create_store", "store")]
+        public Task<TResponse> CreateStoreAsync<TResponse>(
+            string store,
+            CreateStoreRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"_ltr/{store:store}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_ltr</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.1 or greater.</remarks>
+        public TResponse DeleteDefaultStore<TResponse>(
+            DeleteDefaultStoreRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(DELETE, "_ltr", null, RequestParams(requestParameters));
+
+        /// <summary>DELETE on /_ltr</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.1 or greater.</remarks>
+        [MapsApi("ltr.delete_default_store", "")]
+        public Task<TResponse> DeleteDefaultStoreAsync<TResponse>(
+            DeleteDefaultStoreRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(DELETE, "_ltr", ctx, null, RequestParams(requestParameters));
+
+        /// <summary>DELETE on /_ltr/{store}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.1 or greater.</remarks>
+        public TResponse DeleteStore<TResponse>(
+            string store,
+            DeleteStoreRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                Url($"_ltr/{store:store}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_ltr/{store}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.1 or greater.</remarks>
+        [MapsApi("ltr.delete_store", "store")]
+        public Task<TResponse> DeleteStoreAsync<TResponse>(
+            string store,
+            DeleteStoreRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                Url($"_ltr/{store:store}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_ltr/{store}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.1 or greater.</remarks>
+        public TResponse GetStore<TResponse>(
+            string store,
+            GetStoreRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_ltr/{store:store}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_ltr/{store}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.1 or greater.</remarks>
+        [MapsApi("ltr.get_store", "store")]
+        public Task<TResponse> GetStoreAsync<TResponse>(
+            string store,
+            GetStoreRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_ltr/{store:store}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_ltr</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.1 or greater.</remarks>
+        public TResponse ListStores<TResponse>(ListStoresRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_ltr", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_ltr</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.1 or greater.</remarks>
+        [MapsApi("ltr.list_stores", "")]
+        public Task<TResponse> ListStoresAsync<TResponse>(
+            ListStoresRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(GET, "_ltr", ctx, null, RequestParams(requestParameters));
+
         /// <summary>GET on /_plugins/_ltr/stats</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
         public TResponse StatsForAll<TResponse>(StatsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
@@ -82,6 +329,7 @@ namespace OpenSearch.Net.Specification.LtrApi
 
         /// <summary>GET on /_plugins/_ltr/stats</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
         [MapsApi("ltr.stats", "")]
         public Task<TResponse> StatsForAllAsync<TResponse>(
             StatsRequestParameters requestParameters = null,
@@ -97,8 +345,9 @@ namespace OpenSearch.Net.Specification.LtrApi
             );
 
         /// <summary>GET on /_plugins/_ltr/{node_id}/stats</summary>
-        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
         public TResponse Stats<TResponse>(
             string nodeId,
             StatsRequestParameters requestParameters = null
@@ -112,8 +361,9 @@ namespace OpenSearch.Net.Specification.LtrApi
             );
 
         /// <summary>GET on /_plugins/_ltr/{node_id}/stats</summary>
-        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
         [MapsApi("ltr.stats", "node_id")]
         public Task<TResponse> StatsAsync<TResponse>(
             string nodeId,
@@ -130,9 +380,10 @@ namespace OpenSearch.Net.Specification.LtrApi
             );
 
         /// <summary>GET on /_plugins/_ltr/{node_id}/stats/{stat}</summary>
-        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
-        /// <param name="stat">Comma-separated list of stats to retrieve; use the special string `_all` or Indices.All to retrieve all stats.</param>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="stat">Comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
         public TResponse Stats<TResponse>(
             string nodeId,
             string stat,
@@ -147,9 +398,10 @@ namespace OpenSearch.Net.Specification.LtrApi
             );
 
         /// <summary>GET on /_plugins/_ltr/{node_id}/stats/{stat}</summary>
-        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
-        /// <param name="stat">Comma-separated list of stats to retrieve; use the special string `_all` or Indices.All to retrieve all stats.</param>
+        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="stat">Comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
         [MapsApi("ltr.stats", "node_id, stat")]
         public Task<TResponse> StatsAsync<TResponse>(
             string nodeId,
@@ -167,8 +419,9 @@ namespace OpenSearch.Net.Specification.LtrApi
             );
 
         /// <summary>GET on /_plugins/_ltr/stats/{stat}</summary>
-        /// <param name="stat">Comma-separated list of stats to retrieve; use the special string `_all` or Indices.All to retrieve all stats.</param>
+        /// <param name="stat">Comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
         public TResponse StatsForAll<TResponse>(
             string stat,
             StatsRequestParameters requestParameters = null
@@ -182,8 +435,9 @@ namespace OpenSearch.Net.Specification.LtrApi
             );
 
         /// <summary>GET on /_plugins/_ltr/stats/{stat}</summary>
-        /// <param name="stat">Comma-separated list of stats to retrieve; use the special string `_all` or Indices.All to retrieve all stats.</param>
+        /// <param name="stat">Comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
         [MapsApi("ltr.stats", "stat")]
         public Task<TResponse> StatsForAllAsync<TResponse>(
             string stat,

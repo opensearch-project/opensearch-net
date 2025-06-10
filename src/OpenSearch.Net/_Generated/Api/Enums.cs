@@ -751,9 +751,6 @@ namespace OpenSearch.Net
     {
         [EnumMember(Value = "all")]
         All,
-
-        [EnumMember(Value = "index-setting")]
-        IndexSetting,
     }
 
     [StringEnum]
@@ -1342,7 +1339,6 @@ namespace OpenSearch.Net
             enumValue switch
             {
                 WaitForActiveShardOptions.All => "all",
-                WaitForActiveShardOptions.IndexSetting => "index-setting",
                 _ => throw new ArgumentException(
                     $"'{enumValue.ToString()}' is not a valid value for enum 'WaitForActiveShardOptions'"
                 ),

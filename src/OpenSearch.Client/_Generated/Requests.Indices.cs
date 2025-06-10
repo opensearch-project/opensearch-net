@@ -96,8 +96,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes `_all` string or when no indexes have
-        /// been specified).
+        /// Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes <c>_all</c> string or when no indexes
+        /// have been specified).
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -206,8 +206,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -217,8 +217,8 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
-        /// `hidden`, `none`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>,
+        /// <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -226,21 +226,21 @@ namespace OpenSearch.Client
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `true`, clears the fields cache. Use the `fields` parameter to clear the cache of specific fields only.</summary>
+        /// <summary>If <c>true</c>, clears the fields cache. Use the <c>fields</c> parameter to clear the cache of specific fields only.</summary>
         public bool? Fielddata
         {
             get => Q<bool?>("fielddata");
             set => Q("fielddata", value);
         }
 
-        /// <summary>Comma-separated list of field names used to limit the `fielddata` parameter.</summary>
+        /// <summary>Comma-separated list of field names used to limit the <c>fielddata</c> parameter.</summary>
         public Fields Fields
         {
             get => Q<Fields>("fields");
             set => Q("fields", value);
         }
 
-        /// <summary>If `true`, clears the unused entries from the file cache on nodes with the Search role.</summary>
+        /// <summary>If <c>true</c>, clears the unused entries from the file cache on nodes with the Search role.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.8.0 or greater.</remarks>
         public bool? File
         {
@@ -248,21 +248,21 @@ namespace OpenSearch.Client
             set => Q("file", value);
         }
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>If `true`, clears the query cache.</summary>
+        /// <summary>If <c>true</c>, clears the query cache.</summary>
         public bool? Query
         {
             get => Q<bool?>("query");
             set => Q("query", value);
         }
 
-        /// <summary>If `true`, clears the request cache.</summary>
+        /// <summary>If <c>true</c>, clears the request cache.</summary>
         public bool? Request
         {
             get => Q<bool?>("request");
@@ -328,7 +328,7 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Explicit task execution timeout, only useful when `wait_for_completion` is false, defaults to `1h`.</summary>
+        /// <summary>Explicit task execution timeout, only useful when <c>wait_for_completion</c> is false, defaults to <c>1h</c>.</summary>
         public Time TaskExecutionTimeout
         {
             get => Q<Time>("task_execution_timeout");
@@ -343,8 +343,8 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
-        /// number of shards in the index (`number_of_replicas+1`).
+        /// The number of shard copies that must be active before proceeding with the operation. Set to <c>all</c> or any positive integer up to the
+        /// total number of shards in the index (<c>number_of_replicas+1</c>).
         /// </summary>
         public string WaitForActiveShards
         {
@@ -392,8 +392,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -411,8 +411,8 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
-        /// `hidden`, `none`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>,
+        /// <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -420,7 +420,7 @@ namespace OpenSearch.Client
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
@@ -448,8 +448,8 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
-        /// number of shards in the index (`number_of_replicas+1`).
+        /// The number of shard copies that must be active before proceeding with the operation. Set to <c>all</c> or any positive integer up to the
+        /// total number of shards in the index (<c>number_of_replicas+1</c>).
         /// </summary>
         public string WaitForActiveShards
         {
@@ -517,8 +517,8 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
-        /// number of shards in the index (`number_of_replicas+1`).
+        /// The number of shard copies that must be active before proceeding with the operation. Set to <c>all</c> or any positive integer up to the
+        /// total number of shards in the index (<c>number_of_replicas+1</c>).
         /// </summary>
         public string WaitForActiveShards
         {
@@ -558,8 +558,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -577,8 +577,8 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
-        /// `hidden`, `none`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>,
+        /// <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -586,7 +586,7 @@ namespace OpenSearch.Client
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
@@ -831,8 +831,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -850,8 +850,8 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
-        /// `hidden`, `none`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>,
+        /// <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -859,28 +859,28 @@ namespace OpenSearch.Client
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `true`, returns settings in flat format.</summary>
+        /// <summary>If <c>true</c>, returns settings in flat format.</summary>
         public bool? FlatSettings
         {
             get => Q<bool?>("flat_settings");
             set => Q("flat_settings", value);
         }
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>If `true`, return all default settings in the response.</summary>
+        /// <summary>If <c>true</c>, return all default settings in the response.</summary>
         public bool? IncludeDefaults
         {
             get => Q<bool?>("include_defaults");
             set => Q("include_defaults", value);
         }
 
-        /// <summary>If `true`, the request retrieves information from the local node only.</summary>
+        /// <summary>If <c>true</c>, the request retrieves information from the local node only.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
@@ -931,8 +931,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -942,8 +942,8 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
-        /// `hidden`, `none`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>,
+        /// <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -951,14 +951,14 @@ namespace OpenSearch.Client
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `false`, requests that include a missing data stream or index in the target indexes or data streams return an error.</summary>
+        /// <summary>If <c>false</c>, requests that include a missing data stream or index in the target indexes or data streams return an error.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>If `true`, the request retrieves information from the local node only.</summary>
+        /// <summary>If <c>true</c>, the request retrieves information from the local node only.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
@@ -1125,8 +1125,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -1136,8 +1136,8 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
-        /// `hidden`, `none`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>,
+        /// <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -1145,14 +1145,14 @@ namespace OpenSearch.Client
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `true`, the request forces a flush even if there are no changes to commit to the index.</summary>
+        /// <summary>If <c>true</c>, the request forces a flush even if there are no changes to commit to the index.</summary>
         public bool? Force
         {
             get => Q<bool?>("force");
             set => Q("force", value);
         }
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
@@ -1160,8 +1160,8 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// If `true`, the flush operation blocks until execution when another flush operation is running. If `false`, OpenSearch returns an error if
-        /// you request a flush when another flush operation is running.
+        /// If <c>true</c>, the flush operation blocks until execution when another flush operation is running. If <c>false</c>, OpenSearch returns an
+        /// error if you request a flush when another flush operation is running.
         /// </summary>
         public bool? WaitIfOngoing
         {
@@ -1200,8 +1200,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes `_all` string or when no indexes have
-        /// been specified).
+        /// Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes <c>_all</c> string or when no indexes
+        /// have been specified).
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -1295,9 +1295,9 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes. For example, a request targeting foo*,bar* returns an error if an
-        /// index starts with foo but no index starts with bar.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting foo*,bar* returns an error
+        /// if an index starts with foo but no index starts with bar.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -1315,7 +1315,7 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// Type of index that wildcard expressions can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -1323,21 +1323,21 @@ namespace OpenSearch.Client
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `true`, returns settings in flat format.</summary>
+        /// <summary>If <c>true</c>, returns settings in flat format.</summary>
         public bool? FlatSettings
         {
             get => Q<bool?>("flat_settings");
             set => Q("flat_settings", value);
         }
 
-        /// <summary>If `false`, requests that target a missing index return an error.</summary>
+        /// <summary>If <c>false</c>, requests that target a missing index return an error.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>If `true`, return all default settings in the response.</summary>
+        /// <summary>If <c>true</c>, return all default settings in the response.</summary>
         public bool? IncludeDefaults
         {
             get => Q<bool?>("include_defaults");
@@ -1345,8 +1345,8 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// If `true`, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the
-        /// cluster-manager node.
+        /// If <c>true</c>, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from
+        /// the cluster-manager node.
         /// </summary>
         public bool? Local
         {
@@ -1415,8 +1415,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -1426,8 +1426,8 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
-        /// `hidden`, `none`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>,
+        /// <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -1435,14 +1435,14 @@ namespace OpenSearch.Client
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>If `true`, the request retrieves information from the local node only.</summary>
+        /// <summary>If <c>true</c>, the request retrieves information from the local node only.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
@@ -1493,8 +1493,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -1504,8 +1504,8 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
-        /// `hidden`, `none`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>,
+        /// <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -1513,21 +1513,21 @@ namespace OpenSearch.Client
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>If `true`, return all default settings in the response.</summary>
+        /// <summary>If <c>true</c>, return all default settings in the response.</summary>
         public bool? IncludeDefaults
         {
             get => Q<bool?>("include_defaults");
             set => Q("include_defaults", value);
         }
 
-        /// <summary>If `true`, the request retrieves information from the local node only.</summary>
+        /// <summary>If <c>true</c>, the request retrieves information from the local node only.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
@@ -1573,7 +1573,7 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>If `true`, returns settings in flat format.</summary>
+        /// <summary>If <c>true</c>, returns settings in flat format.</summary>
         public bool? FlatSettings
         {
             get => Q<bool?>("flat_settings");
@@ -1581,8 +1581,8 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// If `true`, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the
-        /// cluster-manager node.
+        /// If <c>true</c>, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from
+        /// the cluster-manager node.
         /// </summary>
         public bool? Local
         {
@@ -1634,8 +1634,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -1653,8 +1653,8 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
-        /// `hidden`, `none`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>,
+        /// <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -1662,14 +1662,14 @@ namespace OpenSearch.Client
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>If `true`, the request retrieves information from the local node only.</summary>
+        /// <summary>If <c>true</c>, the request retrieves information from the local node only.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
@@ -1737,9 +1737,9 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an
-        /// index starts with foo but no index starts with `bar`.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting <c>foo*,bar*</c> returns
+        /// an error if an index starts with foo but no index starts with <c>bar</c>.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -1757,7 +1757,7 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -1765,28 +1765,31 @@ namespace OpenSearch.Client
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `true`, returns settings in flat format.</summary>
+        /// <summary>If <c>true</c>, returns settings in flat format.</summary>
         public bool? FlatSettings
         {
             get => Q<bool?>("flat_settings");
             set => Q("flat_settings", value);
         }
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>If `true`, return all default settings in the response.</summary>
+        /// <summary>If <c>true</c>, return all default settings in the response.</summary>
         public bool? IncludeDefaults
         {
             get => Q<bool?>("include_defaults");
             set => Q("include_defaults", value);
         }
 
-        /// <summary>If `true`, the request retrieves information from the local node only. If `false`, information is retrieved from the cluster-manager node.</summary>
+        /// <summary>
+        /// If <c>true</c>, the request retrieves information from the local node only. If <c>false</c>, information is retrieved from the
+        /// cluster-manager node.
+        /// </summary>
         public bool? Local
         {
             get => Q<bool?>("local");
@@ -1844,14 +1847,14 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>If `true`, returns settings in flat format.</summary>
+        /// <summary>If <c>true</c>, returns settings in flat format.</summary>
         public bool? FlatSettings
         {
             get => Q<bool?>("flat_settings");
             set => Q("flat_settings", value);
         }
 
-        /// <summary>If `true`, the request retrieves information from the local node only.</summary>
+        /// <summary>If <c>true</c>, the request retrieves information from the local node only.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
@@ -1903,8 +1906,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -1922,8 +1925,8 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
-        /// `hidden`, `none`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>,
+        /// <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -1931,7 +1934,7 @@ namespace OpenSearch.Client
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
@@ -1951,7 +1954,7 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Explicit task execution timeout, only useful when `wait_for_completion` is false, defaults to `1h`.</summary>
+        /// <summary>Explicit task execution timeout, only useful when <c>wait_for_completion</c> is false, defaults to <c>1h</c>.</summary>
         public Time TaskExecutionTimeout
         {
             get => Q<Time>("task_execution_timeout");
@@ -1966,8 +1969,8 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
-        /// number of shards in the index (`number_of_replicas+1`).
+        /// The number of shard copies that must be active before proceeding with the operation. Set to <c>all</c> or any positive integer up to the
+        /// total number of shards in the index (<c>number_of_replicas+1</c>).
         /// </summary>
         public string WaitForActiveShards
         {
@@ -2105,7 +2108,7 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>If `true`, this request cannot replace or update existing index templates.</summary>
+        /// <summary>If <c>true</c>, this request cannot replace or update existing index templates.</summary>
         public bool? Create
         {
             get => Q<bool?>("create");
@@ -2156,8 +2159,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -2175,8 +2178,8 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
-        /// `hidden`, `none`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>,
+        /// <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -2184,7 +2187,7 @@ namespace OpenSearch.Client
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
@@ -2211,7 +2214,7 @@ namespace OpenSearch.Client
             set => Q("timeout", value);
         }
 
-        /// <summary>If `true`, the mappings are applied only to the current write index for the target.</summary>
+        /// <summary>If <c>true</c>, the mappings are applied only to the current write index for the target.</summary>
         public bool? WriteIndexOnly
         {
             get => Q<bool?>("write_index_only");
@@ -2266,9 +2269,9 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an
-        /// index starts with `foo` but no index starts with `bar`.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting <c>foo*,bar*</c> returns
+        /// an error if an index starts with <c>foo</c> but no index starts with <c>bar</c>.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -2286,7 +2289,7 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -2294,7 +2297,7 @@ namespace OpenSearch.Client
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `true`, returns settings in flat format.</summary>
+        /// <summary>If <c>true</c>, returns settings in flat format.</summary>
         public bool? FlatSettings
         {
             get => Q<bool?>("flat_settings");
@@ -2321,7 +2324,7 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>If `true`, existing index settings remain unchanged.</summary>
+        /// <summary>If <c>true</c>, existing index settings remain unchanged.</summary>
         public bool? PreserveExisting
         {
             get => Q<bool?>("preserve_existing");
@@ -2374,7 +2377,7 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>If `true`, this request cannot replace or update existing index templates.</summary>
+        /// <summary>If <c>true</c>, this request cannot replace or update existing index templates.</summary>
         public bool? Create
         {
             get => Q<bool?>("create");
@@ -2425,8 +2428,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -2436,8 +2439,8 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
-        /// `hidden`, `none`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>,
+        /// <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -2445,7 +2448,7 @@ namespace OpenSearch.Client
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
@@ -2485,8 +2488,8 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
-        /// `hidden`, `none`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>,
+        /// <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -2545,7 +2548,7 @@ namespace OpenSearch.Client
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>If `true`, checks whether the current index satisfies the specified conditions but does not perform a rollover.</summary>
+        /// <summary>If <c>true</c>, checks whether the current index satisfies the specified conditions but does not perform a rollover.</summary>
         public bool? DryRun
         {
             get => Q<bool?>("dry_run");
@@ -2574,7 +2577,7 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// The number of shard copies that must be active before proceeding with the operation. Set to all or any positive integer up to the total
-        /// number of shards in the index (`number_of_replicas+1`).
+        /// number of shards in the index (<c>number_of_replicas+1</c>).
         /// </summary>
         public string WaitForActiveShards
         {
@@ -2641,7 +2644,7 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Explicit task execution timeout, only useful when `wait_for_completion` is false, defaults to `1h`.</summary>
+        /// <summary>Explicit task execution timeout, only useful when <c>wait_for_completion</c> is false, defaults to <c>1h</c>.</summary>
         public Time TaskExecutionTimeout
         {
             get => Q<Time>("task_execution_timeout");
@@ -2656,8 +2659,8 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
-        /// number of shards in the index (`number_of_replicas+1`).
+        /// The number of shard copies that must be active before proceeding with the operation. Set to <c>all</c> or any positive integer up to the
+        /// total number of shards in the index (<c>number_of_replicas+1</c>).
         /// </summary>
         public string WaitForActiveShards
         {
@@ -2732,7 +2735,7 @@ namespace OpenSearch.Client
             set => Q("master_timeout", value);
         }
 
-        /// <summary>Explicit task execution timeout, only useful when `wait_for_completion` is false, defaults to `1h`.</summary>
+        /// <summary>Explicit task execution timeout, only useful when <c>wait_for_completion</c> is false, defaults to <c>1h</c>.</summary>
         public Time TaskExecutionTimeout
         {
             get => Q<Time>("task_execution_timeout");
@@ -2747,8 +2750,8 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
-        /// number of shards in the index (`number_of_replicas+1`).
+        /// The number of shard copies that must be active before proceeding with the operation. Set to <c>all</c> or any positive integer up to the
+        /// total number of shards in the index (<c>number_of_replicas+1</c>).
         /// </summary>
         public string WaitForActiveShards
         {
@@ -2820,7 +2823,7 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -2842,7 +2845,7 @@ namespace OpenSearch.Client
             set => Q("fields", value);
         }
 
-        /// <summary>If `true`, statistics are not collected from closed indexes.</summary>
+        /// <summary>If <c>true</c>, statistics are not collected from closed indexes.</summary>
         public bool? ForbidClosedIndices
         {
             get => Q<bool?>("forbid_closed_indices");
@@ -2856,14 +2859,17 @@ namespace OpenSearch.Client
             set => Q("groups", value);
         }
 
-        /// <summary>If `true`, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
+        /// <summary>
+        /// If <c>true</c>, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are
+        /// requested).
+        /// </summary>
         public bool? IncludeSegmentFileSizes
         {
             get => Q<bool?>("include_segment_file_sizes");
             set => Q("include_segment_file_sizes", value);
         }
 
-        /// <summary>If `true`, the response includes information from segments that are not loaded into memory.</summary>
+        /// <summary>If <c>true</c>, the response includes information from segments that are not loaded into memory.</summary>
         public bool? IncludeUnloadedSegments
         {
             get => Q<bool?>("include_unloaded_segments");
@@ -2953,8 +2959,8 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -2962,28 +2968,28 @@ namespace OpenSearch.Client
             set => Q("allow_no_indices", value);
         }
 
-        /// <summary>If `true`, the validation is executed on all shards instead of one random shard per index.</summary>
+        /// <summary>If <c>true</c>, the validation is executed on all shards instead of one random shard per index.</summary>
         public bool? AllShards
         {
             get => Q<bool?>("all_shards");
             set => Q("all_shards", value);
         }
 
-        /// <summary>Analyzer to use for the query string. This parameter can only be used when the `q` query string parameter is specified.</summary>
+        /// <summary>Analyzer to use for the query string. This parameter can only be used when the <c>q</c> query string parameter is specified.</summary>
         public string Analyzer
         {
             get => Q<string>("analyzer");
             set => Q("analyzer", value);
         }
 
-        /// <summary>If `true`, wildcard and prefix queries are analyzed.</summary>
+        /// <summary>If <c>true</c>, wildcard and prefix queries are analyzed.</summary>
         public bool? AnalyzeWildcard
         {
             get => Q<bool?>("analyze_wildcard");
             set => Q("analyze_wildcard", value);
         }
 
-        /// <summary>The default operator for query string query: `AND` or `OR`.</summary>
+        /// <summary>The default operator for query string query: <c>AND</c> or <c>OR</c>.</summary>
         public DefaultOperator? DefaultOperator
         {
             get => Q<DefaultOperator?>("default_operator");
@@ -2991,7 +2997,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Field to use as default where no field prefix is given in the query string. This parameter can only be used when the `q` query string
+        /// Field to use as default where no field prefix is given in the query string. This parameter can only be used when the <c>q</c> query string
         /// parameter is specified.
         /// </summary>
         public string Df
@@ -3002,8 +3008,8 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
-        /// `hidden`, `none`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>,
+        /// <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -3011,21 +3017,21 @@ namespace OpenSearch.Client
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `true`, the response returns detailed information if an error has occurred.</summary>
+        /// <summary>If <c>true</c>, the response returns detailed information if an error has occurred.</summary>
         public bool? Explain
         {
             get => Q<bool?>("explain");
             set => Q("explain", value);
         }
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>If `true`, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
+        /// <summary>If <c>true</c>, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
         public bool? Lenient
         {
             get => Q<bool?>("lenient");
@@ -3039,7 +3045,7 @@ namespace OpenSearch.Client
             set => Q("q", value);
         }
 
-        /// <summary>If `true`, returns a more detailed explanation showing the actual Lucene query that will be executed.</summary>
+        /// <summary>If <c>true</c>, returns a more detailed explanation showing the actual Lucene query that will be executed.</summary>
         public bool? Rewrite
         {
             get => Q<bool?>("rewrite");
