@@ -279,7 +279,7 @@ namespace OpenSearch.Client
         Id ISimulatePipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 
         // Request parameters
-        /// <summary>When `true`, the response includes output data for each processor in the pipeline.</summary>
+        /// <summary>When <c>true</c>, the response includes output data for each processor in the pipeline.</summary>
         public bool? Verbose
         {
             get => Q<bool?>("verbose");

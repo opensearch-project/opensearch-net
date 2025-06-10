@@ -1893,7 +1893,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             );
 
         /// <summary>PATCH on /_plugins/_security/api/nodesdn/{cluster_name}</summary>
-        /// <param name="clusterName">The cluster name to update the `nodesDn` value.</param>
+        /// <param name="clusterName">The cluster name to update the &lt;c&gt;nodesDn&lt;/c&gt; value.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse PatchDistinguishedName<TResponse>(
@@ -1910,7 +1910,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             );
 
         /// <summary>PATCH on /_plugins/_security/api/nodesdn/{cluster_name}</summary>
-        /// <param name="clusterName">The cluster name to update the `nodesDn` value.</param>
+        /// <param name="clusterName">The cluster name to update the &lt;c&gt;nodesDn&lt;/c&gt; value.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.patch_distinguished_name", "cluster_name, body")]
@@ -2429,7 +2429,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             );
 
         /// <summary>PUT on /_plugins/_security/api/nodesdn/{cluster_name} <para>https://opensearch.org/docs/latest/security/access-control/api/#update-distinguished-names</para></summary>
-        /// <param name="clusterName">The name of the cluster containing the `nodesDn` value to create or update.</param>
+        /// <param name="clusterName">The name of the cluster containing the &lt;c&gt;nodesDn&lt;/c&gt; value to create or update.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse UpdateDistinguishedName<TResponse>(
@@ -2446,7 +2446,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
             );
 
         /// <summary>PUT on /_plugins/_security/api/nodesdn/{cluster_name} <para>https://opensearch.org/docs/latest/security/access-control/api/#update-distinguished-names</para></summary>
-        /// <param name="clusterName">The name of the cluster containing the `nodesDn` value to create or update.</param>
+        /// <param name="clusterName">The name of the cluster containing the &lt;c&gt;nodesDn&lt;/c&gt; value to create or update.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.update_distinguished_name", "cluster_name, body")]

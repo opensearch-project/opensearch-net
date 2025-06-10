@@ -60,8 +60,8 @@ namespace OpenSearch.Net
 
         /// <summary>
         /// ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value
-        /// to `_none` disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of the
-        /// value of this parameter.
+        /// to <c>_none</c> disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of
+        /// the value of this parameter.
         /// </summary>
         public string Pipeline
         {
@@ -70,8 +70,9 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// If `true`, OpenSearch refreshes the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh to
-        /// make this operation visible to search, if `false` do nothing with refreshes. Valid values: `true`, `false`, `wait_for`.
+        /// If <c>true</c>, OpenSearch refreshes the affected shards to make this operation visible to search, if <c>wait_for</c> then wait for a
+        /// refresh to make this operation visible to search, if <c>false</c> do nothing with refreshes. Valid values: <c>true</c>, <c>false</c>,
+        /// <c>wait_for</c>.
         /// </summary>
         public Refresh? Refresh
         {
@@ -79,21 +80,21 @@ namespace OpenSearch.Net
             set => Q("refresh", value);
         }
 
-        /// <summary>If `true`, the request's actions must target an index alias.</summary>
+        /// <summary>If <c>true</c>, the request's actions must target an index alias.</summary>
         public bool? RequireAlias
         {
             get => Q<bool?>("require_alias");
             set => Q("require_alias", value);
         }
 
-        /// <summary>Custom value used to route operations to a specific shard.</summary>
-        public string[] Routing
+        /// <summary>A custom value used to route operations to a specific shard.</summary>
+        public string Routing
         {
-            get => Q<string[]>("routing");
+            get => Q<string>("routing");
             set => Q("routing", value);
         }
 
-        /// <summary>`true` or `false` to return the `_source` field or not, or a list of fields to return.</summary>
+        /// <summary><c>true</c> or <c>false</c> to return the <c>_source</c> field or not, or a list of fields to return.</summary>
         public bool? SourceEnabled
         {
             get => Q<bool?>("_source");
@@ -130,7 +131,7 @@ namespace OpenSearch.Net
 
         /// <summary>
         /// The number of shard copies that must be active before proceeding with the operation. Set to all or any positive integer up to the total
-        /// number of shards in the index (`number_of_replicas+1`).
+        /// number of shards in the index (<c>number_of_replicas+1</c>).
         /// </summary>
         public string WaitForActiveShards
         {
@@ -162,8 +163,8 @@ namespace OpenSearch.Net
 
         /// <summary>
         /// ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value
-        /// to `_none` disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of the
-        /// value of this parameter.
+        /// to <c>_none</c> disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of
+        /// the value of this parameter.
         /// </summary>
         public string Pipeline
         {
@@ -172,8 +173,9 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// If `true`, OpenSearch refreshes the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh to
-        /// make this operation visible to search, if `false` do nothing with refreshes. Valid values: `true`, `false`, `wait_for`.
+        /// If <c>true</c>, OpenSearch refreshes the affected shards to make this operation visible to search, if <c>wait_for</c> then wait for a
+        /// refresh to make this operation visible to search, if <c>false</c> do nothing with refreshes. Valid values: <c>true</c>, <c>false</c>,
+        /// <c>wait_for</c>.
         /// </summary>
         public Refresh? Refresh
         {
@@ -181,21 +183,21 @@ namespace OpenSearch.Net
             set => Q("refresh", value);
         }
 
-        /// <summary>If `true`, the request's actions must target an index alias.</summary>
+        /// <summary>If <c>true</c>, the request's actions must target an index alias.</summary>
         public bool? RequireAlias
         {
             get => Q<bool?>("require_alias");
             set => Q("require_alias", value);
         }
 
-        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        /// <summary>A custom value used to route operations to a specific shard.</summary>
         public string[] Routing
         {
             get => Q<string[]>("routing");
             set => Q("routing", value);
         }
 
-        /// <summary>`true` or `false` to return the `_source` field or not, or a list of fields to return.</summary>
+        /// <summary><c>true</c> or <c>false</c> to return the <c>_source</c> field or not, or a list of fields to return.</summary>
         public bool? SourceEnabled
         {
             get => Q<bool?>("_source");
@@ -232,7 +234,7 @@ namespace OpenSearch.Net
 
         /// <summary>
         /// The number of shard copies that must be active before proceeding with the operation. Set to all or any positive integer up to the total
-        /// number of shards in the index (`number_of_replicas+1`).
+        /// number of shards in the index (<c>number_of_replicas+1</c>).
         /// </summary>
         public string WaitForActiveShards
         {
@@ -256,8 +258,8 @@ namespace OpenSearch.Net
         public override bool SupportsBody => true;
 
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -265,14 +267,17 @@ namespace OpenSearch.Net
             set => Q("allow_no_indices", value);
         }
 
-        /// <summary>Analyzer to use for the query string. This parameter can only be used when the `q` query string parameter is specified.</summary>
+        /// <summary>Analyzer to use for the query string. This parameter can only be used when the <c>q</c> query string parameter is specified.</summary>
         public string Analyzer
         {
             get => Q<string>("analyzer");
             set => Q("analyzer", value);
         }
 
-        /// <summary>If `true`, wildcard and prefix queries are analyzed. This parameter can only be used when the `q` query string parameter is specified.</summary>
+        /// <summary>
+        /// If <c>true</c>, wildcard and prefix queries are analyzed. This parameter can only be used when the <c>q</c> query string parameter is
+        /// specified.
+        /// </summary>
         public bool? AnalyzeWildcard
         {
             get => Q<bool?>("analyze_wildcard");
@@ -280,8 +285,8 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// The default operator for query string query: `AND` or `OR`. This parameter can only be used when the `q` query string parameter is
-        /// specified.
+        /// The default operator for query string query: <c>AND</c> or <c>OR</c>. This parameter can only be used when the <c>q</c> query string
+        /// parameter is specified.
         /// </summary>
         public DefaultOperator? DefaultOperator
         {
@@ -290,7 +295,7 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// Field to use as default where no field prefix is given in the query string. This parameter can only be used when the `q` query string
+        /// Field to use as default where no field prefix is given in the query string. This parameter can only be used when the <c>q</c> query string
         /// parameter is specified.
         /// </summary>
         public string Df
@@ -306,28 +311,28 @@ namespace OpenSearch.Net
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `true`, concrete, expanded or aliased indexes are ignored when frozen.</summary>
+        /// <summary>If <c>true</c>, concrete, expanded or aliased indexes are ignored when frozen.</summary>
         public bool? IgnoreThrottled
         {
             get => Q<bool?>("ignore_throttled");
             set => Q("ignore_throttled", value);
         }
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>If `true`, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
+        /// <summary>If <c>true</c>, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
         public bool? Lenient
         {
             get => Q<bool?>("lenient");
             set => Q("lenient", value);
         }
 
-        /// <summary>Sets the minimum `_score` value that documents must have to be included in the result.</summary>
+        /// <summary>Sets the minimum <c>_score</c> value that documents must have to be included in the result.</summary>
         public float? MinScore
         {
             get => Q<float?>("min_score");
@@ -348,7 +353,7 @@ namespace OpenSearch.Net
             set => Q("q", value);
         }
 
-        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        /// <summary>A custom value used to route operations to a specific shard.</summary>
         public string[] Routing
         {
             get => Q<string[]>("routing");
@@ -374,8 +379,8 @@ namespace OpenSearch.Net
 
         /// <summary>
         /// ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value
-        /// to `_none` disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of the
-        /// value of this parameter.
+        /// to <c>_none</c> disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of
+        /// the value of this parameter.
         /// </summary>
         public string Pipeline
         {
@@ -384,8 +389,9 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// If `true`, OpenSearch refreshes the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh to
-        /// make this operation visible to search, if `false` do nothing with refreshes. Valid values: `true`, `false`, `wait_for`.
+        /// If <c>true</c>, OpenSearch refreshes the affected shards to make this operation visible to search, if <c>wait_for</c> then wait for a
+        /// refresh to make this operation visible to search, if <c>false</c> do nothing with refreshes. Valid values: <c>true</c>, <c>false</c>,
+        /// <c>wait_for</c>.
         /// </summary>
         public Refresh? Refresh
         {
@@ -393,7 +399,7 @@ namespace OpenSearch.Net
             set => Q("refresh", value);
         }
 
-        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        /// <summary>A custom value used to route operations to a specific shard.</summary>
         public string[] Routing
         {
             get => Q<string[]>("routing");
@@ -417,7 +423,7 @@ namespace OpenSearch.Net
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: `external`, `external_gte`.</summary>
+        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -425,8 +431,8 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
-        /// number of shards in the index (`number_of_replicas+1`).
+        /// The number of shard copies that must be active before proceeding with the operation. Set to <c>all</c> or any positive integer up to the
+        /// total number of shards in the index (<c>number_of_replicas+1</c>).
         /// </summary>
         public string WaitForActiveShards
         {
@@ -498,8 +504,9 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// If `true`, OpenSearch refreshes the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh to
-        /// make this operation visible to search, if `false` do nothing with refreshes. Valid values: `true`, `false`, `wait_for`.
+        /// If <c>true</c>, OpenSearch refreshes the affected shards to make this operation visible to search, if <c>wait_for</c> then wait for a
+        /// refresh to make this operation visible to search, if <c>false</c> do nothing with refreshes. Valid values: <c>true</c>, <c>false</c>,
+        /// <c>wait_for</c>.
         /// </summary>
         public Refresh? Refresh
         {
@@ -507,7 +514,7 @@ namespace OpenSearch.Net
             set => Q("refresh", value);
         }
 
-        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        /// <summary>A custom value used to route operations to a specific shard.</summary>
         public string[] Routing
         {
             get => Q<string[]>("routing");
@@ -531,7 +538,7 @@ namespace OpenSearch.Net
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: `external`, `external_gte`.</summary>
+        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -539,8 +546,8 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
-        /// number of shards in the index (`number_of_replicas+1`).
+        /// The number of shard copies that must be active before proceeding with the operation. Set to <c>all</c> or any positive integer up to the
+        /// total number of shards in the index (<c>number_of_replicas+1</c>).
         /// </summary>
         public string WaitForActiveShards
         {
@@ -565,9 +572,9 @@ namespace OpenSearch.Net
         public override bool SupportsBody => true;
 
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an
-        /// index starts with `foo` but no index starts with `bar`.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting <c>foo*,bar*</c> returns
+        /// an error if an index starts with <c>foo</c> but no index starts with <c>bar</c>.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -582,21 +589,21 @@ namespace OpenSearch.Net
             set => Q("analyzer", value);
         }
 
-        /// <summary>If `true`, wildcard and prefix queries are analyzed.</summary>
+        /// <summary>If <c>true</c>, wildcard and prefix queries are analyzed.</summary>
         public bool? AnalyzeWildcard
         {
             get => Q<bool?>("analyze_wildcard");
             set => Q("analyze_wildcard", value);
         }
 
-        /// <summary>What to do if delete by query hits version conflicts: `abort` or `proceed`.</summary>
+        /// <summary>What to do if delete by query hits version conflicts: <c>abort</c> or <c>proceed</c>.</summary>
         public Conflicts? Conflicts
         {
             get => Q<Conflicts?>("conflicts");
             set => Q("conflicts", value);
         }
 
-        /// <summary>The default operator for query string query: `AND` or `OR`.</summary>
+        /// <summary>The default operator for query string query: <c>AND</c> or <c>OR</c>.</summary>
         public DefaultOperator? DefaultOperator
         {
             get => Q<DefaultOperator?>("default_operator");
@@ -612,8 +619,8 @@ namespace OpenSearch.Net
 
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
-        /// `hidden`, `none`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>,
+        /// <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -628,14 +635,14 @@ namespace OpenSearch.Net
             set => Q("from", value);
         }
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>If `true`, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
+        /// <summary>If <c>true</c>, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
         public bool? Lenient
         {
             get => Q<bool?>("lenient");
@@ -656,14 +663,14 @@ namespace OpenSearch.Net
             set => Q("q", value);
         }
 
-        /// <summary>If `true`, OpenSearch refreshes all shards involved in the delete by query after the request completes.</summary>
+        /// <summary>If <c>true</c>, OpenSearch refreshes all shards involved in the delete by query after the request completes.</summary>
         public Refresh? Refresh
         {
             get => Q<Refresh?>("refresh");
             set => Q("refresh", value);
         }
 
-        /// <summary>If `true`, the request cache is used for this request. Defaults to the index-level setting.</summary>
+        /// <summary>If <c>true</c>, the request cache is used for this request. Defaults to the index-level setting.</summary>
         public bool? RequestCache
         {
             get => Q<bool?>("request_cache");
@@ -677,7 +684,7 @@ namespace OpenSearch.Net
             set => Q("requests_per_second", value);
         }
 
-        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        /// <summary>A custom value used to route operations to a specific shard.</summary>
         public string[] Routing
         {
             get => Q<string[]>("routing");
@@ -705,14 +712,14 @@ namespace OpenSearch.Net
             set => Q("search_timeout", value);
         }
 
-        /// <summary>The type of the search operation. Available options: `query_then_fetch`, `dfs_query_then_fetch`.</summary>
+        /// <summary>The type of the search operation. Available options: <c>query_then_fetch</c>, <c>dfs_query_then_fetch</c>.</summary>
         public SearchType? SearchType
         {
             get => Q<SearchType?>("search_type");
             set => Q("search_type", value);
         }
 
-        /// <summary>Deprecated, use `max_docs` instead.</summary>
+        /// <summary>Deprecated, use <c>max_docs</c> instead.</summary>
         public int? Size
         {
             get => Q<int?>("size");
@@ -726,28 +733,28 @@ namespace OpenSearch.Net
             set => Q("sort", value);
         }
 
-        /// <summary>Set to `true` or `false` to return the `_source` field or not, or a list of fields to return.</summary>
+        /// <summary>Set to <c>true</c> or <c>false</c> to return the <c>_source</c> field or not, or a list of fields to return.</summary>
         public bool? SourceEnabled
         {
             get => Q<bool?>("_source");
             set => Q("_source", value);
         }
 
-        /// <summary>List of fields to exclude from the returned `_source` field.</summary>
+        /// <summary>List of fields to exclude from the returned <c>_source</c> field.</summary>
         public string[] SourceExcludes
         {
             get => Q<string[]>("_source_excludes");
             set => Q("_source_excludes", value);
         }
 
-        /// <summary>List of fields to extract and return from the `_source` field.</summary>
+        /// <summary>List of fields to extract and return from the <c>_source</c> field.</summary>
         public string[] SourceIncludes
         {
             get => Q<string[]>("_source_includes");
             set => Q("_source_includes", value);
         }
 
-        /// <summary>Specific `tag` of the request for logging and statistical purposes.</summary>
+        /// <summary>Specific <c>tag</c> of the request for logging and statistical purposes.</summary>
         public string[] Stats
         {
             get => Q<string[]>("stats");
@@ -773,7 +780,7 @@ namespace OpenSearch.Net
             set => Q("timeout", value);
         }
 
-        /// <summary>If `true`, returns the document version as part of a hit.</summary>
+        /// <summary>If <c>true</c>, returns the document version as part of a hit.</summary>
         public bool? Version
         {
             get => Q<bool?>("version");
@@ -782,7 +789,7 @@ namespace OpenSearch.Net
 
         /// <summary>
         /// The number of shard copies that must be active before proceeding with the operation. Set to all or any positive integer up to the total
-        /// number of shards in the index (`number_of_replicas+1`).
+        /// number of shards in the index (<c>number_of_replicas+1</c>).
         /// </summary>
         public string WaitForActiveShards
         {
@@ -790,7 +797,7 @@ namespace OpenSearch.Net
             set => Q("wait_for_active_shards", value);
         }
 
-        /// <summary>If `true`, the request blocks until the operation is complete.</summary>
+        /// <summary>If <c>true</c>, the request blocks until the operation is complete.</summary>
         public bool? WaitForCompletion
         {
             get => Q<bool?>("wait_for_completion");
@@ -870,14 +877,14 @@ namespace OpenSearch.Net
             set => Q("preference", value);
         }
 
-        /// <summary>If `true`, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
             set => Q("realtime", value);
         }
 
-        /// <summary>If `true`, OpenSearch refreshes all shards involved in the delete by query after the request completes.</summary>
+        /// <summary>If <c>true</c>, OpenSearch refreshes all shards involved in the delete by query after the request completes.</summary>
         public Refresh? Refresh
         {
             get => Q<Refresh?>("refresh");
@@ -891,7 +898,7 @@ namespace OpenSearch.Net
             set => Q("routing", value);
         }
 
-        /// <summary>`true` or `false` to return the `_source` field or not, or a list of fields to return.</summary>
+        /// <summary><c>true</c> or <c>false</c> to return the <c>_source</c> field or not, or a list of fields to return.</summary>
         public bool? SourceEnabled
         {
             get => Q<bool?>("_source");
@@ -914,7 +921,7 @@ namespace OpenSearch.Net
 
         /// <summary>
         /// List of stored fields to return as part of a hit. If no fields are specified, no stored fields are included in the response. If this field
-        /// is specified, the `_source` parameter defaults to false.
+        /// is specified, the <c>_source</c> parameter defaults to false.
         /// </summary>
         public string[] StoredFields
         {
@@ -932,7 +939,7 @@ namespace OpenSearch.Net
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: `external`, `external_gte`.</summary>
+        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -954,14 +961,14 @@ namespace OpenSearch.Net
             set => Q("preference", value);
         }
 
-        /// <summary>If `true`, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
             set => Q("realtime", value);
         }
 
-        /// <summary>If `true`, OpenSearch refreshes all shards involved in the delete by query after the request completes.</summary>
+        /// <summary>If <c>true</c>, OpenSearch refreshes all shards involved in the delete by query after the request completes.</summary>
         public Refresh? Refresh
         {
             get => Q<Refresh?>("refresh");
@@ -975,7 +982,7 @@ namespace OpenSearch.Net
             set => Q("routing", value);
         }
 
-        /// <summary>`true` or `false` to return the `_source` field or not, or a list of fields to return.</summary>
+        /// <summary><c>true</c> or <c>false</c> to return the <c>_source</c> field or not, or a list of fields to return.</summary>
         public bool? SourceEnabled
         {
             get => Q<bool?>("_source");
@@ -1006,7 +1013,7 @@ namespace OpenSearch.Net
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: `external`, `external_gte`.</summary>
+        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -1020,21 +1027,21 @@ namespace OpenSearch.Net
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>Analyzer to use for the query string. This parameter can only be used when the `q` query string parameter is specified.</summary>
+        /// <summary>Analyzer to use for the query string. This parameter can only be used when the <c>q</c> query string parameter is specified.</summary>
         public string Analyzer
         {
             get => Q<string>("analyzer");
             set => Q("analyzer", value);
         }
 
-        /// <summary>If `true`, wildcard and prefix queries are analyzed.</summary>
+        /// <summary>If <c>true</c>, wildcard and prefix queries are analyzed.</summary>
         public bool? AnalyzeWildcard
         {
             get => Q<bool?>("analyze_wildcard");
             set => Q("analyze_wildcard", value);
         }
 
-        /// <summary>The default operator for query string query: `AND` or `OR`.</summary>
+        /// <summary>The default operator for query string query: <c>AND</c> or <c>OR</c>.</summary>
         public DefaultOperator? DefaultOperator
         {
             get => Q<DefaultOperator?>("default_operator");
@@ -1048,7 +1055,7 @@ namespace OpenSearch.Net
             set => Q("df", value);
         }
 
-        /// <summary>If `true`, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
+        /// <summary>If <c>true</c>, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
         public bool? Lenient
         {
             get => Q<bool?>("lenient");
@@ -1069,14 +1076,14 @@ namespace OpenSearch.Net
             set => Q("q", value);
         }
 
-        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        /// <summary>A custom value used to route operations to a specific shard.</summary>
         public string[] Routing
         {
             get => Q<string[]>("routing");
             set => Q("routing", value);
         }
 
-        /// <summary>Set to `true` or `false` to return the `_source` field or not, or a list of fields to return.</summary>
+        /// <summary>Set to <c>true</c> or <c>false</c> to return the <c>_source</c> field or not, or a list of fields to return.</summary>
         public bool? SourceEnabled
         {
             get => Q<bool?>("_source");
@@ -1113,9 +1120,9 @@ namespace OpenSearch.Net
         public override bool SupportsBody => true;
 
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an
-        /// index starts with foo but no index starts with bar.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting <c>foo*,bar*</c> returns
+        /// an error if an index starts with foo but no index starts with bar.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -1125,7 +1132,7 @@ namespace OpenSearch.Net
 
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -1133,21 +1140,21 @@ namespace OpenSearch.Net
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>Comma-separated list of fields to retrieve capabilities for. Wildcard (`*`) expressions are supported.</summary>
+        /// <summary>Comma-separated list of fields to retrieve capabilities for. Wildcard (<c>*</c>) expressions are supported.</summary>
         public string[] Fields
         {
             get => Q<string[]>("fields");
             set => Q("fields", value);
         }
 
-        /// <summary>If `true`, missing or closed indexes are not included in the response.</summary>
+        /// <summary>If <c>true</c>, missing or closed indexes are not included in the response.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>If `true`, unmapped fields are included in the response.</summary>
+        /// <summary>If <c>true</c>, unmapped fields are included in the response.</summary>
         public bool? IncludeUnmapped
         {
             get => Q<bool?>("include_unmapped");
@@ -1168,14 +1175,17 @@ namespace OpenSearch.Net
             set => Q("preference", value);
         }
 
-        /// <summary>If `true`, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
             set => Q("realtime", value);
         }
 
-        /// <summary>If `true`, OpenSearch refreshes the affected shards to make this operation visible to search. If `false`, do nothing with refreshes.</summary>
+        /// <summary>
+        /// If <c>true</c>, OpenSearch refreshes the affected shards to make this operation visible to search. If <c>false</c>, do nothing with
+        /// refreshes.
+        /// </summary>
         public Refresh? Refresh
         {
             get => Q<Refresh?>("refresh");
@@ -1189,7 +1199,7 @@ namespace OpenSearch.Net
             set => Q("routing", value);
         }
 
-        /// <summary>Set to `true` or `false` to return the `_source` field or not, or a list of fields to return.</summary>
+        /// <summary>Set to <c>true</c> or <c>false</c> to return the <c>_source</c> field or not, or a list of fields to return.</summary>
         public bool? SourceEnabled
         {
             get => Q<bool?>("_source");
@@ -1212,7 +1222,7 @@ namespace OpenSearch.Net
 
         /// <summary>
         /// List of stored fields to return as part of a hit. If no fields are specified, no stored fields are included in the response. If this field
-        /// is specified, the `_source` parameter defaults to false.
+        /// is specified, the <c>_source</c> parameter defaults to false.
         /// </summary>
         public string[] StoredFields
         {
@@ -1230,7 +1240,7 @@ namespace OpenSearch.Net
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: `internal`, `external`, `external_gte`.</summary>
+        /// <summary>Specific version type: <c>internal</c>, <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -1300,14 +1310,17 @@ namespace OpenSearch.Net
             set => Q("preference", value);
         }
 
-        /// <summary>Boolean) If `true`, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>Boolean) If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
             set => Q("realtime", value);
         }
 
-        /// <summary>If `true`, OpenSearch refreshes the affected shards to make this operation visible to search. If `false`, do nothing with refreshes.</summary>
+        /// <summary>
+        /// If <c>true</c>, OpenSearch refreshes the affected shards to make this operation visible to search. If <c>false</c>, do nothing with
+        /// refreshes.
+        /// </summary>
         public Refresh? Refresh
         {
             get => Q<Refresh?>("refresh");
@@ -1321,7 +1334,7 @@ namespace OpenSearch.Net
             set => Q("routing", value);
         }
 
-        /// <summary>Set to `true` or `false` to return the `_source` field or not, or a list of fields to return.</summary>
+        /// <summary>Set to <c>true</c> or <c>false</c> to return the <c>_source</c> field or not, or a list of fields to return.</summary>
         public bool? SourceEnabled
         {
             get => Q<bool?>("_source");
@@ -1352,7 +1365,7 @@ namespace OpenSearch.Net
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type. One of `internal`, `external`, `external_gte`.</summary>
+        /// <summary>Specific version type. One of <c>internal</c>, <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -1381,9 +1394,9 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// Set to create to only index the document if it does not already exist (put if absent). If a document with the specified `_id` already
-        /// exists, the indexing operation will fail. Same as using the `&lt;index&gt;/_create` endpoint. Valid values: `index`, `create`. If document
-        /// id is specified, it defaults to `index`. Otherwise, it defaults to `create`.
+        /// Set to create to only index the document if it does not already exist (put if absent). If a document with the specified <c>_id</c> already
+        /// exists, the indexing operation will fail. Same as using the <c>&lt;index&gt;/_create</c> endpoint. Valid values: <c>index</c>,
+        /// <c>create</c>. If document id is specified, it defaults to <c>index</c>. Otherwise, it defaults to <c>create</c>.
         /// </summary>
         public OpType? OpType
         {
@@ -1393,8 +1406,8 @@ namespace OpenSearch.Net
 
         /// <summary>
         /// ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value
-        /// to `_none` disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of the
-        /// value of this parameter.
+        /// to <c>_none</c> disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of
+        /// the value of this parameter.
         /// </summary>
         public string Pipeline
         {
@@ -1403,8 +1416,9 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// If `true`, OpenSearch refreshes the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh to
-        /// make this operation visible to search, if `false` do nothing with refreshes. Valid values: `true`, `false`, `wait_for`.
+        /// If <c>true</c>, OpenSearch refreshes the affected shards to make this operation visible to search, if <c>wait_for</c> then wait for a
+        /// refresh to make this operation visible to search, if <c>false</c> do nothing with refreshes. Valid values: <c>true</c>, <c>false</c>,
+        /// <c>wait_for</c>.
         /// </summary>
         public Refresh? Refresh
         {
@@ -1412,14 +1426,14 @@ namespace OpenSearch.Net
             set => Q("refresh", value);
         }
 
-        /// <summary>If `true`, the destination must be an index alias.</summary>
+        /// <summary>If <c>true</c>, the destination must be an index alias.</summary>
         public bool? RequireAlias
         {
             get => Q<bool?>("require_alias");
             set => Q("require_alias", value);
         }
 
-        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        /// <summary>A custom value used to route operations to a specific shard.</summary>
         public string[] Routing
         {
             get => Q<string[]>("routing");
@@ -1443,7 +1457,7 @@ namespace OpenSearch.Net
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: `external`, `external_gte`.</summary>
+        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -1452,7 +1466,7 @@ namespace OpenSearch.Net
 
         /// <summary>
         /// The number of shard copies that must be active before proceeding with the operation. Set to all or any positive integer up to the total
-        /// number of shards in the index (`number_of_replicas+1`).
+        /// number of shards in the index (<c>number_of_replicas+1</c>).
         /// </summary>
         public string WaitForActiveShards
         {
@@ -1482,28 +1496,28 @@ namespace OpenSearch.Net
             set => Q("preference", value);
         }
 
-        /// <summary>If `true`, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
             set => Q("realtime", value);
         }
 
-        /// <summary>If `true`, the request refreshes relevant shards before retrieving documents.</summary>
+        /// <summary>If <c>true</c>, the request refreshes relevant shards before retrieving documents.</summary>
         public Refresh? Refresh
         {
             get => Q<Refresh?>("refresh");
             set => Q("refresh", value);
         }
 
-        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        /// <summary>A custom value used to route operations to a specific shard.</summary>
         public string[] Routing
         {
             get => Q<string[]>("routing");
             set => Q("routing", value);
         }
 
-        /// <summary>Set to `true` or `false` to return the `_source` field or not, or a list of fields to return.</summary>
+        /// <summary>Set to <c>true</c> or <c>false</c> to return the <c>_source</c> field or not, or a list of fields to return.</summary>
         public bool? SourceEnabled
         {
             get => Q<bool?>("_source");
@@ -1512,7 +1526,7 @@ namespace OpenSearch.Net
 
         /// <summary>
         /// A comma-separated list of source fields to exclude from the response. You can also use this parameter to exclude fields from the subset
-        /// specified in `_source_includes` query parameter.
+        /// specified in <c>_source_includes</c> query parameter.
         /// </summary>
         public string[] SourceExcludes
         {
@@ -1522,8 +1536,8 @@ namespace OpenSearch.Net
 
         /// <summary>
         /// A comma-separated list of source fields to include in the response. If this parameter is specified, only these source fields are returned.
-        /// You can exclude fields from this subset using the `_source_excludes` query parameter. If the `_source` parameter is `false`, this
-        /// parameter is ignored.
+        /// You can exclude fields from this subset using the <c>_source_excludes</c> query parameter. If the <c>_source</c> parameter is
+        /// <c>false</c>, this parameter is ignored.
         /// </summary>
         public string[] SourceIncludes
         {
@@ -1531,7 +1545,7 @@ namespace OpenSearch.Net
             set => Q("_source_includes", value);
         }
 
-        /// <summary>If `true`, retrieves the document fields stored in the index rather than the document `_source`.</summary>
+        /// <summary>If <c>true</c>, retrieves the document fields stored in the index rather than the document <c>_source</c>.</summary>
         public string[] StoredFields
         {
             get => Q<string[]>("stored_fields");
@@ -1546,7 +1560,7 @@ namespace OpenSearch.Net
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>If `true`, network round-trips between the coordinating node and remote clusters are minimized for cross-cluster search requests.</summary>
+        /// <summary>If <c>true</c>, network round-trips between the coordinating node and remote clusters are minimized for cross-cluster search requests.</summary>
         public bool? CcsMinimizeRoundtrips
         {
             get => Q<bool?>("ccs_minimize_roundtrips");
@@ -1586,7 +1600,7 @@ namespace OpenSearch.Net
             set => Q("search_type", value);
         }
 
-        /// <summary>If `true`, `hits.total` are returned as an integer in the response. Defaults to false, which returns an object.</summary>
+        /// <summary>If <c>true</c>, <c>hits.total</c> are returned as an integer in the response. Defaults to false, which returns an object.</summary>
         public bool? TotalHitsAsInteger
         {
             get => Q<bool?>("rest_total_hits_as_int");
@@ -1608,7 +1622,7 @@ namespace OpenSearch.Net
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>If `true`, network round-trips are minimized for cross-cluster search requests.</summary>
+        /// <summary>If <c>true</c>, network round-trips are minimized for cross-cluster search requests.</summary>
         public bool? CcsMinimizeRoundtrips
         {
             get => Q<bool?>("ccs_minimize_roundtrips");
@@ -1622,21 +1636,21 @@ namespace OpenSearch.Net
             set => Q("max_concurrent_searches", value);
         }
 
-        /// <summary>The type of the search operation. Available options: `query_then_fetch`, `dfs_query_then_fetch`.</summary>
+        /// <summary>The type of the search operation. Available options: <c>query_then_fetch</c>, <c>dfs_query_then_fetch</c>.</summary>
         public SearchType? SearchType
         {
             get => Q<SearchType?>("search_type");
             set => Q("search_type", value);
         }
 
-        /// <summary>If `true`, the response returns `hits.total` as an integer. If `false`, it returns `hits.total` as an object.</summary>
+        /// <summary>If <c>true</c>, the response returns <c>hits.total</c> as an integer. If <c>false</c>, it returns <c>hits.total</c> as an object.</summary>
         public bool? TotalHitsAsInteger
         {
             get => Q<bool?>("rest_total_hits_as_int");
             set => Q("rest_total_hits_as_int", value);
         }
 
-        /// <summary>If `true`, the response prefixes aggregation and suggester names with their respective types.</summary>
+        /// <summary>If <c>true</c>, the response prefixes aggregation and suggester names with their respective types.</summary>
         public bool? TypedKeys
         {
             get => Q<bool?>("typed_keys");
@@ -1652,8 +1666,8 @@ namespace OpenSearch.Net
         public override bool SupportsBody => true;
 
         /// <summary>
-        /// Comma-separated list or wildcard expressions of fields to include in the statistics. Used as the default list unless a specific field list
-        /// is provided in the `completion_fields` or `fielddata_fields` parameters.
+        /// A comma-separated list or a wildcard expression specifying the fields to include in the statistics. Used as the default list unless a
+        /// specific field list is provided in the <c>completion_fields</c> or <c>fielddata_fields</c> parameters.
         /// </summary>
         public string[] Fields
         {
@@ -1661,70 +1675,75 @@ namespace OpenSearch.Net
             set => Q("fields", value);
         }
 
-        /// <summary>If `true`, the response includes the document count, sum of document frequencies, and sum of total term frequencies.</summary>
+        /// <summary>If <c>true</c>, the response includes the document count, sum of document frequencies, and sum of total term frequencies.</summary>
         public bool? FieldStatistics
         {
             get => Q<bool?>("field_statistics");
             set => Q("field_statistics", value);
         }
 
-        /// <summary>If `true`, the response includes term offsets.</summary>
+        /// <summary>If <c>true</c>, the response includes term offsets.</summary>
         public bool? Offsets
         {
             get => Q<bool?>("offsets");
             set => Q("offsets", value);
         }
 
-        /// <summary>If `true`, the response includes term payloads.</summary>
+        /// <summary>If <c>true</c>, the response includes term payloads.</summary>
         public bool? Payloads
         {
             get => Q<bool?>("payloads");
             set => Q("payloads", value);
         }
 
-        /// <summary>If `true`, the response includes term positions.</summary>
+        /// <summary>If <c>true</c>, the response includes term positions.</summary>
         public bool? Positions
         {
             get => Q<bool?>("positions");
             set => Q("positions", value);
         }
 
-        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        /// <summary>
+        /// Specifies the node or shard on which the operation should be performed. See <a
+        /// href="https://opensearch.org/docs/latest/api-reference/search-apis/search/#the-preference-query-parameter">preference query parameter</a>
+        /// for a list of available options. By default the requests are routed randomly to available shard copies (primary or replica), with no
+        /// guarantee of consistency across repeated queries.
+        /// </summary>
         public string Preference
         {
             get => Q<string>("preference");
             set => Q("preference", value);
         }
 
-        /// <summary>If `true`, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
             set => Q("realtime", value);
         }
 
-        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        /// <summary>A custom value used to route operations to a specific shard.</summary>
         public string[] Routing
         {
             get => Q<string[]>("routing");
             set => Q("routing", value);
         }
 
-        /// <summary>If `true`, the response includes term frequency and document frequency.</summary>
+        /// <summary>If <c>true</c>, the response includes term frequency and document frequency.</summary>
         public bool? TermStatistics
         {
             get => Q<bool?>("term_statistics");
             set => Q("term_statistics", value);
         }
 
-        /// <summary>If `true`, returns the document version as part of a hit.</summary>
+        /// <summary>If <c>true</c>, returns the document version as part of a hit.</summary>
         public long? Version
         {
             get => Q<long?>("version");
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type.</summary>
+        /// <summary>The specific version type.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -1791,9 +1810,9 @@ namespace OpenSearch.Net
         public override bool SupportsBody => true;
 
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an
-        /// index starts with `foo` but no index starts with `bar`.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting <c>foo*,bar*</c> returns
+        /// an error if an index starts with <c>foo</c> but no index starts with <c>bar</c>.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -1808,7 +1827,7 @@ namespace OpenSearch.Net
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `true`, missing or closed indexes are not included in the response.</summary>
+        /// <summary>If <c>true</c>, missing or closed indexes are not included in the response.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
@@ -1830,7 +1849,7 @@ namespace OpenSearch.Net
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
-        /// <summary>If `true`, the request refreshes affected shards to make this operation visible to search.</summary>
+        /// <summary>If <c>true</c>, the request refreshes affected shards to make this operation visible to search.</summary>
         public Refresh? Refresh
         {
             get => Q<Refresh?>("refresh");
@@ -1864,8 +1883,8 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
-        /// number of shards in the index (`number_of_replicas+1`).
+        /// The number of shard copies that must be active before proceeding with the operation. Set to <c>all</c> or any positive integer up to the
+        /// total number of shards in the index (<c>number_of_replicas+1</c>).
         /// </summary>
         public string WaitForActiveShards
         {
@@ -1873,7 +1892,7 @@ namespace OpenSearch.Net
             set => Q("wait_for_active_shards", value);
         }
 
-        /// <summary>If `true`, the request blocks until the operation is complete.</summary>
+        /// <summary>If <c>true</c>, the request blocks until the operation is complete.</summary>
         public bool? WaitForCompletion
         {
             get => Q<bool?>("wait_for_completion");
@@ -1919,8 +1938,8 @@ namespace OpenSearch.Net
         public override bool SupportsBody => true;
 
         /// <summary>
-        /// If `true`, the API response's `hit.total` property is returned as an integer. If `false`, the API response's `hit.total` property is
-        /// returned as an object.
+        /// If <c>true</c>, the API response's <c>hit.total</c> property is returned as an integer. If <c>false</c>, the API response's
+        /// <c>hit.total</c> property is returned as an object.
         /// </summary>
         public bool? TotalHitsAsInteger
         {
@@ -1936,9 +1955,9 @@ namespace OpenSearch.Net
         public override bool SupportsBody => true;
 
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an
-        /// index starts with `foo` but no index starts with `bar`.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting <c>foo*,bar*</c> returns
+        /// an error if an index starts with <c>foo</c> but no index starts with <c>bar</c>.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -1947,8 +1966,8 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// If `true`, returns partial results if there are shard request timeouts or shard failures. If `false`, returns an error with no partial
-        /// results.
+        /// If <c>true</c>, returns partial results if there are shard request timeouts or shard failures. If <c>false</c>, returns an error with no
+        /// partial results.
         /// </summary>
         public bool? AllowPartialSearchResults
         {
@@ -1963,7 +1982,7 @@ namespace OpenSearch.Net
             set => Q("analyzer", value);
         }
 
-        /// <summary>If `true`, wildcard and prefix queries are analyzed. This parameter can only be used when the q query string parameter is specified.</summary>
+        /// <summary>If <c>true</c>, wildcard and prefix queries are analyzed. This parameter can only be used when the q query string parameter is specified.</summary>
         public bool? AnalyzeWildcard
         {
             get => Q<bool?>("analyze_wildcard");
@@ -1981,7 +2000,7 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// The time after which the search request will be canceled. Request-level parameter takes precedence over `cancel_after_time_interval`
+        /// The time after which the search request will be canceled. Request-level parameter takes precedence over <c>cancel_after_time_interval</c>
         /// cluster setting.
         /// </summary>
         public TimeSpan CancelAfterTimeInterval
@@ -1991,8 +2010,8 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// If `true`, network round-trips between the coordinating node and the remote clusters are minimized when executing cross-cluster search
-        /// (CCS) requests.
+        /// If <c>true</c>, network round-trips between the coordinating node and the remote clusters are minimized when executing cross-cluster
+        /// search (CCS) requests.
         /// </summary>
         public bool? CcsMinimizeRoundtrips
         {
@@ -2000,7 +2019,10 @@ namespace OpenSearch.Net
             set => Q("ccs_minimize_roundtrips", value);
         }
 
-        /// <summary>The default operator for query string query: AND or OR. This parameter can only be used when the `q` query string parameter is specified.</summary>
+        /// <summary>
+        /// The default operator for query string query: AND or OR. This parameter can only be used when the <c>q</c> query string parameter is
+        /// specified.
+        /// </summary>
         public DefaultOperator? DefaultOperator
         {
             get => Q<DefaultOperator?>("default_operator");
@@ -2026,7 +2048,7 @@ namespace OpenSearch.Net
 
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -2034,14 +2056,14 @@ namespace OpenSearch.Net
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `true`, concrete, expanded or aliased indexes will be ignored when frozen.</summary>
+        /// <summary>If <c>true</c>, concrete, expanded or aliased indexes will be ignored when frozen.</summary>
         public bool? IgnoreThrottled
         {
             get => Q<bool?>("ignore_throttled");
             set => Q("ignore_throttled", value);
         }
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
@@ -2049,8 +2071,8 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// Indicates whether `hit.matched_queries` should be rendered as a map that includes the name of the matched query associated with its score
-        /// (true) or as an array containing the name of the matched queries (false).
+        /// Indicates whether <c>hit.matched_queries</c> should be rendered as a map that includes the name of the matched query associated with its
+        /// score (true) or as an array containing the name of the matched queries (false).
         /// </summary>
         public bool? IncludeNamedQueriesScore
         {
@@ -2059,8 +2081,8 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// If `true`, format-based query failures (such as providing text to a numeric field) in the query string will be ignored. This parameter can
-        /// only be used when the `q` query string parameter is specified.
+        /// If <c>true</c>, format-based query failures (such as providing text to a numeric field) in the query string will be ignored. This
+        /// parameter can only be used when the <c>q</c> query string parameter is specified.
         /// </summary>
         public bool? Lenient
         {
@@ -2078,7 +2100,7 @@ namespace OpenSearch.Net
             set => Q("max_concurrent_shard_requests", value);
         }
 
-        /// <summary>Indicates whether to return phase-level `took` time values in the response.</summary>
+        /// <summary>Indicates whether to return phase-level <c>took</c> time values in the response.</summary>
         public bool? PhaseTook
         {
             get => Q<bool?>("phase_took");
@@ -2087,14 +2109,14 @@ namespace OpenSearch.Net
 
         /// <summary>
         /// Nodes and shards used for the search. By default, OpenSearch selects from eligible nodes and shards using adaptive replica selection,
-        /// accounting for allocation awareness. Valid values are: `_only_local` to run the search only on shards on the local node; `_local` to, if
-        /// possible, run the search on shards on the local node, or if not, select shards using the default method;
-        /// `_only_nodes:&lt;node-id&gt;,&lt;node-id&gt;` to run the search on only the specified nodes IDs, where, if suitable shards exist on more
-        /// than one selected node, use shards on those nodes using the default method, or if none of the specified nodes are available, select shards
-        /// from any available node using the default method; `_prefer_nodes:&lt;node-id&gt;,&lt;node-id&gt;` to if possible, run the search on the
-        /// specified nodes IDs, or if not, select shards using the default method; `_shards:&lt;shard&gt;,&lt;shard&gt;` to run the search only on
-        /// the specified shards; `&lt;custom-string&gt;` (any string that does not start with `_`) to route searches with the same
-        /// `&lt;custom-string&gt;` to the same shards in the same order.
+        /// accounting for allocation awareness. Valid values are: <c>_only_local</c> to run the search only on shards on the local node;
+        /// <c>_local</c> to, if possible, run the search on shards on the local node, or if not, select shards using the default method;
+        /// <c>_only_nodes:&lt;node-id&gt;,&lt;node-id&gt;</c> to run the search on only the specified nodes IDs, where, if suitable shards exist on
+        /// more than one selected node, use shards on those nodes using the default method, or if none of the specified nodes are available, select
+        /// shards from any available node using the default method; <c>_prefer_nodes:&lt;node-id&gt;,&lt;node-id&gt;</c> to if possible, run the
+        /// search on the specified nodes IDs, or if not, select shards using the default method; <c>_shards:&lt;shard&gt;,&lt;shard&gt;</c> to run
+        /// the search only on the specified shards; <c>&lt;custom-string&gt;</c> (any string that does not start with <c>_</c>) to route searches
+        /// with the same <c>&lt;custom-string&gt;</c> to the same shards in the same order.
         /// </summary>
         public string Preference
         {
@@ -2125,14 +2147,14 @@ namespace OpenSearch.Net
             set => Q("q", value);
         }
 
-        /// <summary>If `true`, the caching of search results is enabled for requests where `size` is `0`. Defaults to index level settings.</summary>
+        /// <summary>If <c>true</c>, the caching of search results is enabled for requests where <c>size</c> is <c>0</c>. Defaults to index level settings.</summary>
         public bool? RequestCache
         {
             get => Q<bool?>("request_cache");
             set => Q("request_cache", value);
         }
 
-        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        /// <summary>A custom value used to route operations to a specific shard.</summary>
         public string[] Routing
         {
             get => Q<string[]>("routing");
@@ -2140,8 +2162,8 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// Period to retain the search context for scrolling. See Scroll search results. By default, this value cannot exceed `1d` (24 hours). You
-        /// can change this limit using the `search.max_keep_alive` cluster-level setting.
+        /// Period to retain the search context for scrolling. See Scroll search results. By default, this value cannot exceed <c>1d</c> (24 hours).
+        /// You can change this limit using the <c>search.max_keep_alive</c> cluster-level setting.
         /// </summary>
         public TimeSpan Scroll
         {
@@ -2163,14 +2185,14 @@ namespace OpenSearch.Net
             set => Q("search_type", value);
         }
 
-        /// <summary>If `true`, returns sequence number and primary term of the last modification of each hit.</summary>
+        /// <summary>If <c>true</c>, returns sequence number and primary term of the last modification of each hit.</summary>
         public bool? SequenceNumberPrimaryTerm
         {
             get => Q<bool?>("seq_no_primary_term");
             set => Q("seq_no_primary_term", value);
         }
 
-        /// <summary>Specific `tag` of the request for logging and statistical purposes.</summary>
+        /// <summary>Specific <c>tag</c> of the request for logging and statistical purposes.</summary>
         public string[] Stats
         {
             get => Q<string[]>("stats");
@@ -2179,8 +2201,8 @@ namespace OpenSearch.Net
 
         /// <summary>
         /// A comma-separated list of stored fields to return as part of a hit. If no fields are specified, no stored fields are included in the
-        /// response. If this field is specified, the `_source` parameter defaults to `false`. You can pass `_source: true` to return both source
-        /// fields and stored fields in the search response.
+        /// response. If this field is specified, the <c>_source</c> parameter defaults to <c>false</c>. You can pass <c>_source: true</c> to return
+        /// both source fields and stored fields in the search response.
         /// </summary>
         public string[] StoredFields
         {
@@ -2196,8 +2218,8 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// Specifies the suggest mode. This parameter can only be used when the `suggest_field` and `suggest_text` query string parameters are
-        /// specified.
+        /// Specifies the suggest mode. This parameter can only be used when the <c>suggest_field</c> and <c>suggest_text</c> query string parameters
+        /// are specified.
         /// </summary>
         public SuggestMode? SuggestMode
         {
@@ -2206,8 +2228,8 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// Number of suggestions to return. This parameter can only be used when the `suggest_field` and `suggest_text` query string parameters are
-        /// specified.
+        /// Number of suggestions to return. This parameter can only be used when the <c>suggest_field</c> and <c>suggest_text</c> query string
+        /// parameters are specified.
         /// </summary>
         public int? SuggestSize
         {
@@ -2216,8 +2238,8 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// The source text for which the suggestions should be returned. This parameter can only be used when the `suggest_field` and `suggest_text`
-        /// query string parameters are specified.
+        /// The source text for which the suggestions should be returned. This parameter can only be used when the <c>suggest_field</c> and
+        /// <c>suggest_text</c> query string parameters are specified.
         /// </summary>
         public string SuggestText
         {
@@ -2225,18 +2247,31 @@ namespace OpenSearch.Net
             set => Q("suggest_text", value);
         }
 
-        /// <summary>Indicates whether `hits.total` should be rendered as an integer or an object in the rest search response.</summary>
+        /// <summary>Indicates whether <c>hits.total</c> should be rendered as an integer or an object in the rest search response.</summary>
         public bool? TotalHitsAsInteger
         {
             get => Q<bool?>("rest_total_hits_as_int");
             set => Q("rest_total_hits_as_int", value);
         }
 
-        /// <summary>If `true`, aggregation and suggester names are be prefixed by their respective types in the response.</summary>
+        /// <summary>If <c>true</c>, aggregation and suggester names are be prefixed by their respective types in the response.</summary>
         public bool? TypedKeys
         {
             get => Q<bool?>("typed_keys");
             set => Q("typed_keys", value);
+        }
+
+        /// <summary>
+        /// Enables or disables verbose mode for the search pipeline. When verbose mode is enabled, detailed information about each processor in the
+        /// search pipeline is included in the search response. This includes the processor name, execution status, input, output, and time taken for
+        /// processing. This parameter is primarily intended for debugging purposes, allowing users to track how data flows and transforms through the
+        /// search pipeline.
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.0.0 or greater.</remarks>
+        public bool? VerbosePipeline
+        {
+            get => Q<bool?>("verbose_pipeline");
+            set => Q("verbose_pipeline", value);
         }
     }
 
@@ -2245,12 +2280,12 @@ namespace OpenSearch.Net
         : RequestParameters<SearchShardsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
-        public override bool SupportsBody => false;
+        public override bool SupportsBody => true;
 
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an
-        /// index starts with `foo` but no index starts with `bar`.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting <c>foo*,bar*</c> returns
+        /// an error if an index starts with <c>foo</c> but no index starts with <c>bar</c>.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -2260,8 +2295,8 @@ namespace OpenSearch.Net
 
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
-        /// `hidden`, `none`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>,
+        /// <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -2269,14 +2304,14 @@ namespace OpenSearch.Net
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>If `true`, the request retrieves information from the local node only.</summary>
+        /// <summary>If <c>true</c>, the request retrieves information from the local node only.</summary>
         public bool? Local
         {
             get => Q<bool?>("local");
@@ -2290,7 +2325,7 @@ namespace OpenSearch.Net
             set => Q("preference", value);
         }
 
-        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        /// <summary>A custom value used to route operations to a specific shard.</summary>
         public string[] Routing
         {
             get => Q<string[]>("routing");
@@ -2306,9 +2341,9 @@ namespace OpenSearch.Net
         public override bool SupportsBody => true;
 
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an
-        /// index starts with `foo` but no index starts with `bar`.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting <c>foo*,bar*</c> returns
+        /// an error if an index starts with <c>foo</c> but no index starts with <c>bar</c>.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -2316,7 +2351,7 @@ namespace OpenSearch.Net
             set => Q("allow_no_indices", value);
         }
 
-        /// <summary>If `true`, network round-trips are minimized for cross-cluster search requests.</summary>
+        /// <summary>If <c>true</c>, network round-trips are minimized for cross-cluster search requests.</summary>
         public bool? CcsMinimizeRoundtrips
         {
             get => Q<bool?>("ccs_minimize_roundtrips");
@@ -2325,8 +2360,8 @@ namespace OpenSearch.Net
 
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
-        /// `hidden`, `none`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>,
+        /// <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -2334,21 +2369,21 @@ namespace OpenSearch.Net
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>If `true`, the response includes additional details about score computation as part of a hit.</summary>
+        /// <summary>If <c>true</c>, the response includes additional details about score computation as part of a hit.</summary>
         public bool? Explain
         {
             get => Q<bool?>("explain");
             set => Q("explain", value);
         }
 
-        /// <summary>If `true`, specified concrete, expanded, or aliased indexes are not included in the response when throttled.</summary>
+        /// <summary>If <c>true</c>, specified concrete, expanded, or aliased indexes are not included in the response when throttled.</summary>
         public bool? IgnoreThrottled
         {
             get => Q<bool?>("ignore_throttled");
             set => Q("ignore_throttled", value);
         }
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
@@ -2362,14 +2397,14 @@ namespace OpenSearch.Net
             set => Q("preference", value);
         }
 
-        /// <summary>If `true`, the query execution is profiled.</summary>
+        /// <summary>If <c>true</c>, the query execution is profiled.</summary>
         public bool? Profile
         {
             get => Q<bool?>("profile");
             set => Q("profile", value);
         }
 
-        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        /// <summary>A custom value used to route operations to a specific shard.</summary>
         public string[] Routing
         {
             get => Q<string[]>("routing");
@@ -2390,14 +2425,14 @@ namespace OpenSearch.Net
             set => Q("search_type", value);
         }
 
-        /// <summary>If `true`, `hits.total` are rendered as an integer in the response.</summary>
+        /// <summary>If <c>true</c>, <c>hits.total</c> are rendered as an integer in the response.</summary>
         public bool? TotalHitsAsInteger
         {
             get => Q<bool?>("rest_total_hits_as_int");
             set => Q("rest_total_hits_as_int", value);
         }
 
-        /// <summary>If `true`, the response prefixes aggregation and suggester names with their respective types.</summary>
+        /// <summary>If <c>true</c>, the response prefixes aggregation and suggester names with their respective types.</summary>
         public bool? TypedKeys
         {
             get => Q<bool?>("typed_keys");
@@ -2413,8 +2448,8 @@ namespace OpenSearch.Net
         public override bool SupportsBody => true;
 
         /// <summary>
-        /// Comma-separated list or wildcard expressions of fields to include in the statistics. Used as the default list unless a specific field list
-        /// is provided in the `completion_fields` or `fielddata_fields` parameters.
+        /// A comma-separated list or a wildcard expression specifying the fields to include in the statistics. Used as the default list unless a
+        /// specific field list is provided in the <c>completion_fields</c> or <c>fielddata_fields</c> parameters.
         /// </summary>
         public string[] Fields
         {
@@ -2422,70 +2457,75 @@ namespace OpenSearch.Net
             set => Q("fields", value);
         }
 
-        /// <summary>If `true`, the response includes the document count, sum of document frequencies, and sum of total term frequencies.</summary>
+        /// <summary>If <c>true</c>, the response includes the document count, sum of document frequencies, and sum of total term frequencies.</summary>
         public bool? FieldStatistics
         {
             get => Q<bool?>("field_statistics");
             set => Q("field_statistics", value);
         }
 
-        /// <summary>If `true`, the response includes term offsets.</summary>
+        /// <summary>If <c>true</c>, the response includes term offsets.</summary>
         public bool? Offsets
         {
             get => Q<bool?>("offsets");
             set => Q("offsets", value);
         }
 
-        /// <summary>If `true`, the response includes term payloads.</summary>
+        /// <summary>If <c>true</c>, the response includes term payloads.</summary>
         public bool? Payloads
         {
             get => Q<bool?>("payloads");
             set => Q("payloads", value);
         }
 
-        /// <summary>If `true`, the response includes term positions.</summary>
+        /// <summary>If <c>true</c>, the response includes term positions.</summary>
         public bool? Positions
         {
             get => Q<bool?>("positions");
             set => Q("positions", value);
         }
 
-        /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
+        /// <summary>
+        /// Specifies the node or shard on which the operation should be performed. See <a
+        /// href="https://opensearch.org/docs/latest/api-reference/search-apis/search/#the-preference-query-parameter">preference query parameter</a>
+        /// for a list of available options. By default the requests are routed randomly to available shard copies (primary or replica), with no
+        /// guarantee of consistency across repeated queries.
+        /// </summary>
         public string Preference
         {
             get => Q<string>("preference");
             set => Q("preference", value);
         }
 
-        /// <summary>If `true`, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
             set => Q("realtime", value);
         }
 
-        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        /// <summary>A custom value used to route operations to a specific shard.</summary>
         public string[] Routing
         {
             get => Q<string[]>("routing");
             set => Q("routing", value);
         }
 
-        /// <summary>If `true`, the response includes term frequency and document frequency.</summary>
+        /// <summary>If <c>true</c>, the response includes term frequency and document frequency.</summary>
         public bool? TermStatistics
         {
             get => Q<bool?>("term_statistics");
             set => Q("term_statistics", value);
         }
 
-        /// <summary>If `true`, returns the document version as part of a hit.</summary>
+        /// <summary>If <c>true</c>, returns the document version as part of a hit.</summary>
         public long? Version
         {
             get => Q<long?>("version");
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type.</summary>
+        /// <summary>The specific version type.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -2521,8 +2561,8 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// If 'true', OpenSearch refreshes the affected shards to make this operation visible to search, if `wait_for` then wait for a refresh to
-        /// make this operation visible to search, if `false` do nothing with refreshes.
+        /// If 'true', OpenSearch refreshes the affected shards to make this operation visible to search, if <c>wait_for</c> then wait for a refresh
+        /// to make this operation visible to search, if <c>false</c> do nothing with refreshes.
         /// </summary>
         public Refresh? Refresh
         {
@@ -2530,7 +2570,7 @@ namespace OpenSearch.Net
             set => Q("refresh", value);
         }
 
-        /// <summary>If `true`, the destination must be an index alias.</summary>
+        /// <summary>If <c>true</c>, the destination must be an index alias.</summary>
         public bool? RequireAlias
         {
             get => Q<bool?>("require_alias");
@@ -2544,14 +2584,14 @@ namespace OpenSearch.Net
             set => Q("retry_on_conflict", value);
         }
 
-        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        /// <summary>A custom value used to route operations to a specific shard.</summary>
         public string[] Routing
         {
             get => Q<string[]>("routing");
             set => Q("routing", value);
         }
 
-        /// <summary>Set to `false` to disable source retrieval. You can also specify a comma-separated list of the fields you want to retrieve.</summary>
+        /// <summary>Set to <c>false</c> to disable source retrieval. You can also specify a comma-separated list of the fields you want to retrieve.</summary>
         public bool? SourceEnabled
         {
             get => Q<bool?>("_source");
@@ -2587,9 +2627,9 @@ namespace OpenSearch.Net
         public override bool SupportsBody => true;
 
         /// <summary>
-        /// If `false`, the request returns an error if any wildcard expression, index alias, or `_all` value targets only missing or closed indexes.
-        /// This behavior applies even if the request targets other open indexes. For example, a request targeting `foo*,bar*` returns an error if an
-        /// index starts with `foo` but no index starts with `bar`.
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting <c>foo*,bar*</c> returns
+        /// an error if an index starts with <c>foo</c> but no index starts with <c>bar</c>.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -2604,21 +2644,21 @@ namespace OpenSearch.Net
             set => Q("analyzer", value);
         }
 
-        /// <summary>If `true`, wildcard and prefix queries are analyzed.</summary>
+        /// <summary>If <c>true</c>, wildcard and prefix queries are analyzed.</summary>
         public bool? AnalyzeWildcard
         {
             get => Q<bool?>("analyze_wildcard");
             set => Q("analyze_wildcard", value);
         }
 
-        /// <summary>What to do if update by query hits version conflicts: `abort` or `proceed`.</summary>
+        /// <summary>What to do if update by query hits version conflicts: <c>abort</c> or <c>proceed</c>.</summary>
         public Conflicts? Conflicts
         {
             get => Q<Conflicts?>("conflicts");
             set => Q("conflicts", value);
         }
 
-        /// <summary>The default operator for query string query: `AND` or `OR`.</summary>
+        /// <summary>The default operator for query string query: <c>AND</c> or <c>OR</c>.</summary>
         public DefaultOperator? DefaultOperator
         {
             get => Q<DefaultOperator?>("default_operator");
@@ -2634,8 +2674,8 @@ namespace OpenSearch.Net
 
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
-        /// expressions match hidden data streams. Supports comma-separated values, such as `open,hidden`. Valid values are: `all`, `open`, `closed`,
-        /// `hidden`, `none`.
+        /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>. Valid values are: <c>all</c>,
+        /// <c>open</c>, <c>closed</c>, <c>hidden</c>, <c>none</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
         {
@@ -2650,14 +2690,14 @@ namespace OpenSearch.Net
             set => Q("from", value);
         }
 
-        /// <summary>If `false`, the request returns an error if it targets a missing or closed index.</summary>
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>If `true`, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
+        /// <summary>If <c>true</c>, format-based query failures (such as providing text to a numeric field) in the query string will be ignored.</summary>
         public bool? Lenient
         {
             get => Q<bool?>("lenient");
@@ -2666,8 +2706,8 @@ namespace OpenSearch.Net
 
         /// <summary>
         /// ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value
-        /// to `_none` disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of the
-        /// value of this parameter.
+        /// to <c>_none</c> disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of
+        /// the value of this parameter.
         /// </summary>
         public string Pipeline
         {
@@ -2689,14 +2729,14 @@ namespace OpenSearch.Net
             set => Q("q", value);
         }
 
-        /// <summary>If `true`, OpenSearch refreshes affected shards to make the operation visible to search.</summary>
+        /// <summary>If <c>true</c>, OpenSearch refreshes affected shards to make the operation visible to search.</summary>
         public Refresh? Refresh
         {
             get => Q<Refresh?>("refresh");
             set => Q("refresh", value);
         }
 
-        /// <summary>If `true`, the request cache is used for this request.</summary>
+        /// <summary>If <c>true</c>, the request cache is used for this request.</summary>
         public bool? RequestCache
         {
             get => Q<bool?>("request_cache");
@@ -2710,7 +2750,7 @@ namespace OpenSearch.Net
             set => Q("requests_per_second", value);
         }
 
-        /// <summary>Custom value used to route operations to a specific shard.</summary>
+        /// <summary>A custom value used to route operations to a specific shard.</summary>
         public string[] Routing
         {
             get => Q<string[]>("routing");
@@ -2738,14 +2778,14 @@ namespace OpenSearch.Net
             set => Q("search_timeout", value);
         }
 
-        /// <summary>The type of the search operation. Available options: `query_then_fetch`, `dfs_query_then_fetch`.</summary>
+        /// <summary>The type of the search operation. Available options: <c>query_then_fetch</c>, <c>dfs_query_then_fetch</c>.</summary>
         public SearchType? SearchType
         {
             get => Q<SearchType?>("search_type");
             set => Q("search_type", value);
         }
 
-        /// <summary>Deprecated, use `max_docs` instead.</summary>
+        /// <summary>Deprecated, use <c>max_docs</c> instead.</summary>
         public int? Size
         {
             get => Q<int?>("size");
@@ -2759,28 +2799,28 @@ namespace OpenSearch.Net
             set => Q("sort", value);
         }
 
-        /// <summary>Set to `true` or `false` to return the `_source` field or not, or a list of fields to return.</summary>
+        /// <summary>Set to <c>true</c> or <c>false</c> to return the <c>_source</c> field or not, or a list of fields to return.</summary>
         public bool? SourceEnabled
         {
             get => Q<bool?>("_source");
             set => Q("_source", value);
         }
 
-        /// <summary>List of fields to exclude from the returned `_source` field.</summary>
+        /// <summary>List of fields to exclude from the returned <c>_source</c> field.</summary>
         public string[] SourceExcludes
         {
             get => Q<string[]>("_source_excludes");
             set => Q("_source_excludes", value);
         }
 
-        /// <summary>List of fields to extract and return from the `_source` field.</summary>
+        /// <summary>List of fields to extract and return from the <c>_source</c> field.</summary>
         public string[] SourceIncludes
         {
             get => Q<string[]>("_source_includes");
             set => Q("_source_includes", value);
         }
 
-        /// <summary>Specific `tag` of the request for logging and statistical purposes.</summary>
+        /// <summary>Specific <c>tag</c> of the request for logging and statistical purposes.</summary>
         public string[] Stats
         {
             get => Q<string[]>("stats");
@@ -2806,7 +2846,7 @@ namespace OpenSearch.Net
             set => Q("timeout", value);
         }
 
-        /// <summary>If `true`, returns the document version as part of a hit.</summary>
+        /// <summary>If <c>true</c>, returns the document version as part of a hit.</summary>
         public bool? Version
         {
             get => Q<bool?>("version");
@@ -2814,8 +2854,8 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// The number of shard copies that must be active before proceeding with the operation. Set to `all` or any positive integer up to the total
-        /// number of shards in the index (`number_of_replicas+1`).
+        /// The number of shard copies that must be active before proceeding with the operation. Set to <c>all</c> or any positive integer up to the
+        /// total number of shards in the index (<c>number_of_replicas+1</c>).
         /// </summary>
         public string WaitForActiveShards
         {
@@ -2823,7 +2863,7 @@ namespace OpenSearch.Net
             set => Q("wait_for_active_shards", value);
         }
 
-        /// <summary>If `true`, the request blocks until the operation is complete.</summary>
+        /// <summary>If <c>true</c>, the request blocks until the operation is complete.</summary>
         public bool? WaitForCompletion
         {
             get => Q<bool?>("wait_for_completion");

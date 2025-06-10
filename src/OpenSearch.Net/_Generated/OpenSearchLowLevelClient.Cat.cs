@@ -94,7 +94,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/aliases/{name} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/</para></summary>
-        /// <param name="name">A comma-separated list of aliases to retrieve. Supports wildcards (`*`). To retrieve all aliases, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="name">A comma-separated list of aliases to retrieve. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To retrieve all aliases, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Aliases<TResponse>(
             string name,
@@ -109,7 +109,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/aliases/{name} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/</para></summary>
-        /// <param name="name">A comma-separated list of aliases to retrieve. Supports wildcards (`*`). To retrieve all aliases, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="name">A comma-separated list of aliases to retrieve. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To retrieve all aliases, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cat.aliases", "name")]
         public Task<TResponse> AliasesAsync<TResponse>(
@@ -268,7 +268,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/count/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-count/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Count<TResponse>(
             string index,
@@ -283,7 +283,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/count/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-count/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cat.count", "index")]
         public Task<TResponse> CountAsync<TResponse>(
@@ -418,7 +418,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/indices/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-indices/</para></summary>
-        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Indices<TResponse>(
             string index,
@@ -433,7 +433,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/indices/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-indices/</para></summary>
-        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cat.indices", "index")]
         public Task<TResponse> IndicesAsync<TResponse>(
@@ -623,7 +623,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/recovery/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>
-        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Recovery<TResponse>(
             string index,
@@ -638,7 +638,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/recovery/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>
-        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cat.recovery", "index")]
         public Task<TResponse> RecoveryAsync<TResponse>(
@@ -711,7 +711,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/segment_replication/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/</para></summary>
-        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.6.0 or greater.</remarks>
         public TResponse SegmentReplication<TResponse>(
@@ -727,7 +727,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/segment_replication/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/</para></summary>
-        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.6.0 or greater.</remarks>
         [MapsApi("cat.segment_replication", "index")]
@@ -768,7 +768,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/segments/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</para></summary>
-        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Segments<TResponse>(
             string index,
@@ -783,7 +783,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/segments/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</para></summary>
-        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cat.segments", "index")]
         public Task<TResponse> SegmentsAsync<TResponse>(
@@ -823,7 +823,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/shards/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</para></summary>
-        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Shards<TResponse>(
             string index,
@@ -838,7 +838,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/shards/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</para></summary>
-        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</param>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cat.shards", "index")]
         public Task<TResponse> ShardsAsync<TResponse>(
@@ -880,7 +880,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/snapshots/{repository} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</para></summary>
-        /// <param name="repository">A comma-separated list of snapshot repositories used to limit the request. Accepts wildcard expressions. `_all` returns all repositories. If any repository fails during the request, OpenSearch returns an error.</param>
+        /// <param name="repository">A comma-separated list of snapshot repositories used to limit the request. Accepts wildcard expressions. &lt;c&gt;_all&lt;/c&gt; returns all repositories. If any repository fails during the request, OpenSearch returns an error.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Snapshots<TResponse>(
             string repository,
@@ -895,7 +895,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/snapshots/{repository} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</para></summary>
-        /// <param name="repository">A comma-separated list of snapshot repositories used to limit the request. Accepts wildcard expressions. `_all` returns all repositories. If any repository fails during the request, OpenSearch returns an error.</param>
+        /// <param name="repository">A comma-separated list of snapshot repositories used to limit the request. Accepts wildcard expressions. &lt;c&gt;_all&lt;/c&gt; returns all repositories. If any repository fails during the request, OpenSearch returns an error.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cat.snapshots", "repository")]
         public Task<TResponse> SnapshotsAsync<TResponse>(
