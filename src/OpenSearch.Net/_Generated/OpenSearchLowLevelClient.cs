@@ -75,6 +75,7 @@ using OpenSearch.Net.Specification.RemoteStoreApi;
 using OpenSearch.Net.Specification.ReplicationApi;
 using OpenSearch.Net.Specification.RollupsApi;
 using OpenSearch.Net.Specification.SearchPipelineApi;
+using OpenSearch.Net.Specification.SearchRelevanceApi;
 using OpenSearch.Net.Specification.SecurityApi;
 using OpenSearch.Net.Specification.SmApi;
 using OpenSearch.Net.Specification.SnapshotApi;
@@ -118,6 +119,7 @@ namespace OpenSearch.Net
         public LowLevelReplicationNamespace Replication { get; private set; }
         public LowLevelRollupsNamespace Rollups { get; private set; }
         public LowLevelSearchPipelineNamespace SearchPipeline { get; private set; }
+        public LowLevelSearchRelevanceNamespace SearchRelevance { get; private set; }
         public LowLevelSecurityNamespace Security { get; private set; }
         public LowLevelSmNamespace Sm { get; private set; }
         public LowLevelSnapshotNamespace Snapshot { get; private set; }
@@ -153,6 +155,7 @@ namespace OpenSearch.Net
             Replication = new LowLevelReplicationNamespace(this);
             Rollups = new LowLevelRollupsNamespace(this);
             SearchPipeline = new LowLevelSearchPipelineNamespace(this);
+            SearchRelevance = new LowLevelSearchRelevanceNamespace(this);
             Security = new LowLevelSecurityNamespace(this);
             Sm = new LowLevelSmNamespace(this);
             Snapshot = new LowLevelSnapshotNamespace(this);

@@ -75,6 +75,7 @@ using OpenSearch.Net.Specification.RemoteStoreApi;
 using OpenSearch.Net.Specification.ReplicationApi;
 using OpenSearch.Net.Specification.RollupsApi;
 using OpenSearch.Net.Specification.SearchPipelineApi;
+using OpenSearch.Net.Specification.SearchRelevanceApi;
 using OpenSearch.Net.Specification.SecurityApi;
 using OpenSearch.Net.Specification.SmApi;
 using OpenSearch.Net.Specification.SnapshotApi;
@@ -164,6 +165,9 @@ namespace OpenSearch.Net
 
         /// <summary>Search Pipeline APIs</summary>
         LowLevelSearchPipelineNamespace SearchPipeline { get; }
+
+        /// <summary>Search Relevance APIs</summary>
+        LowLevelSearchRelevanceNamespace SearchRelevance { get; }
 
         /// <summary>Security APIs</summary>
         LowLevelSecurityNamespace Security { get; }
