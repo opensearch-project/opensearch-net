@@ -35,6 +35,18 @@ public interface IKnnQuery : IFieldNameQuery
 	/// </summary>
 	[DataMember(Name = "filter")]
 	IQueryContainer Filter { get; set; }
+
+    /// <summary>
+    /// The maximum physical vector space distance required in order for a neighbor to be considered a hit.
+    /// </summary>
+    [DataMember(Name = "max_distance")]
+    float? MaxDistance { get; set; }
+
+    /// <summary>
+    /// The minimum similarity score required in order for a neighbor to be considered a hit.
+    /// </summary>
+    [DataMember(Name = "min_score")]
+    float? MinScore { get; set; }
 }
 
 [DataContract]
@@ -46,6 +58,10 @@ public class KnnQuery : FieldNameQueryBase, IKnnQuery
 	public int? K { get; set; }
 	/// <inheritdoc />
 	public IQueryContainer Filter { get; set; }
+    /// <inheritdoc />
+    public float? MaxDistance { get; set; }
+    /// <inheritdoc />
+    public float? MinScore { get; set; }
 
 	protected override bool Conditionless => IsConditionless(this);
 
@@ -63,6 +79,8 @@ public class KnnQueryDescriptor<T>
 	float[] IKnnQuery.Vector { get; set; }
 	int? IKnnQuery.K { get; set; }
 	IQueryContainer IKnnQuery.Filter { get; set; }
+    float? IKnnQuery.MaxDistance { get; set; }
+    float? IKnnQuery.MinScore { get; set; }
 
 	/// <inheritdoc cref="IKnnQuery.Vector" />
 	public KnnQueryDescriptor<T> Vector(params float[] vector) => Assign(vector, (a, v) => a.Vector = v);
@@ -73,4 +91,12 @@ public class KnnQueryDescriptor<T>
 	/// <inheritdoc cref="IKnnQuery.Filter" />
 	public KnnQueryDescriptor<T> Filter(Func<QueryContainerDescriptor<T>, QueryContainer> filterSelector) =>
 		Assign(filterSelector, (a, v) => a.Filter = v?.Invoke(new QueryContainerDescriptor<T>()));
+
+    /// <inheritdoc cref="IKnnQuery.MaxDistance" />
+    public KnnQueryDescriptor<T> MaxDistance(float? maxDistance) =>
+        Assign(maxDistance, (a, v) => a.MaxDistance = v);
+
+    /// <inheritdoc cref="IKnnQuery.MinScore" />
+    public KnnQueryDescriptor<T> MinScore(float? minScore) =>
+        Assign(minScore, (a, v) => a.MinScore = v);
 }
