@@ -51,7 +51,7 @@ public class NeuralQuery : FieldNameQueryBase, INeuralQuery
 
 	internal override void InternalWrapInContainer(IQueryContainer container) => container.Neural = this;
 
-	internal static bool IsConditionless(INeuralQuery q) => string.IsNullOrEmpty(q.QueryText) || q.K == null || q.K == 0 || string.IsNullOrEmpty(q.ModelId) || q.Field.IsConditionless();
+	internal static bool IsConditionless(INeuralQuery q) => string.IsNullOrEmpty(q.QueryText) || q.K == null || q.K == 0 || q.Field.IsConditionless();
 }
 
 public class NeuralQueryDescriptor<T>

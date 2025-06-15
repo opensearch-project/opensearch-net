@@ -131,6 +131,11 @@ namespace OpenSearch.Client
 				v.Visit(d);
 				Accept(v, d.Query);
 			});
+            VisitQuery(qd.Hybrid, visitor, (v, d) =>
+            {
+                v.Visit(d);
+                Accept(v, d.Queries);
+            });
 			VisitQuery(qd.Knn, visitor, (v, d) =>
 			{
 				v.Visit(d);

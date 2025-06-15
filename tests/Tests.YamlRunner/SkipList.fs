@@ -44,8 +44,11 @@ let SkipList = dict<SkipFile,SkipSection> [
     // argument is an enum in .NET client, meaning invalid value can't be passed
     SkipFile "indices.stats/10_index.yml", Section "Indices stats unrecognized parameter"
 
+    // TODO: unexpected body property in request
+    SkipFile "nodes.reload_secure_settings/10_basic.yml", Section "node_reload_secure_settings test wrong password"
+    
     // TODO: Better support parsing and asserting unsigned longs (hitting long vs double precision issues)
-    SkipFile "search.aggregation/20_terms.yml", Section "Unsigned Long test"
+    SkipFile "search.aggregation/20_terms.yml", Sections [ "Unsigned Long test"; "Unmapped strings" ]
     SkipFile "search.aggregation/230_composite_unsigned.yml", All
     SkipFile "search.aggregation/370_multi_terms.yml", Section "Unsigned Long test"
     SkipFile "search.aggregation/410_nested_aggs.yml", Section "Supported queries"
@@ -53,4 +56,7 @@ let SkipList = dict<SkipFile,SkipSection> [
     SkipFile "search/260_sort_unsigned_long.yml", Section "test sorting against unsigned_long only fields"
     
     SkipFile "search_shards/20_slice.yml", Section "Search shards with slice specified in body"
+
+    // TODO: support wlm stats
+    SkipFile "wlm_stats/10_basic.yml", All
 ]

@@ -66,16 +66,23 @@ module Tests =
             // relies heavily on the original console logger
             let wants = match args.CommandArguments with | Integration a -> a.TrxExport | Test t -> t.TrxExport | _ -> false
             let prefix = if wants then ".ci" else ""
-            sprintf "tests/%s.runsettings" prefix
+            $"tests/%s{prefix}.runsettings"
         
         Directory.CreateDirectory Paths.BuildOutput |> ignore
         let command = ["test"; proj; "--nologo"; "-c"; "Release"; "-s"; runSettings; "--no-build"]
         
         let wantsTrx =
             let wants = match args.CommandArguments with | Integration a -> a.TrxExport | Test t -> t.TrxExport | _ -> false
-            let junitOutput = Path.GetFullPath <| Path.Combine(Paths.BuildOutput, "junit-{assembly}-{framework}-test-results.xml")
-            let loggerPathArgs = sprintf "LogFilePath=%s" junitOutput
-            let loggerArg = sprintf "--logger:\"junit;%s\"" loggerPathArgs
+            let differentiator =
+                match args.CommandArguments with
+                | Integration a ->
+                    match a.ClusterFilter with
+                    | Some s -> s.Replace(",", "-") + "-"
+                    | None -> ""
+                | _ -> ""
+            let junitOutput = Path.GetFullPath <| Path.Combine(Paths.BuildOutput, $"junit-{{assembly}}-{{framework}}-%s{differentiator}test-results.xml")
+            let loggerPathArgs = $"LogFilePath=%s{junitOutput}"
+            let loggerArg = $"--logger:\"junit;%s{loggerPathArgs}\""
             match wants with | true -> [loggerArg] | false -> []
            
         let commandWithAdditionalOptions = wantsTrx |> List.append command
