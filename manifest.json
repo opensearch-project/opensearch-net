@@ -12124,6 +12124,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.HybridQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.HybridQuery.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Client.HybridQuery",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.HybridQueryDescriptor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.HybridQueryDescriptor-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Client.HybridQueryDescriptor<T>",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.HyphenationDecompounderTokenFilter.yml",
       "output": {
         ".html": {
@@ -16475,6 +16503,20 @@
       "IsMRef": true,
       "Title": "OpenSearch.Client.IHunspellTokenFilter",
       "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Client.IHunspellTokenFilter.yml\" sourcestartlinenumber=\"1\">Basic support for hunspell stemming.</p>\n<p> Hunspell dictionaries will be picked up from a dedicated hunspell directory on the filesystem.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.IHybridQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Client.IHybridQuery.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Client.IHybridQuery",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Client.IHybridQuery.yml\" sourcestartlinenumber=\"1\">A hybrid query.</p>\n"
     },
     {
       "type": "ManagedReference",
