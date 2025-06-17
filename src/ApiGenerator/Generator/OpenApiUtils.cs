@@ -27,6 +27,8 @@ public static class OpenApiUtils
 
         foreach (var s in schema.OneOf)
         {
+            if (s.Type == JsonObjectType.Null) continue;
+
             if (s.Type == JsonObjectType.Boolean)
                 booleanCount++;
             else if (s.IsEnum()) enumCount++;

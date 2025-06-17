@@ -87,7 +87,7 @@ namespace OpenSearch.Net.Specification.ListApi
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>A short version of the Accept header, such as `JSON`, `YAML`.</summary>
+        /// <summary>A short version of the Accept header, such as <c>JSON</c>, <c>YAML</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -115,7 +115,7 @@ namespace OpenSearch.Net.Specification.ListApi
             set => Q("help", value);
         }
 
-        /// <summary>If `true`, the response includes information from segments that are not loaded into memory.</summary>
+        /// <summary>If <c>true</c>, the response includes information from segments that are not loaded into memory.</summary>
         public bool? IncludeUnloadedSegments
         {
             get => Q<bool?>("include_unloaded_segments");
@@ -146,7 +146,7 @@ namespace OpenSearch.Net.Specification.ListApi
             set => Q("next_token", value);
         }
 
-        /// <summary>If `true`, the response only includes information from primary shards.</summary>
+        /// <summary>If <c>true</c>, the response only includes information from primary shards.</summary>
         public bool? Pri
         {
             get => Q<bool?>("pri");
@@ -161,8 +161,8 @@ namespace OpenSearch.Net.Specification.ListApi
         }
 
         /// <summary>
-        /// Defines order in which indexes will be displayed. Accepted values are `asc` and `desc`. If `desc`, most recently created indexes would be
-        /// displayed first.
+        /// Defines order in which indexes will be displayed. Accepted values are <c>asc</c> and <c>desc</c>. If <c>desc</c>, most recently created
+        /// indexes would be displayed first.
         /// </summary>
         public string Sort
         {
@@ -206,7 +206,7 @@ namespace OpenSearch.Net.Specification.ListApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the Accept header, such as `JSON`, `YAML`.</summary>
+        /// <summary>A short version of the Accept header, such as <c>JSON</c>, <c>YAML</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -259,8 +259,8 @@ namespace OpenSearch.Net.Specification.ListApi
         }
 
         /// <summary>
-        /// Defines order in which shards will be displayed. Accepted values are `asc` and `desc`. If `desc`, most recently created shards would be
-        /// displayed first.
+        /// Defines order in which shards will be displayed. Accepted values are <c>asc</c> and <c>desc</c>. If <c>desc</c>, most recently created
+        /// shards would be displayed first.
         /// </summary>
         public string Sort
         {

@@ -36,6 +36,10 @@ using ApiGenerator.Configuration.Overrides;
 using ApiGenerator.Domain;
 using ApiGenerator.Domain.Code;
 using ApiGenerator.Domain.Specification;
+using Markdig;
+using Markdig.Renderers;
+using Markdig.Renderers.Html;
+using Markdig.Syntax.Inlines;
 using NJsonSchema;
 using NJsonSchema.References;
 using NSwag;
@@ -249,6 +253,7 @@ namespace ApiGenerator.Generator
                     ("int", _) => "string",
                     (_, "double") => "string",
                     (_, "int") => "string",
+                    ("string", _) => "string",
                     (_, _) => throw new Exception($"Unable to determine type of: {first} and {second}")
                 };
             }
@@ -283,7 +288,7 @@ namespace ApiGenerator.Generator
             (schema.XDeprecationMessage(), schema.XVersionDeprecated()) switch
             {
                 (null, null) => null,
-                var (m, v) => new Deprecation { Description = m?.SanitizeDescription(), Version = v }
+                var (m, v) => new Deprecation { Description = m?.SanitizeDescription(renderMarkdown: false), Version = v }
             };
 
         private static string GetDescription(this OpenApiRequestBody requestBody)
@@ -313,16 +318,61 @@ namespace ApiGenerator.Generator
             }
         }
 
-        private static string SanitizeDescription(this string description)
+        private class MarkdownExtension : IMarkdownExtension
+        {
+            public void Setup(MarkdownPipelineBuilder pipeline) => pipeline.DisableHtml();
+
+            public void Setup(MarkdownPipeline pipeline, IMarkdownRenderer renderer)
+            {
+                if (renderer is HtmlRenderer htmlRenderer)
+                {
+                    htmlRenderer.ImplicitParagraph = true;
+                    htmlRenderer.ObjectRenderers.Insert(0, new CodeInlineRenderer());
+                }
+            }
+
+            private class CodeInlineRenderer : HtmlObjectRenderer<CodeInline>
+            {
+                protected override void Write(HtmlRenderer renderer, CodeInline obj)
+                {
+                    if (renderer.EnableHtmlForInline)
+                    {
+                        renderer.Write("<c");
+                        renderer.WriteAttributes(obj);
+                        renderer.Writer.Write('>');
+                    }
+                    if (renderer.EnableHtmlEscape)
+                    {
+                        renderer.WriteEscape(obj.ContentSpan);
+                    }
+                    else
+                    {
+                        renderer.Write(obj.ContentSpan);
+                    }
+                    if (renderer.EnableHtmlForInline)
+                    {
+                        renderer.Writer.Write("</c>");
+                    }
+                }
+            }
+        }
+
+        private static readonly MarkdownPipeline MarkdownPipeline = new MarkdownPipelineBuilder()
+            .Use<MarkdownExtension>()
+            .Build();
+
+        private static string SanitizeDescription(this string description, bool renderMarkdown = true)
         {
             if (string.IsNullOrWhiteSpace(description)) return null;
 
-            description = Regex.Replace(description, "&", "&amp;");
-            description = Regex.Replace(description, "<", "&lt;");
-            description = Regex.Replace(description, ">", "&gt;");
-            description = Regex.Replace(description, @"\s+", " ");
+            description = Regex.Replace(description, @"\s+", " ")
+                .Replace("{{site.url}}", "https://opensearch.org")
+                .Replace("{{site.baseurl}}", "/docs/latest");
 
             if (!description.EndsWith('.')) description += '.';
+
+            if (renderMarkdown)
+                description = Markdown.ToHtml(description, MarkdownPipeline).TrimEnd('\r', '\n');
 
             return description;
         }

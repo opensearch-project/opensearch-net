@@ -83,7 +83,7 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
         }
 
         /// <summary>
-        /// The amount of time that the result is saved in the cluster. For example, `2d` means that the results are stored in the cluster for 48
+        /// The amount of time that the result is saved in the cluster. For example, <c>2d</c> means that the results are stored in the cluster for 48
         /// hours. The saved search results are deleted after this period or if the search is canceled. Note that this includes the query execution
         /// time. If the query exceeds this amount of time, the process cancels this query automatically.
         /// </summary>
@@ -102,7 +102,7 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
 
         /// <summary>
         /// The amount of time to wait for the results. You can poll the remaining results based on an ID. The maximum value is 300 seconds. Default
-        /// is `1s`.
+        /// is <c>1s</c>.
         /// </summary>
         public string WaitForCompletionTimeout
         {

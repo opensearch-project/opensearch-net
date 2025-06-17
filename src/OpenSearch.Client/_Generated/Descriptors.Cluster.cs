@@ -70,11 +70,11 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>When `true`, returns information about disk usage and shard sizes.</summary>
+        /// <summary>When <c>true</c>, returns information about disk usage and shard sizes.</summary>
         public ClusterAllocationExplainDescriptor IncludeDiskInfo(bool? includediskinfo = true) =>
             Qs("include_disk_info", includediskinfo);
 
-        /// <summary>When `true`, returns any `YES` decisions in the allocation explanation. `YES` decisions indicate when a particular shard allocation attempt was successful for the given node.</summary>
+        /// <summary>When <c>true</c>, returns any <c>YES</c> decisions in the allocation explanation. <c>YES</c> decisions indicate when a particular shard allocation attempt was successful for the given node.</summary>
         public ClusterAllocationExplainDescriptor IncludeYesDecisions(
             bool? includeyesdecisions = true
         ) => Qs("include_yes_decisions", includeyesdecisions);
@@ -105,20 +105,20 @@ namespace OpenSearch.Client
         Name IDeleteComponentTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
 
         // Request parameters
-        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public DeleteComponentTemplateDescriptor ClusterManagerTimeout(
             Time clustermanagertimeout
         ) => Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts `0` without a unit and `-1` to indicate an unspecified value.</summary>
+        /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public DeleteComponentTemplateDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts `0` without a unit and `-1` to indicate an unspecified value.</summary>
+        /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
         public DeleteComponentTemplateDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
@@ -135,7 +135,7 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>Specifies whether to wait for all excluded nodes to be removed from the cluster before clearing the voting configuration exclusions list. When `true`, all excluded nodes are removed from the cluster before this API takes any action. When `false`, the voting configuration exclusions list is cleared even if some excluded nodes are still in the cluster.</summary>
+        /// <summary>Specifies whether to wait for all excluded nodes to be removed from the cluster before clearing the voting configuration exclusions list. When <c>true</c>, all excluded nodes are removed from the cluster before this API takes any action. When <c>false</c>, the voting configuration exclusions list is cleared even if some excluded nodes are still in the cluster.</summary>
         public DeleteVotingConfigExclusionsDescriptor WaitForRemoval(bool? waitforremoval = true) =>
             Qs("wait_for_removal", waitforremoval);
     }
@@ -165,16 +165,16 @@ namespace OpenSearch.Client
         Name IComponentTemplateExistsRequest.Name => Self.RouteValues.Get<Name>("name");
 
         // Request parameters
-        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public ComponentTemplateExistsDescriptor ClusterManagerTimeout(
             Time clustermanagertimeout
         ) => Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>When `true`, the request retrieves information from the local node only. When `false, information is retrieved from the cluster manager node.</summary>
+        /// <summary>When <c>true</c>, the request retrieves information from the local node only. When <c>false</c>, information is retrieved from the cluster manager node.</summary>
         public ComponentTemplateExistsDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts `0` without a unit and `-1` to indicate an unspecified value.</summary>
+        /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -205,24 +205,24 @@ namespace OpenSearch.Client
         // values part of the url path
         Name IGetComponentTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
 
-        /// <summary>The name of the component template to retrieve. Wildcard (`*`) expressions are supported.</summary>
+        /// <summary>The name of the component template to retrieve. Wildcard (<c>*</c>) expressions are supported.</summary>
         public GetComponentTemplateDescriptor Name(Name name) =>
             Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
         // Request parameters
-        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public GetComponentTemplateDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Whether to return settings in the flat form, which can improve readability, especially for heavily nested settings. For example, the flat form of `"cluster": { "max_shards_per_node": 500 }` is `"cluster.max_shards_per_node": "500"`.</summary>
+        /// <summary>Whether to return settings in the flat form, which can improve readability, especially for heavily nested settings. For example, the flat form of <c>&quot;cluster&quot;: { &quot;max_shards_per_node&quot;: 500 }</c> is <c>&quot;cluster.max_shards_per_node&quot;: &quot;500&quot;</c>.</summary>
         public GetComponentTemplateDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
-        /// <summary>When `true`, the request retrieves information from the local node only. When `false`, information is retrieved from the cluster manager node.</summary>
+        /// <summary>When <c>true</c>, the request retrieves information from the local node only. When <c>false</c>, information is retrieved from the cluster manager node.</summary>
         public GetComponentTemplateDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts `0` without a unit and `-1` to indicate an unspecified value.</summary>
+        /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -243,27 +243,27 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public ClusterGetSettingsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Whether to return settings in the flat form, which can improve readability, especially for heavily nested settings. For example, the flat form of `"cluster": { "max_shards_per_node": 500 }` is `"cluster.max_shards_per_node": "500"`.</summary>
+        /// <summary>Whether to return settings in the flat form, which can improve readability, especially for heavily nested settings. For example, the flat form of <c>&quot;cluster&quot;: { &quot;max_shards_per_node&quot;: 500 }</c> is <c>&quot;cluster.max_shards_per_node&quot;: &quot;500&quot;</c>.</summary>
         public ClusterGetSettingsDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
-        /// <summary>When `true`, returns default cluster settings from the local node.</summary>
+        /// <summary>When <c>true</c>, returns default cluster settings from the local node.</summary>
         public ClusterGetSettingsDescriptor IncludeDefaults(bool? includedefaults = true) =>
             Qs("include_defaults", includedefaults);
 
-        /// <summary>A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts `0` without a unit and `-1` to indicate an unspecified value.</summary>
+        /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public ClusterGetSettingsDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts `0` without a unit and `-1` to indicate an unspecified value.</summary>
+        /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
         public ClusterGetSettingsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
@@ -290,7 +290,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IClusterHealthRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public ClusterHealthDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -303,11 +303,11 @@ namespace OpenSearch.Client
         public ClusterHealthDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
-        /// <summary>The name of the awareness attribute for which to return the cluster health status (for example, `zone`). Applicable only if `level` is set to `awareness_attributes`.</summary>
+        /// <summary>The name of the awareness attribute for which to return the cluster health status (for example, <c>zone</c>). Applicable only if <c>level</c> is set to <c>awareness_attributes</c>.</summary>
         public ClusterHealthDescriptor AwarenessAttribute(string awarenessattribute) =>
             Qs("awareness_attribute", awarenessattribute);
 
-        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public ClusterHealthDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
@@ -322,17 +322,17 @@ namespace OpenSearch.Client
         /// <summary>Whether to return information from the local node only instead of from the cluster manager node.</summary>
         public ClusterHealthDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts `0` without a unit and `-1` to indicate an unspecified value.</summary>
+        /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public ClusterHealthDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         public ClusterHealthDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 
-        /// <summary>Waits until the specified number of shards is active before returning a response. Use `all` for all shards.</summary>
+        /// <summary>Waits until the specified number of shards is active before returning a response. Use <c>all</c> for all shards.</summary>
         public ClusterHealthDescriptor WaitForActiveShards(string waitforactiveshards) =>
             Qs("wait_for_active_shards", waitforactiveshards);
 
@@ -340,7 +340,7 @@ namespace OpenSearch.Client
         public ClusterHealthDescriptor WaitForEvents(WaitForEvents? waitforevents) =>
             Qs("wait_for_events", waitforevents);
 
-        /// <summary>Waits until the specified number of nodes (`N`) is available. Accepts `&gt;=N`, `&lt;=N`, `&gt;N`, and `&lt;N`. You can also use `ge(N)`, `le(N)`, `gt(N)`, and `lt(N)` notation.</summary>
+        /// <summary>Waits until the specified number of nodes (<c>N</c>) is available. Accepts <c>&gt;=N</c>, <c>&lt;=N</c>, <c>&gt;N</c>, and <c>&lt;N</c>. You can also use <c>ge(N)</c>, <c>le(N)</c>, <c>gt(N)</c>, and <c>lt(N)</c> notation.</summary>
         public ClusterHealthDescriptor WaitForNodes(string waitfornodes) =>
             Qs("wait_for_nodes", waitfornodes);
 
@@ -372,15 +372,15 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public ClusterPendingTasksDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>When `true`, the request retrieves information from the local node only. When `false`, information is retrieved from the cluster manager node.</summary>
+        /// <summary>When <c>true</c>, the request retrieves information from the local node only. When <c>false</c>, information is retrieved from the cluster manager node.</summary>
         public ClusterPendingTasksDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts `0` without a unit and `-1` to indicate an unspecified value.</summary>
+        /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -401,11 +401,11 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>A comma-separated list of node IDs to exclude from the voting configuration. When using this setting, you cannot also specify `node_names`. Either `node_ids` or `node_names` are required to receive a valid response.</summary>
+        /// <summary>A comma-separated list of node IDs to exclude from the voting configuration. When using this setting, you cannot also specify <c>node_names</c>. Either <c>node_ids</c> or <c>node_names</c> are required to receive a valid response.</summary>
         public PostVotingConfigExclusionsDescriptor NodeIds(params string[] nodeids) =>
             Qs("node_ids", nodeids);
 
-        /// <summary>A comma-separated list of node names to exclude from the voting configuration. When using this setting, you cannot also specify `node_ids`. Either `node_ids` or `node_names` are required to receive a valid response.</summary>
+        /// <summary>A comma-separated list of node names to exclude from the voting configuration. When using this setting, you cannot also specify <c>node_ids</c>. Either <c>node_ids</c> or <c>node_names</c> are required to receive a valid response.</summary>
         public PostVotingConfigExclusionsDescriptor NodeNames(params string[] nodenames) =>
             Qs("node_names", nodenames);
 
@@ -438,22 +438,22 @@ namespace OpenSearch.Client
         Name IPutComponentTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
 
         // Request parameters
-        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public PutComponentTemplateDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>When `true`, this request cannot replace or update existing component templates.</summary>
+        /// <summary>When <c>true</c>, this request cannot replace or update existing component templates.</summary>
         public PutComponentTemplateDescriptor Create(bool? create = true) => Qs("create", create);
 
-        /// <summary>A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts `0` without a unit and `-1` to indicate an unspecified value.</summary>
+        /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public PutComponentTemplateDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts `0` without a unit and `-1` to indicate an unspecified value.</summary>
+        /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
         public PutComponentTemplateDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
@@ -470,23 +470,23 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public ClusterPutSettingsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>Whether to return settings in the flat form, which can improve readability, especially for heavily nested settings. For example, the flat form of `"cluster": { "max_shards_per_node": 500 }` is `"cluster.max_shards_per_node": "500"`.</summary>
+        /// <summary>Whether to return settings in the flat form, which can improve readability, especially for heavily nested settings. For example, the flat form of <c>&quot;cluster&quot;: { &quot;max_shards_per_node&quot;: 500 }</c> is <c>&quot;cluster.max_shards_per_node&quot;: &quot;500&quot;</c>.</summary>
         public ClusterPutSettingsDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
-        /// <summary>A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts `0` without a unit and `-1` to indicate an unspecified value.</summary>
+        /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
         public ClusterPutSettingsDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts `0` without a unit and `-1` to indicate an unspecified value.</summary>
+        /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
         public ClusterPutSettingsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
@@ -517,18 +517,18 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public ClusterRerouteDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
-        /// <summary>When `true`, the request simulates the operation and returns the resulting state.</summary>
+        /// <summary>When <c>true</c>, the request simulates the operation and returns the resulting state.</summary>
         public ClusterRerouteDescriptor DryRun(bool? dryrun = true) => Qs("dry_run", dryrun);
 
-        /// <summary>When `true`, the response contains an explanation of why reroute certain commands can or cannot be executed.</summary>
+        /// <summary>When <c>true</c>, the response contains an explanation of why reroute certain commands can or cannot be executed.</summary>
         public ClusterRerouteDescriptor Explain(bool? explain = true) => Qs("explain", explain);
 
-        /// <summary>A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts `0` without a unit and `-1` to indicate an unspecified value.</summary>
+        /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -539,11 +539,11 @@ namespace OpenSearch.Client
         public ClusterRerouteDescriptor Metric(ClusterRerouteMetric? metric) =>
             Qs("metric", metric);
 
-        /// <summary>When `true`, retries shard allocation if it was blocked because of too many subsequent failures.</summary>
+        /// <summary>When <c>true</c>, retries shard allocation if it was blocked because of too many subsequent failures.</summary>
         public ClusterRerouteDescriptor RetryFailed(bool? retryfailed = true) =>
             Qs("retry_failed", retryfailed);
 
-        /// <summary>A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts `0` without a unit and `-1` to indicate an unspecified value.</summary>
+        /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
         public ClusterRerouteDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
@@ -577,7 +577,7 @@ namespace OpenSearch.Client
         Indices IClusterStateRequest.Index => Self.RouteValues.Get<Indices>("index");
         Metrics IClusterStateRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
 
-        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data streams and indexes, omit this parameter or use `*` or `_all`.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public ClusterStateDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -589,16 +589,16 @@ namespace OpenSearch.Client
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
         public ClusterStateDescriptor AllIndices() => Index(Indices.All);
 
-        /// <summary>Limits the information returned to only the [specified metric groups](https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/#metric-groups).</summary>
+        /// <summary>Limits the information returned to only the <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/#metric-groups">specified metric groups</a>.</summary>
         public ClusterStateDescriptor Metric(Metrics metric) =>
             Assign(metric, (a, v) => a.RouteValues.Optional("metric", v));
 
         // Request parameters
-        /// <summary>Whether to ignore a wildcard index expression that resolves into no concrete indexes. This includes the `_all` string or when no indexes have been specified.</summary>
+        /// <summary>Whether to ignore a wildcard index expression that resolves into no concrete indexes. This includes the <c>_all</c> string or when no indexes have been specified.</summary>
         public ClusterStateDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
-        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see [Common parameters](https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units).</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public ClusterStateDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
@@ -607,7 +607,7 @@ namespace OpenSearch.Client
         public ClusterStateDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>Whether to return settings in the flat form, which can improve readability, especially for heavily nested settings. For example, the flat form of `"cluster": { "max_shards_per_node": 500 }` is `"cluster.max_shards_per_node": "500"`.</summary>
+        /// <summary>Whether to return settings in the flat form, which can improve readability, especially for heavily nested settings. For example, the flat form of <c>&quot;cluster&quot;: { &quot;max_shards_per_node&quot;: 500 }</c> is <c>&quot;cluster.max_shards_per_node&quot;: &quot;500&quot;</c>.</summary>
         public ClusterStateDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
@@ -618,7 +618,7 @@ namespace OpenSearch.Client
         /// <summary>Whether to return information from the local node only instead of from the cluster manager node.</summary>
         public ClusterStateDescriptor Local(bool? local = true) => Qs("local", local);
 
-        /// <summary>A duration. Units can be `nanos`, `micros`, `ms` (milliseconds), `s` (seconds), `m` (minutes), `h` (hours) and `d` (days). Also accepts `0` without a unit and `-1` to indicate an unspecified value.</summary>
+        /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
         )]
@@ -629,7 +629,7 @@ namespace OpenSearch.Client
         public ClusterStateDescriptor WaitForMetadataVersion(long? waitformetadataversion) =>
             Qs("wait_for_metadata_version", waitformetadataversion);
 
-        /// <summary>The maximum time to wait for `wait_for_metadata_version` before timing out.</summary>
+        /// <summary>The maximum time to wait for <c>wait_for_metadata_version</c> before timing out.</summary>
         public ClusterStateDescriptor WaitForTimeout(Time waitfortimeout) =>
             Qs("wait_for_timeout", waitfortimeout);
     }
@@ -677,7 +677,7 @@ namespace OpenSearch.Client
         Metrics IClusterStatsRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
         NodeIds IClusterStatsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
-        /// <summary>A comma-separated list of [index metric groups](https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/#index-metric-groups), for example, `docs,store`.</summary>
+        /// <summary>A comma-separated list of <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/#index-metric-groups">index metric groups</a>, for example, <c>docs,store</c>.</summary>
         public ClusterStatsDescriptor IndexMetric(IndexMetrics indexMetric) =>
             Assign(indexMetric, (a, v) => a.RouteValues.Optional("index_metric", v));
 
@@ -685,16 +685,16 @@ namespace OpenSearch.Client
         public ClusterStatsDescriptor Metric(Metrics metric) =>
             Assign(metric, (a, v) => a.RouteValues.Optional("metric", v));
 
-        /// <summary>A comma-separated list of node IDs used to filter results. Supports [node filters](https://opensearch.org/docs/latest/api-reference/nodes-apis/index/#node-filters).</summary>
+        /// <summary>A comma-separated list of node IDs used to filter results. Supports <a href="https://opensearch.org/docs/latest/api-reference/nodes-apis/index/#node-filters">node filters</a>.</summary>
         public ClusterStatsDescriptor NodeId(NodeIds nodeId) =>
             Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
 
         // Request parameters
-        /// <summary>Whether to return settings in the flat form, which can improve readability, especially for heavily nested settings. For example, the flat form of `"cluster": { "max_shards_per_node": 500 }` is `"cluster.max_shards_per_node": "500"`.</summary>
+        /// <summary>Whether to return settings in the flat form, which can improve readability, especially for heavily nested settings. For example, the flat form of <c>&quot;cluster&quot;: { &quot;max_shards_per_node&quot;: 500 }</c> is <c>&quot;cluster.max_shards_per_node&quot;: &quot;500&quot;</c>.</summary>
         public ClusterStatsDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
-        /// <summary>The amount of time to wait for each node to respond. If a node does not respond before its timeout expires, the response does not include its stats. However, timed out nodes are included in the response's `_nodes.failed` property. Defaults to no timeout.</summary>
+        /// <summary>The amount of time to wait for each node to respond. If a node does not respond before its timeout expires, the response does not include its stats. However, timed out nodes are included in the response's <c>_nodes.failed</c> property. Defaults to no timeout.</summary>
         public ClusterStatsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 }

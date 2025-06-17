@@ -195,8 +195,8 @@ namespace OpenSearch.Net.Specification.MlApi
         public override bool SupportsBody => false;
 
         /// <summary>
-        /// The maximum number of results to return. If there are fewer memories than the number set in `max_results`, the response returns only the
-        /// number of memories that exist. Default is `10`.
+        /// The maximum number of results to return. If there are fewer memories than the number set in <c>max_results</c>, the response returns only
+        /// the number of memories that exist. Default is <c>10</c>.
         /// </summary>
         public int? MaxResults
         {
@@ -205,8 +205,9 @@ namespace OpenSearch.Net.Specification.MlApi
         }
 
         /// <summary>
-        /// The index of the first memory in the sorted list of memories to return. Memories are ordered by `create_time`. For example, if memories
-        /// `A`, `B`, and `C` exist, `next_token=1` returns memories `B` and `C`. Default is `0` (return all memories).
+        /// The index of the first memory in the sorted list of memories to return. Memories are ordered by <c>create_time</c>. For example, if
+        /// memories <c>A</c>, <c>B</c>, and <c>C</c> exist, <c>next_token=1</c> returns memories <c>B</c> and <c>C</c>. Default is <c>0</c> (return
+        /// all memories).
         /// </summary>
         public int? NextToken
         {

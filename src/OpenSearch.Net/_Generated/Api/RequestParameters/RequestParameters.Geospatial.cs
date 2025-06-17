@@ -50,82 +50,61 @@ using System.Linq.Expressions;
 using System.Text;
 
 // ReSharper disable once CheckNamespace
-namespace OpenSearch.Net.Specification.LtrApi
+namespace OpenSearch.Net.Specification.GeospatialApi
 {
-    /// <summary>Request options for CacheStats</summary>
-    public partial class CacheStatsRequestParameters
-        : RequestParameters<CacheStatsRequestParameters>
+    /// <summary>Request options for DeleteIp2geoDatasource <para>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#deleting-the-ip2geo-data-source</para></summary>
+    public partial class DeleteIp2geoDatasourceRequestParameters
+        : RequestParameters<DeleteIp2geoDatasourceRequestParameters>
     {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
     }
 
-    /// <summary>Request options for ClearCache</summary>
-    public partial class ClearCacheRequestParameters
-        : RequestParameters<ClearCacheRequestParameters>
+    /// <summary>Request options for GeojsonUploadPost</summary>
+    public partial class GeojsonUploadPostRequestParameters
+        : RequestParameters<GeojsonUploadPostRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
-        public override bool SupportsBody => false;
+        public override bool SupportsBody => true;
     }
 
-    /// <summary>Request options for CreateDefaultStore</summary>
-    public partial class CreateDefaultStoreRequestParameters
-        : RequestParameters<CreateDefaultStoreRequestParameters>
+    /// <summary>Request options for GeojsonUploadPut</summary>
+    public partial class GeojsonUploadPutRequestParameters
+        : RequestParameters<GeojsonUploadPutRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+        public override bool SupportsBody => true;
+    }
+
+    /// <summary>Request options for GetIp2geoDatasource <para>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#sending-a-get-request</para></summary>
+    public partial class GetIp2geoDatasourceRequestParameters
+        : RequestParameters<GetIp2geoDatasourceRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
     }
 
-    /// <summary>Request options for CreateStore</summary>
-    public partial class CreateStoreRequestParameters
-        : RequestParameters<CreateStoreRequestParameters>
+    /// <summary>Request options for GetUploadStats</summary>
+    public partial class GetUploadStatsRequestParameters
+        : RequestParameters<GetUploadStatsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+    }
+
+    /// <summary>Request options for PutIp2geoDatasource <para>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#data-source-options</para></summary>
+    public partial class PutIp2geoDatasourceRequestParameters
+        : RequestParameters<PutIp2geoDatasourceRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
-        public override bool SupportsBody => false;
+        public override bool SupportsBody => true;
     }
 
-    /// <summary>Request options for DeleteDefaultStore</summary>
-    public partial class DeleteDefaultStoreRequestParameters
-        : RequestParameters<DeleteDefaultStoreRequestParameters>
+    /// <summary>Request options for PutIp2geoDatasourceSettings <para>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#updating-an-ip2geo-data-source</para></summary>
+    public partial class PutIp2geoDatasourceSettingsRequestParameters
+        : RequestParameters<PutIp2geoDatasourceSettingsRequestParameters>
     {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
-        public override bool SupportsBody => false;
-    }
-
-    /// <summary>Request options for DeleteStore</summary>
-    public partial class DeleteStoreRequestParameters
-        : RequestParameters<DeleteStoreRequestParameters>
-    {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
-        public override bool SupportsBody => false;
-    }
-
-    /// <summary>Request options for GetStore</summary>
-    public partial class GetStoreRequestParameters : RequestParameters<GetStoreRequestParameters>
-    {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
-        public override bool SupportsBody => false;
-    }
-
-    /// <summary>Request options for ListStores</summary>
-    public partial class ListStoresRequestParameters
-        : RequestParameters<ListStoresRequestParameters>
-    {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
-        public override bool SupportsBody => false;
-    }
-
-    /// <summary>Request options for Stats</summary>
-    public partial class StatsRequestParameters : RequestParameters<StatsRequestParameters>
-    {
-        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
-        public override bool SupportsBody => false;
-
-        /// <summary>The time in milliseconds to wait for a response.</summary>
-        public TimeSpan Timeout
-        {
-            get => Q<TimeSpan>("timeout");
-            set => Q("timeout", value);
-        }
+        public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+        public override bool SupportsBody => true;
     }
 }

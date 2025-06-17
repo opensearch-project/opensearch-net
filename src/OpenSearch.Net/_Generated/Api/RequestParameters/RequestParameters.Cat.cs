@@ -66,7 +66,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -127,7 +127,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("bytes", value);
         }
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -189,7 +189,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the HTTP `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the HTTP <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -261,7 +261,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the HTTP `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the HTTP <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -324,7 +324,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -385,7 +385,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("fields", value);
         }
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -431,7 +431,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -456,7 +456,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("help", value);
         }
 
-        /// <summary>When `true`, returns `HH:MM:SS` and Unix epoch timestamps.</summary>
+        /// <summary>When <c>true</c>, returns <c>HH:MM:SS</c> and Unix epoch timestamps.</summary>
         public bool? IncludeTimestamp
         {
             get => Q<bool?>("ts");
@@ -514,7 +514,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -532,7 +532,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("h", value);
         }
 
-        /// <summary>Limits indexes based on their health status. Supported values are `green`, `yellow`, and `red`.</summary>
+        /// <summary>Limits indexes based on their health status. Supported values are <c>green</c>, <c>yellow</c>, and <c>red</c>.</summary>
         public HealthStatus? Health
         {
             get => Q<HealthStatus?>("health");
@@ -570,7 +570,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("master_timeout", value);
         }
 
-        /// <summary>When `true`, returns information only from the primary shards.</summary>
+        /// <summary>When <c>true</c>, returns information only from the primary shards.</summary>
         public bool? Pri
         {
             get => Q<bool?>("pri");
@@ -606,7 +606,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -678,7 +678,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -756,7 +756,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -767,7 +767,7 @@ namespace OpenSearch.Net.Specification.CatApi
             }
         }
 
-        /// <summary>When `true`, returns the full node ID. When `false`, returns the shortened node ID.</summary>
+        /// <summary>When <c>true</c>, returns the full node ID. When <c>false</c>, returns the shortened node ID.</summary>
         public bool? FullId
         {
             get => Q<bool?>("full_id");
@@ -838,7 +838,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -909,7 +909,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("bytes", value);
         }
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -964,7 +964,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1028,7 +1028,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>If `true`, the response only includes ongoing shard recoveries.</summary>
+        /// <summary>If <c>true</c>, the response only includes ongoing shard recoveries.</summary>
         public bool? ActiveOnly
         {
             get => Q<bool?>("active_only");
@@ -1042,14 +1042,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("bytes", value);
         }
 
-        /// <summary>When `true`, includes detailed information about shard recoveries.</summary>
+        /// <summary>When <c>true</c>, includes detailed information about shard recoveries.</summary>
         public bool? Detailed
         {
             get => Q<bool?>("detailed");
             set => Q("detailed", value);
         }
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1075,8 +1075,8 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>
-        /// A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data
-        /// streams and indexes, omit this parameter or use `*` or `_all`.
+        /// A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data
+        /// streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.
         /// </summary>
         public string[] Index
         {
@@ -1114,7 +1114,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1178,7 +1178,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>When `true`, the response only includes ongoing segment replication events.</summary>
+        /// <summary>When <c>true</c>, the response only includes ongoing segment replication events.</summary>
         public bool? ActiveOnly
         {
             get => Q<bool?>("active_only");
@@ -1186,8 +1186,8 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>
-        /// Whether to ignore the index if a wildcard index expression resolves to no concrete indexes. This includes the `_all` string or when no
-        /// indexes have been specified.
+        /// Whether to ignore the index if a wildcard index expression resolves to no concrete indexes. This includes the <c>_all</c> string or when
+        /// no indexes have been specified.
         /// </summary>
         public bool? AllowNoIndices
         {
@@ -1202,14 +1202,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("bytes", value);
         }
 
-        /// <summary>When `true`, the response only includes the last-completed segment replication events.</summary>
+        /// <summary>When <c>true</c>, the response only includes the last-completed segment replication events.</summary>
         public bool? CompletedOnly
         {
             get => Q<bool?>("completed_only");
             set => Q("completed_only", value);
         }
 
-        /// <summary>When `true`, the response includes additional metrics for each stage of a segment replication event.</summary>
+        /// <summary>When <c>true</c>, the response includes additional metrics for each stage of a segment replication event.</summary>
         public bool? Detailed
         {
             get => Q<bool?>("detailed");
@@ -1223,7 +1223,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1263,8 +1263,8 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>
-        /// A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (`*`). To target all data
-        /// streams and indexes, omit this parameter or use `*` or `_all`.
+        /// A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data
+        /// streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.
         /// </summary>
         public string[] Index
         {
@@ -1323,7 +1323,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1394,7 +1394,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1466,7 +1466,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1491,7 +1491,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("help", value);
         }
 
-        /// <summary>When `true`, the response does not include information from unavailable snapshots.</summary>
+        /// <summary>When <c>true</c>, the response does not include information from unavailable snapshots.</summary>
         public bool? IgnoreUnavailable
         {
             get => Q<bool?>("ignore_unavailable");
@@ -1509,8 +1509,8 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>
-        /// A comma-separated list of snapshot repositories used to limit the request. Accepts wildcard expressions. `_all` returns all repositories.
-        /// If any repository fails during the request, OpenSearch returns an error.
+        /// A comma-separated list of snapshot repositories used to limit the request. Accepts wildcard expressions. <c>_all</c> returns all
+        /// repositories. If any repository fails during the request, OpenSearch returns an error.
         /// </summary>
         public string[] Repository
         {
@@ -1546,14 +1546,14 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("actions", value);
         }
 
-        /// <summary>If `true`, the response includes detailed information about shard recoveries.</summary>
+        /// <summary>If <c>true</c>, the response includes detailed information about shard recoveries.</summary>
         public bool? Detailed
         {
             get => Q<bool?>("detailed");
             set => Q("detailed", value);
         }
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1579,8 +1579,8 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>
-        /// A comma-separated list of node IDs or names used to limit the returned information. Use `_local` to return information from the node to
-        /// which you're connecting, specify a specific node from which to get information, or keep the parameter empty to get information from all
+        /// A comma-separated list of node IDs or names used to limit the returned information. Use <c>_local</c> to return information from the node
+        /// to which you're connecting, specify a specific node from which to get information, or keep the parameter empty to get information from all
         /// nodes.
         /// </summary>
         public string[] Nodes
@@ -1626,7 +1626,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
         {
             get => Q<string>("format");
@@ -1698,7 +1698,7 @@ namespace OpenSearch.Net.Specification.CatApi
             set => Q("cluster_manager_timeout", value);
         }
 
-        /// <summary>A short version of the `Accept` header, such as `json` or `yaml`.</summary>
+        /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
         {
             get => Q<string>("format");

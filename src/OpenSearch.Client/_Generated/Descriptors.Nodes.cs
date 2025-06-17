@@ -80,25 +80,25 @@ namespace OpenSearch.Client
         // values part of the url path
         NodeIds INodesHotThreadsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
-        /// <summary>Comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.</summary>
+        /// <summary>A comma-separated list of node IDs or names to limit the returned information; use <c>_local</c> to return information from the node you're connecting to, leave empty to get information from all nodes.</summary>
         public NodesHotThreadsDescriptor NodeId(NodeIds nodeId) =>
             Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
 
         // Request parameters
-        /// <summary>Don't show threads that are in known-idle places, such as waiting on a socket select or pulling from an empty task queue.</summary>
+        /// <summary>Whether to show threads that are in known-idle places, such as waiting on a socket select or pulling from an empty task queue.</summary>
         public NodesHotThreadsDescriptor IgnoreIdleThreads(bool? ignoreidlethreads = true) =>
             Qs("ignore_idle_threads", ignoreidlethreads);
 
-        /// <summary>The interval for the second sampling of threads.</summary>
+        /// <summary>The time interval between thread stack trace samples.</summary>
         public NodesHotThreadsDescriptor Interval(Time interval) => Qs("interval", interval);
 
-        /// <summary>Number of samples of thread stack trace.</summary>
+        /// <summary>The number of thread stack trace samples to collect.</summary>
         public NodesHotThreadsDescriptor Snapshots(int? snapshots) => Qs("snapshots", snapshots);
 
-        /// <summary>Specify the number of threads to provide information for.</summary>
+        /// <summary>The number of threads to provide information for.</summary>
         public NodesHotThreadsDescriptor Threads(int? threads) => Qs("threads", threads);
 
-        /// <summary>Operation timeout.</summary>
+        /// <summary>The amount of time to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public NodesHotThreadsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 
         /// <summary>The type to sample.</summary>
@@ -136,20 +136,20 @@ namespace OpenSearch.Client
         Metrics INodesInfoRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
         NodeIds INodesInfoRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
-        /// <summary>Limits the information returned to the specific metrics. Supports a comma-separated list, such as `http,ingest`.</summary>
+        /// <summary>Limits the information returned to the specific metrics. Supports a comma-separated list, such as <c>http,ingest</c>.</summary>
         public NodesInfoDescriptor Metric(Metrics metric) =>
             Assign(metric, (a, v) => a.RouteValues.Optional("metric", v));
 
-        /// <summary>Comma-separated list of node IDs or names used to limit returned information.</summary>
+        /// <summary>A comma-separated list of node IDs or names used to limit returned information.</summary>
         public NodesInfoDescriptor NodeId(NodeIds nodeId) =>
             Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
 
         // Request parameters
-        /// <summary>If `true`, returns settings in flat format.</summary>
+        /// <summary>When <c>true</c>, returns settings in flat format.</summary>
         public NodesInfoDescriptor FlatSettings(bool? flatsettings = true) =>
             Qs("flat_settings", flatsettings);
 
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>The amount of time to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public NodesInfoDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
@@ -181,7 +181,7 @@ namespace OpenSearch.Client
             Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
 
         // Request parameters
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>The amount of time to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public ReloadSecureSettingsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
@@ -239,7 +239,7 @@ namespace OpenSearch.Client
         Metrics INodesStatsRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
         NodeIds INodesStatsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
-        /// <summary>Limit the information returned for indexes metric to the specific index metrics. It can be used only if indexes (or all) metric is specified.</summary>
+        /// <summary>Limit the information returned for indexes metric to the specified index metrics. It can be used only if indexes (or all) metric is specified.</summary>
         public NodesStatsDescriptor IndexMetric(IndexMetrics indexMetric) =>
             Assign(indexMetric, (a, v) => a.RouteValues.Optional("index_metric", v));
 
@@ -247,45 +247,45 @@ namespace OpenSearch.Client
         public NodesStatsDescriptor Metric(Metrics metric) =>
             Assign(metric, (a, v) => a.RouteValues.Optional("metric", v));
 
-        /// <summary>Comma-separated list of node IDs or names used to limit returned information.</summary>
+        /// <summary>A comma-separated list of node IDs or names used to limit returned information.</summary>
         public NodesStatsDescriptor NodeId(NodeIds nodeId) =>
             Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
 
         // Request parameters
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
+        /// <summary>A comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
         public NodesStatsDescriptor CompletionFields(Fields completionfields) =>
             Qs("completion_fields", completionfields);
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
+        /// <summary>A comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
         public NodesStatsDescriptor CompletionFields<T>(params Expression<Func<T, object>>[] fields)
             where T : class => Qs("completion_fields", fields?.Select(e => (Field)e));
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data statistics.</summary>
+        /// <summary>A comma-separated list or wildcard expressions of fields to include in field data statistics.</summary>
         public NodesStatsDescriptor FielddataFields(Fields fielddatafields) =>
             Qs("fielddata_fields", fielddatafields);
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data statistics.</summary>
+        /// <summary>A comma-separated list or wildcard expressions of fields to include in field data statistics.</summary>
         public NodesStatsDescriptor FielddataFields<T>(params Expression<Func<T, object>>[] fields)
             where T : class => Qs("fielddata_fields", fields?.Select(e => (Field)e));
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
+        /// <summary>A comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
         public NodesStatsDescriptor Fields(Fields fields) => Qs("fields", fields);
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
+        /// <summary>A comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
         public NodesStatsDescriptor Fields<T>(params Expression<Func<T, object>>[] fields)
             where T : class => Qs("fields", fields?.Select(e => (Field)e));
 
-        /// <summary>Comma-separated list of search groups to include in the search statistics.</summary>
+        /// <summary>A comma-separated list of search groups to include in the search statistics.</summary>
         public NodesStatsDescriptor Groups(params string[] groups) => Qs("groups", groups);
 
-        /// <summary>If `true`, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
+        /// <summary>When <c>true</c>, reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
         public NodesStatsDescriptor IncludeSegmentFileSizes(bool? includesegmentfilesizes = true) =>
             Qs("include_segment_file_sizes", includesegmentfilesizes);
 
         /// <summary>Indicates whether statistics are aggregated at the cluster, index, or shard level.</summary>
         public NodesStatsDescriptor Level(Level? level) => Qs("level", level);
 
-        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        /// <summary>The amount of time to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public NodesStatsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 
         /// <summary>A comma-separated list of document types for the indexing index metric.</summary>
@@ -327,11 +327,11 @@ namespace OpenSearch.Client
         Metrics INodesUsageRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
         NodeIds INodesUsageRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
-        /// <summary>Limits the information returned to the specific metrics. A comma-separated list of the following options: `_all`, `rest_actions`.</summary>
+        /// <summary>Limits the information returned to the specific metrics. A comma-separated list of the following options: <c>_all</c>, <c>rest_actions</c>.</summary>
         public NodesUsageDescriptor Metric(Metrics metric) =>
             Assign(metric, (a, v) => a.RouteValues.Optional("metric", v));
 
-        /// <summary>A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes.</summary>
+        /// <summary>A comma-separated list of node IDs or names to limit the returned information; use <c>_local</c> to return information from the node you're connecting to, leave empty to get information from all nodes.</summary>
         public NodesUsageDescriptor NodeId(NodeIds nodeId) =>
             Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
 

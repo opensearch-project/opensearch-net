@@ -88,14 +88,14 @@ namespace OpenSearch.Client
         /// <summary>A comma-separated list of actions that should be returned. Keep empty to return all.</summary>
         public CancelTasksDescriptor Actions(params string[] actions) => Qs("actions", actions);
 
-        /// <summary>A comma-separated list of node IDs or names used to limit the returned information. Use `_local` to return information from the node you're connecting to, specify the node name to get information from a specific node, or keep the parameter empty to get information from all nodes.</summary>
+        /// <summary>A comma-separated list of node IDs or names used to limit the returned information. Use <c>_local</c> to return information from the node you're connecting to, specify the node name to get information from a specific node, or keep the parameter empty to get information from all nodes.</summary>
         public CancelTasksDescriptor Nodes(params string[] nodes) => Qs("nodes", nodes);
 
-        /// <summary>Returns tasks with a specified parent task ID (`node_id:task_number`). Keep empty or set to -1 to return all.</summary>
+        /// <summary>Returns tasks with a specified parent task ID (<c>node_id:task_number</c>). Keep empty or set to -1 to return all.</summary>
         public CancelTasksDescriptor ParentTaskId(string parenttaskid) =>
             Qs("parent_task_id", parenttaskid);
 
-        /// <summary>Waits for the matching task to complete. When `true`, the request is blocked until the task has completed.</summary>
+        /// <summary>Waits for the matching task to complete. When <c>true</c>, the request is blocked until the task has completed.</summary>
         public CancelTasksDescriptor WaitForCompletion(bool? waitforcompletion = true) =>
             Qs("wait_for_completion", waitforcompletion);
     }
@@ -124,7 +124,7 @@ namespace OpenSearch.Client
         /// <summary>The amount of time to wait for a response.</summary>
         public GetTaskDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 
-        /// <summary>Waits for the matching task to complete. When `true`, the request is blocked until the task has completed.</summary>
+        /// <summary>Waits for the matching task to complete. When <c>true</c>, the request is blocked until the task has completed.</summary>
         public GetTaskDescriptor WaitForCompletion(bool? waitforcompletion = true) =>
             Qs("wait_for_completion", waitforcompletion);
     }
@@ -141,23 +141,23 @@ namespace OpenSearch.Client
         /// <summary>A comma-separated list of actions that should be returned. Keep empty to return all.</summary>
         public ListTasksDescriptor Actions(params string[] actions) => Qs("actions", actions);
 
-        /// <summary>When `true`, the response includes detailed information about shard recoveries.</summary>
+        /// <summary>When <c>true</c>, the response includes detailed information about shard recoveries.</summary>
         public ListTasksDescriptor Detailed(bool? detailed = true) => Qs("detailed", detailed);
 
         /// <summary>Groups tasks by parent/child relationships or nodes.</summary>
         public ListTasksDescriptor GroupBy(TasksGroupBy? groupby) => Qs("group_by", groupby);
 
-        /// <summary>A comma-separated list of node IDs or names used to limit the returned information. Use `_local` to return information from the node you're connecting to, specify the node name to get information from a specific node, or keep the parameter empty to get information from all nodes.</summary>
+        /// <summary>A comma-separated list of node IDs or names used to limit the returned information. Use <c>_local</c> to return information from the node you're connecting to, specify the node name to get information from a specific node, or keep the parameter empty to get information from all nodes.</summary>
         public ListTasksDescriptor Nodes(params string[] nodes) => Qs("nodes", nodes);
 
-        /// <summary>Returns tasks with a specified parent task ID (`node_id:task_number`). Keep empty or set to -1 to return all.</summary>
+        /// <summary>Returns tasks with a specified parent task ID (<c>node_id:task_number</c>). Keep empty or set to -1 to return all.</summary>
         public ListTasksDescriptor ParentTaskId(string parenttaskid) =>
             Qs("parent_task_id", parenttaskid);
 
         /// <summary>The amount of time to wait for a response.</summary>
         public ListTasksDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 
-        /// <summary>Waits for the matching task to complete. When `true`, the request is blocked until the task has completed.</summary>
+        /// <summary>Waits for the matching task to complete. When <c>true</c>, the request is blocked until the task has completed.</summary>
         public ListTasksDescriptor WaitForCompletion(bool? waitforcompletion = true) =>
             Qs("wait_for_completion", waitforcompletion);
     }
