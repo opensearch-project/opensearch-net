@@ -42462,6 +42462,132 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.GeospatialApi.DeleteIp2geoDatasourceRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.GeospatialApi.DeleteIp2geoDatasourceRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.GeospatialApi.DeleteIp2geoDatasourceRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.GeospatialApi.DeleteIp2geoDatasourceRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for DeleteIp2geoDatasource <p>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#deleting-the-ip2geo-data-source</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.GeospatialApi.GeojsonUploadPostRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.GeospatialApi.GeojsonUploadPostRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.GeospatialApi.GeojsonUploadPostRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.GeospatialApi.GeojsonUploadPostRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for GeojsonUploadPost</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.GeospatialApi.GeojsonUploadPutRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.GeospatialApi.GeojsonUploadPutRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.GeospatialApi.GeojsonUploadPutRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.GeospatialApi.GeojsonUploadPutRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for GeojsonUploadPut</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.GeospatialApi.GetIp2geoDatasourceRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.GeospatialApi.GetIp2geoDatasourceRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.GeospatialApi.GetIp2geoDatasourceRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.GeospatialApi.GetIp2geoDatasourceRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for GetIp2geoDatasource <p>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#sending-a-get-request</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.GeospatialApi.GetUploadStatsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.GeospatialApi.GetUploadStatsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.GeospatialApi.GetUploadStatsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.GeospatialApi.GetUploadStatsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for GetUploadStats</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.GeospatialApi.LowLevelGeospatialNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.GeospatialApi.LowLevelGeospatialNamespace.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.GeospatialApi.LowLevelGeospatialNamespace",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.GeospatialApi.LowLevelGeospatialNamespace.yml\" sourcestartlinenumber=\"1\">Geospatial APIs.</p>\n<p>Not intended to be instantiated directly. Use the <xref href=\"OpenSearch.Net.IOpenSearchLowLevelClient.Geospatial\" data-throw-if-not-resolved=\"false\"></xref> property\non <xref href=\"OpenSearch.Net.IOpenSearchLowLevelClient\" data-throw-if-not-resolved=\"false\"></xref>.\n</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.GeospatialApi.PutIp2geoDatasourceRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.GeospatialApi.PutIp2geoDatasourceRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.GeospatialApi.PutIp2geoDatasourceRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.GeospatialApi.PutIp2geoDatasourceRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for PutIp2geoDatasource <p>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#data-source-options</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.GeospatialApi.PutIp2geoDatasourceSettingsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.GeospatialApi.PutIp2geoDatasourceSettingsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.GeospatialApi.PutIp2geoDatasourceSettingsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.GeospatialApi.PutIp2geoDatasourceSettingsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for PutIp2geoDatasourceSettings <p>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#updating-an-ip2geo-data-source</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.GeospatialApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.GeospatialApi.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.GeospatialApi",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.HttpApi.ArbitraryHttpRequestParameters-1.yml",
       "output": {
         ".html": {
@@ -43834,6 +43960,118 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.CacheStatsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.CacheStatsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.CacheStatsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.CacheStatsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for CacheStats</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.ClearCacheRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.ClearCacheRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.ClearCacheRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.ClearCacheRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for ClearCache</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.CreateDefaultStoreRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.CreateDefaultStoreRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.CreateDefaultStoreRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.CreateDefaultStoreRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for CreateDefaultStore</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.CreateStoreRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.CreateStoreRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.CreateStoreRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.CreateStoreRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for CreateStore</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.DeleteDefaultStoreRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.DeleteDefaultStoreRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.DeleteDefaultStoreRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.DeleteDefaultStoreRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for DeleteDefaultStore</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.DeleteStoreRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.DeleteStoreRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.DeleteStoreRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.DeleteStoreRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for DeleteStore</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.GetStoreRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.GetStoreRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.GetStoreRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.GetStoreRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for GetStore</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.ListStoresRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.ListStoresRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.ListStoresRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.ListStoresRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for ListStores</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.LowLevelLtrNamespace.yml",
       "output": {
         ".html": {
@@ -44726,6 +44964,48 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "OpenSearch.Net.Specification.MlApi",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace.yml\" sourcestartlinenumber=\"1\">Neural APIs.</p>\n<p>Not intended to be instantiated directly. Use the <xref href=\"OpenSearch.Net.IOpenSearchLowLevelClient.Neural\" data-throw-if-not-resolved=\"false\"></xref> property\non <xref href=\"OpenSearch.Net.IOpenSearchLowLevelClient\" data-throw-if-not-resolved=\"false\"></xref>.\n</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.NeuralApi.StatsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.NeuralApi.StatsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.NeuralApi.StatsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.NeuralApi.StatsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for Stats</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.NeuralApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.NeuralApi.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.NeuralApi",
       "Summary": null
     },
     {

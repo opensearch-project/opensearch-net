@@ -273,7 +273,7 @@
   </span>
   <a id="OpenSearch_Client_NodesHotThreadsDescriptor_IgnoreIdleThreads_" data-uid="OpenSearch.Client.NodesHotThreadsDescriptor.IgnoreIdleThreads*"></a>
   <h4 id="OpenSearch_Client_NodesHotThreadsDescriptor_IgnoreIdleThreads_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.NodesHotThreadsDescriptor.IgnoreIdleThreads(System.Nullable{System.Boolean})">IgnoreIdleThreads(bool?)</h4>
-  <div class="markdown level1 summary"><p>Don't show threads that are in known-idle places, such as waiting on a socket select or pulling from an empty task queue.</p>
+  <div class="markdown level1 summary"><p>Whether to show threads that are in known-idle places, such as waiting on a socket select or pulling from an empty task queue.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -321,7 +321,7 @@
   </span>
   <a id="OpenSearch_Client_NodesHotThreadsDescriptor_Interval_" data-uid="OpenSearch.Client.NodesHotThreadsDescriptor.Interval*"></a>
   <h4 id="OpenSearch_Client_NodesHotThreadsDescriptor_Interval_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.NodesHotThreadsDescriptor.Interval(OpenSearch.Client.Time)">Interval(Time)</h4>
-  <div class="markdown level1 summary"><p>The interval for the second sampling of threads.</p>
+  <div class="markdown level1 summary"><p>The time interval between thread stack trace samples.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -369,7 +369,7 @@
   </span>
   <a id="OpenSearch_Client_NodesHotThreadsDescriptor_NodeId_" data-uid="OpenSearch.Client.NodesHotThreadsDescriptor.NodeId*"></a>
   <h4 id="OpenSearch_Client_NodesHotThreadsDescriptor_NodeId_OpenSearch_Client_NodeIds_" data-uid="OpenSearch.Client.NodesHotThreadsDescriptor.NodeId(OpenSearch.Client.NodeIds)">NodeId(NodeIds)</h4>
-  <div class="markdown level1 summary"><p>Comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes.</p>
+  <div class="markdown level1 summary"><p>A comma-separated list of node IDs or names to limit the returned information; use <code>_local</code> to return information from the node you're connecting to, leave empty to get information from all nodes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -452,7 +452,7 @@
   </span>
   <a id="OpenSearch_Client_NodesHotThreadsDescriptor_Snapshots_" data-uid="OpenSearch.Client.NodesHotThreadsDescriptor.Snapshots*"></a>
   <h4 id="OpenSearch_Client_NodesHotThreadsDescriptor_Snapshots_System_Nullable_System_Int32__" data-uid="OpenSearch.Client.NodesHotThreadsDescriptor.Snapshots(System.Nullable{System.Int32})">Snapshots(int?)</h4>
-  <div class="markdown level1 summary"><p>Number of samples of thread stack trace.</p>
+  <div class="markdown level1 summary"><p>The number of thread stack trace samples to collect.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -500,7 +500,7 @@
   </span>
   <a id="OpenSearch_Client_NodesHotThreadsDescriptor_Threads_" data-uid="OpenSearch.Client.NodesHotThreadsDescriptor.Threads*"></a>
   <h4 id="OpenSearch_Client_NodesHotThreadsDescriptor_Threads_System_Nullable_System_Int32__" data-uid="OpenSearch.Client.NodesHotThreadsDescriptor.Threads(System.Nullable{System.Int32})">Threads(int?)</h4>
-  <div class="markdown level1 summary"><p>Specify the number of threads to provide information for.</p>
+  <div class="markdown level1 summary"><p>The number of threads to provide information for.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -548,7 +548,7 @@
   </span>
   <a id="OpenSearch_Client_NodesHotThreadsDescriptor_Timeout_" data-uid="OpenSearch.Client.NodesHotThreadsDescriptor.Timeout*"></a>
   <h4 id="OpenSearch_Client_NodesHotThreadsDescriptor_Timeout_OpenSearch_Client_Time_" data-uid="OpenSearch.Client.NodesHotThreadsDescriptor.Timeout(OpenSearch.Client.Time)">Timeout(Time)</h4>
-  <div class="markdown level1 summary"><p>Operation timeout.</p>
+  <div class="markdown level1 summary"><p>The amount of time to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

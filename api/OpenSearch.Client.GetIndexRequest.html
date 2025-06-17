@@ -232,9 +232,9 @@
   </span>
   <a id="OpenSearch_Client_GetIndexRequest_AllowNoIndices_" data-uid="OpenSearch.Client.GetIndexRequest.AllowNoIndices*"></a>
   <h4 id="OpenSearch_Client_GetIndexRequest_AllowNoIndices" data-uid="OpenSearch.Client.GetIndexRequest.AllowNoIndices">AllowNoIndices</h4>
-  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed indexes.
-This behavior applies even if the request targets other open indexes. For example, a request targeting foo*,bar* returns an error if an
-index starts with foo but no index starts with bar.</p>
+  <div class="markdown level1 summary"><p>If <code>false</code>, the request returns an error if any wildcard expression, index alias, or <code>_all</code> value targets only missing or closed
+indexes. This behavior applies even if the request targets other open indexes. For example, a request targeting foo*,bar* returns an error
+if an index starts with foo but no index starts with bar.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -458,8 +458,8 @@ expressions match hidden data streams. Supports comma-separated values, such as 
   </span>
   <a id="OpenSearch_Client_GetIndexRequest_Local_" data-uid="OpenSearch.Client.GetIndexRequest.Local*"></a>
   <h4 id="OpenSearch_Client_GetIndexRequest_Local" data-uid="OpenSearch.Client.GetIndexRequest.Local">Local</h4>
-  <div class="markdown level1 summary"><p>If <code>true</code>, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from the
-cluster-manager node.</p>
+  <div class="markdown level1 summary"><p>If <code>true</code>, the request retrieves information from the local node only. Defaults to false, which means information is retrieved from
+the cluster-manager node.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>

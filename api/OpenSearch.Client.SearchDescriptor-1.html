@@ -1734,7 +1734,7 @@ fast-vector-highlighter or highlighter.</p>
   </span>
   <a id="OpenSearch_Client_SearchDescriptor_1_Index_" data-uid="OpenSearch.Client.SearchDescriptor`1.Index*"></a>
   <h4 id="OpenSearch_Client_SearchDescriptor_1_Index_OpenSearch_Client_Indices_" data-uid="OpenSearch.Client.SearchDescriptor`1.Index(OpenSearch.Client.Indices)">Index(Indices)</h4>
-  <div class="markdown level1 summary"><p>Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (<code>*</code>). To search all data streams and indexes, omit this parameter or use <code>*</code> or <code>_all</code>.</p>
+  <div class="markdown level1 summary"><p>Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (<code><em></em></code>). To search all data streams and indexes, omit this parameter or use <code></code> or <code>_all</code>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -2274,7 +2274,7 @@ will be returned in the response, and a filter should only be applied to the sea
   </span>
   <a id="OpenSearch_Client_SearchDescriptor_1_Preference_" data-uid="OpenSearch.Client.SearchDescriptor`1.Preference*"></a>
   <h4 id="OpenSearch_Client_SearchDescriptor_1_Preference_System_String_" data-uid="OpenSearch.Client.SearchDescriptor`1.Preference(System.String)">Preference(string)</h4>
-  <div class="markdown level1 summary"><p>Nodes and shards used for the search. By default, OpenSearch selects from eligible nodes and shards using adaptive replica selection, accounting for allocation awareness. Valid values are: <code>_only_local</code> to run the search only on shards on the local node; <code>_local</code> to, if possible, run the search on shards on the local node, or if not, select shards using the default method; <code>_only_nodes:&lt;node-id&gt;,&lt;node-id&gt;</code> to run the search on only the specified nodes IDs, where, if suitable shards exist on more than one selected node, use shards on those nodes using the default method, or if none of the specified nodes are available, select shards from any available node using the default method; <code>_prefer_nodes:&lt;node-id&gt;,&lt;node-id&gt;</code> to if possible, run the search on the specified nodes IDs, or if not, select shards using the default method; <code>_shards:&lt;shard&gt;,&lt;shard&gt;</code> to run the search only on the specified shards; <code>&lt;custom-string&gt;</code> (any string that does not start with <code>_</code>) to route searches with the same <code>&lt;custom-string&gt;</code> to the same shards in the same order.</p>
+  <div class="markdown level1 summary"><p>Nodes and shards used for the search. By default, OpenSearch selects from eligible nodes and shards using adaptive replica selection, accounting for allocation awareness. Valid values are: <code>_only_local</code> to run the search only on shards on the local node; <code>_local</code> to, if possible, run the search on shards on the local node, or if not, select shards using the default method; <code>_only_nodes:&lt;node-id&gt;,&lt;node-id&gt;</code> to run the search on only the specified nodes IDs, where, if suitable shards exist on more than one selected node, use shards on those nodes using the default method, or if none of the specified nodes are available, select shards from any available node using the default method; <code>_prefer_nodes:&lt;node-id&gt;,&lt;node-id&gt;</code> to if possible, run the search on the specified nodes IDs, or if not, select shards using the default method; <code><em>shards:&lt;shard&gt;,&lt;shard&gt;</em></code> to run the search only on the specified shards; <code>&lt;custom-string&gt;</code> (any string that does not start with <code></code>) to route searches with the same <code>&lt;custom-string&gt;</code> to the same shards in the same order.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -4286,6 +4286,57 @@ to that point, when expired. Defaults to no timeout.</p>
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchDescriptor_1_VerbosePipeline_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchDescriptor%601.VerbosePipeline(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Client/_Generated/Descriptors.NoNamespace.cs/#L2134">View Source</a>
+  </span>
+  <a id="OpenSearch_Client_SearchDescriptor_1_VerbosePipeline_" data-uid="OpenSearch.Client.SearchDescriptor`1.VerbosePipeline*"></a>
+  <h4 id="OpenSearch_Client_SearchDescriptor_1_VerbosePipeline_System_Nullable_System_Boolean__" data-uid="OpenSearch.Client.SearchDescriptor`1.VerbosePipeline(System.Nullable{System.Boolean})">VerbosePipeline(bool?)</h4>
+  <div class="markdown level1 summary"><p>Enables or disables verbose mode for the search pipeline. When verbose mode is enabled, detailed information about each processor in the search pipeline is included in the search response. This includes the processor name, execution status, input, output, and time taken for processing. This parameter is primarily intended for debugging purposes, allowing users to track how data flows and transforms through the search pipeline.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SearchDescriptor&lt;TInferDocument&gt; VerbosePipeline(bool? verbosepipeline = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>?</td>
+        <td><span class="parametername">verbosepipeline</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OpenSearch.Client.SearchDescriptor-1.html">SearchDescriptor</a>&lt;TInferDocument&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OpenSearch_Client_SearchDescriptor_1_VerbosePipeline_System_Nullable_System_Boolean___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 3.0.0 or greater.</p>
+</div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Client_SearchDescriptor_1_Version_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20OpenSearch.Client.SearchDescriptor%601.Version(System.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
