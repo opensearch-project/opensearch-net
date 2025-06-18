@@ -174,6 +174,138 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
+    public partial interface IBulkStreamRequest : IRequest<BulkStreamRequestParameters>
+    {
+        [IgnoreDataMember]
+        IndexName Index { get; }
+    }
+
+    /// <summary>Request for BulkStream <para>https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</para></summary>
+    public partial class BulkStreamRequest
+        : PlainRequestBase<BulkStreamRequestParameters>,
+            IBulkStreamRequest
+    {
+        protected IBulkStreamRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceBulkStream;
+
+        /// <summary>/_bulk/stream</summary>
+        public BulkStreamRequest()
+            : base() { }
+
+        /// <summary>/{index}/_bulk/stream</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public BulkStreamRequest(IndexName index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        IndexName IBulkStreamRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        // Request parameters
+        /// <summary>Specifies for how long bulk operations should be accumulated into a batch before sending the batch to data nodes.</summary>
+        public Time BatchInterval
+        {
+            get => Q<Time>("batch_interval");
+            set => Q("batch_interval", value);
+        }
+
+        /// <summary>Specifies how many bulk operations should be accumulated into a batch before sending the batch to data nodes.</summary>
+        public long? BatchSize
+        {
+            get => Q<long?>("batch_size");
+            set => Q("batch_size", value);
+        }
+
+        /// <summary>
+        /// ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value
+        /// to <c>_none</c> disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of
+        /// the value of this parameter.
+        /// </summary>
+        public string Pipeline
+        {
+            get => Q<string>("pipeline");
+            set => Q("pipeline", value);
+        }
+
+        /// <summary>
+        /// If <c>true</c>, OpenSearch refreshes the affected shards to make this operation visible to search, if <c>wait_for</c> then wait for a
+        /// refresh to make this operation visible to search, if <c>false</c> do nothing with refreshes. Valid values: <c>true</c>, <c>false</c>,
+        /// <c>wait_for</c>.
+        /// </summary>
+        public Refresh? Refresh
+        {
+            get => Q<Refresh?>("refresh");
+            set => Q("refresh", value);
+        }
+
+        /// <summary>If <c>true</c>, the request's actions must target an index alias.</summary>
+        public bool? RequireAlias
+        {
+            get => Q<bool?>("require_alias");
+            set => Q("require_alias", value);
+        }
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see
+        /// cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public Routing Routing
+        {
+            get => Q<Routing>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Whether the _source should be included in the response.</summary>
+        public bool? SourceEnabled
+        {
+            get => Q<bool?>("_source");
+            set => Q("_source", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to exclude from the response.</summary>
+        public Fields SourceExcludes
+        {
+            get => Q<Fields>("_source_excludes");
+            set => Q("_source_excludes", value);
+        }
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public Fields SourceIncludes
+        {
+            get => Q<Fields>("_source_includes");
+            set => Q("_source_includes", value);
+        }
+
+        /// <summary>Period each action waits for the following operations: automatic index creation, dynamic mapping updates, waiting for active shards.</summary>
+        public Time Timeout
+        {
+            get => Q<Time>("timeout");
+            set => Q("timeout", value);
+        }
+
+        /// <summary>Default document type for items which don't provide one.</summary>
+        public string Type
+        {
+            get => Q<string>("type");
+            set => Q("type", value);
+        }
+
+        /// <summary>
+        /// The number of shard copies that must be active before proceeding with the operation. Set to all or any positive integer up to the total
+        /// number of shards in the index (<c>number_of_replicas+1</c>).
+        /// </summary>
+        public string WaitForActiveShards
+        {
+            get => Q<string>("wait_for_active_shards");
+            set => Q("wait_for_active_shards", value);
+        }
+    }
+
+    [InterfaceDataContract]
     public partial interface IClearScrollRequest : IRequest<ClearScrollRequestParameters> { }
 
     /// <summary>Request for ClearScroll <para>https://opensearch.org/docs/latest/api-reference/scroll/</para></summary>
