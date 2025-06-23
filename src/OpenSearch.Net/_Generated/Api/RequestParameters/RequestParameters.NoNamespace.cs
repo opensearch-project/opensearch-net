@@ -423,7 +423,7 @@ namespace OpenSearch.Net
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -475,7 +475,7 @@ namespace OpenSearch.Net
             set => Q("preference", value);
         }
 
-        /// <summary>Comma-separated list of specific routing values.</summary>
+        /// <summary>A comma-separated list of specific routing values.</summary>
         public string[] Routing
         {
             get => Q<string[]>("routing");
@@ -538,7 +538,7 @@ namespace OpenSearch.Net
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -939,7 +939,7 @@ namespace OpenSearch.Net
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -1013,7 +1013,7 @@ namespace OpenSearch.Net
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -1140,7 +1140,7 @@ namespace OpenSearch.Net
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>Comma-separated list of fields to retrieve capabilities for. Wildcard (<c>*</c>) expressions are supported.</summary>
+        /// <summary>A comma-separated list of fields to retrieve capabilities for. Wildcard (<c>*</c>) expressions are supported.</summary>
         public string[] Fields
         {
             get => Q<string[]>("fields");
@@ -1240,7 +1240,7 @@ namespace OpenSearch.Net
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: <c>internal</c>, <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>internal</c>, <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -1365,7 +1365,7 @@ namespace OpenSearch.Net
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type. One of <c>internal</c>, <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type. One of <c>internal</c>, <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -1457,7 +1457,7 @@ namespace OpenSearch.Net
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -2390,6 +2390,13 @@ namespace OpenSearch.Net
             set => Q("ignore_unavailable", value);
         }
 
+        /// <summary>Indicates whether to return phase-level <c>took</c> time values in the response.</summary>
+        public bool? PhaseTook
+        {
+            get => Q<bool?>("phase_took");
+            set => Q("phase_took", value);
+        }
+
         /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
         public string Preference
         {
@@ -2416,6 +2423,13 @@ namespace OpenSearch.Net
         {
             get => Q<TimeSpan>("scroll");
             set => Q("scroll", value);
+        }
+
+        /// <summary>Customizable sequence of processing stages applied to search queries.</summary>
+        public string SearchPipeline
+        {
+            get => Q<string>("search_pipeline");
+            set => Q("search_pipeline", value);
         }
 
         /// <summary>The type of the search operation.</summary>

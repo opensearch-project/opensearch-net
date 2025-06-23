@@ -31,6 +31,7 @@ using System.Linq;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
@@ -191,7 +192,7 @@ namespace Tests.Aggregations.Bucket.DateHistogram
 		protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
 			.DateHistogram("projects_started_per_four_weeks", date => date
 				.Field(p => p.StartedOn)
-				.FixedInterval(new Time(28, TimeUnit.Day))
+				.FixedInterval(new Time(28, TimeUnit.Days))
 				.MinimumDocumentCount(2)
 				.Format("yyyy-MM-dd'T'HH:mm:ss")
 				.ExtendedBounds(FixedDate.AddYears(-1), FixedDate.AddYears(1))
@@ -203,7 +204,7 @@ namespace Tests.Aggregations.Bucket.DateHistogram
 			new DateHistogramAggregation("projects_started_per_four_weeks")
 			{
 				Field = Field<Project>(p => p.StartedOn),
-				FixedInterval = new Time(28, TimeUnit.Day),
+				FixedInterval = new Time(28, TimeUnit.Days),
 				MinimumDocumentCount = 2,
 				Format = "yyyy-MM-dd'T'HH:mm:ss",
 				ExtendedBounds = new ExtendedBounds<DateMath>
@@ -234,7 +235,7 @@ namespace Tests.Aggregations.Bucket.DateHistogram
 	{
 		private readonly DateTime _hardBoundsMinimum;
 		private readonly DateTime _hardBoundsMaximum;
-		
+
 		public DateHistogramAggregationWithHardBoundsUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage)
 		{
 			// Note: If these tests are run against an existing node, and seeding is not forced, it's possible the
@@ -242,7 +243,7 @@ namespace Tests.Aggregations.Bucket.DateHistogram
 			// pass if this is the case. For best results locally, force a reseed. This is not an issue in CI.
 
 			var projects = Project.Projects.OrderBy(p => p.StartedOn).Skip(2).Take(5).ToArray();
-			
+
 			_hardBoundsMinimum = projects.Min(p => p.StartedOn.Date);
 			_hardBoundsMaximum = projects.Max(p => p.StartedOn.Date);
 		}

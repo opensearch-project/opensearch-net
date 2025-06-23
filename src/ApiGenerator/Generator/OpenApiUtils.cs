@@ -39,16 +39,16 @@ public static class OpenApiUtils
         return enumCount == totalCount || (booleanCount == 1 && enumCount == totalCount - 1);
     }
 
-    public static IImmutableList<string> GetEnumValues(this JsonSchema schema)
+    public static IImmutableList<(string Value, string Alias)> GetEnumValues(this JsonSchema schema)
     {
         var normalized = new HashSet<string>();
-        var values = new SortedSet<string>();
+        var values = new SortedSet<(string Value, string Alias)>();
         Visit(schema);
         return values.ToImmutableList();
 
-        void Add(string v)
+        void Add(string value, string alias)
         {
-            if (normalized.Add(v.ToLowerInvariant())) values.Add(v);
+            if (normalized.Add(value.ToLowerInvariant())) values.Add((value, alias));
         }
 
         void Visit(JsonSchema s)
@@ -56,9 +56,9 @@ public static class OpenApiUtils
             if (s.HasOneOf())
                 foreach (var oneOf in schema.OneOf) Visit(oneOf);
             else if (s.Enumeration.Count > 0)
-                foreach (var v in s.Enumeration.Where(v => v != null)) Add((string) v);
+                foreach (var v in s.Enumeration.Where(v => v != null)) Add((string) v, null);
             else if (s.Const<string>() != null)
-                Add(s.Const<string>());
+                Add(s.Const<string>(), s.Title);
         }
     }
 

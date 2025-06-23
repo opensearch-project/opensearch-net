@@ -70,6 +70,39 @@ namespace OpenSearch.Net.Specification.NeuralApi
         }
 
         /// <summary>
+        /// When <c>true</c> includes aggregated statistics across all nodes in the <c>all_nodes</c> category. When <c>false</c>, excludes the
+        /// <c>all_nodes</c> category from the response.
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
+        public bool? IncludeAllNodes
+        {
+            get => Q<bool?>("include_all_nodes");
+            set => Q("include_all_nodes", value);
+        }
+
+        /// <summary>
+        /// When <c>true</c> includes statistics for individual nodes in the <c>nodes</c> category. When <c>false</c>, excludes the <c>nodes</c>
+        /// category from the response.
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
+        public bool? IncludeIndividualNodes
+        {
+            get => Q<bool?>("include_individual_nodes");
+            set => Q("include_individual_nodes", value);
+        }
+
+        /// <summary>
+        /// When <c>true</c> includes cluster-wide information in the <c>info</c> category. When <c>false</c>, excludes the <c>info</c> category from
+        /// the response.
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
+        public bool? IncludeInfo
+        {
+            get => Q<bool?>("include_info");
+            set => Q("include_info", value);
+        }
+
+        /// <summary>
         /// Whether to return stat metadata instead of the raw stat value, includes additional information about the stat. These can include things
         /// like type hints, time since last stats being recorded, or recent rolling interval values.
         /// </summary>

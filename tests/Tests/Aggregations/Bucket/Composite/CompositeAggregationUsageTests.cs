@@ -32,7 +32,7 @@ using System.Linq;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
-using Tests.Configuration;
+using OpenSearch.Net;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
@@ -431,7 +431,7 @@ namespace Tests.Aggregations.Bucket.Composite
 					new DateHistogramCompositeAggregationSource("started")
 					{
 						Field = Field<Project>(f => f.StartedOn),
-						FixedInterval = new Time(30, TimeUnit.Day),
+						FixedInterval = new Time(30, TimeUnit.Days),
 						Format = "yyyy-MM-dd"
 					},
 				},

@@ -94,7 +94,7 @@ namespace OpenSearch.Net.Specification.ListApi
             set => Q("format", value);
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
@@ -170,7 +170,7 @@ namespace OpenSearch.Net.Specification.ListApi
             set => Q("sort", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
@@ -213,7 +213,7 @@ namespace OpenSearch.Net.Specification.ListApi
             set => Q("format", value);
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
@@ -268,7 +268,7 @@ namespace OpenSearch.Net.Specification.ListApi
             set => Q("sort", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
