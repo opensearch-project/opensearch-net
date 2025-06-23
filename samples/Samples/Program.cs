@@ -17,8 +17,8 @@ public static class Program
 		var rootCommand = new RootCommand("A collection of samples demonstrating how to use the OpenSearch .NET client");
 		var clientDescriptor = rootCommand.AddOpenSearchClientOptions();
 
-		foreach (var sample in Sample.GetAllSamples()) rootCommand.AddCommand(sample.AsCommand(clientDescriptor));
+		foreach (var sample in Sample.GetAllSamples()) rootCommand.Add(sample.AsCommand(clientDescriptor));
 
-		await rootCommand.InvokeAsync(args);
+		await rootCommand.Parse(args).InvokeAsync();
 	}
 }
