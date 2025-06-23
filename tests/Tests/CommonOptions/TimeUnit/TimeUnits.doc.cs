@@ -53,7 +53,7 @@ namespace Tests.CommonOptions.TimeUnit
 		[U] public void Constructor()
 		{
 			var unitString = new Time("2d");
-			var unitComposed = new Time(2, OpenSearch.Client.TimeUnit.Day);
+			var unitComposed = new Time(2, OpenSearch.Net.TimeUnit.Days);
 			var unitTimeSpan = new Time(TimeSpan.FromDays(2));
 			var unitMilliseconds = new Time(1000 * 60 * 60 * 24 * 2);
 
@@ -132,7 +132,7 @@ namespace Tests.CommonOptions.TimeUnit
 			/**
 			 * Equality has down to 1/10 nanosecond precision
 			 */
-			Time oneNanosecond = new Time(1, OpenSearch.Client.TimeUnit.Nanoseconds);
+			Time oneNanosecond = new Time(1, OpenSearch.Net.TimeUnit.Nanoseconds);
 			Time onePointNoughtNineNanoseconds = "1.09nanos";
 			Time onePointOneNanoseconds = "1.1nanos";
 
@@ -172,7 +172,7 @@ namespace Tests.CommonOptions.TimeUnit
 			/** Special Time values `0` and `-1` can be compared against other Time values
 			 * although admittedly, this is a tad nonsensical.
 			 */
-			var twoDays = new Time(2, OpenSearch.Client.TimeUnit.Day);
+			var twoDays = new Time(2, OpenSearch.Net.TimeUnit.Days);
 			Time.MinusOne.Should().BeLessThan(Time.Zero);
 			Time.Zero.Should().BeGreaterThan(Time.MinusOne);
 			Time.Zero.Should().BeLessThan(twoDays);
@@ -182,8 +182,8 @@ namespace Tests.CommonOptions.TimeUnit
 			 * If there is a need to construct a time of -1ms or 0ms, use the constructor
 			 * that accepts a factor and time unit, or specify a string with ms time units
 			 */
-			(new Time(-1, OpenSearch.Client.TimeUnit.Millisecond) == new Time("-1ms")).Should().BeTrue();
-			(new Time(0, OpenSearch.Client.TimeUnit.Millisecond) == new Time("0ms")).Should().BeTrue();
+			(new Time(-1, OpenSearch.Net.TimeUnit.Milliseconds) == new Time("-1ms")).Should().BeTrue();
+			(new Time(0, OpenSearch.Net.TimeUnit.Milliseconds) == new Time("0ms")).Should().BeTrue();
 		}
 
 		// hide
@@ -336,36 +336,36 @@ namespace Tests.CommonOptions.TimeUnit
 			Expect(-1).WhenSerializing(Time.MinusOne);
 
 			Assert(
-				1, OpenSearch.Client.TimeUnit.Day, TimeSpan.FromDays(1).TotalMilliseconds, "1d",
-				new Time(1, OpenSearch.Client.TimeUnit.Day),
+				1, OpenSearch.Net.TimeUnit.Days, TimeSpan.FromDays(1).TotalMilliseconds, "1d",
+				new Time(1, OpenSearch.Net.TimeUnit.Days),
 				new Time("1d"),
 				new Time(TimeSpan.FromDays(1).TotalMilliseconds)
 			);
 
 			Assert(
-				1, OpenSearch.Client.TimeUnit.Hour, TimeSpan.FromHours(1).TotalMilliseconds, "1h",
-				new Time(1, OpenSearch.Client.TimeUnit.Hour),
+				1, OpenSearch.Net.TimeUnit.Hours, TimeSpan.FromHours(1).TotalMilliseconds, "1h",
+				new Time(1, OpenSearch.Net.TimeUnit.Hours),
 				new Time("1h"),
 				new Time(TimeSpan.FromHours(1).TotalMilliseconds)
 			);
 
 			Assert(
-				1, OpenSearch.Client.TimeUnit.Minute, TimeSpan.FromMinutes(1).TotalMilliseconds, "1m",
-				new Time(1, OpenSearch.Client.TimeUnit.Minute),
+				1, OpenSearch.Net.TimeUnit.Minutes, TimeSpan.FromMinutes(1).TotalMilliseconds, "1m",
+				new Time(1, OpenSearch.Net.TimeUnit.Minutes),
 				new Time("1m"),
 				new Time(TimeSpan.FromMinutes(1).TotalMilliseconds)
 			);
 
 			Assert(
-				1, OpenSearch.Client.TimeUnit.Second, TimeSpan.FromSeconds(1).TotalMilliseconds, "1s",
-				new Time(1, OpenSearch.Client.TimeUnit.Second),
+				1, OpenSearch.Net.TimeUnit.Seconds, TimeSpan.FromSeconds(1).TotalMilliseconds, "1s",
+				new Time(1, OpenSearch.Net.TimeUnit.Seconds),
 				new Time("1s"),
 				new Time(TimeSpan.FromSeconds(1).TotalMilliseconds)
 			);
 		}
 
 		//hide
-		private void Assert(double expectedFactor, OpenSearch.Client.TimeUnit expectedInterval, double expectedMilliseconds, string expectedSerialized, params Time[] times)
+		private void Assert(double expectedFactor, OpenSearch.Net.TimeUnit expectedInterval, double expectedMilliseconds, string expectedSerialized, params Time[] times)
 		{
 			foreach (var time in times)
 			{

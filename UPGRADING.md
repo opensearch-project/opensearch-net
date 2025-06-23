@@ -63,6 +63,8 @@
 - The `ExpandWildcards` enum is now attributed with `[Flags]` to allow combining of multiple values e.g. `ExpandWildcards.Open | ExpandWildcards.Closed` to match open and closed indexes but not hidden.
 - The `Bytes` enum has been renamed to `ByteUnit`.
 - All instances of the `Routing` parameter now accept an array of strings instead of a single string to better represent the underlying API that accepts comma-separated lists.
+- The `SortOrder` enum has been moved from the `OpenSearch.Client` namespace to the `OpenSearch.Net` namespace.
+- The `TimeUnit` enum has been moved from the `OpenSearch.Client` namespace to the `OpenSearch.Net` namespace. The `Millisecond`, `Second`, `Minute`, `Hour` and `Day` variants names have been pluralized to `Milliseconds`, `Seconds`, `Minutes`, `Hours` and `Days` respectively.
 
 #### Bulk Action
 - The `TypeQueryString` parameter has been renamed to simply `Type`.

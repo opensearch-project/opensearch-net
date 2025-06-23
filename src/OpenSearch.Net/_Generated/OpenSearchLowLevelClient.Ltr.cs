@@ -345,7 +345,7 @@ namespace OpenSearch.Net.Specification.LtrApi
             );
 
         /// <summary>GET on /_plugins/_ltr/{node_id}/stats</summary>
-        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
         public TResponse Stats<TResponse>(
@@ -361,7 +361,7 @@ namespace OpenSearch.Net.Specification.LtrApi
             );
 
         /// <summary>GET on /_plugins/_ltr/{node_id}/stats</summary>
-        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
         [MapsApi("ltr.stats", "node_id")]
@@ -380,8 +380,8 @@ namespace OpenSearch.Net.Specification.LtrApi
             );
 
         /// <summary>GET on /_plugins/_ltr/{node_id}/stats/{stat}</summary>
-        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
-        /// <param name="stat">Comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
+        /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="stat">A comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
         public TResponse Stats<TResponse>(
@@ -398,8 +398,8 @@ namespace OpenSearch.Net.Specification.LtrApi
             );
 
         /// <summary>GET on /_plugins/_ltr/{node_id}/stats/{stat}</summary>
-        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
-        /// <param name="stat">Comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
+        /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="stat">A comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
         [MapsApi("ltr.stats", "node_id, stat")]
@@ -419,7 +419,7 @@ namespace OpenSearch.Net.Specification.LtrApi
             );
 
         /// <summary>GET on /_plugins/_ltr/stats/{stat}</summary>
-        /// <param name="stat">Comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
+        /// <param name="stat">A comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
         public TResponse StatsForAll<TResponse>(
@@ -435,7 +435,7 @@ namespace OpenSearch.Net.Specification.LtrApi
             );
 
         /// <summary>GET on /_plugins/_ltr/stats/{stat}</summary>
-        /// <param name="stat">Comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
+        /// <param name="stat">A comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
         [MapsApi("ltr.stats", "stat")]

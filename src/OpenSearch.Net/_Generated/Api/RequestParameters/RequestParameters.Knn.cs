@@ -136,7 +136,7 @@ namespace OpenSearch.Net.Specification.KnnApi
             set => Q("df", value);
         }
 
-        /// <summary>Comma-separated list of fields to return as the docvalue representation of a field for each hit.</summary>
+        /// <summary>A comma-separated list of fields to return as the docvalue representation of a field for each hit.</summary>
         public string[] DocValueFields
         {
             get => Q<string[]>("docvalue_fields");
@@ -228,7 +228,7 @@ namespace OpenSearch.Net.Specification.KnnApi
             set => Q("request_cache", value);
         }
 
-        /// <summary>Comma-separated list of specific routing values.</summary>
+        /// <summary>A comma-separated list of specific routing values.</summary>
         public string[] Routing
         {
             get => Q<string[]>("routing");
@@ -263,7 +263,7 @@ namespace OpenSearch.Net.Specification.KnnApi
             set => Q("size", value);
         }
 
-        /// <summary>Comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs.</summary>
+        /// <summary>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs.</summary>
         public string[] Sort
         {
             get => Q<string[]>("sort");
@@ -298,7 +298,7 @@ namespace OpenSearch.Net.Specification.KnnApi
             set => Q("stats", value);
         }
 
-        /// <summary>Comma-separated list of stored fields to return.</summary>
+        /// <summary>A comma-separated list of stored fields to return.</summary>
         public string[] StoredFields
         {
             get => Q<string[]>("stored_fields");

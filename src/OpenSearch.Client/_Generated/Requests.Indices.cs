@@ -233,7 +233,7 @@ namespace OpenSearch.Client
             set => Q("fielddata", value);
         }
 
-        /// <summary>Comma-separated list of field names used to limit the <c>fielddata</c> parameter.</summary>
+        /// <summary>A comma-separated list of field names used to limit the <c>fielddata</c> parameter.</summary>
         public Fields Fields
         {
             get => Q<Fields>("fields");
@@ -2814,7 +2814,7 @@ namespace OpenSearch.Client
         Metrics IIndicesStatsRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
 
         // Request parameters
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
+        /// <summary>A comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
         public Fields CompletionFields
         {
             get => Q<Fields>("completion_fields");
@@ -2831,14 +2831,14 @@ namespace OpenSearch.Client
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data statistics.</summary>
+        /// <summary>A comma-separated list or wildcard expressions of fields to include in field data statistics.</summary>
         public Fields FielddataFields
         {
             get => Q<Fields>("fielddata_fields");
             set => Q("fielddata_fields", value);
         }
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
+        /// <summary>A comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
         public Fields Fields
         {
             get => Q<Fields>("fields");
@@ -2852,7 +2852,7 @@ namespace OpenSearch.Client
             set => Q("forbid_closed_indices", value);
         }
 
-        /// <summary>Comma-separated list of search groups to include in the search statistics.</summary>
+        /// <summary>A comma-separated list of search groups to include in the search statistics.</summary>
         public string[] Groups
         {
             get => Q<string[]>("groups");

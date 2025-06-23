@@ -172,7 +172,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICountRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (<c>*</c>). To search all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (<c>*</c>). To search all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public CountDescriptor<TDocument> Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -313,7 +313,7 @@ namespace OpenSearch.Client
         /// <summary>Explicit version number for concurrency control. The specified version must match the current version of the document for the request to succeed.</summary>
         public CreateDescriptor<TDocument> Version(long? version) => Qs("version", version);
 
-        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public CreateDescriptor<TDocument> VersionType(VersionType? versiontype) =>
             Qs("version_type", versiontype);
 
@@ -342,7 +342,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICreatePitRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of indexes; use <c>_all</c> or empty string to perform the operation on all indexes.</summary>
+        /// <summary>A comma-separated list of indexes; use <c>_all</c> or empty string to perform the operation on all indexes.</summary>
         public CreatePitDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -454,7 +454,7 @@ namespace OpenSearch.Client
         /// <summary>Explicit version number for concurrency control. The specified version must match the current version of the document for the request to succeed.</summary>
         public DeleteDescriptor<TDocument> Version(long? version) => Qs("version", version);
 
-        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public DeleteDescriptor<TDocument> VersionType(VersionType? versiontype) =>
             Qs("version_type", versiontype);
 
@@ -500,7 +500,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IDeleteByQueryRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (<c>*</c>). To search all data streams or indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (<c>*</c>). To search all data streams or indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public DeleteByQueryDescriptor<TDocument> Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -776,7 +776,7 @@ namespace OpenSearch.Client
         Id IDocumentExistsRequest.Id => Self.RouteValues.Get<Id>("id");
         IndexName IDocumentExistsRequest.Index => Self.RouteValues.Get<IndexName>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases. Supports wildcards (<c>*</c>).</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases. Supports wildcards (<c>*</c>).</summary>
         public DocumentExistsDescriptor<TDocument> Index(IndexName index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -842,7 +842,7 @@ namespace OpenSearch.Client
         /// <summary>Explicit version number for concurrency control. The specified version must match the current version of the document for the request to succeed.</summary>
         public DocumentExistsDescriptor<TDocument> Version(long? version) => Qs("version", version);
 
-        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public DocumentExistsDescriptor<TDocument> VersionType(VersionType? versiontype) =>
             Qs("version_type", versiontype);
     }
@@ -890,7 +890,7 @@ namespace OpenSearch.Client
         Id ISourceExistsRequest.Id => Self.RouteValues.Get<Id>("id");
         IndexName ISourceExistsRequest.Index => Self.RouteValues.Get<IndexName>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases. Supports wildcards (<c>*</c>).</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases. Supports wildcards (<c>*</c>).</summary>
         public SourceExistsDescriptor<TDocument> Index(IndexName index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -946,7 +946,7 @@ namespace OpenSearch.Client
         /// <summary>Explicit version number for concurrency control. The specified version must match the current version of the document for the request to succeed.</summary>
         public SourceExistsDescriptor<TDocument> Version(long? version) => Qs("version", version);
 
-        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public SourceExistsDescriptor<TDocument> VersionType(VersionType? versiontype) =>
             Qs("version_type", versiontype);
     }
@@ -1080,7 +1080,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IFieldCapabilitiesRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (*). To target all data streams and indexes, omit this parameter or use * or <c>_all</c>.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (*). To target all data streams and indexes, omit this parameter or use * or <c>_all</c>.</summary>
         public FieldCapabilitiesDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1101,10 +1101,10 @@ namespace OpenSearch.Client
         public FieldCapabilitiesDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>Comma-separated list of fields to retrieve capabilities for. Wildcard (<c>*</c>) expressions are supported.</summary>
+        /// <summary>A comma-separated list of fields to retrieve capabilities for. Wildcard (<c>*</c>) expressions are supported.</summary>
         public FieldCapabilitiesDescriptor Fields(Fields fields) => Qs("fields", fields);
 
-        /// <summary>Comma-separated list of fields to retrieve capabilities for. Wildcard (&lt;c&gt;*&lt;/c&gt;) expressions are supported.</summary>
+        /// <summary>A comma-separated list of fields to retrieve capabilities for. Wildcard (&lt;c&gt;*&lt;/c&gt;) expressions are supported.</summary>
         public FieldCapabilitiesDescriptor Fields<T>(params Expression<Func<T, object>>[] fields)
             where T : class => Qs("fields", fields?.Select(e => (Field)e));
 
@@ -1219,7 +1219,7 @@ namespace OpenSearch.Client
         /// <summary>Explicit version number for concurrency control. The specified version must match the current version of the document for the request to succeed.</summary>
         public GetDescriptor<TDocument> Version(long? version) => Qs("version", version);
 
-        /// <summary>Specific version type: <c>internal</c>, <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>internal</c>, <c>external</c>, <c>external_gte</c>.</summary>
         public GetDescriptor<TDocument> VersionType(VersionType? versiontype) =>
             Qs("version_type", versiontype);
     }
@@ -1366,7 +1366,7 @@ namespace OpenSearch.Client
         /// <summary>Explicit version number for concurrency control. The specified version must match the current version of the document for the request to succeed.</summary>
         public SourceDescriptor<TDocument> Version(long? version) => Qs("version", version);
 
-        /// <summary>Specific version type. One of <c>internal</c>, <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type. One of <c>internal</c>, <c>external</c>, <c>external_gte</c>.</summary>
         public SourceDescriptor<TDocument> VersionType(VersionType? versiontype) =>
             Qs("version_type", versiontype);
     }
@@ -1414,7 +1414,7 @@ namespace OpenSearch.Client
         Id IIndexRequest<TDocument>.Id => Self.RouteValues.Get<Id>("id");
         IndexName IIndexRequest<TDocument>.Index => Self.RouteValues.Get<IndexName>("index");
 
-        /// <summary>Unique identifier for the document.</summary>
+        /// <summary>The unique identifier for the document.</summary>
         public IndexDescriptor<TDocument> Id(Id id) =>
             Assign(id, (a, v) => a.RouteValues.Optional("id", v));
 
@@ -1464,7 +1464,7 @@ namespace OpenSearch.Client
         /// <summary>Explicit version number for concurrency control. The specified version must match the current version of the document for the request to succeed.</summary>
         public IndexDescriptor<TDocument> Version(long? version) => Qs("version", version);
 
-        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public IndexDescriptor<TDocument> VersionType(VersionType? versiontype) =>
             Qs("version_type", versiontype);
 
@@ -1506,7 +1506,7 @@ namespace OpenSearch.Client
         // values part of the url path
         IndexName IMultiGetRequest.Index => Self.RouteValues.Get<IndexName>("index");
 
-        /// <summary>Name of the index to retrieve documents from when <c>ids</c> are specified, or when a document in the <c>docs</c> array does not specify an index.</summary>
+        /// <summary>The name of the index to retrieve documents from when <c>ids</c> are specified, or when a document in the <c>docs</c> array does not specify an index.</summary>
         public MultiGetDescriptor Index(IndexName index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1578,7 +1578,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IMultiSearchRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and index aliases to search.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and index aliases to search.</summary>
         public MultiSearchDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1643,7 +1643,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IMultiSearchTemplateRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (<c>*</c>). To search all data streams and indexes, omit this parameter or use <c>*</c>.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (<c>*</c>). To search all data streams and indexes, omit this parameter or use <c>*</c>.</summary>
         public MultiSearchTemplateDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1974,7 +1974,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ISearchRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (<c>*</c>). To search all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (<c>*</c>). To search all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public SearchDescriptor<TInferDocument> Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -2225,7 +2225,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ISearchTemplateRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (*).</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (*).</summary>
         public SearchTemplateDescriptor<TDocument> Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -2265,6 +2265,10 @@ namespace OpenSearch.Client
             bool? ignoreunavailable = true
         ) => Qs("ignore_unavailable", ignoreunavailable);
 
+        /// <summary>Indicates whether to return phase-level <c>took</c> time values in the response.</summary>
+        public SearchTemplateDescriptor<TDocument> PhaseTook(bool? phasetook = true) =>
+            Qs("phase_took", phasetook);
+
         /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
         public SearchTemplateDescriptor<TDocument> Preference(string preference) =>
             Qs("preference", preference);
@@ -2285,6 +2289,10 @@ namespace OpenSearch.Client
 
         /// <summary>Specifies how long a consistent view of the index should be maintained for scrolled search.</summary>
         public SearchTemplateDescriptor<TDocument> Scroll(Time scroll) => Qs("scroll", scroll);
+
+        /// <summary>Customizable sequence of processing stages applied to search queries.</summary>
+        public SearchTemplateDescriptor<TDocument> SearchPipeline(string searchpipeline) =>
+            Qs("search_pipeline", searchpipeline);
 
         /// <summary>The type of the search operation.</summary>
         public SearchTemplateDescriptor<TDocument> SearchType(SearchType? searchtype) =>
@@ -2534,7 +2542,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IUpdateByQueryRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (<c>*</c>). To search all data streams or indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (<c>*</c>). To search all data streams or indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public UpdateByQueryDescriptor<TDocument> Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 

@@ -158,7 +158,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             set => Q("fielddata", value);
         }
 
-        /// <summary>Comma-separated list of field names used to limit the <c>fielddata</c> parameter.</summary>
+        /// <summary>A comma-separated list of field names used to limit the <c>fielddata</c> parameter.</summary>
         public string[] Fields
         {
             get => Q<string[]>("fields");
@@ -180,7 +180,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>Comma-separated list of indexes; use <c>_all</c> or empty string to perform the operation on all indexes.</summary>
+        /// <summary>A comma-separated list of indexes; use <c>_all</c> or empty string to perform the operation on all indexes.</summary>
         public string[] Index
         {
             get => Q<string[]>("index");
@@ -1164,7 +1164,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
 
         /// <summary>
-        /// Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data
+        /// A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data
         /// streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.
         /// </summary>
         public string[] Index
@@ -2116,7 +2116,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
+        /// <summary>A comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
         public string[] CompletionFields
         {
             get => Q<string[]>("completion_fields");
@@ -2133,14 +2133,14 @@ namespace OpenSearch.Net.Specification.IndicesApi
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data statistics.</summary>
+        /// <summary>A comma-separated list or wildcard expressions of fields to include in field data statistics.</summary>
         public string[] FielddataFields
         {
             get => Q<string[]>("fielddata_fields");
             set => Q("fielddata_fields", value);
         }
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
+        /// <summary>A comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
         public string[] Fields
         {
             get => Q<string[]>("fields");
@@ -2154,7 +2154,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             set => Q("forbid_closed_indices", value);
         }
 
-        /// <summary>Comma-separated list of search groups to include in the search statistics.</summary>
+        /// <summary>A comma-separated list of search groups to include in the search statistics.</summary>
         public string[] Groups
         {
             get => Q<string[]>("groups");

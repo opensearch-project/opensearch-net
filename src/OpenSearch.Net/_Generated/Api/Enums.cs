@@ -673,10 +673,87 @@ namespace OpenSearch.Net
     }
 
     [StringEnum]
+    public enum SecurityAnalyticsAlertsAlertSeverityLevel
+    {
+        [EnumMember(Value = "1")]
+        One,
+
+        [EnumMember(Value = "2")]
+        Two,
+
+        [EnumMember(Value = "3")]
+        Three,
+
+        [EnumMember(Value = "4")]
+        Four,
+
+        [EnumMember(Value = "5")]
+        Five,
+
+        [EnumMember(Value = "ALL")]
+        All,
+    }
+
+    [StringEnum]
+    public enum SecurityAnalyticsAlertsAlertState
+    {
+        [EnumMember(Value = "ACKNOWLEDGED")]
+        Acknowledged,
+
+        [EnumMember(Value = "ACTIVE")]
+        Active,
+
+        [EnumMember(Value = "COMPLETED")]
+        Completed,
+
+        [EnumMember(Value = "DELETED")]
+        Deleted,
+
+        [EnumMember(Value = "ERROR")]
+        Error,
+    }
+
+    [StringEnum]
+    public enum SecurityAnalyticsFindingsDetectionType
+    {
+        [EnumMember(Value = "rule")]
+        Rule,
+
+        [EnumMember(Value = "threat")]
+        Threat,
+    }
+
+    [StringEnum]
+    public enum SecurityAnalyticsFindingsRuleSeverity
+    {
+        [EnumMember(Value = "critical")]
+        Critical,
+
+        [EnumMember(Value = "high")]
+        High,
+
+        [EnumMember(Value = "low")]
+        Low,
+
+        [EnumMember(Value = "medium")]
+        Medium,
+    }
+
+    [StringEnum]
     public enum SlicesCalculation
     {
         [EnumMember(Value = "auto")]
         Auto,
+    }
+
+    [StringEnum]
+    public enum SortOrder
+    {
+        [EnumMember(Value = "asc")]
+        Ascending,
+
+        [EnumMember(Value = "desc")]
+        Descending,
     }
 
     [StringEnum]
@@ -709,25 +786,25 @@ namespace OpenSearch.Net
     public enum TimeUnit
     {
         [EnumMember(Value = "d")]
-        D,
+        Days,
 
         [EnumMember(Value = "h")]
-        H,
+        Hours,
 
         [EnumMember(Value = "m")]
-        M,
+        Minutes,
 
         [EnumMember(Value = "micros")]
-        Micros,
+        Microseconds,
 
         [EnumMember(Value = "ms")]
-        Ms,
+        Milliseconds,
 
         [EnumMember(Value = "nanos")]
-        Nanos,
+        Nanoseconds,
 
         [EnumMember(Value = "s")]
-        S,
+        Seconds,
     }
 
     [StringEnum]
@@ -802,7 +879,12 @@ namespace OpenSearch.Net
             AddEnumStringResolver<OpType>(GetStringValue);
             AddEnumStringResolver<Refresh>(GetStringValue);
             AddEnumStringResolver<SearchType>(GetStringValue);
+            AddEnumStringResolver<SecurityAnalyticsAlertsAlertSeverityLevel>(GetStringValue);
+            AddEnumStringResolver<SecurityAnalyticsAlertsAlertState>(GetStringValue);
+            AddEnumStringResolver<SecurityAnalyticsFindingsDetectionType>(GetStringValue);
+            AddEnumStringResolver<SecurityAnalyticsFindingsRuleSeverity>(GetStringValue);
             AddEnumStringResolver<SlicesCalculation>(GetStringValue);
+            AddEnumStringResolver<SortOrder>(GetStringValue);
             AddEnumStringResolver<SuggestMode>(GetStringValue);
             AddEnumStringResolver<TasksGroupBy>(GetStringValue);
             AddEnumStringResolver<TimeUnit>(GetStringValue);
@@ -1277,12 +1359,75 @@ namespace OpenSearch.Net
                 ),
             };
 
+        public static string GetStringValue(
+            this SecurityAnalyticsAlertsAlertSeverityLevel enumValue
+        ) =>
+            enumValue switch
+            {
+                SecurityAnalyticsAlertsAlertSeverityLevel.One => "1",
+                SecurityAnalyticsAlertsAlertSeverityLevel.Two => "2",
+                SecurityAnalyticsAlertsAlertSeverityLevel.Three => "3",
+                SecurityAnalyticsAlertsAlertSeverityLevel.Four => "4",
+                SecurityAnalyticsAlertsAlertSeverityLevel.Five => "5",
+                SecurityAnalyticsAlertsAlertSeverityLevel.All => "ALL",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'SecurityAnalyticsAlertsAlertSeverityLevel'"
+                ),
+            };
+
+        public static string GetStringValue(this SecurityAnalyticsAlertsAlertState enumValue) =>
+            enumValue switch
+            {
+                SecurityAnalyticsAlertsAlertState.Acknowledged => "ACKNOWLEDGED",
+                SecurityAnalyticsAlertsAlertState.Active => "ACTIVE",
+                SecurityAnalyticsAlertsAlertState.Completed => "COMPLETED",
+                SecurityAnalyticsAlertsAlertState.Deleted => "DELETED",
+                SecurityAnalyticsAlertsAlertState.Error => "ERROR",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'SecurityAnalyticsAlertsAlertState'"
+                ),
+            };
+
+        public static string GetStringValue(
+            this SecurityAnalyticsFindingsDetectionType enumValue
+        ) =>
+            enumValue switch
+            {
+                SecurityAnalyticsFindingsDetectionType.Rule => "rule",
+                SecurityAnalyticsFindingsDetectionType.Threat => "threat",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'SecurityAnalyticsFindingsDetectionType'"
+                ),
+            };
+
+        public static string GetStringValue(this SecurityAnalyticsFindingsRuleSeverity enumValue) =>
+            enumValue switch
+            {
+                SecurityAnalyticsFindingsRuleSeverity.Critical => "critical",
+                SecurityAnalyticsFindingsRuleSeverity.High => "high",
+                SecurityAnalyticsFindingsRuleSeverity.Low => "low",
+                SecurityAnalyticsFindingsRuleSeverity.Medium => "medium",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'SecurityAnalyticsFindingsRuleSeverity'"
+                ),
+            };
+
         public static string GetStringValue(this SlicesCalculation enumValue) =>
             enumValue switch
             {
                 SlicesCalculation.Auto => "auto",
                 _ => throw new ArgumentException(
                     $"'{enumValue.ToString()}' is not a valid value for enum 'SlicesCalculation'"
+                ),
+            };
+
+        public static string GetStringValue(this SortOrder enumValue) =>
+            enumValue switch
+            {
+                SortOrder.Ascending => "asc",
+                SortOrder.Descending => "desc",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'SortOrder'"
                 ),
             };
 
@@ -1311,13 +1456,13 @@ namespace OpenSearch.Net
         public static string GetStringValue(this TimeUnit enumValue) =>
             enumValue switch
             {
-                TimeUnit.D => "d",
-                TimeUnit.H => "h",
-                TimeUnit.M => "m",
-                TimeUnit.Micros => "micros",
-                TimeUnit.Ms => "ms",
-                TimeUnit.Nanos => "nanos",
-                TimeUnit.S => "s",
+                TimeUnit.Days => "d",
+                TimeUnit.Hours => "h",
+                TimeUnit.Minutes => "m",
+                TimeUnit.Microseconds => "micros",
+                TimeUnit.Milliseconds => "ms",
+                TimeUnit.Nanoseconds => "nanos",
+                TimeUnit.Seconds => "s",
                 _ => throw new ArgumentException(
                     $"'{enumValue.ToString()}' is not a valid value for enum 'TimeUnit'"
                 ),

@@ -196,7 +196,7 @@ namespace OpenSearch.Net.Specification.KnnApi
             );
 
         /// <summary>GET on /_plugins/_knn/{node_id}/stats <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#stats</para></summary>
-        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Stats<TResponse>(
             string nodeId,
@@ -211,7 +211,7 @@ namespace OpenSearch.Net.Specification.KnnApi
             );
 
         /// <summary>GET on /_plugins/_knn/{node_id}/stats <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#stats</para></summary>
-        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("knn.stats", "node_id")]
         public Task<TResponse> StatsAsync<TResponse>(
@@ -229,8 +229,8 @@ namespace OpenSearch.Net.Specification.KnnApi
             );
 
         /// <summary>GET on /_plugins/_knn/{node_id}/stats/{stat} <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#stats</para></summary>
-        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
-        /// <param name="stat">Comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
+        /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="stat">A comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Stats<TResponse>(
             string nodeId,
@@ -246,8 +246,8 @@ namespace OpenSearch.Net.Specification.KnnApi
             );
 
         /// <summary>GET on /_plugins/_knn/{node_id}/stats/{stat} <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#stats</para></summary>
-        /// <param name="nodeId">Comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
-        /// <param name="stat">Comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
+        /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
+        /// <param name="stat">A comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("knn.stats", "node_id, stat")]
         public Task<TResponse> StatsAsync<TResponse>(
@@ -266,7 +266,7 @@ namespace OpenSearch.Net.Specification.KnnApi
             );
 
         /// <summary>GET on /_plugins/_knn/stats/{stat} <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#stats</para></summary>
-        /// <param name="stat">Comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
+        /// <param name="stat">A comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse StatsForAll<TResponse>(
             string stat,
@@ -281,7 +281,7 @@ namespace OpenSearch.Net.Specification.KnnApi
             );
 
         /// <summary>GET on /_plugins/_knn/stats/{stat} <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#stats</para></summary>
-        /// <param name="stat">Comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
+        /// <param name="stat">A comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("knn.stats", "stat")]
         public Task<TResponse> StatsForAllAsync<TResponse>(
@@ -369,7 +369,7 @@ namespace OpenSearch.Net.Specification.KnnApi
             );
 
         /// <summary>GET on /_plugins/_knn/warmup/{index} <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#warmup-operation</para></summary>
-        /// <param name="index">Comma-separated list of indexes; use &lt;c&gt;_all&lt;/c&gt; or empty string to perform the operation on all indexes.</param>
+        /// <param name="index">A comma-separated list of indexes; use &lt;c&gt;_all&lt;/c&gt; or empty string to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Warmup<TResponse>(
             string index,
@@ -384,7 +384,7 @@ namespace OpenSearch.Net.Specification.KnnApi
             );
 
         /// <summary>GET on /_plugins/_knn/warmup/{index} <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#warmup-operation</para></summary>
-        /// <param name="index">Comma-separated list of indexes; use &lt;c&gt;_all&lt;/c&gt; or empty string to perform the operation on all indexes.</param>
+        /// <param name="index">A comma-separated list of indexes; use &lt;c&gt;_all&lt;/c&gt; or empty string to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("knn.warmup", "index")]
         public Task<TResponse> WarmupAsync<TResponse>(
