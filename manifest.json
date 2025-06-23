@@ -35084,20 +35084,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SortOrder.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.SortOrder.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "OpenSearch.Client.SortOrder",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.SortProcessor.yml",
       "output": {
         ".html": {
@@ -37699,34 +37685,6 @@
       "IsMRef": true,
       "Title": "OpenSearch.Client.Time",
       "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Client.Time.yml\" sourcestartlinenumber=\"1\">Represents a time value</p>\n"
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.TimeUnit.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.TimeUnit.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "OpenSearch.Client.TimeUnit",
-      "Summary": null
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Client.TimeUnitExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/OpenSearch.Client.TimeUnitExtensions.html"
-        }
-      },
-      "version": "",
-      "Uid": null,
-      "IsMRef": true,
-      "Title": "OpenSearch.Client.TimeUnitExtensions",
-      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -41300,6 +41258,62 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.SecurityAnalyticsAlertsAlertSeverityLevel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.SecurityAnalyticsAlertsAlertSeverityLevel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.SecurityAnalyticsAlertsAlertSeverityLevel",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.SecurityAnalyticsAlertsAlertState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.SecurityAnalyticsAlertsAlertState.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.SecurityAnalyticsAlertsAlertState",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.SecurityAnalyticsFindingsDetectionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.SecurityAnalyticsFindingsDetectionType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.SecurityAnalyticsFindingsDetectionType",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.SecurityAnalyticsFindingsRuleSeverity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.SecurityAnalyticsFindingsRuleSeverity.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.SecurityAnalyticsFindingsRuleSeverity",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.SerializableData-1.yml",
       "output": {
         ".html": {
@@ -41422,6 +41436,20 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "OpenSearch.Net.SniffingConnectionPool",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.SortOrder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.SortOrder.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.SortOrder",
       "Summary": null
     },
     {
@@ -45972,6 +46000,314 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "OpenSearch.Net.Specification.SearchPipelineApi",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.DeleteExperimentsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SearchRelevanceApi.DeleteExperimentsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.SearchRelevanceApi.DeleteExperimentsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.DeleteExperimentsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for DeleteExperiments</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.DeleteJudgmentsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SearchRelevanceApi.DeleteJudgmentsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.SearchRelevanceApi.DeleteJudgmentsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.DeleteJudgmentsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for DeleteJudgments</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.DeleteQuerySetsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SearchRelevanceApi.DeleteQuerySetsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.SearchRelevanceApi.DeleteQuerySetsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.DeleteQuerySetsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for DeleteQuerySets</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.DeleteSearchConfigurationsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SearchRelevanceApi.DeleteSearchConfigurationsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.SearchRelevanceApi.DeleteSearchConfigurationsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.DeleteSearchConfigurationsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for DeleteSearchConfigurations</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.GetExperimentsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SearchRelevanceApi.GetExperimentsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.SearchRelevanceApi.GetExperimentsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.GetExperimentsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for GetExperiments</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.GetJudgmentsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SearchRelevanceApi.GetJudgmentsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.SearchRelevanceApi.GetJudgmentsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.GetJudgmentsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for GetJudgments</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.GetNodeStatsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SearchRelevanceApi.GetNodeStatsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.SearchRelevanceApi.GetNodeStatsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.GetNodeStatsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for GetNodeStats</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.GetQuerySetsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SearchRelevanceApi.GetQuerySetsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.SearchRelevanceApi.GetQuerySetsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.GetQuerySetsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for GetQuerySets</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.GetSearchConfigurationsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SearchRelevanceApi.GetSearchConfigurationsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.SearchRelevanceApi.GetSearchConfigurationsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.GetSearchConfigurationsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for GetSearchConfigurations</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.GetStatsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SearchRelevanceApi.GetStatsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.SearchRelevanceApi.GetStatsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.GetStatsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for GetStats</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.LowLevelSearchRelevanceNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SearchRelevanceApi.LowLevelSearchRelevanceNamespace.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.SearchRelevanceApi.LowLevelSearchRelevanceNamespace",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.LowLevelSearchRelevanceNamespace.yml\" sourcestartlinenumber=\"1\">Search Relevance APIs.</p>\n<p>Not intended to be instantiated directly. Use the <xref href=\"OpenSearch.Net.IOpenSearchLowLevelClient.SearchRelevance\" data-throw-if-not-resolved=\"false\"></xref> property\non <xref href=\"OpenSearch.Net.IOpenSearchLowLevelClient\" data-throw-if-not-resolved=\"false\"></xref>.\n</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.PostQuerySetsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SearchRelevanceApi.PostQuerySetsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.SearchRelevanceApi.PostQuerySetsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.PostQuerySetsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for PostQuerySets</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.PutExperimentsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SearchRelevanceApi.PutExperimentsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.SearchRelevanceApi.PutExperimentsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.PutExperimentsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for PutExperiments</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.PutJudgmentsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SearchRelevanceApi.PutJudgmentsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.SearchRelevanceApi.PutJudgmentsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.PutJudgmentsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for PutJudgments</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.PutQuerySetsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SearchRelevanceApi.PutQuerySetsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.SearchRelevanceApi.PutQuerySetsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.PutQuerySetsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for PutQuerySets</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.PutSearchConfigurationsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SearchRelevanceApi.PutSearchConfigurationsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.SearchRelevanceApi.PutSearchConfigurationsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.PutSearchConfigurationsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for PutSearchConfigurations</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SearchRelevanceApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SearchRelevanceApi.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.SearchRelevanceApi",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityAnalyticsApi.GetAlertsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityAnalyticsApi.GetAlertsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.SecurityAnalyticsApi.GetAlertsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityAnalyticsApi.GetAlertsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for GetAlerts <p>https://docs.opensearch.org/docs/latest/security-analytics/api-tools/alert-finding-api/#get-alerts</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityAnalyticsApi.GetFindingsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityAnalyticsApi.GetFindingsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.SecurityAnalyticsApi.GetFindingsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityAnalyticsApi.GetFindingsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for GetFindings <p>https://docs.opensearch.org/docs/latest/security-analytics/api-tools/alert-finding-api/#get-findings</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityAnalyticsApi.LowLevelSecurityAnalyticsNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityAnalyticsApi.LowLevelSecurityAnalyticsNamespace.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.SecurityAnalyticsApi.LowLevelSecurityAnalyticsNamespace",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityAnalyticsApi.LowLevelSecurityAnalyticsNamespace.yml\" sourcestartlinenumber=\"1\">Security Analytics APIs.</p>\n<p>Not intended to be instantiated directly. Use the <xref href=\"OpenSearch.Net.IOpenSearchLowLevelClient.SecurityAnalytics\" data-throw-if-not-resolved=\"false\"></xref> property\non <xref href=\"OpenSearch.Net.IOpenSearchLowLevelClient\" data-throw-if-not-resolved=\"false\"></xref>.\n</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityAnalyticsApi.SearchFindingCorrelationsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityAnalyticsApi.SearchFindingCorrelationsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.SecurityAnalyticsApi.SearchFindingCorrelationsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityAnalyticsApi.SearchFindingCorrelationsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for SearchFindingCorrelations <p>https://docs.opensearch.org/docs/latest/security-analytics/api-tools/correlation-eng/#list-correlations-for-a-finding-belonging-to-a-log-type</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.SecurityAnalyticsApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.SecurityAnalyticsApi.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.SecurityAnalyticsApi",
       "Summary": null
     },
     {
