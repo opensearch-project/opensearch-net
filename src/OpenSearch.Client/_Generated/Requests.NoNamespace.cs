@@ -1149,7 +1149,7 @@ namespace OpenSearch.Client
             set => Q("preference", value);
         }
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
@@ -1303,7 +1303,7 @@ namespace OpenSearch.Client
             set => Q("preference", value);
         }
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
@@ -1674,7 +1674,7 @@ namespace OpenSearch.Client
             set => Q("preference", value);
         }
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
@@ -1891,7 +1891,7 @@ namespace OpenSearch.Client
             set => Q("preference", value);
         }
 
-        /// <summary>Boolean) If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>Boolean) If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
@@ -2201,7 +2201,7 @@ namespace OpenSearch.Client
             set => Q("preference", value);
         }
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
@@ -2487,7 +2487,7 @@ namespace OpenSearch.Client
             set => Q("preference", value);
         }
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
@@ -3512,7 +3512,7 @@ namespace OpenSearch.Client
             set => Q("preference", value);
         }
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");

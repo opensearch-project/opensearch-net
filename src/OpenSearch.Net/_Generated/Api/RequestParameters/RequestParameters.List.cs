@@ -164,9 +164,9 @@ namespace OpenSearch.Net.Specification.ListApi
         /// Defines order in which indexes will be displayed. Accepted values are <c>asc</c> and <c>desc</c>. If <c>desc</c>, most recently created
         /// indexes would be displayed first.
         /// </summary>
-        public string Sort
+        public SortOrder? Sort
         {
-            get => Q<string>("sort");
+            get => Q<SortOrder?>("sort");
             set => Q("sort", value);
         }
 
@@ -262,9 +262,9 @@ namespace OpenSearch.Net.Specification.ListApi
         /// Defines order in which shards will be displayed. Accepted values are <c>asc</c> and <c>desc</c>. If <c>desc</c>, most recently created
         /// shards would be displayed first.
         /// </summary>
-        public string Sort
+        public SortOrder? Sort
         {
-            get => Q<string>("sort");
+            get => Q<SortOrder?>("sort");
             set => Q("sort", value);
         }
 

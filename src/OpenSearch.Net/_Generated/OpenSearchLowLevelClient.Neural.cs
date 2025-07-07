@@ -140,7 +140,7 @@ namespace OpenSearch.Net.Specification.NeuralApi
         /// <remarks>Supported by OpenSearch servers of version 3.0.0 or greater.</remarks>
         public TResponse Stats<TResponse>(
             string nodeId,
-            string stat,
+            NeuralStatName? stat,
             StatsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -159,7 +159,7 @@ namespace OpenSearch.Net.Specification.NeuralApi
         [MapsApi("neural.stats", "node_id, stat")]
         public Task<TResponse> StatsAsync<TResponse>(
             string nodeId,
-            string stat,
+            NeuralStatName? stat,
             StatsRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
@@ -177,7 +177,7 @@ namespace OpenSearch.Net.Specification.NeuralApi
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.0.0 or greater.</remarks>
         public TResponse StatsForAll<TResponse>(
-            string stat,
+            NeuralStatName? stat,
             StatsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -194,7 +194,7 @@ namespace OpenSearch.Net.Specification.NeuralApi
         /// <remarks>Supported by OpenSearch servers of version 3.0.0 or greater.</remarks>
         [MapsApi("neural.stats", "stat")]
         public Task<TResponse> StatsForAllAsync<TResponse>(
-            string stat,
+            NeuralStatName? stat,
             StatsRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
