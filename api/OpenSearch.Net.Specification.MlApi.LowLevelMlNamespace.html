@@ -2404,19 +2404,19 @@ public TResponse CreateModelMeta&lt;TResponse&gt;(PostData body, CreateModelMeta
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_ExecuteAlgorithmAsync__1_System_String_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_ExecuteAlgorithmRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.ExecuteAlgorithmAsync%60%601(System.String%2COpenSearch.Net.PostData%2COpenSearch.Net.Specification.MlApi.ExecuteAlgorithmRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_ExecuteAlgorithmAsync__1_System_Nullable_OpenSearch_Net_MlFunctionName__OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_ExecuteAlgorithmRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.ExecuteAlgorithmAsync%60%601(System.Nullable%7BOpenSearch.Net.MlFunctionName%7D%2COpenSearch.Net.PostData%2COpenSearch.Net.Specification.MlApi.ExecuteAlgorithmRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L634">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_ExecuteAlgorithmAsync_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.ExecuteAlgorithmAsync*"></a>
-  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_ExecuteAlgorithmAsync__1_System_String_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_ExecuteAlgorithmRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.ExecuteAlgorithmAsync``1(System.String,OpenSearch.Net.PostData,OpenSearch.Net.Specification.MlApi.ExecuteAlgorithmRequestParameters,System.Threading.CancellationToken)">ExecuteAlgorithmAsync&lt;TResponse&gt;(string, PostData, ExecuteAlgorithmRequestParameters, CancellationToken)</h4>
+  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_ExecuteAlgorithmAsync__1_System_Nullable_OpenSearch_Net_MlFunctionName__OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_ExecuteAlgorithmRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.ExecuteAlgorithmAsync``1(System.Nullable{OpenSearch.Net.MlFunctionName},OpenSearch.Net.PostData,OpenSearch.Net.Specification.MlApi.ExecuteAlgorithmRequestParameters,System.Threading.CancellationToken)">ExecuteAlgorithmAsync&lt;TResponse&gt;(MlFunctionName?, PostData, ExecuteAlgorithmRequestParameters, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>POST on /_plugins/_ml/_execute/{algorithm_name}</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; ExecuteAlgorithmAsync&lt;TResponse&gt;(string algorithmName, PostData body, ExecuteAlgorithmRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; ExecuteAlgorithmAsync&lt;TResponse&gt;(MlFunctionName? algorithmName, PostData body, ExecuteAlgorithmRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2429,9 +2429,10 @@ public TResponse CreateModelMeta&lt;TResponse&gt;(PostData body, CreateModelMeta
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="OpenSearch.Net.MlFunctionName.html">MlFunctionName</a>?</td>
         <td><span class="parametername">algorithmName</span></td>
-        <td></td>
+        <td><p>The function name.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="OpenSearch.Net.PostData.html">PostData</a></td>
@@ -2481,24 +2482,24 @@ public TResponse CreateModelMeta&lt;TResponse&gt;(PostData body, CreateModelMeta
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_ExecuteAlgorithmAsync__1_System_String_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_ExecuteAlgorithmRequestParameters_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_ExecuteAlgorithmAsync__1_System_Nullable_OpenSearch_Net_MlFunctionName__OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_ExecuteAlgorithmRequestParameters_System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.0.0 or greater.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_ExecuteAlgorithm__1_System_String_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_ExecuteAlgorithmRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.ExecuteAlgorithm%60%601(System.String%2COpenSearch.Net.PostData%2COpenSearch.Net.Specification.MlApi.ExecuteAlgorithmRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_ExecuteAlgorithm__1_System_Nullable_OpenSearch_Net_MlFunctionName__OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_ExecuteAlgorithmRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.ExecuteAlgorithm%60%601(System.Nullable%7BOpenSearch.Net.MlFunctionName%7D%2COpenSearch.Net.PostData%2COpenSearch.Net.Specification.MlApi.ExecuteAlgorithmRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L616">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_ExecuteAlgorithm_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.ExecuteAlgorithm*"></a>
-  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_ExecuteAlgorithm__1_System_String_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_ExecuteAlgorithmRequestParameters_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.ExecuteAlgorithm``1(System.String,OpenSearch.Net.PostData,OpenSearch.Net.Specification.MlApi.ExecuteAlgorithmRequestParameters)">ExecuteAlgorithm&lt;TResponse&gt;(string, PostData, ExecuteAlgorithmRequestParameters)</h4>
+  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_ExecuteAlgorithm__1_System_Nullable_OpenSearch_Net_MlFunctionName__OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_ExecuteAlgorithmRequestParameters_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.ExecuteAlgorithm``1(System.Nullable{OpenSearch.Net.MlFunctionName},OpenSearch.Net.PostData,OpenSearch.Net.Specification.MlApi.ExecuteAlgorithmRequestParameters)">ExecuteAlgorithm&lt;TResponse&gt;(MlFunctionName?, PostData, ExecuteAlgorithmRequestParameters)</h4>
   <div class="markdown level1 summary"><p>POST on /_plugins/_ml/_execute/{algorithm_name}</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse ExecuteAlgorithm&lt;TResponse&gt;(string algorithmName, PostData body, ExecuteAlgorithmRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public TResponse ExecuteAlgorithm&lt;TResponse&gt;(MlFunctionName? algorithmName, PostData body, ExecuteAlgorithmRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -2511,9 +2512,10 @@ public TResponse CreateModelMeta&lt;TResponse&gt;(PostData body, CreateModelMeta
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="OpenSearch.Net.MlFunctionName.html">MlFunctionName</a>?</td>
         <td><span class="parametername">algorithmName</span></td>
-        <td></td>
+        <td><p>The function name.</p>
+</td>
       </tr>
       <tr>
         <td><a class="xref" href="OpenSearch.Net.PostData.html">PostData</a></td>
@@ -2558,7 +2560,7 @@ public TResponse CreateModelMeta&lt;TResponse&gt;(PostData body, CreateModelMeta
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_ExecuteAlgorithm__1_System_String_OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_ExecuteAlgorithmRequestParameters__remarks">Remarks</h5>
+  <h5 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_ExecuteAlgorithm__1_System_Nullable_OpenSearch_Net_MlFunctionName__OpenSearch_Net_PostData_OpenSearch_Net_Specification_MlApi_ExecuteAlgorithmRequestParameters__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.0.0 or greater.</p>
 </div>
   <span class="small pull-right mobile-hide">
@@ -5018,19 +5020,19 @@ public TResponse CreateModelMeta&lt;TResponse&gt;(PostData body, CreateModelMeta
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStatsAsync__1_System_String_System_String_OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetStatsAsync%60%601(System.String%2CSystem.String%2COpenSearch.Net.Specification.MlApi.GetStatsRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStatsAsync__1_System_String_System_Nullable_OpenSearch_Net_MlStatName__OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetStatsAsync%60%601(System.String%2CSystem.Nullable%7BOpenSearch.Net.MlStatName%7D%2COpenSearch.Net.Specification.MlApi.GetStatsRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L1287">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStatsAsync_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetStatsAsync*"></a>
-  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStatsAsync__1_System_String_System_String_OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetStatsAsync``1(System.String,System.String,OpenSearch.Net.Specification.MlApi.GetStatsRequestParameters,System.Threading.CancellationToken)">GetStatsAsync&lt;TResponse&gt;(string, string, GetStatsRequestParameters, CancellationToken)</h4>
+  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStatsAsync__1_System_String_System_Nullable_OpenSearch_Net_MlStatName__OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetStatsAsync``1(System.String,System.Nullable{OpenSearch.Net.MlStatName},OpenSearch.Net.Specification.MlApi.GetStatsRequestParameters,System.Threading.CancellationToken)">GetStatsAsync&lt;TResponse&gt;(string, MlStatName?, GetStatsRequestParameters, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>GET on /_plugins/_ml/{node_id}/stats/{stat}</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetStatsAsync&lt;TResponse&gt;(string nodeId, string stat, GetStatsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetStatsAsync&lt;TResponse&gt;(string nodeId, MlStatName? stat, GetStatsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -5048,7 +5050,7 @@ public TResponse CreateModelMeta&lt;TResponse&gt;(PostData body, CreateModelMeta
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="OpenSearch.Net.MlStatName.html">MlStatName</a>?</td>
         <td><span class="parametername">stat</span></td>
         <td></td>
       </tr>
@@ -5095,7 +5097,7 @@ public TResponse CreateModelMeta&lt;TResponse&gt;(PostData body, CreateModelMeta
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStatsAsync__1_System_String_System_String_OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStatsAsync__1_System_String_System_Nullable_OpenSearch_Net_MlStatName__OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters_System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 1.3.0 or greater.</p>
 </div>
   <span class="small pull-right mobile-hide">
@@ -5172,19 +5174,19 @@ public TResponse CreateModelMeta&lt;TResponse&gt;(PostData body, CreateModelMeta
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStatsForAllAsync__1_System_String_OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetStatsForAllAsync%60%601(System.String%2COpenSearch.Net.Specification.MlApi.GetStatsRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStatsForAllAsync__1_System_Nullable_OpenSearch_Net_MlStatName__OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetStatsForAllAsync%60%601(System.Nullable%7BOpenSearch.Net.MlStatName%7D%2COpenSearch.Net.Specification.MlApi.GetStatsRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L1323">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStatsForAllAsync_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetStatsForAllAsync*"></a>
-  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStatsForAllAsync__1_System_String_OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetStatsForAllAsync``1(System.String,OpenSearch.Net.Specification.MlApi.GetStatsRequestParameters,System.Threading.CancellationToken)">GetStatsForAllAsync&lt;TResponse&gt;(string, GetStatsRequestParameters, CancellationToken)</h4>
+  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStatsForAllAsync__1_System_Nullable_OpenSearch_Net_MlStatName__OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetStatsForAllAsync``1(System.Nullable{OpenSearch.Net.MlStatName},OpenSearch.Net.Specification.MlApi.GetStatsRequestParameters,System.Threading.CancellationToken)">GetStatsForAllAsync&lt;TResponse&gt;(MlStatName?, GetStatsRequestParameters, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>GET on /_plugins/_ml/stats/{stat}</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetStatsForAllAsync&lt;TResponse&gt;(string stat, GetStatsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetStatsForAllAsync&lt;TResponse&gt;(MlStatName? stat, GetStatsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -5197,7 +5199,7 @@ public TResponse CreateModelMeta&lt;TResponse&gt;(PostData body, CreateModelMeta
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="OpenSearch.Net.MlStatName.html">MlStatName</a>?</td>
         <td><span class="parametername">stat</span></td>
         <td></td>
       </tr>
@@ -5244,7 +5246,7 @@ public TResponse CreateModelMeta&lt;TResponse&gt;(PostData body, CreateModelMeta
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStatsForAllAsync__1_System_String_OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStatsForAllAsync__1_System_Nullable_OpenSearch_Net_MlStatName__OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters_System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 1.3.0 or greater.</p>
 </div>
   <span class="small pull-right mobile-hide">
@@ -5316,19 +5318,19 @@ public TResponse CreateModelMeta&lt;TResponse&gt;(PostData body, CreateModelMeta
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStatsForAll__1_System_String_OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetStatsForAll%60%601(System.String%2COpenSearch.Net.Specification.MlApi.GetStatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStatsForAll__1_System_Nullable_OpenSearch_Net_MlStatName__OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetStatsForAll%60%601(System.Nullable%7BOpenSearch.Net.MlStatName%7D%2COpenSearch.Net.Specification.MlApi.GetStatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L1307">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStatsForAll_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetStatsForAll*"></a>
-  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStatsForAll__1_System_String_OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetStatsForAll``1(System.String,OpenSearch.Net.Specification.MlApi.GetStatsRequestParameters)">GetStatsForAll&lt;TResponse&gt;(string, GetStatsRequestParameters)</h4>
+  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStatsForAll__1_System_Nullable_OpenSearch_Net_MlStatName__OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetStatsForAll``1(System.Nullable{OpenSearch.Net.MlStatName},OpenSearch.Net.Specification.MlApi.GetStatsRequestParameters)">GetStatsForAll&lt;TResponse&gt;(MlStatName?, GetStatsRequestParameters)</h4>
   <div class="markdown level1 summary"><p>GET on /_plugins/_ml/stats/{stat}</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse GetStatsForAll&lt;TResponse&gt;(string stat, GetStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public TResponse GetStatsForAll&lt;TResponse&gt;(MlStatName? stat, GetStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -5341,7 +5343,7 @@ public TResponse CreateModelMeta&lt;TResponse&gt;(PostData body, CreateModelMeta
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="OpenSearch.Net.MlStatName.html">MlStatName</a>?</td>
         <td><span class="parametername">stat</span></td>
         <td></td>
       </tr>
@@ -5383,7 +5385,7 @@ public TResponse CreateModelMeta&lt;TResponse&gt;(PostData body, CreateModelMeta
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStatsForAll__1_System_String_OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters__remarks">Remarks</h5>
+  <h5 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStatsForAll__1_System_Nullable_OpenSearch_Net_MlStatName__OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 1.3.0 or greater.</p>
 </div>
   <span class="small pull-right mobile-hide">
@@ -5460,19 +5462,19 @@ public TResponse CreateModelMeta&lt;TResponse&gt;(PostData body, CreateModelMeta
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStats__1_System_String_System_String_OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetStats%60%601(System.String%2CSystem.String%2COpenSearch.Net.Specification.MlApi.GetStatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStats__1_System_String_System_Nullable_OpenSearch_Net_MlStatName__OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetStats%60%601(System.String%2CSystem.Nullable%7BOpenSearch.Net.MlStatName%7D%2COpenSearch.Net.Specification.MlApi.GetStatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L1269">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStats_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetStats*"></a>
-  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStats__1_System_String_System_String_OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetStats``1(System.String,System.String,OpenSearch.Net.Specification.MlApi.GetStatsRequestParameters)">GetStats&lt;TResponse&gt;(string, string, GetStatsRequestParameters)</h4>
+  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStats__1_System_String_System_Nullable_OpenSearch_Net_MlStatName__OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetStats``1(System.String,System.Nullable{OpenSearch.Net.MlStatName},OpenSearch.Net.Specification.MlApi.GetStatsRequestParameters)">GetStats&lt;TResponse&gt;(string, MlStatName?, GetStatsRequestParameters)</h4>
   <div class="markdown level1 summary"><p>GET on /_plugins/_ml/{node_id}/stats/{stat}</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse GetStats&lt;TResponse&gt;(string nodeId, string stat, GetStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public TResponse GetStats&lt;TResponse&gt;(string nodeId, MlStatName? stat, GetStatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -5490,7 +5492,7 @@ public TResponse CreateModelMeta&lt;TResponse&gt;(PostData body, CreateModelMeta
         <td></td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="OpenSearch.Net.MlStatName.html">MlStatName</a>?</td>
         <td><span class="parametername">stat</span></td>
         <td></td>
       </tr>
@@ -5532,7 +5534,7 @@ public TResponse CreateModelMeta&lt;TResponse&gt;(PostData body, CreateModelMeta
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStats__1_System_String_System_String_OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters__remarks">Remarks</h5>
+  <h5 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetStats__1_System_String_System_Nullable_OpenSearch_Net_MlStatName__OpenSearch_Net_Specification_MlApi_GetStatsRequestParameters__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 1.3.0 or greater.</p>
 </div>
   <span class="small pull-right mobile-hide">
@@ -5686,19 +5688,19 @@ public TResponse CreateModelMeta&lt;TResponse&gt;(PostData body, CreateModelMeta
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetToolAsync__1_System_String_OpenSearch_Net_Specification_MlApi_GetToolRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetToolAsync%60%601(System.String%2COpenSearch.Net.Specification.MlApi.GetToolRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetToolAsync__1_System_Nullable_OpenSearch_Net_MlToolName__OpenSearch_Net_Specification_MlApi_GetToolRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetToolAsync%60%601(System.Nullable%7BOpenSearch.Net.MlToolName%7D%2COpenSearch.Net.Specification.MlApi.GetToolRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L1393">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetToolAsync_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetToolAsync*"></a>
-  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetToolAsync__1_System_String_OpenSearch_Net_Specification_MlApi_GetToolRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetToolAsync``1(System.String,OpenSearch.Net.Specification.MlApi.GetToolRequestParameters,System.Threading.CancellationToken)">GetToolAsync&lt;TResponse&gt;(string, GetToolRequestParameters, CancellationToken)</h4>
+  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetToolAsync__1_System_Nullable_OpenSearch_Net_MlToolName__OpenSearch_Net_Specification_MlApi_GetToolRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetToolAsync``1(System.Nullable{OpenSearch.Net.MlToolName},OpenSearch.Net.Specification.MlApi.GetToolRequestParameters,System.Threading.CancellationToken)">GetToolAsync&lt;TResponse&gt;(MlToolName?, GetToolRequestParameters, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>GET on /_plugins/_ml/tools/{tool_name}</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetToolAsync&lt;TResponse&gt;(string toolName, GetToolRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; GetToolAsync&lt;TResponse&gt;(MlToolName? toolName, GetToolRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -5711,7 +5713,7 @@ public TResponse CreateModelMeta&lt;TResponse&gt;(PostData body, CreateModelMeta
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="OpenSearch.Net.MlToolName.html">MlToolName</a>?</td>
         <td><span class="parametername">toolName</span></td>
         <td></td>
       </tr>
@@ -5758,24 +5760,24 @@ public TResponse CreateModelMeta&lt;TResponse&gt;(PostData body, CreateModelMeta
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetToolAsync__1_System_String_OpenSearch_Net_Specification_MlApi_GetToolRequestParameters_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetToolAsync__1_System_Nullable_OpenSearch_Net_MlToolName__OpenSearch_Net_Specification_MlApi_GetToolRequestParameters_System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.12.0 or greater.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetTool__1_System_String_OpenSearch_Net_Specification_MlApi_GetToolRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetTool%60%601(System.String%2COpenSearch.Net.Specification.MlApi.GetToolRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetTool__1_System_Nullable_OpenSearch_Net_MlToolName__OpenSearch_Net_Specification_MlApi_GetToolRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetTool%60%601(System.Nullable%7BOpenSearch.Net.MlToolName%7D%2COpenSearch.Net.Specification.MlApi.GetToolRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Ml.cs/#L1377">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetTool_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetTool*"></a>
-  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetTool__1_System_String_OpenSearch_Net_Specification_MlApi_GetToolRequestParameters_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetTool``1(System.String,OpenSearch.Net.Specification.MlApi.GetToolRequestParameters)">GetTool&lt;TResponse&gt;(string, GetToolRequestParameters)</h4>
+  <h4 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetTool__1_System_Nullable_OpenSearch_Net_MlToolName__OpenSearch_Net_Specification_MlApi_GetToolRequestParameters_" data-uid="OpenSearch.Net.Specification.MlApi.LowLevelMlNamespace.GetTool``1(System.Nullable{OpenSearch.Net.MlToolName},OpenSearch.Net.Specification.MlApi.GetToolRequestParameters)">GetTool&lt;TResponse&gt;(MlToolName?, GetToolRequestParameters)</h4>
   <div class="markdown level1 summary"><p>GET on /_plugins/_ml/tools/{tool_name}</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse GetTool&lt;TResponse&gt;(string toolName, GetToolRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public TResponse GetTool&lt;TResponse&gt;(MlToolName? toolName, GetToolRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -5788,7 +5790,7 @@ public TResponse CreateModelMeta&lt;TResponse&gt;(PostData body, CreateModelMeta
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="OpenSearch.Net.MlToolName.html">MlToolName</a>?</td>
         <td><span class="parametername">toolName</span></td>
         <td></td>
       </tr>
@@ -5830,7 +5832,7 @@ public TResponse CreateModelMeta&lt;TResponse&gt;(PostData body, CreateModelMeta
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetTool__1_System_String_OpenSearch_Net_Specification_MlApi_GetToolRequestParameters__remarks">Remarks</h5>
+  <h5 id="OpenSearch_Net_Specification_MlApi_LowLevelMlNamespace_GetTool__1_System_Nullable_OpenSearch_Net_MlToolName__OpenSearch_Net_Specification_MlApi_GetToolRequestParameters__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 2.12.0 or greater.</p>
 </div>
   <span class="small pull-right mobile-hide">

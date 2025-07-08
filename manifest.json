@@ -40516,6 +40516,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.InsightsMetricType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.InsightsMetricType.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.InsightsMetricType",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.KnnStatName.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.KnnStatName.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.KnnStatName",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.KnownEnums.yml",
       "output": {
         ".html": {
@@ -40558,6 +40586,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.LtrStatName.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.LtrStatName.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.LtrStatName",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.MemoryStreamFactory.yml",
       "output": {
         ".html": {
@@ -40583,6 +40625,48 @@
       "IsMRef": true,
       "Title": "OpenSearch.Net.MetaHeaderProvider",
       "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.MetaHeaderProvider.yml\" sourcestartlinenumber=\"1\">Produces the meta header when this functionality is enabled in the <xref href=\"OpenSearch.Net.ConnectionConfiguration\" data-throw-if-not-resolved=\"false\"></xref>.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.MlFunctionName.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.MlFunctionName.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.MlFunctionName",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.MlStatName.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.MlStatName.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.MlStatName",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.MlToolName.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.MlToolName.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.MlToolName",
+      "Summary": null
     },
     {
       "type": "ManagedReference",
@@ -40652,6 +40736,20 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "OpenSearch.Net.NamespacedClientProxy",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.NeuralStatName.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.NeuralStatName.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.NeuralStatName",
       "Summary": null
     },
     {
@@ -43568,6 +43666,76 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IngestionApi.GetStateRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IngestionApi.GetStateRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.IngestionApi.GetStateRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.IngestionApi.GetStateRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for GetState <p>https://docs.opensearch.org/docs/latest/api-reference/document-apis/pull-based-ingestion-management/</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IngestionApi.LowLevelIngestionNamespace.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IngestionApi.LowLevelIngestionNamespace.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.IngestionApi.LowLevelIngestionNamespace",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.IngestionApi.LowLevelIngestionNamespace.yml\" sourcestartlinenumber=\"1\">Ingestion APIs.</p>\n<p>Not intended to be instantiated directly. Use the <xref href=\"OpenSearch.Net.IOpenSearchLowLevelClient.Ingestion\" data-throw-if-not-resolved=\"false\"></xref> property\non <xref href=\"OpenSearch.Net.IOpenSearchLowLevelClient\" data-throw-if-not-resolved=\"false\"></xref>.\n</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IngestionApi.PauseRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IngestionApi.PauseRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.IngestionApi.PauseRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.IngestionApi.PauseRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for Pause <p>https://docs.opensearch.org/docs/latest/api-reference/document-apis/pull-based-ingestion-management/</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IngestionApi.ResumeRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IngestionApi.ResumeRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.IngestionApi.ResumeRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.IngestionApi.ResumeRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for Resume <p>https://docs.opensearch.org/docs/latest/api-reference/document-apis/pull-based-ingestion-management/</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.IngestionApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.IngestionApi.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.IngestionApi",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.InsightsApi.LowLevelInsightsNamespace.yml",
       "output": {
         ".html": {
@@ -43988,6 +44156,34 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.AddFeaturesToSetByQueryRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.AddFeaturesToSetByQueryRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.AddFeaturesToSetByQueryRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.AddFeaturesToSetByQueryRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for AddFeaturesToSetByQuery</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.AddFeaturesToSetRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.AddFeaturesToSetRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.AddFeaturesToSetRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.AddFeaturesToSetRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for AddFeaturesToSet</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.CacheStatsRequestParameters.yml",
       "output": {
         ".html": {
@@ -44030,6 +44226,62 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.CreateFeatureRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.CreateFeatureRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.CreateFeatureRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.CreateFeatureRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for CreateFeature</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.CreateFeaturesetRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.CreateFeaturesetRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.CreateFeaturesetRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.CreateFeaturesetRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for CreateFeatureset</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.CreateModelFromSetRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.CreateModelFromSetRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.CreateModelFromSetRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.CreateModelFromSetRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for CreateModelFromSet</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.CreateModelRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.CreateModelRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.CreateModelRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.CreateModelRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for CreateModel</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.CreateStoreRequestParameters.yml",
       "output": {
         ".html": {
@@ -44058,6 +44310,48 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.DeleteFeatureRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.DeleteFeatureRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.DeleteFeatureRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.DeleteFeatureRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for DeleteFeature</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.DeleteFeaturesetRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.DeleteFeaturesetRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.DeleteFeaturesetRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.DeleteFeaturesetRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for DeleteFeatureset</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.DeleteModelRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.DeleteModelRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.DeleteModelRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.DeleteModelRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for DeleteModel</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.DeleteStoreRequestParameters.yml",
       "output": {
         ".html": {
@@ -44069,6 +44363,48 @@
       "IsMRef": true,
       "Title": "OpenSearch.Net.Specification.LtrApi.DeleteStoreRequestParameters",
       "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.DeleteStoreRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for DeleteStore</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.GetFeatureRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.GetFeatureRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.GetFeatureRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.GetFeatureRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for GetFeature</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.GetFeaturesetRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.GetFeaturesetRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.GetFeaturesetRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.GetFeaturesetRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for GetFeatureset</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.GetModelRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.GetModelRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.GetModelRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.GetModelRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for GetModel</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -44114,6 +44450,48 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.SearchFeaturesRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.SearchFeaturesRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.SearchFeaturesRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.SearchFeaturesRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for SearchFeatures</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.SearchFeaturesetsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.SearchFeaturesetsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.SearchFeaturesetsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.SearchFeaturesetsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for SearchFeaturesets</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.SearchModelsRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.SearchModelsRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.SearchModelsRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.SearchModelsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for SearchModels</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.StatsRequestParameters.yml",
       "output": {
         ".html": {
@@ -44125,6 +44503,34 @@
       "IsMRef": true,
       "Title": "OpenSearch.Net.Specification.LtrApi.StatsRequestParameters",
       "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.StatsRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for Stats</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.UpdateFeatureRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.UpdateFeatureRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.UpdateFeatureRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.UpdateFeatureRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for UpdateFeature</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.UpdateFeaturesetRequestParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OpenSearch.Net.Specification.LtrApi.UpdateFeaturesetRequestParameters.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "OpenSearch.Net.Specification.LtrApi.UpdateFeaturesetRequestParameters",
+      "Summary": "<p sourcefile=\"obj/temp/docfxapi/OpenSearch.Net.Specification.LtrApi.UpdateFeaturesetRequestParameters.yml\" sourcestartlinenumber=\"1\">Request options for UpdateFeatureset</p>\n"
     },
     {
       "type": "ManagedReference",

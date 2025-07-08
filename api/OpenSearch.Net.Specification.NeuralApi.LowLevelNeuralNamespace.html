@@ -223,19 +223,19 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_StatsAsync__1_System_String_System_String_OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace.StatsAsync%60%601(System.String%2CSystem.String%2COpenSearch.Net.Specification.NeuralApi.StatsRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_StatsAsync__1_System_String_System_Nullable_OpenSearch_Net_NeuralStatName__OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace.StatsAsync%60%601(System.String%2CSystem.Nullable%7BOpenSearch.Net.NeuralStatName%7D%2COpenSearch.Net.Specification.NeuralApi.StatsRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Neural.cs/#L159">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_StatsAsync_" data-uid="OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace.StatsAsync*"></a>
-  <h4 id="OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_StatsAsync__1_System_String_System_String_OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace.StatsAsync``1(System.String,System.String,OpenSearch.Net.Specification.NeuralApi.StatsRequestParameters,System.Threading.CancellationToken)">StatsAsync&lt;TResponse&gt;(string, string, StatsRequestParameters, CancellationToken)</h4>
+  <h4 id="OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_StatsAsync__1_System_String_System_Nullable_OpenSearch_Net_NeuralStatName__OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace.StatsAsync``1(System.String,System.Nullable{OpenSearch.Net.NeuralStatName},OpenSearch.Net.Specification.NeuralApi.StatsRequestParameters,System.Threading.CancellationToken)">StatsAsync&lt;TResponse&gt;(string, NeuralStatName?, StatsRequestParameters, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>GET on /_plugins/_neural/{node_id}/stats/{stat}</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; StatsAsync&lt;TResponse&gt;(string nodeId, string stat, StatsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; StatsAsync&lt;TResponse&gt;(string nodeId, NeuralStatName? stat, StatsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -254,7 +254,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="OpenSearch.Net.NeuralStatName.html">NeuralStatName</a>?</td>
         <td><span class="parametername">stat</span></td>
         <td><p>A comma-separated list of stats to retrieve; use empty string to retrieve all stats.</p>
 </td>
@@ -302,7 +302,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_StatsAsync__1_System_String_System_String_OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_StatsAsync__1_System_String_System_Nullable_OpenSearch_Net_NeuralStatName__OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters_System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 3.0.0 or greater.</p>
 </div>
   <span class="small pull-right mobile-hide">
@@ -379,19 +379,19 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_StatsForAllAsync__1_System_String_OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace.StatsForAllAsync%60%601(System.String%2COpenSearch.Net.Specification.NeuralApi.StatsRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_StatsForAllAsync__1_System_Nullable_OpenSearch_Net_NeuralStatName__OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace.StatsForAllAsync%60%601(System.Nullable%7BOpenSearch.Net.NeuralStatName%7D%2COpenSearch.Net.Specification.NeuralApi.StatsRequestParameters%2CSystem.Threading.CancellationToken)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Neural.cs/#L195">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_StatsForAllAsync_" data-uid="OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace.StatsForAllAsync*"></a>
-  <h4 id="OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_StatsForAllAsync__1_System_String_OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace.StatsForAllAsync``1(System.String,OpenSearch.Net.Specification.NeuralApi.StatsRequestParameters,System.Threading.CancellationToken)">StatsForAllAsync&lt;TResponse&gt;(string, StatsRequestParameters, CancellationToken)</h4>
+  <h4 id="OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_StatsForAllAsync__1_System_Nullable_OpenSearch_Net_NeuralStatName__OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters_System_Threading_CancellationToken_" data-uid="OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace.StatsForAllAsync``1(System.Nullable{OpenSearch.Net.NeuralStatName},OpenSearch.Net.Specification.NeuralApi.StatsRequestParameters,System.Threading.CancellationToken)">StatsForAllAsync&lt;TResponse&gt;(NeuralStatName?, StatsRequestParameters, CancellationToken)</h4>
   <div class="markdown level1 summary"><p>GET on /_plugins/_neural/stats/{stat}</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; StatsForAllAsync&lt;TResponse&gt;(string stat, StatsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; StatsForAllAsync&lt;TResponse&gt;(NeuralStatName? stat, StatsRequestParameters requestParameters = null, CancellationToken ctx = default) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -404,7 +404,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="OpenSearch.Net.NeuralStatName.html">NeuralStatName</a>?</td>
         <td><span class="parametername">stat</span></td>
         <td><p>A comma-separated list of stats to retrieve; use empty string to retrieve all stats.</p>
 </td>
@@ -452,7 +452,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_StatsForAllAsync__1_System_String_OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <h5 id="OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_StatsForAllAsync__1_System_Nullable_OpenSearch_Net_NeuralStatName__OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters_System_Threading_CancellationToken__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 3.0.0 or greater.</p>
 </div>
   <span class="small pull-right mobile-hide">
@@ -524,19 +524,19 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_StatsForAll__1_System_String_OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace.StatsForAll%60%601(System.String%2COpenSearch.Net.Specification.NeuralApi.StatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_StatsForAll__1_System_Nullable_OpenSearch_Net_NeuralStatName__OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace.StatsForAll%60%601(System.Nullable%7BOpenSearch.Net.NeuralStatName%7D%2COpenSearch.Net.Specification.NeuralApi.StatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Neural.cs/#L179">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_StatsForAll_" data-uid="OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace.StatsForAll*"></a>
-  <h4 id="OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_StatsForAll__1_System_String_OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters_" data-uid="OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace.StatsForAll``1(System.String,OpenSearch.Net.Specification.NeuralApi.StatsRequestParameters)">StatsForAll&lt;TResponse&gt;(string, StatsRequestParameters)</h4>
+  <h4 id="OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_StatsForAll__1_System_Nullable_OpenSearch_Net_NeuralStatName__OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters_" data-uid="OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace.StatsForAll``1(System.Nullable{OpenSearch.Net.NeuralStatName},OpenSearch.Net.Specification.NeuralApi.StatsRequestParameters)">StatsForAll&lt;TResponse&gt;(NeuralStatName?, StatsRequestParameters)</h4>
   <div class="markdown level1 summary"><p>GET on /_plugins/_neural/stats/{stat}</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse StatsForAll&lt;TResponse&gt;(string stat, StatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public TResponse StatsForAll&lt;TResponse&gt;(NeuralStatName? stat, StatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -549,7 +549,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="OpenSearch.Net.NeuralStatName.html">NeuralStatName</a>?</td>
         <td><span class="parametername">stat</span></td>
         <td><p>A comma-separated list of stats to retrieve; use empty string to retrieve all stats.</p>
 </td>
@@ -592,7 +592,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_StatsForAll__1_System_String_OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters__remarks">Remarks</h5>
+  <h5 id="OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_StatsForAll__1_System_Nullable_OpenSearch_Net_NeuralStatName__OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 3.0.0 or greater.</p>
 </div>
   <span class="small pull-right mobile-hide">
@@ -670,19 +670,19 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_Stats__1_System_String_System_String_OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace.Stats%60%601(System.String%2CSystem.String%2COpenSearch.Net.Specification.NeuralApi.StatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+    <a href="https://github.com/opensearch-project/opensearch-net/new/main/apiSpec/new?filename=OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_Stats__1_System_String_System_Nullable_OpenSearch_Net_NeuralStatName__OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters_.md&amp;value=---%0Auid%3A%20OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace.Stats%60%601(System.String%2CSystem.Nullable%7BOpenSearch.Net.NeuralStatName%7D%2COpenSearch.Net.Specification.NeuralApi.StatsRequestParameters)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/opensearch-project/opensearch-net/blob/main/src/OpenSearch.Net/_Generated/OpenSearchLowLevelClient.Neural.cs/#L141">View Source</a>
   </span>
   <a id="OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_Stats_" data-uid="OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace.Stats*"></a>
-  <h4 id="OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_Stats__1_System_String_System_String_OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters_" data-uid="OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace.Stats``1(System.String,System.String,OpenSearch.Net.Specification.NeuralApi.StatsRequestParameters)">Stats&lt;TResponse&gt;(string, string, StatsRequestParameters)</h4>
+  <h4 id="OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_Stats__1_System_String_System_Nullable_OpenSearch_Net_NeuralStatName__OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters_" data-uid="OpenSearch.Net.Specification.NeuralApi.LowLevelNeuralNamespace.Stats``1(System.String,System.Nullable{OpenSearch.Net.NeuralStatName},OpenSearch.Net.Specification.NeuralApi.StatsRequestParameters)">Stats&lt;TResponse&gt;(string, NeuralStatName?, StatsRequestParameters)</h4>
   <div class="markdown level1 summary"><p>GET on /_plugins/_neural/{node_id}/stats/{stat}</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TResponse Stats&lt;TResponse&gt;(string nodeId, string stat, StatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
+    <pre><code class="lang-csharp hljs">public TResponse Stats&lt;TResponse&gt;(string nodeId, NeuralStatName? stat, StatsRequestParameters requestParameters = null) where TResponse : class, IOpenSearchResponse, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -701,7 +701,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><a class="xref" href="OpenSearch.Net.NeuralStatName.html">NeuralStatName</a>?</td>
         <td><span class="parametername">stat</span></td>
         <td><p>A comma-separated list of stats to retrieve; use empty string to retrieve all stats.</p>
 </td>
@@ -744,7 +744,7 @@ on <a class="xref" href="OpenSearch.Net.IOpenSearchLowLevelClient.html">IOpenSea
       </tr>
     </tbody>
   </table>
-  <h5 id="OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_Stats__1_System_String_System_String_OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters__remarks">Remarks</h5>
+  <h5 id="OpenSearch_Net_Specification_NeuralApi_LowLevelNeuralNamespace_Stats__1_System_String_System_Nullable_OpenSearch_Net_NeuralStatName__OpenSearch_Net_Specification_NeuralApi_StatsRequestParameters__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>Supported by OpenSearch servers of version 3.0.0 or greater.</p>
 </div>
   <h3 id="extensionmethods">Extension Methods</h3>
