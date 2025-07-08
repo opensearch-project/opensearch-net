@@ -790,7 +790,7 @@ namespace OpenSearch.Client
         public DocumentExistsDescriptor<TDocument> Preference(string preference) =>
             Qs("preference", preference);
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public DocumentExistsDescriptor<TDocument> Realtime(bool? realtime = true) =>
             Qs("realtime", realtime);
 
@@ -904,7 +904,7 @@ namespace OpenSearch.Client
         public SourceExistsDescriptor<TDocument> Preference(string preference) =>
             Qs("preference", preference);
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public SourceExistsDescriptor<TDocument> Realtime(bool? realtime = true) =>
             Qs("realtime", realtime);
 
@@ -1156,7 +1156,7 @@ namespace OpenSearch.Client
         Id IGetRequest.Id => Self.RouteValues.Get<Id>("id");
         IndexName IGetRequest.Index => Self.RouteValues.Get<IndexName>("index");
 
-        /// <summary>The name of the index that contains the document.</summary>
+        /// <summary>The name of the index containing the document.</summary>
         public GetDescriptor<TDocument> Index(IndexName index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -1170,7 +1170,7 @@ namespace OpenSearch.Client
         public GetDescriptor<TDocument> Preference(string preference) =>
             Qs("preference", preference);
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public GetDescriptor<TDocument> Realtime(bool? realtime = true) => Qs("realtime", realtime);
 
         /// <summary>If <c>true</c>, OpenSearch refreshes the affected shards to make this operation visible to search. If <c>false</c>, do nothing with refreshes.</summary>
@@ -1311,7 +1311,7 @@ namespace OpenSearch.Client
         Id ISourceRequest.Id => Self.RouteValues.Get<Id>("id");
         IndexName ISourceRequest.Index => Self.RouteValues.Get<IndexName>("index");
 
-        /// <summary>The name of the index that contains the document.</summary>
+        /// <summary>The name of the index containing the document.</summary>
         public SourceDescriptor<TDocument> Index(IndexName index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -1325,7 +1325,7 @@ namespace OpenSearch.Client
         public SourceDescriptor<TDocument> Preference(string preference) =>
             Qs("preference", preference);
 
-        /// <summary>Boolean) If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>Boolean) If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public SourceDescriptor<TDocument> Realtime(bool? realtime = true) =>
             Qs("realtime", realtime);
 
@@ -1519,7 +1519,7 @@ namespace OpenSearch.Client
         /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
         public MultiGetDescriptor Preference(string preference) => Qs("preference", preference);
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public MultiGetDescriptor Realtime(bool? realtime = true) => Qs("realtime", realtime);
 
         /// <summary>If <c>true</c>, the request refreshes relevant shards before retrieving documents.</summary>
@@ -1737,7 +1737,7 @@ namespace OpenSearch.Client
         public MultiTermVectorsDescriptor Preference(string preference) =>
             Qs("preference", preference);
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public MultiTermVectorsDescriptor Realtime(bool? realtime = true) =>
             Qs("realtime", realtime);
 
@@ -2355,7 +2355,7 @@ namespace OpenSearch.Client
         public TermVectorsDescriptor<TDocument> Id(Id id) =>
             Assign(id, (a, v) => a.RouteValues.Optional("id", v));
 
-        /// <summary>The name of the index that contains the document.</summary>
+        /// <summary>The name of the index containing the document.</summary>
         public TermVectorsDescriptor<TDocument> Index(IndexName index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -2393,7 +2393,7 @@ namespace OpenSearch.Client
         public TermVectorsDescriptor<TDocument> Preference(string preference) =>
             Qs("preference", preference);
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public TermVectorsDescriptor<TDocument> Realtime(bool? realtime = true) =>
             Qs("realtime", realtime);
 

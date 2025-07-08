@@ -59,6 +59,7 @@ using OpenSearch.Net.Specification.GeospatialApi;
 using OpenSearch.Net.Specification.HttpApi;
 using OpenSearch.Net.Specification.IndicesApi;
 using OpenSearch.Net.Specification.IngestApi;
+using OpenSearch.Net.Specification.IngestionApi;
 using OpenSearch.Net.Specification.InsightsApi;
 using OpenSearch.Net.Specification.IsmApi;
 using OpenSearch.Net.Specification.KnnApi;
@@ -115,6 +116,9 @@ namespace OpenSearch.Net
 
         /// <summary>Ingest APIs</summary>
         LowLevelIngestNamespace Ingest { get; }
+
+        /// <summary>Ingestion APIs</summary>
+        LowLevelIngestionNamespace Ingestion { get; }
 
         /// <summary>Insights APIs</summary>
         LowLevelInsightsNamespace Insights { get; }
@@ -650,7 +654,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>GET on /{index}/_doc/{id} <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
-        /// <param name="index">The name of the index that contains the document.</param>
+        /// <param name="index">The name of the index containing the document.</param>
         /// <param name="id">The unique identifier of the document.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse Get<TResponse>(
@@ -661,7 +665,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>GET on /{index}/_doc/{id} <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
-        /// <param name="index">The name of the index that contains the document.</param>
+        /// <param name="index">The name of the index containing the document.</param>
         /// <param name="id">The unique identifier of the document.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> GetAsync<TResponse>(
@@ -737,7 +741,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>GET on /{index}/_source/{id} <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
-        /// <param name="index">The name of the index that contains the document.</param>
+        /// <param name="index">The name of the index containing the document.</param>
         /// <param name="id">The unique identifier of the document.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse Source<TResponse>(
@@ -748,7 +752,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>GET on /{index}/_source/{id} <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
-        /// <param name="index">The name of the index that contains the document.</param>
+        /// <param name="index">The name of the index containing the document.</param>
         /// <param name="id">The unique identifier of the document.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> SourceAsync<TResponse>(
@@ -1363,7 +1367,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_termvectors <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">The name of the index that contains the document.</param>
+        /// <param name="index">The name of the index containing the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         TResponse TermVectors<TResponse>(
@@ -1374,7 +1378,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_termvectors <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">The name of the index that contains the document.</param>
+        /// <param name="index">The name of the index containing the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         Task<TResponse> TermVectorsAsync<TResponse>(
@@ -1386,7 +1390,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_termvectors/{id} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">The name of the index that contains the document.</param>
+        /// <param name="index">The name of the index containing the document.</param>
         /// <param name="id">The unique identifier of the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1399,7 +1403,7 @@ namespace OpenSearch.Net
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_termvectors/{id} <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">The name of the index that contains the document.</param>
+        /// <param name="index">The name of the index containing the document.</param>
         /// <param name="id">The unique identifier of the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

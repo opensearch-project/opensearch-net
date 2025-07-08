@@ -69,6 +69,170 @@ namespace OpenSearch.Net.Specification.LtrApi
         internal LowLevelLtrNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
+        /// <summary>POST on /_ltr/_featureset/{name}/_addfeatures</summary>
+        /// <param name="name">The name of the feature set to add features to.</param>
+        /// <param name="body">The features to add to the feature set.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse AddFeaturesToSet<TResponse>(
+            string name,
+            PostData body,
+            AddFeaturesToSetRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_ltr/_featureset/{name:name}/_addfeatures"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_ltr/_featureset/{name}/_addfeatures</summary>
+        /// <param name="name">The name of the feature set to add features to.</param>
+        /// <param name="body">The features to add to the feature set.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.add_features_to_set", "name, body")]
+        public Task<TResponse> AddFeaturesToSetAsync<TResponse>(
+            string name,
+            PostData body,
+            AddFeaturesToSetRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_ltr/_featureset/{name:name}/_addfeatures"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_ltr/{store}/_featureset/{name}/_addfeatures</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="name">The name of the feature set to add features to.</param>
+        /// <param name="body">The features to add to the feature set.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse AddFeaturesToSet<TResponse>(
+            string store,
+            string name,
+            PostData body,
+            AddFeaturesToSetRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_ltr/{store:store}/_featureset/{name:name}/_addfeatures"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_ltr/{store}/_featureset/{name}/_addfeatures</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="name">The name of the feature set to add features to.</param>
+        /// <param name="body">The features to add to the feature set.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.add_features_to_set", "store, name, body")]
+        public Task<TResponse> AddFeaturesToSetAsync<TResponse>(
+            string store,
+            string name,
+            PostData body,
+            AddFeaturesToSetRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_ltr/{store:store}/_featureset/{name:name}/_addfeatures"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_ltr/_featureset/{name}/_addfeatures/{query}</summary>
+        /// <param name="name">The name of the feature set to add features to.</param>
+        /// <param name="query">Query string to filter existing features from the store by name. When provided, only features matching this query will be added to the feature set, and no request body should be included.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse AddFeaturesToSetByQuery<TResponse>(
+            string name,
+            string query,
+            AddFeaturesToSetByQueryRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_ltr/_featureset/{name:name}/_addfeatures/{query:query}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_ltr/_featureset/{name}/_addfeatures/{query}</summary>
+        /// <param name="name">The name of the feature set to add features to.</param>
+        /// <param name="query">Query string to filter existing features from the store by name. When provided, only features matching this query will be added to the feature set, and no request body should be included.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.add_features_to_set_by_query", "name, query")]
+        public Task<TResponse> AddFeaturesToSetByQueryAsync<TResponse>(
+            string name,
+            string query,
+            AddFeaturesToSetByQueryRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_ltr/_featureset/{name:name}/_addfeatures/{query:query}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_ltr/{store}/_featureset/{name}/_addfeatures/{query}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="name">The name of the feature set to add features to.</param>
+        /// <param name="query">Query string to filter existing features from the store by name. When provided, only features matching this query will be added to the feature set, and no request body should be included.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse AddFeaturesToSetByQuery<TResponse>(
+            string store,
+            string name,
+            string query,
+            AddFeaturesToSetByQueryRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_ltr/{store:store}/_featureset/{name:name}/_addfeatures/{query:query}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_ltr/{store}/_featureset/{name}/_addfeatures/{query}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="name">The name of the feature set to add features to.</param>
+        /// <param name="query">Query string to filter existing features from the store by name. When provided, only features matching this query will be added to the feature set, and no request body should be included.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.add_features_to_set_by_query", "store, name, query")]
+        public Task<TResponse> AddFeaturesToSetByQueryAsync<TResponse>(
+            string store,
+            string name,
+            string query,
+            AddFeaturesToSetByQueryRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_ltr/{store:store}/_featureset/{name:name}/_addfeatures/{query:query}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>GET on /_ltr/_cachestats</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
@@ -172,6 +336,334 @@ namespace OpenSearch.Net.Specification.LtrApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequestAsync<TResponse>(PUT, "_ltr", ctx, null, RequestParams(requestParameters));
 
+        /// <summary>PUT on /_ltr/_feature/{id}</summary>
+        /// <param name="id">The name of the feature.</param>
+        /// <param name="body">The feature definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse CreateFeature<TResponse>(
+            string id,
+            PostData body,
+            CreateFeatureRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"_ltr/_feature/{id:id}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_ltr/_feature/{id}</summary>
+        /// <param name="id">The name of the feature.</param>
+        /// <param name="body">The feature definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.create_feature", "id, body")]
+        public Task<TResponse> CreateFeatureAsync<TResponse>(
+            string id,
+            PostData body,
+            CreateFeatureRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"_ltr/_feature/{id:id}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_ltr/{store}/_feature/{id}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="id">The name of the feature.</param>
+        /// <param name="body">The feature definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse CreateFeature<TResponse>(
+            string store,
+            string id,
+            PostData body,
+            CreateFeatureRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"_ltr/{store:store}/_feature/{id:id}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_ltr/{store}/_feature/{id}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="id">The name of the feature.</param>
+        /// <param name="body">The feature definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.create_feature", "store, id, body")]
+        public Task<TResponse> CreateFeatureAsync<TResponse>(
+            string store,
+            string id,
+            PostData body,
+            CreateFeatureRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"_ltr/{store:store}/_feature/{id:id}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_ltr/_featureset/{id}</summary>
+        /// <param name="id">The name of the feature set.</param>
+        /// <param name="body">The feature set definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse CreateFeatureset<TResponse>(
+            string id,
+            PostData body,
+            CreateFeaturesetRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"_ltr/_featureset/{id:id}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_ltr/_featureset/{id}</summary>
+        /// <param name="id">The name of the feature set.</param>
+        /// <param name="body">The feature set definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.create_featureset", "id, body")]
+        public Task<TResponse> CreateFeaturesetAsync<TResponse>(
+            string id,
+            PostData body,
+            CreateFeaturesetRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"_ltr/_featureset/{id:id}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_ltr/{store}/_featureset/{id}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="id">The name of the feature set.</param>
+        /// <param name="body">The feature set definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse CreateFeatureset<TResponse>(
+            string store,
+            string id,
+            PostData body,
+            CreateFeaturesetRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"_ltr/{store:store}/_featureset/{id:id}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_ltr/{store}/_featureset/{id}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="id">The name of the feature set.</param>
+        /// <param name="body">The feature set definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.create_featureset", "store, id, body")]
+        public Task<TResponse> CreateFeaturesetAsync<TResponse>(
+            string store,
+            string id,
+            PostData body,
+            CreateFeaturesetRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"_ltr/{store:store}/_featureset/{id:id}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_ltr/_model/{id}</summary>
+        /// <param name="id">The name of the model.</param>
+        /// <param name="body">The model definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse CreateModel<TResponse>(
+            string id,
+            PostData body,
+            CreateModelRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"_ltr/_model/{id:id}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_ltr/_model/{id}</summary>
+        /// <param name="id">The name of the model.</param>
+        /// <param name="body">The model definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.create_model", "id, body")]
+        public Task<TResponse> CreateModelAsync<TResponse>(
+            string id,
+            PostData body,
+            CreateModelRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"_ltr/_model/{id:id}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_ltr/{store}/_model/{id}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="id">The name of the model.</param>
+        /// <param name="body">The model definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse CreateModel<TResponse>(
+            string store,
+            string id,
+            PostData body,
+            CreateModelRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"_ltr/{store:store}/_model/{id:id}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_ltr/{store}/_model/{id}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="id">The name of the model.</param>
+        /// <param name="body">The model definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.create_model", "store, id, body")]
+        public Task<TResponse> CreateModelAsync<TResponse>(
+            string store,
+            string id,
+            PostData body,
+            CreateModelRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"_ltr/{store:store}/_model/{id:id}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_ltr/_featureset/{name}/_createmodel</summary>
+        /// <param name="name">The name of the feature set to use for creating the model.</param>
+        /// <param name="body">The model definition for creating from a feature set.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse CreateModelFromSet<TResponse>(
+            string name,
+            PostData body,
+            CreateModelFromSetRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_ltr/_featureset/{name:name}/_createmodel"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_ltr/_featureset/{name}/_createmodel</summary>
+        /// <param name="name">The name of the feature set to use for creating the model.</param>
+        /// <param name="body">The model definition for creating from a feature set.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.create_model_from_set", "name, body")]
+        public Task<TResponse> CreateModelFromSetAsync<TResponse>(
+            string name,
+            PostData body,
+            CreateModelFromSetRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_ltr/_featureset/{name:name}/_createmodel"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_ltr/{store}/_featureset/{name}/_createmodel</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="name">The name of the feature set to use for creating the model.</param>
+        /// <param name="body">The model definition for creating from a feature set.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse CreateModelFromSet<TResponse>(
+            string store,
+            string name,
+            PostData body,
+            CreateModelFromSetRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_ltr/{store:store}/_featureset/{name:name}/_createmodel"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_ltr/{store}/_featureset/{name}/_createmodel</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="name">The name of the feature set to use for creating the model.</param>
+        /// <param name="body">The model definition for creating from a feature set.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.create_model_from_set", "store, name, body")]
+        public Task<TResponse> CreateModelFromSetAsync<TResponse>(
+            string store,
+            string name,
+            PostData body,
+            CreateModelFromSetRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_ltr/{store:store}/_featureset/{name:name}/_createmodel"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>PUT on /_ltr/{store}</summary>
         /// <param name="store">The name of the feature store.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -227,6 +719,228 @@ namespace OpenSearch.Net.Specification.LtrApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequestAsync<TResponse>(DELETE, "_ltr", ctx, null, RequestParams(requestParameters));
 
+        /// <summary>DELETE on /_ltr/_feature/{id}</summary>
+        /// <param name="id">The name of the feature.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse DeleteFeature<TResponse>(
+            string id,
+            DeleteFeatureRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                Url($"_ltr/_feature/{id:id}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_ltr/_feature/{id}</summary>
+        /// <param name="id">The name of the feature.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.delete_feature", "id")]
+        public Task<TResponse> DeleteFeatureAsync<TResponse>(
+            string id,
+            DeleteFeatureRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                Url($"_ltr/_feature/{id:id}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_ltr/{store}/_feature/{id}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="id">The name of the feature.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse DeleteFeature<TResponse>(
+            string store,
+            string id,
+            DeleteFeatureRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                Url($"_ltr/{store:store}/_feature/{id:id}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_ltr/{store}/_feature/{id}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="id">The name of the feature.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.delete_feature", "store, id")]
+        public Task<TResponse> DeleteFeatureAsync<TResponse>(
+            string store,
+            string id,
+            DeleteFeatureRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                Url($"_ltr/{store:store}/_feature/{id:id}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_ltr/_featureset/{id}</summary>
+        /// <param name="id">The name of the feature set.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse DeleteFeatureset<TResponse>(
+            string id,
+            DeleteFeaturesetRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                Url($"_ltr/_featureset/{id:id}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_ltr/_featureset/{id}</summary>
+        /// <param name="id">The name of the feature set.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.delete_featureset", "id")]
+        public Task<TResponse> DeleteFeaturesetAsync<TResponse>(
+            string id,
+            DeleteFeaturesetRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                Url($"_ltr/_featureset/{id:id}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_ltr/{store}/_featureset/{id}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="id">The name of the feature set.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse DeleteFeatureset<TResponse>(
+            string store,
+            string id,
+            DeleteFeaturesetRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                Url($"_ltr/{store:store}/_featureset/{id:id}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_ltr/{store}/_featureset/{id}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="id">The name of the feature set.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.delete_featureset", "store, id")]
+        public Task<TResponse> DeleteFeaturesetAsync<TResponse>(
+            string store,
+            string id,
+            DeleteFeaturesetRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                Url($"_ltr/{store:store}/_featureset/{id:id}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_ltr/_model/{id}</summary>
+        /// <param name="id">The name of the model.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse DeleteModel<TResponse>(
+            string id,
+            DeleteModelRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                Url($"_ltr/_model/{id:id}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_ltr/_model/{id}</summary>
+        /// <param name="id">The name of the model.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.delete_model", "id")]
+        public Task<TResponse> DeleteModelAsync<TResponse>(
+            string id,
+            DeleteModelRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                Url($"_ltr/_model/{id:id}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_ltr/{store}/_model/{id}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="id">The name of the model.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse DeleteModel<TResponse>(
+            string store,
+            string id,
+            DeleteModelRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                Url($"_ltr/{store:store}/_model/{id:id}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_ltr/{store}/_model/{id}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="id">The name of the model.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.delete_model", "store, id")]
+        public Task<TResponse> DeleteModelAsync<TResponse>(
+            string store,
+            string id,
+            DeleteModelRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                Url($"_ltr/{store:store}/_model/{id:id}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>DELETE on /_ltr/{store}</summary>
         /// <param name="store">The name of the feature store.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -257,6 +971,228 @@ namespace OpenSearch.Net.Specification.LtrApi
             DoRequestAsync<TResponse>(
                 DELETE,
                 Url($"_ltr/{store:store}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_ltr/_feature/{id}</summary>
+        /// <param name="id">The name of the feature.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse GetFeature<TResponse>(
+            string id,
+            GetFeatureRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_ltr/_feature/{id:id}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_ltr/_feature/{id}</summary>
+        /// <param name="id">The name of the feature.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.get_feature", "id")]
+        public Task<TResponse> GetFeatureAsync<TResponse>(
+            string id,
+            GetFeatureRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_ltr/_feature/{id:id}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_ltr/{store}/_feature/{id}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="id">The name of the feature.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse GetFeature<TResponse>(
+            string store,
+            string id,
+            GetFeatureRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_ltr/{store:store}/_feature/{id:id}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_ltr/{store}/_feature/{id}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="id">The name of the feature.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.get_feature", "store, id")]
+        public Task<TResponse> GetFeatureAsync<TResponse>(
+            string store,
+            string id,
+            GetFeatureRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_ltr/{store:store}/_feature/{id:id}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_ltr/_featureset/{id}</summary>
+        /// <param name="id">The name of the feature set.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse GetFeatureset<TResponse>(
+            string id,
+            GetFeaturesetRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_ltr/_featureset/{id:id}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_ltr/_featureset/{id}</summary>
+        /// <param name="id">The name of the feature set.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.get_featureset", "id")]
+        public Task<TResponse> GetFeaturesetAsync<TResponse>(
+            string id,
+            GetFeaturesetRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_ltr/_featureset/{id:id}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_ltr/{store}/_featureset/{id}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="id">The name of the feature set.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse GetFeatureset<TResponse>(
+            string store,
+            string id,
+            GetFeaturesetRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_ltr/{store:store}/_featureset/{id:id}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_ltr/{store}/_featureset/{id}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="id">The name of the feature set.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.get_featureset", "store, id")]
+        public Task<TResponse> GetFeaturesetAsync<TResponse>(
+            string store,
+            string id,
+            GetFeaturesetRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_ltr/{store:store}/_featureset/{id:id}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_ltr/_model/{id}</summary>
+        /// <param name="id">The name of the model.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse GetModel<TResponse>(
+            string id,
+            GetModelRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_ltr/_model/{id:id}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_ltr/_model/{id}</summary>
+        /// <param name="id">The name of the model.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.get_model", "id")]
+        public Task<TResponse> GetModelAsync<TResponse>(
+            string id,
+            GetModelRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_ltr/_model/{id:id}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_ltr/{store}/_model/{id}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="id">The name of the model.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse GetModel<TResponse>(
+            string store,
+            string id,
+            GetModelRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_ltr/{store:store}/_model/{id:id}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_ltr/{store}/_model/{id}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="id">The name of the model.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.get_model", "store, id")]
+        public Task<TResponse> GetModelAsync<TResponse>(
+            string store,
+            string id,
+            GetModelRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_ltr/{store:store}/_model/{id:id}"),
                 ctx,
                 null,
                 RequestParams(requestParameters)
@@ -314,6 +1250,189 @@ namespace OpenSearch.Net.Specification.LtrApi
         )
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequestAsync<TResponse>(GET, "_ltr", ctx, null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_ltr/_feature</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse SearchFeatures<TResponse>(
+            SearchFeaturesRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_ltr/_feature", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_ltr/_feature</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.search_features", "")]
+        public Task<TResponse> SearchFeaturesAsync<TResponse>(
+            SearchFeaturesRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_ltr/_feature",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_ltr/{store}/_feature</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse SearchFeatures<TResponse>(
+            string store,
+            SearchFeaturesRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_ltr/{store:store}/_feature"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_ltr/{store}/_feature</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.search_features", "store")]
+        public Task<TResponse> SearchFeaturesAsync<TResponse>(
+            string store,
+            SearchFeaturesRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_ltr/{store:store}/_feature"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_ltr/_featureset</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse SearchFeaturesets<TResponse>(
+            SearchFeaturesetsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_ltr/_featureset", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_ltr/_featureset</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.search_featuresets", "")]
+        public Task<TResponse> SearchFeaturesetsAsync<TResponse>(
+            SearchFeaturesetsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_ltr/_featureset",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_ltr/{store}/_featureset</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse SearchFeaturesets<TResponse>(
+            string store,
+            SearchFeaturesetsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_ltr/{store:store}/_featureset"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_ltr/{store}/_featureset</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.search_featuresets", "store")]
+        public Task<TResponse> SearchFeaturesetsAsync<TResponse>(
+            string store,
+            SearchFeaturesetsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_ltr/{store:store}/_featureset"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_ltr/_model</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse SearchModels<TResponse>(
+            SearchModelsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_ltr/_model", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_ltr/_model</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.search_models", "")]
+        public Task<TResponse> SearchModelsAsync<TResponse>(
+            SearchModelsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_ltr/_model",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_ltr/{store}/_model</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse SearchModels<TResponse>(
+            string store,
+            SearchModelsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_ltr/{store:store}/_model"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_ltr/{store}/_model</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.search_models", "store")]
+        public Task<TResponse> SearchModelsAsync<TResponse>(
+            string store,
+            SearchModelsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_ltr/{store:store}/_model"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
 
         /// <summary>GET on /_plugins/_ltr/stats</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -386,7 +1505,7 @@ namespace OpenSearch.Net.Specification.LtrApi
         /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
         public TResponse Stats<TResponse>(
             string nodeId,
-            string stat,
+            LtrStatName? stat,
             StatsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -405,7 +1524,7 @@ namespace OpenSearch.Net.Specification.LtrApi
         [MapsApi("ltr.stats", "node_id, stat")]
         public Task<TResponse> StatsAsync<TResponse>(
             string nodeId,
-            string stat,
+            LtrStatName? stat,
             StatsRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
@@ -423,7 +1542,7 @@ namespace OpenSearch.Net.Specification.LtrApi
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
         public TResponse StatsForAll<TResponse>(
-            string stat,
+            LtrStatName? stat,
             StatsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -440,7 +1559,7 @@ namespace OpenSearch.Net.Specification.LtrApi
         /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
         [MapsApi("ltr.stats", "stat")]
         public Task<TResponse> StatsForAllAsync<TResponse>(
-            string stat,
+            LtrStatName? stat,
             StatsRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
@@ -450,6 +1569,170 @@ namespace OpenSearch.Net.Specification.LtrApi
                 Url($"_plugins/_ltr/stats/{stat:stat}"),
                 ctx,
                 null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_ltr/_feature/{id}</summary>
+        /// <param name="id">The name of the feature.</param>
+        /// <param name="body">The updated feature definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse UpdateFeature<TResponse>(
+            string id,
+            PostData body,
+            UpdateFeatureRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_ltr/_feature/{id:id}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_ltr/_feature/{id}</summary>
+        /// <param name="id">The name of the feature.</param>
+        /// <param name="body">The updated feature definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.update_feature", "id, body")]
+        public Task<TResponse> UpdateFeatureAsync<TResponse>(
+            string id,
+            PostData body,
+            UpdateFeatureRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_ltr/_feature/{id:id}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_ltr/{store}/_feature/{id}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="id">The name of the feature.</param>
+        /// <param name="body">The updated feature definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse UpdateFeature<TResponse>(
+            string store,
+            string id,
+            PostData body,
+            UpdateFeatureRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_ltr/{store:store}/_feature/{id:id}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_ltr/{store}/_feature/{id}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="id">The name of the feature.</param>
+        /// <param name="body">The updated feature definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.update_feature", "store, id, body")]
+        public Task<TResponse> UpdateFeatureAsync<TResponse>(
+            string store,
+            string id,
+            PostData body,
+            UpdateFeatureRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_ltr/{store:store}/_feature/{id:id}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_ltr/_featureset/{id}</summary>
+        /// <param name="id">The name of the feature set.</param>
+        /// <param name="body">The updated feature set definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse UpdateFeatureset<TResponse>(
+            string id,
+            PostData body,
+            UpdateFeaturesetRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_ltr/_featureset/{id:id}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_ltr/_featureset/{id}</summary>
+        /// <param name="id">The name of the feature set.</param>
+        /// <param name="body">The updated feature set definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.update_featureset", "id, body")]
+        public Task<TResponse> UpdateFeaturesetAsync<TResponse>(
+            string id,
+            PostData body,
+            UpdateFeaturesetRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_ltr/_featureset/{id:id}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_ltr/{store}/_featureset/{id}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="id">The name of the feature set.</param>
+        /// <param name="body">The updated feature set definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        public TResponse UpdateFeatureset<TResponse>(
+            string store,
+            string id,
+            PostData body,
+            UpdateFeaturesetRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_ltr/{store:store}/_featureset/{id:id}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_ltr/{store}/_featureset/{id}</summary>
+        /// <param name="store">The name of the feature store.</param>
+        /// <param name="id">The name of the feature set.</param>
+        /// <param name="body">The updated feature set definition.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.19.0 or greater.</remarks>
+        [MapsApi("ltr.update_featureset", "store, id, body")]
+        public Task<TResponse> UpdateFeaturesetAsync<TResponse>(
+            string store,
+            string id,
+            PostData body,
+            UpdateFeaturesetRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_ltr/{store:store}/_featureset/{id:id}"),
+                ctx,
+                body,
                 RequestParams(requestParameters)
             );
     }

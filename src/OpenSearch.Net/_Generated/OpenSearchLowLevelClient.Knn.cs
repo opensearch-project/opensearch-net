@@ -234,7 +234,7 @@ namespace OpenSearch.Net.Specification.KnnApi
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Stats<TResponse>(
             string nodeId,
-            string stat,
+            KnnStatName? stat,
             StatsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -252,7 +252,7 @@ namespace OpenSearch.Net.Specification.KnnApi
         [MapsApi("knn.stats", "node_id, stat")]
         public Task<TResponse> StatsAsync<TResponse>(
             string nodeId,
-            string stat,
+            KnnStatName? stat,
             StatsRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
@@ -269,7 +269,7 @@ namespace OpenSearch.Net.Specification.KnnApi
         /// <param name="stat">A comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse StatsForAll<TResponse>(
-            string stat,
+            KnnStatName? stat,
             StatsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -285,7 +285,7 @@ namespace OpenSearch.Net.Specification.KnnApi
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("knn.stats", "stat")]
         public Task<TResponse> StatsForAllAsync<TResponse>(
-            string stat,
+            KnnStatName? stat,
             StatsRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )

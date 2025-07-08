@@ -609,12 +609,12 @@ namespace OpenSearch.Net.Specification.MlApi
             );
 
         /// <summary>POST on /_plugins/_ml/_execute/{algorithm_name}</summary>
-        /// <param name="algorithmName"></param>
+        /// <param name="algorithmName">The function name.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TResponse ExecuteAlgorithm<TResponse>(
-            string algorithmName,
+            MlFunctionName? algorithmName,
             PostData body,
             ExecuteAlgorithmRequestParameters requestParameters = null
         )
@@ -627,13 +627,13 @@ namespace OpenSearch.Net.Specification.MlApi
             );
 
         /// <summary>POST on /_plugins/_ml/_execute/{algorithm_name}</summary>
-        /// <param name="algorithmName"></param>
+        /// <param name="algorithmName">The function name.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         [MapsApi("ml.execute_algorithm", "algorithm_name, body")]
         public Task<TResponse> ExecuteAlgorithmAsync<TResponse>(
-            string algorithmName,
+            MlFunctionName? algorithmName,
             PostData body,
             ExecuteAlgorithmRequestParameters requestParameters = null,
             CancellationToken ctx = default
@@ -1268,7 +1268,7 @@ namespace OpenSearch.Net.Specification.MlApi
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         public TResponse GetStats<TResponse>(
             string nodeId,
-            string stat,
+            MlStatName? stat,
             GetStatsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -1287,7 +1287,7 @@ namespace OpenSearch.Net.Specification.MlApi
         [MapsApi("ml.get_stats", "node_id, stat")]
         public Task<TResponse> GetStatsAsync<TResponse>(
             string nodeId,
-            string stat,
+            MlStatName? stat,
             GetStatsRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
@@ -1305,7 +1305,7 @@ namespace OpenSearch.Net.Specification.MlApi
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         public TResponse GetStatsForAll<TResponse>(
-            string stat,
+            MlStatName? stat,
             GetStatsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -1322,7 +1322,7 @@ namespace OpenSearch.Net.Specification.MlApi
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         [MapsApi("ml.get_stats", "stat")]
         public Task<TResponse> GetStatsForAllAsync<TResponse>(
-            string stat,
+            MlStatName? stat,
             GetStatsRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
@@ -1375,7 +1375,7 @@ namespace OpenSearch.Net.Specification.MlApi
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public TResponse GetTool<TResponse>(
-            string toolName,
+            MlToolName? toolName,
             GetToolRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -1392,7 +1392,7 @@ namespace OpenSearch.Net.Specification.MlApi
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         [MapsApi("ml.get_tool", "tool_name")]
         public Task<TResponse> GetToolAsync<TResponse>(
-            string toolName,
+            MlToolName? toolName,
             GetToolRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )

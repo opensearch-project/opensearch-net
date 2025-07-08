@@ -112,9 +112,9 @@ namespace OpenSearch.Net.Specification.SmApi
         }
 
         /// <summary>The order to sort the snapshot management policies.</summary>
-        public string SortOrder
+        public SortOrder? SortOrder
         {
-            get => Q<string>("sortOrder");
+            get => Q<SortOrder?>("sortOrder");
             set => Q("sortOrder", value);
         }
     }

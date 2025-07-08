@@ -381,6 +381,128 @@ namespace OpenSearch.Net
     }
 
     [StringEnum]
+    public enum InsightsMetricType
+    {
+        [EnumMember(Value = "cpu")]
+        Cpu,
+
+        [EnumMember(Value = "latency")]
+        Latency,
+
+        [EnumMember(Value = "memory")]
+        Memory,
+    }
+
+    [Flags, StringEnum]
+    public enum KnnStatName
+    {
+        [EnumMember(Value = "cache_capacity_reached")]
+        CacheCapacityReached = 1 << 0,
+
+        [EnumMember(Value = "circuit_breaker_triggered")]
+        CircuitBreakerTriggered = 1 << 1,
+
+        [EnumMember(Value = "eviction_count")]
+        EvictionCount = 1 << 2,
+
+        [EnumMember(Value = "faiss_initialized")]
+        FaissInitialized = 1 << 3,
+
+        [EnumMember(Value = "graph_index_errors")]
+        GraphIndexErrors = 1 << 4,
+
+        [EnumMember(Value = "graph_index_requests")]
+        GraphIndexRequests = 1 << 5,
+
+        [EnumMember(Value = "graph_memory_usage")]
+        GraphMemoryUsage = 1 << 6,
+
+        [EnumMember(Value = "graph_memory_usage_percentage")]
+        GraphMemoryUsagePercentage = 1 << 7,
+
+        [EnumMember(Value = "graph_query_errors")]
+        GraphQueryErrors = 1 << 8,
+
+        [EnumMember(Value = "graph_query_requests")]
+        GraphQueryRequests = 1 << 9,
+
+        [EnumMember(Value = "graph_stats")]
+        GraphStats = 1 << 10,
+
+        [EnumMember(Value = "hit_count")]
+        HitCount = 1 << 11,
+
+        [EnumMember(Value = "indexing_from_model_degraded")]
+        IndexingFromModelDegraded = 1 << 12,
+
+        [EnumMember(Value = "indices_in_cache")]
+        IndicesInCache = 1 << 13,
+
+        [EnumMember(Value = "knn_query_requests")]
+        KnnQueryRequests = 1 << 14,
+
+        [EnumMember(Value = "knn_query_with_filter_requests")]
+        KnnQueryWithFilterRequests = 1 << 15,
+
+        [EnumMember(Value = "load_exception_count")]
+        LoadExceptionCount = 1 << 16,
+
+        [EnumMember(Value = "load_success_count")]
+        LoadSuccessCount = 1 << 17,
+
+        [EnumMember(Value = "lucene_initialized")]
+        LuceneInitialized = 1 << 18,
+
+        [EnumMember(Value = "max_distance_query_requests")]
+        MaxDistanceQueryRequests = 1 << 19,
+
+        [EnumMember(Value = "max_distance_query_with_filter_requests")]
+        MaxDistanceQueryWithFilterRequests = 1 << 20,
+
+        [EnumMember(Value = "min_score_query_requests")]
+        MinScoreQueryRequests = 1 << 21,
+
+        [EnumMember(Value = "min_score_query_with_filter_requests")]
+        MinScoreQueryWithFilterRequests = 1 << 22,
+
+        [EnumMember(Value = "miss_count")]
+        MissCount = 1 << 23,
+
+        [EnumMember(Value = "model_index_status")]
+        ModelIndexStatus = 1 << 24,
+
+        [EnumMember(Value = "nmslib_initialized")]
+        NmslibInitialized = 1 << 25,
+
+        [EnumMember(Value = "script_compilation_errors")]
+        ScriptCompilationErrors = 1 << 26,
+
+        [EnumMember(Value = "script_compilations")]
+        ScriptCompilations = 1 << 27,
+
+        [EnumMember(Value = "script_query_errors")]
+        ScriptQueryErrors = 1 << 28,
+
+        [EnumMember(Value = "script_query_requests")]
+        ScriptQueryRequests = 1 << 29,
+
+        [EnumMember(Value = "total_load_time")]
+        TotalLoadTime = 1 << 30,
+
+        [EnumMember(Value = "training_errors")]
+        TrainingErrors = 1 << 31,
+
+        [EnumMember(Value = "training_memory_usage")]
+        TrainingMemoryUsage = 1 << 32,
+
+        [EnumMember(Value = "training_memory_usage_percentage")]
+        TrainingMemoryUsagePercentage = 1 << 33,
+
+        [EnumMember(Value = "training_requests")]
+        TrainingRequests = 1 << 34,
+    }
+
+    [StringEnum]
     public enum Level
     {
         [EnumMember(Value = "cluster")]
@@ -391,6 +513,338 @@ namespace OpenSearch.Net
 
         [EnumMember(Value = "shards")]
         Shards,
+    }
+
+    [Flags, StringEnum]
+    public enum LtrStatName
+    {
+        [EnumMember(Value = "cache")]
+        Cache = 1 << 0,
+
+        [EnumMember(Value = "request_error_count")]
+        RequestErrorCount = 1 << 1,
+
+        [EnumMember(Value = "request_total_count")]
+        RequestTotalCount = 1 << 2,
+
+        [EnumMember(Value = "status")]
+        Status = 1 << 3,
+
+        [EnumMember(Value = "stores")]
+        Stores = 1 << 4,
+    }
+
+    [StringEnum]
+    public enum MlFunctionName
+    {
+        [EnumMember(Value = "AD_LIBSVM")]
+        AdLibsvm,
+
+        [EnumMember(Value = "AGENT")]
+        Agent,
+
+        [EnumMember(Value = "ANOMALY_LOCALIZATION")]
+        AnomalyLocalization,
+
+        [EnumMember(Value = "BATCH_RCF")]
+        BatchRcf,
+
+        [EnumMember(Value = "CONNECTOR")]
+        Connector,
+
+        [EnumMember(Value = "FIT_RCF")]
+        FitRcf,
+
+        [EnumMember(Value = "KMEANS")]
+        Kmeans,
+
+        [EnumMember(Value = "LINEAR_REGRESSION")]
+        LinearRegression,
+
+        [EnumMember(Value = "LOCAL_SAMPLE_CALCULATOR")]
+        LocalSampleCalculator,
+
+        [EnumMember(Value = "LOGISTIC_REGRESSION")]
+        LogisticRegression,
+
+        [EnumMember(Value = "METRICS_CORRELATION")]
+        MetricsCorrelation,
+
+        [EnumMember(Value = "QUESTION_ANSWERING")]
+        QuestionAnswering,
+
+        [EnumMember(Value = "RCF_SUMMARIZE")]
+        RcfSummarize,
+
+        [EnumMember(Value = "REMOTE")]
+        Remote,
+
+        [EnumMember(Value = "SAMPLE_ALGO")]
+        SampleAlgo,
+
+        [EnumMember(Value = "SPARSE_ENCODING")]
+        SparseEncoding,
+
+        [EnumMember(Value = "SPARSE_TOKENIZE")]
+        SparseTokenize,
+
+        [EnumMember(Value = "TEXT_EMBEDDING")]
+        TextEmbedding,
+
+        [EnumMember(Value = "TEXT_SIMILARITY")]
+        TextSimilarity,
+    }
+
+    [Flags, StringEnum]
+    public enum MlStatName
+    {
+        [EnumMember(Value = "ml_config_index_status")]
+        MlConfigIndexStatus = 1 << 0,
+
+        [EnumMember(Value = "ml_connector_count")]
+        MlConnectorCount = 1 << 1,
+
+        [EnumMember(Value = "ml_connector_index_status")]
+        MlConnectorIndexStatus = 1 << 2,
+
+        [EnumMember(Value = "ml_controller_index_status")]
+        MlControllerIndexStatus = 1 << 3,
+
+        [EnumMember(Value = "ml_model_count")]
+        MlModelCount = 1 << 4,
+
+        [EnumMember(Value = "ml_model_index_status")]
+        MlModelIndexStatus = 1 << 5,
+
+        [EnumMember(Value = "ml_task_index_status")]
+        MlTaskIndexStatus = 1 << 6,
+    }
+
+    [StringEnum]
+    public enum MlToolName
+    {
+        [EnumMember(Value = "AgentTool")]
+        Agenttool,
+
+        [EnumMember(Value = "CatIndexTool")]
+        Catindextool,
+
+        [EnumMember(Value = "ConnectorTool")]
+        Connectortool,
+
+        [EnumMember(Value = "CreateAnomalyDetectorTool")]
+        Createanomalydetectortool,
+
+        [EnumMember(Value = "IndexMappingTool")]
+        Indexmappingtool,
+
+        [EnumMember(Value = "ListIndexTool")]
+        Listindextool,
+
+        [EnumMember(Value = "LogPatternTool")]
+        Logpatterntool,
+
+        [EnumMember(Value = "MLModelTool")]
+        Mlmodeltool,
+
+        [EnumMember(Value = "NeuralSparseSearchTool")]
+        Neuralsparsesearchtool,
+
+        [EnumMember(Value = "PPLTool")]
+        Ppltool,
+
+        [EnumMember(Value = "RAGTool")]
+        Ragtool,
+
+        [EnumMember(Value = "SearchAlertsTool")]
+        Searchalertstool,
+
+        [EnumMember(Value = "SearchAnomalyDetectorsTool")]
+        Searchanomalydetectorstool,
+
+        [EnumMember(Value = "SearchAnomalyResultsTool")]
+        Searchanomalyresultstool,
+
+        [EnumMember(Value = "SearchIndexTool")]
+        Searchindextool,
+
+        [EnumMember(Value = "SearchMonitorsTool")]
+        Searchmonitorstool,
+
+        [EnumMember(Value = "VectorDBTool")]
+        Vectordbtool,
+
+        [EnumMember(Value = "VisualizationTool")]
+        Visualizationtool,
+    }
+
+    [Flags, StringEnum]
+    public enum NeuralStatName
+    {
+        [EnumMember(Value = "cluster_version")]
+        ClusterVersion = 1 << 0,
+
+        [EnumMember(Value = "comb_arithmetic_executions")]
+        CombArithmeticExecutions = 1 << 1,
+
+        [EnumMember(Value = "comb_arithmetic_processors")]
+        CombArithmeticProcessors = 1 << 2,
+
+        [EnumMember(Value = "comb_geometric_executions")]
+        CombGeometricExecutions = 1 << 3,
+
+        [EnumMember(Value = "comb_geometric_processors")]
+        CombGeometricProcessors = 1 << 4,
+
+        [EnumMember(Value = "comb_harmonic_executions")]
+        CombHarmonicExecutions = 1 << 5,
+
+        [EnumMember(Value = "comb_harmonic_processors")]
+        CombHarmonicProcessors = 1 << 6,
+
+        [EnumMember(Value = "comb_rrf_executions")]
+        CombRrfExecutions = 1 << 7,
+
+        [EnumMember(Value = "comb_rrf_processors")]
+        CombRrfProcessors = 1 << 8,
+
+        [EnumMember(Value = "hybrid_query_requests")]
+        HybridQueryRequests = 1 << 9,
+
+        [EnumMember(Value = "hybrid_query_with_filter_requests")]
+        HybridQueryWithFilterRequests = 1 << 10,
+
+        [EnumMember(Value = "hybrid_query_with_inner_hits_requests")]
+        HybridQueryWithInnerHitsRequests = 1 << 11,
+
+        [EnumMember(Value = "hybrid_query_with_pagination_requests")]
+        HybridQueryWithPaginationRequests = 1 << 12,
+
+        [EnumMember(Value = "neural_query_against_knn_requests")]
+        NeuralQueryAgainstKnnRequests = 1 << 13,
+
+        [EnumMember(Value = "neural_query_against_semantic_dense_requests")]
+        NeuralQueryAgainstSemanticDenseRequests = 1 << 14,
+
+        [EnumMember(Value = "neural_query_against_semantic_sparse_requests")]
+        NeuralQueryAgainstSemanticSparseRequests = 1 << 15,
+
+        [EnumMember(Value = "neural_query_enricher_executions")]
+        NeuralQueryEnricherExecutions = 1 << 16,
+
+        [EnumMember(Value = "neural_query_enricher_processors")]
+        NeuralQueryEnricherProcessors = 1 << 17,
+
+        [EnumMember(Value = "neural_query_requests")]
+        NeuralQueryRequests = 1 << 18,
+
+        [EnumMember(Value = "neural_sparse_query_requests")]
+        NeuralSparseQueryRequests = 1 << 19,
+
+        [EnumMember(Value = "neural_sparse_two_phase_executions")]
+        NeuralSparseTwoPhaseExecutions = 1 << 20,
+
+        [EnumMember(Value = "neural_sparse_two_phase_processors")]
+        NeuralSparseTwoPhaseProcessors = 1 << 21,
+
+        [EnumMember(Value = "norm_l2_executions")]
+        NormL2Executions = 1 << 22,
+
+        [EnumMember(Value = "norm_l2_processors")]
+        NormL2Processors = 1 << 23,
+
+        [EnumMember(Value = "norm_minmax_executions")]
+        NormMinmaxExecutions = 1 << 24,
+
+        [EnumMember(Value = "norm_minmax_processors")]
+        NormMinmaxProcessors = 1 << 25,
+
+        [EnumMember(Value = "norm_zscore_executions")]
+        NormZscoreExecutions = 1 << 26,
+
+        [EnumMember(Value = "norm_zscore_processors")]
+        NormZscoreProcessors = 1 << 27,
+
+        [EnumMember(Value = "normalization_processor_executions")]
+        NormalizationProcessorExecutions = 1 << 28,
+
+        [EnumMember(Value = "normalization_processors")]
+        NormalizationProcessors = 1 << 29,
+
+        [EnumMember(Value = "rank_based_normalization_processor_executions")]
+        RankBasedNormalizationProcessorExecutions = 1 << 30,
+
+        [EnumMember(Value = "rank_based_normalization_processors")]
+        RankBasedNormalizationProcessors = 1 << 31,
+
+        [EnumMember(Value = "rerank_by_field_executions")]
+        RerankByFieldExecutions = 1 << 32,
+
+        [EnumMember(Value = "rerank_by_field_processors")]
+        RerankByFieldProcessors = 1 << 33,
+
+        [EnumMember(Value = "rerank_ml_executions")]
+        RerankMlExecutions = 1 << 34,
+
+        [EnumMember(Value = "rerank_ml_processors")]
+        RerankMlProcessors = 1 << 35,
+
+        [EnumMember(Value = "semantic_field_chunking_executions")]
+        SemanticFieldChunkingExecutions = 1 << 36,
+
+        [EnumMember(Value = "semantic_field_executions")]
+        SemanticFieldExecutions = 1 << 37,
+
+        [EnumMember(Value = "semantic_highlighting_request_count")]
+        SemanticHighlightingRequestCount = 1 << 38,
+
+        [EnumMember(Value = "skip_existing_executions")]
+        SkipExistingExecutions = 1 << 39,
+
+        [EnumMember(Value = "skip_existing_processors")]
+        SkipExistingProcessors = 1 << 40,
+
+        [EnumMember(Value = "sparse_encoding_executions")]
+        SparseEncodingExecutions = 1 << 41,
+
+        [EnumMember(Value = "sparse_encoding_processors")]
+        SparseEncodingProcessors = 1 << 42,
+
+        [EnumMember(Value = "text_chunking_delimiter_executions")]
+        TextChunkingDelimiterExecutions = 1 << 43,
+
+        [EnumMember(Value = "text_chunking_delimiter_processors")]
+        TextChunkingDelimiterProcessors = 1 << 44,
+
+        [EnumMember(Value = "text_chunking_executions")]
+        TextChunkingExecutions = 1 << 45,
+
+        [EnumMember(Value = "text_chunking_fixed_char_length_executions")]
+        TextChunkingFixedCharLengthExecutions = 1 << 46,
+
+        [EnumMember(Value = "text_chunking_fixed_char_length_processors")]
+        TextChunkingFixedCharLengthProcessors = 1 << 47,
+
+        [EnumMember(Value = "text_chunking_fixed_token_length_executions")]
+        TextChunkingFixedTokenLengthExecutions = 1 << 48,
+
+        [EnumMember(Value = "text_chunking_fixed_token_length_processors")]
+        TextChunkingFixedTokenLengthProcessors = 1 << 49,
+
+        [EnumMember(Value = "text_chunking_processors")]
+        TextChunkingProcessors = 1 << 50,
+
+        [EnumMember(Value = "text_embedding_executions")]
+        TextEmbeddingExecutions = 1 << 51,
+
+        [EnumMember(Value = "text_embedding_processors_in_pipelines")]
+        TextEmbeddingProcessorsInPipelines = 1 << 52,
+
+        [EnumMember(Value = "text_image_embedding_executions")]
+        TextImageEmbeddingExecutions = 1 << 53,
+
+        [EnumMember(Value = "text_image_embedding_processors")]
+        TextImageEmbeddingProcessors = 1 << 54,
     }
 
     [Flags, StringEnum]
@@ -869,7 +1323,14 @@ namespace OpenSearch.Net
             AddEnumStringResolver<IndexApiBlock>(GetStringValue);
             AddEnumStringResolver<IndicesShardStoresShardStoreStatus>(GetStringValue);
             AddEnumStringResolver<IndicesStatsMetric>(GetStringValue);
+            AddEnumStringResolver<InsightsMetricType>(GetStringValue);
+            AddEnumStringResolver<KnnStatName>(GetStringValue);
             AddEnumStringResolver<Level>(GetStringValue);
+            AddEnumStringResolver<LtrStatName>(GetStringValue);
+            AddEnumStringResolver<MlFunctionName>(GetStringValue);
+            AddEnumStringResolver<MlStatName>(GetStringValue);
+            AddEnumStringResolver<MlToolName>(GetStringValue);
+            AddEnumStringResolver<NeuralStatName>(GetStringValue);
             AddEnumStringResolver<NodesInfoMetric>(GetStringValue);
             AddEnumStringResolver<NodesSampleType>(GetStringValue);
             AddEnumStringResolver<NodesStatsIndexMetric>(GetStringValue);
@@ -1141,6 +1602,93 @@ namespace OpenSearch.Net
             return string.Join(",", list);
         }
 
+        public static string GetStringValue(this InsightsMetricType enumValue) =>
+            enumValue switch
+            {
+                InsightsMetricType.Cpu => "cpu",
+                InsightsMetricType.Latency => "latency",
+                InsightsMetricType.Memory => "memory",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'InsightsMetricType'"
+                ),
+            };
+
+        public static string GetStringValue(this KnnStatName enumValue)
+        {
+            var list = new List<string>();
+            if ((enumValue & KnnStatName.CacheCapacityReached) != 0)
+                list.Add("cache_capacity_reached");
+            if ((enumValue & KnnStatName.CircuitBreakerTriggered) != 0)
+                list.Add("circuit_breaker_triggered");
+            if ((enumValue & KnnStatName.EvictionCount) != 0)
+                list.Add("eviction_count");
+            if ((enumValue & KnnStatName.FaissInitialized) != 0)
+                list.Add("faiss_initialized");
+            if ((enumValue & KnnStatName.GraphIndexErrors) != 0)
+                list.Add("graph_index_errors");
+            if ((enumValue & KnnStatName.GraphIndexRequests) != 0)
+                list.Add("graph_index_requests");
+            if ((enumValue & KnnStatName.GraphMemoryUsage) != 0)
+                list.Add("graph_memory_usage");
+            if ((enumValue & KnnStatName.GraphMemoryUsagePercentage) != 0)
+                list.Add("graph_memory_usage_percentage");
+            if ((enumValue & KnnStatName.GraphQueryErrors) != 0)
+                list.Add("graph_query_errors");
+            if ((enumValue & KnnStatName.GraphQueryRequests) != 0)
+                list.Add("graph_query_requests");
+            if ((enumValue & KnnStatName.GraphStats) != 0)
+                list.Add("graph_stats");
+            if ((enumValue & KnnStatName.HitCount) != 0)
+                list.Add("hit_count");
+            if ((enumValue & KnnStatName.IndexingFromModelDegraded) != 0)
+                list.Add("indexing_from_model_degraded");
+            if ((enumValue & KnnStatName.IndicesInCache) != 0)
+                list.Add("indices_in_cache");
+            if ((enumValue & KnnStatName.KnnQueryRequests) != 0)
+                list.Add("knn_query_requests");
+            if ((enumValue & KnnStatName.KnnQueryWithFilterRequests) != 0)
+                list.Add("knn_query_with_filter_requests");
+            if ((enumValue & KnnStatName.LoadExceptionCount) != 0)
+                list.Add("load_exception_count");
+            if ((enumValue & KnnStatName.LoadSuccessCount) != 0)
+                list.Add("load_success_count");
+            if ((enumValue & KnnStatName.LuceneInitialized) != 0)
+                list.Add("lucene_initialized");
+            if ((enumValue & KnnStatName.MaxDistanceQueryRequests) != 0)
+                list.Add("max_distance_query_requests");
+            if ((enumValue & KnnStatName.MaxDistanceQueryWithFilterRequests) != 0)
+                list.Add("max_distance_query_with_filter_requests");
+            if ((enumValue & KnnStatName.MinScoreQueryRequests) != 0)
+                list.Add("min_score_query_requests");
+            if ((enumValue & KnnStatName.MinScoreQueryWithFilterRequests) != 0)
+                list.Add("min_score_query_with_filter_requests");
+            if ((enumValue & KnnStatName.MissCount) != 0)
+                list.Add("miss_count");
+            if ((enumValue & KnnStatName.ModelIndexStatus) != 0)
+                list.Add("model_index_status");
+            if ((enumValue & KnnStatName.NmslibInitialized) != 0)
+                list.Add("nmslib_initialized");
+            if ((enumValue & KnnStatName.ScriptCompilationErrors) != 0)
+                list.Add("script_compilation_errors");
+            if ((enumValue & KnnStatName.ScriptCompilations) != 0)
+                list.Add("script_compilations");
+            if ((enumValue & KnnStatName.ScriptQueryErrors) != 0)
+                list.Add("script_query_errors");
+            if ((enumValue & KnnStatName.ScriptQueryRequests) != 0)
+                list.Add("script_query_requests");
+            if ((enumValue & KnnStatName.TotalLoadTime) != 0)
+                list.Add("total_load_time");
+            if ((enumValue & KnnStatName.TrainingErrors) != 0)
+                list.Add("training_errors");
+            if ((enumValue & KnnStatName.TrainingMemoryUsage) != 0)
+                list.Add("training_memory_usage");
+            if ((enumValue & KnnStatName.TrainingMemoryUsagePercentage) != 0)
+                list.Add("training_memory_usage_percentage");
+            if ((enumValue & KnnStatName.TrainingRequests) != 0)
+                list.Add("training_requests");
+            return string.Join(",", list);
+        }
+
         public static string GetStringValue(this Level enumValue) =>
             enumValue switch
             {
@@ -1151,6 +1699,211 @@ namespace OpenSearch.Net
                     $"'{enumValue.ToString()}' is not a valid value for enum 'Level'"
                 ),
             };
+
+        public static string GetStringValue(this LtrStatName enumValue)
+        {
+            var list = new List<string>();
+            if ((enumValue & LtrStatName.Cache) != 0)
+                list.Add("cache");
+            if ((enumValue & LtrStatName.RequestErrorCount) != 0)
+                list.Add("request_error_count");
+            if ((enumValue & LtrStatName.RequestTotalCount) != 0)
+                list.Add("request_total_count");
+            if ((enumValue & LtrStatName.Status) != 0)
+                list.Add("status");
+            if ((enumValue & LtrStatName.Stores) != 0)
+                list.Add("stores");
+            return string.Join(",", list);
+        }
+
+        public static string GetStringValue(this MlFunctionName enumValue) =>
+            enumValue switch
+            {
+                MlFunctionName.AdLibsvm => "AD_LIBSVM",
+                MlFunctionName.Agent => "AGENT",
+                MlFunctionName.AnomalyLocalization => "ANOMALY_LOCALIZATION",
+                MlFunctionName.BatchRcf => "BATCH_RCF",
+                MlFunctionName.Connector => "CONNECTOR",
+                MlFunctionName.FitRcf => "FIT_RCF",
+                MlFunctionName.Kmeans => "KMEANS",
+                MlFunctionName.LinearRegression => "LINEAR_REGRESSION",
+                MlFunctionName.LocalSampleCalculator => "LOCAL_SAMPLE_CALCULATOR",
+                MlFunctionName.LogisticRegression => "LOGISTIC_REGRESSION",
+                MlFunctionName.MetricsCorrelation => "METRICS_CORRELATION",
+                MlFunctionName.QuestionAnswering => "QUESTION_ANSWERING",
+                MlFunctionName.RcfSummarize => "RCF_SUMMARIZE",
+                MlFunctionName.Remote => "REMOTE",
+                MlFunctionName.SampleAlgo => "SAMPLE_ALGO",
+                MlFunctionName.SparseEncoding => "SPARSE_ENCODING",
+                MlFunctionName.SparseTokenize => "SPARSE_TOKENIZE",
+                MlFunctionName.TextEmbedding => "TEXT_EMBEDDING",
+                MlFunctionName.TextSimilarity => "TEXT_SIMILARITY",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'MlFunctionName'"
+                ),
+            };
+
+        public static string GetStringValue(this MlStatName enumValue)
+        {
+            var list = new List<string>();
+            if ((enumValue & MlStatName.MlConfigIndexStatus) != 0)
+                list.Add("ml_config_index_status");
+            if ((enumValue & MlStatName.MlConnectorCount) != 0)
+                list.Add("ml_connector_count");
+            if ((enumValue & MlStatName.MlConnectorIndexStatus) != 0)
+                list.Add("ml_connector_index_status");
+            if ((enumValue & MlStatName.MlControllerIndexStatus) != 0)
+                list.Add("ml_controller_index_status");
+            if ((enumValue & MlStatName.MlModelCount) != 0)
+                list.Add("ml_model_count");
+            if ((enumValue & MlStatName.MlModelIndexStatus) != 0)
+                list.Add("ml_model_index_status");
+            if ((enumValue & MlStatName.MlTaskIndexStatus) != 0)
+                list.Add("ml_task_index_status");
+            return string.Join(",", list);
+        }
+
+        public static string GetStringValue(this MlToolName enumValue) =>
+            enumValue switch
+            {
+                MlToolName.Agenttool => "AgentTool",
+                MlToolName.Catindextool => "CatIndexTool",
+                MlToolName.Connectortool => "ConnectorTool",
+                MlToolName.Createanomalydetectortool => "CreateAnomalyDetectorTool",
+                MlToolName.Indexmappingtool => "IndexMappingTool",
+                MlToolName.Listindextool => "ListIndexTool",
+                MlToolName.Logpatterntool => "LogPatternTool",
+                MlToolName.Mlmodeltool => "MLModelTool",
+                MlToolName.Neuralsparsesearchtool => "NeuralSparseSearchTool",
+                MlToolName.Ppltool => "PPLTool",
+                MlToolName.Ragtool => "RAGTool",
+                MlToolName.Searchalertstool => "SearchAlertsTool",
+                MlToolName.Searchanomalydetectorstool => "SearchAnomalyDetectorsTool",
+                MlToolName.Searchanomalyresultstool => "SearchAnomalyResultsTool",
+                MlToolName.Searchindextool => "SearchIndexTool",
+                MlToolName.Searchmonitorstool => "SearchMonitorsTool",
+                MlToolName.Vectordbtool => "VectorDBTool",
+                MlToolName.Visualizationtool => "VisualizationTool",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'MlToolName'"
+                ),
+            };
+
+        public static string GetStringValue(this NeuralStatName enumValue)
+        {
+            var list = new List<string>();
+            if ((enumValue & NeuralStatName.ClusterVersion) != 0)
+                list.Add("cluster_version");
+            if ((enumValue & NeuralStatName.CombArithmeticExecutions) != 0)
+                list.Add("comb_arithmetic_executions");
+            if ((enumValue & NeuralStatName.CombArithmeticProcessors) != 0)
+                list.Add("comb_arithmetic_processors");
+            if ((enumValue & NeuralStatName.CombGeometricExecutions) != 0)
+                list.Add("comb_geometric_executions");
+            if ((enumValue & NeuralStatName.CombGeometricProcessors) != 0)
+                list.Add("comb_geometric_processors");
+            if ((enumValue & NeuralStatName.CombHarmonicExecutions) != 0)
+                list.Add("comb_harmonic_executions");
+            if ((enumValue & NeuralStatName.CombHarmonicProcessors) != 0)
+                list.Add("comb_harmonic_processors");
+            if ((enumValue & NeuralStatName.CombRrfExecutions) != 0)
+                list.Add("comb_rrf_executions");
+            if ((enumValue & NeuralStatName.CombRrfProcessors) != 0)
+                list.Add("comb_rrf_processors");
+            if ((enumValue & NeuralStatName.HybridQueryRequests) != 0)
+                list.Add("hybrid_query_requests");
+            if ((enumValue & NeuralStatName.HybridQueryWithFilterRequests) != 0)
+                list.Add("hybrid_query_with_filter_requests");
+            if ((enumValue & NeuralStatName.HybridQueryWithInnerHitsRequests) != 0)
+                list.Add("hybrid_query_with_inner_hits_requests");
+            if ((enumValue & NeuralStatName.HybridQueryWithPaginationRequests) != 0)
+                list.Add("hybrid_query_with_pagination_requests");
+            if ((enumValue & NeuralStatName.NeuralQueryAgainstKnnRequests) != 0)
+                list.Add("neural_query_against_knn_requests");
+            if ((enumValue & NeuralStatName.NeuralQueryAgainstSemanticDenseRequests) != 0)
+                list.Add("neural_query_against_semantic_dense_requests");
+            if ((enumValue & NeuralStatName.NeuralQueryAgainstSemanticSparseRequests) != 0)
+                list.Add("neural_query_against_semantic_sparse_requests");
+            if ((enumValue & NeuralStatName.NeuralQueryEnricherExecutions) != 0)
+                list.Add("neural_query_enricher_executions");
+            if ((enumValue & NeuralStatName.NeuralQueryEnricherProcessors) != 0)
+                list.Add("neural_query_enricher_processors");
+            if ((enumValue & NeuralStatName.NeuralQueryRequests) != 0)
+                list.Add("neural_query_requests");
+            if ((enumValue & NeuralStatName.NeuralSparseQueryRequests) != 0)
+                list.Add("neural_sparse_query_requests");
+            if ((enumValue & NeuralStatName.NeuralSparseTwoPhaseExecutions) != 0)
+                list.Add("neural_sparse_two_phase_executions");
+            if ((enumValue & NeuralStatName.NeuralSparseTwoPhaseProcessors) != 0)
+                list.Add("neural_sparse_two_phase_processors");
+            if ((enumValue & NeuralStatName.NormL2Executions) != 0)
+                list.Add("norm_l2_executions");
+            if ((enumValue & NeuralStatName.NormL2Processors) != 0)
+                list.Add("norm_l2_processors");
+            if ((enumValue & NeuralStatName.NormMinmaxExecutions) != 0)
+                list.Add("norm_minmax_executions");
+            if ((enumValue & NeuralStatName.NormMinmaxProcessors) != 0)
+                list.Add("norm_minmax_processors");
+            if ((enumValue & NeuralStatName.NormZscoreExecutions) != 0)
+                list.Add("norm_zscore_executions");
+            if ((enumValue & NeuralStatName.NormZscoreProcessors) != 0)
+                list.Add("norm_zscore_processors");
+            if ((enumValue & NeuralStatName.NormalizationProcessorExecutions) != 0)
+                list.Add("normalization_processor_executions");
+            if ((enumValue & NeuralStatName.NormalizationProcessors) != 0)
+                list.Add("normalization_processors");
+            if ((enumValue & NeuralStatName.RankBasedNormalizationProcessorExecutions) != 0)
+                list.Add("rank_based_normalization_processor_executions");
+            if ((enumValue & NeuralStatName.RankBasedNormalizationProcessors) != 0)
+                list.Add("rank_based_normalization_processors");
+            if ((enumValue & NeuralStatName.RerankByFieldExecutions) != 0)
+                list.Add("rerank_by_field_executions");
+            if ((enumValue & NeuralStatName.RerankByFieldProcessors) != 0)
+                list.Add("rerank_by_field_processors");
+            if ((enumValue & NeuralStatName.RerankMlExecutions) != 0)
+                list.Add("rerank_ml_executions");
+            if ((enumValue & NeuralStatName.RerankMlProcessors) != 0)
+                list.Add("rerank_ml_processors");
+            if ((enumValue & NeuralStatName.SemanticFieldChunkingExecutions) != 0)
+                list.Add("semantic_field_chunking_executions");
+            if ((enumValue & NeuralStatName.SemanticFieldExecutions) != 0)
+                list.Add("semantic_field_executions");
+            if ((enumValue & NeuralStatName.SemanticHighlightingRequestCount) != 0)
+                list.Add("semantic_highlighting_request_count");
+            if ((enumValue & NeuralStatName.SkipExistingExecutions) != 0)
+                list.Add("skip_existing_executions");
+            if ((enumValue & NeuralStatName.SkipExistingProcessors) != 0)
+                list.Add("skip_existing_processors");
+            if ((enumValue & NeuralStatName.SparseEncodingExecutions) != 0)
+                list.Add("sparse_encoding_executions");
+            if ((enumValue & NeuralStatName.SparseEncodingProcessors) != 0)
+                list.Add("sparse_encoding_processors");
+            if ((enumValue & NeuralStatName.TextChunkingDelimiterExecutions) != 0)
+                list.Add("text_chunking_delimiter_executions");
+            if ((enumValue & NeuralStatName.TextChunkingDelimiterProcessors) != 0)
+                list.Add("text_chunking_delimiter_processors");
+            if ((enumValue & NeuralStatName.TextChunkingExecutions) != 0)
+                list.Add("text_chunking_executions");
+            if ((enumValue & NeuralStatName.TextChunkingFixedCharLengthExecutions) != 0)
+                list.Add("text_chunking_fixed_char_length_executions");
+            if ((enumValue & NeuralStatName.TextChunkingFixedCharLengthProcessors) != 0)
+                list.Add("text_chunking_fixed_char_length_processors");
+            if ((enumValue & NeuralStatName.TextChunkingFixedTokenLengthExecutions) != 0)
+                list.Add("text_chunking_fixed_token_length_executions");
+            if ((enumValue & NeuralStatName.TextChunkingFixedTokenLengthProcessors) != 0)
+                list.Add("text_chunking_fixed_token_length_processors");
+            if ((enumValue & NeuralStatName.TextChunkingProcessors) != 0)
+                list.Add("text_chunking_processors");
+            if ((enumValue & NeuralStatName.TextEmbeddingExecutions) != 0)
+                list.Add("text_embedding_executions");
+            if ((enumValue & NeuralStatName.TextEmbeddingProcessorsInPipelines) != 0)
+                list.Add("text_embedding_processors_in_pipelines");
+            if ((enumValue & NeuralStatName.TextImageEmbeddingExecutions) != 0)
+                list.Add("text_image_embedding_executions");
+            if ((enumValue & NeuralStatName.TextImageEmbeddingProcessors) != 0)
+                list.Add("text_image_embedding_processors");
+            return string.Join(",", list);
+        }
 
         public static string GetStringValue(this NodesInfoMetric enumValue)
         {
