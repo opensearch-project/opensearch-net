@@ -1131,7 +1131,7 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// The type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
         /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards

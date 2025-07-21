@@ -1903,7 +1903,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>List of shard health statuses used to limit the request.</summary>
+        /// <summary>A list of shard health statuses used to limit the request.</summary>
         public IndicesShardStoresShardStoreStatus? Status
         {
             get => Q<IndicesShardStoresShardStoreStatus?>("status");
