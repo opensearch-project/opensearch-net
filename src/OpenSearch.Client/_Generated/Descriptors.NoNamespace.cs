@@ -1097,7 +1097,7 @@ namespace OpenSearch.Client
         public FieldCapabilitiesDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
-        /// <summary>Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>.</summary>
+        /// <summary>The type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>.</summary>
         public FieldCapabilitiesDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 

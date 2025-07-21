@@ -2161,7 +2161,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index}/_shard_stores <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">List of data streams, indexes, and aliases used to limit the request.</param>
+        /// <param name="index">Limits health reporting to a specific source. Can be a single source or a comma-separated list of sources (comprised of data streams, indexes, and aliases).</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse ShardStores<TResponse>(
             string index,
@@ -2176,7 +2176,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
             );
 
         /// <summary>GET on /{index}/_shard_stores <para>https://opensearch.org/docs/latest</para></summary>
-        /// <param name="index">List of data streams, indexes, and aliases used to limit the request.</param>
+        /// <param name="index">Limits health reporting to a specific source. Can be a single source or a comma-separated list of sources (comprised of data streams, indexes, and aliases).</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("indices.shard_stores", "index")]
         public Task<TResponse> ShardStoresAsync<TResponse>(
