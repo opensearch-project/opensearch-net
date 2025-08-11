@@ -52,7 +52,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.KnnApi
 {
-    /// <summary>Request options for DeleteModel <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#delete-model</para></summary>
+    /// <summary>Request options for DeleteModel <para>https://docs.opensearch.org/latest/vector-search/api/knn/#delete-a-model</para></summary>
     public partial class DeleteModelRequestParameters
         : RequestParameters<DeleteModelRequestParameters>
     {
@@ -60,14 +60,14 @@ namespace OpenSearch.Net.Specification.KnnApi
         public override bool SupportsBody => false;
     }
 
-    /// <summary>Request options for GetModel <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#get-model</para></summary>
+    /// <summary>Request options for GetModel <para>https://docs.opensearch.org/latest/vector-search/api/knn/#get-a-model</para></summary>
     public partial class GetModelRequestParameters : RequestParameters<GetModelRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
     }
 
-    /// <summary>Request options for SearchModels <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#search-model</para></summary>
+    /// <summary>Request options for SearchModels <para>https://docs.opensearch.org/latest/vector-search/api/knn/#search-for-a-model</para></summary>
     public partial class SearchModelsRequestParameters
         : RequestParameters<SearchModelsRequestParameters>
     {
@@ -383,7 +383,7 @@ namespace OpenSearch.Net.Specification.KnnApi
         }
     }
 
-    /// <summary>Request options for Stats <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#stats</para></summary>
+    /// <summary>Request options for Stats <para>https://docs.opensearch.org/latest/vector-search/api/knn/#stats</para></summary>
     public partial class StatsRequestParameters : RequestParameters<StatsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -397,7 +397,7 @@ namespace OpenSearch.Net.Specification.KnnApi
         }
     }
 
-    /// <summary>Request options for TrainModel <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#train-model</para></summary>
+    /// <summary>Request options for TrainModel <para>https://docs.opensearch.org/latest/vector-search/api/knn/#train-a-model</para></summary>
     public partial class TrainModelRequestParameters
         : RequestParameters<TrainModelRequestParameters>
     {
@@ -412,7 +412,7 @@ namespace OpenSearch.Net.Specification.KnnApi
         }
     }
 
-    /// <summary>Request options for Warmup <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#warmup-operation</para></summary>
+    /// <summary>Request options for Warmup <para>https://docs.opensearch.org/latest/vector-search/api/knn/#warmup-operation</para></summary>
     public partial class WarmupRequestParameters : RequestParameters<WarmupRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
