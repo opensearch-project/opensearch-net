@@ -9,7 +9,7 @@
     <PreserveCompilationContext>true</PreserveCompilationContext>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="CSharpier.Core" Version="1.0.3" />
+    <PackageReference Include="CSharpier.Core" Version="1.1.1" />
     <PackageReference Include="Glob" Version="1.1.9" />
     <PackageReference Include="Markdig" Version="0.41.3" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="8.0.1" />
