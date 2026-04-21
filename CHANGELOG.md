@@ -21,6 +21,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Fixed
 - Fixed naming of `ClusterManagerTimeout` and `MasterTimeout` properties from `*TimeSpanout` in the low-level client ([#332](https://github.com/opensearch-project/opensearch-net/pull/332))
+- Fixed `ISO8601DateTimeFormatter` omitting fractional seconds when milliseconds are zero, causing OpenSearch `date_time` format parse failures ([#959](https://github.com/opensearch-project/opensearch-net/pull/959))
 
 ### Dependencies
 - Bumps `System.Diagnostics.DiagnosticSource` from 6.0.1 to 8.0.1
