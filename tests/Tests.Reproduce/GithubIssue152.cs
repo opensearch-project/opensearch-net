@@ -6,54 +6,55 @@
 */
 
 using System;
+using System.Text;
 using FluentAssertions;
-using OpenSearch.Net.Utf8Json;
-using OpenSearch.Net.Utf8Json.Formatters;
-using OpenSearch.Net.Utf8Json.Resolvers;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
+using Tests.Core.Client;
 
 namespace Tests.Reproduce
 {
 	public class GithubIssue152
 	{
 		[U]
-		public void ISO8601DateTimeFormatter_AlwaysEmitsFractionalSeconds()
+		public void DateRangeQuery_SerializesZeroMilliseconds_WithFractionalSeconds()
 		{
-			var formatter = ISO8601DateTimeFormatter.Default;
-			var resolver = StandardResolver.Default;
-
-			// Zero milliseconds — previously serialized without fractional part,
-			// causing OpenSearch `date_time` format parse failures.
+			// DateTime with zero milliseconds previously serialized without fractional seconds
+			// (e.g. "2022-11-18T11:06:55Z"), which OpenSearch's `date_time` format rejects.
+			// It must always include fractional seconds (e.g. "2022-11-18T11:06:55.0000000Z").
 			var zeroMs = new DateTime(2022, 11, 18, 11, 6, 55, 0, DateTimeKind.Utc);
-			var writer = new JsonWriter();
-			formatter.Serialize(ref writer, zeroMs, resolver);
-			var result = writer.ToString();
 
-			result.Should().Contain(".", because: "fractional seconds must always be present for OpenSearch date_time compatibility");
-			result.Should().Be("\"2022-11-18T11:06:55.0000000Z\"");
+			var response = TestClient.DefaultInMemoryClient.Search<object>(s => s
+				.AllIndices()
+				.Query(q => q
+					.DateRange(d => d
+						.Field("timestamp")
+						.GreaterThanOrEquals(zeroMs)
+					)
+				)
+			);
 
-			// Non-zero milliseconds — should still work as before.
-			var nonZeroMs = new DateTime(2022, 11, 18, 11, 6, 55, 123, DateTimeKind.Utc);
-			writer = new JsonWriter();
-			formatter.Serialize(ref writer, nonZeroMs, resolver);
-			writer.ToString().Should().Be("\"2022-11-18T11:06:55.1230000Z\"");
+			var body = Encoding.UTF8.GetString(response.ApiCall.RequestBodyInBytes);
+			body.Should().Contain(".", because: "fractional seconds must always be present for OpenSearch date_time compatibility");
+			body.Should().Contain("2022-11-18T11:06:55.0000000Z");
 		}
 
 		[U]
-		public void ISO8601DateTimeFormatter_RoundTrips_ZeroMilliseconds()
+		public void DateRangeQuery_SerializesNonZeroMilliseconds_WithFractionalSeconds()
 		{
-			var formatter = ISO8601DateTimeFormatter.Default;
-			var resolver = StandardResolver.Default;
+			var nonZeroMs = new DateTime(2022, 11, 18, 11, 6, 55, 123, DateTimeKind.Utc);
 
-			var original = new DateTime(2022, 11, 18, 11, 6, 55, 0, DateTimeKind.Utc);
-			var writer = new JsonWriter();
-			formatter.Serialize(ref writer, original, resolver);
-			var json = writer.ToString();
+			var response = TestClient.DefaultInMemoryClient.Search<object>(s => s
+				.AllIndices()
+				.Query(q => q
+					.DateRange(d => d
+						.Field("timestamp")
+						.GreaterThanOrEquals(nonZeroMs)
+					)
+				)
+			);
 
-			var reader = new JsonReader(System.Text.Encoding.UTF8.GetBytes(json));
-			var deserialized = formatter.Deserialize(ref reader, resolver);
-
-			deserialized.Should().Be(original);
+			var body = Encoding.UTF8.GetString(response.ApiCall.RequestBodyInBytes);
+			body.Should().Contain("2022-11-18T11:06:55.1230000Z");
 		}
 	}
 }
