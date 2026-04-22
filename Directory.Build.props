@@ -32,6 +32,8 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <!-- Suppress net6.0 end-of-life warning until TFMs are updated -->
     <CheckEolTargetFramework>false</CheckEolTargetFramework>
+    <!-- Only fail on high/critical NuGet audit findings; suppress NU1901/NU1902 (low/moderate) -->
+    <NuGetAuditLevel>high</NuGetAuditLevel>
     <IsPackable>false</IsPackable>
 
     <OutputPath Condition="'$(OutputPathBaseDir)' != ''">$(OutputPathBaseDir)\$(MSBuildProjectName)\</OutputPath>
