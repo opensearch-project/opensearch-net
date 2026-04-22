@@ -31,7 +31,7 @@
     <!-- Default Version numbers -->
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <!-- Suppress net6.0 end-of-life warning until TFMs are updated -->
-    <NoWarn>$(NoWarn);NETSDK1138</NoWarn>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
     <IsPackable>false</IsPackable>
 
     <OutputPath Condition="'$(OutputPathBaseDir)' != ''">$(OutputPathBaseDir)\$(MSBuildProjectName)\</OutputPath>
