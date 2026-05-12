@@ -12,6 +12,7 @@ This document contains a list of maintainers in this repo. See [opensearch-proje
 | Vacha Shah      | [VachaShah](https://github.com/VachaShah)           | Amazon      |
 | Max Ksyunz      | [MaxKsyunz](https://github.com/MaxKsyunz)           | Bit Quill   |
 | Yury Fridlyand  | [Yury-Fridlyand](https://github.com/Yury-Fridlyand) | Bit Quill   |
+| Samuel Cox      | [SamuelCox](https://github.com/SamuelCox)           | Independent |
 
 ## Emeritus
 
