@@ -22,6 +22,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Fixed
 - Fixed naming of `ClusterManagerTimeout` and `MasterTimeout` properties from `*TimeSpanout` in the low-level client ([#332](https://github.com/opensearch-project/opensearch-net/pull/332))
+- Fixed `StackOverflowException` when serializing a `KnnVectorProperty` returned from a custom `IPropertyVisitor` via `AutoMap` ([#963](https://github.com/opensearch-project/opensearch-net/pull/963))
 
 ### Dependencies
 - Bumps `System.Diagnostics.DiagnosticSource` from 6.0.1 to 8.0.1

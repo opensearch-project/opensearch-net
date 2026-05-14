@@ -218,6 +218,9 @@ namespace OpenSearch.Client
 				case IRankFeaturesProperty rankFeaturesProperty:
 					Serialize(ref writer, rankFeaturesProperty, formatterResolver);
 					break;
+				case IKnnVectorProperty knnVectorProperty:
+					Serialize(ref writer, knnVectorProperty, formatterResolver);
+					break;
 				case IGenericProperty genericProperty:
 					Serialize(ref writer, genericProperty, formatterResolver);
 					break;
