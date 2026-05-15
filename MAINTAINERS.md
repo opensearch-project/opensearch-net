@@ -8,7 +8,7 @@ This document contains a list of maintainers in this repo. See [opensearch-proje
 | --------------- | --------------------------------------------------- | ----------- |
 | Anirudha Jadhav | [anirudha](https://github.com/anirudha)             | Amazon      |
 | Joshua Li       | [joshuali925](https://github.com/joshuali925)       | Amazon      |
-| Thomas Farr     | [Xtansia](https://github.com/Xtansia)               | Amazon      |
+| Thomas Farr     | [Xtansia](https://github.com/Xtansia)               | Independent |
 | Vacha Shah      | [VachaShah](https://github.com/VachaShah)           | Amazon      |
 | Max Ksyunz      | [MaxKsyunz](https://github.com/MaxKsyunz)           | Bit Quill   |
 | Yury Fridlyand  | [Yury-Fridlyand](https://github.com/Yury-Fridlyand) | Bit Quill   |
