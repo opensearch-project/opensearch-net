@@ -24,7 +24,6 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed naming of `ClusterManagerTimeout` and `MasterTimeout` properties from `*TimeSpanout` in the low-level client ([#332](https://github.com/opensearch-project/opensearch-net/pull/332))
 
 ### Dependencies
-- Bumps `AWS
 - Bumps `System.Diagnostics.DiagnosticSource` from 6.0.1 to 8.0.1
 - Bumps `YamlDotNet` from 16.0.0 to 16.3.0
 - Bumps `AWSSDK.Core` from 3.7.400.11 to 4.0.7.1
