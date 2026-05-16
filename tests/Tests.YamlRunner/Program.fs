@@ -35,7 +35,6 @@ open Argu
 open Tests.YamlRunner
 open Tests.YamlRunner.Models
 open OpenSearch.Net
-open Testcontainers.OpenSearch
 
 type Arguments =
     | [<First; MainCommand; CliPrefix(CliPrefix.None)>] Named_Suite of string
@@ -46,8 +45,6 @@ type Arguments =
     | Auth_Basic of string
     | Auth_Cert of string
     | Auth_Cert_Pass of string
-    | Docker_Image of string
-    | Docker_Env of string
     | Revision of string
     | JUnit_Output_File of string
     | Profile of bool
@@ -64,8 +61,6 @@ type Arguments =
             | Auth_Basic _ -> "The username and password to use for client authentication in the form of `username:password`"
             | Auth_Cert _ -> "The certificate to use for client authentication"
             | Auth_Cert_Pass _ -> "The password to use for the auth certificate"
-            | Docker_Image _ -> "Start OpenSearch via Testcontainers using this Docker image (e.g., opensearchproject/opensearch:2.12.0)"
-            | Docker_Env _ -> "Additional environment variable for the Docker container in KEY=VALUE format (repeatable)"
             | JUnit_Output_File _ -> "The path and file name to use for the junit xml output, defaults to a random tmp filename"
             | Profile _ -> "Print out process id and wait for confirmation to kick off the tests"
 
@@ -78,22 +73,6 @@ let private defaultEndpoint namedSuite =
         | _ -> "localhost"
     let https = "s" // ""
     sprintf "http%s://%s:9200" https host;
-
-let private startContainer (dockerImage: string) (dockerEnvs: string list) =
-    let mutable builder = OpenSearchBuilder(dockerImage)
-    builder <- builder.WithSecurityEnabled(true)
-    for env in dockerEnvs do
-        match env.Split('=', 2) with
-        | [| key; value |] -> builder <- builder.WithEnvironment(key, value)
-        | _ -> printfn "Warning: ignoring invalid --docker-env value: %s" env
-    let container = builder.Build()
-    printfn "Starting OpenSearch container from image: %s" dockerImage
-    container.StartAsync().GetAwaiter().GetResult()
-    let endpoint = container.GetConnectionString()
-    let creds = container.GetCredentials()
-    let authBasic = sprintf "%s:%s" creds.UserName creds.Password
-    printfn "OpenSearch container started at: %s (user: %s)" endpoint creds.UserName
-    (container, endpoint, Some authBasic)
 
 let private createClient endpoint (authBasic: string option) (authCert: string option * string option) namedSuite = 
     let mutable settings = new ConnectionConfiguration(Uri(endpoint))
@@ -154,56 +133,37 @@ let runMain (parsed:ParseResults<Arguments>) = async {
     let directory = parsed.TryGetResult Folder //|> Option.defaultValue "indices.create" |> Some
     let file = parsed.TryGetResult Test_File //|> Option.defaultValue "10_basic.yml" |> Some
     let section = parsed.TryGetResult Test_Section //|> Option.defaultValue "10_basic.yml" |> Some
+    let endpoint = parsed.TryGetResult Endpoint |> Option.defaultValue (defaultEndpoint namedSuite)
+    let authBasic = parsed.TryGetResult Auth_Basic
+    let authCert = parsed.TryGetResult Auth_Cert
+    let authCertPass = parsed.TryGetResult Auth_Cert_Pass
     let profile = parsed.TryGetResult Profile |> Option.defaultValue false
     let passedRevision = parsed.TryGetResult Revision
     let outputFile =
         parsed.TryGetResult JUnit_Output_File
         |> Option.defaultValue (System.IO.Path.GetTempFileName())
-
-    let dockerImage = parsed.TryGetResult Docker_Image
-    let dockerEnvs = parsed.GetResults Docker_Env
-
-    let container, endpoint, authBasic, authCert, authCertPass =
-        match dockerImage with
-        | Some image ->
-            let container, endpoint, authBasic = startContainer image dockerEnvs
-            (Some container, endpoint, authBasic, None, None)
-        | None ->
-            let endpoint = parsed.TryGetResult Endpoint |> Option.defaultValue (defaultEndpoint namedSuite)
-            let authBasic = parsed.TryGetResult Auth_Basic
-            let authCert = parsed.TryGetResult Auth_Cert
-            let authCertPass = parsed.TryGetResult Auth_Cert_Pass
-            (None, endpoint, authBasic, authCert, authCertPass)
-
-    try
-        let client, revision, version = validateRevisionParams endpoint authBasic (authCert, authCertPass) passedRevision namedSuite
+        
+    let client, revision, version = validateRevisionParams endpoint authBasic (authCert, authCertPass) passedRevision namedSuite
     
-        printfn "Found version %s downloading specs from: %s" version revision
+    printfn "Found version %s downloading specs from: %s" version revision
     
-        let! locateResults = Commands.LocateTests namedSuite revision directory file
-        let readResults = Commands.ReadTests locateResults 
-        if profile then
-            printf "Waiting for profiler to attach to pid: %O" <| Process.GetCurrentProcess().Id
-            Console.ReadKey() |> ignore
-            
-        let! runResults = Commands.RunTests readResults client version namedSuite section
-        let summary = Commands.ExportTests runResults outputFile
+    let! locateResults = Commands.LocateTests namedSuite revision directory file
+    let readResults = Commands.ReadTests locateResults 
+    if profile then
+        printf "Waiting for profiler to attach to pid: %O" <| Process.GetCurrentProcess().Id
+        Console.ReadKey() |> ignore
+        
+    let! runResults = Commands.RunTests readResults client version namedSuite section
+    let summary = Commands.ExportTests runResults outputFile
     
-        Commands.PrettyPrintResults outputFile
+    Commands.PrettyPrintResults outputFile
     
-        printfn "JUnit output: %s" outputFile
-        printfn "Total Tests: %i Failed: %i Errors: %i Skipped: %i"
-            summary.Tests summary.Failed summary.Errors summary.Skipped
-        printfn "Total Time %O" <| TimeSpan.FromSeconds summary.Time
-            
-        return summary.Failed + summary.Errors
-    finally
-        match container with
-        | Some c ->
-            printfn "Stopping OpenSearch container..."
-            c.DisposeAsync().AsTask().GetAwaiter().GetResult()
-            printfn "OpenSearch container stopped."
-        | None -> ()
+    printfn "JUnit output: %s" outputFile
+    printfn "Total Tests: %i Failed: %i Errors: %i Skipped: %i"
+        summary.Tests summary.Failed summary.Errors summary.Skipped
+    printfn "Total Time %O" <| TimeSpan.FromSeconds summary.Time
+        
+    return summary.Failed + summary.Errors
 }
 
 [<EntryPoint>]
