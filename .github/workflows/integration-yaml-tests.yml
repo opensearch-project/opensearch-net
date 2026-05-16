@@ -148,7 +148,7 @@ jobs:
         run: |
           cd opensearch/distribution/archives/linux-tar/build/distributions
           tar xf opensearch-min-*
-          OPENSEARCH_HOME=$(find . -maxdepth 1 -type d -name 'opensearch-min-*' | head -1 | xargs realpath)
+          OPENSEARCH_HOME=$(realpath opensearch-*/)
           cp $GITHUB_WORKSPACE/client/.ci/opensearch/opensearch.yml $OPENSEARCH_HOME/config/opensearch.yml
           $OPENSEARCH_HOME/bin/opensearch &
           for attempt in {1..20}; do
