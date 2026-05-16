@@ -50,10 +50,14 @@ let SkipList = dict<SkipFile,SkipSection> [
     // TODO: Better support parsing and asserting unsigned longs (hitting long vs double precision issues)
     SkipFile "search.aggregation/20_terms.yml", Sections [ "Unsigned Long test"; "Unmapped strings" ]
     SkipFile "search.aggregation/230_composite_unsigned.yml", All
+    SkipFile "search.aggregation/270_median_absolute_deviation_metric_unsigned.yml", All
     SkipFile "search.aggregation/370_multi_terms.yml", Section "Unsigned Long test"
     SkipFile "search.aggregation/410_nested_aggs.yml", Section "Supported queries"
     SkipFile "search/90_search_after.yml", Section "unsigned long"
     SkipFile "search/260_sort_unsigned_long.yml", Section "test sorting against unsigned_long only fields"
+    
+    // YAML parse error: colon in plain scalar value
+    SkipFile "search/240_date_nanos.yml", All
     
     SkipFile "search_shards/20_slice.yml", Section "Search shards with slice specified in body"
 
