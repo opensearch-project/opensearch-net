@@ -44,34 +44,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuget-
 
-      - name: Run OpenSearch
-        id: opensearch
-        uses: ./client/.github/actions/run-released-opensearch
-        with:
-          version: ${{ matrix.version }}
-          secured: true
-          opensearch_args: ${{ matrix.version == '2.8.0' && '-Eopensearch.experimental.feature.search_pipeline.enabled=true' || '' }}
-
       - name: Run YAML tests
         working-directory: client
         run: |
           dotnet run \
             --project ./tests/Tests.YamlRunner/Tests.YamlRunner.fsproj \
             -- \
-            --endpoint $OPENSEARCH_URL \
-            --auth-cert ./.ci/certs/kirk.p12 \
-            --auth-cert-pass kirk \
+            --docker-image opensearchproject/opensearch:${{ matrix.version }} \
+            ${{ matrix.version == '2.8.0' && '--docker-env opensearch.experimental.feature.search_pipeline.enabled=true' || '' }} \
             --junit-output-file ./test-results.xml
-        env:
-          OPENSEARCH_URL: ${{ steps.opensearch.outputs.opensearch_url }}
-
-      - name: Save OpenSearch logs
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: opensearch-logs-${{ matrix.version }}
-          path: |
-            opensearch-*/logs/*
 
       - name: Upload test report
         if: failure()

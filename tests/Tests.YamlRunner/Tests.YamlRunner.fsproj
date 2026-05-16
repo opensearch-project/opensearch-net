@@ -37,6 +37,7 @@
     <PackageReference Include="SemanticVersioning" Version="3.0.0" />
     <PackageReference Include="SharpYaml" Version="2.1.3" />
     <PackageReference Include="ShellProgressBar" Version="5.2.0" />
+    <PackageReference Include="Testcontainers.OpenSearch" Version="4.11.0" />
   </ItemGroup>
 
 </Project>
