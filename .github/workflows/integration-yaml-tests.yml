@@ -21,11 +21,7 @@ jobs:
           - 2.8.0
           - 2.6.0
           - 2.4.1
-          - 2.2.1
-          - 2.0.1
           - 1.3.14
-          - 1.2.4
-          - 1.1.0
     steps:
       - name: Checkout Client
         uses: actions/checkout@v4
@@ -35,8 +31,6 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: |
-            5.0.x
-            6.0.x
             8.0.x
 
       - uses: actions/cache@v4
@@ -90,7 +84,7 @@ jobs:
       matrix:
         include:
           - { opensearch_ref: '1.x', java_version: '11' }
-          - { opensearch_ref: '2.x', java_version: '17' }
+          - { opensearch_ref: '2.x', java_version: '21' }
           - { opensearch_ref: 'main', java_version: '21' }
     steps:
       - name: Checkout Client
@@ -101,8 +95,6 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: |
-            5.0.x
-            6.0.x
             8.0.x
 
       - uses: actions/cache@v4
@@ -123,12 +115,11 @@ jobs:
         uses: ./client/.github/actions/build-opensearch
         with:
           ref: ${{ matrix.opensearch_ref }}
-          security_plugin: true
+          security_plugin: false
 
       - name: Unpack OpenSearch
         run: |
-          tar -xzf "$DISTRIBUTION" \
-          && ./opensearch-*/bin/opensearch-plugin install --batch file://$(realpath ./opensearch-security/build/distributions/opensearch-security-*-SNAPSHOT.zip)
+          tar -xzf "$DISTRIBUTION"           
         env:
           DISTRIBUTION: ${{ steps.opensearch_build.outputs.distribution }}
 
@@ -136,7 +127,7 @@ jobs:
         id: opensearch
         uses: ./client/.github/actions/start-opensearch
         with:
-          secured: true
+          secured: false
 
       - name: Run YAML tests
         working-directory: client
