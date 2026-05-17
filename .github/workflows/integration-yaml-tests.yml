@@ -137,6 +137,8 @@ jobs:
             --project ./tests/Tests.YamlRunner/Tests.YamlRunner.fsproj \
             -- \
             --endpoint $OPENSEARCH_URL \
+            --auth-cert ./.ci/certs/kirk.p12 \
+            --auth-cert-pass kirk \
             --junit-output-file ./test-results.xml
         env:
           OPENSEARCH_URL: ${{ steps.opensearch.outputs.opensearch_url }}
