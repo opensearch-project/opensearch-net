@@ -110,58 +110,25 @@ jobs:
           distribution: 'temurin'
           java-version: ${{ matrix.java_version }}
 
-      - name: Set JAVA${{ matrix.java_version }}_HOME
-        run: echo "JAVA${{ matrix.java_version }}_HOME=$JAVA_HOME_${{ matrix.java_version }}_${{ runner.arch }}" >> $GITHUB_ENV
-
-      - name: Checkout OpenSearch
-        uses: actions/checkout@v4
+      - name: Restore or Build OpenSearch
+        id: opensearch_build
+        uses: ./client/.github/actions/build-opensearch
         with:
-          repository: opensearch-project/OpenSearch
           ref: ${{ matrix.opensearch_ref }}
-          path: opensearch
+          security_plugin: false
 
-      - name: Get OpenSearch commit SHA
-        id: get-sha
-        working-directory: opensearch
-        run: echo "sha=$(git log -1 --format='%H')" >> $GITHUB_OUTPUT
-
-      - name: Restore cached OpenSearch build
-        id: cache-restore
-        uses: actions/cache/restore@v4
-        with:
-          path: opensearch/distribution/archives/linux-tar/build/distributions
-          key: opensearch-min-${{ steps.get-sha.outputs.sha }}
-
-      - name: Assemble OpenSearch
-        if: steps.cache-restore.outputs.cache-hit != 'true'
-        working-directory: opensearch
-        run: ./gradlew :distribution:archives:linux-tar:assemble -Druntime.java=${{ matrix.java_version }}
-
-      - name: Save cached OpenSearch build
-        if: steps.cache-restore.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v4
-        with:
-          path: opensearch/distribution/archives/linux-tar/build/distributions
-          key: opensearch-min-${{ steps.get-sha.outputs.sha }}
+      - name: Unpack OpenSearch
+        run: |
+          tar -xzf "$DISTRIBUTION" \
+          && ./opensearch-*/bin/opensearch-plugin install --batch file://$(realpath ./opensearch-security/build/distributions/opensearch-security-*-SNAPSHOT.zip)
+        env:
+          DISTRIBUTION: ${{ steps.opensearch_build.outputs.distribution }}
 
       - name: Start OpenSearch
-        run: |
-          cd opensearch/distribution/archives/linux-tar/build/distributions
-          tar xf opensearch-min-*
-          OPENSEARCH_HOME=$(realpath opensearch-*/)
-          echo 'node.attr.testattr: test' >> $OPENSEARCH_HOME/config/opensearch.yml
-          echo 'path.repo: /tmp' >> $OPENSEARCH_HOME/config/opensearch.yml
-          echo 'repositories.url.allowed_urls: "http://snapshot.test*"' >> $OPENSEARCH_HOME/config/opensearch.yml
-          echo 'action.destructive_requires_name: false' >> $OPENSEARCH_HOME/config/opensearch.yml
-          $OPENSEARCH_HOME/bin/opensearch &
-          for attempt in {1..20}; do
-            sleep 5
-            if curl -s localhost:9200; then
-              echo '=====> ready'
-              break
-            fi
-            echo '=====> waiting...'
-          done
+        id: opensearch
+        uses: ./client/.github/actions/start-opensearch
+        with:
+          secured: false
 
       - name: Run YAML tests
         working-directory: client
@@ -169,8 +136,19 @@ jobs:
           dotnet run \
             --project ./tests/Tests.YamlRunner/Tests.YamlRunner.fsproj \
             -- \
-            --endpoint http://localhost:9200 \
+            --endpoint $OPENSEARCH_URL \
             --junit-output-file ./test-results.xml
+        env:
+          OPENSEARCH_URL: ${{ steps.opensearch.outputs.opensearch_url }}
+          ADMIN_PASS: ${{ steps.opensearch.outputs.admin_password }}
+
+      - name: Save OpenSearch logs
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: opensearch-logs-${{ matrix.opensearch_ref }}
+          path: |
+            opensearch-*/logs/*
 
       - name: Upload test report
         if: failure()
