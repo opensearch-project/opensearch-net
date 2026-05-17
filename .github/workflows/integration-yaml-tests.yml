@@ -119,8 +119,7 @@ jobs:
 
       - name: Unpack OpenSearch
         run: |
-          tar -xzf "$DISTRIBUTION" \
-          && ./opensearch-*/bin/opensearch-plugin install --batch file://$(realpath ./opensearch-security/build/distributions/opensearch-security-*-SNAPSHOT.zip)
+          tar -xzf "$DISTRIBUTION"           
         env:
           DISTRIBUTION: ${{ steps.opensearch_build.outputs.distribution }}
 
