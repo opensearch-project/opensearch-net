@@ -125,15 +125,15 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 			{
 				case DateTimeKind.Local:
 					// +{Hour}:{Minute}
-					writer.EnsureCapacity(baseLength + ((nanosec == 0) ? 0 : nanosecLength) + 6);
+					writer.EnsureCapacity(baseLength + nanosecLength + 6);
 					break;
 				case DateTimeKind.Utc:
 					// Z
-					writer.EnsureCapacity(baseLength + ((nanosec == 0) ? 0 : nanosecLength) + 1);
+					writer.EnsureCapacity(baseLength + nanosecLength + 1);
 					break;
 				case DateTimeKind.Unspecified:
 				default:
-					writer.EnsureCapacity(baseLength + ((nanosec == 0) ? 0 : nanosecLength));
+					writer.EnsureCapacity(baseLength + nanosecLength);
 					break;
 			}
 
@@ -186,50 +186,49 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
 			writer.WriteInt32(second);
 
-			if (nanosec != 0)
+			// Always emit fractional seconds so the value is parseable by OpenSearch's
+			// `date_time` format, which requires milliseconds (e.g. .000).
+			writer.WriteRawUnsafe((byte)'.');
+
+			if (nanosec < 10)
 			{
-				writer.WriteRawUnsafe((byte)'.');
-
-				if (nanosec < 10)
-				{
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-				}
-				else if (nanosec < 100)
-				{
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-				}
-				else if (nanosec < 1000)
-				{
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-				}
-				else if (nanosec < 10000)
-				{
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-				}
-				else if (nanosec < 100000)
-				{
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-				}
-				else if (nanosec < 1000000)
-					writer.WriteRawUnsafe((byte)'0');
-
-				writer.WriteInt64(nanosec);
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
 			}
+			else if (nanosec < 100)
+			{
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+			}
+			else if (nanosec < 1000)
+			{
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+			}
+			else if (nanosec < 10000)
+			{
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+			}
+			else if (nanosec < 100000)
+			{
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+			}
+			else if (nanosec < 1000000)
+				writer.WriteRawUnsafe((byte)'0');
+
+			writer.WriteInt64(nanosec);
 
 			switch (value.Kind)
 			{
@@ -467,7 +466,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 			const int nanosecLength = 8; // .{nanoseconds}
 
 			// +{Hour}:{Minute}
-			writer.EnsureCapacity(baseLength + ((nanosec == 0) ? 0 : nanosecLength) + 6);
+			writer.EnsureCapacity(baseLength + nanosecLength + 6);
 
 			writer.WriteRawUnsafe((byte)'\"');
 
@@ -518,50 +517,49 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
 			writer.WriteInt32(second);
 
-			if (nanosec != 0)
+			// Always emit fractional seconds so the value is parseable by OpenSearch's
+			// `date_time` format, which requires milliseconds (e.g. .000).
+			writer.WriteRawUnsafe((byte)'.');
+
+			if (nanosec < 10)
 			{
-				writer.WriteRawUnsafe((byte)'.');
-
-				if (nanosec < 10)
-				{
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-				}
-				else if (nanosec < 100)
-				{
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-				}
-				else if (nanosec < 1000)
-				{
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-				}
-				else if (nanosec < 10000)
-				{
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-				}
-				else if (nanosec < 100000)
-				{
-					writer.WriteRawUnsafe((byte)'0');
-					writer.WriteRawUnsafe((byte)'0');
-				}
-				else if (nanosec < 1000000)
-					writer.WriteRawUnsafe((byte)'0');
-
-				writer.WriteInt64(nanosec);
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
 			}
+			else if (nanosec < 100)
+			{
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+			}
+			else if (nanosec < 1000)
+			{
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+			}
+			else if (nanosec < 10000)
+			{
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+			}
+			else if (nanosec < 100000)
+			{
+				writer.WriteRawUnsafe((byte)'0');
+				writer.WriteRawUnsafe((byte)'0');
+			}
+			else if (nanosec < 1000000)
+				writer.WriteRawUnsafe((byte)'0');
+
+			writer.WriteInt64(nanosec);
 
 			var localOffset = value.Offset;
 			var minus = localOffset < TimeSpan.Zero;
