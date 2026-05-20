@@ -14,12 +14,6 @@ fi
 
 VERSION="$MAJOR.$MINOR.$PATCH"
 
-AUTO_LABEL_JSON=$(jq \
-	--arg v "$VERSION" \
-	'.rules |= with_entries(if .key | test("^v\\d+\\.\\d+\\.\\d+$") then .key |= "v\($v)" else . end)' \
-	.github/auto-label.json)
-echo "$AUTO_LABEL_JSON" > .github/auto-label.json
-
 GLOBAL_JSON=$(jq \
 	--arg v "$VERSION" \
 	--arg maj "$MAJOR" \

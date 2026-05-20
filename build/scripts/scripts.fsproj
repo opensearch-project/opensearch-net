@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
@@ -19,9 +19,7 @@
   <ItemGroup>
     <Content Include="..\..\build.sh"><Link>build.sh</Link></Content>
     <Content Include="..\..\build.bat"><Link>build.bat</Link></Content>
-    <Content Include="..\..\.github\workflows\auto-label.yml"><Link>auto-label.yml</Link></Content>
     <Content Include="..\..\.github\workflows\backport.yml"><Link>backport.yml</Link></Content>
-    <Content Include="..\..\.github\auto-label.json"><Link>auto-label.json</Link></Content>
     <Content Include="..\..\.github\workflows\test-jobs.yml"><Link>test-jobs.yml</Link></Content>
     <Content Include="..\..\.github\workflows\integration.yml"><Link>integration.yml</Link></Content>
     <Content Include="..\..\.github\workflows\compile.yml"><Link>compile.yml</Link></Content>

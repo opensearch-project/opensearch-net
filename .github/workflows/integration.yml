@@ -30,16 +30,15 @@ jobs:
 
     steps:
       - name: Checkout Client
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           path: client
 
       - uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: |
-            8.0.x
+          dotnet-version: 10.0.x
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@v5
         with:
           path: ~/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
@@ -78,7 +77,7 @@ jobs:
 
     steps:
       - name: Checkout Client
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           path: client
 
@@ -91,9 +90,9 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: |
-            8.0.x
+            10.0.x
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@v5
         with:
           path: ~/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}

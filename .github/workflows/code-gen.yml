@@ -13,16 +13,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout .NET Client
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: |
-            8.0.x
+          dotnet-version: 10.0.x
 
       - name: Cache Nuget Packages
-        uses: actions/cache@v3
+        uses: actions/cache@v5
         with:
           path: ~/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
@@ -55,16 +54,15 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout .NET Client
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: |
-            8.0.x
+          dotnet-version: 10.0.x
 
       - name: Cache Nuget Packages
-        uses: actions/cache@v3
+        uses: actions/cache@v5
         with:
           path: ~/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
@@ -79,18 +77,16 @@ jobs:
         run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
       - name: Generate GitHub App Token
-        if: github.repository == 'opensearch-project/opensearch-net'
         id: github_app_token
-        uses: tibdex/github-app-token@v1.5.0
+        uses: actions/create-github-app-token@v3
         with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.APP_PRIVATE_KEY }}
-          installation_id: 22958780
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
-          token: ${{ steps.github_app_token.outputs.token || secrets.GITHUB_TOKEN }}
+          token: ${{ steps.github_app_token.outputs.token }}
           commit-message: Re-generate client code using latest OpenSearch API specification (${{ steps.date.outputs.date }})
           title: Re-generated client code using latest OpenSearch API specification
           body: |

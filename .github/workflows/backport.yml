@@ -8,22 +8,26 @@ on:
 jobs:
   backport:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
+    if: >
+      github.event.pull_request.merged
+      && (
+        github.event.action == 'closed'
+        || (
+          github.event.action == 'labeled'
+          && contains(github.event.label.name, 'backport')
+        )
+      )
     name: Backport
     steps:
-      - name: GitHub App token
+      - name: Generate GitHub App Token
         id: github_app_token
-        if: github.repository == 'opensearch-project/opensearch-net'
-        uses: tibdex/github-app-token@v1.5.0
+        uses: actions/create-github-app-token@v3
         with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.APP_PRIVATE_KEY }}
-          installation_id: 22958780
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
 
       - name: Backport
-        uses: VachaShah/backport@v1.1.4
+        uses: VachaShah/backport@v2.2.0
         with:
-          github_token: ${{ steps.github_app_token.outputs.token || secrets.GITHUB_TOKEN }}
-          branch_name: backport/backport-${{ github.event.number }}
+          github_token: ${{ steps.github_app_token.outputs.token }}
+          head_template: backport/backport-<%= number %>-to-<%= base %>
