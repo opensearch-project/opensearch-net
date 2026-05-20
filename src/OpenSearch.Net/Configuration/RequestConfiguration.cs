@@ -406,10 +406,11 @@ namespace OpenSearch.Net
 			ClientCertificates(new X509Certificate2Collection { certificate });
 
 		/// <summary> Use the following client certificate to authenticate this request to OpenSearch </summary>
-		public RequestConfigurationDescriptor ClientCertificate(string certificatePath) =>
+		[Obsolete("Please use ClientCertificate(X509Certificate) instead. See https://aka.ms/dotnet-warnings/SYSLIB0057 for more information.")]
+        public RequestConfigurationDescriptor ClientCertificate(string certificatePath) =>
 			ClientCertificates(new X509Certificate2Collection { new X509Certificate(certificatePath) });
 
-		/// <inheritdoc cref="IRequestConfiguration.TransferEncodingChunked" />
+        /// <inheritdoc cref="IRequestConfiguration.TransferEncodingChunked" />
 		public RequestConfigurationDescriptor TransferEncodingChunked(bool? transferEncodingChunked = true)
 		{
 			Self.TransferEncodingChunked = transferEncodingChunked;

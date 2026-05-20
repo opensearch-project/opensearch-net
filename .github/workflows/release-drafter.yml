@@ -6,28 +6,32 @@ on:
       - "*"
 
 jobs:
-  build:
+  draft-a-release:
+    name: Draft a release
     runs-on: ubuntu-latest
     permissions:
-      issues: write
-      id-token: write
       contents: write
+      issues: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-      - id: get_approvers
+        uses: actions/checkout@v6
+      
+      - id: get_data
         run: |
           echo "approvers=$(cat .github/CODEOWNERS | grep @ | tr -d '* ' | sed 's/@/,/g' | sed 's/,//1')" >> $GITHUB_OUTPUT
+          echo "version=$(jq -r '.version' global.json)" >> $GITHUB_OUTPUT
+
       - uses: trstringer/manual-approval@v1
         with:
-          secret: ${{ github.TOKEN }}
-          approvers: ${{ steps.get_approvers.outputs.approvers }}
+          secret: ${{ github.token }}
+          approvers: ${{ steps.get_data.outputs.approvers }}
           minimum-approvals: 1
-          issue-title: 'Release opensearch-net'
-          issue-body: "Please approve or deny the release of opensearch-net \n **TAG**: ${{ github.ref_name }}  \n **COMMIT**: ${{ github.sha }}"
+          issue-title: 'Release opensearch-net : ${{ steps.get_data.outputs.version }}'
+          issue-body: "Please approve or deny the release of opensearch-net. **VERSION**: ${{ steps.get_data.outputs.version }} **TAG**: ${{ github.ref_name }}  **COMMIT**: ${{ github.sha }}"
           exclude-workflow-initiator-as-approver: true
-      - name: Release
-        uses: softprops/action-gh-release@v1
+
+      - name: Draft a release
+        uses: softprops/action-gh-release@v3
         with:
           draft: true
           generate_release_notes: true

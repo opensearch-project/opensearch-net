@@ -87,9 +87,9 @@ let private createClient endpoint (authBasic: string option) (authCert: string o
     settings <-
         match (authCert, authBasic) with
         | (Some(certPath), None), _ ->
-            settings.ClientCertificate(new X509Certificate2(certPath))
+            settings.ClientCertificate(X509CertificateLoader.LoadCertificateFromFile(certPath))
         | (Some(certPath), Some(certPass)), _ ->
-            settings.ClientCertificate(new X509Certificate2(certPath, certPass))
+            settings.ClientCertificate(X509CertificateLoader.LoadPkcs12FromFile(certPath, certPass))
         | _, Some(userPass) ->
             match userPass.Split(':') with
             | [| username; password |] -> settings.BasicAuthentication(username, password)
