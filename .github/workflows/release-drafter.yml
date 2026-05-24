@@ -14,14 +14,14 @@ jobs:
       issues: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
       
       - id: get_data
         run: |
           echo "approvers=$(cat .github/CODEOWNERS | grep @ | tr -d '* ' | sed 's/@/,/g' | sed 's/,//1')" >> $GITHUB_OUTPUT
           echo "version=$(jq -r '.version' global.json)" >> $GITHUB_OUTPUT
 
-      - uses: trstringer/manual-approval@v1
+      - uses: trstringer/manual-approval@74d99dff7380e3e4b122d4ededcbca2b6ce59367 # v1
         with:
           secret: ${{ github.token }}
           approvers: ${{ steps.get_data.outputs.approvers }}
@@ -31,7 +31,7 @@ jobs:
           exclude-workflow-initiator-as-approver: true
 
       - name: Draft a release
-        uses: softprops/action-gh-release@v3
+        uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda # v3
         with:
           draft: true
           generate_release_notes: true
