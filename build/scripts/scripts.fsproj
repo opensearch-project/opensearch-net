@@ -32,7 +32,7 @@
   <ItemGroup>
     <PackageReference Update="FSharp.Core" Version="9.0.300" />
 
-    <PackageReference Include="Bullseye" Version="5.0.0" />
+    <PackageReference Include="Bullseye" Version="6.1.0" />
     <ProjectReference Include="$(SolutionRoot)\abstractions\src\OpenSearch.OpenSearch.Managed\OpenSearch.OpenSearch.Managed.csproj" />
 
     <PackageReference Include="Fake.Core.Environment" Version="6.1.3" />
