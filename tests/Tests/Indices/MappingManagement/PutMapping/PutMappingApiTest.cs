@@ -161,7 +161,7 @@ public class PutMappingApiTests
                 method = new {
                     name = "hnsw",
                     space_type = "l2",
-                    engine = "nmslib",
+                    engine = "faiss",
                     parameters = new
                     {
                         ef_construction = 128,
@@ -236,7 +236,7 @@ public class PutMappingApiTests
                 .Method(m => m
                     .Name("hnsw")
                     .SpaceType("l2")
-                    .Engine("nmslib")
+                    .Engine("faiss")
                     .Parameters(p => p
                         .Parameter("ef_construction", 128)
                         .Parameter("m", 24)
@@ -364,7 +364,7 @@ public class PutMappingApiTests
                 {
                     Name = "hnsw",
                     SpaceType = "l2",
-                    Engine = "nmslib",
+                    Engine = "faiss",
                     Parameters = new KnnMethodParameters
                     {
                         {"ef_construction", 128},
