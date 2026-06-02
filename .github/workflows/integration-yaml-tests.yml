@@ -18,6 +18,8 @@ jobs:
           - 3.4.0
           - 3.2.0
           - 3.0.0
+          - 2.19.5
+          - 2.17.1
           - 2.16.0
           - 2.14.0
           - 2.12.0
@@ -88,6 +90,7 @@ jobs:
         include:
           - { opensearch_ref: '1.x', java_version: '11' }
           - { opensearch_ref: '2.x', java_version: '21' }
+          - { opensearch_ref: '3.x', java_version: '21' }
           - { opensearch_ref: 'main', java_version: '21' }
     steps:
       - name: Checkout Client
