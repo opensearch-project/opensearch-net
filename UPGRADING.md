@@ -58,6 +58,7 @@
 
 #### General
 - Support for .NET Framework v4.6.1 has been removed, if you have a .NET Framework based project it is recommended to upgrade the project to target .NET Framework v4.7.2 or higher.
+- Support for dotnet 5 and dotnet 6 has been removed as they are EOL. Upgrade to dotnet 8 or higher.
 - The `MasterTimeSpanout` & `ClusterManagerTimeSpanout` parameters on all actions have been corrected to `MasterTimeout` and `ClusterManagerTimeout` respectively.
 - The `MasterTimeout` parameters on all actions have been marked `[Obsolete]`, please migrate to using `ClusterManagerTimeout` if your OpenSearch cluster is at least version `2.0.0` as `MasterTimeout` may be removed in future major versions.
 - The `ExpandWildcards` enum is now attributed with `[Flags]` to allow combining of multiple values e.g. `ExpandWildcards.Open | ExpandWildcards.Closed` to match open and closed indexes but not hidden.
