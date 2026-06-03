@@ -32,9 +32,9 @@ build.sh
 OpenSearch publishes an [OpenAPI specification](https://github.com/opensearch-project/opensearch-api-specification/releases/download/main-latest/opensearch-openapi.yaml) in the [opensearch-api-specification](https://github.com/opensearch-project/opensearch-api-specification) repository, which is used to auto-generate the less interesting parts of the client.
 
 ```
-./build.sh codegen --branch main
+./build.sh codegen --branch main --include-high-level --download
 ```
 or
 ```
-./build.bat codegen --branch main
+./build.bat codegen --branch main --include-high-level --download
 ```
