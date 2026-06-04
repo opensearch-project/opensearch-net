@@ -27,8 +27,9 @@
 */
 
 using System;
-using OpenSearch.Net;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using Tests.Configuration;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
@@ -40,7 +41,13 @@ public class PutMappingApiTests
     : ApiIntegrationAgainstNewIndexTestBase
         <WritableCluster, PutMappingResponse, IPutMappingRequest, PutMappingDescriptor<Project>, PutMappingRequest<Project>>
 {
-    public PutMappingApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    private readonly string _vectorSearchEngine;
+
+    public PutMappingApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage)
+    {
+        var opensearchVersion = TestConfiguration.Instance.OpenSearchVersion;
+        _vectorSearchEngine = opensearchVersion.Major >= 3 ? "faiss" : "nmslib";
+    }
 
     protected override bool ExpectIsValid => true;
 
@@ -236,7 +243,7 @@ public class PutMappingApiTests
                 .Method(m => m
                     .Name("hnsw")
                     .SpaceType("l2")
-                    .Engine("faiss")
+                    .Engine(_vectorSearchEngine)
                     .Parameters(p => p
                         .Parameter("ef_construction", 128)
                         .Parameter("m", 24)
@@ -364,7 +371,7 @@ public class PutMappingApiTests
                 {
                     Name = "hnsw",
                     SpaceType = "l2",
-                    Engine = "faiss",
+                    Engine = _vectorSearchEngine,
                     Parameters = new KnnMethodParameters
                     {
                         {"ef_construction", 128},

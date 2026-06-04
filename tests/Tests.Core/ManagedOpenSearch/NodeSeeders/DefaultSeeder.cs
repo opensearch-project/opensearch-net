@@ -30,6 +30,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using OpenSearch.Client;
+using Tests.Configuration;
 using Tests.Core.Client;
 using Tests.Core.Extensions;
 using Tests.Domain;
@@ -51,6 +52,7 @@ public class DefaultSeeder
         NumberOfShards = 2,
         NumberOfReplicas = 0,
     };
+    private readonly string _vectorSearchEngine;
 
     public DefaultSeeder(IOpenSearchClient client, IIndexSettings indexSettings = null)
     {
@@ -277,6 +279,8 @@ public class DefaultSeeder
     public static PropertiesDescriptor<TProject> ProjectProperties<TProject>(PropertiesDescriptor<TProject> props)
         where TProject : Project
     {
+        var opensearchVersion = TestConfiguration.Instance.OpenSearchVersion;
+        var vectorSearchEngine = opensearchVersion.Major >= 3 ? "faiss" : "nmslib";
         props
             .Join(j => j
                 .Name(n => n.Join)
@@ -371,7 +375,7 @@ public class DefaultSeeder
                 .Method(m => m
                     .Name("hnsw")
                     .SpaceType("l2")
-                    .Engine("nmslib")
+                    .Engine(vectorSearchEngine)
                     .Parameters(p => p
                         .Parameter("ef_construction", 128)
                         .Parameter("m", 24)
