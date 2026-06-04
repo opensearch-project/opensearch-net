@@ -52,7 +52,6 @@ public class DefaultSeeder
         NumberOfShards = 2,
         NumberOfReplicas = 0,
     };
-    private readonly string _vectorSearchEngine;
 
     public DefaultSeeder(IOpenSearchClient client, IIndexSettings indexSettings = null)
     {
