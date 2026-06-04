@@ -90,7 +90,6 @@ jobs:
         include:
           - { opensearch_ref: '1.x', java_version: '11' }
           - { opensearch_ref: '2.x', java_version: '21' }
-          - { opensearch_ref: '3.x', java_version: '21' }
           - { opensearch_ref: 'main', java_version: '21' }
     steps:
       - name: Checkout Client
