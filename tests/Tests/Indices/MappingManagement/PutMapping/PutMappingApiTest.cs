@@ -51,7 +51,7 @@ public class PutMappingApiTests
 
     protected override bool ExpectIsValid => true;
 
-    protected override object ExpectJson { get; } = new
+    protected override object ExpectJson => new
     {
         properties = new
         {
@@ -165,10 +165,11 @@ public class PutMappingApiTests
             {
                 type = "knn_vector",
                 dimension = 2,
-                method = new {
+                method = new
+                {
                     name = "hnsw",
                     space_type = "l2",
-                    engine = "faiss",
+                    engine = _vectorSearchEngine,
                     parameters = new
                     {
                         ef_construction = 128,
