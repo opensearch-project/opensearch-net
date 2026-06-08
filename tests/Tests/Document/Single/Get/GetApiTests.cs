@@ -31,6 +31,7 @@ using System.Linq;
 using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
@@ -156,6 +157,7 @@ namespace Tests.Document.Single.Get
 		}
 	}
 
+	[SkipVersion(">=3.0.0 <3.2.0", "OpenSearch 3.0.0 does not return routing in single-document GET responses")]
 	public class GetApiParentTests
 		: ApiIntegrationTestBase<ReadOnlyCluster, GetResponse<CommitActivity>, IGetRequest, GetDescriptor<CommitActivity>, GetRequest<CommitActivity>
 		>
@@ -199,6 +201,7 @@ namespace Tests.Document.Single.Get
 		}
 	}
 
+	[SkipVersion(">=3.0.0 <3.4.0", "OpenSearch security plugin bug causes stored integer fields to return null")]
 	public class GetApiFieldsTests : GetApiTests
 	{
 		public GetApiFieldsTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }

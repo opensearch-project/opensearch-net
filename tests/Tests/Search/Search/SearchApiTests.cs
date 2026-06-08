@@ -32,6 +32,7 @@ using System.Linq;
 using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
@@ -179,6 +180,7 @@ namespace Tests.Search.Search
         }
     }
 
+    [SkipVersion(">=3.0.0 <3.4.0", "OpenSearch security plugin bug causes stored integer fields to return null")]
     public class SearchApiStoredFieldsTests : SearchApiTests
     {
         public SearchApiStoredFieldsTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
