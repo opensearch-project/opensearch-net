@@ -31,7 +31,8 @@ jobs:
           exclude-workflow-initiator-as-approver: true
 
       - name: Draft a release
-        uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda # v3
+        uses: ncipollo/release-action@339a81892b84b4eeb0f6e744e4574d79d0d9b8dd
         with:
-          draft: true
-          generate_release_notes: true
+          immutableCreate: true
+          generateReleaseNotes: true
+          prerelease: true
