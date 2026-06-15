@@ -107,8 +107,9 @@ namespace OpenSearch.Net
 
 					if (requestData.ThreadPoolStats)
 						threadPoolStats = ThreadPoolStats.GetStats();
-
-					responseMessage = client.SendAsync(requestMessage, HttpCompletionOption.ResponseHeadersRead).GetAwaiter().GetResult();
+                    var task = Task.Run(() => client.SendAsync(requestMessage, HttpCompletionOption.ResponseHeadersRead));
+                    task.Wait();
+					responseMessage = task.Result;
 					statusCode = (int)responseMessage.StatusCode;
 					d.EndState = statusCode;
 				}
@@ -120,7 +121,9 @@ namespace OpenSearch.Net
 				if (responseMessage.Content != null)
 				{
 					receive = DiagnosticSource.Diagnose(DiagnosticSources.HttpConnection.ReceiveBody, requestData, statusCode);
-					responseStream = responseMessage.Content.ReadAsStreamAsync().GetAwaiter().GetResult();
+                    var task = Task.Run(() => responseMessage.Content.ReadAsStreamAsync());
+                    task.Wait();
+					responseStream = task.Result;
 				}
 			}
 			catch (TaskCanceledException e)
