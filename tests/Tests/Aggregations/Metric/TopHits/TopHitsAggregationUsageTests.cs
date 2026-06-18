@@ -108,7 +108,7 @@ namespace Tests.Aggregations.Metric.TopHits
 									}
 								}
 							},
-							docvalue_fields = new[] { "state" }
+							docvalue_fields = new[] { "state", "startedOn" }
 						}
 					}
 				}
@@ -160,6 +160,7 @@ namespace Tests.Aggregations.Metric.TopHits
 						)
 						.DocValueFields(d => d
 							.Field(p => p.State)
+							.Field(p => p.StartedOn)
 						)
 					)
 				)
@@ -207,7 +208,7 @@ namespace Tests.Aggregations.Metric.TopHits
 							}
 						},
 					},
-					DocValueFields = Fields<Project>(f => f.State)
+					DocValueFields = Fields<Project>(f => f.State, f => f.StartedOn)
 				}
 			};
 
