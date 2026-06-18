@@ -30,6 +30,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
 using Tests.Core.Extensions;
@@ -206,6 +207,7 @@ namespace Tests.Document.Multiple.MultiGet
 		}
 	}
 
+	[SkipVersion(">=3.0.0 <3.4.0", "OpenSearch 3.x does not return routing in multi-get responses")]
 	public class MultiGetParentApiTests
 		: ApiIntegrationTestBase<ReadOnlyCluster, MultiGetResponse, IMultiGetRequest, MultiGetDescriptor, MultiGetRequest>
 	{

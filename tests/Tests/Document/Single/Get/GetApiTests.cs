@@ -157,7 +157,7 @@ namespace Tests.Document.Single.Get
 		}
 	}
 
-	[SkipVersion(">=3.0.0 <3.2.0", "OpenSearch 3.0.0 does not return routing in single-document GET responses")]
+	[SkipVersion(">=3.0.0 <3.4.0", "OpenSearch 3.x (<3.4.0) does not return routing in single-document GET responses")]
 	public class GetApiParentTests
 		: ApiIntegrationTestBase<ReadOnlyCluster, GetResponse<CommitActivity>, IGetRequest, GetDescriptor<CommitActivity>, GetRequest<CommitActivity>
 		>

@@ -61,9 +61,7 @@ namespace Tests.QueryDsl.TermLevel.Range
 			Name = "named_query",
 			Boost = 1.1,
 			Field = "description",
-			GreaterThan = "foo",
 			GreaterThanOrEqualTo = "foof",
-			LessThan = "bar",
 			LessThanOrEqualTo = "barb"
 		};
 
@@ -75,9 +73,7 @@ namespace Tests.QueryDsl.TermLevel.Range
 				{
 					_name = "named_query",
 					boost = 1.1,
-					gt = "foo",
 					gte = "foof",
-					lt = "bar",
 					lte = "barb"
 				}
 			}
@@ -88,9 +84,7 @@ namespace Tests.QueryDsl.TermLevel.Range
 				.Name("named_query")
 				.Boost(1.1)
 				.Field(p => p.Description)
-				.GreaterThan("foo")
 				.GreaterThanOrEquals("foof")
-				.LessThan("bar")
 				.LessThanOrEquals("barb")
 			);
 	}

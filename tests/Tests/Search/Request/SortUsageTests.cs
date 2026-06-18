@@ -331,6 +331,7 @@ namespace Tests.Search.Request
 	}
 
 	//hide
+	[SkipVersion(">=3.0.0 <3.2.0", "OpenSearch 3.0.0 throws NPE when sorting by geo_distance with ignore_unmapped")]
 	public class GeoDistanceIgnoreUnmappedUsageTests : SearchUsageTestBase
 	{
 		public GeoDistanceIgnoreUnmappedUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
