@@ -27,6 +27,7 @@
 */
 
 using OpenSearch.Client;
+using Tests.Configuration;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
@@ -36,6 +37,13 @@ namespace Tests.QueryDsl.TermLevel.Range
 	public class TermRangeQueryUsageTests : QueryDslUsageTestsBase
 	{
 		public TermRangeQueryUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+		/* 
+		   OpenSearch 3.6.0 rejects a range query that specifies both a strict and a non-strict bound
+		   on the same side (e.g. gt + gte) with "invalid lower bound for [range] query". Earlier
+		   versions (1.x, 2.x, 3.0–3.5) accept it, so we still exercise that combination there.
+		*/
+		private static bool SupportsRedundantBounds => TestConfiguration.Instance.OpenSearchVersion < "3.6.0";
 
 		protected override ConditionlessWhen ConditionlessWhen => new ConditionlessWhen<ITermRangeQuery>(q => q.Range as ITermRangeQuery)
 		{
@@ -56,36 +64,63 @@ namespace Tests.QueryDsl.TermLevel.Range
 			},
 		};
 
-		protected override QueryContainer QueryInitializer => new TermRangeQuery
+		protected override QueryContainer QueryInitializer
 		{
-			Name = "named_query",
-			Boost = 1.1,
-			Field = "description",
-			GreaterThanOrEqualTo = "foof",
-			LessThanOrEqualTo = "barb"
-		};
+			get
+			{
+				var query = new TermRangeQuery
+				{
+					Name = "named_query",
+					Boost = 1.1,
+					Field = "description",
+					GreaterThanOrEqualTo = "foof",
+					LessThanOrEqualTo = "barb"
+				};
+				if (SupportsRedundantBounds)
+				{
+					query.GreaterThan = "foo";
+					query.LessThan = "bar";
+				}
+				return query;
+			}
+		}
 
 		protected override object QueryJson => new
 		{
 			range = new
 			{
-				description = new
-				{
-					_name = "named_query",
-					boost = 1.1,
-					gte = "foof",
-					lte = "barb"
-				}
+				description = SupportsRedundantBounds
+					? (object)new
+					{
+						_name = "named_query",
+						boost = 1.1,
+						gt = "foo",
+						gte = "foof",
+						lt = "bar",
+						lte = "barb"
+					}
+					: new
+					{
+						_name = "named_query",
+						boost = 1.1,
+						gte = "foof",
+						lte = "barb"
+					}
 			}
 		};
 
 		protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) => q
-			.TermRange(c => c
-				.Name("named_query")
-				.Boost(1.1)
-				.Field(p => p.Description)
-				.GreaterThanOrEquals("foof")
-				.LessThanOrEquals("barb")
-			);
+			.TermRange(c =>
+			{
+				c
+					.Name("named_query")
+					.Boost(1.1)
+					.Field(p => p.Description)
+					.GreaterThanOrEquals("foof")
+					.LessThanOrEquals("barb");
+				if (SupportsRedundantBounds)
+					c.GreaterThan("foo").LessThan("bar");
+				return c;
+			});
 	}
 }

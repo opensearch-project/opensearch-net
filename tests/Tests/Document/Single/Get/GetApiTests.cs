@@ -156,8 +156,8 @@ namespace Tests.Document.Single.Get
 			response.ServerError.Should().NotBeNull();
 		}
 	}
-
-	[SkipVersion(">=3.0.0 <3.4.0", "OpenSearch 3.x (<3.4.0) does not return routing in single-document GET responses")]
+	
+	[SkipVersion(">=3.0.0 <3.4.0", "OpenSearch 3.0.x–3.3.x KNN/faiss codec drops stored _routing https://github.com/opensearch-project/k-NN/issues/1606; fixed in 3.4.0")]
 	public class GetApiParentTests
 		: ApiIntegrationTestBase<ReadOnlyCluster, GetResponse<CommitActivity>, IGetRequest, GetDescriptor<CommitActivity>, GetRequest<CommitActivity>
 		>
@@ -201,7 +201,7 @@ namespace Tests.Document.Single.Get
 		}
 	}
 
-	[SkipVersion(">=3.0.0 <3.4.0", "OpenSearch security plugin bug causes stored integer fields to return null")]
+	[SkipVersion(">=3.0.0 <3.4.0", "OpenSearch 3.0.x–3.3.x KNN/faiss codec drops stored non-keyword fields; fixed in 3.4.0")]
 	public class GetApiFieldsTests : GetApiTests
 	{
 		public GetApiFieldsTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }

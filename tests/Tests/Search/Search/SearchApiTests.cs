@@ -180,7 +180,7 @@ namespace Tests.Search.Search
         }
     }
 
-    [SkipVersion(">=3.0.0 <3.4.0", "OpenSearch security plugin bug causes stored integer fields to return null")]
+    [SkipVersion(">=3.0.0 <3.4.0", "OpenSearch 3.0.x–3.3.x KNN/faiss codec drops stored non-keyword fields https://github.com/opensearch-project/k-NN/issues/1606; fixed in 3.4.0")]
     public class SearchApiStoredFieldsTests : SearchApiTests
     {
         public SearchApiStoredFieldsTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }

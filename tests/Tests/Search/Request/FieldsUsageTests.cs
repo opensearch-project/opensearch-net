@@ -46,9 +46,8 @@ namespace Tests.Search.Request
 	* Use <<source-filtering-usage,source filtering>> instead to select subsets of the original source document to be returned.
 	*
 	* See the OpenSearch documentation on {ref_current}/search-request-body.html#request-body-search-stored-fields[Fields] for more detail.
-	*/
-	//I need to figure out how to verify this for sure because it doesn't seem likely
-	[SkipVersion(">=3.0.0 <3.4.0", "OpenSearch security plugin bug causes stored fields to return null")]
+	*/	
+	[SkipVersion(">=3.0.0 <3.4.0", "OpenSearch 3.0.x–3.3.x KNN/faiss codec drops stored non-keyword fields https://github.com/opensearch-project/k-NN/issues/1606; fixed in 3.4.0")]
 	public class FieldsUsageTests : SearchUsageTestBase
 	{
 		public FieldsUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
