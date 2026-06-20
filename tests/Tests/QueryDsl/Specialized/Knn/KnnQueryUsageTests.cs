@@ -82,7 +82,7 @@ namespace Tests.QueryDsl.Specialized.Knn
         {
             _cluster = cluster;
             var opensearchVersion = TestConfiguration.Instance.OpenSearchVersion;
-            _vectorSearchEngine = opensearchVersion.Major >= 3 ? "faiss" : "nmslib";
+            _vectorSearchEngine = opensearchVersion.Major >= 3 ? "lucene" : "nmslib";
         }
 
 		[I] public async Task KnnQuery()

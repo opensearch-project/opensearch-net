@@ -21,7 +21,7 @@ public class KnnVectorPropertyTests : PropertyTestsBase
     public KnnVectorPropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage)
     {
         var opensearchVersion = TestConfiguration.Instance.OpenSearchVersion;
-        _vectorSearchEngine = opensearchVersion.Major >= 3 ? "faiss" : "nmslib";
+        _vectorSearchEngine = opensearchVersion.Major >= 3 ? "l" : "nmslib";
     }
 
     protected override object ExpectJson => new

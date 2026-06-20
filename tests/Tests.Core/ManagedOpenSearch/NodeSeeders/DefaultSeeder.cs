@@ -279,7 +279,7 @@ public class DefaultSeeder
         where TProject : Project
     {
         var opensearchVersion = TestConfiguration.Instance.OpenSearchVersion;
-        var vectorSearchEngine = opensearchVersion.Major >= 3 ? "faiss" : "nmslib";
+        var vectorSearchEngine = opensearchVersion.Major >= 3 ? "lucene" : "nmslib";
         props
             .Join(j => j
                 .Name(n => n.Join)

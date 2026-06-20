@@ -46,7 +46,7 @@ public class PutMappingApiTests
     public PutMappingApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage)
     {
         var opensearchVersion = TestConfiguration.Instance.OpenSearchVersion;
-        _vectorSearchEngine = opensearchVersion.Major >= 3 ? "faiss" : "nmslib";
+        _vectorSearchEngine = opensearchVersion.Major >= 3 ? "lucene" : "nmslib";
     }
 
     protected override bool ExpectIsValid => true;
