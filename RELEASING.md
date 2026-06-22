@@ -33,9 +33,14 @@ Repositories create consistent release labels, such as `v1.0.0`, `v1.1.0` and `v
 
 The release process is standard across repositories in this org and is run by a release manager volunteering from amongst [MAINTAINERS](MAINTAINERS.md).
 
-1. Create a tag, e.g. 1.0.0, and push it to this GitHub repository.
-2. The [release-drafter.yml](.github/workflows/release-drafter.yml) will be automatically kicked off and is responsible for drafting a new release on GitHub.
-3. Before creating a draft release, this workflow creates a GitHub issue asking for approval from the [maintainers](MAINTAINERS.md). See sample [issue](https://github.com/gaiksaya/opensearch-net/issues/10). The maintainers need to approve in order to continue the workflow run.
-4. This draft release triggers the [jenkins release workflow](https://build.ci.opensearch.org/job/opensearch-net-release) as a result of which the client is released on [Nuget.org](https://www.nuget.org/profiles/opensearchproject). Please note that the release workflow is triggered only if created release is in draft state.
-5. Once the above release workflow is successful, the drafted release on GitHub is published automatically.
+1. Identify the commit to release and create a tag on it, pushing to the upstream repo:
+```
+git fetch origin
+git tag <tag-name> <commit-sha>
+git push origin <tag-name>
+```
+2. The [release-drafter.yml](.github/workflows/release-drafter.yml) will be automatically kicked off. Before creating a release, this workflow creates a GitHub issue asking for approval from the [maintainers](MAINTAINERS.md). The maintainers need to approve in order to continue the workflow run.
+3. Once approved, a pre-release will be created.
+4. This pre-release triggers the [jenkins release workflow](https://build.ci.opensearch.org/job/opensearch-net-release) as a result of which the client is released on [Nuget.org](https://www.nuget.org/profiles/opensearchproject). Please note that the release workflow is triggered only if created release is in pre-release state.
+5. Once the above release workflow is successful, it creates a GitHub issue requesting maintainers to manually publish the pre-release to release on GitHub.
 6. Increment the version to next iteration. See [example](https://github.com/opensearch-project/opensearch-net/pull/93).

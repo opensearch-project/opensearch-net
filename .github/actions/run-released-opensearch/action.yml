@@ -22,7 +22,7 @@ runs:
   steps:
     - name: Restore cached OpenSearch distro
       id: cache-restore
-      uses: actions/cache/restore@v5
+      uses: actions/cache/restore@5b7a9f8ae54e16fe74b141e0cd16a8aa366217c4 #v5
       with:
         path: opensearch-*
         key: opensearch-${{ inputs.version }}-${{ runner.os }}
@@ -43,7 +43,7 @@ runs:
 
     - name: Save cached OpenSearch distro
       if: steps.cache-restore.outputs.cache-hit != 'true'
-      uses: actions/cache/save@v5
+      uses: actions/cache/save@5b7a9f8ae54e16fe74b141e0cd16a8aa366217c4 #v5
       with:
         path: opensearch-*
         key: opensearch-${{ inputs.version }}-${{ runner.os }}
