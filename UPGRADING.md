@@ -65,6 +65,7 @@
 - All instances of the `Routing` parameter now accept an array of strings instead of a single string to better represent the underlying API that accepts comma-separated lists.
 - The `SortOrder` enum has been moved from the `OpenSearch.Client` namespace to the `OpenSearch.Net` namespace.
 - The `TimeUnit` enum has been moved from the `OpenSearch.Client` namespace to the `OpenSearch.Net` namespace. The `Millisecond`, `Second`, `Minute`, `Hour` and `Day` variants names have been pluralized to `Milliseconds`, `Seconds`, `Minutes`, `Hours` and `Days` respectively.
+- The `Force` member of the `VersionType` enum has been removed as the `force` version type is no longer supported by OpenSearch. Use `External`, `ExternalGte` or `Internal` instead.
 
 #### Bulk Action
 - The `TypeQueryString` parameter has been renamed to simply `Type`.
@@ -161,6 +162,7 @@
 - The `ExpandWildcards` enum is now attributed with `[Flags]` to allow combining of multiple values e.g. `ExpandWildcards.Open | ExpandWildcards.Closed` to match open and closed indexes but not hidden.
 - The namespaced APIs exposed in `IOpenSearchClient` have each gained a corresponding interface and the types of the properties on `IOpenSearchClient` and `OpenSearchClient` have been changed from the concrete implementations to the matching interfaces. For example, `IOpenSearchClient.Cluster` was `ClusterNamespace` and now is `IClusterNamespace`.
 - The `Bytes` enum has been renamed to `ByteUnit`.
+- The `Force` member of the `VersionType` enum has been removed as the `force` version type is no longer supported by OpenSearch. Use `External`, `ExternalGte` or `Internal` instead.
 
 #### Bulk Action
 - The `TypeQueryString` parameter has been renamed to simply `Type`.

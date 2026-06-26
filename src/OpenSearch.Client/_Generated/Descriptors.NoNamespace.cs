@@ -1591,6 +1591,10 @@ namespace OpenSearch.Client
         public MultiSearchDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
+        /// <summary>Specifies whether to return partial results if there are shard request timeouts or shard failures.</summary>
+        public MultiSearchDescriptor AllowPartialResults(bool? allowpartialresults = true) =>
+            Qs("allow_partial_results", allowpartialresults);
+
         /// <summary>If <c>true</c>, network round-trips between the coordinating node and remote clusters are minimized for cross-cluster search requests.</summary>
         public MultiSearchDescriptor CcsMinimizeRoundtrips(bool? ccsminimizeroundtrips = true) =>
             Qs("ccs_minimize_roundtrips", ccsminimizeroundtrips);

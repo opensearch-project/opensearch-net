@@ -13,12 +13,18 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added conditions to the Microsoft.CSharp, System.Buffers & System.Diagnostics.DiagnosticSource dependencies so that they are not included on net 6+ as the newer framework's natively provides those dependencies. ([#930](https://github.com/opensearch-project/opensearch-net/pull/930))
 - Added support for Hybrid query ([#917](https://github.com/opensearch-project/opensearch-net/pull/917))
 - Added support for `MaxDistance` and `MinScore` to `KnnQuery` ([#917](https://github.com/opensearch-project/opensearch-net/pull/917))
+- Re-generated the client against the latest OpenSearch API specification, adding:
+  - The `Ubi` (User Behavior Insights) low-level namespace.
+  - ML memory & agentic APIs (memory containers, agentic memory, `ExecuteAgentStream`, `ExecuteTool`, `PredictModelStream`) and the `MlMemoryType` & `MlToolName` enums.
+  - Search Relevance scheduled experiments APIs (`GetScheduledExperiments`, `PostScheduledExperiments`, `DeleteScheduledExperiments`).
+  - The `AllowPartialResults` parameter on multi-search (`msearch`).
 
 ### Removed
 - Removed support for the `net461` target ([#256](https://github.com/opensearch-project/opensearch-net/pull/256))
 - Removed the `Features` API which is not supported by OpenSearch from the low-level client ([#331](https://github.com/opensearch-project/opensearch-net/pull/331))
 - Removed the deprecated low-level `IndexTemplateV2` APIs in favour of the `ComposableIndexTemplate` APIs ([#437](https://github.com/opensearch-project/opensearch-net/pull/437))
 - Removed support for dotnet 5 and dotnet 6 as they are EOL and out of support
+- Removed the `Force` member of the `VersionType` enum as the `force` version type is no longer supported by OpenSearch. See [UPGRADING.md](UPGRADING.md).
 
 ### Fixed
 - Fixed naming of `ClusterManagerTimeout` and `MasterTimeout` properties from `*TimeSpanout` in the low-level client ([#332](https://github.com/opensearch-project/opensearch-net/pull/332))
