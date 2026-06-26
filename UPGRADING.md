@@ -66,6 +66,7 @@
 - All instances of the `Routing` parameter now accept an array of strings instead of a single string to better represent the underlying API that accepts comma-separated lists.
 - The `SortOrder` enum has been moved from the `OpenSearch.Client` namespace to the `OpenSearch.Net` namespace.
 - The `TimeUnit` enum has been moved from the `OpenSearch.Client` namespace to the `OpenSearch.Net` namespace. The `Millisecond`, `Second`, `Minute`, `Hour` and `Day` variants names have been pluralized to `Milliseconds`, `Seconds`, `Minutes`, `Hours` and `Days` respectively.
+- `VersionType.Force` enum was removed as it is no longer in the specification
 
 #### Bulk Action
 - The `TypeQueryString` parameter has been renamed to simply `Type`.
