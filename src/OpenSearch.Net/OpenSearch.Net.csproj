@@ -24,6 +24,9 @@
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="System.Buffers" Version="4.6.1" />
     <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="8.0.1" />
+    <!-- System.Text.Json is in-box on net6.0+; only needed for the netstandard targets.
+         Foundation for the Utf8Json -> System.Text.Json migration (#388). -->
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">      
