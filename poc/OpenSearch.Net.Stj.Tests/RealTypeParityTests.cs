@@ -13,8 +13,7 @@ namespace OpenSearch.Net.Stj.Tests;
 // from the converter emitted by StjConverterGen.
 public class RealTypeParityTests
 {
-    private static readonly JsonSerializerOptions Options =
-        new() { Converters = { new GeneratedRealLeafQueryConverter() } };
+    public class Person { public string FirstName { get; set; } = ""; }
 
     private static string GroundTruth(QueryBase q)
     {
@@ -24,7 +23,14 @@ public class RealTypeParityTests
         return client.RequestResponseSerializer.SerializeToString(new QueryContainer(q));
     }
 
-    private static string Generated(RealLeafQuery q) => JsonSerializer.Serialize(q, Options);
+    private static string Generated(RealLeafQuery q, Func<string, string>? inferrer = null)
+    {
+        var options = new JsonSerializerOptions { Converters = { new GeneratedRealLeafQueryConverter(inferrer) } };
+        return JsonSerializer.Serialize(q, options);
+    }
+
+    private static string ToCamel(string s) =>
+        string.IsNullOrEmpty(s) ? s : char.ToLowerInvariant(s[0]) + s.Substring(1);
 
     [Fact]
     public void MatchAll_parity() =>
@@ -59,4 +65,27 @@ public class RealTypeParityTests
     public void Match_parity() =>
         Assert.Equal(GroundTruth(new MatchQuery { Field = "user", Query = "bob" }),
                      Generated(new MatchLeaf { Field = "user", Value = "bob" }));
+
+    [Fact]
+    public void Bool_compound_recursive_parity() =>
+        Assert.Equal(
+            GroundTruth(new BoolQuery
+            {
+                Must = new QueryContainer[] { new TermQuery { Field = "user", Value = "bob" }, new MatchAllQuery() }
+            }),
+            Generated(new BoolLeaf
+            {
+                Must = { new TermLeaf { Field = "user", Value = "bob" }, new MatchAllLeaf() }
+            }));
+
+    [Fact]
+    public void Field_name_inference_parity() // expression field FirstName -> firstName via threaded inferrer
+    {
+        var ground = GroundTruth(new TermQuery { Field = Infer.Field<Person>(p => p.FirstName), Value = "bob" });
+
+        var generated = Generated(new TermLeaf { Field = "FirstName", Value = "bob" }, ToCamel);
+
+        Assert.Equal(ground, generated);
+        Assert.Contains("firstName", generated);
+    }
 }
