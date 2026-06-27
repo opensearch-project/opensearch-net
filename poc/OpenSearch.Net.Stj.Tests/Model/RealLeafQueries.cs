@@ -1,0 +1,19 @@
+namespace OpenSearch.Net.Stj.Tests.Model;
+
+// STJ-side model types mirroring real OpenSearch.Client leaf queries. In the
+// production migration these would be the generated client model classes; here
+// they let us prove a GENERATED converter reproduces the real wire format.
+public abstract class RealLeafQuery
+{
+    public abstract string Variant { get; }
+    public string Field { get; set; } = "";
+    public string Value { get; set; } = "";
+}
+
+public sealed class MatchAllLeaf : RealLeafQuery { public override string Variant => "match_all"; }
+public sealed class ExistsLeaf : RealLeafQuery { public override string Variant => "exists"; }
+public sealed class TermLeaf : RealLeafQuery { public override string Variant => "term"; }
+public sealed class PrefixLeaf : RealLeafQuery { public override string Variant => "prefix"; }
+public sealed class WildcardLeaf : RealLeafQuery { public override string Variant => "wildcard"; }
+public sealed class RegexpLeaf : RealLeafQuery { public override string Variant => "regexp"; }
+public sealed class MatchLeaf : RealLeafQuery { public override string Variant => "match"; }
