@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\OpenSearch.Net\OpenSearch.Net.csproj" />
+    <ProjectReference Include="..\..\src\OpenSearch.Client\OpenSearch.Client.csproj" />
   </ItemGroup>
 
 </Project>
