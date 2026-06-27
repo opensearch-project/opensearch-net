@@ -73,6 +73,15 @@ mostly-generated artifact (the approach Elastic's v8 client used). Complex
 converters (geo shapes, `_source`, compound queries) remain hand-written and are
 flagged by the generator.
 
+**Measured evidence (PoC, validated against the real client's wire output):** a
+generator with **4 shape templates** (Empty / FieldOnly / FieldValue / Compound)
+reproduces the exact wire format byte-for-byte for **8 real query types**
+(`match_all`, `exists`, `term`, `prefix`, `wildcard`, `regexp`, `match`, and the
+recursive `bool`), including expression-based **field-name inference** threaded
+through the converter. Of the leaf queries probed, only `ids` was irregular
+(~88% generatable from metadata with a small template set). See
+`poc/OpenSearch.Net.Stj.Tests` (22 passing tests).
+
 ## 6. Migration plan
 
 | Step | Deliverable | Exit criteria |
