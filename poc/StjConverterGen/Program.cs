@@ -47,11 +47,25 @@ internal static class Program
             new VariantSpec("bool", "BoolLeaf", Shape.Compound),
         };
 
+        EmitToFile(outDir, ns, baseType, converterName, variants);
+
+        // Second polymorphic family: aggregations (reuse the FieldOnly template).
+        var aggVariants = new[]
+        {
+            new VariantSpec("terms", "TermsAgg", Shape.FieldOnly),
+            new VariantSpec("max", "MaxAgg", Shape.FieldOnly),
+        };
+        EmitToFile(outDir, ns, "RealAggregation", "GeneratedRealAggregationConverter", aggVariants);
+
+        return 0;
+    }
+
+    private static void EmitToFile(string outDir, string ns, string baseType, string converterName, IReadOnlyList<VariantSpec> variants)
+    {
         var src = Emit(ns, baseType, converterName, variants);
         var path = Path.Combine(outDir, converterName + ".cs");
         File.WriteAllText(path, src);
-        Console.WriteLine($"Generated converter for {variants.Length} variant(s) -> {path}");
-        return 0;
+        Console.WriteLine($"Generated converter '{converterName}' for {variants.Count} variant(s) -> {path}");
     }
 
     private static string Emit(string ns, string baseType, string converterName, IReadOnlyList<VariantSpec> variants)

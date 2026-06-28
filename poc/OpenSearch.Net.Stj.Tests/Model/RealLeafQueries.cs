@@ -26,3 +26,14 @@ public sealed class BoolLeaf : RealLeafQuery
     public override string Variant => "bool";
     public List<RealLeafQuery> Must { get; set; } = new();
 }
+
+// Second polymorphic family: aggregations. Single aggregation wire shape is
+// {"<variant>":{"field":"<field>"}} -- the same FieldOnly template as `exists`.
+public abstract class RealAggregation
+{
+    public abstract string Variant { get; }
+    public string Field { get; set; } = "";
+}
+
+public sealed class TermsAgg : RealAggregation { public override string Variant => "terms"; }
+public sealed class MaxAgg : RealAggregation { public override string Variant => "max"; }
