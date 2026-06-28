@@ -81,6 +81,102 @@ public sealed class GeneratedRealLeafQueryConverter : JsonConverter<RealLeafQuer
         writer.WriteEndObject();
     }
 
-    public override RealLeafQuery Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
-        throw new NotSupportedException();
+    public override RealLeafQuery Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    {
+        if (reader.TokenType != JsonTokenType.StartObject) throw new JsonException();
+        reader.Read(); // variant property
+        var variant = reader.GetString();
+        reader.Read(); // body start
+        RealLeafQuery result;
+        switch (variant)
+        {
+            case "match_all":
+            {
+                reader.Skip(); // body EndObject
+                result = new MatchAllLeaf();
+                break;
+            }
+            case "exists":
+            {
+                reader.Read(); // "field" property
+                reader.Read(); // field value
+                var f = reader.GetString() ?? "";
+                reader.Read(); // body EndObject
+                result = new ExistsLeaf { Field = f };
+                break;
+            }
+            case "term":
+            {
+                reader.Read(); // field property name
+                var f = reader.GetString() ?? "";
+                reader.Read(); // inner StartObject
+                reader.Read(); // value-key property
+                reader.Read(); // value
+                var val = reader.GetString() ?? "";
+                reader.Read(); // inner EndObject
+                reader.Read(); // body EndObject
+                result = new TermLeaf { Field = f, Value = val };
+                break;
+            }
+            case "prefix":
+            {
+                reader.Read(); // field property name
+                var f = reader.GetString() ?? "";
+                reader.Read(); // inner StartObject
+                reader.Read(); // value-key property
+                reader.Read(); // value
+                var val = reader.GetString() ?? "";
+                reader.Read(); // inner EndObject
+                reader.Read(); // body EndObject
+                result = new PrefixLeaf { Field = f, Value = val };
+                break;
+            }
+            case "wildcard":
+            {
+                reader.Read(); // field property name
+                var f = reader.GetString() ?? "";
+                reader.Read(); // inner StartObject
+                reader.Read(); // value-key property
+                reader.Read(); // value
+                var val = reader.GetString() ?? "";
+                reader.Read(); // inner EndObject
+                reader.Read(); // body EndObject
+                result = new WildcardLeaf { Field = f, Value = val };
+                break;
+            }
+            case "regexp":
+            {
+                reader.Read(); // field property name
+                var f = reader.GetString() ?? "";
+                reader.Read(); // inner StartObject
+                reader.Read(); // value-key property
+                reader.Read(); // value
+                var val = reader.GetString() ?? "";
+                reader.Read(); // inner EndObject
+                reader.Read(); // body EndObject
+                result = new RegexpLeaf { Field = f, Value = val };
+                break;
+            }
+            case "match":
+            {
+                reader.Read(); // field property name
+                var f = reader.GetString() ?? "";
+                reader.Read(); // inner StartObject
+                reader.Read(); // value-key property
+                reader.Read(); // value
+                var val = reader.GetString() ?? "";
+                reader.Read(); // inner EndObject
+                reader.Read(); // body EndObject
+                result = new MatchLeaf { Field = f, Value = val };
+                break;
+            }
+            case "bool":
+            {
+                throw new NotSupportedException("Compound read not generated in this PoC.");
+            }
+            default: throw new JsonException($"Unsupported RealLeafQuery '{variant}'");
+        }
+        reader.Read(); // wrapper EndObject
+        return result;
+    }
 }

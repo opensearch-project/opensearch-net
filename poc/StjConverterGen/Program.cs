@@ -130,8 +130,55 @@ internal static class Program
         sb.AppendLine("        writer.WriteEndObject();");
         sb.AppendLine("    }");
         sb.AppendLine();
-        sb.AppendLine($"    public override {baseType} Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>");
-        sb.AppendLine("        throw new NotSupportedException();");
+        sb.AppendLine($"    public override {baseType} Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)");
+        sb.AppendLine("    {");
+        sb.AppendLine("        if (reader.TokenType != JsonTokenType.StartObject) throw new JsonException();");
+        sb.AppendLine("        reader.Read(); // variant property");
+        sb.AppendLine("        var variant = reader.GetString();");
+        sb.AppendLine("        reader.Read(); // body start");
+        sb.AppendLine($"        {baseType} result;");
+        sb.AppendLine("        switch (variant)");
+        sb.AppendLine("        {");
+        foreach (var v in variants)
+        {
+            sb.AppendLine($"            case \"{v.Json}\":");
+            sb.AppendLine("            {");
+            switch (v.Shape)
+            {
+                case Shape.Empty:
+                    sb.AppendLine("                reader.Skip(); // body EndObject");
+                    sb.AppendLine($"                result = new {v.ClrType}();");
+                    break;
+                case Shape.FieldOnly:
+                    sb.AppendLine("                reader.Read(); // \"field\" property");
+                    sb.AppendLine("                reader.Read(); // field value");
+                    sb.AppendLine("                var f = reader.GetString() ?? \"\";");
+                    sb.AppendLine("                reader.Read(); // body EndObject");
+                    sb.AppendLine($"                result = new {v.ClrType} {{ Field = f }};");
+                    break;
+                case Shape.FieldValue:
+                    sb.AppendLine("                reader.Read(); // field property name");
+                    sb.AppendLine("                var f = reader.GetString() ?? \"\";");
+                    sb.AppendLine("                reader.Read(); // inner StartObject");
+                    sb.AppendLine("                reader.Read(); // value-key property");
+                    sb.AppendLine("                reader.Read(); // value");
+                    sb.AppendLine("                var val = reader.GetString() ?? \"\";");
+                    sb.AppendLine("                reader.Read(); // inner EndObject");
+                    sb.AppendLine("                reader.Read(); // body EndObject");
+                    sb.AppendLine($"                result = new {v.ClrType} {{ Field = f, Value = val }};");
+                    break;
+                case Shape.Compound:
+                    sb.AppendLine("                throw new NotSupportedException(\"Compound read not generated in this PoC.\");");
+                    break;
+            }
+            if (v.Shape != Shape.Compound) sb.AppendLine("                break;");
+            sb.AppendLine("            }");
+        }
+        sb.AppendLine($"            default: throw new JsonException($\"Unsupported {baseType} '{{variant}}'\");");
+        sb.AppendLine("        }");
+        sb.AppendLine("        reader.Read(); // wrapper EndObject");
+        sb.AppendLine("        return result;");
+        sb.AppendLine("    }");
         sb.AppendLine("}");
         return sb.ToString();
     }

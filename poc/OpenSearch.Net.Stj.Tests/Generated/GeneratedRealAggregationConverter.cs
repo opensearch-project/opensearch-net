@@ -33,6 +33,36 @@ public sealed class GeneratedRealAggregationConverter : JsonConverter<RealAggreg
         writer.WriteEndObject();
     }
 
-    public override RealAggregation Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
-        throw new NotSupportedException();
+    public override RealAggregation Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    {
+        if (reader.TokenType != JsonTokenType.StartObject) throw new JsonException();
+        reader.Read(); // variant property
+        var variant = reader.GetString();
+        reader.Read(); // body start
+        RealAggregation result;
+        switch (variant)
+        {
+            case "terms":
+            {
+                reader.Read(); // "field" property
+                reader.Read(); // field value
+                var f = reader.GetString() ?? "";
+                reader.Read(); // body EndObject
+                result = new TermsAgg { Field = f };
+                break;
+            }
+            case "max":
+            {
+                reader.Read(); // "field" property
+                reader.Read(); // field value
+                var f = reader.GetString() ?? "";
+                reader.Read(); // body EndObject
+                result = new MaxAgg { Field = f };
+                break;
+            }
+            default: throw new JsonException($"Unsupported RealAggregation '{variant}'");
+        }
+        reader.Read(); // wrapper EndObject
+        return result;
+    }
 }
