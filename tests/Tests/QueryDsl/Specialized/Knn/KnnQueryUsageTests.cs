@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using OpenSearch.Client;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
+using Tests.Configuration;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
@@ -19,7 +20,7 @@ namespace Tests.QueryDsl.Specialized.Knn
 {
 	public class KnnQueryUsageTests : QueryDslUsageTestsBase
 	{
-		public KnnQueryUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
+        public KnnQueryUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage){}
 
 		protected override ConditionlessWhen ConditionlessWhen => new ConditionlessWhen<IKnnQuery>(a => a.Knn)
 		{
@@ -75,8 +76,14 @@ namespace Tests.QueryDsl.Specialized.Knn
 	public class KnnIntegrationTests : IClusterFixture<WritableCluster>
 	{
 		private readonly WritableCluster _cluster;
+        private readonly string _vectorSearchEngine;
 
-		public KnnIntegrationTests(WritableCluster cluster) => _cluster = cluster;
+        public KnnIntegrationTests(WritableCluster cluster)
+        {
+            _cluster = cluster;
+            var opensearchVersion = TestConfiguration.Instance.OpenSearchVersion;
+            _vectorSearchEngine = opensearchVersion.Major >= 3 ? "lucene" : "nmslib";
+        }
 
 		[I] public async Task KnnQuery()
 		{
@@ -95,7 +102,7 @@ namespace Tests.QueryDsl.Specialized.Knn
 							.Method(m => m
 								.Name("hnsw")
 								.SpaceType("innerproduct")
-								.Engine("nmslib")
+								.Engine(_vectorSearchEngine)
 								.Parameters(p => p
 									.Parameter("ef_construction", 256)
 									.Parameter("m", 48)

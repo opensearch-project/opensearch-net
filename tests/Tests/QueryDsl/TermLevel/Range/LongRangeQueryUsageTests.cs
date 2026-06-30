@@ -27,6 +27,7 @@
 */
 
 using OpenSearch.Client;
+using Tests.Configuration;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
@@ -36,6 +37,13 @@ namespace Tests.QueryDsl.TermLevel.Range
 	public class LongRangeQueryUsageTests : QueryDslUsageTestsBase
 	{
 		public LongRangeQueryUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+
+		/* 
+		   OpenSearch 3.6.0 rejects a range query that specifies both a strict and a non-strict bound
+		   on the same side (e.g. gt + gte) with "invalid lower bound for [range] query". Earlier
+		   versions (1.x, 2.x, 3.0–3.5) accept it, so we still exercise that combination there.
+		*/
+		private static bool SupportsRedundantBounds => TestConfiguration.Instance.OpenSearchVersion < "3.6.0";
 
 		protected override ConditionlessWhen ConditionlessWhen => new ConditionlessWhen<ILongRangeQuery>(q => q.Range as ILongRangeQuery)
 		{
@@ -49,45 +57,67 @@ namespace Tests.QueryDsl.TermLevel.Range
 			}
 		};
 
-		protected override QueryContainer QueryInitializer => new LongRangeQuery
+		protected override QueryContainer QueryInitializer
 		{
-			Name = "named_query",
-			Boost = 1.1,
-			Field = "description",
-			GreaterThan = 636634079999999999,
-			GreaterThanOrEqualTo = 636634080000000000,
-			LessThan = 636634080000000000,
-			LessThanOrEqualTo = 636634079999999999,
-			Relation = RangeRelation.Within
-		};
+			get
+			{
+				var query = new LongRangeQuery
+				{
+					Name = "named_query",
+					Boost = 1.1,
+					Field = "description",
+					GreaterThanOrEqualTo = 636634080000000000,
+					LessThanOrEqualTo = 636634080000000001,
+					Relation = RangeRelation.Within
+				};
+				if (SupportsRedundantBounds)
+				{
+					query.GreaterThan = 636634079999999999;
+					query.LessThan = 636634080000000002;
+				}
+				return query;
+			}
+		}
 
 		protected override object QueryJson => new
 		{
 			range = new
 			{
-				description = new
-				{
-					_name = "named_query",
-					boost = 1.1,
-					gt = 636634079999999999,
-					gte = 636634080000000000,
-					lt = 636634080000000000,
-					lte = 636634079999999999,
-					relation = "within"
-				}
+				description = SupportsRedundantBounds
+					? (object)new
+					{
+						_name = "named_query",
+						boost = 1.1,
+						gt = 636634079999999999,
+						gte = 636634080000000000,
+						lt = 636634080000000002,
+						lte = 636634080000000001,
+						relation = "within"
+					}
+					: new
+					{
+						_name = "named_query",
+						boost = 1.1,
+						gte = 636634080000000000,
+						lte = 636634080000000001,
+						relation = "within"
+					}
 			}
 		};
 
 		protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) => q
-			.LongRange(c => c
-				.Name("named_query")
-				.Boost(1.1)
-				.Field(p => p.Description)
-				.GreaterThan(636634079999999999)
-				.GreaterThanOrEquals(636634080000000000)
-				.LessThan(636634080000000000)
-				.LessThanOrEquals(636634079999999999)
-				.Relation(RangeRelation.Within)
-			);
+			.LongRange(c =>
+			{
+				c
+					.Name("named_query")
+					.Boost(1.1)
+					.Field(p => p.Description)
+					.GreaterThanOrEquals(636634080000000000)
+					.LessThanOrEquals(636634080000000001)
+					.Relation(RangeRelation.Within);
+				if (SupportsRedundantBounds)
+					c.GreaterThan(636634079999999999).LessThan(636634080000000002);
+				return c;
+			});
 	}
 }

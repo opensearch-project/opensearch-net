@@ -7,6 +7,7 @@
 
 using System;
 using OpenSearch.Client;
+using Tests.Configuration;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests.TestState;
@@ -15,7 +16,13 @@ namespace Tests.Mapping.Types.Specialized.Knn;
 
 public class KnnVectorPropertyTests : PropertyTestsBase
 {
-    public KnnVectorPropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    private readonly string _vectorSearchEngine;
+
+    public KnnVectorPropertyTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage)
+    {
+        var opensearchVersion = TestConfiguration.Instance.OpenSearchVersion;
+        _vectorSearchEngine = opensearchVersion.Major >= 3 ? "lucene" : "nmslib";
+    }
 
     protected override object ExpectJson => new
     {
@@ -29,7 +36,7 @@ public class KnnVectorPropertyTests : PropertyTestsBase
                 {
                     name = "hnsw",
                     space_type = "l2",
-                    engine = "nmslib",
+                    engine = _vectorSearchEngine,
                     parameters = new
                     {
                         ef_construction = 128,
@@ -47,7 +54,7 @@ public class KnnVectorPropertyTests : PropertyTestsBase
             .Method(m => m
                 .Name("hnsw")
                 .SpaceType("l2")
-                .Engine("nmslib")
+                .Engine(_vectorSearchEngine)
                 .Parameters(p => p
                     .Parameter("ef_construction", 128)
                     .Parameter("m", 24)
@@ -65,7 +72,7 @@ public class KnnVectorPropertyTests : PropertyTestsBase
                 {
                     Name = "hnsw",
                     SpaceType = "l2",
-                    Engine = "nmslib",
+                    Engine = _vectorSearchEngine,
                     Parameters = new KnnMethodParameters
                     {
                         {"ef_construction", 128},

@@ -84,6 +84,7 @@ using OpenSearch.Net.Specification.SnapshotApi;
 using OpenSearch.Net.Specification.SqlApi;
 using OpenSearch.Net.Specification.TasksApi;
 using OpenSearch.Net.Specification.TransformsApi;
+using OpenSearch.Net.Specification.UbiApi;
 using OpenSearch.Net.Specification.WlmApi;
 using static OpenSearch.Net.HttpMethod;
 
@@ -130,6 +131,7 @@ namespace OpenSearch.Net
         public LowLevelSqlNamespace Sql { get; private set; }
         public LowLevelTasksNamespace Tasks { get; private set; }
         public LowLevelTransformsNamespace Transforms { get; private set; }
+        public LowLevelUbiNamespace Ubi { get; private set; }
         public LowLevelWlmNamespace Wlm { get; private set; }
 
         partial void SetupGeneratedNamespaces()
@@ -168,6 +170,7 @@ namespace OpenSearch.Net
             Sql = new LowLevelSqlNamespace(this);
             Tasks = new LowLevelTasksNamespace(this);
             Transforms = new LowLevelTransformsNamespace(this);
+            Ubi = new LowLevelUbiNamespace(this);
             Wlm = new LowLevelWlmNamespace(this);
         }
 

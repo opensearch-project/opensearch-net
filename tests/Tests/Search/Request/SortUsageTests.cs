@@ -330,7 +330,8 @@ namespace Tests.Search.Request
 			};
 	}
 
-	//hide
+	//hide	
+	[SkipVersion(">=3.0.0 <3.2.0", "OpenSearch 3.0.x _geo_distance sort NPE https://repost.aws/questions/QUVwifPTsGSDWb3gVUN8fn_Q/opensearch-service-geo-distance-bug; fixed in 3.2.0")]
 	public class GeoDistanceIgnoreUnmappedUsageTests : SearchUsageTestBase
 	{
 		public GeoDistanceIgnoreUnmappedUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }

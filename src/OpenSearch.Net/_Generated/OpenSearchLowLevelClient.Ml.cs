@@ -69,6 +69,49 @@ namespace OpenSearch.Net.Specification.MlApi
         internal LowLevelMlNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
+        /// <summary>POST on /_plugins/_ml/memory_containers/{memory_container_id}/memories</summary>
+        /// <param name="memoryContainerId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        public TResponse AddAgenticMemory<TResponse>(
+            string memoryContainerId,
+            PostData body,
+            AddAgenticMemoryRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url(
+                    $"_plugins/_ml/memory_containers/{memoryContainerId:memoryContainerId}/memories"
+                ),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/memory_containers/{memory_container_id}/memories</summary>
+        /// <param name="memoryContainerId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        [MapsApi("ml.add_agentic_memory", "memory_container_id, body")]
+        public Task<TResponse> AddAgenticMemoryAsync<TResponse>(
+            string memoryContainerId,
+            PostData body,
+            AddAgenticMemoryRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url(
+                    $"_plugins/_ml/memory_containers/{memoryContainerId:memoryContainerId}/memories"
+                ),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>POST on /_plugins/_ml/models/{model_id}/chunk/{chunk_number}</summary>
         /// <param name="modelId"></param>
         /// <param name="chunkNumber"></param>
@@ -219,6 +262,84 @@ namespace OpenSearch.Net.Specification.MlApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>POST on /_plugins/_ml/memory_containers/_create</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        public TResponse CreateMemoryContainer<TResponse>(
+            PostData body,
+            CreateMemoryContainerRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_plugins/_ml/memory_containers/_create",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/memory_containers/_create</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        [MapsApi("ml.create_memory_container", "body")]
+        public Task<TResponse> CreateMemoryContainerAsync<TResponse>(
+            PostData body,
+            CreateMemoryContainerRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_plugins/_ml/memory_containers/_create",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/memory_containers/{memory_container_id}/memories/sessions</summary>
+        /// <param name="memoryContainerId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        public TResponse CreateMemoryContainerSession<TResponse>(
+            string memoryContainerId,
+            PostData body,
+            CreateMemoryContainerSessionRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url(
+                    $"_plugins/_ml/memory_containers/{memoryContainerId:memoryContainerId}/memories/sessions"
+                ),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/memory_containers/{memory_container_id}/memories/sessions</summary>
+        /// <param name="memoryContainerId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        [MapsApi("ml.create_memory_container_session", "memory_container_id, body")]
+        public Task<TResponse> CreateMemoryContainerSessionAsync<TResponse>(
+            string memoryContainerId,
+            PostData body,
+            CreateMemoryContainerSessionRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url(
+                    $"_plugins/_ml/memory_containers/{memoryContainerId:memoryContainerId}/memories/sessions"
+                ),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>POST on /_plugins/_ml/memory/{memory_id}/messages</summary>
         /// <param name="memoryId"></param>
         /// <param name="body"></param>
@@ -328,6 +449,100 @@ namespace OpenSearch.Net.Specification.MlApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>DELETE on /_plugins/_ml/memory_containers/{memory_container_id}/memories/{type}/{id}</summary>
+        /// <param name="memoryContainerId"></param>
+        /// <param name="type"></param>
+        /// <param name="id"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        public TResponse DeleteAgenticMemoryUsingType<TResponse>(
+            string memoryContainerId,
+            MlMemoryType? type,
+            string id,
+            DeleteAgenticMemoryRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                Url(
+                    $"_plugins/_ml/memory_containers/{memoryContainerId:memoryContainerId}/memories/{type:type}/{id:id}"
+                ),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_plugins/_ml/memory_containers/{memory_container_id}/memories/{type}/{id}</summary>
+        /// <param name="memoryContainerId"></param>
+        /// <param name="type"></param>
+        /// <param name="id"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        [MapsApi("ml.delete_agentic_memory", "memory_container_id, type, id")]
+        public Task<TResponse> DeleteAgenticMemoryUsingTypeAsync<TResponse>(
+            string memoryContainerId,
+            MlMemoryType? type,
+            string id,
+            DeleteAgenticMemoryRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                Url(
+                    $"_plugins/_ml/memory_containers/{memoryContainerId:memoryContainerId}/memories/{type:type}/{id:id}"
+                ),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/memory_containers/{memory_container_id}/memories/{type}/_delete_by_query</summary>
+        /// <param name="memoryContainerId"></param>
+        /// <param name="type"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        public TResponse DeleteAgenticMemoryQueryUsingType<TResponse>(
+            string memoryContainerId,
+            MlMemoryType? type,
+            PostData body,
+            DeleteAgenticMemoryQueryRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url(
+                    $"_plugins/_ml/memory_containers/{memoryContainerId:memoryContainerId}/memories/{type:type}/_delete_by_query"
+                ),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/memory_containers/{memory_container_id}/memories/{type}/_delete_by_query</summary>
+        /// <param name="memoryContainerId"></param>
+        /// <param name="type"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        [MapsApi("ml.delete_agentic_memory_query", "memory_container_id, type, body")]
+        public Task<TResponse> DeleteAgenticMemoryQueryUsingTypeAsync<TResponse>(
+            string memoryContainerId,
+            MlMemoryType? type,
+            PostData body,
+            DeleteAgenticMemoryQueryRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url(
+                    $"_plugins/_ml/memory_containers/{memoryContainerId:memoryContainerId}/memories/{type:type}/_delete_by_query"
+                ),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>DELETE on /_plugins/_ml/connectors/{connector_id}</summary>
         /// <param name="connectorId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -426,6 +641,41 @@ namespace OpenSearch.Net.Specification.MlApi
             DoRequestAsync<TResponse>(
                 DELETE,
                 Url($"_plugins/_ml/memory/{memoryId:memoryId}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_plugins/_ml/memory_containers/{memory_container_id}</summary>
+        /// <param name="memoryContainerId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        public TResponse DeleteMemoryContainer<TResponse>(
+            string memoryContainerId,
+            DeleteMemoryContainerRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                Url($"_plugins/_ml/memory_containers/{memoryContainerId:memoryContainerId}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_plugins/_ml/memory_containers/{memory_container_id}</summary>
+        /// <param name="memoryContainerId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        [MapsApi("ml.delete_memory_container", "memory_container_id")]
+        public Task<TResponse> DeleteMemoryContainerAsync<TResponse>(
+            string memoryContainerId,
+            DeleteMemoryContainerRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                Url($"_plugins/_ml/memory_containers/{memoryContainerId:memoryContainerId}"),
                 ctx,
                 null,
                 RequestParams(requestParameters)
@@ -608,6 +858,45 @@ namespace OpenSearch.Net.Specification.MlApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>POST on /_plugins/_ml/agents/{agent_id}/_execute/stream</summary>
+        /// <param name="agentId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        public TResponse ExecuteAgentStream<TResponse>(
+            string agentId,
+            PostData body,
+            ExecuteAgentStreamRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_plugins/_ml/agents/{agentId:agentId}/_execute/stream"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/agents/{agent_id}/_execute/stream</summary>
+        /// <param name="agentId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        [MapsApi("ml.execute_agent_stream", "agent_id, body")]
+        public Task<TResponse> ExecuteAgentStreamAsync<TResponse>(
+            string agentId,
+            PostData body,
+            ExecuteAgentStreamRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_plugins/_ml/agents/{agentId:agentId}/_execute/stream"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>POST on /_plugins/_ml/_execute/{algorithm_name}</summary>
         /// <param name="algorithmName">The function name.</param>
         /// <param name="body"></param>
@@ -647,6 +936,45 @@ namespace OpenSearch.Net.Specification.MlApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>POST on /_plugins/_ml/tools/_execute/{tool_name}</summary>
+        /// <param name="toolName"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        public TResponse ExecuteTool<TResponse>(
+            MlToolName? toolName,
+            PostData body,
+            ExecuteToolRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_plugins/_ml/tools/_execute/{toolName:toolName}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/tools/_execute/{tool_name}</summary>
+        /// <param name="toolName"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        [MapsApi("ml.execute_tool", "tool_name, body")]
+        public Task<TResponse> ExecuteToolAsync<TResponse>(
+            MlToolName? toolName,
+            PostData body,
+            ExecuteToolRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_plugins/_ml/tools/_execute/{toolName:toolName}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>GET on /_plugins/_ml/agents/{agent_id}</summary>
         /// <param name="agentId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -677,6 +1005,53 @@ namespace OpenSearch.Net.Specification.MlApi
             DoRequestAsync<TResponse>(
                 GET,
                 Url($"_plugins/_ml/agents/{agentId:agentId}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/memory_containers/{memory_container_id}/memories/{type}/{id}</summary>
+        /// <param name="memoryContainerId"></param>
+        /// <param name="type"></param>
+        /// <param name="id"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        public TResponse GetAgenticMemoryUsingType<TResponse>(
+            string memoryContainerId,
+            MlMemoryType? type,
+            string id,
+            GetAgenticMemoryRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url(
+                    $"_plugins/_ml/memory_containers/{memoryContainerId:memoryContainerId}/memories/{type:type}/{id:id}"
+                ),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/memory_containers/{memory_container_id}/memories/{type}/{id}</summary>
+        /// <param name="memoryContainerId"></param>
+        /// <param name="type"></param>
+        /// <param name="id"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        [MapsApi("ml.get_agentic_memory", "memory_container_id, type, id")]
+        public Task<TResponse> GetAgenticMemoryUsingTypeAsync<TResponse>(
+            string memoryContainerId,
+            MlMemoryType? type,
+            string id,
+            GetAgenticMemoryRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url(
+                    $"_plugins/_ml/memory_containers/{memoryContainerId:memoryContainerId}/memories/{type:type}/{id:id}"
+                ),
                 ctx,
                 null,
                 RequestParams(requestParameters)
@@ -874,6 +1249,41 @@ namespace OpenSearch.Net.Specification.MlApi
             DoRequestAsync<TResponse>(
                 GET,
                 Url($"_plugins/_ml/memory/{memoryId:memoryId}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/memory_containers/{memory_container_id}</summary>
+        /// <param name="memoryContainerId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        public TResponse GetMemoryContainer<TResponse>(
+            string memoryContainerId,
+            GetMemoryContainerRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_ml/memory_containers/{memoryContainerId:memoryContainerId}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/memory_containers/{memory_container_id}</summary>
+        /// <param name="memoryContainerId"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        [MapsApi("ml.get_memory_container", "memory_container_id")]
+        public Task<TResponse> GetMemoryContainerAsync<TResponse>(
+            string memoryContainerId,
+            GetMemoryContainerRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_ml/memory_containers/{memoryContainerId:memoryContainerId}"),
                 ctx,
                 null,
                 RequestParams(requestParameters)
@@ -1522,6 +1932,45 @@ namespace OpenSearch.Net.Specification.MlApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>POST on /_plugins/_ml/models/{model_id}/_predict/stream</summary>
+        /// <param name="modelId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        public TResponse PredictModelStream<TResponse>(
+            string modelId,
+            PostData body,
+            PredictModelStreamRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                Url($"_plugins/_ml/models/{modelId:modelId}/_predict/stream"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/models/{model_id}/_predict/stream</summary>
+        /// <param name="modelId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        [MapsApi("ml.predict_model_stream", "model_id, body")]
+        public Task<TResponse> PredictModelStreamAsync<TResponse>(
+            string modelId,
+            PostData body,
+            PredictModelStreamRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                Url($"_plugins/_ml/models/{modelId:modelId}/_predict/stream"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>POST on /_plugins/_ml/agents/_register</summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1660,6 +2109,53 @@ namespace OpenSearch.Net.Specification.MlApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>GET on /_plugins/_ml/memory_containers/{memory_container_id}/memories/{type}/_search</summary>
+        /// <param name="memoryContainerId"></param>
+        /// <param name="type"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        public TResponse SearchAgenticMemoryUsingType<TResponse>(
+            string memoryContainerId,
+            string type,
+            PostData body,
+            SearchAgenticMemoryRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url(
+                    $"_plugins/_ml/memory_containers/{memoryContainerId:memoryContainerId}/memories/{type:type}/_search"
+                ),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_ml/memory_containers/{memory_container_id}/memories/{type}/_search</summary>
+        /// <param name="memoryContainerId"></param>
+        /// <param name="type"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        [MapsApi("ml.search_agentic_memory", "memory_container_id, type, body")]
+        public Task<TResponse> SearchAgenticMemoryUsingTypeAsync<TResponse>(
+            string memoryContainerId,
+            string type,
+            PostData body,
+            SearchAgenticMemoryRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url(
+                    $"_plugins/_ml/memory_containers/{memoryContainerId:memoryContainerId}/memories/{type:type}/_search"
+                ),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>POST on /_plugins/_ml/agents/_search</summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1760,6 +2256,41 @@ namespace OpenSearch.Net.Specification.MlApi
             DoRequestAsync<TResponse>(
                 POST,
                 "_plugins/_ml/memory/_search",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/memory_containers/_search</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        public TResponse SearchMemoryContainer<TResponse>(
+            PostData body,
+            SearchMemoryContainerRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_plugins/_ml/memory_containers/_search",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_ml/memory_containers/_search</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        [MapsApi("ml.search_memory_container", "body")]
+        public Task<TResponse> SearchMemoryContainerAsync<TResponse>(
+            PostData body,
+            SearchMemoryContainerRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_plugins/_ml/memory_containers/_search",
                 ctx,
                 body,
                 RequestParams(requestParameters)
@@ -2135,6 +2666,57 @@ namespace OpenSearch.Net.Specification.MlApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>PUT on /_plugins/_ml/memory_containers/{memory_container_id}/memories/{type}/{id}</summary>
+        /// <param name="memoryContainerId"></param>
+        /// <param name="type"></param>
+        /// <param name="id"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        public TResponse UpdateAgenticMemoryUsingType<TResponse>(
+            string memoryContainerId,
+            MlMemoryType? type,
+            string id,
+            PostData body,
+            UpdateAgenticMemoryRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url(
+                    $"_plugins/_ml/memory_containers/{memoryContainerId:memoryContainerId}/memories/{type:type}/{id:id}"
+                ),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_plugins/_ml/memory_containers/{memory_container_id}/memories/{type}/{id}</summary>
+        /// <param name="memoryContainerId"></param>
+        /// <param name="type"></param>
+        /// <param name="id"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        [MapsApi("ml.update_agentic_memory", "memory_container_id, type, id, body")]
+        public Task<TResponse> UpdateAgenticMemoryUsingTypeAsync<TResponse>(
+            string memoryContainerId,
+            MlMemoryType? type,
+            string id,
+            PostData body,
+            UpdateAgenticMemoryRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url(
+                    $"_plugins/_ml/memory_containers/{memoryContainerId:memoryContainerId}/memories/{type:type}/{id:id}"
+                ),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>PUT on /_plugins/_ml/connectors/{connector_id}</summary>
         /// <param name="connectorId"></param>
         /// <param name="body"></param>
@@ -2247,6 +2829,45 @@ namespace OpenSearch.Net.Specification.MlApi
             DoRequestAsync<TResponse>(
                 PUT,
                 Url($"_plugins/_ml/memory/{memoryId:memoryId}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_plugins/_ml/memory_containers/{memory_container_id}</summary>
+        /// <param name="memoryContainerId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        public TResponse UpdateMemoryContainer<TResponse>(
+            string memoryContainerId,
+            PostData body,
+            UpdateMemoryContainerRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"_plugins/_ml/memory_containers/{memoryContainerId:memoryContainerId}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_plugins/_ml/memory_containers/{memory_container_id}</summary>
+        /// <param name="memoryContainerId"></param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
+        [MapsApi("ml.update_memory_container", "memory_container_id, body")]
+        public Task<TResponse> UpdateMemoryContainerAsync<TResponse>(
+            string memoryContainerId,
+            PostData body,
+            UpdateMemoryContainerRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"_plugins/_ml/memory_containers/{memoryContainerId:memoryContainerId}"),
                 ctx,
                 body,
                 RequestParams(requestParameters)
