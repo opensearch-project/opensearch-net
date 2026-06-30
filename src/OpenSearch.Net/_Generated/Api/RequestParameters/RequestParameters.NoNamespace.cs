@@ -58,6 +58,13 @@ namespace OpenSearch.Net
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
+        /// <summary>Name of the data stream, index, or index alias to perform bulk actions on.</summary>
+        public string Index
+        {
+            get => Q<string>("index");
+            set => Q("index", value);
+        }
+
         /// <summary>
         /// ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value
         /// to <c>_none</c> disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of
@@ -1560,6 +1567,13 @@ namespace OpenSearch.Net
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
 
+        /// <summary>Specifies whether to return partial results if there are shard request timeouts or shard failures.</summary>
+        public bool? AllowPartialResults
+        {
+            get => Q<bool?>("allow_partial_results");
+            set => Q("allow_partial_results", value);
+        }
+
         /// <summary>If <c>true</c>, network round-trips between the coordinating node and remote clusters are minimized for cross-cluster search requests.</summary>
         public bool? CcsMinimizeRoundtrips
         {
@@ -2078,6 +2092,16 @@ namespace OpenSearch.Net
         {
             get => Q<bool?>("include_named_queries_score");
             set => Q("include_named_queries_score", value);
+        }
+
+        /// <summary>
+        /// A comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (<c>*</c>). To search all data streams and
+        /// indexes, omit this parameter or use <c>*</c> or <c>_all</c>.
+        /// </summary>
+        public string[] Index
+        {
+            get => Q<string[]>("index");
+            set => Q("index", value);
         }
 
         /// <summary>

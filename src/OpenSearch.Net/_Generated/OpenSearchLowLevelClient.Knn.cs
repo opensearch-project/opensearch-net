@@ -69,7 +69,7 @@ namespace OpenSearch.Net.Specification.KnnApi
         internal LowLevelKnnNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
-        /// <summary>DELETE on /_plugins/_knn/models/{model_id} <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#delete-model</para></summary>
+        /// <summary>DELETE on /_plugins/_knn/models/{model_id} <para>https://docs.opensearch.org/latest/vector-search/api/knn/#delete-a-model</para></summary>
         /// <param name="modelId">The id of the model.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse DeleteModel<TResponse>(
@@ -84,7 +84,7 @@ namespace OpenSearch.Net.Specification.KnnApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_knn/models/{model_id} <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#delete-model</para></summary>
+        /// <summary>DELETE on /_plugins/_knn/models/{model_id} <para>https://docs.opensearch.org/latest/vector-search/api/knn/#delete-a-model</para></summary>
         /// <param name="modelId">The id of the model.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("knn.delete_model", "model_id")]
@@ -102,7 +102,7 @@ namespace OpenSearch.Net.Specification.KnnApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_knn/models/{model_id} <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#get-model</para></summary>
+        /// <summary>GET on /_plugins/_knn/models/{model_id} <para>https://docs.opensearch.org/latest/vector-search/api/knn/#get-a-model</para></summary>
         /// <param name="modelId">The id of the model.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetModel<TResponse>(
@@ -117,7 +117,7 @@ namespace OpenSearch.Net.Specification.KnnApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_knn/models/{model_id} <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#get-model</para></summary>
+        /// <summary>GET on /_plugins/_knn/models/{model_id} <para>https://docs.opensearch.org/latest/vector-search/api/knn/#get-a-model</para></summary>
         /// <param name="modelId">The id of the model.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("knn.get_model", "model_id")]
@@ -135,7 +135,7 @@ namespace OpenSearch.Net.Specification.KnnApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_knn/models/_search <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#search-model</para></summary>
+        /// <summary>POST on /_plugins/_knn/models/_search <para>https://docs.opensearch.org/latest/vector-search/api/knn/#search-for-a-model</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse SearchModels<TResponse>(
@@ -150,7 +150,7 @@ namespace OpenSearch.Net.Specification.KnnApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_knn/models/_search <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#search-model</para></summary>
+        /// <summary>POST on /_plugins/_knn/models/_search <para>https://docs.opensearch.org/latest/vector-search/api/knn/#search-for-a-model</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("knn.search_models", "body")]
@@ -168,7 +168,7 @@ namespace OpenSearch.Net.Specification.KnnApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_knn/stats <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#stats</para></summary>
+        /// <summary>GET on /_plugins/_knn/stats <para>https://docs.opensearch.org/latest/vector-search/api/knn/#stats</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse StatsForAll<TResponse>(StatsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -179,7 +179,7 @@ namespace OpenSearch.Net.Specification.KnnApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_knn/stats <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#stats</para></summary>
+        /// <summary>GET on /_plugins/_knn/stats <para>https://docs.opensearch.org/latest/vector-search/api/knn/#stats</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("knn.stats", "")]
         public Task<TResponse> StatsForAllAsync<TResponse>(
@@ -195,7 +195,7 @@ namespace OpenSearch.Net.Specification.KnnApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_knn/{node_id}/stats <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#stats</para></summary>
+        /// <summary>GET on /_plugins/_knn/{node_id}/stats <para>https://docs.opensearch.org/latest/vector-search/api/knn/#stats</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Stats<TResponse>(
@@ -210,7 +210,7 @@ namespace OpenSearch.Net.Specification.KnnApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_knn/{node_id}/stats <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#stats</para></summary>
+        /// <summary>GET on /_plugins/_knn/{node_id}/stats <para>https://docs.opensearch.org/latest/vector-search/api/knn/#stats</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("knn.stats", "node_id")]
@@ -228,7 +228,7 @@ namespace OpenSearch.Net.Specification.KnnApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_knn/{node_id}/stats/{stat} <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#stats</para></summary>
+        /// <summary>GET on /_plugins/_knn/{node_id}/stats/{stat} <para>https://docs.opensearch.org/latest/vector-search/api/knn/#stats</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
         /// <param name="stat">A comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -245,7 +245,7 @@ namespace OpenSearch.Net.Specification.KnnApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_knn/{node_id}/stats/{stat} <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#stats</para></summary>
+        /// <summary>GET on /_plugins/_knn/{node_id}/stats/{stat} <para>https://docs.opensearch.org/latest/vector-search/api/knn/#stats</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
         /// <param name="stat">A comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -265,7 +265,7 @@ namespace OpenSearch.Net.Specification.KnnApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_knn/stats/{stat} <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#stats</para></summary>
+        /// <summary>GET on /_plugins/_knn/stats/{stat} <para>https://docs.opensearch.org/latest/vector-search/api/knn/#stats</para></summary>
         /// <param name="stat">A comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse StatsForAll<TResponse>(
@@ -280,7 +280,7 @@ namespace OpenSearch.Net.Specification.KnnApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_knn/stats/{stat} <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#stats</para></summary>
+        /// <summary>GET on /_plugins/_knn/stats/{stat} <para>https://docs.opensearch.org/latest/vector-search/api/knn/#stats</para></summary>
         /// <param name="stat">A comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("knn.stats", "stat")]
@@ -298,7 +298,7 @@ namespace OpenSearch.Net.Specification.KnnApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_knn/models/_train <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#train-model</para></summary>
+        /// <summary>POST on /_plugins/_knn/models/_train <para>https://docs.opensearch.org/latest/vector-search/api/knn/#train-a-model</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse TrainModel<TResponse>(
@@ -313,7 +313,7 @@ namespace OpenSearch.Net.Specification.KnnApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_knn/models/_train <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#train-model</para></summary>
+        /// <summary>POST on /_plugins/_knn/models/_train <para>https://docs.opensearch.org/latest/vector-search/api/knn/#train-a-model</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("knn.train_model", "body")]
@@ -331,7 +331,7 @@ namespace OpenSearch.Net.Specification.KnnApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_knn/models/{model_id}/_train <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#train-model</para></summary>
+        /// <summary>POST on /_plugins/_knn/models/{model_id}/_train <para>https://docs.opensearch.org/latest/vector-search/api/knn/#train-a-model</para></summary>
         /// <param name="modelId">The id of the model.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -348,7 +348,7 @@ namespace OpenSearch.Net.Specification.KnnApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_knn/models/{model_id}/_train <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#train-model</para></summary>
+        /// <summary>POST on /_plugins/_knn/models/{model_id}/_train <para>https://docs.opensearch.org/latest/vector-search/api/knn/#train-a-model</para></summary>
         /// <param name="modelId">The id of the model.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -368,7 +368,7 @@ namespace OpenSearch.Net.Specification.KnnApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_knn/warmup/{index} <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#warmup-operation</para></summary>
+        /// <summary>GET on /_plugins/_knn/warmup/{index} <para>https://docs.opensearch.org/latest/vector-search/api/knn/#warmup-operation</para></summary>
         /// <param name="index">A comma-separated list of indexes; use &lt;c&gt;_all&lt;/c&gt; or empty string to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Warmup<TResponse>(
@@ -383,7 +383,7 @@ namespace OpenSearch.Net.Specification.KnnApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_knn/warmup/{index} <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#warmup-operation</para></summary>
+        /// <summary>GET on /_plugins/_knn/warmup/{index} <para>https://docs.opensearch.org/latest/vector-search/api/knn/#warmup-operation</para></summary>
         /// <param name="index">A comma-separated list of indexes; use &lt;c&gt;_all&lt;/c&gt; or empty string to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("knn.warmup", "index")]
