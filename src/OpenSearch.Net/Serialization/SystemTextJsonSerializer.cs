@@ -24,6 +24,19 @@ namespace OpenSearch.Net
 	/// interface, so it can be used independently of that layer.
 	/// </para>
 	/// </summary>
+	/// <remarks>
+	/// ⚠️ EXPERIMENTAL / NOT WIRE-COMPATIBLE WITH THE HIGH-LEVEL CLIENT YET.
+	/// <para>
+	/// With default options this performs raw <c>System.Text.Json</c> serialization:
+	/// it uses PascalCase property names and ignores the high-level client's
+	/// <c>[DataMember]</c>, <c>[ReadAs]</c> and <c>[StringEnum]</c> attributes and
+	/// field-name inference. Using it directly for <c>OpenSearch.Client</c> request
+	/// or response types will therefore produce JSON that does NOT match the wire
+	/// format the server expects. It is intended for low-level/custom payloads and
+	/// as the base for the converter work tracked by #388. The API surface and
+	/// default behavior are not yet stable.
+	/// </para>
+	/// </remarks>
 	public class SystemTextJsonSerializer : IOpenSearchSerializer
 	{
 		private readonly JsonSerializerOptions _options;
@@ -45,11 +58,18 @@ namespace OpenSearch.Net
 			_indentedOptions = new JsonSerializerOptions(_options) { WriteIndented = true };
 		}
 
+		private JsonSerializerOptions OptionsFor(SerializationFormatting formatting) =>
+			formatting == SerializationFormatting.Indented ? _indentedOptions : _options;
+
 		/// <inheritdoc />
+		/// <remarks>
+		/// Buffers the entire stream into memory before deserializing; for very large
+		/// responses this trades memory for simplicity. The async overload streams.
+		/// </remarks>
 		public object Deserialize(Type type, Stream stream) =>
 			JsonSerializer.Deserialize(ReadAllBytes(stream), type, _options);
 
-		/// <inheritdoc />
+		/// <inheritdoc cref="Deserialize(Type, Stream)" />
 		public T Deserialize<T>(Stream stream) =>
 			JsonSerializer.Deserialize<T>(ReadAllBytes(stream), _options);
 
@@ -62,20 +82,14 @@ namespace OpenSearch.Net
 			JsonSerializer.DeserializeAsync<T>(stream, _options, cancellationToken).AsTask();
 
 		/// <inheritdoc />
-		public void Serialize<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None)
-		{
-			using var writer = new Utf8JsonWriter(stream,
-				new JsonWriterOptions { Indented = formatting == SerializationFormatting.Indented });
-			JsonSerializer.Serialize(writer, data, _options);
-			writer.Flush();
-		}
+		public void Serialize<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None) =>
+			JsonSerializer.Serialize(stream, data, OptionsFor(formatting));
 
 		/// <inheritdoc />
 		public Task SerializeAsync<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None,
 			CancellationToken cancellationToken = default
 		) =>
-			JsonSerializer.SerializeAsync(stream, data,
-				formatting == SerializationFormatting.Indented ? _indentedOptions : _options, cancellationToken);
+			JsonSerializer.SerializeAsync(stream, data, OptionsFor(formatting), cancellationToken);
 
 		private static byte[] ReadAllBytes(Stream stream)
 		{

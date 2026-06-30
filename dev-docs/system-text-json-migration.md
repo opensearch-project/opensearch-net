@@ -3,10 +3,13 @@
 **Issue:** [#388](https://github.com/opensearch-project/opensearch-net/issues/388)
 (also closes #370 trimming, #424 AOT, #318)
 **Status:** Draft for review
-**PoC / evidence:** this PR's foundation + `poc/OpenSearch.Net.Stj.Tests` (13 passing
-tests, incl. wire-format parity vs. the real Utf8Json client). The original
-standalone converter PoC + generator live on the `poc/stj-serializer-vertical-slice`
-branch (14 + 4 tests).
+**PoC / evidence:** This PR ships the production foundation (`SystemTextJsonSerializer`,
+the `ConnectionSettings` seam) with an in-tree regression test
+(`tests/Tests.Reproduce/SystemTextJsonSeamTests.cs`). The full converter
+proof-of-concept and code generator — including wire-format parity vs. the real
+Utf8Json client across queries and aggregations, recursion, field-name inference,
+and round-trip (≈25 tests) — live on the `poc/stj-serializer-vertical-slice`
+branch as referenced evidence.
 
 ---
 
@@ -79,8 +82,8 @@ reproduces the exact wire format byte-for-byte for **8 real query types**
 (`match_all`, `exists`, `term`, `prefix`, `wildcard`, `regexp`, `match`, and the
 recursive `bool`), including expression-based **field-name inference** threaded
 through the converter. Of the leaf queries probed, only `ids` was irregular
-(~88% generatable from metadata with a small template set). See
-`poc/OpenSearch.Net.Stj.Tests` (22 passing tests).
+(~88% generatable from metadata with a small template set). See the
+`poc/stj-serializer-vertical-slice` branch (≈25 passing tests).
 
 ## 6. Migration plan
 
