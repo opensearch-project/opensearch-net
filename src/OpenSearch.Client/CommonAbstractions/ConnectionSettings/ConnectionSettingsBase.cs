@@ -123,9 +123,9 @@ namespace OpenSearch.Client
 		)
 			: base(connectionPool, connection, null)
 		{
-			var formatterResolver = new OpenSearchClientFormatterResolver(this);
-			var defaultSerializer = new DefaultHighLevelSerializer(formatterResolver);
+			var defaultSerializer = new DefaultHighLevelSystemTextJsonSerializer(this);
 			var sourceSerializer = sourceSerializerFactory?.Invoke(defaultSerializer, this) ?? defaultSerializer;
+			defaultSerializer.SourceSerializer = sourceSerializer;
 			var serializerAsMappingProvider = sourceSerializer as IPropertyMappingProvider;
 
 			_propertyMappingProvider = propertyMappingProvider ?? serializerAsMappingProvider ?? new PropertyMappingProvider();

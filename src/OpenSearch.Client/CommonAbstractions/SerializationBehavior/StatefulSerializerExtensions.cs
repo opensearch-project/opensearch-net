@@ -34,6 +34,7 @@ namespace OpenSearch.Client
 {
 	internal static class StatefulSerializerExtensions
 	{
+#pragma warning disable CS0618 // Type or member is obsolete
 		public static DefaultHighLevelSerializer CreateStateful<T>(this IOpenSearchSerializer serializer, IJsonFormatter<T> formatter)
 		{
 			if (!(serializer is IInternalSerializer s) || !s.TryGetJsonFormatter(out var currentFormatterResolver))
@@ -42,6 +43,7 @@ namespace OpenSearch.Client
 			var formatterResolver = new StatefulFormatterResolver<T>(formatter, currentFormatterResolver);
 			return new DefaultHighLevelSerializer(formatterResolver);
 		}
+#pragma warning restore CS0618
 
 		private class StatefulFormatterResolver<TStateful> : IJsonFormatterResolver, IJsonFormatterResolverWithSettings
 		{
