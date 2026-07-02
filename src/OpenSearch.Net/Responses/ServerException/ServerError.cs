@@ -66,11 +66,11 @@ namespace OpenSearch.Net
 		}
 
 		public static ServerError Create(Stream stream) =>
-			LowLevelRequestResponseSerializer.Instance.Deserialize<ServerError>(stream);
+			SystemTextJsonSerializer.Instance.Deserialize<ServerError>(stream);
 
 		// ReSharper disable once UnusedMember.Global
 		public static Task<ServerError> CreateAsync(Stream stream, CancellationToken token = default) =>
-			LowLevelRequestResponseSerializer.Instance.DeserializeAsync<ServerError>(stream, token);
+			SystemTextJsonSerializer.Instance.DeserializeAsync<ServerError>(stream, token);
 
 		public override string ToString()
 		{

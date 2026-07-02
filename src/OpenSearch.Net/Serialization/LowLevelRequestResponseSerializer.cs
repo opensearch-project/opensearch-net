@@ -34,6 +34,16 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Net
 {
+	/// <summary>
+	/// Legacy serializer implementation using the embedded Utf8Json library.
+	/// This class is deprecated in favor of <see cref="SystemTextJsonSerializer"/>.
+	/// </summary>
+	/// <remarks>
+	/// Utf8Json is an abandoned library with known security warnings.
+	/// This class is retained for backward compatibility and will be removed in a future major version.
+	/// Use <see cref="SystemTextJsonSerializer"/> instead.
+	/// </remarks>
+	[Obsolete("LowLevelRequestResponseSerializer uses the deprecated Utf8Json library. Use SystemTextJsonSerializer instead. This class will be removed in a future major version.")]
 	public class LowLevelRequestResponseSerializer : IOpenSearchSerializer, IInternalSerializer
 	{
 		public static readonly LowLevelRequestResponseSerializer Instance = new LowLevelRequestResponseSerializer();

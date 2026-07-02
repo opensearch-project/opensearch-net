@@ -36,6 +36,12 @@ using OpenSearch.Net.Utf8Json;
 namespace OpenSearch.Client
 {
 	/// <summary>The built in internal serializer that the high level client OpenSearch.Client uses.</summary>
+	/// <remarks>
+	/// This class is deprecated in favor of <see cref="DefaultHighLevelSystemTextJsonSerializer"/>.
+	/// It uses the legacy Utf8Json library which is abandoned and has known security warnings.
+	/// Retained for backward compatibility only.
+	/// </remarks>
+	[Obsolete("DefaultHighLevelSerializer uses the deprecated Utf8Json library. Use DefaultHighLevelSystemTextJsonSerializer instead. This class will be removed in a future major version.")]
 	internal class DefaultHighLevelSerializer : IOpenSearchSerializer, IInternalSerializer
 	{
 		public DefaultHighLevelSerializer(IJsonFormatterResolver formatterResolver) => FormatterResolver = formatterResolver;
