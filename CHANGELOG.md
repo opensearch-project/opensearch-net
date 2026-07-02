@@ -10,6 +10,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Changed `NeuralQuery`'s `ModelId` to be optional ([#917](https://github.com/opensearch-project/opensearch-net/pull/917))
 
 ### Added
+- Added an experimental `System.Text.Json`-based `IOpenSearchSerializer` (`SystemTextJsonSerializer`) and a `ConnectionSettings.CreateDefaultRequestResponseSerializer()` seam to allow substituting the internal serializer, as the foundation for migrating away from the embedded Utf8Json serializer ([#388](https://github.com/opensearch-project/opensearch-net/issues/388)).
 - Added conditions to the Microsoft.CSharp, System.Buffers & System.Diagnostics.DiagnosticSource dependencies so that they are not included on net 6+ as the newer framework's natively provides those dependencies. ([#930](https://github.com/opensearch-project/opensearch-net/pull/930))
 - Added support for Hybrid query ([#917](https://github.com/opensearch-project/opensearch-net/pull/917))
 - Added support for `MaxDistance` and `MinScore` to `KnnQuery` ([#917](https://github.com/opensearch-project/opensearch-net/pull/917))

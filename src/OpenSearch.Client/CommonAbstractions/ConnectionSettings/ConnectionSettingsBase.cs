@@ -123,8 +123,7 @@ namespace OpenSearch.Client
 		)
 			: base(connectionPool, connection, null)
 		{
-			var formatterResolver = new OpenSearchClientFormatterResolver(this);
-			var defaultSerializer = new DefaultHighLevelSerializer(formatterResolver);
+			var defaultSerializer = CreateDefaultRequestResponseSerializer();
 			var sourceSerializer = sourceSerializerFactory?.Invoke(defaultSerializer, this) ?? defaultSerializer;
 			var serializerAsMappingProvider = sourceSerializer as IPropertyMappingProvider;
 
@@ -140,6 +139,17 @@ namespace OpenSearch.Client
 
 			UserAgent(ConnectionSettings.DefaultUserAgent);
 		}
+
+		/// <summary>
+		/// Creates the built-in serializer used to serialize requests and deserialize responses, and as the
+		/// fallback source serializer when no <see cref="ConnectionSettings.SourceSerializerFactory"/> is supplied.
+		/// <para>
+		/// Defaults to the internal Utf8Json-based <see cref="IOpenSearchSerializer"/>. Override to substitute an
+		/// alternative implementation, such as a <c>System.Text.Json</c>-based serializer (see GitHub issue #388).
+		/// </para>
+		/// </summary>
+		protected virtual IOpenSearchSerializer CreateDefaultRequestResponseSerializer() =>
+			new DefaultHighLevelSerializer(new OpenSearchClientFormatterResolver(this));
 
 		bool IConnectionSettingsValues.DefaultDisableIdInference => _defaultDisableAllInference;
 		Func<string, string> IConnectionSettingsValues.DefaultFieldNameInferrer => _defaultFieldNameInferrer;
