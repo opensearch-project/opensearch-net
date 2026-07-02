@@ -141,13 +141,15 @@ What this exercised and the reusable findings for the rest of the migration:
   resolved names by walking interface maps; `DataContractResolver` now does the
   same, so concrete-type (de)serialization honors the interface names. This is a
   general fix, not tokenizer-specific.
-- **Polymorphic dispatch via `type` discriminator.** `TokenizerInterfaceConverter`
-  replaces the hand-written `TokenizerFormatter`: write serializes the concrete
-  runtime type (no recursion, since it is not `ITokenizer`); read parses the
-  `type` string and dispatches to the concrete type. Its table is a **strict
-  superset** of `TokenizerFormatter` — it also registers `keyword`/`letter`/
-  `lowercase`, closing a latent read-dispatch drift — matching the table the
-  converter generator produces.
+- **Polymorphic dispatch via `type` discriminator.** A single reusable
+  `PolymorphicInterfaceConverter<TInterface>` replaces the per-family
+  hand-written `*Formatter` dispatchers: write serializes the concrete runtime
+  type (no recursion, since it is not `TInterface`); read parses the `type`
+  string and dispatches to the concrete type. Each family supplies only a
+  discriminator → concrete-type table — the exact shape the converter generator
+  emits. `TokenizerInterfaceConverter`'s table is a **strict superset** of
+  `TokenizerFormatter` (it also registers `keyword`/`letter`/`lowercase`,
+  closing a latent read-dispatch drift).
 - **`[StringEnum]` enums.** STJ's built-in `JsonStringEnumConverter` emits the CLR
   member name and does not read `[EnumMember]` on the supported target
   frameworks. `StringEnumConverterFactory` (a `JsonConverterFactory`) reproduces the
@@ -165,3 +167,25 @@ What this exercised and the reusable findings for the rest of the migration:
   write path; the only residual difference is the read path's tolerance of
   string-encoded integers, which is a response-only concern to revisit before
   cutover.
+
+## 12. Second namespace: char filters (generalization)
+
+The `analysis/charfilters` family (`html_strip`, `mapping`, `pattern_replace`,
+plus the `kuromoji`/`icu` plugin filters) uses the identical `type`-discriminator
+pattern. Wiring it required **no new dispatch code**: the tokenizer converter was
+refactored onto a reusable `PolymorphicInterfaceConverter<TInterface>` (in
+`OpenSearch.Net`), and `CharFilterInterfaceConverter` is a thin subclass
+supplying only its discriminator table. Same for the eventual token
+filters/analyzers/normalizers families.
+
+Harness `poc/StjAnalysisParity` covers both families — **10/10 write + round-trip
+read parity** — re-validating the tokenizer refactor and adding char filters. The
+`mapping` filter's `a=>b` rules additionally confirm the relaxed encoder is
+required beyond `+`: STJ's default encoder escapes `>` to `\u003E`, which
+`UnsafeRelaxedJsonEscaping` avoids to match Utf8Json.
+
+**Takeaway for sizing:** after the tokenizer slice paid the one-time
+infrastructure cost (interface-aware resolver, enum factory, encoder default,
+generic converter), a new `type`-discriminated family costs ~one table. This is
+the measured per-namespace rate that makes the generation approach (vs.
+hand-writing ~81 converters as in PR #980) the sustainable path.

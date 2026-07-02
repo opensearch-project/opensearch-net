@@ -5,12 +5,14 @@
 * compatible open source license.
 */
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using FluentAssertions;
 using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
@@ -50,6 +52,21 @@ namespace Tests.Reproduce
 		public class Thing : ThingBase
 		{
 			public Thing() => Type = "thing";
+		}
+
+		public class OtherThing : ThingBase
+		{
+			public OtherThing() => Type = "other";
+		}
+
+		// A concrete family converter, exactly as a per-namespace converter would look.
+		private sealed class ThingConverter : PolymorphicInterfaceConverter<IThing>
+		{
+			public ThingConverter() : base(new Dictionary<string, Type>(StringComparer.Ordinal)
+			{
+				{ "thing", typeof(Thing) },
+				{ "other", typeof(OtherThing) },
+			}) { }
 		}
 
 		private static string Serialize<T>(T value, bool withEnum = false)
@@ -116,6 +133,28 @@ namespace Tests.Reproduce
 
 			thing.MaxTokenLength.Should().Be(7);
 			thing.Pattern.Should().Be("a");
+		}
+
+		[U]
+		public void PolymorphicConverterDispatchesOnDiscriminator()
+		{
+			var options = new JsonSerializerOptions
+			{
+				TypeInfoResolver = OpenSearch.Net.DataContractResolver.Instance,
+				Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+				DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+			};
+			options.Converters.Add(new ThingConverter());
+
+			// Write: declared type is the interface; the concrete type's discriminator is emitted.
+			IThing thing = new OtherThing { MaxTokenLength = 3 };
+			var json = JsonSerializer.Serialize(thing, options);
+			json.Should().Contain("\"type\":\"other\"").And.Contain("\"max_token_length\":3");
+
+			// Read: the discriminator selects the concrete type.
+			var roundTripped = JsonSerializer.Deserialize<IThing>(json, options);
+			roundTripped.Should().BeOfType<OtherThing>();
+			roundTripped.MaxTokenLength.Should().Be(3);
 		}
 	}
 }

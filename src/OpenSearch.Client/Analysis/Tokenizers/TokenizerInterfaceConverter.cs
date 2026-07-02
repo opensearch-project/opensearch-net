@@ -7,20 +7,13 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
 	/// <summary>
-	/// A <see cref="System.Text.Json"/> converter that (de)serializes the polymorphic
-	/// <see cref="ITokenizer"/> hierarchy by dispatching on the <c>type</c> discriminator, replacing
-	/// the vendored Utf8Json <c>TokenizerFormatter</c> as part of the migration tracked by #388.
-	/// <para>
-	/// On write the concrete runtime type is serialized (its property names are resolved from the
-	/// <c>[DataMember]</c> attributes by <see cref="OpenSearch.Net.DataContractResolver"/>). On read
-	/// the <c>type</c> property selects the concrete type to deserialize into.
-	/// </para>
+	/// A <see cref="System.Text.Json"/> converter for the polymorphic <see cref="ITokenizer"/>
+	/// hierarchy, replacing the vendored Utf8Json <c>TokenizerFormatter</c> as part of #388.
 	/// <para>
 	/// The dispatch table mirrors <c>TokenizerFormatter</c> and additionally registers
 	/// <c>keyword</c>, <c>letter</c> and <c>lowercase</c> — concrete types that exist in the client
@@ -28,8 +21,10 @@ namespace OpenSearch.Client
 	/// table produced by the converter generator (see <c>ConverterSpikeGenerator</c>).
 	/// </para>
 	/// </summary>
-	internal sealed class TokenizerInterfaceConverter : JsonConverter<ITokenizer>
+	internal sealed class TokenizerInterfaceConverter : PolymorphicInterfaceConverter<ITokenizer>
 	{
+		public TokenizerInterfaceConverter() : base(TypeByDiscriminator) { }
+
 		private static readonly IReadOnlyDictionary<string, Type> TypeByDiscriminator = new Dictionary<string, Type>(StringComparer.Ordinal)
 		{
 			{ "char_group", typeof(CharGroupTokenizer) },
@@ -48,36 +43,5 @@ namespace OpenSearch.Client
 			{ "icu_tokenizer", typeof(IcuTokenizer) },
 			{ "nori_tokenizer", typeof(NoriTokenizer) },
 		};
-
-		public override ITokenizer Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-		{
-			if (reader.TokenType == JsonTokenType.Null) return null;
-
-			using var document = JsonDocument.ParseValue(ref reader);
-			var root = document.RootElement;
-
-			if (root.ValueKind != JsonValueKind.Object
-				|| !root.TryGetProperty("type", out var typeProperty)
-				|| typeProperty.ValueKind != JsonValueKind.String)
-				return null;
-
-			var discriminator = typeProperty.GetString();
-			if (discriminator == null || !TypeByDiscriminator.TryGetValue(discriminator, out var concreteType))
-				return null;
-
-			return (ITokenizer)root.Deserialize(concreteType, options);
-		}
-
-		public override void Write(Utf8JsonWriter writer, ITokenizer value, JsonSerializerOptions options)
-		{
-			if (value == null)
-			{
-				writer.WriteNullValue();
-				return;
-			}
-
-			// Serialize the concrete runtime type; the type is not ITokenizer so this does not recurse.
-			JsonSerializer.Serialize(writer, value, value.GetType(), options);
-		}
 	}
 }
