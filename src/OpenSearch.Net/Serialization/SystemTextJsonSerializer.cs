@@ -52,7 +52,9 @@ namespace OpenSearch.Net
 		/// </param>
 		public SystemTextJsonSerializer(JsonSerializerOptions options = null)
 		{
-			_options = options ?? new JsonSerializerOptions();
+			// When no options are supplied, default to honoring the client's existing
+			// System.Runtime.Serialization attributes (see DataContractResolver / #388).
+			_options = options ?? new JsonSerializerOptions { TypeInfoResolver = DataContractResolver.Instance };
 			// A parallel options instance that only differs by indentation, so the
 			// SerializationFormatting hint can be honored without mutating state.
 			_indentedOptions = new JsonSerializerOptions(_options) { WriteIndented = true };
