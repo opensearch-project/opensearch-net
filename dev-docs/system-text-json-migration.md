@@ -123,3 +123,45 @@ AOT smoke tests; a compatibility test matrix for the opt-in legacy serializer.
 1. Final version number / deprecation window for Utf8Json.
 2. Whether to multi-target `net8.0` immediately or after parity.
 3. Source serializer default: STJ vs. keeping Newtonsoft package as an option.
+
+## 11. First fully-integrated namespace: analysis tokenizers
+
+The `analysis/tokenizers` namespace is the first end-to-end slice wired through
+the production stack (`SystemTextJsonSerializer` + `DataContractResolver` +
+`StringEnumConverter` + a polymorphic `TokenizerInterfaceConverter`) and
+validated **byte-for-byte against the real Utf8Json high-level client** as the
+oracle. Harness: `poc/StjTokenizerParity` — **13/13 cases reach full write + round-trip
+read parity** across every concrete `ITokenizer` type.
+
+What this exercised and the reusable findings for the rest of the migration:
+
+- **Interface-declared attributes.** The client declares `[DataMember]` on
+  *interfaces* (e.g. `ICharGroupTokenizer.MaxTokenLength`), while the concrete
+  property implements it implicitly with no attribute. The Utf8Json `MetaType`
+  resolved names by walking interface maps; `DataContractResolver` now does the
+  same, so concrete-type (de)serialization honors the interface names. This is a
+  general fix, not tokenizer-specific.
+- **Polymorphic dispatch via `type` discriminator.** `TokenizerInterfaceConverter`
+  replaces the hand-written `TokenizerFormatter`: write serializes the concrete
+  runtime type (no recursion, since it is not `ITokenizer`); read parses the
+  `type` string and dispatches to the concrete type. Its table is a **strict
+  superset** of `TokenizerFormatter` — it also registers `keyword`/`letter`/
+  `lowercase`, closing a latent read-dispatch drift — matching the table the
+  converter generator produces.
+- **`[StringEnum]` enums.** STJ's built-in `JsonStringEnumConverter` emits the CLR
+  member name and does not read `[EnumMember]` on the supported target
+  frameworks. `StringEnumConverterFactory` (a `JsonConverterFactory`) reproduces the
+  Utf8Json behavior, so `TokenChar.Whitespace` → `"whitespace"`. Verified via
+  `token_chars`.
+- **Minimal escaping.** STJ's default HTML-safe encoder escaped `+` as `\u002B`
+  (diverging on `pattern` and `custom_token_chars`). Setting
+  `Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping` matches Utf8Json's
+  minimal escaping; this is now the serializer's default and is a **client-wide**
+  requirement, not a tokenizer detail.
+- **Null omission.** The high-level client serializes with `excludeNull: true`;
+  parity requires `DefaultIgnoreCondition = WhenWritingNull`.
+- **No `char?`/`NullableStringInt` write gap.** `char?` (`delimiter`,
+  `replacement`) and the `NullableStringIntFormatter` properties matched on the
+  write path; the only residual difference is the read path's tolerance of
+  string-encoded integers, which is a response-only concern to revisit before
+  cutover.

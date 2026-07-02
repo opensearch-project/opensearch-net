@@ -7,6 +7,7 @@
 
 using System;
 using System.IO;
+using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
@@ -53,8 +54,14 @@ namespace OpenSearch.Net
 		public SystemTextJsonSerializer(JsonSerializerOptions options = null)
 		{
 			// When no options are supplied, default to honoring the client's existing
-			// System.Runtime.Serialization attributes (see DataContractResolver / #388).
-			_options = options ?? new JsonSerializerOptions { TypeInfoResolver = DataContractResolver.Instance };
+			// System.Runtime.Serialization attributes (see DataContractResolver / #388) and to
+			// Utf8Json's minimal escaping (it does not HTML-escape '+', '<', '&', etc.), which the
+			// server-facing wire format expects.
+			_options = options ?? new JsonSerializerOptions
+			{
+				TypeInfoResolver = DataContractResolver.Instance,
+				Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+			};
 			// A parallel options instance that only differs by indentation, so the
 			// SerializationFormatting hint can be honored without mutating state.
 			_indentedOptions = new JsonSerializerOptions(_options) { WriteIndented = true };
