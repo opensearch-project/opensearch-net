@@ -61,6 +61,10 @@ namespace OpenSearch.Net
 			{
 				TypeInfoResolver = DataContractResolver.Instance,
 				Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+				// Deserialize dynamic `object` payloads (params, meta, _source, dictionary values) to
+				// the Utf8Json CLR shapes (Dictionary/List/long/double/string/bool) rather than the
+				// STJ default of JsonElement.
+				Converters = { ObjectConverter.Instance },
 			};
 			// A parallel options instance that only differs by indentation, so the
 			// SerializationFormatting hint can be honored without mutating state.

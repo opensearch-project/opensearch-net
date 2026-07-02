@@ -213,6 +213,28 @@ namespace Tests.Reproduce
 		}
 
 		[U]
+		public void DeserializesObjectToUtf8JsonClrShapes()
+		{
+			IOpenSearchSerializer serializer = new SystemTextJsonSerializer();
+
+			object Read(string json)
+			{
+				using var ms = new MemoryStream(Encoding.UTF8.GetBytes(json));
+				return serializer.Deserialize<object>(ms);
+			}
+
+			Read("5").Should().BeOfType<long>().And.Be(5L);
+			Read("1.5").Should().BeOfType<double>();
+			Read("\"hi\"").Should().BeOfType<string>();
+			Read("true").Should().BeOfType<bool>();
+			Read("[1,2]").Should().BeOfType<List<object>>();
+
+			var dict = Read("{\"a\":1,\"b\":[true]}").Should().BeOfType<Dictionary<string, object>>().Subject;
+			dict["a"].Should().BeOfType<long>();
+			dict["b"].Should().BeOfType<List<object>>();
+		}
+
+		[U]
 		public void PolymorphicConverterUsesFallbackWhenDiscriminatorUnknown()
 		{
 			var options = new JsonSerializerOptions { TypeInfoResolver = OpenSearch.Net.DataContractResolver.Instance };

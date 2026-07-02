@@ -281,3 +281,34 @@ Harness `poc/StjScriptParity`: **7/7** (writes for all; round-trip reads for the
 non-`params` cases), and it confirms the previously blocked `condition` and
 `predicate_token_filter` token filters now reach **full write + read parity** once
 the script converter is registered — closing the dependency noted in §13.
+
+## 16. The `object` / `JsonElement` policy (cross-cutting)
+
+Dynamic payloads typed as `object` — script `params`, aggregation `meta`,
+`_source` fragments, and every `Dictionary<string, object>` value — are pervasive.
+STJ deserializes `object` to `JsonElement`, which neither matches the CLR shapes
+the client's code and tests expect nor round-trips through the pipeline. The new
+`ObjectConverter` (registered by default in `SystemTextJsonSerializer`) reproduces
+the Utf8Json `PrimitiveObjectFormatter` mapping:
+
+| JSON | CLR |
+|---|---|
+| object | `Dictionary<string, object>` |
+| array | `List<object>` |
+| integral number | `long` |
+| other number | `double` |
+| string / bool / null | `string` / `bool` / `null` |
+
+Writing delegates to the value's runtime type. A subtle but important bug caught
+here: `TryGetInt64(...) ? l : GetDouble()` unifies the ternary to `double` and
+loses the integral case — every integer became `5.0`. Boxing `long` and `double`
+on separate statements fixes it.
+
+This retroactively closes the `params` read caveat from §15 (script params now
+round-trip) and is the shared policy for `meta`/`_source`/dynamic fields going
+forward. Harness `poc/StjObjectParity`: **9/9** — script `params` round-trips
+(ints, doubles, strings, bools, nested objects/arrays) plus direct `object`
+shape assertions.
+
+Note: date-like strings remain strings (Utf8Json does not parse dates for
+`object`), matching the oracle.
