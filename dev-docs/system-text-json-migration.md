@@ -312,3 +312,40 @@ shape assertions.
 
 Note: date-like strings remain strings (Utf8Json does not parse dates for
 `object`), matching the oracle.
+
+## 17. Query DSL — `QueryContainer` dispatch (first slice)
+
+The query DSL is the largest and most-used polymorphic area, and `QueryContainer`
+is the hardest serializer in the client. It is not a discriminated union: each
+verb (`bool`, `term`, `match`, …) is a nullable property on `IQueryContainer`, and
+a container holds exactly one. `QueryContainerConverter` writes the container as
+its interface so null-omission leaves only the populated verb (`{ "bool": {…} }`),
+with a raw query written through verbatim; on read the single key selects the
+property and the query interface's `[ReadAs]` attribute maps it to the concrete
+type. Nested `bool` clause arrays recurse back through the converter.
+
+Making this byte-exact required three general capabilities, all reusable across
+the rest of the DSL and the client:
+
+- **`ShouldSerialize<Member>()` support** in `DataContractResolver` — the
+  Utf8Json/Json.NET convention `bool` uses to omit empty `must`/`should`/`filter`
+  clause arrays. Wired to STJ's `JsonPropertyInfo.ShouldSerialize`.
+- **`[ReadAs]` interface→concrete mapping** on read (e.g. `IBoolQuery` →
+  `BoolQuery`), since a verb property is typed as an interface.
+- **Number formatting.** Utf8Json writes integral doubles with a trailing `.0`
+  (`boost: 2.0`), while STJ's shortest form emits `2`. `DoubleFormatConverter`/
+  `SingleFormatConverter` append `.0` to integral values in fixed notation;
+  scientific-notation values (`1E+20`, `1E-10`) already match. `boost` and scored
+  float fields depend on this. Also added a `MinimumShouldMatchConverter` for the
+  `Union<int?, string>` value type.
+
+Harness `poc/StjQueryContainerParity`: **8/8 write + round-trip read parity** —
+`match_all`/`match_none`, `boost`/`_name`, recursive `bool` (must/should/must_not/
+filter), `minimum_should_match`, and nested `bool`.
+
+**Deliberately deferred to following slices** (this slice covers queries needing
+no field-name inference): field-name-keyed leaf queries (`term`/`match`/`range`,
+serialized as `{ "<field>": {…} }`), which require threading `ConnectionSettings`
+(the field inferrer) into the options (decision D1); and conditionless-element
+filtering within clause arrays. The dispatch for those verbs is already registered
+in the container converter.

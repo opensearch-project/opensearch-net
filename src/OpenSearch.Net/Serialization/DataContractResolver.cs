@@ -94,6 +94,13 @@ namespace OpenSearch.Net
 				if (dataMember != null && !string.IsNullOrEmpty(dataMember.Name))
 					property.Name = dataMember.Name;
 
+				// Honor the ShouldSerialize<Member>() convention (Utf8Json/Json.NET): the client uses it
+				// to omit, for example, empty bool-query clause arrays (ShouldSerializeMust, etc.).
+				var shouldSerialize = typeInfo.Type.GetMethod(
+					"ShouldSerialize" + member.Name, BindingFlags.Public | BindingFlags.Instance, null, Type.EmptyTypes, null);
+				if (shouldSerialize != null && shouldSerialize.ReturnType == typeof(bool))
+					property.ShouldSerialize = (obj, _) => (bool)shouldSerialize.Invoke(obj, null);
+
 				// Mirror Utf8Json (MetaType: allowPrivate || dm != null): a [DataMember] property with
 				// only a non-public setter must still be writable on deserialize. STJ leaves Set null
 				// for non-public setters, so wire it via reflection. This matters for data-driven

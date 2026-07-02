@@ -213,6 +213,35 @@ namespace Tests.Reproduce
 		}
 
 		[U]
+		public void FormatsIntegralDoublesWithTrailingDecimalLikeUtf8Json()
+		{
+			var options = new JsonSerializerOptions();
+			options.Converters.Add(DoubleFormatConverter.Instance);
+			options.Converters.Add(SingleFormatConverter.Instance);
+
+			JsonSerializer.Serialize(2.0, options).Should().Be("2.0");
+			JsonSerializer.Serialize(100.0, options).Should().Be("100.0");
+			JsonSerializer.Serialize(1.5, options).Should().Be("1.5");
+			JsonSerializer.Serialize(0.1, options).Should().Be("0.1");
+			// nullable picks up the same converter via STJ's built-in wrapping
+			JsonSerializer.Serialize((double?)3.0, options).Should().Be("3.0");
+		}
+
+		public class ShouldSerializeDoc
+		{
+			[DataMember(Name = "kept")] public string Kept { get; set; }
+			[DataMember(Name = "maybe")] public string Maybe { get; set; }
+			public bool ShouldSerializeMaybe() => false;
+		}
+
+		[U]
+		public void HonorsShouldSerializeConvention()
+		{
+			var json = Serialize(new ShouldSerializeDoc { Kept = "a", Maybe = "b" });
+			json.Should().Contain("\"kept\":\"a\"").And.NotContain("maybe");
+		}
+
+		[U]
 		public void DeserializesObjectToUtf8JsonClrShapes()
 		{
 			IOpenSearchSerializer serializer = new SystemTextJsonSerializer();
