@@ -204,7 +204,7 @@ namespace OpenSearch.Net
 		{
 			_connectionPool = connectionPool;
 			_connection = connection ?? new HttpConnection();
-			var serializer = requestResponseSerializer ?? new LowLevelRequestResponseSerializer();
+			var serializer = requestResponseSerializer ?? new SystemTextJsonSerializer();
 			UseThisRequestResponseSerializer = new DiagnosticsSerializerProxy(serializer);
 
 			_connectionLimit = ConnectionConfiguration.DefaultConnectionLimit;
