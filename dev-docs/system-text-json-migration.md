@@ -189,3 +189,28 @@ infrastructure cost (interface-aware resolver, enum factory, encoder default,
 generic converter), a new `type`-discriminated family costs ~one table. This is
 the measured per-namespace rate that makes the generation approach (vs.
 hand-writing ~81 converters as in PR #980) the sustainable path.
+
+## 13. Third namespace: token filters (the largest family) and dependency graph
+
+`analysis/tokenfilters` is the biggest polymorphic family — **46 discriminators**
+(including the `delimited_payload`/`delimited_payload_filter` alias). Wiring it was
+again just a table (`TokenFilterInterfaceConverter`). Harness
+`poc/StjTokenFilterParity` runs 35 representative cases: **33/35 full parity**,
+covering scalar/string/`int?`/`bool?` props, `[StringEnum]` enums
+(`KeepTypesMode`, `DelimitedPayloadEncoding`, `EdgeNGramSide`, `SynonymFormat`),
+`char?`, string-list props, and the `version` base field.
+
+The remaining two are **cross-type dependencies**, not converter bugs — exactly the
+edges a generator must track:
+
+- `stop` embeds a `StopWords` value type (`Union<string, IEnumerable<string>>`,
+  written as either a string or a string array). Closed here with a small
+  `StopWordsConverter`; this is a **shared** value type reused by the stop/standard
+  analyzers and keep-words, so migrating it once unblocks several components.
+- `condition` and `predicate_token_filter` embed an `IScript`. Full parity for
+  these needs the **`script`** namespace converter — a separate slice. The
+  dispatch is registered now; the two round-trips will pass once `script` lands.
+
+Reusable finding: `NullableStringBooleanFormatter` (used 45× here) writes bare
+`true`/`false`, matching STJ's default `bool?`, so no per-property converter is
+needed for it on the write path.
