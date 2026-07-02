@@ -90,6 +90,17 @@ namespace Tests.Reproduce
 			[DataMember(Name = "n")] public int Number { get; set; }
 		}
 
+		// Only a parameterized constructor whose parameter does not bind to a property, mirroring
+		// InlineScript(string script) (property is Source). STJ cannot construct this on its own.
+		public class ConstructorOnlyDoc
+		{
+			public ConstructorOnlyDoc(string unbound) => Ignored = unbound;
+
+			[IgnoreDataMember] public string Ignored { get; }
+
+			[DataMember(Name = "a")] public string A { get; set; }
+		}
+
 		private static string Serialize<T>(T value, bool withEnum = false)
 		{
 			IOpenSearchSerializer serializer;
@@ -188,6 +199,17 @@ namespace Tests.Reproduce
 
 			doc.Type.Should().Be("english"); // protected setter wired because [DataMember] is present
 			doc.Number.Should().Be(5);
+		}
+
+		[U]
+		public void DeserializesTypeWithoutParameterlessConstructor()
+		{
+			IOpenSearchSerializer serializer = new SystemTextJsonSerializer();
+			using var input = new MemoryStream(Encoding.UTF8.GetBytes("{\"a\":\"x\"}"));
+
+			var doc = serializer.Deserialize<ConstructorOnlyDoc>(input);
+
+			doc.A.Should().Be("x");
 		}
 
 		[U]

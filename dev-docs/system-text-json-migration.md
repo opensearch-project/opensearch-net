@@ -249,3 +249,35 @@ normalizers are all migrated and validated. The only residual cross-namespace
 edges are `condition`/`predicate_token_filter` → `IScript` (the `script`
 namespace), whose dispatch is already registered and will round-trip once
 `script` lands.
+
+## 15. Script namespace — dispatch without a discriminator, and constructor-less types
+
+`IScript` (`InlineScript`, `IndexedScript`) has **no `type` discriminator**; the
+concrete type is inferred from which field is present (`source`/`inline` →
+inline, `id` → indexed). `ScriptInterfaceConverter` reuses the `ResolveType` seam
+to inspect the buffered object instead of a discriminator — no new base machinery
+needed. Write serializes the concrete runtime type as usual.
+
+This slice surfaced a second general read-side gap and one caveat:
+
+- **Constructor-less deserialization.** `InlineScript` exposes only
+  `InlineScript(string script)`; the parameter `script` binds to no property (the
+  property is `Source`), so STJ refused to construct it (`IndexedScript(string id)`
+  worked only by the `id`→`Id` coincidence). `DataContractResolver` now, for a
+  non-abstract type with **no** parameterless constructor, sets `CreateObject` to
+  build an uninitialized instance and populate via property setters — the
+  data-contract-serializer semantic. It is **gated**: types that have a
+  parameterless constructor are untouched, so constructor-set defaults (e.g.
+  `TokenizerBase` setting `Type`) still run. (`RuntimeHelpers.GetUninitializedObject`
+  on net6+/netstandard2.1; `FormatterServices` on netstandard2.0.)
+- **`params` read caveat.** `IScript.Params` is `Dictionary<string, object>`.
+  Writes match byte-for-byte (real boxed values). On read, STJ materializes
+  `object` values as `JsonElement`, which does not round-trip through the Utf8Json
+  oracle — the well-known STJ `object` behavior that also affects `_source`,
+  aggregation `meta`, etc. Tracked as a cross-cutting concern for a shared
+  `object`/`JsonElement` policy, not a per-namespace fix.
+
+Harness `poc/StjScriptParity`: **7/7** (writes for all; round-trip reads for the
+non-`params` cases), and it confirms the previously blocked `condition` and
+`predicate_token_filter` token filters now reach **full write + read parity** once
+the script converter is registered — closing the dependency noted in §13.

@@ -51,6 +51,21 @@ namespace OpenSearch.Net
 		{
 			if (typeInfo.Kind != JsonTypeInfoKind.Object) return;
 
+			// The client's models are (de)serialized by property, like a data-contract serializer.
+			// Some — e.g. InlineScript(string script) — expose only a parameterized constructor whose
+			// parameters do not bind to properties, which STJ cannot construct. When there is no usable
+			// parameterless constructor, create an uninitialized instance and let the property setters
+			// populate it. Types that DO have a parameterless constructor are left untouched, so
+			// constructor-set defaults (e.g. TokenizerBase setting Type) still run.
+			if (typeInfo.CreateObject == null
+				&& !typeInfo.Type.IsAbstract
+				&& !typeInfo.Type.IsValueType
+				&& typeInfo.Type.GetConstructor(Type.EmptyTypes) == null)
+			{
+				var type = typeInfo.Type;
+				typeInfo.CreateObject = () => CreateUninitialized(type);
+			}
+
 			var isDataContract = typeInfo.Type.GetCustomAttribute<DataContractAttribute>() != null;
 
 			// For a concrete class, pre-compute the interface maps so attributes declared on an
@@ -91,6 +106,13 @@ namespace OpenSearch.Net
 				}
 			}
 		}
+
+		private static object CreateUninitialized(Type type) =>
+#if NETSTANDARD2_0
+			System.Runtime.Serialization.FormatterServices.GetUninitializedObject(type);
+#else
+			System.Runtime.CompilerServices.RuntimeHelpers.GetUninitializedObject(type);
+#endif
 
 		/// <summary>
 		/// Returns the attribute from the property itself, or failing that, from any interface
