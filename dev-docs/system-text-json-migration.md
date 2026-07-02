@@ -1,14 +1,14 @@
 # Design: Migrate serialization from Utf8Json to System.Text.Json
 
 **Issue:** [#388](https://github.com/opensearch-project/opensearch-net/issues/388)
-(also closes #370 trimming, #424 AOT, #318)
+(also relates to #370 trimming, #424 AOT, #318)
 **Status:** Draft for review
 **PoC / evidence:** This PR ships the production foundation (`SystemTextJsonSerializer`,
 the `ConnectionSettings` seam) with an in-tree regression test
 (`tests/Tests.Reproduce/SystemTextJsonSeamTests.cs`). The full converter
 proof-of-concept and code generator — including wire-format parity vs. the real
 Utf8Json client across queries and aggregations, recursion, field-name inference,
-and round-trip (≈25 tests) — live on the `poc/stj-serializer-vertical-slice`
+and round-trip — live on the `poc/stj-serializer-vertical-slice`
 branch as referenced evidence.
 
 ---
@@ -63,7 +63,7 @@ must be replaced.
   into `DefaultHighLevelSerializer` / `LowLevelRequestResponseSerializer` without
   changing call sites.
 
-PoC evidence: 14 xUnit tests cover exact-JSON parity, round-trip, recursion, the
+PoC evidence: xUnit tests cover exact-JSON parity, round-trip, recursion, the
 second polymorphic family, state threading, and error handling — on a library
 that **targets `netstandard2.0`** using the System.Text.Json NuGet package.
 
@@ -83,7 +83,7 @@ reproduces the exact wire format byte-for-byte for **8 real query types**
 recursive `bool`), including expression-based **field-name inference** threaded
 through the converter. Of the leaf queries probed, only `ids` was irregular
 (~88% generatable from metadata with a small template set). See the
-`poc/stj-serializer-vertical-slice` branch (≈25 passing tests).
+`poc/stj-serializer-vertical-slice` branch.
 
 ## 6. Migration plan
 

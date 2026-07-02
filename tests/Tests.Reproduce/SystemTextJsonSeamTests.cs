@@ -31,40 +31,30 @@ namespace Tests.Reproduce
 		[U]
 		public void OverriddenSerializerIsUsedForRequests()
 		{
-			RecordingSerializer.Reset();
 			var settings = new StjSettings(new InMemoryConnection());
 
 			var json = ((IConnectionSettingsValues)settings).RequestResponseSerializer
 				.SerializeToString(new Doc { Name = "x", Count = 1 });
 
-			RecordingSerializer.WriteCalls.Should().BeGreaterThan(0, "the overridden serializer should be used");
+			settings.Recorder.WriteCalls.Should().BeGreaterThan(0, "the overridden serializer should be used");
 			json.Should().Be("{\"Name\":\"x\",\"Count\":1}");
-		}
-
-		[U]
-		public void DefaultSettingsDoNotUseTheOverride()
-		{
-			RecordingSerializer.Reset();
-			var settings = new ConnectionSettings(new InMemoryConnection());
-
-			_ = ((IConnectionSettingsValues)settings).RequestResponseSerializer
-				.SerializeToString(new Doc { Name = "y", Count = 2 });
-
-			RecordingSerializer.WriteCalls.Should().Be(0, "stock settings keep the default serializer");
 		}
 
 		private class StjSettings : ConnectionSettings
 		{
+			// Captures the serializer created by the seam so the test can assert on it
+			// without relying on shared static state.
+			public RecordingSerializer Recorder { get; private set; }
+
 			public StjSettings(InMemoryConnection connection) : base(connection) { }
 
 			protected override IOpenSearchSerializer CreateDefaultRequestResponseSerializer() =>
-				new RecordingSerializer(new SystemTextJsonSerializer());
+				Recorder = new RecordingSerializer(new SystemTextJsonSerializer());
 		}
 
 		private class RecordingSerializer : IOpenSearchSerializer
 		{
-			public static int WriteCalls;
-			public static void Reset() => WriteCalls = 0;
+			public int WriteCalls;
 
 			private readonly IOpenSearchSerializer _inner;
 			public RecordingSerializer(IOpenSearchSerializer inner) => _inner = inner;

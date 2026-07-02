@@ -25,7 +25,7 @@ namespace OpenSearch.Net
 	/// </para>
 	/// </summary>
 	/// <remarks>
-	/// ⚠️ EXPERIMENTAL / NOT WIRE-COMPATIBLE WITH THE HIGH-LEVEL CLIENT YET.
+	/// WARNING: EXPERIMENTAL / NOT WIRE-COMPATIBLE WITH THE HIGH-LEVEL CLIENT YET.
 	/// <para>
 	/// With default options this performs raw <c>System.Text.Json</c> serialization:
 	/// it uses PascalCase property names and ignores the high-level client's
