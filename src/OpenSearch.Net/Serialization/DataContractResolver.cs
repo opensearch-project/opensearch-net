@@ -78,6 +78,17 @@ namespace OpenSearch.Net
 
 				if (dataMember != null && !string.IsNullOrEmpty(dataMember.Name))
 					property.Name = dataMember.Name;
+
+				// Mirror Utf8Json (MetaType: allowPrivate || dm != null): a [DataMember] property with
+				// only a non-public setter must still be writable on deserialize. STJ leaves Set null
+				// for non-public setters, so wire it via reflection. This matters for data-driven
+				// discriminants such as LanguageAnalyzer.Type (protected set), which would otherwise be
+				// lost when reading a response back.
+				if (dataMember != null && property.Set == null && member.SetMethod != null)
+				{
+					var setMethod = member.SetMethod;
+					property.Set = (obj, value) => setMethod.Invoke(obj, new[] { value });
+				}
 			}
 		}
 

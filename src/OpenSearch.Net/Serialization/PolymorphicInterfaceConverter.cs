@@ -59,17 +59,28 @@ namespace OpenSearch.Net
 			using var document = JsonDocument.ParseValue(ref reader);
 			var root = document.RootElement;
 
-			if (root.ValueKind != JsonValueKind.Object
-				|| !root.TryGetProperty(_discriminatorPropertyName, out var discriminatorProperty)
-				|| discriminatorProperty.ValueKind != JsonValueKind.String)
-				return null;
+			if (root.ValueKind != JsonValueKind.Object) return null;
 
-			var discriminator = discriminatorProperty.GetString();
-			if (discriminator == null || !_typeByDiscriminator.TryGetValue(discriminator, out var concreteType))
-				return null;
+			string discriminator = null;
+			if (root.TryGetProperty(_discriminatorPropertyName, out var discriminatorProperty)
+				&& discriminatorProperty.ValueKind == JsonValueKind.String)
+				discriminator = discriminatorProperty.GetString();
+
+			var concreteType = ResolveType(discriminator, root);
+			if (concreteType == null) return null;
 
 			return (TInterface)root.Deserialize(concreteType, options);
 		}
+
+		/// <summary>
+		/// Resolves the concrete type to deserialize into. The default looks the discriminator up in
+		/// the table. Families with fallback rules (for example analyzers, which infer a custom vs.
+		/// language analyzer from the presence of a <c>tokenizer</c> field) override this.
+		/// </summary>
+		/// <param name="discriminator">The discriminator value, or <c>null</c> if absent/non-string.</param>
+		/// <param name="document">The buffered JSON object, for inspecting other fields.</param>
+		protected virtual Type ResolveType(string discriminator, JsonElement document) =>
+			discriminator != null && _typeByDiscriminator.TryGetValue(discriminator, out var type) ? type : null;
 
 		/// <inheritdoc />
 		public override void Write(Utf8JsonWriter writer, TInterface value, JsonSerializerOptions options)

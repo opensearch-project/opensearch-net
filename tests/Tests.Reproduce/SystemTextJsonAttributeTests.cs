@@ -69,6 +69,27 @@ namespace Tests.Reproduce
 			}) { }
 		}
 
+		// A family converter with a fallback rule (as analyzers use for custom vs. language).
+		private sealed class FallbackThingConverter : PolymorphicInterfaceConverter<IThing>
+		{
+			public FallbackThingConverter() : base(new Dictionary<string, Type>(StringComparer.Ordinal)
+			{
+				{ "thing", typeof(Thing) },
+			}) { }
+
+			protected override Type ResolveType(string discriminator, JsonElement document) =>
+				base.ResolveType(discriminator, document)
+				?? (document.TryGetProperty("pattern", out _) ? typeof(OtherThing) : typeof(Thing));
+		}
+
+		// A [DataMember] property whose only setter is non-public and whose value is data-driven
+		// (not fixed by the constructor), mirroring LanguageAnalyzer.Type.
+		public class ProtectedSetterDoc
+		{
+			[DataMember(Name = "type")] public string Type { get; protected set; }
+			[DataMember(Name = "n")] public int Number { get; set; }
+		}
+
 		private static string Serialize<T>(T value, bool withEnum = false)
 		{
 			IOpenSearchSerializer serializer;
@@ -155,6 +176,30 @@ namespace Tests.Reproduce
 			var roundTripped = JsonSerializer.Deserialize<IThing>(json, options);
 			roundTripped.Should().BeOfType<OtherThing>();
 			roundTripped.MaxTokenLength.Should().Be(3);
+		}
+
+		[U]
+		public void WritesNonPublicSetterForDataMemberOnDeserialize()
+		{
+			IOpenSearchSerializer serializer = new SystemTextJsonSerializer();
+			using var input = new MemoryStream(Encoding.UTF8.GetBytes("{\"type\":\"english\",\"n\":5}"));
+
+			var doc = serializer.Deserialize<ProtectedSetterDoc>(input);
+
+			doc.Type.Should().Be("english"); // protected setter wired because [DataMember] is present
+			doc.Number.Should().Be(5);
+		}
+
+		[U]
+		public void PolymorphicConverterUsesFallbackWhenDiscriminatorUnknown()
+		{
+			var options = new JsonSerializerOptions { TypeInfoResolver = OpenSearch.Net.DataContractResolver.Instance };
+			options.Converters.Add(new FallbackThingConverter());
+
+			JsonSerializer.Deserialize<IThing>("{\"type\":\"zzz\",\"pattern\":\"x\"}", options)
+				.Should().BeOfType<OtherThing>();
+			JsonSerializer.Deserialize<IThing>("{\"type\":\"zzz\"}", options)
+				.Should().BeOfType<Thing>();
 		}
 	}
 }

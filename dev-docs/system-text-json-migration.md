@@ -214,3 +214,38 @@ edges a generator must track:
 Reusable finding: `NullableStringBooleanFormatter` (used 45× here) writes bare
 `true`/`false`, matching STJ's default `bool?`, so no per-property converter is
 needed for it on the write path.
+
+## 14. Analyzers + normalizers — finishing the analysis area
+
+The last two analysis families introduced two patterns the shared base did not yet
+cover, both now handled generically:
+
+- **Fallback dispatch.** `AnalyzerFormatter` doesn't rely solely on `type`: an
+  unrecognized/absent type means `CustomAnalyzer` when a `tokenizer` field is
+  present, otherwise `LanguageAnalyzer`. `PolymorphicInterfaceConverter` gained a
+  `protected virtual ResolveType(discriminator, JsonElement)` seam; the default is
+  the table lookup, and `AnalyzerInterfaceConverter` overrides it to reproduce the
+  fallback. `NormalizerInterfaceConverter` uses the same seam to always resolve
+  `CustomNormalizer` (OpenSearch ships no built-in normalizers).
+- **Data-driven discriminant via a non-public setter.** `LanguageAnalyzer.Type`
+  is the language name (e.g. `english`) and is exposed only through a
+  `protected set`. STJ's default resolver won't write non-public setters, so the
+  discriminant was lost on read (write was fine). `DataContractResolver` now wires
+  a reflection setter for any `[DataMember]` property whose only setter is
+  non-public — mirroring Utf8Json's `allowPrivate || dm != null` rule. This is a
+  **general** fix: every `*Base.Type` (protected set) across the client is now
+  correctly rehydrated on deserialize.
+
+`SingleOrEnumerableFormatter<T>` (on `CustomAnalyzer`/`CustomNormalizer` list
+props) writes a plain array, so there is no write gap; only its read tolerance of
+a bare scalar differs (a response-only concern, like `NullableStringInt`).
+
+Harness `poc/StjAnalyzerParity`: **12/12 write + round-trip read parity** across
+named analyzers, the custom/language fallback, the `snowball` enum, `StopWords`,
+and both normalizer shapes.
+
+**Analysis area status:** tokenizers, char filters, token filters, analyzers and
+normalizers are all migrated and validated. The only residual cross-namespace
+edges are `condition`/`predicate_token_filter` → `IScript` (the `script`
+namespace), whose dispatch is already registered and will round-trip once
+`script` lands.
