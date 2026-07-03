@@ -20,8 +20,40 @@ namespace OpenSearch.Client
 	/// </summary>
 	internal static class SystemTextJsonOptionsFactory
 	{
+		private static readonly object PerPropertyLock = new object();
+		private static bool _perPropertyRegistered;
+
+		/// <summary>
+		/// Registers the per-property converter overrides (primitives the server may send as strings)
+		/// with the shared <see cref="DataContractResolver"/> once (#388). Keyed by the vendored
+		/// Utf8Json formatter type each member's <c>[JsonFormatter]</c> references.
+		/// </summary>
+		private static void EnsurePerPropertyConvertersRegistered()
+		{
+			if (_perPropertyRegistered) return;
+			lock (PerPropertyLock)
+			{
+				if (_perPropertyRegistered) return;
+
+				var map = DataContractResolver.PropertyConverterOverrides;
+				var nullableInt = new NullableStringIntConverter();
+				map[typeof(NullableStringBooleanFormatter)] = new NullableStringBooleanConverter();
+				map[typeof(NullableStringIntFormatter)] = nullableInt;
+				map[typeof(OpenSearch.Net.NullableStringIntFormatter)] = nullableInt;
+				map[typeof(NullableStringLongFormatter)] = new NullableStringLongConverter();
+				map[typeof(NullableStringDoubleFormatter)] = new NullableStringDoubleConverter();
+				map[typeof(StringLongFormatter)] = new StringLongConverter();
+				map[typeof(StringIntFormatter)] = new StringIntConverter();
+				map[typeof(IntStringFormatter)] = new IntStringConverter();
+
+				_perPropertyRegistered = true;
+			}
+		}
+
 		public static JsonSerializerOptions Create(IConnectionSettingsValues settings)
 		{
+			EnsurePerPropertyConvertersRegistered();
+
 			var options = new JsonSerializerOptions
 			{
 				TypeInfoResolver = DataContractResolver.Instance,

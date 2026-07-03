@@ -44,6 +44,18 @@ namespace OpenSearch.Net
 		/// <summary> A shared instance applying the data-contract modifier. </summary>
 		public static readonly DataContractResolver Instance = new();
 
+		/// <summary>
+		/// Maps a vendored Utf8Json formatter type (as referenced by a member's
+		/// <c>[JsonFormatter(typeof(...))]</c> attribute) to the <see cref="System.Text.Json"/>
+		/// converter that should be applied to that specific member (#388). This is the seam for
+		/// per-property converters that cannot be registered globally because they target primitives
+		/// (e.g. a <c>bool?</c> that the server may send as the string <c>"true"</c>); registering a
+		/// global <c>JsonConverter&lt;bool?&gt;</c> would hijack all boolean handling. The map is
+		/// populated by the high-level client (which owns both the formatter types and the converters)
+		/// before any serialization occurs.
+		/// </summary>
+		public static readonly Dictionary<Type, System.Text.Json.Serialization.JsonConverter> PropertyConverterOverrides = new();
+
 		/// <summary> Creates a resolver that applies the data-contract modifier to every object type. </summary>
 		public DataContractResolver() => Modifiers.Add(ApplyDataContract);
 
@@ -116,6 +128,15 @@ namespace OpenSearch.Net
 					var setMethod = member.SetMethod;
 					property.Set = (obj, value) => setMethod.Invoke(obj, new[] { value });
 				}
+
+				// Honor a member-level [JsonFormatter(typeof(F))] by applying the registered per-property
+				// converter for F, if any (#388). Used for primitives the server may send as strings.
+				if (PropertyConverterOverrides.Count > 0)
+				{
+					var formatter = GetAttribute<Utf8Json.JsonFormatterAttribute>(member, interfaceProps);
+					if (formatter != null && PropertyConverterOverrides.TryGetValue(formatter.FormatterType, out var converter))
+						property.CustomConverter = converter;
+				}
 			}
 
 			AddExplicitInterfaceProperties(typeInfo);
@@ -156,6 +177,13 @@ namespace OpenSearch.Net
 						BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance, null, Type.EmptyTypes, null);
 					if (shouldSerialize != null && shouldSerialize.ReturnType == typeof(bool))
 						jsonProperty.ShouldSerialize = (obj, _) => (bool)shouldSerialize.Invoke(obj, null);
+
+					if (PropertyConverterOverrides.Count > 0)
+					{
+						var formatter = interfaceProperty.GetCustomAttribute<Utf8Json.JsonFormatterAttribute>(true);
+						if (formatter != null && PropertyConverterOverrides.TryGetValue(formatter.FormatterType, out var converter))
+							jsonProperty.CustomConverter = converter;
+					}
 
 					typeInfo.Properties.Add(jsonProperty);
 				}

@@ -653,3 +653,30 @@ converters (multiple shapes each).
 Note: a `DateTimeOffset` epoch-milliseconds converter is deliberately deferred — it cannot be
 registered globally (it would hijack all `DateTimeOffset` handling) and the per-property converter
 application mechanism is not yet in place. It will land with the index-settings/date-field slice.
+
+## 29. Per-property converter mechanism (primitive string-or-number/bool)
+
+The client attaches member-level `[JsonFormatter(typeof(...))]` attributes to primitives that
+OpenSearch may emit as JSON strings — `NullableStringBoolean` (68 uses), `NullableStringInt` (45),
+`NullableStringLong`/`Double`, `StringInt`/`StringLong`, and `IntString` (a string carried as an
+int). These can't be global STJ converters (a global `JsonConverter<bool?>` would hijack every
+`bool?`), so they must apply per-member.
+
+Mechanism: `DataContractResolver` gains a static `PropertyConverterOverrides` map (Utf8Json formatter
+`Type` → `JsonConverter`). While building each property's contract, the resolver reads the member's
+(or its implemented interface member's) `[JsonFormatter]` attribute and, if the formatter type is in
+the map, assigns `JsonPropertyInfo.CustomConverter`. The same lookup runs for the explicit-interface
+properties the resolver synthesizes. The map is populated once by the high-level client
+(`SystemTextJsonOptionsFactory`, which owns both the formatter types and the converters); the
+resolver in `OpenSearch.Net` only consumes it, keeping the layering intact. Both the Client and Net
+copies of `NullableStringIntFormatter` are mapped to the same converter.
+
+The seven converters (`StringUnionNumberConverters.cs`) accept either the primitive token or its
+string form on read and write the plain primitive; the nullable-double one delegates its write to the
+global double converter so integral doubles keep their Utf8Json-compatible trailing `.0`.
+
+Harness `poc/StjPerPropertyTriage`: **11/11** — write parity, string-form read, numeric read, and
+integral/fractional double formatting across `CatThreadPoolRecord` (StringInt / NullableStringLong /
+NullableStringInt / StringLong), `SnapshotShardFailure` (IntString), `CatPendingTasksRecord`
+(NullableStringInt) and `BM25Similarity` (NullableStringDouble). This single mechanism corrects the
+~130 member usages of these formatters across the generated request/response surface.
