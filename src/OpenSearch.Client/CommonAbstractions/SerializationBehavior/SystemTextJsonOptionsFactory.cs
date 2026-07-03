@@ -137,6 +137,7 @@ namespace OpenSearch.Client
 
 			// Specialized
 			options.Converters.Add(new RankFeatureQueryConverter(settings));
+			options.Converters.Add(new ShapeQueryConverter(settings));
 			options.Converters.Add(new DistanceFeatureQueryConverter());
 			options.Converters.Add(new UnionConverter<GeoCoordinate, DateMath>());
 			options.Converters.Add(new UnionConverter<Distance, Time>());

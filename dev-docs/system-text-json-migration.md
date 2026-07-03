@@ -819,3 +819,12 @@ object holding either `shape` (an `IGeoShape`, delegated to `GeoShapeConverter`)
 Harness `poc/StjGeoShapeQueryTriage`: **3/3** (inline point + relation; envelope with
 name/boost/ignore_unmapped; indexed_shape). Deferred: the cartesian `shape` query (`ShapeQueryFormatter`
 via `CompositeFormatter`, with `CartesianPoint`/`IGeoShape`-like geometries) — analogous, next.
+
+## 38. shape query (cartesian)
+
+`ShapeQueryConverter` (`IShapeQuery`) is the cartesian twin of `GeoShapeQueryConverter` — identical
+field-name-keyed structure (`_name`/`boost`/`ignore_unmapped` siblings + field key holding
+`shape`/`indexed_shape` + `relation`), differing only in the `ShapeRelation` enum.
+
+Harness `poc/StjShapeQueryTriage`: **3/3**. This completes the geo/shape query family (geometry +
+geo_shape query + shape query).
