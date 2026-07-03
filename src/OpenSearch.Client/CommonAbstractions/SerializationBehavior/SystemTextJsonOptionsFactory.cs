@@ -160,6 +160,12 @@ namespace OpenSearch.Client
 			options.Converters.Add(new JoinFieldConverter(settings));
 			options.Converters.Add(new SimilarityConverter());
 			options.Converters.Add(new AutoExpandReplicasConverter());
+			options.Converters.Add(new AttachmentConverter());
+			options.Converters.Add(new AliasActionConverter());
+			options.Converters.Add(new IndicesBoostConverter(settings));
+
+			// Fuzziness (queries + full-text options).
+			options.Converters.Add(new FuzzinessConverter());
 
 			// Generic [ReadAs] mapping for any remaining interface used as a nested property
 			// (e.g. ISpanQuery). Registered last so dedicated converters take precedence.

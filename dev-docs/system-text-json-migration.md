@@ -680,3 +680,28 @@ integral/fractional double formatting across `CatThreadPoolRecord` (StringInt / 
 NullableStringInt / StringLong), `SnapshotShardFailure` (IntString), `CatPendingTasksRecord`
 (NullableStringInt) and `BM25Similarity` (NullableStringDouble). This single mechanism corrects the
 ~130 member usages of these formatters across the generated request/response surface.
+
+## 30. Value-type batch 2 (Fuzziness, Attachment, AliasAction, indices_boost)
+
+A second parallel batch of distinct-type converters (drafted by two sub-agents, integrated centrally):
+
+- **`FuzzinessConverter`** (`IFuzziness`) — `"AUTO"` / `"AUTO:low,high"` string, an integer edit
+  distance, or a ratio number; reads all forms (integer-vs-double distinguished via `TryGetInt32`).
+- **`AttachmentConverter`** (`Attachment`) — bare base64 string when no metadata, otherwise the object
+  form, tolerating the underscore-prefixed field aliases the server may return.
+- **`AliasActionConverter`** (`IAliasAction`) — discriminator dispatch (`add`/`remove`/`remove_index`)
+  modelled on `SimilarityConverter`; writes the concrete sub-interface so its `[DataMember]` wrapper key
+  is emitted (no recursion, since the converter targets only `IAliasAction`).
+- **`IndicesBoostConverter`** (`IDictionary<IndexName, double>`) — the `indices_boost` array-of-single-
+  property-objects shape with index-name inference. It is the sole member of that type, so global
+  registration is safe.
+
+One integration fix: `IndicesBoostConverter` initially emitted integral boosts as `2` instead of
+`2.0`; routed the value through the global double converter (as the nullable-double converter does).
+
+Harness `poc/StjValueTypes2Triage`: **10/10 full parity** (Fuzziness ×4 shapes, Attachment ×2,
+AliasAction ×3, and `indices_boost` in its `SearchRequest` member context).
+
+Deferred (heavier polymorphic dispatchers, better done centrally): `ProcessorFormatter` (~40 ingest
+processor types), `AliasAction` is done but the broader index-settings / dynamic-templates and the
+`Verbatim*DictionaryKeys` / `SingleOrEnumerable` generic factories remain.
