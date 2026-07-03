@@ -110,9 +110,24 @@ namespace OpenSearch.Client
 			options.Converters.Add(new AggregateConverter());
 			options.Converters.Add(new AggregateResponseDictionaryConverter());
 
+			// Infer / identity value types.
+			options.Converters.Add(new IndexNameConverter(settings));
+			options.Converters.Add(new IndicesConverter(settings));
+			options.Converters.Add(new RoutingConverter(settings));
+			options.Converters.Add(new TaskIdConverter());
+
+			// Common request/document options.
+			options.Converters.Add(new SortConverter(settings));
+			options.Converters.Add(new SourceFilterConverter());
+			options.Converters.Add(new SlicesConverter());
+			options.Converters.Add(new ReindexRoutingConverter());
+
 			// Mappings
 			options.Converters.Add(new PropertyInterfaceConverter());
 			options.Converters.Add(new PropertiesConverter(settings));
+			options.Converters.Add(new JoinFieldConverter(settings));
+			options.Converters.Add(new SimilarityConverter());
+			options.Converters.Add(new AutoExpandReplicasConverter());
 
 			// Generic [ReadAs] mapping for any remaining interface used as a nested property
 			// (e.g. ISpanQuery). Registered last so dedicated converters take precedence.

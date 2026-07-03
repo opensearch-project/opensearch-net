@@ -622,3 +622,34 @@ geo origin / +name,boost).
 Deferred (subsequent tail slices): `geo_shape`/`shape` (GeoJSON geometry unions), `percolate` and
 `more_like_this` (source-document embedding), `intervals`/`neural`/`fuzzy` (field-name-keyed bodies
 with their own value-type formatters).
+
+## 28. Cross-cutting value-type converters
+
+A batch of the widely-used, self-contained value types that carry bespoke Utf8Json formatters. Each
+maps cleanly to a `JsonConverter<T>` for a distinct type, so all are safe to register globally in the
+options factory:
+
+- **Infer / identity**: `IndexNameConverter`, `IndicesConverter`, `RoutingConverter`, `TaskIdConverter`.
+  `Indices` mirrors the type-level `IndicesMultiSyntaxFormatter` — the multi-index syntax as a single
+  string (`"_all"` or the comma-joined inferred names), not the array form used per-property elsewhere.
+  `IndexName`/`Indices`/`Routing` are settings-bearing (name/routing inference).
+- **Request/document options**: `SortConverter` (the four sort shapes: bare string, `_geo_distance`,
+  `_script`, and `field:order` / `field:{…}`, with field inference on write), `SourceFilterConverter`
+  (string/array shorthand on read; `excludes` before `includes` on write to match the interface
+  declaration order), `SlicesConverter` (`Union<long,string>`), `ReindexRoutingConverter`
+  (`keep`/`discard`/`=value`).
+- **Mapping / index settings**: `JoinFieldConverter` (parent string vs `{name,parent}` child, id
+  inference), `SimilarityConverter` (`type`-discriminated `ISimilarity` union with a `CustomSimilarity`
+  fallback), `AutoExpandReplicasConverter` (boolean `false` vs `"0-5"` string).
+
+These were drafted in parallel by three sub-agents (disjoint file sets, no shared-file edits, no
+builds), then integrated, registered, and validated centrally. Two corrections were needed on
+integration: `IndicesConverter` initially used the array formatter instead of the type-level
+multi-syntax one, and `SourceFilterConverter` needed its member order flipped to excludes-first.
+
+Harness `poc/StjValueTypesTriage`: **18/18 full parity** (write + round-trip read) across all eleven
+converters (multiple shapes each).
+
+Note: a `DateTimeOffset` epoch-milliseconds converter is deliberately deferred — it cannot be
+registered globally (it would hijack all `DateTimeOffset` handling) and the per-property converter
+application mechanism is not yet in place. It will land with the index-settings/date-field slice.
