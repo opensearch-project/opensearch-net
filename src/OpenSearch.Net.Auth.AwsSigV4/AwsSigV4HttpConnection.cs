@@ -20,6 +20,15 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 		public const string OpenSearchService = "es";
 		public const string OpenSearchServerlessService = "aoss";
 
+		/// <summary>
+		/// An optional port to apply to each request's URI <em>after</em> it has been signed. This is useful when
+		/// tunnelling to a cluster on a private subnet (e.g. via SSH local port forwarding through a bastion host):
+		/// the signature is computed against the canonical host without the local tunnel port, matching what AWS
+		/// verifies, while the request is still dispatched to the local tunnel port. Leave as <c>null</c> (the default)
+		/// to disable this behaviour.
+		/// </summary>
+		public int? TunnelPort { get; set; }
+
 		private readonly AWSCredentials _credentials;
 		private readonly RegionEndpoint _region;
 		private readonly string _service;
@@ -77,6 +86,6 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 			base.CreateHttpClientHandler(requestData);
 
 		protected override System.Net.Http.HttpMessageHandler CreateHttpClientHandler(RequestData requestData) =>
-			new AwsSigV4HttpClientHandler(_credentials, _region, _service, _dateTimeProvider, InnerCreateHttpClientHandler(requestData));
+			new AwsSigV4HttpClientHandler(_credentials, _region, _service, _dateTimeProvider, InnerCreateHttpClientHandler(requestData), TunnelPort);
 	}
 }
