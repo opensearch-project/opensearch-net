@@ -76,6 +76,14 @@ namespace OpenSearch.Client
 			options.Converters.Add(new FieldNameQueryConverter<TermRangeQuery, ITermRangeQuery>(settings));
 			options.Converters.Add(new FieldNameQueryConverter<DateRangeQuery, IDateRangeQuery>(settings));
 
+			// Geo
+			options.Converters.Add(new DistanceConverter());
+			options.Converters.Add(new GeoLocationConverter());
+			options.Converters.Add(new GeoDistanceQueryConverter(settings));
+
+			// Specialized
+			options.Converters.Add(new RankFeatureQueryConverter(settings));
+
 			// Generic [ReadAs] mapping for any remaining interface used as a nested property
 			// (e.g. ISpanQuery). Registered last so dedicated converters take precedence.
 			options.Converters.Add(new ReadAsConverterFactory());

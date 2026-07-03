@@ -462,7 +462,26 @@ and `knn`. Result: **28/30** in the triage (incl. an analysis/script regression
 cross-check through the same factory), covering compound, joining, span, term-level,
 and full-text queries.
 
-Still deferred (bespoke geo/specialized formatters, a focused follow-up): the geo
-family (`geo_distance`/`geo_bounding_box`/`geo_polygon`/`geo_shape`/`shape` with
-`GeoLocation`/`Distance`/geo-shape unions), `rank_feature`/`distance_feature`,
-`more_like_this`, `percolate`, `neural`, `intervals`, and `fuzzy`.
+## 22. Query DSL tail — bespoke formatters (start)
+
+The remaining queries have hand-written Utf8Json formatters (flattened shapes,
+nested polymorphic pieces, value-type coordinates). Two common ones are done, and
+they contributed reusable value converters:
+
+- **`geo_distance`.** Flattens `_name`/`boost`/`validation_method`/`distance`/
+  `distance_type` alongside the field key whose value is the `GeoLocation`. Needed a
+  `DistanceConverter` (`"12km"` string form) and a `GeoLocationConverter`
+  (`{ "lat": …, "lon": … }`; a converter is required on read because lat/lon are
+  get-only, set through the constructor) — both reusable across the rest of geo.
+  The `validation_method`/`distance_type` `[StringEnum]`s are already handled.
+- **`rank_feature`.** Writes `field` as a value plus one of the polymorphic scoring
+  functions (`saturation`/`log`/`sigmoid`/`linear`), dispatched on the concrete
+  function type and read back by key.
+
+Harness `poc/StjQueryTailParity`: **5/5** — geo_distance (with/without
+validation/type/boost) and rank_feature (field-only, +boost, +saturation function).
+
+Still deferred (a focused follow-up): the rest of the geo family
+(`geo_bounding_box`/`geo_polygon`/`geo_shape`/`shape` with the geo-shape geometry
+union), `distance_feature`, `more_like_this`, `percolate`, `neural`, `intervals`,
+and `fuzzy`.
