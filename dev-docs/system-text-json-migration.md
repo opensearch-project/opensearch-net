@@ -781,3 +781,14 @@ dictionary on read. Two extensions were needed:
 
 Harness `poc/StjVerbatimTriage`: **2/2** — `Analysis` (analyzers/char-filters/token-filters/tokenizers,
 string keys → interface values, full round-trip) and `SearchRequest.RuntimeFields` (`Field` keys).
+
+## 35. intervals query
+
+`intervals` uses the generic `FieldNameQueryFormatter<IntervalsQuery, IIntervalsQuery>` and its body is
+an `IIntervalsContainer` of optional named rules (`match`/`prefix`/`wildcard`/`fuzzy`/`all_of`/`any_of`),
+each a `[DataMember]`/`[ReadAs]` type the resolver already handles (no discriminator needed). It
+therefore required only a `FieldNameQueryConverter<IntervalsQuery, IIntervalsQuery>` registration; the
+rule bodies, nested filters and recursive `all_of`/`any_of` interval lists round-trip through the
+`DataContractResolver` + `[ReadAs]` factory.
+
+Harness `poc/StjIntervalsTriage`: **3/3** (match; prefix; all_of with nested match rules).
