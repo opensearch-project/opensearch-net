@@ -937,3 +937,25 @@ converter. Registered globally (the container is always a mapping member).
 
 Harness `poc/StjDynTemplatesTriage`: **2/2** (single template; two templates with match/path_match and
 keyword/number/text mappings).
+
+## 45. Index settings (dotted-key flatten/unflatten)
+
+The most intricate config type. `IndexSettingsConverter` (`IIndexSettings`) and
+`DynamicIndexSettingsConverter` (`IDynamicIndexSettings`) share `IndexSettingsSerializer`, a faithful
+port of `DynamicIndexSettingsFormatter`:
+
+- **Write** — `IDynamicIndexSettings` *is* an `IDictionary<string,object>` settings bag. Known typed
+  properties (replicas/refresh/translog/merge/slowlog/analysis/similarity/…, and the `IIndexSettings`-
+  only shards/store/queries/soft-deletes/sorting under an `is IIndexSettings` guard) are projected into
+  the bag under their dotted-key constants, index-sort as array-or-single; the bag is then emitted with
+  verbatim dotted keys honoring the special rule "skip nulls except `index.refresh_interval`". Typed bag
+  values serialize as `object` and dispatch to their registered converters.
+- **Read** — deserialize a `Dictionary<string,object>`, `Flatten` nested objects to dotted keys (except
+  `analysis`/`similarity`), map each known key onto the typed property via `ConvertToValue<T>`
+  (already-`T` / `IConvertible`+`Convert.ChangeType` / JSON round-trip), reserialize `analysis`/
+  `similarity` into `Analysis`/`Similarities`, and keep the remainder in the bag (preserving the
+  original's analysis-added-to-bag quirk).
+
+Harness `poc/StjIndexSettingsTriage`: **5/5** (basic, translog, analysis, raw bag setting, array
+sorting) — exact write parity, and read compared against the oracle's own read (both rebuild the bag in
+`SetKnownIndexSettings` call order, so the baseline is oracle-read→write, not the original write order).

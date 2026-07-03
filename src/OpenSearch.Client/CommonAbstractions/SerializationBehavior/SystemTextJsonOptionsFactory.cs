@@ -194,6 +194,8 @@ namespace OpenSearch.Client
 			options.Converters.Add(new DynamicTemplatesConverter());
 			options.Converters.Add(new SimilarityConverter());
 			options.Converters.Add(new AutoExpandReplicasConverter());
+			options.Converters.Add(new IndexSettingsConverter());
+			options.Converters.Add(new DynamicIndexSettingsConverter());
 			options.Converters.Add(new AttachmentConverter());
 			options.Converters.Add(new AliasActionConverter());
 			options.Converters.Add(new IndicesBoostConverter(settings));
