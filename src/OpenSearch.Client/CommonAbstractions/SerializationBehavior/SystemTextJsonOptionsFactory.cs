@@ -50,6 +50,16 @@ namespace OpenSearch.Client
 			options.Converters.Add(new NormalizerInterfaceConverter());
 			options.Converters.Add(new QueryContainerConverter());
 
+			// Field-name-keyed queries ({ "<field>": { … } }); settings-bearing (decision D1).
+			options.Converters.Add(new FieldNameQueryConverter<TermQuery, ITermQuery>(settings));
+			options.Converters.Add(new FieldNameQueryConverter<PrefixQuery, IPrefixQuery>(settings));
+			options.Converters.Add(new FieldNameQueryConverter<WildcardQuery, IWildcardQuery>(settings));
+			options.Converters.Add(new FieldNameQueryConverter<RegexpQuery, IRegexpQuery>(settings));
+			options.Converters.Add(new FieldNameQueryConverter<MatchQuery, IMatchQuery>(settings));
+			options.Converters.Add(new FieldNameQueryConverter<MatchPhraseQuery, IMatchPhraseQuery>(settings));
+			options.Converters.Add(new FieldNameQueryConverter<MatchPhrasePrefixQuery, IMatchPhrasePrefixQuery>(settings));
+			options.Converters.Add(new FieldNameQueryConverter<MatchBoolPrefixQuery, IMatchBoolPrefixQuery>(settings));
+
 			return options;
 		}
 	}

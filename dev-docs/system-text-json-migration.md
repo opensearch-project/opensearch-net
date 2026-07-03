@@ -378,3 +378,31 @@ round-trip through the one consolidated options instance.
 Still deferred: field-name-**keyed** leaf queries (`term`/`match`/`range` as
 `{ "<field>": {…} }`) — the `FieldNameQuery` wrapper — now unblocked since the
 inference plumbing exists.
+
+## 19. Field-name-keyed queries
+
+The everyday term- and full-text queries serialize the field as the object key:
+`{ "term": { "<field>": { "value": … } } }` — three levels of nesting (container →
+verb → field key → body). `FieldNameQueryConverter<TConcrete, TInterface>` (mirroring
+Utf8Json's `FieldNameQueryFormatter<T, TInterface>`, both type parameters) writes
+the inferred field name as the key and the body as the **concrete** type (so
+`Field`, which is `[IgnoreDataMember]`, is excluded and there is no recursion). It
+is constructed with the settings for inference and registered per query interface
+in the factory (term, prefix, wildcard, regexp, match, match_phrase,
+match_phrase_prefix, match_bool_prefix).
+
+The two type parameters matter: a first cut generic only over the interface
+recursed infinitely on read (the interface has no `[ReadAs]`, so it re-dispatched
+into itself). Supplying the concrete type resolves the body directly. The
+`QueryContainer` read already routed correctly — verbs with `[ReadAs]` (bool,
+match_all) deserialize to their concrete type, while field-name verbs (no
+`[ReadAs]`) deserialize via the interface, hitting these converters.
+
+Harness `poc/StjFieldNameQueryParity`: **10/10 write + round-trip read** — term
+(string/int/bool + `case_insensitive`), expression-inferred fields, prefix,
+wildcard, regexp, match, match_phrase, and a `bool` composing `term` + `match`
+(exercising all three nesting levels at once).
+
+Deferred within the DSL: the range family (`IRangeQuery` needs its own dispatch to
+date/long/numeric/term-range concretes before the field-name wrapper) and the
+specialized field-name queries (knn, neural, intervals, span_term, terms_set).
