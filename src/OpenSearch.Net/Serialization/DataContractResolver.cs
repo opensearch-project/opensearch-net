@@ -142,7 +142,11 @@ namespace OpenSearch.Net
 				// Honor a member-level [JsonFormatter(typeof(F))] by applying the registered per-property
 				// converter for F, if any (#388). Used for primitives the server may send as strings and
 				// for generic wrappers such as single-or-enumerable members.
-				var formatter = GetAttribute<Utf8Json.JsonFormatterAttribute>(member, interfaceProps);
+				// A member-level [JsonFormatter] takes precedence; otherwise honor a type-level
+				// [JsonFormatter] on the member's declared type (e.g. the verbatim-keys dictionaries
+				// such as IAnalyzers carry the attribute on the interface, not the member).
+				var formatter = GetAttribute<Utf8Json.JsonFormatterAttribute>(member, interfaceProps)
+					?? member.PropertyType.GetCustomAttribute<Utf8Json.JsonFormatterAttribute>(false);
 				if (formatter != null && TryGetPropertyConverter(formatter.FormatterType, out var propertyConverter))
 					property.CustomConverter = propertyConverter;
 			}
@@ -186,7 +190,8 @@ namespace OpenSearch.Net
 					if (shouldSerialize != null && shouldSerialize.ReturnType == typeof(bool))
 						jsonProperty.ShouldSerialize = (obj, _) => (bool)shouldSerialize.Invoke(obj, null);
 
-					var formatter = interfaceProperty.GetCustomAttribute<Utf8Json.JsonFormatterAttribute>(true);
+					var formatter = interfaceProperty.GetCustomAttribute<Utf8Json.JsonFormatterAttribute>(true)
+						?? interfaceProperty.PropertyType.GetCustomAttribute<Utf8Json.JsonFormatterAttribute>(false);
 					if (formatter != null && TryGetPropertyConverter(formatter.FormatterType, out var converter))
 						jsonProperty.CustomConverter = converter;
 

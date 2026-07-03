@@ -50,6 +50,14 @@ namespace OpenSearch.Client
 				openMap[typeof(SingleOrEnumerableFormatter<>)] = typeof(SingleOrEnumerableConverter<>);
 				openMap[typeof(SerializeAsSingleFormatter<>)] = typeof(SerializeAsSingleConverter<>);
 
+				// Verbatim dictionary-key formatters (keys written as inferred, no camel-casing).
+				openMap[typeof(VerbatimDictionaryKeysFormatter<,,,>)] = typeof(VerbatimDictionaryKeysConverter<,,,>);
+				openMap[typeof(VerbatimDictionaryInterfaceKeysFormatter<,>)] = typeof(VerbatimDictionaryInterfaceKeysConverter<,>);
+				openMap[typeof(VerbatimInterfaceReadOnlyDictionaryKeysFormatter<,>)] = typeof(VerbatimInterfaceReadOnlyDictionaryKeysConverter<,>);
+				openMap[typeof(VerbatimDictionaryKeysFormatter<,>)] = typeof(VerbatimDictionaryKeysConverter<,>);
+				openMap[typeof(VerbatimDictionaryKeysPreservingNullFormatter<,>)] = typeof(VerbatimDictionaryKeysPreservingNullConverter<,>);
+				openMap[typeof(VerbatimDictionaryKeysBaseFormatter<,,>)] = typeof(VerbatimDictionaryKeysBaseConverter<,,>);
+
 				_perPropertyRegistered = true;
 			}
 		}

@@ -754,3 +754,30 @@ Two more query-tail converters (drafted by parallel sub-agents, integrated centr
 
 Harness `poc/StjFuzzyMltTriage`: **6/6** (fuzzy string / string+rewrite / numeric / date; more_like_this
 text-like and document-like).
+
+## 34. Verbatim dictionary-key family (type-level formatters)
+
+The client's `IIsADictionary` types (`Analyzers`, `TokenFilters`, `CharFilters`, `Tokenizers`,
+`Normalizers`, `Similarities`, `Relations`, `RuntimeFields`, `Aliases`, `ScriptFields`,
+`PerFieldAnalyzer`, `NamedFiltersContainer`, `SuggestContainer`, `KnnMethodParameters`,
+`InferenceFieldMap`, …) carry a *type-level* `[JsonFormatter(typeof(VerbatimDictionaryKeys…Formatter<…>))]`
+whose job is to write keys verbatim (inferred, never camel-cased) and reconstruct the concrete
+dictionary on read. Two extensions were needed:
+
+1. **Type-level formatter resolution.** The per-property hook (sections 29/31) only looked at member
+   attributes. It now also honors a `[JsonFormatter]` on the member's *declared type* (falling back to
+   it when the member itself has none), so a type-level verbatim formatter on e.g. `IAnalyzers` is
+   applied wherever `IAnalyzers` appears as a member. This auto-covers all ~18 such dictionary types
+   without enumerating them.
+2. **Verbatim converters** (`VerbatimDictionaryKeysConverters.cs`) matching every formatter arity:
+   the 4-arg `IIsADictionary` form (`<TDictionary,TInterface,TKey,TValue>`, reads into a
+   `Dictionary` then reconstructs the concrete type via `CreateInstance`), the 2-arg `IDictionary` /
+   `IReadOnlyDictionary` / `Dictionary` forms, the preserving-null variant, and the 3-arg base form.
+   A shared helper writes keys by *delegating key inference to the registered key converter* — a
+   `Field`/`IndexName`/`RelationName` key is serialized through the options (which already carries the
+   settings-bearing `FieldConverter`/… ) and the resulting JSON string is used as the property name —
+   so no separate connection-settings plumbing is required. Reads convert each property name back to
+   `TKey` by round-tripping it through the same key converter.
+
+Harness `poc/StjVerbatimTriage`: **2/2** — `Analysis` (analyzers/char-filters/token-filters/tokenizers,
+string keys → interface values, full round-trip) and `SearchRequest.RuntimeFields` (`Field` keys).
