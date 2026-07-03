@@ -808,3 +808,14 @@ Harness `poc/StjGeoShapeTriage`: **9/9** across all nine geometry types (write +
 Deferred (the geo_shape/shape query wrappers): `GeoShapeQueryFormatter` and `ShapeQueryFormatter`
 (`CompositeFormatter`) — field-name-keyed queries carrying an `IGeoShape`/indexed shape + relation.
 Now unblocked since the geometry converter exists.
+
+## 37. geo_shape query
+
+`GeoShapeQueryConverter` (`IGeoShapeQuery`) reproduces the `CompositeFormatter`'s field-name path:
+`_name`/`boost`/`ignore_unmapped` are written as siblings of the inferred field key, whose value is an
+object holding either `shape` (an `IGeoShape`, delegated to `GeoShapeConverter`) or `indexed_shape`
+(a `FieldLookup`) plus the `relation`. Read reverses this.
+
+Harness `poc/StjGeoShapeQueryTriage`: **3/3** (inline point + relation; envelope with
+name/boost/ignore_unmapped; indexed_shape). Deferred: the cartesian `shape` query (`ShapeQueryFormatter`
+via `CompositeFormatter`, with `CartesianPoint`/`IGeoShape`-like geometries) — analogous, next.

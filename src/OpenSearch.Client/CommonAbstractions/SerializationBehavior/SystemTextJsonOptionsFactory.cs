@@ -133,6 +133,7 @@ namespace OpenSearch.Client
 			options.Converters.Add(new GeoDistanceQueryConverter(settings));
 			options.Converters.Add(new GeoPolygonQueryConverter(settings));
 			options.Converters.Add(new GeoBoundingBoxQueryConverter(settings));
+			options.Converters.Add(new GeoShapeQueryConverter(settings));
 
 			// Specialized
 			options.Converters.Add(new RankFeatureQueryConverter(settings));
