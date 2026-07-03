@@ -959,3 +959,22 @@ port of `DynamicIndexSettingsFormatter`:
 Harness `poc/StjIndexSettingsTriage`: **5/5** (basic, translog, analysis, raw bag setting, array
 sorting) — exact write parity, and read compared against the oracle's own read (both rebuild the bag in
 `SetKnownIndexSettings` call order, so the baseline is oracle-read→write, not the original write order).
+
+## 46. Bucket-3 tail (Children, dynamic mapping, cluster reroute commands)
+
+- **`ChildrenConverter`** (`Children`, join relations) — a single relation as a string, multiple as an
+  array; relation-name inference delegated to the registered `RelationName` converter.
+- **`DynamicMappingConverter`** (`Union<bool, DynamicMapping>`, the mapping `dynamic` setting) — boolean
+  or the `"strict"` string; read maps `true`/`false` (bool or string) to the boolean arm and `"strict"`
+  to `DynamicMapping.Strict`. Registered globally for that closed union type (its sole use is
+  `TypeMapping.Dynamic`).
+- **`ClusterRerouteCommandConverter`** (`IClusterRerouteCommand`) — the same single-property discriminator
+  dispatch as processors (`allocate_replica`/`allocate_empty_primary`/`allocate_stale_primary`/`move`/
+  `cancel`), write via runtime type, read via a name→type map.
+
+Harness `poc/StjBucket3TailTriage`: **7/7** (Children single/multiple; TypeMapping dynamic=strict/false;
+reroute move/cancel/allocate_replica).
+
+With this, bucket 3 is essentially complete: the per-property + verbatim mechanisms, all value-type
+converters, the ~35-type ingest processor dispatch, dynamic_templates, the flatten/unflatten index
+settings, and these tail types are all migrated and parity-validated.

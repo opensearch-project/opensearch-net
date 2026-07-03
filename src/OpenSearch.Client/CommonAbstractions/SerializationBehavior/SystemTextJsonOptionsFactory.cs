@@ -206,6 +206,11 @@ namespace OpenSearch.Client
 			// Ingest pipeline processors (polymorphic dispatch).
 			options.Converters.Add(new ProcessorConverter());
 
+			// Other polymorphic / value converters.
+			options.Converters.Add(new ChildrenConverter());
+			options.Converters.Add(new DynamicMappingConverter());
+			options.Converters.Add(new ClusterRerouteCommandConverter());
+
 			// Generic [ReadAs] mapping for any remaining interface used as a nested property
 			// (e.g. ISpanQuery). Registered last so dedicated converters take precedence.
 			options.Converters.Add(new ReadAsConverterFactory());
