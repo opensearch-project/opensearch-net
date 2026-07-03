@@ -191,6 +191,7 @@ namespace OpenSearch.Client
 			options.Converters.Add(new PropertyInterfaceConverter());
 			options.Converters.Add(new PropertiesConverter(settings));
 			options.Converters.Add(new JoinFieldConverter(settings));
+			options.Converters.Add(new DynamicTemplatesConverter());
 			options.Converters.Add(new SimilarityConverter());
 			options.Converters.Add(new AutoExpandReplicasConverter());
 			options.Converters.Add(new AttachmentConverter());

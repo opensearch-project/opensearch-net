@@ -926,3 +926,14 @@ converter.
 
 Harness `poc/StjProcessorTriage`: **8/8** (set, rename, lowercase with common fields, convert, gsub,
 foreach with a nested uppercase, split, join).
+
+## 44. Mapping dynamic_templates
+
+`DynamicTemplatesConverter` (`IDynamicTemplateContainer`) serializes the ordered container as an array
+of single-property objects `[ { "<name>": { …template… } } ]` (matching the mapping wire format), and
+reads that array back into a `DynamicTemplateContainer`. Templates are serialized by their runtime type
+and read as `DynamicTemplate`; the nested `mapping` is an `IProperty` handled by the existing property
+converter. Registered globally (the container is always a mapping member).
+
+Harness `poc/StjDynTemplatesTriage`: **2/2** (single template; two templates with match/path_match and
+keyword/number/text mappings).
