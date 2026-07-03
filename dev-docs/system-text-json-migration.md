@@ -561,3 +561,38 @@ first) alongside the keyed/terms buckets, mirroring `ReadBucket`'s first-propert
 dispatch. Harness `poc/StjAggResponse2Parity`: **7/7** (percentiles,
 extended_stats, range buckets, date_histogram + sub-sum, plus avg/stats/terms
 regression checks).
+
+## 26. Request-side aggregation remainders (bespoke shapes)
+
+A triage of the request-side aggregations (`poc/StjAggReqTriage`) surfaced nine types whose
+Utf8Json formatters emit shapes the default `DataContractResolver` cannot reproduce — either
+because the significant properties are declared on the interface without `[DataMember]`, or
+because the body is re-keyed. Each got a dedicated `System.Text.Json` converter:
+
+- **`filter`** (`FilterAggregationConverter`) — the aggregation body IS the `Filter` query
+  container, written inline (not wrapped in another `filter` object). Sub-aggregations and `meta`
+  are emitted as siblings by the enclosing container, so the converter only writes the query.
+- **`percentiles` / `percentile_ranks`** (`PercentilesAggregationConverter`,
+  `PercentileRanksAggregationConverter`) — the `percents`/`values` arrays and the `tdigest`/`hdr`
+  method object are interface-only members that the resolver drops; the converters write the full
+  field/script/method/missing/array/keyed/format shape. The `tdigest`/`hdr` block is factored into
+  a shared `PercentilesMethodConverter` write helper.
+- **`terms`/`histogram` order** (`SortOrderConverter<TSortOrder>`) — serialized as
+  `{ "<key>": "asc|desc" }`.
+- **`terms` include/exclude** (`TermsIncludeConverter`/`TermsExcludeConverter`/
+  `IncludeExcludeConverter`) — string pattern, string-array value list, or partition object.
+- **`buckets_path`** (`BucketsPathConverter`) — single string, string array, or `{ name: path }`
+  object for pipeline aggregations.
+- **`calendar_interval`** (`UnionConverter<DateInterval?, DateMathTime>` +
+  `DateMathTimeConverter`) — the field is a `Union` of an interval enum and a date-math string; the
+  generic union converter writes whichever arm is set and reads first-arm-then-second, mirroring the
+  original best-effort formatter. `fixed_interval` reuses the existing `TimeConverter`.
+- **`composite` sources** (`CompositeAggregationSourceConverter`) — each source is wrapped as
+  `{ "<name>": { "<source_type>": { … } } }`. The inner body is serialized through the concrete
+  runtime type (`JsonSerializer.Serialize(writer, value, value.GetType(), options)`), which the
+  interface-scoped converter does not intercept, so there is no recursion and the `[DataMember]`
+  body (incl. the `Union`/`Time` interval members) is reused as-is.
+
+Harness `poc/StjAggReqTriage`: **9/9 full parity** (write + round-trip read) for filter,
+percentiles, percentile_ranks, terms+order, terms+include, histogram+order, date_histogram
+(calendar_interval), max_bucket (pipeline buckets_path), and composite (terms source).

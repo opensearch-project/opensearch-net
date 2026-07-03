@@ -87,6 +87,19 @@ namespace OpenSearch.Client
 
 			// Aggregations (request side)
 			options.Converters.Add(new AggregationDictionaryConverter());
+			options.Converters.Add(new SortOrderConverter<TermsOrder>());
+			options.Converters.Add(new SortOrderConverter<HistogramOrder>());
+			options.Converters.Add(new BucketsPathConverter());
+			options.Converters.Add(new TimeConverter());
+			options.Converters.Add(new TermsIncludeConverter());
+			options.Converters.Add(new TermsExcludeConverter());
+			options.Converters.Add(new IncludeExcludeConverter());
+			options.Converters.Add(new DateMathTimeConverter());
+			options.Converters.Add(new UnionConverter<DateInterval?, DateMathTime>());
+			options.Converters.Add(new FilterAggregationConverter());
+			options.Converters.Add(new PercentilesAggregationConverter());
+			options.Converters.Add(new PercentileRanksAggregationConverter());
+			options.Converters.Add(new CompositeAggregationSourceConverter());
 
 			// Aggregations (response side, read-only)
 			options.Converters.Add(new AggregateConverter());
