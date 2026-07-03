@@ -66,7 +66,12 @@ namespace OpenSearch.Net
 				typeInfo.CreateObject = () => CreateUninitialized(type);
 			}
 
-			var isDataContract = typeInfo.Type.GetCustomAttribute<DataContractAttribute>() != null;
+			// Opt-in serialization applies for [DataContract] types and for types implementing an
+			// [InterfaceDataContract] interface (the client's convention for queries, aggregations,
+			// scripts, …): only [DataMember] members serialize, so public helper/computed properties
+			// (e.g. IAggregation.Meta on a metric agg, BucketAggregationBase.Aggregations) are excluded.
+			var isDataContract = typeInfo.Type.GetCustomAttribute<DataContractAttribute>() != null
+				|| ImplementsInterfaceDataContract(typeInfo.Type);
 
 			// For a concrete class, pre-compute the interface maps so attributes declared on an
 			// implemented interface member are honored on the implementing property.
@@ -155,6 +160,14 @@ namespace OpenSearch.Net
 					typeInfo.Properties.Add(jsonProperty);
 				}
 			}
+		}
+
+		private static bool ImplementsInterfaceDataContract(Type type)
+		{
+			if (type.GetCustomAttribute<Utf8Json.InterfaceDataContractAttribute>() != null) return true;
+			foreach (var interfaceType in type.GetInterfaces())
+				if (interfaceType.GetCustomAttribute<Utf8Json.InterfaceDataContractAttribute>() != null) return true;
+			return false;
 		}
 
 		private static object CreateUninitialized(Type type) =>

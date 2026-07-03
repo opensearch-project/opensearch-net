@@ -485,3 +485,28 @@ Still deferred (a focused follow-up): the rest of the geo family
 (`geo_bounding_box`/`geo_polygon`/`geo_shape`/`shape` with the geo-shape geometry
 union), `distance_feature`, `more_like_this`, `percolate`, `neural`, `intervals`,
 and `fuzzy`.
+
+## 23. Aggregations — request side
+
+`AggregationContainer` mirrors `QueryContainer` (verb-named nullable properties,
+public implementations, `[ReadAs]`), so the resolver + `ReadAsConverterFactory`
+handle it. The one new piece is `AggregationDictionaryConverter` for the user-named
+`aggs` map (`{ "<name>": { <aggregation> }, … }`), an `IsADictionaryBase` with an
+explicit `IDictionary` implementation STJ can't handle on its own.
+
+This surfaced the last general resolver gap: **`[InterfaceDataContract]` opt-in**.
+`IAggregation` is `[InterfaceDataContract]`, so `Meta`/`Name` (no `[DataMember]`)
+and `BucketAggregationBase.Aggregations` must be excluded from an aggregation's
+body (they live at the container level). Utf8Json treats implementing an
+`[InterfaceDataContract]` interface as opt-in; the resolver now does the same
+(`[DataContract]` on the type OR any implemented interface marked
+`[InterfaceDataContract]` → only `[DataMember]` members serialize). This is a
+general correctness improvement — it also cleanly excludes query helper properties
+(`IsWritable`, …) that the earlier name-match rule handled case-by-case — and it
+caused **no regression** (the full query triage stayed green at 30/30).
+
+Harness `poc/StjAggregationParity`: **11/11 write + round-trip read** — metric
+(avg/max/min/sum/value_count/cardinality/stats), bucket (terms, terms+size,
+histogram), and a `terms > avg` nested sub-aggregation. Deferred: the response side
+(`Aggregate`/`AggregateDictionary`, a large bespoke typed-response reader) and
+aggregations with their own formatters (composite, filters, percentiles, …).

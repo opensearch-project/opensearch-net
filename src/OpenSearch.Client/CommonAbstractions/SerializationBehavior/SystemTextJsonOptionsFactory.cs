@@ -84,6 +84,9 @@ namespace OpenSearch.Client
 			// Specialized
 			options.Converters.Add(new RankFeatureQueryConverter(settings));
 
+			// Aggregations (request side)
+			options.Converters.Add(new AggregationDictionaryConverter());
+
 			// Generic [ReadAs] mapping for any remaining interface used as a nested property
 			// (e.g. ISpanQuery). Registered last so dedicated converters take precedence.
 			options.Converters.Add(new ReadAsConverterFactory());
