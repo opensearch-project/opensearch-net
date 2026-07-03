@@ -897,3 +897,18 @@ formatter):
 
 Harness `poc/StjBulkSuggestTriage`: **6/6** (four bulk operation items compared by type/operation/
 status/id; suggest dictionary keys + content via a member wrapper).
+
+## 42. GetRepositoryResponse (repository-type dispatch)
+
+`GetRepositoryResponseConverter` (`GetRepositoryResponse`, read-only) reads `{ "<name>": { "type": …,
+"settings": { … } } }` entries, dispatching on `type` to the concrete repository
+(`fs`/`url`/`azure`/`s3`/`hdfs`) whose settings are deserialized and passed to its constructor (via the
+`CreateInstance` helper, mirroring the formatter), while `source` deserializes the whole entry as an
+`ISourceOnlyRepository`. `error`/`status` handled inline.
+
+Harness `poc/StjGetRepoTriage`: **2/2** (fs+s3, url+hdfs) comparing the deserialized `Repositories`
+map (type + re-serialized settings) against the oracle.
+
+Remaining response readers: `LazyDocument`/`FieldValues` (deferred deserialization — coupled to the
+Utf8Json path, needs a type-level decision) and the request-bound `multi_get`/`multi_search` builders
+(compiled per-CLR-type delegates keyed on the originating request).

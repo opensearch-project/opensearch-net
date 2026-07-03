@@ -170,6 +170,7 @@ namespace OpenSearch.Client
 			options.Converters.Add(new CatFielddataRecordConverter());
 
 			options.Converters.Add(new BulkResponseItemConverter());
+			options.Converters.Add(new GetRepositoryResponseConverter());
 
 			// Top-level dictionary/dynamic response readers (recognized by their [JsonFormatter] type).
 			options.Converters.Add(new ResponseFormatterConverterFactory(settings));
