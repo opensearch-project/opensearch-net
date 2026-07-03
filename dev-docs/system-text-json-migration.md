@@ -481,10 +481,13 @@ they contributed reusable value converters:
 Harness `poc/StjQueryTailParity`: **5/5** — geo_distance (with/without
 validation/type/boost) and rank_feature (field-only, +boost, +saturation function).
 
-Still deferred (a focused follow-up): the rest of the geo family
-(`geo_bounding_box`/`geo_polygon`/`geo_shape`/`shape` with the geo-shape geometry
-union), `distance_feature`, `more_like_this`, `percolate`, `neural`, `intervals`,
-and `fuzzy`.
+`geo_polygon` is also done (`GeoPolygonQueryConverter`, reusing `GeoLocation`):
+flattened `_name`/`boost`/`validation_method` + `{ "<field>": { "points": [ … ] } }`
+— `poc/StjGeoPolygonParity` **2/2**.
+
+Still deferred (a focused follow-up): `geo_bounding_box`/`geo_shape`/`shape` (the
+`IBoundingBox` and geo-shape geometry unions), `distance_feature`,
+`more_like_this`, `percolate`, `neural`, `intervals`, and `fuzzy`.
 
 ## 23. Aggregations — request side
 

@@ -80,6 +80,7 @@ namespace OpenSearch.Client
 			options.Converters.Add(new DistanceConverter());
 			options.Converters.Add(new GeoLocationConverter());
 			options.Converters.Add(new GeoDistanceQueryConverter(settings));
+			options.Converters.Add(new GeoPolygonQueryConverter(settings));
 
 			// Specialized
 			options.Converters.Add(new RankFeatureQueryConverter(settings));
