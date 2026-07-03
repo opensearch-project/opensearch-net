@@ -430,3 +430,39 @@ Harness `poc/StjRangeQueryParity`: **6/6 write + round-trip read** — numeric
 range. This completes the everyday query DSL; remaining are the specialized
 field-name queries (knn, neural, intervals, span_term, terms_set) and compound/
 span/specialized queries.
+
+## 21. Bulk of the query DSL — triage-driven
+
+Rather than convert each remaining query type blindly, a triage harness
+(`poc/StjQueryDslTriage`) ran a representative instance of each remaining verb
+through the consolidated factory and reported write/read parity. This showed most
+compound/full-text queries (`dis_max`, `constant_score`, `function_score`,
+`nested`, `query_string`, `script`, `script_score`) already worked — they are
+plain objects the resolver + `[ReadAs]` handle. The failures drove three general
+resolver capabilities and a few value converters:
+
+- **Explicit interface implementations.** The fluent descriptors (the `[ReadAs]`
+  targets for `boosting`, `simple_query_string`, …) implement their interfaces
+  explicitly, which STJ ignores. The resolver now surfaces interface `[DataMember]`
+  members not otherwise present, reading/writing through the interface (Utf8Json's
+  `allowPrivate`).
+- **Name-matched interface attributes.** A concrete type may expose a public helper
+  property (e.g. `SpanQuery.IsWritable`) parallel to an explicit
+  `IQuery.IsWritable` marked `[IgnoreDataMember]`; the interface map points at the
+  explicit method, so the resolver also matches interface properties by name to
+  inherit `[IgnoreDataMember]`/`[DataMember]`.
+- **Generic `[ReadAs]`.** `ReadAsConverterFactory` honors `[ReadAs]` for any
+  interface used as a nested property (e.g. `ISpanQuery` inside `span_first`),
+  which STJ otherwise cannot instantiate.
+
+Plus value converters for `Id` (`ids`), `Fields` (`multi_match`/`simple_query_string`),
+`RelationName` (`has_child`/`has_parent`/`parent_id`), the bespoke flattened
+`terms` query, and registrations for the field-name-keyed `terms_set`, `span_term`,
+and `knn`. Result: **28/30** in the triage (incl. an analysis/script regression
+cross-check through the same factory), covering compound, joining, span, term-level,
+and full-text queries.
+
+Still deferred (bespoke geo/specialized formatters, a focused follow-up): the geo
+family (`geo_distance`/`geo_bounding_box`/`geo_polygon`/`geo_shape`/`shape` with
+`GeoLocation`/`Distance`/geo-shape unions), `rank_feature`/`distance_feature`,
+`more_like_this`, `percolate`, `neural`, `intervals`, and `fuzzy`.

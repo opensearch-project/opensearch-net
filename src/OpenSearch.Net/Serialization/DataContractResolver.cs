@@ -112,6 +112,49 @@ namespace OpenSearch.Net
 					property.Set = (obj, value) => setMethod.Invoke(obj, new[] { value });
 				}
 			}
+
+			AddExplicitInterfaceProperties(typeInfo);
+		}
+
+		/// <summary>
+		/// STJ's default resolver ignores explicit interface implementations (they are non-public).
+		/// The client's fluent descriptors implement their query/DSL interfaces explicitly, and are the
+		/// <c>[ReadAs]</c> targets used on deserialize, so their <c>[DataMember]</c> members must be
+		/// (de)serialized. Add a property for each interface <c>[DataMember]</c> not already surfaced,
+		/// reading/writing through the interface (mirrors Utf8Json's <c>allowPrivate</c>).
+		/// </summary>
+		private static void AddExplicitInterfaceProperties(JsonTypeInfo typeInfo)
+		{
+			if (typeInfo.Type.IsInterface || typeInfo.Type.IsAbstract) return;
+
+			var existing = new HashSet<string>(StringComparer.Ordinal);
+			foreach (var p in typeInfo.Properties) existing.Add(p.Name);
+
+			foreach (var interfaceType in typeInfo.Type.GetInterfaces())
+			{
+				foreach (var interfaceProperty in interfaceType.GetProperties())
+				{
+					if (interfaceProperty.GetCustomAttribute<IgnoreDataMemberAttribute>() != null) continue;
+
+					var dataMember = interfaceProperty.GetCustomAttribute<DataMemberAttribute>();
+					if (dataMember == null) continue;
+
+					var name = !string.IsNullOrEmpty(dataMember.Name) ? dataMember.Name : interfaceProperty.Name;
+					if (!existing.Add(name)) continue; // already surfaced (public implementation or another interface)
+
+					var jsonProperty = typeInfo.CreateJsonPropertyInfo(interfaceProperty.PropertyType, name);
+					jsonProperty.Get = interfaceProperty.CanRead ? interfaceProperty.GetValue : null;
+					jsonProperty.Set = interfaceProperty.CanWrite ? interfaceProperty.SetValue : null;
+
+					var shouldSerialize = typeInfo.Type.GetMethod(
+						"ShouldSerialize" + interfaceProperty.Name,
+						BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance, null, Type.EmptyTypes, null);
+					if (shouldSerialize != null && shouldSerialize.ReturnType == typeof(bool))
+						jsonProperty.ShouldSerialize = (obj, _) => (bool)shouldSerialize.Invoke(obj, null);
+
+					typeInfo.Properties.Add(jsonProperty);
+				}
+			}
 		}
 
 		private static object CreateUninitialized(Type type) =>
@@ -177,6 +220,19 @@ namespace OpenSearch.Net
 
 					break;
 				}
+			}
+
+			// Also match interface properties by name. A concrete type may declare a public helper
+			// property (e.g. SpanQuery.IsWritable) that parallels an explicit interface implementation
+			// (IQuery.IsWritable, marked [IgnoreDataMember]); the interface map points at the explicit
+			// method, not the public one, so a name match is needed to inherit the attribute.
+			foreach (var map in interfaceMaps)
+			{
+				var info = map.InterfaceType.GetProperty(member.Name);
+				if (info == null) continue;
+				interfaceProps ??= new List<PropertyInfo>();
+				if (!interfaceProps.Contains(info))
+					interfaceProps.Add(info);
 			}
 
 			return interfaceProps;

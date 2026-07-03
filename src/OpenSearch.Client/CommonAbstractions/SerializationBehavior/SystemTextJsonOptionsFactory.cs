@@ -35,9 +35,12 @@ namespace OpenSearch.Client
 			options.Converters.Add(SingleFormatConverter.Instance);
 			options.Converters.Add(StringEnumConverterFactory.Instance);
 
-			// Settings-bearing converters (field-name inference — decision D1).
+			// Settings-bearing converters (field-name / id inference — decision D1).
 			options.Converters.Add(new FieldConverter(settings));
+			options.Converters.Add(new FieldsConverter(settings));
 			options.Converters.Add(new PropertyNameConverter(settings));
+			options.Converters.Add(new IdConverter(settings));
+			options.Converters.Add(new RelationNameConverter(settings));
 
 			// Value-type and polymorphic converters (OpenSearch.Client).
 			options.Converters.Add(new StopWordsConverter());
@@ -59,6 +62,10 @@ namespace OpenSearch.Client
 			options.Converters.Add(new FieldNameQueryConverter<MatchPhraseQuery, IMatchPhraseQuery>(settings));
 			options.Converters.Add(new FieldNameQueryConverter<MatchPhrasePrefixQuery, IMatchPhrasePrefixQuery>(settings));
 			options.Converters.Add(new FieldNameQueryConverter<MatchBoolPrefixQuery, IMatchBoolPrefixQuery>(settings));
+			options.Converters.Add(new TermsQueryConverter(settings));
+			options.Converters.Add(new FieldNameQueryConverter<TermsSetQuery, ITermsSetQuery>(settings));
+			options.Converters.Add(new FieldNameQueryConverter<SpanTermQuery, ISpanTermQuery>(settings));
+			options.Converters.Add(new FieldNameQueryConverter<KnnQuery, IKnnQuery>(settings));
 
 			// Range family: IRangeQuery sniffs the bound types and dispatches to the concrete range,
 			// each of which is a field-name-keyed query.
@@ -68,6 +75,10 @@ namespace OpenSearch.Client
 			options.Converters.Add(new FieldNameQueryConverter<LongRangeQuery, ILongRangeQuery>(settings));
 			options.Converters.Add(new FieldNameQueryConverter<TermRangeQuery, ITermRangeQuery>(settings));
 			options.Converters.Add(new FieldNameQueryConverter<DateRangeQuery, IDateRangeQuery>(settings));
+
+			// Generic [ReadAs] mapping for any remaining interface used as a nested property
+			// (e.g. ISpanQuery). Registered last so dedicated converters take precedence.
+			options.Converters.Add(new ReadAsConverterFactory());
 
 			return options;
 		}
