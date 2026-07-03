@@ -530,3 +530,27 @@ object/nested with sub-properties. This landed with no new resolver work — the
 foundations covered the property bodies. (The per-property dedup/`ClrOrigin` HACK
 used by expression-based `AutoMap` is deferred; direct name-based mappings are a
 passthrough.)
+
+## 25. Aggregation response reader (first slice)
+
+The response side (`IAggregate`/`AggregateDictionary`) is the client's largest
+bespoke reader — a ~1,100-line Utf8Json heuristic that peeks at property names to
+infer the aggregate result type. The tractable STJ port buffers each aggregate
+object to a `JsonElement` and applies the same heuristics on it (rather than
+mirroring the streaming reader). `AggregateConverter` (read-only) dispatches:
+`value` → `ValueAggregate`; `count`+min/max/avg/sum → `StatsAggregate`; `buckets`
+→ `BucketAggregate` of keyed buckets; `doc_count` (no buckets) →
+`SingleBucketAggregate`. Non-reserved object properties in a bucket are named
+sub-aggregations and recurse. `AggregateResponseDictionaryConverter` reads the
+`aggregations` map (typed-key `type#name` resolution is handled by
+`AggregateDictionary`).
+
+Validation is by value (the type is read-only): sample response JSON is
+deserialized with both the Utf8Json oracle and the STJ stack and the extracted
+values compared. Harness `poc/StjAggregateResponseParity`: **5/5** — avg,
+value_count, stats, single-bucket (filter) with a sub-avg, and a terms
+multi-bucket with per-bucket sub-avg.
+
+Deferred (subsequent slices of the reader): percentiles/extended-stats, geo
+(bounds/centroid/line), top_hits, matrix_stats, range/date-histogram/composite/
+significant-terms buckets, and scripted-metric.

@@ -88,6 +88,10 @@ namespace OpenSearch.Client
 			// Aggregations (request side)
 			options.Converters.Add(new AggregationDictionaryConverter());
 
+			// Aggregations (response side, read-only)
+			options.Converters.Add(new AggregateConverter());
+			options.Converters.Add(new AggregateResponseDictionaryConverter());
+
 			// Mappings
 			options.Converters.Add(new PropertyInterfaceConverter());
 			options.Converters.Add(new PropertiesConverter(settings));
