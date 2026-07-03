@@ -510,3 +510,20 @@ Harness `poc/StjAggregationParity`: **11/11 write + round-trip read** — metric
 histogram), and a `terms > avg` nested sub-aggregation. Deferred: the response side
 (`Aggregate`/`AggregateDictionary`, a large bespoke typed-response reader) and
 aggregations with their own formatters (composite, filters, percentiles, …).
+
+## 24. Mappings / properties
+
+The mapping properties are a `type`-discriminated union (`text`/`keyword`/numeric/
+`date`/`object`/`nested`/…) inside a named `properties` dictionary. Two converters:
+`PropertyInterfaceConverter` dispatches `IProperty` on `type` (the eight numeric
+types collapse to `NumberProperty` with its wire `Type` preserved; a missing or
+unknown type falls back to `ObjectProperty`, matching `PropertyFormatter`), and
+`PropertiesConverter` handles the `PropertyName` → `IProperty` map with inferred
+keys. Multi-fields (`fields`) and `object`/`nested` sub-properties recurse.
+
+Harness `poc/StjMappingParity`: **11/11 write + round-trip read** — text, keyword,
+integer/float numbers, date, boolean, geo_point, ip, text with multi-fields, and
+object/nested with sub-properties. This landed with no new resolver work — the
+foundations covered the property bodies. (The per-property dedup/`ClrOrigin` HACK
+used by expression-based `AutoMap` is deferred; direct name-based mappings are a
+passthrough.)

@@ -87,6 +87,10 @@ namespace OpenSearch.Client
 			// Aggregations (request side)
 			options.Converters.Add(new AggregationDictionaryConverter());
 
+			// Mappings
+			options.Converters.Add(new PropertyInterfaceConverter());
+			options.Converters.Add(new PropertiesConverter(settings));
+
 			// Generic [ReadAs] mapping for any remaining interface used as a nested property
 			// (e.g. ISpanQuery). Registered last so dedicated converters take precedence.
 			options.Converters.Add(new ReadAsConverterFactory());
