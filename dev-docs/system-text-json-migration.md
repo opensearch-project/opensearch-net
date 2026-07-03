@@ -349,3 +349,32 @@ serialized as `{ "<field>": {…} }`), which require threading `ConnectionSettin
 (the field inferrer) into the options (decision D1); and conditionless-element
 filtering within clause arrays. The dispatch for those verbs is already registered
 in the container converter.
+
+## 18. Settings threading + field-name inference (decision D1)
+
+Field/property serialization depends on `ConnectionSettings` (the inferrer maps a
+`Field`/`PropertyName` — including typed lambda expressions like `p => p.StockQuantity`
+— to a wire name). Utf8Json reached settings through
+`IJsonFormatterResolverWithSettings`; STJ has no equivalent, so per decision D1 the
+settings are **threaded through the converters**: `FieldConverter` and
+`PropertyNameConverter` are constructed with `IConnectionSettingsValues` and call
+`settings.Inferrer.Field`/`.PropertyName`. Both also implement STJ's
+`ReadAsPropertyName`/`WriteAsPropertyName` so a `Field` can be used as an object key.
+
+This is the last foundational piece, so it also introduces
+`SystemTextJsonOptionsFactory.Create(IConnectionSettingsValues)` — the single place
+that assembles the `JsonSerializerOptions`: the resolver, encoder, null-omission,
+the stateless converters (object, number, enum), the settings-bearing
+`Field`/`PropertyName`, and every migrated value/polymorphic/query converter. This
+is the integration seam the high-level client will use, and it makes future work a
+one-line registration.
+
+Harness `poc/StjFieldInferenceParity` (built entirely from the factory): **8/8** —
+`exists` with a string field (verbatim), with expression fields (`p => p.Name` →
+`name`, `p => p.StockQuantity` → `stockQuantity`), plus a re-validation that a
+tokenizer, token filter, analyzer, script, and `bool`/`match_all` query all still
+round-trip through the one consolidated options instance.
+
+Still deferred: field-name-**keyed** leaf queries (`term`/`match`/`range` as
+`{ "<field>": {…} }`) — the `FieldNameQuery` wrapper — now unblocked since the
+inference plumbing exists.
