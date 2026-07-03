@@ -35,6 +35,10 @@ namespace OpenSearch.Client
 			Cache.GetOrAdd(typeToConvert, t =>
 			{
 				var concrete = t.GetCustomAttribute<ReadAsAttribute>().Type;
+				// An open-generic [ReadAs(typeof(Foo<>))] on a closed generic interface (e.g.
+				// ISuggest<object> → Suggest<>) must be closed over the interface's type arguments.
+				if (concrete.IsGenericTypeDefinition && t.IsGenericType)
+					concrete = concrete.MakeGenericType(t.GetGenericArguments());
 				var converterType = typeof(ReadAsConverter<,>).MakeGenericType(t, concrete);
 				return (JsonConverter)Activator.CreateInstance(converterType);
 			});

@@ -874,3 +874,26 @@ key/value sets against the oracle. This one factory covers ~10 response types.
 Next: the request-bound `multi_get`/`multi_search` response builders (compiled per-CLR-type delegates)
 and `GetRepositoryResponse` (repo-type dispatch); `LazyDocument` (deferred deserialization) is coupled
 to the Utf8Json path and needs a type-level decision.
+
+## 41. bulk response items + suggest dictionary (+ open-generic hardening)
+
+- **`BulkResponseItemConverter`** (`BulkResponseItemBase`) — read-only; each item is a single-property
+  wrapper (`index`/`create`/`update`/`delete`) selecting the concrete response-item type, then the
+  wrapped object deserializes normally.
+- **`SuggestDictionaryConverter<T>`** (`ISuggestDictionary<T>`) — reads the `suggest` map
+  (`string` → `ISuggest<T>[]`) into a `SuggestDictionary<T>`; registered in the open-generic
+  per-property map (it is always a response member).
+
+Two infrastructure hardenings were needed for the suggest path (both benefit any generic type-level
+formatter):
+1. `ReadAsConverterFactory` now closes an **open-generic** `[ReadAs(typeof(Foo<>))]` over the closed
+   interface's type arguments (e.g. `ISuggest<object>` → `Suggest<object>`); previously it tried to
+   instantiate the open `Suggest<>` and threw.
+2. The per-property resolver now derives the converter's type arguments from the **declared member
+   type** when the formatter attribute is an open generic (a generic interface such as
+   `ISuggestDictionary<T>` carries `SuggestDictionaryFormatter<>` open), while still using the
+   formatter's own arguments when they are concrete (the verbatim-dictionary case). Closed-formatter
+   behavior is unchanged.
+
+Harness `poc/StjBulkSuggestTriage`: **6/6** (four bulk operation items compared by type/operation/
+status/id; suggest dictionary keys + content via a member wrapper).

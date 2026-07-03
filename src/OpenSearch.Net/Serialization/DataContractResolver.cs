@@ -147,7 +147,7 @@ namespace OpenSearch.Net
 				// such as IAnalyzers carry the attribute on the interface, not the member).
 				var formatter = GetAttribute<Utf8Json.JsonFormatterAttribute>(member, interfaceProps)
 					?? member.PropertyType.GetCustomAttribute<Utf8Json.JsonFormatterAttribute>(false);
-				if (formatter != null && TryGetPropertyConverter(formatter.FormatterType, out var propertyConverter))
+				if (formatter != null && TryGetPropertyConverter(formatter.FormatterType, member.PropertyType, out var propertyConverter))
 					property.CustomConverter = propertyConverter;
 			}
 
@@ -192,7 +192,7 @@ namespace OpenSearch.Net
 
 					var formatter = interfaceProperty.GetCustomAttribute<Utf8Json.JsonFormatterAttribute>(true)
 						?? interfaceProperty.PropertyType.GetCustomAttribute<Utf8Json.JsonFormatterAttribute>(false);
-					if (formatter != null && TryGetPropertyConverter(formatter.FormatterType, out var converter))
+					if (formatter != null && TryGetPropertyConverter(formatter.FormatterType, interfaceProperty.PropertyType, out var converter))
 						jsonProperty.CustomConverter = converter;
 
 					typeInfo.Properties.Add(jsonProperty);
@@ -208,7 +208,8 @@ namespace OpenSearch.Net
 		/// in <see cref="PropertyConverterOverridesOpenGeneric"/> (closing the converter over the
 		/// formatter's type arguments and caching the result).
 		/// </summary>
-		private static bool TryGetPropertyConverter(Type formatterType, out System.Text.Json.Serialization.JsonConverter converter)
+		private static bool TryGetPropertyConverter(Type formatterType, Type declaredType,
+			out System.Text.Json.Serialization.JsonConverter converter)
 		{
 			if (PropertyConverterOverrides.Count > 0 && PropertyConverterOverrides.TryGetValue(formatterType, out converter))
 				return true;
@@ -216,9 +217,17 @@ namespace OpenSearch.Net
 			if (PropertyConverterOverridesOpenGeneric.Count > 0 && formatterType.IsGenericType
 				&& PropertyConverterOverridesOpenGeneric.TryGetValue(formatterType.GetGenericTypeDefinition(), out var converterDefinition))
 			{
-				converter = ClosedConverterCache.GetOrAdd(formatterType,
-					ft => (System.Text.Json.Serialization.JsonConverter)Activator.CreateInstance(
-						converterDefinition.MakeGenericType(ft.GetGenericArguments())));
+				// The converter is closed over the formatter's own type arguments when they are concrete
+				// (e.g. VerbatimDictionaryKeysFormatter<Analyzers, IAnalyzers, string, IAnalyzer>), but a
+				// generic interface carries an open formatter (e.g. ISuggestDictionary<T> →
+				// SuggestDictionaryFormatter<>), in which case the arguments come from the declared type.
+				var typeArguments = formatterType.ContainsGenericParameters && declaredType != null && declaredType.IsGenericType
+					? declaredType.GetGenericArguments()
+					: formatterType.GetGenericArguments();
+
+				var cacheKey = converterDefinition.MakeGenericType(typeArguments);
+				converter = ClosedConverterCache.GetOrAdd(cacheKey,
+					closed => (System.Text.Json.Serialization.JsonConverter)Activator.CreateInstance(closed));
 				return true;
 			}
 

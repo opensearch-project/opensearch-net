@@ -57,6 +57,7 @@ namespace OpenSearch.Client
 				openMap[typeof(VerbatimDictionaryKeysFormatter<,>)] = typeof(VerbatimDictionaryKeysConverter<,>);
 				openMap[typeof(VerbatimDictionaryKeysPreservingNullFormatter<,>)] = typeof(VerbatimDictionaryKeysPreservingNullConverter<,>);
 				openMap[typeof(VerbatimDictionaryKeysBaseFormatter<,,>)] = typeof(VerbatimDictionaryKeysBaseConverter<,,>);
+				openMap[typeof(SuggestDictionaryFormatter<>)] = typeof(SuggestDictionaryConverter<>);
 
 				_perPropertyRegistered = true;
 			}
@@ -167,6 +168,8 @@ namespace OpenSearch.Client
 			options.Converters.Add(new TrackTotalHitsConverter());
 			options.Converters.Add(new KeyedProcessorStatsConverter());
 			options.Converters.Add(new CatFielddataRecordConverter());
+
+			options.Converters.Add(new BulkResponseItemConverter());
 
 			// Top-level dictionary/dynamic response readers (recognized by their [JsonFormatter] type).
 			options.Converters.Add(new ResponseFormatterConverterFactory(settings));
