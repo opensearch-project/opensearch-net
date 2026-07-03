@@ -792,3 +792,19 @@ rule bodies, nested filters and recursive `all_of`/`any_of` interval lists round
 `DataContractResolver` + `[ReadAs]` factory.
 
 Harness `poc/StjIntervalsTriage`: **3/3** (match; prefix; all_of with nested match rules).
+
+## 36. IGeoShape geometry hierarchy
+
+`GeoShapeConverter` (`IGeoShape`, type-level formatter) mirrors `GeoShapeFormatter`: a shape with
+`Format == WellKnownText` writes/reads a WKT string (via the existing `GeoWKTWriter`/`GeoWKTReader`),
+otherwise a GeoJSON object with a `type` discriminator plus per-shape `coordinates`
+(point/circle → `GeoCoordinate`; multipoint/linestring/envelope → `List<GeoCoordinate>`;
+multilinestring/polygon → nested once; multipolygon → nested twice), `radius` for circle, and
+`geometries` for the collection (which recurses through the converter). Coordinates delegate to the
+already-registered `GeoCoordinateConverter` (`[lon,lat]` arrays).
+
+Harness `poc/StjGeoShapeTriage`: **9/9** across all nine geometry types (write + round-trip read).
+
+Deferred (the geo_shape/shape query wrappers): `GeoShapeQueryFormatter` and `ShapeQueryFormatter`
+(`CompositeFormatter`) — field-name-keyed queries carrying an `IGeoShape`/indexed shape + relation.
+Now unblocked since the geometry converter exists.
