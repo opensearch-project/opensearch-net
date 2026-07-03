@@ -104,6 +104,8 @@ namespace OpenSearch.Client
 			options.Converters.Add(new FieldNameQueryConverter<KnnQuery, IKnnQuery>(settings));
 			options.Converters.Add(new FieldNameQueryConverter<NeuralQuery, INeuralQuery>(settings));
 			options.Converters.Add(new MultiTermQueryRewriteConverter());
+			options.Converters.Add(new FuzzyQueryConverter(settings));
+			options.Converters.Add(new LikeConverter());
 
 			// Range family: IRangeQuery sniffs the bound types and dispatches to the concrete range,
 			// each of which is a field-name-keyed query.

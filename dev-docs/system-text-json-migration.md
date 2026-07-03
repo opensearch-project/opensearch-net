@@ -735,3 +735,22 @@ string form (`"constant_score"`, `"top_terms_10"`, …) and reading back via its
 
 Harness `poc/StjQueryTail2Triage`: **5/5** (neural with/without model_id; wildcard/prefix with
 constant_score / top_terms_N / scoring_boolean rewrites).
+
+## 33. fuzzy query + more_like_this (Like)
+
+Two more query-tail converters (drafted by parallel sub-agents, integrated centrally):
+
+- **`FuzzyQueryConverter`** (`IFuzzyQuery`) — field-name-keyed; on read it selects the concrete type
+  from the `value` token (number → `FuzzyNumericQuery`; date-parseable string → `FuzzyDateQuery`;
+  else `FuzzyQuery`) and sets the correctly-typed `fuzziness` (`Fuzziness` / `Time` / `double?`). One
+  integration fix: the body member order had to match the concrete interfaces' `[DataMember]`
+  declaration order the dynamic resolver emitted — `fuzziness, value, max_expansions, prefix_length,
+  transpositions, rewrite, boost, _name` — not the read-dictionary order the sub-agent first used.
+  `value`/`fuzziness` are delegated through `JsonSerializer` (fuzziness cast to `IFuzziness`) so the
+  registered `Fuzziness`/`Time`/`MultiTermQueryRewrite` converters apply.
+- **`LikeConverter`** (`Like` = `Union<string, ILikeDocument>`) — string arm → text; object arm →
+  `LikeDocument<object>`. `MoreLikeThisQuery.Like`/`Unlike` are `IEnumerable<Like>`; STJ frames the
+  array and invokes the converter per element, so no separate collection converter is needed.
+
+Harness `poc/StjFuzzyMltTriage`: **6/6** (fuzzy string / string+rewrite / numeric / date; more_like_this
+text-like and document-like).
