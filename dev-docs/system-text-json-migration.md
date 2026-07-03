@@ -847,3 +847,30 @@ round-trip via oracle re-serialize for the first three, field comparison for the
 
 Next: `LazyDocument`/`ILazyDocument` (raw-JSON capture; foundational for `FieldValues` and hit sources),
 then the shared dictionary-response base family, then the request-bound multi_get/multi_search builders.
+
+## 40. Dictionary/dynamic response family (converter factory)
+
+Many top-level responses are `DictionaryResponseBase<TKey,TValue>` carrying a type-level
+`[JsonFormatter(typeof(DictionaryResponseFormatter<…>))]` / `ResolvableDictionaryResponseFormatter<…>`
+/ `DynamicResponseFormatter<…>`. Because they're deserialized at the top level (not as members), the
+per-property hook doesn't apply — the STJ mechanism is a `JsonConverterFactory`.
+
+`ResponseFormatterConverterFactory` (settings-bearing) recognizes those three formatter generic
+definitions via the response type's `[JsonFormatter]` attribute and produces a read-only converter
+closed over the same type args:
+- `DictionaryResponseConverter<TResponse,TKey,TValue>` — reads `error`/`status` inline (mirroring
+  `ResponseFormatterHelpers.ServerErrorFields`) and every other property as a key/value pair into the
+  `BackingDictionary`.
+- `ResolvableDictionaryResponseConverter<…>` — same, wrapping the result in a
+  `ResolvableDictionaryProxy` built from the connection settings (threaded through the factory).
+- `DynamicResponseConverter<TResponse>` — builds a `DynamicDictionary` from a `Dictionary<string,object>`.
+Keys are converted from the property name by round-tripping through the registered key converter
+(`IndexName`/`string`/…). All are read-only (write throws).
+
+Harness `poc/StjDictResponseTriage`: **3/3** — `GetPipelineResponse` (string keys), `GetIndexTemplateResponse`,
+and `GetIndexResponse` (resolvable, `IndexName` keys), comparing the deserialized `BackingDictionary`
+key/value sets against the oracle. This one factory covers ~10 response types.
+
+Next: the request-bound `multi_get`/`multi_search` response builders (compiled per-CLR-type delegates)
+and `GetRepositoryResponse` (repo-type dispatch); `LazyDocument` (deferred deserialization) is coupled
+to the Utf8Json path and needs a type-level decision.

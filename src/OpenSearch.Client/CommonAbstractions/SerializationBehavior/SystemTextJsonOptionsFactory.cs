@@ -168,6 +168,9 @@ namespace OpenSearch.Client
 			options.Converters.Add(new KeyedProcessorStatsConverter());
 			options.Converters.Add(new CatFielddataRecordConverter());
 
+			// Top-level dictionary/dynamic response readers (recognized by their [JsonFormatter] type).
+			options.Converters.Add(new ResponseFormatterConverterFactory(settings));
+
 			// Infer / identity value types.
 			options.Converters.Add(new IndexNameConverter(settings));
 			options.Converters.Add(new IndicesConverter(settings));
