@@ -724,3 +724,14 @@ element serialization, so they never re-enter the per-property converter.
 
 Harness `poc/StjSingleOrEnumTriage`: **6/6** — CustomAnalyzer array write + single-string/array reads,
 and GeoSuggestContext first-only write + single/array reads.
+
+## 32. neural query + MultiTermQueryRewrite
+
+`neural` uses the generic `FieldNameQueryFormatter<NeuralQuery, INeuralQuery>` with a simple
+`query_text`/`k`/`model_id` body, so it needed only a `FieldNameQueryConverter<NeuralQuery,
+INeuralQuery>` registration (the existing generic field-name-keyed converter). `MultiTermQueryRewrite`
+— the `rewrite` option shared by fuzzy/wildcard/prefix/regexp — got a small converter serializing its
+string form (`"constant_score"`, `"top_terms_10"`, …) and reading back via its string factory.
+
+Harness `poc/StjQueryTail2Triage`: **5/5** (neural with/without model_id; wildcard/prefix with
+constant_score / top_terms_N / scoring_boolean rewrites).
