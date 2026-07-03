@@ -162,6 +162,12 @@ namespace OpenSearch.Client
 			options.Converters.Add(new AggregateConverter());
 			options.Converters.Add(new AggregateResponseDictionaryConverter());
 
+			// Other response-side value readers.
+			options.Converters.Add(new TotalHitsConverter());
+			options.Converters.Add(new TrackTotalHitsConverter());
+			options.Converters.Add(new KeyedProcessorStatsConverter());
+			options.Converters.Add(new CatFielddataRecordConverter());
+
 			// Infer / identity value types.
 			options.Converters.Add(new IndexNameConverter(settings));
 			options.Converters.Add(new IndicesConverter(settings));

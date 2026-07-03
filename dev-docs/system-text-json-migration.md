@@ -828,3 +828,22 @@ field-name-keyed structure (`_name`/`boost`/`ignore_unmapped` siblings + field k
 
 Harness `poc/StjShapeQueryTriage`: **3/3**. This completes the geo/shape query family (geometry +
 geo_shape query + shape query).
+
+## 39. Response-side readers, batch 1 (leaf value readers)
+
+Starting the response-deserialization surface with the small, self-contained leaf readers (all
+read-only or read-mostly, mirroring the `AggregateConverter` buffer-to-`JsonElement` style):
+
+- **`TotalHitsConverter`** (`TotalHits`) — bare number or `{ value, relation }` object; relation is a
+  `[StringEnum]` (`eq`/`gte`).
+- **`TrackTotalHitsConverter`** (`TrackTotalHits`, a `Union<bool,long>`) — boolean or number.
+- **`KeyedProcessorStatsConverter`** (`KeyedProcessorStats`) — single-property `{ "<type>": ProcessStats }`.
+- **`CatFielddataRecordConverter`** (`CatFielddataRecord`) — flat string fields with the `node`/`n`
+  alias; read-only (write throws). Confirmed the rest of the cat-record surface is plain `[DataMember]`
+  POCOs needing no converter.
+
+Harness `poc/StjResponseReaders1Triage`: **7/7** (deserialize sample wire JSON with both serializers;
+round-trip via oracle re-serialize for the first three, field comparison for the read-only cat record).
+
+Next: `LazyDocument`/`ILazyDocument` (raw-JSON capture; foundational for `FieldValues` and hit sources),
+then the shared dictionary-response base family, then the request-bound multi_get/multi_search builders.
