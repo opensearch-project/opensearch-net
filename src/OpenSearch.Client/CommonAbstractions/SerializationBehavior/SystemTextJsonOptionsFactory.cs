@@ -200,6 +200,9 @@ namespace OpenSearch.Client
 			// Fuzziness (queries + full-text options).
 			options.Converters.Add(new FuzzinessConverter());
 
+			// Ingest pipeline processors (polymorphic dispatch).
+			options.Converters.Add(new ProcessorConverter());
+
 			// Generic [ReadAs] mapping for any remaining interface used as a nested property
 			// (e.g. ISpanQuery). Registered last so dedicated converters take precedence.
 			options.Converters.Add(new ReadAsConverterFactory());

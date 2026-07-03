@@ -912,3 +912,17 @@ map (type + re-serialized settings) against the oracle.
 Remaining response readers: `LazyDocument`/`FieldValues` (deferred deserialization — coupled to the
 Utf8Json path, needs a type-level decision) and the request-bound `multi_get`/`multi_search` builders
 (compiled per-CLR-type delegates keyed on the originating request).
+
+## 43. Ingest processors (IProcessor polymorphic dispatch)
+
+`ProcessorConverter` (`IProcessor`) replaces the ~35-case `ProcessorFormatter`. Each processor is a
+single-property object `{ "<name>": { …body… } }`. On write it emits `value.Name` (the discriminator)
+and serializes the concrete runtime type — whose `[DataMember]` body (common `if`/`tag`/`on_failure`/
+`ignore_failure`/`description` + type-specific fields) matches what the original produced by
+serializing the specific processor interface — so the 35-way write switch collapses to one
+`JsonSerializer.Serialize(writer, value, value.GetType(), options)` call. On read a static
+name→concrete-type map selects the processor type. Nested processors (`foreach`) recurse through the
+converter.
+
+Harness `poc/StjProcessorTriage`: **8/8** (set, rename, lowercase with common fields, convert, gsub,
+foreach with a nested uppercase, split, join).
