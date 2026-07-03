@@ -47,19 +47,22 @@ namespace OpenSearch.Client
 			using var document = JsonDocument.ParseValue(ref reader);
 			var raw = document.RootElement.GetRawText();
 
+			// Best-effort probing mirrors the original Utf8Json UnionFormatter, which swallows any
+			// exception while attempting each arm; a failed parse of the first type falls through to
+			// the second (e.g. a "7d" time being rejected as a Distance).
 			try
 			{
 				var first = JsonSerializer.Deserialize<TFirst>(raw, options);
 				if (first != null) return new Union<TFirst, TSecond>(first);
 			}
-			catch (JsonException) { }
+			catch (Exception) { }
 
 			try
 			{
 				var second = JsonSerializer.Deserialize<TSecond>(raw, options);
 				if (second != null) return new Union<TFirst, TSecond>(second);
 			}
-			catch (JsonException) { }
+			catch (Exception) { }
 
 			return null;
 		}

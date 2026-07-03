@@ -79,11 +79,16 @@ namespace OpenSearch.Client
 			// Geo
 			options.Converters.Add(new DistanceConverter());
 			options.Converters.Add(new GeoLocationConverter());
+			options.Converters.Add(new GeoCoordinateConverter());
 			options.Converters.Add(new GeoDistanceQueryConverter(settings));
 			options.Converters.Add(new GeoPolygonQueryConverter(settings));
+			options.Converters.Add(new GeoBoundingBoxQueryConverter(settings));
 
 			// Specialized
 			options.Converters.Add(new RankFeatureQueryConverter(settings));
+			options.Converters.Add(new DistanceFeatureQueryConverter());
+			options.Converters.Add(new UnionConverter<GeoCoordinate, DateMath>());
+			options.Converters.Add(new UnionConverter<Distance, Time>());
 
 			// Aggregations (request side)
 			options.Converters.Add(new AggregationDictionaryConverter());

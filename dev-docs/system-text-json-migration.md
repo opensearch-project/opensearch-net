@@ -596,3 +596,29 @@ because the body is re-keyed. Each got a dedicated `System.Text.Json` converter:
 Harness `poc/StjAggReqTriage`: **9/9 full parity** (write + round-trip read) for filter,
 percentiles, percentile_ranks, terms+order, terms+include, histogram+order, date_histogram
 (calendar_interval), max_bucket (pipeline buckets_path), and composite (terms source).
+
+## 27. Query DSL tail: geo_bounding_box and distance_feature
+
+Two more bespoke-formatter queries, both `IFieldNameQuery` derivatives whose formatters diverge
+from the plain field-name-keyed shape:
+
+- **`geo_bounding_box`** (`GeoBoundingBoxQueryConverter`) — like `geo_distance`, flattens `_name`,
+  `boost`, `validation_method` and `type` as siblings of the inferred field key, whose value is the
+  `IBoundingBox` (`top_left`/`bottom_right`/`wkt`). The bounding-box body itself needs no dedicated
+  converter — its `[ReadAs(BoundingBox)]` + `[DataMember]` shape round-trips through the resolver and
+  the existing `GeoLocation` converter.
+- **`distance_feature`** (`DistanceFeatureQueryConverter`) — writes the field as a `field` *value*
+  (not a key) followed by `origin` (`Union<GeoCoordinate, DateMath>`) and `pivot`
+  (`Union<Distance, Time>`). This drove two supporting converters: `GeoCoordinateConverter`
+  (the GeoJSON `[lon, lat]` array shape, distinct from the `GeoLocation` object shape) and the
+  generic `UnionConverter<TFirst, TSecond>`. The union converter probes the first arm then the
+  second, swallowing parse failures (a `"7d"` time is rejected as a `Distance` and falls through to
+  `Time`), mirroring the original Utf8Json `UnionFormatter`.
+
+Harness `poc/StjQueryTailTriage`: **6/6 full parity** (write + round-trip read) across
+geo_bounding_box (corners / +name,boost,validation,type / wkt) and distance_feature (date origin /
+geo origin / +name,boost).
+
+Deferred (subsequent tail slices): `geo_shape`/`shape` (GeoJSON geometry unions), `percolate` and
+`more_like_this` (source-document embedding), `intervals`/`neural`/`fuzzy` (field-name-keyed bodies
+with their own value-type formatters).
