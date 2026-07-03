@@ -47,6 +47,9 @@ namespace OpenSearch.Client
 			if (root.TryGetProperty("meta", out var metaElement) && metaElement.ValueKind == JsonValueKind.Object)
 				meta = metaElement.Deserialize<Dictionary<string, object>>(options);
 
+			if (root.TryGetProperty("values", out var valuesElement))
+				return ReadPercentiles(valuesElement, meta);
+
 			if (root.TryGetProperty("value", out var valueElement))
 			{
 				var aggregate = new ValueAggregate
@@ -65,15 +68,33 @@ namespace OpenSearch.Client
 			if (root.TryGetProperty("count", out var countElement)
 				&& (root.TryGetProperty("min", out _) || root.TryGetProperty("max", out _) || root.TryGetProperty("avg", out _)))
 			{
-				return new StatsAggregate
+				var count = countElement.ValueKind == JsonValueKind.Null ? 0 : countElement.GetInt64();
+				var min = GetNullableDouble(root, "min");
+				var max = GetNullableDouble(root, "max");
+				var average = GetNullableDouble(root, "avg");
+				var sum = GetNullableDouble(root, "sum") ?? 0;
+
+				// Extended stats carry additional dispersion fields.
+				if (root.TryGetProperty("sum_of_squares", out _) || root.TryGetProperty("std_deviation", out _)
+					|| root.TryGetProperty("variance", out _))
 				{
-					Count = countElement.ValueKind == JsonValueKind.Null ? 0 : countElement.GetInt64(),
-					Min = GetNullableDouble(root, "min"),
-					Max = GetNullableDouble(root, "max"),
-					Average = GetNullableDouble(root, "avg"),
-					Sum = GetNullableDouble(root, "sum") ?? 0,
-					Meta = meta,
-				};
+					var extended = new ExtendedStatsAggregate
+					{
+						Count = count, Min = min, Max = max, Average = average, Sum = sum, Meta = meta,
+						SumOfSquares = GetNullableDouble(root, "sum_of_squares"),
+						Variance = GetNullableDouble(root, "variance"),
+						VariancePopulation = GetNullableDouble(root, "variance_population"),
+						VarianceSampling = GetNullableDouble(root, "variance_sampling"),
+						StdDeviation = GetNullableDouble(root, "std_deviation"),
+						StdDeviationPopulation = GetNullableDouble(root, "std_deviation_population"),
+						StdDeviationSampling = GetNullableDouble(root, "std_deviation_sampling"),
+					};
+					if (root.TryGetProperty("std_deviation_bounds", out var bounds) && bounds.ValueKind == JsonValueKind.Object)
+						extended.StdDeviationBounds = bounds.Deserialize<StandardDeviationBounds>(options);
+					return extended;
+				}
+
+				return new StatsAggregate { Count = count, Min = min, Max = max, Average = average, Sum = sum, Meta = meta };
 			}
 
 			if (root.TryGetProperty("doc_count", out var docCountElement))
@@ -105,6 +126,25 @@ namespace OpenSearch.Client
 
 		private static IBucket ReadKeyedBucket(JsonElement element, JsonSerializerOptions options)
 		{
+			// Range buckets carry from/to bounds.
+			if (element.TryGetProperty("from", out _) || element.TryGetProperty("to", out _))
+				return ReadRangeBucket(element, options);
+
+			// The first property distinguishes a date-histogram bucket (key_as_string first) from a
+			// terms/keyed bucket (key first), mirroring the Utf8Json ReadBucket dispatch.
+			var firstProperty = FirstPropertyName(element);
+			if (firstProperty == "key_as_string")
+			{
+				var dateBucket = new DateHistogramBucket(ReadSubAggregates(element, options));
+				if (element.TryGetProperty("key", out var dhKey) && dhKey.ValueKind == JsonValueKind.Number)
+					dateBucket.Key = dhKey.GetDouble();
+				if (element.TryGetProperty("key_as_string", out var dhKeyAs))
+					dateBucket.KeyAsString = dhKeyAs.GetString();
+				if (element.TryGetProperty("doc_count", out var dhCount))
+					dateBucket.DocCount = dhCount.GetInt64();
+				return dateBucket;
+			}
+
 			object key = null;
 			if (element.TryGetProperty("key", out var keyElement))
 			{
@@ -124,6 +164,69 @@ namespace OpenSearch.Client
 			if (element.TryGetProperty("doc_count_error_upper_bound", out var dce) && dce.ValueKind == JsonValueKind.Number)
 				bucket.DocCountErrorUpperBound = dce.GetInt64();
 			return bucket;
+		}
+
+		private static IBucket ReadRangeBucket(JsonElement element, JsonSerializerOptions options)
+		{
+			var fromString = element.TryGetProperty("from", out var f) && f.ValueKind == JsonValueKind.String ? f.GetString() : null;
+			var toString = element.TryGetProperty("to", out var t) && t.ValueKind == JsonValueKind.String ? t.GetString() : null;
+
+			if (fromString != null || toString != null)
+			{
+				var ipBucket = new IpRangeBucket(ReadSubAggregates(element, options)) { From = fromString, To = toString };
+				if (element.TryGetProperty("key", out var ipKey)) ipBucket.Key = ipKey.GetString();
+				if (element.TryGetProperty("doc_count", out var ipCount)) ipBucket.DocCount = ipCount.GetInt64();
+				return ipBucket;
+			}
+
+			var bucket = new RangeBucket(ReadSubAggregates(element, options))
+			{
+				From = GetNullableDouble(element, "from"),
+				To = GetNullableDouble(element, "to"),
+			};
+			if (element.TryGetProperty("key", out var key)) bucket.Key = key.GetString();
+			if (element.TryGetProperty("from_as_string", out var fas)) bucket.FromAsString = fas.GetString();
+			if (element.TryGetProperty("to_as_string", out var tas)) bucket.ToAsString = tas.GetString();
+			if (element.TryGetProperty("doc_count", out var docCount)) bucket.DocCount = docCount.GetInt64();
+			return bucket;
+		}
+
+		private static IAggregate ReadPercentiles(JsonElement values, IReadOnlyDictionary<string, object> meta)
+		{
+			var aggregate = new PercentilesAggregate { Meta = meta };
+
+			if (values.ValueKind == JsonValueKind.Object)
+			{
+				foreach (var member in values.EnumerateObject())
+				{
+					if (member.Name.Contains("_as_string")) continue;
+					aggregate.Items.Add(new PercentileItem
+					{
+						Percentile = double.Parse(member.Name, System.Globalization.CultureInfo.InvariantCulture),
+						Value = member.Value.ValueKind == JsonValueKind.Null ? null : member.Value.GetDouble(),
+					});
+				}
+			}
+			else if (values.ValueKind == JsonValueKind.Array)
+			{
+				foreach (var item in values.EnumerateArray())
+				{
+					aggregate.Items.Add(new PercentileItem
+					{
+						Percentile = item.GetProperty("key").GetDouble(),
+						Value = item.TryGetProperty("value", out var v) && v.ValueKind != JsonValueKind.Null ? v.GetDouble() : (double?)null,
+					});
+				}
+			}
+
+			return aggregate;
+		}
+
+		private static string FirstPropertyName(JsonElement element)
+		{
+			foreach (var member in element.EnumerateObject())
+				return member.Name;
+			return null;
 		}
 
 		private static Dictionary<string, IAggregate> ReadSubAggregates(JsonElement element, JsonSerializerOptions options)

@@ -551,6 +551,13 @@ values compared. Harness `poc/StjAggregateResponseParity`: **5/5** — avg,
 value_count, stats, single-bucket (filter) with a sub-avg, and a terms
 multi-bucket with per-bucket sub-avg.
 
-Deferred (subsequent slices of the reader): percentiles/extended-stats, geo
-(bounds/centroid/line), top_hits, matrix_stats, range/date-histogram/composite/
-significant-terms buckets, and scripted-metric.
+Deferred (subsequent slices of the reader): geo (bounds/centroid/line), top_hits,
+matrix_stats, composite/significant-terms buckets, and scripted-metric.
+
+**Slice 2** adds percentiles (object and array `values`), extended-stats
+(`sum_of_squares`/`variance`/`std_deviation`/bounds), and bucket-type dispatch —
+range/IP-range buckets (`from`/`to`) and date-histogram buckets (`key_as_string`
+first) alongside the keyed/terms buckets, mirroring `ReadBucket`'s first-property
+dispatch. Harness `poc/StjAggResponse2Parity`: **7/7** (percentiles,
+extended_stats, range buckets, date_histogram + sub-sum, plus avg/stats/terms
+regression checks).
