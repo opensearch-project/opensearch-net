@@ -46,6 +46,10 @@ namespace OpenSearch.Client
 				map[typeof(StringIntFormatter)] = new StringIntConverter();
 				map[typeof(IntStringFormatter)] = new IntStringConverter();
 
+				var openMap = DataContractResolver.PropertyConverterOverridesOpenGeneric;
+				openMap[typeof(SingleOrEnumerableFormatter<>)] = typeof(SingleOrEnumerableConverter<>);
+				openMap[typeof(SerializeAsSingleFormatter<>)] = typeof(SerializeAsSingleConverter<>);
+
 				_perPropertyRegistered = true;
 			}
 		}

@@ -705,3 +705,22 @@ AliasAction ×3, and `indices_boost` in its `SearchRequest` member context).
 Deferred (heavier polymorphic dispatchers, better done centrally): `ProcessorFormatter` (~40 ingest
 processor types), `AliasAction` is done but the broader index-settings / dynamic-templates and the
 `Verbatim*DictionaryKeys` / `SingleOrEnumerable` generic factories remain.
+
+## 31. Open-generic per-property converters (single-or-enumerable)
+
+Some members carry a *generic* `[JsonFormatter(typeof(F<TArgs>))]` — notably
+`SingleOrEnumerableFormatter<string>` (custom analyzers/normalizers, common-grams, node stats) and
+`SerializeAsSingleFormatter<string>` (geo suggest context precision). These can't be enumerated as
+closed types in the per-property map, so the mechanism (section 29) gains an open-generic companion:
+`DataContractResolver.PropertyConverterOverridesOpenGeneric` maps a formatter's generic type
+definition to a converter's generic type definition. When a member references a closed generic whose
+definition is registered, the resolver closes the converter over the same type arguments (cached in a
+`ConcurrentDictionary`) and assigns it as the property's `CustomConverter`.
+
+`SingleOrEnumerableConverter<T>` writes the sequence as a normal array and reads either an array or a
+single value (normalized to a sequence). `SerializeAsSingleConverter<T>` shares that lenient read but
+writes only the first element as a scalar. Both delegate element handling to the standard sequence/
+element serialization, so they never re-enter the per-property converter.
+
+Harness `poc/StjSingleOrEnumTriage`: **6/6** — CustomAnalyzer array write + single-string/array reads,
+and GeoSuggestContext first-only write + single/array reads.

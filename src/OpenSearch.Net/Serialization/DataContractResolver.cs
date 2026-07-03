@@ -56,6 +56,16 @@ namespace OpenSearch.Net
 		/// </summary>
 		public static readonly Dictionary<Type, System.Text.Json.Serialization.JsonConverter> PropertyConverterOverrides = new();
 
+		/// <summary>
+		/// Open-generic companion to <see cref="PropertyConverterOverrides"/> (#388): maps a vendored
+		/// Utf8Json formatter's generic type definition (e.g. <c>SingleOrEnumerableFormatter&lt;&gt;</c>)
+		/// to the <see cref="System.Text.Json"/> converter's generic type definition. When a member's
+		/// <c>[JsonFormatter(typeof(F&lt;TArgs&gt;))]</c> references a closed generic whose definition is
+		/// registered here, the resolver closes the converter over the same type arguments and applies
+		/// it to that member.
+		/// </summary>
+		public static readonly Dictionary<Type, Type> PropertyConverterOverridesOpenGeneric = new();
+
 		/// <summary> Creates a resolver that applies the data-contract modifier to every object type. </summary>
 		public DataContractResolver() => Modifiers.Add(ApplyDataContract);
 
@@ -130,13 +140,11 @@ namespace OpenSearch.Net
 				}
 
 				// Honor a member-level [JsonFormatter(typeof(F))] by applying the registered per-property
-				// converter for F, if any (#388). Used for primitives the server may send as strings.
-				if (PropertyConverterOverrides.Count > 0)
-				{
-					var formatter = GetAttribute<Utf8Json.JsonFormatterAttribute>(member, interfaceProps);
-					if (formatter != null && PropertyConverterOverrides.TryGetValue(formatter.FormatterType, out var converter))
-						property.CustomConverter = converter;
-				}
+				// converter for F, if any (#388). Used for primitives the server may send as strings and
+				// for generic wrappers such as single-or-enumerable members.
+				var formatter = GetAttribute<Utf8Json.JsonFormatterAttribute>(member, interfaceProps);
+				if (formatter != null && TryGetPropertyConverter(formatter.FormatterType, out var propertyConverter))
+					property.CustomConverter = propertyConverter;
 			}
 
 			AddExplicitInterfaceProperties(typeInfo);
@@ -178,16 +186,39 @@ namespace OpenSearch.Net
 					if (shouldSerialize != null && shouldSerialize.ReturnType == typeof(bool))
 						jsonProperty.ShouldSerialize = (obj, _) => (bool)shouldSerialize.Invoke(obj, null);
 
-					if (PropertyConverterOverrides.Count > 0)
-					{
-						var formatter = interfaceProperty.GetCustomAttribute<Utf8Json.JsonFormatterAttribute>(true);
-						if (formatter != null && PropertyConverterOverrides.TryGetValue(formatter.FormatterType, out var converter))
-							jsonProperty.CustomConverter = converter;
-					}
+					var formatter = interfaceProperty.GetCustomAttribute<Utf8Json.JsonFormatterAttribute>(true);
+					if (formatter != null && TryGetPropertyConverter(formatter.FormatterType, out var converter))
+						jsonProperty.CustomConverter = converter;
 
 					typeInfo.Properties.Add(jsonProperty);
 				}
 			}
+		}
+
+		private static readonly System.Collections.Concurrent.ConcurrentDictionary<Type, System.Text.Json.Serialization.JsonConverter> ClosedConverterCache = new();
+
+		/// <summary>
+		/// Resolves the per-property converter for a member's <c>[JsonFormatter]</c> formatter type:
+		/// first an exact match in <see cref="PropertyConverterOverrides"/>, then an open-generic match
+		/// in <see cref="PropertyConverterOverridesOpenGeneric"/> (closing the converter over the
+		/// formatter's type arguments and caching the result).
+		/// </summary>
+		private static bool TryGetPropertyConverter(Type formatterType, out System.Text.Json.Serialization.JsonConverter converter)
+		{
+			if (PropertyConverterOverrides.Count > 0 && PropertyConverterOverrides.TryGetValue(formatterType, out converter))
+				return true;
+
+			if (PropertyConverterOverridesOpenGeneric.Count > 0 && formatterType.IsGenericType
+				&& PropertyConverterOverridesOpenGeneric.TryGetValue(formatterType.GetGenericTypeDefinition(), out var converterDefinition))
+			{
+				converter = ClosedConverterCache.GetOrAdd(formatterType,
+					ft => (System.Text.Json.Serialization.JsonConverter)Activator.CreateInstance(
+						converterDefinition.MakeGenericType(ft.GetGenericArguments())));
+				return true;
+			}
+
+			converter = null;
+			return false;
 		}
 
 		private static bool ImplementsInterfaceDataContract(Type type)
