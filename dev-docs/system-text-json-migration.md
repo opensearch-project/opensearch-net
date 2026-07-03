@@ -406,3 +406,27 @@ wildcard, regexp, match, match_phrase, and a `bool` composing `term` + `match`
 Deferred within the DSL: the range family (`IRangeQuery` needs its own dispatch to
 date/long/numeric/term-range concretes before the field-name wrapper) and the
 specialized field-name queries (knn, neural, intervals, span_term, terms_set).
+
+## 20. Range family — two-stage dispatch
+
+`range` is unique: `IRangeQuery` (the container's `Range` verb) has no
+discriminator, so `RangeQueryInterfaceConverter` **infers** the concrete type from
+the bound values inside the field-keyed body — `format`/`time_zone` or a date-like
+bound → date; a non-integral number → numeric; an integral number → long;
+otherwise a term (string) range — mirroring Utf8Json's `RangeQueryFormatter`. It
+then delegates to the concrete's `FieldNameQueryConverter`, so the two stages
+(type inference, then field-name wrapping) compose cleanly:
+`{ "range": { "<field>": { "gte": 1.5, "lte": 99.0 } } }`.
+
+This reused the number-formatting insight from §17: a `NumericRangeQuery` with
+`GreaterThan = 1` writes `1.0` (double), which both round-trips and lets the read
+sniff distinguish it from a `LongRangeQuery` (`1`). Date ranges also needed a small
+`DateMathConverter` (`DateMath` writes as its string form; reads anchor a plain
+date-time or parse the expression).
+
+Harness `poc/StjRangeQueryParity`: **6/6 write + round-trip read** — numeric
+(double bounds), numeric with the `relation` enum, long (integral bounds), term
+(string bounds), date (`DateMath` + `format`), and a `bool` filtering on a numeric
+range. This completes the everyday query DSL; remaining are the specialized
+field-name queries (knn, neural, intervals, span_term, terms_set) and compound/
+span/specialized queries.

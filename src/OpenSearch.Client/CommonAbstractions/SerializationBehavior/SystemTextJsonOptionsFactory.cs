@@ -60,6 +60,15 @@ namespace OpenSearch.Client
 			options.Converters.Add(new FieldNameQueryConverter<MatchPhrasePrefixQuery, IMatchPhrasePrefixQuery>(settings));
 			options.Converters.Add(new FieldNameQueryConverter<MatchBoolPrefixQuery, IMatchBoolPrefixQuery>(settings));
 
+			// Range family: IRangeQuery sniffs the bound types and dispatches to the concrete range,
+			// each of which is a field-name-keyed query.
+			options.Converters.Add(new DateMathConverter());
+			options.Converters.Add(new RangeQueryInterfaceConverter());
+			options.Converters.Add(new FieldNameQueryConverter<NumericRangeQuery, INumericRangeQuery>(settings));
+			options.Converters.Add(new FieldNameQueryConverter<LongRangeQuery, ILongRangeQuery>(settings));
+			options.Converters.Add(new FieldNameQueryConverter<TermRangeQuery, ITermRangeQuery>(settings));
+			options.Converters.Add(new FieldNameQueryConverter<DateRangeQuery, IDateRangeQuery>(settings));
+
 			return options;
 		}
 	}
