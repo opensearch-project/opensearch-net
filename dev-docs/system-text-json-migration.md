@@ -1181,3 +1181,22 @@ source + stored-template id with params): **byte-for-byte match** for both.
 
 Remaining request-body formatters: `MultiGetRequestFormatter`, `UpdateIndexSettingsRequestFormatter`,
 `CreateRepositoryFormatter` (single-object bodies — plain converters, no NDJSON).
+
+## 53. Cutover part 4 — single-object request bodies (mget / put_settings / create_repository)
+
+The remaining vendored request-body formatters produce a single JSON object, so they are ordinary STJ
+converters — but a `JsonConverter<Interface>` never matches the concrete request/descriptor type, so each
+is registered through a `JsonConverterFactory` matching the request interface (as with the proxy requests):
+
+- `MultiGetRequestConverter` — `{ "ids": [ … ] }` when every document flattens to a bare id, else
+  `{ "docs": [ … ] }`; a request-level index matching a document's index is elided.
+- `UpdateIndexSettingsRequestConverter` — the request's (dotted-key flattened) dynamic index settings.
+- `CreateRepositoryConverter` — the repository serialized by its concrete runtime type (`type` + `settings`).
+
+Harness `poc/StjRequestBodiesTriage` compares each against the reflection-built Utf8Json oracle
+(mget ids/docs forms, `put_settings`, `create_repository` fs): **byte-for-byte match** for all four.
+
+This completes the known custom request-body formatters. All high-level request bodies (query DSL,
+documents, NDJSON bulk/msearch, and these single-object bodies) and response readers now go through
+System.Text.Json. Next: run the full integration suite on CI to surface any remaining gaps, then remove
+the vendored Utf8Json.

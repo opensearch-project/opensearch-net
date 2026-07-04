@@ -127,6 +127,11 @@ namespace OpenSearch.Client
 			// serializer. Registered early so it wins over the generic [ReadAs] factory.
 			options.Converters.Add(new ProxyRequestConverterFactory(settings));
 
+			// Single-object request bodies whose vendored formatters STJ bypasses (#388).
+			options.Converters.Add(new MultiGetRequestConverterFactory(settings));
+			options.Converters.Add(new UpdateIndexSettingsRequestConverterFactory());
+			options.Converters.Add(new CreateRepositoryConverterFactory());
+
 			// Stateless infrastructure converters (OpenSearch.Net).
 			options.Converters.Add(ObjectConverter.Instance);
 			options.Converters.Add(DoubleFormatConverter.Instance);
