@@ -218,12 +218,20 @@ namespace OpenSearch.Net
 				&& PropertyConverterOverridesOpenGeneric.TryGetValue(formatterType.GetGenericTypeDefinition(), out var converterDefinition))
 			{
 				// The converter is closed over the formatter's own type arguments when they are concrete
-				// (e.g. VerbatimDictionaryKeysFormatter<Analyzers, IAnalyzers, string, IAnalyzer>), but a
-				// generic interface carries an open formatter (e.g. ISuggestDictionary<T> →
-				// SuggestDictionaryFormatter<>), in which case the arguments come from the declared type.
-				var typeArguments = formatterType.ContainsGenericParameters && declaredType != null && declaredType.IsGenericType
-					? declaredType.GetGenericArguments()
-					: formatterType.GetGenericArguments();
+				// (e.g. VerbatimDictionaryKeysFormatter<Analyzers, IAnalyzers, string, IAnalyzer>), but an
+				// open formatter takes its arguments from the declared member type: a generic interface
+				// supplies them directly (e.g. ISuggestDictionary<T> → SuggestDictionaryFormatter<>), while
+				// a formatter that closes over the member's own type (e.g. TDocument Source →
+				// SourceFormatter<>) uses the declared type itself.
+				Type[] typeArguments;
+				if (!formatterType.ContainsGenericParameters)
+					typeArguments = formatterType.GetGenericArguments();
+				else if (declaredType != null && declaredType.IsGenericType)
+					typeArguments = declaredType.GetGenericArguments();
+				else if (declaredType != null && converterDefinition.GetGenericArguments().Length == 1)
+					typeArguments = new[] { declaredType };
+				else
+					typeArguments = formatterType.GetGenericArguments();
 
 				var cacheKey = converterDefinition.MakeGenericType(typeArguments);
 				converter = ClosedConverterCache.GetOrAdd(cacheKey,

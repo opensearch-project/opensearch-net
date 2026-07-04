@@ -999,3 +999,66 @@ Harness `poc/StjLazyDocTriage`: **5/5** — LazyDocument replay-write parity vs 
 Remaining bucket-2 work: only the request-bound `multi_get`/`multi_search` response builders (compiled
 per-CLR-type delegates keyed on the originating request) — needs request context threaded into the STJ
 serializer, best tackled with the cutover.
+
+## 48. Typed `_source` reader + multi_search / multi_get response builders
+
+The last bucket-2 items. Validating them surfaced a foundational gap first — typed document `_source`
+reading — that had to be fixed before the builders could pass.
+
+### 48.1 Typed document `_source` (`SourceConverter<T>`)
+
+The client marks every document body — a hit's `_source`, an update `doc`/`upsert`, a
+term-vector/percolate document — with `[JsonFormatter(typeof(SourceFormatter<>))]` (and the
+`CollapsedSourceFormatter<>` / `SourceWriteFormatter<>` subclasses). The vendored `SourceFormatter<T>`
+delegates the body to `settings.SourceSerializer`, which is what applies the client's document
+field-name inference (camelCase) to arbitrary user POCOs. The STJ `DataContractResolver` does **not**
+camel-case unattributed POCO members, so before this change a typed `_source` deserialized to an empty
+object (e.g. `{ "name": "a", "value": 10 }` → `Doc { Name = null, Value = 0 }`). This affected *all*
+response readers with a typed source (`SearchResponse<T>` hits, `GetResponse<T>`, `MultiGetHit<T>`, …),
+not just the multi builders.
+
+Fix — `SourceConverter<T>` (a stateless, parameterless per-property converter):
+- Registered in the open-generic per-property map for `SourceFormatter<>`, `CollapsedSourceFormatter<>`
+  and `SourceWriteFormatter<>` → `SourceConverter<>`.
+- On read it captures the value's raw JSON (`JsonDocument.ParseValue` → `GetRawText()`), then
+  deserializes it through the connection's `SourceSerializer` (`Deserialize(typeToConvert, stream)`).
+  On write it serializes the value through the `SourceSerializer` and copies the resulting JSON into the
+  writer. This mirrors the Utf8Json path exactly and keeps working through the pre-cutover source
+  serializer (Utf8Json) and, after cutover, the STJ source serializer.
+- Because the per-property converters are instantiated with a parameterless ctor and cached, the
+  converter cannot take `settings` directly. A tiny carrier converter, `SourceSerializerProviderConverter`
+  (registered in the options with the active settings), exposes `settings.SourceSerializer`;
+  `SourceConverter<T>` locates it by scanning `options.Converters` at call time.
+- `DataContractResolver.TryGetPropertyConverter` gained a closing case: an *open* formatter on a member
+  whose declared type is the single type argument (e.g. `TDocument Source` → `SourceFormatter<>`) now
+  closes the converter over the declared member type itself (previously only fully-closed formatters and
+  open formatters on a *generic* declared type were handled).
+
+### 48.2 multi_search / multi_get builders
+
+`MultiSearchResponseBuilder` / `MultiGetResponseBuilder` are request-bound: the Utf8Json path uses
+`builtInSerializer.CreateStateful(formatter)` to deserialize each response segment into the
+`SearchResponse<T>` / `MultiGetHit<T>` requested by the originating operation. `CreateStateful` requires
+`IInternalSerializer` (the Utf8Json `DefaultHighLevelSerializer`) and throws for
+`SystemTextJsonSerializer`. Each builder now branches: when the built-in serializer is **not** an
+`IInternalSerializer` it builds the response directly via `SystemTextJsonMultiResponseBuilder`:
+
+1. Parse the envelope with `JsonDocument`. multi_search reads `took` and the `responses` array;
+   multi_get reads the `docs` array.
+2. Zip the array elements with the request's operations (`IMultiSearchRequest.Operations` /
+   `IMultiSearchTemplateRequest.Operations` — value carries `ClrType`; `IMultiGetRequest.Documents` —
+   each `IMultiGetOperation.ClrType`), in enumeration order (matching the Utf8Json `Zip`).
+3. For each element, close `SearchResponse<>` / `MultiGetHit<>` over `op.ClrType ?? typeof(object)`, take
+   the element's raw JSON, and deserialize it via the STJ serializer. Add the `SearchResponse<T>` to
+   `MultiSearchResponse.Responses` keyed by the operation key; add the `MultiGetHit<T>` to
+   `MultiGetResponse.InternalHits`.
+
+Harness `poc/StjMultiBuildersTriage` drives the *actual internal builders* by reflection with both the
+Utf8Json oracle and the STJ serializer over the same response JSON, then compares the strongly-typed
+content (took, totals, `max_score`, per-hit id/index/score, and each hit's `Source` document serialized
+through the oracle): **2/2**. This is the first end-to-end exercise of the whole `SearchResponse<T>` /
+`MultiGetHit<T>` read graph through STJ, and it passes once the typed `_source` reader is in place.
+
+This closes bucket 2. Remaining before the client can default to STJ: the cutover itself (flip
+`ConnectionSettingsBase.CreateDefaultRequestResponseSerializer()`, run the full integration suite, remove
+the vendored Utf8Json), and the deferred epoch-millis per-property date converter.

@@ -59,6 +59,12 @@ namespace OpenSearch.Client
 				openMap[typeof(VerbatimDictionaryKeysBaseFormatter<,,>)] = typeof(VerbatimDictionaryKeysBaseConverter<,,>);
 				openMap[typeof(SuggestDictionaryFormatter<>)] = typeof(SuggestDictionaryConverter<>);
 
+				// Document bodies (_source, update doc/upsert, term-vector/percolate documents) route
+				// through the source serializer, mirroring the vendored SourceFormatter<> (#388).
+				openMap[typeof(SourceFormatter<>)] = typeof(SourceConverter<>);
+				openMap[typeof(CollapsedSourceFormatter<>)] = typeof(SourceConverter<>);
+				openMap[typeof(SourceWriteFormatter<>)] = typeof(SourceConverter<>);
+
 				_perPropertyRegistered = true;
 			}
 		}
@@ -73,6 +79,9 @@ namespace OpenSearch.Client
 				DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
 				Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
 			};
+
+			// Carries the source serializer to the stateless per-property source converters (#388).
+			options.Converters.Add(new SourceSerializerProviderConverter(settings));
 
 			// Stateless infrastructure converters (OpenSearch.Net).
 			options.Converters.Add(ObjectConverter.Instance);

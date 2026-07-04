@@ -35,25 +35,62 @@ namespace OpenSearch.Client
 {
 	internal class MultiGetResponseBuilder : CustomResponseBuilderBase
 	{
-		public MultiGetResponseBuilder(IMultiGetRequest request) => Formatter = new MultiGetResponseFormatter(request);
+		public MultiGetResponseBuilder(IMultiGetRequest request)
+		{
+			_request = request;
+			Formatter = new MultiGetResponseFormatter(request);
+		}
+
+		private readonly IMultiGetRequest _request;
 
 		private MultiGetResponseFormatter Formatter { get; }
 
-		public override object DeserializeResponse(IOpenSearchSerializer builtInSerializer, IApiCallDetails response, Stream stream) =>
-			response.Success
-				? builtInSerializer.CreateStateful(Formatter).Deserialize<MultiGetResponse>(stream)
-				: new MultiGetResponse();
+		public override object DeserializeResponse(IOpenSearchSerializer builtInSerializer, IApiCallDetails response, Stream stream)
+		{
+			if (!response.Success)
+				return new MultiGetResponse();
+
+			// The Utf8Json path uses a stateful formatter; the System.Text.Json serializer (see #388) does not
+			// participate in that layer, so build the response directly from the stream instead.
+			if (!(builtInSerializer is IInternalSerializer))
+				return SystemTextJsonMultiResponseBuilder.BuildMultiGet(builtInSerializer, _request, ReadAllBytes(stream));
+
+			return builtInSerializer.CreateStateful(Formatter).Deserialize<MultiGetResponse>(stream);
+		}
 
 		public override async Task<object> DeserializeResponseAsync(
 			IOpenSearchSerializer builtInSerializer,
 			IApiCallDetails response,
 			Stream stream,
 			CancellationToken ctx = default
-		) =>
-			response.Success
-				? await builtInSerializer.CreateStateful(Formatter)
-					.DeserializeAsync<MultiGetResponse>(stream, ctx)
-					.ConfigureAwait(false)
-				: new MultiGetResponse();
+		)
+		{
+			if (!response.Success)
+				return new MultiGetResponse();
+
+			if (!(builtInSerializer is IInternalSerializer))
+				return SystemTextJsonMultiResponseBuilder.BuildMultiGet(builtInSerializer, _request,
+					await ReadAllBytesAsync(stream, ctx).ConfigureAwait(false));
+
+			return await builtInSerializer.CreateStateful(Formatter)
+				.DeserializeAsync<MultiGetResponse>(stream, ctx)
+				.ConfigureAwait(false);
+		}
+
+		private static byte[] ReadAllBytes(Stream stream)
+		{
+			if (stream is MemoryStream existing) return existing.ToArray();
+			using var ms = new MemoryStream();
+			stream.CopyTo(ms);
+			return ms.ToArray();
+		}
+
+		private static async Task<byte[]> ReadAllBytesAsync(Stream stream, CancellationToken ctx)
+		{
+			if (stream is MemoryStream existing) return existing.ToArray();
+			using var ms = new MemoryStream();
+			await stream.CopyToAsync(ms, 81920, ctx).ConfigureAwait(false);
+			return ms.ToArray();
+		}
 	}
 }
