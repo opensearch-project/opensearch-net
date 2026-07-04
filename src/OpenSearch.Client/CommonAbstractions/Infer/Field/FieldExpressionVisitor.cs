@@ -65,7 +65,9 @@ namespace OpenSearch.Client
 
 			var name = info.Name;
 
-			if (_settings.PropertyMappings.TryGetValue(info, out var propertyMapping))
+			// A settings mapping that only sets Ignore (or otherwise carries no Name) must not short-circuit
+			// to a null name; fall through to attribute/inferrer resolution so the field still resolves.
+			if (_settings.PropertyMappings.TryGetValue(info, out var propertyMapping) && !propertyMapping.Name.IsNullOrEmpty())
 				return propertyMapping.Name;
 
 			var att = OpenSearchPropertyAttributeBase.From(info);

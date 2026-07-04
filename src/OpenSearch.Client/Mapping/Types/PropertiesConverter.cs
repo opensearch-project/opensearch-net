@@ -56,8 +56,35 @@ namespace OpenSearch.Client
 				return;
 			}
 
-			writer.WriteStartObject();
+			// Mirror the vendored PropertiesFormatter: drop members whose CLR origin is mapped as
+			// ignored (via ConnectionSettings or an attribute/serializer mapping) and re-key explicitly
+			// mapped members, deduplicating through a settings-aware Properties instance before writing.
+			var properties = new Properties(_settings);
 			foreach (var entry in (IEnumerable<KeyValuePair<PropertyName, IProperty>>)value)
+			{
+				var propertyInfo = (entry.Value as IPropertyWithClrOrigin)?.ClrOrigin;
+				if (propertyInfo == null)
+				{
+					properties[entry.Key] = entry.Value;
+					continue;
+				}
+
+				if (_settings.PropertyMappings.TryGetValue(propertyInfo, out var propertyMapping))
+				{
+					if (propertyMapping.Ignore)
+						continue;
+
+					properties[propertyMapping.Name] = entry.Value;
+					continue;
+				}
+
+				var attributeMapping = _settings.PropertyMappingProvider?.CreatePropertyMapping(propertyInfo);
+				if (attributeMapping == null || !attributeMapping.Ignore)
+					properties[entry.Key] = entry.Value;
+			}
+
+			writer.WriteStartObject();
+			foreach (var entry in (IEnumerable<KeyValuePair<PropertyName, IProperty>>)properties)
 			{
 				writer.WritePropertyName(_settings.Inferrer.PropertyName(entry.Key));
 				JsonSerializer.Serialize(writer, entry.Value, options);

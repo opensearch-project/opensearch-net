@@ -20,6 +20,10 @@ namespace OpenSearch.Client
 	/// </summary>
 	internal sealed class DateMathConverter : JsonConverter<DateMath>
 	{
+		// DateMath is abstract; DateMathExpression derives from it. Match the whole hierarchy so a member
+		// (or value) typed as the concrete DateMathExpression is handled too (STJ matches by exact type).
+		public override bool CanConvert(Type typeToConvert) => typeof(DateMath).IsAssignableFrom(typeToConvert);
+
 		public override DateMath Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
 		{
 			if (reader.TokenType != JsonTokenType.String)

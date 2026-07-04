@@ -69,9 +69,9 @@ namespace OpenSearch.Client
 
 			using var stream = _settings.MemoryStreamFactory.Create();
 			((IProxyRequest)value).WriteJson(_settings.SourceSerializer, stream, SerializationFormatting.None);
-			stream.Position = 0;
-			using var document = JsonDocument.Parse(stream);
-			document.RootElement.WriteTo(writer);
+			// Write the source bytes verbatim (like the vendored WriteRaw) rather than re-emitting through
+			// the outer writer, which would re-indent a compact document body when PrettyJson is enabled.
+			writer.WriteRawValue(stream.ToArray(), skipInputValidation: true);
 		}
 
 		public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
