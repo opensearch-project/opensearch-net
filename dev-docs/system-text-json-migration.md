@@ -1136,3 +1136,30 @@ Remaining before the cutover is complete (custom request-body formatters STJ sti
 STJ converter): `BulkRequestFormatter` (NDJSON), `MultiSearchFormatter` / `MultiSearchTemplateFormatter`
 (NDJSON), `MultiGetRequestFormatter`, `UpdateIndexSettingsRequestFormatter`, `CreateRepositoryFormatter`.
 After those: run the full integration suite (CI) to surface deeper gaps, then remove the vendored Utf8Json.
+
+## 51. Cutover part 2 — `_bulk` NDJSON writer
+
+NDJSON bodies cannot be produced through `System.Text.Json`'s single-root `Utf8JsonWriter`. Added
+`ISystemTextJsonSelfSerializable` (OpenSearch.Net): when `SystemTextJsonSerializer.Serialize(Async)`
+encounters a value implementing it, it delegates to the value's `Write(stream, serializer, formatting)`
+instead of `JsonSerializer.Serialize`, so the request writes NDJSON directly to the stream (the async path
+buffers then copies). `BulkRequest`/`BulkDescriptor` implement it (explicitly) and delegate to
+`BulkRequestJsonSerializer`.
+
+`BulkRequestJsonSerializer` mirrors the vendored `BulkRequestFormatter`: for each operation it writes an
+action line `{ "<op>": {metadata} }` then, unless a delete, a body line. Each line is an independent JSON
+document serialized with the right options and separated by `\n`:
+- action-line metadata: the operation object serialized by its runtime type through the request/response
+  options (fixed `[DataMember]` wire names — `_id`, `_index`, `pipeline`, …);
+- body: the document through the **source** options (camel-casing) for index/create, or the request/response
+  options for updates and already-serialized (`ILazyDocument`) bodies.
+
+Parity nuance: the vendored formatter omits a `routing` that resolves to null (while still writing a null
+`_id`). `System.Text.Json`'s `WhenWritingNull` only drops CLR-null members, and the resolved `Routing`
+wrapper is non-null, so the writer collapses `op.Routing` to null when it infers to null before serializing.
+
+Harness `poc/StjBulkTriage` builds a fluent `BulkDescriptor` (index/create/update/delete + inferred
+defaults) and compares the STJ client's captured request body against a reflection-built Utf8Json oracle:
+**byte-for-byte match**. Remaining request-body formatters: `MultiSearchFormatter` /
+`MultiSearchTemplateFormatter` (NDJSON), `MultiGetRequestFormatter`, `UpdateIndexSettingsRequestFormatter`,
+`CreateRepositoryFormatter`.

@@ -60,6 +60,12 @@ namespace OpenSearch.Client
 			return stj != null ? SourceSerializerProviderConverter.Find(stj.Options)?.Settings : null;
 		}
 
+		/// <summary>
+		/// The <see cref="System.Text.Json.JsonSerializerOptions"/> behind the (possibly proxy-wrapped)
+		/// System.Text.Json serializer, or <c>null</c> if it is not an STJ serializer.
+		/// </summary>
+		public static System.Text.Json.JsonSerializerOptions GetOptions(IOpenSearchSerializer serializer) => Unwrap(serializer)?.Options;
+
 		private static SystemTextJsonSerializer Unwrap(IOpenSearchSerializer serializer)
 		{
 			if (serializer is DiagnosticsSerializerProxy proxy)

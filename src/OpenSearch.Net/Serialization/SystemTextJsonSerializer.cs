@@ -115,14 +115,35 @@ namespace OpenSearch.Net
 		}
 
 		/// <inheritdoc />
-		public void Serialize<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None) =>
+		public void Serialize<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None)
+		{
+			// NDJSON bodies (bulk/msearch) cannot go through the single-root Utf8JsonWriter; let them
+			// write directly to the stream (#388).
+			if (data is ISystemTextJsonSelfSerializable selfSerializable)
+			{
+				selfSerializable.Write(stream, this, formatting);
+				return;
+			}
+
 			JsonSerializer.Serialize(stream, data, OptionsFor(formatting));
+		}
 
 		/// <inheritdoc />
-		public Task SerializeAsync<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None,
+		public async Task SerializeAsync<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None,
 			CancellationToken cancellationToken = default
-		) =>
-			JsonSerializer.SerializeAsync(stream, data, OptionsFor(formatting), cancellationToken);
+		)
+		{
+			if (data is ISystemTextJsonSelfSerializable selfSerializable)
+			{
+				using var buffer = new MemoryStream();
+				selfSerializable.Write(buffer, this, formatting);
+				buffer.Position = 0;
+				await buffer.CopyToAsync(stream, 81920, cancellationToken).ConfigureAwait(false);
+				return;
+			}
+
+			await JsonSerializer.SerializeAsync(stream, data, OptionsFor(formatting), cancellationToken).ConfigureAwait(false);
+		}
 
 		private static byte[] ReadAllBytes(Stream stream)
 		{
