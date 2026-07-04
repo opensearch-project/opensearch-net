@@ -978,3 +978,24 @@ reroute move/cancel/allocate_replica).
 With this, bucket 3 is essentially complete: the per-property + verbatim mechanisms, all value-type
 converters, the ~35-type ingest processor dispatch, dynamic_templates, the flatten/unflatten index
 settings, and these tail types are all migrated and parity-validated.
+
+## 47. LazyDocument and FieldValues (deferred deserialization)
+
+`LazyDocument` was less coupled to Utf8Json than first thought: it stores raw `Bytes` and defers
+`As<T>()` to `settings.SourceSerializer`/`RequestResponseSerializer` (the pluggable `IOpenSearchSerializer`
+seam), so after cutover its deferred path uses STJ automatically. Migration:
+
+- Added an `internal LazyDocument(byte[] bytes, IConnectionSettingsValues settings)` constructor beside
+  the resolver-based one (no change to the deferral semantics).
+- `LazyDocumentConverter` / `LazyDocumentInterfaceConverter` (settings-bearing) capture the raw JSON of
+  the current value (`JsonDocument.ParseValue` → `GetRawText()` → UTF-8 bytes → `new LazyDocument(bytes,
+  settings)`) and replay it on write (`JsonDocument.Parse(bytes).RootElement.WriteTo(writer)`).
+- `FieldValuesConverter` (settings-bearing) reads the hit `fields` object into a
+  `Dictionary<string, LazyDocument>` and wraps it in `FieldValues(settings.Inferrer, …)`.
+
+Harness `poc/StjLazyDocTriage`: **5/5** — LazyDocument replay-write parity vs the oracle, deferred
+`As<Dictionary<string,object>>()`, and `FieldValues.ValuesOf<T>` extraction for double/string/int fields.
+
+Remaining bucket-2 work: only the request-bound `multi_get`/`multi_search` response builders (compiled
+per-CLR-type delegates keyed on the originating request) — needs request context threaded into the STJ
+serializer, best tackled with the cutover.

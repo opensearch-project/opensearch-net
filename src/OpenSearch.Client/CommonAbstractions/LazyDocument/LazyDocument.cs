@@ -78,9 +78,11 @@ namespace OpenSearch.Client
 		private readonly IMemoryStreamFactory _memoryStreamFactory;
 
 		internal LazyDocument(byte[] bytes, IJsonFormatterResolver formatterResolver)
+			: this(bytes, formatterResolver.GetConnectionSettings()) { }
+
+		internal LazyDocument(byte[] bytes, IConnectionSettingsValues settings)
 		{
 			Bytes = bytes;
-			var settings = formatterResolver.GetConnectionSettings();
 			_sourceSerializer = settings.SourceSerializer;
 			_requestResponseSerializer = settings.RequestResponseSerializer;
 			_memoryStreamFactory = settings.MemoryStreamFactory;

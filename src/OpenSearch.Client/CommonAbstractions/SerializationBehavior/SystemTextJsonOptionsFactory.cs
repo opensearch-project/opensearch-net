@@ -168,6 +168,9 @@ namespace OpenSearch.Client
 			options.Converters.Add(new TrackTotalHitsConverter());
 			options.Converters.Add(new KeyedProcessorStatsConverter());
 			options.Converters.Add(new CatFielddataRecordConverter());
+			options.Converters.Add(new LazyDocumentConverter(settings));
+			options.Converters.Add(new LazyDocumentInterfaceConverter(settings));
+			options.Converters.Add(new FieldValuesConverter(settings));
 
 			options.Converters.Add(new BulkResponseItemConverter());
 			options.Converters.Add(new GetRepositoryResponseConverter());
