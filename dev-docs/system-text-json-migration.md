@@ -1097,3 +1097,42 @@ rename, and a dynamic `Dictionary<string, object>`.
 This is the naming half of the cutover's source-serializer requirement; the remaining wiring (constructing
 `settings.SourceSerializer` from `CreateForSource` when the default serializer is flipped to STJ) is part
 of the cutover itself.
+
+## 50. Cutover wiring (default serializer flipped to STJ) — part 1
+
+`ConnectionSettingsBase.CreateDefaultRequestResponseSerializer()` now returns the STJ
+`SystemTextJsonSerializer` (built from `SystemTextJsonOptionsFactory.Create`), and a new
+`CreateDefaultSourceSerializer()` supplies the source serializer from `CreateForSource` (camel-casing
+document inference, §49) when no custom `SourceSerializerFactory` is configured. The request/response and
+source serializers are therefore now distinct STJ instances.
+
+Driving the real client pipeline over an `InMemoryConnection` (harness `poc/StjCutoverSmoke`, **12/12**)
+surfaced and fixed several couplings that the serializer-level parity harnesses could not:
+
+- **Custom response builders must branch on `TryGetJsonFormatter`, not `is IInternalSerializer`.** The
+  serializer handed to builders is the `DiagnosticsSerializerProxy`, which *always* implements
+  `IInternalSerializer`; only the Utf8Json serializer yields a formatter resolver. Added
+  `BuiltInSerializerState` (`UsesUtf8JsonFormatter` / `GetConnectionSettings`) and switched the
+  multi_search/multi_get builders and `SourceRequestResponseBuilder` to it. `GetConnectionSettings` reaches
+  the settings via the Utf8Json formatter resolver or, for STJ, by unwrapping the proxy
+  (`DiagnosticsSerializerProxy.InnerSerializer`) to the `SystemTextJsonSerializer.Options` and the
+  `SourceSerializerProviderConverter`.
+- **`SourceSerializerProviderConverter` must resolve the source serializer lazily.** The request/response
+  options are built during settings construction, before `SourceSerializer` is assigned; the provider now
+  holds the settings and reads `SourceSerializer`/`Settings` on demand.
+- **`FieldNameQueryConverter.Write` serialized the body as the fixed concrete type** (`typeof(TConcrete)`),
+  which throws when the value is a fluent descriptor (`TermQueryDescriptor<T>` is not `TermQuery`). It now
+  serializes by the value's runtime type (still not the interface, so no recursion). Prior harnesses used
+  object-initializer syntax, hiding this.
+- **`SystemTextJsonSerializer` now returns default on empty/whitespace input** (204/HEAD/empty 200),
+  matching the vendored serializer; STJ otherwise throws "input does not contain any JSON tokens".
+- **Document (proxy) requests** — `index`/`create` — serialized as an empty object because their
+  type-level `[JsonFormatter(ProxyRequestFormatterBase)]` is a Utf8Json formatter STJ ignores. Added
+  `ProxyRequestConverterFactory`/`ProxyRequestConverter<T>` (matches `IProxyRequest`) that writes the
+  document body via `IProxyRequest.WriteJson(settings.SourceSerializer, …)` and reads it back through the
+  source serializer.
+
+Remaining before the cutover is complete (custom request-body formatters STJ still bypasses, each needs an
+STJ converter): `BulkRequestFormatter` (NDJSON), `MultiSearchFormatter` / `MultiSearchTemplateFormatter`
+(NDJSON), `MultiGetRequestFormatter`, `UpdateIndexSettingsRequestFormatter`, `CreateRepositoryFormatter`.
+After those: run the full integration suite (CI) to surface deeper gaps, then remove the vendored Utf8Json.

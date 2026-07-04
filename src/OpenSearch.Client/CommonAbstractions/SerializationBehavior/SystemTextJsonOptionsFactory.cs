@@ -123,6 +123,10 @@ namespace OpenSearch.Client
 			// Carries the source serializer to the stateless per-property source converters (#388).
 			options.Converters.Add(new SourceSerializerProviderConverter(settings));
 
+			// Document (proxy) requests — index/create — serialize as their document body via the source
+			// serializer. Registered early so it wins over the generic [ReadAs] factory.
+			options.Converters.Add(new ProxyRequestConverterFactory(settings));
+
 			// Stateless infrastructure converters (OpenSearch.Net).
 			options.Converters.Add(ObjectConverter.Instance);
 			options.Converters.Add(DoubleFormatConverter.Instance);

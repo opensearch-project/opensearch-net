@@ -52,7 +52,7 @@ namespace OpenSearch.Client
 
 			// The Utf8Json path uses a stateful formatter; the System.Text.Json serializer (see #388) does not
 			// participate in that layer, so build the response directly from the stream instead.
-			if (!(builtInSerializer is IInternalSerializer))
+			if (!BuiltInSerializerState.UsesUtf8JsonFormatter(builtInSerializer))
 				return SystemTextJsonMultiResponseBuilder.BuildMultiGet(builtInSerializer, _request, ReadAllBytes(stream));
 
 			return builtInSerializer.CreateStateful(Formatter).Deserialize<MultiGetResponse>(stream);
@@ -68,7 +68,7 @@ namespace OpenSearch.Client
 			if (!response.Success)
 				return new MultiGetResponse();
 
-			if (!(builtInSerializer is IInternalSerializer))
+			if (!BuiltInSerializerState.UsesUtf8JsonFormatter(builtInSerializer))
 				return SystemTextJsonMultiResponseBuilder.BuildMultiGet(builtInSerializer, _request,
 					await ReadAllBytesAsync(stream, ctx).ConfigureAwait(false));
 

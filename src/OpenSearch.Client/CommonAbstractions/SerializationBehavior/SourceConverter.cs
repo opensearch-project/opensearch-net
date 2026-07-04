@@ -99,17 +99,26 @@ namespace OpenSearch.Client
 	{
 		internal sealed class Marker { }
 
-		public SourceSerializerProviderConverter(IConnectionSettingsValues settings) => SourceSerializer = settings?.SourceSerializer;
+		private readonly IConnectionSettingsValues _settings;
 
-		public IOpenSearchSerializer SourceSerializer { get; }
+		public SourceSerializerProviderConverter(IConnectionSettingsValues settings) => _settings = settings;
 
-		public static IOpenSearchSerializer Resolve(JsonSerializerOptions options)
+		// Resolved lazily: when the request/response options are built during connection-settings
+		// construction, the source serializer has not been assigned yet (it is created afterwards).
+		public IOpenSearchSerializer SourceSerializer => _settings?.SourceSerializer;
+
+		public IConnectionSettingsValues Settings => _settings;
+
+		public static SourceSerializerProviderConverter Find(JsonSerializerOptions options)
 		{
+			if (options == null) return null;
 			for (var i = 0; i < options.Converters.Count; i++)
 				if (options.Converters[i] is SourceSerializerProviderConverter provider)
-					return provider.SourceSerializer;
+					return provider;
 			return null;
 		}
+
+		public static IOpenSearchSerializer Resolve(JsonSerializerOptions options) => Find(options)?.SourceSerializer;
 
 		public override Marker Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
 			throw new NotSupportedException();

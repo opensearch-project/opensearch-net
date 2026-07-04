@@ -74,25 +74,45 @@ namespace OpenSearch.Net
 		private JsonSerializerOptions OptionsFor(SerializationFormatting formatting) =>
 			formatting == SerializationFormatting.Indented ? _indentedOptions : _options;
 
+		/// <summary>
+		/// The <see cref="JsonSerializerOptions"/> backing this serializer. Exposed so the high-level
+		/// client can reach the connection settings threaded into the options' converters (#388).
+		/// </summary>
+		internal JsonSerializerOptions Options => _options;
+
 		/// <inheritdoc />
 		/// <remarks>
 		/// Buffers the entire stream into memory before deserializing; for very large
 		/// responses this trades memory for simplicity. The async overload streams.
 		/// </remarks>
-		public object Deserialize(Type type, Stream stream) =>
-			JsonSerializer.Deserialize(ReadAllBytes(stream), type, _options);
+		public object Deserialize(Type type, Stream stream)
+		{
+			var bytes = ReadAllBytes(stream);
+			// An empty or whitespace-only body (e.g. 204/HEAD/empty 200) yields default, matching the
+			// vendored serializer; System.Text.Json would otherwise throw on missing tokens.
+			return IsBlank(bytes) ? null : JsonSerializer.Deserialize(bytes, type, _options);
+		}
 
 		/// <inheritdoc cref="Deserialize(Type, Stream)" />
-		public T Deserialize<T>(Stream stream) =>
-			JsonSerializer.Deserialize<T>(ReadAllBytes(stream), _options);
+		public T Deserialize<T>(Stream stream)
+		{
+			var bytes = ReadAllBytes(stream);
+			return IsBlank(bytes) ? default : JsonSerializer.Deserialize<T>(bytes, _options);
+		}
 
 		/// <inheritdoc />
-		public Task<object> DeserializeAsync(Type type, Stream stream, CancellationToken cancellationToken = default) =>
-			JsonSerializer.DeserializeAsync(stream, type, _options, cancellationToken).AsTask();
+		public async Task<object> DeserializeAsync(Type type, Stream stream, CancellationToken cancellationToken = default)
+		{
+			var bytes = await ReadAllBytesAsync(stream, cancellationToken).ConfigureAwait(false);
+			return IsBlank(bytes) ? null : JsonSerializer.Deserialize(bytes, type, _options);
+		}
 
 		/// <inheritdoc />
-		public Task<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default) =>
-			JsonSerializer.DeserializeAsync<T>(stream, _options, cancellationToken).AsTask();
+		public async Task<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default)
+		{
+			var bytes = await ReadAllBytesAsync(stream, cancellationToken).ConfigureAwait(false);
+			return IsBlank(bytes) ? default : JsonSerializer.Deserialize<T>(bytes, _options);
+		}
 
 		/// <inheritdoc />
 		public void Serialize<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None) =>
@@ -110,6 +130,23 @@ namespace OpenSearch.Net
 			using var ms = new MemoryStream();
 			stream.CopyTo(ms);
 			return ms.ToArray();
+		}
+
+		private static async Task<byte[]> ReadAllBytesAsync(Stream stream, CancellationToken cancellationToken)
+		{
+			if (stream is MemoryStream existing) return existing.ToArray();
+			using var ms = new MemoryStream();
+			await stream.CopyToAsync(ms, 81920, cancellationToken).ConfigureAwait(false);
+			return ms.ToArray();
+		}
+
+		private static bool IsBlank(byte[] bytes)
+		{
+			if (bytes == null || bytes.Length == 0) return true;
+			foreach (var b in bytes)
+				if (b != (byte)' ' && b != (byte)'\t' && b != (byte)'\n' && b != (byte)'\r')
+					return false;
+			return true;
 		}
 	}
 }

@@ -124,7 +124,7 @@ namespace OpenSearch.Client
 			: base(connectionPool, connection, null)
 		{
 			var defaultSerializer = CreateDefaultRequestResponseSerializer();
-			var sourceSerializer = sourceSerializerFactory?.Invoke(defaultSerializer, this) ?? defaultSerializer;
+			var sourceSerializer = sourceSerializerFactory?.Invoke(defaultSerializer, this) ?? CreateDefaultSourceSerializer();
 			var serializerAsMappingProvider = sourceSerializer as IPropertyMappingProvider;
 
 			_propertyMappingProvider = propertyMappingProvider ?? serializerAsMappingProvider ?? new PropertyMappingProvider();
@@ -141,15 +141,23 @@ namespace OpenSearch.Client
 		}
 
 		/// <summary>
-		/// Creates the built-in serializer used to serialize requests and deserialize responses, and as the
-		/// fallback source serializer when no <see cref="ConnectionSettings.SourceSerializerFactory"/> is supplied.
+		/// Creates the built-in serializer used to serialize requests and deserialize responses.
 		/// <para>
-		/// Defaults to the internal Utf8Json-based <see cref="IOpenSearchSerializer"/>. Override to substitute an
-		/// alternative implementation, such as a <c>System.Text.Json</c>-based serializer (see GitHub issue #388).
+		/// Defaults to the <c>System.Text.Json</c>-based <see cref="SystemTextJsonSerializer"/> (see GitHub
+		/// issue #388). Override to substitute an alternative implementation.
 		/// </para>
 		/// </summary>
 		protected virtual IOpenSearchSerializer CreateDefaultRequestResponseSerializer() =>
-			new DefaultHighLevelSerializer(new OpenSearchClientFormatterResolver(this));
+			new SystemTextJsonSerializer(SystemTextJsonOptionsFactory.Create(this));
+
+		/// <summary>
+		/// Creates the default source serializer used to (de)serialize document bodies when no
+		/// <see cref="ConnectionSettings.SourceSerializerFactory"/> is supplied. Unlike the request/response
+		/// serializer it applies the client's document field-name inference (camel-casing + configured
+		/// property mappings and mapping attributes); see GitHub issue #388.
+		/// </summary>
+		protected virtual IOpenSearchSerializer CreateDefaultSourceSerializer() =>
+			new SystemTextJsonSerializer(SystemTextJsonOptionsFactory.CreateForSource(this));
 
 		bool IConnectionSettingsValues.DefaultDisableIdInference => _defaultDisableAllInference;
 		Func<string, string> IConnectionSettingsValues.DefaultFieldNameInferrer => _defaultFieldNameInferrer;

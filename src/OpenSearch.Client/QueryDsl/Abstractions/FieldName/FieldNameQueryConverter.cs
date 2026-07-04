@@ -43,8 +43,10 @@ namespace OpenSearch.Client
 			if (!string.IsNullOrEmpty(field))
 			{
 				writer.WritePropertyName(field);
-				// Serialize the body as the concrete type; Field is [IgnoreDataMember] so it is excluded.
-				JsonSerializer.Serialize(writer, value, typeof(TConcrete), options);
+				// Serialize the body as the value's runtime type (the concrete query, or a fluent
+				// descriptor implementing the interface). It is not TInterface, so it does not recurse
+				// back into this converter; Field is [IgnoreDataMember] so it is excluded from the body.
+				JsonSerializer.Serialize(writer, value, value.GetType(), options);
 			}
 
 			writer.WriteEndObject();

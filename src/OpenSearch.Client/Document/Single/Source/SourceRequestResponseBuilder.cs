@@ -41,14 +41,11 @@ namespace OpenSearch.Client
 		{
 			if (response.Success)
 			{
-				if (builtInSerializer is IInternalSerializer internalSerializer &&
-					internalSerializer.TryGetJsonFormatter(out var formatter))
+				var sourceSerializer = BuiltInSerializerState.GetConnectionSettings(builtInSerializer)?.SourceSerializer;
+				return new SourceResponse<TDocument>
 				{
-					var sourceSerializer = formatter.GetConnectionSettings().SourceSerializer;
-					return new SourceResponse<TDocument> { Body = sourceSerializer.Deserialize<TDocument>(stream) };
-				}
-
-				return new SourceResponse<TDocument> { Body = builtInSerializer.Deserialize<TDocument>(stream) };
+					Body = (sourceSerializer ?? builtInSerializer).Deserialize<TDocument>(stream)
+				};
 			}
 
 			return new SourceResponse<TDocument>();
@@ -58,19 +55,10 @@ namespace OpenSearch.Client
 		{
 			if (response.Success)
 			{
-				if (builtInSerializer is IInternalSerializer internalSerializer &&
-					internalSerializer.TryGetJsonFormatter(out var formatter))
-				{
-					var sourceSerializer = formatter.GetConnectionSettings().SourceSerializer;
-					return new SourceResponse<TDocument>
-					{
-						Body = await sourceSerializer.DeserializeAsync<TDocument>(stream, ctx).ConfigureAwait(false)
-					};
-				}
-
+				var sourceSerializer = BuiltInSerializerState.GetConnectionSettings(builtInSerializer)?.SourceSerializer;
 				return new SourceResponse<TDocument>
 				{
-					Body = await builtInSerializer.DeserializeAsync<TDocument>(stream, ctx).ConfigureAwait(false)
+					Body = await (sourceSerializer ?? builtInSerializer).DeserializeAsync<TDocument>(stream, ctx).ConfigureAwait(false)
 				};
 			}
 
