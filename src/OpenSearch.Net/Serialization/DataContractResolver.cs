@@ -134,6 +134,19 @@ namespace OpenSearch.Net
 
 				var interfaceProps = GetImplementedInterfaceProperties(member, interfaceMaps);
 
+				// Drop a public convenience property that only shadows (by name) an interface [DataMember]
+				// which is actually implemented EXPLICITLY by a different member. The client's mapping
+				// attributes expose non-nullable public getters (e.g. TextAttribute.Boost => double) that
+				// shadow the nullable explicit interface member (double? ITextProperty.Boost); serializing
+				// the public one writes defaults (boost:0.0) the vendored serializer omitted. Dropping it
+				// lets AddExplicitInterfaceProperties surface the (nullable) explicit member instead.
+				if (member.GetCustomAttribute<DataMemberAttribute>(true) == null
+					&& ShadowsExplicitInterfaceDataMember(member, interfaceMaps))
+				{
+					typeInfo.Properties.Remove(property);
+					continue;
+				}
+
 				var ignore = GetAttribute<IgnoreDataMemberAttribute>(member, interfaceProps) != null;
 				var dataMember = GetAttribute<DataMemberAttribute>(member, interfaceProps);
 
@@ -217,6 +230,50 @@ namespace OpenSearch.Net
 			}
 
 			AddExplicitInterfaceProperties(typeInfo, _nameOverride == null);
+			AddNonPublicDataMembers(typeInfo, _nameOverride == null);
+		}
+
+		/// <summary>
+		/// STJ's default resolver only surfaces public properties, but the client marks some non-public
+		/// (e.g. <c>internal</c>) properties with <c>[DataMember]</c> — notably <c>ResponseBase.Error</c>
+		/// and <c>ResponseBase.StatusCode</c>, which the server error is built from. Utf8Json serialized
+		/// these via its <c>allowPrivate</c> semantics; mirror that by adding a property for each
+		/// non-public <c>[DataMember]</c> instance property (walking the base types) not already surfaced.
+		/// </summary>
+		private static void AddNonPublicDataMembers(JsonTypeInfo typeInfo, bool camelCaseDefault)
+		{
+			if (typeInfo.Type.IsInterface || typeInfo.Type.IsAbstract) return;
+
+			var existing = new HashSet<string>(StringComparer.Ordinal);
+			foreach (var p in typeInfo.Properties) existing.Add(p.Name);
+
+			const BindingFlags flags = BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly;
+			for (var type = typeInfo.Type; type != null && type != typeof(object); type = type.BaseType)
+			{
+				foreach (var member in type.GetProperties(flags))
+				{
+					if (member.GetCustomAttribute<IgnoreDataMemberAttribute>(true) != null) continue;
+					var dataMember = member.GetCustomAttribute<DataMemberAttribute>(true);
+					if (dataMember == null) continue;
+
+					var name = !string.IsNullOrEmpty(dataMember.Name)
+						? dataMember.Name
+						: (camelCaseDefault ? ToCamelCase(member.Name) : member.Name);
+					if (!existing.Add(name)) continue;
+
+					var jsonProperty = typeInfo.CreateJsonPropertyInfo(member.PropertyType, name);
+					jsonProperty.Get = member.CanRead ? member.GetValue : (Func<object, object>)null;
+					jsonProperty.Set = member.CanWrite ? member.SetValue : (Action<object, object>)null;
+
+					var shouldSerialize = typeInfo.Type.GetMethod(
+						"ShouldSerialize" + member.Name,
+						BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance, null, Type.EmptyTypes, null);
+					if (shouldSerialize != null && shouldSerialize.ReturnType == typeof(bool))
+						jsonProperty.ShouldSerialize = (obj, _) => (bool)shouldSerialize.Invoke(obj, null);
+
+					typeInfo.Properties.Add(jsonProperty);
+				}
+			}
 		}
 
 		/// <summary>
@@ -318,6 +375,37 @@ namespace OpenSearch.Net
 			}
 
 			converter = null;
+			return false;
+		}
+
+		/// <summary>
+		/// True when <paramref name="member"/> is a public property whose name matches an interface
+		/// property carrying <c>[DataMember]</c> that is implemented <em>explicitly</em> by a different
+		/// member (so <paramref name="member"/> merely shadows it and should not be serialized).
+		/// </summary>
+		private static bool ShadowsExplicitInterfaceDataMember(PropertyInfo member, InterfaceMapping[] interfaceMaps)
+		{
+			if (interfaceMaps == null) return false;
+			var getter = member.GetMethod;
+			if (getter == null || !getter.IsPublic) return false;
+
+			foreach (var map in interfaceMaps)
+			{
+				var interfaceProperty = map.InterfaceType.GetProperty(member.Name);
+				var interfaceGetter = interfaceProperty?.GetMethod;
+				if (interfaceGetter == null) continue;
+				if (interfaceProperty.GetCustomAttribute<DataMemberAttribute>(true) == null) continue;
+
+				var index = Array.IndexOf(map.InterfaceMethods, interfaceGetter);
+				if (index < 0) continue;
+
+				var target = map.TargetMethods[index];
+				// A true public implementation targets this member's own getter; an explicit
+				// implementation targets a different (compiler-named) method.
+				if (target != getter && target.Name != getter.Name)
+					return true;
+			}
+
 			return false;
 		}
 
