@@ -179,7 +179,6 @@ namespace OpenSearch.Client
 			options.Converters.Add(new AnalyzerInterfaceConverter());
 			options.Converters.Add(new NormalizerInterfaceConverter());
 			options.Converters.Add(new QueryContainerConverter());
-			options.Converters.Add(new QueryContainerInterfaceConverter());
 
 			// Field-name-keyed queries ({ "<field>": { … } }); settings-bearing (decision D1).
 			options.Converters.Add(new FieldNameQueryConverter<TermQuery, ITermQuery>(settings));
