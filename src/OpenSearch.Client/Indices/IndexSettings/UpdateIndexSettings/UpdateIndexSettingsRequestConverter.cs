@@ -60,7 +60,10 @@ namespace OpenSearch.Client
 			JsonSerializer.Serialize(writer, request.IndexSettings, typeof(IDynamicIndexSettings), options);
 		}
 
-		public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
-			throw new NotSupportedException();
+		public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+		{
+			var settings = (IDynamicIndexSettings)JsonSerializer.Deserialize(ref reader, typeof(IDynamicIndexSettings), options);
+			return (T)(object)new UpdateIndexSettingsRequest { IndexSettings = settings };
+		}
 	}
 }

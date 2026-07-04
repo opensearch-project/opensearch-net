@@ -19,9 +19,35 @@ namespace OpenSearch.Client
 	/// is supplied), an edit distance as an integer number and a ratio as a floating-point number.
 	/// Reads accept both the string and number forms.
 	/// </summary>
+	/// <summary>
+	/// Factory so the fuzziness converter applies whether a member is declared as <see cref="IFuzziness"/>
+	/// or the concrete <see cref="Fuzziness"/> (STJ selects converters by the exact declared type). #388.
+	/// </summary>
+	internal sealed class FuzzinessConverterFactory : JsonConverterFactory
+	{
+		public override bool CanConvert(Type typeToConvert) => typeof(IFuzziness).IsAssignableFrom(typeToConvert);
+
+		public override JsonConverter CreateConverter(Type typeToConvert, JsonSerializerOptions options) =>
+			(JsonConverter)Activator.CreateInstance(typeof(FuzzinessConverter<>).MakeGenericType(typeToConvert));
+	}
+
+	internal sealed class FuzzinessConverter<T> : JsonConverter<T>
+		where T : class, IFuzziness
+	{
+		public override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options) =>
+			FuzzinessConverter.WriteValue(writer, value);
+
+		public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
+			(T)FuzzinessConverter.ReadValue(ref reader);
+	}
+
 	internal sealed class FuzzinessConverter : JsonConverter<IFuzziness>
 	{
-		public override void Write(Utf8JsonWriter writer, IFuzziness value, JsonSerializerOptions options)
+		public override void Write(Utf8JsonWriter writer, IFuzziness value, JsonSerializerOptions options) => WriteValue(writer, value);
+
+		public override IFuzziness Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) => ReadValue(ref reader);
+
+		internal static void WriteValue(Utf8JsonWriter writer, IFuzziness value)
 		{
 			if (value == null)
 			{
@@ -44,7 +70,7 @@ namespace OpenSearch.Client
 				writer.WriteNullValue();
 		}
 
-		public override IFuzziness Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+		internal static IFuzziness ReadValue(ref Utf8JsonReader reader)
 		{
 			using var document = JsonDocument.ParseValue(ref reader);
 			var root = document.RootElement;

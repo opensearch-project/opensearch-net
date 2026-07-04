@@ -138,6 +138,21 @@ namespace OpenSearch.Net
 
 				if (dataMember != null && !string.IsNullOrEmpty(dataMember.Name))
 					property.Name = dataMember.Name;
+				else if (_nameOverride == null)
+					// Request/response default: the vendored resolver camel-cases every un-named member
+					// (its name mutator = ToCamelCase). Members carrying an explicit [DataMember(Name)]
+					// keep it (handled above); the source path handles naming via _nameOverride below.
+					property.Name = ToCamelCase(property.Name);
+
+				// Member-level [StringEnum]: serialize the (nullable) enum as its string form even when the
+				// enum type itself is not annotated, mirroring the vendored CreateEnumFormatterForProperty.
+				var stringEnum = GetAttribute<StringEnumAttribute>(member, interfaceProps);
+				if (stringEnum != null)
+				{
+					var enumType = Nullable.GetUnderlyingType(member.PropertyType) ?? member.PropertyType;
+					if (enumType.IsEnum)
+						property.CustomConverter = StringEnumConverterFactory.Instance.CreateConverter(member.PropertyType, null);
+				}
 
 				// Source serializer: apply the document field-name inference (camel-casing + configured
 				// property mappings / mapping attributes), overriding the [DataMember] name above, and
@@ -188,7 +203,18 @@ namespace OpenSearch.Net
 					property.CustomConverter = propertyConverter;
 			}
 
-			AddExplicitInterfaceProperties(typeInfo);
+			AddExplicitInterfaceProperties(typeInfo, _nameOverride == null);
+		}
+
+		/// <summary>
+		/// Lower-cases the first character only, matching the client's <c>ToCamelCase</c> (and the
+		/// vendored Utf8Json name mutator). Deliberately does NOT lower an all-caps prefix, so an
+		/// un-named member such as <c>Pipeline</c> becomes <c>pipeline</c> while <c>ID</c> stays <c>iD</c>.
+		/// </summary>
+		internal static string ToCamelCase(string s)
+		{
+			if (string.IsNullOrEmpty(s) || !char.IsUpper(s[0])) return s;
+			return s.Length == 1 ? char.ToLowerInvariant(s[0]).ToString() : char.ToLowerInvariant(s[0]) + s.Substring(1);
 		}
 
 		/// <summary>
@@ -198,7 +224,7 @@ namespace OpenSearch.Net
 		/// (de)serialized. Add a property for each interface <c>[DataMember]</c> not already surfaced,
 		/// reading/writing through the interface (mirrors Utf8Json's <c>allowPrivate</c>).
 		/// </summary>
-		private static void AddExplicitInterfaceProperties(JsonTypeInfo typeInfo)
+		private static void AddExplicitInterfaceProperties(JsonTypeInfo typeInfo, bool camelCaseDefault)
 		{
 			if (typeInfo.Type.IsInterface || typeInfo.Type.IsAbstract) return;
 
@@ -214,7 +240,9 @@ namespace OpenSearch.Net
 					var dataMember = interfaceProperty.GetCustomAttribute<DataMemberAttribute>();
 					if (dataMember == null) continue;
 
-					var name = !string.IsNullOrEmpty(dataMember.Name) ? dataMember.Name : interfaceProperty.Name;
+					var name = !string.IsNullOrEmpty(dataMember.Name)
+						? dataMember.Name
+						: (camelCaseDefault ? ToCamelCase(interfaceProperty.Name) : interfaceProperty.Name);
 					if (!existing.Add(name)) continue; // already surfaced (public implementation or another interface)
 
 					var jsonProperty = typeInfo.CreateJsonPropertyInfo(interfaceProperty.PropertyType, name);

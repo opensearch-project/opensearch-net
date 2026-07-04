@@ -200,6 +200,15 @@ namespace OpenSearch.Client
 			options.Converters.Add(new DistanceFeatureQueryConverter());
 			options.Converters.Add(new UnionConverter<GeoCoordinate, DateMath>());
 			options.Converters.Add(new UnionConverter<Distance, Time>());
+			options.Converters.Add(new UnionConverter<HighlighterType, string>());
+
+			// Enums with bespoke wire strings the vendored serializer wrote via dedicated formatters
+			// (not [StringEnum]); registered as global converters (#388).
+			options.Converters.Add(new GeoOrientationConverter());
+			options.Converters.Add(new NullableGeoOrientationConverter());
+			options.Converters.Add(new ShapeOrientationConverter());
+			options.Converters.Add(new NullableShapeOrientationConverter());
+			options.Converters.Add(new SimpleQueryStringFlagsConverter());
 
 			// Aggregations (request side)
 			options.Converters.Add(new AggregationDictionaryConverter());
@@ -261,11 +270,16 @@ namespace OpenSearch.Client
 			options.Converters.Add(new AliasActionConverter());
 			options.Converters.Add(new IndicesBoostConverter(settings));
 
-			// Fuzziness (queries + full-text options).
-			options.Converters.Add(new FuzzinessConverter());
+			// Fuzziness (queries + full-text options); factory so both IFuzziness and Fuzziness members match.
+			options.Converters.Add(new FuzzinessConverterFactory());
 
 			// Ingest pipeline processors (polymorphic dispatch).
 			options.Converters.Add(new ProcessorConverter());
+
+			// Polymorphic bodies the vendored serializer wrote via [JsonFormatter] (#388).
+			options.Converters.Add(new ScoreFunctionInterfaceConverter(settings));
+			options.Converters.Add(new MovingAverageAggregationConverter());
+			options.Converters.Add(new ContextConverter());
 
 			// Other polymorphic / value converters.
 			options.Converters.Add(new ChildrenConverter());
