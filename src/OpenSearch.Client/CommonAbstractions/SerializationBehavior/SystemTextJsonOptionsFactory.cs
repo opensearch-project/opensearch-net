@@ -5,9 +5,12 @@
 * compatible open source license.
 */
 
+using System;
+using System.Reflection;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Text.Json.Serialization.Metadata;
 using OpenSearch.Net;
 
 namespace OpenSearch.Client
@@ -69,13 +72,50 @@ namespace OpenSearch.Client
 			}
 		}
 
-		public static JsonSerializerOptions Create(IConnectionSettingsValues settings)
+		/// <summary>
+		/// Builds the options for the request/response serializer: honors the client's <c>[DataMember]</c>
+		/// wire names and does not apply document field-name inference.
+		/// </summary>
+		public static JsonSerializerOptions Create(IConnectionSettingsValues settings) =>
+			Build(settings, DataContractResolver.Instance);
+
+		/// <summary>
+		/// Builds the options for the <em>source</em> serializer (documents): identical to
+		/// <see cref="Create"/> but with a resolver that applies the client's document field-name
+		/// inference — camel-casing plus configured property mappings and mapping attributes — mirroring
+		/// the vendored <c>OpenSearchClientFormatterResolver</c> (#388).
+		/// </summary>
+		public static JsonSerializerOptions CreateForSource(IConnectionSettingsValues settings) =>
+			Build(settings, new DataContractResolver(BuildSourceNameOverride(settings)));
+
+		/// <summary>
+		/// Reproduces the name/ignore precedence of the vendored source resolver's <c>GetMapping</c>:
+		/// a configured/attribute-based property mapping wins, then a <c>[PropertyName]</c>/<c>[DataMember]</c>
+		/// serializer mapping, otherwise the default field-name inferrer (camel-casing). Settings are read
+		/// lazily so mappings configured after construction are honored.
+		/// </summary>
+		private static Func<MemberInfo, (string Name, bool Ignore)?> BuildSourceNameOverride(IConnectionSettingsValues settings) =>
+			member =>
+			{
+				if (!settings.PropertyMappings.TryGetValue(member, out var propertyMapping))
+					propertyMapping = OpenSearchPropertyAttributeBase.From(member);
+
+				var serializerMapping = settings.PropertyMappingProvider?.CreatePropertyMapping(member);
+
+				if ((propertyMapping?.Ignore ?? false) || (serializerMapping?.Ignore ?? false))
+					return (null, true);
+
+				var name = propertyMapping?.Name ?? serializerMapping?.Name ?? settings.DefaultFieldNameInferrer(member.Name);
+				return (name, false);
+			};
+
+		private static JsonSerializerOptions Build(IConnectionSettingsValues settings, IJsonTypeInfoResolver resolver)
 		{
 			EnsurePerPropertyConvertersRegistered();
 
 			var options = new JsonSerializerOptions
 			{
-				TypeInfoResolver = DataContractResolver.Instance,
+				TypeInfoResolver = resolver,
 				DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
 				Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
 			};

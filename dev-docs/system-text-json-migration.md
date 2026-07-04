@@ -1062,3 +1062,38 @@ through the oracle): **2/2**. This is the first end-to-end exercise of the whole
 This closes bucket 2. Remaining before the client can default to STJ: the cutover itself (flip
 `ConnectionSettingsBase.CreateDefaultRequestResponseSerializer()`, run the full integration suite, remove
 the vendored Utf8Json), and the deferred epoch-millis per-property date converter.
+
+## 49. Source serializer field-name inference (camel-casing + mappings)
+
+`SourceConverter<T>` (§48.1) routes document bodies through `settings.SourceSerializer`. Before cutover
+that is still Utf8Json, which camel-cases document properties by default and applies the client's
+property mappings/attributes. After cutover the source serializer becomes STJ, so its options must
+reproduce that naming — the request/response `DataContractResolver` deliberately does **not** (it honors
+`[DataMember]` wire names and otherwise keeps the CLR name), which is correct for client models but wrong
+for user document POCOs.
+
+The vendored resolver (`OpenSearchClientFormatterResolver.InnerResolver.GetMapping`) resolves a document
+member's name as: a configured/attribute property mapping (`settings.PropertyMappings` /
+`OpenSearchPropertyAttributeBase`) → a `[PropertyName]`/`[DataMember]` serializer mapping
+(`PropertyMappingProvider`) → otherwise `DefaultFieldNameInferrer` (camel-case), plus an inferred ignore
+(`[Ignore]`, `[PropertyName(Ignore = true)]`).
+
+Migration:
+- `DataContractResolver` gained an optional constructor taking a per-member
+  `Func<MemberInfo, (string Name, bool Ignore)?>` override. When present, `ApplyDataContract` applies it
+  after the `[DataMember]` rules — overriding the name or dropping the member when ignored. The shared
+  `Instance` (request/response) is unchanged; only the source resolver passes an override.
+- `SystemTextJsonOptionsFactory.CreateForSource(settings)` builds the same options as `Create` but with
+  `new DataContractResolver(BuildSourceNameOverride(settings))`. `BuildSourceNameOverride` reproduces the
+  `GetMapping` precedence above and reads settings lazily (so mappings configured after construction, and
+  `DefaultMappingFor`, are honored). `Create`/`CreateForSource` now share a private `Build` helper for the
+  converter registration.
+
+Harness `poc/StjSourceInferenceTriage` compares `CreateForSource` against the Utf8Json source serializer
+(write byte-parity + oracle→stj-read→oracle round-trip): **7/7** — plain/multi-word camelCase, null
+omission, `[PropertyName]`/`[DataMember]`/`[Ignore]`, nested POCO + collection, `DefaultMappingFor`
+rename, and a dynamic `Dictionary<string, object>`.
+
+This is the naming half of the cutover's source-serializer requirement; the remaining wiring (constructing
+`settings.SourceSerializer` from `CreateForSource` when the default serializer is flipped to STJ) is part
+of the cutover itself.

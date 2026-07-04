@@ -66,10 +66,28 @@ namespace OpenSearch.Net
 		/// </summary>
 		public static readonly Dictionary<Type, Type> PropertyConverterOverridesOpenGeneric = new();
 
+		/// <summary>
+		/// Optional per-member name/ignore override applied after the <c>[DataMember]</c> rules (#388).
+		/// Used by the <em>source</em> serializer to reproduce the client's document field-name inference
+		/// (camel-casing plus configured property mappings and mapping attributes), which the
+		/// request/response contract does not apply. Returns <c>null</c> to leave the member untouched.
+		/// </summary>
+		private readonly Func<MemberInfo, (string Name, bool Ignore)?> _nameOverride;
+
 		/// <summary> Creates a resolver that applies the data-contract modifier to every object type. </summary>
 		public DataContractResolver() => Modifiers.Add(ApplyDataContract);
 
-		internal static void ApplyDataContract(JsonTypeInfo typeInfo)
+		/// <summary>
+		/// Creates a resolver that, in addition to the data-contract rules, applies a per-member
+		/// name/ignore override (document field-name inference for the source serializer, #388).
+		/// </summary>
+		public DataContractResolver(Func<MemberInfo, (string Name, bool Ignore)?> nameOverride)
+		{
+			_nameOverride = nameOverride;
+			Modifiers.Add(ApplyDataContract);
+		}
+
+		internal void ApplyDataContract(JsonTypeInfo typeInfo)
 		{
 			if (typeInfo.Kind != JsonTypeInfoKind.Object) return;
 
@@ -120,6 +138,25 @@ namespace OpenSearch.Net
 
 				if (dataMember != null && !string.IsNullOrEmpty(dataMember.Name))
 					property.Name = dataMember.Name;
+
+				// Source serializer: apply the document field-name inference (camel-casing + configured
+				// property mappings / mapping attributes), overriding the [DataMember] name above, and
+				// honoring an inferred ignore (e.g. [Ignore], [PropertyName(Ignore = true)]).
+				if (_nameOverride != null)
+				{
+					var over = _nameOverride(member);
+					if (over.HasValue)
+					{
+						if (over.Value.Ignore)
+						{
+							typeInfo.Properties.Remove(property);
+							continue;
+						}
+
+						if (!string.IsNullOrEmpty(over.Value.Name))
+							property.Name = over.Value.Name;
+					}
+				}
 
 				// Honor the ShouldSerialize<Member>() convention (Utf8Json/Json.NET): the client uses it
 				// to omit, for example, empty bool-query clause arrays (ShouldSerializeMust, etc.).
