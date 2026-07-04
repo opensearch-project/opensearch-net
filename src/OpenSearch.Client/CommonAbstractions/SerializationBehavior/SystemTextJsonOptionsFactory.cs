@@ -6,6 +6,7 @@
 */
 
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Text.Encodings.Web;
 using System.Text.Json;
@@ -178,6 +179,7 @@ namespace OpenSearch.Client
 			options.Converters.Add(new AnalyzerInterfaceConverter());
 			options.Converters.Add(new NormalizerInterfaceConverter());
 			options.Converters.Add(new QueryContainerConverter());
+			options.Converters.Add(new QueryContainerInterfaceConverter());
 
 			// Field-name-keyed queries ({ "<field>": { … } }); settings-bearing (decision D1).
 			options.Converters.Add(new FieldNameQueryConverter<TermQuery, ITermQuery>(settings));
@@ -251,6 +253,8 @@ namespace OpenSearch.Client
 			options.Converters.Add(new DateMathTimeConverter());
 			options.Converters.Add(new UnionConverter<DateInterval?, DateMathTime>());
 			options.Converters.Add(new FilterAggregationConverter());
+			// filters aggregation: named container OR an anonymous list of queries.
+			options.Converters.Add(new UnionConverter<INamedFiltersContainer, IEnumerable<QueryContainer>>());
 			options.Converters.Add(new PercentilesAggregationConverter());
 			options.Converters.Add(new PercentileRanksAggregationConverter());
 			options.Converters.Add(new CompositeAggregationSourceConverter());

@@ -15,7 +15,7 @@ namespace OpenSearch.Client
 	/// </summary>
 	internal static class PercentilesMethodConverter
 	{
-		public static void Write(Utf8JsonWriter writer, IPercentilesMethod method)
+		public static void Write(Utf8JsonWriter writer, IPercentilesMethod method, JsonSerializerOptions options)
 		{
 			switch (method)
 			{
@@ -23,7 +23,11 @@ namespace OpenSearch.Client
 					writer.WritePropertyName("tdigest");
 					writer.WriteStartObject();
 					if (tdigest.Compression.HasValue)
-						writer.WriteNumber("compression", tdigest.Compression.Value);
+					{
+						writer.WritePropertyName("compression");
+						// Route through the double converter so an integral value keeps its ".0".
+						JsonSerializer.Serialize(writer, tdigest.Compression.Value, options);
+					}
 					writer.WriteEndObject();
 					break;
 				case IHDRHistogramMethod hdr:

@@ -49,10 +49,13 @@ namespace OpenSearch.Client
 				JsonSerializer.Serialize(writer, value.Script, options);
 			}
 
-			PercentilesMethodConverter.Write(writer, value.Method);
+			PercentilesMethodConverter.Write(writer, value.Method, options);
 
 			if (value.Missing.HasValue)
-				writer.WriteNumber("missing", value.Missing.Value);
+			{
+				writer.WritePropertyName("missing");
+				JsonSerializer.Serialize(writer, value.Missing.Value, options);
+			}
 
 			if (value.Values != null)
 			{
