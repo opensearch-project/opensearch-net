@@ -28,12 +28,29 @@ namespace OpenSearch.Client
 			var value = reader.GetString();
 			if (value == null) return null;
 
-			if (!value.Contains("||")
-				&& DateTime.TryParse(value, CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind, out var dateTime))
+			// Only anchor a value that is STRICTLY an ISO-8601 date/time (mirroring the vendored
+			// DateMathFormatter, which used the strict ISO reader). A value in a custom `format`
+			// (e.g. "01/01/2016") must be preserved verbatim as a string anchor, not reparsed to ISO.
+			if (!value.Contains("||") && TryParseIso8601(value, out var dateTime))
 				return DateMath.Anchored(dateTime);
 
 			return DateMath.FromString(value);
 		}
+
+		private static readonly string[] Iso8601Formats =
+		{
+			"yyyy-MM-ddTHH:mm:ss.FFFFFFFK",
+			"yyyy-MM-ddTHH:mm:ssK",
+			"yyyy-MM-ddTHH:mm:ss.FFFFFFF",
+			"yyyy-MM-ddTHH:mm:ss",
+			"yyyy-MM-dd",
+			"yyyy-MM",
+			"yyyy",
+		};
+
+		private static bool TryParseIso8601(string value, out DateTime dateTime) =>
+			DateTime.TryParseExact(value, Iso8601Formats, CultureInfo.InvariantCulture,
+				DateTimeStyles.RoundtripKind, out dateTime);
 
 		public override void Write(Utf8JsonWriter writer, DateMath value, JsonSerializerOptions options)
 		{

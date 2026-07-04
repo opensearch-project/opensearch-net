@@ -67,6 +67,14 @@ namespace OpenSearch.Net
 		public static readonly Dictionary<Type, Type> PropertyConverterOverridesOpenGeneric = new();
 
 		/// <summary>
+		/// Optional hook (set by the high-level client) that returns a per-member converter based on the
+		/// member's client-specific attributes (e.g. <c>[StringTimeSpan]</c>), which live in
+		/// <c>OpenSearch.Client</c> and cannot be referenced from here (#388). Returns <c>null</c> to leave
+		/// the member untouched.
+		/// </summary>
+		public static Func<MemberInfo, System.Text.Json.Serialization.JsonConverter> MemberConverterResolver;
+
+		/// <summary>
 		/// Optional per-member name/ignore override applied after the <c>[DataMember]</c> rules (#388).
 		/// Used by the <em>source</em> serializer to reproduce the client's document field-name inference
 		/// (camel-casing plus configured property mappings and mapping attributes), which the
@@ -153,6 +161,11 @@ namespace OpenSearch.Net
 					if (enumType.IsEnum)
 						property.CustomConverter = StringEnumConverterFactory.Instance.CreateConverter(member.PropertyType, null);
 				}
+
+				// Client-specific member attributes (e.g. [StringTimeSpan]) via the client-provided hook.
+				var memberConverter = MemberConverterResolver?.Invoke(member);
+				if (memberConverter != null)
+					property.CustomConverter = memberConverter;
 
 				// Source serializer: apply the document field-name inference (camel-casing + configured
 				// property mappings / mapping attributes), overriding the [DataMember] name above, and

@@ -49,6 +49,10 @@ namespace OpenSearch.Client
 				map[typeof(StringIntFormatter)] = new StringIntConverter();
 				map[typeof(IntStringFormatter)] = new IntStringConverter();
 
+				// Member-level [JsonFormatter(typeof(IndicesFormatter))] (e.g. alias-action indices) writes
+				// the array form of Indices rather than the type-level comma-joined string.
+				map[typeof(IndicesFormatter)] = new IndicesArrayConverter();
+
 				var openMap = DataContractResolver.PropertyConverterOverridesOpenGeneric;
 				openMap[typeof(SingleOrEnumerableFormatter<>)] = typeof(SingleOrEnumerableConverter<>);
 				openMap[typeof(SerializeAsSingleFormatter<>)] = typeof(SerializeAsSingleConverter<>);
@@ -67,6 +71,16 @@ namespace OpenSearch.Client
 				openMap[typeof(SourceFormatter<>)] = typeof(SourceConverter<>);
 				openMap[typeof(CollapsedSourceFormatter<>)] = typeof(SourceConverter<>);
 				openMap[typeof(SourceWriteFormatter<>)] = typeof(SourceConverter<>);
+
+				// Member-level [StringTimeSpan]: serialize a TimeSpan member as the ISO8601 string form
+				// (the default is ticks). Wired through the resolver's member-converter hook (#388).
+				DataContractResolver.MemberConverterResolver = member =>
+				{
+					if (!(member is PropertyInfo property) || property.GetCustomAttribute<StringTimeSpanAttribute>() == null)
+						return null;
+					var isNullable = Nullable.GetUnderlyingType(property.PropertyType) != null;
+					return isNullable ? new NullableStringTimeSpanConverter() : (JsonConverter)new StringTimeSpanConverter();
+				};
 
 				_perPropertyRegistered = true;
 			}
@@ -138,6 +152,15 @@ namespace OpenSearch.Client
 			options.Converters.Add(SingleFormatConverter.Instance);
 			options.Converters.Add(StringEnumConverterFactory.Instance);
 
+			// Date/time and TimeSpan wire formats (ISO8601 with 7-digit fraction; TimeSpan as ticks),
+			// matching the vendored formatters (#388). [StringTimeSpan] members are wired per-member.
+			options.Converters.Add(new DateTimeConverter());
+			options.Converters.Add(new NullableDateTimeConverter());
+			options.Converters.Add(new DateTimeOffsetConverter());
+			options.Converters.Add(new NullableDateTimeOffsetConverter());
+			options.Converters.Add(new TimeSpanTicksConverter());
+			options.Converters.Add(new NullableTimeSpanTicksConverter());
+
 			// Settings-bearing converters (field-name / id inference — decision D1).
 			options.Converters.Add(new FieldConverter(settings));
 			options.Converters.Add(new FieldsConverter(settings));
@@ -201,6 +224,12 @@ namespace OpenSearch.Client
 			options.Converters.Add(new UnionConverter<GeoCoordinate, DateMath>());
 			options.Converters.Add(new UnionConverter<Distance, Time>());
 			options.Converters.Add(new UnionConverter<HighlighterType, string>());
+			// _source (false | includes/excludes) across search/update/mget/inner_hits/top_hits.
+			options.Converters.Add(new UnionConverter<bool, ISourceFilter>());
+			// Analyze request: tokenizer / char_filter / filter as a name reference or an inline definition.
+			options.Converters.Add(new UnionConverter<string, ITokenizer>());
+			options.Converters.Add(new UnionConverter<string, ICharFilter>());
+			options.Converters.Add(new UnionConverter<string, ITokenFilter>());
 
 			// Enums with bespoke wire strings the vendored serializer wrote via dedicated formatters
 			// (not [StringEnum]); registered as global converters (#388).
@@ -241,6 +270,10 @@ namespace OpenSearch.Client
 
 			options.Converters.Add(new BulkResponseItemConverter());
 			options.Converters.Add(new GetRepositoryResponseConverter());
+
+			// Server error object (bare-string or structured, recursive caused_by / root_cause).
+			options.Converters.Add(new ErrorCauseConverter());
+			options.Converters.Add(new ErrorConverter());
 
 			// Top-level dictionary/dynamic response readers (recognized by their [JsonFormatter] type).
 			options.Converters.Add(new ResponseFormatterConverterFactory(settings));
@@ -285,6 +318,10 @@ namespace OpenSearch.Client
 			options.Converters.Add(new ChildrenConverter());
 			options.Converters.Add(new DynamicMappingConverter());
 			options.Converters.Add(new ClusterRerouteCommandConverter());
+
+			// Dictionary shapes STJ can't round-trip natively (ReadOnlyDictionary, non-string/object keys,
+			// custom implementers). Conservative CanConvert preserves the native fast path.
+			options.Converters.Add(new ReadOnlyDictionaryConverterFactory());
 
 			// Generic [ReadAs] mapping for any remaining interface used as a nested property
 			// (e.g. ISpanQuery). Registered last so dedicated converters take precedence.
