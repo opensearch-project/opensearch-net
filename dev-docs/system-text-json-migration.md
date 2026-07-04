@@ -1163,3 +1163,21 @@ defaults) and compares the STJ client's captured request body against a reflecti
 **byte-for-byte match**. Remaining request-body formatters: `MultiSearchFormatter` /
 `MultiSearchTemplateFormatter` (NDJSON), `MultiGetRequestFormatter`, `UpdateIndexSettingsRequestFormatter`,
 `CreateRepositoryFormatter`.
+
+## 52. Cutover part 3 — `_msearch` / `_msearch/template` NDJSON writers
+
+Same NDJSON approach as bulk (§51). `MultiSearchRequest`/`MultiSearchDescriptor` and
+`MultiSearchTemplateRequest`/`MultiSearchTemplateDescriptor` implement `ISystemTextJsonSelfSerializable`,
+delegating to `MultiSearchRequestJsonSerializer` (mirrors the vendored `MultiSearchFormatter` /
+`MultiSearchTemplateFormatter`). Per operation it writes a header line — an anonymous object
+`{ index, search_type, preference, routing, ignore_unavailable }` with values resolved from the operation's
+query string (`search_type == "query_then_fetch"` collapses to null; null members dropped) — then the
+operation body, each serialized through the request/response options and separated by `\n`. The two
+vendored variants' header index expressions are equivalent, so a single writer serves both.
+
+Harness `poc/StjMsearchTriage` compares the STJ client body against the reflection-built Utf8Json oracle
+for a fluent `MultiSearchDescriptor` (two typed searches) and a `MultiSearchTemplateDescriptor` (inline
+source + stored-template id with params): **byte-for-byte match** for both.
+
+Remaining request-body formatters: `MultiGetRequestFormatter`, `UpdateIndexSettingsRequestFormatter`,
+`CreateRepositoryFormatter` (single-object bodies — plain converters, no NDJSON).
