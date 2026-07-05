@@ -300,6 +300,9 @@ namespace OpenSearch.Client
 			options.Converters.Add(new UnionConverter<GeoCoordinate, DateMath>());
 			options.Converters.Add(new UnionConverter<Distance, Time>());
 			options.Converters.Add(new UnionConverter<HighlighterType, string>());
+			// RandomScoreFunction.Seed is written directly (not via the [JsonFormatter] per-property path),
+			// so it needs a global converter for Union<long, string>.
+			options.Converters.Add(new UnionConverter<long, string>());
 			// _source (false | includes/excludes) across search/update/mget/inner_hits/top_hits.
 			options.Converters.Add(new UnionConverter<bool, ISourceFilter>());
 			// Analyze request: tokenizer / char_filter / filter as a name reference or an inline definition.

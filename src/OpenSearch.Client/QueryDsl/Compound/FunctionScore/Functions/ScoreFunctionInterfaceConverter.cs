@@ -91,7 +91,12 @@ namespace OpenSearch.Client
 			}
 
 			if (value.Weight.HasValue)
-				writer.WriteNumber("weight", value.Weight.Value);
+			{
+				// Route doubles through the registered DoubleFormatConverter so whole values keep a decimal
+				// (e.g. 3.0 rather than 3), matching the vendored formatter.
+				writer.WritePropertyName("weight");
+				JsonSerializer.Serialize(writer, value.Weight.Value, options);
+			}
 
 			writer.WriteEndObject();
 		}
@@ -131,7 +136,10 @@ namespace OpenSearch.Client
 			writer.WriteString("field", _settings.Inferrer.Field(value.Field));
 
 			if (value.Factor.HasValue)
-				writer.WriteNumber("factor", value.Factor.Value);
+			{
+				writer.WritePropertyName("factor");
+				JsonSerializer.Serialize(writer, value.Factor.Value, options);
+			}
 
 			if (value.Modifier.HasValue)
 			{
@@ -140,7 +148,10 @@ namespace OpenSearch.Client
 			}
 
 			if (value.Missing.HasValue)
-				writer.WriteNumber("missing", value.Missing.Value);
+			{
+				writer.WritePropertyName("missing");
+				JsonSerializer.Serialize(writer, value.Missing.Value, options);
+			}
 
 			writer.WriteEndObject();
 		}
@@ -156,7 +167,7 @@ namespace OpenSearch.Client
 			switch (decay)
 			{
 				case IDecayFunction<double?, double?> numericDecay:
-					WriteNumericDecay(writer, numericDecay);
+					WriteNumericDecay(writer, numericDecay, options);
 					break;
 				case IDecayFunction<DateMath, Time> dateDecay:
 					WriteDateDecay(writer, dateDecay, options);
@@ -169,7 +180,10 @@ namespace OpenSearch.Client
 			}
 
 			if (decay.Decay.HasValue)
-				writer.WriteNumber("decay", decay.Decay.Value);
+			{
+				writer.WritePropertyName("decay");
+				JsonSerializer.Serialize(writer, decay.Decay.Value, options);
+			}
 
 			writer.WriteEndObject();
 
@@ -182,16 +196,25 @@ namespace OpenSearch.Client
 			writer.WriteEndObject();
 		}
 
-		private static void WriteNumericDecay(Utf8JsonWriter writer, IDecayFunction<double?, double?> value)
+		private static void WriteNumericDecay(Utf8JsonWriter writer, IDecayFunction<double?, double?> value, JsonSerializerOptions options)
 		{
 			if (value.Origin.HasValue)
-				writer.WriteNumber("origin", value.Origin.Value);
+			{
+				writer.WritePropertyName("origin");
+				JsonSerializer.Serialize(writer, value.Origin.Value, options);
+			}
 
 			if (value.Scale.HasValue)
-				writer.WriteNumber("scale", value.Scale.Value);
+			{
+				writer.WritePropertyName("scale");
+				JsonSerializer.Serialize(writer, value.Scale.Value, options);
+			}
 
 			if (value.Offset.HasValue)
-				writer.WriteNumber("offset", value.Offset.Value);
+			{
+				writer.WritePropertyName("offset");
+				JsonSerializer.Serialize(writer, value.Offset.Value, options);
+			}
 		}
 
 		private static void WriteDateDecay(Utf8JsonWriter writer, IDecayFunction<DateMath, Time> value, JsonSerializerOptions options)
