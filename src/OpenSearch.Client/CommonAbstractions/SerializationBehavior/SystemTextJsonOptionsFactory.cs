@@ -334,6 +334,10 @@ namespace OpenSearch.Client
 			options.Converters.Add(new FilterAggregationConverter());
 			// filters aggregation: named container OR an anonymous list of queries.
 			options.Converters.Add(new UnionConverter<INamedFiltersContainer, IEnumerable<QueryContainer>>());
+			// A named-filters container (filters / adjacency_matrix aggregations) is a verbatim-key
+			// dictionary; register it globally so it is (de)serialized when it is a Union arm or when the
+			// per-property [JsonFormatter] path does not apply.
+			options.Converters.Add(new VerbatimDictionaryKeysConverter<NamedFiltersContainer, INamedFiltersContainer, string, IQueryContainer>());
 			options.Converters.Add(new PercentilesAggregationConverter());
 			options.Converters.Add(new PercentileRanksAggregationConverter());
 			options.Converters.Add(new CompositeAggregationSourceConverter());
