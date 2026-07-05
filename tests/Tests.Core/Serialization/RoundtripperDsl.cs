@@ -176,7 +176,11 @@ namespace Tests.Core.Serialization
 			var client = Tester.Client;
 			var settings = client.ConnectionSettings;
 
-			var jo = JObject.Parse(client.RequestResponseSerializer.SerializeToString(document, settings.MemoryStreamFactory));
+			// A document's field names come from the source serializer's document inference (camel-casing,
+			// configured property mappings, mapping attributes). Under the STJ migration (#388) the
+			// request/response serializer no longer applies that inference, so serialize through the source
+			// serializer to observe the document's on-the-wire property names.
+			var jo = JObject.Parse(client.SourceSerializer.SerializeToString(document, settings.MemoryStreamFactory));
 			var serializedProperties = jo.Properties().Select(p => p.Name);
 			if (!(_expectedJson is IEnumerable<string> sut))
 				throw new ArgumentException("Can not call AsPropertiesOf if sut is not IEnumerable<string>");
