@@ -196,7 +196,9 @@ namespace OpenSearch.Client
 				key = keyElement.ValueKind switch
 				{
 					JsonValueKind.String => keyElement.GetString(),
-					JsonValueKind.Number => keyElement.TryGetInt64(out var l) ? l : keyElement.GetDouble(),
+					// (object) cast on the long is required: without it the conditional unifies both arms
+					// to double, silently converting a large long key and losing precision.
+					JsonValueKind.Number => keyElement.TryGetInt64(out var l) ? (object)l : keyElement.GetDouble(),
 					_ => key,
 				};
 			}
