@@ -82,16 +82,27 @@ namespace OpenSearch.Net
 		/// </summary>
 		private readonly Func<MemberInfo, (string Name, bool Ignore)?> _nameOverride;
 
-		/// <summary> Creates a resolver that applies the data-contract modifier to every object type. </summary>
-		public DataContractResolver() => Modifiers.Add(ApplyDataContract);
+		/// <summary>
+		/// Optional per-member, value-based <c>ShouldSerialize</c> hook (set per connection settings by
+		/// the high-level client, #388). Returns a predicate <c>(owner, value) =&gt; bool</c> for a member
+		/// whose serialization depends on its runtime value — notably a document-derived <c>Routing</c>
+		/// that infers to <c>null</c> and must be omitted (mirroring the bulk NDJSON serializer), logic
+		/// that lives in <c>OpenSearch.Client</c> and cannot be referenced from here. Returns <c>null</c>
+		/// to leave the member's default behavior.
+		/// </summary>
+		private readonly Func<MemberInfo, Func<object, object, bool>> _memberShouldSerialize;
 
 		/// <summary>
-		/// Creates a resolver that, in addition to the data-contract rules, applies a per-member
-		/// name/ignore override (document field-name inference for the source serializer, #388).
+		/// Creates a resolver that applies the data-contract modifier to every object type, optionally
+		/// with a per-member name/ignore override (document field-name inference for the source
+		/// serializer) and a value-based <c>ShouldSerialize</c> hook (#388).
 		/// </summary>
-		public DataContractResolver(Func<MemberInfo, (string Name, bool Ignore)?> nameOverride)
+		public DataContractResolver(
+			Func<MemberInfo, (string Name, bool Ignore)?> nameOverride = null,
+			Func<MemberInfo, Func<object, object, bool>> memberShouldSerialize = null)
 		{
 			_nameOverride = nameOverride;
+			_memberShouldSerialize = memberShouldSerialize;
 			Modifiers.Add(ApplyDataContract);
 		}
 
@@ -206,6 +217,9 @@ namespace OpenSearch.Net
 				if (shouldSerialize != null && shouldSerialize.ReturnType == typeof(bool))
 					property.ShouldSerialize = (obj, _) => (bool)shouldSerialize.Invoke(obj, null);
 
+				// Value-based ShouldSerialize (e.g. omit a document-derived Routing that infers to null).
+				ApplyMemberShouldSerialize(property, member);
+
 				// Mirror Utf8Json (MetaType: allowPrivate || dm != null): a [DataMember] property with
 				// only a non-public setter must still be writable on deserialize. STJ leaves Set null
 				// for non-public setters, so wire it via reflection. This matters for data-driven
@@ -240,7 +254,22 @@ namespace OpenSearch.Net
 		/// these via its <c>allowPrivate</c> semantics; mirror that by adding a property for each
 		/// non-public <c>[DataMember]</c> instance property (walking the base types) not already surfaced.
 		/// </summary>
-		private static void AddNonPublicDataMembers(JsonTypeInfo typeInfo, bool camelCaseDefault)
+		/// <summary>
+		/// Applies the value-based <see cref="_memberShouldSerialize"/> hook to a property, combining it
+		/// with any existing predicate (both must return true to serialize).
+		/// </summary>
+		private void ApplyMemberShouldSerialize(JsonPropertyInfo property, MemberInfo member)
+		{
+			var predicate = _memberShouldSerialize?.Invoke(member);
+			if (predicate == null) return;
+
+			var existing = property.ShouldSerialize;
+			property.ShouldSerialize = existing == null
+				? predicate
+				: (obj, value) => existing(obj, value) && predicate(obj, value);
+		}
+
+		private void AddNonPublicDataMembers(JsonTypeInfo typeInfo, bool camelCaseDefault)
 		{
 			if (typeInfo.Type.IsInterface || typeInfo.Type.IsAbstract) return;
 
@@ -271,6 +300,8 @@ namespace OpenSearch.Net
 					if (shouldSerialize != null && shouldSerialize.ReturnType == typeof(bool))
 						jsonProperty.ShouldSerialize = (obj, _) => (bool)shouldSerialize.Invoke(obj, null);
 
+					ApplyMemberShouldSerialize(jsonProperty, member);
+
 					typeInfo.Properties.Add(jsonProperty);
 				}
 			}
@@ -294,7 +325,7 @@ namespace OpenSearch.Net
 		/// (de)serialized. Add a property for each interface <c>[DataMember]</c> not already surfaced,
 		/// reading/writing through the interface (mirrors Utf8Json's <c>allowPrivate</c>).
 		/// </summary>
-		private static void AddExplicitInterfaceProperties(JsonTypeInfo typeInfo, bool camelCaseDefault)
+		private void AddExplicitInterfaceProperties(JsonTypeInfo typeInfo, bool camelCaseDefault)
 		{
 			if (typeInfo.Type.IsInterface || typeInfo.Type.IsAbstract) return;
 
@@ -329,6 +360,8 @@ namespace OpenSearch.Net
 						?? interfaceProperty.PropertyType.GetCustomAttribute<Utf8Json.JsonFormatterAttribute>(false);
 					if (formatter != null && TryGetPropertyConverter(formatter.FormatterType, interfaceProperty.PropertyType, out var converter))
 						jsonProperty.CustomConverter = converter;
+
+					ApplyMemberShouldSerialize(jsonProperty, interfaceProperty);
 
 					typeInfo.Properties.Add(jsonProperty);
 				}

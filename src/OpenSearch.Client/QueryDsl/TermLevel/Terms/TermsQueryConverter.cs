@@ -11,6 +11,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
@@ -52,23 +53,62 @@ namespace OpenSearch.Client
 			var field = value.Field == null ? null : _settings.Inferrer.Field(value.Field);
 			if (!string.IsNullOrEmpty(field))
 			{
-				var terms = value.Terms?.Where(t => t != null).ToList();
-				if (terms is { Count: > 0 })
+				// Mirror the vendored TermsQueryFormatter: when verbatim, a non-null Terms array is written
+				// even when empty (the caller means "match nothing"); otherwise an empty array is omitted and
+				// a terms-lookup object may take its place.
+				if (value.IsVerbatim)
 				{
-					writer.WritePropertyName(field);
-					writer.WriteStartArray();
-					foreach (var term in terms)
-						JsonSerializer.Serialize(writer, term, typeof(object), options);
-					writer.WriteEndArray();
+					if (value.TermsLookup != null)
+						WriteLookup(writer, field, value.TermsLookup, options);
+					else if (value.Terms != null)
+						WriteTermsArray(writer, field, value.Terms, options);
 				}
+				else if (value.Terms?.Any() == true)
+					WriteTermsArray(writer, field, value.Terms, options);
 				else if (value.TermsLookup != null)
-				{
-					writer.WritePropertyName(field);
-					JsonSerializer.Serialize(writer, value.TermsLookup, typeof(IFieldLookup), options);
-				}
+					WriteLookup(writer, field, value.TermsLookup, options);
 			}
 
 			writer.WriteEndObject();
+		}
+
+		private void WriteTermsArray(Utf8JsonWriter writer, string field, IEnumerable<object> terms, JsonSerializerOptions options)
+		{
+			writer.WritePropertyName(field);
+			writer.WriteStartArray();
+			// Term values are user document values, so they are written through the source serializer
+			// (mirroring the vendored SourceWriteFormatter) to apply the client's field/value inference.
+			var sourceSerializer = SourceSerializerProviderConverter.Resolve(options);
+			foreach (var term in terms)
+				WriteTerm(writer, term, sourceSerializer, options);
+			writer.WriteEndArray();
+		}
+
+		private static void WriteLookup(Utf8JsonWriter writer, string field, IFieldLookup lookup, JsonSerializerOptions options)
+		{
+			writer.WritePropertyName(field);
+			JsonSerializer.Serialize(writer, lookup, typeof(IFieldLookup), options);
+		}
+
+		private static void WriteTerm(Utf8JsonWriter writer, object term, IOpenSearchSerializer sourceSerializer, JsonSerializerOptions options)
+		{
+			if (term == null)
+			{
+				writer.WriteNullValue();
+				return;
+			}
+
+			if (sourceSerializer == null)
+			{
+				JsonSerializer.Serialize(writer, term, term.GetType(), options);
+				return;
+			}
+
+			using var stream = new System.IO.MemoryStream();
+			sourceSerializer.Serialize(term, stream);
+			stream.Position = 0;
+			using var document = JsonDocument.Parse(stream);
+			document.RootElement.WriteTo(writer);
 		}
 
 		public override ITermsQuery Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)

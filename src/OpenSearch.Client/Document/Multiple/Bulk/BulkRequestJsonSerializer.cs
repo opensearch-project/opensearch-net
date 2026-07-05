@@ -85,9 +85,19 @@ namespace OpenSearch.Client
 
 				// Updates and already-serialized documents use the request/response serializer; everything
 				// else (index/create) is a document written through the source serializer.
-				var bodyOptions = op.Operation == "update" || body is ILazyDocument ? requestResponseOptions : sourceOptions;
-				var bodyBytes = JsonSerializer.SerializeToUtf8Bytes(body, body.GetType(), bodyOptions);
-				stream.Write(bodyBytes, 0, bodyBytes.Length);
+				var useRequestResponse = op.Operation == "update" || body is ILazyDocument;
+				if (!useRequestResponse && sourceOptions == null)
+				{
+					// The configured source serializer is a custom (non-STJ) serializer with no STJ options;
+					// serialize the document through it directly so its wire contract is honored.
+					settings.SourceSerializer.Serialize(body, stream, SerializationFormatting.None);
+				}
+				else
+				{
+					var bodyOptions = useRequestResponse ? requestResponseOptions : sourceOptions;
+					var bodyBytes = JsonSerializer.SerializeToUtf8Bytes(body, body.GetType(), bodyOptions);
+					stream.Write(bodyBytes, 0, bodyBytes.Length);
+				}
 				stream.WriteByte(Newline);
 			}
 		}

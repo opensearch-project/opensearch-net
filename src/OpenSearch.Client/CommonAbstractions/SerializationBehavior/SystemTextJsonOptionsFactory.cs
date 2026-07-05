@@ -92,7 +92,7 @@ namespace OpenSearch.Client
 		/// wire names and does not apply document field-name inference.
 		/// </summary>
 		public static JsonSerializerOptions Create(IConnectionSettingsValues settings) =>
-			Build(settings, DataContractResolver.Instance);
+			Build(settings, new DataContractResolver(memberShouldSerialize: BuildRoutingShouldSerialize(settings)));
 
 		/// <summary>
 		/// Builds the options for the <em>source</em> serializer (documents): identical to
@@ -101,7 +101,36 @@ namespace OpenSearch.Client
 		/// the vendored <c>OpenSearchClientFormatterResolver</c> (#388).
 		/// </summary>
 		public static JsonSerializerOptions CreateForSource(IConnectionSettingsValues settings) =>
-			Build(settings, new DataContractResolver(BuildSourceNameOverride(settings)));
+			Build(settings, new DataContractResolver(BuildSourceNameOverride(settings), BuildRoutingShouldSerialize(settings)));
+
+		/// <summary>
+		/// Builds the value-based <c>ShouldSerialize</c> hook that omits a body <see cref="Routing"/> member
+		/// whose value infers to <c>null</c> (a document-derived routing with no routing source), mirroring
+		/// the bulk NDJSON serializer's routing collapse (#388). Only <see cref="Routing"/>-typed members are
+		/// affected; all other members keep their default behavior.
+		/// </summary>
+		private static Func<MemberInfo, Func<object, object, bool>> BuildRoutingShouldSerialize(IConnectionSettingsValues settings) =>
+			member =>
+			{
+				if (member is not PropertyInfo property || property.PropertyType != typeof(Routing))
+					return null;
+
+				return (_, value) => !RoutingResolvesToNull(value as Routing, settings.Inferrer);
+			};
+
+		/// <summary>Mirror of the bulk serializer's routing null-collapse: a routing with no wire value.</summary>
+		private static bool RoutingResolvesToNull(Routing routing, Inferrer inferrer)
+		{
+			if (routing == null) return true;
+			if (routing.Document != null) return inferrer.Routing(routing.Document.GetType(), routing.Document) == null;
+			if (routing.DocumentGetter != null)
+			{
+				var document = routing.DocumentGetter();
+				return document == null || inferrer.Routing(document.GetType(), document) == null;
+			}
+			if (routing.LongValue != null) return false;
+			return routing.StringValue == null;
+		}
 
 		/// <summary>
 		/// Reproduces the name/ignore precedence of the vendored source resolver's <c>GetMapping</c>:
