@@ -31,7 +31,6 @@ using OpenSearch.Net;
 using OpenSearch.Client;
 using OpenSearch.Client.JsonNetSerializer;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using Tests.Domain;
 
 namespace Tests.Core.Client.Serializers
@@ -54,7 +53,10 @@ namespace Tests.Core.Client.Serializers
 			yield return new Domain.JsonConverters.DateTimeConverter();
 		}
 
-		protected override void ModifyContractResolver(ConnectionSettingsAwareContractResolver resolver) =>
-			resolver.NamingStrategy = new CamelCaseNamingStrategy();
+		// Deliberately no NamingStrategy override: ConnectionSettingsAwareContractResolver.ResolvePropertyName
+		// already applies the connection settings' DefaultFieldNameInferrer (camel-casing by default), which
+		// is the whole point of the connection-settings-aware resolver. Forcing a CamelCaseNamingStrategy here
+		// bypassed that and ignored a custom DefaultFieldNameInferrer (e.g. FieldInference.PrecedenceIsAsExpected),
+		// making this source serializer inconsistent with the built-in request/response and source serializers.
 	}
 }
