@@ -413,6 +413,10 @@ namespace OpenSearch.Client
 			options.Converters.Add(new DynamicMappingConverter());
 			options.Converters.Add(new ClusterRerouteCommandConverter());
 
+			// IsADictionary types without a dedicated [JsonFormatter] camel-case their keys through the
+			// default field-name inferrer (registered after all dedicated dictionary converters so those win).
+			options.Converters.Add(new IsADictionaryConverterFactory(settings));
+
 			// Dictionary shapes STJ can't round-trip natively (ReadOnlyDictionary, non-string/object keys,
 			// custom implementers). Conservative CanConvert preserves the native fast path.
 			options.Converters.Add(new ReadOnlyDictionaryConverterFactory());
