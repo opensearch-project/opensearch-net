@@ -103,19 +103,30 @@ namespace OpenSearch.Net
 		private readonly bool _camelCaseUnattributed;
 
 		/// <summary>
+		/// Optional hook (set by the high-level client for the request/response serializer) that reports a
+		/// serializer-attribute mapping (e.g. <c>[PropertyName]</c>) for a member (#388). Such a member is
+		/// serialized (and named) even on an opt-in <c>[DataContract]</c>/<c>[InterfaceDataContract]</c>
+		/// type that lacks <c>[DataMember]</c> — notably a user's custom <c>IProperty</c> implementation.
+		/// Returns <c>null</c> when the member carries no serializer attribute.
+		/// </summary>
+		private readonly Func<MemberInfo, (string Name, bool Ignore)?> _serializerInclusion;
+
+		/// <summary>
 		/// Creates a resolver that applies the data-contract modifier to every object type, optionally
 		/// with a per-member name/ignore override (document field-name inference for the source
-		/// serializer), a value-based <c>ShouldSerialize</c> hook, and camel-casing of un-attributed
-		/// members for the request/response wire format (#388).
+		/// serializer), a value-based <c>ShouldSerialize</c> hook, camel-casing of un-attributed
+		/// members for the request/response wire format, and a serializer-attribute inclusion hook (#388).
 		/// </summary>
 		public DataContractResolver(
 			Func<MemberInfo, (string Name, bool Ignore)?> nameOverride = null,
 			Func<MemberInfo, Func<object, object, bool>> memberShouldSerialize = null,
-			bool camelCaseUnattributed = false)
+			bool camelCaseUnattributed = false,
+			Func<MemberInfo, (string Name, bool Ignore)?> serializerInclusion = null)
 		{
 			_nameOverride = nameOverride;
 			_memberShouldSerialize = memberShouldSerialize;
 			_camelCaseUnattributed = camelCaseUnattributed;
+			_serializerInclusion = serializerInclusion;
 			Modifiers.Add(ApplyDataContract);
 		}
 
@@ -173,9 +184,15 @@ namespace OpenSearch.Net
 
 				var ignore = GetAttribute<IgnoreDataMemberAttribute>(member, interfaceProps) != null;
 				var dataMember = GetAttribute<DataMemberAttribute>(member, interfaceProps);
+				// A serializer attribute ([PropertyName]) marks a member for serialization even without
+				// [DataMember] on an opt-in type (e.g. a custom IProperty implementation).
+				var inclusion = _serializerInclusion?.Invoke(member);
+				var includedBySerializerAttribute = inclusion.HasValue && !inclusion.Value.Ignore
+					&& !string.IsNullOrEmpty(inclusion.Value.Name);
 
-				// On [DataContract] types serialization is opt-in: drop members without [DataMember].
-				if (ignore || (isDataContract && dataMember == null))
+				// On [DataContract] types serialization is opt-in: drop members without [DataMember] (unless
+				// a serializer attribute includes them).
+				if (ignore || (isDataContract && dataMember == null && !includedBySerializerAttribute))
 				{
 					typeInfo.Properties.Remove(property);
 					continue;
@@ -183,6 +200,8 @@ namespace OpenSearch.Net
 
 				if (dataMember != null && !string.IsNullOrEmpty(dataMember.Name))
 					property.Name = dataMember.Name;
+				else if (includedBySerializerAttribute)
+					property.Name = inclusion.Value.Name;
 				else if (_camelCaseUnattributed)
 					// Request/response wire format: the vendored resolver camel-cases every un-named member
 					// (its name mutator = ToCamelCase). Members carrying an explicit [DataMember(Name)]

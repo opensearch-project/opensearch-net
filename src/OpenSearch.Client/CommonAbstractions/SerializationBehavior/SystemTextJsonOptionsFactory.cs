@@ -100,7 +100,23 @@ namespace OpenSearch.Client
 			Build(settings, new DataContractResolver(
 				nameOverride: BuildRequestResponseNameOverride(settings),
 				memberShouldSerialize: BuildRoutingShouldSerialize(settings),
-				camelCaseUnattributed: true));
+				camelCaseUnattributed: true,
+				serializerInclusion: BuildSerializerInclusion(settings)));
+
+		/// <summary>
+		/// Reports the serializer-attribute mapping (<c>[PropertyName]</c>/<c>[DataMember]</c>/<c>[Ignore]</c>)
+		/// for a member so an opt-in type still serializes members marked only with a serializer attribute
+		/// — e.g. a user's custom <see cref="IProperty"/> implementation using <c>[PropertyName]</c> (#388).
+		/// </summary>
+		private static Func<MemberInfo, (string Name, bool Ignore)?> BuildSerializerInclusion(IConnectionSettingsValues settings) =>
+			member =>
+			{
+				var mapping = settings.PropertyMappingProvider?.CreatePropertyMapping(member);
+				if (mapping == null)
+					return null;
+
+				return (mapping.Name, mapping.Ignore);
+			};
 
 		/// <summary>
 		/// Request/response name override reproducing the vendored resolver's precedence for members that
