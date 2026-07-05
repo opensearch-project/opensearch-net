@@ -255,6 +255,9 @@ namespace OpenSearch.Client
 			options.Converters.Add(new AnalyzerInterfaceConverter());
 			options.Converters.Add(new NormalizerInterfaceConverter());
 			options.Converters.Add(new QueryContainerConverter());
+			// Clause collections (bool must/should/filter/must_not, dis_max/hybrid queries) skip null and
+			// conditionless containers rather than leaking null/{} array entries.
+			options.Converters.Add(new QueryContainerCollectionConverter());
 
 			// Field-name-keyed queries ({ "<field>": { … } }); settings-bearing (decision D1).
 			options.Converters.Add(new FieldNameQueryConverter<TermQuery, ITermQuery>(settings));
