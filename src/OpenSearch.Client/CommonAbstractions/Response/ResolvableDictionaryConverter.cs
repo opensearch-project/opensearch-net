@@ -49,6 +49,97 @@ namespace OpenSearch.Client
 		}
 	}
 
+	/// <summary>
+	/// A <see cref="System.Text.Json"/> converter factory for a bare
+	/// <see cref="IReadOnlyDictionary{TKey,TValue}"/> whose key is an OSC inference type
+	/// (<see cref="IUrlParameter"/>, e.g. <c>Field</c>/<c>IndexName</c>), replacing the vendored
+	/// <c>ResolvableReadOnlyDictionaryFormatter</c> (#388). It materializes a key-resolving
+	/// <see cref="ResolvableDictionaryProxy{TKey,TValue}"/> so lookups by an inferred key (e.g.
+	/// <c>termVectors[Field&lt;T&gt;(p =&gt; p.Name)]</c>) succeed, which a plain dictionary would not support.
+	/// </summary>
+	internal sealed class ResolvableReadOnlyDictionaryConverterFactory : JsonConverterFactory
+	{
+		private readonly IConnectionSettingsValues _settings;
+
+		public ResolvableReadOnlyDictionaryConverterFactory(IConnectionSettingsValues settings) => _settings = settings;
+
+		public override bool CanConvert(Type typeToConvert)
+		{
+			if (!typeToConvert.IsInterface || !typeToConvert.IsGenericType) return false;
+			if (typeToConvert.GetGenericTypeDefinition() != typeof(IReadOnlyDictionary<,>)) return false;
+			return typeof(IUrlParameter).IsAssignableFrom(typeToConvert.GetGenericArguments()[0]);
+		}
+
+		public override JsonConverter CreateConverter(Type typeToConvert, JsonSerializerOptions options)
+		{
+			var args = typeToConvert.GetGenericArguments();
+			var converterType = typeof(ResolvableReadOnlyDictionaryConverter<,>).MakeGenericType(args[0], args[1]);
+			return (JsonConverter)Activator.CreateInstance(converterType, _settings);
+		}
+	}
+
+	/// <inheritdoc cref="ResolvableReadOnlyDictionaryConverterFactory" />
+	internal sealed class ResolvableReadOnlyDictionaryConverter<TKey, TValue> : JsonConverter<IReadOnlyDictionary<TKey, TValue>>
+		where TKey : IUrlParameter
+	{
+		private readonly IConnectionSettingsValues _settings;
+
+		public ResolvableReadOnlyDictionaryConverter(IConnectionSettingsValues settings) => _settings = settings;
+
+		public override IReadOnlyDictionary<TKey, TValue> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+		{
+			if (reader.TokenType == JsonTokenType.Null) return null;
+
+			var backing = new Dictionary<TKey, TValue>();
+			if (reader.TokenType == JsonTokenType.StartObject)
+			{
+				using var document = JsonDocument.ParseValue(ref reader);
+				foreach (var member in document.RootElement.EnumerateObject())
+					backing[ResolvableKeyParser<TKey>.Parse(member.Name)] = member.Value.Deserialize<TValue>(options);
+			}
+
+			return new ResolvableDictionaryProxy<TKey, TValue>(_settings, backing);
+		}
+
+		public override void Write(Utf8JsonWriter writer, IReadOnlyDictionary<TKey, TValue> value, JsonSerializerOptions options)
+		{
+			if (value == null)
+			{
+				writer.WriteNullValue();
+				return;
+			}
+
+			writer.WriteStartObject();
+			foreach (var entry in value)
+			{
+				writer.WritePropertyName(entry.Key?.GetString(_settings));
+				JsonSerializer.Serialize(writer, entry.Value, options);
+			}
+			writer.WriteEndObject();
+		}
+	}
+
+	/// <summary>Builds a string → <typeparamref name="TKey"/> parser for an OSC inference key type.</summary>
+	internal static class ResolvableKeyParser<TKey>
+	{
+		public static readonly Func<string, TKey> Parse = Build();
+
+		private static Func<string, TKey> Build()
+		{
+			var keyType = typeof(TKey);
+			var implicitOp = keyType.GetMethod("op_Implicit", BindingFlags.Public | BindingFlags.Static, null,
+				new[] { typeof(string) }, null);
+			if (implicitOp != null)
+				return s => (TKey)implicitOp.Invoke(null, new object[] { s });
+
+			var stringCtor = keyType.GetConstructor(new[] { typeof(string) });
+			if (stringCtor != null)
+				return s => (TKey)stringCtor.Invoke(new object[] { s });
+
+			return s => (TKey)(object)s;
+		}
+	}
+
 	/// <inheritdoc cref="ResolvableDictionaryConverterFactory" />
 	internal sealed class ResolvableDictionaryConverter<TDictionary, TKey, TValue> : JsonConverter<TDictionary>
 		where TKey : IUrlParameter

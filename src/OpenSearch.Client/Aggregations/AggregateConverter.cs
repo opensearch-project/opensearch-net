@@ -198,6 +198,12 @@ namespace OpenSearch.Client
 				aggregate.DocCountErrorUpperBound = dce.GetInt64();
 			if (root.TryGetProperty("sum_other_doc_count", out var sod) && sod.ValueKind == JsonValueKind.Number)
 				aggregate.SumOtherDocCount = sod.GetInt64();
+			// significant_terms / significant_text carry the aggregate-level doc_count and bg_count
+			// alongside their buckets.
+			if (root.TryGetProperty("doc_count", out var aggDocCount) && aggDocCount.ValueKind == JsonValueKind.Number)
+				aggregate.DocCount = aggDocCount.GetInt64();
+			if (root.TryGetProperty("bg_count", out var aggBgCount) && aggBgCount.ValueKind == JsonValueKind.Number)
+				aggregate.BgCount = aggBgCount.GetInt64();
 			// auto_date_histogram reports the chosen interval alongside its buckets.
 			if (root.TryGetProperty("interval", out var interval) && interval.ValueKind != JsonValueKind.Null)
 				aggregate.AutoInterval = interval.Deserialize<DateMathTime>(options);

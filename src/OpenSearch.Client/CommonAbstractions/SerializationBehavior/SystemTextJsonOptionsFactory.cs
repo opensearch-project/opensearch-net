@@ -446,6 +446,10 @@ namespace OpenSearch.Client
 			// IndicesStatsDictionary, …) construct via a (settings, dictionary) constructor. Registered
 			// before the generic dictionary factory so its concrete proxy types are matched (#388).
 			options.Converters.Add(new ResolvableDictionaryConverterFactory(settings));
+			// A bare IReadOnlyDictionary keyed by an inference type (Field/IndexName/…) resolves its keys
+			// through a ResolvableDictionaryProxy so inferred-key lookups work (e.g. term_vectors, cluster
+			// health indices). After the specific FieldMappingConverter, before the generic factory (#388).
+			options.Converters.Add(new ResolvableReadOnlyDictionaryConverterFactory(settings));
 
 			// Dictionary shapes STJ can't round-trip natively (ReadOnlyDictionary, non-string/object keys,
 			// custom implementers). Conservative CanConvert preserves the native fast path.
