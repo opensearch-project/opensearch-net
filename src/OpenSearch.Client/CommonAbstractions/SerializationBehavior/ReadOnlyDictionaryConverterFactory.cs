@@ -10,6 +10,7 @@ using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -198,14 +199,32 @@ namespace OpenSearch.Client
 				writer.WriteEndObject();
 			}
 
-			private static TKey ConvertKey(string propertyName)
+			private static readonly Func<string, TKey> KeyParser = BuildKeyParser();
+
+			private static TKey ConvertKey(string propertyName) => KeyParser(propertyName);
+
+			private static Func<string, TKey> BuildKeyParser()
 			{
 				var keyType = typeof(TKey);
 				if (keyType == typeof(string) || keyType == typeof(object))
-					return (TKey)(object)propertyName;
+					return s => (TKey)(object)s;
 				if (keyType.IsEnum)
-					return (TKey)Enum.Parse(keyType, propertyName, ignoreCase: true);
-				return (TKey)Convert.ChangeType(propertyName, keyType);
+					return s => (TKey)Enum.Parse(keyType, s, ignoreCase: true);
+				if (typeof(IConvertible).IsAssignableFrom(keyType))
+					return s => (TKey)Convert.ChangeType(s, keyType);
+
+				// OSC identity types (IndexName, Id, Field, PropertyName, RelationName, TaskId, …) are not
+				// IConvertible but construct from a string via an implicit operator or a string constructor.
+				var implicitOp = keyType.GetMethod("op_Implicit", BindingFlags.Public | BindingFlags.Static, null,
+					new[] { typeof(string) }, null);
+				if (implicitOp != null)
+					return s => (TKey)implicitOp.Invoke(null, new object[] { s });
+
+				var ctor = keyType.GetConstructor(new[] { typeof(string) });
+				if (ctor != null)
+					return s => (TKey)ctor.Invoke(new object[] { s });
+
+				return s => (TKey)Convert.ChangeType(s, keyType);
 			}
 
 			private static string KeyToPropertyName(TKey key) => key as string ?? key?.ToString();

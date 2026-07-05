@@ -100,7 +100,29 @@ namespace OpenSearch.Client
 			foreach (var member in document.RootElement.EnumerateObject())
 				intermediate[ConvertKey(member.Name)] = member.Value.Deserialize<TValue>(options);
 
-			return typeof(TDictionary).CreateInstance<TDictionary>(intermediate);
+			return Construct(intermediate);
+		}
+
+		/// <summary>
+		/// Builds the concrete dictionary, mirroring the vendored <c>IsADictionaryBaseFormatter</c>: a type
+		/// exposing a constructor that accepts the backing dictionary is built through it; otherwise (the
+		/// common case of a type with only the implicit parameterless constructor, e.g.
+		/// <c>FieldTypes</c>) an empty instance is created and populated through the dictionary interface.
+		/// </summary>
+		private static TDictionary Construct(Dictionary<TKey, TValue> items)
+		{
+			const BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
+			var type = typeof(TDictionary);
+
+			var ctor = type.GetConstructor(flags, null, new[] { typeof(IDictionary<TKey, TValue>) }, null);
+			if (ctor != null)
+				return (TDictionary)ctor.Invoke(new object[] { items });
+
+			var instance = (TDictionary)Activator.CreateInstance(type, nonPublic: true);
+			var dictionary = (IDictionary<TKey, TValue>)instance;
+			foreach (var entry in items)
+				dictionary[entry.Key] = entry.Value;
+			return instance;
 		}
 
 		private static string KeyToString(TKey key) => key is string s ? s : key?.ToString();

@@ -52,11 +52,27 @@ namespace OpenSearch.Client
 
 			if (root.TryGetProperty("value", out var valueElement))
 			{
-				var aggregate = new ValueAggregate
+				// A scripted_metric aggregation returns an arbitrary value (an object or array), which the
+				// standard metric aggregates never do. Preserve it as a LazyDocument so
+				// ScriptedMetricAggregate.Value<T>() can materialize it into the caller's shape (#388).
+				if (valueElement.ValueKind == JsonValueKind.Object || valueElement.ValueKind == JsonValueKind.Array)
 				{
-					Value = valueElement.ValueKind == JsonValueKind.Null ? null : valueElement.GetDouble(),
-					Meta = meta,
-				};
+					var lazy = valueElement.Deserialize<LazyDocument>(options);
+					return new ScriptedMetricAggregate(lazy) { Meta = meta };
+				}
+
+				var scalarValue = valueElement.ValueKind == JsonValueKind.Null ? (double?)null : valueElement.GetDouble();
+
+				// A siblingpipeline bucket metric (max_bucket/min_bucket) carries the bucket keys.
+				if (root.TryGetProperty("keys", out var keysElement) && keysElement.ValueKind == JsonValueKind.Array)
+					return new KeyedValueAggregate
+					{
+						Value = scalarValue,
+						Meta = meta,
+						Keys = keysElement.Deserialize<List<string>>(options),
+					};
+
+				var aggregate = new ValueAggregate { Value = scalarValue, Meta = meta };
 				if (root.TryGetProperty("value_as_string", out var valueAsString))
 					aggregate.ValueAsString = valueAsString.GetString();
 				return aggregate;
@@ -67,8 +83,51 @@ namespace OpenSearch.Client
 				&& topHits.TryGetProperty("hits", out _))
 				return ReadTopHits(topHits, meta, options);
 
+			// composite aggregation: an after_key alongside the buckets.
+			if (root.TryGetProperty("after_key", out var afterKeyElement))
+			{
+				var composite = root.TryGetProperty("buckets", out var compositeBuckets)
+					? ReadMultiBucket(root, compositeBuckets, meta, options) as BucketAggregate ?? new BucketAggregate { Meta = meta }
+					: new BucketAggregate { Meta = meta };
+				composite.AfterKey = new CompositeKey(afterKeyElement.Deserialize<Dictionary<string, object>>(options));
+				return composite;
+			}
+
 			if (root.TryGetProperty("buckets", out var buckets))
 				return ReadMultiBucket(root, buckets, meta, options);
+
+			// geo_bounds: { "bounds": { "top_left": …, "bottom_right": … } }
+			if (root.TryGetProperty("bounds", out var boundsElement) && boundsElement.ValueKind == JsonValueKind.Object)
+			{
+				var geoBounds = new GeoBoundsAggregate { Meta = meta };
+				if (boundsElement.TryGetProperty("top_left", out var topLeft))
+					geoBounds.Bounds.TopLeft = topLeft.Deserialize<LatLon>(options);
+				if (boundsElement.TryGetProperty("bottom_right", out var bottomRight))
+					geoBounds.Bounds.BottomRight = bottomRight.Deserialize<LatLon>(options);
+				return geoBounds;
+			}
+
+			// geo_centroid: { "location": { "lat": …, "lon": … }, "count": … }
+			if (root.TryGetProperty("location", out var locationElement))
+			{
+				var centroid = new GeoCentroidAggregate
+				{
+					Meta = meta,
+					Location = locationElement.ValueKind == JsonValueKind.Null ? null : locationElement.Deserialize<GeoLocation>(options),
+				};
+				if (root.TryGetProperty("count", out var centroidCount) && centroidCount.ValueKind == JsonValueKind.Number)
+					centroid.Count = centroidCount.GetInt64();
+				return centroid;
+			}
+
+			// matrix_stats: { "doc_count": …, "fields": [ … ] }
+			if (root.TryGetProperty("fields", out var fieldsElement) && fieldsElement.ValueKind == JsonValueKind.Array)
+			{
+				var matrix = new MatrixStatsAggregate { Meta = meta, Fields = fieldsElement.Deserialize<List<MatrixStatsField>>(options) };
+				if (root.TryGetProperty("doc_count", out var matrixDocCount) && matrixDocCount.ValueKind == JsonValueKind.Number)
+					matrix.DocCount = matrixDocCount.GetInt64();
+				return matrix;
+			}
 
 			if (root.TryGetProperty("count", out var countElement)
 				&& (root.TryGetProperty("min", out _) || root.TryGetProperty("max", out _) || root.TryGetProperty("avg", out _)))
@@ -171,6 +230,16 @@ namespace OpenSearch.Client
 
 		private static IBucket ReadKeyedBucket(JsonElement element, JsonSerializerOptions options)
 		{
+			// composite bucket: the key is an object of source-name → value.
+			if (element.TryGetProperty("key", out var objectKey) && objectKey.ValueKind == JsonValueKind.Object)
+			{
+				var compositeKey = new CompositeKey(objectKey.Deserialize<Dictionary<string, object>>(options));
+				var composite = new CompositeBucket(ReadSubAggregates(element, options), compositeKey);
+				if (element.TryGetProperty("doc_count", out var compositeCount) && compositeCount.ValueKind == JsonValueKind.Number)
+					composite.DocCount = compositeCount.GetInt64();
+				return composite;
+			}
+
 			// Range buckets carry from/to bounds.
 			if (element.TryGetProperty("from", out _) || element.TryGetProperty("to", out _))
 				return ReadRangeBucket(element, options);
@@ -190,17 +259,35 @@ namespace OpenSearch.Client
 				return dateBucket;
 			}
 
-			object key = null;
-			if (element.TryGetProperty("key", out var keyElement))
+			// variable_width_histogram bucket: min / key / max are all present.
+			if (firstProperty == "min" && element.TryGetProperty("min", out var vwMin) && vwMin.ValueKind == JsonValueKind.Number
+				&& element.TryGetProperty("max", out var vwMax) && vwMax.ValueKind == JsonValueKind.Number
+				&& element.TryGetProperty("key", out var vwKey) && vwKey.ValueKind == JsonValueKind.Number)
 			{
-				key = keyElement.ValueKind switch
+				var vwBucket = new VariableWidthHistogramBucket(ReadSubAggregates(element, options))
 				{
-					JsonValueKind.String => keyElement.GetString(),
-					// (object) cast on the long is required: without it the conditional unifies both arms
-					// to double, silently converting a large long key and losing precision.
-					JsonValueKind.Number => keyElement.TryGetInt64(out var l) ? (object)l : keyElement.GetDouble(),
-					_ => key,
+					Key = vwKey.GetDouble(),
+					Minimum = vwMin.GetDouble(),
+					Maximum = vwMax.GetDouble(),
 				};
+				if (element.TryGetProperty("doc_count", out var vwCount)) vwBucket.DocCount = vwCount.GetInt64();
+				return vwBucket;
+			}
+
+			var key = ReadBucketKey(element);
+
+			// significant_terms / significant_text bucket: score + bg_count.
+			if (element.TryGetProperty("score", out var scoreElement) && scoreElement.ValueKind == JsonValueKind.Number
+				&& element.TryGetProperty("bg_count", out var bgCountElement) && bgCountElement.ValueKind == JsonValueKind.Number)
+			{
+				var significant = new SignificantTermsBucket<object>(ReadSubAggregates(element, options))
+				{
+					Key = key,
+					Score = scoreElement.GetDouble(),
+					BgCount = bgCountElement.GetInt64(),
+				};
+				if (element.TryGetProperty("doc_count", out var sigCount)) significant.DocCount = sigCount.GetInt64();
+				return significant;
 			}
 
 			var bucket = new KeyedBucket<object>(ReadSubAggregates(element, options)) { Key = key };
@@ -211,6 +298,37 @@ namespace OpenSearch.Client
 			if (element.TryGetProperty("doc_count_error_upper_bound", out var dce) && dce.ValueKind == JsonValueKind.Number)
 				bucket.DocCountErrorUpperBound = dce.GetInt64();
 			return bucket;
+		}
+
+		/// <summary>Reads a bucket key: a string, a long/double, or (multi-terms) an array of such values.</summary>
+		private static object ReadBucketKey(JsonElement element)
+		{
+			if (!element.TryGetProperty("key", out var keyElement))
+				return null;
+
+			switch (keyElement.ValueKind)
+			{
+				case JsonValueKind.String:
+					return keyElement.GetString();
+				// (object) cast on the long is required: without it the conditional unifies both arms to
+				// double, silently converting a large long key and losing precision.
+				case JsonValueKind.Number:
+					return keyElement.TryGetInt64(out var l) ? (object)l : keyElement.GetDouble();
+				case JsonValueKind.Array:
+					var keys = new List<object>();
+					foreach (var item in keyElement.EnumerateArray())
+					{
+						keys.Add(item.ValueKind switch
+						{
+							JsonValueKind.String => item.GetString(),
+							JsonValueKind.Number => item.TryGetInt64(out var il) ? (object)il : item.GetDouble(),
+							_ => null,
+						});
+					}
+					return keys;
+				default:
+					return null;
+			}
 		}
 
 		private static IBucket ReadRangeBucket(JsonElement element, JsonSerializerOptions options)

@@ -403,6 +403,11 @@ namespace OpenSearch.Client
 
 			// Mappings
 			options.Converters.Add(new PropertyInterfaceConverter());
+			// Completion suggester mapping contexts (polymorphic on a "type" discriminator).
+			options.Converters.Add(new SuggestContextConverter());
+			// get-field-mapping "mapping" object: { field: (_source|_routing|_size|<IProperty>) }.
+			// Registered before the generic dictionary factory so the interface value type is handled.
+			options.Converters.Add(new FieldMappingConverter(settings));
 			options.Converters.Add(new PropertiesConverter(settings));
 			options.Converters.Add(new JoinFieldConverter(settings));
 			options.Converters.Add(new DynamicTemplatesConverter());
