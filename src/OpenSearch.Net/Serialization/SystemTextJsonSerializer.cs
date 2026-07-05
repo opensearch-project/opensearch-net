@@ -41,7 +41,6 @@ namespace OpenSearch.Net
 	public class SystemTextJsonSerializer : IOpenSearchSerializer
 	{
 		private readonly JsonSerializerOptions _options;
-		private readonly JsonSerializerOptions _indentedOptions;
 
 		/// <summary>
 		/// Creates a new <see cref="SystemTextJsonSerializer"/>.
@@ -66,13 +65,13 @@ namespace OpenSearch.Net
 				// STJ default of JsonElement.
 				Converters = { ObjectConverter.Instance },
 			};
-			// A parallel options instance that only differs by indentation, so the
-			// SerializationFormatting hint can be honored without mutating state.
-			_indentedOptions = new JsonSerializerOptions(_options) { WriteIndented = true };
 		}
 
-		private JsonSerializerOptions OptionsFor(SerializationFormatting formatting) =>
-			formatting == SerializationFormatting.Indented ? _indentedOptions : _options;
+		// The SerializationFormatting.Indented hint is intentionally ignored: the vendored
+		// DefaultHighLevelSerializer also ignored it and always wrote compact JSON, so request/response
+		// bodies stay compact even when PrettyJson/EnableDebugMode is set (the `pretty` query string still
+		// asks the server to format its response). Preserving this keeps the wire format unchanged (#388).
+		private JsonSerializerOptions OptionsFor(SerializationFormatting formatting) => _options;
 
 		/// <summary>
 		/// The <see cref="JsonSerializerOptions"/> backing this serializer. Exposed so the high-level
