@@ -442,6 +442,11 @@ namespace OpenSearch.Client
 			// default field-name inferrer (registered after all dedicated dictionary converters so those win).
 			options.Converters.Add(new IsADictionaryConverterFactory(settings));
 
+			// Response dictionaries deriving from ResolvableDictionaryProxy<,> (FieldCapabilitiesFields,
+			// IndicesStatsDictionary, …) construct via a (settings, dictionary) constructor. Registered
+			// before the generic dictionary factory so its concrete proxy types are matched (#388).
+			options.Converters.Add(new ResolvableDictionaryConverterFactory(settings));
+
 			// Dictionary shapes STJ can't round-trip natively (ReadOnlyDictionary, non-string/object keys,
 			// custom implementers). Conservative CanConvert preserves the native fast path.
 			options.Converters.Add(new ReadOnlyDictionaryConverterFactory());
