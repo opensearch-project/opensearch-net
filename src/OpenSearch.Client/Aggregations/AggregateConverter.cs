@@ -113,6 +113,9 @@ namespace OpenSearch.Client
 				aggregate.DocCountErrorUpperBound = dce.GetInt64();
 			if (root.TryGetProperty("sum_other_doc_count", out var sod) && sod.ValueKind == JsonValueKind.Number)
 				aggregate.SumOtherDocCount = sod.GetInt64();
+			// auto_date_histogram reports the chosen interval alongside its buckets.
+			if (root.TryGetProperty("interval", out var interval) && interval.ValueKind != JsonValueKind.Null)
+				aggregate.AutoInterval = interval.Deserialize<DateMathTime>(options);
 
 			var items = new List<IBucket>();
 			if (buckets.ValueKind == JsonValueKind.Array)
