@@ -224,6 +224,7 @@ namespace OpenSearch.Client
 
 			// Stateless infrastructure converters (OpenSearch.Net).
 			options.Converters.Add(ObjectConverter.Instance);
+			options.Converters.Add(new ValueTupleConverterFactory());
 			options.Converters.Add(DoubleFormatConverter.Instance);
 			options.Converters.Add(SingleFormatConverter.Instance);
 			options.Converters.Add(DecimalFormatConverter.Instance);

@@ -143,23 +143,27 @@ namespace OpenSearch.Client
 			if (root.TryGetProperty("interval", out var interval) && interval.ValueKind != JsonValueKind.Null)
 				aggregate.AutoInterval = interval.Deserialize<DateMathTime>(options);
 
+			// Named (keyed) buckets — the filters aggregation — are a JSON object whose property names are
+			// the bucket keys (which may contain '#'). These are modeled as a FiltersAggregate: an
+			// AggregateDictionary of named single-bucket aggregates (see FiltersAggregate remarks).
+			if (buckets.ValueKind == JsonValueKind.Object)
+			{
+				var named = new Dictionary<string, IAggregate>();
+				foreach (var member in buckets.EnumerateObject())
+				{
+					var single = new SingleBucketAggregate(ReadSubAggregates(member.Value, options));
+					if (member.Value.TryGetProperty("doc_count", out var docCount) && docCount.ValueKind == JsonValueKind.Number)
+						single.DocCount = docCount.GetInt64();
+					named[member.Name] = single;
+				}
+				return new FiltersAggregate(named) { Meta = meta };
+			}
+
 			var items = new List<IBucket>();
 			if (buckets.ValueKind == JsonValueKind.Array)
 			{
 				foreach (var bucketElement in buckets.EnumerateArray())
 					items.Add(ReadKeyedBucket(bucketElement, options));
-			}
-			else if (buckets.ValueKind == JsonValueKind.Object)
-			{
-				// Named (keyed) buckets — e.g. the filters aggregation — are a JSON object whose property
-				// names are the bucket keys (which may themselves contain '#').
-				foreach (var member in buckets.EnumerateObject())
-				{
-					var bucket = ReadKeyedBucket(member.Value, options);
-					if (bucket is KeyedBucket<object> keyed && keyed.Key == null)
-						keyed.Key = member.Name;
-					items.Add(bucket);
-				}
 			}
 			aggregate.Items = items;
 			return aggregate;
