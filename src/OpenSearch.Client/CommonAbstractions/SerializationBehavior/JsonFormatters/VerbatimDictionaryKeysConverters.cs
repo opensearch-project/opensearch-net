@@ -59,9 +59,20 @@ namespace OpenSearch.Client
 			foreach (var member in document.RootElement.EnumerateObject())
 			{
 				var key = ConvertKey<TKey>(member.Name, options);
-				dictionary[key] = member.Value.Deserialize<TValue>(options);
+				dictionary[key] = DeserializeValue<TValue>(member.Value, options);
 			}
 			return dictionary;
+		}
+
+		private static TValue DeserializeValue<TValue>(JsonElement element, JsonSerializerOptions options)
+		{
+			// IQueryContainer (named-filters value) has no [ReadAs] and deliberately no interface converter
+			// (an IQueryContainer converter would recurse with QueryContainerConverter's interface write),
+			// so deserialize it as the concrete QueryContainer, which carries the converter.
+			if (typeof(TValue) == typeof(IQueryContainer))
+				return (TValue)(object)element.Deserialize<QueryContainer>(options);
+
+			return element.Deserialize<TValue>(options);
 		}
 
 		private static string InferKey<TKey>(TKey key, JsonSerializerOptions options)
