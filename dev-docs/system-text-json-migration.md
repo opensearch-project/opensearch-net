@@ -1245,3 +1245,53 @@ Key fixes in this range:
   gained converters.
 - **`DecimalFormatConverter`** keeps a whole decimal as `1.0`, and the function-score doubles
   are routed through the double formatter.
+
+## 55. CI regression fixes after the cutover (batches 22 onward)
+
+Continuing from section 54, the remaining unit failures were driven from ~25 down to zero
+functional failures. Each fix was validated against the draft PR's Unit job.
+
+- **`IsADictionary` types without a dedicated formatter** camel-case their keys through the
+  default field-name inferrer via a converter factory, registered after all dedicated
+  dictionary converters so those still win.
+- **`ISimilarities`** is a verbatim-key dictionary; it is registered globally
+  (`VerbatimDictionaryKeysConverter<Similarities, ISimilarities, string, ISimilarity>`) so it
+  (de)serialises when used directly (e.g. as a test subject), not only via the per-property
+  `[JsonFormatter]` path.
+- **`NodesUsage`** epoch timestamps read as a `DateTimeOffset` from Unix-millis; the
+  **`auto_date_histogram`** response reads its `interval`; **keyed-bucket** reads were made
+  robust.
+- **`top_hits` aggregate**: `AggregateConverter` gained `ReadTopHits` (reads `total`/`max_score`
+  plus each hit as a `LazyDocument`); `TopHitsAggregate` was ported off Utf8Json so
+  `ConvertHits` uses `h.AsUsingRequestResponseSerializer<IHit<TDocument>>()`.
+- **`filters` aggregation named buckets**: the object form now builds a `FiltersAggregate`
+  (an `AggregateDictionary` of named `SingleBucketAggregate`s) instead of a `KeyedBucket`.
+- **`ValueTuple`**: a `ValueTupleConverterFactory` / `ValueTupleConverter<T1,T2>` writes
+  `{ Item1, Item2 }` (STJ does not serialise tuple fields).
+- **`GeoLocation` Well-Known Text**: `GeoLocationConverter` reads/writes `POINT (lon lat)`
+  when `GeoLocation.Format == GeoFormat.WellKnownText`.
+- **Custom `IProperty` implementations**: a `serializerInclusion` hook on the resolver (wired
+  through `BuildSerializerInclusion` → `PropertyMappingProvider.CreatePropertyMapping`) keeps
+  a `[PropertyName]`-marked member serialising on an opt-in `[InterfaceDataContract]` type.
+- **Long bucket-key precision (issue 4285)**: `AggregateConverter.ReadKeyedBucket` had
+  `keyElement.TryGetInt64(out var l) ? l : keyElement.GetDouble()`, whose ternary unified both
+  arms to `double` and silently truncated large longs. Fixed by boxing the long
+  (`? (object)l :`) so it stays a 64-bit integer key.
+- **Completion suggester member ordering (Discuss 179634)**: `AddExplicitInterfaceProperties`
+  now adds the most-derived interfaces first (`OrderByDescending(i => i.GetInterfaces().Length)`)
+  so a fluent descriptor's own members precede its base-interface members (e.g.
+  `ICompletionSuggester.fuzzy` before `ISuggester.field`), matching the vendored member order.
+
+### The last failure — a flaky test, not a regression
+
+The final intermittent failure, `FieldInference.PrecedenceIsAsExpected`, was traced to test
+infrastructure rather than the migration. During this work `AsPropertiesOf` was changed to
+serialise a document through the **source** serializer (document field-name inference lives
+only there under STJ). The test suite randomly swaps in a JSON.NET source serializer
+(`TestSourceSerializerBase`, selected when `TestConfiguration.Random.SourceSerializer` is
+true), which forced a `CamelCaseNamingStrategy` that bypassed
+`ConnectionSettingsAwareContractResolver.ResolvePropertyName` and therefore ignored the test's
+custom `DefaultFieldNameInferrer`. The fix removes the redundant strategy so the JSON.NET
+serializer honours the connection settings' field-name inference like the built-in
+request/response and source serializers, making the test deterministic. The production STJ
+serializer was verified correct in isolation across sequential and parallel runs.
