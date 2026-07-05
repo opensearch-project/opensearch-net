@@ -54,5 +54,20 @@ namespace OpenSearch.Client
 			else
 				writer.WriteStringValue(value.StringValue);
 		}
+
+		/// <inheritdoc />
+		public override Id ReadAsPropertyName(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
+			new(reader.GetString());
+
+		/// <inheritdoc />
+		public override void WriteAsPropertyName(Utf8JsonWriter writer, Id value, JsonSerializerOptions options)
+		{
+			// A dictionary key must be a string; a document-backed id infers its value, a long id is
+			// rendered as its decimal string, otherwise the raw string value is used.
+			var key = value.Document != null
+				? _settings.Inferrer.Id(value.Document.GetType(), value.Document)
+				: value.LongValue?.ToString(System.Globalization.CultureInfo.InvariantCulture) ?? value.StringValue;
+			writer.WritePropertyName(key);
+		}
 	}
 }

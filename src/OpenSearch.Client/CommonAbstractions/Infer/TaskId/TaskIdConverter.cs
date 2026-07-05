@@ -38,5 +38,13 @@ namespace OpenSearch.Client
 			using (JsonDocument.ParseValue(ref reader)) { }
 			return null;
 		}
+
+		/// <inheritdoc />
+		public override TaskId ReadAsPropertyName(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
+			new(reader.GetString());
+
+		/// <inheritdoc />
+		public override void WriteAsPropertyName(Utf8JsonWriter writer, TaskId value, JsonSerializerOptions options) =>
+			writer.WritePropertyName(value.ToString());
 	}
 }
