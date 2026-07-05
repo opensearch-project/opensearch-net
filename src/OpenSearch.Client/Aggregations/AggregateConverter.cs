@@ -265,6 +265,15 @@ namespace OpenSearch.Client
 				return dateBucket;
 			}
 
+			// anonymous filters bucket: doc_count first, no key (mirrors the vendored ReadBucket dispatch).
+			if (firstProperty == "doc_count")
+			{
+				var filtersBucket = new FiltersBucketItem(ReadSubAggregates(element, options));
+				if (element.TryGetProperty("doc_count", out var fdc) && fdc.ValueKind == JsonValueKind.Number)
+					filtersBucket.DocCount = fdc.GetInt64();
+				return filtersBucket;
+			}
+
 			// variable_width_histogram bucket: min / key / max are all present.
 			if (firstProperty == "min" && element.TryGetProperty("min", out var vwMin) && vwMin.ValueKind == JsonValueKind.Number
 				&& element.TryGetProperty("max", out var vwMax) && vwMax.ValueKind == JsonValueKind.Number

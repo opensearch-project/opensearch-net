@@ -34,7 +34,10 @@ namespace OpenSearch.Client
 			var root = document.RootElement;
 			if (root.ValueKind != JsonValueKind.Object) return null;
 
-			var properties = new Properties();
+			// Construct with settings so PropertyName keys are resolved through the inferrer; otherwise a
+			// later expression-based lookup (e.g. properties[Property<T>(p => p.LeadDeveloper)]) would not
+			// match the raw wire key.
+			var properties = new Properties(_settings);
 			foreach (var member in root.EnumerateObject())
 			{
 				if (member.Value.ValueKind != JsonValueKind.Object) continue;
