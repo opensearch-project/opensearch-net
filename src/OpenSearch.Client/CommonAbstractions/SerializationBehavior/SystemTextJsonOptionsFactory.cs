@@ -390,6 +390,9 @@ namespace OpenSearch.Client
 			options.Converters.Add(new JoinFieldConverter(settings));
 			options.Converters.Add(new DynamicTemplatesConverter());
 			options.Converters.Add(new SimilarityConverter());
+			// ISimilarities is a verbatim-key dictionary; register it globally so it (de)serializes when
+			// used directly (e.g. as a test subject) rather than only via the per-property [JsonFormatter].
+			options.Converters.Add(new VerbatimDictionaryKeysConverter<Similarities, ISimilarities, string, ISimilarity>());
 			options.Converters.Add(new AutoExpandReplicasConverter());
 			options.Converters.Add(new IndexSettingsConverter());
 			options.Converters.Add(new DynamicIndexSettingsConverter());
