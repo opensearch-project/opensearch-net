@@ -316,6 +316,14 @@ namespace OpenSearch.Net
 
 					ApplyMemberShouldSerialize(jsonProperty, member);
 
+					// Honor a member (or member-type) level [JsonFormatter] on a non-public [DataMember],
+					// e.g. BulkUpdateBody.PartialUpdate/Upsert carry [JsonFormatter(CollapsedSourceFormatter<>)]
+					// so the update doc/upsert route through the source serializer, not request/response.
+					var formatter = member.GetCustomAttribute<Utf8Json.JsonFormatterAttribute>(true)
+						?? member.PropertyType.GetCustomAttribute<Utf8Json.JsonFormatterAttribute>(false);
+					if (formatter != null && TryGetPropertyConverter(formatter.FormatterType, member.PropertyType, out var converter))
+						jsonProperty.CustomConverter = converter;
+
 					typeInfo.Properties.Add(jsonProperty);
 				}
 			}
