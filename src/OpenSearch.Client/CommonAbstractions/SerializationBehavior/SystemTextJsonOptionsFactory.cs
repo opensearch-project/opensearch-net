@@ -152,10 +152,11 @@ namespace OpenSearch.Client
 					return (_, value) => !RoutingResolvesToNull(value as Routing, settings.Inferrer);
 
 				// A QueryContainer member (e.g. ISearchRequest.Query, IBoolQuery clause) is omitted when it
-				// is not writable — i.e. conditionless and not verbatim — mirroring the vendored
-				// QueryContainer.ShouldSerialize(resolver) => IsWritable (#388).
+				// is null or not writable — i.e. conditionless and not verbatim — mirroring the vendored
+				// QueryContainer.ShouldSerialize(resolver) => IsWritable (#388). A custom ShouldSerialize
+				// overrides WhenWritingNull, so null MUST return false here to stay omitted.
 				if (typeof(QueryContainer).IsAssignableFrom(property.PropertyType))
-					return (_, value) => value is not QueryContainer container || ((IQueryContainer)container).IsWritable;
+					return (_, value) => value is QueryContainer container && ((IQueryContainer)container).IsWritable;
 
 				return null;
 			};
