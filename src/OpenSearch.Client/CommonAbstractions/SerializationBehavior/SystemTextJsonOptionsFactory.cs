@@ -265,6 +265,8 @@ namespace OpenSearch.Client
 			options.Converters.Add(new FieldNameQueryConverter<MatchPhrasePrefixQuery, IMatchPhrasePrefixQuery>(settings));
 			options.Converters.Add(new FieldNameQueryConverter<MatchBoolPrefixQuery, IMatchBoolPrefixQuery>(settings));
 			options.Converters.Add(new TermsQueryConverter(settings));
+			// span_gap appears as a span_near clause and serializes as { "<field>": <width> }.
+			options.Converters.Add(new SpanGapQueryConverter(settings));
 			options.Converters.Add(new FieldNameQueryConverter<TermsSetQuery, ITermsSetQuery>(settings));
 			options.Converters.Add(new FieldNameQueryConverter<SpanTermQuery, ISpanTermQuery>(settings));
 			options.Converters.Add(new FieldNameQueryConverter<KnnQuery, IKnnQuery>(settings));
