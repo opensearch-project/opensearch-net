@@ -40,13 +40,22 @@ namespace Tests.Reproduce
 		[U]
 		public void SerializesUnicodeEscapeSequences()
 		{
-			var doc = new { value = new string(Enumerable.Range(0, 9727).Select(i => (char)i).ToArray()) };
+			var value = new string(Enumerable.Range(0, 9727).Select(i => (char)i).ToArray());
+			var doc = new { value };
 
 			var internalJson = SerializationTester.Default.Client.SourceSerializer.SerializeToString(doc, formatting: SerializationFormatting.None);
 			var jsonNet = JsonConvert.SerializeObject(doc, Formatting.None);
 
-			// json.net lowercases unicode escape sequences, utf8json uppercases them (faster op). Both are valid and accepted
-			internalJson.Should().BeEquivalentTo(jsonNet);
+			// The built-in serializer (System.Text.Json, #388) and Json.NET both emit valid JSON but escape
+			// some characters differently: STJ (UnsafeRelaxedJsonEscaping) escapes U+007F and the C1 control
+			// block that Json.NET writes raw, and the case of the hex digits differs. All variants are valid
+			// and accepted, so rather than compare the raw escaping we verify both serializers preserve the
+			// exact string value by decoding them back to it.
+			var internalValue = JsonConvert.DeserializeAnonymousType(internalJson, new { value = "" }).value;
+			var jsonNetValue = JsonConvert.DeserializeAnonymousType(jsonNet, new { value = "" }).value;
+
+			internalValue.Should().Be(value);
+			jsonNetValue.Should().Be(value);
 		}
 	}
 }
