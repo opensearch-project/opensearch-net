@@ -49,6 +49,16 @@ namespace OpenSearch.Client.JsonNetSerializer.Converters
 			typeof(GeoCoordinate),
 			typeof(GeoLocation),
 			typeof(CartesianPoint),
+			// Inference identity types resolve to their configured wire string via the built-in
+			// serializer; without delegation Json.NET reflects them as POCOs (e.g. a type-based
+			// RelationName serializes as { "type": "<assembly-qualified-name>" }), which the server
+			// rejects. These can appear in source as term/terms query values (e.g. a join relation).
+			typeof(Id),
+			typeof(IndexName),
+			typeof(RelationName),
+			typeof(Routing),
+			typeof(Field),
+			typeof(Fields),
 		};
 
 		private readonly IOpenSearchSerializer _builtInSerializer;
