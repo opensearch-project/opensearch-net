@@ -396,7 +396,10 @@ namespace OpenSearch.Net
 			var existing = new HashSet<string>(StringComparer.Ordinal);
 			foreach (var p in typeInfo.Properties) existing.Add(p.Name);
 
-			foreach (var interfaceType in typeInfo.Type.GetInterfaces())
+			// Add the most-derived interfaces first (those extending the most other interfaces) so a
+			// fluent descriptor's own members precede its base-interface members, matching the vendored
+			// Utf8Json member order (e.g. ICompletionSuggester.Fuzzy before ISuggester.Field) (#388).
+			foreach (var interfaceType in typeInfo.Type.GetInterfaces().OrderByDescending(i => i.GetInterfaces().Length))
 			{
 				foreach (var interfaceProperty in interfaceType.GetProperties())
 				{
