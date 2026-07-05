@@ -546,7 +546,10 @@ namespace OpenSearch.Client
 			writer.WriteStringValue(Iso8601.WriteDateTimeOffset(value));
 
 		public override DateTimeOffset Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
-			Iso8601.ReadDateTimeOffset(reader.GetString());
+			// A numeric value is epoch milliseconds (e.g. nodes usage timestamp); otherwise an ISO string.
+			reader.TokenType == JsonTokenType.Number
+				? DateTimeOffset.FromUnixTimeMilliseconds(reader.GetInt64())
+				: Iso8601.ReadDateTimeOffset(reader.GetString());
 	}
 
 	internal sealed class NullableDateTimeOffsetConverter : JsonConverter<DateTimeOffset?>
@@ -560,7 +563,9 @@ namespace OpenSearch.Client
 		public override DateTimeOffset? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
 		{
 			if (reader.TokenType == JsonTokenType.Null) return null;
-			return Iso8601.ReadDateTimeOffset(reader.GetString());
+			return reader.TokenType == JsonTokenType.Number
+				? DateTimeOffset.FromUnixTimeMilliseconds(reader.GetInt64())
+				: Iso8601.ReadDateTimeOffset(reader.GetString());
 		}
 	}
 
