@@ -1200,3 +1200,48 @@ This completes the known custom request-body formatters. All high-level request 
 documents, NDJSON bulk/msearch, and these single-object bodies) and response readers now go through
 System.Text.Json. Next: run the full integration suite on CI to surface any remaining gaps, then remove
 the vendored Utf8Json.
+
+## 54. CI regression fixes after the cutover (batches 5-21)
+
+Once the default serializer was flipped to System.Text.Json, the CI unit suite surfaced a
+long tail of behavioural gaps versus the vendored Utf8Json serializer. These were fixed in
+a series of batches, each validated against the draft PR's Unit job (local execution of the
+unit suite is not possible with the preview SDK). Failure count went from 213 at the cutover
+to ~25.
+
+Key fixes in this range:
+
+- **Document (proxy) request bodies** write the source bytes verbatim (`WriteRawValue`) so a
+  compact index/create body is not re-indented under `PrettyJson`.
+- **`DateMathConverter.CanConvert`** matches the whole `DateMath` hierarchy so a concrete
+  `DateMathExpression` serialises to its string form instead of `{}`.
+- **`PropertiesConverter`** drops members mapped as ignored and re-keys explicitly mapped
+  ones, mirroring the vendored `PropertiesFormatter`.
+- **Source-value routing**: bulk update `doc`/`upsert` and terms-query values are written
+  through the source serializer; `AddNonPublicDataMembers` now applies a member's
+  `[JsonFormatter]` (e.g. `CollapsedSourceFormatter`); `BulkRequestJsonSerializer` falls back
+  to a custom (non-STJ) source serializer.
+- **`Routing`** body members that infer to null are omitted via a value-based `ShouldSerialize`
+  hook on the resolver (`DataContractResolver._memberShouldSerialize`), mirroring the bulk
+  serializer's collapse.
+- **camelCasing** of un-attributed members became an explicit opt-in flag: the client
+  request/response resolver opts in, the standalone `SystemTextJsonSerializer` preserves the
+  declared PascalCase name (and still honours `[DataMember]`).
+- **OSC mapping-attribute names** (e.g. `[Text(Name)]`) take precedence over `[DataMember]` in
+  the request/response resolver, matching the vendored precedence.
+- **`Fields`** delegates each element to the `Field` converter so an expanded docvalue field
+  (`{ "field": …, "format": … }`) round-trips.
+- **`Union<,>`** is mapped open-generically (per-property) and a few pairs used directly
+  (`Union<long,string>` seed, `Union<DateInterval,Time>`) are registered globally.
+- **Field-name query short form** (`{ "field": "value" }`) deserialises to the query's primary
+  value.
+- **Conditionless queries**: a non-verbatim conditionless `QueryContainer` member is omitted
+  (value-based `ShouldSerialize` on `IQueryContainer.IsWritable`); the resolver also honours
+  `ShouldSerialize<Member>()` declared as explicit interface implementations
+  (`IBoolQuery.ShouldSerializeMust`, …). NOTE: a value-based `ShouldSerialize` overrides
+  `WhenWritingNull`, so such predicates MUST return false for null.
+- **Source-only snapshot repository**, **`span_gap`**, and **named-filters container**
+  (`INamedFiltersContainer`, incl. deserialising `IQueryContainer` values as `QueryContainer`)
+  gained converters.
+- **`DecimalFormatConverter`** keeps a whole decimal as `1.0`, and the function-score doubles
+  are routed through the double formatter.
