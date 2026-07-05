@@ -39,10 +39,11 @@ namespace OpenSearch.Client
 					while (reader.Read())
 					{
 						if (reader.TokenType == JsonTokenType.EndArray) break;
-						if (reader.TokenType == JsonTokenType.String)
-							fields.Add(new Field(reader.GetString()));
-						else
-							reader.Skip();
+						// Delegate each element to the Field converter so an expanded docvalue field
+						// ({ "field": …, "format": … }) round-trips, not just a bare name string.
+						var field = JsonSerializer.Deserialize<Field>(ref reader, options);
+						if (field != null)
+							fields.Add(field);
 					}
 					return fields.Count == 0 ? null : new Fields(fields);
 				}
@@ -60,8 +61,10 @@ namespace OpenSearch.Client
 			}
 
 			writer.WriteStartArray();
+			// Delegate each element to the Field converter so a field carrying a Format is written as
+			// { "field": …, "format": … } (docvalue fields) rather than a bare name string.
 			foreach (var field in value)
-				writer.WriteStringValue(_settings.Inferrer.Field(field));
+				JsonSerializer.Serialize(writer, field, options);
 			writer.WriteEndArray();
 		}
 	}
