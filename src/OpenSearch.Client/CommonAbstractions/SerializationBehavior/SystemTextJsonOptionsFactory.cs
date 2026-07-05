@@ -56,6 +56,11 @@ namespace OpenSearch.Client
 
 				var openMap = DataContractResolver.PropertyConverterOverridesOpenGeneric;
 				openMap[typeof(SingleOrEnumerableFormatter<>)] = typeof(SingleOrEnumerableConverter<>);
+
+				// Union<,> carries a type-level [JsonFormatter(UnionFormatter<,>)]; map it open-generically so
+				// every Union member is handled (e.g. RandomScoreFunction.Seed is a Union<long,string> with no
+				// dedicated global registration and would otherwise serialize as {}).
+				openMap[typeof(UnionFormatter<,>)] = typeof(UnionConverter<,>);
 				openMap[typeof(SerializeAsSingleFormatter<>)] = typeof(SerializeAsSingleConverter<>);
 
 				// Verbatim dictionary-key formatters (keys written as inferred, no camel-casing).
