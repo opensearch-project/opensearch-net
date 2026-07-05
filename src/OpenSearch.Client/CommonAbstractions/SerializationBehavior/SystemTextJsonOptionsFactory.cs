@@ -92,7 +92,9 @@ namespace OpenSearch.Client
 		/// wire names and does not apply document field-name inference.
 		/// </summary>
 		public static JsonSerializerOptions Create(IConnectionSettingsValues settings) =>
-			Build(settings, new DataContractResolver(memberShouldSerialize: BuildRoutingShouldSerialize(settings)));
+			Build(settings, new DataContractResolver(
+				memberShouldSerialize: BuildRoutingShouldSerialize(settings),
+				camelCaseUnattributed: true));
 
 		/// <summary>
 		/// Builds the options for the <em>source</em> serializer (documents): identical to

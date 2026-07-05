@@ -93,16 +93,29 @@ namespace OpenSearch.Net
 		private readonly Func<MemberInfo, Func<object, object, bool>> _memberShouldSerialize;
 
 		/// <summary>
+		/// When <c>true</c>, an un-attributed member (no <c>[DataMember(Name)]</c>) is camel-cased,
+		/// matching the high-level client's request/response wire format (and the vendored Utf8Json name
+		/// mutator). When <c>false</c> — the default, used by the standalone
+		/// <see cref="SystemTextJsonSerializer"/> via <see cref="Instance"/> — the member keeps its
+		/// declared (PascalCase) name, so the low-level serializer performs raw <c>System.Text.Json</c>
+		/// naming while still honoring <c>[DataMember]</c>/<c>[IgnoreDataMember]</c> (#388).
+		/// </summary>
+		private readonly bool _camelCaseUnattributed;
+
+		/// <summary>
 		/// Creates a resolver that applies the data-contract modifier to every object type, optionally
 		/// with a per-member name/ignore override (document field-name inference for the source
-		/// serializer) and a value-based <c>ShouldSerialize</c> hook (#388).
+		/// serializer), a value-based <c>ShouldSerialize</c> hook, and camel-casing of un-attributed
+		/// members for the request/response wire format (#388).
 		/// </summary>
 		public DataContractResolver(
 			Func<MemberInfo, (string Name, bool Ignore)?> nameOverride = null,
-			Func<MemberInfo, Func<object, object, bool>> memberShouldSerialize = null)
+			Func<MemberInfo, Func<object, object, bool>> memberShouldSerialize = null,
+			bool camelCaseUnattributed = false)
 		{
 			_nameOverride = nameOverride;
 			_memberShouldSerialize = memberShouldSerialize;
+			_camelCaseUnattributed = camelCaseUnattributed;
 			Modifiers.Add(ApplyDataContract);
 		}
 
@@ -170,10 +183,11 @@ namespace OpenSearch.Net
 
 				if (dataMember != null && !string.IsNullOrEmpty(dataMember.Name))
 					property.Name = dataMember.Name;
-				else if (_nameOverride == null)
-					// Request/response default: the vendored resolver camel-cases every un-named member
+				else if (_camelCaseUnattributed)
+					// Request/response wire format: the vendored resolver camel-cases every un-named member
 					// (its name mutator = ToCamelCase). Members carrying an explicit [DataMember(Name)]
-					// keep it (handled above); the source path handles naming via _nameOverride below.
+					// keep it (handled above); the source path handles naming via _nameOverride below. The
+					// standalone serializer leaves the declared (PascalCase) name untouched.
 					property.Name = ToCamelCase(property.Name);
 
 				// Member-level [StringEnum]: serialize the (nullable) enum as its string form even when the
@@ -243,8 +257,8 @@ namespace OpenSearch.Net
 					property.CustomConverter = propertyConverter;
 			}
 
-			AddExplicitInterfaceProperties(typeInfo, _nameOverride == null);
-			AddNonPublicDataMembers(typeInfo, _nameOverride == null);
+			AddExplicitInterfaceProperties(typeInfo, _camelCaseUnattributed);
+			AddNonPublicDataMembers(typeInfo, _camelCaseUnattributed);
 		}
 
 		/// <summary>
