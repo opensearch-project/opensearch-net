@@ -62,6 +62,11 @@ namespace OpenSearch.Client
 				return aggregate;
 			}
 
+			// top_hits: { "hits": { "total": …, "max_score": …, "hits": [ …raw hit docs… ] } }
+			if (root.TryGetProperty("hits", out var topHits) && topHits.ValueKind == JsonValueKind.Object
+				&& topHits.TryGetProperty("hits", out _))
+				return ReadTopHits(topHits, meta, options);
+
 			if (root.TryGetProperty("buckets", out var buckets))
 				return ReadMultiBucket(root, buckets, meta, options);
 
@@ -104,6 +109,27 @@ namespace OpenSearch.Client
 			}
 
 			return null;
+		}
+
+		private static IAggregate ReadTopHits(JsonElement hits, IReadOnlyDictionary<string, object> meta, JsonSerializerOptions options)
+		{
+			var documents = new List<LazyDocument>();
+			if (hits.TryGetProperty("hits", out var hitArray) && hitArray.ValueKind == JsonValueKind.Array)
+			{
+				foreach (var hit in hitArray.EnumerateArray())
+				{
+					var document = hit.Deserialize<LazyDocument>(options);
+					if (document != null)
+						documents.Add(document);
+				}
+			}
+
+			var aggregate = new TopHitsAggregate(documents) { Meta = meta };
+			if (hits.TryGetProperty("max_score", out var maxScore) && maxScore.ValueKind == JsonValueKind.Number)
+				aggregate.MaxScore = maxScore.GetDouble();
+			if (hits.TryGetProperty("total", out var total) && total.ValueKind != JsonValueKind.Null)
+				aggregate.Total = total.Deserialize<TotalHits>(options);
+			return aggregate;
 		}
 
 		private static IAggregate ReadMultiBucket(JsonElement root, JsonElement buckets, IReadOnlyDictionary<string, object> meta, JsonSerializerOptions options)

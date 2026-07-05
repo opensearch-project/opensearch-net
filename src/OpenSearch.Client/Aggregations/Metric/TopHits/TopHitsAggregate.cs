@@ -34,31 +34,25 @@ namespace OpenSearch.Client
 {
 	public class TopHitsAggregate : MetricAggregateBase
 	{
-		private readonly IJsonFormatterResolver _formatterResolver;
 		private readonly IList<LazyDocument> _hits;
 
-		public TopHitsAggregate() { }
+		public TopHitsAggregate() : this(new List<LazyDocument>()) { }
 
-		internal TopHitsAggregate(IList<LazyDocument> hits, IJsonFormatterResolver formatterResolver)
-		{
-			_hits = hits;
-			_formatterResolver = formatterResolver;
-		}
+		internal TopHitsAggregate(IList<LazyDocument> hits) => _hits = hits ?? new List<LazyDocument>();
+
+		// Retained for the vendored Utf8Json aggregate formatter; the resolver is no longer required
+		// because each captured LazyDocument carries the serializers it needs (#388).
+		internal TopHitsAggregate(IList<LazyDocument> hits, IJsonFormatterResolver formatterResolver) : this(hits) { }
 
 		public double? MaxScore { get; set; }
 
 		public TotalHits Total { get; set; }
 
 		private IEnumerable<IHit<TDocument>> ConvertHits<TDocument>()
-			where TDocument : class
-		{
-			var formatter = _formatterResolver.GetFormatter<IHit<TDocument>>();
-			return _hits.Select(h =>
-			{
-				var reader = new JsonReader(h.Bytes);
-				return formatter.Deserialize(ref reader, _formatterResolver);
-			});
-		}
+			where TDocument : class =>
+			// A hit is a response type (its _source is handled by the source serializer via the request
+			// contract), so deserialize each captured document with the request/response serializer.
+			_hits.Select(h => h.AsUsingRequestResponseSerializer<IHit<TDocument>>());
 
 		public IReadOnlyCollection<IHit<TDocument>> Hits<TDocument>()
 			where TDocument : class =>
