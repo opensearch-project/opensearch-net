@@ -62,17 +62,61 @@ namespace OpenSearch.Client
 
 			foreach (var member in root.EnumerateObject())
 			{
-				// The oracle always writes the object body form; the scalar short form is read-only
-				// input we do not need for round-tripping our own output.
-				if (member.Value.ValueKind != JsonValueKind.Object) continue;
+				if (member.Value.ValueKind == JsonValueKind.Null)
+					return null;
 
-				var query = member.Value.Deserialize<TConcrete>(options);
-				if (query != null)
-					query.Field = member.Name;
-				return query;
+				// Full body form: { "<field>": { …body… } }.
+				if (member.Value.ValueKind == JsonValueKind.Object)
+				{
+					var query = member.Value.Deserialize<TConcrete>(options);
+					if (query != null)
+						query.Field = member.Name;
+					return query;
+				}
+
+				// Short (scalar) form: { "<field>": <scalar> } maps the scalar to the query's primary
+				// value property (mirroring the vendored FieldNameQueryFormatter).
+				var shortForm = ReadShortForm(member.Value);
+				if (shortForm != null)
+					shortForm.Field = member.Name;
+				return shortForm;
 			}
 
 			return null;
+		}
+
+		private static TConcrete ReadShortForm(JsonElement value)
+		{
+			var query = new TConcrete();
+			switch (query)
+			{
+				case ITermQuery termQuery:
+					termQuery.Value = value.ValueKind switch
+					{
+						JsonValueKind.String => value.GetString(),
+						JsonValueKind.Number => value.TryGetInt64(out var l) ? (object)l : value.GetDouble(),
+						JsonValueKind.True => true,
+						JsonValueKind.False => false,
+						_ => null,
+					};
+					break;
+				case IMatchQuery matchQuery:
+					matchQuery.Query = value.GetString();
+					break;
+				case IMatchPhraseQuery matchPhraseQuery:
+					matchPhraseQuery.Query = value.GetString();
+					break;
+				case IMatchPhrasePrefixQuery matchPhrasePrefixQuery:
+					matchPhrasePrefixQuery.Query = value.GetString();
+					break;
+				case IMatchBoolPrefixQuery matchBoolPrefixQuery:
+					matchBoolPrefixQuery.Query = value.GetString();
+					break;
+				default:
+					return null;
+			}
+
+			return query;
 		}
 	}
 }
