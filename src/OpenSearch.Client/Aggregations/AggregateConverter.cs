@@ -161,6 +161,11 @@ namespace OpenSearch.Client
 				return new StatsAggregate { Count = count, Min = min, Max = max, Average = average, Sum = sum, Meta = meta };
 			}
 
+			// A geo_centroid with no matching documents returns only { "count": 0 } (no location),
+			// mirroring the vendored reader's bare-count → GeoCentroidAggregate handling.
+			if (root.TryGetProperty("count", out var bareCount) && bareCount.ValueKind == JsonValueKind.Number)
+				return new GeoCentroidAggregate { Count = bareCount.GetInt64(), Meta = meta };
+
 			if (root.TryGetProperty("doc_count", out var docCountElement))
 			{
 				var subAggregates = ReadSubAggregates(root, options);
