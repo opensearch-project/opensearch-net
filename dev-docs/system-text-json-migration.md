@@ -1295,3 +1295,47 @@ custom `DefaultFieldNameInferrer`. The fix removes the redundant strategy so the
 serializer honours the connection settings' field-name inference like the built-in
 request/response and source serializers, making the test deterministic. The production STJ
 serializer was verified correct in isolation across sequential and parallel runs.
+
+## 56. Integration-suite (real-cluster) response fixes
+
+The unit suite uses recorded responses; the integration suite exercises real
+OpenSearch responses across every supported version, which surfaced a further
+set of response-deserialization gaps. These were driven to zero (all 14
+version jobs green):
+
+- **Dictionary key converters** (`IndexName`, `Id`, `TaskId`) gained
+  `ReadAsPropertyName`/`WriteAsPropertyName`, so a `Dictionary` keyed by one of
+  them (e.g. an `indices` map including system indices) round-trips. STJ
+  requires this for any converter used as a dictionary key.
+- **`IsADictionaryConverter`** builds types that expose only the implicit
+  parameterless constructor (e.g. `FieldTypes`) by populating through the
+  dictionary interface, not just a one-arg constructor.
+- **`ReadOnlyDictionaryConverterFactory`** converts OSC identity keys that are
+  not `IConvertible` (`IndexName`, `Field`, …) via their implicit string
+  operator / string constructor instead of `Convert.ChangeType`.
+- **`ResolvableDictionaryProxy` responses**: a new converter factory builds
+  `FieldCapabilitiesFields`, `IndicesStatsDictionary`, … via their
+  `(settings, dictionary)` constructor; a companion factory materializes a bare
+  `IReadOnlyDictionary` keyed by an inference type into a key-resolving
+  `ResolvableDictionaryProxy` (term_vectors, cluster-health indices).
+- **`AggregateConverter`** was completed to match the vendored heuristic reader:
+  scripted_metric (object/array value as `LazyDocument`), sibling-pipeline
+  `keys` (`KeyedValueAggregate`), geo_bounds, geo_centroid (including the
+  no-results `{ "count": 0 }` form), matrix_stats, composite `after_key` and
+  object-key buckets, significant_terms/text `score`/`bg_count` (bucket and
+  aggregate level), multi-terms array keys, variable-width-histogram buckets,
+  and anonymous-filters `doc_count`-first buckets (`FiltersBucketItem`).
+- **`PropertiesConverter.Read`** constructs `Properties` with the connection
+  settings so `PropertyName` keys resolve through the inferrer; expression-based
+  lookups (`properties[Property<T>(p => p.X)]`) now match the wire key.
+- **Polymorphic interface values**: new `SuggestContextConverter`
+  (`ISuggestContext`) and `FieldMappingConverter` (`IFieldMapping`) handle the
+  get-mapping / completion-context responses.
+- **JsonNet source serializer** (`HandleOscTypesOnSourceJsonConverter`) now
+  delegates the inference identity types (`Id`, `IndexName`, `RelationName`,
+  `Routing`, `Field`, `Fields`) to the built-in serializer. Without this, a
+  type-based `RelationName` used as a term value (the test seeder's join alias
+  filter) serialized as `{ "type": "<assembly-qualified-name>" }` under the
+  randomly-selected JSON.NET source serializer, which the server rejected with
+  "[term] query does not support [type]", intermittently aborting the whole
+  integration suite.
