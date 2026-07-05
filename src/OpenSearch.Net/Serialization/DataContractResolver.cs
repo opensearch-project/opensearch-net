@@ -225,10 +225,10 @@ namespace OpenSearch.Net
 				}
 
 				// Honor the ShouldSerialize<Member>() convention (Utf8Json/Json.NET): the client uses it
-				// to omit, for example, empty bool-query clause arrays (ShouldSerializeMust, etc.).
-				var shouldSerialize = typeInfo.Type.GetMethod(
-					"ShouldSerialize" + member.Name, BindingFlags.Public | BindingFlags.Instance, null, Type.EmptyTypes, null);
-				if (shouldSerialize != null && shouldSerialize.ReturnType == typeof(bool))
+				// to omit, for example, empty bool-query clause arrays (ShouldSerializeMust, etc.). These
+				// are frequently declared as explicit interface implementations, so search interfaces too.
+				var shouldSerialize = FindShouldSerialize(typeInfo.Type, member.Name);
+				if (shouldSerialize != null)
 					property.ShouldSerialize = (obj, _) => (bool)shouldSerialize.Invoke(obj, null);
 
 				// Value-based ShouldSerialize (e.g. omit a document-derived Routing that infers to null).
@@ -269,6 +269,31 @@ namespace OpenSearch.Net
 		/// non-public <c>[DataMember]</c> instance property (walking the base types) not already surfaced.
 		/// </summary>
 		/// <summary>
+		/// Finds a parameterless <c>bool ShouldSerialize&lt;Member&gt;()</c> method for the member, honoring
+		/// the Utf8Json/Json.NET convention. The client frequently declares these as explicit interface
+		/// implementations (e.g. <c>bool IBoolQuery.ShouldSerializeMust()</c>), which are not reachable by
+		/// name on the concrete type, so the implemented interfaces are searched as well; invoking the
+		/// interface method dispatches to the explicit implementation.
+		/// </summary>
+		private static MethodInfo FindShouldSerialize(Type type, string memberName)
+		{
+			var method = type.GetMethod("ShouldSerialize" + memberName,
+				BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance, null, Type.EmptyTypes, null);
+			if (method != null && method.ReturnType == typeof(bool))
+				return method;
+
+			foreach (var interfaceType in type.GetInterfaces())
+			{
+				var interfaceMethod = interfaceType.GetMethod("ShouldSerialize" + memberName,
+					BindingFlags.Public | BindingFlags.Instance, null, Type.EmptyTypes, null);
+				if (interfaceMethod != null && interfaceMethod.ReturnType == typeof(bool))
+					return interfaceMethod;
+			}
+
+			return null;
+		}
+
+		/// <summary>
 		/// Applies the value-based <see cref="_memberShouldSerialize"/> hook to a property, combining it
 		/// with any existing predicate (both must return true to serialize).
 		/// </summary>
@@ -308,10 +333,8 @@ namespace OpenSearch.Net
 					jsonProperty.Get = member.CanRead ? member.GetValue : (Func<object, object>)null;
 					jsonProperty.Set = member.CanWrite ? member.SetValue : (Action<object, object>)null;
 
-					var shouldSerialize = typeInfo.Type.GetMethod(
-						"ShouldSerialize" + member.Name,
-						BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance, null, Type.EmptyTypes, null);
-					if (shouldSerialize != null && shouldSerialize.ReturnType == typeof(bool))
+					var shouldSerialize = FindShouldSerialize(typeInfo.Type, member.Name);
+					if (shouldSerialize != null)
 						jsonProperty.ShouldSerialize = (obj, _) => (bool)shouldSerialize.Invoke(obj, null);
 
 					ApplyMemberShouldSerialize(jsonProperty, member);
@@ -372,10 +395,8 @@ namespace OpenSearch.Net
 					jsonProperty.Get = interfaceProperty.CanRead ? interfaceProperty.GetValue : null;
 					jsonProperty.Set = interfaceProperty.CanWrite ? interfaceProperty.SetValue : null;
 
-					var shouldSerialize = typeInfo.Type.GetMethod(
-						"ShouldSerialize" + interfaceProperty.Name,
-						BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance, null, Type.EmptyTypes, null);
-					if (shouldSerialize != null && shouldSerialize.ReturnType == typeof(bool))
+					var shouldSerialize = FindShouldSerialize(typeInfo.Type, interfaceProperty.Name);
+					if (shouldSerialize != null)
 						jsonProperty.ShouldSerialize = (obj, _) => (bool)shouldSerialize.Invoke(obj, null);
 
 					var formatter = interfaceProperty.GetCustomAttribute<Utf8Json.JsonFormatterAttribute>(true)

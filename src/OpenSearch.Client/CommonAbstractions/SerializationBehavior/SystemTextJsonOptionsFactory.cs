@@ -145,10 +145,19 @@ namespace OpenSearch.Client
 		private static Func<MemberInfo, Func<object, object, bool>> BuildRoutingShouldSerialize(IConnectionSettingsValues settings) =>
 			member =>
 			{
-				if (member is not PropertyInfo property || property.PropertyType != typeof(Routing))
+				if (member is not PropertyInfo property)
 					return null;
 
-				return (_, value) => !RoutingResolvesToNull(value as Routing, settings.Inferrer);
+				if (property.PropertyType == typeof(Routing))
+					return (_, value) => !RoutingResolvesToNull(value as Routing, settings.Inferrer);
+
+				// A QueryContainer member (e.g. ISearchRequest.Query, IBoolQuery clause) is omitted when it
+				// is not writable — i.e. conditionless and not verbatim — mirroring the vendored
+				// QueryContainer.ShouldSerialize(resolver) => IsWritable (#388).
+				if (typeof(QueryContainer).IsAssignableFrom(property.PropertyType))
+					return (_, value) => value is not QueryContainer container || ((IQueryContainer)container).IsWritable;
+
+				return null;
 			};
 
 		/// <summary>Mirror of the bulk serializer's routing null-collapse: a routing with no wire value.</summary>
