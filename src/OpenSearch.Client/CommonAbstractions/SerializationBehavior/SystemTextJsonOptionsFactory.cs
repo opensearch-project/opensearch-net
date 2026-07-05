@@ -98,8 +98,34 @@ namespace OpenSearch.Client
 		/// </summary>
 		public static JsonSerializerOptions Create(IConnectionSettingsValues settings) =>
 			Build(settings, new DataContractResolver(
+				nameOverride: BuildRequestResponseNameOverride(settings),
 				memberShouldSerialize: BuildRoutingShouldSerialize(settings),
 				camelCaseUnattributed: true));
+
+		/// <summary>
+		/// Request/response name override reproducing the vendored resolver's precedence for members that
+		/// carry an OSC mapping attribute (e.g. <c>[Text(Name)]</c>) or a configured fluent property
+		/// mapping: those take precedence over a serializer-specific <c>[DataMember]</c>/<c>[PropertyName]</c>
+		/// name (#388). Returns <c>null</c> for members with neither, leaving the <c>[DataMember]</c>/camel-
+		/// case name applied by the resolver untouched (so client request/response models are unaffected).
+		/// </summary>
+		private static Func<MemberInfo, (string Name, bool Ignore)?> BuildRequestResponseNameOverride(IConnectionSettingsValues settings) =>
+			member =>
+			{
+				// Only members carrying an OSC mapping attribute (e.g. [Text(Name = "naam")]) are affected;
+				// its explicit Name wins over a serializer [DataMember]/[PropertyName]. Attributes without a
+				// Name (the common case, used only for the field type) leave the resolver's name untouched,
+				// so typical request/response models and domain documents are unaffected.
+				var attribute = OpenSearchPropertyAttributeBase.From(member);
+				if (attribute == null)
+					return null;
+
+				var mapping = (IPropertyMapping)attribute;
+				if (mapping.Ignore)
+					return (null, true);
+
+				return string.IsNullOrEmpty(mapping.Name) ? ((string, bool)?)null : (mapping.Name, false);
+			};
 
 		/// <summary>
 		/// Builds the options for the <em>source</em> serializer (documents): identical to
