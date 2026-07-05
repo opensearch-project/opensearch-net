@@ -226,6 +226,7 @@ namespace OpenSearch.Client
 			options.Converters.Add(ObjectConverter.Instance);
 			options.Converters.Add(DoubleFormatConverter.Instance);
 			options.Converters.Add(SingleFormatConverter.Instance);
+			options.Converters.Add(DecimalFormatConverter.Instance);
 			options.Converters.Add(StringEnumConverterFactory.Instance);
 
 			// Date/time and TimeSpan wire formats (ISO8601 with 7-digit fraction; TimeSpan as ticks),
@@ -331,6 +332,9 @@ namespace OpenSearch.Client
 			options.Converters.Add(new IncludeExcludeConverter());
 			options.Converters.Add(new DateMathTimeConverter());
 			options.Converters.Add(new UnionConverter<DateInterval?, DateMathTime>());
+			// Units of time (DateInterval or Time) may be serialized directly (not via a [JsonFormatter]
+			// member), so register the pair globally.
+			options.Converters.Add(new UnionConverter<DateInterval, Time>());
 			options.Converters.Add(new FilterAggregationConverter());
 			// filters aggregation: named container OR an anonymous list of queries.
 			options.Converters.Add(new UnionConverter<INamedFiltersContainer, IEnumerable<QueryContainer>>());

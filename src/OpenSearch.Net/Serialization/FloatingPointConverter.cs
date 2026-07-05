@@ -56,6 +56,24 @@ namespace OpenSearch.Net
 				value.ToString("R", CultureInfo.InvariantCulture));
 	}
 
+	/// <summary>
+	/// <see cref="decimal"/> counterpart of <see cref="DoubleFormatConverter"/>: a whole value keeps a
+	/// decimal point (e.g. <c>1.0</c> rather than <c>1</c>), matching the vendored serializer.
+	/// </summary>
+	public sealed class DecimalFormatConverter : JsonConverter<decimal>
+	{
+		/// <summary> A shared instance. </summary>
+		public static readonly DecimalFormatConverter Instance = new();
+
+		/// <inheritdoc />
+		public override decimal Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
+			reader.GetDecimal();
+
+		/// <inheritdoc />
+		public override void Write(Utf8JsonWriter writer, decimal value, JsonSerializerOptions options) =>
+			FloatingPointConverter.WriteWithDecimal(writer, (double)value, true, value.ToString(CultureInfo.InvariantCulture));
+	}
+
 	internal static class FloatingPointConverter
 	{
 		internal static void WriteWithDecimal(Utf8JsonWriter writer, double value, bool isFinite, string text)
