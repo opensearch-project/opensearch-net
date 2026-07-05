@@ -123,6 +123,18 @@ namespace OpenSearch.Client
 				foreach (var bucketElement in buckets.EnumerateArray())
 					items.Add(ReadKeyedBucket(bucketElement, options));
 			}
+			else if (buckets.ValueKind == JsonValueKind.Object)
+			{
+				// Named (keyed) buckets — e.g. the filters aggregation — are a JSON object whose property
+				// names are the bucket keys (which may themselves contain '#').
+				foreach (var member in buckets.EnumerateObject())
+				{
+					var bucket = ReadKeyedBucket(member.Value, options);
+					if (bucket is KeyedBucket<object> keyed && keyed.Key == null)
+						keyed.Key = member.Name;
+					items.Add(bucket);
+				}
+			}
 			aggregate.Items = items;
 			return aggregate;
 		}
