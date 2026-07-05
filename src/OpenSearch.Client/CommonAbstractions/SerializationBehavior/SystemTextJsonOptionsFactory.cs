@@ -217,6 +217,9 @@ namespace OpenSearch.Client
 			options.Converters.Add(new MultiGetRequestConverterFactory(settings));
 			options.Converters.Add(new UpdateIndexSettingsRequestConverterFactory());
 			options.Converters.Add(new CreateRepositoryConverterFactory());
+			// Source-only repository: settings flattened with a delegate_type discriminator. Registered
+			// before the generic repository handling so its concrete types are matched (#388).
+			options.Converters.Add(new SourceOnlyRepositoryConverter());
 
 			// Stateless infrastructure converters (OpenSearch.Net).
 			options.Converters.Add(ObjectConverter.Instance);
