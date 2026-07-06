@@ -54,7 +54,7 @@ namespace OpenSearch.Net
 		/// populated by the high-level client (which owns both the formatter types and the converters)
 		/// before any serialization occurs.
 		/// </summary>
-		public static readonly Dictionary<Type, System.Text.Json.Serialization.JsonConverter> PropertyConverterOverrides = new();
+		internal static readonly Dictionary<Type, System.Text.Json.Serialization.JsonConverter> PropertyConverterOverrides = new();
 
 		/// <summary>
 		/// Open-generic companion to <see cref="PropertyConverterOverrides"/> (#388): maps a vendored
@@ -64,7 +64,7 @@ namespace OpenSearch.Net
 		/// registered here, the resolver closes the converter over the same type arguments and applies
 		/// it to that member.
 		/// </summary>
-		public static readonly Dictionary<Type, Type> PropertyConverterOverridesOpenGeneric = new();
+		internal static readonly Dictionary<Type, Type> PropertyConverterOverridesOpenGeneric = new();
 
 		/// <summary>
 		/// Optional hook (set by the high-level client) that returns a per-member converter based on the
@@ -72,7 +72,7 @@ namespace OpenSearch.Net
 		/// <c>OpenSearch.Client</c> and cannot be referenced from here (#388). Returns <c>null</c> to leave
 		/// the member untouched.
 		/// </summary>
-		public static Func<MemberInfo, System.Text.Json.Serialization.JsonConverter> MemberConverterResolver;
+		internal static Func<MemberInfo, System.Text.Json.Serialization.JsonConverter> MemberConverterResolver;
 
 		/// <summary>
 		/// Optional per-member name/ignore override applied after the <c>[DataMember]</c> rules (#388).
