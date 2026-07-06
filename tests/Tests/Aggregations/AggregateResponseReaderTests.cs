@@ -116,7 +116,7 @@ namespace Tests.Aggregations
 				composite.Should().NotBeNull();
 				composite.AfterKey.Should().NotBeNull();
 				composite.Buckets.Should().HaveCount(1);
-				composite.Buckets[0].Key.Should().ContainKey("p");
+				composite.Buckets.First().Key.Should().ContainKey("p");
 			});
 		}
 
