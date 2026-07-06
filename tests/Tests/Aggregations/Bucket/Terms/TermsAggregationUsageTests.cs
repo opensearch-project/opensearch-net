@@ -339,6 +339,11 @@ namespace Tests.Aggregations.Bucket.Terms
 	{
 		public PartitionTermsAggregationUsageTests(ReadOnlyCluster i, EndpointUsage usage) : base(i, usage) { }
 
+		// num_partitions is 1 (not 10) so partition 0 deterministically contains every term: with 10
+		// partitions, whether partition 0 is non-empty depends on the hash of the randomly-seeded
+		// `numberOfCommits` values, which made the `Buckets.Count > 0` assertion intermittently fail.
+		// A single partition still exercises the partition/num_partitions include serialization and the
+		// partitioned-terms response reading, without the seed-dependent emptiness.
 		protected override object AggregationJson => new
 		{
 			commits = new
@@ -350,7 +355,7 @@ namespace Tests.Aggregations.Bucket.Terms
 					include = new
 					{
 						partition = 0,
-						num_partitions = 10
+						num_partitions = 1
 					}
 				}
 			}
@@ -359,7 +364,7 @@ namespace Tests.Aggregations.Bucket.Terms
 		protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
 			.Terms("commits", st => st
 				.Field(p => p.NumberOfCommits)
-				.Include(0, 10)
+				.Include(0, 1)
 				.Size(5)
 			);
 
@@ -367,7 +372,7 @@ namespace Tests.Aggregations.Bucket.Terms
 			new TermsAggregation("commits")
 			{
 				Field = Field<Project>(p => p.NumberOfCommits),
-				Include = new TermsInclude(0, 10),
+				Include = new TermsInclude(0, 1),
 				Size = 5
 			};
 
