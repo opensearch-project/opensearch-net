@@ -77,6 +77,23 @@ namespace OpenSearch.Client
 
 		public override string ToString() => DebugDisplay;
 
+		/// <summary>
+		/// True when this routing has no wire value: a document-derived routing whose inference yields
+		/// null, or an unset string/long. Shared by the request/response value-based <c>ShouldSerialize</c>
+		/// hook and the bulk NDJSON writer's routing collapse (#388).
+		/// </summary>
+		internal bool ResolvesToNull(Inferrer inferrer)
+		{
+			if (Document != null) return inferrer.Routing(Document.GetType(), Document) == null;
+			if (DocumentGetter != null)
+			{
+				var document = DocumentGetter();
+				return document == null || inferrer.Routing(document.GetType(), document) == null;
+			}
+			if (LongValue != null) return false;
+			return StringValue == null;
+		}
+
 		private static int TypeHashCode { get; } = typeof(Routing).GetHashCode();
 
 		public bool Equals(Routing other)

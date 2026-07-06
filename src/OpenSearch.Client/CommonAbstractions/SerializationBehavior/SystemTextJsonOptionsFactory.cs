@@ -25,7 +25,9 @@ namespace OpenSearch.Client
 	internal static class SystemTextJsonOptionsFactory
 	{
 		private static readonly object PerPropertyLock = new object();
-		private static bool _perPropertyRegistered;
+		// volatile: read lock-free in the double-checked lock below, so the release/acquire semantics
+		// guarantee the map population above is visible before another thread observes the flag as set.
+		private static volatile bool _perPropertyRegistered;
 
 		/// <summary>
 		/// Registers the per-property converter overrides (primitives the server may send as strings)
@@ -165,7 +167,7 @@ namespace OpenSearch.Client
 					return null;
 
 				if (property.PropertyType == typeof(Routing))
-					return (_, value) => !RoutingResolvesToNull(value as Routing, settings.Inferrer);
+					return (_, value) => value is Routing routing && !routing.ResolvesToNull(settings.Inferrer);
 
 				// A QueryContainer member (e.g. ISearchRequest.Query, IBoolQuery clause) is omitted when it
 				// is null or not writable — i.e. conditionless and not verbatim — mirroring the vendored
@@ -177,19 +179,7 @@ namespace OpenSearch.Client
 				return null;
 			};
 
-		/// <summary>Mirror of the bulk serializer's routing null-collapse: a routing with no wire value.</summary>
-		private static bool RoutingResolvesToNull(Routing routing, Inferrer inferrer)
-		{
-			if (routing == null) return true;
-			if (routing.Document != null) return inferrer.Routing(routing.Document.GetType(), routing.Document) == null;
-			if (routing.DocumentGetter != null)
-			{
-				var document = routing.DocumentGetter();
-				return document == null || inferrer.Routing(document.GetType(), document) == null;
-			}
-			if (routing.LongValue != null) return false;
-			return routing.StringValue == null;
-		}
+		// Routing null-collapse is shared with the bulk NDJSON writer via Routing.ResolvesToNull.
 
 		/// <summary>
 		/// Reproduces the name/ignore precedence of the vendored source resolver's <c>GetMapping</c>:

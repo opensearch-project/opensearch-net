@@ -64,7 +64,7 @@ namespace OpenSearch.Client
 				var routing = op.GetRoutingForOperation(inferrer);
 				// The vendored formatter omits routing that resolves to null (unlike _id, which is written
 				// even when null); collapse to null so the WhenWritingNull policy drops the member.
-				op.Routing = ResolvesToNull(routing, inferrer) ? null : routing;
+				op.Routing = routing == null || routing.ResolvesToNull(inferrer) ? null : routing;
 
 				// Action line: { "<operation>": {metadata} }. The operation token is a fixed identifier
 				// (index/create/update/delete) requiring no escaping.
@@ -100,19 +100,6 @@ namespace OpenSearch.Client
 				}
 				stream.WriteByte(Newline);
 			}
-		}
-
-		private static bool ResolvesToNull(Routing routing, Inferrer inferrer)
-		{
-			if (routing == null) return true;
-			if (routing.Document != null) return inferrer.Routing(routing.Document.GetType(), routing.Document) == null;
-			if (routing.DocumentGetter != null)
-			{
-				var document = routing.DocumentGetter();
-				return document == null || inferrer.Routing(document.GetType(), document) == null;
-			}
-			if (routing.LongValue != null) return false;
-			return routing.StringValue == null;
 		}
 	}
 }

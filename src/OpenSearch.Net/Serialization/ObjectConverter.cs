@@ -50,7 +50,9 @@ namespace OpenSearch.Net
 					return reader.GetString();
 				case JsonTokenType.Number:
 					// Box long and double separately: a ternary would unify both to double and lose
-					// the integral distinction (matching Utf8Json's IsLong check).
+					// the integral distinction (matching Utf8Json's IsLong check). An integral outside
+					// Int64 range falls through to double (and loses precision) -- this matches the
+					// vendored Utf8Json behavior for dynamic `object` payloads.
 					if (reader.TryGetInt64(out var l)) return l;
 					return reader.GetDouble();
 				case JsonTokenType.StartArray:

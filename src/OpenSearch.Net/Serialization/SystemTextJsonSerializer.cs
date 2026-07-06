@@ -26,16 +26,19 @@ namespace OpenSearch.Net
 	/// </para>
 	/// </summary>
 	/// <remarks>
-	/// WARNING: EXPERIMENTAL / NOT WIRE-COMPATIBLE WITH THE HIGH-LEVEL CLIENT YET.
+	/// This is the default request/response and source serializer for the high-level
+	/// <c>OpenSearch.Client</c> (see GitHub issue #388): when constructed with the
+	/// <see cref="JsonSerializerOptions"/> produced by the client's options factory it is
+	/// wire-compatible with the server, honoring the client's <c>[DataMember]</c>/<c>[ReadAs]</c>/
+	/// <c>[StringEnum]</c> attributes, per-property <c>[JsonFormatter]</c> converters, and document
+	/// field-name inference.
 	/// <para>
-	/// With default options this performs raw <c>System.Text.Json</c> serialization:
-	/// it uses PascalCase property names and ignores the high-level client's
-	/// <c>[DataMember]</c>, <c>[ReadAs]</c> and <c>[StringEnum]</c> attributes and
-	/// field-name inference. Using it directly for <c>OpenSearch.Client</c> request
-	/// or response types will therefore produce JSON that does NOT match the wire
-	/// format the server expects. It is intended for low-level/custom payloads and
-	/// as the base for the converter work tracked by #388. The API surface and
-	/// default behavior are not yet stable.
+	/// The parameterless constructor (and <see cref="DataContractResolver.Instance"/>) is for
+	/// low-level/standalone use: it still honors <c>[DataMember]</c>/<c>[IgnoreDataMember]</c>, but it
+	/// keeps declared (PascalCase) names for un-attributed members and does not apply the high-level
+	/// client's document field-name inference or its client-specific converters. Use the client-built
+	/// options (not the default) when serializing high-level <c>OpenSearch.Client</c> request/response
+	/// types.
 	/// </para>
 	/// </remarks>
 	public class SystemTextJsonSerializer : IOpenSearchSerializer
