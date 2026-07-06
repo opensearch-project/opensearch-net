@@ -1,0 +1,69 @@
+/* SPDX-License-Identifier: Apache-2.0
+*
+* The OpenSearch Contributors require contributions made to
+* this file be licensed under the Apache-2.0 license or a
+* compatible open source license.
+*/
+
+using System;
+using System.IO;
+using System.Text.Json;
+using System.Threading;
+using System.Threading.Tasks;
+using OpenSearch.Net;
+
+namespace OpenSearch.Client
+{
+	/// <summary>
+	/// PROTOTYPE (spike) — a System.Text.Json based replacement for <see cref="DefaultHighLevelSerializer"/>,
+	/// which today delegates to the Utf8Json engine via <c>OpenSearchClientFormatterResolver</c>.
+	///
+	/// Goal of the spike: prove that a STJ-based high-level serializer can be driven by the runtime
+	/// <see cref="IConnectionSettingsValues"/> configuration (field-name inference, property mappings) and reuse
+	/// the contract model we already migrated (InterfaceDataContractResolver), while remaining a drop-in
+	/// <see cref="IOpenSearchSerializer"/>.
+	///
+	/// This is NOT feature-complete: it establishes the wiring and the extension point (a settings-aware
+	/// TypeInfoResolver) that the full migration will build on.
+	/// </summary>
+	internal class SystemTextJsonHighLevelSerializer : IOpenSearchSerializer
+	{
+		private readonly JsonSerializerOptions _options;
+
+		public SystemTextJsonHighLevelSerializer(IConnectionSettingsValues settings)
+		{
+			_options = new JsonSerializerOptions
+			{
+				DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
+				PropertyNameCaseInsensitive = true,
+				// The settings-aware resolver reproduces the runtime-config-driven behaviour of the old
+				// InnerResolver.GetMapping: field-name inference and per-member property mappings.
+				TypeInfoResolver = new HighLevelContractResolver(settings)
+			};
+
+			// [ReadAs] delegation: interfaces/abstract types deserialize as the concrete type named by the attribute.
+			_options.Converters.Add(new ReadAsConverterFactory());
+			// Low-level converters already migrated (OpenSearch.Net) that the high-level client also relies on.
+			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.StringEnumConverterFactory());
+			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.NullableStringIntConverter());
+			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.DynamicDictionaryConverter());
+		}
+
+		public T Deserialize<T>(Stream stream) => JsonSerializer.Deserialize<T>(stream, _options);
+
+		public object Deserialize(Type type, Stream stream) => JsonSerializer.Deserialize(stream, type, _options);
+
+		public async Task<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default) =>
+			await JsonSerializer.DeserializeAsync<T>(stream, _options, cancellationToken).ConfigureAwait(false);
+
+		public async Task<object> DeserializeAsync(Type type, Stream stream, CancellationToken cancellationToken = default) =>
+			await JsonSerializer.DeserializeAsync(stream, type, _options, cancellationToken).ConfigureAwait(false);
+
+		public void Serialize<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None) =>
+			JsonSerializer.Serialize(stream, data, _options);
+
+		public Task SerializeAsync<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None,
+			CancellationToken cancellationToken = default) =>
+			JsonSerializer.SerializeAsync(stream, data, _options, cancellationToken);
+	}
+}
