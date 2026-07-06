@@ -20,16 +20,14 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 		private readonly RegionEndpoint _region;
 		private readonly string _service;
 		private readonly IDateTimeProvider _dateTimeProvider;
-		private readonly int? _tunnelPort;
 
-		public AwsSigV4HttpClientHandler(AWSCredentials credentials, RegionEndpoint region, string service, IDateTimeProvider dateTimeProvider, HttpMessageHandler innerHandler, int? tunnelPort = null)
+		public AwsSigV4HttpClientHandler(AWSCredentials credentials, RegionEndpoint region, string service, IDateTimeProvider dateTimeProvider, HttpMessageHandler innerHandler)
 			: base(innerHandler)
 		{
 			_credentials = credentials ?? throw new ArgumentNullException(nameof(credentials));
 			_region = region ?? throw new ArgumentNullException(nameof(region));
 			_service = service ?? throw new ArgumentNullException(nameof(service));
 			_dateTimeProvider = dateTimeProvider ?? throw new ArgumentNullException(nameof(dateTimeProvider));
-			_tunnelPort = tunnelPort;
 		}
 
 		protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
@@ -37,12 +35,6 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 			var credentials = await _credentials.GetCredentialsAsync().ConfigureAwait(false);
 
 			await AwsSigV4Util.SignRequest(request, credentials, _region, _dateTimeProvider.Now(), _service).ConfigureAwait(false);
-
-			// The request is signed against its canonical host (without any local tunnel port). If a tunnel port is
-			// configured, apply it now — after signing but before dispatch — so the request reaches the local tunnel
-			// while the signature continues to match what AWS computes.
-			if (_tunnelPort.HasValue && request.RequestUri != null && request.RequestUri.Port != _tunnelPort.Value)
-				request.RequestUri = new UriBuilder(request.RequestUri) { Port = _tunnelPort.Value }.Uri;
 
 			return await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
 		}

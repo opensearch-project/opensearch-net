@@ -13,7 +13,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added conditions to the Microsoft.CSharp, System.Buffers & System.Diagnostics.DiagnosticSource dependencies so that they are not included on net 6+ as the newer framework's natively provides those dependencies. ([#930](https://github.com/opensearch-project/opensearch-net/pull/930))
 - Added support for Hybrid query ([#917](https://github.com/opensearch-project/opensearch-net/pull/917))
 - Added support for `MaxDistance` and `MinScore` to `KnnQuery` ([#917](https://github.com/opensearch-project/opensearch-net/pull/917))
-- Added `TunnelPort` to `AwsSigV4HttpConnection` to support signing requests without a local tunnel port while dispatching to it (e.g. SSH port forwarding), see [#978](https://github.com/opensearch-project/opensearch-net/issues/978)
+- Added support for overriding the SigV4 signing host via the `Host` header, allowing requests to be dispatched to a different host/port than they are signed for (e.g. SSH local port forwarding or connecting directly to a tunnel), see [#978](https://github.com/opensearch-project/opensearch-net/issues/978)
 
 ### Removed
 - Removed support for the `net461` target ([#256](https://github.com/opensearch-project/opensearch-net/pull/256))
