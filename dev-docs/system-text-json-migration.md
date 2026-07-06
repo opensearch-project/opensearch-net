@@ -1339,3 +1339,24 @@ version jobs green):
   randomly-selected JSON.NET source serializer, which the server rejected with
   "[term] query does not support [type]", intermittently aborting the whole
   integration suite.
+
+### Known flaky / environmental integration tests (not regressions)
+
+After the response fixes above, the integration suite is green, but a few tests are
+environmentally flaky (they can go red on an unchanged, previously-green commit — e.g. a
+docs-only change — and clear on re-run). These are **not** serialization regressions:
+
+- **`PartitionTermsAggregationUsageTests`** asserts `commits.Buckets.Count > 0` for a terms
+  aggregation partitioned into 10 partitions (`partition: 0, num_partitions: 10`). Whether
+  partition 0 contains any terms depends on the hash of the randomly-seeded `numberOfCommits`
+  values, so an empty partition 0 is legitimately possible on some seedings/versions. The
+  response deserialises correctly (`ShouldBeValid`, `DocCountErrorUpperBound`/`SumOtherDocCount`
+  populated); only the "non-empty partition" assertion is seed-dependent. It has been observed
+  passing on 13/14 versions in the same run. Ideally made deterministic (fixed seed or
+  `num_partitions: 1`) in a follow-up.
+- **Transient cluster `503`s / empty hits** appear under the 14-parallel-cluster matrix when a
+  node is briefly overloaded; these surface as `Hits.Count 0` assertion failures and clear on
+  re-run.
+
+The one unit-level flaky (`FieldInference.PrecedenceIsAsExpected`) was root-caused and fixed
+(see section 55); it is included here only for completeness.
