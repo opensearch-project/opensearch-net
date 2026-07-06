@@ -87,7 +87,10 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 		 * Another serializer also exists within OSC known as the `RequestResponseSerializer`. This serializer is internal
 		 * and is responsible for serializing the request and response types that are part of OSC.
 		 *
-		 * If `SourceSerializer` is left unconfigured, the internal `RequestResponseSerializer` is the `SourceSerializer` as well.
+		 * If `SourceSerializer` is left unconfigured, a default `SourceSerializer` is used. It is a distinct
+		 * instance from the internal `RequestResponseSerializer`: it applies the client's document
+		 * field-name inference (camel-casing plus configured property mappings and mapping attributes),
+		 * which the `RequestResponseSerializer` does not.
 		 *
 		 * Implementing `IOpenSearchSerializer` is technically enough to inject your own `SourceSerializer`
 		 */

@@ -18,14 +18,35 @@ namespace Tests.Reproduce
 {
 	// Regression protection for the high-level serializer seam added for the
 	// System.Text.Json migration (#388): ConnectionSettings must honor an
-	// overridden CreateDefaultRequestResponseSerializer(), and stock settings
-	// must keep the default (Utf8Json) serializer.
+	// overridden CreateDefaultRequestResponseSerializer(), and by default the
+	// System.Text.Json serializer backs both the request/response serializer and
+	// a distinct source serializer that applies document field-name inference.
 	public class SystemTextJsonSeamTests
 	{
 		private class Doc
 		{
 			public string Name { get; set; }
 			public int Count { get; set; }
+		}
+
+		[U]
+		public void DefaultSourceSerializerIsDistinctAndAppliesDocumentInference()
+		{
+			var settings = new ConnectionSettings(new InMemoryConnection())
+				.DefaultFieldNameInferrer(p => p.ToUpperInvariant());
+			var values = (IConnectionSettingsValues)settings;
+
+			// The default source serializer is a distinct instance from the request/response serializer
+			// (previously it was the same instance when no source serializer factory was supplied).
+			values.SourceSerializer.Should().NotBeSameAs(values.RequestResponseSerializer);
+
+			var doc = new Doc { Name = "x", Count = 1 };
+
+			// The source serializer applies the client's document field-name inference (here the custom
+			// uppercasing DefaultFieldNameInferrer); the request/response serializer camel-cases
+			// un-attributed members but does not apply document inference.
+			values.SourceSerializer.SerializeToString(doc).Should().Be("{\"NAME\":\"x\",\"COUNT\":1}");
+			values.RequestResponseSerializer.SerializeToString(doc).Should().Be("{\"name\":\"x\",\"count\":1}");
 		}
 
 		[U]
