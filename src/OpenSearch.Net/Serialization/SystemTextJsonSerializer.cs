@@ -89,7 +89,7 @@ namespace OpenSearch.Net
 		/// </remarks>
 		public object Deserialize(Type type, Stream stream)
 		{
-			var bytes = ReadAllBytes(stream);
+			var bytes = stream.ReadAllBytes();
 			// An empty or whitespace-only body (e.g. 204/HEAD/empty 200) yields default, matching the
 			// vendored serializer; System.Text.Json would otherwise throw on missing tokens.
 			return IsBlank(bytes) ? null : JsonSerializer.Deserialize(bytes, type, _options);
@@ -98,21 +98,21 @@ namespace OpenSearch.Net
 		/// <inheritdoc cref="Deserialize(Type, Stream)" />
 		public T Deserialize<T>(Stream stream)
 		{
-			var bytes = ReadAllBytes(stream);
+			var bytes = stream.ReadAllBytes();
 			return IsBlank(bytes) ? default : JsonSerializer.Deserialize<T>(bytes, _options);
 		}
 
 		/// <inheritdoc />
 		public async Task<object> DeserializeAsync(Type type, Stream stream, CancellationToken cancellationToken = default)
 		{
-			var bytes = await ReadAllBytesAsync(stream, cancellationToken).ConfigureAwait(false);
+			var bytes = await stream.ReadAllBytesAsync(cancellationToken).ConfigureAwait(false);
 			return IsBlank(bytes) ? null : JsonSerializer.Deserialize(bytes, type, _options);
 		}
 
 		/// <inheritdoc />
 		public async Task<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default)
 		{
-			var bytes = await ReadAllBytesAsync(stream, cancellationToken).ConfigureAwait(false);
+			var bytes = await stream.ReadAllBytesAsync(cancellationToken).ConfigureAwait(false);
 			return IsBlank(bytes) ? default : JsonSerializer.Deserialize<T>(bytes, _options);
 		}
 
@@ -145,22 +145,6 @@ namespace OpenSearch.Net
 			}
 
 			await JsonSerializer.SerializeAsync(stream, data, OptionsFor(formatting), cancellationToken).ConfigureAwait(false);
-		}
-
-		private static byte[] ReadAllBytes(Stream stream)
-		{
-			if (stream is MemoryStream existing) return existing.ToArray();
-			using var ms = new MemoryStream();
-			stream.CopyTo(ms);
-			return ms.ToArray();
-		}
-
-		private static async Task<byte[]> ReadAllBytesAsync(Stream stream, CancellationToken cancellationToken)
-		{
-			if (stream is MemoryStream existing) return existing.ToArray();
-			using var ms = new MemoryStream();
-			await stream.CopyToAsync(ms, 81920, cancellationToken).ConfigureAwait(false);
-			return ms.ToArray();
 		}
 
 		private static bool IsBlank(byte[] bytes)

@@ -53,7 +53,7 @@ namespace OpenSearch.Client
 			// The Utf8Json path uses a stateful formatter; the System.Text.Json serializer (see #388) does not
 			// participate in that layer, so build the response directly from the stream instead.
 			if (!BuiltInSerializerState.UsesUtf8JsonFormatter(builtInSerializer))
-				return SystemTextJsonMultiResponseBuilder.BuildMultiSearch(builtInSerializer, _request, ReadAllBytes(stream));
+				return SystemTextJsonMultiResponseBuilder.BuildMultiSearch(builtInSerializer, _request, stream.ReadAllBytes());
 
 			return builtInSerializer.CreateStateful(Formatter).Deserialize<MultiSearchResponse>(stream);
 		}
@@ -70,27 +70,11 @@ namespace OpenSearch.Client
 
 			if (!BuiltInSerializerState.UsesUtf8JsonFormatter(builtInSerializer))
 				return SystemTextJsonMultiResponseBuilder.BuildMultiSearch(builtInSerializer, _request,
-					await ReadAllBytesAsync(stream, ctx).ConfigureAwait(false));
+					await stream.ReadAllBytesAsync(ctx).ConfigureAwait(false));
 
 			return await builtInSerializer.CreateStateful(Formatter)
 				.DeserializeAsync<MultiSearchResponse>(stream, ctx)
 				.ConfigureAwait(false);
-		}
-
-		private static byte[] ReadAllBytes(Stream stream)
-		{
-			if (stream is MemoryStream existing) return existing.ToArray();
-			using var ms = new MemoryStream();
-			stream.CopyTo(ms);
-			return ms.ToArray();
-		}
-
-		private static async Task<byte[]> ReadAllBytesAsync(Stream stream, CancellationToken ctx)
-		{
-			if (stream is MemoryStream existing) return existing.ToArray();
-			using var ms = new MemoryStream();
-			await stream.CopyToAsync(ms, 81920, ctx).ConfigureAwait(false);
-			return ms.ToArray();
 		}
 	}
 }
