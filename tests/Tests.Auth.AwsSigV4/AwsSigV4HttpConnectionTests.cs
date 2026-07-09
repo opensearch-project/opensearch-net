@@ -33,6 +33,33 @@ public class AwsSigV4HttpConnectionTests
 	[InlineData("arbitrary", "156e65c504ea2b2722a481b7515062e7692d27217b477828854e715f507e6a36")]
 	public async Task SignsRequestCorrectly(string service, string expectedSignature)
 	{
+		var sentRequest = await CreateIndexAndCaptureRequest(service, TestSigningTime);
+
+		sentRequest.ShouldHaveHeader("x-amz-date", "20230113T160837Z");
+		sentRequest.ShouldHaveHeader("x-amz-content-sha256", "4c770eaed349122a28302ff73d34437cad600acda5a9dd373efc7da2910f8564");
+		sentRequest.ShouldHaveHeader("Authorization", $"AWS4-HMAC-SHA256 Credential=test-access-key/20230113/ap-southeast-2/{service}/aws4_request, SignedHeaders=accept;content-type;host;x-amz-content-sha256;x-amz-date, Signature={expectedSignature}");
+	}
+
+	[U]
+	public async Task SignsRequestCorrectlyWithNonUtcSigningTime()
+	{
+		// SigV4 mandates UTC. A custom IDateTimeProvider may return a non-UTC DateTime, so the
+		// signer normalizes via ToUniversalTime(). A Local-kind time representing the *same instant*
+		// as the UTC vector must therefore yield a byte-identical x-amz-date and signature.
+		// ToLocalTime() -> ToUniversalTime() round-trips to the same instant regardless of the
+		// machine's time zone, keeping this assertion deterministic across platforms.
+		var localSigningTime = TestSigningTime.ToLocalTime();
+		localSigningTime.Kind.Should().Be(DateTimeKind.Local);
+
+		var sentRequest = await CreateIndexAndCaptureRequest("aoss", localSigningTime);
+
+		sentRequest.ShouldHaveHeader("x-amz-date", "20230113T160837Z");
+		sentRequest.ShouldHaveHeader("x-amz-content-sha256", "4c770eaed349122a28302ff73d34437cad600acda5a9dd373efc7da2910f8564");
+		sentRequest.ShouldHaveHeader("Authorization", "AWS4-HMAC-SHA256 Credential=test-access-key/20230113/ap-southeast-2/aoss/aws4_request, SignedHeaders=accept;content-type;host;x-amz-content-sha256;x-amz-date, Signature=34903aef90423aa7dd60575d3d45316c6ef2d57bbe564a152b41bf8f5917abf6");
+	}
+
+	private static async Task<HttpRequestMessage> CreateIndexAndCaptureRequest(string service, DateTime signingTime)
+	{
 		var response = new HttpResponseMessage(HttpStatusCode.OK);
 		response.Content = new StringContent(@"{
 	""acknowledged"": true,
@@ -46,7 +73,7 @@ public class AwsSigV4HttpConnectionTests
 		{
 			sentRequest = r;
 			return response;
-		}, $"https://aaabbbcccddd111222333.ap-southeast-2.{service}.amazonaws.com", service);
+		}, $"https://aaabbbcccddd111222333.ap-southeast-2.{service}.amazonaws.com", service, signingTime);
 
 		await client.Indices.CreateAsync("sample-index1", d =>
 			d.Settings(s =>
@@ -57,15 +84,13 @@ public class AwsSigV4HttpConnectionTests
 							n.Name("age").Type(NumberType.Integer))))
 				.Aliases(a => a.Alias("sample-alias1")));
 
-		sentRequest.ShouldHaveHeader("x-amz-date", "20230113T160837Z");
-		sentRequest.ShouldHaveHeader("x-amz-content-sha256", "4c770eaed349122a28302ff73d34437cad600acda5a9dd373efc7da2910f8564");
-		sentRequest.ShouldHaveHeader("Authorization", $"AWS4-HMAC-SHA256 Credential=test-access-key/20230113/ap-southeast-2/{service}/aws4_request, SignedHeaders=accept;content-type;host;x-amz-content-sha256;x-amz-date, Signature={expectedSignature}");
+		return sentRequest;
 	}
 
-	private static OpenSearchClient CreateClient(MockHttpMessageHandler.Handler handler, string uri, string service)
+	private static OpenSearchClient CreateClient(MockHttpMessageHandler.Handler handler, string uri, string service, DateTime signingTime)
 	{
 		var connection =
-			new TestableAwsSigV4HttpConnection(TestCredentials, TestRegion, service, new FixedDateTimeProvider(TestSigningTime), handler);
+			new TestableAwsSigV4HttpConnection(TestCredentials, TestRegion, service, new FixedDateTimeProvider(signingTime), handler);
 		var settings = new ConnectionSettings(new Uri(uri), connection);
 		settings.DisableMetaHeader(); // Make headers & signature stable across platforms for testing
 		return new OpenSearchClient(settings);
