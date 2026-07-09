@@ -14,6 +14,7 @@ using Amazon;
 using Amazon.Runtime;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net.Auth.AwsSigV4;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Auth.AwsSigV4.Utils;
 using Tests.Core.Connection.Http;
@@ -56,6 +57,40 @@ public class AwsSigV4HttpConnectionTests
 		sentRequest.ShouldHaveHeader("x-amz-date", "20230113T160837Z");
 		sentRequest.ShouldHaveHeader("x-amz-content-sha256", "4c770eaed349122a28302ff73d34437cad600acda5a9dd373efc7da2910f8564");
 		sentRequest.ShouldHaveHeader("Authorization", "AWS4-HMAC-SHA256 Credential=test-access-key/20230113/ap-southeast-2/aoss/aws4_request, SignedHeaders=accept;content-type;host;x-amz-content-sha256;x-amz-date, Signature=34903aef90423aa7dd60575d3d45316c6ef2d57bbe564a152b41bf8f5917abf6");
+	}
+
+	[U]
+	public void ComputeAuthorizationHeaderMatchesPublishedAwsReferenceVector()
+	{
+		// Pins the SigV4 signing to AWS's published reference example (GET iam.amazonaws.com
+		// ?Action=ListUsers&Version=2010-05-08), locking in spec-correctness independently of any
+		// AWSSDK.Core version. See the worked example in the AWS General Reference:
+		// https://docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html
+		// https://docs.aws.amazon.com/general/latest/gr/sigv4-calculate-signature.html
+		// https://docs.aws.amazon.com/general/latest/gr/sigv4-add-signature-to-request.html
+		var credentials = new ImmutableCredentials("AKIDEXAMPLE", "wJalrXUtnFEMI/K7MDENG+bPxRfiCYEXAMPLEKEY", null);
+		var signingTime = new DateTime(2015, 08, 30, 12, 36, 00, DateTimeKind.Utc);
+		const string signedHeaders = "content-type;host;x-amz-date";
+		const string emptyBodySha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
+
+		var canonicalRequest = string.Join("\n",
+			"GET",
+			"/",
+			"Action=ListUsers&Version=2010-05-08",
+			"content-type:application/x-www-form-urlencoded; charset=utf-8",
+			"host:iam.amazonaws.com",
+			"x-amz-date:20150830T123600Z",
+			"",
+			signedHeaders,
+			emptyBodySha256);
+
+		var authorization = AwsSigV4Util.ComputeAuthorizationHeader(
+			credentials, "us-east-1", signingTime, "iam", signedHeaders, canonicalRequest);
+
+		authorization.Should().Be(
+			"AWS4-HMAC-SHA256 Credential=AKIDEXAMPLE/20150830/us-east-1/iam/aws4_request, "
+			+ "SignedHeaders=content-type;host;x-amz-date, "
+			+ "Signature=5d672d79c15b13162d9279b0855cfba6789a8edb4c82c400e06b5924a6f2b5d7");
 	}
 
 	private static async Task<HttpRequestMessage> CreateIndexAndCaptureRequest(string service, DateTime signingTime)
