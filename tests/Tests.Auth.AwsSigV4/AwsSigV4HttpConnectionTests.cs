@@ -93,6 +93,27 @@ public class AwsSigV4HttpConnectionTests
 			+ "Signature=5d672d79c15b13162d9279b0855cfba6789a8edb4c82c400e06b5924a6f2b5d7");
 	}
 
+	[U]
+	public async Task SignsRequestWithSessionTokenIncludedInSignature()
+	{
+		// Temporary credentials (e.g. STS / EKS Pod Identity — the scenario in #968) carry a
+		// session token that must be sent as x-amz-security-token AND included in the signed
+		// headers. Known-answer independently verified against a spec-compliant computation.
+		var credentials = new ImmutableCredentials("AKIDEXAMPLE", "wJalrXUtnFEMI/K7MDENG+bPxRfiCYEXAMPLEKEY", "AQoEXAMPLESESSIONTOKEN");
+		var signingTime = new DateTime(2015, 08, 30, 12, 36, 00, DateTimeKind.Utc);
+		var request = new HttpRequestMessage(HttpMethod.Get, "https://iam.amazonaws.com/?Action=ListUsers&Version=2010-05-08");
+
+		await AwsSigV4Util.SignRequest(request, credentials, RegionEndpoint.USEast1, signingTime, "iam");
+
+		request.ShouldHaveHeader("x-amz-date", "20150830T123600Z");
+		request.ShouldHaveHeader("x-amz-content-sha256", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855");
+		request.ShouldHaveHeader("x-amz-security-token", "AQoEXAMPLESESSIONTOKEN");
+		request.ShouldHaveHeader("Authorization",
+			"AWS4-HMAC-SHA256 Credential=AKIDEXAMPLE/20150830/us-east-1/iam/aws4_request, "
+			+ "SignedHeaders=host;x-amz-content-sha256;x-amz-date;x-amz-security-token, "
+			+ "Signature=531810b58ef456f2afa3206411d237a2f99af04312fcef2b59e11f7b3dba8a21");
+	}
+
 	private static async Task<HttpRequestMessage> CreateIndexAndCaptureRequest(string service, DateTime signingTime)
 	{
 		var response = new HttpResponseMessage(HttpStatusCode.OK);
