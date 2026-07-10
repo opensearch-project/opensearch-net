@@ -132,7 +132,7 @@ namespace OpenSearch.Net.Specification.IngestApi
         }
     }
 
-    /// <summary>Request options for PutPipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</para></summary>
+    /// <summary>Request options for PutPipeline <para>https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/</para></summary>
     public partial class PutPipelineRequestParameters
         : RequestParameters<PutPipelineRequestParameters>
     {

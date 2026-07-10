@@ -596,6 +596,22 @@ namespace OpenSearch.Net
     }
 
     [Flags, StringEnum]
+    public enum MlMemoryType
+    {
+        [EnumMember(Value = "history")]
+        History = 1 << 0,
+
+        [EnumMember(Value = "long-term")]
+        LongTerm = 1 << 1,
+
+        [EnumMember(Value = "sessions")]
+        Sessions = 1 << 2,
+
+        [EnumMember(Value = "working")]
+        Working = 1 << 3,
+    }
+
+    [Flags, StringEnum]
     public enum MlStatName
     {
         [EnumMember(Value = "ml_config_index_status")]
@@ -653,8 +669,14 @@ namespace OpenSearch.Net
         [EnumMember(Value = "PPLTool")]
         Ppltool,
 
+        [EnumMember(Value = "QueryPlanningTool")]
+        Queryplanningtool,
+
         [EnumMember(Value = "RAGTool")]
         Ragtool,
+
+        [EnumMember(Value = "ReadFromScratchPadTool")]
+        Readfromscratchpadtool,
 
         [EnumMember(Value = "SearchAlertsTool")]
         Searchalertstool,
@@ -676,6 +698,9 @@ namespace OpenSearch.Net
 
         [EnumMember(Value = "VisualizationTool")]
         Visualizationtool,
+
+        [EnumMember(Value = "WriteToScratchPadTool")]
+        Writetoscratchpadtool,
     }
 
     [Flags, StringEnum]
@@ -1270,9 +1295,6 @@ namespace OpenSearch.Net
         [EnumMember(Value = "external_gte")]
         ExternalGte,
 
-        [EnumMember(Value = "force")]
-        Force,
-
         [EnumMember(Value = "internal")]
         Internal,
     }
@@ -1328,6 +1350,7 @@ namespace OpenSearch.Net
             AddEnumStringResolver<Level>(GetStringValue);
             AddEnumStringResolver<LtrStatName>(GetStringValue);
             AddEnumStringResolver<MlFunctionName>(GetStringValue);
+            AddEnumStringResolver<MlMemoryType>(GetStringValue);
             AddEnumStringResolver<MlStatName>(GetStringValue);
             AddEnumStringResolver<MlToolName>(GetStringValue);
             AddEnumStringResolver<NeuralStatName>(GetStringValue);
@@ -1743,6 +1766,20 @@ namespace OpenSearch.Net
                 ),
             };
 
+        public static string GetStringValue(this MlMemoryType enumValue)
+        {
+            var list = new List<string>();
+            if ((enumValue & MlMemoryType.History) != 0)
+                list.Add("history");
+            if ((enumValue & MlMemoryType.LongTerm) != 0)
+                list.Add("long-term");
+            if ((enumValue & MlMemoryType.Sessions) != 0)
+                list.Add("sessions");
+            if ((enumValue & MlMemoryType.Working) != 0)
+                list.Add("working");
+            return string.Join(",", list);
+        }
+
         public static string GetStringValue(this MlStatName enumValue)
         {
             var list = new List<string>();
@@ -1776,7 +1813,9 @@ namespace OpenSearch.Net
                 MlToolName.Mlmodeltool => "MLModelTool",
                 MlToolName.Neuralsparsesearchtool => "NeuralSparseSearchTool",
                 MlToolName.Ppltool => "PPLTool",
+                MlToolName.Queryplanningtool => "QueryPlanningTool",
                 MlToolName.Ragtool => "RAGTool",
+                MlToolName.Readfromscratchpadtool => "ReadFromScratchPadTool",
                 MlToolName.Searchalertstool => "SearchAlertsTool",
                 MlToolName.Searchanomalydetectorstool => "SearchAnomalyDetectorsTool",
                 MlToolName.Searchanomalyresultstool => "SearchAnomalyResultsTool",
@@ -1784,6 +1823,7 @@ namespace OpenSearch.Net
                 MlToolName.Searchmonitorstool => "SearchMonitorsTool",
                 MlToolName.Vectordbtool => "VectorDBTool",
                 MlToolName.Visualizationtool => "VisualizationTool",
+                MlToolName.Writetoscratchpadtool => "WriteToScratchPadTool",
                 _ => throw new ArgumentException(
                     $"'{enumValue.ToString()}' is not a valid value for enum 'MlToolName'"
                 ),
@@ -2226,7 +2266,6 @@ namespace OpenSearch.Net
             {
                 VersionType.External => "external",
                 VersionType.ExternalGte => "external_gte",
-                VersionType.Force => "force",
                 VersionType.Internal => "internal",
                 _ => throw new ArgumentException(
                     $"'{enumValue.ToString()}' is not a valid value for enum 'VersionType'"

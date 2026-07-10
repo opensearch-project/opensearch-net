@@ -84,6 +84,7 @@ using OpenSearch.Net.Specification.SnapshotApi;
 using OpenSearch.Net.Specification.SqlApi;
 using OpenSearch.Net.Specification.TasksApi;
 using OpenSearch.Net.Specification.TransformsApi;
+using OpenSearch.Net.Specification.UbiApi;
 using OpenSearch.Net.Specification.WlmApi;
 
 namespace OpenSearch.Net
@@ -194,6 +195,9 @@ namespace OpenSearch.Net
 
         /// <summary>Transforms APIs</summary>
         LowLevelTransformsNamespace Transforms { get; }
+
+        /// <summary>Ubi APIs</summary>
+        LowLevelUbiNamespace Ubi { get; }
 
         /// <summary>Wlm APIs</summary>
         LowLevelWlmNamespace Wlm { get; }

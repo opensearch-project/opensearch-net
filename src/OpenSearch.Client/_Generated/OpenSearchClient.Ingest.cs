@@ -170,7 +170,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>PUT</c> request to the <c>ingest.put_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/">https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/</a>
         /// </summary>
         PutPipelineResponse PutPipeline(
             Id id,
@@ -180,7 +180,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>PUT</c> request to the <c>ingest.put_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/">https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/</a>
         /// </summary>
         Task<PutPipelineResponse> PutPipelineAsync(
             Id id,
@@ -191,14 +191,14 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>PUT</c> request to the <c>ingest.put_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/">https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/</a>
         /// </summary>
         PutPipelineResponse PutPipeline(IPutPipelineRequest request);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ingest.put_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/">https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/</a>
         /// </summary>
         Task<PutPipelineResponse> PutPipelineAsync(
             IPutPipelineRequest request,
@@ -397,7 +397,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>PUT</c> request to the <c>ingest.put_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/">https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/</a>
         /// </summary>
         public PutPipelineResponse PutPipeline(
             Id id,
@@ -407,7 +407,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>PUT</c> request to the <c>ingest.put_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/">https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/</a>
         /// </summary>
         public Task<PutPipelineResponse> PutPipelineAsync(
             Id id,
@@ -418,7 +418,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>PUT</c> request to the <c>ingest.put_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/">https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/</a>
         /// </summary>
         public PutPipelineResponse PutPipeline(IPutPipelineRequest request) =>
             DoRequest<IPutPipelineRequest, PutPipelineResponse>(request, request.RequestParameters);
@@ -426,7 +426,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>PUT</c> request to the <c>ingest.put_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/">https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/</a>
         /// </summary>
         public Task<PutPipelineResponse> PutPipelineAsync(
             IPutPipelineRequest request,

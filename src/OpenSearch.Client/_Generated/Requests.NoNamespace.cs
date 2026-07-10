@@ -2287,6 +2287,13 @@ namespace OpenSearch.Client
         Indices IMultiSearchRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         // Request parameters
+        /// <summary>Specifies whether to return partial results if there are shard request timeouts or shard failures.</summary>
+        public bool? AllowPartialResults
+        {
+            get => Q<bool?>("allow_partial_results");
+            set => Q("allow_partial_results", value);
+        }
+
         /// <summary>If <c>true</c>, network round-trips between the coordinating node and remote clusters are minimized for cross-cluster search requests.</summary>
         public bool? CcsMinimizeRoundtrips
         {

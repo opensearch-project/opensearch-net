@@ -188,7 +188,7 @@ namespace OpenSearch.Net.Specification.IngestApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_ingest/pipeline/{id} <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</para></summary>
+        /// <summary>PUT on /_ingest/pipeline/{id} <para>https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/</para></summary>
         /// <param name="id">The ID of the ingest pipeline.</param>
         /// <param name="body">The ingest definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -205,7 +205,7 @@ namespace OpenSearch.Net.Specification.IngestApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_ingest/pipeline/{id} <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</para></summary>
+        /// <summary>PUT on /_ingest/pipeline/{id} <para>https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/</para></summary>
         /// <param name="id">The ID of the ingest pipeline.</param>
         /// <param name="body">The ingest definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

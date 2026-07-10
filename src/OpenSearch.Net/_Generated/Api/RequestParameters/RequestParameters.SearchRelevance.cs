@@ -76,6 +76,14 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
         public override bool SupportsBody => false;
     }
 
+    /// <summary>Request options for DeleteScheduledExperiments</summary>
+    public partial class DeleteScheduledExperimentsRequestParameters
+        : RequestParameters<DeleteScheduledExperimentsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
+        public override bool SupportsBody => false;
+    }
+
     /// <summary>Request options for DeleteSearchConfigurations</summary>
     public partial class DeleteSearchConfigurationsRequestParameters
         : RequestParameters<DeleteSearchConfigurationsRequestParameters>
@@ -151,6 +159,14 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
         public override bool SupportsBody => false;
     }
 
+    /// <summary>Request options for GetScheduledExperiments</summary>
+    public partial class GetScheduledExperimentsRequestParameters
+        : RequestParameters<GetScheduledExperimentsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+    }
+
     /// <summary>Request options for GetSearchConfigurations</summary>
     public partial class GetSearchConfigurationsRequestParameters
         : RequestParameters<GetSearchConfigurationsRequestParameters>
@@ -204,6 +220,14 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     /// <summary>Request options for PostQuerySets</summary>
     public partial class PostQuerySetsRequestParameters
         : RequestParameters<PostQuerySetsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+    }
+
+    /// <summary>Request options for PostScheduledExperiments</summary>
+    public partial class PostScheduledExperimentsRequestParameters
+        : RequestParameters<PostScheduledExperimentsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;

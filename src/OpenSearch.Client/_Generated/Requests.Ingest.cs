@@ -198,7 +198,7 @@ namespace OpenSearch.Client
         Id Id { get; }
     }
 
-    /// <summary>Request for PutPipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</para></summary>
+    /// <summary>Request for PutPipeline <para>https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/</para></summary>
     public partial class PutPipelineRequest
         : PlainRequestBase<PutPipelineRequestParameters>,
             IPutPipelineRequest

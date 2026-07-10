@@ -9,6 +9,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Changed the namespace client properties on `IOpenSearchClient` to return corresponding interfaces to better enable mocking & unit testing ([#646](https://github.com/opensearch-project/opensearch-net/pull/646))
 - Changed `NeuralQuery`'s `ModelId` to be optional ([#917](https://github.com/opensearch-project/opensearch-net/pull/917))
 - Hardened `AwsSigV4HttpConnection` by computing the SigV4 signature against public crypto primitives (`System.Security.Cryptography`) and the public `AWSSDKUtils` helpers instead of the version-unstable internal `Amazon.Runtime.Internal.Auth.AWS4Signer` API. Produced signatures are unchanged — verified byte-for-byte against the existing known-answer tests and AWS's published SigV4 reference vector (for all `DateTimeKind`s, since the previous internal signer also normalized the signing time to UTC). ([#987](https://github.com/opensearch-project/opensearch-net/pull/987))
+- Changed unreleased integration test matrix to use specific branch versions `1.3` and `2.19` ([#984](https://github.com/opensearch-project/opensearch-net/pull/984))
 
 ### Added
 - Added conditions to the Microsoft.CSharp, System.Buffers & System.Diagnostics.DiagnosticSource dependencies so that they are not included on net 6+ as the newer framework's natively provides those dependencies. ([#930](https://github.com/opensearch-project/opensearch-net/pull/930))
@@ -28,7 +29,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Dependencies
 - Bumps `System.Diagnostics.DiagnosticSource` from 6.0.1 to 8.0.1
 - Bumps `YamlDotNet` from 16.0.0 to 16.3.0
-- Bumps `AWSSDK.Core` from 3.7.400.11 to 4.0.7.1
+- Bumps `AWSSDK.Core` from 3.7.400.11 to 4.0.7.4
 - Bumps `Fake.Core.SemVer` from 6.1.0 to 6.1.3
 - Bumps `Bogus` from 35.6.0 to 35.6.3
 - Bumps `Fake.Core.Environment` from 6.1.0 to 6.1.3

@@ -52,6 +52,14 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.MlApi
 {
+    /// <summary>Request options for AddAgenticMemory</summary>
+    public partial class AddAgenticMemoryRequestParameters
+        : RequestParameters<AddAgenticMemoryRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+    }
+
     /// <summary>Request options for ChunkModel</summary>
     public partial class ChunkModelRequestParameters
         : RequestParameters<ChunkModelRequestParameters>
@@ -84,6 +92,22 @@ namespace OpenSearch.Net.Specification.MlApi
         public override bool SupportsBody => true;
     }
 
+    /// <summary>Request options for CreateMemoryContainer</summary>
+    public partial class CreateMemoryContainerRequestParameters
+        : RequestParameters<CreateMemoryContainerRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+    }
+
+    /// <summary>Request options for CreateMemoryContainerSession</summary>
+    public partial class CreateMemoryContainerSessionRequestParameters
+        : RequestParameters<CreateMemoryContainerSessionRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+    }
+
     /// <summary>Request options for CreateMessage</summary>
     public partial class CreateMessageRequestParameters
         : RequestParameters<CreateMessageRequestParameters>
@@ -108,6 +132,22 @@ namespace OpenSearch.Net.Specification.MlApi
         public override bool SupportsBody => false;
     }
 
+    /// <summary>Request options for DeleteAgenticMemory</summary>
+    public partial class DeleteAgenticMemoryRequestParameters
+        : RequestParameters<DeleteAgenticMemoryRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
+        public override bool SupportsBody => false;
+    }
+
+    /// <summary>Request options for DeleteAgenticMemoryQuery</summary>
+    public partial class DeleteAgenticMemoryQueryRequestParameters
+        : RequestParameters<DeleteAgenticMemoryQueryRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+    }
+
     /// <summary>Request options for DeleteConnector</summary>
     public partial class DeleteConnectorRequestParameters
         : RequestParameters<DeleteConnectorRequestParameters>
@@ -130,6 +170,24 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+    }
+
+    /// <summary>Request options for DeleteMemoryContainer</summary>
+    public partial class DeleteMemoryContainerRequestParameters
+        : RequestParameters<DeleteMemoryContainerRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
+        public override bool SupportsBody => false;
+        public bool? DeleteAllMemories
+        {
+            get => Q<bool?>("delete_all_memories");
+            set => Q("delete_all_memories", value);
+        }
+        public string[] DeleteMemories
+        {
+            get => Q<string[]>("delete_memories");
+            set => Q("delete_memories", value);
+        }
     }
 
     /// <summary>Request options for DeleteModel</summary>
@@ -172,6 +230,14 @@ namespace OpenSearch.Net.Specification.MlApi
         public override bool SupportsBody => true;
     }
 
+    /// <summary>Request options for ExecuteAgentStream</summary>
+    public partial class ExecuteAgentStreamRequestParameters
+        : RequestParameters<ExecuteAgentStreamRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+    }
+
     /// <summary>Request options for ExecuteAlgorithm</summary>
     public partial class ExecuteAlgorithmRequestParameters
         : RequestParameters<ExecuteAlgorithmRequestParameters>
@@ -180,8 +246,24 @@ namespace OpenSearch.Net.Specification.MlApi
         public override bool SupportsBody => true;
     }
 
+    /// <summary>Request options for ExecuteTool</summary>
+    public partial class ExecuteToolRequestParameters
+        : RequestParameters<ExecuteToolRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+    }
+
     /// <summary>Request options for GetAgent</summary>
     public partial class GetAgentRequestParameters : RequestParameters<GetAgentRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+    }
+
+    /// <summary>Request options for GetAgenticMemory</summary>
+    public partial class GetAgenticMemoryRequestParameters
+        : RequestParameters<GetAgenticMemoryRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -260,6 +342,14 @@ namespace OpenSearch.Net.Specification.MlApi
 
     /// <summary>Request options for GetMemory</summary>
     public partial class GetMemoryRequestParameters : RequestParameters<GetMemoryRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+    }
+
+    /// <summary>Request options for GetMemoryContainer</summary>
+    public partial class GetMemoryContainerRequestParameters
+        : RequestParameters<GetMemoryContainerRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -373,6 +463,14 @@ namespace OpenSearch.Net.Specification.MlApi
         public override bool SupportsBody => true;
     }
 
+    /// <summary>Request options for PredictModelStream</summary>
+    public partial class PredictModelStreamRequestParameters
+        : RequestParameters<PredictModelStreamRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+    }
+
     /// <summary>Request options for RegisterAgents</summary>
     public partial class RegisterAgentsRequestParameters
         : RequestParameters<RegisterAgentsRequestParameters>
@@ -405,6 +503,14 @@ namespace OpenSearch.Net.Specification.MlApi
         public override bool SupportsBody => true;
     }
 
+    /// <summary>Request options for SearchAgenticMemory</summary>
+    public partial class SearchAgenticMemoryRequestParameters
+        : RequestParameters<SearchAgenticMemoryRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => true;
+    }
+
     /// <summary>Request options for SearchAgents</summary>
     public partial class SearchAgentsRequestParameters
         : RequestParameters<SearchAgentsRequestParameters>
@@ -424,6 +530,14 @@ namespace OpenSearch.Net.Specification.MlApi
     /// <summary>Request options for SearchMemory</summary>
     public partial class SearchMemoryRequestParameters
         : RequestParameters<SearchMemoryRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+    }
+
+    /// <summary>Request options for SearchMemoryContainer</summary>
+    public partial class SearchMemoryContainerRequestParameters
+        : RequestParameters<SearchMemoryContainerRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -492,6 +606,14 @@ namespace OpenSearch.Net.Specification.MlApi
         public override bool SupportsBody => true;
     }
 
+    /// <summary>Request options for UpdateAgenticMemory</summary>
+    public partial class UpdateAgenticMemoryRequestParameters
+        : RequestParameters<UpdateAgenticMemoryRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+        public override bool SupportsBody => true;
+    }
+
     /// <summary>Request options for UpdateConnector</summary>
     public partial class UpdateConnectorRequestParameters
         : RequestParameters<UpdateConnectorRequestParameters>
@@ -511,6 +633,14 @@ namespace OpenSearch.Net.Specification.MlApi
     /// <summary>Request options for UpdateMemory</summary>
     public partial class UpdateMemoryRequestParameters
         : RequestParameters<UpdateMemoryRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+        public override bool SupportsBody => true;
+    }
+
+    /// <summary>Request options for UpdateMemoryContainer</summary>
+    public partial class UpdateMemoryContainerRequestParameters
+        : RequestParameters<UpdateMemoryContainerRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;

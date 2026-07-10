@@ -174,6 +174,41 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>DELETE on /_plugins/_search_relevance/experiments/schedule/{experiment_id}</summary>
+        /// <param name="experimentId">The experiment id.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
+        public TResponse DeleteScheduledExperiments<TResponse>(
+            string experimentId,
+            DeleteScheduledExperimentsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                Url($"_plugins/_search_relevance/experiments/schedule/{experimentId:experimentId}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_plugins/_search_relevance/experiments/schedule/{experiment_id}</summary>
+        /// <param name="experimentId">The experiment id.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
+        [MapsApi("search_relevance.delete_scheduled_experiments", "experiment_id")]
+        public Task<TResponse> DeleteScheduledExperimentsAsync<TResponse>(
+            string experimentId,
+            DeleteScheduledExperimentsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                Url($"_plugins/_search_relevance/experiments/schedule/{experimentId:experimentId}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>DELETE on /_plugins/_search_relevance/search_configurations/{search_configuration_id}</summary>
         /// <param name="searchConfigurationId">The search configuration id.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -485,6 +520,72 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>GET on /_plugins/_search_relevance/experiments/schedule</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
+        public TResponse GetScheduledExperiments<TResponse>(
+            GetScheduledExperimentsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                "_plugins/_search_relevance/experiments/schedule",
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_search_relevance/experiments/schedule</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
+        [MapsApi("search_relevance.get_scheduled_experiments", "")]
+        public Task<TResponse> GetScheduledExperimentsAsync<TResponse>(
+            GetScheduledExperimentsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_plugins/_search_relevance/experiments/schedule",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_search_relevance/experiments/schedule/{experiment_id}</summary>
+        /// <param name="experimentId">The experiment id.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
+        public TResponse GetScheduledExperiments<TResponse>(
+            string experimentId,
+            GetScheduledExperimentsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_search_relevance/experiments/schedule/{experimentId:experimentId}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_search_relevance/experiments/schedule/{experiment_id}</summary>
+        /// <param name="experimentId">The experiment id.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
+        [MapsApi("search_relevance.get_scheduled_experiments", "experiment_id")]
+        public Task<TResponse> GetScheduledExperimentsAsync<TResponse>(
+            string experimentId,
+            GetScheduledExperimentsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_search_relevance/experiments/schedule/{experimentId:experimentId}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>GET on /_plugins/_search_relevance/search_configurations</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -620,7 +721,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             );
 
         /// <summary>POST on /_plugins/_search_relevance/query_sets</summary>
-        /// <param name="body"></param>
+        /// <param name="body">The schema for creating a query set.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public TResponse PostQuerySets<TResponse>(
@@ -636,7 +737,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             );
 
         /// <summary>POST on /_plugins/_search_relevance/query_sets</summary>
-        /// <param name="body"></param>
+        /// <param name="body">The schema for creating a query set.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         [MapsApi("search_relevance.post_query_sets", "body")]
@@ -649,6 +750,41 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             DoRequestAsync<TResponse>(
                 POST,
                 "_plugins/_search_relevance/query_sets",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_search_relevance/experiments/schedule</summary>
+        /// <param name="body">The schema for scheduling experiments.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
+        public TResponse PostScheduledExperiments<TResponse>(
+            PostData body,
+            PostScheduledExperimentsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_plugins/_search_relevance/experiments/schedule",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_search_relevance/experiments/schedule</summary>
+        /// <param name="body">The schema for scheduling experiments.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
+        [MapsApi("search_relevance.post_scheduled_experiments", "body")]
+        public Task<TResponse> PostScheduledExperimentsAsync<TResponse>(
+            PostData body,
+            PostScheduledExperimentsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_plugins/_search_relevance/experiments/schedule",
                 ctx,
                 body,
                 RequestParams(requestParameters)
@@ -725,7 +861,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             );
 
         /// <summary>PUT on /_plugins/_search_relevance/query_sets</summary>
-        /// <param name="body"></param>
+        /// <param name="body">The schema for updating a query set.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public TResponse PutQuerySets<TResponse>(
@@ -741,7 +877,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             );
 
         /// <summary>PUT on /_plugins/_search_relevance/query_sets</summary>
-        /// <param name="body"></param>
+        /// <param name="body">The schema for updating a query set.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         [MapsApi("search_relevance.put_query_sets", "body")]
