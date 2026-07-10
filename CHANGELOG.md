@@ -8,6 +8,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 - Changed the namespace client properties on `IOpenSearchClient` to return corresponding interfaces to better enable mocking & unit testing ([#646](https://github.com/opensearch-project/opensearch-net/pull/646))
 - Changed `NeuralQuery`'s `ModelId` to be optional ([#917](https://github.com/opensearch-project/opensearch-net/pull/917))
+- Hardened `AwsSigV4HttpConnection` by computing the SigV4 signature against public crypto primitives (`System.Security.Cryptography`) and the public `AWSSDKUtils` helpers instead of the version-unstable internal `Amazon.Runtime.Internal.Auth.AWS4Signer` API. Produced signatures are unchanged — verified byte-for-byte against the existing known-answer tests and AWS's published SigV4 reference vector (for all `DateTimeKind`s, since the previous internal signer also normalized the signing time to UTC). ([#987](https://github.com/opensearch-project/opensearch-net/pull/987))
 
 ### Added
 - Added conditions to the Microsoft.CSharp, System.Buffers & System.Diagnostics.DiagnosticSource dependencies so that they are not included on net 6+ as the newer framework's natively provides those dependencies. ([#930](https://github.com/opensearch-project/opensearch-net/pull/930))
@@ -23,7 +24,6 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 - Fixed naming of `ClusterManagerTimeout` and `MasterTimeout` properties from `*TimeSpanout` in the low-level client ([#332](https://github.com/opensearch-project/opensearch-net/pull/332))
 - Fixed `StackOverflowException` when serializing a `KnnVectorProperty` returned from a custom `IPropertyVisitor` via `AutoMap` ([#963](https://github.com/opensearch-project/opensearch-net/pull/963))
-- Fixed `AwsSigV4HttpConnection` producing HTTP 401 responses (e.g. against Amazon OpenSearch Serverless) when the host application resolves `AWSSDK.Core` to a different major version than the client was compiled against. The SigV4 signature is now computed directly against public crypto primitives instead of the version-unstable internal `Amazon.Runtime.Internal.Auth.AWS4Signer` API; the produced signatures are byte-for-byte identical to before. ([#968](https://github.com/opensearch-project/opensearch-net/issues/968))
 
 ### Dependencies
 - Bumps `System.Diagnostics.DiagnosticSource` from 6.0.1 to 8.0.1
