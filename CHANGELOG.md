@@ -3,20 +3,33 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 ### ⚠️ Breaking Changes ⚠️
+### Changed
+### Added
+### Removed
+### Fixed
+### Dependencies
+
+## [2.0.0]
+
+### ⚠️ Breaking Changes ⚠️
 - As part of [efforts to re-generate the client](https://github.com/opensearch-project/opensearch-net/pulls?q=is%3Apr+label%3Acode-gen+is%3Aclosed) from our [OpenAPI specification](https://github.com/opensearch-project/opensearch-api-specification) there have been numerous corrections and changes that resulted in breaking changes. Please refer to [UPGRADING.md](UPGRADING.md) for a complete list of these breakages and any relevant guidance for upgrading to this version of the client.
 
 ### Changed
 - Changed the namespace client properties on `IOpenSearchClient` to return corresponding interfaces to better enable mocking & unit testing ([#646](https://github.com/opensearch-project/opensearch-net/pull/646))
 - Changed `NeuralQuery`'s `ModelId` to be optional ([#917](https://github.com/opensearch-project/opensearch-net/pull/917))
 - **Migrated the high-level client's default serialization from the vendored Utf8Json to `System.Text.Json`.** The request/response serializer and the document (source) serializer are now `System.Text.Json`-based; the on-the-wire format is unchanged (validated byte-for-byte and across the integration suite). Custom serializer overrides continue to work through the `CreateDefaultRequestResponseSerializer()`/`CreateDefaultSourceSerializer()` seams; note the default source serializer is now a **distinct instance** from the request/response serializer (previously the same instance when no source serializer factory was supplied), as it applies document field-name inference. ([#388](https://github.com/opensearch-project/opensearch-net/issues/388))
+- Hardened `AwsSigV4HttpConnection` by computing the SigV4 signature against public crypto primitives (`System.Security.Cryptography`) and the public `AWSSDKUtils` helpers instead of the version-unstable internal `Amazon.Runtime.Internal.Auth.AWS4Signer` API. Produced signatures are unchanged — verified byte-for-byte against the existing known-answer tests and AWS's published SigV4 reference vector (for all `DateTimeKind`s, since the previous internal signer also normalized the signing time to UTC). ([#987](https://github.com/opensearch-project/opensearch-net/pull/987))
 - Changed unreleased integration test matrix to use specific branch versions `1.3` and `2.19` ([#984](https://github.com/opensearch-project/opensearch-net/pull/984))
+- Changed overrided docker image to major version instead of specific minor version in Jenkinsfile ([#991](https://github.com/opensearch-project/opensearch-net/pull/991))
 
 ### Added
 - Added a `System.Text.Json`-based `IOpenSearchSerializer` (`SystemTextJsonSerializer`) and `ConnectionSettings.CreateDefaultRequestResponseSerializer()`/`CreateDefaultSourceSerializer()` seams for substituting the internal serializer, as the foundation for the migration away from the embedded Utf8Json serializer ([#388](https://github.com/opensearch-project/opensearch-net/issues/388)).
 - Added the `System.Text.Json` serialization infrastructure that backs the migration: an interface-aware `DataContractResolver` (honoring `[DataMember]`/`ShouldSerialize`/non-public setters/constructor-less types/explicit-interface implementations/`[ReadAs]`), a `[StringEnum]`-aware converter factory, an `ObjectConverter` for dynamic payloads, Utf8Json-compatible number formatting, settings-threaded identity converters (`Field`/`PropertyName`/`Id`/`IndexName`/`Indices`/`Routing`) with field-name inference, a per-property `[JsonFormatter]`-to-converter bridge (exact and open-generic), and a consolidated options factory. Built on top of it: converters for the full request DSL (analysis, scripts, the query DSL, request-side aggregations, mapping properties), the value-type mechanisms (verbatim dictionaries, single-or-enumerable, ingest processors, `dynamic_templates`, index settings, cluster reroute), and the response readers (aggregations, the dictionary/dynamic response families, bulk items, suggest, `GetRepository`, `LazyDocument`/`FieldValues`, typed `_source`, and the `multi_search`/`multi_get` builders) — all with byte-for-byte parity against the previous Utf8Json output. See `dev-docs/system-text-json-migration.md` for per-slice detail. ([#388](https://github.com/opensearch-project/opensearch-net/issues/388))
 - Added conditions to the Microsoft.CSharp, System.Buffers & System.Diagnostics.DiagnosticSource dependencies so that they are not included on net 6+ as the newer framework's natively provides those dependencies. ([#930](https://github.com/opensearch-project/opensearch-net/pull/930))
 - Added support for Hybrid query ([#917](https://github.com/opensearch-project/opensearch-net/pull/917))
+- Added support for `combined_fields` query ([#956](https://github.com/opensearch-project/opensearch-net/issues/956))
 - Added support for `MaxDistance` and `MinScore` to `KnnQuery` ([#917](https://github.com/opensearch-project/opensearch-net/pull/917))
+- Added 3.x support ([#974](https://github.com/opensearch-project/opensearch-net/pull/974))
 
 ### Removed
 - Removed support for the `net461` target ([#256](https://github.com/opensearch-project/opensearch-net/pull/256))

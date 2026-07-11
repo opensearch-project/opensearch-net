@@ -145,6 +145,14 @@ namespace OpenSearch.Client
             WrapInContainer(selector, (query, container) => container.MultiMatch = query);
 
         /// <summary>
+        /// The combined_fields query supports searching multiple text fields as if their contents had been indexed
+        /// into one combined field. It analyzes the query text and scores documents using a term-centric approach.
+        /// All queried fields must share the same search analyzer, and only text fields are supported.
+        /// </summary>
+        public QueryContainer CombinedFields(Func<CombinedFieldsQueryDescriptor<T>, ICombinedFieldsQuery> selector) =>
+            WrapInContainer(selector, (query, container) => container.CombinedFields = query);
+
+        /// <summary>
         /// Nested query allows to query nested objects / docs (see nested mapping). The query is executed against the
         /// nested objects / docs as if they were indexed as separate docs (they are, internally) and resulting in the
         /// root parent doc (or parent nested mapping).

@@ -56,6 +56,8 @@ namespace OpenSearch.Client
 
 		void Visit(IBoostingQuery query);
 
+		void Visit(ICombinedFieldsQuery query);
+
 		void Visit(IConstantScoreQuery query);
 
 		void Visit(IDisMaxQuery query);
@@ -190,6 +192,8 @@ namespace OpenSearch.Client
 		public virtual void Visit(IBoolQuery query) { }
 
 		public virtual void Visit(IBoostingQuery query) { }
+
+		public virtual void Visit(ICombinedFieldsQuery query) { }
 
 		public virtual void Visit(IConstantScoreQuery query) { }
 
