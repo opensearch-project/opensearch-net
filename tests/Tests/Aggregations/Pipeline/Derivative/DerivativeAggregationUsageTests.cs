@@ -110,7 +110,7 @@ namespace Tests.Aggregations.Pipeline.Derivative
 			// and the derivative for a bucket adjacent to an empty month can legitimately be absent.
 			// Verify deserialization correctness — the derivative values that ARE present parse to
 			// valid numbers (which may be negative, zero, or positive) — rather than requiring one in
-			// every bucket, which made this test seed/date-dependent (#388).
+			// every bucket, which made this test seed/date-dependent.
 			var derivatives = projectsPerMonth.Buckets
 				.Skip(1) // derivative not calculated for the first bucket
 				.Select(b => b.Derivative("commits_derivative"))

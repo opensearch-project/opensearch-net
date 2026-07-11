@@ -128,7 +128,7 @@ namespace Tests.Aggregations.Pipeline.MovingAverage
 			// buckets and the moving average over a window of empty months can legitimately be 0 or
 			// absent. Verify deserialization correctness — the moving-average values that ARE present
 			// parse to valid non-negative numbers — rather than requiring a positive value in every
-			// bucket, which made this test seed/date-dependent (#388).
+			// bucket, which made this test seed/date-dependent.
 			var movingAverages = projectsPerMonth.Buckets
 				.Skip(1) // average not calculated for the first bucket
 				.Select(b => b.MovingAverage("commits_moving_avg"))

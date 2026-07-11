@@ -128,7 +128,7 @@ namespace Tests.Aggregations.Pipeline.SerialDifferencing
 			// Verify the serial-difference values that ARE present (from the 3rd bucket onwards)
 			// deserialize as valid numbers (which may be negative, zero, or positive); empty months can
 			// legitimately have no value, so we don't require one in every bucket, which made this test
-			// seed/date-dependent (#388).
+			// seed/date-dependent.
 			var secondDifferences = projectsPerMonth.Buckets
 				.Skip(2)
 				.Select(b => b.SerialDifferencing("second_difference"))

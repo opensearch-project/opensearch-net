@@ -158,7 +158,7 @@ namespace Tests.Aggregations.Pipeline.MovingAverage
 
 			// Verify the moving-average values that ARE present (from the 5th bucket onwards) deserialize
 			// as valid non-negative numbers; a window of empty months can legitimately be 0 or absent, so
-			// we don't require a value in every bucket, which made this test seed/date-dependent (#388).
+			// we don't require a value in every bucket, which made this test seed/date-dependent.
 			var movingAverages = projectsPerMonth.Buckets
 				.Skip(4)
 				.Select(b => b.MovingAverage("commits_moving_avg"))
@@ -166,6 +166,11 @@ namespace Tests.Aggregations.Pipeline.MovingAverage
 				.Select(m => m.Value.Value)
 				.ToList();
 
+			// Unlike the other pipeline tests this intentionally omits a NotBeEmpty() check: the
+			// multiplicative Holt-Winters model (Period = 2) can legitimately emit no values when the
+			// seeded date distribution leaves empty months in the seasonal window, so requiring at least
+			// one value would reintroduce the flakiness. Deserialization of the moving-average value type
+			// is still guarded by the EWMA and Holt-Linear tests, which do assert NotBeEmpty().
 			movingAverages.Should().OnlyContain(v => v >= 0);
 		}
 	}
