@@ -7,6 +7,7 @@
 
 using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 using FluentAssertions;
 using OpenSearch.Client;
@@ -109,6 +110,78 @@ namespace Tests.Serialization
 			back.NonNormalized.OriginalString.Should().Be("http://host:9200/a/../b");
 			back.Relative.OriginalString.Should().Be("relative/path");
 			back.Relative.IsAbsoluteUri.Should().BeFalse();
+		}
+
+		/// <summary>
+		/// <c>SingleOrEnumerableFormatter</c> members accept either a single scalar or an array on the
+		/// wire (the server may send either); both must deserialize to a collection. On write the value
+		/// is always emitted as an array.
+		/// </summary>
+		[U]
+		public void ReadsSingleOrEnumerableAsScalarOrArray()
+		{
+			var analyzer = Deserialize<CustomAnalyzer>(
+				@"{""type"":""custom"",""char_filter"":""html_strip"",""filter"":[""lowercase"",""stop""],""tokenizer"":""standard""}");
+
+			// scalar -> single-element collection
+			analyzer.CharFilter.Should().Equal("html_strip");
+			// array -> collection
+			analyzer.Filter.Should().Equal("lowercase", "stop");
+
+			// write is always an array, even for a single element
+			var json = Serialize(new CustomAnalyzer { Tokenizer = "standard", CharFilter = new[] { "html_strip" } });
+			json.Should().Contain("\"char_filter\":[\"html_strip\"]");
+		}
+
+		/// <summary>
+		/// Epoch-millisecond date members (e.g. node-usage <c>since</c>/<c>timestamp</c>) are read from a
+		/// numeric epoch-millis value into <see cref="DateTimeOffset"/> via the epoch date bridge. These
+		/// members also have non-public setters, exercising the resolver's non-public-setter wiring.
+		/// </summary>
+		[U]
+		public void ReadsEpochMillisecondDateTimeOffset()
+		{
+			// 1609459200000 ms == 2021-01-01T00:00:00Z
+			var usage = Deserialize<NodeUsageInformation>(
+				@"{""since"":1609459200000,""timestamp"":1609459200000,""rest_actions"":{},""aggregations"":{}}");
+
+			usage.Since.ToUniversalTime().Should().Be(new DateTimeOffset(2021, 1, 1, 0, 0, 0, TimeSpan.Zero));
+			usage.Timestamp.ToUniversalTime().Should().Be(new DateTimeOffset(2021, 1, 1, 0, 0, 0, TimeSpan.Zero));
+		}
+
+		/// <summary>
+		/// A document (proxy) request such as <see cref="IndexRequest{TDocument}"/> serializes as its
+		/// document body through the source serializer — the request envelope (index/id) is not emitted.
+		/// </summary>
+		[U]
+		public void IndexRequestSerializesDocumentBody()
+		{
+			var request = new IndexRequest<ProxyDoc>(new ProxyDoc { Name = "a", Age = 3 }, "idx", "1");
+
+			var json = Serialize(request);
+
+			json.Should().Contain("\"name\":\"a\"").And.Contain("\"age\":3");
+			// it is the document body, not the request envelope
+			json.Should().NotContain("idx");
+		}
+
+		/// <summary>
+		/// An interface carrying <c>[ReadAs(typeof(Concrete))]</c> deserializes into its concrete type
+		/// via the ReadAs converter factory.
+		/// </summary>
+		[U]
+		public void ReadAsDeserializesInterfaceToConcrete()
+		{
+			var field = Deserialize<IFieldNamesField>(@"{""enabled"":false}");
+
+			field.Should().BeOfType<FieldNamesField>();
+			field.Enabled.Should().Be(false);
+		}
+
+		private class ProxyDoc
+		{
+			public string Name { get; set; }
+			public int Age { get; set; }
 		}
 
 		private class UriDoc
