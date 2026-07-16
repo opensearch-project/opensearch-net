@@ -85,5 +85,52 @@ namespace Tests.OpenSearch.Client.Serialization
 			result.MinCharacters.Should().Be(2);
 			result.MaxCharacters.Should().Be(5);
 		}
+
+		// The following tests prove the migrated type-level converters are actually reached *through the serializer*
+		// (registered in options.Converters), not just when instantiated directly — this is the "wiring" B5 delivers.
+
+		private static string Serialize<T>(T value)
+		{
+			var serializer = new SystemTextJsonHighLevelSerializer(new ConnectionSettings());
+			return Serialize(serializer, value);
+		}
+
+		private static T RoundTrip<T>(T value)
+		{
+			var serializer = new SystemTextJsonHighLevelSerializer(new ConnectionSettings());
+			var json = Serialize(serializer, value);
+			using var ms = new MemoryStream(Encoding.UTF8.GetBytes(json));
+			return serializer.Deserialize<T>(ms);
+		}
+
+		[U] public void StatelessConverter_Time_IsReachedThroughSerializer()
+		{
+			// Time serializes to a compact unit string (e.g. "7d") via the registered TimeConverter.
+			Serialize<Time>("7d").Should().Contain("7d");
+			var back = RoundTrip<Time>("7d");
+			back.Factor.Should().Be(7);
+			back.Interval.Should().Be(TimeUnit.Days);
+		}
+
+		[U] public void StatelessConverter_Distance_IsReachedThroughSerializer()
+		{
+			Serialize<Distance>("10m").Should().Contain("10m");
+			var back = RoundTrip<Distance>("10m");
+			back.Precision.Should().Be(10);
+			back.Unit.Should().Be(DistanceUnit.Meters);
+		}
+
+		[U] public void SettingsAwareConverter_IndexName_UsesInferrer()
+		{
+			// IndexName is resolved through the settings Inferrer and serialized as a bare string by IndexNameConverter.
+			Serialize<IndexName>("my-index").Should().Be(@"""my-index""");
+		}
+
+		[U] public void SettingsAwareConverter_Indices_SerializedByMultiSyntaxConverter()
+		{
+			// The type-level default for Indices is IndicesMultiSyntaxConverter: multiple indices join as a CSV string.
+			Indices indices = Indices.Index("a", "b");
+			Serialize(indices).Should().Be(@"""a,b""");
+		}
 	}
 }

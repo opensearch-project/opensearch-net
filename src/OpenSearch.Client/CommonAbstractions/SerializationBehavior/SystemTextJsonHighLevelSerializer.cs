@@ -47,6 +47,49 @@ namespace OpenSearch.Client
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.StringEnumConverterFactory());
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.NullableStringIntConverter());
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.DynamicDictionaryConverter());
+
+			// Migrated high-level converters that are the *type-level* default for their target type — i.e. the
+			// legacy engine attached them via a type-level [JsonFormatter] on the type definition, so registering
+			// them globally reproduces the same behaviour. Only such converters are registered here.
+			//
+			// Deliberately NOT registered globally (they would hijack every value of a shared type or need
+			// per-member/generic parameterisation, and are instead applied member-by-member in a later phase):
+			//   - epoch date/time, IntString, NullableStringBoolean, TimeSpanTicks (target string/bool?/DateTime?/TimeSpan)
+			//   - SortOrder<T>, Union<,>, UnionList<>, VerbatimDictionaryKeys<>, FieldNameQuery<,> (open generics)
+			//   - IndicesConverter (a member-level alternative to the IndicesMultiSyntax type default)
+
+			// Settings-aware converters (Inferrer-driven); constructed with the runtime settings.
+			_options.Converters.Add(new IdConverter(settings));
+			_options.Converters.Add(new IndexNameConverter(settings));
+			_options.Converters.Add(new IndicesMultiSyntaxConverter(settings)); // type-level default for Indices
+			_options.Converters.Add(new RoutingConverter(settings));
+			_options.Converters.Add(new PropertyNameConverter(settings));
+			_options.Converters.Add(new RelationNameConverter(settings));
+			_options.Converters.Add(new JoinFieldConverter(settings));
+			_options.Converters.Add(new ChildrenConverter(settings));
+
+			// Stateless converters whose target type is specific to the option they model.
+			_options.Converters.Add(new FuzzinessConverter());
+			_options.Converters.Add(new DistanceConverter());
+			_options.Converters.Add(new MinimumShouldMatchConverter());
+			_options.Converters.Add(new TimeConverter());
+			_options.Converters.Add(new SlicesConverter());
+			_options.Converters.Add(new TrackTotalHitsConverter());
+			_options.Converters.Add(new SimilarityConverter());
+			_options.Converters.Add(new TermsIncludeConverter());
+			_options.Converters.Add(new TermsExcludeConverter());
+			_options.Converters.Add(new AnalyzerConverter());
+			_options.Converters.Add(new CharFilterConverter());
+			_options.Converters.Add(new NormalizerConverter());
+			_options.Converters.Add(new TokenFilterConverter());
+			_options.Converters.Add(new TokenizerConverter());
+			_options.Converters.Add(new ScriptConverter());
+			_options.Converters.Add(new FuzzyQueryConverter());
+			_options.Converters.Add(new RangeQueryConverter());
+			_options.Converters.Add(new MultiTermQueryRewriteConverter());
+			_options.Converters.Add(new GeoCoordinateConverter());
+			_options.Converters.Add(new GeoLocationConverter());
+			_options.Converters.Add(new AggregateDictionaryConverter());
 		}
 
 		public T Deserialize<T>(Stream stream) => JsonSerializer.Deserialize<T>(stream, _options);
