@@ -117,6 +117,17 @@ namespace OpenSearch.Client
 			_options.Converters.Add(new StopWordsConverter());
 			_options.Converters.Add(new SimpleQueryStringFlagsConverter());
 			_options.Converters.Add(new LikeConverter());
+
+			// Batch 10: settings-aware infer types + polymorphic/union type-level defaults.
+			_options.Converters.Add(new FieldConverter(settings));
+			_options.Converters.Add(new FieldsConverter(settings));
+			_options.Converters.Add(new AliasActionConverter());
+			_options.Converters.Add(new ClusterRerouteCommandConverter());
+			_options.Converters.Add(new SourceFilterConverter());
+			_options.Converters.Add(new ContextConverter());
+			_options.Converters.Add(new BucketsPathConverter());
+			_options.Converters.Add(new DynamicMappingConverter());
+			_options.Converters.Add(new ScoreFunctionConverter(settings));
 		}
 
 		public T Deserialize<T>(Stream stream) => JsonSerializer.Deserialize<T>(stream, _options);
