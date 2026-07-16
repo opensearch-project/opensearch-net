@@ -36,6 +36,10 @@ namespace OpenSearch.Client
 			{
 				DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
 				PropertyNameCaseInsensitive = true,
+				// The legacy Utf8Json engine did not HTML-escape output; System.Text.Json's default encoder escapes
+				// '+', '&', '<', '>' etc. as \uXXXX. Use the relaxed encoder so payloads match the legacy bytes
+				// (e.g. date-math "now+1d/d" stays literal instead of "now+1d/d").
+				Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
 				// The settings-aware resolver reproduces the runtime-config-driven behaviour of the old
 				// InnerResolver.GetMapping: field-name inference and per-member property mappings.
 				TypeInfoResolver = new HighLevelContractResolver(settings)
@@ -93,6 +97,26 @@ namespace OpenSearch.Client
 			_options.Converters.Add(new GeoCoordinateConverter());
 			_options.Converters.Add(new GeoLocationConverter());
 			_options.Converters.Add(new AggregateDictionaryConverter());
+
+			// Batch 9: further stateless type-level defaults (leaf/union/enum types) migrated in parallel.
+			// DateMath is abstract; register the concrete converters as well so a property typed as the concrete
+			// type binds its own converter, while DateMath-typed properties bind the base converter.
+			_options.Converters.Add(new DateMathExpressionConverter());
+			_options.Converters.Add(new DateMathTimeConverter());
+			_options.Converters.Add(new DateMathConverter());
+			_options.Converters.Add(new TotalHitsConverter());
+			_options.Converters.Add(new TaskIdConverter());
+			_options.Converters.Add(new AutoExpandReplicasConverter());
+			_options.Converters.Add(new ReindexRoutingConverter());
+			_options.Converters.Add(new GeoOrientationConverter());
+			_options.Converters.Add(new NullableGeoOrientationConverter());
+			_options.Converters.Add(new ShapeOrientationConverter());
+			_options.Converters.Add(new NullableShapeOrientationConverter());
+			_options.Converters.Add(new IncludeExcludeConverter());
+			_options.Converters.Add(new CartesianPointConverter());
+			_options.Converters.Add(new StopWordsConverter());
+			_options.Converters.Add(new SimpleQueryStringFlagsConverter());
+			_options.Converters.Add(new LikeConverter());
 		}
 
 		public T Deserialize<T>(Stream stream) => JsonSerializer.Deserialize<T>(stream, _options);
