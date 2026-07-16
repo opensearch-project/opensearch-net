@@ -46,10 +46,24 @@ namespace OpenSearch.Net.Serialization.Converters
 			if (typeInfo.Kind != JsonTypeInfoKind.Object)
 				return typeInfo;
 
+			// STJ only wires CreateObject for an accessible (public) parameterless ctor. Many generated request and
+			// domain types (e.g. LikeDocument<T>) expose only an internal/private parameterless ctor, which the
+			// legacy Utf8Json engine could construct. Fall back to it so those types can be deserialized.
+			if (typeInfo.CreateObject == null)
+			{
+				var ctor = type.GetConstructor(
+					BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public,
+					binder: null, Type.EmptyTypes, modifiers: null);
+				if (ctor != null && !type.IsAbstract)
+					typeInfo.CreateObject = () => ctor.Invoke(null);
+			}
+
 			var interfaces = type.GetInterfaces();
-			var dataContract = HasInterfaceDataContract(type, interfaces);
-			if (!dataContract)
-				return typeInfo;
+			// Data-contract types opt into an allow-list model: ONLY [DataMember] members serialize. Plain types do
+			// not opt in — all public members serialize — but both models still honour [IgnoreDataMember] and the
+			// [DataMember(Name)] override (declared on the property or a matching interface property). This mirrors
+			// the legacy Utf8Json MetaType, whose non-data-contract branch also used `dm?.Name ?? nameMutator(name)`.
+			var isDataContract = HasInterfaceDataContract(type, interfaces);
 
 			foreach (var property in typeInfo.Properties.ToArray())
 			{
@@ -63,10 +77,11 @@ namespace OpenSearch.Net.Serialization.Converters
 
 				var dataMember = GetDataMember(property, interfaceProp);
 
-				// Data-contract opt-in: without a [DataMember], the member is not serialized.
+				// Opt-in removal applies only to data-contract types: without a [DataMember] the member is dropped.
 				if (dataMember == null)
 				{
-					typeInfo.Properties.Remove(property);
+					if (isDataContract)
+						typeInfo.Properties.Remove(property);
 					continue;
 				}
 

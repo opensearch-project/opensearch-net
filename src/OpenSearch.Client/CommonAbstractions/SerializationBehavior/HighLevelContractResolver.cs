@@ -5,7 +5,10 @@
 * compatible open source license.
 */
 
+using System;
+using System.Linq;
 using System.Reflection;
+using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization.Metadata;
 using OpenSearch.Net.Serialization.Converters;
@@ -56,12 +59,43 @@ namespace OpenSearch.Client
 					}
 				}
 
+				// An explicit [DataMember(Name)] (already applied by the base resolver, on the property or a matching
+				// interface property) is authoritative — do not run the field-name inferrer over it, or a snake_case
+				// name like "is_write_index" would be re-mangled to camelCase.
+				if (HasExplicitDataMemberName(member))
+					continue;
+
 				// Otherwise apply the default field-name inferrer (e.g. camelCase) from the settings.
 				if (_settings.DefaultFieldNameInferrer != null)
 					property.Name = _settings.DefaultFieldNameInferrer(property.Name);
 			}
 
 			return typeInfo;
+		}
+
+		// True when the member (or a matching interface property) carries a [DataMember(Name=...)] with a non-empty
+		// Name — that explicit wire name is authoritative and must not be overwritten by the field-name inferrer.
+		private static bool HasExplicitDataMemberName(MemberInfo member)
+		{
+			if (member == null)
+				return false;
+
+			var dm = member.GetCustomAttribute<DataMemberAttribute>(true);
+			if (dm != null && !string.IsNullOrEmpty(dm.Name))
+				return true;
+
+			if (member.DeclaringType == null)
+				return false;
+
+			foreach (var i in member.DeclaringType.GetInterfaces())
+			{
+				var p = i.GetProperty(member.Name, BindingFlags.Public | BindingFlags.Instance);
+				var idm = p?.GetCustomAttribute<DataMemberAttribute>(true);
+				if (idm != null && !string.IsNullOrEmpty(idm.Name))
+					return true;
+			}
+
+			return false;
 		}
 	}
 }

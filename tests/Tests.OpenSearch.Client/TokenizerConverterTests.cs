@@ -59,12 +59,11 @@ namespace Tests.OpenSearch.Client.Serialization
 
 		[U] public void Deserialize_NGram_WithNumericGrams()
 		{
-			// NOTE: the shared HighLevelContractResolver only honours [DataMember(Name=...)] snake_case naming for
-			// interfaces marked [InterfaceDataContract]; ITokenizer / INGramTokenizer are not so marked, so the
-			// resolver camelCases the CLR names (MinGram -> "minGram"). We therefore feed camelCase field names —
-			// the converter's job is type dispatch, which is what this asserts. (See task report.)
+			// [DataMember(Name="min_gram"/"max_gram")] on INGramTokenizer is now authoritative (the resolver honours
+			// explicit DataMember names even on types not marked [InterfaceDataContract]), so the wire names are
+			// snake_case regardless of the field-name inferrer.
 			var tokenizer = JsonSerializer.Deserialize<ITokenizer>(
-				@"{""type"":""ngram"",""minGram"":1,""maxGram"":2}", Options());
+				@"{""type"":""ngram"",""min_gram"":1,""max_gram"":2}", Options());
 
 			tokenizer.Should().BeOfType<NGramTokenizer>();
 			var ngram = (INGramTokenizer)tokenizer;

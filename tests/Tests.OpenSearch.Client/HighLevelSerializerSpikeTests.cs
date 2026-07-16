@@ -45,6 +45,18 @@ namespace Tests.OpenSearch.Client.Serialization
 			json.Should().Contain(@"""itemCount"":3");
 		}
 
+		[U] public void HonoursExplicitDataMemberName_OnNonDataContractType()
+		{
+			// AliasAddOperation is a plain class (no [InterfaceDataContract]) whose members carry explicit
+			// [DataMember(Name="is_write_index")] etc. The resolver must honour those snake_case names rather than
+			// camelCasing the CLR names — otherwise the wire format silently diverges from the legacy engine.
+			var serializer = new SystemTextJsonHighLevelSerializer(new ConnectionSettings());
+			var json = Serialize(serializer, new AliasAddOperation { Alias = "a", IsWriteIndex = true });
+
+			json.Should().Contain(@"""is_write_index"":true");
+			json.Should().NotContain("isWriteIndex");
+		}
+
 		[U] public void HonoursCustomFieldNameInferrer()
 		{
 			// Prove the resolver is driven by runtime settings: switch inference to UPPER-case.

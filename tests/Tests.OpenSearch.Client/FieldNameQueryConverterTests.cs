@@ -51,16 +51,17 @@ namespace Tests.OpenSearch.Client.Serialization
 
 		[U] public void Serialize_BodyResolvedViaSettingsDrivenContractResolver()
 		{
-			// The wrapping field key comes from a literal string Field (not run through DefaultFieldNameInferrer),
-			// but the body member names are produced by the settings-driven HighLevelContractResolver — switching
-			// inference to UPPER-case proves the converter delegates the body to the runtime-configured resolver.
+			// The body is serialized through the settings-driven HighLevelContractResolver. TermQuery.Value carries
+			// an explicit [DataMember(Name="value")], which is authoritative — the field-name inferrer does NOT
+			// override it — so even with UPPER-case inference the body key stays "value". This proves the converter
+			// delegates the body to the resolver (which honours the explicit DataMember name).
 			var settings = new ConnectionSettings().DefaultFieldNameInferrer(f => f.ToUpperInvariant());
 			var options = Options(settings, new FieldNameQueryConverter<TermQuery, ITermQuery>(settings));
 			ITermQuery query = new TermQuery { Field = "name", Value = "bob" };
 
 			var json = JsonSerializer.Serialize(query, options);
 
-			json.Should().Be(@"{""name"":{""VALUE"":""bob""}}");
+			json.Should().Be(@"{""name"":{""value"":""bob""}}");
 		}
 
 		[U] public void Serialize_Null_WritesNull()

@@ -47,12 +47,7 @@ namespace Tests.OpenSearch.Client.Serialization
 			like.Item1.Should().Be("find me like this");
 		}
 
-		// Skipped: reading the document branch requires constructing LikeDocument<object>, whose parameterless ctor is
-		// internal. The high-level STJ resolver does not yet support non-public constructors (tracked as a broader
-		// deserialization-infra gap); the write path and the text branch are fully covered. Re-enable once the
-		// resolver gains non-public ctor support.
-		[U(Skip = "Needs non-public parameterless ctor support in HighLevelContractResolver (infra gap).")]
-		public void Read_Object_DocumentBranch()
+		[U] public void Read_Object_DocumentBranch()
 		{
 			var like = JsonSerializer.Deserialize<Like>(@"{""_index"":""my-index"",""_id"":""1""}", Options());
 			like.Should().NotBeNull();
@@ -95,8 +90,7 @@ namespace Tests.OpenSearch.Client.Serialization
 			back.Item1.Should().Be("liked text");
 		}
 
-		[U(Skip = "Needs non-public parameterless ctor support in HighLevelContractResolver (infra gap); write path covered.")]
-		public void RoundTrip_DocumentBranch()
+		[U] public void RoundTrip_DocumentBranch()
 		{
 			var options = Options();
 			ILikeDocument doc = new LikeDocument<object>((Id)"7");
