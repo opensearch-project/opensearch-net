@@ -43,6 +43,9 @@ namespace OpenSearch.Client
 
 			// [ReadAs] delegation: interfaces/abstract types deserialize as the concrete type named by the attribute.
 			_options.Converters.Add(new ReadAsConverterFactory());
+			// Field-name queries ({ "field": { <body> } }): a factory constructs the settings-aware
+			// FieldNameQueryConverter<T,TInterface> per query interface, reusing the legacy [JsonFormatter] mapping.
+			_options.Converters.Add(new FieldNameQueryConverterFactory(settings));
 			// Low-level converters already migrated (OpenSearch.Net) that the high-level client also relies on.
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.StringEnumConverterFactory());
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.NullableStringIntConverter());

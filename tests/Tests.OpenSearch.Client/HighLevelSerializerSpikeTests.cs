@@ -132,5 +132,33 @@ namespace Tests.OpenSearch.Client.Serialization
 			Indices indices = Indices.Index("a", "b");
 			Serialize(indices).Should().Be(@"""a,b""");
 		}
+
+		// The FieldNameQueryConverterFactory unblocks field-name queries ({ "field": { <body> } }). These prove the
+		// factory constructs the right converter per interface and that it is reached through the serializer.
+
+		[U] public void FieldNameQueryFactory_MatchQuery_WrapsInFieldObject()
+		{
+			IMatchQuery query = new MatchQuery { Field = "message", Query = "hello world" };
+			var json = Serialize<IMatchQuery>(query);
+			// Wrapped as { "message": { "query": "hello world" } } — the field key is the outer property.
+			json.Should().Contain(@"""message""").And.Contain(@"""query"":""hello world""");
+		}
+
+		[U] public void FieldNameQueryFactory_TermQuery_RoundTrips()
+		{
+			ITermQuery query = new TermQuery { Field = "status", Value = "active" };
+			var json = Serialize<ITermQuery>(query);
+			json.Should().Contain(@"""status""").And.Contain(@"""active""");
+
+			using var ms = new MemoryStream(Encoding.UTF8.GetBytes(json));
+			var back = new SystemTextJsonHighLevelSerializer(new ConnectionSettings()).Deserialize<ITermQuery>(ms);
+			back.Should().NotBeNull();
+			// The factory correctly unwraps the field name from the outer object.
+			back.Field.Name.Should().Be("status");
+			// NOTE: TermQuery.Value is object-typed; under STJ an object property deserializes to a JsonElement
+			// rather than a boxed string (a known STJ-vs-Utf8Json difference, tracked separately). Assert on the
+			// string form so this test stays focused on the factory's field-wrapping responsibility.
+			back.Value.ToString().Should().Be("active");
+		}
 	}
 }
