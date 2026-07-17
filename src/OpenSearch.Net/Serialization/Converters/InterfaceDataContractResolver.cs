@@ -87,6 +87,16 @@ namespace OpenSearch.Net.Serialization.Converters
 
 				if (!string.IsNullOrEmpty(dataMember.Name))
 					property.Name = dataMember.Name;
+
+				// Response types commonly expose { get; internal set; } / private set. STJ only wires a public
+				// setter, so such members would deserialize to their default. Wire the non-public setter via
+				// reflection so response deserialization matches the legacy engine (which set them freely).
+				if (property.Set == null && property.AttributeProvider is PropertyInfo pi)
+				{
+					var setter = pi.GetSetMethod(nonPublic: true);
+					if (setter != null)
+						property.Set = (obj, val) => setter.Invoke(obj, new[] { val });
+				}
 			}
 
 			return typeInfo;

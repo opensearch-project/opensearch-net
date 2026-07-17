@@ -142,6 +142,25 @@ namespace OpenSearch.Client
 			_options.Converters.Add(new DynamicIndexSettingsConverter());
 			_options.Converters.Add(new IndexSettingsConverter());
 			_options.Converters.Add(new SortConverter(settings));
+
+			// Batch 12: tail cleanup — leaf/misc, Snapshot repos, ndjson request bodies, and the stateless bulk
+			// response item. NOT registered here: MultiGetResponse / MultiSearchResponse converters, which require
+			// per-request state and are installed per-request via CustomResponseBuilder (CreateStateful), matching
+			// the legacy design — a global registration cannot supply the originating request's document types.
+			_options.Converters.Add(new SuggestContextConverter());
+			_options.Converters.Add(new AttachmentConverter());
+			_options.Converters.Add(new FieldValuesConverter(settings));
+			_options.Converters.Add(new CatFielddataRecordConverter());
+			_options.Converters.Add(new KeyedProcessorStatsConverter());
+			_options.Converters.Add(new LazyDocumentConverter(settings));
+			_options.Converters.Add(new LazyDocumentInterfaceConverter(settings));
+			_options.Converters.Add(new CreateRepositoryConverter());
+			_options.Converters.Add(new SourceOnlyRepositoryConverter());
+			_options.Converters.Add(new GetRepositoryResponseConverter());
+			_options.Converters.Add(new BulkResponseItemConverter());
+			_options.Converters.Add(new BulkRequestConverter(settings));
+			_options.Converters.Add(new MultiGetRequestConverter(settings));
+			_options.Converters.Add(new MultiSearchConverter(settings));
 		}
 
 		public T Deserialize<T>(Stream stream) => JsonSerializer.Deserialize<T>(stream, _options);
