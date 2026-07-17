@@ -128,6 +128,20 @@ namespace OpenSearch.Client
 			_options.Converters.Add(new BucketsPathConverter());
 			_options.Converters.Add(new DynamicMappingConverter());
 			_options.Converters.Add(new ScoreFunctionConverter(settings));
+
+			// Batch 11: polymorphic heavyweights.
+			_options.Converters.Add(new QueryContainerConverter());
+			_options.Converters.Add(new QueryContainerInterfaceConverter());
+			_options.Converters.Add(new QueryContainerCollectionConverter());
+			_options.Converters.Add(new PropertyConverter());
+			_options.Converters.Add(new PropertiesConverter(settings));
+			_options.Converters.Add(new AggregateConverter(settings));
+			_options.Converters.Add(new AggregationContainerConverter());
+			_options.Converters.Add(new ProcessorConverter());
+			_options.Converters.Add(new GeoShapeConverter());
+			_options.Converters.Add(new DynamicIndexSettingsConverter());
+			_options.Converters.Add(new IndexSettingsConverter());
+			_options.Converters.Add(new SortConverter(settings));
 		}
 
 		public T Deserialize<T>(Stream stream) => JsonSerializer.Deserialize<T>(stream, _options);

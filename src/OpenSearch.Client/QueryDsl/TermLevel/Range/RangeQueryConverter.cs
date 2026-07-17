@@ -191,7 +191,18 @@ namespace OpenSearch.Client
 				return;
 			}
 
-			JsonSerializer.Serialize(writer, value, value.GetType(), options);
+			// Each concrete range variant is a field-name query ({ "field": { bounds } }); serialize it as its
+			// variant INTERFACE so the FieldNameQueryConverter (registered for that interface) writes the field
+			// wrapper. Serializing by the concrete runtime type would bypass the wrapper and emit bare bounds,
+			// which Read (which expects the wrapper) could not round-trip.
+			switch (value)
+			{
+				case IDateRangeQuery d: JsonSerializer.Serialize(writer, d, options); break;
+				case INumericRangeQuery n: JsonSerializer.Serialize(writer, n, options); break;
+				case ILongRangeQuery l: JsonSerializer.Serialize(writer, l, options); break;
+				case ITermRangeQuery t: JsonSerializer.Serialize(writer, t, options); break;
+				default: JsonSerializer.Serialize(writer, value, value.GetType(), options); break;
+			}
 		}
 
 		private static bool IsDateTime(string value) =>
