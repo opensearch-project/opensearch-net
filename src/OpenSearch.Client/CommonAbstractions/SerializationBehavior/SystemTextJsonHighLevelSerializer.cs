@@ -161,6 +161,15 @@ namespace OpenSearch.Client
 			_options.Converters.Add(new BulkRequestConverter(settings));
 			_options.Converters.Add(new MultiGetRequestConverter(settings));
 			_options.Converters.Add(new MultiSearchConverter(settings));
+
+			// Batch 13: open-generic factories (proxy requests + response dictionaries + suggest dictionary) and the
+			// per-field-analyzer dictionary. Proxy index/create requests go through the global serializer (verified via
+			// the PostData.Serializable wire path), so global factory registration is correct here.
+			_options.Converters.Add(new IndexRequestConverterFactory());
+			_options.Converters.Add(new CreateRequestConverterFactory());
+			_options.Converters.Add(new SuggestDictionaryConverterFactory());
+			_options.Converters.Add(new DictionaryResponseConverterFactory(settings));
+			_options.Converters.Add(new PerFieldAnalyzerConverter(settings));
 		}
 
 		public T Deserialize<T>(Stream stream) => JsonSerializer.Deserialize<T>(stream, _options);

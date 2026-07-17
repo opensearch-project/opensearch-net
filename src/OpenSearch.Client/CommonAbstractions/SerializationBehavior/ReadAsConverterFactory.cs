@@ -27,6 +27,12 @@ namespace OpenSearch.Client
 		public override JsonConverter CreateConverter(Type typeToConvert, JsonSerializerOptions options)
 		{
 			var readAs = typeToConvert.GetCustomAttribute<ReadAsAttribute>().Type;
+
+			// [ReadAs] may name an OPEN generic definition (e.g. ISuggest<T> -> [ReadAs(typeof(Suggest<>))]). Close it
+			// with the interface's own generic arguments so the concrete type matches (Suggest<T> for ISuggest<T>).
+			if (readAs.IsGenericTypeDefinition && typeToConvert.IsGenericType)
+				readAs = readAs.MakeGenericType(typeToConvert.GetGenericArguments());
+
 			var converterType = typeof(ReadAsConverter<,>).MakeGenericType(typeToConvert, readAs);
 			return (JsonConverter)Activator.CreateInstance(converterType);
 		}
