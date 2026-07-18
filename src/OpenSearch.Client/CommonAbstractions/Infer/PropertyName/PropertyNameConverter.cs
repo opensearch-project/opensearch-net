@@ -62,5 +62,15 @@ namespace OpenSearch.Client
 
 			writer.WriteStringValue(Settings.Inferrer.PropertyName(value));
 		}
+
+		// PropertyName is used as a dictionary key. STJ needs these overrides to (de)serialize it as a property name.
+		public override PropertyName ReadAsPropertyName(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+		{
+			PropertyName propertyName = reader.GetString();
+			return propertyName;
+		}
+
+		public override void WriteAsPropertyName(Utf8JsonWriter writer, PropertyName value, JsonSerializerOptions options) =>
+			writer.WritePropertyName(value == null ? string.Empty : Settings.Inferrer.PropertyName(value));
 	}
 }

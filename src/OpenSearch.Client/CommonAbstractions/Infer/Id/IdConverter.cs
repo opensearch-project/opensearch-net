@@ -42,5 +42,18 @@ namespace OpenSearch.Client
 			else
 				writer.WriteStringValue(value.StringValue);
 		}
+
+		// Id can be a dictionary key. Property names are always strings, so resolve to the id's string form.
+		public override Id ReadAsPropertyName(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
+			new Id(reader.GetString());
+
+		public override void WriteAsPropertyName(Utf8JsonWriter writer, Id value, JsonSerializerOptions options)
+		{
+			if (value == null) { writer.WritePropertyName(string.Empty); return; }
+			var key = value.Document != null
+				? Settings.Inferrer.Id(value.Document.GetType(), value.Document)
+				: value.LongValue?.ToString(System.Globalization.CultureInfo.InvariantCulture) ?? value.StringValue;
+			writer.WritePropertyName(key ?? string.Empty);
+		}
 	}
 }

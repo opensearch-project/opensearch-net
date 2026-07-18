@@ -194,15 +194,23 @@ namespace OpenSearch.Client
 			_options.Converters.Add(new IndicesStatsDictionaryConverter(settings));
 		}
 
-		public T Deserialize<T>(Stream stream) => JsonSerializer.Deserialize<T>(stream, _options);
+		// An empty/absent response stream must deserialize to default (the legacy Utf8Json engine returned null for
+		// empty input). System.Text.Json throws JsonException on empty input, so guard it — otherwise every empty or
+		// missing response body throws "input does not contain any JSON tokens".
+		private static bool IsEmpty(Stream stream) =>
+			stream == null || stream == Stream.Null || (stream.CanSeek && stream.Length == 0);
 
-		public object Deserialize(Type type, Stream stream) => JsonSerializer.Deserialize(stream, type, _options);
+		public T Deserialize<T>(Stream stream) =>
+			IsEmpty(stream) ? default : JsonSerializer.Deserialize<T>(stream, _options);
+
+		public object Deserialize(Type type, Stream stream) =>
+			IsEmpty(stream) ? null : JsonSerializer.Deserialize(stream, type, _options);
 
 		public async Task<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default) =>
-			await JsonSerializer.DeserializeAsync<T>(stream, _options, cancellationToken).ConfigureAwait(false);
+			IsEmpty(stream) ? default : await JsonSerializer.DeserializeAsync<T>(stream, _options, cancellationToken).ConfigureAwait(false);
 
 		public async Task<object> DeserializeAsync(Type type, Stream stream, CancellationToken cancellationToken = default) =>
-			await JsonSerializer.DeserializeAsync(stream, type, _options, cancellationToken).ConfigureAwait(false);
+			IsEmpty(stream) ? null : await JsonSerializer.DeserializeAsync(stream, type, _options, cancellationToken).ConfigureAwait(false);
 
 		public void Serialize<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None) =>
 			JsonSerializer.Serialize(stream, data, _options);

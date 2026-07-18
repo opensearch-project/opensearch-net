@@ -62,5 +62,16 @@ namespace OpenSearch.Client
 
 			writer.WriteStringValue(Settings.Inferrer.RelationName(value));
 		}
+
+		// RelationName is used as a dictionary key (e.g. join-field relations). STJ needs these overrides to
+		// (de)serialize it as a property name; without them it throws NotSupportedException.
+		public override RelationName ReadAsPropertyName(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+		{
+			RelationName relationName = reader.GetString();
+			return relationName;
+		}
+
+		public override void WriteAsPropertyName(Utf8JsonWriter writer, RelationName value, JsonSerializerOptions options) =>
+			writer.WritePropertyName(value == null ? string.Empty : Settings.Inferrer.RelationName(value));
 	}
 }

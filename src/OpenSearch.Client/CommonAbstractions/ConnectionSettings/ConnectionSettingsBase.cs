@@ -114,6 +114,7 @@ namespace OpenSearch.Client
 		private bool _defaultDisableAllInference;
 		private Func<string, string> _defaultFieldNameInferrer;
 		private string _defaultIndex;
+		private readonly bool _useSystemTextJson;
 
 		protected ConnectionSettingsBase(
 			IConnectionPool connectionPool,
@@ -123,8 +124,16 @@ namespace OpenSearch.Client
 		)
 			: base(connectionPool, connection, null)
 		{
+			// Serializer engine selection. Default remains the legacy Utf8Json engine for full backward compatibility;
+			// System.Text.Json is opt-in via UseSystemTextJson() or the OSC_USE_STJ=true environment variable while the
+			// migration is validated. See also UseSystemTextJson / UseUtf8Json below.
+			_useSystemTextJson = string.Equals(
+				Environment.GetEnvironmentVariable("OSC_USE_STJ"), "true", StringComparison.OrdinalIgnoreCase);
+
 			var formatterResolver = new OpenSearchClientFormatterResolver(this);
-			var defaultSerializer = new DefaultHighLevelSerializer(formatterResolver);
+			IOpenSearchSerializer defaultSerializer = _useSystemTextJson
+				? new SystemTextJsonHighLevelSerializer(this)
+				: new DefaultHighLevelSerializer(formatterResolver);
 			var sourceSerializer = sourceSerializerFactory?.Invoke(defaultSerializer, this) ?? defaultSerializer;
 			var serializerAsMappingProvider = sourceSerializer as IPropertyMappingProvider;
 
