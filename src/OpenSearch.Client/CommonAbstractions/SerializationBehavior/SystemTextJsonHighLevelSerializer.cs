@@ -170,6 +170,28 @@ namespace OpenSearch.Client
 			_options.Converters.Add(new SuggestDictionaryConverterFactory());
 			_options.Converters.Add(new DictionaryResponseConverterFactory(settings));
 			_options.Converters.Add(new PerFieldAnalyzerConverter(settings));
+
+			// Batch 14: final unmigrated type-level formatters — Geo/term/span/specialized query wrappers,
+			// aggregations, and the last requests / nested-dictionary responses.
+			_options.Converters.Add(new GeoBoundingBoxQueryConverter(settings));
+			_options.Converters.Add(new GeoDistanceQueryConverter(settings));
+			_options.Converters.Add(new GeoPolygonQueryConverter(settings));
+			_options.Converters.Add(new GeoShapeQueryConverter(settings));
+			_options.Converters.Add(new ShapeQueryConverter(settings));
+			_options.Converters.Add(new TermsQueryConverter(settings));
+			_options.Converters.Add(new SpanGapQueryConverter(settings));
+			_options.Converters.Add(new DistanceFeatureQueryConverter());
+			_options.Converters.Add(new RankFeatureQueryConverter());
+			_options.Converters.Add(new FilterAggregationConverter());
+			_options.Converters.Add(new MovingAverageAggregationConverter());
+			_options.Converters.Add(new PercentilesAggregationConverter(settings));
+			_options.Converters.Add(new PercentileRanksAggregationConverter(settings));
+			_options.Converters.Add(new CompositeAggregationSourceConverter());
+			_options.Converters.Add(new CompositeKeyConverter());
+			_options.Converters.Add(new MultiSearchTemplateConverter(settings));
+			_options.Converters.Add(new UpdateIndexSettingsConverter());
+			_options.Converters.Add(new FieldCapabilitiesFieldsConverter(settings));
+			_options.Converters.Add(new IndicesStatsDictionaryConverter(settings));
 		}
 
 		public T Deserialize<T>(Stream stream) => JsonSerializer.Deserialize<T>(stream, _options);
