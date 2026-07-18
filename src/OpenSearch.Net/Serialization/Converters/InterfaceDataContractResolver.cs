@@ -6,6 +6,7 @@
 */
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
@@ -65,6 +66,12 @@ namespace OpenSearch.Net.Serialization.Converters
 			// the legacy Utf8Json MetaType, whose non-data-contract branch also used `dm?.Name ?? nameMutator(name)`.
 			var isDataContract = HasInterfaceDataContract(type, interfaces);
 
+			// The CLR names of the members System.Text.Json surfaced on its own (public properties). Captured before
+			// any rename so we can tell which interface [DataMember]s are ALREADY represented by a surfaced property
+			// (concrete request classes) versus only reachable through an explicit interface implementation
+			// (Fluent descriptor types), which STJ does not surface at all.
+			var surfacedClrNames = new HashSet<string>(typeInfo.Properties.Select(p => p.Name));
+
 			foreach (var property in typeInfo.Properties.ToArray())
 			{
 				var interfaceProp = FindInterfaceProperty(interfaces, property.Name);
@@ -99,7 +106,59 @@ namespace OpenSearch.Net.Serialization.Converters
 				}
 			}
 
+			// Fluent descriptor types (e.g. SearchDescriptor<T>, CreateIndexDescriptor) implement their data-contract
+			// interfaces via EXPLICIT interface implementations. System.Text.Json never surfaces explicit-interface
+			// members as properties, so without this every such type serialized to `{}`. The legacy Utf8Json engine
+			// drove serialization off the interface [DataMember]s, so for data-contract types we synthesize a
+			// JsonPropertyInfo for each interface [DataMember] not already represented by a surfaced property, reading
+			// and writing it through the interface's own accessors (which dispatch to the explicit implementation).
+			if (isDataContract)
+				AddInterfaceDataMembers(typeInfo, interfaces, surfacedClrNames);
+
 			return typeInfo;
+		}
+
+		private static void AddInterfaceDataMembers(JsonTypeInfo typeInfo, Type[] interfaces, HashSet<string> surfacedClrNames)
+		{
+			var addedNames = new HashSet<string>();
+
+			foreach (var i in interfaces)
+			{
+				foreach (var interfaceProp in i.GetProperties(BindingFlags.Public | BindingFlags.Instance))
+				{
+					// Already handled as a surfaced public property (concrete request class path) — don't duplicate.
+					if (surfacedClrNames.Contains(interfaceProp.Name))
+						continue;
+
+					if (interfaceProp.GetCustomAttribute<IgnoreDataMemberAttribute>(true) != null)
+						continue;
+
+					var dataMember = interfaceProp.GetCustomAttribute<DataMemberAttribute>(true);
+					if (dataMember == null)
+						continue;
+
+					var jsonName = !string.IsNullOrEmpty(dataMember.Name) ? dataMember.Name : interfaceProp.Name;
+
+					// The same logical member can be reachable through several interfaces in the hierarchy; add once.
+					if (!addedNames.Add(jsonName))
+						continue;
+
+					var jsonProperty = typeInfo.CreateJsonPropertyInfo(interfaceProp.PropertyType, jsonName);
+					// Preserve the interface property as the attribute source so the derived HighLevelContractResolver
+					// can still see the [DataMember(Name)] and skip the field-name inferrer for it.
+					jsonProperty.AttributeProvider = interfaceProp;
+
+					var getter = interfaceProp.CanRead ? interfaceProp.GetGetMethod(nonPublic: true) : null;
+					if (getter != null)
+						jsonProperty.Get = obj => getter.Invoke(obj, null);
+
+					var setter = interfaceProp.CanWrite ? interfaceProp.GetSetMethod(nonPublic: true) : null;
+					if (setter != null)
+						jsonProperty.Set = (obj, val) => setter.Invoke(obj, new[] { val });
+
+					typeInfo.Properties.Add(jsonProperty);
+				}
+			}
 		}
 
 		private static bool HasInterfaceDataContract(Type type, Type[] interfaces)
