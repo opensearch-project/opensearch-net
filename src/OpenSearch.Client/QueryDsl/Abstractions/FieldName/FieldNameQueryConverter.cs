@@ -77,8 +77,14 @@ namespace OpenSearch.Client
 
 			writer.WriteStartObject();
 			writer.WritePropertyName(field);
-			// Serialize the concrete body; Field is [IgnoreDataMember] so it is not written here.
-			JsonSerializer.Serialize(writer, (T)value, options);
+			// Serialize the body by its RUNTIME type, mirroring the legacy formatter (which serialized through the
+			// interface's data contract, never casting to the concrete T). The value may be either the concrete
+			// query (e.g. TermQuery) or a Fluent descriptor (e.g. TermQueryDescriptor<T>) that implements TInterface
+			// via explicit-interface members but is NOT a T — casting to (T) throws InvalidCastException on the
+			// descriptor path. Neither the concrete nor the descriptor type is bound to this interface-keyed
+			// converter, so serializing by runtime type does not recurse. Field is [IgnoreDataMember] so it is not
+			// written here.
+			JsonSerializer.Serialize(writer, value, value.GetType(), options);
 			writer.WriteEndObject();
 		}
 
