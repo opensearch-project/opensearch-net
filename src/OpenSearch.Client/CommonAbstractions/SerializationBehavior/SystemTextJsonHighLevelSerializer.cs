@@ -170,6 +170,11 @@ namespace OpenSearch.Client
 			_options.Converters.Add(new SuggestDictionaryConverterFactory());
 			_options.Converters.Add(new DictionaryResponseConverterFactory(settings));
 			_options.Converters.Add(new PerFieldAnalyzerConverter(settings));
+			// IIsADictionary interfaces (IAliases, IRelations, INormalizers, ...): a factory builds the
+			// VerbatimDictionaryKeysConverter<TDictionary,TInterface,TKey,TValue> per interface from the legacy
+			// [JsonFormatter] mapping. Without it, STJ's default dictionary handling cannot instantiate the abstract
+			// interface and throws NotSupportedException.
+			_options.Converters.Add(new VerbatimDictionaryKeysConverterFactory());
 
 			// Batch 14: final unmigrated type-level formatters — Geo/term/span/specialized query wrappers,
 			// aggregations, and the last requests / nested-dictionary responses.
