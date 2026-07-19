@@ -182,6 +182,10 @@ namespace OpenSearch.Client
 			// [JsonFormatter] mapping. Without it, STJ's default dictionary handling cannot instantiate the abstract
 			// interface and throws NotSupportedException.
 			_options.Converters.Add(new VerbatimDictionaryKeysConverterFactory());
+			// Union<TFirst,TSecond>: type-level default in the legacy engine. Registered after the specific converters
+			// (e.g. DistanceFeature handles its own Union<GeoCoordinate,DateMath>), so those win; every other closed
+			// Union type falls through to this factory. Without it STJ cannot (de)serialize the concrete Union type.
+			_options.Converters.Add(new UnionConverterFactory());
 
 			// Batch 14: final unmigrated type-level formatters — Geo/term/span/specialized query wrappers,
 			// aggregations, and the last requests / nested-dictionary responses.

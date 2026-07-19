@@ -91,4 +91,29 @@ namespace OpenSearch.Client
 			}
 		}
 	}
+
+	/// <summary>
+	/// Builds the <see cref="UnionConverter{TFirst,TSecond}"/> for every closed <see cref="Union{TFirst,TSecond}"/>.
+	/// This reproduces the legacy engine's type-level <c>[JsonFormatter(typeof(UnionFormatter&lt;,&gt;))]</c> on
+	/// <c>Union&lt;TFirst,TSecond&gt;</c>: without it System.Text.Json tries to (de)serialize the concrete Union type
+	/// directly and throws NotSupportedException ("Deserialization of types without a parameterless constructor ...")
+	/// or JsonException ("could not be converted to ... Union`2[...]").
+	///
+	/// The type-level default always uses the parameterless <c>UnionConverter</c> (attemptTSecondIfTFirstIsNull =
+	/// false), matching <c>UnionFormatter&lt;,&gt;</c>'s parameterless ctor. The single site that needs the
+	/// "attempt second when first is null" behaviour (DistanceFeature origin) has its own dedicated converter, so it
+	/// is not affected by this global factory.
+	/// </summary>
+	internal class UnionConverterFactory : JsonConverterFactory
+	{
+		public override bool CanConvert(Type typeToConvert) =>
+			typeToConvert.IsGenericType && typeToConvert.GetGenericTypeDefinition() == typeof(Union<,>);
+
+		public override JsonConverter CreateConverter(Type typeToConvert, JsonSerializerOptions options)
+		{
+			var args = typeToConvert.GetGenericArguments();
+			var converterType = typeof(UnionConverter<,>).MakeGenericType(args);
+			return (JsonConverter)Activator.CreateInstance(converterType);
+		}
+	}
 }
