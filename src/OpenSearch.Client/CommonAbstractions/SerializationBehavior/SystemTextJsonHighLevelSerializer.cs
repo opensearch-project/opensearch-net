@@ -54,6 +54,13 @@ namespace OpenSearch.Client
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.StringEnumConverterFactory());
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.NullableStringIntConverter());
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.DynamicDictionaryConverter());
+			// ISO 8601 date/time: reproduces the legacy engine's default DateTime/DateTimeOffset parsing (basic-format
+			// numeric offsets like +1000/+10 and >7 fractional digits), which the built-in Utf8JsonReader rejects
+			// (GitHub issue #4876). Type-level default, so registered globally.
+			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.Iso8601DateTimeConverter());
+			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.NullableIso8601DateTimeConverter());
+			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.Iso8601DateTimeOffsetConverter());
+			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.NullableIso8601DateTimeOffsetConverter());
 
 			// Migrated high-level converters that are the *type-level* default for their target type — i.e. the
 			// legacy engine attached them via a type-level [JsonFormatter] on the type definition, so registering

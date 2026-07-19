@@ -45,6 +45,12 @@ namespace OpenSearch.Net
 			options.Converters.Add(new DynamicDictionaryConverter());
 			options.Converters.Add(new NullableStringIntConverter());
 			options.Converters.Add(new StringEnumConverterFactory());
+			// ISO 8601 date/time parsing matching the legacy engine (basic-format offsets, >7 fractional digits);
+			// the built-in Utf8JsonReader rejects these (GitHub issue #4876).
+			options.Converters.Add(new Iso8601DateTimeConverter());
+			options.Converters.Add(new NullableIso8601DateTimeConverter());
+			options.Converters.Add(new Iso8601DateTimeOffsetConverter());
+			options.Converters.Add(new NullableIso8601DateTimeOffsetConverter());
 			// ErrorConverter must precede ErrorCauseConverter: Error derives from ErrorCause, and
 			// System.Text.Json selects the first converter whose type is assignable from the target.
 			options.Converters.Add(new ErrorConverter());
