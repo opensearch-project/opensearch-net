@@ -57,6 +57,10 @@ namespace OpenSearch.Net.Serialization.Converters
 
 		private static IReadOnlyCollection<ErrorCause> ReadErrorCauseList(ref Utf8JsonReader reader, JsonSerializerOptions options)
 		{
+			// "root_cause": null is valid and maps to a null collection (matching the legacy formatter).
+			if (reader.TokenType == JsonTokenType.Null)
+				return null;
+
 			var list = new List<ErrorCause>();
 			if (reader.TokenType != JsonTokenType.StartArray)
 				throw new JsonException("Expected array while reading root_cause.");

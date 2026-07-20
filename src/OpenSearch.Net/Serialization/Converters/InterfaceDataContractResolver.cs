@@ -119,7 +119,52 @@ namespace OpenSearch.Net.Serialization.Converters
 			// already surfaced.
 			AddInterfaceDataMembers(typeInfo, interfaces, surfacedClrNames);
 
+			// Some types declare their [DataMember] properties as `internal` directly on the class (e.g.
+			// ResponseBase.Error/StatusCode — which is NOT marked [DataContract] — and BulkUpdateBody.doc/upsert/script).
+			// System.Text.Json surfaces only public properties, so those vanish and the member (de)serialized to
+			// default / {}. The legacy engine serialized non-public members (allowPrivate) regardless of the
+			// data-contract marker. Synthesize a JsonPropertyInfo for each non-public [DataMember] property not already
+			// surfaced. Requiring an explicit [DataMember] keeps plain POCOs' private state from leaking.
+			AddNonPublicDataMembers(typeInfo, type, surfacedClrNames);
+
 			return typeInfo;
+		}
+
+		private static void AddNonPublicDataMembers(JsonTypeInfo typeInfo, Type type, HashSet<string> surfacedClrNames)
+		{
+			var addedNames = new HashSet<string>(typeInfo.Properties.Select(p => p.Name));
+
+			for (var t = type; t != null && t != typeof(object); t = t.BaseType)
+			{
+				foreach (var prop in t.GetProperties(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly))
+				{
+					if (surfacedClrNames.Contains(prop.Name))
+						continue;
+					if (prop.GetCustomAttribute<IgnoreDataMemberAttribute>(true) != null)
+						continue;
+
+					var dataMember = prop.GetCustomAttribute<DataMemberAttribute>(true);
+					if (dataMember == null)
+						continue;
+
+					var jsonName = !string.IsNullOrEmpty(dataMember.Name) ? dataMember.Name : prop.Name;
+					if (!addedNames.Add(jsonName))
+						continue;
+
+					var jsonProperty = typeInfo.CreateJsonPropertyInfo(prop.PropertyType, jsonName);
+					jsonProperty.AttributeProvider = prop;
+
+					var getter = prop.GetGetMethod(nonPublic: true);
+					if (getter != null)
+						jsonProperty.Get = obj => getter.Invoke(obj, null);
+
+					var setter = prop.GetSetMethod(nonPublic: true);
+					if (setter != null)
+						jsonProperty.Set = (obj, val) => setter.Invoke(obj, new[] { val });
+
+					typeInfo.Properties.Add(jsonProperty);
+				}
+			}
 		}
 
 		private static void AddInterfaceDataMembers(JsonTypeInfo typeInfo, Type[] interfaces, HashSet<string> surfacedClrNames)

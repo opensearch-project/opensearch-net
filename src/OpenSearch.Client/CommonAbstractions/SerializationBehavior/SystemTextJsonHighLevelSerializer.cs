@@ -54,6 +54,12 @@ namespace OpenSearch.Client
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.StringEnumConverterFactory());
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.NullableStringIntConverter());
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.DynamicDictionaryConverter());
+			// Error / ErrorCause / exception metadata: server error responses are deserialized through this high-level
+			// serializer, so it needs the same converters as the low-level serializer. ErrorConverter must precede
+			// ErrorCauseConverter (Error derives from ErrorCause; STJ picks the first assignable converter).
+			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.ErrorConverter());
+			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.ErrorCauseConverter());
+			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.ExceptionConverterFactory());
 			// double/float: reproduce the legacy Utf8Json trailing ".0" for integral floating-point values (STJ
 			// writes "10" where the old engine wrote "10.0"), which otherwise breaks exact-JSON comparisons.
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.DoubleConverter());
