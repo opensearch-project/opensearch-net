@@ -16,8 +16,9 @@ namespace Tests.OpenSearch.Net.Serialization
 {
 	/// <summary>
 	/// Behavioural tests for <see cref="StringEnumConverterFactory"/>, which serializes enums decorated with
-	/// <see cref="StringEnumAttribute"/> as strings (camelCase, or the <see cref="EnumMemberAttribute"/> value
-	/// when present) and deserializes case-insensitively, also accepting the raw field name and numeric values.
+	/// <see cref="StringEnumAttribute"/> as strings (the verbatim field name, or the <see cref="EnumMemberAttribute"/>
+	/// value when present, matching the legacy Utf8Json EnumFormatter) and deserializes case-insensitively, also
+	/// accepting numeric values.
 	/// </summary>
 	public class StringEnumConverterFactoryTests
 	{
@@ -36,9 +37,9 @@ namespace Tests.OpenSearch.Net.Serialization
 			return options;
 		}
 
-		[U] public void Write_CamelCasesName()
+		[U] public void Write_UsesVerbatimFieldName()
 		{
-			JsonSerializer.Serialize(Color.DarkBlue, Options()).Should().Be(@"""darkBlue""");
+			JsonSerializer.Serialize(Color.DarkBlue, Options()).Should().Be(@"""DarkBlue""");
 		}
 
 		[U] public void Write_UsesEnumMemberValue()
@@ -85,7 +86,7 @@ namespace Tests.OpenSearch.Net.Serialization
 
 		[U] public void Nullable_Value_RoundTrips()
 		{
-			JsonSerializer.Serialize<Color?>(Color.Red, Options()).Should().Be(@"""red""");
+			JsonSerializer.Serialize<Color?>(Color.Red, Options()).Should().Be(@"""Red""");
 			JsonSerializer.Deserialize<Color?>(@"""red""", Options()).Should().Be(Color.Red);
 		}
 	}

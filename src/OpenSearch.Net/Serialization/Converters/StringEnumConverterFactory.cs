@@ -19,8 +19,9 @@ namespace OpenSearch.Net.Serialization.Converters
 {
 	/// <summary>
 	/// A <see cref="JsonConverterFactory"/> that produces string-based enum converters for
-	/// enum types decorated with <see cref="StringEnumAttribute"/>. Uses <see cref="EnumMemberAttribute"/>
-	/// values when present, otherwise converts the enum name to camelCase.
+	/// enum types decorated with <see cref="StringEnumAttribute"/>. Mirrors the legacy Utf8Json
+	/// <c>EnumFormatter</c>: the serialized name is <see cref="EnumMemberAttribute"/>.Value, else
+	/// <see cref="DataMemberAttribute"/>.Name, else the verbatim enum field name (no camelCasing).
 	/// </summary>
 	public class StringEnumConverterFactory : JsonConverterFactory
 	{
@@ -70,7 +71,11 @@ namespace OpenSearch.Net.Serialization.Converters
 				{
 					var enumValue = (TEnum)field.GetValue(null);
 					var enumMember = field.GetCustomAttribute<EnumMemberAttribute>();
-					var serializedName = enumMember?.Value ?? ToCamelCase(field.Name);
+					var dataMember = field.GetCustomAttribute<DataMemberAttribute>();
+					// Mirror the legacy Utf8Json EnumFormatter precedence: [EnumMember].Value, then [DataMember].Name,
+					// then the VERBATIM field name (no camelCasing). Utf8Json wrote the raw field name, so "BellyUp"
+					// stays "BellyUp" (not "bellyUp").
+					var serializedName = enumMember?.Value ?? dataMember?.Name ?? field.Name;
 
 					EnumToString[enumValue] = serializedName;
 					StringToEnum[serializedName] = enumValue;
@@ -100,7 +105,7 @@ namespace OpenSearch.Net.Serialization.Converters
 
 			public override void Write(Utf8JsonWriter writer, TEnum value, JsonSerializerOptions options)
 			{
-				var str = EnumToString.GetOrAdd(value, v => ToCamelCase(v.ToString()));
+				var str = EnumToString.GetOrAdd(value, v => v.ToString());
 				writer.WriteStringValue(str);
 			}
 		}
@@ -127,18 +132,6 @@ namespace OpenSearch.Net.Serialization.Converters
 
 				_innerConverter.Write(writer, value.Value, options);
 			}
-		}
-
-		private static string ToCamelCase(string name)
-		{
-			if (string.IsNullOrEmpty(name)) return name;
-			if (name.Length == 1) return name.ToLowerInvariant();
-
-			// Handle names that are all uppercase (e.g., "GET" -> "get")
-			if (name.All(char.IsUpper))
-				return name.ToLowerInvariant();
-
-			return char.ToLowerInvariant(name[0]) + name.Substring(1);
 		}
 	}
 }
