@@ -248,6 +248,30 @@ namespace OpenSearch.Client
 		public async Task<object> DeserializeAsync(Type type, Stream stream, CancellationToken cancellationToken = default) =>
 			IsEmpty(stream) ? null : await JsonSerializer.DeserializeAsync(stream, type, _options, cancellationToken).ConfigureAwait(false);
 
+		// Deserialize using a clone of the configured options with one additional per-request converter prepended so it
+		// wins for its target type. Used by response builders (MultiGet/MultiSearch) that need a converter carrying the
+		// originating request's document types — the STJ analogue of the legacy CreateStateful path.
+		internal T DeserializeWithConverter<T>(System.Text.Json.Serialization.JsonConverter converter, Stream stream)
+		{
+			if (IsEmpty(stream))
+				return default;
+
+			var options = new JsonSerializerOptions(_options);
+			options.Converters.Insert(0, converter);
+			return JsonSerializer.Deserialize<T>(stream, options);
+		}
+
+		internal async Task<T> DeserializeWithConverterAsync<T>(
+			System.Text.Json.Serialization.JsonConverter converter, Stream stream, CancellationToken cancellationToken = default)
+		{
+			if (IsEmpty(stream))
+				return default;
+
+			var options = new JsonSerializerOptions(_options);
+			options.Converters.Insert(0, converter);
+			return await JsonSerializer.DeserializeAsync<T>(stream, options, cancellationToken).ConfigureAwait(false);
+		}
+
 		public void Serialize<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None) =>
 			JsonSerializer.Serialize(stream, data, _options);
 
