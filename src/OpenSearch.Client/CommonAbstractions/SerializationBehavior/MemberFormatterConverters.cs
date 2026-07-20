@@ -63,7 +63,21 @@ namespace OpenSearch.Client
 				{ typeof(SourceFormatter<>), (_, memberType, settings) => MakeSource(typeof(SourceConverter<>), memberType, settings) },
 				{ typeof(CollapsedSourceFormatter<>), (_, memberType, settings) => MakeSource(typeof(CollapsedSourceConverter<>), memberType, settings) },
 				{ typeof(SourceWriteFormatter<>), (_, memberType, settings) => MakeSource(typeof(SourceWriteConverter<>), memberType, settings) },
+
+				// single-or-array coercion: a member typed IEnumerable<T> that also accepts a bare scalar. Close the
+				// converter with the FORMATTER's element type T (SingleOrEnumerableFormatter<T>), not the member type.
+				{ typeof(SingleOrEnumerableFormatter<>), (ft, _, __) => MakeSingle(typeof(SingleOrEnumerableConverter<>), ft) },
+				{ typeof(SerializeAsSingleFormatter<>), (ft, _, __) => MakeSingle(typeof(SerializeAsSingleConverter<>), ft) },
 			};
+
+		// Closes the open-generic single-or-enumerable converter with the formatter's element type argument.
+		private static JsonConverter MakeSingle(Type openConverter, Type closedFormatter)
+		{
+			if (!closedFormatter.IsGenericType)
+				return null;
+			var arg = closedFormatter.GetGenericArguments()[0];
+			return (JsonConverter)Activator.CreateInstance(openConverter.MakeGenericType(arg));
+		}
 
 		// Closes the open-generic source converter with the formatter's own type argument (SourceFormatter<T> -> ...<T>)
 		// and constructs it with the runtime settings.
