@@ -47,6 +47,10 @@ namespace OpenSearch.Client
 				{ typeof(NullableDateTimeEpochMillisecondsFormatter), (_, __) => new NullableDateTimeEpochMillisecondsConverter() },
 				{ typeof(TimeSpanTicksFormatter), (_, __) => new TimeSpanTicksConverter() },
 				{ typeof(NullableTimeSpanTicksFormatter), (_, __) => new NullableTimeSpanTicksConverter() },
+
+				// indices_boost: serializes as an array of single-key objects [{index:boost}] and reads both the array
+				// and object forms. Settings-aware (resolves index names through the Inferrer).
+				{ typeof(IndicesBoostFormatter), (_, settings) => new IndicesBoostConverter(settings) },
 			};
 
 		/// <summary>

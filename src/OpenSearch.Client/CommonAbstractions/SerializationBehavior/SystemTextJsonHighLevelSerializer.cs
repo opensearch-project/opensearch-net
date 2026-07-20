@@ -188,6 +188,10 @@ namespace OpenSearch.Client
 			_options.Converters.Add(new SuggestDictionaryConverterFactory());
 			_options.Converters.Add(new DictionaryResponseConverterFactory(settings));
 			_options.Converters.Add(new PerFieldAnalyzerConverter(settings));
+			// dynamic_templates serialize as a JSON ARRAY of single-key objects [{name: tmpl}], not an object.
+			// Registered before the generic IIsADictionary factory below so these win for IDynamicTemplateContainer.
+			_options.Converters.Add(new DynamicTemplatesInterfaceConverter());
+			_options.Converters.Add(new DynamicTemplatesConverter());
 			// IIsADictionary interfaces (IAliases, IRelations, INormalizers, ...): a factory builds the
 			// VerbatimDictionaryKeysConverter<TDictionary,TInterface,TKey,TValue> per interface from the legacy
 			// [JsonFormatter] mapping. Without it, STJ's default dictionary handling cannot instantiate the abstract
