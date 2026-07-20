@@ -47,6 +47,23 @@ namespace OpenSearch.Net.Serialization.Converters
 			return (JsonConverter)Activator.CreateInstance(converterType);
 		}
 
+		/// <summary>
+		/// Builds a string-enum converter for the given (nullable) enum type regardless of whether the enum type
+		/// carries <see cref="StringEnumAttribute"/>. Used for a member marked [StringEnum] whose enum type is not
+		/// itself so marked (e.g. HttpStatusCode).
+		/// </summary>
+		public static JsonConverter CreateForType(Type memberType)
+		{
+			var enumType = GetEnumType(memberType);
+			if (enumType == null)
+				return null;
+
+			var converterType = IsNullableEnum(memberType)
+				? typeof(NullableStringEnumConverter<>).MakeGenericType(enumType)
+				: typeof(StringEnumConverter<>).MakeGenericType(enumType);
+			return (JsonConverter)Activator.CreateInstance(converterType);
+		}
+
 		private static Type GetEnumType(Type type)
 		{
 			if (type.IsEnum) return type;

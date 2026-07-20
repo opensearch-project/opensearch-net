@@ -66,6 +66,8 @@ namespace OpenSearch.Client
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.NullableDoubleConverter());
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.SingleConverter());
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.NullableSingleConverter());
+			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.DecimalConverter());
+			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.NullableDecimalConverter());
 			// ISO 8601 date/time: reproduces the legacy engine's default DateTime/DateTimeOffset parsing (basic-format
 			// numeric offsets like +1000/+10 and >7 fractional digits), which the built-in Utf8JsonReader rejects
 			// (GitHub issue #4876). Type-level default, so registered globally.

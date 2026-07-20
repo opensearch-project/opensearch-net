@@ -92,6 +92,16 @@ namespace OpenSearch.Client
 					return new StringTimeSpanConverter();
 			}
 
+			// A member marked [StringEnum] serializes its enum as a string even when the enum type itself is not
+			// [StringEnum]-marked (e.g. HttpStatusCode). Build the string-enum converter for the member's enum type.
+			if (member.GetCustomAttribute<OpenSearch.Net.StringEnumAttribute>(true) != null)
+			{
+				var t = (member as PropertyInfo)?.PropertyType ?? (member as FieldInfo)?.FieldType;
+				var converter = NetConverters.StringEnumConverterFactory.CreateForType(t);
+				if (converter != null)
+					return converter;
+			}
+
 			var formatterType = GetFormatterType(member);
 			if (formatterType == null)
 				return null;

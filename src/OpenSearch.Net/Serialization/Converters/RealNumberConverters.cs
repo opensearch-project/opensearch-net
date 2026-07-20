@@ -50,6 +50,12 @@ namespace OpenSearch.Net.Serialization.Converters
 			writer.WriteRawValue(EnsureDecimal(s), skipInputValidation: true);
 		}
 
+		public static void WriteDecimal(Utf8JsonWriter writer, decimal value)
+		{
+			var s = value.ToString(CultureInfo.InvariantCulture);
+			writer.WriteRawValue(EnsureDecimal(s), skipInputValidation: true);
+		}
+
 		// Appends ".0" when the shortest representation has no fractional part and no exponent, matching the legacy
 		// EMIT_TRAILING_DECIMAL_POINT/ZERO behaviour. Values already carrying '.' or an exponent are left as-is.
 		private static string EnsureDecimal(string s)
@@ -82,6 +88,29 @@ namespace OpenSearch.Net.Serialization.Converters
 		{
 			if (value.HasValue)
 				RealNumberFormat.WriteDouble(writer, value.Value);
+			else
+				writer.WriteNullValue();
+		}
+	}
+
+	public class DecimalConverter : JsonConverter<decimal>
+	{
+		public override decimal Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
+			reader.GetDecimal();
+
+		public override void Write(Utf8JsonWriter writer, decimal value, JsonSerializerOptions options) =>
+			RealNumberFormat.WriteDecimal(writer, value);
+	}
+
+	public class NullableDecimalConverter : JsonConverter<decimal?>
+	{
+		public override decimal? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
+			reader.TokenType == JsonTokenType.Null ? (decimal?)null : reader.GetDecimal();
+
+		public override void Write(Utf8JsonWriter writer, decimal? value, JsonSerializerOptions options)
+		{
+			if (value.HasValue)
+				RealNumberFormat.WriteDecimal(writer, value.Value);
 			else
 				writer.WriteNullValue();
 		}
