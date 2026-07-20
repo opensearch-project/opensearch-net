@@ -91,7 +91,7 @@ namespace OpenSearch.Client
 			if (value.Boost != null)
 			{
 				writer.WritePropertyName("boost");
-				writer.WriteNumberValue(value.Boost.Value);
+				OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, value.Boost.Value);
 			}
 
 			if (value.ValidationMethod != null)

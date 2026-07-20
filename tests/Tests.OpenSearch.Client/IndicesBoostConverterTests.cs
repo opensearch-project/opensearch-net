@@ -38,7 +38,7 @@ namespace Tests.OpenSearch.Client.Serialization
 
 			var json = JsonSerializer.Serialize(boosts, Options());
 
-			json.Should().Be(@"[{""index-a"":2},{""index-b"":0.5}]");
+			json.Should().Be(@"[{""index-a"":2.0},{""index-b"":0.5}]");
 		}
 
 		[U] public void Serialize_Null_WritesNull()

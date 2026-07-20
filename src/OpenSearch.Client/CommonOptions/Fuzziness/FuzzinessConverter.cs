@@ -78,7 +78,7 @@ namespace OpenSearch.Client
 			else if (value.EditDistance.HasValue)
 				writer.WriteNumberValue(value.EditDistance.Value);
 			else if (value.Ratio.HasValue)
-				writer.WriteNumberValue(value.Ratio.Value);
+				OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, value.Ratio.Value);
 			else
 				writer.WriteNullValue();
 		}

@@ -35,7 +35,7 @@ namespace OpenSearch.Client
 				writer.WriteStartObject();
 				var indexName = Settings.Inferrer.IndexName(entry.Key);
 				writer.WritePropertyName(indexName);
-				writer.WriteNumberValue(entry.Value);
+				OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, entry.Value);
 				writer.WriteEndObject();
 			}
 			writer.WriteEndArray();
