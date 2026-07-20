@@ -29,34 +29,51 @@ namespace OpenSearch.Client
 	internal static class MemberFormatterConverters
 	{
 		// Legacy formatter type (open generic definition for generic formatters) -> factory for the STJ converter.
-		private static readonly Dictionary<Type, Func<Type, IConnectionSettingsValues, JsonConverter>> Map =
-			new Dictionary<Type, Func<Type, IConnectionSettingsValues, JsonConverter>>
+		private static readonly Dictionary<Type, Func<Type, Type, IConnectionSettingsValues, JsonConverter>> Map =
+			new Dictionary<Type, Func<Type, Type, IConnectionSettingsValues, JsonConverter>>
 			{
 				// string <-> number coercions
-				{ typeof(NullableStringBooleanFormatter), (_, __) => new NullableStringBooleanConverter() },
-				{ typeof(NullableStringIntFormatter), (_, __) => new NetConverters.NullableStringIntConverter() },
-				{ typeof(NullableStringLongFormatter), (_, __) => new NullableStringLongConverter() },
-				{ typeof(NullableStringDoubleFormatter), (_, __) => new NullableStringDoubleConverter() },
-				{ typeof(StringLongFormatter), (_, __) => new StringLongConverter() },
-				{ typeof(StringIntFormatter), (_, __) => new StringIntConverter() },
-				{ typeof(IntStringFormatter), (_, __) => new IntStringConverter() },
+				{ typeof(NullableStringBooleanFormatter), (_, __, ___) => new NullableStringBooleanConverter() },
+				{ typeof(NullableStringIntFormatter), (_, __, ___) => new NetConverters.NullableStringIntConverter() },
+				{ typeof(NullableStringLongFormatter), (_, __, ___) => new NullableStringLongConverter() },
+				{ typeof(NullableStringDoubleFormatter), (_, __, ___) => new NullableStringDoubleConverter() },
+				{ typeof(StringLongFormatter), (_, __, ___) => new StringLongConverter() },
+				{ typeof(StringIntFormatter), (_, __, ___) => new StringIntConverter() },
+				{ typeof(IntStringFormatter), (_, __, ___) => new IntStringConverter() },
 
 				// epoch / ticks date-time encodings (member-specific; the ISO 8601 form is the type-level default)
-				{ typeof(DateTimeOffsetEpochMillisecondsFormatter), (_, __) => new DateTimeOffsetEpochMillisecondsConverter() },
-				{ typeof(NullableDateTimeOffsetEpochMillisecondsFormatter), (_, __) => new NullableDateTimeOffsetEpochMillisecondsConverter() },
-				{ typeof(NullableDateTimeEpochMillisecondsFormatter), (_, __) => new NullableDateTimeEpochMillisecondsConverter() },
-				{ typeof(TimeSpanTicksFormatter), (_, __) => new TimeSpanTicksConverter() },
-				{ typeof(NullableTimeSpanTicksFormatter), (_, __) => new NullableTimeSpanTicksConverter() },
+				{ typeof(DateTimeOffsetEpochMillisecondsFormatter), (_, __, ___) => new DateTimeOffsetEpochMillisecondsConverter() },
+				{ typeof(NullableDateTimeOffsetEpochMillisecondsFormatter), (_, __, ___) => new NullableDateTimeOffsetEpochMillisecondsConverter() },
+				{ typeof(NullableDateTimeEpochMillisecondsFormatter), (_, __, ___) => new NullableDateTimeEpochMillisecondsConverter() },
+				{ typeof(TimeSpanTicksFormatter), (_, __, ___) => new TimeSpanTicksConverter() },
+				{ typeof(NullableTimeSpanTicksFormatter), (_, __, ___) => new NullableTimeSpanTicksConverter() },
 
 				// indices_boost: serializes as an array of single-key objects [{index:boost}] and reads both the array
 				// and object forms. Settings-aware (resolves index names through the Inferrer).
-				{ typeof(IndicesBoostFormatter), (_, settings) => new IndicesBoostConverter(settings) },
+				{ typeof(IndicesBoostFormatter), (_, __, settings) => new IndicesBoostConverter(settings) },
 
 				// A member marked [JsonFormatter(typeof(IndicesFormatter))] (e.g. alias add/remove "indices") always
 				// serializes as an ARRAY, overriding the IndicesMultiSyntax type-level default (which renders a single
 				// index as a bare string).
-				{ typeof(IndicesFormatter), (_, settings) => new IndicesConverter(settings) },
+				{ typeof(IndicesFormatter), (_, __, settings) => new IndicesConverter(settings) },
+
+				// Document bodies ([JsonFormatter(typeof(SourceFormatter<>))] and the Collapsed/Write variants) are
+				// (de)serialized through the connection's SourceSerializer, so a user-supplied source serializer
+				// governs the shape. The formatter is a closed generic (SourceFormatter<T>); build SourceConverter<T>.
+				{ typeof(SourceFormatter<>), (_, memberType, settings) => MakeSource(typeof(SourceConverter<>), memberType, settings) },
+				{ typeof(CollapsedSourceFormatter<>), (_, memberType, settings) => MakeSource(typeof(CollapsedSourceConverter<>), memberType, settings) },
+				{ typeof(SourceWriteFormatter<>), (_, memberType, settings) => MakeSource(typeof(SourceWriteConverter<>), memberType, settings) },
 			};
+
+		// Closes the open-generic source converter with the formatter's own type argument (SourceFormatter<T> -> ...<T>)
+		// and constructs it with the runtime settings.
+		private static JsonConverter MakeSource(Type openConverter, Type memberType, IConnectionSettingsValues settings)
+		{
+			if (memberType == null)
+				return null;
+			var converterType = openConverter.MakeGenericType(memberType);
+			return (JsonConverter)Activator.CreateInstance(converterType, settings);
+		}
 
 		/// <summary>
 		/// Returns the migrated converter for the member's legacy <c>[JsonFormatter]</c>, or <c>null</c> when the
@@ -80,7 +97,13 @@ namespace OpenSearch.Client
 				return null;
 
 			var key = formatterType.IsGenericType ? formatterType.GetGenericTypeDefinition() : formatterType;
-			return Map.TryGetValue(key, out var factory) ? factory(formatterType, settings) : null;
+			if (!Map.TryGetValue(key, out var factory))
+				return null;
+
+			// For the source-body formatters the [JsonFormatter] may be the OPEN generic (SourceFormatter<>), whose
+			// type argument is an unbound T; the factory closes its converter with the member's own declared type.
+			var memberType = (member as PropertyInfo)?.PropertyType ?? (member as FieldInfo)?.FieldType;
+			return factory(formatterType, memberType, settings);
 		}
 
 		// Reads [JsonFormatter] from the member itself or, failing that, from the matching property on an interface
