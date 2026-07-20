@@ -54,6 +54,12 @@ namespace OpenSearch.Client
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.StringEnumConverterFactory());
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.NullableStringIntConverter());
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.DynamicDictionaryConverter());
+			// double/float: reproduce the legacy Utf8Json trailing ".0" for integral floating-point values (STJ
+			// writes "10" where the old engine wrote "10.0"), which otherwise breaks exact-JSON comparisons.
+			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.DoubleConverter());
+			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.NullableDoubleConverter());
+			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.SingleConverter());
+			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.NullableSingleConverter());
 			// ISO 8601 date/time: reproduces the legacy engine's default DateTime/DateTimeOffset parsing (basic-format
 			// numeric offsets like +1000/+10 and >7 fractional digits), which the built-in Utf8JsonReader rejects
 			// (GitHub issue #4876). Type-level default, so registered globally.
