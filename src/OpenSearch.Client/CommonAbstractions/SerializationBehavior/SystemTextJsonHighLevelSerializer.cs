@@ -68,6 +68,9 @@ namespace OpenSearch.Client
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.NullableSingleConverter());
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.DecimalConverter());
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.NullableDecimalConverter());
+			// System.ValueTuple exposes its elements as fields, which STJ does not serialize by default; write them as
+			// Item1..ItemN (matching the legacy engine) rather than turning on field serialization globally.
+			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.ValueTupleConverterFactory());
 			// ISO 8601 date/time: reproduces the legacy engine's default DateTime/DateTimeOffset parsing (basic-format
 			// numeric offsets like +1000/+10 and >7 fractional digits), which the built-in Utf8JsonReader rejects
 			// (GitHub issue #4876). Type-level default, so registered globally.
