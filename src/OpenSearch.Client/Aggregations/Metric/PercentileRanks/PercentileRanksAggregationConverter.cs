@@ -136,7 +136,7 @@ namespace OpenSearch.Client
 			if (value.Missing.HasValue)
 			{
 				writer.WritePropertyName("missing");
-				writer.WriteNumberValue(value.Missing.Value);
+				OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, value.Missing.Value);
 			}
 
 			if (value.Values != null && value.Values.Any())

@@ -84,7 +84,7 @@ namespace Tests.OpenSearch.Client.Serialization
 				Method = new TDigestMethod { Compression = 200.0 }
 			};
 			var json = Serialize(agg);
-			json.Should().Contain(@"""tdigest"":{""compression"":200}");
+			json.Should().Contain(@"""tdigest"":{""compression"":200.0}");
 		}
 
 		[U] public void Write_HdrMethod()

@@ -137,7 +137,7 @@ namespace OpenSearch.Client
 			if (value.Missing.HasValue)
 			{
 				writer.WritePropertyName("missing");
-				writer.WriteNumberValue(value.Missing.Value);
+				OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, value.Missing.Value);
 			}
 
 			if (value.Percents != null)
@@ -180,7 +180,7 @@ namespace OpenSearch.Client
 					if (tdigest.Compression.HasValue)
 					{
 						writer.WritePropertyName("compression");
-						writer.WriteNumberValue(tdigest.Compression.Value);
+						OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, tdigest.Compression.Value);
 					}
 					writer.WriteEndObject();
 					break;
