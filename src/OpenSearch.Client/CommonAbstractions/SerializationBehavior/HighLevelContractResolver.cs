@@ -29,8 +29,14 @@ namespace OpenSearch.Client
 	internal class HighLevelContractResolver : InterfaceDataContractResolver
 	{
 		private readonly IConnectionSettingsValues _settings;
+		// A settings-carrying formatter resolver so a type-level ShouldSerialize(IJsonFormatterResolver) (e.g.
+		// Routing's, which resolves the routing via the Inferrer) can be invoked. Built once, lazily.
+		private OpenSearch.Net.Utf8Json.IJsonFormatterResolver _formatterResolver;
 
 		public HighLevelContractResolver(IConnectionSettingsValues settings) => _settings = settings;
+
+		private OpenSearch.Net.Utf8Json.IJsonFormatterResolver FormatterResolver =>
+			_formatterResolver ?? (_formatterResolver = new OpenSearchClientFormatterResolver(_settings));
 
 		public override JsonTypeInfo GetTypeInfo(System.Type type, JsonSerializerOptions options)
 		{
@@ -57,11 +63,22 @@ namespace OpenSearch.Client
 				}
 
 				// Honour the legacy ShouldSerialize{Member}() convention (used by e.g. IBoolQuery to omit empty
-				// must/should/must_not/filter arrays and by Routing/QueryContainer). System.Text.Json does not call
-				// these methods, so wire them into JsonPropertyInfo.ShouldSerialize.
+				// must/should/must_not/filter arrays). System.Text.Json does not call these methods, so wire them into
+				// JsonPropertyInfo.ShouldSerialize.
 				if (member != null && property.ShouldSerialize == null)
 				{
 					var predicate = FindShouldSerialize(member);
+					if (predicate != null)
+						property.ShouldSerialize = predicate;
+				}
+
+				// Also honour the type-level ShouldSerialize(IJsonFormatterResolver) convention the legacy engine
+				// applied to every member whose declared TYPE defines it (Routing omits an empty inferred routing;
+				// QueryContainer omits a conditionless query). Without this a non-null-but-empty Routing emits
+				// "routing": null and a conditionless standalone query emits an empty object.
+				if (member != null && property.ShouldSerialize == null)
+				{
+					var predicate = FindTypeShouldSerialize(property.PropertyType);
 					if (predicate != null)
 						property.ShouldSerialize = predicate;
 				}
@@ -106,11 +123,25 @@ namespace OpenSearch.Client
 			return typeInfo;
 		}
 
-		// True when the member (or a matching interface property) carries a [DataMember(Name=...)] with a non-empty
-		// Name — that explicit wire name is authoritative and must not be overwritten by the field-name inferrer.
-		// Locates a bool ShouldSerialize{Member}() method (public on the declaring type, or an explicit-interface
-		// implementation on an implemented interface) and returns a predicate that invokes it, or null if none.
-		// Mirrors the JSON.NET/Utf8Json ShouldSerialize convention the legacy engine honoured.
+		// Reproduces the legacy type-level ShouldSerialize convention: a member is omitted when its declared TYPE
+		// defines `bool ShouldSerialize(IJsonFormatterResolver)` returning false. Used by Routing (empty inferred
+		// routing) and QueryContainer (conditionless query). Returns null when the type has no such method.
+		private Func<object, object, bool> FindTypeShouldSerialize(Type propertyType)
+		{
+			if (propertyType == null)
+				return null;
+
+			var method = propertyType.GetMethod("ShouldSerialize",
+				BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic,
+				null, new[] { typeof(OpenSearch.Net.Utf8Json.IJsonFormatterResolver) }, null);
+			if (method == null || method.ReturnType != typeof(bool))
+				return null;
+
+			// The predicate's second arg is the property VALUE; ShouldSerialize is an instance method on that value's
+			// type (e.g. QueryContainer / Routing), so invoke it on the value, not on the containing object.
+			return (_, value) => value != null && (bool)method.Invoke(value, new object[] { FormatterResolver });
+		}
+
 		private static Func<object, object, bool> FindShouldSerialize(MemberInfo member)
 		{
 			if (!(member is PropertyInfo) || member.DeclaringType == null)
