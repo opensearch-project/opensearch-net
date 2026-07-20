@@ -235,6 +235,12 @@ namespace OpenSearch.Client
 			// with a type-level [JsonFormatter(typeof(SortOrderFormatter<T>))].
 			_options.Converters.Add(new SortOrderConverter<TermsOrder>());
 			_options.Converters.Add(new SortOrderConverter<HistogramOrder>());
+
+			// Registered LAST so all the specific dictionary converters above win: only claims dictionary types STJ's
+			// built-in support cannot handle (object keys, read-only / ctor-injected implementations).
+			// Resolve the inferrer lazily: DefaultFieldNameInferrer is assigned after this serializer is constructed.
+			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.GenericDictionaryConverterFactory(
+				key => (settings.DefaultFieldNameInferrer ?? (p => p))(key)));
 		}
 
 		// An empty/absent response stream must deserialize to default (the legacy Utf8Json engine returned null for
