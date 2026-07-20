@@ -51,6 +51,11 @@ namespace OpenSearch.Client
 				// indices_boost: serializes as an array of single-key objects [{index:boost}] and reads both the array
 				// and object forms. Settings-aware (resolves index names through the Inferrer).
 				{ typeof(IndicesBoostFormatter), (_, settings) => new IndicesBoostConverter(settings) },
+
+				// A member marked [JsonFormatter(typeof(IndicesFormatter))] (e.g. alias add/remove "indices") always
+				// serializes as an ARRAY, overriding the IndicesMultiSyntax type-level default (which renders a single
+				// index as a bare string).
+				{ typeof(IndicesFormatter), (_, settings) => new IndicesConverter(settings) },
 			};
 
 		/// <summary>
