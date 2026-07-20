@@ -39,18 +39,22 @@ namespace OpenSearch.Client
 	/// Serializes an <see cref="IIsADictionary{TKey,TValue}"/> as a JSON object writing the keys "verbatim"
 	/// and deserializes a JSON object back into the concrete <typeparamref name="TDictionary"/> implementation.
 	///
-	/// NOTE: The legacy formatter resolved keys of type <c>Field</c>, <c>PropertyName</c>, <c>IndexName</c> and
-	/// <c>RelationName</c> through the connection-settings <c>Inferrer</c>. In the System.Text.Json engine that
-	/// runtime configuration is not threaded through <see cref="JsonSerializerOptions"/> to converters, so this
-	/// converter reproduces the settings-independent behaviour of the base formatter: <c>string</c> keys are
-	/// written as-is and every other key type falls back to <see cref="Convert.ToString(object,IFormatProvider)"/>
-	/// with <see cref="CultureInfo.InvariantCulture"/> (identical to the base formatter's <c>settings == null</c>
-	/// branch). Wiring the inferrer through options is deferred to the full migration.
+	/// Keys of type <c>Field</c>, <c>PropertyName</c>, <c>IndexName</c> and <c>RelationName</c> are resolved through
+	/// the connection-settings <c>Inferrer</c> (matching the legacy formatter); a <c>string</c> key is written as-is,
+	/// and when no settings are available (or for any other key type) the converter falls back to
+	/// <see cref="Convert.ToString(object,IFormatProvider)"/> with <see cref="CultureInfo.InvariantCulture"/> —
+	/// identical to the base formatter's <c>settings == null</c> branch.
 	/// </summary>
 	internal class VerbatimDictionaryKeysConverter<TDictionary, TInterface, TKey, TValue> : JsonConverter<TInterface>
 		where TDictionary : TInterface, IIsADictionary<TKey, TValue>
 		where TInterface : IIsADictionary<TKey, TValue>
 	{
+		private readonly IConnectionSettingsValues _settings;
+
+		public VerbatimDictionaryKeysConverter() { }
+
+		public VerbatimDictionaryKeysConverter(IConnectionSettingsValues settings) => _settings = settings;
+
 		/// <summary>When <c>false</c>, entries with a <c>null</c> value are still written (matches the PreservingNull formatter).</summary>
 		protected virtual bool SkipNullValues => true;
 
@@ -111,10 +115,32 @@ namespace OpenSearch.Client
 			writer.WriteEndObject();
 		}
 
-		private static string KeyToString(TKey key)
+		private string KeyToString(TKey key)
 		{
 			if (typeof(TKey) == typeof(string))
 				return key?.ToString();
+
+			// Resolve inferred key types through the runtime Inferrer, matching the legacy formatter. For PropertyName
+			// keys mapped to an ignored property, the legacy formatter skipped the entry; that filtering is handled by
+			// returning null here (the caller skips null keys).
+			if (_settings != null)
+			{
+				switch (key)
+				{
+					case Field field:
+						return _settings.Inferrer.Field(field);
+					case PropertyName propertyName:
+						if (propertyName.Property != null
+							&& _settings.PropertyMappings.TryGetValue(propertyName.Property, out var mapping)
+							&& mapping.Ignore)
+							return null;
+						return _settings.Inferrer.PropertyName(propertyName);
+					case IndexName indexName:
+						return _settings.Inferrer.IndexName(indexName);
+					case RelationName relationName:
+						return _settings.Inferrer.RelationName(relationName);
+				}
+			}
 
 			return Convert.ToString(key, CultureInfo.InvariantCulture);
 		}
@@ -123,6 +149,17 @@ namespace OpenSearch.Client
 		{
 			if (typeof(TKey) == typeof(string))
 				return (TKey)(object)key;
+
+			// The inferred key types wrap a string but are NOT IConvertible, so Convert.ChangeType throws. Use their
+			// implicit string conversions (the legacy formatter relied on the same implicit conversions on read).
+			if (typeof(TKey) == typeof(Field))
+				return (TKey)(object)(Field)key;
+			if (typeof(TKey) == typeof(PropertyName))
+				return (TKey)(object)(PropertyName)key;
+			if (typeof(TKey) == typeof(IndexName))
+				return (TKey)(object)(IndexName)key;
+			if (typeof(TKey) == typeof(RelationName))
+				return (TKey)(object)(RelationName)key;
 
 			return (TKey)Convert.ChangeType(key, typeof(TKey), CultureInfo.InvariantCulture);
 		}
@@ -138,6 +175,10 @@ namespace OpenSearch.Client
 		where TDictionary : TInterface, IIsADictionary<TKey, TValue>
 		where TInterface : IIsADictionary<TKey, TValue>
 	{
+		public VerbatimDictionaryKeysPreservingNullConverter() { }
+
+		public VerbatimDictionaryKeysPreservingNullConverter(IConnectionSettingsValues settings) : base(settings) { }
+
 		protected override bool SkipNullValues => false;
 	}
 }

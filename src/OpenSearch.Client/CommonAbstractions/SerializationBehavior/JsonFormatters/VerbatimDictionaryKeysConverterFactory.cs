@@ -32,6 +32,12 @@ namespace OpenSearch.Client
 	/// </summary>
 	internal class VerbatimDictionaryKeysConverterFactory : JsonConverterFactory
 	{
+		private readonly IConnectionSettingsValues _settings;
+
+		public VerbatimDictionaryKeysConverterFactory() { }
+
+		public VerbatimDictionaryKeysConverterFactory(IConnectionSettingsValues settings) => _settings = settings;
+
 		public override bool CanConvert(Type typeToConvert) => TryGetFormatterArgs(typeToConvert, out _);
 
 		public override JsonConverter CreateConverter(Type typeToConvert, JsonSerializerOptions options)
@@ -39,9 +45,10 @@ namespace OpenSearch.Client
 			if (!TryGetFormatterArgs(typeToConvert, out var args))
 				return null;
 
-			// args = [TDictionary, TInterface, TKey, TValue]; the STJ converter takes the same order.
+			// args = [TDictionary, TInterface, TKey, TValue]; the STJ converter takes the same order. Pass the runtime
+			// settings so inferred key types (Field/PropertyName/IndexName/RelationName) resolve through the Inferrer.
 			var converterType = typeof(VerbatimDictionaryKeysConverter<,,,>).MakeGenericType(args);
-			return (JsonConverter)Activator.CreateInstance(converterType);
+			return (JsonConverter)Activator.CreateInstance(converterType, _settings);
 		}
 
 		// Only handle a type whose legacy [JsonFormatter] points at the four-argument, interface-bound

@@ -196,7 +196,7 @@ namespace OpenSearch.Client
 			// VerbatimDictionaryKeysConverter<TDictionary,TInterface,TKey,TValue> per interface from the legacy
 			// [JsonFormatter] mapping. Without it, STJ's default dictionary handling cannot instantiate the abstract
 			// interface and throws NotSupportedException.
-			_options.Converters.Add(new VerbatimDictionaryKeysConverterFactory());
+			_options.Converters.Add(new VerbatimDictionaryKeysConverterFactory(settings));
 			// Union<TFirst,TSecond>: type-level default in the legacy engine. Registered after the specific converters
 			// (e.g. DistanceFeature handles its own Union<GeoCoordinate,DateMath>), so those win; every other closed
 			// Union type falls through to this factory. Without it STJ cannot (de)serialize the concrete Union type.
