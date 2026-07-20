@@ -185,7 +185,7 @@ namespace OpenSearch.Client
 			writer.WriteEndObject();
 		}
 
-		private static void WriteTerms(Utf8JsonWriter writer, IEnumerable<object> terms, JsonSerializerOptions options)
+		private void WriteTerms(Utf8JsonWriter writer, IEnumerable<object> terms, JsonSerializerOptions options)
 		{
 			writer.WriteStartArray();
 			foreach (var term in terms)
@@ -193,7 +193,7 @@ namespace OpenSearch.Client
 			writer.WriteEndArray();
 		}
 
-		private static void WriteTermValue(Utf8JsonWriter writer, object term, JsonSerializerOptions options)
+		private void WriteTermValue(Utf8JsonWriter writer, object term, JsonSerializerOptions options)
 		{
 			switch (term)
 			{
@@ -219,8 +219,14 @@ namespace OpenSearch.Client
 					e.WriteTo(writer);
 					break;
 				default:
-					// Boxed value of some other runtime type; let STJ serialize by its concrete type.
-					JsonSerializer.Serialize(writer, term, term.GetType(), options);
+					// A boxed value of some other runtime type. Mirror the legacy SourceWriteFormatter: an
+					// OpenSearch.Client type is written through the request options (its registered converters apply),
+					// while any other value (e.g. a user enum) goes through the configured SourceSerializer so a custom
+					// source serializer governs it.
+					if (term.GetType().IsOpenSearchClientType())
+						JsonSerializer.Serialize(writer, term, term.GetType(), options);
+					else
+						ProxyRequestDocumentWriter.Write(writer, term, Settings, options);
 					break;
 			}
 		}
