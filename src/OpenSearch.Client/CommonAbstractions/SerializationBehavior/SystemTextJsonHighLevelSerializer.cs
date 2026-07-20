@@ -219,6 +219,11 @@ namespace OpenSearch.Client
 			_options.Converters.Add(new UpdateIndexSettingsConverter());
 			_options.Converters.Add(new FieldCapabilitiesFieldsConverter(settings));
 			_options.Converters.Add(new IndicesStatsDictionaryConverter(settings));
+			// ISortOrder (TermsOrder / HistogramOrder) serialize as a single-property object { "<key>": "<order>" }.
+			// The converter exists but is an open generic; register the two closed types the legacy engine annotated
+			// with a type-level [JsonFormatter(typeof(SortOrderFormatter<T>))].
+			_options.Converters.Add(new SortOrderConverter<TermsOrder>());
+			_options.Converters.Add(new SortOrderConverter<HistogramOrder>());
 		}
 
 		// An empty/absent response stream must deserialize to default (the legacy Utf8Json engine returned null for
