@@ -56,6 +56,16 @@ namespace OpenSearch.Client
 						property.CustomConverter = memberConverter;
 				}
 
+				// Honour the legacy ShouldSerialize{Member}() convention (used by e.g. IBoolQuery to omit empty
+				// must/should/must_not/filter arrays and by Routing/QueryContainer). System.Text.Json does not call
+				// these methods, so wire them into JsonPropertyInfo.ShouldSerialize.
+				if (member != null && property.ShouldSerialize == null)
+				{
+					var predicate = FindShouldSerialize(member);
+					if (predicate != null)
+						property.ShouldSerialize = predicate;
+				}
+
 				// Per-member runtime property mapping (explicit name / ignore) takes precedence.
 				if (member != null && _settings.PropertyMappings.TryGetValue(member, out var mapping))
 				{
@@ -88,6 +98,38 @@ namespace OpenSearch.Client
 
 		// True when the member (or a matching interface property) carries a [DataMember(Name=...)] with a non-empty
 		// Name — that explicit wire name is authoritative and must not be overwritten by the field-name inferrer.
+		// Locates a bool ShouldSerialize{Member}() method (public on the declaring type, or an explicit-interface
+		// implementation on an implemented interface) and returns a predicate that invokes it, or null if none.
+		// Mirrors the JSON.NET/Utf8Json ShouldSerialize convention the legacy engine honoured.
+		private static Func<object, object, bool> FindShouldSerialize(MemberInfo member)
+		{
+			if (!(member is PropertyInfo) || member.DeclaringType == null)
+				return null;
+
+			var methodName = "ShouldSerialize" + member.Name;
+
+			var method = member.DeclaringType.GetMethod(methodName,
+				BindingFlags.Public | BindingFlags.Instance, null, Type.EmptyTypes, null);
+
+			if (method == null)
+			{
+				foreach (var i in member.DeclaringType.GetInterfaces())
+				{
+					var m = i.GetMethod(methodName, BindingFlags.Public | BindingFlags.Instance, null, Type.EmptyTypes, null);
+					if (m != null)
+					{
+						method = m;
+						break;
+					}
+				}
+			}
+
+			if (method == null || method.ReturnType != typeof(bool))
+				return null;
+
+			return (obj, _) => obj != null && (bool)method.Invoke(obj, null);
+		}
+
 		private static bool HasExplicitDataMemberName(MemberInfo member)
 		{
 			if (member == null)
