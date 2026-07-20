@@ -234,7 +234,7 @@ namespace OpenSearch.Client
 			if (value.Weight.HasValue)
 			{
 				writer.WritePropertyName("weight");
-				writer.WriteNumberValue(value.Weight.Value);
+				OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, value.Weight.Value);
 			}
 
 			writer.WriteEndObject();
@@ -298,7 +298,7 @@ namespace OpenSearch.Client
 			if (value.Factor.HasValue)
 			{
 				writer.WritePropertyName("factor");
-				writer.WriteNumberValue(value.Factor.Value);
+				OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, value.Factor.Value);
 			}
 
 			if (value.Modifier.HasValue)
@@ -310,7 +310,7 @@ namespace OpenSearch.Client
 			if (value.Missing.HasValue)
 			{
 				writer.WritePropertyName("missing");
-				writer.WriteNumberValue(value.Missing.Value);
+				OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, value.Missing.Value);
 			}
 
 			writer.WriteEndObject();
@@ -342,7 +342,7 @@ namespace OpenSearch.Client
 			if (decay.Decay.HasValue)
 			{
 				writer.WritePropertyName("decay");
-				writer.WriteNumberValue(decay.Decay.Value);
+				OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, decay.Decay.Value);
 			}
 
 			writer.WriteEndObject();
@@ -361,19 +361,19 @@ namespace OpenSearch.Client
 			if (value.Origin.HasValue)
 			{
 				writer.WritePropertyName("origin");
-				writer.WriteNumberValue(value.Origin.Value);
+				OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, value.Origin.Value);
 			}
 
 			if (value.Scale.HasValue)
 			{
 				writer.WritePropertyName("scale");
-				writer.WriteNumberValue(value.Scale.Value);
+				OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, value.Scale.Value);
 			}
 
 			if (value.Offset != null)
 			{
 				writer.WritePropertyName("offset");
-				writer.WriteNumberValue(value.Offset.Value);
+				OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, value.Offset.Value);
 			}
 		}
 

@@ -135,7 +135,7 @@ namespace Tests.OpenSearch.Client.Serialization
 		{
 			IScoreFunction fn = new WeightFunction { Weight = 2.0 };
 			var json = Serialize(fn);
-			json.Should().Be(@"{""weight"":2}");
+			json.Should().Be(@"{""weight"":2.0}");
 		}
 
 		// --- Dispatch: numeric decay (gauss/linear/exp) ---
@@ -160,7 +160,7 @@ namespace Tests.OpenSearch.Client.Serialization
 				Field = "age", Origin = 0, Scale = 10, Offset = 2, Decay = 0.33, MultiValueMode = MultiValueMode.Average
 			};
 			var json = Serialize(fn);
-			json.Should().Be(@"{""linear"":{""age"":{""origin"":0,""scale"":10,""offset"":2,""decay"":0.33},""multi_value_mode"":""avg""}}");
+			json.Should().Be(@"{""linear"":{""age"":{""origin"":0.0,""scale"":10.0,""offset"":2.0,""decay"":0.33},""multi_value_mode"":""avg""}}");
 		}
 
 		[U] public void Deserialize_ExpNumericDecay()
@@ -208,7 +208,7 @@ namespace Tests.OpenSearch.Client.Serialization
 		{
 			IScoreFunction fn = new FieldValueFactorFunction { Field = "popularity", Weight = 3.0 };
 			var json = Serialize(fn);
-			json.Should().Be(@"{""field_value_factor"":{""field"":""popularity""},""weight"":3}");
+			json.Should().Be(@"{""field_value_factor"":{""field"":""popularity""},""weight"":3.0}");
 		}
 
 		// --- null ---
