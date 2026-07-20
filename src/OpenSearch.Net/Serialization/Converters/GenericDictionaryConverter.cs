@@ -42,8 +42,21 @@ namespace OpenSearch.Net.Serialization.Converters
 			if (typeToConvert == typeof(string) || typeToConvert.IsPrimitive)
 				return false;
 
-			return TryGetKeyValueTypes(typeToConvert, out var key, out _)
-				&& (key == typeof(object) || IsReadOnlyDictionaryType(typeToConvert));
+			if (!TryGetKeyValueTypes(typeToConvert, out var key, out _))
+				return false;
+
+			// object keys are STJ's own gap (it rejects them). Otherwise only claim types STJ cannot instantiate:
+			// a CONCRETE read-only / ctor-injected dictionary (e.g. ReadOnlyDictionary<,>) or a read-only INTERFACE
+			// keyed by string/object (e.g. IReadOnlyDictionary<string,object>). Do NOT claim interfaces keyed by an
+			// inferred type (Field/IndexName/…) — those are handled by their own settings-aware converters, and this
+			// converter would emit the key's raw ToString() instead of the inferred name.
+			if (key == typeof(object))
+				return true;
+			if (!IsReadOnlyDictionaryType(typeToConvert))
+				return false;
+			if (typeToConvert.IsInterface || typeToConvert.IsAbstract)
+				return key == typeof(string) || key == typeof(object);
+			return true;
 		}
 
 		public override JsonConverter CreateConverter(Type typeToConvert, JsonSerializerOptions options)
@@ -62,7 +75,10 @@ namespace OpenSearch.Net.Serialization.Converters
 		internal static bool TryGetKeyValueTypes(Type type, out Type key, out Type value)
 		{
 			key = value = null;
-			foreach (var i in type.GetInterfaces())
+			// Include the type itself: GetInterfaces() does not list `type` when it is itself IDictionary<,>/
+			// IReadOnlyDictionary<,> (e.g. a member declared as the interface).
+			var candidates = type.IsInterface ? new[] { type }.Concat(type.GetInterfaces()) : type.GetInterfaces();
+			foreach (var i in candidates)
 			{
 				if (!i.IsGenericType)
 					continue;
@@ -134,11 +150,52 @@ namespace OpenSearch.Net.Serialization.Converters
 
 				var keyString = reader.GetString();
 				reader.Read();
-				var value = JsonSerializer.Deserialize<TValue>(ref reader, options);
+				// For object-typed values, produce native CLR primitives (string/long/double/bool/nested) rather than
+				// JsonElement, matching the legacy PrimitiveObjectFormatter so round-tripped values compare equal.
+				var value = typeof(TValue) == typeof(object)
+					? (TValue)ReadPrimitiveObject(ref reader)
+					: JsonSerializer.Deserialize<TValue>(ref reader, options);
 				intermediate[ConvertKey(keyString)] = value;
 			}
 
 			return Construct(intermediate);
+		}
+
+		// Reads a JSON value into native CLR primitives (mirrors the legacy Utf8Json PrimitiveObjectFormatter):
+		// integral number -> long, fractional -> double, string, bool, object -> Dictionary<string,object>,
+		// array -> List<object>, null -> null. Avoids JsonElement leaking for object-typed dictionary values.
+		private static object ReadPrimitiveObject(ref Utf8JsonReader reader)
+		{
+			switch (reader.TokenType)
+			{
+				case JsonTokenType.String:
+					return reader.GetString();
+				case JsonTokenType.Number:
+					return reader.TryGetInt64(out var l) ? l : (object)reader.GetDouble();
+				case JsonTokenType.True:
+					return true;
+				case JsonTokenType.False:
+					return false;
+				case JsonTokenType.Null:
+					return null;
+				case JsonTokenType.StartObject:
+					var dict = new Dictionary<string, object>();
+					while (reader.Read() && reader.TokenType != JsonTokenType.EndObject)
+					{
+						var name = reader.GetString();
+						reader.Read();
+						dict[name] = ReadPrimitiveObject(ref reader);
+					}
+					return dict;
+				case JsonTokenType.StartArray:
+					var list = new List<object>();
+					while (reader.Read() && reader.TokenType != JsonTokenType.EndArray)
+						list.Add(ReadPrimitiveObject(ref reader));
+					return list;
+				default:
+					reader.Skip();
+					return null;
+			}
 		}
 
 		private static TKey ConvertKey(string key)
