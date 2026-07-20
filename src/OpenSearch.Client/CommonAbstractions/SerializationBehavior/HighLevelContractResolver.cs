@@ -43,6 +43,19 @@ namespace OpenSearch.Client
 			{
 				var member = property.AttributeProvider as MemberInfo;
 
+				// Member-level [JsonFormatter(typeof(XxxFormatter))]: reproduce the legacy engine's per-member
+				// formatter override by binding the migrated converter to this property. Only member-specific
+				// formatters that are NOT registered as a global type-level default belong here (a global
+				// registration already covers the type). This runs independently of the name logic below (a member
+				// can have both a converter and an inferred/explicit name), so it is applied first and does not
+				// short-circuit the naming branches.
+				if (member != null && property.CustomConverter == null)
+				{
+					var memberConverter = MemberFormatterConverters.TryCreate(member, _settings);
+					if (memberConverter != null)
+						property.CustomConverter = memberConverter;
+				}
+
 				// Per-member runtime property mapping (explicit name / ignore) takes precedence.
 				if (member != null && _settings.PropertyMappings.TryGetValue(member, out var mapping))
 				{
