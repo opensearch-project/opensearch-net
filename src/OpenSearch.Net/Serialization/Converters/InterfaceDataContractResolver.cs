@@ -171,7 +171,11 @@ namespace OpenSearch.Net.Serialization.Converters
 		{
 			var addedNames = new HashSet<string>();
 
-			foreach (var i in interfaces)
+			// Emit most-derived interfaces first so a sub-interface's members precede its base's (e.g.
+			// ICompletionSuggester.Fuzzy before ISuggester.Field/Size), matching the legacy MetaType's declared-first
+			// ordering. GetInterfaces() returns the flattened set in an unspecified order; ordering by the number of
+			// inherited interfaces (descending) puts derived interfaces ahead of the interfaces they extend.
+			foreach (var i in interfaces.OrderByDescending(x => x.GetInterfaces().Length))
 			{
 				foreach (var interfaceProp in i.GetProperties(BindingFlags.Public | BindingFlags.Instance))
 				{
