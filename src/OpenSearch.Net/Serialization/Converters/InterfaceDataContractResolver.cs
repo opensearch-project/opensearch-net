@@ -109,11 +109,15 @@ namespace OpenSearch.Net.Serialization.Converters
 			// Fluent descriptor types (e.g. SearchDescriptor<T>, CreateIndexDescriptor) implement their data-contract
 			// interfaces via EXPLICIT interface implementations. System.Text.Json never surfaces explicit-interface
 			// members as properties, so without this every such type serialized to `{}`. The legacy Utf8Json engine
-			// drove serialization off the interface [DataMember]s, so for data-contract types we synthesize a
-			// JsonPropertyInfo for each interface [DataMember] not already represented by a surfaced property, reading
-			// and writing it through the interface's own accessors (which dispatch to the explicit implementation).
-			if (isDataContract)
-				AddInterfaceDataMembers(typeInfo, interfaces, surfacedClrNames);
+			// discovered these interface [DataMember]s UNCONDITIONALLY (its MetaType walked the interface map
+			// regardless of the data-contract marker — the marker only gated the allow-list drop above), so we do the
+			// same and synthesize a JsonPropertyInfo for each interface [DataMember] not already represented by a
+			// surfaced property, reading/writing through the interface's own accessors. Doing this for all object
+			// types (not just [InterfaceDataContract] ones) fixes the many analysis/query/scroll interfaces that carry
+			// [DataMember]s but were never marked as data contracts (their fluent descriptors otherwise serialized to
+			// `{}`). It is safe because AddInterfaceDataMembers only adds members that carry [DataMember] and are not
+			// already surfaced.
+			AddInterfaceDataMembers(typeInfo, interfaces, surfacedClrNames);
 
 			return typeInfo;
 		}
