@@ -40,7 +40,7 @@ namespace Tests.OpenSearch.Client.Serialization
 				Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
 				TypeInfoResolver = new HighLevelContractResolver(settings)
 			};
-			options.Converters.Add(new CreateRequestConverterFactory());
+			options.Converters.Add(new CreateRequestConverterFactory(settings));
 			return options;
 		}
 
@@ -94,7 +94,8 @@ namespace Tests.OpenSearch.Client.Serialization
 
 		[U] public void Factory_ConstructsClosedConverterBoundToDocumentType()
 		{
-			var factory = new CreateRequestConverterFactory();
+			var settings = new ConnectionSettings();
+			var factory = new CreateRequestConverterFactory(settings);
 
 			factory.CanConvert(typeof(ICreateRequest<Doc>)).Should().BeTrue();
 
@@ -104,7 +105,8 @@ namespace Tests.OpenSearch.Client.Serialization
 
 		[U] public void Factory_DoesNotConvertUnrelatedType()
 		{
-			var factory = new CreateRequestConverterFactory();
+			var settings = new ConnectionSettings();
+			var factory = new CreateRequestConverterFactory(settings);
 			factory.CanConvert(typeof(Doc)).Should().BeFalse();
 			factory.CanConvert(typeof(IIndexRequest<Doc>)).Should().BeFalse();
 		}

@@ -49,6 +49,10 @@ namespace OpenSearch.Client
 	internal class IndexRequestConverter<TDocument> : JsonConverter<IIndexRequest<TDocument>>
 		where TDocument : class
 	{
+		private readonly IConnectionSettingsValues _settings;
+
+		public IndexRequestConverter(IConnectionSettingsValues settings) => _settings = settings;
+
 		public override IIndexRequest<TDocument> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
 		{
 			// The legacy ProxyRequestFormatterBase.Deserialize read the whole body as the document and rebuilt the
@@ -69,9 +73,9 @@ namespace OpenSearch.Client
 				return;
 			}
 
-			// The body IS the document. Serialize with the compile-time TDocument (the legacy source serializer used
-			// the static document type), which the options' resolver renders with field-name inference and mappings.
-			JsonSerializer.Serialize(writer, value.Document, options);
+			// The body IS the document. It must be written through the connection's SourceSerializer (as the legacy
+			// IProxyRequest.WriteJson did) so a user-supplied source serializer governs the document shape.
+			ProxyRequestDocumentWriter.Write(writer, value.Document, _settings, options);
 		}
 	}
 
@@ -88,6 +92,10 @@ namespace OpenSearch.Client
 	/// </summary>
 	internal class IndexRequestConverterFactory : JsonConverterFactory
 	{
+		private readonly IConnectionSettingsValues _settings;
+
+		public IndexRequestConverterFactory(IConnectionSettingsValues settings) => _settings = settings;
+
 		public override bool CanConvert(Type typeToConvert) => IsIndexRequestProxy(typeToConvert);
 
 		public override JsonConverter CreateConverter(Type typeToConvert, JsonSerializerOptions options)
@@ -97,7 +105,7 @@ namespace OpenSearch.Client
 
 			var document = typeToConvert.GetGenericArguments()[0];
 			var converterType = typeof(IndexRequestConverter<>).MakeGenericType(document);
-			return (JsonConverter)Activator.CreateInstance(converterType);
+			return (JsonConverter)Activator.CreateInstance(converterType, _settings);
 		}
 
 		// Only handle a closed generic interface whose legacy [JsonFormatter] points at the open IndexRequestFormatter<>.

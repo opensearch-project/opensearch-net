@@ -49,6 +49,10 @@ namespace OpenSearch.Client
 	internal class CreateRequestConverter<TDocument> : JsonConverter<ICreateRequest<TDocument>>
 		where TDocument : class
 	{
+		private readonly IConnectionSettingsValues _settings;
+
+		public CreateRequestConverter(IConnectionSettingsValues settings) => _settings = settings;
+
 		public override ICreateRequest<TDocument> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
 		{
 			// The legacy ProxyRequestFormatterBase.Deserialize read the whole body as the document and rebuilt the
@@ -70,9 +74,9 @@ namespace OpenSearch.Client
 				return;
 			}
 
-			// The body IS the document. Serialize with the compile-time TDocument (the legacy source serializer used
-			// the static document type), which the options' resolver renders with field-name inference and mappings.
-			JsonSerializer.Serialize(writer, value.Document, options);
+			// The body IS the document. Write through the connection's SourceSerializer (as the legacy
+			// IProxyRequest.WriteJson did) so a user-supplied source serializer governs the document shape.
+			ProxyRequestDocumentWriter.Write(writer, value.Document, _settings, options);
 		}
 	}
 
@@ -88,6 +92,10 @@ namespace OpenSearch.Client
 	/// </summary>
 	internal class CreateRequestConverterFactory : JsonConverterFactory
 	{
+		private readonly IConnectionSettingsValues _settings;
+
+		public CreateRequestConverterFactory(IConnectionSettingsValues settings) => _settings = settings;
+
 		public override bool CanConvert(Type typeToConvert) => IsCreateRequestProxy(typeToConvert);
 
 		public override JsonConverter CreateConverter(Type typeToConvert, JsonSerializerOptions options)
@@ -97,7 +105,7 @@ namespace OpenSearch.Client
 
 			var document = typeToConvert.GetGenericArguments()[0];
 			var converterType = typeof(CreateRequestConverter<>).MakeGenericType(document);
-			return (JsonConverter)Activator.CreateInstance(converterType);
+			return (JsonConverter)Activator.CreateInstance(converterType, _settings);
 		}
 
 		// Only handle a closed generic interface whose legacy [JsonFormatter] points at the open CreateRequestFormatter<>.

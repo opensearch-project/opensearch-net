@@ -192,8 +192,8 @@ namespace OpenSearch.Client
 			// Batch 13: open-generic factories (proxy requests + response dictionaries + suggest dictionary) and the
 			// per-field-analyzer dictionary. Proxy index/create requests go through the global serializer (verified via
 			// the PostData.Serializable wire path), so global factory registration is correct here.
-			_options.Converters.Add(new IndexRequestConverterFactory());
-			_options.Converters.Add(new CreateRequestConverterFactory());
+			_options.Converters.Add(new IndexRequestConverterFactory(settings));
+			_options.Converters.Add(new CreateRequestConverterFactory(settings));
 			_options.Converters.Add(new SuggestDictionaryConverterFactory());
 			_options.Converters.Add(new DictionaryResponseConverterFactory(settings));
 			_options.Converters.Add(new PerFieldAnalyzerConverter(settings));
