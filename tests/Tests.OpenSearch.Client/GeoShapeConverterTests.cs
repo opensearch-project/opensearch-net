@@ -132,21 +132,21 @@ namespace Tests.OpenSearch.Client.Serialization
 		{
 			IGeoShape shape = new PointGeoShape(new GeoCoordinate(20.0, 10.0));
 			var json = JsonSerializer.Serialize(shape, Options());
-			json.Should().Be(@"{""type"":""point"",""coordinates"":[10,20]}");
+			json.Should().Be(@"{""type"":""point"",""coordinates"":[10.0,20.0]}");
 		}
 
 		[U] public void Serialize_Circle()
 		{
 			IGeoShape shape = new CircleGeoShape(new GeoCoordinate(20.0, 10.0), "100m");
 			var json = JsonSerializer.Serialize(shape, Options());
-			json.Should().Be(@"{""type"":""circle"",""coordinates"":[10,20],""radius"":""100m""}");
+			json.Should().Be(@"{""type"":""circle"",""coordinates"":[10.0,20.0],""radius"":""100m""}");
 		}
 
 		[U] public void Serialize_Envelope()
 		{
 			IGeoShape shape = new EnvelopeGeoShape(new[] { new GeoCoordinate(20.0, 10.0), new GeoCoordinate(5.0, 30.0) });
 			var json = JsonSerializer.Serialize(shape, Options());
-			json.Should().Be(@"{""type"":""envelope"",""coordinates"":[[10,20],[30,5]]}");
+			json.Should().Be(@"{""type"":""envelope"",""coordinates"":[[10.0,20.0],[30.0,5.0]]}");
 		}
 
 		[U] public void Serialize_Null_WritesNull()

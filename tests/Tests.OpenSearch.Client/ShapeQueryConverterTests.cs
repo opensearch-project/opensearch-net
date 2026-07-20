@@ -62,7 +62,7 @@ namespace Tests.OpenSearch.Client.Serialization
 			json.Should().Contain(@"""_name"":""n""")
 				.And.Contain(@"""boost"":1.1")
 				.And.Contain(@"""ignore_unmapped"":true")
-				.And.Contain(@"""location"":{""shape"":{""type"":""point"",""coordinates"":[10,20]}")
+				.And.Contain(@"""location"":{""shape"":{""type"":""point"",""coordinates"":[10.0,20.0]}")
 				.And.Contain(@"""relation"":""intersects""");
 		}
 

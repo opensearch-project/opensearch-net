@@ -95,9 +95,10 @@ namespace OpenSearch.Client
 				case GeoFormat.GeoJson:
 					writer.WriteStartObject();
 					writer.WritePropertyName("lat");
-					writer.WriteNumberValue(value.Latitude);
+					// Shared double formatter so integral lat/lon keep the legacy trailing ".0".
+					OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, value.Latitude);
 					writer.WritePropertyName("lon");
-					writer.WriteNumberValue(value.Longitude);
+					OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, value.Longitude);
 					writer.WriteEndObject();
 					break;
 				case GeoFormat.WellKnownText:

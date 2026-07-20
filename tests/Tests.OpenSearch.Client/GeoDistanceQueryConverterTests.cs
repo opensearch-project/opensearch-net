@@ -50,7 +50,7 @@ namespace Tests.OpenSearch.Client.Serialization
 
 			var json = JsonSerializer.Serialize(query, Options());
 
-			json.Should().Be(@"{""distance"":""200m"",""location"":{""lat"":34,""lon"":-34}}");
+			json.Should().Be(@"{""distance"":""200m"",""location"":{""lat"":34.0,""lon"":-34.0}}");
 		}
 
 		[U] public void Serialize_EmitsCommonOptionsAndEnums()
@@ -73,7 +73,7 @@ namespace Tests.OpenSearch.Client.Serialization
 				.And.Contain(@"""validation_method"":""ignore_malformed""")
 				.And.Contain(@"""distance"":""200m""")
 				.And.Contain(@"""distance_type"":""arc""")
-				.And.Contain(@"""location"":{""lat"":34,""lon"":-34}");
+				.And.Contain(@"""location"":{""lat"":34.0,""lon"":-34.0}");
 		}
 
 		[U] public void Deserialize_ReadsFieldAndLocation()

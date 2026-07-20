@@ -46,10 +46,11 @@ namespace OpenSearch.Client
 			}
 
 			writer.WriteStartArray();
-			writer.WriteNumberValue(value.Longitude);
-			writer.WriteNumberValue(value.Latitude);
+			// Write through the shared double formatter so integral coordinates keep the legacy trailing ".0".
+			OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, value.Longitude);
+			OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, value.Latitude);
 			if (value.Z.HasValue)
-				writer.WriteNumberValue(value.Z.Value);
+				OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, value.Z.Value);
 			writer.WriteEndArray();
 		}
 	}

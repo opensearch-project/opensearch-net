@@ -54,7 +54,7 @@ namespace Tests.OpenSearch.Client.Serialization
 			var json = JsonSerializer.Serialize(query, Options());
 
 			json.Should().Be(
-				@"{""location"":{""bottom_right"":{""lat"":-34,""lon"":34},""top_left"":{""lat"":34,""lon"":-34}}}");
+				@"{""location"":{""bottom_right"":{""lat"":-34.0,""lon"":34.0},""top_left"":{""lat"":34.0,""lon"":-34.0}}}");
 		}
 
 		[U] public void Serialize_EmitsCommonOptionsAndEnums()

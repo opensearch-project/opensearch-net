@@ -38,14 +38,14 @@ namespace Tests.OpenSearch.Client.Serialization
 		{
 			var json = JsonSerializer.Serialize(new GeoCoordinate(2.0, 1.0), CoordinateOptions());
 			// Written as [lon, lat]
-			json.Should().Be("[1,2]");
+			json.Should().Be("[1.0,2.0]");
 		}
 
 		[U] public void Coordinate_Write_ThreeDimensional()
 		{
 			var json = JsonSerializer.Serialize(new GeoCoordinate(2.0, 1.0, 3.0), CoordinateOptions());
 			// Written as [lon, lat, z]
-			json.Should().Be("[1,2,3]");
+			json.Should().Be("[1.0,2.0,3.0]");
 		}
 
 		[U] public void Coordinate_Write_Null()
@@ -103,7 +103,7 @@ namespace Tests.OpenSearch.Client.Serialization
 		{
 			var location = new GeoLocation(1.0, 2.0) { Format = GeoFormat.GeoJson };
 			var json = JsonSerializer.Serialize(location, LocationOptions());
-			json.Should().Be("{\"lat\":1,\"lon\":2}");
+			json.Should().Be("{\"lat\":1.0,\"lon\":2.0}");
 		}
 
 		[U] public void Location_Write_WellKnownText()

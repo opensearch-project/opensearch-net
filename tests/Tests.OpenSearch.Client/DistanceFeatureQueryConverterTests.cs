@@ -89,9 +89,9 @@ namespace Tests.OpenSearch.Client.Serialization
 				Origin = new GeoCoordinate(70, -70),
 				Pivot = new Distance(100, DistanceUnit.Miles)
 			};
-			// GeoCoordinate longitude/latitude are doubles; System.Text.Json renders whole-number doubles without a
-			// trailing ".0" (e.g. -70 not -70.0), which OpenSearch accepts identically.
-			Serialize(query).Should().Be(@"{""_name"":""name"",""boost"":1.1,""field"":""location"",""origin"":[-70,70],""pivot"":""100mi""}");
+			// GeoCoordinate longitude/latitude are doubles; whole-number doubles are rendered with a trailing ".0"
+			// (e.g. -70.0 not -70), matching the legacy Utf8Json engine. OpenSearch accepts both identically.
+			Serialize(query).Should().Be(@"{""_name"":""name"",""boost"":1.1,""field"":""location"",""origin"":[-70.0,70.0],""pivot"":""100mi""}");
 		}
 
 		// --- null ---

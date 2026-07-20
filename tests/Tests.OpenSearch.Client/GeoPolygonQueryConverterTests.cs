@@ -50,7 +50,7 @@ namespace Tests.OpenSearch.Client.Serialization
 			var json = JsonSerializer.Serialize(query, Options());
 
 			json.Should().Be(
-				@"{""location"":{""points"":[{""lat"":45,""lon"":-45},{""lat"":-34,""lon"":34}]}}");
+				@"{""location"":{""points"":[{""lat"":45.0,""lon"":-45.0},{""lat"":-34.0,""lon"":34.0}]}}");
 		}
 
 		[U] public void Serialize_EmitsCommonOptionsAndEnums()
@@ -69,7 +69,7 @@ namespace Tests.OpenSearch.Client.Serialization
 			json.Should().Contain(@"""_name"":""named_query""")
 				.And.Contain(@"""boost"":1.1")
 				.And.Contain(@"""validation_method"":""strict""")
-				.And.Contain(@"""location"":{""points"":[{""lat"":45,""lon"":-45}]}");
+				.And.Contain(@"""location"":{""points"":[{""lat"":45.0,""lon"":-45.0}]}");
 		}
 
 		[U] public void Deserialize_ReadsFieldAndPoints()
