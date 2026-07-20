@@ -115,7 +115,8 @@ namespace OpenSearch.Client
 		public override void Write(Utf8JsonWriter writer, double? value, JsonSerializerOptions options)
 		{
 			if (value.HasValue)
-				writer.WriteNumberValue(value.Value);
+				// Match the legacy formatter's WriteDouble (integral values keep a trailing ".0").
+				OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, value.Value);
 			else
 				writer.WriteNullValue();
 		}
