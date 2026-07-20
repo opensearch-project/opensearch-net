@@ -55,6 +55,17 @@ namespace OpenSearch.Client
 		/// </summary>
 		public static JsonConverter TryCreate(MemberInfo member, IConnectionSettingsValues settings)
 		{
+			// [StringTimeSpan] overrides the ticks-number type-level default with the string form. It is its own
+			// attribute (not a [JsonFormatter]); handle it explicitly, picking the (non-)nullable variant.
+			if (member.GetCustomAttribute<StringTimeSpanAttribute>(true) != null)
+			{
+				var t = (member as PropertyInfo)?.PropertyType ?? (member as FieldInfo)?.FieldType;
+				if (t == typeof(TimeSpan?))
+					return new NullableStringTimeSpanConverter();
+				if (t == typeof(TimeSpan))
+					return new StringTimeSpanConverter();
+			}
+
 			var formatterType = GetFormatterType(member);
 			if (formatterType == null)
 				return null;

@@ -61,6 +61,11 @@ namespace OpenSearch.Client
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.NullableIso8601DateTimeConverter());
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.Iso8601DateTimeOffsetConverter());
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.NullableIso8601DateTimeOffsetConverter());
+			// TimeSpan/TimeSpan? default to ticks (a JSON number) in the high-level engine (legacy InnerResolver
+			// registers TimeSpanTicksFormatter as the type-level default). Members marked [StringTimeSpan] override
+			// this with the string form via the member-formatter mapping.
+			_options.Converters.Add(new TimeSpanTicksConverter());
+			_options.Converters.Add(new NullableTimeSpanTicksConverter());
 
 			// Migrated high-level converters that are the *type-level* default for their target type — i.e. the
 			// legacy engine attached them via a type-level [JsonFormatter] on the type definition, so registering
