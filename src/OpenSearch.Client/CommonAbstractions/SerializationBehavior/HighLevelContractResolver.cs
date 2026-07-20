@@ -35,6 +35,20 @@ namespace OpenSearch.Client
 
 		public HighLevelContractResolver(IConnectionSettingsValues settings) => _settings = settings;
 
+		// Keep a non-[DataMember] member of a data-contract type when it carries an OSC serialization-directing
+		// attribute the base resolver cannot see — [PropertyName] / an OSC mapping attribute ([Text(Name=)], …) — so a
+		// user IProperty implementation's [PropertyName]-decorated members are not dropped (matching the legacy engine,
+		// which did not treat a class as a data-contract merely for implementing an [InterfaceDataContract] interface).
+		protected override bool KeepNonDataMember(MemberInfo member)
+		{
+			if (member == null)
+				return false;
+			if (OpenSearchPropertyAttributeBase.From(member) != null)
+				return true;
+			var mapping = _settings.PropertyMappingProvider?.CreatePropertyMapping(member);
+			return mapping != null && !string.IsNullOrEmpty(mapping.Name);
+		}
+
 		private OpenSearch.Net.Utf8Json.IJsonFormatterResolver FormatterResolver =>
 			_formatterResolver ?? (_formatterResolver = new OpenSearchClientFormatterResolver(_settings));
 

@@ -40,6 +40,13 @@ namespace OpenSearch.Net.Serialization.Converters
 	/// </summary>
 	public class InterfaceDataContractResolver : DefaultJsonTypeInfoResolver
 	{
+		/// <summary>
+		/// For a data-contract type, a member without a [DataMember] is normally dropped. A derived resolver can keep
+		/// it by returning true when the member carries another serialization-directing attribute the base resolver
+		/// cannot see (e.g. OpenSearch.Client's [PropertyName] on a user IProperty implementation).
+		/// </summary>
+		protected virtual bool KeepNonDataMember(MemberInfo member) => false;
+
 		public override JsonTypeInfo GetTypeInfo(Type type, System.Text.Json.JsonSerializerOptions options)
 		{
 			var typeInfo = base.GetTypeInfo(type, options);
@@ -84,10 +91,12 @@ namespace OpenSearch.Net.Serialization.Converters
 
 				var dataMember = GetDataMember(property, interfaceProp);
 
-				// Opt-in removal applies only to data-contract types: without a [DataMember] the member is dropped.
+				// Opt-in removal applies only to data-contract types: without a [DataMember] the member is dropped —
+				// unless a derived resolver says the member carries another serialization-directing attribute (e.g.
+				// a user IProperty implementation's [PropertyName], which is not a [DataMember] but must still emit).
 				if (dataMember == null)
 				{
-					if (isDataContract)
+					if (isDataContract && !KeepNonDataMember(property.AttributeProvider as MemberInfo))
 						typeInfo.Properties.Remove(property);
 					continue;
 				}
