@@ -94,12 +94,17 @@ namespace OpenSearch.Client
 				if (body == null)
 					continue;
 
-				// The per-op source/body delegates to the serializer over `options` so registered converters apply.
-				// (The legacy engine distinguished the update/lazy-document body — RequestResponseSerializer — from a
-				// plain source document — SourceWriteFormatter/SourceSerializer; under this System.Text.Json serializer
-				// both resolve to the same options, so a single delegation is faithful for the default configuration.)
+				// Per-op body. Mirror the legacy SourceWriteFormatter distinction: an OpenSearch.Client type (e.g. the
+				// update body wrapper) is written through the request options so its registered converters apply, while
+				// a plain user document goes through the configured SourceSerializer so a custom source serializer
+				// governs its shape.
 				using (var bw = new Utf8JsonWriter(ms, writerOptions))
-					JsonSerializer.Serialize(bw, body, body.GetType(), options);
+				{
+					if (body.GetType().IsOpenSearchClientType())
+						JsonSerializer.Serialize(bw, body, body.GetType(), options);
+					else
+						ProxyRequestDocumentWriter.Write(bw, body, Settings, options);
+				}
 				ms.WriteByte(Newline);
 			}
 
