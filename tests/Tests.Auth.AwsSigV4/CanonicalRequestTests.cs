@@ -128,6 +128,24 @@ host;x-amz-content-sha256;x-amz-date
 {EmptyBodySha256}");
 		}
 
+		[U] public async Task TestMultiValueHeader()
+		{
+			var request = new HttpRequestMessage(HttpMethod.Get, "https://s3.us-east-1.amazonaws.com/my-bucket");
+			request.Headers.Add("my-header1", "value1");
+			request.Headers.Add("my-header1", "value2");
+
+			await TestCanonicalRequest(request, @$"GET
+/my-bucket
+
+host:s3.us-east-1.amazonaws.com
+my-header1:value1,value2
+x-amz-content-sha256:{EmptyBodySha256}
+x-amz-date:20210511T154045Z
+
+host;my-header1;x-amz-content-sha256;x-amz-date
+{EmptyBodySha256}");
+		}
+
 		[U] public static async Task TestAllPrintableAsciiQueryParam()
 		{
 			var printableAscii = string.Concat(Enumerable.Range(32, 95).Select(c => (char)c));

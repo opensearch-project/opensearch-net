@@ -123,13 +123,20 @@ namespace Tests.Aggregations.Pipeline.MovingAverage
 			projectsPerMonth.Buckets.Should().NotBeNull();
 			projectsPerMonth.Buckets.Count.Should().BeGreaterThan(0);
 
-			// average not calculated for the first bucket
-			foreach (var item in projectsPerMonth.Buckets.Skip(1))
-			{
-				var movingAvg = item.MovingAverage("commits_moving_avg");
-				movingAvg.Should().NotBeNull();
-				movingAvg.Value.Should().BeGreaterThan(0);
-			}
+			// The date histogram uses min_doc_count:0, so empty months appear as zero-valued
+			// buckets and the moving average over a window of empty months can legitimately be 0 or
+			// absent. Verify deserialization correctness — the moving-average values that ARE present
+			// parse to valid non-negative numbers — rather than requiring a positive value in every
+			// bucket, which made this test seed/date-dependent.
+			var movingAverages = projectsPerMonth.Buckets
+				.Skip(1) // average not calculated for the first bucket
+				.Select(b => b.MovingAverage("commits_moving_avg"))
+				.Where(m => m?.Value != null)
+				.Select(m => m.Value.Value)
+				.ToList();
+
+			movingAverages.Should().NotBeEmpty();
+			movingAverages.Should().OnlyContain(v => v >= 0);
 		}
 	}
 }

@@ -7,11 +7,11 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Web;
 using Amazon.Runtime;
-using Amazon.Runtime.Internal.Auth;
 using Amazon.Util;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -57,9 +57,9 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 
 			var bodyBytes = await GetBodyBytes(request).ConfigureAwait(false);
 
-			var xAmzContentSha256 = AWSSDKUtils.ToHex(AWS4Signer.ComputeHash(bodyBytes), true);
+			var xAmzContentSha256 = AWSSDKUtils.ToHex(AwsSigV4Util.Sha256(bodyBytes), true);
 
-			var xAmzDate = AWS4Signer.FormatDateTime(signingTime, "yyyyMMddTHHmmssZ");
+			var xAmzDate = signingTime.ToUniversalTime().ToString(AwsSigV4Util.AmzDateFormat, CultureInfo.InvariantCulture);
 
 			var canonicalHeaders = new SortedDictionary<string, List<string>>();
 

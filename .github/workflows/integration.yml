@@ -75,8 +75,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { opensearch_ref: '1.x', java_version: '11' }
-          - { opensearch_ref: '2.x', java_version: '17' }
+          - { opensearch_ref: '1.3', java_version: '11' }
+          - { opensearch_ref: '2.19', java_version: '17' }
           - { opensearch_ref: 'main', java_version: '21' }
 
     steps:
@@ -114,7 +114,7 @@ jobs:
         uses: ./client/.github/actions/build-opensearch
         with:
           ref: ${{ matrix.opensearch_ref }}
-          security_plugin: ${{ matrix.opensearch_ref == '1.x' }}
+          security_plugin: ${{ matrix.opensearch_ref == '1.3' }}
           knn_plugin: true
           plugins_output_directory: ${{ env.OPENSEARCH_PLUGINS_DIRECTORY }}
 

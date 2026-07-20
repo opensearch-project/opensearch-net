@@ -3,17 +3,31 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 ### ⚠️ Breaking Changes ⚠️
+### Changed
+### Added
+### Removed
+### Fixed
+### Dependencies
+
+## [2.0.0]
+
+### ⚠️ Breaking Changes ⚠️
 - As part of [efforts to re-generate the client](https://github.com/opensearch-project/opensearch-net/pulls?q=is%3Apr+label%3Acode-gen+is%3Aclosed) from our [OpenAPI specification](https://github.com/opensearch-project/opensearch-api-specification) there have been numerous corrections and changes that resulted in breaking changes. Please refer to [UPGRADING.md](UPGRADING.md) for a complete list of these breakages and any relevant guidance for upgrading to this version of the client.
 
 ### Changed
 - Changed the namespace client properties on `IOpenSearchClient` to return corresponding interfaces to better enable mocking & unit testing ([#646](https://github.com/opensearch-project/opensearch-net/pull/646))
 - Changed `NeuralQuery`'s `ModelId` to be optional ([#917](https://github.com/opensearch-project/opensearch-net/pull/917))
+- Hardened `AwsSigV4HttpConnection` by computing the SigV4 signature against public crypto primitives (`System.Security.Cryptography`) and the public `AWSSDKUtils` helpers instead of the version-unstable internal `Amazon.Runtime.Internal.Auth.AWS4Signer` API. Produced signatures are unchanged — verified byte-for-byte against the existing known-answer tests and AWS's published SigV4 reference vector (for all `DateTimeKind`s, since the previous internal signer also normalized the signing time to UTC). ([#987](https://github.com/opensearch-project/opensearch-net/pull/987))
+- Changed unreleased integration test matrix to use specific branch versions `1.3` and `2.19` ([#984](https://github.com/opensearch-project/opensearch-net/pull/984))
+- Changed overrided docker image to major version instead of specific minor version in Jenkinsfile ([#991](https://github.com/opensearch-project/opensearch-net/pull/991))
 
 ### Added
 - Added conditions to the Microsoft.CSharp, System.Buffers & System.Diagnostics.DiagnosticSource dependencies so that they are not included on net 6+ as the newer framework's natively provides those dependencies. ([#930](https://github.com/opensearch-project/opensearch-net/pull/930))
 - Added support for Hybrid query ([#917](https://github.com/opensearch-project/opensearch-net/pull/917))
+- Added support for `combined_fields` query ([#956](https://github.com/opensearch-project/opensearch-net/issues/956))
 - Added support for `MaxDistance` and `MinScore` to `KnnQuery` ([#917](https://github.com/opensearch-project/opensearch-net/pull/917))
 - Added support for overriding the SigV4 signing host via the `Host` header, allowing requests to be dispatched to a different host/port than they are signed for (e.g. SSH local port forwarding or connecting directly to a tunnel), see [#978](https://github.com/opensearch-project/opensearch-net/issues/978)
+- Added 3.x support ([#974](https://github.com/opensearch-project/opensearch-net/pull/974))
 
 ### Removed
 - Removed support for the `net461` target ([#256](https://github.com/opensearch-project/opensearch-net/pull/256))
@@ -24,6 +38,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 - Fixed naming of `ClusterManagerTimeout` and `MasterTimeout` properties from `*TimeSpanout` in the low-level client ([#332](https://github.com/opensearch-project/opensearch-net/pull/332))
 - Fixed `StackOverflowException` when serializing a `KnnVectorProperty` returned from a custom `IPropertyVisitor` via `AutoMap` ([#963](https://github.com/opensearch-project/opensearch-net/pull/963))
+- Stabilized flaky pipeline-aggregation integration tests (moving average/function, derivative, serial differencing) that depended on the seeded date distribution filling every `date_histogram` bucket
 
 ### Dependencies
 - Bumps `System.Diagnostics.DiagnosticSource` from 6.0.1 to 8.0.1
