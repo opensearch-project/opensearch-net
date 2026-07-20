@@ -83,4 +83,22 @@ namespace OpenSearch.Client
 				writer.WriteNullValue();
 		}
 	}
+
+	/// <summary>
+	/// Concrete-typed counterpart to <see cref="FuzzinessConverter"/>. Members are declared as the concrete
+	/// <see cref="Fuzziness"/> type (e.g. IFuzzyStringQuery.Fuzziness), and System.Text.Json does not apply an
+	/// interface-keyed converter to a concrete-typed member, so without this the value serialized to {} and could
+	/// not be read. Delegates to the interface converter (the legacy engine had both a FuzzinessFormatter and a
+	/// FuzzinessInterfaceFormatter for the same reason).
+	/// </summary>
+	internal class FuzzinessConcreteConverter : JsonConverter<Fuzziness>
+	{
+		private static readonly FuzzinessConverter Inner = new FuzzinessConverter();
+
+		public override Fuzziness Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
+			Inner.Read(ref reader, typeToConvert, options) as Fuzziness;
+
+		public override void Write(Utf8JsonWriter writer, Fuzziness value, JsonSerializerOptions options) =>
+			Inner.Write(writer, value, options);
+	}
 }

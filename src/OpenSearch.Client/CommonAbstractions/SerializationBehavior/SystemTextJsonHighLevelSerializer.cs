@@ -95,6 +95,7 @@ namespace OpenSearch.Client
 
 			// Stateless converters whose target type is specific to the option they model.
 			_options.Converters.Add(new FuzzinessConverter());
+			_options.Converters.Add(new FuzzinessConcreteConverter());
 			_options.Converters.Add(new DistanceConverter());
 			_options.Converters.Add(new MinimumShouldMatchConverter());
 			_options.Converters.Add(new TimeConverter());
