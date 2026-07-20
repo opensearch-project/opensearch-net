@@ -66,18 +66,28 @@ namespace OpenSearch.Client
 						property.ShouldSerialize = predicate;
 				}
 
-				// Per-member runtime property mapping (explicit name / ignore) takes precedence.
-				if (member != null && _settings.PropertyMappings.TryGetValue(member, out var mapping))
+				// Wire name / ignore, reproducing the legacy OpenSearchClientFormatterResolver.GetMapping precedence:
+				//   fluent PropertyMappings  >  OSC mapping attribute ([Text(Name=)], ...)  >  property-mapping provider
+				//   ([PropertyName], [DataMember], or a custom IPropertyMappingProvider).
+				// The STJ resolver previously only consulted PropertyMappings + [DataMember], so [PropertyName], OSC
+				// attributes and custom providers were ignored and the member fell through to the camelCase inferrer.
+				if (member != null)
 				{
-					if (mapping.Ignore)
+					_settings.PropertyMappings.TryGetValue(member, out var fluentMapping);
+					var oscAttr = OpenSearchPropertyAttributeBase.From(member);
+					var providerMapping = _settings.PropertyMappingProvider?.CreatePropertyMapping(member);
+
+					var ignore = fluentMapping?.Ignore ?? oscAttr?.Ignore ?? providerMapping?.Ignore;
+					if (ignore == true)
 					{
 						property.ShouldSerialize = (_, __) => false;
 						continue;
 					}
 
-					if (!string.IsNullOrEmpty(mapping.Name))
+					var name = fluentMapping?.Name ?? oscAttr?.Name ?? providerMapping?.Name;
+					if (!string.IsNullOrEmpty(name))
 					{
-						property.Name = mapping.Name;
+						property.Name = name;
 						continue;
 					}
 				}
