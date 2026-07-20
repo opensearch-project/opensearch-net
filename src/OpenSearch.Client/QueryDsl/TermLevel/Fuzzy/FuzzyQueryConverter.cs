@@ -29,8 +29,10 @@ namespace OpenSearch.Client
 	/// parse the whole value into a <see cref="JsonDocument"/> and read the fields from the DOM in any order.
 	/// Serialization writes by runtime type.
 	/// </summary>
-	internal class FuzzyQueryConverter : JsonConverter<IFuzzyQuery>
+	internal class FuzzyQueryConverter : SettingsAwareConverter<IFuzzyQuery>
 	{
+		public FuzzyQueryConverter(IConnectionSettingsValues settings) : base(settings) { }
+
 		public override IFuzzyQuery Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
 		{
 			if (reader.TokenType == JsonTokenType.Null)
@@ -123,7 +125,28 @@ namespace OpenSearch.Client
 				return;
 			}
 
+			// Field-name query: emit { "<field>": { body } }. The variant interfaces don't carry the FieldName
+			// formatter attribute, so we write the wrapper here (mirroring FieldNameQueryConverter) and serialize the
+			// concrete body by runtime type — Field is [IgnoreDataMember] so it is not written in the body, and the
+			// concrete type is not bound to this interface-keyed converter so there is no recursion.
+			var fieldName = value.Field;
+			if (fieldName == null)
+			{
+				writer.WriteNullValue();
+				return;
+			}
+
+			var field = Settings.Inferrer.Field(fieldName);
+			if (string.IsNullOrEmpty(field))
+			{
+				writer.WriteNullValue();
+				return;
+			}
+
+			writer.WriteStartObject();
+			writer.WritePropertyName(field);
 			JsonSerializer.Serialize(writer, value, value.GetType(), options);
+			writer.WriteEndObject();
 		}
 
 		private static bool IsDateTime(string value, out DateTime dateTime)

@@ -109,7 +109,7 @@ namespace OpenSearch.Client
 			_options.Converters.Add(new TokenFilterConverter());
 			_options.Converters.Add(new TokenizerConverter());
 			_options.Converters.Add(new ScriptConverter());
-			_options.Converters.Add(new FuzzyQueryConverter());
+			_options.Converters.Add(new FuzzyQueryConverter(settings));
 			_options.Converters.Add(new RangeQueryConverter());
 			_options.Converters.Add(new MultiTermQueryRewriteConverter());
 			_options.Converters.Add(new GeoCoordinateConverter());

@@ -26,7 +26,7 @@ namespace Tests.OpenSearch.Client.Serialization
 			{
 				TypeInfoResolver = new HighLevelContractResolver(settings)
 			};
-			options.Converters.Add(new FuzzyQueryConverter());
+			options.Converters.Add(new FuzzyQueryConverter(settings));
 			// Sub-field converters the fuzziness / rewrite handling delegates to.
 			options.Converters.Add(new FuzzinessConverter());
 			options.Converters.Add(new TimeConverter());
