@@ -23,7 +23,18 @@ jobs:
   unit-tests:
     name: Unit
     runs-on: ubuntu-latest
-    
+
+    # Run the unit suite against both serializer engines: the System.Text.Json default and the Utf8Json fallback
+    # (OSC_USE_UTF8JSON=true), which is a permanently supported opt-out. This keeps both engines from regressing.
+    strategy:
+      fail-fast: false
+      matrix:
+        serializer:
+          - name: stj
+            use_utf8json: ''
+          - name: utf8json
+            use_utf8json: 'true'
+
     steps:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
@@ -37,7 +48,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuget-
       - run: ./build.sh test --report
-        name: Test
+        name: Test (${{ matrix.serializer.name }})
+        env:
+          OSC_USE_UTF8JSON: ${{ matrix.serializer.use_utf8json }}
       - name: Test Results
         if: always()
         uses: mikepenz/action-junit-report@150e2f992e4fad1379da2056d1d1c279f520e058 # v3
@@ -46,12 +59,12 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           fail_on_failure: true
           require_tests: true
-          check_name: Unit Test Results
+          check_name: Unit Test Results (${{ matrix.serializer.name }})
       - name: Upload test report
         if: failure()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: unit-test-report
+          name: unit-test-report-${{ matrix.serializer.name }}
           path: build/output/*
 
 
