@@ -3,6 +3,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 ### ⚠️ Breaking Changes ⚠️
+- The high-level client's default JSON serializer has changed from the bundled Utf8Json engine to `System.Text.Json`. This can alter serialization behavior in edge cases; the legacy Utf8Json engine remains available as an opt-out via the `OSC_USE_UTF8JSON=true` environment variable. See [UPGRADING.md](UPGRADING.md) for details.
 - As part of [efforts to re-generate the client](https://github.com/opensearch-project/opensearch-net/pulls?q=is%3Apr+label%3Acode-gen+is%3Aclosed) from our [OpenAPI specification](https://github.com/opensearch-project/opensearch-api-specification) there have been numerous corrections and changes that resulted in breaking changes. Please refer to [UPGRADING.md](UPGRADING.md) for a complete list of these breakages and any relevant guidance for upgrading to this version of the client.
 
 ### Changed
@@ -10,6 +11,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Changed `NeuralQuery`'s `ModelId` to be optional ([#917](https://github.com/opensearch-project/opensearch-net/pull/917))
 
 ### Added
+- Migrated the high-level serializer to `System.Text.Json`, which is now the default engine. Set `OSC_USE_UTF8JSON=true` to fall back to the legacy Utf8Json engine if required.
 - Added conditions to the Microsoft.CSharp, System.Buffers & System.Diagnostics.DiagnosticSource dependencies so that they are not included on net 6+ as the newer framework's natively provides those dependencies. ([#930](https://github.com/opensearch-project/opensearch-net/pull/930))
 - Added support for Hybrid query ([#917](https://github.com/opensearch-project/opensearch-net/pull/917))
 - Added support for `MaxDistance` and `MinScore` to `KnnQuery` ([#917](https://github.com/opensearch-project/opensearch-net/pull/917))

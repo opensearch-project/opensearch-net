@@ -52,6 +52,14 @@
 
 # Upgrading OpenSearch.Net & OpenSearch.Client
 
+## Default JSON serializer is now System.Text.Json
+
+The high-level client (`OpenSearch.Client`) previously serialized requests and responses using a bundled fork of the Utf8Json library. It now uses `System.Text.Json` by default. The two engines are behaviorally equivalent for the client's own types (the full serialization test suite passes on both), but if your application depends on a serialization detail that differs, you can opt back into the legacy engine:
+
+- Set the environment variable `OSC_USE_UTF8JSON=true` (or `OSC_USE_STJ=false`) before creating your `ConnectionSettings` / `OpenSearchClient`.
+
+The legacy Utf8Json engine remains fully supported as a fallback; the recommendation is to use the System.Text.Json default and only opt out if you hit a concrete incompatibility. A custom source serializer supplied via `ConnectionSettings(..., sourceSerializer: ...)` (for example the `OpenSearch.Client.JsonNetSerializer` package) continues to work unchanged under either engine.
+
 ## 1.x.y to 2.0.0
 
 ### OpenSearch.Net
