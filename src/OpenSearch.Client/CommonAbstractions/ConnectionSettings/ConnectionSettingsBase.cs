@@ -124,11 +124,16 @@ namespace OpenSearch.Client
 		)
 			: base(connectionPool, connection, null)
 		{
-			// Serializer engine selection. Default remains the legacy Utf8Json engine for full backward compatibility;
-			// System.Text.Json is opt-in via UseSystemTextJson() or the OSC_USE_STJ=true environment variable while the
-			// migration is validated. See also UseSystemTextJson / UseUtf8Json below.
-			_useSystemTextJson = string.Equals(
-				Environment.GetEnvironmentVariable("OSC_USE_STJ"), "true", StringComparison.OrdinalIgnoreCase);
+			// Serializer engine selection. The high-level engine now defaults to System.Text.Json. The legacy Utf8Json
+			// engine remains available as an escape hatch via the OSC_USE_UTF8JSON=true environment variable (or the
+			// legacy OSC_USE_STJ=false) while callers migrate off any behaviour they depended on. STJ is the default
+			// unless explicitly opted out.
+			var stjEnv = Environment.GetEnvironmentVariable("OSC_USE_STJ");
+			var utf8Env = Environment.GetEnvironmentVariable("OSC_USE_UTF8JSON");
+			var optOutToUtf8 =
+				string.Equals(utf8Env, "true", StringComparison.OrdinalIgnoreCase) ||
+				string.Equals(stjEnv, "false", StringComparison.OrdinalIgnoreCase);
+			_useSystemTextJson = !optOutToUtf8;
 
 			var formatterResolver = new OpenSearchClientFormatterResolver(this);
 			IOpenSearchSerializer defaultSerializer = _useSystemTextJson
