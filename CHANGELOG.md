@@ -9,6 +9,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Removed
 ### Fixed
 - Fixed `MaxTimeoutReached`, `MaxRetriesReached`, and `FailedOverAllNodes` audit events having `Ended` stuck at `default(DateTime)` due to undisposed `Auditable` instances in `RequestPipeline.CreateClientException` ([#998](https://github.com/opensearch-project/opensearch-net/issues/998))
+- Fixed `DeleteByQueryResponse.IsValid` and `UpdateByQueryResponse.IsValid` returning `true` on transport-level failures (no HTTP response) by restoring the `ApiCall.Success` check that the overrides had dropped ([#997](https://github.com/opensearch-project/opensearch-net/issues/997))
 ### Dependencies
 
 ## [2.0.0]
