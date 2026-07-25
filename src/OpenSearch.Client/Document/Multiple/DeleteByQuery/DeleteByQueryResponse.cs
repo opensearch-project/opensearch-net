@@ -34,7 +34,7 @@ namespace OpenSearch.Client
 {
 	public class DeleteByQueryResponse : ResponseBase
 	{
-		public override bool IsValid => ApiCall?.HttpStatusCode == 200 || !Failures.HasAny();
+		public override bool IsValid => (ApiCall?.Success ?? false) && (ApiCall.HttpStatusCode == 200 || !Failures.HasAny());
 
 		[DataMember(Name ="batches")]
 		public long Batches { get; internal set; }
