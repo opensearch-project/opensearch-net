@@ -160,6 +160,9 @@ namespace OpenSearch.Client
 
 		/// <inheritdoc cref="IKnnVectorProperty" />
 		TReturnType KnnVector(Func<KnnVectorPropertyDescriptor<T>, IKnnVectorProperty> selector);
+
+		/// <inheritdoc cref="IWildcardProperty"/>
+		TReturnType Wildcard(Func<WildcardPropertyDescriptor<T>, IWildcardProperty> selector);
 	}
 
 	public partial class PropertiesDescriptor<T> where T : class
@@ -257,6 +260,9 @@ namespace OpenSearch.Client
 
 		/// <inheritdoc cref="IKnnVectorProperty" />
 		public PropertiesDescriptor<T> KnnVector(Func<KnnVectorPropertyDescriptor<T>, IKnnVectorProperty> selector) => SetProperty(selector);
+
+		/// <inheritdoc cref="IWildcardProperty"/>
+		public PropertiesDescriptor<T> Wildcard(Func<WildcardPropertyDescriptor<T>, IWildcardProperty> selector) => SetProperty(selector);
 
 		/// <summary>
 		/// Map a custom property.

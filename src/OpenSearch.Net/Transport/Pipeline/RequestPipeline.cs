@@ -249,20 +249,20 @@ namespace OpenSearch.Net
 			if (IsTakingTooLong)
 			{
 				pipelineFailure = PipelineFailure.MaxTimeoutReached;
-				Audit(MaxTimeoutReached);
+				Audit(MaxTimeoutReached).Dispose();
 				exceptionMessage = "Maximum timeout reached while retrying request";
 			}
 			else if (Retried >= MaxRetries && MaxRetries > 0)
 			{
 				pipelineFailure = PipelineFailure.MaxRetriesReached;
-				Audit(MaxRetriesReached);
+				Audit(MaxRetriesReached).Dispose();
 				exceptionMessage = "Maximum number of retries reached";
 
 				var now = _dateTimeProvider.Now();
 				var activeNodes = _connectionPool.Nodes.Count(n => n.IsAlive || n.DeadUntil <= now);
 				if (Retried >= activeNodes)
 				{
-					Audit(FailedOverAllNodes);
+					Audit(FailedOverAllNodes).Dispose();
 					exceptionMessage += ", failed over to all the known alive nodes before failing";
 				}
 			}

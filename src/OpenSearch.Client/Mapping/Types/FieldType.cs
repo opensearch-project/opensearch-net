@@ -162,6 +162,12 @@ namespace OpenSearch.Client
 		RankFeatures,
 
 		[EnumMember(Value = "knn_vector")]
-		KnnVector
+		KnnVector,
+
+		/// <summary>
+		/// A wildcard field stores values optimised for wildcard grep-like queries.
+		/// </summary>
+		[EnumMember(Value = "wildcard")]
+		Wildcard
 	}
 }

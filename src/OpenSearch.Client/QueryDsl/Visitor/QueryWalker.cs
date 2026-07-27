@@ -41,6 +41,7 @@ namespace OpenSearch.Client
 			VisitQuery(qd.MatchNone, visitor, (v, d) => v.Visit(d));
 			VisitQuery(qd.MoreLikeThis, visitor, (v, d) => v.Visit(d));
 			VisitQuery(qd.MultiMatch, visitor, (v, d) => v.Visit(d));
+			VisitQuery(qd.CombinedFields, visitor, (v, d) => v.Visit(d));
 			VisitQuery(qd.Fuzzy, visitor, (v, d) =>
 			{
 				v.Visit(d);

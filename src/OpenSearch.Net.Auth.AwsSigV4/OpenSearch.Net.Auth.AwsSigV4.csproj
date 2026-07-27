@@ -22,4 +22,7 @@
   <ItemGroup>
     <PackageReference Include="AWSSDK.Core" Version="4.0.7.1" />
   </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Tests.Auth.AwsSigV4" Key="$(ExposedPublicKey)" />
+  </ItemGroup>
 </Project>
