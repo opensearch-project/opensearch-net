@@ -9,6 +9,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added support for `data_type` (byte vectors), `space_type`, `mode`, and `compression_level` on the `knn_vector` field mapping ([#994](https://github.com/opensearch-project/opensearch-net/issues/994))
 - Added support for `method_parameters`, `rescore`, and `expand_nested_docs` on `KnnQuery` ([#994](https://github.com/opensearch-project/opensearch-net/issues/994))
 ### Removed
+- Removed support for the `net6.0` target as .NET 6 is EOL ([#1008](https://github.com/opensearch-project/opensearch-net/pull/1008))
 ### Fixed
 - Fixed `MaxTimeoutReached`, `MaxRetriesReached`, and `FailedOverAllNodes` audit events having `Ended` stuck at `default(DateTime)` due to undisposed `Auditable` instances in `RequestPipeline.CreateClientException` ([#998](https://github.com/opensearch-project/opensearch-net/issues/998))
 - Fixed flaky `MovingAverageHoltWintersUsageTests` integration test which asserted moving-average values are non-negative; Holt-Winters forecasts can legitimately be negative, so the assertion now only checks the values deserialize to finite numbers ([#1000](https://github.com/opensearch-project/opensearch-net/issues/1000))
