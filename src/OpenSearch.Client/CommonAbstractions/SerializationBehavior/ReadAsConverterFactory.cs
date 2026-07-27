@@ -40,6 +40,11 @@ namespace OpenSearch.Client
 		private class ReadAsConverter<TInterface, TConcrete> : JsonConverter<TInterface>
 			where TConcrete : TInterface
 		{
+			// Options identical to the caller's except this ReadAs factory is removed, so serializing TInterface through
+			// them uses the interface's data contract without re-entering this converter. Built once per caller-options
+			// instance (there is effectively one), lazily on first write.
+			private JsonSerializerOptions _contractOptions;
+
 			public override TInterface Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options) =>
 				JsonSerializer.Deserialize<TConcrete>(ref reader, options);
 
@@ -51,8 +56,28 @@ namespace OpenSearch.Client
 					return;
 				}
 
-				// Serialize using the runtime type so the concrete shape is written.
-				JsonSerializer.Serialize(writer, value, value.GetType(), options);
+				// Serialize through the declared interface's contract (mirrors the legacy ReadAsFormatter, which used
+				// DynamicObjectResolver.ExcludeNullCamelCase.GetFormatter<T>() rather than the runtime type). This
+				// honours the interface's [DataMember] allow-list, dropping non-[DataMember] convenience members such as
+				// the OSC mapping attribute classes' public bool DocValues / Store getters (which return non-null
+				// defaults). Serializing the runtime attribute type instead would leak them — e.g. a [Wildcard] mapping
+				// surfaced by AutoMap emitting "doc_values":true / "store":false.
+				JsonSerializer.Serialize(writer, value, GetContractOptions(options));
+			}
+
+			private JsonSerializerOptions GetContractOptions(JsonSerializerOptions options)
+			{
+				if (_contractOptions != null)
+					return _contractOptions;
+
+				var clone = new JsonSerializerOptions(options);
+				for (var i = clone.Converters.Count - 1; i >= 0; i--)
+				{
+					if (clone.Converters[i] is ReadAsConverterFactory)
+						clone.Converters.RemoveAt(i);
+				}
+
+				return _contractOptions = clone;
 			}
 		}
 	}

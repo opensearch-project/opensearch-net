@@ -106,6 +106,7 @@ namespace OpenSearch.Client
 				case FieldType.RankFeature: return root.Deserialize<RankFeatureProperty>(options);
 				case FieldType.RankFeatures: return root.Deserialize<RankFeaturesProperty>(options);
 				case FieldType.KnnVector: return root.Deserialize<KnnVectorProperty>(options);
+				case FieldType.Wildcard: return root.Deserialize<WildcardProperty>(options);
 				case FieldType.None:
 					// no "type" field in the property mapping, or FieldType enum could not be parsed from typeString
 					return root.Deserialize<ObjectProperty>(options);
@@ -207,6 +208,9 @@ namespace OpenSearch.Client
 					break;
 				case IKnnVectorProperty knnVectorProperty:
 					JsonSerializer.Serialize(writer, knnVectorProperty, options);
+					break;
+				case IWildcardProperty wildcardProperty:
+					JsonSerializer.Serialize(writer, wildcardProperty, options);
 					break;
 				case IGenericProperty genericProperty:
 					JsonSerializer.Serialize(writer, genericProperty, options);

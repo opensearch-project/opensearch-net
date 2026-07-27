@@ -47,6 +47,10 @@ namespace OpenSearch.Client
 
 			// [ReadAs] delegation: interfaces/abstract types deserialize as the concrete type named by the attribute.
 			_options.Converters.Add(new ReadAsConverterFactory());
+			// Fluent descriptors (DescriptorPromiseBase) expose their built value only through IPromise.Value; serialize
+			// that value rather than the descriptor's (empty) public surface. Registered early so it wins for any
+			// descriptor serialized directly.
+			_options.Converters.Add(new PromiseConverterFactory());
 			// Field-name queries ({ "field": { <body> } }): a factory constructs the settings-aware
 			// FieldNameQueryConverter<T,TInterface> per query interface, reusing the legacy [JsonFormatter] mapping.
 			_options.Converters.Add(new FieldNameQueryConverterFactory(settings));

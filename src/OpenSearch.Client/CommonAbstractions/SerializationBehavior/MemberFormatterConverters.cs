@@ -64,6 +64,12 @@ namespace OpenSearch.Client
 				{ typeof(CollapsedSourceFormatter<>), (_, memberType, settings) => MakeSource(typeof(CollapsedSourceConverter<>), memberType, settings) },
 				{ typeof(SourceWriteFormatter<>), (_, memberType, settings) => MakeSource(typeof(SourceWriteConverter<>), memberType, settings) },
 
+				// get-field-mapping "mapping" dictionary: keyed by field name, values are polymorphic IFieldMapping
+				// (meta fields + property mappings). STJ cannot deserialize the abstract IFieldMapping on its own, so
+				// this member-level converter reads the discriminating key and routes to the concrete type. Settings-aware
+				// (resolves field-name keys through the Inferrer).
+				{ typeof(FieldMappingFormatter), (_, __, settings) => new FieldMappingConverter(settings) },
+
 				// single-or-array coercion: a member typed IEnumerable<T> that also accepts a bare scalar. Close the
 				// converter with the FORMATTER's element type T (SingleOrEnumerableFormatter<T>), not the member type.
 				{ typeof(SingleOrEnumerableFormatter<>), (ft, _, __) => MakeSingle(typeof(SingleOrEnumerableConverter<>), ft) },

@@ -53,7 +53,10 @@ namespace Tests.CodeStandards
 		{
 			var exceptions = new[]
 			{
-				typeof(DateMath)
+				typeof(DateMath),
+				// System.Text.Json converter base type: converters follow STJ's own `...Converter` naming, not the
+				// `...Base` suffix, so this abstract base is exempt from the OSC domain-type naming convention.
+				typeof(SettingsAwareConverter<>)
 			};
 
 			var abstractClassesNotEndingInBase = typeof(IRequest).Assembly.GetTypes()
@@ -196,7 +199,11 @@ namespace Tests.CodeStandards
 				oscAssembly.GetType("System.ComponentModel.Browsable", throwOnError: false),
 				oscAssembly.GetType("Microsoft.CodeAnalysis.EmbeddedAttribute", throwOnError: false),
 				oscAssembly.GetType("System.Runtime.CompilerServices.IsReadOnlyAttribute", throwOnError: false),
-                oscAssembly.GetType("System.Runtime.CompilerServices.RefSafetyRulesAttribute", throwOnError: false)
+                oscAssembly.GetType("System.Runtime.CompilerServices.RefSafetyRulesAttribute", throwOnError: false),
+                // Compiler-synthesized when the assembly opts into nullable reference type annotations (introduced by
+                // the System.Text.Json migration). Emitted into the OSC assembly's own namespace, not OpenSearch.Client.
+                oscAssembly.GetType("System.Runtime.CompilerServices.NullableAttribute", throwOnError: false),
+                oscAssembly.GetType("System.Runtime.CompilerServices.NullableContextAttribute", throwOnError: false)
 			};
 
 			var types = oscAssembly.GetTypes();
@@ -247,6 +254,8 @@ namespace Tests.CodeStandards
 				.Where(t => !t.Namespace.StartsWith("OpenSearch.Net.Utf8Json"))
 				.Where(t => !t.Namespace.StartsWith("OpenSearch.Net.Extensions"))
 				.Where(t => !t.Namespace.StartsWith("OpenSearch.Net.Diagnostics"))
+				// System.Text.Json converters and contract resolvers introduced by the migration live here.
+				.Where(t => !t.Namespace.StartsWith("OpenSearch.Net.Serialization"))
 				.Where(t => !t.Name.StartsWith("<"))
 				.Where(t => IsValidTypeNameOrIdentifier(t.Name, true))
 				.ToList();
