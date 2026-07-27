@@ -70,6 +70,13 @@ namespace OpenSearch.Client
 				// (resolves field-name keys through the Inferrer).
 				{ typeof(FieldMappingFormatter), (_, __, settings) => new FieldMappingConverter(settings) },
 
+				// resolvable read-only dictionaries keyed by an inferred key type (Field / IndexName): e.g.
+				// TermVectorsResponse.TermVectors, ClusterHealthResponse.Indices, TypeFieldMappings.Mappings. The legacy
+				// formatter wrapped the map in a ResolvableDictionaryProxy so lookups resolve through the inferrer; STJ's
+				// default handling cannot build the inferred key type from a JSON property name, so bridge it. Close the
+				// converter with the formatter's own <TKey,TValue>.
+				{ typeof(ResolvableReadOnlyDictionaryFormatter<,>), (ft, _, settings) => MakeResolvableDict(ft, settings) },
+
 				// single-or-array coercion: a member typed IEnumerable<T> that also accepts a bare scalar. Close the
 				// converter with the FORMATTER's element type T (SingleOrEnumerableFormatter<T>), not the member type.
 				{ typeof(SingleOrEnumerableFormatter<>), (ft, _, __) => MakeSingle(typeof(SingleOrEnumerableConverter<>), ft) },
@@ -83,6 +90,17 @@ namespace OpenSearch.Client
 				return null;
 			var arg = closedFormatter.GetGenericArguments()[0];
 			return (JsonConverter)Activator.CreateInstance(openConverter.MakeGenericType(arg));
+		}
+
+		// Closes ResolvableReadOnlyDictionaryConverter<TKey,TValue> with the formatter's own <TKey,TValue> and
+		// constructs it with the runtime settings.
+		private static JsonConverter MakeResolvableDict(Type closedFormatter, IConnectionSettingsValues settings)
+		{
+			if (!closedFormatter.IsGenericType)
+				return null;
+			var args = closedFormatter.GetGenericArguments();
+			var converterType = typeof(ResolvableReadOnlyDictionaryConverter<,>).MakeGenericType(args);
+			return (JsonConverter)Activator.CreateInstance(converterType, settings);
 		}
 
 		// Closes the open-generic source converter with the formatter's own type argument (SourceFormatter<T> -> ...<T>)

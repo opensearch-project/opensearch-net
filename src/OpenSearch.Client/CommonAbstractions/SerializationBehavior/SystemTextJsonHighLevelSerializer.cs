@@ -252,46 +252,92 @@ namespace OpenSearch.Client
 				key => (settings.DefaultFieldNameInferrer ?? (p => p))(key)));
 		}
 
-		// An empty/absent response stream must deserialize to default (the legacy Utf8Json engine returned null for
-		// empty input). System.Text.Json throws JsonException on empty input, so guard it — otherwise every empty or
-		// missing response body throws "input does not contain any JSON tokens".
-		private static bool IsEmpty(Stream stream) =>
-			stream == null || stream == Stream.Null || (stream.CanSeek && stream.Length == 0);
+		// An empty/absent/whitespace-only response stream must deserialize to default (the legacy Utf8Json engine
+		// returned null for empty input). System.Text.Json throws "The input does not contain any JSON tokens" on such
+		// input, so read the stream fully and treat a blank payload as default. The CanSeek/Length==0 check alone missed
+		// non-seekable network streams (e.g. the HEAD used by Ping) and whitespace-only bodies.
+		private static byte[] ReadToArray(Stream stream)
+		{
+			if (stream == null || stream == Stream.Null)
+				return Array.Empty<byte>();
 
-		public T Deserialize<T>(Stream stream) =>
-			IsEmpty(stream) ? default : JsonSerializer.Deserialize<T>(stream, _options);
+			using var ms = new MemoryStream();
+			stream.CopyTo(ms);
+			return ms.ToArray();
+		}
 
-		public object Deserialize(Type type, Stream stream) =>
-			IsEmpty(stream) ? null : JsonSerializer.Deserialize(stream, type, _options);
+		private static async Task<byte[]> ReadToArrayAsync(Stream stream, CancellationToken cancellationToken)
+		{
+			if (stream == null || stream == Stream.Null)
+				return Array.Empty<byte>();
 
-		public async Task<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default) =>
-			IsEmpty(stream) ? default : await JsonSerializer.DeserializeAsync<T>(stream, _options, cancellationToken).ConfigureAwait(false);
+			using var ms = new MemoryStream();
+			await stream.CopyToAsync(ms, 81920, cancellationToken).ConfigureAwait(false);
+			return ms.ToArray();
+		}
 
-		public async Task<object> DeserializeAsync(Type type, Stream stream, CancellationToken cancellationToken = default) =>
-			IsEmpty(stream) ? null : await JsonSerializer.DeserializeAsync(stream, type, _options, cancellationToken).ConfigureAwait(false);
+		private static bool IsBlank(byte[] bytes)
+		{
+			if (bytes == null || bytes.Length == 0)
+				return true;
+
+			foreach (var b in bytes)
+			{
+				if (b != (byte)' ' && b != (byte)'\t' && b != (byte)'\n' && b != (byte)'\r')
+					return false;
+			}
+
+			return true;
+		}
+
+		public T Deserialize<T>(Stream stream)
+		{
+			var bytes = ReadToArray(stream);
+			return IsBlank(bytes) ? default : JsonSerializer.Deserialize<T>(bytes, _options);
+		}
+
+		public object Deserialize(Type type, Stream stream)
+		{
+			var bytes = ReadToArray(stream);
+			return IsBlank(bytes) ? null : JsonSerializer.Deserialize(bytes, type, _options);
+		}
+
+		public async Task<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default)
+		{
+			var bytes = await ReadToArrayAsync(stream, cancellationToken).ConfigureAwait(false);
+			return IsBlank(bytes) ? default : JsonSerializer.Deserialize<T>(bytes, _options);
+		}
+
+		public async Task<object> DeserializeAsync(Type type, Stream stream, CancellationToken cancellationToken = default)
+		{
+			var bytes = await ReadToArrayAsync(stream, cancellationToken).ConfigureAwait(false);
+			return IsBlank(bytes) ? null : JsonSerializer.Deserialize(bytes, type, _options);
+		}
 
 		// Deserialize using a clone of the configured options with one additional per-request converter prepended so it
 		// wins for its target type. Used by response builders (MultiGet/MultiSearch) that need a converter carrying the
 		// originating request's document types — the STJ analogue of the legacy CreateStateful path.
 		internal T DeserializeWithConverter<T>(System.Text.Json.Serialization.JsonConverter converter, Stream stream)
 		{
-			if (IsEmpty(stream))
+			var bytes = ReadToArray(stream);
+			if (IsBlank(bytes))
 				return default;
 
 			var options = new JsonSerializerOptions(_options);
 			options.Converters.Insert(0, converter);
-			return JsonSerializer.Deserialize<T>(stream, options);
+			return JsonSerializer.Deserialize<T>(bytes, options);
 		}
 
 		internal async Task<T> DeserializeWithConverterAsync<T>(
 			System.Text.Json.Serialization.JsonConverter converter, Stream stream, CancellationToken cancellationToken = default)
 		{
-			if (IsEmpty(stream))
+			var bytes = await ReadToArrayAsync(stream, cancellationToken).ConfigureAwait(false);
+			if (IsBlank(bytes))
 				return default;
 
 			var options = new JsonSerializerOptions(_options);
 			options.Converters.Insert(0, converter);
-			return await JsonSerializer.DeserializeAsync<T>(stream, options, cancellationToken).ConfigureAwait(false);
+			return JsonSerializer.Deserialize<T>(bytes, options);
 		}
 
 		public void Serialize<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None) =>

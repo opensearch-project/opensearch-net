@@ -58,4 +58,52 @@ public class FieldMappingDeserializationTests
 		var ip = ipMapping.Mapping[(Field)"ipAddress"] as IIpProperty;
 		ip.Should().NotBeNull("the ipAddress field is an ip mapping");
 	}
+
+	// ClusterHealthResponse.Indices is [JsonFormatter(ResolvableReadOnlyDictionaryFormatter<IndexName,IndexHealthStats>)];
+	// the integration test asserts response.Indices contains the "devs" index. Previously the member-level formatter had
+	// no STJ bridge so the dictionary came back empty.
+	private const string ClusterHealthJson = @"{
+		""cluster_name"": ""opensearch"",
+		""status"": ""green"",
+		""number_of_nodes"": 1,
+		""indices"": {
+			""devs"": { ""status"": ""green"", ""number_of_shards"": 1, ""number_of_replicas"": 0, ""active_primary_shards"": 1, ""active_shards"": 1 }
+		}
+	}";
+
+	[U] public void DeserializesClusterHealthIndices()
+	{
+		var response = TestClient.DisabledStreaming.RequestResponseSerializer.Deserialize<ClusterHealthResponse>(
+			new MemoryStream(Encoding.UTF8.GetBytes(ClusterHealthJson)));
+
+		response.Indices.Should().NotBeEmpty().And.ContainKey((IndexName)"devs");
+		response.Indices[(IndexName)"devs"].ActivePrimaryShards.Should().Be(1);
+	}
+
+	// TermVectorsResponse.TermVectors is [JsonFormatter(ResolvableReadOnlyDictionaryFormatter<Field,TermVector>)]; the
+	// integration test looks up the mapping by a Field expression (p => p.FirstName). Previously the key never resolved
+	// through the inferrer so the lookup threw KeyNotFoundException.
+	private const string TermVectorsJson = @"{
+		""_index"": ""project"",
+		""_id"": ""1"",
+		""_version"": 1,
+		""found"": true,
+		""took"": 1,
+		""term_vectors"": {
+			""firstName"": {
+				""field_statistics"": { ""sum_doc_freq"": 1, ""doc_count"": 1, ""sum_ttf"": 1 },
+				""terms"": { ""alice"": { ""term_freq"": 1 } }
+			}
+		}
+	}";
+
+	[U] public void DeserializesTermVectorsKeyedByField()
+	{
+		var response = TestClient.DisabledStreaming.RequestResponseSerializer.Deserialize<TermVectorsResponse>(
+			new MemoryStream(Encoding.UTF8.GetBytes(TermVectorsJson)));
+
+		response.Found.Should().BeTrue();
+		response.TermVectors.Should().NotBeEmpty().And.ContainKey((Field)"firstName");
+		response.TermVectors[(Field)"firstName"].Terms.Should().ContainKey("alice");
+	}
 }

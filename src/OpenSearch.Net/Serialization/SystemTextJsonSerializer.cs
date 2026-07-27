@@ -66,37 +66,84 @@ namespace OpenSearch.Net
 		/// <inheritdoc />
 		public object Deserialize(Type type, Stream stream)
 		{
-			if (stream == null || stream == Stream.Null || (stream.CanSeek && stream.Length == 0))
+			var bytes = ReadToArray(stream, out var blank);
+			if (blank)
 				return type.IsValueType ? Activator.CreateInstance(type) : null;
 
-			return JsonSerializer.Deserialize(stream, type, _options);
+			return JsonSerializer.Deserialize(bytes, type, _options);
 		}
 
 		/// <inheritdoc />
 		public T Deserialize<T>(Stream stream)
 		{
-			if (stream == null || stream == Stream.Null || (stream.CanSeek && stream.Length == 0))
+			var bytes = ReadToArray(stream, out var blank);
+			if (blank)
 				return default;
 
-			return JsonSerializer.Deserialize<T>(stream, _options);
+			return JsonSerializer.Deserialize<T>(bytes, _options);
 		}
 
 		/// <inheritdoc />
 		public async Task<object> DeserializeAsync(Type type, Stream stream, CancellationToken cancellationToken = default)
 		{
-			if (stream == null || stream == Stream.Null || (stream.CanSeek && stream.Length == 0))
+			var bytes = await ReadToArrayAsync(stream, cancellationToken).ConfigureAwait(false);
+			if (IsBlank(bytes))
 				return type.IsValueType ? Activator.CreateInstance(type) : null;
 
-			return await JsonSerializer.DeserializeAsync(stream, type, _options, cancellationToken).ConfigureAwait(false);
+			return JsonSerializer.Deserialize(bytes, type, _options);
 		}
 
 		/// <inheritdoc />
 		public async Task<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default)
 		{
-			if (stream == null || stream == Stream.Null || (stream.CanSeek && stream.Length == 0))
+			var bytes = await ReadToArrayAsync(stream, cancellationToken).ConfigureAwait(false);
+			if (IsBlank(bytes))
 				return default;
 
-			return await JsonSerializer.DeserializeAsync<T>(stream, _options, cancellationToken).ConfigureAwait(false);
+			return JsonSerializer.Deserialize<T>(bytes, _options);
+		}
+
+		// A response body can be empty or whitespace-only (e.g. the HEAD used by Ping, or a 200 with no body). The
+		// CanSeek/Length==0 check alone misses non-seekable network streams and whitespace-only payloads, on which
+		// System.Text.Json throws "The input does not contain any JSON tokens". Read the stream fully and treat a blank
+		// payload as default/null, matching the legacy Utf8Json engine (which returned default for empty input).
+		private static byte[] ReadToArray(Stream stream, out bool blank)
+		{
+			if (stream == null || stream == Stream.Null)
+			{
+				blank = true;
+				return Array.Empty<byte>();
+			}
+
+			using var ms = new MemoryStream();
+			stream.CopyTo(ms);
+			var bytes = ms.ToArray();
+			blank = IsBlank(bytes);
+			return bytes;
+		}
+
+		private static async Task<byte[]> ReadToArrayAsync(Stream stream, CancellationToken cancellationToken)
+		{
+			if (stream == null || stream == Stream.Null)
+				return Array.Empty<byte>();
+
+			using var ms = new MemoryStream();
+			await stream.CopyToAsync(ms, 81920, cancellationToken).ConfigureAwait(false);
+			return ms.ToArray();
+		}
+
+		private static bool IsBlank(byte[] bytes)
+		{
+			if (bytes == null || bytes.Length == 0)
+				return true;
+
+			foreach (var b in bytes)
+			{
+				if (b != (byte)' ' && b != (byte)'\t' && b != (byte)'\n' && b != (byte)'\r')
+					return false;
+			}
+
+			return true;
 		}
 
 		/// <inheritdoc />
