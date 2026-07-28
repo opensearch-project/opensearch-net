@@ -43,6 +43,16 @@ namespace OpenSearch.Net
 			};
 
 			options.Converters.Add(new DynamicDictionaryConverter());
+			// Preserve integral doubles' trailing ".0" (e.g. a cluster-setting value 3.0 must not be sent as 3). The
+			// high-level engine registers these; the low-level engine serves dynamic request bodies (PostData.Serializable
+			// over SharpYaml-parsed Dictionary<string,object> in the YAML runner) that carry boxed doubles, so it needs
+			// them too. ObjectConverter routes boxed numeric object values (STJ writes dictionary object-values via the
+			// declared object type, bypassing JsonConverter<double>) through the same formatting.
+			options.Converters.Add(new DoubleConverter());
+			options.Converters.Add(new NullableDoubleConverter());
+			options.Converters.Add(new SingleConverter());
+			options.Converters.Add(new NullableSingleConverter());
+			options.Converters.Add(new ObjectConverter());
 			options.Converters.Add(new NullableStringIntConverter());
 			options.Converters.Add(new StringEnumConverterFactory());
 			// ISO 8601 date/time parsing matching the legacy engine (basic-format offsets, >7 fractional digits);
