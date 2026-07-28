@@ -6,6 +6,7 @@
 */
 
 using System;
+using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -66,15 +67,47 @@ namespace OpenSearch.Net.Serialization.Converters
 
 			private static void WriteException(Utf8JsonWriter writer, Exception e, int depth)
 			{
+				// Read the exception's serialized state via ISerializable so the output matches the legacy Utf8Json
+				// ExceptionFormatter field-for-field (including RemoteStackTraceString / RemoteStackIndex, which are
+				// only reachable through SerializationInfo). A field-count mismatch fails the Json.NET parity test.
+				string className = e.GetType().FullName;
+				string source = e.Source;
+				string stackTrace = e.StackTrace;
+				string remoteStackTrace = null;
+				var remoteStackIndex = 0;
+				var hResult = e.HResult;
+				string helpUrl = e.HelpLink;
+
+				try
+				{
+#pragma warning disable SYSLIB0050, SYSLIB0051 // Formatter-based serialization APIs are obsolete
+					var si = new SerializationInfo(e.GetType(), new FormatterConverter());
+					e.GetObjectData(si, new StreamingContext());
+#pragma warning restore SYSLIB0050, SYSLIB0051
+					className = si.GetString("ClassName") ?? className;
+					source = si.GetString("Source");
+					stackTrace = si.GetString("StackTraceString");
+					remoteStackTrace = si.GetString("RemoteStackTraceString");
+					remoteStackIndex = si.GetInt32("RemoteStackIndex");
+					hResult = si.GetInt32("HResult");
+					helpUrl = si.GetString("HelpURL");
+				}
+				catch
+				{
+					// GetObjectData can throw for exotic exception types; fall back to the property values above.
+				}
+
 				writer.WriteStartObject();
 
 				writer.WriteNumber("Depth", depth);
-				writer.WriteString("ClassName", e.GetType().FullName);
+				writer.WriteString("ClassName", className);
 				writer.WriteString("Message", e.Message);
-				writer.WriteString("Source", e.Source);
-				writer.WriteString("StackTraceString", e.StackTrace);
-				writer.WriteNumber("HResult", e.HResult);
-				writer.WriteString("HelpURL", e.HelpLink);
+				writer.WriteString("Source", source);
+				writer.WriteString("StackTraceString", stackTrace);
+				writer.WriteString("RemoteStackTraceString", remoteStackTrace);
+				writer.WriteNumber("RemoteStackIndex", remoteStackIndex);
+				writer.WriteNumber("HResult", hResult);
+				writer.WriteString("HelpURL", helpUrl);
 
 				writer.WriteEndObject();
 			}
