@@ -78,5 +78,44 @@ namespace Tests.OpenSearch.Net.Serialization
 		{
 			JsonSerializer.Serialize<DynamicDictionary>(null, Options()).Should().Be("null");
 		}
+
+		// A fractional value that happens to be integral (e.g. 3.0) must round-trip with its trailing ".0" preserved.
+		// System.Text.Json's WriteNumberValue(double) would emit "3", breaking dynamic response comparisons such as the
+		// YAML runner's search.backpressure heap_variance assertion (expected "3.0", got "3").
+		[U] public void Write_IntegralDouble_PreservesTrailingZero()
+		{
+			var dict = JsonSerializer.Deserialize<DynamicDictionary>(@"{""n"":3.0}", Options());
+			dict["n"].Value.Should().BeOfType(typeof(double));
+
+			var json = JsonSerializer.Serialize(dict, Options());
+			json.Should().Contain("\"n\":3.0");
+		}
+
+		[U] public void Write_FractionalDouble_Preserved()
+		{
+			var dict = JsonSerializer.Deserialize<DynamicDictionary>(@"{""n"":1.5}", Options());
+			var json = JsonSerializer.Serialize(dict, Options());
+			json.Should().Contain("\"n\":1.5");
+		}
+
+		// Nested arrays/objects must recurse through the converter so integral doubles inside them keep ".0" too
+		// (mirrors the YAML flat_object case: [["great",99.8],["ok",80.0]] must not render 80.0 as 80).
+		[U] public void Write_NestedArrayOfMixedNumbers_PreservesTrailingZero()
+		{
+			const string json = @"{""review"":[[""great"",99.8],[""ok"",80.0]]}";
+			var dict = JsonSerializer.Deserialize<DynamicDictionary>(json, Options());
+
+			var roundTripped = JsonSerializer.Serialize(dict, Options());
+			roundTripped.Should().Contain("80.0").And.Contain("99.8");
+		}
+
+		[U] public void Write_NestedObject_PreservesTrailingZero()
+		{
+			const string json = @"{""catalog"":{""rating"":9.0,""title"":""x""}}";
+			var dict = JsonSerializer.Deserialize<DynamicDictionary>(json, Options());
+
+			var roundTripped = JsonSerializer.Serialize(dict, Options());
+			roundTripped.Should().Contain("\"rating\":9.0").And.Contain("\"title\":\"x\"");
+		}
 	}
 }

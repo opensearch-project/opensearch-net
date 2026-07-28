@@ -173,13 +173,34 @@ namespace OpenSearch.Net.Serialization.Converters
 					writer.WriteNumberValue(l);
 					break;
 				case double d:
-					writer.WriteNumberValue(d);
+					// Preserve integral doubles' trailing ".0" (WriteNumberValue would emit "3" for 3.0), matching the
+					// legacy engine and OpenSearch's own rendering, so dynamic round-trips keep the value's type.
+					RealNumberFormat.WriteDouble(writer, d);
 					break;
 				case float f:
-					writer.WriteNumberValue(f);
+					RealNumberFormat.WriteSingle(writer, f);
 					break;
 				case decimal dec:
 					writer.WriteNumberValue(dec);
+					break;
+				// Recurse into nested objects/arrays (produced by ReadNestedObject/ReadNestedArray) so their scalar
+				// elements go through the cases above. Delegating a List<object>/Dictionary<string,object> to
+				// JsonSerializer.Serialize would apply STJ's default number handling and drop integral doubles' ".0"
+				// (e.g. a nested array [["great",99.8],["ok",80.0]] would render 80.0 as 80).
+				case IDictionary<string, object> nestedObject:
+					writer.WriteStartObject();
+					foreach (var kvp in nestedObject)
+					{
+						writer.WritePropertyName(kvp.Key);
+						WriteValue(writer, kvp.Value, options);
+					}
+					writer.WriteEndObject();
+					break;
+				case System.Collections.IEnumerable enumerable:
+					writer.WriteStartArray();
+					foreach (var item in enumerable)
+						WriteValue(writer, item, options);
+					writer.WriteEndArray();
 					break;
 				default:
 					JsonSerializer.Serialize(writer, value, value.GetType(), options);
