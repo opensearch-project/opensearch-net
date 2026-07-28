@@ -235,11 +235,24 @@ public class DefaultSeeder
         return mapping;
     }
 
-    public static IndexSettingsDescriptor ProjectIndexSettings(IndexSettingsDescriptor settings) =>
+    public static IndexSettingsDescriptor ProjectIndexSettings(IndexSettingsDescriptor settings)
+    {
         settings
             .Analysis(ProjectAnalysisSettings)
             .Setting("index.knn", true)
             .Setting("index.knn.algo_param.ef_search", 100);
+
+        // Disable k-NN derived source on versions that support the setting (introduced in the 3.x line). Reading
+        // documents whose knn_vector is reconstructed from the vector index hits a server-side AlreadyClosedException
+        // in the OpenSearch 3.4.0 derived-source codec
+        // (org.opensearch.knn.index.codec.derivedsource.RootPerFieldDerivedVectorTransformer), failing unrelated
+        // Search/MultiGet integration tests; keeping the vector in _source avoids that read path. The setting is
+        // unknown on older versions, so it must not be sent there (index creation would reject it).
+        if (TestConfiguration.Instance.OpenSearchVersion.Major >= 3)
+            settings.Setting("index.knn.derived_source.enabled", false);
+
+        return settings;
+    }
 
     public static IAnalysis ProjectAnalysisSettings(AnalysisDescriptor analysis)
     {
