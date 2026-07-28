@@ -30,8 +30,13 @@ namespace OpenSearch.Client
 	{
 		private readonly JsonSerializerOptions _options;
 
+		// Exposed so per-request response builders (e.g. the _source GET) can reach the user-configured SourceSerializer,
+		// the STJ analogue of the legacy formatterResolver.GetConnectionSettings() path.
+		internal IConnectionSettingsValues Settings { get; }
+
 		public SystemTextJsonHighLevelSerializer(IConnectionSettingsValues settings)
 		{
+			Settings = settings;
 			_options = new JsonSerializerOptions
 			{
 				DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
