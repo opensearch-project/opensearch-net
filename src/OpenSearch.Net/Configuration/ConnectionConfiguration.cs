@@ -204,11 +204,11 @@ namespace OpenSearch.Net
 		{
 			_connectionPool = connectionPool;
 			_connection = connection ?? new HttpConnection();
-			// The low-level OpenSearch.Net client defaults to the Utf8Json engine. This migration replaces the
-			// HIGH-LEVEL OpenSearch.Client serialization with System.Text.Json (see ConnectionSettingsBase, which
-			// overrides UseThisRequestResponseSerializer with SystemTextJsonHighLevelSerializer); the low-level path
-			// stays on Utf8Json to match the scoped migration in the sibling PRs and avoid regressing dynamic/response
-			// number formatting and exception shapes that the mature legacy engine already handles.
+			// The low-level OpenSearch.Net client defaults to the Utf8Json engine. The high-level OpenSearch.Client
+			// serializer is opt-in via ConnectionSettingsBase.UseSystemTextJson() / OSC_USE_STJ (see ConnectionSettingsBase,
+			// which overrides UseThisRequestResponseSerializer with SystemTextJsonHighLevelSerializer when opted in). The
+			// low-level path stays on Utf8Json, whose mature dynamic/response number formatting and exception shapes the
+			// STJ low-level converters are not the default for.
 			var serializer = requestResponseSerializer ?? new LowLevelRequestResponseSerializer();
 			UseThisRequestResponseSerializer = new DiagnosticsSerializerProxy(serializer);
 

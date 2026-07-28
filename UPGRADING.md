@@ -52,13 +52,16 @@
 
 # Upgrading OpenSearch.Net & OpenSearch.Client
 
-## Default JSON serializer is now System.Text.Json
+## Optional System.Text.Json high-level serializer
 
-The high-level client (`OpenSearch.Client`) previously serialized requests and responses using a bundled fork of the Utf8Json library. It now uses `System.Text.Json` by default. The two engines are behaviorally equivalent for the client's own types (the full serialization test suite passes on both), but if your application depends on a serialization detail that differs, you can opt back into the legacy engine:
+The high-level client (`OpenSearch.Client`) serializes requests and responses using a bundled fork of the Utf8Json library. A `System.Text.Json`-based engine is now available as an **opt-in** alternative. The two engines are behaviorally equivalent for the client's own types (the full serialization test suite passes on both); the default remains Utf8Json to avoid changing serialization behavior within an already-released 2.x line.
 
-- Set the environment variable `OSC_USE_UTF8JSON=true` (or `OSC_USE_STJ=false`) before creating your `ConnectionSettings` / `OpenSearchClient`.
+To use the System.Text.Json engine, opt in one of two ways (the programmatic call takes precedence over the environment variables):
 
-The legacy Utf8Json engine remains fully supported as a fallback; the recommendation is to use the System.Text.Json default and only opt out if you hit a concrete incompatibility. A custom source serializer supplied via `ConnectionSettings(..., sourceSerializer: ...)` (for example the `OpenSearch.Client.JsonNetSerializer` package) continues to work unchanged under either engine.
+- Programmatically: `new ConnectionSettings(pool).UseSystemTextJson()` before creating your `OpenSearchClient`.
+- Via environment variable: set `OSC_USE_STJ=true` (or `OSC_USE_UTF8JSON=false`) before creating your `ConnectionSettings` / `OpenSearchClient`.
+
+A custom source serializer supplied via `ConnectionSettings(..., sourceSerializer: ...)` (for example the `OpenSearch.Client.JsonNetSerializer` package) continues to work unchanged under either engine.
 
 ## 1.x.y to 2.0.0
 

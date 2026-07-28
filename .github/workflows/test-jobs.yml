@@ -24,16 +24,16 @@ jobs:
     name: Unit
     runs-on: ubuntu-latest
 
-    # Run the unit suite against both serializer engines: the System.Text.Json default and the Utf8Json fallback
-    # (OSC_USE_UTF8JSON=true), which is a permanently supported opt-out. This keeps both engines from regressing.
+    # Run the unit suite against both serializer engines: the default Utf8Json engine and the opt-in System.Text.Json
+    # engine (OSC_USE_STJ=true). This keeps both engines from regressing.
     strategy:
       fail-fast: false
       matrix:
         serializer:
-          - name: stj
-            use_utf8json: ''
           - name: utf8json
-            use_utf8json: 'true'
+            use_stj: ''
+          - name: stj
+            use_stj: 'true'
 
     steps:
       - name: Checkout
@@ -50,7 +50,7 @@ jobs:
       - run: ./build.sh test --report
         name: Test (${{ matrix.serializer.name }})
         env:
-          OSC_USE_UTF8JSON: ${{ matrix.serializer.use_utf8json }}
+          OSC_USE_STJ: ${{ matrix.serializer.use_stj }}
       - name: Test Results
         if: always()
         uses: mikepenz/action-junit-report@150e2f992e4fad1379da2056d1d1c279f520e058 # v3
