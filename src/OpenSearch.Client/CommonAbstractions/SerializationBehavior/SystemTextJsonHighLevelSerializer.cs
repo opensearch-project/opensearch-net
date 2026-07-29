@@ -15,16 +15,14 @@ using OpenSearch.Net;
 namespace OpenSearch.Client
 {
 	/// <summary>
-	/// PROTOTYPE (spike) — a System.Text.Json based replacement for <see cref="DefaultHighLevelSerializer"/>,
-	/// which today delegates to the Utf8Json engine via <c>OpenSearchClientFormatterResolver</c>.
+	/// A System.Text.Json based replacement for <see cref="DefaultHighLevelSerializer"/>, which delegates to the
+	/// Utf8Json engine via <c>OpenSearchClientFormatterResolver</c>. It is the opt-in high-level serializer for the
+	/// System.Text.Json migration (GitHub issue #388), selected via <c>ConnectionSettings.UseSystemTextJson()</c>.
 	///
-	/// Goal of the spike: prove that a STJ-based high-level serializer can be driven by the runtime
-	/// <see cref="IConnectionSettingsValues"/> configuration (field-name inference, property mappings) and reuse
-	/// the contract model we already migrated (InterfaceDataContractResolver), while remaining a drop-in
-	/// <see cref="IOpenSearchSerializer"/>.
-	///
-	/// This is NOT feature-complete: it establishes the wiring and the extension point (a settings-aware
-	/// TypeInfoResolver) that the full migration will build on.
+	/// It is driven by the runtime <see cref="IConnectionSettingsValues"/> configuration (field-name inference,
+	/// property mappings) through a settings-aware <c>TypeInfoResolver</c> (<see cref="HighLevelContractResolver"/>),
+	/// reuses the migrated contract model (<see cref="HighLevelContractResolver"/> derives from the shared
+	/// InterfaceDataContractResolver), and remains a drop-in <see cref="IOpenSearchSerializer"/>.
 	/// </summary>
 	internal class SystemTextJsonHighLevelSerializer : IOpenSearchSerializer
 	{
@@ -77,6 +75,11 @@ namespace OpenSearch.Client
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.NullableSingleConverter());
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.DecimalConverter());
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.NullableDecimalConverter());
+			// object-typed values (e.g. Dictionary<string, object> request bodies) are written by STJ through the
+			// declared object type, which bypasses the double/float converters above and would emit an integral double
+			// like 3.0 as 3. ObjectConverter dispatches on the runtime type so those keep their trailing ".0" and
+			// nested objects/arrays recurse through the same rules, matching the low-level serializer.
+			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.ObjectConverter());
 			// System.ValueTuple exposes its elements as fields, which STJ does not serialize by default; write them as
 			// Item1..ItemN (matching the legacy engine) rather than turning on field serialization globally.
 			_options.Converters.Add(new OpenSearch.Net.Serialization.Converters.ValueTupleConverterFactory());

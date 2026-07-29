@@ -15,10 +15,9 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 namespace Tests.OpenSearch.Net.Serialization
 {
 	/// <summary>
-	/// Prototype validation for <see cref="InterfaceDataContractResolver"/>: proves that data-contract metadata
-	/// declared on an <em>interface</em> marked with <c>[InterfaceDataContract]</c> drives serialization of the
-	/// concrete class — the key behaviour of the legacy Utf8Json mechanism that has no built-in System.Text.Json
-	/// equivalent.
+	/// Tests for <see cref="InterfaceDataContractResolver"/>: verifies that data-contract metadata declared on an
+	/// <em>interface</em> marked with <c>[InterfaceDataContract]</c> drives serialization of the concrete class —
+	/// the key behaviour of the legacy Utf8Json mechanism that has no built-in System.Text.Json equivalent.
 	/// </summary>
 	public class InterfaceDataContractResolverTests
 	{

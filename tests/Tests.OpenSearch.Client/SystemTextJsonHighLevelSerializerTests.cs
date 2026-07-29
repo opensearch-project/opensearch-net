@@ -15,11 +15,12 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 namespace Tests.OpenSearch.Client.Serialization
 {
 	/// <summary>
-	/// SPIKE validation for <see cref="SystemTextJsonHighLevelSerializer"/> — proves a System.Text.Json based
-	/// high-level serializer can be driven by the runtime <see cref="IConnectionSettingsValues"/> configuration,
-	/// which is the hardest capability of the legacy Utf8Json engine to reproduce.
+	/// Tests for <see cref="SystemTextJsonHighLevelSerializer"/> — verifies the System.Text.Json based high-level
+	/// serializer is driven by the runtime <see cref="IConnectionSettingsValues"/> configuration (field-name
+	/// inference, per-member property mappings), which is the hardest capability of the legacy Utf8Json engine to
+	/// reproduce, and that the migrated type-level converters are reached through the serializer.
 	/// </summary>
-	public class HighLevelSerializerSpikeTests
+	public class SystemTextJsonHighLevelSerializerTests
 	{
 		public class Doc
 		{
@@ -98,8 +99,8 @@ namespace Tests.OpenSearch.Client.Serialization
 			result.MaxCharacters.Should().Be(5);
 		}
 
-		// The following tests prove the migrated type-level converters are actually reached *through the serializer*
-		// (registered in options.Converters), not just when instantiated directly — this is the "wiring" B5 delivers.
+		// The following tests verify the migrated type-level converters are actually reached *through the serializer*
+		// (registered in options.Converters), not just when instantiated directly.
 
 		private static string Serialize<T>(T value)
 		{

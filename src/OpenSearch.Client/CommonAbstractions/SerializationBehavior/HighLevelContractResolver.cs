@@ -16,15 +16,14 @@ using OpenSearch.Net.Serialization.Converters;
 namespace OpenSearch.Client
 {
 	/// <summary>
-	/// PROTOTYPE (spike) — the System.Text.Json <see cref="IJsonTypeInfoResolver"/> that reproduces the
-	/// runtime-config-driven serialization of the legacy Utf8Json <c>InnerResolver.GetMapping</c>:
+	/// The System.Text.Json <see cref="IJsonTypeInfoResolver"/> that reproduces the runtime-config-driven
+	/// serialization of the legacy Utf8Json <c>InnerResolver.GetMapping</c>:
 	/// <list type="bullet">
 	/// <item>applies the connection settings' <c>DefaultFieldNameInferrer</c> to property names;</item>
 	/// <item>applies per-member <c>PropertyMappings</c> (explicit name / ignore) configured at runtime;</item>
 	/// <item>inherits the interface-data-contract behaviour from <see cref="InterfaceDataContractResolver"/>.</item>
 	/// </list>
-	/// This proves the key claim of the spike: a STJ resolver can be parameterised by
-	/// <see cref="IConnectionSettingsValues"/> the same way the old engine was.
+	/// The resolver is parameterised by <see cref="IConnectionSettingsValues"/> the same way the old engine was.
 	/// </summary>
 	internal class HighLevelContractResolver : InterfaceDataContractResolver
 	{
