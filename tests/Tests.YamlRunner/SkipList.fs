@@ -48,7 +48,7 @@ let SkipList = dict<SkipFile,SkipSection> [
     SkipFile "nodes.reload_secure_settings/10_basic.yml", Section "node_reload_secure_settings test wrong password"
     
     // TODO: Better support parsing and asserting unsigned longs (hitting long vs double precision issues)
-    SkipFile "search.aggregation/20_terms.yml", Sections [ "Unsigned Long test"; "Unmapped strings" ]
+    SkipFile "search.aggregation/20_terms.yml", Sections [ "Unsigned Long test"; "Unmapped strings"; "Unmapped unsigned longs" ]
     SkipFile "search.aggregation/230_composite_unsigned.yml", All
     SkipFile "search.aggregation/270_median_absolute_deviation_metric_unsigned.yml", All
     SkipFile "search.aggregation/370_multi_terms.yml", Section "Unsigned Long test"
