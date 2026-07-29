@@ -35,6 +35,12 @@ namespace OpenSearch.Client
 
 		public DictionaryResponseConverterFactory(IConnectionSettingsValues settings) => _settings = settings;
 
+		// TODO(utf8json-decoupling): this factory discovers its generic arguments by reading the legacy
+		// [JsonFormatter(typeof(DictionaryResponseFormatter<...>))] attribute (from OpenSearch.Net.Utf8Json) that
+		// already annotates every concrete response type. Reusing that attribute keeps the STJ mapping in lock-step
+		// with the legacy one and avoids re-annotating ~all response types, but it means STJ still depends on a
+		// Utf8Json attribute. When Utf8Json is removed, replace this with a STJ-native marker. See
+		// dev-docs/system-text-json-migration.md.
 		public override bool CanConvert(Type typeToConvert) =>
 			TryGetResponseFormatter(typeToConvert, out _, out _);
 

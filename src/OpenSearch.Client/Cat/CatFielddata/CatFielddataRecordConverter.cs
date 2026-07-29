@@ -66,8 +66,11 @@ namespace OpenSearch.Client
 			return record;
 		}
 
+		// CatFielddataRecord is a read-only response record (the client only ever deserializes _cat/fielddata results;
+		// it is never serialized into a request), so writing is intentionally unsupported. This mirrors the legacy
+		// Utf8Json formatter, whose Serialize threw for the same reason.
 		public override void Write(Utf8JsonWriter writer, CatFielddataRecord value, JsonSerializerOptions options) =>
-			throw new NotSupportedException();
+			throw new NotSupportedException("CatFielddataRecord is a read-only response type and is never serialized.");
 
 		private static string ReadStringOrNull(ref Utf8JsonReader reader) =>
 			reader.TokenType == JsonTokenType.Null ? null : reader.GetString();

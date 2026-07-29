@@ -215,6 +215,11 @@ namespace OpenSearch.Client
 				return new ValueAggregate { Value = value, ValueAsString = valueAsString, Meta = meta };
 			}
 
+			// Encoding.UTF8 here is the .NET standard-library UTF-8 encoder (unrelated to the Utf8Json engine). The
+			// LazyDocument + IJsonFormatterResolver, however, are the existing high-level model's API: ScriptedMetricAggregate
+			// holds a LazyDocument that defers deserialization and needs a formatter resolver. That resolver is still a
+			// Utf8Json one; decoupling the LazyDocument model type from Utf8Json is a follow-up (see
+			// dev-docs/system-text-json-migration.md).
 			var bytes = Encoding.UTF8.GetBytes(valueElement.GetRawText());
 			var doc = new LazyDocument(bytes, Resolver);
 			return new ScriptedMetricAggregate(doc) { Meta = meta };

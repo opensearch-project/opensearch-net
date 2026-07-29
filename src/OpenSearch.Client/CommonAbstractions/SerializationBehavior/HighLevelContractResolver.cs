@@ -48,6 +48,11 @@ namespace OpenSearch.Client
 			return mapping != null && !string.IsNullOrEmpty(mapping.Name);
 		}
 
+		// TODO(utf8json-decoupling): this holds a Utf8Json IJsonFormatterResolver so that type-level
+		// ShouldSerialize(IJsonFormatterResolver) conventions carried over from the legacy engine (e.g. Routing's,
+		// which resolves the routing via the Inferrer) can still be invoked during STJ serialization. It is a
+		// deliberate reuse of the legacy contract machinery rather than a rewrite; fully decoupling from Utf8Json is a
+		// follow-up tied to removing the vendored library (see dev-docs/system-text-json-migration.md).
 		private OpenSearch.Net.Utf8Json.IJsonFormatterResolver FormatterResolver =>
 			_formatterResolver ?? (_formatterResolver = new OpenSearchClientFormatterResolver(_settings));
 

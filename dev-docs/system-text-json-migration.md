@@ -128,6 +128,15 @@ OSC_USE_STJ=true dotnet run     # honored by the high-level client only
   dependency. (#982 attached a PoC; not done here — see §5.)
 - Optionally migrate the low level to STJ and flip the default engine (with a
   documented Utf8Json removal timeline, as #996 proposes for 3.0.0).
+- Decouple the STJ path from Utf8Json markers/types it currently reuses (tracked with
+  `TODO(utf8json-decoupling)` in code): the response-dictionary converter factory reads the
+  legacy `[JsonFormatter(...)]` attribute to discover its generic arguments, and
+  `HighLevelContractResolver` holds a Utf8Json `IJsonFormatterResolver` to invoke type-level
+  `ShouldSerialize(IJsonFormatterResolver)` conventions. Reusing them keeps the STJ mapping in
+  lock-step with the legacy one and avoids re-annotating the domain model, but must be replaced
+  with STJ-native equivalents before the vendored library can be removed. The `LazyDocument`
+  model type (e.g. on `ScriptedMetricAggregate`/`TopHitsAggregate`) similarly still takes a
+  Utf8Json resolver.
 - Remove the vendored `OpenSearch.Net.Utf8Json` library once the default has moved.
 - Consider a `PolymorphicInterfaceConverter<T>` and a `[JsonFormatter]`→converter
   bridge (as in #982) to reduce the number of hand-written converters.
