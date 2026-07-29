@@ -5,6 +5,8 @@
 * compatible open source license.
 */
 
+using System.IO;
+using System.Text;
 using FluentAssertions;
 using OpenSearch.Client;
 using OpenSearch.Net;
@@ -56,5 +58,38 @@ namespace Tests.OpenSearch.Client.Serialization
 			settings.UseSystemTextJson();
 			EngineTypeName(settings).Should().Be("SystemTextJsonHighLevelSerializer");
 		}
+
+		// Switching the engine must also rebuild the source serializer (used for _source bodies), not just the
+		// request/response serializer, so the two never disagree about which engine is active.
+		[U] public void UseSystemTextJson_AlsoSwitchesSourceSerializer()
+		{
+			var settings = NewSettings().UseSystemTextJson();
+			var source = ((IConnectionSettingsValues)settings).SourceSerializer;
+			var innerProp = source.GetType().GetProperty("InnerSerializer",
+				System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Public);
+			var inner = innerProp?.GetValue(source) ?? source;
+			inner.GetType().Name.Should().Be("SystemTextJsonHighLevelSerializer");
+		}
+
+		// The opt-in System.Text.Json high-level engine must reproduce the legacy engine's tolerance of an empty,
+		// whitespace-only, or absent response body (HEAD requests, 200-with-no-body): deserialize to default rather
+		// than throwing "The input does not contain any JSON tokens".
+		private static IOpenSearchSerializer StjSerializer() =>
+			((IConnectionConfigurationValues)NewSettings().UseSystemTextJson()).RequestResponseSerializer;
+
+		[U] public void Stj_Deserialize_EmptyStream_ReturnsNull()
+		{
+			using var stream = new MemoryStream();
+			StjSerializer().Deserialize<ClusterHealthResponse>(stream).Should().BeNull();
+		}
+
+		[U] public void Stj_Deserialize_WhitespaceOnlyStream_ReturnsNull()
+		{
+			using var stream = new MemoryStream(Encoding.UTF8.GetBytes("  \n\t "));
+			StjSerializer().Deserialize<ClusterHealthResponse>(stream).Should().BeNull();
+		}
+
+		[U] public void Stj_Deserialize_NullStream_ReturnsNull() =>
+			StjSerializer().Deserialize<ClusterHealthResponse>(Stream.Null).Should().BeNull();
 	}
 }

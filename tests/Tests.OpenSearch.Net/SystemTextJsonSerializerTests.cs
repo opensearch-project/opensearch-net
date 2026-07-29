@@ -7,6 +7,7 @@
 
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using FluentAssertions;
 using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
@@ -60,6 +61,64 @@ namespace Tests.OpenSearch.Net.Serialization
 			// The custom converter must win over reflection: fields stay snake_case, not PascalCase.
 			json.Should().Contain(@"""index_uuid""").And.Contain(@"""type""");
 			json.Should().NotContain("IndexUUID");
+		}
+
+		// A response body can be empty, whitespace-only, or an absent (null/Stream.Null) stream — the HEAD used by
+		// Ping, or a 200 with no body. The built-in System.Text.Json reader throws "The input does not contain any
+		// JSON tokens" on such input; the serializer reads the stream fully and treats a blank payload as
+		// default/null (matching the legacy Utf8Json engine). These tests pin that behaviour so the empty-body path
+		// cannot silently regress into a throw.
+
+		[U] public void Deserialize_EmptyStream_ReturnsNullForReferenceType()
+		{
+			using var stream = new MemoryStream();
+			Serializer.Deserialize<ErrorCause>(stream).Should().BeNull();
+		}
+
+		[U] public void Deserialize_WhitespaceOnlyStream_ReturnsNullForReferenceType()
+		{
+			using var stream = new MemoryStream(Encoding.UTF8.GetBytes(" \t\r\n "));
+			Serializer.Deserialize<ErrorCause>(stream).Should().BeNull();
+		}
+
+		[U] public void Deserialize_NullStream_ReturnsNullForReferenceType() =>
+			Serializer.Deserialize<ErrorCause>(Stream.Null).Should().BeNull();
+
+		[U] public void Deserialize_EmptyStream_ReturnsDefaultForValueType()
+		{
+			using var stream = new MemoryStream();
+			Serializer.Deserialize<int>(stream).Should().Be(0);
+		}
+
+		[U] public void DeserializeNonGeneric_EmptyStream_ReturnsNullForReferenceType()
+		{
+			using var stream = new MemoryStream();
+			Serializer.Deserialize(typeof(ErrorCause), stream).Should().BeNull();
+		}
+
+		[U] public void DeserializeNonGeneric_EmptyStream_ReturnsBoxedDefaultForValueType()
+		{
+			using var stream = new MemoryStream();
+			Serializer.Deserialize(typeof(int), stream).Should().Be(0);
+		}
+
+		[U] public async Task DeserializeAsync_EmptyStream_ReturnsNullForReferenceType()
+		{
+			using var stream = new MemoryStream();
+			(await Serializer.DeserializeAsync<ErrorCause>(stream)).Should().BeNull();
+		}
+
+		[U] public async Task DeserializeAsync_WhitespaceOnlyStream_ReturnsDefaultForValueType()
+		{
+			using var stream = new MemoryStream(Encoding.UTF8.GetBytes("   "));
+			(await Serializer.DeserializeAsync<int>(stream)).Should().Be(0);
+		}
+
+		[U] public void Serialize_NullData_WritesNothing()
+		{
+			using var stream = new MemoryStream();
+			Serializer.Serialize<ErrorCause>(null, stream);
+			stream.ToArray().Should().BeEmpty();
 		}
 	}
 }
