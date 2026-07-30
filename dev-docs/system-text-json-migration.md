@@ -98,11 +98,11 @@ constructs `LowLevelRequestResponseSerializer` (Utf8Json). This is intentional (
 - **Unit suite, both engines** (`.github/workflows/test-jobs.yml`): a matrix leg for
   `utf8json` (`OSC_USE_STJ` unset) and `stj` (`OSC_USE_STJ=true`) runs the full unit
   suite twice. Parity is asserted by the existing suite (D4).
-- **Integration, STJ leg** (`.github/workflows/integration.yml`): integration tests
+- **Integration, both engines** (`.github/workflows/integration.yml`): integration tests
   build the high-level client via `TestConnectionSettings : ConnectionSettings`, which
-  honors `OSC_USE_STJ`. A representative subset of server versions runs under STJ in
-  addition to the full default (Utf8Json) matrix, so the opt-in STJ path is exercised
-  end-to-end against a real cluster without doubling the (already large) matrix.
+  honors `OSC_USE_STJ`. The matrix has an `engine` dimension (`utf8json` / `stj`), so
+  every server version runs the full integration suite under both engines end-to-end
+  against a real cluster.
 - **YAML** stays single-engine by necessity (§5).
 - **Recorded-response `[U]` tests** in `tests/Tests.Reproduce` and the new
   deserialization/serialization tests reproduce each fixed bug against recorded JSON.

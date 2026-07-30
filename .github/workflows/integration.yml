@@ -10,8 +10,14 @@ env:
   OPENSEARCH_PLUGINS_DIRECTORY: /tmp/opensearch-plugins
 
 jobs:
+  # Run the integration suite against both serializer engines: the default Utf8Json engine and the opt-in
+  # System.Text.Json engine (OSC_USE_STJ=true). The high-level client honors OSC_USE_STJ (via
+  # ConnectionSettings/ConnectionSettingsBase), so the STJ leg exercises the opt-in serialization path end-to-end
+  # against a real cluster for every version, keeping both engines from regressing.
+  # NOTE: the YAML runner (integration-yaml-tests.yml) uses the low-level client, which is Utf8Json-only and ignores
+  # OSC_USE_STJ, so it is intentionally not dual-engine. See dev-docs/system-text-json-migration.md.
   integration-opensearch:
-    name: Integration OpenSearch
+    name: Integration OpenSearch (${{ matrix.engine.name }})
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -31,6 +37,11 @@ jobs:
           - 1.3.14
           - 1.2.4
           - 1.1.0
+        engine:
+          - name: utf8json
+            use_stj: ''
+          - name: stj
+            use_stj: 'true'
 
     steps:
       - name: Checkout Client
@@ -50,77 +61,24 @@ jobs:
             ${{ runner.os }}-nuget-
 
       - run: "./build.sh integrate $VERSION readonly,multinode,writable random:test_only_one --report"
-        name: Integration Tests
+        name: Integration Tests (${{ matrix.engine.name }})
         working-directory: client
         env:
           VERSION: ${{ matrix.version }}
+          OSC_USE_STJ: ${{ matrix.engine.use_stj }}
 
       # Run neural query integration tests separately as they use a significant amount of memory on their own
       - run: "./build.sh integrate ${{ matrix.version }} neuralquery random:test_only_one --report"
-        name: Neural Query Integration Tests
+        name: Neural Query Integration Tests (${{ matrix.engine.name }})
         working-directory: client
+        env:
+          OSC_USE_STJ: ${{ matrix.engine.use_stj }}
 
       - name: Upload test report
         if: failure()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: report-${{ matrix.version }}
-          path: client/build/output/*
-
-  # The default integration matrix above runs against the default (Utf8Json) engine. Because the high-level client
-  # honors OSC_USE_STJ (via ConnectionSettings/ConnectionSettingsBase), we additionally exercise the opt-in
-  # System.Text.Json path end-to-end against a real cluster. We only run a representative subset of versions here
-  # (one from each major line) rather than the full matrix: the STJ path is client-side serialization, so the goal
-  # is to prove the opt-in path works end-to-end without doubling the already-large integration matrix.
-  # NOTE: the YAML runner (integration-yaml-tests.yml) uses the low-level client, which is Utf8Json-only and ignores
-  # OSC_USE_STJ, so it is intentionally not dual-engine. See dev-docs/system-text-json-migration.md.
-  integration-opensearch-stj:
-    name: Integration OpenSearch (System.Text.Json)
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        version:
-          - 3.6.0
-          - 2.16.0
-          - 1.3.14
-
-    steps:
-      - name: Checkout Client
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
-        with:
-          path: client
-
-      - uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
-        with:
-          dotnet-version: 10.0.x
-
-      - uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
-        with:
-          path: ~/.nuget/packages
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
-          restore-keys: |
-            ${{ runner.os }}-nuget-
-
-      - run: "./build.sh integrate $VERSION readonly,multinode,writable random:test_only_one --report"
-        name: Integration Tests (System.Text.Json)
-        working-directory: client
-        env:
-          VERSION: ${{ matrix.version }}
-          OSC_USE_STJ: 'true'
-
-      # Run neural query integration tests separately as they use a significant amount of memory on their own
-      - run: "./build.sh integrate ${{ matrix.version }} neuralquery random:test_only_one --report"
-        name: Neural Query Integration Tests (System.Text.Json)
-        working-directory: client
-        env:
-          OSC_USE_STJ: 'true'
-
-      - name: Upload test report
-        if: failure()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        with:
-          name: report-stj-${{ matrix.version }}
+          name: report-${{ matrix.version }}-${{ matrix.engine.name }}
           path: client/build/output/*
 
   integration-opensearch-unreleased:
