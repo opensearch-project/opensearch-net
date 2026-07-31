@@ -98,7 +98,13 @@ namespace OpenSearch.Net.Serialization.Converters
 				case decimal dec:
 					writer.WriteNumberValue(dec);
 					break;
-				case byte or sbyte or short or ushort or int or uint or long or ulong:
+				// ulong is handled separately: values above long.MaxValue would overflow Convert.ToInt64. All the other
+				// integer types fit in a long, so route them through the long overload (System.Text.Json and Utf8Json
+				// both emit these as plain JSON numbers).
+				case ulong ul:
+					writer.WriteNumberValue(ul);
+					break;
+				case byte or sbyte or short or ushort or int or uint or long:
 					writer.WriteNumberValue(System.Convert.ToInt64(value));
 					break;
 				case IDictionary<string, object> nested:

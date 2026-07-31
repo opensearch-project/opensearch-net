@@ -57,6 +57,13 @@ namespace Tests.OpenSearch.Net.Serialization
 			Serializer.SerializeToString(body).Should().Contain("\"n\":50").And.NotContain("50.0");
 		}
 
+		[U] public void UlongAboveLongMaxValue_InDictionary_DoesNotOverflow()
+		{
+			// ulong.MaxValue is greater than long.MaxValue; routing it through Convert.ToInt64 would throw.
+			var body = new Dictionary<string, object> { { "big", (object)ulong.MaxValue } };
+			Serializer.SerializeToString(body).Should().Contain("\"big\":18446744073709551615");
+		}
+
 		[U] public void RoundTrips_ObjectValues_AsNativePrimitives()
 		{
 			const string json = @"{""d"":3.0,""i"":50,""s"":""x"",""b"":true}";

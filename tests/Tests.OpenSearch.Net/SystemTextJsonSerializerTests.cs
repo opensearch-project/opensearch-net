@@ -5,6 +5,7 @@
 * compatible open source license.
 */
 
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +35,16 @@ namespace Tests.OpenSearch.Net.Serialization
 			using var stream = new MemoryStream();
 			Serializer.Serialize(value, stream);
 			return Encoding.UTF8.GetString(stream.ToArray());
+		}
+
+		[U] public void DoesNotHtmlEscapePlusAmpersandAndAngleBrackets()
+		{
+			// The legacy Utf8Json engine emitted these characters literally; the relaxed encoder must keep them so
+			// payloads match (e.g. date-math "now+1d/d" stays literal rather than "now+1d/d").
+			var body = new Dictionary<string, object> { { "range", "now+1d/d & a<b>c" } };
+			var json = Serialize(body);
+			json.Should().Contain("now+1d/d & a<b>c");
+			json.Should().NotContain("\\u002B").And.NotContain("\\u0026").And.NotContain("\\u003C");
 		}
 
 		[U] public void Deserializes_ErrorCause_ThroughSerializer()

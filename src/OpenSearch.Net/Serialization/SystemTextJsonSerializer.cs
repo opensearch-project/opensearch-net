@@ -39,6 +39,10 @@ namespace OpenSearch.Net
 				PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
 				DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
 				PropertyNameCaseInsensitive = true,
+				// The legacy Utf8Json engine did not HTML-escape output; System.Text.Json's default encoder escapes
+				// '+', '&', '<', '>' etc. as \uXXXX. Use the relaxed encoder so payloads match the legacy bytes,
+				// matching SystemTextJsonHighLevelSerializer.
+				Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
 				WriteIndented = writeIndented
 			};
 

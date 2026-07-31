@@ -72,5 +72,67 @@ namespace Tests.OpenSearch.Net.Serialization
 			thing.Name.Should().Be("n");
 			thing.Count.Should().Be(9);
 		}
+
+		// A constructor-bound immutable type with a single public parameterized ctor and get-only properties (no
+		// parameterless ctor at all). STJ binds via the parameterized ctor; the resolver must NOT inject a
+		// parameterless CreateObject fallback (there is none to inject, and doing so would deserialize X/Y as 0).
+		public class ImmutablePoint
+		{
+			public ImmutablePoint(int x, int y)
+			{
+				X = x;
+				Y = y;
+			}
+
+			public int X { get; }
+			public int Y { get; }
+		}
+
+		[U] public void Deserializes_ConstructorBoundType_ViaParameterizedCtor()
+		{
+			var p = JsonSerializer.Deserialize<ImmutablePoint>(@"{""X"":3,""Y"":7}", Options());
+
+			p.X.Should().Be(3);
+			p.Y.Should().Be(7);
+		}
+
+		// A [JsonConstructor]-marked parameterized ctor even when a private parameterless ctor exists: the explicit
+		// attribute expresses intent, so the resolver must respect constructor binding rather than the fallback.
+		public class ExplicitCtorBound
+		{
+			private ExplicitCtorBound() { }
+
+			[System.Text.Json.Serialization.JsonConstructor]
+			public ExplicitCtorBound(string label)
+			{
+				Label = label;
+			}
+
+			public string Label { get; }
+		}
+
+		[U] public void Deserializes_JsonConstructorMarkedType_ViaParameterizedCtor()
+		{
+			var obj = JsonSerializer.Deserialize<ExplicitCtorBound>(@"{""Label"":""hi""}", Options());
+
+			obj.Label.Should().Be("hi");
+		}
+
+		// A type with only a non-public parameterless ctor (no parameterized ctor): the resolver's fallback SHOULD
+		// still let it be constructed, matching what the legacy Utf8Json engine could do.
+		public class NonPublicParameterlessOnly
+		{
+			internal NonPublicParameterlessOnly() { }
+
+			public string Value { get; set; }
+		}
+
+		[U] public void Deserializes_TypeWithOnlyNonPublicParameterlessCtor()
+		{
+			var obj = JsonSerializer.Deserialize<NonPublicParameterlessOnly>(@"{""Value"":""ok""}", Options());
+
+			obj.Should().NotBeNull();
+			obj.Value.Should().Be("ok");
+		}
 	}
 }

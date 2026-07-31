@@ -56,13 +56,17 @@ namespace OpenSearch.Net.Serialization.Converters
 
 			// STJ only wires CreateObject for an accessible (public) parameterless ctor. Many generated request and
 			// domain types (e.g. LikeDocument<T>) expose only an internal/private parameterless ctor, which the
-			// legacy Utf8Json engine could construct. Fall back to it so those types can be deserialized.
-			if (typeInfo.CreateObject == null)
+			// legacy Utf8Json engine could construct. Fall back to it so those types can be deserialized — but ONLY
+			// when STJ is not going to construct the type through a parameterized constructor. Constructor-bound
+			// immutable types (a parameterized ctor selected by STJ, e.g. a single public parameterized ctor or one
+			// marked [JsonConstructor]) also report CreateObject == null; injecting a parameterless ctor there would
+			// hijack constructor binding and leave get-only ctor properties at their defaults, silently losing data.
+			if (typeInfo.CreateObject == null && !type.IsAbstract && !HasStjParameterizedConstructor(type))
 			{
 				var ctor = type.GetConstructor(
 					BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public,
 					binder: null, Type.EmptyTypes, modifiers: null);
-				if (ctor != null && !type.IsAbstract)
+				if (ctor != null)
 					typeInfo.CreateObject = () => ctor.Invoke(null);
 			}
 
@@ -221,6 +225,34 @@ namespace OpenSearch.Net.Serialization.Converters
 					typeInfo.Properties.Add(jsonProperty);
 				}
 			}
+		}
+
+		// True when System.Text.Json would deserialize the type through a parameterized constructor (constructor
+		// binding). In that case we must NOT inject a parameterless CreateObject fallback, as it would bypass the
+		// parameterized ctor and drop get-only ctor-bound properties.
+		//
+		// We only treat two cases as constructor-bound, both of which express a clear intent and are narrow enough to
+		// avoid disturbing the many client types that have a convenience parameterized ctor AND a (possibly
+		// non-public) parameterless ctor the legacy engine relied on:
+		//   - a ctor explicitly marked [JsonConstructor] with parameters; or
+		//   - a type with NO parameterless ctor at all (public or non-public) but a single public parameterized ctor,
+		//     which is the classic immutable shape STJ binds to. If a parameterless ctor exists (even non-public),
+		//     we prefer the existing fallback, preserving prior behaviour.
+		private static bool HasStjParameterizedConstructor(Type type)
+		{
+			var jsonCtor = type.GetConstructors(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
+				.FirstOrDefault(c => c.GetCustomAttribute<System.Text.Json.Serialization.JsonConstructorAttribute>() != null);
+			if (jsonCtor != null)
+				return jsonCtor.GetParameters().Length > 0;
+
+			var parameterlessCtor = type.GetConstructor(
+				BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public,
+				binder: null, Type.EmptyTypes, modifiers: null);
+			if (parameterlessCtor != null)
+				return false;
+
+			var publicCtors = type.GetConstructors(BindingFlags.Instance | BindingFlags.Public);
+			return publicCtors.Length == 1 && publicCtors[0].GetParameters().Length > 0;
 		}
 
 		private static bool HasInterfaceDataContract(Type type, Type[] interfaces)
