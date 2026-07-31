@@ -96,7 +96,7 @@ namespace OpenSearch.Net.Serialization.Converters
 					RealNumberFormat.WriteSingle(writer, f);
 					break;
 				case decimal dec:
-					writer.WriteNumberValue(dec);
+					RealNumberFormat.WriteDecimal(writer, dec);
 					break;
 				// ulong is handled separately: values above long.MaxValue would overflow Convert.ToInt64. All the other
 				// integer types fit in a long, so route them through the long overload (System.Text.Json and Utf8Json

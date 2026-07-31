@@ -105,5 +105,14 @@ namespace Tests.OpenSearch.Client.Serialization
 			using var stream = new MemoryStream();
 			StjSerializer().Deserialize(typeof(ClusterHealthResponse), stream).Should().BeNull();
 		}
+
+		// Null data must write nothing (empty body), matching the low-level serializer's early return rather than
+		// writing the literal "null".
+		[U] public void Stj_Serialize_NullData_WritesNothing()
+		{
+			using var stream = new MemoryStream();
+			StjSerializer().Serialize<ClusterHealthResponse>(null, stream);
+			stream.ToArray().Should().BeEmpty();
+		}
 	}
 }

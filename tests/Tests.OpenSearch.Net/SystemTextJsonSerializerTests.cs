@@ -37,6 +37,14 @@ namespace Tests.OpenSearch.Net.Serialization
 			return Encoding.UTF8.GetString(stream.ToArray());
 		}
 
+		[U] public void IntegralDecimal_PreservesTrailingZero()
+		{
+			// A typed decimal routes through DecimalConverter; an integral value keeps its ".0" like double/float and
+			// the legacy Utf8Json DecimalFormatter (STJ's default writer would emit "3").
+			Serialize<decimal>(3m).Should().Be("3.0");
+			Serialize<decimal>(3.5m).Should().Be("3.5");
+		}
+
 		[U] public void DoesNotHtmlEscapePlusAmpersandAndAngleBrackets()
 		{
 			// The legacy Utf8Json engine emitted these characters literally; the relaxed encoder must keep them so

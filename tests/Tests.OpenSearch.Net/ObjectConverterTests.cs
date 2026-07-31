@@ -64,6 +64,14 @@ namespace Tests.OpenSearch.Net.Serialization
 			Serializer.SerializeToString(body).Should().Contain("\"big\":18446744073709551615");
 		}
 
+		[U] public void IntegralDecimal_InDictionary_PreservesTrailingZero()
+		{
+			// A boxed decimal value should keep its trailing ".0" like double/float, going through
+			// RealNumberFormat.WriteDecimal rather than STJ's default number writer (which would emit "3").
+			var body = new Dictionary<string, object> { { "d", (object)3m } };
+			Serializer.SerializeToString(body).Should().Contain("\"d\":3.0");
+		}
+
 		[U] public void RoundTrips_ObjectValues_AsNativePrimitives()
 		{
 			const string json = @"{""d"":3.0,""i"":50,""s"":""x"",""b"":true}";

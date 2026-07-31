@@ -56,6 +56,10 @@ namespace OpenSearch.Net
 			options.Converters.Add(new NullableDoubleConverter());
 			options.Converters.Add(new SingleConverter());
 			options.Converters.Add(new NullableSingleConverter());
+			// decimal, like double/float above, preserves an integral value's trailing ".0" (legacy Utf8Json's
+			// DecimalFormatter was the type default). Matches SystemTextJsonHighLevelSerializer.
+			options.Converters.Add(new DecimalConverter());
+			options.Converters.Add(new NullableDecimalConverter());
 			options.Converters.Add(new ObjectConverter());
 			options.Converters.Add(new NullableStringIntConverter());
 			options.Converters.Add(new StringEnumConverterFactory());

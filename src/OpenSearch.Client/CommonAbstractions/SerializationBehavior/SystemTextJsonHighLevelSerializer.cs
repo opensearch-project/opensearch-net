@@ -356,11 +356,22 @@ namespace OpenSearch.Client
 			return JsonSerializer.Deserialize<T>(bytes, options);
 		}
 
-		public void Serialize<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None) =>
+		// Note: like the legacy DefaultHighLevelSerializer (Utf8Json had no indentation), the high-level serializer
+		// does not honour SerializationFormatting.Indented — request/response bodies are always compact. Only the
+		// null-data early return is added, to match the low-level serializer (write nothing rather than "null").
+		public void Serialize<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None)
+		{
+			if (data == null) return;
+
 			JsonSerializer.Serialize(stream, data, _options);
+		}
 
 		public Task SerializeAsync<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None,
-			CancellationToken cancellationToken = default) =>
-			JsonSerializer.SerializeAsync(stream, data, _options, cancellationToken);
+			CancellationToken cancellationToken = default)
+		{
+			if (data == null) return Task.CompletedTask;
+
+			return JsonSerializer.SerializeAsync(stream, data, _options, cancellationToken);
+		}
 	}
 }
