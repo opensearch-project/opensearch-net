@@ -307,7 +307,12 @@ namespace OpenSearch.Client
 		public object Deserialize(Type type, Stream stream)
 		{
 			var bytes = ReadToArray(stream);
-			return IsBlank(bytes) ? null : JsonSerializer.Deserialize(bytes, type, _options);
+			// A blank body deserializes to the type's default. For a value type that is its boxed default (e.g. 0),
+			// not null, so the caller can unbox it — matching the low-level SystemTextJsonSerializer.
+			if (IsBlank(bytes))
+				return type.IsValueType ? Activator.CreateInstance(type) : null;
+
+			return JsonSerializer.Deserialize(bytes, type, _options);
 		}
 
 		public async Task<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default)
@@ -319,7 +324,10 @@ namespace OpenSearch.Client
 		public async Task<object> DeserializeAsync(Type type, Stream stream, CancellationToken cancellationToken = default)
 		{
 			var bytes = await ReadToArrayAsync(stream, cancellationToken).ConfigureAwait(false);
-			return IsBlank(bytes) ? null : JsonSerializer.Deserialize(bytes, type, _options);
+			if (IsBlank(bytes))
+				return type.IsValueType ? Activator.CreateInstance(type) : null;
+
+			return JsonSerializer.Deserialize(bytes, type, _options);
 		}
 
 		// Deserialize using a clone of the configured options with one additional per-request converter prepended so it

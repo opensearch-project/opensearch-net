@@ -91,5 +91,19 @@ namespace Tests.OpenSearch.Client.Serialization
 
 		[U] public void Stj_Deserialize_NullStream_ReturnsNull() =>
 			StjSerializer().Deserialize<ClusterHealthResponse>(Stream.Null).Should().BeNull();
+
+		// The non-generic Deserialize(Type, Stream) must return a value type's boxed default (not null) for a blank
+		// body, so a caller can unbox it — matching the low-level SystemTextJsonSerializer.
+		[U] public void Stj_DeserializeNonGeneric_EmptyStream_ReturnsBoxedDefaultForValueType()
+		{
+			using var stream = new MemoryStream();
+			StjSerializer().Deserialize(typeof(int), stream).Should().Be(0);
+		}
+
+		[U] public void Stj_DeserializeNonGeneric_EmptyStream_ReturnsNullForReferenceType()
+		{
+			using var stream = new MemoryStream();
+			StjSerializer().Deserialize(typeof(ClusterHealthResponse), stream).Should().BeNull();
+		}
 	}
 }
