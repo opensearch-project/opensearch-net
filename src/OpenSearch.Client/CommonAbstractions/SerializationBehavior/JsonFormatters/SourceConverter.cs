@@ -30,10 +30,7 @@ namespace OpenSearch.Client
 		public override T Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
 		{
 			if (reader.TokenType == JsonTokenType.Null)
-			{
-				reader.Read();
 				return default;
-			}
 
 			using var doc = JsonDocument.ParseValue(ref reader);
 			var bytes = System.Text.Encoding.UTF8.GetBytes(doc.RootElement.GetRawText());
