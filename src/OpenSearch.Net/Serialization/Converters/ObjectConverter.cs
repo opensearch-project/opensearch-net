@@ -132,7 +132,20 @@ namespace OpenSearch.Net.Serialization.Converters
 					writer.WriteEndArray();
 					break;
 				default:
-					JsonSerializer.Serialize(writer, value, value.GetType(), options);
+					var runtimeType = value.GetType();
+					// A bare System.Object carries no members and its runtime type is object itself, so delegating back
+					// to JsonSerializer with typeof(object) would re-enter this converter (CanConvert(object) == true)
+					// and recurse until the stack overflows. Emit an empty object instead — which is also what STJ's
+					// own default object handling produces for `new object()`. Should not occur with real data.
+					if (runtimeType == typeof(object))
+					{
+						writer.WriteStartObject();
+						writer.WriteEndObject();
+					}
+					else
+					{
+						JsonSerializer.Serialize(writer, value, runtimeType, options);
+					}
 					break;
 			}
 		}

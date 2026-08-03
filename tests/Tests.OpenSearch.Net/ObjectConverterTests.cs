@@ -72,6 +72,14 @@ namespace Tests.OpenSearch.Net.Serialization
 			Serializer.SerializeToString(body).Should().Contain("\"d\":3.0");
 		}
 
+		[U] public void BareObjectValue_WritesEmptyObject_WithoutInfiniteRecursion()
+		{
+			// A bare System.Object value would re-enter this converter via JsonSerializer.Serialize(.., typeof(object))
+			// and recurse forever; it must instead emit {} (and not stack-overflow).
+			var body = new Dictionary<string, object> { { "o", new object() } };
+			Serializer.SerializeToString(body).Should().Contain("\"o\":{}");
+		}
+
 		[U] public void RoundTrips_ObjectValues_AsNativePrimitives()
 		{
 			const string json = @"{""d"":3.0,""i"":50,""s"":""x"",""b"":true}";
