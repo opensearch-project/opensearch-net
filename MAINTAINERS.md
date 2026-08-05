@@ -9,7 +9,6 @@ This document contains a list of maintainers in this repo. See [opensearch-proje
 | Anirudha Jadhav | [anirudha](https://github.com/anirudha)             | Amazon      |
 | Joshua Li       | [joshuali925](https://github.com/joshuali925)       | Amazon      |
 | Thomas Farr     | [Xtansia](https://github.com/Xtansia)               | Independent |
-| Vacha Shah      | [VachaShah](https://github.com/VachaShah)           | Amazon      |
 | Samuel Cox      | [SamuelCox](https://github.com/SamuelCox)           | Independent |
 | Hailong Cui     | [Hailong-am](https://github.com/Hailong-am)         | Amazon      |
 
@@ -20,3 +19,4 @@ This document contains a list of maintainers in this repo. See [opensearch-proje
 | Daniel Doubrovkine | [dblock](https://github.com/dblock)                 | Independent |
 | Max Ksyunz         | [MaxKsyunz](https://github.com/MaxKsyunz)           | Bit Quill   |
 | Yury Fridlyand     | [Yury-Fridlyand](https://github.com/Yury-Fridlyand) | Bit Quill   |
+| Vacha Shah         | [VachaShah](https://github.com/VachaShah)           | Amazon      |
