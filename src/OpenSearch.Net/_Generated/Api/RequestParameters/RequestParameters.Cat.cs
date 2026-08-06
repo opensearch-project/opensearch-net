@@ -58,6 +58,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cat.aliases";
 
         /// <summary>Specifies the type of index that wildcard expressions can match. Supports comma-separated values.</summary>
         public ExpandWildcards? ExpandWildcards
@@ -119,6 +120,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cat.all_pit_segments";
 
         /// <summary>The units used to display byte values.</summary>
         public ByteUnit? Bytes
@@ -173,6 +175,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cat.allocation";
 
         /// <summary>The units used to display byte values.</summary>
         public ByteUnit? Bytes
@@ -252,6 +255,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cat.cluster_manager";
 
         /// <summary>A timeout for connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -323,6 +327,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cat.count";
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
@@ -370,6 +375,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cat.fielddata";
 
         /// <summary>The units used to display byte values.</summary>
         public ByteUnit? Bytes
@@ -430,6 +436,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cat.health";
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
         public string Format
@@ -483,6 +490,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cat.help";
     }
 
     /// <summary>Request options for Indices <para>https://opensearch.org/docs/latest/api-reference/cat/cat-indices/</para></summary>
@@ -491,6 +499,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cat.indices";
 
         /// <summary>The units used to display byte values.</summary>
         public ByteUnit? Bytes
@@ -597,6 +606,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cat.master";
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -669,6 +679,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cat.nodeattrs";
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -740,6 +751,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cat.nodes";
 
         /// <summary>The units used to display byte values.</summary>
         public ByteUnit? Bytes
@@ -829,6 +841,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cat.pending_tasks";
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -901,6 +914,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => true;
+        public override string OperationName => "cat.pit_segments";
 
         /// <summary>The units used to display byte values.</summary>
         public ByteUnit? Bytes
@@ -955,6 +969,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cat.plugins";
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -1027,6 +1042,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cat.recovery";
 
         /// <summary>If <c>true</c>, the response only includes ongoing shard recoveries.</summary>
         public bool? ActiveOnly
@@ -1105,6 +1121,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cat.repositories";
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -1177,6 +1194,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cat.segment_replication";
 
         /// <summary>When <c>true</c>, the response only includes ongoing segment replication events.</summary>
         public bool? ActiveOnly
@@ -1307,6 +1325,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cat.segments";
 
         /// <summary>The units used to display byte values.</summary>
         public ByteUnit? Bytes
@@ -1378,6 +1397,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cat.shards";
 
         /// <summary>The units used to display byte values.</summary>
         public ByteUnit? Bytes
@@ -1457,6 +1477,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cat.snapshots";
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -1538,6 +1559,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cat.tasks";
 
         /// <summary>The task action names used to limit the response.</summary>
         public string[] Actions
@@ -1617,6 +1639,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cat.templates";
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -1689,6 +1712,7 @@ namespace OpenSearch.Net.Specification.CatApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cat.thread_pool";
 
         /// <summary>A timeout for connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>

@@ -58,6 +58,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "cluster.allocation_explain";
 
         /// <summary>When <c>true</c>, returns information about disk usage and shard sizes.</summary>
         public bool? IncludeDiskInfo
@@ -83,6 +84,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "cluster.delete_component_template";
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
@@ -125,6 +127,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "cluster.delete_decommission_awareness";
     }
 
     /// <summary>Request options for DeleteVotingConfigExclusions <para>https://opensearch.org/docs/latest</para></summary>
@@ -133,6 +136,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "cluster.delete_voting_config_exclusions";
 
         /// <summary>
         /// Specifies whether to wait for all excluded nodes to be removed from the cluster before clearing the voting configuration exclusions list.
@@ -152,6 +156,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => true;
+        public override string OperationName => "cluster.delete_weighted_routing";
     }
 
     /// <summary>Request options for ComponentTemplateExists <para>https://opensearch.org/docs/latest</para></summary>
@@ -160,6 +165,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
         public override bool SupportsBody => false;
+        public override string OperationName => "cluster.exists_component_template";
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
@@ -202,6 +208,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cluster.get_component_template";
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
@@ -255,6 +262,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cluster.get_decommission_awareness";
     }
 
     /// <summary>Request options for GetSettings <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</para></summary>
@@ -263,6 +271,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cluster.get_settings";
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
@@ -323,6 +332,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cluster.get_weighted_routing";
     }
 
     /// <summary>Request options for Health <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
@@ -331,6 +341,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cluster.health";
 
         /// <summary>
         /// The name of the awareness attribute for which to return the cluster health status (for example, <c>zone</c>). Applicable only if
@@ -449,6 +460,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cluster.pending_tasks";
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
@@ -491,6 +503,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "cluster.post_voting_config_exclusions";
 
         /// <summary>
         /// A comma-separated list of node IDs to exclude from the voting configuration. When using this setting, you cannot also specify
@@ -529,6 +542,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "cluster.put_component_template";
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
@@ -578,6 +592,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => false;
+        public override string OperationName => "cluster.put_decommission_awareness";
     }
 
     /// <summary>Request options for PutSettings <para>https://opensearch.org/docs/latest/api-reference/cluster-settings/</para></summary>
@@ -586,6 +601,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "cluster.put_settings";
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
@@ -639,6 +655,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "cluster.put_weighted_routing";
     }
 
     /// <summary>Request options for RemoteInfo <para>https://opensearch.org/docs/latest/api-reference/remote-info/</para></summary>
@@ -647,6 +664,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cluster.remote_info";
     }
 
     /// <summary>Request options for Reroute <para>https://opensearch.org/docs/latest</para></summary>
@@ -655,6 +673,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "cluster.reroute";
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
@@ -725,6 +744,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cluster.state";
 
         /// <summary>
         /// Whether to ignore a wildcard index expression that resolves into no concrete indexes. This includes the <c>_all</c> string or when no
@@ -813,6 +833,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "cluster.stats";
 
         /// <summary>
         /// Whether to return settings in the flat form, which can improve readability, especially for heavily nested settings. For example, the flat

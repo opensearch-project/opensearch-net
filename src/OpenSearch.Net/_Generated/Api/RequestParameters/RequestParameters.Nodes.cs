@@ -58,6 +58,7 @@ namespace OpenSearch.Net.Specification.NodesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "nodes.hot_threads";
 
         /// <summary>Whether to show threads that are in known-idle places, such as waiting on a socket select or pulling from an empty task queue.</summary>
         public bool? IgnoreIdleThreads
@@ -107,6 +108,7 @@ namespace OpenSearch.Net.Specification.NodesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "nodes.info";
 
         /// <summary>When <c>true</c>, returns settings in flat format.</summary>
         public bool? FlatSettings
@@ -129,6 +131,7 @@ namespace OpenSearch.Net.Specification.NodesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "nodes.reload_secure_settings";
 
         /// <summary>The amount of time to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public TimeSpan Timeout
@@ -144,6 +147,7 @@ namespace OpenSearch.Net.Specification.NodesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "nodes.stats";
 
         /// <summary>A comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
         public string[] CompletionFields
@@ -208,6 +212,7 @@ namespace OpenSearch.Net.Specification.NodesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "nodes.usage";
 
         /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public TimeSpan Timeout

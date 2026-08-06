@@ -57,6 +57,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "transforms.delete";
     }
 
     /// <summary>Request options for Explain <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#get-the-status-of-a-transform-job</para></summary>
@@ -64,6 +65,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "transforms.explain";
     }
 
     /// <summary>Request options for Get <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#get-a-transform-jobs-details</para></summary>
@@ -71,6 +73,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "transforms.get";
     }
 
     /// <summary>Request options for Preview <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#preview-a-transform-jobs-results</para></summary>
@@ -78,6 +81,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "transforms.preview";
     }
 
     /// <summary>Request options for Put <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#create-a-transform-job</para></summary>
@@ -85,6 +89,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "transforms.put";
 
         /// <summary>Only perform the operation if the document has this primary term.</summary>
         public double? IfPrimaryTerm
@@ -106,6 +111,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "transforms.search";
 
         /// <summary>The search term to use to filter results.</summary>
         public string Search
@@ -134,6 +140,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "transforms.start";
     }
 
     /// <summary>Request options for Stop <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#stop-a-transform-job</para></summary>
@@ -141,5 +148,6 @@ namespace OpenSearch.Net.Specification.TransformsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "transforms.stop";
     }
 }
