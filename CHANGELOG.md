@@ -5,6 +5,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### ⚠️ Breaking Changes ⚠️
 ### Changed
 ### Added
+- Added native OpenTelemetry tracing via `System.Diagnostics.ActivitySource`, emitting a client span per request with standard semantic convention tags (`db.system`, `db.operation`, `server.address`, `server.port`, `http.request.method`, `http.response.status_code`, `url.full`); subscribe with `AddSource("OpenSearch.Net.RequestPipeline")` ([#1010](https://github.com/opensearch-project/opensearch-net/issues/1010))
 - Added support for `wildcard` field type ([#1004](https://github.com/opensearch-project/opensearch-net/pull/1004))
 - Added support for `data_type` (byte vectors), `space_type`, `mode`, and `compression_level` on the `knn_vector` field mapping ([#994](https://github.com/opensearch-project/opensearch-net/issues/994))
 - Added support for `method_parameters`, `rescore`, and `expand_nested_docs` on `KnnQuery` ([#994](https://github.com/opensearch-project/opensearch-net/issues/994))
