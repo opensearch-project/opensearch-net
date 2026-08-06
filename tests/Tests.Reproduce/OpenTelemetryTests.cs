@@ -28,18 +28,25 @@ namespace Tests.Reproduce
 		private const string SourceName = "OpenSearch.Net.RequestPipeline";
 
 		/// <summary>
-		/// Subscribes to the client's <see cref="ActivitySource"/> and captures every completed <see cref="Activity"/>.
-		/// Mirrors what an OpenTelemetry SDK does internally when a consumer calls
+		/// Subscribes to the client's <see cref="ActivitySource"/> and captures completed <see cref="Activity"/>s
+		/// whose <c>url.full</c> contains <paramref name="marker"/>. The marker keeps each test isolated: the
+		/// listener is process-global, so without it a test would also capture spans produced by other tests
+		/// running in parallel. Mirrors what an OpenTelemetry SDK does when a consumer calls
 		/// <c>AddSource(OpenSearchClientActivitySource.ActivitySourceName)</c>.
 		/// </summary>
-		private static (List<Activity> activities, ActivityListener listener) SubscribeToActivities()
+		private static (List<Activity> activities, ActivityListener listener) SubscribeToActivities(string marker)
 		{
 			var activities = new List<Activity>();
 			var listener = new ActivityListener
 			{
 				ShouldListenTo = source => source.Name == SourceName,
 				Sample = (ref ActivityCreationOptions<ActivityContext> _) => ActivitySamplingResult.AllData,
-				ActivityStopped = activities.Add
+				ActivityStopped = a =>
+				{
+					var url = a.TagObjects.FirstOrDefault(t => t.Key == "url.full").Value as string;
+					if (url != null && url.Contains(marker))
+						activities.Add(a);
+				}
 			};
 			ActivitySource.AddActivityListener(listener);
 			return (activities, listener);
@@ -64,14 +71,13 @@ namespace Tests.Reproduce
 		[U]
 		public void EmitsActivityWithSemanticConventionTags()
 		{
-			var (activities, listener) = SubscribeToActivities();
+			var (activities, listener) = SubscribeToActivities("otel-tags-index");
 			using (listener)
 			{
 				var client = CreateLowLevelClient();
-				client.DoRequest<StringResponse>(HttpMethod.POST, "/my-index/_search", PostData.Serializable(new { }));
+				client.DoRequest<StringResponse>(HttpMethod.POST, "/otel-tags-index/_search", PostData.Serializable(new { }));
 
-				activities.Should().ContainSingle();
-				var activity = activities.Single();
+				var activity = activities.Should().ContainSingle().Subject;
 
 				activity.DisplayName.Should().Be("POST");
 				activity.Kind.Should().Be(ActivityKind.Client);
@@ -94,11 +100,11 @@ namespace Tests.Reproduce
 		{
 			// A raw DoRequest carries no RequestParameters, so OperationName is null: the span name
 			// falls back to the HTTP method and db.operation must be omitted (it is optional per spec).
-			var (activities, listener) = SubscribeToActivities();
+			var (activities, listener) = SubscribeToActivities("otel-noop-index");
 			using (listener)
 			{
 				var client = CreateLowLevelClient();
-				client.DoRequest<StringResponse>(HttpMethod.GET, "/", null);
+				client.DoRequest<StringResponse>(HttpMethod.GET, "/otel-noop-index/_doc/1", null);
 
 				var activity = activities.Should().ContainSingle().Subject;
 				activity.DisplayName.Should().Be("GET");
@@ -109,12 +115,12 @@ namespace Tests.Reproduce
 		[U]
 		public void HighLevelRequestUsesRestOperationNameForSpanAndDbOperation()
 		{
-			var (activities, listener) = SubscribeToActivities();
+			var (activities, listener) = SubscribeToActivities("otel-highlevel-index");
 			using (listener)
 			{
 				var connection = new InMemoryConnection(System.Text.Encoding.UTF8.GetBytes("{}"), 200);
 				var settings = new ConnectionSettings(new SingleNodeConnectionPool(new Uri("http://localhost:9200")), connection)
-					.DefaultIndex("my-index");
+					.DefaultIndex("otel-highlevel-index");
 				var client = new OpenSearchClient(settings);
 
 				client.Count<OtelDoc>();
@@ -131,11 +137,11 @@ namespace Tests.Reproduce
 		{
 			// statusCode 500 is a completed HTTP call with an unsuccessful status — exercises the
 			// success==false branch of SetActivityEndState (not the exception path).
-			var (activities, listener) = SubscribeToActivities();
+			var (activities, listener) = SubscribeToActivities("otel-500-index");
 			using (listener)
 			{
 				var client = CreateLowLevelClient(statusCode: 500);
-				client.DoRequest<StringResponse>(HttpMethod.POST, "/my-index/_search", PostData.Serializable(new { }));
+				client.DoRequest<StringResponse>(HttpMethod.POST, "/otel-500-index/_search", PostData.Serializable(new { }));
 
 				var activity = activities.Should().ContainSingle().Subject;
 				activity.Status.Should().Be(ActivityStatusCode.Error);
@@ -149,7 +155,7 @@ namespace Tests.Reproduce
 		{
 			// A connection that throws mid-request exercises the catch-block SetActivityError path,
 			// which the status-code cases never reach.
-			var (activities, listener) = SubscribeToActivities();
+			var (activities, listener) = SubscribeToActivities("otel-throw-index");
 			using (listener)
 			{
 				var config = new ConnectionConfiguration(
@@ -157,7 +163,7 @@ namespace Tests.Reproduce
 					new ThrowingConnection());
 				var client = new OpenSearchLowLevelClient(config);
 
-				Action act = () => client.DoRequest<StringResponse>(HttpMethod.POST, "/my-index/_search", PostData.Serializable(new { }));
+				Action act = () => client.DoRequest<StringResponse>(HttpMethod.POST, "/otel-throw-index/_search", PostData.Serializable(new { }));
 
 				// The original exception must still surface — instrumentation never swallows it.
 				act.Should().Throw<Exception>();
@@ -172,11 +178,11 @@ namespace Tests.Reproduce
 		[U]
 		public async Task AsyncRequestAlsoEmitsActivity()
 		{
-			var (activities, listener) = SubscribeToActivities();
+			var (activities, listener) = SubscribeToActivities("otel-async-index");
 			using (listener)
 			{
 				var client = CreateLowLevelClient();
-				await client.DoRequestAsync<StringResponse>(HttpMethod.POST, "/my-index/_search", CancellationToken.None,
+				await client.DoRequestAsync<StringResponse>(HttpMethod.POST, "/otel-async-index/_search", CancellationToken.None,
 					PostData.Serializable(new { }));
 
 				var activity = activities.Should().ContainSingle().Subject;
@@ -189,11 +195,11 @@ namespace Tests.Reproduce
 		public void EmitsNoActivityWhenNobodyIsListening()
 		{
 			// No listener subscribed: HasListeners is false, so StartActivity should never create an Activity.
-			var (activities, listener) = SubscribeToActivities();
+			var (activities, listener) = SubscribeToActivities("otel-nolistener-index");
 			listener.Dispose(); // stop listening immediately
 
 			var client = CreateLowLevelClient();
-			client.DoRequest<StringResponse>(HttpMethod.POST, "/my-index/_search", PostData.Serializable(new { }));
+			client.DoRequest<StringResponse>(HttpMethod.POST, "/otel-nolistener-index/_search", PostData.Serializable(new { }));
 
 			activities.Should().BeEmpty();
 		}
