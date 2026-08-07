@@ -4,6 +4,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ## [Unreleased]
 ### ⚠️ Breaking Changes ⚠️
 ### Changed
+- Added OpenSearch 3.8.0 to the CI integration test matrix ([#1014](https://github.com/opensearch-project/opensearch-net/pull/1014))
 ### Added
 - Added support for `wildcard` field type ([#1004](https://github.com/opensearch-project/opensearch-net/pull/1004))
 - Added support for `data_type` (byte vectors), `space_type`, `mode`, and `compression_level` on the `knn_vector` field mapping ([#994](https://github.com/opensearch-project/opensearch-net/issues/994))
