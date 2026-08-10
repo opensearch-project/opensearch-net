@@ -57,6 +57,7 @@ namespace OpenSearch.Net.Specification.SearchPipelineApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "search_pipeline.delete";
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -79,6 +80,7 @@ namespace OpenSearch.Net.Specification.SearchPipelineApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "search_pipeline.get";
 
         /// <summary>operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -94,6 +96,7 @@ namespace OpenSearch.Net.Specification.SearchPipelineApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "search_pipeline.put";
 
         /// <summary>operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>

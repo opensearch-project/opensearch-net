@@ -58,6 +58,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ltr.add_features_to_set";
 
         /// <summary>Whether to merge the feature list or append only.</summary>
         public bool? Merge
@@ -87,6 +88,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.add_features_to_set_by_query";
 
         /// <summary>Whether to merge the feature list or append only.</summary>
         public bool? Merge
@@ -116,6 +118,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.cache_stats";
     }
 
     /// <summary>Request options for ClearCache</summary>
@@ -124,6 +127,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.clear_cache";
     }
 
     /// <summary>Request options for CreateDefaultStore</summary>
@@ -132,6 +136,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.create_default_store";
     }
 
     /// <summary>Request options for CreateFeature</summary>
@@ -140,6 +145,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "ltr.create_feature";
 
         /// <summary>Specific routing value.</summary>
         public string Routing
@@ -155,6 +161,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "ltr.create_featureset";
 
         /// <summary>Specific routing value.</summary>
         public string Routing
@@ -170,6 +177,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "ltr.create_model";
 
         /// <summary>Specific routing value.</summary>
         public string Routing
@@ -185,6 +193,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ltr.create_model_from_set";
 
         /// <summary>Specific routing value.</summary>
         public string Routing
@@ -200,6 +209,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.create_store";
     }
 
     /// <summary>Request options for DeleteDefaultStore</summary>
@@ -208,6 +218,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.delete_default_store";
     }
 
     /// <summary>Request options for DeleteFeature</summary>
@@ -216,6 +227,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.delete_feature";
     }
 
     /// <summary>Request options for DeleteFeatureset</summary>
@@ -224,6 +236,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.delete_featureset";
     }
 
     /// <summary>Request options for DeleteModel</summary>
@@ -232,6 +245,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.delete_model";
     }
 
     /// <summary>Request options for DeleteStore</summary>
@@ -240,6 +254,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.delete_store";
     }
 
     /// <summary>Request options for GetFeature</summary>
@@ -248,6 +263,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.get_feature";
     }
 
     /// <summary>Request options for GetFeatureset</summary>
@@ -256,6 +272,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.get_featureset";
     }
 
     /// <summary>Request options for GetModel</summary>
@@ -263,6 +280,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.get_model";
     }
 
     /// <summary>Request options for GetStore</summary>
@@ -270,6 +288,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.get_store";
     }
 
     /// <summary>Request options for ListStores</summary>
@@ -278,6 +297,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.list_stores";
     }
 
     /// <summary>Request options for SearchFeatures</summary>
@@ -286,6 +306,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.search_features";
 
         /// <summary>The offset from the first result (for pagination).</summary>
         public int? From
@@ -315,6 +336,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.search_featuresets";
 
         /// <summary>The offset from the first result (for pagination).</summary>
         public int? From
@@ -344,6 +366,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.search_models";
 
         /// <summary>The offset from the first result (for pagination).</summary>
         public int? From
@@ -372,6 +395,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.stats";
 
         /// <summary>The time in milliseconds to wait for a response.</summary>
         public TimeSpan Timeout
@@ -387,6 +411,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ltr.update_feature";
 
         /// <summary>Specific routing value.</summary>
         public string Routing
@@ -402,6 +427,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ltr.update_featureset";
 
         /// <summary>Specific routing value.</summary>
         public string Routing

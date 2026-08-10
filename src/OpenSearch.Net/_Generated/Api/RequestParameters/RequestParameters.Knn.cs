@@ -58,6 +58,7 @@ namespace OpenSearch.Net.Specification.KnnApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "knn.delete_model";
     }
 
     /// <summary>Request options for GetModel <para>https://docs.opensearch.org/latest/vector-search/api/knn/#get-a-model</para></summary>
@@ -65,6 +66,7 @@ namespace OpenSearch.Net.Specification.KnnApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "knn.get_model";
     }
 
     /// <summary>Request options for SearchModels <para>https://docs.opensearch.org/latest/vector-search/api/knn/#search-for-a-model</para></summary>
@@ -73,6 +75,7 @@ namespace OpenSearch.Net.Specification.KnnApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "knn.search_models";
 
         /// <summary>
         /// Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes <c>_all</c> string or when no indexes
@@ -388,6 +391,7 @@ namespace OpenSearch.Net.Specification.KnnApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "knn.stats";
 
         /// <summary>Operation timeout.</summary>
         public TimeSpan Timeout
@@ -403,6 +407,7 @@ namespace OpenSearch.Net.Specification.KnnApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "knn.train_model";
 
         /// <summary>Preferred node to execute training.</summary>
         public string Preference
@@ -417,5 +422,6 @@ namespace OpenSearch.Net.Specification.KnnApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "knn.warmup";
     }
 }

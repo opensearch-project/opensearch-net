@@ -58,6 +58,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.add_block";
 
         /// <summary>
         /// Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes <c>_all</c> string or when no indexes
@@ -114,6 +115,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "indices.analyze";
 
         /// <summary>The name of the index to scope the operation.</summary>
         public string Index
@@ -129,6 +131,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.clear_cache";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -208,6 +211,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "indices.clone";
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -269,6 +273,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.close";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -343,6 +348,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "indices.create";
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -389,6 +395,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "indices.create_data_stream";
     }
 
     /// <summary>Request options for DataStreamsStats <para>https://opensearch.org/docs/latest/im-plugin/data-streams/</para></summary>
@@ -397,6 +404,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.data_streams_stats";
     }
 
     /// <summary>Request options for Delete <para>https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/</para></summary>
@@ -405,6 +413,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.delete";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -469,6 +478,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.delete_alias";
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -505,6 +515,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.delete_data_stream";
     }
 
     /// <summary>Request options for DeleteComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
@@ -513,6 +524,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.delete_index_template";
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -549,6 +561,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.delete_template";
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -585,6 +598,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.exists";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -650,6 +664,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.exists_alias";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -693,6 +708,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.exists_index_template";
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -736,6 +752,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.exists_template";
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -775,6 +792,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.flush";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -828,6 +846,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.forcemerge";
 
         /// <summary>
         /// Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes <c>_all</c> string or when no indexes
@@ -899,6 +918,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.get";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -979,6 +999,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.get_alias";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -1022,6 +1043,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.get_data_stream";
     }
 
     /// <summary>Request options for GetFieldMapping <para>https://opensearch.org/docs/latest/field-types/index/</para></summary>
@@ -1030,6 +1052,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.get_field_mapping";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -1080,6 +1103,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.get_index_template";
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -1126,6 +1150,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.get_mapping";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -1200,6 +1225,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.get_settings";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -1281,6 +1307,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.get_template";
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -1324,6 +1351,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.get_upgrade";
 
         /// <summary>
         /// Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes <c>_all</c> string or when no indexes
@@ -1355,6 +1383,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.open";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -1443,6 +1472,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "indices.put_alias";
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -1479,6 +1509,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "indices.put_index_template";
 
         /// <summary>User defined reason for creating/updating the index template.</summary>
         public string Cause
@@ -1519,6 +1550,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "indices.put_mapping";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -1590,6 +1622,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "indices.put_settings";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -1668,6 +1701,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "indices.put_template";
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -1704,6 +1738,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.recovery";
 
         /// <summary>If <c>true</c>, the response only includes ongoing shard recoveries.</summary>
         public bool? ActiveOnly
@@ -1725,6 +1760,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.refresh";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -1761,6 +1797,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.resolve_index";
 
         /// <summary>
         /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
@@ -1780,6 +1817,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "indices.rollover";
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -1832,6 +1870,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.segments";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -1875,6 +1914,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.shard_stores";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -1917,6 +1957,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "indices.shrink";
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -1978,6 +2019,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "indices.simulate_index_template";
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -2007,6 +2049,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "indices.simulate_template";
 
         /// <summary>User defined reason for dry-run creating the new template for simulation purposes.</summary>
         public string Cause
@@ -2054,6 +2097,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "indices.split";
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -2115,6 +2159,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.stats";
 
         /// <summary>A comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
         public string[] CompletionFields
@@ -2191,6 +2236,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "indices.update_aliases";
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -2226,6 +2272,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "indices.upgrade";
 
         /// <summary>
         /// Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes <c>_all</c> string or when no indexes
@@ -2273,6 +2320,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "indices.validate_query";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed

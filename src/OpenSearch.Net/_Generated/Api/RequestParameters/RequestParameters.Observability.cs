@@ -58,6 +58,7 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "observability.create_object";
     }
 
     /// <summary>Request options for DeleteObject</summary>
@@ -66,6 +67,7 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "observability.delete_object";
     }
 
     /// <summary>Request options for DeleteObjects</summary>
@@ -74,6 +76,7 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "observability.delete_objects";
 
         /// <summary>The ID of a single observability object to delete.</summary>
         public string ObjectId
@@ -96,6 +99,7 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "observability.get_localstats";
     }
 
     /// <summary>Request options for GetObject</summary>
@@ -103,6 +107,7 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "observability.get_object";
     }
 
     /// <summary>Request options for ListObjects</summary>
@@ -111,6 +116,7 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "observability.list_objects";
     }
 
     /// <summary>Request options for UpdateObject</summary>
@@ -119,5 +125,6 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "observability.update_object";
     }
 }

@@ -14,6 +14,7 @@
   - [OpenSearch.Net](#opensearchnet)
     - [Getting Started](#getting-started-2)
     - [Connecting](#connecting-2)
+  - [Observability](#observability)
   - [Advanced Features](#advanced-features)
 
 # User Guide
@@ -306,6 +307,24 @@ var client = new OpenSearchLowLevelClient(config);
 
 Note the main difference here is that we are instantiating an `OpenSearchLowLevelClient` rather than `OpenSearchClient`, and `ConnectionConfiguration` instead of `ConnectionSettings`.
 
+
+## Observability
+
+The client natively emits [OpenTelemetry](https://opentelemetry.io/) traces for requests to OpenSearch using `System.Diagnostics.ActivitySource`, so any OpenTelemetry-aware backend can collect them without extra glue code. The client does not depend on the OpenTelemetry SDK — it only produces the spans.
+
+Tracing is opt-in: nothing is emitted unless you subscribe to the client's activity source by name. When no listener is present the client skips span creation entirely, so there is virtually no overhead.
+
+```csharp
+using var tracerProvider = Sdk.CreateTracerProviderBuilder()
+    .AddSource("OpenSearch.Net.RequestPipeline")
+    .AddOtlpExporter() // or any other exporter (Jaeger, Zipkin, console, ...)
+    .Build();
+
+// From here on, every request the client makes emits a span automatically.
+var response = client.Search<Person>(s => s.MatchAll());
+```
+
+Each API call produces one `Client`-kind span named after the REST operation (for example `search` or `indices.create`), tagged with the standard semantic conventions (`db.system`, `db.operation`, `server.address`, `server.port`, `http.request.method`, `http.response.status_code`, `url.full`). See the [OpenTelemetry Tracing](guides/opentelemetry.md) guide for the full attribute list and its relationship to the legacy `DiagnosticSource` mechanism.
 
 ## Advanced Features
 

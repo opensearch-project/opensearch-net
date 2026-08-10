@@ -57,6 +57,7 @@ namespace OpenSearch.Net.Specification.IsmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ism.add_policy";
         public string Index
         {
             get => Q<string>("index");
@@ -70,6 +71,7 @@ namespace OpenSearch.Net.Specification.IsmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ism.change_policy";
         public string Index
         {
             get => Q<string>("index");
@@ -83,6 +85,7 @@ namespace OpenSearch.Net.Specification.IsmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "ism.delete_policy";
     }
 
     /// <summary>Request options for ExistsPolicy <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#get-policy</para></summary>
@@ -91,6 +94,7 @@ namespace OpenSearch.Net.Specification.IsmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
         public override bool SupportsBody => false;
+        public override string OperationName => "ism.exists_policy";
     }
 
     /// <summary>Request options for ExplainPolicy <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#explain-index</para></summary>
@@ -99,6 +103,7 @@ namespace OpenSearch.Net.Specification.IsmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ism.explain_policy";
     }
 
     /// <summary>Request options for GetPolicies <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#get-policy</para></summary>
@@ -107,6 +112,7 @@ namespace OpenSearch.Net.Specification.IsmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ism.get_policies";
     }
 
     /// <summary>Request options for GetPolicy <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#put-policy</para></summary>
@@ -114,6 +120,7 @@ namespace OpenSearch.Net.Specification.IsmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ism.get_policy";
     }
 
     /// <summary>Request options for PutPolicies <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#create-policy</para></summary>
@@ -122,6 +129,7 @@ namespace OpenSearch.Net.Specification.IsmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "ism.put_policies";
 
         /// <summary>Only perform the operation if the document has this primary term.</summary>
         public double? IfPrimaryTerm
@@ -148,6 +156,7 @@ namespace OpenSearch.Net.Specification.IsmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "ism.put_policy";
 
         /// <summary>Only perform the operation if the document has this primary term.</summary>
         public double? IfPrimaryTerm
@@ -170,6 +179,7 @@ namespace OpenSearch.Net.Specification.IsmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "ism.refresh_search_analyzers";
     }
 
     /// <summary>Request options for RemovePolicy <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#remove-policy</para></summary>
@@ -178,6 +188,7 @@ namespace OpenSearch.Net.Specification.IsmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "ism.remove_policy";
         public string Index
         {
             get => Q<string>("index");
@@ -191,6 +202,7 @@ namespace OpenSearch.Net.Specification.IsmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ism.retry_index";
         public string Index
         {
             get => Q<string>("index");

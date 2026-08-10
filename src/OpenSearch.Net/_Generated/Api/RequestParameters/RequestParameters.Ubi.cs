@@ -58,5 +58,6 @@ namespace OpenSearch.Net.Specification.UbiApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "ubi.initialize";
     }
 }

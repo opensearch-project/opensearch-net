@@ -58,6 +58,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.add_agentic_memory";
     }
 
     /// <summary>Request options for ChunkModel</summary>
@@ -66,6 +67,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.chunk_model";
     }
 
     /// <summary>Request options for CreateConnector</summary>
@@ -74,6 +76,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.create_connector";
     }
 
     /// <summary>Request options for CreateController</summary>
@@ -82,6 +85,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.create_controller";
     }
 
     /// <summary>Request options for CreateMemory</summary>
@@ -90,6 +94,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.create_memory";
     }
 
     /// <summary>Request options for CreateMemoryContainer</summary>
@@ -98,6 +103,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.create_memory_container";
     }
 
     /// <summary>Request options for CreateMemoryContainerSession</summary>
@@ -106,6 +112,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.create_memory_container_session";
     }
 
     /// <summary>Request options for CreateMessage</summary>
@@ -114,6 +121,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.create_message";
     }
 
     /// <summary>Request options for CreateModelMeta</summary>
@@ -122,6 +130,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.create_model_meta";
     }
 
     /// <summary>Request options for DeleteAgent</summary>
@@ -130,6 +139,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.delete_agent";
     }
 
     /// <summary>Request options for DeleteAgenticMemory</summary>
@@ -138,6 +148,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.delete_agentic_memory";
     }
 
     /// <summary>Request options for DeleteAgenticMemoryQuery</summary>
@@ -146,6 +157,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.delete_agentic_memory_query";
     }
 
     /// <summary>Request options for DeleteConnector</summary>
@@ -154,6 +166,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.delete_connector";
     }
 
     /// <summary>Request options for DeleteController</summary>
@@ -162,6 +175,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.delete_controller";
     }
 
     /// <summary>Request options for DeleteMemory</summary>
@@ -170,6 +184,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.delete_memory";
     }
 
     /// <summary>Request options for DeleteMemoryContainer</summary>
@@ -178,6 +193,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.delete_memory_container";
         public bool? DeleteAllMemories
         {
             get => Q<bool?>("delete_all_memories");
@@ -196,6 +212,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.delete_model";
     }
 
     /// <summary>Request options for DeleteModelGroup</summary>
@@ -204,6 +221,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.delete_model_group";
     }
 
     /// <summary>Request options for DeleteTask</summary>
@@ -212,6 +230,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.delete_task";
     }
 
     /// <summary>Request options for DeployModel</summary>
@@ -220,6 +239,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.deploy_model";
     }
 
     /// <summary>Request options for ExecuteAgent</summary>
@@ -228,6 +248,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.execute_agent";
     }
 
     /// <summary>Request options for ExecuteAgentStream</summary>
@@ -236,6 +257,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.execute_agent_stream";
     }
 
     /// <summary>Request options for ExecuteAlgorithm</summary>
@@ -244,6 +266,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.execute_algorithm";
     }
 
     /// <summary>Request options for ExecuteTool</summary>
@@ -252,6 +275,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.execute_tool";
     }
 
     /// <summary>Request options for GetAgent</summary>
@@ -259,6 +283,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.get_agent";
     }
 
     /// <summary>Request options for GetAgenticMemory</summary>
@@ -267,6 +292,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.get_agentic_memory";
     }
 
     /// <summary>Request options for GetAllMemories</summary>
@@ -275,6 +301,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.get_all_memories";
 
         /// <summary>
         /// The maximum number of results to return. If there are fewer memories than the number set in <c>max_results</c>, the response returns only
@@ -304,6 +331,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.get_all_messages";
         public int? MaxResults
         {
             get => Q<int?>("max_results");
@@ -322,6 +350,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.get_all_tools";
     }
 
     /// <summary>Request options for GetConnector</summary>
@@ -330,6 +359,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.get_connector";
     }
 
     /// <summary>Request options for GetController</summary>
@@ -338,6 +368,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.get_controller";
     }
 
     /// <summary>Request options for GetMemory</summary>
@@ -345,6 +376,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.get_memory";
     }
 
     /// <summary>Request options for GetMemoryContainer</summary>
@@ -353,6 +385,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.get_memory_container";
     }
 
     /// <summary>Request options for GetMessage</summary>
@@ -361,6 +394,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.get_message";
     }
 
     /// <summary>Request options for GetMessageTraces</summary>
@@ -369,6 +403,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.get_message_traces";
         public int? MaxResults
         {
             get => Q<int?>("max_results");
@@ -386,6 +421,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.get_model";
     }
 
     /// <summary>Request options for GetModelGroup</summary>
@@ -394,6 +430,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.get_model_group";
     }
 
     /// <summary>Request options for GetProfile</summary>
@@ -402,6 +439,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.get_profile";
     }
 
     /// <summary>Request options for GetProfileModels</summary>
@@ -410,6 +448,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.get_profile_models";
     }
 
     /// <summary>Request options for GetProfileTasks</summary>
@@ -418,6 +457,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.get_profile_tasks";
     }
 
     /// <summary>Request options for GetStats</summary>
@@ -425,6 +465,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.get_stats";
     }
 
     /// <summary>Request options for GetTask</summary>
@@ -432,6 +473,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.get_task";
     }
 
     /// <summary>Request options for GetTool</summary>
@@ -439,6 +481,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.get_tool";
     }
 
     /// <summary>Request options for LoadModel</summary>
@@ -446,6 +489,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "ml.load_model";
     }
 
     /// <summary>Request options for Predict</summary>
@@ -453,6 +497,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.predict";
     }
 
     /// <summary>Request options for PredictModel</summary>
@@ -461,6 +506,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.predict_model";
     }
 
     /// <summary>Request options for PredictModelStream</summary>
@@ -469,6 +515,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.predict_model_stream";
     }
 
     /// <summary>Request options for RegisterAgents</summary>
@@ -477,6 +524,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.register_agents";
     }
 
     /// <summary>Request options for RegisterModel</summary>
@@ -485,6 +533,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.register_model";
     }
 
     /// <summary>Request options for RegisterModelGroup</summary>
@@ -493,6 +542,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.register_model_group";
     }
 
     /// <summary>Request options for RegisterModelMeta</summary>
@@ -501,6 +551,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.register_model_meta";
     }
 
     /// <summary>Request options for SearchAgenticMemory</summary>
@@ -509,6 +560,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.search_agentic_memory";
     }
 
     /// <summary>Request options for SearchAgents</summary>
@@ -517,6 +569,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.search_agents";
     }
 
     /// <summary>Request options for SearchConnectors</summary>
@@ -525,6 +578,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.search_connectors";
     }
 
     /// <summary>Request options for SearchMemory</summary>
@@ -533,6 +587,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.search_memory";
     }
 
     /// <summary>Request options for SearchMemoryContainer</summary>
@@ -541,6 +596,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.search_memory_container";
     }
 
     /// <summary>Request options for SearchMessage</summary>
@@ -549,6 +605,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.search_message";
     }
 
     /// <summary>Request options for SearchModelGroup</summary>
@@ -557,6 +614,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.search_model_group";
     }
 
     /// <summary>Request options for SearchModels</summary>
@@ -565,6 +623,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.search_models";
     }
 
     /// <summary>Request options for SearchTasks</summary>
@@ -573,6 +632,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.search_tasks";
     }
 
     /// <summary>Request options for Train</summary>
@@ -580,6 +640,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.train";
     }
 
     /// <summary>Request options for TrainPredict</summary>
@@ -588,6 +649,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.train_predict";
     }
 
     /// <summary>Request options for UndeployModel</summary>
@@ -596,6 +658,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.undeploy_model";
     }
 
     /// <summary>Request options for UnloadModel</summary>
@@ -604,6 +667,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.unload_model";
     }
 
     /// <summary>Request options for UpdateAgenticMemory</summary>
@@ -612,6 +676,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.update_agentic_memory";
     }
 
     /// <summary>Request options for UpdateConnector</summary>
@@ -620,6 +685,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.update_connector";
     }
 
     /// <summary>Request options for UpdateController</summary>
@@ -628,6 +694,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.update_controller";
     }
 
     /// <summary>Request options for UpdateMemory</summary>
@@ -636,6 +703,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.update_memory";
     }
 
     /// <summary>Request options for UpdateMemoryContainer</summary>
@@ -644,6 +712,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.update_memory_container";
     }
 
     /// <summary>Request options for UpdateMessage</summary>
@@ -652,6 +721,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.update_message";
     }
 
     /// <summary>Request options for UpdateModel</summary>
@@ -660,6 +730,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.update_model";
     }
 
     /// <summary>Request options for UpdateModelGroup</summary>
@@ -668,6 +739,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.update_model_group";
     }
 
     /// <summary>Request options for UploadChunk</summary>
@@ -676,6 +748,7 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.upload_chunk";
     }
 
     /// <summary>Request options for UploadModel</summary>
@@ -684,5 +757,6 @@ namespace OpenSearch.Net.Specification.MlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ml.upload_model";
     }
 }

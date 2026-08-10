@@ -57,6 +57,7 @@ namespace OpenSearch.Net.Specification.SecurityAnalyticsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security_analytics.get_alerts";
 
         /// <summary>Used to filter by alert state. Optional.</summary>
         public SecurityAnalyticsAlertsAlertState? AlertState
@@ -149,6 +150,7 @@ namespace OpenSearch.Net.Specification.SecurityAnalyticsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security_analytics.get_findings";
 
         /// <summary>
         /// The detection type that dictates the retrieval type for the findings. When the detection type is <c>threat</c>, it fetches threat
@@ -254,6 +256,7 @@ namespace OpenSearch.Net.Specification.SecurityAnalyticsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security_analytics.search_finding_correlations";
 
         /// <summary>The log type of findings you want to correlate with the specified finding. Required.</summary>
         public string DetectorType

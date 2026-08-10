@@ -58,6 +58,7 @@ namespace OpenSearch.Net.Specification.QueryApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "query.datasource_delete";
     }
 
     /// <summary>Request options for DatasourceRetrieve</summary>
@@ -66,6 +67,7 @@ namespace OpenSearch.Net.Specification.QueryApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "query.datasource_retrieve";
     }
 
     /// <summary>Request options for DatasourcesCreate</summary>
@@ -74,6 +76,7 @@ namespace OpenSearch.Net.Specification.QueryApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "query.datasources_create";
     }
 
     /// <summary>Request options for DatasourcesList</summary>
@@ -82,6 +85,7 @@ namespace OpenSearch.Net.Specification.QueryApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "query.datasources_list";
     }
 
     /// <summary>Request options for DatasourcesUpdate</summary>
@@ -90,5 +94,6 @@ namespace OpenSearch.Net.Specification.QueryApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "query.datasources_update";
     }
 }
