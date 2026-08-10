@@ -17,8 +17,8 @@ namespace Tests.OpenSearch.Net.Serialization
 	/// The low-level <see cref="ConnectionConfiguration"/> mirrors the high-level
 	/// <c>ConnectionSettings.UseSystemTextJson()</c> switch (see EngineSelectionTests.cs in
 	/// Tests.OpenSearch.Client): System.Text.Json is opt-in via <c>UseSystemTextJson()</c> or the
-	/// OSC_USE_STJ / OSC_USE_UTF8JSON environment variables, but Utf8Json remains the default. These
-	/// tests assert the programmatic switch, which takes precedence over the environment variables, so
+	/// OSC_USE_STJ environment variable, but Utf8Json remains the default. These
+	/// tests assert the programmatic switch, which takes precedence over the environment variable, so
 	/// they are deterministic regardless of which engine a CI leg's environment selects.
 	/// </summary>
 	public class LowLevelEngineSelectionTests
@@ -106,33 +106,6 @@ namespace Tests.OpenSearch.Net.Serialization
 			finally
 			{
 				Environment.SetEnvironmentVariable("OSC_USE_STJ", null);
-			}
-		}
-
-		[U] public void EnvironmentVariable_LegacyOscUseUtf8JsonFalse_OptsIntoStj()
-		{
-			// The legacy env var's sense is inverted relative to OSC_USE_STJ.
-			Environment.SetEnvironmentVariable("OSC_USE_UTF8JSON", "false");
-			try
-			{
-				EngineTypeName(NewConfig()).Should().Be(nameof(SystemTextJsonSerializer));
-			}
-			finally
-			{
-				Environment.SetEnvironmentVariable("OSC_USE_UTF8JSON", null);
-			}
-		}
-
-		[U] public void EnvironmentVariable_LegacyOscUseUtf8JsonTrue_ForcesUtf8Json()
-		{
-			Environment.SetEnvironmentVariable("OSC_USE_UTF8JSON", "true");
-			try
-			{
-				EngineTypeName(NewConfig()).Should().Be(nameof(LowLevelRequestResponseSerializer));
-			}
-			finally
-			{
-				Environment.SetEnvironmentVariable("OSC_USE_UTF8JSON", null);
 			}
 		}
 

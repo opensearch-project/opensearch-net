@@ -31,7 +31,7 @@ jobs:
       matrix:
         serializer:
           - name: utf8json
-            use_stj: ''
+            use_stj: 'false'
           - name: stj
             use_stj: 'true'
 

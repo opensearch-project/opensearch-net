@@ -5,7 +5,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### ⚠️ Breaking Changes ⚠️
 ### Changed
 ### Added
-- Added a `System.Text.Json` opt-in for the low-level client (`ConnectionConfiguration.UseSystemTextJson()`, plus the `OSC_USE_STJ`/`OSC_USE_UTF8JSON` environment variables), mirroring the existing high-level `ConnectionSettings.UseSystemTextJson()` switch, so a standalone low-level client can select the same engine independently of a high-level one ([#388](https://github.com/opensearch-project/opensearch-net/issues/388))
+- Added a `System.Text.Json` opt-in for the low-level client (`ConnectionConfiguration.UseSystemTextJson()`, plus the `OSC_USE_STJ` environment variable), mirroring the existing high-level `ConnectionSettings.UseSystemTextJson()` switch, so a standalone low-level client can select the same engine independently of a high-level one ([#388](https://github.com/opensearch-project/opensearch-net/issues/388))
 - Added support for `wildcard` field type ([#1004](https://github.com/opensearch-project/opensearch-net/pull/1004))
 - Added support for `data_type` (byte vectors), `space_type`, `mode`, and `compression_level` on the `knn_vector` field mapping ([#994](https://github.com/opensearch-project/opensearch-net/issues/994))
 - Added support for `method_parameters`, `rescore`, and `expand_nested_docs` on `KnnQuery` ([#994](https://github.com/opensearch-project/opensearch-net/issues/994))

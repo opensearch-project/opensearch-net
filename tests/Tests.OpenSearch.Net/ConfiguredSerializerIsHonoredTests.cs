@@ -28,9 +28,10 @@ namespace Tests.OpenSearch.Net.Serialization
 		{
 			var connection = new InMemoryConnection(Encoding.UTF8.GetBytes(responseJson), statusCode);
 			var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-			var config = new ConnectionConfiguration(pool, connection);
-			if (useStj)
-				config = config.UseSystemTextJson();
+			// Set the engine explicitly in both directions: a programmatic UseSystemTextJson(...) call takes
+			// precedence over the OSC_USE_STJ environment variable, so this stays deterministic even on the CI
+			// leg that sets OSC_USE_STJ=true process-wide.
+			var config = new ConnectionConfiguration(pool, connection).UseSystemTextJson(useStj);
 
 			return new OpenSearchLowLevelClient(config);
 		}
@@ -97,9 +98,8 @@ namespace Tests.OpenSearch.Net.Serialization
 		{
 			var connection = new InMemoryConnection(Encoding.UTF8.GetBytes("{}"));
 			var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-			var config = new ConnectionConfiguration(pool, connection).DisableDirectStreaming();
-			if (useStj)
-				config = config.UseSystemTextJson();
+			// Set the engine explicitly (see ClientFor) so this is deterministic under the OSC_USE_STJ=true CI leg.
+			var config = new ConnectionConfiguration(pool, connection).DisableDirectStreaming().UseSystemTextJson(useStj);
 
 			var client = new OpenSearchLowLevelClient(config);
 			EngineTypeName(((IConnectionConfigurationValues)client.Settings).RequestResponseSerializer).Should().Be(expectedEngine);

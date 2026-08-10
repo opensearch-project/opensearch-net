@@ -56,10 +56,10 @@
 
 The high-level client (`OpenSearch.Client`) serializes requests and responses using a bundled fork of the Utf8Json library. A `System.Text.Json`-based engine is now available as an **opt-in** alternative. The two engines are behaviorally equivalent for the client's own types (the full serialization test suite passes on both); the default remains Utf8Json to avoid changing serialization behavior within an already-released 2.x line.
 
-To use the System.Text.Json engine, opt in one of two ways (the programmatic call takes precedence over the environment variables):
+To use the System.Text.Json engine, opt in one of two ways (the programmatic call takes precedence over the environment variable):
 
 - Programmatically: `new ConnectionSettings(pool).UseSystemTextJson()` before creating your `OpenSearchClient`.
-- Via environment variable: set `OSC_USE_STJ=true` (or `OSC_USE_UTF8JSON=false`) before creating your `ConnectionSettings` / `OpenSearchClient`.
+- Via environment variable: set `OSC_USE_STJ=true` before creating your `ConnectionSettings` / `OpenSearchClient`.
 
 A custom source serializer supplied via `ConnectionSettings(..., sourceSerializer: ...)` (for example the `OpenSearch.Client.JsonNetSerializer` package) continues to work unchanged under either engine.
 

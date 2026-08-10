@@ -133,9 +133,9 @@ namespace OpenSearch.Client
 
 			// High-level serializer engine selection. The default is the legacy Utf8Json engine; System.Text.Json is
 			// opt-in — programmatically via UseSystemTextJson(), or when unset via the OSC_USE_STJ=true environment
-			// variable (or the legacy OSC_USE_UTF8JSON=false). Keeping Utf8Json the default avoids introducing a
+			// variable. Keeping Utf8Json the default avoids introducing a
 			// serializer breaking change into an already-released 2.x line; callers opt in when ready. The low-level
-			// OpenSearch.Net client reads the same environment variables independently (see
+			// OpenSearch.Net client reads the same environment variable independently (see
 			// ConnectionConfiguration{T}.UseSystemTextJson) but selects its own engine separately.
 			_useSystemTextJson = SystemTextJsonEnvironment.ReadOverride() ?? false;
 			BuildHighLevelSerializers();
@@ -170,7 +170,7 @@ namespace OpenSearch.Client
 		/// <summary>
 		/// Use the System.Text.Json-based high-level serializer instead of the default Utf8Json engine. This is the
 		/// programmatic opt-in for the serializer migration (GitHub issue #388); it takes precedence over the
-		/// <c>OSC_USE_STJ</c> / <c>OSC_USE_UTF8JSON</c> environment variables. Pass <c>false</c> to force the legacy
+		/// <c>OSC_USE_STJ</c> environment variable. Pass <c>false</c> to force the legacy
 		/// Utf8Json engine.
 		/// </summary>
 		public TConnectionSettings UseSystemTextJson(bool useSystemTextJson = true)

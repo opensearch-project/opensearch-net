@@ -15,9 +15,9 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 namespace Tests.OpenSearch.Client.Serialization
 {
 	/// <summary>
-	/// System.Text.Json is opt-in via <c>UseSystemTextJson()</c> (or the OSC_USE_STJ / OSC_USE_UTF8JSON environment
-	/// variables, which the unit CI matrix sets per leg). These tests assert the PROGRAMMATIC switch, which takes
-	/// precedence over the environment variables, so they are deterministic regardless of which engine the CI leg
+	/// System.Text.Json is opt-in via <c>UseSystemTextJson()</c> (or the OSC_USE_STJ environment
+	/// variable, which the unit CI matrix sets per leg). These tests assert the PROGRAMMATIC switch, which takes
+	/// precedence over the environment variable, so they are deterministic regardless of which engine the CI leg
 	/// selects. The plain default (no method call, no env var) is Utf8Json, but that is not asserted here because the
 	/// process environment cannot be assumed clean under the test matrix.
 	/// </summary>
@@ -136,9 +136,9 @@ namespace Tests.OpenSearch.Client.Serialization
 			}";
 			var connection = new InMemoryConnection(Encoding.UTF8.GetBytes(body));
 			var pool = new SingleNodeConnectionPool(new System.Uri("http://localhost:9200"));
-			var settings = new ConnectionSettings(pool, connection);
-			if (useStj)
-				settings = settings.UseSystemTextJson();
+			// Set the engine explicitly in both directions so the test is deterministic under the CI leg that sets
+			// OSC_USE_STJ=true process-wide (a programmatic UseSystemTextJson call takes precedence over the env var).
+			var settings = new ConnectionSettings(pool, connection).UseSystemTextJson(useStj);
 
 			var client = new OpenSearchClient(settings);
 			var response = client.Search<object>(s => s.AllIndices());
@@ -167,9 +167,9 @@ namespace Tests.OpenSearch.Client.Serialization
 			const string errorJson = @"{""error"":{""reason"":""index not found"",""type"":""index_not_found_exception""},""status"":404}";
 			var connection = new InMemoryConnection(Encoding.UTF8.GetBytes(errorJson), 404);
 			var pool = new SingleNodeConnectionPool(new System.Uri("http://localhost:9200"));
-			var settings = new ConnectionSettings(pool, connection);
-			if (useStj)
-				settings = settings.UseSystemTextJson();
+			// Set the engine explicitly in both directions so the test is deterministic under the CI leg that sets
+			// OSC_USE_STJ=true process-wide (a programmatic UseSystemTextJson call takes precedence over the env var).
+			var settings = new ConnectionSettings(pool, connection).UseSystemTextJson(useStj);
 
 			var client = new OpenSearchClient(settings);
 			var response = client.Search<object>(s => s.AllIndices());

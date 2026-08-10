@@ -26,7 +26,7 @@ version — see [Follow-ups](#8-follow-ups)).
 |---|----------|-----------|
 | D1 | **STJ is opt-in; Utf8Json stays the default.** | Switching the default engine in an already-released 2.x line risks introducing an unknown serialization breaking change. Callers opt in when ready; the default is unchanged for existing users. |
 | D2 | **Engine selection is configurable in code**, not only via environment variable. | Reviewers ([Xtansia](https://github.com/opensearch-project/opensearch-net/pull/1002), [Hailong-am](https://github.com/opensearch-project/opensearch-net/pull/1002)) asked for a discoverable, deterministic switch. `settings.UseSystemTextJson()` is IntelliSense-discoverable and testable, and takes precedence over the env vars. |
-| D3 | **Both layers gained an STJ path, and both now have an independent opt-in switch.** `ConnectionConfiguration.UseSystemTextJson()` (low level) mirrors `ConnectionSettings.UseSystemTextJson()` (high level); Utf8Json stays the default for both. | The migration target is the high level (#388), so Utf8Json remains the low-level default — this was previously the low-level default too, briefly, then deliberately reverted (see history note below) once it caused real YAML failures, and the switch exists so the STJ path is reachable without repeating that regression for every caller. The two switches read the same `OSC_USE_STJ`/`OSC_USE_UTF8JSON` variables but select their engines independently, matching how the two layers already have independent config entry points. See [§5](#5-known-trade-offs--limitations) for what this switch does and does not change, including the residual risk it reopens. |
+| D3 | **Both layers gained an STJ path, and both now have an independent opt-in switch.** `ConnectionConfiguration.UseSystemTextJson()` (low level) mirrors `ConnectionSettings.UseSystemTextJson()` (high level); Utf8Json stays the default for both. | The migration target is the high level (#388), so Utf8Json remains the low-level default — this was previously the low-level default too, briefly, then deliberately reverted (see history note below) once it caused real YAML failures, and the switch exists so the STJ path is reachable without repeating that regression for every caller. The two switches read the same `OSC_USE_STJ` variable but select their engines independently, matching how the two layers already have independent config entry points. See [§5](#5-known-trade-offs--limitations) for what this switch does and does not change, including the residual risk it reopens. |
 | D4 | **Parity is verified by running the entire existing unit suite against both engines** rather than by writing a parallel STJ-only test suite. | Zero new assertions to drift; the existing suite already pins the expected JSON. See [§6](#6-verification). |
 | D5 | **Reuse the existing hand-written domain model and its markers.** New STJ converters are additive; no `[JsonFormatter]`/`[DataMember]` attributes were stripped from the domain model. | Minimizes blast radius and keeps the two engines reading the same annotated types. |
 
@@ -63,19 +63,18 @@ no high-level `ConnectionSettings` involved at all.
 High level, resolved in `ConnectionSettingsBase` (`BuildHighLevelSerializers()`):
 
 1. Programmatic `settings.UseSystemTextJson(true|false)` — highest.
-2. Environment: `OSC_USE_STJ=true` (or legacy `OSC_USE_UTF8JSON=false`) → STJ;
-   `OSC_USE_STJ=false` / `OSC_USE_UTF8JSON=true` → Utf8Json.
-3. Neither set → **Utf8Json** (the default).
+2. Environment: `OSC_USE_STJ=true` → STJ; `OSC_USE_STJ=false` → Utf8Json.
+3. Not set → **Utf8Json** (the default).
 
 Low level, resolved in `ConnectionConfiguration<T>` (`BuildRequestResponseSerializer()`):
 
 1. An explicit serializer passed to a `ConnectionConfiguration` constructor — highest;
-   overrides both the toggle and the environment variables, and is retained across later
+   overrides both the toggle and the environment variable, and is retained across later
    `UseSystemTextJson()` calls (matching the pre-existing constructor behavior).
 2. Programmatic `connectionConfiguration.UseSystemTextJson(true|false)`.
-3. Environment: same `OSC_USE_STJ` / `OSC_USE_UTF8JSON` variables as the high level, read
+3. Environment: same `OSC_USE_STJ` variable as the high level, read
    independently.
-4. Neither set → **Utf8Json** (the default).
+4. Not set → **Utf8Json** (the default).
 
 The two layers read the same environment variables but resolve and apply them
 independently — setting `OSC_USE_STJ=true` switches both by default, but the two

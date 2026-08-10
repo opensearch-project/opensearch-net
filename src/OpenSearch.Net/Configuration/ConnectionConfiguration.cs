@@ -148,8 +148,8 @@ namespace OpenSearch.Net
 
 		/// <summary>
 		/// Use the System.Text.Json-based low-level serializer instead of the default Utf8Json engine (GitHub issue
-		/// #388). This is the low-level programmatic opt-in; it takes precedence over the <c>OSC_USE_STJ</c> /
-		/// <c>OSC_USE_UTF8JSON</c> environment variables and over any serializer passed to a constructor of this
+		/// #388). This is the low-level programmatic opt-in; it takes precedence over the <c>OSC_USE_STJ</c>
+		/// environment variable and over any serializer passed to a constructor of this
 		/// class. Pass <c>false</c> to force the legacy Utf8Json engine.
 		/// <para>
 		/// This only applies to a standalone low-level <see cref="OpenSearchLowLevelClient"/> constructed directly
@@ -225,8 +225,8 @@ namespace OpenSearch.Net
 			_connectionPool = connectionPool;
 			_connection = connection ?? new HttpConnection();
 			// The low-level OpenSearch.Net client defaults to the Utf8Json engine; System.Text.Json is opt-in --
-			// programmatically via ConnectionConfiguration.UseSystemTextJson(), or via the OSC_USE_STJ / OSC_USE_UTF8JSON
-			// environment variables when unset (mirroring the high-level ConnectionSettingsBase.UseSystemTextJson()).
+			// programmatically via ConnectionConfiguration.UseSystemTextJson(), or via the OSC_USE_STJ
+			// environment variable when unset (mirroring the high-level ConnectionSettingsBase.UseSystemTextJson()).
 			// An explicitly-supplied requestResponseSerializer always wins over both.
 			_useSystemTextJson = requestResponseSerializer == null && (SystemTextJsonEnvironment.ReadOverride() ?? false);
 			BuildRequestResponseSerializer(requestResponseSerializer);
