@@ -81,6 +81,77 @@ jobs:
           name: report-yaml-${{ matrix.version }}
           path: client/test-results.xml
 
+  # The matrix above runs the YAML suite against the default (Utf8Json) low-level engine. Now that the low-level
+  # client honors OSC_USE_STJ (ConnectionConfiguration.UseSystemTextJson), the YAML runner — which drives a real
+  # low-level OpenSearchLowLevelClient — can exercise the System.Text.Json engine end-to-end against a real cluster.
+  # This is the residual-risk validation the design doc calls for (§5/§8): an earlier revision defaulted the low
+  # level to STJ and the YAML suite surfaced number-formatting / exception-shape gaps (search.backpressure
+  # heap_variance, a flat_object case, strict_allow_templates). We run a representative version per major line under
+  # OSC_USE_STJ=true to see whether those gaps are still present, rather than the full matrix.
+  test-yaml-stj:
+    name: YAML Tests (Released OpenSearch, System.Text.Json)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        version:
+          - 3.6.0
+          - 2.16.0
+          - 1.3.14
+    steps:
+      - name: Checkout Client
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+        with:
+          path: client
+
+      - uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
+        with:
+          dotnet-version: 10.0.x
+
+      - uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
+      - name: Run OpenSearch
+        id: opensearch
+        uses: ./client/.github/actions/run-released-opensearch
+        with:
+          version: ${{ matrix.version }}
+          secured: true
+          opensearch_args: ${{ matrix.version == '2.8.0' && '-Eopensearch.experimental.feature.search_pipeline.enabled=true' || '' }}
+
+      - name: Run YAML tests (System.Text.Json)
+        working-directory: client
+        run: |
+          dotnet run \
+            --project ./tests/Tests.YamlRunner/Tests.YamlRunner.fsproj \
+            -- \
+            --endpoint $OPENSEARCH_URL \
+            --auth-cert ./.ci/certs/kirk.p12 \
+            --auth-cert-pass kirk \
+            --junit-output-file ./test-results.xml
+        env:
+          OPENSEARCH_URL: ${{ steps.opensearch.outputs.opensearch_url }}
+          OSC_USE_STJ: 'true'
+
+      - name: Save OpenSearch logs
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: opensearch-logs-stj-${{ matrix.version }}
+          path: |
+            opensearch-*/logs/*
+
+      - name: Upload test report
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: report-yaml-stj-${{ matrix.version }}
+          path: client/test-results.xml
+
   test-yaml-unreleased:
     name: YAML Tests (Unreleased OpenSearch)
     runs-on: ubuntu-latest

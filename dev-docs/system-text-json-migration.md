@@ -128,12 +128,18 @@ layer if it constructs its low-level and high-level clients separately.
   `InterfaceDataContractResolver` (already used by the high level's
   `HighLevelContractResolver`, a subclass) wires those setters via reflection; the base
   resolver has no dependency on `IConnectionSettingsValues`, so it applies here unchanged.
-- **The YAML test runner cannot exercise the STJ path.** It builds an
+- **The YAML test runner now exercises the low-level STJ path.** It builds an
   `OpenSearchLowLevelClient` over `ConnectionConfiguration` (see
-  `tests/Tests.YamlRunner/Program.fs`), which is Utf8Json-only and ignores
-  `OSC_USE_STJ`. Adding an STJ leg to `integration-yaml-tests.yml` would just re-run
-  Utf8Json, so it is deliberately **not** dual-engine. STJ is instead covered by the
-  dual-engine unit suite and the STJ integration leg (§6).
+  `tests/Tests.YamlRunner/Program.fs`); since that config now honors `OSC_USE_STJ`
+  (`ConnectionConfiguration.UseSystemTextJson`), the runner drives the low-level STJ
+  engine end-to-end when the variable is set. `integration-yaml-tests.yml` has a
+  `test-yaml-stj` leg that sets `OSC_USE_STJ=true` for a representative version per
+  major line — this is the residual-risk validation described above (an earlier
+  low-level-STJ-by-default revision failed the YAML suite on `search.backpressure`
+  `heap_variance`, a `flat_object` case, and `strict_allow_templates`). If that leg
+  surfaces failures, they are the remaining low-level STJ gaps to close, not a
+  regression in the default (Utf8Json) configuration, which the full matrix still
+  covers.
 - **Code-generation templates are unchanged.** ApiGenerator (`.cshtml`) still emits
   `using OpenSearch.Net.Utf8Json;` and `[SerializationConstructor]` on generated
   request classes in `_Generated/`. STJ's resolver already honors those markers, so
