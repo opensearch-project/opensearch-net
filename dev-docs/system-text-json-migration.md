@@ -98,21 +98,24 @@ layer if it constructs its low-level and high-level clients separately.
 
 ## 5. Known trade-offs & limitations
 
-- **The low level's STJ path is opt-in, matching the high level, not the default (D3),
-  and carries more residual risk than the high-level switch.** `ConnectionConfiguration
-  .UseSystemTextJson()` activates it for a standalone low-level client, exercised by the
-  dual-engine unit suite (§6). But this is not the first time the low level defaulted to
-  STJ: an earlier revision of this PR made it the low-level default outright, then
-  reverted specifically because the YAML integration suite (which drives a real
-  low-level `OpenSearchLowLevelClient`, see below) failed on `search.backpressure`
+- **The low level's STJ path is opt-in, matching the high level, not the default (D3).**
+  `ConnectionConfiguration.UseSystemTextJson()` activates it for a standalone low-level
+  client, exercised by the dual-engine unit suite (§6). This is not the first time the
+  low level ran on STJ: an earlier revision of this PR made it the low-level default
+  outright, then reverted specifically because the YAML integration suite (which drives a
+  real low-level `OpenSearchLowLevelClient`, see below) failed on `search.backpressure`
   (`heap_variance`), a `flat_object` case, and `strict_allow_templates` — low-level
   dynamic number formatting and exception-shape gaps in the STJ converters that the
-  mature Utf8Json path didn't have. Those specific failures are not currently
-  reproduced (they are not in `tests/Tests.YamlRunner/SkipList.fs`), but the YAML suite
-  itself still only ever runs against the default engine (see the next bullet), so
-  turning this switch on has **not** been re-validated against a real cluster the way
-  the default configuration has. Treat it as functional and unit-tested, not as
-  integration-proven, until it is opted into a YAML/integration CI leg (see [§8](#8-follow-ups)).
+  mature Utf8Json path didn't have. Those gaps have since been closed by the low-level
+  converters added over this PR (real-number formatting in `ObjectConverter` /
+  `DynamicDictionaryConverter`, the exception converter, the relaxed encoder, and the
+  `InterfaceDataContractResolver` registration), and the `test-yaml-stj` CI leg (§6) now
+  runs the YAML suite under `OSC_USE_STJ=true` against a real cluster — a representative
+  version per major line (1.3.14 / 2.16.0 / 3.6.0) — where those historical failures no
+  longer reproduce. So the low-level switch is integration-validated for those
+  representative versions, not merely unit-tested; it is not, however, run under STJ
+  across the *full* version matrix (only the default Utf8Json config is), so treat the
+  full-matrix guarantee as still Utf8Json-only.
 - **`DynamicResponse` and `ServerError` now honor the configured engine.** Both used to
   hardcode `LowLevelRequestResponseSerializer.Instance` regardless of which engine was
   configured, silently keeping dynamic responses and server-error parsing on Utf8Json
