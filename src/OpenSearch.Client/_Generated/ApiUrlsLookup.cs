@@ -354,6 +354,253 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls NoNamespaceMultiGet = new(["_mget", "{index}/_mget"]);
 
+        internal static readonly ApiUrls MlAddAgenticMemory = new(
+            ["_plugins/_ml/memory_containers/{memory_container_id}/memories"]
+        );
+
+        internal static readonly ApiUrls MlChunkModel = new(
+            ["_plugins/_ml/models/{model_id}/chunk/{chunk_number}"]
+        );
+
+        internal static readonly ApiUrls MlCreateConnector = new(
+            ["_plugins/_ml/connectors/_create"]
+        );
+
+        internal static readonly ApiUrls MlCreateController = new(
+            ["_plugins/_ml/controllers/{model_id}"]
+        );
+
+        internal static readonly ApiUrls MlCreateMemory = new(["_plugins/_ml/memory"]);
+
+        internal static readonly ApiUrls MlCreateMemoryContainer = new(
+            ["_plugins/_ml/memory_containers/_create"]
+        );
+
+        internal static readonly ApiUrls MlCreateMemoryContainerSession = new(
+            ["_plugins/_ml/memory_containers/{memory_container_id}/memories/sessions"]
+        );
+
+        internal static readonly ApiUrls MlCreateMessage = new(
+            ["_plugins/_ml/memory/{memory_id}/messages"]
+        );
+
+        internal static readonly ApiUrls MlCreateModelMeta = new(["_plugins/_ml/models/meta"]);
+
+        internal static readonly ApiUrls MlDeleteAgent = new(["_plugins/_ml/agents/{agent_id}"]);
+
+        internal static readonly ApiUrls MlDeleteAgenticMemory = new(
+            ["_plugins/_ml/memory_containers/{memory_container_id}/memories/{type}/{id}"]
+        );
+
+        internal static readonly ApiUrls MlDeleteAgenticMemoryQuery = new(
+            [
+                "_plugins/_ml/memory_containers/{memory_container_id}/memories/{type}/_delete_by_query",
+            ]
+        );
+
+        internal static readonly ApiUrls MlDeleteConnector = new(
+            ["_plugins/_ml/connectors/{connector_id}"]
+        );
+
+        internal static readonly ApiUrls MlDeleteController = new(
+            ["_plugins/_ml/controllers/{model_id}"]
+        );
+
+        internal static readonly ApiUrls MlDeleteMemory = new(["_plugins/_ml/memory/{memory_id}"]);
+
+        internal static readonly ApiUrls MlDeleteMemoryContainer = new(
+            ["_plugins/_ml/memory_containers/{memory_container_id}"]
+        );
+
+        internal static readonly ApiUrls MlDeleteModel = new(["_plugins/_ml/models/{model_id}"]);
+
+        internal static readonly ApiUrls MlDeleteModelGroup = new(
+            ["_plugins/_ml/model_groups/{model_group_id}"]
+        );
+
+        internal static readonly ApiUrls MlDeleteTask = new(["_plugins/_ml/tasks/{task_id}"]);
+
+        internal static readonly ApiUrls MlDeployModel = new(
+            ["_plugins/_ml/models/{model_id}/_deploy"]
+        );
+
+        internal static readonly ApiUrls MlExecuteAgent = new(
+            ["_plugins/_ml/agents/{agent_id}/_execute"]
+        );
+
+        internal static readonly ApiUrls MlExecuteAlgorithm = new(
+            ["_plugins/_ml/_execute/{algorithm_name}"]
+        );
+
+        internal static readonly ApiUrls MlExecuteTool = new(
+            ["_plugins/_ml/tools/_execute/{tool_name}"]
+        );
+
+        internal static readonly ApiUrls MlGetAgent = new(["_plugins/_ml/agents/{agent_id}"]);
+
+        internal static readonly ApiUrls MlGetAgenticMemory = new(
+            ["_plugins/_ml/memory_containers/{memory_container_id}/memories/{type}/{id}"]
+        );
+
+        internal static readonly ApiUrls MlGetAllMemories = new(["_plugins/_ml/memory"]);
+
+        internal static readonly ApiUrls MlGetAllMessages = new(
+            ["_plugins/_ml/memory/{memory_id}/messages"]
+        );
+
+        internal static readonly ApiUrls MlGetAllTools = new(["_plugins/_ml/tools"]);
+
+        internal static readonly ApiUrls MlGetConnector = new(
+            ["_plugins/_ml/connectors/{connector_id}"]
+        );
+
+        internal static readonly ApiUrls MlGetController = new(
+            ["_plugins/_ml/controllers/{model_id}"]
+        );
+
+        internal static readonly ApiUrls MlGetMemory = new(["_plugins/_ml/memory/{memory_id}"]);
+
+        internal static readonly ApiUrls MlGetMemoryContainer = new(
+            ["_plugins/_ml/memory_containers/{memory_container_id}"]
+        );
+
+        internal static readonly ApiUrls MlGetMessage = new(
+            ["_plugins/_ml/memory/message/{message_id}"]
+        );
+
+        internal static readonly ApiUrls MlGetMessageTraces = new(
+            ["_plugins/_ml/memory/message/{message_id}/traces"]
+        );
+
+        internal static readonly ApiUrls MlGetModel = new(["_plugins/_ml/models/{model_id}"]);
+
+        internal static readonly ApiUrls MlGetModelGroup = new(
+            ["_plugins/_ml/model_groups/{model_group_id}"]
+        );
+
+        internal static readonly ApiUrls MlGetProfile = new(["_plugins/_ml/profile"]);
+
+        internal static readonly ApiUrls MlGetProfileModels = new(
+            ["_plugins/_ml/profile/models", "_plugins/_ml/profile/models/{model_id}"]
+        );
+
+        internal static readonly ApiUrls MlGetProfileTasks = new(
+            ["_plugins/_ml/profile/tasks", "_plugins/_ml/profile/tasks/{task_id}"]
+        );
+
+        internal static readonly ApiUrls MlGetStats = new(
+            [
+                "_plugins/_ml/stats",
+                "_plugins/_ml/{node_id}/stats",
+                "_plugins/_ml/{node_id}/stats/{stat}",
+                "_plugins/_ml/stats/{stat}",
+            ]
+        );
+
+        internal static readonly ApiUrls MlGetTask = new(["_plugins/_ml/tasks/{task_id}"]);
+
+        internal static readonly ApiUrls MlGetTool = new(["_plugins/_ml/tools/{tool_name}"]);
+
+        internal static readonly ApiUrls MlLoadModel = new(
+            ["_plugins/_ml/models/{model_id}/_load"]
+        );
+
+        internal static readonly ApiUrls MlPredict = new(
+            ["_plugins/_ml/_predict/{algorithm_name}/{model_id}"]
+        );
+
+        internal static readonly ApiUrls MlPredictModel = new(
+            ["_plugins/_ml/models/{model_id}/_predict"]
+        );
+
+        internal static readonly ApiUrls MlRegisterAgents = new(["_plugins/_ml/agents/_register"]);
+
+        internal static readonly ApiUrls MlRegisterModel = new(["_plugins/_ml/models/_register"]);
+
+        internal static readonly ApiUrls MlRegisterModelGroup = new(
+            ["_plugins/_ml/model_groups/_register"]
+        );
+
+        internal static readonly ApiUrls MlRegisterModelMeta = new(
+            ["_plugins/_ml/models/_register_meta"]
+        );
+
+        internal static readonly ApiUrls MlSearchAgenticMemory = new(
+            ["_plugins/_ml/memory_containers/{memory_container_id}/memories/{type}/_search"]
+        );
+
+        internal static readonly ApiUrls MlSearchAgents = new(["_plugins/_ml/agents/_search"]);
+
+        internal static readonly ApiUrls MlSearchConnectors = new(
+            ["_plugins/_ml/connectors/_search"]
+        );
+
+        internal static readonly ApiUrls MlSearchMemory = new(["_plugins/_ml/memory/_search"]);
+
+        internal static readonly ApiUrls MlSearchMemoryContainer = new(
+            ["_plugins/_ml/memory_containers/_search"]
+        );
+
+        internal static readonly ApiUrls MlSearchMessage = new(
+            ["_plugins/_ml/memory/{memory_id}/_search"]
+        );
+
+        internal static readonly ApiUrls MlSearchModelGroup = new(
+            ["_plugins/_ml/model_groups/_search"]
+        );
+
+        internal static readonly ApiUrls MlSearchModels = new(["_plugins/_ml/models/_search"]);
+
+        internal static readonly ApiUrls MlSearchTasks = new(["_plugins/_ml/tasks/_search"]);
+
+        internal static readonly ApiUrls MlTrain = new(["_plugins/_ml/_train/{algorithm_name}"]);
+
+        internal static readonly ApiUrls MlTrainPredict = new(
+            ["_plugins/_ml/_train_predict/{algorithm_name}"]
+        );
+
+        internal static readonly ApiUrls MlUndeployModel = new(
+            ["_plugins/_ml/models/_undeploy", "_plugins/_ml/models/{model_id}/_undeploy"]
+        );
+
+        internal static readonly ApiUrls MlUnloadModel = new(
+            ["_plugins/_ml/models/_unload", "_plugins/_ml/models/{model_id}/_unload"]
+        );
+
+        internal static readonly ApiUrls MlUpdateAgenticMemory = new(
+            ["_plugins/_ml/memory_containers/{memory_container_id}/memories/{type}/{id}"]
+        );
+
+        internal static readonly ApiUrls MlUpdateConnector = new(
+            ["_plugins/_ml/connectors/{connector_id}"]
+        );
+
+        internal static readonly ApiUrls MlUpdateController = new(
+            ["_plugins/_ml/controllers/{model_id}"]
+        );
+
+        internal static readonly ApiUrls MlUpdateMemory = new(["_plugins/_ml/memory/{memory_id}"]);
+
+        internal static readonly ApiUrls MlUpdateMemoryContainer = new(
+            ["_plugins/_ml/memory_containers/{memory_container_id}"]
+        );
+
+        internal static readonly ApiUrls MlUpdateMessage = new(
+            ["_plugins/_ml/memory/message/{message_id}"]
+        );
+
+        internal static readonly ApiUrls MlUpdateModel = new(["_plugins/_ml/models/{model_id}"]);
+
+        internal static readonly ApiUrls MlUpdateModelGroup = new(
+            ["_plugins/_ml/model_groups/{model_group_id}"]
+        );
+
+        internal static readonly ApiUrls MlUploadChunk = new(
+            ["_plugins/_ml/models/{model_id}/upload_chunk/{chunk_number}"]
+        );
+
+        internal static readonly ApiUrls MlUploadModel = new(["_plugins/_ml/models/_upload"]);
+
         internal static readonly ApiUrls NoNamespaceMultiSearch = new(
             ["_msearch", "{index}/_msearch"]
         );

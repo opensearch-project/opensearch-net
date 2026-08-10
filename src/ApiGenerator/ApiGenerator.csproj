@@ -25,4 +25,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Views\**\*.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>ApiGenerator.Tests</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
 </Project>

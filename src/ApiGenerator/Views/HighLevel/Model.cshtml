@@ -1,0 +1,79 @@
+@using System
+@using ApiGenerator.Domain.Code.HighLevel.Models
+@inherits ApiGenerator.CodeTemplatePage<ModelType>
+@{ await IncludeGeneratorNotice(); }
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using OpenSearch.Net;
+using OpenSearch.Net.Utf8Json;
+
+namespace OpenSearch.Client
+{
+@if (Model is EnumModel enumModel)
+{
+@:    [StringEnum]
+@:    public enum @enumModel.CsharpName
+@:    {
+    foreach (var m in enumModel.Members)
+    {
+@:        [EnumMember(Value = "@m.WireValue")]
+@:        @m.CsharpName,
+    }
+@:    }
+}
+else if (Model is ObjectModel objectModel)
+{
+    var iface = objectModel.InterfaceName;
+    var name  = objectModel.CsharpName;
+    var descBase = $"DescriptorBase<{name}Descriptor, {iface}>";
+    // Reserved C# keywords that cannot be used as parameter names without verbatim prefix.
+    var csharpKeywords = new System.Collections.Generic.HashSet<string>
+    {
+        "abstract","as","base","bool","break","byte","case","catch","char","checked",
+        "class","const","continue","decimal","default","delegate","do","double","else",
+        "enum","event","explicit","extern","false","finally","fixed","float","for",
+        "foreach","goto","if","implicit","in","int","interface","internal","is","lock",
+        "long","namespace","new","null","object","operator","out","override","params",
+        "private","protected","public","readonly","ref","return","sbyte","sealed","short",
+        "sizeof","stackalloc","static","string","struct","switch","this","throw","true",
+        "try","typeof","uint","ulong","unchecked","unsafe","ushort","using","virtual",
+        "void","volatile","while"
+    };
+    string SafeParam(string n) => csharpKeywords.Contains(n) ? "@" + n : n;
+@:    [InterfaceDataContract]
+@:    [ReadAs(typeof(@name))]
+@:    public interface @iface
+@:    {
+    foreach (var p in objectModel.Properties)
+    {
+@:        [DataMember(Name = "@p.WireName")]
+@:        @Raw(p.CsharpType) @p.CsharpName { get; set; }
+    }
+@:    }
+@:
+@:    public class @name : @iface
+@:    {
+    foreach (var p in objectModel.Properties)
+    {
+@:        public @Raw(p.CsharpType) @p.CsharpName { get; set; }
+    }
+@:    }
+@:
+@:    public class @(name)Descriptor : @Raw(descBase), @iface
+@:    {
+    foreach (var p in objectModel.Properties)
+    {
+        var ifaceProp = $"{iface}.{p.CsharpName}";
+@:        @Raw(p.CsharpType) @Raw(ifaceProp) { get; set; }
+    }
+    foreach (var p in objectModel.Properties)
+    {
+        var rawParamName = Char.ToLowerInvariant(p.CsharpName[0]) + p.CsharpName.Substring(1);
+        var paramName = SafeParam(rawParamName);
+        var paramDefault = p.CsharpType == "bool?" ? " = true" : "";
+@:        public @(name)Descriptor @(p.CsharpName)(@Raw(p.CsharpType) @(paramName)@Raw(paramDefault)) =>
+@:            Assign(@(paramName), (a, v) => a.@p.CsharpName = v);
+    }
+@:    }
+}
+}

@@ -32,6 +32,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using ApiGenerator.Configuration;
 using ApiGenerator.Domain.Specification;
+using NSwag;
 
 namespace ApiGenerator.Domain
 {
@@ -45,6 +46,15 @@ namespace ApiGenerator.Domain
     public class RestApiSpec
     {
 		public ImmutableSortedDictionary<string, ApiEndpoint> Endpoints { get; set; }
+
+#nullable enable
+		/// <summary>
+		/// The raw NSwag OpenApiDocument used to build this spec.
+		/// Populated by <see cref="Generator.ApiGenerator.CreateRestApiSpecModel"/> and consumed by
+		/// <see cref="Generator.Razor.ModelsGenerator"/> when <c>--include-models</c> is passed.
+		/// </summary>
+		internal OpenApiDocument? Document { get; set; }
+#nullable restore
 
         public ImmutableSortedDictionary<string, ReadOnlyCollection<ApiEndpoint>> EndpointsPerNamespaceLowLevel =>
             Endpoints.Values.GroupBy(e=>e.CsharpNames.Namespace)

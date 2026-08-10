@@ -90,3 +90,7 @@ project.lock.json
 
 _site
 _exported_templates
+
+artifacts/codegen-scratch/
+.worktrees/
+tests/ApiGenerator.Tests/

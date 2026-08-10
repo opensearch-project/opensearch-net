@@ -115,11 +115,47 @@ namespace ApiGenerator.Domain.Specification
                     case "index_uuid":
                         return "IndexUuid";
 
-                    //This forces a compilation error post code generation as intended
-                    default: return Type + "_";
+                    // ML-specific opaque identifiers
+                    case "agent_id":
+                    case "connector_id":
+                    case "memory_container_id":
+                    case "memory_id":
+                    case "message_id":
+                    case "model_group_id":
+                        return "Id";
+
+                    // ML-specific name parameters (not identifiers)
+                    case "algorithm_name":
+                    case "stat":
+                    case "tool_name":
+                    case "node_id":
+                        return "Name";
+
+                    // Integer URL segment used by ml.upload_chunk.
+                    case "chunk_number":
+                        return "long?";
+
+                    // For URL parts whose type was already resolved to a C# nullable enum type
+                    // by GetOpenSearchType (e.g. "MlFunctionName?", "MlToolName?"), the Type
+                    // field already holds the correct CLR type.  Return it directly so the
+                    // generated code compiles without a manual case for every future enum.
+                    default:
+                        return IsResolvedNullableType(Type) ? Type : Type + "_";
                 }
             }
         }
+
+        private static readonly HashSet<string> PrimitiveNullables =
+            new HashSet<string> { "int?", "long?", "float?", "double?", "bool?" };
+
+        /// <summary>
+        /// Returns true when <paramref name="type"/> looks like a resolved C# nullable type
+        /// (ends with "?") but is NOT one of the well-known primitives.  These come from
+        /// <c>GetOpenSearchType</c> for enum-typed URL path parameters and are safe to use
+        /// directly as the high-level CLR type.
+        /// </summary>
+        private static bool IsResolvedNullableType(string type) =>
+            type.EndsWith("?") && !PrimitiveNullables.Contains(type);
 
         public string ClrTypeNameOverride { get; set; }
 
