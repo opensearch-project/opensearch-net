@@ -45,6 +45,13 @@ namespace ApiGenerator.Domain.Code
                 ApiName = mapsApiMethodName;
             else ApiName = endpointMethodName.ToPascalCase();
 
+            // High-level name override: allows the high-level types (Request/Response/Descriptor)
+            // to use a different name than the low-level ParametersName, avoiding collisions in
+            // the flat OpenSearch.Client namespace without breaking the low-level API.
+            HighLevelApiName = CodeConfiguration.HighLevelOnlyApiNameOverrides.TryGetValue(name, out var hlName)
+                ? hlName
+                : ApiName;
+
             //if the api name starts with the namespace do not repeat it in the method name
             string Replace(string original, string ns, string find, string replace, string[] exceptions)
             {
@@ -57,7 +64,7 @@ namespace ApiGenerator.Domain.Code
                 return replaced;
             }
 
-            MethodName = Replace(ApiName, null, Namespace, "", new string[0]);
+            MethodName = Replace(HighLevelApiName, null, Namespace, "", new string[0]);
 
             var namespaceRenames = new Dictionary<string, (string find, string replace, string[] exceptions)>
             {
@@ -80,23 +87,30 @@ namespace ApiGenerator.Domain.Code
 
         public string ApiName { get; }
 
-        public string RequestName => $"{ApiName}Request";
+        /// <summary>
+        /// The name used for high-level types (Request/Response/Descriptor). Defaults to <see cref="ApiName"/>
+        /// but can be overridden via <see cref="CodeConfiguration.HighLevelOnlyApiNameOverrides"/> to avoid
+        /// collisions in the flat OpenSearch.Client namespace without affecting the low-level client.
+        /// </summary>
+        public string HighLevelApiName { get; }
+
+        public string RequestName => $"{HighLevelApiName}Request";
 
         public string ResponseName
         {
             get
             {
-                if (Namespace == "Cat") return $"CatResponse<{ApiName}Record>";
-                else if (ApiName.EndsWith("Exists")) return $"ExistsResponse";
+                if (Namespace == "Cat") return $"CatResponse<{HighLevelApiName}Record>";
+                else if (HighLevelApiName.EndsWith("Exists")) return $"ExistsResponse";
 
-                var generatedName = $"{ApiName}Response";
+                var generatedName = $"{HighLevelApiName}Response";
                 var name = CodeConfiguration.ResponseLookup.TryGetValue(generatedName, out var lookup) ? lookup.Item1 : generatedName;
                 return name;
             }
         }
         public string RequestInterfaceName => $"I{RequestName}";
-        public string ParametersName => $"{RequestName}Parameters";
-        public string DescriptorName => $"{ApiName}Descriptor";
+        public string ParametersName => $"{ApiName}RequestParameters";
+        public string DescriptorName => $"{HighLevelApiName}Descriptor";
 
         public const string ApiNamespace = "Specification";
         public const string ApiNamespaceSuffix = "Api";
@@ -179,7 +193,15 @@ namespace ApiGenerator.Domain.Code
             .ToList();
 
 
-        public bool DescriptorNotFoundInCodebase => !CodeConfiguration.DescriptorGenericsLookup.TryGetValue(DescriptorName, out _);
+        /// <summary>
+        /// Returns <c>true</c> when the descriptor class has not been found in the OSC hand-written codebase
+        /// AND the operation has not been explicitly opted in via <see cref="CodeConfiguration.EnableHighLevelCodeGen"/>.
+        /// APIs in <c>EnableHighLevelCodeGen</c> have their partials generated rather than hand-written, so they
+        /// are not in the codebase scan but should still suppress the "IsUnmapped" guard.
+        /// </summary>
+        public bool DescriptorNotFoundInCodebase =>
+            !CodeConfiguration.DescriptorGenericsLookup.TryGetValue(DescriptorName, out _)
+            && !CodeConfiguration.EnableHighLevelCodeGen.Contains(RestSpecName);
 
         public string GenericDescriptorName => GenericsDeclaredOnDescriptor.IsNullOrEmpty() ? null : $"{DescriptorName}{GenericsDeclaredOnDescriptor}";
         public string GenericRequestName => GenericsDeclaredOnRequest.IsNullOrEmpty() ? null : $"{RequestName}{GenericsDeclaredOnRequest}";

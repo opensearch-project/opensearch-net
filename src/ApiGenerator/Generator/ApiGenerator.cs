@@ -68,7 +68,6 @@ namespace ApiGenerator.Generator
 			RecursiveDelete(GeneratorLocations.LowLevelGeneratedFolder);
 			await DoGenerate(
 				new RazorGeneratorBase[] {
-					//low level client
 					new LowLevelClientInterfaceGenerator(),
 					new LowLevelClientImplementationGenerator(),
 					new RequestParametersGenerator(),
@@ -83,12 +82,12 @@ namespace ApiGenerator.Generator
 			await DoGenerate(
 				new RazorGeneratorBase[]
 				{
-					//high level client
 					new ApiUrlsLookupsGenerator(),
 					new HighLevelClientInterfaceGenerator(),
 					new HighLevelClientImplementationGenerator(),
 					new DescriptorsGenerator(),
 					new RequestsGenerator(),
+					new ModelsGenerator(),
 				},
 				highLevel: true
 			);
@@ -129,7 +128,7 @@ namespace ApiGenerator.Generator
 				.OrderBy(e => e.Name)
 				.ToImmutableList();
 
-			return new RestApiSpec { Endpoints = endpoints, EnumsInTheSpec = enumsInSpec };
+			return new RestApiSpec { Endpoints = endpoints, EnumsInTheSpec = enumsInSpec, Document = document };
 		}
 
 		private static string PreprocessRawOpenApiSpec(string yaml)

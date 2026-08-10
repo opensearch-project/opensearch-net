@@ -58,6 +58,43 @@ namespace ApiGenerator.Domain.Code.HighLevel.Requests
             return GenerateConstructors(url, inheritsFromPlainRequestBase, generateGeneric, names.RequestName, generic);
         }
 
+        /// <summary>
+        /// Returns a canonical key for a constructor signature that strips parameter names so that
+        /// constructors differing only in parameter names (but with the same parameter types) are
+        /// treated as duplicates.  Example: both <c>Foo(string nodeId)</c> and <c>Foo(string stat)</c>
+        /// normalise to <c>Foo(string)</c>.
+        /// </summary>
+        private static string NormalizeConstructorSignature(string generated)
+        {
+            // The generated string looks like: "public TypeName(TypeA paramA, TypeB paramB) : base(...)"
+            // Take only the part up to the first ':'  (i.e. drop the base-call), then strip parameter names.
+            var beforeColon = generated.Split(new[] { ':' }, 2)[0];
+
+            var openParen = beforeColon.IndexOf('(');
+            var closeParen = beforeColon.LastIndexOf(')');
+            if (openParen < 0 || closeParen < 0)
+                return beforeColon;
+
+            var header = beforeColon.Substring(0, openParen + 1);
+            var paramsSection = beforeColon.Substring(openParen + 1, closeParen - openParen - 1).Trim();
+
+            if (string.IsNullOrEmpty(paramsSection))
+                return header + ")";
+
+            // Each parameter has the form "Type name"; strip the name (last word).
+            var types = paramsSection.Split(',')
+                .Select(p =>
+                {
+                    var parts = p.Trim().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    // Return everything except the last word (the parameter name).
+                    return parts.Length > 1
+                        ? string.Join(" ", parts.Take(parts.Length - 1))
+                        : parts[0];
+                });
+
+            return header + string.Join(", ", types) + ")";
+        }
+
         private static string FirstGeneric(string fullGenericString) =>
             fullGenericString?.Replace("<", "").Replace(">", "").Split(",").First().Trim();
 
@@ -120,7 +157,11 @@ namespace ApiGenerator.Domain.Code.HighLevel.Requests
                     });
                 }
             }
-            var constructors = ctors.GroupBy(c => c.Generated.Split(new[] { ':' }, 2)[0]).Select(g => g.Last()).ToList();
+            // Deduplicate constructors by their C# parameter-type signature.
+            // Two constructors are duplicates when they have the same types in the same positions,
+            // even if the parameter *names* differ (e.g. `GetStatsRequest(string nodeId)` and
+            // `GetStatsRequest(string stat)` both become `GetStatsRequest(string)`).
+            var constructors = ctors.GroupBy(c => NormalizeConstructorSignature(c.Generated)).Select(g => g.Last()).ToList();
             if (!constructors.Any(c=>c.Parameterless))
                 constructors.Add(new Constructor
                 {

@@ -1,0 +1,31 @@
+@using System
+@using ApiGenerator.Domain.Code.HighLevel.Models
+@inherits ApiGenerator.CodeTemplatePage<ResponseModel>
+@{ await IncludeGeneratorNotice(); }
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using OpenSearch.Net;
+using OpenSearch.Net.Utf8Json;
+
+namespace OpenSearch.Client
+{
+@{
+    var name = Model.CsharpName;
+    var baseClass = Model.BaseClass;
+}
+    [DataContract]
+    public class @name : @baseClass
+    {
+@foreach (var p in Model.Properties)
+{
+@if (p.JsonFormatterType != null)
+{
+<text>        [JsonFormatter(typeof(@p.JsonFormatterType))]
+</text>
+}
+<text>        [DataMember(Name = "@p.WireName")]
+        public @Raw(p.CsharpType) @p.CsharpName { get; internal set; }
+</text>
+}
+    }
+}

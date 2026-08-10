@@ -1,0 +1,69 @@
+@using System
+@using ApiGenerator.Domain.Code.HighLevel.Models
+@inherits ApiGenerator.CodeTemplatePage<RequestModel>
+@{ await IncludeGeneratorNotice(); }
+@{
+    var iface = Model.InterfaceName;
+    var name  = Model.CsharpName;
+    var descriptorName = name.EndsWith("Request")
+        ? name.Substring(0, name.Length - "Request".Length) + "Descriptor"
+        : name + "Descriptor";
+    // Reserved C# keywords that cannot be used as parameter names without verbatim prefix.
+    var csharpKeywords = new System.Collections.Generic.HashSet<string>
+    {
+        "abstract","as","base","bool","break","byte","case","catch","char","checked",
+        "class","const","continue","decimal","default","delegate","do","double","else",
+        "enum","event","explicit","extern","false","finally","fixed","float","for",
+        "foreach","goto","if","implicit","in","int","interface","internal","is","lock",
+        "long","namespace","new","null","object","operator","out","override","params",
+        "private","protected","public","readonly","ref","return","sbyte","sealed","short",
+        "sizeof","stackalloc","static","string","struct","switch","this","throw","true",
+        "try","typeof","uint","ulong","unchecked","unsafe","ushort","using","virtual",
+        "void","volatile","while"
+    };
+    string SafeParam(string n) => csharpKeywords.Contains(n) ? "@" + n : n;
+}
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using OpenSearch.Net;
+
+namespace OpenSearch.Client
+{
+    public partial interface @iface
+    {
+@foreach (var prop in Model.Properties)
+{
+<text>        [DataMember(Name = "@prop.WireName")]
+        @Raw(prop.CsharpType) @prop.CsharpName { get; set; }
+</text>
+}
+    }
+
+    public partial class @name
+    {
+@foreach (var prop in Model.Properties)
+{
+<text>        public @Raw(prop.CsharpType) @prop.CsharpName { get; set; }
+</text>
+}
+    }
+
+    public partial class @descriptorName
+    {
+@foreach (var prop in Model.Properties)
+{
+        var propIfaceName = iface + "." + prop.CsharpName;
+<text>        @Raw(prop.CsharpType) @Raw(propIfaceName) { get; set; }
+</text>
+}
+@foreach (var prop in Model.Properties)
+{
+        var rawLowerParamName = char.ToLowerInvariant(prop.CsharpName[0]) + prop.CsharpName.Substring(1);
+        var lowerParamName = SafeParam(rawLowerParamName);
+        var defaultValue = prop.CsharpType == "bool?" ? " = true" : "";
+<text>        public @descriptorName @(prop.CsharpName)(@Raw(prop.CsharpType) @(lowerParamName)@Raw(defaultValue)) =>
+            Assign(@(lowerParamName), (a, v) => a.@prop.CsharpName = v);
+</text>
+}
+    }
+}

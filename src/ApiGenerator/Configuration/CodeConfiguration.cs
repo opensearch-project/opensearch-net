@@ -50,7 +50,7 @@ namespace ApiGenerator.Configuration
         private static readonly Dictionary<string, string> LowLevelApiNameMapping = new()
 		{
             {"indices.recovery", "RecoveryStatus"},
-            {"indices.shard_stores", "IndicesShardStores"}
+            {"indices.shard_stores", "IndicesShardStores"},
         };
 
         /// <summary>
@@ -65,6 +65,16 @@ namespace ApiGenerator.Configuration
                 select new { Value = f.Name.Replace("Request", ""), Key = c.Replace(".json", "") })
             .DistinctBy(v => v.Key)
             .ToDictionary(k => k.Key, v => v.Value.Replace(".cs", ""));
+
+        /// <summary>
+        /// Overrides the high-level type names (Request/Response/Descriptor/MethodName) for specific
+        /// operations without affecting the low-level ParametersName. Use when the default PascalCase
+        /// name collides with an existing type in the flat OpenSearch.Client namespace.
+        /// </summary>
+        public static readonly Dictionary<string, string> HighLevelOnlyApiNameOverrides = new()
+        {
+            { "ml.get_task", "GetMlTask" },
+        };
 
         public static readonly HashSet<string> EnableHighLevelCodeGen = new HashSet<string>();
 

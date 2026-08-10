@@ -1,13 +1,19 @@
 @using ApiGenerator
 @using System.Collections.Generic
 @using System.Collections.ObjectModel
+@using System.Linq
+@using ApiGenerator.Configuration
 @using ApiGenerator.Domain.Code
 @using ApiGenerator.Domain.Specification
 @inherits ApiGenerator.CodeTemplatePage<KeyValuePair<string, ReadOnlyCollection<ApiEndpoint>>>
 @{
 	var (ns, endpoints) = Model;
+	// Namespaces generated entirely from the OpenAPI spec (all endpoints opted in via
+	// EnableHighLevelCodeGen) carry only the OpenSearch notice; legacy namespaces ported from
+	// Elasticsearch keep the historical attribution header.
+	var newlyGenerated = endpoints.All(e => CodeConfiguration.EnableHighLevelCodeGen.Contains(e.Name));
 }
-@{ await IncludeLegacyGeneratorNotice(); }
+@{ if (newlyGenerated) { await IncludeGeneratorNotice(); } else { await IncludeLegacyGeneratorNotice(); } }
 // ReSharper disable RedundantUsingDirective
 using System;
 using System.Threading;
