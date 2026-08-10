@@ -102,7 +102,7 @@ namespace OpenSearch.Net
 				return false;
 
 			using(var stream = ConnectionConfiguration.MemoryStreamFactory.Create(bytes))
-				return ServerError.TryCreate(stream, out serverError);
+				return ServerError.TryCreate(stream, out serverError, ConnectionConfiguration.RequestResponseSerializer);
 		}
 
 		protected virtual bool TryGetServerErrorReason(out string reason)

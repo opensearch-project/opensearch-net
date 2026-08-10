@@ -134,8 +134,10 @@ namespace OpenSearch.Client
 			// High-level serializer engine selection. The default is the legacy Utf8Json engine; System.Text.Json is
 			// opt-in — programmatically via UseSystemTextJson(), or when unset via the OSC_USE_STJ=true environment
 			// variable (or the legacy OSC_USE_UTF8JSON=false). Keeping Utf8Json the default avoids introducing a
-			// serializer breaking change into an already-released 2.x line; callers opt in when ready.
-			_useSystemTextJson = ReadSystemTextJsonEnvironmentOverride() ?? false;
+			// serializer breaking change into an already-released 2.x line; callers opt in when ready. The low-level
+			// OpenSearch.Net client reads the same environment variables independently (see
+			// ConnectionConfiguration{T}.UseSystemTextJson) but selects its own engine separately.
+			_useSystemTextJson = SystemTextJsonEnvironment.ReadOverride() ?? false;
 			BuildHighLevelSerializers();
 
 			_defaultFieldNameInferrer = p => p.ToCamelCase();
@@ -144,24 +146,6 @@ namespace OpenSearch.Client
 			_inferrer = new Inferrer(this);
 
 			UserAgent(ConnectionSettings.DefaultUserAgent);
-		}
-
-		// Reads the engine environment variables, returning true (System.Text.Json), false (Utf8Json), or null when
-		// neither is set so the caller falls back to the default. A programmatic UseSystemTextJson() call overrides this.
-		private static bool? ReadSystemTextJsonEnvironmentOverride()
-		{
-			var stjEnv = Environment.GetEnvironmentVariable("OSC_USE_STJ");
-			var utf8Env = Environment.GetEnvironmentVariable("OSC_USE_UTF8JSON");
-
-			if (string.Equals(stjEnv, "true", StringComparison.OrdinalIgnoreCase) ||
-				string.Equals(utf8Env, "false", StringComparison.OrdinalIgnoreCase))
-				return true;
-
-			if (string.Equals(stjEnv, "false", StringComparison.OrdinalIgnoreCase) ||
-				string.Equals(utf8Env, "true", StringComparison.OrdinalIgnoreCase))
-				return false;
-
-			return null;
 		}
 
 		// Builds (or rebuilds) the request/response and source serializers for the currently-selected engine, plus the

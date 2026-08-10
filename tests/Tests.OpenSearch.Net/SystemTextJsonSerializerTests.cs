@@ -82,6 +82,21 @@ namespace Tests.OpenSearch.Net.Serialization
 			json.Should().NotContain("IndexUUID");
 		}
 
+		// ServerError.Error/Status expose their [DataMember] properties through `internal set;`. STJ's default
+		// resolver only writes public setters, so without a resolver that wires non-public setters (see
+		// InterfaceDataContractResolver, registered via TypeInfoResolver below), Status silently stayed at its
+		// -1 field-initializer default and Error stayed null, even though the JSON contained both.
+		[U] public void Deserializes_ServerError_ThroughNonPublicSetters()
+		{
+			var error = Deserialize<ServerError>(
+				@"{""error"":{""reason"":""index not found"",""type"":""index_not_found_exception""},""status"":404}");
+
+			error.Status.Should().Be(404);
+			error.Error.Should().NotBeNull();
+			error.Error.Reason.Should().Be("index not found");
+			error.Error.Type.Should().Be("index_not_found_exception");
+		}
+
 		// A response body can be empty, whitespace-only, or an absent (null/Stream.Null) stream — the HEAD used by
 		// Ping, or a 200 with no body. The built-in System.Text.Json reader throws "The input does not contain any
 		// JSON tokens" on such input; the serializer reads the stream fully and treats a blank payload as

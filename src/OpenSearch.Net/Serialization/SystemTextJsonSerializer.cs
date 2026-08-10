@@ -43,7 +43,15 @@ namespace OpenSearch.Net
 				// '+', '&', '<', '>' etc. as \uXXXX. Use the relaxed encoder so payloads match the legacy bytes,
 				// matching SystemTextJsonHighLevelSerializer.
 				Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
-				WriteIndented = writeIndented
+				WriteIndented = writeIndented,
+				// Several low-level response types (e.g. ServerError.Status/Error) expose their [DataMember]
+				// property through a non-public setter, which STJ's default resolver silently leaves at its
+				// default rather than writing to. InterfaceDataContractResolver wires those setters via reflection
+				// (and handles [InterfaceDataContract]/explicit-interface members the same way the high-level
+				// SystemTextJsonHighLevelSerializer's HighLevelContractResolver -- a subclass of this same base --
+				// already does). Registering the base resolver here, without the high-level-specific settings
+				// threading HighLevelContractResolver adds, keeps this serializer's only dependency on OpenSearch.Net.
+				TypeInfoResolver = new InterfaceDataContractResolver()
 			};
 
 			options.Converters.Add(new DynamicDictionaryConverter());
