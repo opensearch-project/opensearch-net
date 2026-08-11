@@ -58,6 +58,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "notifications.create_config";
     }
 
     /// <summary>Request options for DeleteConfig <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#delete-channel-configuration</para></summary>
@@ -66,6 +67,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "notifications.delete_config";
     }
 
     /// <summary>Request options for DeleteConfigs <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#delete-channel-configuration</para></summary>
@@ -74,6 +76,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "notifications.delete_configs";
 
         /// <summary>The ID of the channel configuration to delete.</summary>
         public string ConfigId
@@ -95,6 +98,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "notifications.get_config";
     }
 
     /// <summary>Request options for GetConfigs <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#list-all-notification-configurations</para></summary>
@@ -103,6 +107,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => true;
+        public override string OperationName => "notifications.get_configs";
         public string ChimeUrl
         {
             get => Q<string>("chime.url");
@@ -317,6 +322,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "notifications.list_channels";
     }
 
     /// <summary>Request options for ListFeatures <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#list-supported-channel-configurations</para></summary>
@@ -325,6 +331,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "notifications.list_features";
     }
 
     /// <summary>Request options for SendTest <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#send-test-notification</para></summary>
@@ -332,6 +339,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "notifications.send_test";
     }
 
     /// <summary>Request options for UpdateConfig <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#update-channel-configuration</para></summary>
@@ -340,5 +348,6 @@ namespace OpenSearch.Net.Specification.NotificationsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "notifications.update_config";
     }
 }

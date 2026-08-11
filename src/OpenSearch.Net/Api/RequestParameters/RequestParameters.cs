@@ -42,6 +42,9 @@ namespace OpenSearch.Net
 		public abstract HttpMethod DefaultHttpMethod { get; }
 		public abstract bool SupportsBody { get; }
 
+		/// <inheritdoc />
+		public virtual string OperationName => null;
+
 		public CustomResponseBuilderBase CustomResponseBuilder { get; set; }
 		public Dictionary<string, object> QueryString { get; set; } = new Dictionary<string, object>();
 		public IRequestConfiguration RequestConfiguration { get; set; }

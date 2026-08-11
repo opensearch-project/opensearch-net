@@ -57,6 +57,7 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "asynchronous_search.delete";
     }
 
     /// <summary>Request options for Get <para>https://opensearch.org/docs/latest/search-plugins/async/index/#get-partial-results</para></summary>
@@ -64,6 +65,7 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "asynchronous_search.get";
     }
 
     /// <summary>Request options for Search <para>https://opensearch.org/docs/latest/search-plugins/async/index/#rest-api</para></summary>
@@ -71,6 +73,7 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "asynchronous_search.search";
 
         /// <summary>
         /// The name of the index to be searched. Can be an individual name, a comma-separated list of indexes, or a wildcard expression of index
@@ -116,5 +119,6 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "asynchronous_search.stats";
     }
 }

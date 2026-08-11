@@ -57,6 +57,7 @@ namespace OpenSearch.Net.Specification.RollupsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "rollups.delete";
     }
 
     /// <summary>Request options for Explain <para>https://opensearch.org/docs/latest/im-plugin/index-rollups/rollup-api/#explain-an-index-rollup-job</para></summary>
@@ -64,6 +65,7 @@ namespace OpenSearch.Net.Specification.RollupsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "rollups.explain";
     }
 
     /// <summary>Request options for Get <para>https://opensearch.org/docs/latest/im-plugin/index-rollups/rollup-api/#get-an-index-rollup-job</para></summary>
@@ -71,6 +73,7 @@ namespace OpenSearch.Net.Specification.RollupsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "rollups.get";
     }
 
     /// <summary>Request options for Put <para>https://opensearch.org/docs/latest/im-plugin/index-rollups/rollup-api/#create-or-update-an-index-rollup-job</para></summary>
@@ -78,6 +81,7 @@ namespace OpenSearch.Net.Specification.RollupsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "rollups.put";
 
         /// <summary>Only performs the operation if the document has the specified primary term.</summary>
         public double? IfPrimaryTerm
@@ -99,6 +103,7 @@ namespace OpenSearch.Net.Specification.RollupsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "rollups.start";
     }
 
     /// <summary>Request options for Stop <para>https://opensearch.org/docs/latest/im-plugin/index-rollups/rollup-api/#start-or-stop-an-index-rollup-job</para></summary>
@@ -106,5 +111,6 @@ namespace OpenSearch.Net.Specification.RollupsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "rollups.stop";
     }
 }

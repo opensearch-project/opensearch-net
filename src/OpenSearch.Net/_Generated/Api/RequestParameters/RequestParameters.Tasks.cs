@@ -58,6 +58,7 @@ namespace OpenSearch.Net.Specification.TasksApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "tasks.cancel";
 
         /// <summary>A comma-separated list of actions that should be returned. Keep empty to return all.</summary>
         public string[] Actions
@@ -97,6 +98,7 @@ namespace OpenSearch.Net.Specification.TasksApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "tasks.get";
 
         /// <summary>The amount of time to wait for a response.</summary>
         public TimeSpan Timeout
@@ -118,6 +120,7 @@ namespace OpenSearch.Net.Specification.TasksApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "tasks.list";
 
         /// <summary>A comma-separated list of actions that should be returned. Keep empty to return all.</summary>
         public string[] Actions

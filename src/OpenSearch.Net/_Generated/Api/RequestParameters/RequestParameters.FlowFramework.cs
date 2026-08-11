@@ -57,6 +57,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "flow_framework.create";
 
         /// <summary>Whether to provision the workflow as part of the request.</summary>
         public bool? Provision
@@ -100,6 +101,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "flow_framework.delete";
 
         /// <summary>
         /// Whether to delete the workflow state without deprovisioning resources. OpenSearch deletes the workflow state only if the provisioning
@@ -118,6 +120,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "flow_framework.deprovision";
 
         /// <summary>Specifies whether to allow deletion of resources with potential data loss.</summary>
         public string AllowDelete
@@ -132,6 +135,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "flow_framework.get";
     }
 
     /// <summary>Request options for GetStatus <para>https://opensearch.org/docs/latest/automating-configurations/api/get-workflow-status/</para></summary>
@@ -139,6 +143,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "flow_framework.get_status";
 
         /// <summary>Whether to return all fields in the response.</summary>
         public bool? All
@@ -153,6 +158,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "flow_framework.get_steps";
 
         /// <summary>The name of the step to retrieve.</summary>
         public string WorkflowStep
@@ -167,6 +173,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "flow_framework.provision";
     }
 
     /// <summary>Request options for Search <para>https://opensearch.org/docs/latest/automating-configurations/api/provision-workflow/</para></summary>
@@ -174,6 +181,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "flow_framework.search";
     }
 
     /// <summary>Request options for SearchState <para>https://opensearch.org/docs/latest/automating-configurations/api/search-workflow-state/</para></summary>
@@ -182,6 +190,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "flow_framework.search_state";
     }
 
     /// <summary>Request options for Update <para>https://opensearch.org/docs/latest/automating-configurations/api/create-workflow/</para></summary>
@@ -189,6 +198,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "flow_framework.update";
 
         /// <summary>Whether to provision the workflow as part of the request.</summary>
         public bool? Provision

@@ -57,6 +57,7 @@ namespace OpenSearch.Net.Specification.ListApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "list.help";
     }
 
     /// <summary>Request options for Indices <para>https://opensearch.org/docs/latest/api-reference/list/list-indices/</para></summary>
@@ -64,6 +65,7 @@ namespace OpenSearch.Net.Specification.ListApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "list.indices";
 
         /// <summary>The unit used to display byte values.</summary>
         public ByteUnit? Bytes
@@ -190,6 +192,7 @@ namespace OpenSearch.Net.Specification.ListApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "list.shards";
 
         /// <summary>The unit used to display byte values.</summary>
         public ByteUnit? Bytes

@@ -57,6 +57,7 @@ namespace OpenSearch.Net.Specification.NeuralApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "neural.stats";
 
         /// <summary>
         /// Whether to return stats in the flat form, which can improve readability, especially for heavily nested stats. For example, the flat form

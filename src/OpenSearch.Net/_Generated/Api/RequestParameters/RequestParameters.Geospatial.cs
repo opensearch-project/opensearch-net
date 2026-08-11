@@ -58,6 +58,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "geospatial.delete_ip2geo_datasource";
     }
 
     /// <summary>Request options for GeojsonUploadPost</summary>
@@ -66,6 +67,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "geospatial.geojson_upload_post";
     }
 
     /// <summary>Request options for GeojsonUploadPut</summary>
@@ -74,6 +76,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "geospatial.geojson_upload_put";
     }
 
     /// <summary>Request options for GetIp2geoDatasource <para>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#sending-a-get-request</para></summary>
@@ -82,6 +85,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "geospatial.get_ip2geo_datasource";
     }
 
     /// <summary>Request options for GetUploadStats</summary>
@@ -90,6 +94,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "geospatial.get_upload_stats";
     }
 
     /// <summary>Request options for PutIp2geoDatasource <para>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#data-source-options</para></summary>
@@ -98,6 +103,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "geospatial.put_ip2geo_datasource";
     }
 
     /// <summary>Request options for PutIp2geoDatasourceSettings <para>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#updating-an-ip2geo-data-source</para></summary>
@@ -106,5 +112,6 @@ namespace OpenSearch.Net.Specification.GeospatialApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "geospatial.put_ip2geo_datasource_settings";
     }
 }

@@ -57,6 +57,7 @@ namespace OpenSearch.Net.Specification.SqlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "sql.close";
 
         /// <summary>Specifies the response format (JSON or YAML).</summary>
         public string Format
@@ -78,6 +79,7 @@ namespace OpenSearch.Net.Specification.SqlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "sql.explain";
 
         /// <summary>Specifies the response format (JSON or YAML).</summary>
         public string Format
@@ -99,6 +101,7 @@ namespace OpenSearch.Net.Specification.SqlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "sql.get_stats";
 
         /// <summary>Specifies the response format (JSON or YAML).</summary>
         public string Format
@@ -120,6 +123,7 @@ namespace OpenSearch.Net.Specification.SqlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "sql.post_stats";
 
         /// <summary>Specifies the response format (JSON or YAML).</summary>
         public string Format
@@ -141,6 +145,7 @@ namespace OpenSearch.Net.Specification.SqlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "sql.query";
 
         /// <summary>Specifies the response format (JSON or YAML).</summary>
         public string Format
@@ -162,6 +167,7 @@ namespace OpenSearch.Net.Specification.SqlApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "sql.settings";
 
         /// <summary>Specifies the response format (JSON or YAML).</summary>
         public string Format

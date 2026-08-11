@@ -58,6 +58,7 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "dangling_indices.delete_dangling_index";
 
         /// <summary>Must be set to true in order to delete the dangling index.</summary>
         public bool? AcceptDataLoss
@@ -98,6 +99,7 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "dangling_indices.import_dangling_index";
 
         /// <summary>Must be set to true in order to import the dangling index.</summary>
         public bool? AcceptDataLoss
@@ -138,5 +140,6 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "dangling_indices.list_dangling_indices";
     }
 }

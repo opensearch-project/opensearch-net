@@ -57,6 +57,7 @@ namespace OpenSearch.Net.Specification.IngestionApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ingestion.get_state";
 
         /// <summary>Token to retrieve the next page of results.</summary>
         public string NextToken
@@ -85,6 +86,7 @@ namespace OpenSearch.Net.Specification.IngestionApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "ingestion.pause";
 
         /// <summary>Time to wait for cluster manager connection.</summary>
         public TimeSpan ClusterManagerTimeout
@@ -106,6 +108,7 @@ namespace OpenSearch.Net.Specification.IngestionApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ingestion.resume";
 
         /// <summary>Time to wait for cluster manager connection.</summary>
         public TimeSpan ClusterManagerTimeout
