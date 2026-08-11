@@ -76,7 +76,9 @@ namespace OpenSearch.Net.Serialization.Converters
 			WriteValue(writer, value, options);
 		}
 
-		private static void WriteValue(Utf8JsonWriter writer, object value, JsonSerializerOptions options)
+		// internal so DynamicDictionaryConverter reuses this single boxed-object writer rather than maintaining a
+		// parallel switch that drifts out of sync (it previously missed byte[], decimal .0, and non-generic dictionaries).
+		internal static void WriteValue(Utf8JsonWriter writer, object value, JsonSerializerOptions options)
 		{
 			switch (value)
 			{

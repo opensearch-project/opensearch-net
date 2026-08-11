@@ -117,5 +117,35 @@ namespace Tests.OpenSearch.Net.Serialization
 			var roundTripped = JsonSerializer.Serialize(dict, Options());
 			roundTripped.Should().Contain("\"rating\":9.0").And.Contain("\"title\":\"x\"");
 		}
+
+		// The write path now delegates to the shared ObjectConverter.WriteValue, so these boxed-object behaviours —
+		// previously missing from this converter's own switch — match the legacy engine. A user can build a
+		// DynamicDictionary with these values and serialize it (e.g. as a request body).
+
+		[U] public void Write_IntegralDecimal_PreservesTrailingZero()
+		{
+			// The old switch used WriteNumberValue(decimal), emitting "3"; the legacy engine kept "3.0".
+			var dict = DynamicDictionary.Create(new System.Collections.Generic.Dictionary<string, object> { { "d", 3m } });
+			JsonSerializer.Serialize(dict, Options()).Should().Contain("\"d\":3.0");
+		}
+
+		[U] public void Write_ByteArray_SerializesAsBase64()
+		{
+			// byte[] is a binary blob → base64 string ("AQID"), not a JSON number array. The old switch let it fall
+			// through to the IEnumerable arm and emitted [1,2,3].
+			var dict = DynamicDictionary.Create(new System.Collections.Generic.Dictionary<string, object> { { "b", new byte[] { 1, 2, 3 } } });
+			JsonSerializer.Serialize(dict, Options()).Should().Contain("\"b\":\"AQID\"");
+		}
+
+		[U] public void Write_NonGenericDictionary_SerializesAsObject()
+		{
+			// A non-generic IDictionary (e.g. Hashtable) must serialize as a JSON object. The old switch lacked a
+			// non-generic case, so it fell into the IEnumerable arm and emitted an array of DictionaryEntry.
+			var dict = DynamicDictionary.Create(new System.Collections.Generic.Dictionary<string, object>
+			{
+				{ "h", new System.Collections.Hashtable { { "k", 1 } } }
+			});
+			JsonSerializer.Serialize(dict, Options()).Should().Contain("\"h\":{\"k\":1}");
+		}
 	}
 }
