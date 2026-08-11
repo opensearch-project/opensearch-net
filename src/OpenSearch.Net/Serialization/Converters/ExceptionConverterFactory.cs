@@ -18,11 +18,13 @@ namespace OpenSearch.Net.Serialization.Converters
 	/// chain. This replaces the legacy Utf8Json <c>ExceptionFormatter&lt;TException&gt;</c> and its
 	/// resolver.
 	///
-	/// Unlike the legacy formatter — which read exception state via the now-obsolete
-	/// <c>ISerializable.GetObjectData</c> API — this reads the public properties of
-	/// <see cref="Exception"/>. As a result the internal <c>RemoteStackTraceString</c>,
-	/// <c>RemoteStackIndex</c> and structured <c>ExceptionMethod</c> fields are no longer emitted.
-	/// Serialization is one-way; deserialization is not supported, matching the legacy behaviour.
+	/// Like the legacy formatter, this reads exception state via <c>ISerializable.GetObjectData</c>, so
+	/// <c>RemoteStackTraceString</c> and <c>RemoteStackIndex</c> are still emitted and the output matches the legacy
+	/// engine field-for-field. The one field the legacy formatter emitted that this does not is the structured
+	/// <c>ExceptionMethod</c> object; on modern .NET <c>GetObjectData</c> no longer populates the underlying
+	/// <c>ExceptionMethod</c> serialization entry, so the legacy formatter also produces nothing for it in practice
+	/// (verified byte-for-byte across several exception shapes). Serialization is one-way; deserialization is not
+	/// supported, matching the legacy behaviour.
 	/// </summary>
 	public class ExceptionConverterFactory : JsonConverterFactory
 	{
