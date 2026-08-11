@@ -27,9 +27,9 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-    [InterfaceDataContract]
+    [JsonFormatter(typeof(OpenObjectFormatter<Content, IContent>))]
     [ReadAs(typeof(Content))]
-    public interface IContent
+    public interface IContent : IHasAdditionalProperties
     {
         [DataMember(Name = "text")]
         string Text { get; set; }
@@ -42,15 +42,25 @@ namespace OpenSearch.Client
     {
         public string Text { get; set; }
         public string Type { get; set; }
+        public IDictionary<string, object> AdditionalProperties { get; set; }
     }
 
     public class ContentDescriptor : DescriptorBase<ContentDescriptor, IContent>, IContent
     {
         string IContent.Text { get; set; }
         string IContent.Type { get; set; }
+        IDictionary<string, object> IHasAdditionalProperties.AdditionalProperties { get; set; }
 
         public ContentDescriptor Text(string text) => Assign(text, (a, v) => a.Text = v);
 
         public ContentDescriptor Type(string type) => Assign(type, (a, v) => a.Type = v);
+
+        public ContentDescriptor AdditionalProperties(
+            IDictionary<string, object> additionalProperties
+        ) =>
+            Assign(
+                additionalProperties,
+                (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v
+            );
     }
 }

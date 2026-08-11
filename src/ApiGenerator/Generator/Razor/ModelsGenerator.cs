@@ -35,13 +35,13 @@ public sealed class ModelsGenerator : RazorGeneratorBase
         if (spec.Document is null) return;
 
         foreach (var plugin in EnabledPlugins)
-            await GeneratePlugin(spec.Document, plugin, progressBar, token);
+            await GeneratePlugin(spec.Document, spec.ExplicitlyOpenSchemaIds, plugin, progressBar, token);
     }
 
-    private async Task GeneratePlugin(OpenApiDocument doc, IModelOverrides plugin, ProgressBar progressBar, CancellationToken token)
+    private async Task GeneratePlugin(OpenApiDocument doc, HashSet<string> openSchemaIds, IModelOverrides plugin, ProgressBar progressBar, CancellationToken token)
     {
         var resolver = BuildResolver(doc, plugin);
-        var ns = NamespaceModel.Build(doc, plugin.Namespace, plugin, resolver);
+        var ns = NamespaceModel.Build(doc, plugin.Namespace, plugin, resolver, openSchemaIds);
 
         // Emit shared models/enums
         foreach (var t in ns.TypesToEmit)

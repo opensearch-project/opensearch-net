@@ -54,6 +54,13 @@ namespace ApiGenerator.Domain
 		/// <see cref="Generator.Razor.ModelsGenerator"/> when <c>--include-models</c> is passed.
 		/// </summary>
 		internal OpenApiDocument? Document { get; set; }
+
+	/// <summary>
+	/// Schema IDs that have <c>additionalProperties: true</c> explicitly in the OpenAPI spec.
+	/// NJsonSchema cannot distinguish "not set" from "explicitly true", so this set is extracted
+	/// from the raw YAML during preprocessing.
+	/// </summary>
+	internal HashSet<string> ExplicitlyOpenSchemaIds { get; set; } = new(System.StringComparer.Ordinal);
 #nullable restore
 
         public ImmutableSortedDictionary<string, ReadOnlyCollection<ApiEndpoint>> EndpointsPerNamespaceLowLevel =>

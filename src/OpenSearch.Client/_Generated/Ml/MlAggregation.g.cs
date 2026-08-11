@@ -27,9 +27,9 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-    [InterfaceDataContract]
+    [JsonFormatter(typeof(OpenObjectFormatter<MlAggregation, IMlAggregation>))]
     [ReadAs(typeof(MlAggregation))]
-    public interface IMlAggregation
+    public interface IMlAggregation : IHasAdditionalProperties
     {
         [DataMember(Name = "field")]
         string Field { get; set; }
@@ -46,6 +46,7 @@ namespace OpenSearch.Client
         public string Field { get; set; }
         public IMlAggregation Max { get; set; }
         public IMlAggregation Sum { get; set; }
+        public IDictionary<string, object> AdditionalProperties { get; set; }
     }
 
     public class MlAggregationDescriptor
@@ -55,11 +56,20 @@ namespace OpenSearch.Client
         string IMlAggregation.Field { get; set; }
         IMlAggregation IMlAggregation.Max { get; set; }
         IMlAggregation IMlAggregation.Sum { get; set; }
+        IDictionary<string, object> IHasAdditionalProperties.AdditionalProperties { get; set; }
 
         public MlAggregationDescriptor Field(string field) => Assign(field, (a, v) => a.Field = v);
 
         public MlAggregationDescriptor Max(IMlAggregation max) => Assign(max, (a, v) => a.Max = v);
 
         public MlAggregationDescriptor Sum(IMlAggregation sum) => Assign(sum, (a, v) => a.Sum = v);
+
+        public MlAggregationDescriptor AdditionalProperties(
+            IDictionary<string, object> additionalProperties
+        ) =>
+            Assign(
+                additionalProperties,
+                (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v
+            );
     }
 }

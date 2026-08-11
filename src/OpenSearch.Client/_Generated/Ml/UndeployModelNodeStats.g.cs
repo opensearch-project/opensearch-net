@@ -27,54 +27,22 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-    [JsonFormatter(typeof(OpenObjectFormatter<Parameters, IParameters>))]
-    [ReadAs(typeof(Parameters))]
-    public interface IParameters : IHasAdditionalProperties
+    [JsonFormatter(typeof(OpenObjectFormatter<UndeployModelNodeStats, IUndeployModelNodeStats>))]
+    [ReadAs(typeof(UndeployModelNodeStats))]
+    public interface IUndeployModelNodeStats : IHasAdditionalProperties { }
+
+    public class UndeployModelNodeStats : IUndeployModelNodeStats
     {
-        [DataMember(Name = "_llm_interface")]
-        string LlmInterface { get; set; }
-
-        [DataMember(Name = "inputs")]
-        string Inputs { get; set; }
-
-        [DataMember(Name = "messages")]
-        IList<IMessages> Messages { get; set; }
-
-        [DataMember(Name = "question")]
-        string Question { get; set; }
-    }
-
-    public class Parameters : IParameters
-    {
-        public string LlmInterface { get; set; }
-        public string Inputs { get; set; }
-        public IList<IMessages> Messages { get; set; }
-        public string Question { get; set; }
         public IDictionary<string, object> AdditionalProperties { get; set; }
     }
 
-    public class ParametersDescriptor
-        : DescriptorBase<ParametersDescriptor, IParameters>,
-            IParameters
+    public class UndeployModelNodeStatsDescriptor
+        : DescriptorBase<UndeployModelNodeStatsDescriptor, IUndeployModelNodeStats>,
+            IUndeployModelNodeStats
     {
-        string IParameters.LlmInterface { get; set; }
-        string IParameters.Inputs { get; set; }
-        IList<IMessages> IParameters.Messages { get; set; }
-        string IParameters.Question { get; set; }
         IDictionary<string, object> IHasAdditionalProperties.AdditionalProperties { get; set; }
 
-        public ParametersDescriptor LlmInterface(string llmInterface) =>
-            Assign(llmInterface, (a, v) => a.LlmInterface = v);
-
-        public ParametersDescriptor Inputs(string inputs) => Assign(inputs, (a, v) => a.Inputs = v);
-
-        public ParametersDescriptor Messages(IList<IMessages> messages) =>
-            Assign(messages, (a, v) => a.Messages = v);
-
-        public ParametersDescriptor Question(string question) =>
-            Assign(question, (a, v) => a.Question = v);
-
-        public ParametersDescriptor AdditionalProperties(
+        public UndeployModelNodeStatsDescriptor AdditionalProperties(
             IDictionary<string, object> additionalProperties
         ) =>
             Assign(
