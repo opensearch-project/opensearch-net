@@ -45,6 +45,21 @@ namespace Tests.OpenSearch.Net.Serialization
 			Serialize<decimal>(3.5m).Should().Be("3.5");
 		}
 
+		[U] public void Decimal_DropsTrailingZeros()
+		{
+			// The legacy DecimalFormatter's "0.0###…" format trims trailing zeros: 3.10m -> "3.1" (decimal.ToString()
+			// would preserve the scale as "3.10"). One fractional digit is always kept (5.100m -> "5.1", not "5").
+			Serialize<decimal>(3.10m).Should().Be("3.1");
+			Serialize<decimal>(5.100m).Should().Be("5.1");
+		}
+
+		[U] public void NegativeZero_NormalizedToPositive()
+		{
+			// The legacy Grisu formatter emitted "0.0" for -0.0; double.ToString("R") keeps the sign bit ("-0.0").
+			Serialize<double>(-0.0).Should().Be("0.0");
+			Serialize<float>(-0.0f).Should().Be("0.0");
+		}
+
 		[U] public void DoesNotHtmlEscapePlusAmpersandAndAngleBrackets()
 		{
 			// The legacy Utf8Json engine emitted these characters literally; the relaxed encoder must keep them so

@@ -34,6 +34,10 @@ namespace OpenSearch.Net.Serialization.Converters
 				return;
 			}
 
+			// Normalise negative zero to positive: the legacy Grisu formatter emitted "0.0" for -0.0, whereas
+			// double.ToString("R") preserves the sign bit and yields "-0.0".
+			if (value == 0.0) value = 0.0;
+
 			var s = value.ToString("R", CultureInfo.InvariantCulture);
 			writer.WriteRawValue(EnsureDecimal(s), skipInputValidation: true);
 		}
@@ -46,13 +50,19 @@ namespace OpenSearch.Net.Serialization.Converters
 				return;
 			}
 
+			if (value == 0.0f) value = 0.0f;
+
 			var s = value.ToString("R", CultureInfo.InvariantCulture);
 			writer.WriteRawValue(EnsureDecimal(s), skipInputValidation: true);
 		}
 
 		public static void WriteDecimal(Utf8JsonWriter writer, decimal value)
 		{
-			var s = value.ToString(CultureInfo.InvariantCulture);
+			// Match the legacy DecimalFormatter's format string exactly. Its optional '#' placeholders drop trailing
+			// zeros (3.10m -> "3.1"), whereas decimal.ToString() preserves the value's scale ("3.10"); the leading
+			// "0.0" guarantees at least one integer and one fractional digit (0m -> "0.0", 3m -> "3.0"). EnsureDecimal
+			// is then a no-op here (the point is always present) but is kept for symmetry with the double/float paths.
+			var s = value.ToString("0.0###########################", CultureInfo.InvariantCulture);
 			writer.WriteRawValue(EnsureDecimal(s), skipInputValidation: true);
 		}
 
