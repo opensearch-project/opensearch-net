@@ -27,9 +27,9 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-    [InterfaceDataContract]
+    [JsonFormatter(typeof(OpenObjectFormatter<Source, ISource>))]
     [ReadAs(typeof(Source))]
-    public interface ISource
+    public interface ISource : IHasAdditionalProperties
     {
         [DataMember(Name = "access")]
         ModelGroupAccessMode? Access { get; set; }
@@ -290,6 +290,7 @@ namespace OpenSearch.Client
         public string User { get; set; }
         public string Version { get; set; }
         public IList<object> WorkerNode { get; set; }
+        public IDictionary<string, object> AdditionalProperties { get; set; }
     }
 
     public class SourceDescriptor : DescriptorBase<SourceDescriptor, ISource>, ISource
@@ -358,6 +359,7 @@ namespace OpenSearch.Client
         string ISource.User { get; set; }
         string ISource.Version { get; set; }
         IList<object> ISource.WorkerNode { get; set; }
+        IDictionary<string, object> IHasAdditionalProperties.AdditionalProperties { get; set; }
 
         public SourceDescriptor Access(ModelGroupAccessMode? access) =>
             Assign(access, (a, v) => a.Access = v);
@@ -536,5 +538,13 @@ namespace OpenSearch.Client
 
         public SourceDescriptor WorkerNode(IList<object> workerNode) =>
             Assign(workerNode, (a, v) => a.WorkerNode = v);
+
+        public SourceDescriptor AdditionalProperties(
+            IDictionary<string, object> additionalProperties
+        ) =>
+            Assign(
+                additionalProperties,
+                (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v
+            );
     }
 }

@@ -27,9 +27,9 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-    [InterfaceDataContract]
+    [JsonFormatter(typeof(OpenObjectFormatter<ToolItems, IToolItems>))]
     [ReadAs(typeof(ToolItems))]
-    public interface IToolItems
+    public interface IToolItems : IHasAdditionalProperties
     {
         [DataMember(Name = "attributes")]
         IToolAttributes Attributes { get; set; }
@@ -58,6 +58,7 @@ namespace OpenSearch.Client
         public string Name { get; set; }
         public IParameters Parameters { get; set; }
         public string Type { get; set; }
+        public IDictionary<string, object> AdditionalProperties { get; set; }
     }
 
     public class ToolItemsDescriptor : DescriptorBase<ToolItemsDescriptor, IToolItems>, IToolItems
@@ -68,6 +69,7 @@ namespace OpenSearch.Client
         string IToolItems.Name { get; set; }
         IParameters IToolItems.Parameters { get; set; }
         string IToolItems.Type { get; set; }
+        IDictionary<string, object> IHasAdditionalProperties.AdditionalProperties { get; set; }
 
         public ToolItemsDescriptor Attributes(IToolAttributes attributes) =>
             Assign(attributes, (a, v) => a.Attributes = v);
@@ -85,5 +87,13 @@ namespace OpenSearch.Client
             Assign(parameters, (a, v) => a.Parameters = v);
 
         public ToolItemsDescriptor Type(string type) => Assign(type, (a, v) => a.Type = v);
+
+        public ToolItemsDescriptor AdditionalProperties(
+            IDictionary<string, object> additionalProperties
+        ) =>
+            Assign(
+                additionalProperties,
+                (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v
+            );
     }
 }

@@ -39,7 +39,8 @@ public abstract record ModelType(string SchemaId, string CsharpName)
 public sealed record ObjectModel(
     string SchemaId,
     string CsharpName,
-    IReadOnlyList<ModelProperty> Properties) : ModelType(SchemaId, CsharpName);
+    IReadOnlyList<ModelProperty> Properties,
+    bool AllowAdditionalProperties = false) : ModelType(SchemaId, CsharpName);
 
 /// <summary>
 /// A string enum type.

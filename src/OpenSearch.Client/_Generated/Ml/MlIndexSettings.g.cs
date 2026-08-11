@@ -27,9 +27,9 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-    [InterfaceDataContract]
+    [JsonFormatter(typeof(OpenObjectFormatter<MlIndexSettings, IMlIndexSettings>))]
     [ReadAs(typeof(MlIndexSettings))]
-    public interface IMlIndexSettings
+    public interface IMlIndexSettings : IHasAdditionalProperties
     {
         [DataMember(Name = "long_term_memory_history_index")]
         IMemoryIndexSettings LongTermMemoryHistoryIndex { get; set; }
@@ -50,6 +50,7 @@ namespace OpenSearch.Client
         public IMemoryIndexSettings LongTermMemoryIndex { get; set; }
         public IMemoryIndexSettings SessionIndex { get; set; }
         public IMemoryIndexSettings ShortTermMemoryIndex { get; set; }
+        public IDictionary<string, object> AdditionalProperties { get; set; }
     }
 
     public class MlIndexSettingsDescriptor
@@ -60,6 +61,7 @@ namespace OpenSearch.Client
         IMemoryIndexSettings IMlIndexSettings.LongTermMemoryIndex { get; set; }
         IMemoryIndexSettings IMlIndexSettings.SessionIndex { get; set; }
         IMemoryIndexSettings IMlIndexSettings.ShortTermMemoryIndex { get; set; }
+        IDictionary<string, object> IHasAdditionalProperties.AdditionalProperties { get; set; }
 
         public MlIndexSettingsDescriptor LongTermMemoryHistoryIndex(
             IMemoryIndexSettings longTermMemoryHistoryIndex
@@ -75,5 +77,13 @@ namespace OpenSearch.Client
         public MlIndexSettingsDescriptor ShortTermMemoryIndex(
             IMemoryIndexSettings shortTermMemoryIndex
         ) => Assign(shortTermMemoryIndex, (a, v) => a.ShortTermMemoryIndex = v);
+
+        public MlIndexSettingsDescriptor AdditionalProperties(
+            IDictionary<string, object> additionalProperties
+        ) =>
+            Assign(
+                additionalProperties,
+                (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v
+            );
     }
 }

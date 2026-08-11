@@ -27,9 +27,9 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-    [InterfaceDataContract]
+    [JsonFormatter(typeof(OpenObjectFormatter<Credential, ICredential>))]
     [ReadAs(typeof(Credential))]
-    public interface ICredential
+    public interface ICredential : IHasAdditionalProperties
     {
         [DataMember(Name = "access_key")]
         string AccessKey { get; set; }
@@ -46,6 +46,7 @@ namespace OpenSearch.Client
         public string AccessKey { get; set; }
         public string SecretKey { get; set; }
         public string SessionToken { get; set; }
+        public IDictionary<string, object> AdditionalProperties { get; set; }
     }
 
     public class CredentialDescriptor
@@ -55,6 +56,7 @@ namespace OpenSearch.Client
         string ICredential.AccessKey { get; set; }
         string ICredential.SecretKey { get; set; }
         string ICredential.SessionToken { get; set; }
+        IDictionary<string, object> IHasAdditionalProperties.AdditionalProperties { get; set; }
 
         public CredentialDescriptor AccessKey(string accessKey) =>
             Assign(accessKey, (a, v) => a.AccessKey = v);
@@ -64,5 +66,13 @@ namespace OpenSearch.Client
 
         public CredentialDescriptor SessionToken(string sessionToken) =>
             Assign(sessionToken, (a, v) => a.SessionToken = v);
+
+        public CredentialDescriptor AdditionalProperties(
+            IDictionary<string, object> additionalProperties
+        ) =>
+            Assign(
+                additionalProperties,
+                (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v
+            );
     }
 }

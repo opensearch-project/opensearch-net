@@ -27,9 +27,9 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-    [InterfaceDataContract]
+    [JsonFormatter(typeof(OpenObjectFormatter<Index, IIndex>))]
     [ReadAs(typeof(Index))]
-    public interface IIndex
+    public interface IIndex : IHasAdditionalProperties
     {
         [DataMember(Name = "number_of_replicas")]
         string NumberOfReplicas { get; set; }
@@ -42,17 +42,27 @@ namespace OpenSearch.Client
     {
         public string NumberOfReplicas { get; set; }
         public string NumberOfShards { get; set; }
+        public IDictionary<string, object> AdditionalProperties { get; set; }
     }
 
     public class IndexDescriptor : DescriptorBase<IndexDescriptor, IIndex>, IIndex
     {
         string IIndex.NumberOfReplicas { get; set; }
         string IIndex.NumberOfShards { get; set; }
+        IDictionary<string, object> IHasAdditionalProperties.AdditionalProperties { get; set; }
 
         public IndexDescriptor NumberOfReplicas(string numberOfReplicas) =>
             Assign(numberOfReplicas, (a, v) => a.NumberOfReplicas = v);
 
         public IndexDescriptor NumberOfShards(string numberOfShards) =>
             Assign(numberOfShards, (a, v) => a.NumberOfShards = v);
+
+        public IndexDescriptor AdditionalProperties(
+            IDictionary<string, object> additionalProperties
+        ) =>
+            Assign(
+                additionalProperties,
+                (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v
+            );
     }
 }

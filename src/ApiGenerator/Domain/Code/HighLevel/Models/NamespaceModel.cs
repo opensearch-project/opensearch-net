@@ -24,7 +24,8 @@ public sealed class NamespaceModel
     public IReadOnlyList<ModelType> AllTypes { get; init; } = new List<ModelType>();
 
     public static NamespaceModel Build(
-        OpenApiDocument doc, string @namespace, IModelOverrides registry, ModelTypeResolver resolver)
+        OpenApiDocument doc, string @namespace, IModelOverrides registry, ModelTypeResolver resolver,
+        HashSet<string>? explicitlyOpenSchemaIds = null)
     {
         var all = new List<ModelType>();
         foreach (var (id, schema) in doc.Components.Schemas
@@ -47,7 +48,9 @@ public sealed class NamespaceModel
 
             // Collect properties: from direct properties, and from inline allOf object schemas.
             var propSource = CollectProperties(s);
-            if (propSource.Count == 0) continue; // arrays/bare-refs — handled later
+            var isOpen = explicitlyOpenSchemaIds?.Contains(id) ?? false;
+            // Skip schemas with no properties unless they're explicitly open (pure dictionary wrappers).
+            if (propSource.Count == 0 && !isOpen) continue; // arrays/bare-refs — handled later
 
             var requiredNames = new HashSet<string>(
                 s.RequiredProperties ?? Enumerable.Empty<string>(),
@@ -69,7 +72,7 @@ public sealed class NamespaceModel
                 })
                 .ToList();
             // Use resolver.CsharpTypeName so that registry renames (e.g. Task→MlTask) apply.
-            all.Add(new ObjectModel(id, resolver.CsharpTypeName(id), props));
+            all.Add(new ObjectModel(id, resolver.CsharpTypeName(id), props, isOpen));
         }
 
         var opOwnedSchemas = CollectOpOwnedResponseSchemas(doc, @namespace, registry);

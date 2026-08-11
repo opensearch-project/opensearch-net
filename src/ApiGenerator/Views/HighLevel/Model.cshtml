@@ -26,6 +26,7 @@ else if (Model is ObjectModel objectModel)
     var iface = objectModel.InterfaceName;
     var name  = objectModel.CsharpName;
     var descBase = $"DescriptorBase<{name}Descriptor, {iface}>";
+    var isOpen = objectModel.AllowAdditionalProperties;
     // Reserved C# keywords that cannot be used as parameter names without verbatim prefix.
     var csharpKeywords = new System.Collections.Generic.HashSet<string>
     {
@@ -40,9 +41,18 @@ else if (Model is ObjectModel objectModel)
         "void","volatile","while"
     };
     string SafeParam(string n) => csharpKeywords.Contains(n) ? "@" + n : n;
+    if (isOpen)
+    {
+@:    [JsonFormatter(typeof(OpenObjectFormatter<@name, @iface>))]
+@:    [ReadAs(typeof(@name))]
+@:    public interface @iface : IHasAdditionalProperties
+    }
+    else
+    {
 @:    [InterfaceDataContract]
 @:    [ReadAs(typeof(@name))]
 @:    public interface @iface
+    }
 @:    {
     foreach (var p in objectModel.Properties)
     {
@@ -57,6 +67,10 @@ else if (Model is ObjectModel objectModel)
     {
 @:        public @Raw(p.CsharpType) @p.CsharpName { get; set; }
     }
+    if (isOpen)
+    {
+@:        public IDictionary<string, object> AdditionalProperties { get; set; }
+    }
 @:    }
 @:
 @:    public class @(name)Descriptor : @Raw(descBase), @iface
@@ -66,6 +80,10 @@ else if (Model is ObjectModel objectModel)
         var ifaceProp = $"{iface}.{p.CsharpName}";
 @:        @Raw(p.CsharpType) @Raw(ifaceProp) { get; set; }
     }
+    if (isOpen)
+    {
+@:        IDictionary<string, object> IHasAdditionalProperties.AdditionalProperties { get; set; }
+    }
     foreach (var p in objectModel.Properties)
     {
         var rawParamName = Char.ToLowerInvariant(p.CsharpName[0]) + p.CsharpName.Substring(1);
@@ -73,6 +91,11 @@ else if (Model is ObjectModel objectModel)
         var paramDefault = p.CsharpType == "bool?" ? " = true" : "";
 @:        public @(name)Descriptor @(p.CsharpName)(@Raw(p.CsharpType) @(paramName)@Raw(paramDefault)) =>
 @:            Assign(@(paramName), (a, v) => a.@p.CsharpName = v);
+    }
+    if (isOpen)
+    {
+@:        public @(name)Descriptor AdditionalProperties(IDictionary<string, object> additionalProperties) =>
+@:            Assign(additionalProperties, (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v);
     }
 @:    }
 }
