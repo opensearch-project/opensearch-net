@@ -125,6 +125,14 @@ namespace OpenSearch.Net.Serialization.Converters
 					}
 					writer.WriteEndObject();
 					break;
+				// A byte[] is a binary blob, not a sequence of numbers: the legacy Utf8Json engine's boxed-object
+				// path (PrimitiveObjectFormatter -> ByteArrayFormatter) wrote it as a single base64 string. Match that
+				// here — it must precede the IEnumerable arm below, which byte[] would otherwise fall into and emit as
+				// a JSON number array ([1,2,3] instead of "AQID"). Only byte[] gets this treatment; a List<byte> is a
+				// genuine number collection and stays an array, exactly as the legacy engine did.
+				case byte[] bytes:
+					writer.WriteBase64StringValue(bytes);
+					break;
 				case IEnumerable enumerable:
 					writer.WriteStartArray();
 					foreach (var item in enumerable)

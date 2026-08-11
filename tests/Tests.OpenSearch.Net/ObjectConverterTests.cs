@@ -8,6 +8,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Text.Json;
 using FluentAssertions;
 using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
@@ -70,6 +71,26 @@ namespace Tests.OpenSearch.Net.Serialization
 			// RealNumberFormat.WriteDecimal rather than STJ's default number writer (which would emit "3").
 			var body = new Dictionary<string, object> { { "d", (object)3m } };
 			Serializer.SerializeToString(body).Should().Contain("\"d\":3.0");
+		}
+
+		[U] public void BoxedByteArray_SerializesAsBase64()
+		{
+			// A byte[] is a binary blob: the legacy Utf8Json engine wrote it as a single base64 string (via
+			// ByteArrayFormatter), not a JSON array of the individual byte values. { 1, 2, 3 } => "AQID".
+			var body = new Dictionary<string, object> { { "bytes", new byte[] { 1, 2, 3 } } };
+
+			using var json = JsonDocument.Parse(Serializer.SerializeToString(body));
+			var bytes = json.RootElement.GetProperty("bytes");
+			bytes.ValueKind.Should().Be(JsonValueKind.String);
+			bytes.GetString().Should().Be("AQID");
+		}
+
+		[U] public void BoxedByteList_SerializesAsNumberArray()
+		{
+			// A List<byte> is a genuine collection of small integers, not a blob: both engines write it as a JSON
+			// number array. Guards against over-eager base64 encoding of every byte-bearing enumerable.
+			var body = new Dictionary<string, object> { { "bytes", new List<byte> { 1, 2, 3 } } };
+			Serializer.SerializeToString(body).Should().Contain("\"bytes\":[1,2,3]");
 		}
 
 		[U] public void BareObjectValue_WritesEmptyObject_WithoutInfiniteRecursion()

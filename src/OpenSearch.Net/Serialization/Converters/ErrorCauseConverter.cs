@@ -100,7 +100,11 @@ namespace OpenSearch.Net.Serialization.Converters
 		private static ErrorCause ReadCausedBy(ref Utf8JsonReader reader, JsonSerializerOptions options) =>
 			new ErrorCauseConverter<ErrorCause>().Read(ref reader, typeof(ErrorCause), options);
 
-		// Reads an unknown value into a plain CLR object (mirrors the legacy object formatter fallback).
+		// Reads an unknown value into a plain CLR object (mirrors the legacy object formatter fallback). Nested objects
+		// and arrays must recurse into Dictionary<string, object> / List<object> with native scalar values (long/double/
+		// string/bool), matching the legacy Utf8Json engine's dynamic reads (and ObjectConverter.Read). Buffering them
+		// into a JsonElement instead would leak an engine-specific DOM type into AdditionalProperties, so callers could
+		// no longer index or enumerate the value as they did on the legacy engine.
 		private static object ReadDynamicValue(ref Utf8JsonReader reader, JsonSerializerOptions options)
 		{
 			switch (reader.TokenType)
@@ -110,11 +114,30 @@ namespace OpenSearch.Net.Serialization.Converters
 				case JsonTokenType.False: return false;
 				case JsonTokenType.String: return reader.GetString();
 				case JsonTokenType.Number:
-					return reader.TryGetInt64(out var l) ? l : reader.GetDouble();
+					// The (object) cast on the double arm is required: without it the conditional's type unifies to
+					// double, silently widening an integral value to double (long 1 boxed as 1.0). The legacy engine
+					// read whole numbers as Int64, so callers reading AdditionalProperties expect long, not double.
+					return reader.TryGetInt64(out var l) ? l : (object)reader.GetDouble();
 				case JsonTokenType.StartObject:
+					var dict = new Dictionary<string, object>();
+					while (reader.Read())
+					{
+						if (reader.TokenType == JsonTokenType.EndObject)
+							return dict;
+						var key = reader.GetString();
+						reader.Read();
+						dict[key] = ReadDynamicValue(ref reader, options);
+					}
+					throw new JsonException("Unexpected end of JSON while reading nested object.");
 				case JsonTokenType.StartArray:
-					using (var doc = JsonDocument.ParseValue(ref reader))
-						return doc.RootElement.Clone();
+					var list = new List<object>();
+					while (reader.Read())
+					{
+						if (reader.TokenType == JsonTokenType.EndArray)
+							return list;
+						list.Add(ReadDynamicValue(ref reader, options));
+					}
+					throw new JsonException("Unexpected end of JSON while reading nested array.");
 				default:
 					reader.Skip();
 					return null;

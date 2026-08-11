@@ -5,6 +5,7 @@
 * compatible open source license.
 */
 
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using FluentAssertions;
@@ -70,6 +71,26 @@ namespace Tests.OpenSearch.Net.Serialization
 
 			ec.AdditionalProperties.Should().ContainKey("weird_field");
 			ec.AdditionalProperties["weird_field"].Should().Be(123L);
+			// An integral unknown value must be a long, not a double: the conditional in ReadDynamicValue would
+			// otherwise unify to double and box 123 as 123.0, unlike the legacy engine's Int64.
+			ec.AdditionalProperties["weird_field"].Should().BeOfType<long>();
+		}
+
+		[U] public void Read_NestedUnknownFields_UseClrCollections()
+		{
+			// Nested unknown objects/arrays must materialise as Dictionary<string, object> / List<object> with native
+			// scalar values (long, not double), matching the legacy Utf8Json dynamic reads. Buffering into a JsonElement
+			// would leak an engine-specific DOM type that callers cannot index or enumerate as they did before.
+			var json = @"{""nested"":{""number"":1},""items"":[1,2]}";
+			var ec = JsonSerializer.Deserialize<ErrorCause>(json, ErrorCauseOptions());
+
+			var nested = ec.AdditionalProperties["nested"].Should()
+				.BeOfType<Dictionary<string, object>>().Which;
+			nested["number"].Should().Be(1L);
+
+			var items = ec.AdditionalProperties["items"].Should()
+				.BeOfType<List<object>>().Which;
+			items.Should().Equal(1L, 2L);
 		}
 
 		[U] public void Read_ResourceId_AcceptsSingleValue()
