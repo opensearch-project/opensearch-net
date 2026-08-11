@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="$(SolutionRoot)\src\OpenSearch.Client\OpenSearch.Client.csproj" />
+    <ProjectReference Include="$(SolutionRoot)\src\OpenSearch.Net.Auth.AwsSigV4\OpenSearch.Net.Auth.AwsSigV4.csproj" />
   </ItemGroup>
 
   <ItemGroup>
