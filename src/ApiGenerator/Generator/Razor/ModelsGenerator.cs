@@ -28,6 +28,7 @@ public sealed class ModelsGenerator : RazorGeneratorBase
     public static readonly IModelOverrides[] EnabledPlugins =
     {
         new MlModelOverrides(),
+        new SearchPipelineModelOverrides(),
     };
 
     public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
@@ -47,7 +48,10 @@ public sealed class ModelsGenerator : RazorGeneratorBase
         foreach (var t in ns.TypesToEmit)
         {
             token.ThrowIfCancellationRequested();
-            await DoRazor(t, ViewLocations.HighLevel("Model.cshtml"),
+            var template = t is WrapperKeyUnionModel
+                ? ViewLocations.HighLevel("WrapperKeyUnion.cshtml")
+                : ViewLocations.HighLevel("Model.cshtml");
+            await DoRazor(t, template,
                 GeneratorLocations.HighLevel(plugin.OutputFolder, t.CsharpName + ".g.cs"), token);
             progressBar.Tick($"Generated {plugin.Namespace} model: {t.CsharpName}");
         }

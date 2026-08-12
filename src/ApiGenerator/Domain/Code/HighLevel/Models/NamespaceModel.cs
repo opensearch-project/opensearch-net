@@ -28,6 +28,9 @@ public sealed class NamespaceModel
         HashSet<string>? explicitlyOpenSchemaIds = null)
     {
         var all = new List<ModelType>();
+        // Track body schema IDs consumed by wrapper-key unions to avoid duplicate ObjectModel emit.
+        var unionBodySchemaIds = new HashSet<string>(StringComparer.Ordinal);
+
         foreach (var (id, schema) in doc.Components.Schemas
                      .Where(kv => kv.Key.StartsWith(@namespace + ".", StringComparison.Ordinal))
                      .OrderBy(kv => kv.Key, StringComparer.Ordinal))
@@ -45,6 +48,18 @@ public sealed class NamespaceModel
                 all.Add(new EnumModel(id, resolver.CsharpTypeName(id), members));
                 continue;
             }
+
+            // Wrapper-key oneOf: each variant has exactly one required property whose value is
+            // the body schema $ref.  Wire format: { "discriminator_key": { ...body... } }.
+            // Detected by: s.OneOf.Count > 0 AND every variant has exactly one required property.
+            if (TryBuildWrapperKeyUnion(id, s, doc, registry, resolver, unionBodySchemaIds, out var unionModel))
+            {
+                all.Add(unionModel!);
+                continue;
+            }
+
+            // Skip schemas that were already consumed as variant bodies of a wrapper-key union.
+            if (unionBodySchemaIds.Contains(id)) continue;
 
             // Collect properties: from direct properties, and from inline allOf object schemas.
             var propSource = CollectProperties(s);
@@ -75,14 +90,182 @@ public sealed class NamespaceModel
             all.Add(new ObjectModel(id, resolver.CsharpTypeName(id), props, isOpen));
         }
 
+        // Second pass: remove any ObjectModels whose schema IDs were added to unionBodySchemaIds
+        // during a union scan that happened AFTER the object was already added (ordering issue).
+        var finalEmit = all
+            .Where(t => !(t is ObjectModel && unionBodySchemaIds.Contains(t.SchemaId)))
+            .ToList();
+
         var opOwnedSchemas = CollectOpOwnedResponseSchemas(doc, @namespace, registry);
 
-        var emit = all
+        var emit = finalEmit
             .Where(t => !opOwnedSchemas.Contains(t.SchemaId)
                 && registry.MappedCsharpType(t.SchemaId) == null)
             .ToList();
 
-        return new NamespaceModel { Namespace = @namespace, TypesToEmit = emit, AllTypes = all };
+        return new NamespaceModel { Namespace = @namespace, TypesToEmit = emit, AllTypes = finalEmit };
+    }
+
+    /// <summary>
+    /// Tries to interpret a schema as a wrapper-key discriminated union:
+    /// <code>
+    /// oneOf:
+    ///   - title: foo
+    ///     properties:
+    ///       foo: { $ref: '#/...FooBody' }
+    ///     required: [foo]
+    ///   - title: bar
+    ///     ...
+    /// </code>
+    /// Returns true and populates <paramref name="model"/> if the schema fits this pattern.
+    /// </summary>
+    private static bool TryBuildWrapperKeyUnion(
+        string schemaId,
+        NJsonSchema.JsonSchema s,
+        OpenApiDocument doc,
+        IModelOverrides registry,
+        ModelTypeResolver resolver,
+        HashSet<string> consumedBodySchemaIds,
+        out WrapperKeyUnionModel? model)
+    {
+        model = null;
+        if (s.OneOf.Count == 0) return false;
+
+        // Every variant must have exactly one required property (the discriminator key).
+        // That property must be an object schema (the body), either inline or via $ref.
+        var variants = new List<WrapperKeyVariant>();
+
+        // Collect shared base properties: the set of property names that appear in ALL variants.
+        // Typically these are tag, description, ignore_failure.
+        Dictionary<string, NJsonSchema.JsonSchema>? sharedProps = null;
+
+        foreach (var variant in s.OneOf)
+        {
+            var v = variant.ActualSchema;
+            var required = v.RequiredProperties ?? Array.Empty<string>();
+            var props = v.Properties ?? new Dictionary<string, NJsonSchema.JsonSchemaProperty>();
+
+            if (required.Count != 1) return false; // not wrapper-key pattern
+
+            var key = required.First();
+            if (!props.TryGetValue(key, out var bodyProp)) return false;
+
+            var bodySchema = bodyProp.ActualSchema;
+            var bodyRefId = bodyProp.Reference?.Id ?? bodySchema.Reference?.Id;
+
+            // If bodyRefId is null (NSwag inlined the $ref), try to recover it by
+            // scanning the document's component schemas for the same schema instance.
+            if (bodyRefId == null)
+            {
+                foreach (var (sid, sschema) in doc.Components.Schemas)
+                    if (ReferenceEquals(sschema.ActualSchema, bodySchema)
+                        || ReferenceEquals(sschema, bodyProp))
+                    {
+                        bodyRefId = sid;
+                        break;
+                    }
+            }
+
+            // Look up the named body schema (either the inline schema or the $ref target).
+            NJsonSchema.JsonSchema? namedBody = null;
+            if (bodyRefId != null && doc.Components.Schemas.TryGetValue(bodyRefId, out var refSchema))
+                namedBody = refSchema.ActualSchema;
+            else if (bodySchema.Properties?.Count > 0)
+                namedBody = bodySchema;
+
+            if (namedBody == null) return false;
+
+            // Record the body schema ID so the regular emit loop skips it.
+            if (bodyRefId != null)
+                consumedBodySchemaIds.Add(bodyRefId);
+
+            // The variant C# name: PascalCase of the body schema ID or the key.
+            var variantCsharpName = bodyRefId != null
+                ? resolver.CsharpTypeName(bodyRefId)
+                : ToPascal(key);
+
+            // Skip if mapped to an existing type.
+            if (bodyRefId != null && registry.MappedCsharpType(bodyRefId) != null)
+                return false;
+
+            var bodyProps = BuildVariantProperties(namedBody, resolver);
+
+            // Collect non-key properties of the variant envelope as shared base candidates.
+            var envelopeProps = props
+                .Where(p => p.Key != key)
+                .ToDictionary(p => p.Key, p => (NJsonSchema.JsonSchema)p.Value, StringComparer.Ordinal);
+
+            if (sharedProps == null)
+                sharedProps = new Dictionary<string, NJsonSchema.JsonSchema>(envelopeProps, StringComparer.Ordinal);
+            else
+                // Intersect: keep only keys present in every variant.
+                foreach (var k in sharedProps.Keys.ToList())
+                    if (!envelopeProps.ContainsKey(k)) sharedProps.Remove(k);
+
+            var versionAdded = variant.ExtensionData?.TryGetValue("x-version-added", out var va) == true
+                ? va?.ToString()
+                : null;
+
+            variants.Add(new WrapperKeyVariant(key, variantCsharpName, versionAdded, bodyProps));
+        }
+
+        if (variants.Count == 0) return false;
+
+        // Build base properties from the shared envelope properties.
+        var basePropsList = (sharedProps ?? new Dictionary<string, NJsonSchema.JsonSchema>())
+            .OrderBy(p => p.Key, StringComparer.Ordinal)
+            .Select(p =>
+            {
+                var typeRef = resolver.ResolveTypeRef(
+                    p.Value is NJsonSchema.JsonSchemaProperty jsp ? jsp : p.Value);
+                return new ModelProperty(
+                    WireName: p.Key,
+                    CsharpName: ToPascal(p.Key),
+                    CsharpType: typeRef.ToCsharp(),
+                    Type: typeRef,
+                    IsRequired: false,
+                    Description: null,
+                    VersionAdded: null);
+            })
+            .ToList();
+
+        model = new WrapperKeyUnionModel(
+            schemaId,
+            resolver.CsharpTypeName(schemaId),
+            variants,
+            basePropsList);
+        return true;
+    }
+
+    private static IReadOnlyList<ModelProperty> BuildVariantProperties(
+        NJsonSchema.JsonSchema body, ModelTypeResolver resolver)
+    {
+        // Skip standard processor base properties — they live on the generated base interface.
+        var baseProps = new HashSet<string>(
+            new[] { "tag", "description", "ignore_failure" },
+            StringComparer.Ordinal);
+
+        var propSource = CollectProperties(body);
+        var required = new HashSet<string>(
+            body.RequiredProperties ?? Enumerable.Empty<string>(),
+            StringComparer.Ordinal);
+
+        return propSource
+            .Where(p => !baseProps.Contains(p.Key))
+            .OrderBy(p => p.Key, StringComparer.Ordinal)
+            .Select(p =>
+            {
+                var typeRef = resolver.ResolveTypeRef(p.Value);
+                return new ModelProperty(
+                    WireName: p.Key,
+                    CsharpName: ToPascal(p.Key),
+                    CsharpType: typeRef.ToCsharp(),
+                    Type: typeRef,
+                    IsRequired: required.Contains(p.Key),
+                    Description: p.Value.ActualSchema.Description,
+                    VersionAdded: null);
+            })
+            .ToList();
     }
 
     /// <summary>
