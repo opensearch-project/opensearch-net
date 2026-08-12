@@ -26,6 +26,7 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
+    /// <remarks>Supported by OpenSearch servers of version 2.7 or greater.</remarks>
     public partial interface IRegisterModelMetaRequest
     {
         [DataMember(Name = "description")]

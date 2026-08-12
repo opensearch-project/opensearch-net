@@ -26,6 +26,7 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
+    /// <remarks>Supported by OpenSearch servers of version 2.9 or greater.</remarks>
     public partial interface IUpdateModelGroupRequest
     {
         [DataMember(Name = "add_all_backend_roles")]

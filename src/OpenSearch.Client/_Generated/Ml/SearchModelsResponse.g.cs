@@ -28,6 +28,7 @@ using OpenSearch.Net.Utf8Json;
 namespace OpenSearch.Client
 {
     [DataContract]
+    /// <remarks>Supported by OpenSearch servers of version 1.3 or greater.</remarks>
     public class SearchModelsResponse : ResponseBase
     {
         [DataMember(Name = "_shards")]

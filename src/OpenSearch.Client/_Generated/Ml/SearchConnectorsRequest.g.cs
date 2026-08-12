@@ -26,6 +26,7 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
+    /// <remarks>Supported by OpenSearch servers of version 2.11 or greater.</remarks>
     public partial interface ISearchConnectorsRequest
     {
         [DataMember(Name = "query")]

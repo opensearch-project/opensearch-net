@@ -29,6 +29,11 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
+@if (Model.VersionAdded != null)
+{
+<text>    /// <remarks>Supported by OpenSearch servers of version @(Model.VersionAdded) or greater.</remarks>
+</text>
+}
     public partial interface @iface
     {
 @foreach (var prop in Model.Properties)

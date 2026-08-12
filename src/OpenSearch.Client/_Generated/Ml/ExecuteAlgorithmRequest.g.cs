@@ -26,6 +26,7 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
+    /// <remarks>Supported by OpenSearch servers of version 2.0 or greater.</remarks>
     public partial interface IExecuteAlgorithmRequest
     {
         [DataMember(Name = "aggregations")]

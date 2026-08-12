@@ -58,7 +58,8 @@ public sealed record EnumModel(
 public sealed record RequestModel(
     string SchemaId,
     string CsharpName,
-    IReadOnlyList<ModelProperty> Properties) : ModelType(SchemaId, CsharpName);
+    IReadOnlyList<ModelProperty> Properties,
+    string? VersionAdded = null) : ModelType(SchemaId, CsharpName);
 
 /// <summary>
 /// A response class with an explicit base class.
@@ -68,4 +69,5 @@ public sealed record ResponseModel(
     string SchemaId,
     string CsharpName,
     IReadOnlyList<ModelProperty> Properties,
-    string BaseClass) : ModelType(SchemaId, CsharpName);
+    string BaseClass,
+    string? VersionAdded = null) : ModelType(SchemaId, CsharpName);

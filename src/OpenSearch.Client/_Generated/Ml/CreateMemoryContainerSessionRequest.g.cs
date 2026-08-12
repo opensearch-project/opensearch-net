@@ -26,6 +26,7 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
+    /// <remarks>Supported by OpenSearch servers of version 3.3 or greater.</remarks>
     public partial interface ICreateMemoryContainerSessionRequest
     {
         [DataMember(Name = "metadata")]
