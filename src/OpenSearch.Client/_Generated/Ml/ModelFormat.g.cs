@@ -31,9 +31,9 @@ namespace OpenSearch.Client
     public enum ModelFormat
     {
         [EnumMember(Value = "ONNX")]
-        ONNX,
+        Onnx,
 
         [EnumMember(Value = "TORCH_SCRIPT")]
-        TORCHSCRIPT,
+        TorchScript,
     }
 }

@@ -31,15 +31,15 @@ namespace OpenSearch.Client
     public enum ColumnType
     {
         [EnumMember(Value = "BOOLEAN")]
-        BOOLEAN,
+        Boolean,
 
         [EnumMember(Value = "DOUBLE")]
-        DOUBLE,
+        Double,
 
         [EnumMember(Value = "INTEGER")]
-        INTEGER,
+        Integer,
 
         [EnumMember(Value = "STRING")]
-        STRING,
+        String,
     }
 }

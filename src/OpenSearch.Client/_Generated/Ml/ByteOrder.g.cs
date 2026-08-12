@@ -31,9 +31,9 @@ namespace OpenSearch.Client
     public enum ByteOrder
     {
         [EnumMember(Value = "BIG_ENDIAN")]
-        BIGENDIAN,
+        BigEndian,
 
         [EnumMember(Value = "LITTLE_ENDIAN")]
-        LITTLEENDIAN,
+        LittleEndian,
     }
 }

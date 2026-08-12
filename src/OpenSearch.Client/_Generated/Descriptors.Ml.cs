@@ -481,7 +481,7 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/tasks/{task_id}</summary>
         /// <param name="taskId">this parameter is required</param>
-        public DeleteTaskDescriptor(TaskId taskId)
+        public DeleteTaskDescriptor(Id taskId)
             : base(r => r.Required("task_id", taskId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
@@ -490,7 +490,7 @@ namespace OpenSearch.Client
             : base() { }
 
         // values part of the url path
-        TaskId IDeleteTaskRequest.TaskId => Self.RouteValues.Get<TaskId>("task_id");
+        Id IDeleteTaskRequest.TaskId => Self.RouteValues.Get<Id>("task_id");
         // Request parameters
     }
 
@@ -991,14 +991,14 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/profile/tasks/{task_id}</summary>
         /// <param name="taskId">Optional, accepts null</param>
-        public GetProfileTasksDescriptor(TaskId taskId)
+        public GetProfileTasksDescriptor(Id taskId)
             : base(r => r.Optional("task_id", taskId)) { }
 
         // values part of the url path
-        TaskId IGetProfileTasksRequest.TaskId => Self.RouteValues.Get<TaskId>("task_id");
+        Id IGetProfileTasksRequest.TaskId => Self.RouteValues.Get<Id>("task_id");
 
         /// <summary></summary>
-        public GetProfileTasksDescriptor TaskId(TaskId taskId) =>
+        public GetProfileTasksDescriptor TaskId(Id taskId) =>
             Assign(taskId, (a, v) => a.RouteValues.Optional("task_id", v));
         // Request parameters
     }
@@ -1048,7 +1048,7 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/tasks/{task_id}</summary>
         /// <param name="taskId">this parameter is required</param>
-        public GetMlTaskDescriptor(TaskId taskId)
+        public GetMlTaskDescriptor(Id taskId)
             : base(r => r.Required("task_id", taskId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
@@ -1057,7 +1057,7 @@ namespace OpenSearch.Client
             : base() { }
 
         // values part of the url path
-        TaskId IGetMlTaskRequest.TaskId => Self.RouteValues.Get<TaskId>("task_id");
+        Id IGetMlTaskRequest.TaskId => Self.RouteValues.Get<Id>("task_id");
         // Request parameters
     }
 

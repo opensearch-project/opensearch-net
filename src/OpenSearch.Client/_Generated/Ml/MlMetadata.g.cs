@@ -27,20 +27,22 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-    [JsonFormatter(typeof(OpenObjectFormatter<Metadata, IMetadata>))]
-    [ReadAs(typeof(Metadata))]
-    public interface IMetadata : IHasAdditionalProperties { }
+    [JsonFormatter(typeof(OpenObjectFormatter<MlMetadata, IMlMetadata>))]
+    [ReadAs(typeof(MlMetadata))]
+    public interface IMlMetadata : IHasAdditionalProperties { }
 
-    public class Metadata : IMetadata
+    public class MlMetadata : IMlMetadata
     {
         public IDictionary<string, object> AdditionalProperties { get; set; }
     }
 
-    public class MetadataDescriptor : DescriptorBase<MetadataDescriptor, IMetadata>, IMetadata
+    public class MlMetadataDescriptor
+        : DescriptorBase<MlMetadataDescriptor, IMlMetadata>,
+            IMlMetadata
     {
         IDictionary<string, object> IHasAdditionalProperties.AdditionalProperties { get; set; }
 
-        public MetadataDescriptor AdditionalProperties(
+        public MlMetadataDescriptor AdditionalProperties(
             IDictionary<string, object> additionalProperties
         ) =>
             Assign(

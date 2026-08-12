@@ -65,7 +65,7 @@ namespace Tests.Ml.RegisterModel
 			.Name("osnet-test-bert")
 			.Version("1")
 			.ModelGroupId("test-group-id")
-			.ModelFormat(ModelFormat.TORCHSCRIPT)
+			.ModelFormat(ModelFormat.TorchScript)
 			.ModelConfig(new ModelConfig
 			{
 				ModelType = "bert",
@@ -81,7 +81,7 @@ namespace Tests.Ml.RegisterModel
 			Name = "osnet-test-bert",
 			Version = "1",
 			ModelGroupId = "test-group-id",
-			ModelFormat = ModelFormat.TORCHSCRIPT,
+			ModelFormat = ModelFormat.TorchScript,
 			ModelConfig = new ModelConfig
 			{
 				ModelType = "bert",

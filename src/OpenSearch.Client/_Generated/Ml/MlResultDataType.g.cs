@@ -31,33 +31,33 @@ namespace OpenSearch.Client
     public enum MlResultDataType
     {
         [EnumMember(Value = "BOOLEAN")]
-        BOOLEAN,
+        Boolean,
 
         [EnumMember(Value = "FLOAT16")]
-        FLOAT16,
+        Float16,
 
         [EnumMember(Value = "FLOAT32")]
-        FLOAT32,
+        Float32,
 
         [EnumMember(Value = "FLOAT64")]
-        FLOAT64,
+        Float64,
 
         [EnumMember(Value = "INT32")]
-        INT32,
+        Int32,
 
         [EnumMember(Value = "INT64")]
-        INT64,
+        Int64,
 
         [EnumMember(Value = "INT8")]
-        INT8,
+        Int8,
 
         [EnumMember(Value = "STRING")]
-        STRING,
+        String,
 
         [EnumMember(Value = "UINT8")]
-        UINT8,
+        Uint8,
 
         [EnumMember(Value = "UNKNOWN")]
-        UNKNOWN,
+        Unknown,
     }
 }

@@ -31,60 +31,60 @@ namespace OpenSearch.Client
     public enum FunctionName
     {
         [EnumMember(Value = "AD_LIBSVM")]
-        ADLIBSVM,
+        AdLibsvm,
 
         [EnumMember(Value = "AGENT")]
-        AGENT,
+        Agent,
 
         [EnumMember(Value = "ANOMALY_LOCALIZATION")]
-        ANOMALYLOCALIZATION,
+        AnomalyLocalization,
 
         [EnumMember(Value = "BATCH_RCF")]
-        BATCHRCF,
+        BatchRcf,
 
         [EnumMember(Value = "CONNECTOR")]
-        CONNECTOR,
+        Connector,
 
         [EnumMember(Value = "FIT_RCF")]
-        FITRCF,
+        FitRcf,
 
         [EnumMember(Value = "KMEANS")]
-        KMEANS,
+        Kmeans,
 
         [EnumMember(Value = "LINEAR_REGRESSION")]
-        LINEARREGRESSION,
+        LinearRegression,
 
         [EnumMember(Value = "LOCAL_SAMPLE_CALCULATOR")]
-        LOCALSAMPLECALCULATOR,
+        LocalSampleCalculator,
 
         [EnumMember(Value = "LOGISTIC_REGRESSION")]
-        LOGISTICREGRESSION,
+        LogisticRegression,
 
         [EnumMember(Value = "METRICS_CORRELATION")]
-        METRICSCORRELATION,
+        MetricsCorrelation,
 
         [EnumMember(Value = "QUESTION_ANSWERING")]
-        QUESTIONANSWERING,
+        QuestionAnswering,
 
         [EnumMember(Value = "RCF_SUMMARIZE")]
-        RCFSUMMARIZE,
+        RcfSummarize,
 
         [EnumMember(Value = "REMOTE")]
-        REMOTE,
+        Remote,
 
         [EnumMember(Value = "SAMPLE_ALGO")]
-        SAMPLEALGO,
+        SampleAlgo,
 
         [EnumMember(Value = "SPARSE_ENCODING")]
-        SPARSEENCODING,
+        SparseEncoding,
 
         [EnumMember(Value = "SPARSE_TOKENIZE")]
-        SPARSETOKENIZE,
+        SparseTokenize,
 
         [EnumMember(Value = "TEXT_EMBEDDING")]
-        TEXTEMBEDDING,
+        TextEmbedding,
 
         [EnumMember(Value = "TEXT_SIMILARITY")]
-        TEXTSIMILARITY,
+        TextSimilarity,
     }
 }

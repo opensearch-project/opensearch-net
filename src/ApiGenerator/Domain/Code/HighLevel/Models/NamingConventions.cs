@@ -21,7 +21,7 @@ internal static class NamingConventions
         var clean = name.TrimStart('_');
         return string.Concat(clean.Split('_', '-')
             .Where(p => p.Length > 0)
-            .Select(p => char.ToUpperInvariant(p[0]) + p.Substring(1)));
+            .Select(p => char.ToUpperInvariant(p[0]) + p.Substring(1).ToLowerInvariant()));
     }
 
     /// <summary>

@@ -31,21 +31,21 @@ namespace OpenSearch.Client
     public enum Status
     {
         [EnumMember(Value = "CANCELLED")]
-        CANCELLED,
+        Cancelled,
 
         [EnumMember(Value = "COMPLETED")]
-        COMPLETED,
+        Completed,
 
         [EnumMember(Value = "COMPLETED_WITH_ERROR")]
-        COMPLETEDWITHERROR,
+        CompletedWithError,
 
         [EnumMember(Value = "CREATED")]
-        CREATED,
+        Created,
 
         [EnumMember(Value = "FAILED")]
-        FAILED,
+        Failed,
 
         [EnumMember(Value = "RUNNING")]
-        RUNNING,
+        Running,
     }
 }

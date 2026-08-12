@@ -583,7 +583,7 @@ namespace OpenSearch.Client
     public partial interface IDeleteTaskRequest : IRequest<DeleteTaskRequestParameters>
     {
         [IgnoreDataMember]
-        TaskId TaskId { get; }
+        Id TaskId { get; }
     }
 
     /// <summary>Request for DeleteTask</summary>
@@ -596,7 +596,7 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/tasks/{task_id}</summary>
         /// <param name="taskId">this parameter is required</param>
-        public DeleteTaskRequest(TaskId taskId)
+        public DeleteTaskRequest(Id taskId)
             : base(r => r.Required("task_id", taskId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
@@ -606,7 +606,7 @@ namespace OpenSearch.Client
 
         // values part of the url path
         [IgnoreDataMember]
-        TaskId IDeleteTaskRequest.TaskId => Self.RouteValues.Get<TaskId>("task_id");
+        Id IDeleteTaskRequest.TaskId => Self.RouteValues.Get<Id>("task_id");
 
         // Request parameters
     }
@@ -1239,7 +1239,7 @@ namespace OpenSearch.Client
     public partial interface IGetProfileTasksRequest : IRequest<GetProfileTasksRequestParameters>
     {
         [IgnoreDataMember]
-        TaskId TaskId { get; }
+        Id TaskId { get; }
     }
 
     /// <summary>Request for GetProfileTasks</summary>
@@ -1256,12 +1256,12 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/profile/tasks/{task_id}</summary>
         /// <param name="taskId">Optional, accepts null</param>
-        public GetProfileTasksRequest(TaskId taskId)
+        public GetProfileTasksRequest(Id taskId)
             : base(r => r.Optional("task_id", taskId)) { }
 
         // values part of the url path
         [IgnoreDataMember]
-        TaskId IGetProfileTasksRequest.TaskId => Self.RouteValues.Get<TaskId>("task_id");
+        Id IGetProfileTasksRequest.TaskId => Self.RouteValues.Get<Id>("task_id");
 
         // Request parameters
     }
@@ -1313,7 +1313,7 @@ namespace OpenSearch.Client
     public partial interface IGetMlTaskRequest : IRequest<GetTaskRequestParameters>
     {
         [IgnoreDataMember]
-        TaskId TaskId { get; }
+        Id TaskId { get; }
     }
 
     /// <summary>Request for GetTask</summary>
@@ -1326,7 +1326,7 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/tasks/{task_id}</summary>
         /// <param name="taskId">this parameter is required</param>
-        public GetMlTaskRequest(TaskId taskId)
+        public GetMlTaskRequest(Id taskId)
             : base(r => r.Required("task_id", taskId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
@@ -1336,7 +1336,7 @@ namespace OpenSearch.Client
 
         // values part of the url path
         [IgnoreDataMember]
-        TaskId IGetMlTaskRequest.TaskId => Self.RouteValues.Get<TaskId>("task_id");
+        Id IGetMlTaskRequest.TaskId => Self.RouteValues.Get<Id>("task_id");
 
         // Request parameters
     }

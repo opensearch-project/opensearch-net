@@ -31,12 +31,12 @@ namespace OpenSearch.Client
     public enum ActionType
     {
         [EnumMember(Value = "ADD")]
-        ADD,
+        Add,
 
         [EnumMember(Value = "DELETE")]
-        DELETE,
+        Delete,
 
         [EnumMember(Value = "UPDATE")]
-        UPDATE,
+        Update,
     }
 }

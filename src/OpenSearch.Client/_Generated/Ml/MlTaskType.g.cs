@@ -31,27 +31,27 @@ namespace OpenSearch.Client
     public enum MlTaskType
     {
         [EnumMember(Value = "BATCH_INGEST")]
-        BATCHINGEST,
+        BatchIngest,
 
         [EnumMember(Value = "BATCH_PREDICTION")]
-        BATCHPREDICTION,
+        BatchPrediction,
 
         [EnumMember(Value = "DEPLOY_MODEL")]
-        DEPLOYMODEL,
+        DeployModel,
 
         [EnumMember(Value = "EXECUTION")]
-        EXECUTION,
+        Execution,
 
         [EnumMember(Value = "PREDICTION")]
-        PREDICTION,
+        Prediction,
 
         [EnumMember(Value = "REGISTER_MODEL")]
-        REGISTERMODEL,
+        RegisterModel,
 
         [EnumMember(Value = "TRAINING")]
-        TRAINING,
+        Training,
 
         [EnumMember(Value = "TRAINING_AND_PREDICTION")]
-        TRAININGANDPREDICTION,
+        TrainingAndPrediction,
     }
 }
