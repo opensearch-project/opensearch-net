@@ -62,6 +62,8 @@ namespace OpenSearch.Client
 
     public partial class RegisterModelMetaRequest
     {
+        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "2.7";
         public string Description { get; set; }
         public FunctionName? FunctionName { get; set; }
         public IModelConfig ModelConfig { get; set; }

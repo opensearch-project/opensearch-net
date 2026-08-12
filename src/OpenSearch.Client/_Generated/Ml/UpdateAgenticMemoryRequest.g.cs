@@ -59,6 +59,8 @@ namespace OpenSearch.Client
 
     public partial class UpdateAgenticMemoryRequest
     {
+        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "3.3";
         public IDictionary<string, object> AdditionalInfo { get; set; }
         public IDictionary<string, object> Agents { get; set; }
         public IDictionary<string, object> BinaryData { get; set; }

@@ -56,6 +56,8 @@ namespace OpenSearch.Client
 
     public partial class RegisterAgentsRequest
     {
+        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "2.13";
         public string AppType { get; set; }
         public string Description { get; set; }
         public ILLM Llm { get; set; }

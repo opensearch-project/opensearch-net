@@ -59,6 +59,8 @@ namespace OpenSearch.Client
 
     public partial class UpdateConnectorRequest
     {
+        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "2.12";
         public ModelGroupAccessMode? AccessMode { get; set; }
         public IList<IMlAction> Actions { get; set; }
         public IList<string> BackendRoles { get; set; }

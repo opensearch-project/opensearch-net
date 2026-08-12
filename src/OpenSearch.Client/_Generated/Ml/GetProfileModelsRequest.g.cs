@@ -47,6 +47,8 @@ namespace OpenSearch.Client
 
     public partial class GetProfileModelsRequest
     {
+        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "2.4";
         public IList<string> ModelIds { get; set; }
         public IList<string> NodeIds { get; set; }
         public bool? ReturnAllModels { get; set; }

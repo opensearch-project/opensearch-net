@@ -35,6 +35,8 @@ namespace OpenSearch.Client
 
     public partial class UpdateMemoryRequest
     {
+        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "2.12";
         public string Name { get; set; }
     }
 

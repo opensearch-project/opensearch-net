@@ -44,6 +44,8 @@ namespace OpenSearch.Client
 
     public partial class TrainPredictRequest
     {
+        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "1.3";
         public IPredictionResult InputData { get; set; }
         public IList<string> InputIndex { get; set; }
         public IInputQuery InputQuery { get; set; }

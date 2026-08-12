@@ -41,6 +41,8 @@ namespace OpenSearch.Client
 
     public partial class SearchMemoryRequest
     {
+        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "2.12";
         public IQueryContainer Query { get; set; }
         public long? Size { get; set; }
         public object Sort { get; set; }

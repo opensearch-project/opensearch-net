@@ -38,6 +38,8 @@ namespace OpenSearch.Client
 
     public partial class PredictModelRequest
     {
+        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "2.12";
         public string QueryText { get; set; }
         public IList<string> TextDocs { get; set; }
     }

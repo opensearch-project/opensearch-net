@@ -35,6 +35,8 @@ namespace OpenSearch.Client
 
     public partial class UploadChunkRequest
     {
+        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "2.7";
         public string Chunk { get; set; }
     }
 

@@ -47,6 +47,8 @@ namespace OpenSearch.Client
 
     public partial class UpdateMessageRequest
     {
+        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "2.12";
         public IDictionary<string, object> AdditionalInfo { get; set; }
         public string Input { get; set; }
         public string Origin { get; set; }
