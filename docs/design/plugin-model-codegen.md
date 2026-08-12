@@ -273,14 +273,37 @@ strings and emitted via `@Raw(...)` to bypass Razor's HTML parser.
 
 `src/ApiGenerator/Configuration/Overrides/Plugins/SearchPipelineModelOverrides.cs`
 
-Plugs the `search_pipeline` namespace into `ModelsGenerator.EnabledPlugins`. Key settings:
+Plugs the `search_pipeline` namespace into `ModelsGenerator.EnabledPlugins` and generates
+**all** typed artifacts from the spec — processor hierarchies, request/response partials,
+and response-only types — without any hand-written files.
 
-- `GenerateBodyOps = false`, `GenerateNonBodyOps = false` — the PUT/GET/DELETE request
-  bodies are handled by the existing Requests/Descriptors Razor generators (driven by
-  `[MapsApi]` on the hand-written request files). This plugin only generates the shared
-  processor type hierarchies.
+Key settings:
+
+- `GenerateBodyOps = true` — generates `PutSearchPipelineRequest.g.cs` (body properties
+  and descriptor fluent methods) from `SearchPipelineStructure`.
+- `GenerateNonBodyOps = true` — generates `GetSearchPipelineResponse.g.cs` and
+  `DeleteSearchPipelineResponse.g.cs`.
+- `OpNameOverrides` — aligns codegen names (`put` → `PutSearchPipeline`, etc.) with the
+  existing high-level method naming and avoids bare names that conflict with generic
+  HTTP verbs.
+- `MappedTypes` — maps the three processor union schema IDs to their interface names
+  (`IRequestProcessor`, `IResponseProcessor`, `IPhaseResultsProcessor`). This is
+  required because the union container schemas are `oneOf` (not plain object schemas
+  with properties), so `ModelTypeResolver` cannot discover their C# names from
+  `_objectSchemaIds` alone. Without this mapping, array item resolution falls back to
+  `IList<object>` instead of `IList<IRequestProcessor>`.
 - `RenamedTypes` — avoids collisions with existing OSC types: `SortResponseProcessor`
   → `SearchPipelineSort`, `SearchScriptRequestProcessor` → `SearchScript`, etc.
+
+`CodeConfiguration` also carries two supporting entries:
+
+- `HighLevelOnlyApiNameOverrides["search_pipeline.put/get/delete"]` — aligns the
+  Requests/Descriptors generators with the ModelsGenerator operation names.
+- `LowLevelApiNameMapping["search_pipeline.delete/get/put"]` — gives the low-level
+  `RequestParameters` classes unique names (`DeleteSearchPipelineRequestParameters`,
+  etc.) to avoid an ambiguity between `OpenSearch.Net.DeleteRequestParameters` and
+  `OpenSearch.Net.Specification.SearchPipelineApi.DeleteRequestParameters` when both
+  namespaces are imported in `Requests.SearchPipeline.cs`.
 
 ### Output Layout
 
@@ -290,22 +313,28 @@ For the `search_pipeline` namespace with `OutputFolder = "SearchPipeline/Generat
 src/OpenSearch.Client/_Generated/
   SearchPipeline/
     Generated/
-      RequestProcessor.g.cs        -- IRequestProcessor + 5 variant types + formatter + builder
-      ResponseProcessor.g.cs       -- IResponseProcessor + 9 variant types + formatter + builder
-      PhaseResultsProcessor.g.cs   -- IPhaseResultsProcessor + 2 variant types + formatter + builder
-      ScoreCombination.g.cs        -- shared body schema (ObjectModel)
-      ScoreNormalization.g.cs      -- shared body schema
-      ScoreRankerCombination.g.cs  -- shared body schema
-      ScoreCombinationTechnique.g.cs  -- [StringEnum] enum
+      RequestProcessor.g.cs            -- IRequestProcessor + 5 variant types + formatter + builder
+      ResponseProcessor.g.cs           -- IResponseProcessor + 9 variant types + formatter + builder
+      PhaseResultsProcessor.g.cs       -- IPhaseResultsProcessor + 2 variant types + formatter + builder
+      PutSearchPipelineRequest.g.cs    -- body partial: Description, RequestProcessors, ...
+      PutSearchPipelineResponse.g.cs   -- AcknowledgedResponseBase subclass
+      GetSearchPipelineResponse.g.cs   -- GetSearchPipelineResponse POCO
+      DeleteSearchPipelineResponse.g.cs
+      ScoreCombination.g.cs            -- shared body schema (ObjectModel)
+      ScoreNormalization.g.cs
+      ScoreRankerCombination.g.cs
+      ScoreCombinationTechnique.g.cs   -- [StringEnum] enum
       ScoreNormalizationTechnique.g.cs
       ScoreRankerCombinationTechnique.g.cs
       SearchPipelineMLOpenSearchReranker.g.cs
       SearchPipelineRerankContext.g.cs
-      SearchPipelineStructure.g.cs  -- the top-level pipeline body schema
-    OpenSearchClient.SearchPipeline.cs  -- generated client namespace (from [MapsApi])
+      SearchPipelineStructure.g.cs     -- top-level pipeline body schema (ObjectModel)
+    OpenSearchClient.SearchPipeline.cs -- generated client namespace
     Requests.SearchPipeline.cs
     Descriptors.SearchPipeline.cs
 ```
+
+No hand-written files remain for the `search_pipeline` namespace.
 
 ### Adding a New Search Pipeline Processor
 
@@ -320,3 +349,22 @@ When OpenSearch adds a new processor to the spec:
    - A new `MyNew(Func<MyNewDescriptor, IMyNew> selector)` method in `RequestProcessorsDescriptor`
 4. If the new type name collides with an existing OSC type, add a rename to
    `SearchPipelineModelOverrides.RenamedTypes`.
+
+### Generality Assessment
+
+The infrastructure added for `search_pipeline` is largely general, with two known
+limitations that require per-plugin manual steps today:
+
+| Component | General? | Notes |
+|---|---|---|
+| `WrapperKeyUnion` detection + codegen | ✅ Fully general | Any `oneOf` wrapper-key union in any namespace auto-generates |
+| `ModelTypeResolver` array-item reverse lookup | ✅ Fully general | All namespaces benefit from the `_objectSchemaIds` + `MappedCsharpType` fix |
+| `BuildObjectSchemaIds` oneOf tracking | ✅ Fully general | All oneOf unions are now in the reverse map |
+| `WrapperKeyUnionModel` emit-filter fix | ✅ Fully general | Union schemas with `MappedTypes` entries are no longer suppressed |
+| `MappedTypes` for union array-item resolution | ⚠️ Manual per plugin | Each plugin must list `{unionSchemaId} → I{Name}` for every union whose instances appear as array items. A future improvement would auto-register these during `TryBuildWrapperKeyUnion` so plugins don't need to specify them. |
+| `LowLevelApiNameMapping` conflict avoidance | ⚠️ Manual per namespace | Required when the low-level generator uses bare names (`Delete`, `Get`) that conflict with top-level `OpenSearch.Net` types. A future improvement would make the Requests template use fully qualified names when a collision is detected, or derive unique names automatically. |
+
+**Improvement path**: auto-register `{unionSchemaId} → I{Name}` in `NamespaceModel.Build`
+after a successful `TryBuildWrapperKeyUnion` call, injecting the mapping into the resolver
+directly. This would make `MappedTypes` optional for union namespaces.
+
