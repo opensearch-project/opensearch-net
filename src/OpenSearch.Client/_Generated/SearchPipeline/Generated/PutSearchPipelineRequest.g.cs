@@ -23,13 +23,11 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
-using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-    [InterfaceDataContract]
-    [ReadAs(typeof(SearchPipelineStructure))]
-    public interface ISearchPipelineStructure
+    /// <remarks>Supported by OpenSearch servers of version 2.9 or greater.</remarks>
+    public partial interface IPutSearchPipelineRequest
     {
         [DataMember(Name = "description")]
         string Description { get; set; }
@@ -47,8 +45,10 @@ namespace OpenSearch.Client
         int? Version { get; set; }
     }
 
-    public class SearchPipelineStructure : ISearchPipelineStructure
+    public partial class PutSearchPipelineRequest
     {
+        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "2.9";
         public string Description { get; set; }
         public IList<IPhaseResultsProcessor> PhaseResultsProcessors { get; set; }
         public IList<IRequestProcessor> RequestProcessors { get; set; }
@@ -56,32 +56,30 @@ namespace OpenSearch.Client
         public int? Version { get; set; }
     }
 
-    public class SearchPipelineStructureDescriptor
-        : DescriptorBase<SearchPipelineStructureDescriptor, ISearchPipelineStructure>,
-            ISearchPipelineStructure
+    public partial class PutSearchPipelineDescriptor
     {
-        string ISearchPipelineStructure.Description { get; set; }
-        IList<IPhaseResultsProcessor> ISearchPipelineStructure.PhaseResultsProcessors { get; set; }
-        IList<IRequestProcessor> ISearchPipelineStructure.RequestProcessors { get; set; }
-        IList<IResponseProcessor> ISearchPipelineStructure.ResponseProcessors { get; set; }
-        int? ISearchPipelineStructure.Version { get; set; }
+        string IPutSearchPipelineRequest.Description { get; set; }
+        IList<IPhaseResultsProcessor> IPutSearchPipelineRequest.PhaseResultsProcessors { get; set; }
+        IList<IRequestProcessor> IPutSearchPipelineRequest.RequestProcessors { get; set; }
+        IList<IResponseProcessor> IPutSearchPipelineRequest.ResponseProcessors { get; set; }
+        int? IPutSearchPipelineRequest.Version { get; set; }
 
-        public SearchPipelineStructureDescriptor Description(string description) =>
+        public PutSearchPipelineDescriptor Description(string description) =>
             Assign(description, (a, v) => a.Description = v);
 
-        public SearchPipelineStructureDescriptor PhaseResultsProcessors(
+        public PutSearchPipelineDescriptor PhaseResultsProcessors(
             IList<IPhaseResultsProcessor> phaseResultsProcessors
         ) => Assign(phaseResultsProcessors, (a, v) => a.PhaseResultsProcessors = v);
 
-        public SearchPipelineStructureDescriptor RequestProcessors(
+        public PutSearchPipelineDescriptor RequestProcessors(
             IList<IRequestProcessor> requestProcessors
         ) => Assign(requestProcessors, (a, v) => a.RequestProcessors = v);
 
-        public SearchPipelineStructureDescriptor ResponseProcessors(
+        public PutSearchPipelineDescriptor ResponseProcessors(
             IList<IResponseProcessor> responseProcessors
         ) => Assign(responseProcessors, (a, v) => a.ResponseProcessors = v);
 
-        public SearchPipelineStructureDescriptor Version(int? version) =>
+        public PutSearchPipelineDescriptor Version(int? version) =>
             Assign(version, (a, v) => a.Version = v);
     }
 }

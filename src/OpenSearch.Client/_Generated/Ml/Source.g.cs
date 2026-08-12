@@ -179,7 +179,7 @@ namespace OpenSearch.Client
         float? PlanningWorkerNodeCount { get; set; }
 
         [DataMember(Name = "planning_worker_nodes")]
-        IList<object> PlanningWorkerNodes { get; set; }
+        IList<NodeIds> PlanningWorkerNodes { get; set; }
 
         [DataMember(Name = "prompt_template")]
         string PromptTemplate { get; set; }
@@ -221,7 +221,7 @@ namespace OpenSearch.Client
         string Version { get; set; }
 
         [DataMember(Name = "worker_node")]
-        IList<object> WorkerNode { get; set; }
+        IList<NodeIds> WorkerNode { get; set; }
     }
 
     public class Source : ISource
@@ -275,7 +275,7 @@ namespace OpenSearch.Client
         public string ParentMessageId { get; set; }
         public PayloadType? PayloadType { get; set; }
         public float? PlanningWorkerNodeCount { get; set; }
-        public IList<object> PlanningWorkerNodes { get; set; }
+        public IList<NodeIds> PlanningWorkerNodes { get; set; }
         public string PromptTemplate { get; set; }
         public ConnectorProtocol? Protocol { get; set; }
         public string Response { get; set; }
@@ -289,7 +289,7 @@ namespace OpenSearch.Client
         public string Url { get; set; }
         public string User { get; set; }
         public string Version { get; set; }
-        public IList<object> WorkerNode { get; set; }
+        public IList<NodeIds> WorkerNode { get; set; }
         public IDictionary<string, object> AdditionalProperties { get; set; }
     }
 
@@ -344,7 +344,7 @@ namespace OpenSearch.Client
         string ISource.ParentMessageId { get; set; }
         PayloadType? ISource.PayloadType { get; set; }
         float? ISource.PlanningWorkerNodeCount { get; set; }
-        IList<object> ISource.PlanningWorkerNodes { get; set; }
+        IList<NodeIds> ISource.PlanningWorkerNodes { get; set; }
         string ISource.PromptTemplate { get; set; }
         ConnectorProtocol? ISource.Protocol { get; set; }
         string ISource.Response { get; set; }
@@ -358,7 +358,7 @@ namespace OpenSearch.Client
         string ISource.Url { get; set; }
         string ISource.User { get; set; }
         string ISource.Version { get; set; }
-        IList<object> ISource.WorkerNode { get; set; }
+        IList<NodeIds> ISource.WorkerNode { get; set; }
         IDictionary<string, object> IHasAdditionalProperties.AdditionalProperties { get; set; }
 
         public SourceDescriptor Access(ModelGroupAccessMode? access) =>
@@ -499,7 +499,7 @@ namespace OpenSearch.Client
         public SourceDescriptor PlanningWorkerNodeCount(float? planningWorkerNodeCount) =>
             Assign(planningWorkerNodeCount, (a, v) => a.PlanningWorkerNodeCount = v);
 
-        public SourceDescriptor PlanningWorkerNodes(IList<object> planningWorkerNodes) =>
+        public SourceDescriptor PlanningWorkerNodes(IList<NodeIds> planningWorkerNodes) =>
             Assign(planningWorkerNodes, (a, v) => a.PlanningWorkerNodes = v);
 
         public SourceDescriptor PromptTemplate(string promptTemplate) =>
@@ -536,7 +536,7 @@ namespace OpenSearch.Client
 
         public SourceDescriptor Version(string version) => Assign(version, (a, v) => a.Version = v);
 
-        public SourceDescriptor WorkerNode(IList<object> workerNode) =>
+        public SourceDescriptor WorkerNode(IList<NodeIds> workerNode) =>
             Assign(workerNode, (a, v) => a.WorkerNode = v);
 
         public SourceDescriptor AdditionalProperties(

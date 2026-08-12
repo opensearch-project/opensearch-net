@@ -78,9 +78,17 @@ public sealed class ModelTypeResolver
         {
             var actual = schema.ActualSchema;
             if (actual.IsEnum()) continue;
-            if (!actual.Type.HasFlag(JsonObjectType.Object)) continue;
-            if ((actual.Properties?.Count ?? 0) == 0) continue; // free-form map or non-object
-            map[actual] = id;
+            // Track plain object schemas with named properties.
+            if (actual.Type.HasFlag(JsonObjectType.Object) && (actual.Properties?.Count ?? 0) > 0)
+            {
+                map[actual] = id;
+                continue;
+            }
+            // Also track oneOf union containers (wrapper-key discriminated unions such as
+            // RequestProcessor, ResponseProcessor). These have no own properties but are
+            // referenced from array item schemas whose $refs get inlined by NSwag.
+            if (actual.OneOf.Count > 0)
+                map[actual] = id;
         }
         return map;
     }
@@ -110,7 +118,13 @@ public sealed class ModelTypeResolver
         {
             var item = s.Item.ActualSchema;
             var refId = s.Item.Reference?.Id ?? item.Reference?.Id;
-            if (refId != null) return new ListType(new ObjectRefType(CsharpTypeName(refId), false), false);
+            if (refId == null) _objectSchemaIds.TryGetValue(item, out refId);
+            if (refId != null)
+            {
+                var mapped = _registry.MappedCsharpType(refId);
+                if (mapped != null) return new ListType(new MappedType(mapped, false), false);
+                return new ListType(new ObjectRefType(CsharpTypeName(refId), false), false);
+            }
             return new ListType(ResolveTypeRef(item), false);
         }
 
@@ -176,7 +190,14 @@ public sealed class ModelTypeResolver
         {
             var item = s.Item.ActualSchema;
             var refId = s.Item.Reference?.Id ?? item.Reference?.Id;
-            if (refId != null) return $"IList<I{CsharpTypeName(refId)}>";
+            // If refId is null the $ref was inlined by NSwag; try to recover it via
+            // the reverse instance map (handles both plain objects and oneOf unions).
+            if (refId == null) _objectSchemaIds.TryGetValue(item, out refId);
+            if (refId != null)
+            {
+                var mapped = _registry.MappedCsharpType(refId);
+                return mapped != null ? $"IList<{mapped}>" : $"IList<I{CsharpTypeName(refId)}>";
+            }
             return $"IList<{ResolveCsharpType(item)}>";
         }
 

@@ -43,9 +43,33 @@ public sealed class SearchPipelineModelOverrides : ModelOverridesBase
     /// (the processor hierarchies) — not request/response bodies, which come from the
     /// PUT /_search/pipeline body schema and are already handled.
     /// </summary>
-    public override bool GenerateBodyOps => false;
-    public override bool GenerateNonBodyOps => false;
+    public override bool GenerateBodyOps => true;
+    public override bool GenerateNonBodyOps => true;
     public override bool UseObjectSchemaIds => true;
+
+    public override IDictionary<string, string> OpNameOverrides { get; } =
+        new Dictionary<string, string>(StringComparer.Ordinal)
+        {
+            ["search_pipeline.put"]    = "PutSearchPipeline",
+            ["search_pipeline.get"]    = "GetSearchPipeline",
+            ["search_pipeline.delete"] = "DeleteSearchPipeline",
+        };
+
+    /// <summary>
+    /// The three processor union types (<c>RequestProcessor</c>, <c>ResponseProcessor</c>,
+    /// <c>PhaseResultsProcessor</c>) are wrapper-key discriminated unions generated as
+    /// <c>WrapperKeyUnionModel</c>. They are not plain object schemas, so the type resolver
+    /// cannot discover their C# interface names automatically. Mapping them here lets array
+    /// properties (e.g. <c>request_processors: IList&lt;IRequestProcessor&gt;</c>) resolve
+    /// to the correct interface instead of falling back to <c>object</c>.
+    /// </summary>
+    public override IDictionary<string, string> MappedTypes { get; } =
+        new Dictionary<string, string>(StringComparer.Ordinal)
+        {
+            ["search_pipeline._common___RequestProcessor"]      = "IRequestProcessor",
+            ["search_pipeline._common___ResponseProcessor"]     = "IResponseProcessor",
+            ["search_pipeline._common___PhaseResultsProcessor"] = "IPhaseResultsProcessor",
+        };
 
     public override IDictionary<string, string> RenamedTypes { get; } =
         new Dictionary<string, string>(StringComparer.Ordinal)

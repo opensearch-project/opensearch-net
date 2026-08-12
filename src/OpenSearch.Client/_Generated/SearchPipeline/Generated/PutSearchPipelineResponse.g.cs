@@ -28,37 +28,10 @@ using OpenSearch.Net.Utf8Json;
 namespace OpenSearch.Client
 {
     [DataContract]
-    /// <remarks>Supported by OpenSearch servers of version 1.3 or greater.</remarks>
-    public class GetMlTaskResponse : ResponseBase
+    /// <remarks>Supported by OpenSearch servers of version 2.9 or greater.</remarks>
+    public class PutSearchPipelineResponse : ResponseBase
     {
-        [DataMember(Name = "create_time")]
-        public long? CreateTime { get; internal set; }
-
-        [DataMember(Name = "error")]
-        public string OperationError { get; internal set; }
-
-        [DataMember(Name = "function_name")]
-        public FunctionName? FunctionName { get; internal set; }
-
-        [DataMember(Name = "is_async")]
-        public bool? IsAsync { get; internal set; }
-
-        [DataMember(Name = "last_update_time")]
-        public long? LastUpdateTime { get; internal set; }
-
-        [DataMember(Name = "model_id")]
-        public string ModelId { get; internal set; }
-
-        [DataMember(Name = "state")]
-        public MlTaskState? State { get; internal set; }
-
-        [DataMember(Name = "task_id")]
-        public string TaskId { get; internal set; }
-
-        [DataMember(Name = "task_type")]
-        public MlTaskType? TaskType { get; internal set; }
-
-        [DataMember(Name = "worker_node")]
-        public IList<NodeIds> WorkerNode { get; internal set; }
+        [DataMember(Name = "acknowledged")]
+        public bool? Acknowledged { get; internal set; }
     }
 }
