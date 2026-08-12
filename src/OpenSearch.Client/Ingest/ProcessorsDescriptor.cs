@@ -209,17 +209,5 @@ namespace OpenSearch.Client
         /// <inheritdoc cref="ITextEmbeddingProcessor"/>
         public ProcessorsDescriptor TextEmbedding<T>(Func<TextEmbeddingProcessorDescriptor<T>, ITextEmbeddingProcessor> selector) where T : class =>
             Assign(selector, (a, v) => a.AddIfNotNull(v?.Invoke(new TextEmbeddingProcessorDescriptor<T>())));
-
-        /// <inheritdoc cref="ISparseEncodingProcessor"/>
-        public ProcessorsDescriptor SparseEncoding<T>(Func<SparseEncodingProcessorDescriptor<T>, ISparseEncodingProcessor> selector) where T : class =>
-            Assign(selector, (a, v) => a.AddIfNotNull(v?.Invoke(new SparseEncodingProcessorDescriptor<T>())));
-
-        /// <inheritdoc cref="ITextImageEmbeddingProcessor"/>
-        public ProcessorsDescriptor TextImageEmbedding<T>(Func<TextImageEmbeddingProcessorDescriptor<T>, ITextImageEmbeddingProcessor> selector) where T : class =>
-            Assign(selector, (a, v) => a.AddIfNotNull(v?.Invoke(new TextImageEmbeddingProcessorDescriptor<T>())));
-
-        /// <inheritdoc cref="ITextChunkingProcessor"/>
-        public ProcessorsDescriptor TextChunking<T>(Func<TextChunkingProcessorDescriptor<T>, ITextChunkingProcessor> selector) where T : class =>
-            Assign(selector, (a, v) => a.AddIfNotNull(v?.Invoke(new TextChunkingProcessorDescriptor<T>())));
     }
 }
