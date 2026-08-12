@@ -190,3 +190,133 @@ verify no collision exists with:
 
 Use the `RenamedTypes` dictionary in the overrides class to apply `Ml<Name>` prefixes as
 needed (see `MlModelOverrides` for examples).
+
+## Wrapper-Key Discriminated Unions
+
+Some OpenAPI spec namespaces (e.g. `search_pipeline`) model their extensible type lists
+as a **wrapper-key discriminated union** rather than a flat object:
+
+```yaml
+# spec: search_pipeline._common.yaml
+RequestProcessor:
+  oneOf:
+    - title: neural_query_enricher
+      properties:
+        neural_query_enricher:
+          $ref: '#/components/schemas/NeuralQueryEnricherRequestProcessor'
+      required: [neural_query_enricher]
+    - title: filter_query
+      properties:
+        filter_query:
+          $ref: '#/components/schemas/FilterQueryRequestProcessor'
+      required: [filter_query]
+    - ...
+```
+
+The wire format is `{"<key>": { ...body... }}` — a single-property object whose key
+names the processor type. This is structurally different from the `type`-discriminated
+unions handled by the flat `ObjectModel` path and requires dedicated codegen support.
+
+### Detection
+
+`NamespaceModel.TryBuildWrapperKeyUnion()` detects this pattern by checking that:
+
+1. The schema has a non-empty `oneOf`.
+2. Every variant has exactly one required property.
+3. That property's value is an object schema (either inline or via `$ref`).
+
+When detection succeeds, a `WrapperKeyUnionModel` is returned instead of an
+`ObjectModel`, and the body schema IDs are recorded in `unionBodySchemaIds` to prevent
+them from also being emitted as standalone `ObjectModel` files (which would cause
+duplicate-type compile errors).
+
+**NSwag `$ref` inlining** — when NSwag resolves a `$ref` it may inline the target
+schema and drop `Reference.Id`. The detection code recovers the body schema ID by
+scanning `doc.Components.Schemas` for the same schema instance by reference equality.
+
+### `WrapperKeyUnionModel` / `WrapperKeyVariant`
+
+`src/ApiGenerator/Domain/Code/HighLevel/Models/ModelType.cs`
+
+```
+WrapperKeyUnionModel
+  SchemaId        e.g. "search_pipeline._common___RequestProcessor"
+  CsharpName      e.g. "RequestProcessor"
+  BaseProperties  shared envelope props present in ALL variants (tag, description, ...)
+  Variants[]
+    Key             wire discriminator key, e.g. "neural_query_enricher"
+    CsharpName      C# type name for this variant, e.g. "NeuralQueryEnricher"
+    VersionAdded    from x-version-added on the oneOf entry, or null
+    BodyProperties  properties of the body schema (excluding shared base props)
+    FluentMethodName  PascalCase method name for the descriptor builder
+```
+
+### `WrapperKeyUnion.cshtml`
+
+`src/ApiGenerator/Views/HighLevel/WrapperKeyUnion.cshtml`
+
+A single template renders the entire union — four artifacts in one file:
+
+| Artifact | Description |
+|---|---|
+| Base interface | `[JsonFormatter(typeof({Name}Formatter))] public interface I{Name}` with `string Name { get; }` and shared base properties |
+| Per-variant types | `interface I{Variant} : I{Name}`, `class {Variant} : I{Variant}`, `class {Variant}Descriptor` with fluent setter methods |
+| Formatter | `internal class {Name}Formatter : IJsonFormatter<I{Name}>` using `AutomataDictionary` for O(1) key dispatch |
+| Descriptor builder | `public class {Name}sDescriptor : DescriptorPromiseBase<..., IList<I{Name}>>` with one typed fluent method per variant |
+
+**Razor `<>` as HTML** — Razor treats `<TypeArg>` inside `<text>` blocks as HTML tags,
+corrupting generic type arguments. All code sections that contain generic `<>` (formatter
+class declaration, switch cases, fluent builder methods) are pre-built as `StringBuilder`
+strings and emitted via `@Raw(...)` to bypass Razor's HTML parser.
+
+### `SearchPipelineModelOverrides`
+
+`src/ApiGenerator/Configuration/Overrides/Plugins/SearchPipelineModelOverrides.cs`
+
+Plugs the `search_pipeline` namespace into `ModelsGenerator.EnabledPlugins`. Key settings:
+
+- `GenerateBodyOps = false`, `GenerateNonBodyOps = false` — the PUT/GET/DELETE request
+  bodies are handled by the existing Requests/Descriptors Razor generators (driven by
+  `[MapsApi]` on the hand-written request files). This plugin only generates the shared
+  processor type hierarchies.
+- `RenamedTypes` — avoids collisions with existing OSC types: `SortResponseProcessor`
+  → `SearchPipelineSort`, `SearchScriptRequestProcessor` → `SearchScript`, etc.
+
+### Output Layout
+
+For the `search_pipeline` namespace with `OutputFolder = "SearchPipeline/Generated"`:
+
+```
+src/OpenSearch.Client/_Generated/
+  SearchPipeline/
+    Generated/
+      RequestProcessor.g.cs        -- IRequestProcessor + 5 variant types + formatter + builder
+      ResponseProcessor.g.cs       -- IResponseProcessor + 9 variant types + formatter + builder
+      PhaseResultsProcessor.g.cs   -- IPhaseResultsProcessor + 2 variant types + formatter + builder
+      ScoreCombination.g.cs        -- shared body schema (ObjectModel)
+      ScoreNormalization.g.cs      -- shared body schema
+      ScoreRankerCombination.g.cs  -- shared body schema
+      ScoreCombinationTechnique.g.cs  -- [StringEnum] enum
+      ScoreNormalizationTechnique.g.cs
+      ScoreRankerCombinationTechnique.g.cs
+      SearchPipelineMLOpenSearchReranker.g.cs
+      SearchPipelineRerankContext.g.cs
+      SearchPipelineStructure.g.cs  -- the top-level pipeline body schema
+    OpenSearchClient.SearchPipeline.cs  -- generated client namespace (from [MapsApi])
+    Requests.SearchPipeline.cs
+    Descriptors.SearchPipeline.cs
+```
+
+### Adding a New Search Pipeline Processor
+
+When OpenSearch adds a new processor to the spec:
+
+1. Add the variant to `RequestProcessor` / `ResponseProcessor` / `PhaseResultsProcessor`
+   `oneOf` in `spec/schemas/search_pipeline._common.yaml`.
+2. Add the body schema (e.g. `MyNewRequestProcessor`) to the same file.
+3. Run codegen — the new variant is generated automatically:
+   - A new `interface IMyNew : IRequestProcessor` + class + descriptor
+   - A new `case "my_new":` branch in `RequestProcessorFormatter`
+   - A new `MyNew(Func<MyNewDescriptor, IMyNew> selector)` method in `RequestProcessorsDescriptor`
+4. If the new type name collides with an existing OSC type, add a rename to
+   `SearchPipelineModelOverrides.RenamedTypes`.
