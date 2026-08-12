@@ -283,27 +283,45 @@ Key settings:
   and descriptor fluent methods) from `SearchPipelineStructure`.
 - `GenerateNonBodyOps = true` — generates `GetSearchPipelineResponse.g.cs` and
   `DeleteSearchPipelineResponse.g.cs`.
+- `SuppressLowLevelApiImport = true` — tells the Requests and Descriptors Razor
+  generators to omit `using OpenSearch.Net.Specification.SearchPipelineApi;` and instead
+  emit per-type `using Alias = FullyQualified.Type;` aliases. This is necessary because
+  the low-level search pipeline namespace uses generic names (`DeleteRequestParameters`,
+  `GetRequestParameters`) that are identical to top-level `OpenSearch.Net` classes,
+  causing CS0104 ambiguity. Setting this flag keeps the high-level client completely
+  independent of the low-level namespace.
 - `OpNameOverrides` — aligns codegen names (`put` → `PutSearchPipeline`, etc.) with the
-  existing high-level method naming and avoids bare names that conflict with generic
-  HTTP verbs.
+  existing high-level method naming.
 - `MappedTypes` — maps the three processor union schema IDs to their interface names
-  (`IRequestProcessor`, `IResponseProcessor`, `IPhaseResultsProcessor`). This is
-  required because the union container schemas are `oneOf` (not plain object schemas
-  with properties), so `ModelTypeResolver` cannot discover their C# names from
-  `_objectSchemaIds` alone. Without this mapping, array item resolution falls back to
-  `IList<object>` instead of `IList<IRequestProcessor>`.
+  (`IRequestProcessor`, `IResponseProcessor`, `IPhaseResultsProcessor`). Required because
+  union container schemas are `oneOf` (not plain object schemas with properties), so
+  `ModelTypeResolver` cannot discover their C# names from `_objectSchemaIds` alone.
+  Without this mapping, array item resolution falls back to `IList<object>`.
 - `RenamedTypes` — avoids collisions with existing OSC types: `SortResponseProcessor`
   → `SearchPipelineSort`, `SearchScriptRequestProcessor` → `SearchScript`, etc.
 
-`CodeConfiguration` also carries two supporting entries:
+`CodeConfiguration.HighLevelOnlyApiNameOverrides` carries entries for
+`search_pipeline.put/get/delete` to align the Requests/Descriptors generators with the
+ModelsGenerator operation names. No low-level API renaming is required or applied.
 
-- `HighLevelOnlyApiNameOverrides["search_pipeline.put/get/delete"]` — aligns the
-  Requests/Descriptors generators with the ModelsGenerator operation names.
-- `LowLevelApiNameMapping["search_pipeline.delete/get/put"]` — gives the low-level
-  `RequestParameters` classes unique names (`DeleteSearchPipelineRequestParameters`,
-  etc.) to avoid an ambiguity between `OpenSearch.Net.DeleteRequestParameters` and
-  `OpenSearch.Net.Specification.SearchPipelineApi.DeleteRequestParameters` when both
-  namespaces are imported in `Requests.SearchPipeline.cs`.
+### `SuppressLowLevelApiImport` — Principle
+
+Plugin-model code generation is **purely high-level**. Any coupling to low-level
+generated code (e.g. `OpenSearch.Net.Specification.*Api.*RequestParameters`) should be
+avoided. When a low-level namespace uses generic parameter class names that clash with
+top-level `OpenSearch.Net` types, the correct fix is to suppress the low-level import
+at the high-level template layer, not to rename the low-level classes.
+
+The `SuppressLowLevelApiImport` flag on `IModelOverrides` encodes this intent:
+
+- Default `false` — existing namespaces (ML, ingest, ...) that do not have naming
+  conflicts continue to import the low-level namespace normally.
+- `true` — the Requests and Descriptors templates iterate the endpoint list, derive the
+  set of `*RequestParameters` class names, and emit fully-qualified `using` aliases
+  instead of the blanket import. The generated code is identical in behaviour but does
+  not depend on a namespace-level import.
+
+### Output Layout
 
 ### Output Layout
 
@@ -352,19 +370,26 @@ When OpenSearch adds a new processor to the spec:
 
 ### Generality Assessment
 
-The infrastructure added for `search_pipeline` is largely general, with two known
-limitations that require per-plugin manual steps today:
+The infrastructure added for `search_pipeline` is largely general, with one known
+limitation that requires per-plugin manual steps today:
 
 | Component | General? | Notes |
 |---|---|---|
 | `WrapperKeyUnion` detection + codegen | ✅ Fully general | Any `oneOf` wrapper-key union in any namespace auto-generates |
 | `ModelTypeResolver` array-item reverse lookup | ✅ Fully general | All namespaces benefit from the `_objectSchemaIds` + `MappedCsharpType` fix |
 | `BuildObjectSchemaIds` oneOf tracking | ✅ Fully general | All oneOf unions are now in the reverse map |
-| `WrapperKeyUnionModel` emit-filter fix | ✅ Fully general | Union schemas with `MappedTypes` entries are no longer suppressed |
+| `WrapperKeyUnionModel` emit-filter fix | ✅ Fully general | Union schemas with `MappedTypes` entries are never suppressed from generation |
+| `SuppressLowLevelApiImport` flag | ✅ Fully general | Any plugin that does not need the low-level namespace import can set this. The templates automatically emit per-type qualified aliases from the endpoint list — no hardcoding required. |
 | `MappedTypes` for union array-item resolution | ⚠️ Manual per plugin | Each plugin must list `{unionSchemaId} → I{Name}` for every union whose instances appear as array items. A future improvement would auto-register these during `TryBuildWrapperKeyUnion` so plugins don't need to specify them. |
-| `LowLevelApiNameMapping` conflict avoidance | ⚠️ Manual per namespace | Required when the low-level generator uses bare names (`Delete`, `Get`) that conflict with top-level `OpenSearch.Net` types. A future improvement would make the Requests template use fully qualified names when a collision is detected, or derive unique names automatically. |
 
-**Improvement path**: auto-register `{unionSchemaId} → I{Name}` in `NamespaceModel.Build`
-after a successful `TryBuildWrapperKeyUnion` call, injecting the mapping into the resolver
-directly. This would make `MappedTypes` optional for union namespaces.
+**Design principle**: plugin-model codegen is **purely high-level**. No modifications to
+the low-level API (`LowLevelApiNameMapping`, `RequestParameters` class renaming, etc.)
+should be needed. If a naming conflict arises between a low-level namespace and the
+top-level `OpenSearch.Net` namespace, the fix belongs in the high-level template layer
+(`SuppressLowLevelApiImport`), not in the low-level generator.
+
+**Remaining improvement path**: auto-register `{unionSchemaId} → I{Name}` in
+`NamespaceModel.Build` after a successful `TryBuildWrapperKeyUnion` call, injecting the
+mapping into the resolver directly. This would make `MappedTypes` optional for union
+namespaces.
 
