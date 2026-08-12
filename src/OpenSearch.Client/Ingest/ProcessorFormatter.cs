@@ -71,10 +71,7 @@ namespace OpenSearch.Client
 			{ "fingerprint", 31 },
 			{ "community_id", 32 },
 			{ "network_direction", 33 },
-            { "text_embedding", 34 },
-            { "sparse_encoding", 35 },
-            { "text_image_embedding", 36 },
-            { "text_chunking", 37 },
+            { "text_embedding", 34 }
 		};
 
 		public IProcessor Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
@@ -199,15 +196,6 @@ namespace OpenSearch.Client
 						break;
                     case 34:
                         processor = Deserialize<TextEmbeddingProcessor>(ref reader, formatterResolver);
-                        break;
-                    case 35:
-                        processor = Deserialize<SparseEncodingProcessor>(ref reader, formatterResolver);
-                        break;
-                    case 36:
-                        processor = Deserialize<TextImageEmbeddingProcessor>(ref reader, formatterResolver);
-                        break;
-                    case 37:
-                        processor = Deserialize<TextChunkingProcessor>(ref reader, formatterResolver);
                         break;
 				}
 			}
@@ -334,15 +322,6 @@ namespace OpenSearch.Client
 					break;
                 case "text_embedding":
                     Serialize<ITextEmbeddingProcessor>(ref writer, value, formatterResolver);
-                    break;
-                case "sparse_encoding":
-                    Serialize<ISparseEncodingProcessor>(ref writer, value, formatterResolver);
-                    break;
-                case "text_image_embedding":
-                    Serialize<ITextImageEmbeddingProcessor>(ref writer, value, formatterResolver);
-                    break;
-                case "text_chunking":
-                    Serialize<ITextChunkingProcessor>(ref writer, value, formatterResolver);
                     break;
 				default:
 					var formatter = DynamicObjectResolver.ExcludeNullCamelCase.GetFormatter<IProcessor>();
