@@ -56,6 +56,8 @@ namespace OpenSearch.Client
 
     public partial class AddAgenticMemoryRequest
     {
+        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "3.3";
         public string BinaryData { get; set; }
         public bool? Infer { get; set; }
         public IList<IMessage> Messages { get; set; }

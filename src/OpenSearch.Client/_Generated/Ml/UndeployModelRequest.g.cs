@@ -38,6 +38,8 @@ namespace OpenSearch.Client
 
     public partial class UndeployModelRequest
     {
+        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "2.7";
         public IList<string> ModelIds { get; set; }
         public IList<string> NodeIds { get; set; }
     }

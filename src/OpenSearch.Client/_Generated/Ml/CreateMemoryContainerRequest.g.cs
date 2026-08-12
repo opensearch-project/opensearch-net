@@ -41,6 +41,8 @@ namespace OpenSearch.Client
 
     public partial class CreateMemoryContainerRequest
     {
+        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "3.3";
         public IMemoryContainerConfiguration Configuration { get; set; }
         public string Description { get; set; }
         public string Name { get; set; }

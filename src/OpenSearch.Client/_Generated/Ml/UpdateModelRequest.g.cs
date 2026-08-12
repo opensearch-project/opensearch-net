@@ -59,6 +59,8 @@ namespace OpenSearch.Client
 
     public partial class UpdateModelRequest
     {
+        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "2.12";
         public IDictionary<string, object> Connector { get; set; }
         public string ConnectorId { get; set; }
         public string Description { get; set; }

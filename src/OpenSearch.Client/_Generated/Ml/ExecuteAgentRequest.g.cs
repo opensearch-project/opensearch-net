@@ -35,6 +35,8 @@ namespace OpenSearch.Client
 
     public partial class ExecuteAgentRequest
     {
+        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "2.13";
         public IParameters Parameters { get; set; }
     }
 

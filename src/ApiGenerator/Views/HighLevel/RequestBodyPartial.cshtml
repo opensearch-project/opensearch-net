@@ -46,6 +46,12 @@ namespace OpenSearch.Client
 
     public partial class @name
     {
+@if (Model.VersionAdded != null)
+{
+<text>        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "@(Model.VersionAdded)";
+</text>
+}
 @foreach (var prop in Model.Properties)
 {
 <text>        public @Raw(prop.CsharpType) @prop.CsharpName { get; set; }

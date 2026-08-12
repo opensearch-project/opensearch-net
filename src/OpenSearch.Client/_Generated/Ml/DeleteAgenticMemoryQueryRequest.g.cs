@@ -35,6 +35,8 @@ namespace OpenSearch.Client
 
     public partial class DeleteAgenticMemoryQueryRequest
     {
+        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "3.3";
         public IQueryContainer Query { get; set; }
     }
 

@@ -50,6 +50,8 @@ namespace OpenSearch.Client
 
     public partial class UpdateModelGroupRequest
     {
+        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "2.9";
         public bool? AddAllBackendRoles { get; set; }
         public IList<string> AddBackendRoles { get; set; }
         public IList<string> BackendRoles { get; set; }

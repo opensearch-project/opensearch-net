@@ -47,6 +47,8 @@ namespace OpenSearch.Client
 
     public partial class PredictRequest
     {
+        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "1.3";
         public IList<string> InputIndex { get; set; }
         public IInputQuery InputQuery { get; set; }
         public bool? ReturnNumber { get; set; }

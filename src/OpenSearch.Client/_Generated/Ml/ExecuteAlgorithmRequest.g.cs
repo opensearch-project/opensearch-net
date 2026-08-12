@@ -65,6 +65,8 @@ namespace OpenSearch.Client
 
     public partial class ExecuteAlgorithmRequest
     {
+        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "2.0";
         public IList<IMlAggregation> Aggregations { get; set; }
         public IList<string> AttributeFieldNames { get; set; }
         public long? EndTime { get; set; }
