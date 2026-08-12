@@ -393,3 +393,69 @@ top-level `OpenSearch.Net` namespace, the fix belongs in the high-level template
 mapping into the resolver directly. This would make `MappedTypes` optional for union
 namespaces.
 
+
+## Ingest Processor Codegen Roadmap
+
+The ingest namespace has 36 processor types defined in `ProcessorContainer` in the spec.
+Currently all of them are hand-written. The spec now includes schemas for the three neural
+search processors (`sparse_encoding`, `text_image_embedding`, `text_chunking`) added in
+the same PR as this codegen infrastructure.
+
+### Current State
+
+| File | Lines | Status |
+|---|---|---|
+| `InferenceProcessorBase.cs` | 119 | Hand-written (base class, stays) |
+| `TextEmbeddingProcessor.cs` | 32 | Hand-written |
+| `SparseEncodingProcessor.cs` | 31 | Hand-written — spec schema added |
+| `TextImageEmbeddingProcessor.cs` | 31 | Hand-written — spec schema added |
+| `TextChunkingProcessor.cs` | 257 | Hand-written — spec schema added |
+| `ProcessorFormatter.cs` | ~380 | Hand-written (dispatcher) |
+| `ProcessorsDescriptor.cs` | ~200 | Hand-written (fluent builder) |
+| 29 other processor files | ~2000 | Hand-written |
+
+### Migration Path
+
+The `ProcessorContainer` schema uses optional `properties` (not `oneOf`) with
+`minProperties: 1, maxProperties: 1`, where each property key is the processor name.
+This is structurally equivalent to the wrapper-key union pattern used by search pipeline:
+
+```yaml
+ProcessorContainer:
+  type: object
+  properties:
+    text_embedding:
+      $ref: '#/components/schemas/TextEmbeddingProcessor'
+    sparse_encoding:
+      $ref: '#/components/schemas/SparseEncodingProcessor'
+    ...
+  minProperties: 1
+  maxProperties: 1
+```
+
+To auto-generate ingest processors:
+
+1. **Extend `TryBuildWrapperKeyUnion`** to detect the flat-property pattern
+   (`minProperties: 1, maxProperties: 1` object) in addition to the `oneOf` pattern.
+   The resulting `WrapperKeyUnionModel` with `CsharpName = "Processor"` would drive
+   generation of `IProcessor`, `ProcessorFormatter`, and `ProcessorsDescriptor`.
+
+2. **Create `IngestModelOverrides`** (namespace `"ingest"`, `OutputFolder = "Ingest/Generated"`).
+   Map `IProcessor` to the existing type so it doesn't generate a second base interface.
+   Use `SuppressLowLevelApiImport = true`.
+
+3. **Delete the 36 hand-written processor files** once the generated output matches.
+
+4. **Update `ProcessorFormatter.cs`** to be generated — this is the largest change since
+   the formatter today uses `value.Name` dispatch from the `IProcessor.Name` property,
+   which the `WrapperKeyUnion.cshtml` template already emits correctly.
+
+The `InferenceProcessorBase.cs` and `InferenceProcessorDescriptorBase` would remain
+hand-written as they provide the reusable `model_id` + `field_map` abstraction for all
+ML inference processors.
+
+### Why Not in PR #1017
+
+This migration touches all 36 processor files (~2600 lines), the formatter, and the
+descriptor — representing a significant refactor separate from the ML high-level client
+work that is the primary focus of PR #1017. It is tracked as a follow-up.
