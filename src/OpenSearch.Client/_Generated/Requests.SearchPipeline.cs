@@ -28,8 +28,10 @@ using System.Linq.Expressions;
 using System.Runtime.Serialization;
 using System.Text;
 using OpenSearch.Net;
-using OpenSearch.Net.Specification.SearchPipelineApi;
 using OpenSearch.Net.Utf8Json;
+using DeleteRequestParameters = OpenSearch.Net.Specification.SearchPipelineApi.DeleteRequestParameters;
+using GetRequestParameters = OpenSearch.Net.Specification.SearchPipelineApi.GetRequestParameters;
+using PutRequestParameters = OpenSearch.Net.Specification.SearchPipelineApi.PutRequestParameters;
 
 // ReSharper disable RedundantBaseConstructorCall
 // ReSharper disable UnusedTypeParameter
@@ -38,8 +40,7 @@ using OpenSearch.Net.Utf8Json;
 namespace OpenSearch.Client
 {
     [InterfaceDataContract]
-    public partial interface IDeleteSearchPipelineRequest
-        : IRequest<DeleteSearchPipelineRequestParameters>
+    public partial interface IDeleteSearchPipelineRequest : IRequest<DeleteRequestParameters>
     {
         [IgnoreDataMember]
         Id Id { get; }
@@ -47,7 +48,7 @@ namespace OpenSearch.Client
 
     /// <summary>Request for Delete</summary>
     public partial class DeleteSearchPipelineRequest
-        : PlainRequestBase<DeleteSearchPipelineRequestParameters>,
+        : PlainRequestBase<DeleteRequestParameters>,
             IDeleteSearchPipelineRequest
     {
         protected IDeleteSearchPipelineRequest Self => this;
@@ -85,8 +86,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IGetSearchPipelineRequest
-        : IRequest<GetSearchPipelineRequestParameters>
+    public partial interface IGetSearchPipelineRequest : IRequest<GetRequestParameters>
     {
         [IgnoreDataMember]
         Id Id { get; }
@@ -94,7 +94,7 @@ namespace OpenSearch.Client
 
     /// <summary>Request for Get</summary>
     public partial class GetSearchPipelineRequest
-        : PlainRequestBase<GetSearchPipelineRequestParameters>,
+        : PlainRequestBase<GetRequestParameters>,
             IGetSearchPipelineRequest
     {
         protected IGetSearchPipelineRequest Self => this;
@@ -124,8 +124,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IPutSearchPipelineRequest
-        : IRequest<PutSearchPipelineRequestParameters>
+    public partial interface IPutSearchPipelineRequest : IRequest<PutRequestParameters>
     {
         [IgnoreDataMember]
         Id Id { get; }
@@ -133,7 +132,7 @@ namespace OpenSearch.Client
 
     /// <summary>Request for Put <para>https://opensearch.org/docs/latest/search-plugins/search-pipelines/creating-search-pipeline/</para></summary>
     public partial class PutSearchPipelineRequest
-        : PlainRequestBase<PutSearchPipelineRequestParameters>,
+        : PlainRequestBase<PutRequestParameters>,
             IPutSearchPipelineRequest
     {
         protected IPutSearchPipelineRequest Self => this;

@@ -50,6 +50,7 @@ public abstract class ModelOverridesBase : IModelOverrides
     public virtual bool GenerateBodyOps => false;
     public virtual bool GenerateNonBodyOps => false;
     public virtual bool UseObjectSchemaIds => false;
+    public virtual bool SuppressLowLevelApiImport => false;
     public virtual ISet<string> ExcludedOps { get; } = new HashSet<string>(StringComparer.Ordinal);
     public virtual IDictionary<string, string> OpNameOverrides { get; } = new Dictionary<string, string>(StringComparer.Ordinal);
 

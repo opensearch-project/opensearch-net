@@ -27,8 +27,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using OpenSearch.Net;
-using OpenSearch.Net.Specification.SearchPipelineApi;
 using OpenSearch.Net.Utf8Json;
+using DeleteRequestParameters = OpenSearch.Net.Specification.SearchPipelineApi.DeleteRequestParameters;
+using GetRequestParameters = OpenSearch.Net.Specification.SearchPipelineApi.GetRequestParameters;
+using PutRequestParameters = OpenSearch.Net.Specification.SearchPipelineApi.PutRequestParameters;
 
 // ReSharper disable RedundantBaseConstructorCall
 // ReSharper disable UnusedTypeParameter
@@ -40,7 +42,7 @@ namespace OpenSearch.Client
     public partial class DeleteSearchPipelineDescriptor
         : RequestDescriptorBase<
             DeleteSearchPipelineDescriptor,
-            DeleteSearchPipelineRequestParameters,
+            DeleteRequestParameters,
             IDeleteSearchPipelineRequest
         >,
             IDeleteSearchPipelineRequest
@@ -74,7 +76,7 @@ namespace OpenSearch.Client
     public partial class GetSearchPipelineDescriptor
         : RequestDescriptorBase<
             GetSearchPipelineDescriptor,
-            GetSearchPipelineRequestParameters,
+            GetRequestParameters,
             IGetSearchPipelineRequest
         >,
             IGetSearchPipelineRequest
@@ -108,7 +110,7 @@ namespace OpenSearch.Client
     public partial class PutSearchPipelineDescriptor
         : RequestDescriptorBase<
             PutSearchPipelineDescriptor,
-            PutSearchPipelineRequestParameters,
+            PutRequestParameters,
             IPutSearchPipelineRequest
         >,
             IPutSearchPipelineRequest
