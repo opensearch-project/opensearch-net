@@ -71,3 +71,37 @@ public sealed record ResponseModel(
     IReadOnlyList<ModelProperty> Properties,
     string BaseClass,
     string? VersionAdded = null) : ModelType(SchemaId, CsharpName);
+
+/// <summary>
+/// A single variant in a wrapper-key discriminated union.
+/// The wire format is <c>{"key": { ...body... }}</c>.
+/// </summary>
+public sealed record WrapperKeyVariant(
+    string Key,
+    string CsharpName,
+    string? VersionAdded,
+    IReadOnlyList<ModelProperty> BodyProperties)
+{
+    /// <summary>PascalCase method name for the fluent descriptor builder.</summary>
+    public string FluentMethodName =>
+        NamingConventions.ToPascal(Key.Replace("-", "_"));
+}
+
+/// <summary>
+/// A wrapper-key discriminated union (e.g. <c>RequestProcessor</c>, <c>ResponseProcessor</c>).
+/// Each variant is <c>{"discriminator_key": { ...body... }}</c>.
+/// Rendered by <c>WrapperKeyUnion.cshtml</c> which emits:
+/// - A base interface with <c>string Name { get; }</c> and shared base properties (tag, description, ignore_failure).
+/// - One concrete class + descriptor per variant.
+/// - An <c>IJsonFormatter</c> using <c>AutomataDictionary</c> dispatch.
+/// - A <c>*sDescriptor</c> fluent list builder.
+/// </summary>
+public sealed record WrapperKeyUnionModel(
+    string SchemaId,
+    string CsharpName,
+    IReadOnlyList<WrapperKeyVariant> Variants,
+    IReadOnlyList<ModelProperty> BaseProperties) : ModelType(SchemaId, CsharpName)
+{
+    public string FormatterName => CsharpName + "Formatter";
+    public string DescriptorBuilderName => CsharpName + "sDescriptor";
+}

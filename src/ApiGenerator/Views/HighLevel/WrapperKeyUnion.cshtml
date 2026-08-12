@@ -1,0 +1,250 @@
+@using System
+@using System.Linq
+@using ApiGenerator.Domain.Code.HighLevel.Models
+@inherits ApiGenerator.CodeTemplatePage<WrapperKeyUnionModel>
+@{ await IncludeGeneratorNotice(); }
+@{
+    var m = Model;
+    var ifaceName     = m.InterfaceName;          // e.g. IRequestProcessor
+    var formatterName = m.FormatterName;           // e.g. RequestProcessorFormatter
+    var builderName   = m.DescriptorBuilderName;   // e.g. RequestProcessorsDescriptor
+    var csharpKeywords = new System.Collections.Generic.HashSet<string>
+    {
+        "abstract","as","base","bool","break","byte","case","catch","char","checked",
+        "class","const","continue","decimal","default","delegate","do","double","else",
+        "enum","event","explicit","extern","false","finally","fixed","float","for",
+        "foreach","goto","if","implicit","in","int","interface","internal","is","lock",
+        "long","namespace","new","null","object","operator","out","override","params",
+        "private","protected","public","readonly","ref","return","sbyte","sealed","short",
+        "sizeof","stackalloc","static","string","struct","switch","this","throw","true",
+        "try","typeof","uint","ulong","unchecked","unsafe","ushort","using","virtual",
+        "void","volatile","while"
+    };
+    Func<string, string> SafeParam = n => csharpKeywords.Contains(n) ? "@" + n : n;
+    Func<string, string> DescParam = ct =>
+    {
+        if (ct.EndsWith("?")) return ct;
+        var bare = ct.TrimEnd('?');
+        var valueTypes = new[] { "bool", "int", "long", "float", "double", "short", "byte", "decimal" };
+        return valueTypes.Contains(bare) ? bare + "?" : ct;
+    };
+    // Precompute strings that contain generic <> to avoid Razor parsing them as HTML tags.
+    var jsonFormatterAttr = "[JsonFormatter(typeof(" + formatterName + "))]";
+    var listType          = "IList<" + ifaceName + ">";
+    var descriptorBase    = "DescriptorPromiseBase<" + builderName + ", " + listType + ">";
+
+    // Build the formatter class as a single raw string.
+    var sb = new System.Text.StringBuilder();
+    sb.AppendLine("    internal class " + formatterName + " : IJsonFormatter<" + ifaceName + ">");
+    sb.AppendLine("    {");
+    sb.AppendLine("        private static readonly AutomataDictionary Keys = new AutomataDictionary");
+    sb.AppendLine("        {");
+    for (int ki = 0; ki < m.Variants.Count; ki++)
+        sb.AppendLine("            { \"" + m.Variants[ki].Key + "\", " + ki + " },");
+    sb.AppendLine("        };");
+    sb.AppendLine("");
+    sb.AppendLine("        public " + ifaceName + " Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)");
+    sb.AppendLine("        {");
+    sb.AppendLine("            if (reader.GetCurrentJsonToken() != JsonToken.BeginObject)");
+    sb.AppendLine("            {");
+    sb.AppendLine("                reader.ReadNextBlock();");
+    sb.AppendLine("                return null;");
+    sb.AppendLine("            }");
+    sb.AppendLine("            reader.ReadNext();");
+    sb.AppendLine("            " + ifaceName + " result = null;");
+    sb.AppendLine("            var key = reader.ReadPropertyNameSegmentRaw();");
+    sb.AppendLine("            if (Keys.TryGetValue(key, out var keyIdx))");
+    sb.AppendLine("            {");
+    sb.AppendLine("                result = keyIdx switch");
+    sb.AppendLine("                {");
+    for (int ki = 0; ki < m.Variants.Count; ki++)
+        sb.AppendLine("                    " + ki + " => formatterResolver.GetFormatter<" + m.Variants[ki].CsharpName + ">().Deserialize(ref reader, formatterResolver),");
+    sb.AppendLine("                    _ => null");
+    sb.AppendLine("                };");
+    sb.AppendLine("            }");
+    sb.AppendLine("            else");
+    sb.AppendLine("                reader.ReadNextBlock();");
+    sb.AppendLine("            reader.ReadIsEndObjectWithVerify();");
+    sb.AppendLine("            return result;");
+    sb.AppendLine("        }");
+    sb.AppendLine("");
+    sb.AppendLine("        public void Serialize(ref JsonWriter writer, " + ifaceName + " value, IJsonFormatterResolver formatterResolver)");
+    sb.AppendLine("        {");
+    sb.AppendLine("            if (value?.Name == null) { writer.WriteNull(); return; }");
+    sb.AppendLine("            writer.WriteBeginObject();");
+    sb.AppendLine("            writer.WritePropertyName(value.Name);");
+    sb.AppendLine("            switch (value.Name)");
+    sb.AppendLine("            {");
+    foreach (var v in m.Variants)
+    {
+        var vi = "I" + v.CsharpName;
+        sb.AppendLine("                case \"" + v.Key + "\":");
+        sb.AppendLine("                    formatterResolver.GetFormatter<" + vi + ">()");
+        sb.AppendLine("                        .Serialize(ref writer, value as " + vi + ", formatterResolver);");
+        sb.AppendLine("                    break;");
+    }
+    sb.AppendLine("                default:");
+    sb.AppendLine("                    DynamicObjectResolver.ExcludeNullCamelCase.GetFormatter<" + ifaceName + ">()");
+    sb.AppendLine("                        .Serialize(ref writer, value, formatterResolver);");
+    sb.AppendLine("                    break;");
+    sb.AppendLine("            }");
+    sb.AppendLine("            writer.WriteEndObject();");
+    sb.AppendLine("        }");
+    sb.Append("    }");
+    var formatterCode = sb.ToString();
+
+    // Build the fluent builder class as a raw string.
+    var sb2 = new System.Text.StringBuilder();
+    sb2.AppendLine("    public class " + builderName);
+    sb2.AppendLine("        : " + descriptorBase);
+    sb2.AppendLine("    {");
+    sb2.AppendLine("        public " + builderName + "() : base(new List<" + ifaceName + ">()) { }");
+    foreach (var v in m.Variants)
+    {
+        var bvIface = "I" + v.CsharpName;
+        var bvDesc  = v.CsharpName + "Descriptor";
+        var bFunc   = "Func<" + bvDesc + ", " + bvIface + ">";
+        sb2.AppendLine("");
+        sb2.AppendLine("        /// <inheritdoc cref=\"" + bvIface + "\" />");
+        sb2.AppendLine("        public " + builderName + " " + v.FluentMethodName + "(" + bFunc + " selector) =>");
+        sb2.AppendLine("            Assign(selector, (a, sel) => a.AddIfNotNull(sel?.Invoke(new " + bvDesc + "())));");
+    }
+    sb2.Append("    }");
+    var builderCode = sb2.ToString();
+}
+using System;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using OpenSearch.Net;
+using OpenSearch.Net.Utf8Json;
+using OpenSearch.Net.Utf8Json.Internal;
+using OpenSearch.Net.Utf8Json.Resolvers;
+
+namespace OpenSearch.Client
+{
+    // ──────────────────────────────────────────────────────────────────────
+    // Base interface
+    // ──────────────────────────────────────────────────────────────────────
+
+    /// <summary>Base interface for all <c>@m.CsharpName</c> variants.</summary>
+    @Raw(jsonFormatterAttr)
+    public interface @ifaceName
+    {
+        /// <summary>The discriminator key used for serialization.</summary>
+        string Name { get; }
+@foreach (var bp in m.BaseProperties)
+{
+<text>
+        [DataMember(Name = "@bp.WireName")]
+        @Raw(bp.CsharpType) @bp.CsharpName { get; set; }
+</text>
+}
+    }
+
+    // ──────────────────────────────────────────────────────────────────────
+    // Variant types
+    // ──────────────────────────────────────────────────────────────────────
+
+@foreach (var variant in m.Variants)
+{
+    var vKey            = variant.Key;
+    var vName           = variant.CsharpName;
+    var vIface          = "I" + vName;
+    var vClass          = vName;
+    var vDesc           = vName + "Descriptor";
+    var vDescBase       = "DescriptorBase<" + vDesc + ", " + vIface + ">";
+    var ifaceNameMember = ifaceName + ".Name";
+    if (variant.VersionAdded != null)
+    {
+<text>    /// <remarks>Supported by OpenSearch servers of version @(variant.VersionAdded) or greater.</remarks>
+</text>
+    }
+<text>    [InterfaceDataContract]
+    public interface @vIface : @ifaceName
+    {
+</text>
+    foreach (var p in variant.BodyProperties)
+    {
+<text>        [DataMember(Name = "@p.WireName")]
+        @Raw(p.CsharpType) @p.CsharpName { get; set; }
+</text>
+    }
+<text>    }
+
+    /// <inheritdoc cref="@vIface" />
+    public class @vClass : @vIface
+    {
+        string @Raw(ifaceNameMember) => "@vKey";
+</text>
+    foreach (var p in m.BaseProperties)
+    {
+<text>        public @Raw(p.CsharpType) @p.CsharpName { get; set; }
+</text>
+    }
+    foreach (var p in variant.BodyProperties)
+    {
+<text>        public @Raw(p.CsharpType) @p.CsharpName { get; set; }
+</text>
+    }
+<text>    }
+
+    /// <inheritdoc cref="@vIface" />
+    public class @vDesc : @Raw(vDescBase), @vIface
+    {
+        string @Raw(ifaceNameMember) => null;
+</text>
+    foreach (var p in m.BaseProperties)
+    {
+        var ifProp   = vIface + "." + p.CsharpName;
+        var rawParam = Char.ToLowerInvariant(p.CsharpName[0]) + p.CsharpName.Substring(1);
+        var param    = SafeParam(rawParam);
+        var pType    = DescParam(p.CsharpType);
+        var pDefault = p.CsharpType == "bool?" ? " = true" : "";
+<text>        @Raw(p.CsharpType) @Raw(ifProp) { get; set; }
+</text>
+    }
+    foreach (var p in variant.BodyProperties)
+    {
+        var ifProp   = vIface + "." + p.CsharpName;
+        var rawParam = Char.ToLowerInvariant(p.CsharpName[0]) + p.CsharpName.Substring(1);
+        var param    = SafeParam(rawParam);
+        var pType    = DescParam(p.CsharpType);
+        var pDefault = p.CsharpType == "bool?" ? " = true" : "";
+<text>        @Raw(p.CsharpType) @Raw(ifProp) { get; set; }
+</text>
+    }
+    foreach (var p in m.BaseProperties)
+    {
+        var rawParam = Char.ToLowerInvariant(p.CsharpName[0]) + p.CsharpName.Substring(1);
+        var param    = SafeParam(rawParam);
+        var pType    = DescParam(p.CsharpType);
+        var pDefault = p.CsharpType == "bool?" ? " = true" : "";
+<text>
+        public @vDesc @(p.CsharpName)(@Raw(pType) @(param)@Raw(pDefault)) =>
+            Assign(@(param), (a, val) => a.@p.CsharpName = val);
+</text>
+    }
+    foreach (var p in variant.BodyProperties)
+    {
+        var rawParam = Char.ToLowerInvariant(p.CsharpName[0]) + p.CsharpName.Substring(1);
+        var param    = SafeParam(rawParam);
+        var pType    = DescParam(p.CsharpType);
+        var pDefault = p.CsharpType == "bool?" ? " = true" : "";
+<text>
+        public @vDesc @(p.CsharpName)(@Raw(pType) @(param)@Raw(pDefault)) =>
+            Assign(@(param), (a, val) => a.@p.CsharpName = val);
+</text>
+    }
+<text>    }
+
+</text>
+}
+
+    // ──────────────────────────────────────────────────────────────────────
+    // Formatter + fluent builder (pre-built to avoid Razor/generic-<> issues)
+    // ──────────────────────────────────────────────────────────────────────
+
+    @Raw(formatterCode)
+
+    @Raw(builderCode)
+}
