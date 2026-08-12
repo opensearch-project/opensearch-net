@@ -28,6 +28,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.ExceptionServices;
 using System.Threading.Tasks;
@@ -76,6 +77,12 @@ namespace Tests.Framework.EndpointTests
 				reason = null;
 				return false;
 			}
+
+			// x-version-added in the spec uses 2-component versions (e.g. "2.7", "1.3").
+			// OpenSearchVersion requires 3-component semver (e.g. "2.7.0").
+			// Normalize by appending ".0" when needed.
+			if (minVersion.Count(c => c == '.') < 2)
+				minVersion += ".0";
 
 			var serverVersion = TestClient.Configuration.OpenSearchVersion;
 			if (serverVersion != null && serverVersion < minVersion)
