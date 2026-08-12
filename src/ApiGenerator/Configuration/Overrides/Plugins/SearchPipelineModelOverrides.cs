@@ -75,6 +75,8 @@ public sealed class SearchPipelineModelOverrides : ModelOverridesBase
     public override IDictionary<string, string> RenamedTypes { get; } =
         new Dictionary<string, string>(StringComparer.Ordinal)
         {
+            // Rename the spec's internal schema name to the clean public-facing name.
+            ["search_pipeline._common___SearchPipelineStructure"] = "SearchPipeline",
             // search_pipeline._common___Script collides with the existing Script class used elsewhere.
             ["search_pipeline._common___SearchScriptRequestProcessor"] = "SearchScriptRequestProcessor",
             // search_pipeline._common___SortResponseProcessor could collide with SortProcessor (ingest).
