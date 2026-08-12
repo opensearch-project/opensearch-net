@@ -28,6 +28,7 @@ using OpenSearch.Net.Utf8Json;
 namespace OpenSearch.Client
 {
     [DataContract]
+    /// <remarks>Supported by OpenSearch servers of version 3.3 or greater.</remarks>
     public class GetAgenticMemoryResponse : ResponseBase
     {
         [DataMember(Name = "action")]

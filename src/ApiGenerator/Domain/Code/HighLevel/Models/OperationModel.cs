@@ -53,7 +53,8 @@ public sealed class OperationModel
         // both as Id from the URL and as string from the request body).
         var pathParamNames = CollectPathParameterNames(operation);
         var requestProps = BuildProperties(requestSchema, resolver, skipWireNames: pathParamNames);
-        var request = new RequestModel(operationGroup + "___RequestBody", requestCsharpName, requestProps);
+        var versionAdded = VersionAddedFromOperation(operation);
+        var request = new RequestModel(operationGroup + "___RequestBody", requestCsharpName, requestProps, versionAdded);
 
         var responseSchema = ResolveSuccessResponseSchema(operation)
             ?? throw new InvalidOperationException($"Operation '{operationGroup}' has no JSON 200 response.");
@@ -62,7 +63,7 @@ public sealed class OperationModel
         var responseProps = responseSchema.OneOf?.Count > 0
             ? FlattenOneOfProperties(responseSchema, resolver)
             : BuildProperties(responseSchema, resolver, skipWireNames: null, isResponse: true);
-        var response = new ResponseModel(operationGroup + "___Response", responseCsharpName, responseProps, "ResponseBase");
+        var response = new ResponseModel(operationGroup + "___Response", responseCsharpName, responseProps, "ResponseBase", versionAdded);
 
         var enums = CollectReferencedEnums(new[] { requestSchema, responseSchema }, registry, doc);
 
@@ -131,7 +132,7 @@ public sealed class OperationModel
         }
 
         return new ResponseModel(operationGroup + "___Response", responseCsharpName,
-            responseProps, baseClass);
+            responseProps, baseClass, VersionAddedFromOperation(operation));
     }
 
     /// <summary>
@@ -277,4 +278,15 @@ public sealed class OperationModel
     }
 
     private static string ToPascal(string name) => NamingConventions.ToPascal(name);
+
+    /// <summary>
+    /// Extracts the <c>x-version-added</c> string from an OpenAPI operation's extension data,
+    /// or returns <c>null</c> if the field is absent.
+    /// </summary>
+    private static string? VersionAddedFromOperation(OpenApiOperation operation) =>
+        operation.ExtensionData != null
+        && operation.ExtensionData.TryGetValue("x-version-added", out var v)
+        && v is string s
+            ? s
+            : null;
 }

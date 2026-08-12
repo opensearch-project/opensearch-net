@@ -28,6 +28,7 @@ using OpenSearch.Net.Utf8Json;
 namespace OpenSearch.Client
 {
     [DataContract]
+    /// <remarks>Supported by OpenSearch servers of version 2.12 or greater.</remarks>
     public class GetMessageTracesResponse : ResponseBase
     {
         [DataMember(Name = "next_token")]

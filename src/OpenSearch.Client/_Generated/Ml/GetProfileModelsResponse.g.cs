@@ -28,6 +28,7 @@ using OpenSearch.Net.Utf8Json;
 namespace OpenSearch.Client
 {
     [DataContract]
+    /// <remarks>Supported by OpenSearch servers of version 2.4 or greater.</remarks>
     public class GetProfileModelsResponse : ResponseBase
     {
         [DataMember(Name = "nodes")]

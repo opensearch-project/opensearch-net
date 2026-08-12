@@ -14,6 +14,11 @@ namespace OpenSearch.Client
     var baseClass = Model.BaseClass;
 }
     [DataContract]
+@if (Model.VersionAdded != null)
+{
+<text>    /// <remarks>Supported by OpenSearch servers of version @(Model.VersionAdded) or greater.</remarks>
+</text>
+}
     public class @name : @baseClass
     {
 @foreach (var p in Model.Properties)

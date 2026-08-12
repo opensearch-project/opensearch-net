@@ -26,6 +26,7 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
+    /// <remarks>Supported by OpenSearch servers of version 1.3 or greater.</remarks>
     public partial interface ITrainPredictRequest
     {
         [DataMember(Name = "input_data")]
