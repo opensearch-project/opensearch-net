@@ -134,5 +134,34 @@ namespace Tests.OpenSearch.Net.Serialization
 			obj.Should().NotBeNull();
 			obj.Value.Should().Be("ok");
 		}
+
+		// A surfaced property renamed via [DataMember(Name)] to "x", plus an explicit-interface member whose own
+		// [DataMember(Name)] is also "x". AddInterfaceDataMembers must not synthesize a second property with the JSON
+		// name "x" (System.Text.Json throws on a duplicate JSON name) — it seeds its dedup set with the already-present
+		// property names, so the interface member is skipped.
+		public interface IDup
+		{
+			[DataMember(Name = "x")]
+			string FromInterface { get; }
+		}
+
+		public class DupNames : IDup
+		{
+			[DataMember(Name = "x")]
+			public string Surfaced { get; set; }
+
+			// Explicit interface implementation: STJ does not surface it, so AddInterfaceDataMembers would try to add
+			// it under the interface's [DataMember(Name="x")] — colliding with Surfaced's renamed "x".
+			string IDup.FromInterface => "iface";
+		}
+
+		[U] public void InterfaceDataMember_JsonNameCollision_DoesNotThrow()
+		{
+			var act = () => JsonSerializer.Serialize(new DupNames { Surfaced = "s" }, Options());
+
+			act.Should().NotThrow();
+			// The surfaced property wins the "x" name; the colliding interface member is skipped.
+			JsonSerializer.Serialize(new DupNames { Surfaced = "s" }, Options()).Should().Contain(@"""x"":""s""");
+		}
 	}
 }

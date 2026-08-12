@@ -182,7 +182,11 @@ namespace OpenSearch.Net.Serialization.Converters
 
 		private static void AddInterfaceDataMembers(JsonTypeInfo typeInfo, Type[] interfaces, HashSet<string> surfacedClrNames)
 		{
-			var addedNames = new HashSet<string>();
+			// Seed with the JSON names already present (after any [DataMember(Name)] rename in the main loop), not an
+			// empty set: a surfaced property renamed to "bar" and an explicit-interface member whose [DataMember(Name)]
+			// is also "bar" would otherwise both be added, and System.Text.Json throws on the duplicate JSON name.
+			// Mirrors AddNonPublicDataMembers, which already seeds this way.
+			var addedNames = new HashSet<string>(typeInfo.Properties.Select(p => p.Name));
 
 			// Emit most-derived interfaces first so a sub-interface's members precede its base's (e.g.
 			// ICompletionSuggester.Fuzzy before ISuggester.Field/Size), matching the legacy MetaType's declared-first
