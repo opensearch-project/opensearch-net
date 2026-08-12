@@ -51,6 +51,12 @@ namespace ApiGenerator.Configuration
 		{
             {"indices.recovery", "RecoveryStatus"},
             {"indices.shard_stores", "IndicesShardStores"},
+            // Prevent DeleteRequestParameters / GetRequestParameters / PutRequestParameters
+            // in OpenSearch.Net.Specification.SearchPipelineApi from conflicting with the
+            // identically-named classes in the top-level OpenSearch.Net namespace.
+            {"search_pipeline.delete", "DeleteSearchPipeline"},
+            {"search_pipeline.get",    "GetSearchPipeline"},
+            {"search_pipeline.put",    "PutSearchPipeline"},
         };
 
         /// <summary>
@@ -74,6 +80,10 @@ namespace ApiGenerator.Configuration
         public static readonly Dictionary<string, string> HighLevelOnlyApiNameOverrides = new()
         {
             { "ml.get_task", "GetMlTask" },
+            // Disambiguates search_pipeline operations from generic Put/Get/Delete names.
+            { "search_pipeline.put",    "PutSearchPipeline" },
+            { "search_pipeline.get",    "GetSearchPipeline" },
+            { "search_pipeline.delete", "DeleteSearchPipeline" },
         };
 
         public static readonly HashSet<string> EnableHighLevelCodeGen = new HashSet<string>();

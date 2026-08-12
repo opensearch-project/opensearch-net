@@ -100,7 +100,10 @@ public sealed class NamespaceModel
 
         var emit = finalEmit
             .Where(t => !opOwnedSchemas.Contains(t.SchemaId)
-                && registry.MappedCsharpType(t.SchemaId) == null)
+                // WrapperKeyUnionModel is always emitted — its MappedCsharpType entry
+                // exists only to help the type resolver name array-item properties; it
+                // does not mean the union itself should be suppressed.
+                && (t is WrapperKeyUnionModel || registry.MappedCsharpType(t.SchemaId) == null))
             .ToList();
 
         return new NamespaceModel { Namespace = @namespace, TypesToEmit = emit, AllTypes = finalEmit };
