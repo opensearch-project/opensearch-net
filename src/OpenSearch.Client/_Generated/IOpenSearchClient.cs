@@ -56,6 +56,7 @@ using OpenSearch.Client.Specification.IndicesApi;
 using OpenSearch.Client.Specification.IngestApi;
 using OpenSearch.Client.Specification.MlApi;
 using OpenSearch.Client.Specification.NodesApi;
+using OpenSearch.Client.Specification.SearchPipelineApi;
 using OpenSearch.Client.Specification.SnapshotApi;
 using OpenSearch.Client.Specification.TasksApi;
 
@@ -89,6 +90,9 @@ namespace OpenSearch.Client
 
         /// <summary>Http APIs</summary>
         IHttpNamespace Http { get; }
+
+        /// <summary>Search Pipeline APIs</summary>
+        ISearchPipelineNamespace SearchPipeline { get; }
 
         /// <summary>Snapshot APIs</summary>
         ISnapshotNamespace Snapshot { get; }

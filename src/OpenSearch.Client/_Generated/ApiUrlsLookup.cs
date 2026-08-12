@@ -669,6 +669,14 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls NoNamespaceSearch = new(["_search", "{index}/_search"]);
 
+        internal static readonly ApiUrls SearchPipelineDelete = new(["_search/pipeline/{id}"]);
+
+        internal static readonly ApiUrls SearchPipelineGet = new(
+            ["_search/pipeline", "_search/pipeline/{id}"]
+        );
+
+        internal static readonly ApiUrls SearchPipelinePut = new(["_search/pipeline/{id}"]);
+
         internal static readonly ApiUrls NoNamespaceSearchShards = new(
             ["_search_shards", "{index}/_search_shards"]
         );
