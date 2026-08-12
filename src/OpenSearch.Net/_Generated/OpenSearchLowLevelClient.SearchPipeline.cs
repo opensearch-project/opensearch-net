@@ -75,7 +75,7 @@ namespace OpenSearch.Net.Specification.SearchPipelineApi
         /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
         public TResponse Delete<TResponse>(
             string id,
-            DeleteRequestParameters requestParameters = null
+            DeleteSearchPipelineRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
@@ -92,7 +92,7 @@ namespace OpenSearch.Net.Specification.SearchPipelineApi
         [MapsApi("search_pipeline.delete", "id")]
         public Task<TResponse> DeleteAsync<TResponse>(
             string id,
-            DeleteRequestParameters requestParameters = null,
+            DeleteSearchPipelineRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -107,7 +107,7 @@ namespace OpenSearch.Net.Specification.SearchPipelineApi
         /// <summary>GET on /_search/pipeline</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
-        public TResponse Get<TResponse>(GetRequestParameters requestParameters = null)
+        public TResponse Get<TResponse>(GetSearchPipelineRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_search/pipeline", null, RequestParams(requestParameters));
 
@@ -116,7 +116,7 @@ namespace OpenSearch.Net.Specification.SearchPipelineApi
         /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
         [MapsApi("search_pipeline.get", "")]
         public Task<TResponse> GetAsync<TResponse>(
-            GetRequestParameters requestParameters = null,
+            GetSearchPipelineRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -132,7 +132,10 @@ namespace OpenSearch.Net.Specification.SearchPipelineApi
         /// <param name="id">Comma-separated list of search pipeline ids. Wildcards supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
-        public TResponse Get<TResponse>(string id, GetRequestParameters requestParameters = null)
+        public TResponse Get<TResponse>(
+            string id,
+            GetSearchPipelineRequestParameters requestParameters = null
+        )
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
                 GET,
@@ -148,7 +151,7 @@ namespace OpenSearch.Net.Specification.SearchPipelineApi
         [MapsApi("search_pipeline.get", "id")]
         public Task<TResponse> GetAsync<TResponse>(
             string id,
-            GetRequestParameters requestParameters = null,
+            GetSearchPipelineRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -168,7 +171,7 @@ namespace OpenSearch.Net.Specification.SearchPipelineApi
         public TResponse Put<TResponse>(
             string id,
             PostData body,
-            PutRequestParameters requestParameters = null
+            PutSearchPipelineRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
@@ -187,7 +190,7 @@ namespace OpenSearch.Net.Specification.SearchPipelineApi
         public Task<TResponse> PutAsync<TResponse>(
             string id,
             PostData body,
-            PutRequestParameters requestParameters = null,
+            PutSearchPipelineRequestParameters requestParameters = null,
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>

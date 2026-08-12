@@ -53,7 +53,8 @@ using System.Text;
 namespace OpenSearch.Net.Specification.SearchPipelineApi
 {
     /// <summary>Request options for Delete</summary>
-    public partial class DeleteRequestParameters : RequestParameters<DeleteRequestParameters>
+    public partial class DeleteSearchPipelineRequestParameters
+        : RequestParameters<DeleteSearchPipelineRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -76,7 +77,8 @@ namespace OpenSearch.Net.Specification.SearchPipelineApi
     }
 
     /// <summary>Request options for Get</summary>
-    public partial class GetRequestParameters : RequestParameters<GetRequestParameters>
+    public partial class GetSearchPipelineRequestParameters
+        : RequestParameters<GetSearchPipelineRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -92,7 +94,8 @@ namespace OpenSearch.Net.Specification.SearchPipelineApi
     }
 
     /// <summary>Request options for Put <para>https://opensearch.org/docs/latest/search-plugins/search-pipelines/creating-search-pipeline/</para></summary>
-    public partial class PutRequestParameters : RequestParameters<PutRequestParameters>
+    public partial class PutSearchPipelineRequestParameters
+        : RequestParameters<PutSearchPipelineRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
