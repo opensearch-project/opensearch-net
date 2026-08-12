@@ -51,12 +51,6 @@ namespace ApiGenerator.Configuration
 		{
             {"indices.recovery", "RecoveryStatus"},
             {"indices.shard_stores", "IndicesShardStores"},
-            // Prevent DeleteRequestParameters / GetRequestParameters / PutRequestParameters
-            // in OpenSearch.Net.Specification.SearchPipelineApi from conflicting with the
-            // identically-named classes in the top-level OpenSearch.Net namespace.
-            {"search_pipeline.delete", "DeleteSearchPipeline"},
-            {"search_pipeline.get",    "GetSearchPipeline"},
-            {"search_pipeline.put",    "PutSearchPipeline"},
         };
 
         /// <summary>

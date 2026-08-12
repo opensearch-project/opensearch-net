@@ -36,6 +36,17 @@ public interface IModelOverrides
     /// <summary>Whether the resolver needs object-schema reverse-map (required when body ops reference $ref objects).</summary>
     bool UseObjectSchemaIds { get; }
 
+    /// <summary>
+    /// When <c>true</c>, the Requests and Descriptors Razor generators will NOT emit
+    /// <c>using OpenSearch.Net.Specification.{Namespace}Api;</c>.  Set this for plugin
+    /// namespaces that generate all their <c>RequestParameters</c> via
+    /// <c>ModelsGenerator</c> and do not need the low-level namespace import — in
+    /// particular when the low-level namespace uses generic parameter class names
+    /// (<c>DeleteRequestParameters</c>, <c>GetRequestParameters</c>) that collide with
+    /// identically-named classes in the top-level <c>OpenSearch.Net</c> namespace.
+    /// </summary>
+    bool SuppressLowLevelApiImport { get; }
+
     /// <summary>Operation groups to exclude from generation entirely (streaming ops, etc.).</summary>
     ISet<string> ExcludedOps { get; }
 
