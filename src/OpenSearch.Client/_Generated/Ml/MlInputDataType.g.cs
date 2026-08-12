@@ -31,21 +31,21 @@ namespace OpenSearch.Client
     public enum MlInputDataType
     {
         [EnumMember(Value = "DATA_FRAME")]
-        DATAFRAME,
+        DataFrame,
 
         [EnumMember(Value = "QUESTION_ANSWERING")]
-        QUESTIONANSWERING,
+        QuestionAnswering,
 
         [EnumMember(Value = "REMOTE")]
-        REMOTE,
+        Remote,
 
         [EnumMember(Value = "SEARCH_QUERY")]
-        SEARCHQUERY,
+        SearchQuery,
 
         [EnumMember(Value = "TEXT_DOCS")]
-        TEXTDOCS,
+        TextDocs,
 
         [EnumMember(Value = "TEXT_SIMILARITY")]
-        TEXTSIMILARITY,
+        TextSimilarity,
     }
 }

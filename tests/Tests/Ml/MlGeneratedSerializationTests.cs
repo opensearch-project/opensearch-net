@@ -25,7 +25,7 @@ namespace Tests.Ml
 		/// <summary>
 		/// Test 1: <c>ml.register_model</c> request with a nested <see cref="IModelConfig"/> object.
 		/// Verifies that the $ref-resolved interface property is serialized as a real JSON object
-		/// (not omitted or collapsed) and that <see cref="ModelFormat.TORCHSCRIPT"/> renders as
+		/// (not omitted or collapsed) and that <see cref="ModelFormat.TorchScript"/> renders as
 		/// <c>"TORCH_SCRIPT"</c> (its <c>[EnumMember]</c> value).
 		/// </summary>
 		[U]
@@ -48,7 +48,7 @@ namespace Tests.Ml
 			{
 				Name = "bert",
 				Version = "1.0",
-				ModelFormat = ModelFormat.TORCHSCRIPT,
+				ModelFormat = ModelFormat.TorchScript,
 				ModelConfig = new ModelConfig
 				{
 					ModelType = "bert",

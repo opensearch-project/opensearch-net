@@ -31,12 +31,12 @@ namespace OpenSearch.Client
     public enum StrategyType
     {
         [EnumMember(Value = "SEMANTIC")]
-        SEMANTIC,
+        Semantic,
 
         [EnumMember(Value = "SUMMARY")]
-        SUMMARY,
+        Summary,
 
         [EnumMember(Value = "USER_PREFERENCE")]
-        USERPREFERENCE,
+        UserPreference,
     }
 }

@@ -38,7 +38,7 @@ namespace OpenSearch.Client
         IList<double?> Data { get; set; }
 
         [DataMember(Name = "dataAsMap")]
-        IDataAsMap DataAsMap { get; set; }
+        IDataAsMap Dataasmap { get; set; }
 
         [DataMember(Name = "data_type")]
         MlResultDataType? DataType { get; set; }
@@ -57,7 +57,7 @@ namespace OpenSearch.Client
     {
         public IByteBuffer ByteBuffer { get; set; }
         public IList<double?> Data { get; set; }
-        public IDataAsMap DataAsMap { get; set; }
+        public IDataAsMap Dataasmap { get; set; }
         public MlResultDataType? DataType { get; set; }
         public string Name { get; set; }
         public string Result { get; set; }
@@ -68,7 +68,7 @@ namespace OpenSearch.Client
     {
         IByteBuffer IOutput.ByteBuffer { get; set; }
         IList<double?> IOutput.Data { get; set; }
-        IDataAsMap IOutput.DataAsMap { get; set; }
+        IDataAsMap IOutput.Dataasmap { get; set; }
         MlResultDataType? IOutput.DataType { get; set; }
         string IOutput.Name { get; set; }
         string IOutput.Result { get; set; }
@@ -79,8 +79,8 @@ namespace OpenSearch.Client
 
         public OutputDescriptor Data(IList<double?> data) => Assign(data, (a, v) => a.Data = v);
 
-        public OutputDescriptor DataAsMap(IDataAsMap dataAsMap) =>
-            Assign(dataAsMap, (a, v) => a.DataAsMap = v);
+        public OutputDescriptor Dataasmap(IDataAsMap dataasmap) =>
+            Assign(dataasmap, (a, v) => a.Dataasmap = v);
 
         public OutputDescriptor DataType(MlResultDataType? dataType) =>
             Assign(dataType, (a, v) => a.DataType = v);

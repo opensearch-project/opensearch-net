@@ -31,27 +31,27 @@ namespace OpenSearch.Client
     public enum MlTaskState
     {
         [EnumMember(Value = "CANCELLED")]
-        CANCELLED,
+        Cancelled,
 
         [EnumMember(Value = "CANCELLING")]
-        CANCELLING,
+        Cancelling,
 
         [EnumMember(Value = "COMPLETED")]
-        COMPLETED,
+        Completed,
 
         [EnumMember(Value = "COMPLETED_WITH_ERROR")]
-        COMPLETEDWITHERROR,
+        CompletedWithError,
 
         [EnumMember(Value = "CREATED")]
-        CREATED,
+        Created,
 
         [EnumMember(Value = "EXPIRED")]
-        EXPIRED,
+        Expired,
 
         [EnumMember(Value = "FAILED")]
-        FAILED,
+        Failed,
 
         [EnumMember(Value = "RUNNING")]
-        RUNNING,
+        Running,
     }
 }

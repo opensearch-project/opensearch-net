@@ -52,5 +52,6 @@ public sealed class MlModelOverrides : ModelOverridesBase
         ["ml._common___Result"] = "MlResult",         // collides with OSC's Document/Result enum
         ["ml._common___TaskState"] = "MlTaskState",   // collides with OSC's TaskState class
         ["ml._common___IndexSettings"] = "MlIndexSettings", // collides with OSC's IndexSettings class
+        ["ml._common___Metadata"] = "MlMetadata",    // collides with Tests.Domain.Metadata
     };
 }

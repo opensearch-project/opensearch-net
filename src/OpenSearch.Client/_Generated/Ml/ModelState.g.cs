@@ -31,24 +31,24 @@ namespace OpenSearch.Client
     public enum ModelState
     {
         [EnumMember(Value = "DEPLOY_FAILED")]
-        DEPLOYFAILED,
+        DeployFailed,
 
         [EnumMember(Value = "DEPLOYED")]
-        DEPLOYED,
+        Deployed,
 
         [EnumMember(Value = "DEPLOYING")]
-        DEPLOYING,
+        Deploying,
 
         [EnumMember(Value = "PARTIALLY_DEPLOYED")]
-        PARTIALLYDEPLOYED,
+        PartiallyDeployed,
 
         [EnumMember(Value = "REGISTERED")]
-        REGISTERED,
+        Registered,
 
         [EnumMember(Value = "REGISTERING")]
-        REGISTERING,
+        Registering,
 
         [EnumMember(Value = "UNDEPLOYED")]
-        UNDEPLOYED,
+        Undeployed,
     }
 }

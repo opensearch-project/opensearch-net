@@ -31,10 +31,10 @@ namespace OpenSearch.Client
     public enum KMeansDistanceType
     {
         [EnumMember(Value = "COSINE")]
-        COSINE,
+        Cosine,
 
         [EnumMember(Value = "EUCLIDEAN")]
-        EUCLIDEAN,
+        Euclidean,
 
         [EnumMember(Value = "L1")]
         L1,

@@ -31,66 +31,66 @@ namespace OpenSearch.Client
     public enum ToolName
     {
         [EnumMember(Value = "AgentTool")]
-        AgentTool,
+        Agenttool,
 
         [EnumMember(Value = "CatIndexTool")]
-        CatIndexTool,
+        Catindextool,
 
         [EnumMember(Value = "ConnectorTool")]
-        ConnectorTool,
+        Connectortool,
 
         [EnumMember(Value = "CreateAnomalyDetectorTool")]
-        CreateAnomalyDetectorTool,
+        Createanomalydetectortool,
 
         [EnumMember(Value = "IndexMappingTool")]
-        IndexMappingTool,
+        Indexmappingtool,
 
         [EnumMember(Value = "ListIndexTool")]
-        ListIndexTool,
+        Listindextool,
 
         [EnumMember(Value = "LogPatternTool")]
-        LogPatternTool,
+        Logpatterntool,
 
         [EnumMember(Value = "MLModelTool")]
-        MLModelTool,
+        Mlmodeltool,
 
         [EnumMember(Value = "NeuralSparseSearchTool")]
-        NeuralSparseSearchTool,
+        Neuralsparsesearchtool,
 
         [EnumMember(Value = "PPLTool")]
-        PPLTool,
+        Ppltool,
 
         [EnumMember(Value = "QueryPlanningTool")]
-        QueryPlanningTool,
+        Queryplanningtool,
 
         [EnumMember(Value = "RAGTool")]
-        RAGTool,
+        Ragtool,
 
         [EnumMember(Value = "ReadFromScratchPadTool")]
-        ReadFromScratchPadTool,
+        Readfromscratchpadtool,
 
         [EnumMember(Value = "SearchAlertsTool")]
-        SearchAlertsTool,
+        Searchalertstool,
 
         [EnumMember(Value = "SearchAnomalyDetectorsTool")]
-        SearchAnomalyDetectorsTool,
+        Searchanomalydetectorstool,
 
         [EnumMember(Value = "SearchAnomalyResultsTool")]
-        SearchAnomalyResultsTool,
+        Searchanomalyresultstool,
 
         [EnumMember(Value = "SearchIndexTool")]
-        SearchIndexTool,
+        Searchindextool,
 
         [EnumMember(Value = "SearchMonitorsTool")]
-        SearchMonitorsTool,
+        Searchmonitorstool,
 
         [EnumMember(Value = "VectorDBTool")]
-        VectorDBTool,
+        Vectordbtool,
 
         [EnumMember(Value = "VisualizationTool")]
-        VisualizationTool,
+        Visualizationtool,
 
         [EnumMember(Value = "WriteToScratchPadTool")]
-        WriteToScratchPadTool,
+        Writetoscratchpadtool,
     }
 }

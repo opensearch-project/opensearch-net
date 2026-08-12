@@ -31,24 +31,24 @@ namespace OpenSearch.Client
     public enum RateLimiterUnit
     {
         [EnumMember(Value = "DAYS")]
-        DAYS,
+        Days,
 
         [EnumMember(Value = "HOURS")]
-        HOURS,
+        Hours,
 
         [EnumMember(Value = "MICROSECONDS")]
-        MICROSECONDS,
+        Microseconds,
 
         [EnumMember(Value = "MILLISECONDS")]
-        MILLISECONDS,
+        Milliseconds,
 
         [EnumMember(Value = "MINUTES")]
-        MINUTES,
+        Minutes,
 
         [EnumMember(Value = "NANOSECONDS")]
-        NANOSECONDS,
+        Nanoseconds,
 
         [EnumMember(Value = "SECONDS")]
-        SECONDS,
+        Seconds,
     }
 }

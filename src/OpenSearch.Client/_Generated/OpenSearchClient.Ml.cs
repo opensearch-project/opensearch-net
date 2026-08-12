@@ -795,7 +795,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         DeleteTaskResponse DeleteTask(
-            TaskId taskId,
+            Id taskId,
             Func<DeleteTaskDescriptor, IDeleteTaskRequest> selector = null
         );
 
@@ -806,7 +806,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         Task<DeleteTaskResponse> DeleteTaskAsync(
-            TaskId taskId,
+            Id taskId,
             Func<DeleteTaskDescriptor, IDeleteTaskRequest> selector = null,
             CancellationToken ct = default
         );
@@ -1705,7 +1705,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         GetMlTaskResponse GetTask(
-            TaskId taskId,
+            Id taskId,
             Func<GetMlTaskDescriptor, IGetMlTaskRequest> selector = null
         );
 
@@ -1716,7 +1716,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         Task<GetMlTaskResponse> GetTaskAsync(
-            TaskId taskId,
+            Id taskId,
             Func<GetMlTaskDescriptor, IGetMlTaskRequest> selector = null,
             CancellationToken ct = default
         );
@@ -4058,7 +4058,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         public DeleteTaskResponse DeleteTask(
-            TaskId taskId,
+            Id taskId,
             Func<DeleteTaskDescriptor, IDeleteTaskRequest> selector = null
         ) => DeleteTask(selector.InvokeOrDefault(new DeleteTaskDescriptor(taskId: taskId)));
 
@@ -4069,7 +4069,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         public Task<DeleteTaskResponse> DeleteTaskAsync(
-            TaskId taskId,
+            Id taskId,
             Func<DeleteTaskDescriptor, IDeleteTaskRequest> selector = null,
             CancellationToken ct = default
         ) =>
@@ -5232,7 +5232,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         public GetMlTaskResponse GetTask(
-            TaskId taskId,
+            Id taskId,
             Func<GetMlTaskDescriptor, IGetMlTaskRequest> selector = null
         ) => GetTask(selector.InvokeOrDefault(new GetMlTaskDescriptor(taskId: taskId)));
 
@@ -5243,7 +5243,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         public Task<GetMlTaskResponse> GetTaskAsync(
-            TaskId taskId,
+            Id taskId,
             Func<GetMlTaskDescriptor, IGetMlTaskRequest> selector = null,
             CancellationToken ct = default
         ) => GetTaskAsync(selector.InvokeOrDefault(new GetMlTaskDescriptor(taskId: taskId)), ct);
