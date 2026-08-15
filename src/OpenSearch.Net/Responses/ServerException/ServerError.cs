@@ -51,11 +51,19 @@ namespace OpenSearch.Net
 		[DataMember(Name = "status")]
 		public int Status { get; internal set; } = -1;
 
-		public static bool TryCreate(Stream stream, out ServerError serverError)
+		/// <param name="stream">The response stream containing the server's error body.</param>
+		/// <param name="serializer">
+		/// The serializer to deserialize with; defaults to the legacy Utf8Json <see cref="LowLevelRequestResponseSerializer"/>
+		/// when omitted. Callers with access to the request's configured serializer (e.g. a response's
+		/// <see cref="IApiCallDetails.ConnectionConfiguration"/>) should pass it, so error parsing honors the same
+		/// engine as every other response type.
+		/// </param>
+		/// <param name="serverError">The parsed error, or <c>null</c> if parsing failed.</param>
+		public static bool TryCreate(Stream stream, out ServerError serverError, IOpenSearchSerializer serializer = null)
 		{
 			try
 			{
-				serverError = Create(stream);
+				serverError = Create(stream, serializer);
 				return true;
 			}
 			catch
@@ -65,12 +73,12 @@ namespace OpenSearch.Net
 			}
 		}
 
-		public static ServerError Create(Stream stream) =>
-			LowLevelRequestResponseSerializer.Instance.Deserialize<ServerError>(stream);
+		public static ServerError Create(Stream stream, IOpenSearchSerializer serializer = null) =>
+			(serializer ?? LowLevelRequestResponseSerializer.Instance).Deserialize<ServerError>(stream);
 
 		// ReSharper disable once UnusedMember.Global
-		public static Task<ServerError> CreateAsync(Stream stream, CancellationToken token = default) =>
-			LowLevelRequestResponseSerializer.Instance.DeserializeAsync<ServerError>(stream, token);
+		public static Task<ServerError> CreateAsync(Stream stream, CancellationToken token = default, IOpenSearchSerializer serializer = null) =>
+			(serializer ?? LowLevelRequestResponseSerializer.Instance).DeserializeAsync<ServerError>(stream, token);
 
 		public override string ToString()
 		{

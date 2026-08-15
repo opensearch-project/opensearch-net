@@ -128,13 +128,13 @@ namespace OpenSearch.Net
 
 			using (responseStream)
 			{
-				if (SetSpecialTypes<TResponse>(mimeType, bytes, requestData.MemoryStreamFactory, out var r))
+				var serializer = requestData.ConnectionSettings.RequestResponseSerializer;
+				if (SetSpecialTypes<TResponse>(serializer, mimeType, bytes, requestData.MemoryStreamFactory, out var r))
 					return r;
 
 				if (details.HttpStatusCode.HasValue && requestData.SkipDeserializationForStatusCodes.Contains(details.HttpStatusCode.Value))
 					return null;
 
-				var serializer = requestData.ConnectionSettings.RequestResponseSerializer;
 				if (requestData.CustomResponseBuilder != null)
 					return requestData.CustomResponseBuilder.DeserializeResponse(serializer, details, responseStream) as TResponse;
 
@@ -161,12 +161,12 @@ namespace OpenSearch.Net
 
 			using (responseStream)
 			{
-				if (SetSpecialTypes<TResponse>(mimeType, bytes, requestData.MemoryStreamFactory, out var r)) return r;
+				var serializer = requestData.ConnectionSettings.RequestResponseSerializer;
+				if (SetSpecialTypes<TResponse>(serializer, mimeType, bytes, requestData.MemoryStreamFactory, out var r)) return r;
 
 				if (details.HttpStatusCode.HasValue && requestData.SkipDeserializationForStatusCodes.Contains(details.HttpStatusCode.Value))
 					return null;
 
-				var serializer = requestData.ConnectionSettings.RequestResponseSerializer;
 				if (requestData.CustomResponseBuilder != null)
 					return await requestData.CustomResponseBuilder.DeserializeResponseAsync(serializer, details, responseStream, cancellationToken).ConfigureAwait(false) as TResponse;
 
@@ -178,7 +178,9 @@ namespace OpenSearch.Net
 			}
 		}
 
-		private static bool SetSpecialTypes<TResponse>(string mimeType, byte[] bytes, IMemoryStreamFactory memoryStreamFactory, out TResponse cs)
+		private static bool SetSpecialTypes<TResponse>(
+			IOpenSearchSerializer serializer, string mimeType, byte[] bytes, IMemoryStreamFactory memoryStreamFactory, out TResponse cs
+		)
 			where TResponse : class, IOpenSearchResponse, new()
 		{
 			cs = null;
@@ -203,7 +205,11 @@ namespace OpenSearch.Net
 				else
 				{
 					using var ms = memoryStreamFactory.Create(bytes);
-					var body = LowLevelRequestResponseSerializer.Instance.Deserialize<DynamicDictionary>(ms);
+					// Deserialize through the request's configured serializer (Utf8Json by default, or
+					// System.Text.Json when opted into via ConnectionConfiguration.UseSystemTextJson()) rather than
+					// a hardcoded Utf8Json instance, so a DynamicResponse honors the same engine as every other
+					// response type.
+					var body = serializer.Deserialize<DynamicDictionary>(ms);
 					cs = new DynamicResponse(body) as TResponse;
 				}
 			}

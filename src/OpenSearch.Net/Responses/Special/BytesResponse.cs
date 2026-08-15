@@ -41,7 +41,7 @@ namespace OpenSearch.Net
 				return false;
 
 			using(var stream = ConnectionConfiguration.MemoryStreamFactory.Create(Body))
-				return ServerError.TryCreate(stream, out serverError);
+				return ServerError.TryCreate(stream, out serverError, ConnectionConfiguration.RequestResponseSerializer);
 		}
 	}
 }

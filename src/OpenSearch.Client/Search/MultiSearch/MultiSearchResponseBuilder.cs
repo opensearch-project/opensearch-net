@@ -35,25 +35,46 @@ namespace OpenSearch.Client
 {
 	internal class MultiSearchResponseBuilder : CustomResponseBuilderBase
 	{
-		public MultiSearchResponseBuilder(IRequest request) => Formatter = new MultiSearchResponseFormatter(request);
+		private readonly IRequest _request;
+
+		public MultiSearchResponseBuilder(IRequest request)
+		{
+			_request = request;
+			Formatter = new MultiSearchResponseFormatter(request);
+		}
 
 		private MultiSearchResponseFormatter Formatter { get; }
 
-		public override object DeserializeResponse(IOpenSearchSerializer builtInSerializer, IApiCallDetails response, Stream stream) =>
-			response.Success
-				? builtInSerializer.CreateStateful(Formatter).Deserialize<MultiSearchResponse>(stream)
-				: new MultiSearchResponse();
+		public override object DeserializeResponse(IOpenSearchSerializer builtInSerializer, IApiCallDetails response, Stream stream)
+		{
+			if (!response.Success)
+				return new MultiSearchResponse();
+
+			// Under System.Text.Json use a per-request MultiSearchResponseConverter (the legacy CreateStateful path
+			// needs a Utf8Json formatter resolver, unavailable in the STJ engine).
+			if (StatefulSerializerExtensions.TryGetSystemTextJsonSerializer(builtInSerializer, out var stj))
+				return stj.DeserializeWithConverter<MultiSearchResponse>(new MultiSearchResponseConverter(_request), stream);
+
+			return builtInSerializer.CreateStateful(Formatter).Deserialize<MultiSearchResponse>(stream);
+		}
 
 		public override async Task<object> DeserializeResponseAsync(
 			IOpenSearchSerializer builtInSerializer,
 			IApiCallDetails response,
 			Stream stream,
 			CancellationToken ctx = default
-		) =>
-			response.Success
-				? await builtInSerializer.CreateStateful(Formatter)
-					.DeserializeAsync<MultiSearchResponse>(stream, ctx)
-					.ConfigureAwait(false)
-				: new MultiSearchResponse();
+		)
+		{
+			if (!response.Success)
+				return new MultiSearchResponse();
+
+			if (StatefulSerializerExtensions.TryGetSystemTextJsonSerializer(builtInSerializer, out var stj))
+				return await stj.DeserializeWithConverterAsync<MultiSearchResponse>(new MultiSearchResponseConverter(_request), stream, ctx)
+					.ConfigureAwait(false);
+
+			return await builtInSerializer.CreateStateful(Formatter)
+				.DeserializeAsync<MultiSearchResponse>(stream, ctx)
+				.ConfigureAwait(false);
+		}
 	}
 }
