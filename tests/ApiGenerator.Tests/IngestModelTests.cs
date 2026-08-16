@@ -51,10 +51,15 @@ public class IngestModelTests
         var ns = NamespaceModel.Build(doc, plugin.Namespace, plugin, resolver);
 
         var union = ns.AllTypes.OfType<WrapperKeyUnionModel>().Single();
-        Assert.Equal(3, union.Variants.Count);
-        Assert.Contains(union.Variants, v => v.Key == "append");
-        Assert.Contains(union.Variants, v => v.Key == "convert");
-        Assert.Contains(union.Variants, v => v.Key == "rename");
+        Assert.Equal(3, union.GeneratedVariants.Count);
+        Assert.Equal(7, union.AllVariants.Count);
+        Assert.Contains(union.GeneratedVariants, v => v.Key == "append");
+        Assert.Contains(union.GeneratedVariants, v => v.Key == "convert");
+        Assert.Contains(union.GeneratedVariants, v => v.Key == "rename");
+        Assert.Contains(union.AllVariants, v => v.Key == "uri_parts" && v.IsRetained);
+        Assert.Contains(union.AllVariants, v => v.Key == "fingerprint" && v.IsRetained);
+        Assert.Contains(union.AllVariants, v => v.Key == "community_id" && v.IsRetained);
+        Assert.Contains(union.AllVariants, v => v.Key == "network_direction" && v.IsRetained);
     }
 
     [Fact]

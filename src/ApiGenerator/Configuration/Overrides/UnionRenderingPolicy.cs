@@ -106,6 +106,14 @@ public sealed class UnionRenderingPolicy
     public IDictionary<string, VariantPolicy> VariantOverrides { get; init; } =
         new Dictionary<string, VariantPolicy>(StringComparer.Ordinal);
 
+    /// <summary>
+    /// Existing C# variants absent from the current specification but retained for public API
+    /// compatibility. They participate in formatter and list-descriptor dispatch only; their
+    /// model and descriptor implementations remain hand-written.
+    /// </summary>
+    public IReadOnlyList<RetainedVariantPolicy> AdditionalRetainedVariants { get; init; } =
+        Array.Empty<RetainedVariantPolicy>();
+
     // ── Naming overrides ─────────────────────────────────────────────────────
 
     /// <summary>
@@ -132,6 +140,19 @@ public sealed class UnionRenderingPolicy
     /// </summary>
     public IDictionary<string, string> InterfaceNameOverrides { get; init; } =
         new Dictionary<string, string>(StringComparer.Ordinal);
+}
+
+/// <summary>
+/// Target-language compatibility policy for an existing variant that is not modeled by
+/// the current OpenAPI specification.
+/// </summary>
+public sealed class RetainedVariantPolicy
+{
+    public required string Key { get; init; }
+    public required string CsharpName { get; init; }
+    public string? InterfaceName { get; init; }
+    public string? FluentMethodName { get; init; }
+    public bool GenericDescriptor { get; init; } = true;
 }
 
 /// <summary>

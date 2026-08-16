@@ -311,6 +311,24 @@ public sealed class NamespaceModel
                     FieldsSelectorOverloads = vp?.FieldsSelectorOverloads ?? new HashSet<string>(StringComparer.Ordinal),
                 };
             }).ToList();
+
+            foreach (var retained in policy.AdditionalRetainedVariants)
+            {
+                if (variants.Any(v => string.Equals(v.Key, retained.Key, StringComparison.Ordinal)))
+                    continue;
+
+                variants.Add(new WrapperKeyVariant(
+                    retained.Key,
+                    retained.CsharpName,
+                    VersionAdded: null,
+                    BodyProperties: Array.Empty<ModelProperty>())
+                {
+                    InterfaceNameOverride = retained.InterfaceName,
+                    FluentMethodNameOverride = retained.FluentMethodName,
+                    IsGenericDescriptor = retained.GenericDescriptor,
+                    IsRetained = true,
+                });
+            }
         }
 
         model = new WrapperKeyUnionModel(

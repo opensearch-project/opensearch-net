@@ -121,6 +121,34 @@ public sealed class IngestModelOverrides : ModelOverridesBase
                     "field", "target_field", "source_field",
                 },
 
+                AdditionalRetainedVariants = new RetainedVariantPolicy[]
+                {
+                    new()
+                    {
+                        Key = "uri_parts",
+                        CsharpName = "UriPartsProcessor",
+                        FluentMethodName = "UriParts",
+                    },
+                    new()
+                    {
+                        Key = "fingerprint",
+                        CsharpName = "FingerprintProcessor",
+                        FluentMethodName = "Fingerprint",
+                    },
+                    new()
+                    {
+                        Key = "community_id",
+                        CsharpName = "NetworkCommunityIdProcessor",
+                        FluentMethodName = "NetworkCommunityId",
+                    },
+                    new()
+                    {
+                        Key = "network_direction",
+                        CsharpName = "NetworkDirectionProcessor",
+                        FluentMethodName = "NetworkDirection",
+                    },
+                },
+
                 // ── Per-variant overrides ──
                 VariantOverrides = new Dictionary<string, VariantPolicy>(StringComparer.Ordinal)
                 {
