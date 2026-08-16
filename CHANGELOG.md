@@ -22,6 +22,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed flaky `MovingAverageHoltWintersUsageTests` integration test which asserted moving-average values are non-negative; Holt-Winters forecasts can legitimately be negative, so the assertion now only checks the values deserialize to finite numbers ([#1000](https://github.com/opensearch-project/opensearch-net/issues/1000))
 - Fixed `DeleteByQueryResponse.IsValid` and `UpdateByQueryResponse.IsValid` returning `true` on transport-level failures (no HTTP response) by restoring the `ApiCall.Success` check that the overrides had dropped ([#997](https://github.com/opensearch-project/opensearch-net/issues/997))
 ### Dependencies
+- Bumps `Microsoft.SourceLink.GitHub` from 8.0.0 to 10.0.111 to resolve CVE-2026-62900 in the transitive `Microsoft.Build.Tasks.Git` dependency ([#1021](https://github.com/opensearch-project/opensearch-net/issues/1021))
 
 ## [2.0.0]
 
