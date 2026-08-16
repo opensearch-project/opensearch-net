@@ -2106,6 +2106,10 @@ namespace OpenSearch.Client
             { "uppercase", 30 },
             { "urldecode", 31 },
             { "user_agent", 32 },
+            { "uri_parts", 33 },
+            { "fingerprint", 34 },
+            { "community_id", 35 },
+            { "network_direction", 36 },
         };
 
         public IProcessor Deserialize(
@@ -2288,6 +2292,26 @@ namespace OpenSearch.Client
                     case 32:
                         result = formatterResolver
                             .GetFormatter<UserAgentProcessor>()
+                            .Deserialize(ref reader, formatterResolver);
+                        break;
+                    case 33:
+                        result = formatterResolver
+                            .GetFormatter<UriPartsProcessor>()
+                            .Deserialize(ref reader, formatterResolver);
+                        break;
+                    case 34:
+                        result = formatterResolver
+                            .GetFormatter<FingerprintProcessor>()
+                            .Deserialize(ref reader, formatterResolver);
+                        break;
+                    case 35:
+                        result = formatterResolver
+                            .GetFormatter<NetworkCommunityIdProcessor>()
+                            .Deserialize(ref reader, formatterResolver);
+                        break;
+                    case 36:
+                        result = formatterResolver
+                            .GetFormatter<NetworkDirectionProcessor>()
                             .Deserialize(ref reader, formatterResolver);
                         break;
                 }
@@ -2481,6 +2505,34 @@ namespace OpenSearch.Client
                     formatterResolver
                         .GetFormatter<IUserAgentProcessor>()
                         .Serialize(ref writer, value as IUserAgentProcessor, formatterResolver);
+                    break;
+                case "uri_parts":
+                    formatterResolver
+                        .GetFormatter<IUriPartsProcessor>()
+                        .Serialize(ref writer, value as IUriPartsProcessor, formatterResolver);
+                    break;
+                case "fingerprint":
+                    formatterResolver
+                        .GetFormatter<IFingerprintProcessor>()
+                        .Serialize(ref writer, value as IFingerprintProcessor, formatterResolver);
+                    break;
+                case "community_id":
+                    formatterResolver
+                        .GetFormatter<INetworkCommunityIdProcessor>()
+                        .Serialize(
+                            ref writer,
+                            value as INetworkCommunityIdProcessor,
+                            formatterResolver
+                        );
+                    break;
+                case "network_direction":
+                    formatterResolver
+                        .GetFormatter<INetworkDirectionProcessor>()
+                        .Serialize(
+                            ref writer,
+                            value as INetworkDirectionProcessor,
+                            formatterResolver
+                        );
                     break;
                 default:
                     DynamicObjectResolver
@@ -2814,6 +2866,48 @@ namespace OpenSearch.Client
             Assign(
                 selector,
                 (a, sel) => a.AddIfNotNull(sel?.Invoke(new UserAgentProcessorDescriptor<T>()))
+            );
+
+        /// <inheritdoc cref="IUriPartsProcessor" />
+        public ProcessorsDescriptor UriParts<T>(
+            Func<UriPartsProcessorDescriptor<T>, IUriPartsProcessor> selector
+        )
+            where T : class =>
+            Assign(
+                selector,
+                (a, sel) => a.AddIfNotNull(sel?.Invoke(new UriPartsProcessorDescriptor<T>()))
+            );
+
+        /// <inheritdoc cref="IFingerprintProcessor" />
+        public ProcessorsDescriptor Fingerprint<T>(
+            Func<FingerprintProcessorDescriptor<T>, IFingerprintProcessor> selector
+        )
+            where T : class =>
+            Assign(
+                selector,
+                (a, sel) => a.AddIfNotNull(sel?.Invoke(new FingerprintProcessorDescriptor<T>()))
+            );
+
+        /// <inheritdoc cref="INetworkCommunityIdProcessor" />
+        public ProcessorsDescriptor NetworkCommunityId<T>(
+            Func<NetworkCommunityIdProcessorDescriptor<T>, INetworkCommunityIdProcessor> selector
+        )
+            where T : class =>
+            Assign(
+                selector,
+                (a, sel) =>
+                    a.AddIfNotNull(sel?.Invoke(new NetworkCommunityIdProcessorDescriptor<T>()))
+            );
+
+        /// <inheritdoc cref="INetworkDirectionProcessor" />
+        public ProcessorsDescriptor NetworkDirection<T>(
+            Func<NetworkDirectionProcessorDescriptor<T>, INetworkDirectionProcessor> selector
+        )
+            where T : class =>
+            Assign(
+                selector,
+                (a, sel) =>
+                    a.AddIfNotNull(sel?.Invoke(new NetworkDirectionProcessorDescriptor<T>()))
             );
     }
 }
