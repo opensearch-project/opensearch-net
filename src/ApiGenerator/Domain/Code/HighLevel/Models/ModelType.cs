@@ -7,7 +7,9 @@
 
 #nullable enable
 
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ApiGenerator.Domain.Code.HighLevel.Models;
 
@@ -84,11 +86,69 @@ public sealed record WrapperKeyVariant(
 {
     /// <summary>PascalCase method name for the fluent descriptor builder.</summary>
     public string FluentMethodName =>
-        NamingConventions.ToPascal(Key.Replace("-", "_"));
+        FluentMethodNameOverride ?? NamingConventions.ToPascal(Key.Replace("-", "_"));
+
+    // ── Policy-driven overrides (populated by NamespaceModel when policy exists) ──
+
+    /// <summary>Override for the fluent method name on the list descriptor.</summary>
+    public string? FluentMethodNameOverride { get; init; }
+
+    /// <summary>Override for the variant interface name (without "I" prefix).</summary>
+    public string? InterfaceNameOverride { get; init; }
+
+    /// <summary>Effective interface name: override or default.</summary>
+    public string InterfaceName => InterfaceNameOverride ?? CsharpName;
+
+    /// <summary>Base class for this variant's concrete class (e.g. "ProcessorBase").</summary>
+    public string? BaseClass { get; init; }
+
+    /// <summary>Descriptor base class pattern for this variant.</summary>
+    public string? DescriptorBasePattern { get; init; }
+
+    /// <summary>Whether this variant is generic with &lt;T&gt; where T : class.</summary>
+    public bool IsGenericDescriptor { get; init; }
+
+    /// <summary>Whether this variant is retained (hand-written, not generated).</summary>
+    public bool IsRetained { get; init; }
+
+    /// <summary>Additional interface this variant's interface inherits from.</summary>
+    public string? AdditionalInterface { get; init; }
+
+    /// <summary>Properties that are typed as Field and get Expression overloads.</summary>
+    public IReadOnlySet<string> FieldProperties { get; init; } =
+        new HashSet<string>(StringComparer.Ordinal);
+
+    /// <summary>Property aliases for backwards compatibility. Key: alias name, Value: canonical wire name.</summary>
+    public IDictionary<string, string> PropertyAliases { get; init; } =
+        new Dictionary<string, string>(StringComparer.Ordinal);
+
+    /// <summary>Wire names of properties that get params array overloads.</summary>
+    public ISet<string> ParamsOverloads { get; init; } =
+        new HashSet<string>(StringComparer.Ordinal);
+
+    /// <summary>Wire names of IList&lt;string&gt; properties that get scalar string overloads.</summary>
+    public ISet<string> ScalarStringOverloads { get; init; } =
+        new HashSet<string>(StringComparer.Ordinal);
+
+    /// <summary>Wire names of IProcessor properties that get Func&lt;ProcessorsDescriptor,...&gt; overloads.</summary>
+    public ISet<string> ProcessorLambdaOverloads { get; init; } =
+        new HashSet<string>(StringComparer.Ordinal);
+
+    /// <summary>Wire names of IDictionary properties that get Func&lt;FluentDictionary,...&gt; overloads.</summary>
+    public ISet<string> DictionaryLambdaOverloads { get; init; } =
+        new HashSet<string>(StringComparer.Ordinal);
+
+    /// <summary>C# property type overrides keyed by OpenAPI wire property name.</summary>
+    public IDictionary<string, string> PropertyTypeOverrides { get; init; } =
+        new Dictionary<string, string>(StringComparer.Ordinal);
+
+    /// <summary>Wire names of Fields properties that get FieldsDescriptor selector overloads.</summary>
+    public ISet<string> FieldsSelectorOverloads { get; init; } =
+        new HashSet<string>(StringComparer.Ordinal);
 }
 
 /// <summary>
-/// A wrapper-key discriminated union (e.g. <c>RequestProcessor</c>, <c>ResponseProcessor</c>).
+/// A wrapper-key discriminated union (e.g. <c>RequestProcessor</c>, <c>ProcessorContainer</c>).
 /// Each variant is <c>{"discriminator_key": { ...body... }}</c>.
 /// Rendered by <c>WrapperKeyUnion.cshtml</c> which emits:
 /// - A base interface with <c>string Name { get; }</c> and shared base properties (tag, description, ignore_failure).
@@ -102,6 +162,22 @@ public sealed record WrapperKeyUnionModel(
     IReadOnlyList<WrapperKeyVariant> Variants,
     IReadOnlyList<ModelProperty> BaseProperties) : ModelType(SchemaId, CsharpName)
 {
-    public string FormatterName => CsharpName + "Formatter";
-    public string DescriptorBuilderName => CsharpName + "sDescriptor";
+    public string FormatterName => RenderingPolicy?.FormatterName ?? CsharpName + "Formatter";
+    public string DescriptorBuilderName => RenderingPolicy?.ListDescriptorName ?? CsharpName + "sDescriptor";
+
+    /// <summary>Resolved rendering policy (null for simple/default rendering).</summary>
+    public Configuration.Overrides.UnionRenderingPolicy? RenderingPolicy { get; init; }
+
+    /// <summary>Effective base interface name.</summary>
+    public string EffectiveInterfaceName => RenderingPolicy?.BaseInterfaceName ?? "I" + CsharpName;
+
+    /// <summary>Whether the base interface generation is suppressed (hand-written).</summary>
+    public bool SuppressBaseInterface => RenderingPolicy?.SuppressBaseInterfaceGeneration ?? false;
+
+    /// <summary>All variants INCLUDING retained ones (for formatter/descriptor dispatch).</summary>
+    public IReadOnlyList<WrapperKeyVariant> AllVariants => Variants;
+
+    /// <summary>Only the variants that should be generated (not retained).</summary>
+    public IReadOnlyList<WrapperKeyVariant> GeneratedVariants =>
+        Variants.Where(v => !v.IsRetained).ToList();
 }

@@ -28,6 +28,12 @@ public sealed class OperationModel
     public ResponseModel Response { get; init; } = null!;
     public IReadOnlyList<EnumModel> ReferencedEnums { get; init; } = new List<EnumModel>();
 
+    /// <summary>
+    /// The underlying <see cref="OperationGroupModel"/> with aggregated parameters,
+    /// all 2xx responses, and diagnostics. Exposed for advanced consumers.
+    /// </summary>
+    public OperationGroupModel? GroupModel { get; init; }
+
     public static OperationModel Build(
         OpenApiDocument doc,
         string operationGroup,
@@ -36,38 +42,46 @@ public sealed class OperationModel
         IModelOverrides registry,
         ModelTypeResolver resolver)
     {
-        var operation = doc.Paths.Values
-            .SelectMany(pathItem => pathItem.Values)
-            .FirstOrDefault(op =>
-                op.ExtensionData != null
-                && op.ExtensionData.TryGetValue("x-operation-group", out var g)
-                && string.Equals(g?.ToString(), operationGroup, StringComparison.Ordinal))
-            ?? throw new InvalidOperationException($"Operation group '{operationGroup}' not found in spec.");
+        // Build the aggregated operation group model using the shared catalog
+        var groupModel = OperationGroupModel.Build(doc, operationGroup, resolver.Schemas);
 
-        var requestSchema = JsonContent(operation.ActualRequestBody?.Content)
+        var requestSchema = groupModel.RequestBodySchema
             ?? throw new InvalidOperationException($"Operation '{operationGroup}' has no JSON request body.");
 
         // URL path parameters are already emitted by the high-level request generator.
         // Skip any request-body property whose wire name matches a path parameter to avoid
         // generating a duplicate member on the merged partial interface (e.g. model_id declared
         // both as Id from the URL and as string from the request body).
-        var pathParamNames = CollectPathParameterNames(operation);
+        var pathParamNames = new HashSet<string>(
+            groupModel.PathParameters.Select(p => p.Name),
+            StringComparer.Ordinal);
         var requestProps = BuildProperties(requestSchema, resolver, skipWireNames: pathParamNames);
-        var versionAdded = VersionAddedFromOperation(operation);
+        var versionAdded = groupModel.VersionAdded;
         var request = new RequestModel(operationGroup + "___RequestBody", requestCsharpName, requestProps, versionAdded);
 
-        var responseSchema = ResolveSuccessResponseSchema(operation)
-            ?? throw new InvalidOperationException($"Operation '{operationGroup}' has no JSON 200 response.");
+        var responseSchema = groupModel.PrimarySuccessResponse?.Schema;
 
         // oneOf response: flatten all variants' properties into a single response class.
-        var responseProps = responseSchema.OneOf?.Count > 0
-            ? FlattenOneOfProperties(responseSchema, resolver)
-            : BuildProperties(responseSchema, resolver, skipWireNames: null, isResponse: true);
+        // A bodyless success response (for example, 204) produces an empty response model.
+        var responseProps = responseSchema == null
+            ? new List<ModelProperty>()
+            : responseSchema.OneOf?.Count > 0
+                ? FlattenOneOfProperties(responseSchema, resolver)
+                : BuildProperties(responseSchema, resolver, skipWireNames: null, isResponse: true);
         var response = new ResponseModel(operationGroup + "___Response", responseCsharpName, responseProps, "ResponseBase", versionAdded);
 
-        var enums = CollectReferencedEnums(new[] { requestSchema, responseSchema }, registry, doc);
+        var enumRoots = responseSchema == null
+            ? new[] { requestSchema }
+            : new[] { requestSchema, responseSchema };
+        var enums = CollectReferencedEnums(enumRoots, registry, resolver);
 
-        return new OperationModel { Request = request, Response = response, ReferencedEnums = enums };
+        return new OperationModel
+        {
+            Request = request,
+            Response = response,
+            ReferencedEnums = enums,
+            GroupModel = groupModel
+        };
     }
 
     // Properties defined on the hand-written WriteResponseBase; subclasses must not redeclare them.
@@ -98,6 +112,7 @@ public sealed class OperationModel
     /// <summary>
     /// Builds only the response for a no-body operation.
     /// Automatically detects <c>WriteResponseBase</c> from the spec schema ref.
+    /// Now uses <see cref="OperationGroupModel"/> to collect all 2xx responses.
     /// </summary>
     public static ResponseModel BuildResponseOnly(
         OpenApiDocument doc,
@@ -105,15 +120,9 @@ public sealed class OperationModel
         string responseCsharpName,
         ModelTypeResolver resolver)
     {
-        var operation = doc.Paths.Values
-            .SelectMany(pathItem => pathItem.Values)
-            .FirstOrDefault(op =>
-                op.ExtensionData != null
-                && op.ExtensionData.TryGetValue("x-operation-group", out var g)
-                && string.Equals(g?.ToString(), operationGroup, StringComparison.Ordinal))
-            ?? throw new InvalidOperationException($"Operation group '{operationGroup}' not found in spec.");
+        var groupModel = OperationGroupModel.Build(doc, operationGroup, resolver.Schemas);
 
-        var (responseSchema, isWriteResponseBase) = ResolveSuccessResponse(operation);
+        var (responseSchema, isWriteResponseBase) = ResolveSuccessResponseFromGroup(groupModel);
         var baseClass = isWriteResponseBase ? "WriteResponseBase" : "ResponseBase";
 
         IReadOnlyList<ModelProperty> responseProps;
@@ -132,47 +141,23 @@ public sealed class OperationModel
         }
 
         return new ResponseModel(operationGroup + "___Response", responseCsharpName,
-            responseProps, baseClass, VersionAddedFromOperation(operation));
+            responseProps, baseClass, groupModel.VersionAdded);
     }
 
     /// <summary>
-    /// Returns the wire names of all path parameters for the given operation.
-    /// These are already generated by the high-level request generator and must not
-    /// be re-declared in the request-body partial to avoid duplicate-member errors.
+    /// Resolves the primary success response from an OperationGroupModel.
+    /// Detects WriteResponseBase from the $ref path.
     /// </summary>
-    private static HashSet<string> CollectPathParameterNames(OpenApiOperation operation)
+    private static (JsonSchema? Schema, bool IsWriteResponseBase) ResolveSuccessResponseFromGroup(
+        OperationGroupModel groupModel)
     {
-        var names = new HashSet<string>(StringComparer.Ordinal);
-        if (operation.Parameters == null) return names;
-        foreach (var p in operation.ActualParameters)
-        {
-            if (p.Kind == OpenApiParameterKind.Path)
-                names.Add(p.Name);
-        }
-        return names;
+        var response = groupModel.PrimarySuccessResponse;
+        if (response?.Schema == null) return (null, false);
+
+        var isWriteBase = response.ReferencePath?
+            .EndsWith("/_common___WriteResponseBase", StringComparison.Ordinal) == true;
+        return (response.Schema, isWriteBase);
     }
-
-    private static JsonSchema? JsonContent(IDictionary<string, OpenApiMediaType>? content) =>
-        content != null && content.TryGetValue("application/json", out var mt)
-            ? mt.Schema?.ActualSchema
-            : null;
-
-    private static (JsonSchema? Schema, bool IsWriteResponseBase) ResolveSuccessResponse(OpenApiOperation operation)
-    {
-        var responses = operation.ActualResponses;
-        if (responses == null) return (null, false);
-        if (!responses.TryGetValue("200", out var resp)) return (null, false);
-
-        if (resp.Content == null || !resp.Content.TryGetValue("application/json", out var mt) || mt.Schema == null)
-            return (null, false);
-
-        var refPath = (mt.Schema as NJsonSchema.References.IJsonReference)?.ReferencePath;
-        var isWriteBase = refPath?.EndsWith("/_common___WriteResponseBase", StringComparison.Ordinal) == true;
-        return (mt.Schema.ActualSchema, isWriteBase);
-    }
-
-    private static JsonSchema? ResolveSuccessResponseSchema(OpenApiOperation operation) =>
-        ResolveSuccessResponse(operation).Schema;
 
     private static IReadOnlyList<ModelProperty> BuildProperties(
         JsonSchema schema, ModelTypeResolver resolver,
@@ -217,9 +202,8 @@ public sealed class OperationModel
     }
 
     private static IReadOnlyList<EnumModel> CollectReferencedEnums(
-        IEnumerable<JsonSchema> roots, IModelOverrides registry, OpenApiDocument doc)
+        IEnumerable<JsonSchema> roots, IModelOverrides registry, ModelTypeResolver resolver)
     {
-        var enumIds = ModelTypeResolver.BuildEnumSchemaIds(doc);
         var seen = new HashSet<string>(StringComparer.Ordinal);
         var result = new List<EnumModel>();
 
@@ -228,9 +212,7 @@ public sealed class OperationModel
         {
             var s = prop.Value.ActualSchema;
             if (!s.IsEnum()) continue;
-            var id = prop.Value.Reference?.Id ?? s.Reference?.Id;
-            if (id == null) enumIds.TryGetValue(s, out id);
-            if (id == null) continue;
+            if (!resolver.TryGetSchemaId(prop.Value, out var id)) continue;
             if (registry.MappedCsharpType(id) != null) continue;
             if (!seen.Add(id)) continue;
 
@@ -238,7 +220,7 @@ public sealed class OperationModel
                 .Select(v => new EnumMember(v.Value, ToPascal(v.Alias ?? v.Value)))
                 .ToList();
             if (members.Count == 0) continue;
-            result.Add(new EnumModel(id, ModelTypeResolver.RefToTypeName(id), members));
+            result.Add(new EnumModel(id, resolver.CsharpTypeName(id), members));
         }
 
         return result.OrderBy(t => t.CsharpName, StringComparer.Ordinal).ToList();
@@ -278,15 +260,4 @@ public sealed class OperationModel
     }
 
     private static string ToPascal(string name) => NamingConventions.ToPascal(name);
-
-    /// <summary>
-    /// Extracts the <c>x-version-added</c> string from an OpenAPI operation's extension data,
-    /// or returns <c>null</c> if the field is absent.
-    /// </summary>
-    private static string? VersionAddedFromOperation(OpenApiOperation operation) =>
-        operation.ExtensionData != null
-        && operation.ExtensionData.TryGetValue("x-version-added", out var v)
-        && v is string s
-            ? s
-            : null;
 }

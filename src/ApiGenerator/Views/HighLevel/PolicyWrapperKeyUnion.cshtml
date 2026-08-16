@@ -1,0 +1,457 @@
+@using System
+@using System.Linq
+@using ApiGenerator.Domain.Code.HighLevel.Models
+@inherits ApiGenerator.CodeTemplatePage<WrapperKeyUnionModel>
+@{ await IncludeGeneratorNotice(); }
+@{
+    var m = Model;
+    var hasPolicy      = m.RenderingPolicy != null;
+    var ifaceName      = m.EffectiveInterfaceName;
+    var formatterName  = m.FormatterName;
+    var builderName    = m.DescriptorBuilderName;
+    var csharpKeywords = new System.Collections.Generic.HashSet<string>
+    {
+        "abstract","as","base","bool","break","byte","case","catch","char","checked",
+        "class","const","continue","decimal","default","delegate","do","double","else",
+        "enum","event","explicit","extern","false","finally","fixed","float","for",
+        "foreach","goto","if","implicit","in","int","interface","internal","is","lock",
+        "long","namespace","new","null","object","operator","out","override","params",
+        "private","protected","public","readonly","ref","return","sbyte","sealed","short",
+        "sizeof","stackalloc","static","string","struct","switch","this","throw","true",
+        "try","typeof","uint","ulong","unchecked","unsafe","ushort","using","virtual",
+        "void","volatile","while"
+    };
+    Func<string, string> SafeParam = n => csharpKeywords.Contains(n) ? "@" + n : n;
+    Func<string, string> DescParam = ct =>
+    {
+        if (ct.EndsWith("?")) return ct;
+        var bare = ct.TrimEnd('?');
+        var valueTypes = new[] { "bool", "int", "long", "float", "double", "short", "byte", "decimal" };
+        return valueTypes.Contains(bare) ? bare + "?" : ct;
+    };
+    // Precompute strings that contain generic <> to avoid Razor parsing them as HTML tags.
+    var jsonFormatterAttr = "[JsonFormatter(typeof(" + formatterName + "))]";
+    var listType          = "IList<" + ifaceName + ">";
+    var descriptorBase    = "DescriptorPromiseBase<" + builderName + ", " + listType + ">";
+
+    // ────────────────────────────────────────────────────────────────────────
+    // Formatter (pre-built as raw string to avoid Razor generic issues)
+    // ────────────────────────────────────────────────────────────────────────
+    var sb = new System.Text.StringBuilder();
+    sb.AppendLine("    internal class " + formatterName + " : IJsonFormatter<" + ifaceName + ">");
+    sb.AppendLine("    {");
+    sb.AppendLine("        private static readonly AutomataDictionary Keys = new AutomataDictionary");
+    sb.AppendLine("        {");
+    for (int ki = 0; ki < m.AllVariants.Count; ki++)
+        sb.AppendLine("            { \"" + m.AllVariants[ki].Key + "\", " + ki + " },");
+    sb.AppendLine("        };");
+    sb.AppendLine("");
+    sb.AppendLine("        public " + ifaceName + " Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)");
+    sb.AppendLine("        {");
+    sb.AppendLine("            if (reader.GetCurrentJsonToken() != JsonToken.BeginObject)");
+    sb.AppendLine("            {");
+    sb.AppendLine("                reader.ReadNextBlock();");
+    sb.AppendLine("                return null;");
+    sb.AppendLine("            }");
+    sb.AppendLine("            reader.ReadNext();");
+    sb.AppendLine("            " + ifaceName + " result = null;");
+    sb.AppendLine("            var key = reader.ReadPropertyNameSegmentRaw();");
+    sb.AppendLine("            if (Keys.TryGetValue(key, out var keyIdx))");
+    sb.AppendLine("            {");
+    sb.AppendLine("                switch (keyIdx)");
+    sb.AppendLine("                {");
+    for (int ki = 0; ki < m.AllVariants.Count; ki++)
+    {
+        var vn = m.AllVariants[ki].CsharpName;
+        sb.AppendLine("                    case " + ki + ":");
+        sb.AppendLine("                        result = formatterResolver.GetFormatter<" + vn + ">().Deserialize(ref reader, formatterResolver);");
+        sb.AppendLine("                        break;");
+    }
+    sb.AppendLine("                }");
+    sb.AppendLine("            }");
+    sb.AppendLine("            else");
+    sb.AppendLine("                reader.ReadNextBlock();");
+    sb.AppendLine("            reader.ReadIsEndObjectWithVerify();");
+    sb.AppendLine("            return result;");
+    sb.AppendLine("        }");
+    sb.AppendLine("");
+    sb.AppendLine("        public void Serialize(ref JsonWriter writer, " + ifaceName + " value, IJsonFormatterResolver formatterResolver)");
+    sb.AppendLine("        {");
+    sb.AppendLine("            if (value?.Name == null) { writer.WriteNull(); return; }");
+    sb.AppendLine("            writer.WriteBeginObject();");
+    sb.AppendLine("            writer.WritePropertyName(value.Name);");
+    sb.AppendLine("            switch (value.Name)");
+    sb.AppendLine("            {");
+    foreach (var v in m.AllVariants)
+    {
+        var vi = "I" + v.InterfaceName;
+        sb.AppendLine("                case \"" + v.Key + "\":");
+        sb.AppendLine("                    formatterResolver.GetFormatter<" + vi + ">()");
+        sb.AppendLine("                        .Serialize(ref writer, value as " + vi + ", formatterResolver);");
+        sb.AppendLine("                    break;");
+    }
+    sb.AppendLine("                default:");
+    sb.AppendLine("                    DynamicObjectResolver.ExcludeNullCamelCase.GetFormatter<" + ifaceName + ">()");
+    sb.AppendLine("                        .Serialize(ref writer, value, formatterResolver);");
+    sb.AppendLine("                    break;");
+    sb.AppendLine("            }");
+    sb.AppendLine("            writer.WriteEndObject();");
+    sb.AppendLine("        }");
+    sb.Append("    }");
+    var formatterCode = sb.ToString();
+
+    // ────────────────────────────────────────────────────────────────────────
+    // Fluent list builder descriptor (pre-built as raw string)
+    // ────────────────────────────────────────────────────────────────────────
+    var sb2 = new System.Text.StringBuilder();
+    sb2.AppendLine("    public class " + builderName);
+    sb2.AppendLine("        : " + descriptorBase);
+    sb2.AppendLine("    {");
+    sb2.AppendLine("        public " + builderName + "() : base(new List<" + ifaceName + ">()) { }");
+    foreach (var v in m.AllVariants)
+    {
+        var bvIface = "I" + v.InterfaceName;
+        var isGeneric = v.IsGenericDescriptor;
+        var bvDesc = v.CsharpName.Replace("Processor", "ProcessorDescriptor");
+        if (bvDesc == v.CsharpName) bvDesc = v.CsharpName + "Descriptor";
+
+        sb2.AppendLine("");
+        sb2.AppendLine("        /// <inheritdoc cref=\"" + bvIface + "\" />");
+
+        if (isGeneric)
+        {
+            var bFunc = "Func<" + bvDesc + "<T>, " + bvIface + ">";
+            sb2.AppendLine("        public " + builderName + " " + v.FluentMethodName + "<T>(" + bFunc + " selector) where T : class =>");
+            sb2.AppendLine("            Assign(selector, (a, sel) => a.AddIfNotNull(sel?.Invoke(new " + bvDesc + "<T>())));");
+        }
+        else
+        {
+            var bFunc = "Func<" + bvDesc + ", " + bvIface + ">";
+            sb2.AppendLine("        public " + builderName + " " + v.FluentMethodName + "(" + bFunc + " selector) =>");
+            sb2.AppendLine("            Assign(selector, (a, sel) => a.AddIfNotNull(sel?.Invoke(new " + bvDesc + "())));");
+        }
+    }
+    sb2.Append("    }");
+    var builderCode = sb2.ToString();
+}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Runtime.Serialization;
+using OpenSearch.Net;
+using OpenSearch.Net.Utf8Json;
+using OpenSearch.Net.Utf8Json.Internal;
+using OpenSearch.Net.Utf8Json.Resolvers;
+
+#pragma warning disable 3005 // CLS-compliant identifier differing only in case (alias properties)
+
+namespace OpenSearch.Client
+{
+@if (!m.SuppressBaseInterface)
+{
+    // ──────────────────────────────────────────────────────────────────────
+    // Base interface
+    // ──────────────────────────────────────────────────────────────────────
+<text>
+    /// <summary>Base interface for all <c>@m.CsharpName</c> variants.</summary>
+    @Raw(jsonFormatterAttr)
+    public interface @ifaceName
+    {
+        /// <summary>The discriminator key used for serialization.</summary>
+        string Name { get; }
+</text>
+foreach (var bp in m.BaseProperties)
+{
+<text>
+        [DataMember(Name = "@bp.WireName")]
+        @Raw(bp.CsharpType) @bp.CsharpName { get; set; }
+</text>
+}
+<text>    }
+</text>
+}
+
+    // ──────────────────────────────────────────────────────────────────────
+    // Variant types
+    // ──────────────────────────────────────────────────────────────────────
+
+@foreach (var variant in m.GeneratedVariants)
+{
+    var vKey        = variant.Key;
+    var vName       = variant.CsharpName;
+    var vIfaceName  = variant.InterfaceName;
+    var vIface      = "I" + vIfaceName;
+    var vClass      = vName;
+    var isGeneric   = variant.IsGenericDescriptor;
+    var vDesc       = vName.Replace("Processor", "ProcessorDescriptor");
+    if (vDesc == vName) vDesc = vName + "Descriptor";
+    var vDescFull   = isGeneric ? vDesc + "<T>" : vDesc;
+    Func<ModelProperty, string> PropertyType = p =>
+        variant.PropertyTypeOverrides.TryGetValue(p.WireName, out var overriddenType)
+            ? overriddenType
+            : variant.FieldProperties.Contains(p.WireName) ? "Field" : p.CsharpType;
+    Func<ModelProperty, bool> IsFieldProperty = p =>
+        !variant.PropertyTypeOverrides.ContainsKey(p.WireName)
+        && variant.FieldProperties.Contains(p.WireName);
+
+    // Determine base class for concrete type
+    var baseClass   = variant.BaseClass ?? "";
+    var classDecl   = string.IsNullOrEmpty(baseClass)
+        ? vClass + " : " + vIface
+        : vClass + " : " + baseClass + ", " + vIface;
+
+    // Determine descriptor base
+    var descBaseStr = variant.DescriptorBasePattern ?? "DescriptorBase<{0}, {1}>";
+    descBaseStr = descBaseStr
+        .Replace("{0}", vDescFull)
+        .Replace("{1}", vIface)
+        .Replace("{T}", "T");
+
+    // Determine additional interface inheritance for variant interface
+    var variantIfaceInherits = variant.AdditionalInterface != null
+        ? vIface + " : " + variant.AdditionalInterface
+        : (ifaceName != null ? vIface + " : " + ifaceName : vIface);
+
+    if (variant.VersionAdded != null)
+    {
+<text>    /// <remarks>Supported by OpenSearch servers of version @(variant.VersionAdded) or greater.</remarks>
+</text>
+    }
+<text>    [InterfaceDataContract]
+    public interface @Raw(variantIfaceInherits)
+    {
+</text>
+    foreach (var p in variant.BodyProperties)
+    {
+        var propType = PropertyType(p);
+        var needsNew = !string.IsNullOrEmpty(baseClass) && p.CsharpName == "Name";
+<text>        [DataMember(Name = "@p.WireName")]
+        @Raw(needsNew ? "new " : "")@Raw(propType) @p.CsharpName { get; set; }
+</text>
+    }
+<text>    }
+
+    /// <inheritdoc cref="@vIface" />
+    public class @Raw(classDecl)
+    {
+</text>
+    if (!string.IsNullOrEmpty(baseClass))
+    {
+<text>        protected override string Name => "@vKey";
+</text>
+    }
+    else
+    {
+<text>        string @Raw(ifaceName + ".Name") => "@vKey";
+</text>
+    }
+    foreach (var p in variant.BodyProperties)
+    {
+        var propType = PropertyType(p);
+        // When base class has abstract Name property, use explicit interface impl to avoid collision
+        var needsExplicitImpl = !string.IsNullOrEmpty(baseClass) && p.CsharpName == "Name";
+        if (needsExplicitImpl)
+        {
+<text>        @Raw(propType) @Raw(vIface + "." + p.CsharpName) { get; set; }
+</text>
+        }
+        else
+        {
+<text>        public @Raw(propType) @p.CsharpName { get; set; }
+</text>
+        }
+    }
+    // Alias properties on concrete class for backwards-compatible initializer syntax
+    foreach (var alias in variant.PropertyAliases)
+    {
+        var canonProp = variant.BodyProperties.FirstOrDefault(bp => bp.WireName == alias.Value);
+        if (canonProp != null)
+        {
+            var isField = IsFieldProperty(canonProp);
+            var aliasPropType = PropertyType(canonProp);
+            // When canonical property uses explicit interface impl (e.g. Name collides with base),
+            // access via cast to the interface
+            var needsExplicitAccess = !string.IsNullOrEmpty(baseClass) && canonProp.CsharpName == "Name";
+            var accessor = needsExplicitAccess ? "((" + vIface + ")this)." + canonProp.CsharpName : canonProp.CsharpName;
+<text>
+        /// <inheritdoc cref="@(vIface).@(canonProp.CsharpName)"/>
+        public @Raw(aliasPropType) @(alias.Key) { get => @Raw(accessor); set => @Raw(accessor) = value; }
+</text>
+        }
+    }
+<text>    }
+
+    /// <inheritdoc cref="@vIface" />
+</text>
+    if (isGeneric)
+    {
+<text>    public class @Raw(vDesc + "<T>") : @Raw(descBaseStr), @vIface
+        where T : class
+    {
+</text>
+    }
+    else
+    {
+<text>    public class @vDesc : @Raw(descBaseStr), @vIface
+    {
+</text>
+    }
+    if (!string.IsNullOrEmpty(baseClass))
+    {
+<text>        protected override string Name => "@vKey";
+</text>
+    }
+    else
+    {
+<text>        string @Raw(ifaceName + ".Name") => null;
+</text>
+    }
+    // Explicit interface property implementations
+    foreach (var p in variant.BodyProperties)
+    {
+        var propType = PropertyType(p);
+        var ifProp = vIface + "." + p.CsharpName;
+<text>        @Raw(propType) @Raw(ifProp) { get; set; }
+</text>
+    }
+    // Fluent setter methods
+    var retType = isGeneric ? vDesc + "<T>" : vDesc;
+    foreach (var p in variant.BodyProperties)
+    {
+        var isField = IsFieldProperty(p);
+        var propType = PropertyType(p);
+        var rawParam = Char.ToLowerInvariant(p.CsharpName[0]) + p.CsharpName.Substring(1);
+        var param = SafeParam(rawParam);
+        var pType = isField ? "Field" : DescParam(propType);
+        var pDefault = propType == "bool?" ? " = true" : "";
+        // Skip fluent method when name collides with base class abstract member
+        var skipFluent = !string.IsNullOrEmpty(baseClass) && p.CsharpName == "Name";
+        if (!skipFluent)
+        {
+<text>
+        /// <inheritdoc cref="@(vIface).@(p.CsharpName)"/>
+        public @Raw(retType) @(p.CsharpName)(@Raw(pType) @(param)@Raw(pDefault)) =>
+            Assign(@(param), (a, val) => a.@p.CsharpName = val);
+</text>
+        // Add Expression<Func<T, TValue>> overload for Field properties
+        if (isField && isGeneric)
+        {
+            var exprType = "Expression<Func<T, TValue>>";
+<text>
+        /// <inheritdoc cref="@(vIface).@(p.CsharpName)"/>
+        public @Raw(retType) @(p.CsharpName)<TValue>(@Raw(exprType) objectPath) =>
+            Assign(objectPath, (a, val) => a.@p.CsharpName = val);
+</text>
+        }
+        // ── Fields selector overload ──
+        if (variant.FieldsSelectorOverloads.Contains(p.WireName) && propType == "Fields" && isGeneric)
+        {
+            var fieldsFuncType = "Func<FieldsDescriptor<T>, IPromise<Fields>>";
+            var fieldsLine = "        public " + retType + " " + p.CsharpName + "(" + fieldsFuncType + " selector) =>";
+            var fieldsAssign = "            Assign(selector, (a, val) => a." + p.CsharpName + " = val?.Invoke(new FieldsDescriptor<T>())?.Value);";
+<text>
+        /// <inheritdoc cref="@(vIface).@(p.CsharpName)"/>
+@Raw(fieldsLine)
+@Raw(fieldsAssign)
+</text>
+        }
+        // ── Params overload for IList<object> properties ──
+        if (variant.ParamsOverloads.Contains(p.WireName) && propType.StartsWith("IList<"))
+        {
+            var innerType = propType.Substring(6, propType.Length - 7); // "IList<X>" -> "X"
+            var paramsLine = "        public " + retType + " " + p.CsharpName + "(params " + innerType + "[] " + param + ") =>";
+            var assignLine = "            Assign(new List<" + innerType + ">(" + param + "), (a, val) => a." + p.CsharpName + " = val);";
+<text>
+        /// <inheritdoc cref="@(vIface).@(p.CsharpName)"/>
+@Raw(paramsLine)
+@Raw(assignLine)
+</text>
+        }
+        // ── Scalar string overload for IList<string> properties ──
+        if (variant.ScalarStringOverloads.Contains(p.WireName) && propType == "IList<string>")
+        {
+            var scalarLine = "        public " + retType + " " + p.CsharpName + "(params string[] " + param + ") =>";
+            var scalarAssign = "            Assign(new List<string>(" + param + "), (a, val) => a." + p.CsharpName + " = val);";
+<text>
+        /// <inheritdoc cref="@(vIface).@(p.CsharpName)"/>
+@Raw(scalarLine)
+@Raw(scalarAssign)
+</text>
+        }
+        // ── Processor lambda overload for IProcessor properties ──
+        if (variant.ProcessorLambdaOverloads.Contains(p.WireName) && propType == "IProcessor")
+        {
+            var lambdaFuncType = "Func<ProcessorsDescriptor, IPromise<IList<IProcessor>>>";
+            var lambdaLine = "        public " + retType + " " + p.CsharpName + "(" + lambdaFuncType + " selector) =>";
+            var lambdaAssign = "            Assign(selector?.Invoke(new ProcessorsDescriptor())?.Value?.FirstOrDefault(), (a, val) => a." + p.CsharpName + " = val);";
+<text>
+        /// <inheritdoc cref="@(vIface).@(p.CsharpName)"/>
+@Raw(lambdaLine)
+@Raw(lambdaAssign)
+</text>
+        }
+        // ── Dictionary lambda overload for IDictionary<string, string> properties ──
+        if (variant.DictionaryLambdaOverloads.Contains(p.WireName) && propType.Contains("IDictionary"))
+        {
+            var dictFuncType = "Func<FluentDictionary<string, string>, FluentDictionary<string, string>>";
+            var dictLine = "        public " + retType + " " + p.CsharpName + "(" + dictFuncType + " selector) =>";
+            var dictAssign = "            Assign(selector?.Invoke(new FluentDictionary<string, string>()), (a, val) => a." + p.CsharpName + " = val);";
+<text>
+        /// <inheritdoc cref="@(vIface).@(p.CsharpName)"/>
+@Raw(dictLine)
+@Raw(dictAssign)
+</text>
+        }
+        }
+    }
+    // ── Property aliases (backwards-compatible method+property names) ──
+    foreach (var alias in variant.PropertyAliases)
+    {
+        // Find the canonical property by wire name
+        var canonProp = variant.BodyProperties.FirstOrDefault(bp => bp.WireName == alias.Value);
+        if (canonProp != null)
+        {
+            var isField = IsFieldProperty(canonProp);
+            var aliasPropType = PropertyType(canonProp);
+            var aliasParam = Char.ToLowerInvariant(alias.Key[0]) + alias.Key.Substring(1);
+            var aliasPType = isField ? "Field" : DescParam(aliasPropType);
+            var aliasPDefault = aliasPropType == "bool?" ? " = true" : "";
+            // For explicit interface members (Name collision), use cast
+            var needsExplicit = !string.IsNullOrEmpty(baseClass) && canonProp.CsharpName == "Name";
+            var assignTarget = needsExplicit
+                ? "((" + vIface + ")a)." + canonProp.CsharpName
+                : "a." + canonProp.CsharpName;
+            var aliasAssignLine = "        public " + retType + " " + alias.Key + "(" + aliasPType + " " + SafeParam(aliasParam) + aliasPDefault + ") =>";
+            var aliasBodyLine = "            Assign(" + SafeParam(aliasParam) + ", (a, val) => " + assignTarget + " = val);";
+<text>
+        /// <inheritdoc cref="@(vIface).@(canonProp.CsharpName)"/>
+@Raw(aliasAssignLine)
+@Raw(aliasBodyLine)
+</text>
+            if (isField && isGeneric)
+            {
+                var exprType = "Expression<Func<T, TValue>>";
+                var aliasExprLine = "        public " + retType + " " + alias.Key + "<TValue>(" + exprType + " objectPath) =>";
+                var aliasExprBody = "            Assign(objectPath, (a, val) => " + assignTarget + " = val);";
+<text>
+        /// <inheritdoc cref="@(vIface).@(canonProp.CsharpName)"/>
+@Raw(aliasExprLine)
+@Raw(aliasExprBody)
+</text>
+            }
+        }
+    }
+<text>    }
+
+</text>
+}
+
+    // ──────────────────────────────────────────────────────────────────────
+    // Formatter + fluent builder (pre-built to avoid Razor/generic-<> issues)
+    // ──────────────────────────────────────────────────────────────────────
+
+    @Raw(formatterCode)
+
+    @Raw(builderCode)
+}

@@ -45,7 +45,6 @@ public sealed class SearchPipelineModelOverrides : ModelOverridesBase
     /// </summary>
     public override bool GenerateBodyOps => true;
     public override bool GenerateNonBodyOps => true;
-    public override bool UseObjectSchemaIds => true;
     public override bool SuppressLowLevelApiImport => true;
 
     public override IDictionary<string, string> OpNameOverrides { get; } =
