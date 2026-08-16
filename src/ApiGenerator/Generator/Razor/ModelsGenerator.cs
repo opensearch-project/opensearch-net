@@ -29,28 +29,31 @@ public sealed class ModelsGenerator : RazorGeneratorBase
     {
         new MlModelOverrides(),
         new SearchPipelineModelOverrides(),
+        new IngestModelOverrides(),
     };
 
     public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
     {
         if (spec.Document is null) return;
 
+        // One catalog and normalization per document, shared across ALL plugins.
+        var catalog = new SchemaCatalog(spec.Document);
+        var normalization = new SchemaNormalizer(catalog).Normalize(spec.Document);
+
         foreach (var plugin in EnabledPlugins)
-            await GeneratePlugin(spec.Document, spec.ExplicitlyOpenSchemaIds, plugin, progressBar, token);
+            await GeneratePlugin(spec.Document, spec.ExplicitlyOpenSchemaIds, plugin, catalog, normalization, progressBar, token);
     }
 
-    private async Task GeneratePlugin(OpenApiDocument doc, HashSet<string> openSchemaIds, IModelOverrides plugin, ProgressBar progressBar, CancellationToken token)
+    private async Task GeneratePlugin(OpenApiDocument doc, HashSet<string> openSchemaIds, IModelOverrides plugin, SchemaCatalog catalog, NormalizationResult normalization, ProgressBar progressBar, CancellationToken token)
     {
-        var resolver = BuildResolver(doc, plugin);
-        var ns = NamespaceModel.Build(doc, plugin.Namespace, plugin, resolver, openSchemaIds);
+        var resolver = new ModelTypeResolver(plugin, catalog);
+        var ns = NamespaceModel.Build(doc, plugin.Namespace, plugin, resolver, normalization, openSchemaIds);
 
         // Emit shared models/enums
         foreach (var t in ns.TypesToEmit)
         {
             token.ThrowIfCancellationRequested();
-            var template = t is WrapperKeyUnionModel
-                ? ViewLocations.HighLevel("WrapperKeyUnion.cshtml")
-                : ViewLocations.HighLevel("Model.cshtml");
+            var template = TemplateFor(t);
             await DoRazor(t, template,
                 GeneratorLocations.HighLevel(plugin.OutputFolder, t.CsharpName + ".g.cs"), token);
             progressBar.Tick($"Generated {plugin.Namespace} model: {t.CsharpName}");
@@ -119,17 +122,27 @@ public sealed class ModelsGenerator : RazorGeneratorBase
     // Model building (public for test access)
     // ──────────────────────────────────────────────────────────────────────────
 
-    public static ModelTypeResolver BuildResolver(OpenApiDocument doc, IModelOverrides plugin) =>
-        new(plugin,
-            ModelTypeResolver.BuildEnumSchemaIds(doc),
-            plugin.UseObjectSchemaIds ? ModelTypeResolver.BuildObjectSchemaIds(doc) : null);
+    /// <summary>
+    /// Builds a resolver using a shared catalog. Production code passes the document-scoped catalog.
+    /// </summary>
+    public static ModelTypeResolver BuildResolver(IModelOverrides plugin, SchemaCatalog catalog) =>
+        new(plugin, catalog);
+
+    /// <summary>
+    /// Convenience overload for tests that need an isolated resolver with its own catalog.
+    /// NOT used in production — production uses the document-scoped catalog.
+    /// </summary>
+    public static ModelTypeResolver BuildResolverForTest(OpenApiDocument doc, IModelOverrides plugin) =>
+        new(plugin, new SchemaCatalog(doc));
 
     public static (NamespaceModel Namespace, IReadOnlyList<OperationModel> Ops) BuildMlModels(
         OpenApiDocument doc)
     {
+        var catalog = new SchemaCatalog(doc);
         var plugin = new MlModelOverrides();
-        var resolver = BuildResolver(doc, plugin);
-        var ns = NamespaceModel.Build(doc, plugin.Namespace, plugin, resolver);
+        var resolver = new ModelTypeResolver(plugin, catalog);
+        var normalization = new SchemaNormalizer(catalog).Normalize(doc);
+        var ns = NamespaceModel.Build(doc, plugin.Namespace, plugin, resolver, normalization: normalization);
 
         var ops = new List<OperationModel>();
         foreach (var grp in BodyOpGroups(doc, plugin))
@@ -143,8 +156,9 @@ public sealed class ModelsGenerator : RazorGeneratorBase
     public static (IReadOnlyList<ResponseModel> Responses, IReadOnlyList<EnumModel> Enums)
         BuildMlNonBodyOpResponses(OpenApiDocument doc, HashSet<string> alreadyEmittedEnums)
     {
+        var catalog = new SchemaCatalog(doc);
         var plugin = new MlModelOverrides();
-        var resolver = BuildResolver(doc, plugin);
+        var resolver = new ModelTypeResolver(plugin, catalog);
 
         var responses = new List<ResponseModel>();
         var enums = new List<EnumModel>();
@@ -161,12 +175,29 @@ public sealed class ModelsGenerator : RazorGeneratorBase
                 enums.OrderBy(e => e.CsharpName, StringComparer.Ordinal).ToList());
     }
 
+    public static NamespaceModel BuildIngestModels(OpenApiDocument doc)
+    {
+        var catalog = new SchemaCatalog(doc);
+        var plugin = new IngestModelOverrides();
+        var resolver = new ModelTypeResolver(plugin, catalog);
+        var normalization = new SchemaNormalizer(catalog).Normalize(doc);
+        return NamespaceModel.Build(doc, plugin.Namespace, plugin, resolver, normalization: normalization);
+    }
+    private static string TemplateFor(ModelType type) => type switch
+    {
+        WrapperKeyUnionModel { RenderingPolicy: not null } =>
+            ViewLocations.HighLevel("PolicyWrapperKeyUnion.cshtml"),
+        WrapperKeyUnionModel => ViewLocations.HighLevel("WrapperKeyUnion.cshtml"),
+        _ => ViewLocations.HighLevel("Model.cshtml"),
+    };
+
+
     // ──────────────────────────────────────────────────────────────────────────
     // Rendering helpers (public for test access)
     // ──────────────────────────────────────────────────────────────────────────
 
     public static Task<string> RenderType(ModelType type, CancellationToken token) =>
-        RenderAsync(ViewLocations.HighLevel("Model.cshtml"), type);
+        RenderAsync(TemplateFor(type), type);
 
     public static Task<string> RenderRequestBody(ModelType type, CancellationToken token) =>
         RenderAsync(ViewLocations.HighLevel("RequestBodyPartial.cshtml"), type);
@@ -184,7 +215,7 @@ public sealed class ModelsGenerator : RazorGeneratorBase
         foreach (var t in model.TypesToEmit)
         {
             token.ThrowIfCancellationRequested();
-            var rendered = await RenderAsync(ViewLocations.HighLevel("Model.cshtml"), t);
+            var rendered = await RenderAsync(TemplateFor(t), t);
             var outputPath = Path.Combine(tempDir, t.CsharpName + ".g.cs");
             await File.WriteAllTextAsync(outputPath, rendered, token);
             paths.Add(outputPath);

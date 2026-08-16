@@ -18,27 +18,15 @@ namespace ApiGenerator.Generator;
 public sealed class ModelTypeResolver
 {
     private readonly IModelOverrides _registry;
+    private readonly SchemaCatalog _schemas;
 
-    // Maps a resolved enum schema instance back to its component schema id. NSwag inlines
-    // $refs during resolution, dropping Reference.Id, so property schemas that point at an
-    // enum lose their id — this reverse lookup (by reference equality) recovers it so enum
-    // properties are typed as the generated enum instead of falling back to string.
-    private readonly IReadOnlyDictionary<JsonSchema, string> _enumSchemaIds;
-
-    // Maps a resolved object schema instance back to its component schema id. Mirrors
-    // _enumSchemaIds but for named objects with properties. Enables object-typed properties
-    // to resolve to I<TypeName> instead of falling back to IDictionary<string, object>.
-    private readonly IReadOnlyDictionary<JsonSchema, string> _objectSchemaIds;
-
-    public ModelTypeResolver(
-        IModelOverrides registry,
-        IReadOnlyDictionary<JsonSchema, string>? enumSchemaIds = null,
-        IReadOnlyDictionary<JsonSchema, string>? objectSchemaIds = null)
+    public ModelTypeResolver(IModelOverrides registry, SchemaCatalog schemas)
     {
         _registry = registry;
-        _enumSchemaIds = enumSchemaIds ?? new Dictionary<JsonSchema, string>();
-        _objectSchemaIds = objectSchemaIds ?? new Dictionary<JsonSchema, string>();
+        _schemas = schemas;
     }
+
+    public SchemaCatalog Schemas => _schemas;
 
     public static string RefToTypeName(string refId) =>
         refId.Contains("___") ? refId.Split("___").Last() : refId;
@@ -51,47 +39,11 @@ public sealed class ModelTypeResolver
     public string CsharpTypeName(string schemaId) =>
         _registry.RenamedCsharpName(schemaId) ?? RefToTypeName(schemaId);
 
-    /// <summary>
-    /// Build a reverse map from each component's resolved enum schema instance to its schema id.
-    /// Enables the resolver to name enum-typed properties even after NSwag inlines their $refs.
-    /// </summary>
-    public static IReadOnlyDictionary<JsonSchema, string> BuildEnumSchemaIds(NSwag.OpenApiDocument doc)
-    {
-        var map = new Dictionary<JsonSchema, string>();
-        foreach (var (id, schema) in doc.Components.Schemas)
-        {
-            var actual = schema.ActualSchema;
-            if (actual.IsEnum()) map[actual] = id;
-        }
-        return map;
-    }
+    public bool TryGetSchemaId(JsonSchema schema, out string schemaId) =>
+        _schemas.TryGetId(schema, out schemaId);
 
-    /// <summary>
-    /// Reverse-map from each named object component's resolved schema instance to its id.
-    /// Lets the resolver name object-typed properties even after NSwag inlines their $refs.
-    /// Excludes enums (handled separately) and free-form maps (no named properties).
-    /// </summary>
-    public static IReadOnlyDictionary<JsonSchema, string> BuildObjectSchemaIds(NSwag.OpenApiDocument doc)
-    {
-        var map = new Dictionary<JsonSchema, string>();
-        foreach (var (id, schema) in doc.Components.Schemas)
-        {
-            var actual = schema.ActualSchema;
-            if (actual.IsEnum()) continue;
-            // Track plain object schemas with named properties.
-            if (actual.Type.HasFlag(JsonObjectType.Object) && (actual.Properties?.Count ?? 0) > 0)
-            {
-                map[actual] = id;
-                continue;
-            }
-            // Also track oneOf union containers (wrapper-key discriminated unions such as
-            // RequestProcessor, ResponseProcessor). These have no own properties but are
-            // referenced from array item schemas whose $refs get inlined by NSwag.
-            if (actual.OneOf.Count > 0)
-                map[actual] = id;
-        }
-        return map;
-    }
+    public bool TryGetSchema(string schemaId, out JsonSchema schema) =>
+        _schemas.TryGetSchema(schemaId, out schema);
 
     public TypeRef ResolveTypeRef(JsonSchema schema)
     {
@@ -99,8 +51,7 @@ public sealed class ModelTypeResolver
 
         if (s.IsEnum())
         {
-            var enumRefId = schema.Reference?.Id ?? s.Reference?.Id;
-            if (enumRefId == null) _enumSchemaIds.TryGetValue(s, out enumRefId);
+            _schemas.TryGetId(schema, out var enumRefId);
             if (enumRefId != null)
             {
                 var mappedEnum = _registry.MappedCsharpType(enumRefId);
@@ -117,9 +68,7 @@ public sealed class ModelTypeResolver
         if (s.Type.HasFlag(JsonObjectType.Array) && s.Item != null)
         {
             var item = s.Item.ActualSchema;
-            var refId = s.Item.Reference?.Id ?? item.Reference?.Id;
-            if (refId == null) _objectSchemaIds.TryGetValue(item, out refId);
-            if (refId != null)
+            if (TryGetObjectSchemaId(s.Item, out var refId))
             {
                 var mapped = _registry.MappedCsharpType(refId);
                 if (mapped != null) return new ListType(new MappedType(mapped, false), false);
@@ -130,8 +79,7 @@ public sealed class ModelTypeResolver
 
         if (s.Type.HasFlag(JsonObjectType.Object) && (s.Properties?.Count ?? 0) > 0)
         {
-            var objRefId = schema.Reference?.Id ?? s.Reference?.Id;
-            if (objRefId == null) _objectSchemaIds.TryGetValue(s, out objRefId);
+            _schemas.TryGetId(schema, out var objRefId);
             if (objRefId != null)
             {
                 var mappedObj = _registry.MappedCsharpType(objRefId);
@@ -143,16 +91,15 @@ public sealed class ModelTypeResolver
         if (s.Type.HasFlag(JsonObjectType.Object) && s.AdditionalPropertiesSchema != null)
         {
             var ap = s.AdditionalPropertiesSchema.ActualSchema;
-            var refId = s.AdditionalPropertiesSchema.Reference?.Id ?? ap.Reference?.Id;
-            if (refId != null) return new DictionaryType(new ObjectRefType(CsharpTypeName(refId), false), false);
+            if (TryGetObjectSchemaId(s.AdditionalPropertiesSchema, out var refId))
+                return new DictionaryType(new ObjectRefType(CsharpTypeName(refId), false), false);
             return new DictionaryType(ResolveTypeRef(ap), false);
         }
 
         if (s.Type.HasFlag(JsonObjectType.Object) && s.AllowAdditionalProperties)
             return new DictionaryType(new FallbackType(), false);
 
-        var refSchemaId = schema.Reference?.Id;
-        if (refSchemaId != null)
+        if (TryGetReferenceId(schema, out var refSchemaId))
         {
             var mapped = _registry.MappedCsharpType(refSchemaId);
             if (mapped != null) return new MappedType(mapped, false);
@@ -162,18 +109,35 @@ public sealed class ModelTypeResolver
         return new FallbackType();
     }
 
+    private bool TryGetObjectSchemaId(JsonSchema schema, out string schemaId)
+    {
+        if (TryGetReferenceId(schema, out schemaId)) return true;
+
+        var actual = schema.ActualSchema;
+        if (actual.Type.HasFlag(JsonObjectType.Object) && (actual.Properties?.Count ?? 0) > 0
+            || actual.OneOf.Count > 0)
+            return _schemas.TryGetId(actual, out schemaId);
+
+        schemaId = null!;
+        return false;
+    }
+
+    private static bool TryGetReferenceId(JsonSchema schema, out string schemaId)
+    {
+        schemaId = schema.Reference?.Id ?? schema.ActualSchema.Reference?.Id!;
+        return schemaId != null;
+    }
+
     public string ResolveCsharpType(JsonSchema schema)
     {
         var s = schema.ActualSchema;
 
         // A $ref to a string enum resolves to a generated C# enum (nullable value type),
         // not a string. Detect this before the plain-string branch below. The id may come
-        // from an intact Reference, or (once NSwag has inlined the ref) from the
-        // resolved-schema reverse lookup.
+        // from an intact Reference, or (once NSwag has inlined the ref) from SchemaCatalog.
         if (s.IsEnum())
         {
-            var enumRefId = schema.Reference?.Id ?? s.Reference?.Id;
-            if (enumRefId == null) _enumSchemaIds.TryGetValue(s, out enumRefId);
+            _schemas.TryGetId(schema, out var enumRefId);
             if (enumRefId != null)
             {
                 var mappedEnum = _registry.MappedCsharpType(enumRefId);
@@ -189,11 +153,7 @@ public sealed class ModelTypeResolver
         if (s.Type.HasFlag(JsonObjectType.Array) && s.Item != null)
         {
             var item = s.Item.ActualSchema;
-            var refId = s.Item.Reference?.Id ?? item.Reference?.Id;
-            // If refId is null the $ref was inlined by NSwag; try to recover it via
-            // the reverse instance map (handles both plain objects and oneOf unions).
-            if (refId == null) _objectSchemaIds.TryGetValue(item, out refId);
-            if (refId != null)
+            if (TryGetObjectSchemaId(s.Item, out var refId))
             {
                 var mapped = _registry.MappedCsharpType(refId);
                 return mapped != null ? $"IList<{mapped}>" : $"IList<I{CsharpTypeName(refId)}>";
@@ -209,8 +169,7 @@ public sealed class ModelTypeResolver
         // NJsonSchema reports AllowAdditionalProperties=true on it.
         if (s.Type.HasFlag(JsonObjectType.Object) && (s.Properties?.Count ?? 0) > 0)
         {
-            var objRefId = schema.Reference?.Id ?? s.Reference?.Id;
-            if (objRefId == null) _objectSchemaIds.TryGetValue(s, out objRefId);
+            _schemas.TryGetId(schema, out var objRefId);
             if (objRefId != null)
             {
                 var mappedObj = _registry.MappedCsharpType(objRefId);
@@ -221,16 +180,15 @@ public sealed class ModelTypeResolver
         if (s.Type.HasFlag(JsonObjectType.Object) && s.AdditionalPropertiesSchema != null)
         {
             var ap = s.AdditionalPropertiesSchema.ActualSchema;
-            var refId = s.AdditionalPropertiesSchema.Reference?.Id ?? ap.Reference?.Id;
-            if (refId != null) return $"IDictionary<string, I{CsharpTypeName(refId)}>";
+            if (TryGetObjectSchemaId(s.AdditionalPropertiesSchema, out var refId))
+                return $"IDictionary<string, I{CsharpTypeName(refId)}>";
             return $"IDictionary<string, {ResolveCsharpType(ap)}>";
         }
 
         if (s.Type.HasFlag(JsonObjectType.Object) && s.AllowAdditionalProperties)
             return "IDictionary<string, object>";
 
-        var refSchemaId = schema.Reference?.Id;
-        if (refSchemaId != null)
+        if (TryGetReferenceId(schema, out var refSchemaId))
         {
             var mapped = _registry.MappedCsharpType(refSchemaId);
             return mapped ?? $"I{CsharpTypeName(refSchemaId)}";

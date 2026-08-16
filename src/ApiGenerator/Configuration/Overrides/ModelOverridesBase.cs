@@ -47,16 +47,20 @@ public abstract class ModelOverridesBase : IModelOverrides
     // ── Generation scope defaults ──────────────────────────────────────────────
     public abstract string Namespace { get; }
     public abstract string OutputFolder { get; }
+    public virtual bool IncludeOperationSchemasInReachability => true;
     public virtual bool GenerateBodyOps => false;
     public virtual bool GenerateNonBodyOps => false;
-    public virtual bool UseObjectSchemaIds => false;
     public virtual bool SuppressLowLevelApiImport => false;
     public virtual ISet<string> ExcludedOps { get; } = new HashSet<string>(StringComparer.Ordinal);
     public virtual IDictionary<string, string> OpNameOverrides { get; } = new Dictionary<string, string>(StringComparer.Ordinal);
 
     // ── Schema overrides ─────────────────────────────────────────────────────
+    public virtual ISet<string> ExplicitlyPublicSchemaIds { get; } = new HashSet<string>(StringComparer.Ordinal);
     public virtual IDictionary<string, string> MappedTypes { get; } = new Dictionary<string, string>(StringComparer.Ordinal);
     public virtual IDictionary<string, string> RenamedTypes { get; } = new Dictionary<string, string>(StringComparer.Ordinal);
+
+    public virtual IDictionary<string, UnionRenderingPolicy> UnionPolicies { get; } =
+        new Dictionary<string, UnionRenderingPolicy>(StringComparer.Ordinal);
 
     public string? MappedCsharpType(string schemaId)
     {

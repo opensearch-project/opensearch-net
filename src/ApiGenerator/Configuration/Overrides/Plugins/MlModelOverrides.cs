@@ -24,7 +24,6 @@ public sealed class MlModelOverrides : ModelOverridesBase
     public override string OutputFolder => "Ml";
     public override bool GenerateBodyOps => true;
     public override bool GenerateNonBodyOps => true;
-    public override bool UseObjectSchemaIds => true;
 
     // Streaming endpoints require chunked/SSE transport support not yet available in the client.
     public override ISet<string> ExcludedOps { get; } = new HashSet<string>(StringComparer.Ordinal)
@@ -38,6 +37,15 @@ public sealed class MlModelOverrides : ModelOverridesBase
         // High-level types renamed via CodeConfiguration.HighLevelOnlyApiNameOverrides;
         // POCO generator renamed via OpNameOverrides. Low-level keeps "GetTask".
         ["ml.get_task"] = "GetMlTask",
+    };
+
+    public override ISet<string> ExplicitlyPublicSchemaIds { get; } = new HashSet<string>(StringComparer.Ordinal)
+    {
+        "ml._common___MemoryType",
+        "ml._common___MlStatName",
+        "ml._common___SearchModelGroupsResponse",
+        "ml._common___SearchResponse",
+        "ml._common___ToolName",
     };
 
     public override IDictionary<string, string> RenamedTypes { get; } = BuildRenamedTypes();

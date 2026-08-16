@@ -27,14 +27,14 @@ public interface IModelOverrides
     /// <summary>Output subfolder under <c>_Generated/</c> (e.g. <c>"Ml"</c>, <c>"Ingest"</c>).</summary>
     string OutputFolder { get; }
 
+    /// <summary>Whether operation request/response schemas seed shared-model reachability.</summary>
+    bool IncludeOperationSchemasInReachability { get; }
+
     /// <summary>Whether to generate request/response types for body operations.</summary>
     bool GenerateBodyOps { get; }
 
     /// <summary>Whether to generate response types for non-body operations (GET/DELETE).</summary>
     bool GenerateNonBodyOps { get; }
-
-    /// <summary>Whether the resolver needs object-schema reverse-map (required when body ops reference $ref objects).</summary>
-    bool UseObjectSchemaIds { get; }
 
     /// <summary>
     /// When <c>true</c>, the Requests and Descriptors Razor generators will NOT emit
@@ -60,6 +60,12 @@ public interface IModelOverrides
     // ── Schema overrides ──────────────────────────────────────────────────────
 
     /// <summary>
+    /// Schema IDs retained as public generated models even when no current operation references
+    /// them. This is output-scope compatibility policy, not OpenAPI structural information.
+    /// </summary>
+    ISet<string> ExplicitlyPublicSchemaIds { get; }
+
+    /// <summary>
     /// Schema IDs mapped to existing C# types (not emitted; references resolve to the mapped type).
     /// Key: schema ID (e.g. <c>_common___Id</c>), Value: C# type name (e.g. <c>Id</c>).
     /// </summary>
@@ -71,6 +77,16 @@ public interface IModelOverrides
     /// Key: schema ID, Value: safe C# name (e.g. <c>MlTask</c>).
     /// </summary>
     IDictionary<string, string> RenamedTypes { get; }
+
+    // ── Union rendering policy ──────────────────────────────────────────────
+
+    /// <summary>
+    /// Optional rendering policy for wrapper-key unions in this namespace.
+    /// When non-null, WrapperKeyUnion.cshtml uses this policy to generate richer
+    /// output (base class inheritance, generic descriptors, Field expression overloads,
+    /// behavioral base classes). Keyed by union schema ID.
+    /// </summary>
+    IDictionary<string, UnionRenderingPolicy> UnionPolicies { get; }
 
     string? MappedCsharpType(string schemaId);
     string? RenamedCsharpName(string schemaId);
