@@ -7,6 +7,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.Serialization;
@@ -76,6 +77,7 @@ namespace OpenSearch.Client
 
 		private static readonly IPropertyHandler[] _handlers;
 		private static readonly AutomataDictionary _propertyIndex;
+		private static readonly HashSet<string> _wireNames;
 
 		private static readonly MethodInfo _createHandlerTyped =
 			typeof(OpenObjectFormatter<TConcrete, TInterface>)
@@ -101,6 +103,7 @@ namespace OpenSearch.Client
 
 			_handlers = handlers.ToArray();
 			_propertyIndex = index;
+			_wireNames = new HashSet<string>(handlers.Select(h => h.WireName), StringComparer.Ordinal);
 		}
 
 		private static IPropertyHandler CreateHandler(string wireName, PropertyInfo ifaceProp, PropertyInfo concreteProp) =>
@@ -137,6 +140,8 @@ namespace OpenSearch.Client
 				var objFormatter = formatterResolver.GetFormatterWithVerify<object>();
 				foreach (var kvp in extData)
 				{
+					// Skip keys already serialized by a typed handler to prevent duplicate JSON keys.
+					if (_wireNames.Contains(kvp.Key)) continue;
 					if (count > 0) writer.WriteValueSeparator();
 					writer.WritePropertyName(kvp.Key);
 					objFormatter.Serialize(ref writer, kvp.Value, formatterResolver);

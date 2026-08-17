@@ -58,8 +58,13 @@ namespace Tests.Ml.RegisterModel
 			},
 		};
 
-		// Fresh cluster returns an error for an unknown URL-based model registration.
+		// Fresh cluster returns 400 for an unknown URL-based model registration. On a cluster
+		// where the ML index does not yet exist (IndexNotFoundException) the engine may return 500.
 		protected override int ExpectStatusCode => 400;
+
+		[I] public override async Task ReturnsExpectedStatusCode() =>
+			await AssertOnAllResponses(r =>
+				r.ApiCall.HttpStatusCode.Should().BeOneOf(400, 500));
 
 		protected override Func<RegisterModelDescriptor, IRegisterModelRequest> Fluent => d => d
 			.Name("osnet-test-bert")

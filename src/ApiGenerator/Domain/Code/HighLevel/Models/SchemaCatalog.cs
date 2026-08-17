@@ -43,13 +43,6 @@ public sealed class SchemaCatalog
     {
         ArgumentNullException.ThrowIfNull(schema);
 
-        var referenceId = schema.Reference?.Id ?? schema.ActualSchema.Reference?.Id;
-        if (!string.IsNullOrEmpty(referenceId))
-        {
-            id = referenceId;
-            return true;
-        }
-
         return _idsBySchema.TryGetValue(schema, out id!)
             || _idsBySchema.TryGetValue(schema.ActualSchema, out id!);
     }
@@ -62,7 +55,6 @@ public sealed class SchemaCatalog
     {
         // NSwag may reuse one ActualSchema instance for multiple component aliases. Preserve the
         // previous reverse-map behavior: the later component in document order is canonical.
-        // A direct Reference.Id still takes precedence in TryGetId when NSwag retains it.
         _idsBySchema[schema] = id;
     }
 }

@@ -107,19 +107,19 @@ namespace Tests.Framework.EndpointTests
 
 		[I] public virtual async Task ReturnsExpectedStatusCode()
 		{
-			if (SkipForMinimumVersion(out var reason)) return;
+			if (SkipForMinimumVersion(out var reason)) { Console.WriteLine(reason); return; }
 			await AssertOnAllResponses(r => r.ApiCall.HttpStatusCode.Should().Be(ExpectStatusCode));
 		}
 
 		[I] public virtual async Task ReturnsExpectedIsValid()
 		{
-			if (SkipForMinimumVersion(out var reason)) return;
+			if (SkipForMinimumVersion(out var reason)) { Console.WriteLine(reason); return; }
 			await AssertOnAllResponses(r => r.ShouldHaveExpectedIsValid(ExpectIsValid));
 		}
 
 		[I] public virtual async Task ReturnsExpectedResponse()
 		{
-			if (SkipForMinimumVersion(out var reason)) return;
+			if (SkipForMinimumVersion(out var reason)) { Console.WriteLine(reason); return; }
 			await AssertOnAllResponses(ExpectResponse);
 		}
 

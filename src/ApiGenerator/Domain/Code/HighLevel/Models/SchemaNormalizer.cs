@@ -257,9 +257,6 @@ public sealed class NormalizationContext
     /// <summary>Tracks which passes have been executed for ordering verification.</summary>
     public List<string> ExecutedPasses { get; } = new();
 
-    /// <summary>Guard against cyclic schemas during recursive collection.</summary>
-    internal HashSet<string> _visitedForCollection = new(StringComparer.Ordinal);
-
     /// <summary>
     /// Schema instance -> stable ID map (reference equality).
     /// Contains both catalog-resolved and synthetic IDs.
@@ -526,17 +523,10 @@ public sealed class AllOfPropertyCollectionPass : INormalizationPass
 
     private static void CollectForSchema(NormalizationContext context, string schemaId, JsonSchema actual)
     {
-        // Avoid reprocessing
+        // Avoid reprocessing. Per-chain cycle protection lives in the local `visited`
+        // HashSet<JsonSchema> passed to CollectInlineAllOfProperties.
         if (context.EffectiveProperties.ContainsKey(schemaId))
             return;
-
-        // Cycle guard
-        if (!context._visitedForCollection.Add(schemaId))
-        {
-            // Recursive reference — record empty to break the cycle
-            context.EffectiveProperties[schemaId] = new Dictionary<string, JsonSchema>(StringComparer.Ordinal);
-            return;
-        }
 
         var effectiveProps = new Dictionary<string, JsonSchema>(StringComparer.Ordinal);
         var inlineRefs = new List<InlinePropertyRef>();
@@ -639,7 +629,7 @@ public sealed class CompositionPreservationPass : INormalizationPass
             foreach (var sub in actual.AllOf)
             {
                 string? refId = null;
-                bool isRef = sub.HasReference;
+                bool isRef = sub.HasReference || !string.IsNullOrEmpty(sub.Reference?.Id);
                 if (isRef)
                 {
                     refId = sub.Reference?.Id;

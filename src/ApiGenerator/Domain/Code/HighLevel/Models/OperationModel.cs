@@ -40,7 +40,8 @@ public sealed class OperationModel
         string requestCsharpName,
         string responseCsharpName,
         IModelOverrides registry,
-        ModelTypeResolver resolver)
+        ModelTypeResolver resolver,
+        NormalizationResult? normalization = null)
     {
         // Build the aggregated operation group model using the shared catalog
         var groupModel = OperationGroupModel.Build(doc, operationGroup, resolver.Schemas);
@@ -66,7 +67,7 @@ public sealed class OperationModel
         var responseProps = responseSchema == null
             ? new List<ModelProperty>()
             : responseSchema.OneOf?.Count > 0
-                ? FlattenOneOfProperties(responseSchema, resolver)
+                ? FlattenOneOfProperties(responseSchema, resolver, normalization)
                 : BuildProperties(responseSchema, resolver, skipWireNames: null, isResponse: true);
         var response = new ResponseModel(operationGroup + "___Response", responseCsharpName, responseProps, "ResponseBase", versionAdded);
 
@@ -232,7 +233,7 @@ public sealed class OperationModel
     /// All properties are nullable since only one variant's fields will be populated at runtime.
     /// </summary>
     private static IReadOnlyList<ModelProperty> FlattenOneOfProperties(
-        JsonSchema schema, ModelTypeResolver resolver)
+        JsonSchema schema, ModelTypeResolver resolver, NormalizationResult? normalization)
     {
         var seen = new HashSet<string>(StringComparer.Ordinal);
         var props = new List<ModelProperty>();
@@ -240,7 +241,16 @@ public sealed class OperationModel
         foreach (var variant in schema.OneOf)
         {
             var actual = variant.ActualSchema;
-            var variantProps = actual.Properties ?? new Dictionary<string, JsonSchemaProperty>();
+            // Use normalized effective properties when available so allOf-composed variant
+            // properties are included (plain .Properties only covers top-level declarations).
+            IReadOnlyDictionary<string, JsonSchema> variantProps;
+            if (normalization != null && normalization.TryGetForSchema(actual, out var normalized))
+                variantProps = normalized.EffectiveProperties;
+            else
+                variantProps = actual.Properties != null
+                    ? actual.Properties.ToDictionary(p => p.Key, p => (JsonSchema)p.Value, StringComparer.Ordinal)
+                    : new Dictionary<string, JsonSchema>(StringComparer.Ordinal);
+
             foreach (var p in variantProps.OrderBy(p => p.Key, StringComparer.Ordinal))
             {
                 if (!seen.Add(p.Key)) continue;

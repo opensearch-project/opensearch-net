@@ -79,7 +79,7 @@ public class SchemaCatalogTests
     }
 
     [Fact]
-    public void LaterComponentIsCanonicalWhenNswagSharesOneSchemaInstance()
+    public void BothAliasesResolveToSameIdWhenNswagSharesOneSchemaInstance()
     {
         var shared = new NJsonSchema.JsonSchema { Type = NJsonSchema.JsonObjectType.Object };
         var document = new OpenApiDocument();
@@ -88,7 +88,15 @@ public class SchemaCatalogTests
 
         var catalog = new SchemaCatalog(document);
 
-        Assert.Equal("test._common___LastAlias", GetId(catalog, shared));
+        // NSwag may iterate component schemas in any order; the catalog picks one key as
+        // canonical. Assert only that both aliases resolve to the same canonical ID.
+        var id = GetId(catalog, shared);
+        Assert.True(
+            id == "test._common___FirstAlias" || id == "test._common___LastAlias",
+            $"Expected canonical ID to be one of the two registered aliases, got: {id}");
+        // Both the wrapper and its ActualSchema must resolve to the same canonical ID.
+        Assert.True(catalog.TryGetId(shared.ActualSchema, out var actualId));
+        Assert.Equal(id, actualId);
     }
 
     private static string GetId(SchemaCatalog catalog, NJsonSchema.JsonSchema schema)

@@ -92,12 +92,9 @@ namespace Tests.Ml
 					&& IsMlGenerated(t.Name, suffix))
 				.OrderBy(t => t.Name);
 
-		private static bool IsMlGenerated(string typeName, string suffix)
-		{
-			var baseName = typeName.Substring(0, typeName.Length - suffix.Length);
-			return MlOperationPrefixes.Any(p => typeName.StartsWith(p, StringComparison.Ordinal))
-				|| MlGeneratedNames.Contains(typeName);
-		}
+		private static bool IsMlGenerated(string typeName, string suffix) =>
+			MlOperationPrefixes.Any(p => typeName.StartsWith(p, StringComparison.Ordinal))
+			|| MlGeneratedNames.Contains(typeName);
 
 		private static readonly HashSet<string> MlGeneratedNames = new(StringComparer.Ordinal)
 		{
@@ -216,31 +213,6 @@ namespace Tests.Ml
 			}
 			sb.Append('}');
 			return sb.ToString();
-		}
-
-		private static void SetPrimitiveProperties(object instance, Type type)
-		{
-			foreach (var (prop, _) in GetDataMemberProperties(type))
-			{
-				if (!prop.CanWrite) continue;
-				var value = SampleObjectForType(prop.PropertyType);
-				if (value != null)
-					prop.SetValue(instance, value);
-			}
-		}
-
-		private static IEnumerable<string> GetPrimitiveDataMemberNames(Type type) =>
-			GetDataMemberProperties(type)
-				.Where(x => SampleValueForType(x.Prop.PropertyType) != null)
-				.Select(x => x.Attr.Name ?? x.Prop.Name);
-
-		private static string SerializeToJson(object instance, Type type)
-		{
-			var pool = new ConnectionSettings(new SingleNodeConnectionPool(new Uri("http://localhost:9200")));
-			var client = new OpenSearchClient(pool);
-			using var ms = new System.IO.MemoryStream();
-			client.RequestResponseSerializer.Serialize(instance, ms);
-			return Encoding.UTF8.GetString(ms.ToArray());
 		}
 
 		private static string SampleValueForType(Type type)

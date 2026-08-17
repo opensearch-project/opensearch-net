@@ -200,7 +200,7 @@ public sealed class OperationGroupModel
     /// Returns all supported URL paths for this operation group.
     /// </summary>
     public IReadOnlyList<string> Paths =>
-        Variants.Select(v => v.Path).Distinct().ToList();
+        Variants.Select(v => v.Path).Distinct().OrderBy(p => p, StringComparer.Ordinal).ToList();
 
     // ────────────────────────────────────────────────────────────────────────────
     // Private helpers
