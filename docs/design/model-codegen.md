@@ -158,7 +158,7 @@ generalization plan (`model-codegen-generalization.md`) into a single source of 
 │  RequestBodyPartial.cshtml— body-only partial class (properties + fluent)   │
 │  ResponseType.cshtml      — response POCO                                   │
 │  WrapperKeyUnion.cshtml   — full union: base interface, per-variant types,  │
-│                             AutomataDictionary O(1) formatter, descriptor   │
+│                             Utf8Json formatter, STJ converter, descriptor   │
 │                             builder with one typed fluent method/variant    │
 │                                                                              │
 │  NOTE: Razor treats <T> inside <text> as HTML. All sections containing      │
@@ -216,6 +216,36 @@ no C# names.
 ### Renderers do not interpret OpenAPI
 Razor templates consume a complete semantic model. They never inspect raw NSwag schemas
 or decide whether a schema is an object, union, dictionary, or inherited type.
+
+### Serializer backends are adapters
+Generated model semantics are shared across serializers. A union has one
+`WrapperKeyUnionModel`, one variant list, and one wire-key mapping. Utf8Json and
+System.Text.Json support are emitted as thin serializer-specific adapters over that
+metadata, not as separate classification or naming logic.
+
+For generated wrapper-key unions, the model interface carries both serializer attributes:
+
+```csharp
+[JsonFormatter(typeof(RequestProcessorFormatter))]
+[System.Text.Json.Serialization.JsonConverter(typeof(RequestProcessorConverter))]
+public interface IRequestProcessor
+{
+    string Name { get; }
+}
+```
+
+The Utf8Json adapter implements `IJsonFormatter<T>`. The STJ adapter implements
+`System.Text.Json.Serialization.JsonConverter<T>`. Both write the same wrapper-key
+object shape and dispatch from the same generated variant metadata:
+
+```json
+{ "filter_query": { ... } }
+```
+
+Type-level `[JsonConverter]` is used for these generated unions because the converters
+are stateless and type-specific. If a future union encoding requires
+`IConnectionSettingsValues` or registration-order-sensitive behavior, that encoding
+must use generated centralized STJ registration instead of a type-level attribute.
 
 ### Reachability drives emission
 Operation requests and responses are generation roots. The generator traces `TypeRef`
@@ -291,6 +321,8 @@ No plugin name checks. Detection results are independent of rendering.
 WrapperKeyUnionModel
   SchemaId        e.g. "search_pipeline._common___RequestProcessor"
   CsharpName      e.g. "RequestProcessor"
+  FormatterName   e.g. "RequestProcessorFormatter" (Utf8Json)
+  ConverterName   e.g. "RequestProcessorConverter" (System.Text.Json)
   BaseProperties  shared envelope props present in ALL variants
   Variants[]
     Key               wire discriminator key, e.g. "neural_query_enricher"
@@ -308,6 +340,17 @@ Each `UnionModel` carries a policy that selects the correct Razor template.
 `SuppressedUnionSchemaIds` on the plugin overrides prevents the union from becoming a
 generation root, so neither it nor its dependent models are emitted — preserving
 handwritten code without special-casing the template layer.
+
+`WrapperKeyUnion.cshtml` emits both serializer adapters from the same
+`WrapperKeyUnionModel`:
+
+- `{CsharpName}Formatter : IJsonFormatter<I{CsharpName}>` for the legacy Utf8Json
+  serializer path.
+- `{CsharpName}Converter : JsonConverter<I{CsharpName}>` for the System.Text.Json
+  serializer path.
+
+The generated interface is attributed with both adapters, so adding a new generated
+union does not require manual registration in `SystemTextJsonHighLevelSerializer`.
 
 ### `ReferenceGraph` / `ReferenceGraphBuilder`
 
