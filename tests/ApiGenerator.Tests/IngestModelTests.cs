@@ -100,14 +100,16 @@ public class IngestModelTests
     }
 
     [Fact]
-    public async Task FlatWrapperKey_UnionIsEmitted()
+    public async Task FlatWrapperKey_UnionIsSuppressedFromEmit()
     {
         var doc = await OpenApiDocument.FromJsonAsync(IngestMinimalSpec);
         var plugin = new IngestModelOverrides();
         var resolver = ModelsGenerator.BuildResolverForTest(doc, plugin);
         var ns = NamespaceModel.Build(doc, plugin.Namespace, plugin, resolver);
 
-        Assert.Contains(ns.TypesToEmit, t => t.SchemaId == "ingest._common___ProcessorContainer");
+        // Union is classified (present in AllTypes) but suppressed from output (not in TypesToEmit)
+        Assert.Contains(ns.AllTypes, t => t.SchemaId == "ingest._common___ProcessorContainer");
+        Assert.DoesNotContain(ns.TypesToEmit, t => t.SchemaId == "ingest._common___ProcessorContainer");
     }
 
     [Fact]
@@ -125,16 +127,16 @@ public class IngestModelTests
     }
 
     [Fact]
-    public async Task FlatWrapperKey_EnumsReferencedByVariantsAreEmitted()
+    public async Task FlatWrapperKey_SuppressedUnionDoesNotEmitEnums()
     {
         var doc = await OpenApiDocument.FromJsonAsync(IngestWithEnumSpec);
         var plugin = new IngestModelOverrides();
         var resolver = ModelsGenerator.BuildResolverForTest(doc, plugin);
         var ns = NamespaceModel.Build(doc, plugin.Namespace, plugin, resolver);
 
-        // ConvertType enum should be emitted as it's referenced by the convert processor variant
-        var enums = ns.TypesToEmit.OfType<EnumModel>().ToList();
-        Assert.Contains(enums, e => e.CsharpName == "ConvertProcessorType");
+        // With ProcessorContainer union suppressed, referenced enums are not emitted either
+        // (the handwritten code already defines them).
+        Assert.Empty(ns.TypesToEmit);
     }
 
     [Fact]

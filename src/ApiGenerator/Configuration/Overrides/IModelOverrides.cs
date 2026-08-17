@@ -88,6 +88,14 @@ public interface IModelOverrides
     /// </summary>
     IDictionary<string, UnionRenderingPolicy> UnionPolicies { get; }
 
+    /// <summary>
+    /// Union schema IDs that remain structurally classified but are excluded from explicit
+    /// generation roots and output. Use this when the union's types (formatter, descriptor,
+    /// per-variant classes) are authoritative handwritten code and must not be replaced by
+    /// generated output.
+    /// </summary>
+    ISet<string> SuppressedUnionSchemaIds { get; }
+
     string? MappedCsharpType(string schemaId);
     string? RenamedCsharpName(string schemaId);
 }
