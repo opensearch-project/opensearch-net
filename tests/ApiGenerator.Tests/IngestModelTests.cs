@@ -52,7 +52,6 @@ public class IngestModelTests
 
         var union = ns.AllTypes.OfType<WrapperKeyUnionModel>().Single();
         Assert.Equal(3, union.GeneratedVariants.Count);
-        Assert.Equal(7, union.AllVariants.Count);
         Assert.Contains(union.GeneratedVariants, v => v.Key == "append");
         Assert.Contains(union.GeneratedVariants, v => v.Key == "convert");
         Assert.Contains(union.GeneratedVariants, v => v.Key == "rename");

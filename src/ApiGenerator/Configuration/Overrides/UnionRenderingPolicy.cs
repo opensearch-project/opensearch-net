@@ -96,6 +96,14 @@ public sealed class UnionRenderingPolicy
     /// </summary>
     public ISet<string> FieldProperties { get; init; } = new HashSet<string>(StringComparer.Ordinal);
 
+    /// <summary>
+    /// Wire names of properties that belong to the union's shared base class and should be
+    /// excluded from all variant body property lists. This replaces per-namespace hardcoding
+    /// in the code generator.
+    /// Example: <c>["tag", "description", "ignore_failure"]</c> for ingest processors.
+    /// </summary>
+    public ISet<string> ExcludedBaseProperties { get; init; } = new HashSet<string>(StringComparer.Ordinal);
+
     // ── Per-variant behavioral overrides ─────────────────────────────────────
 
     /// <summary>

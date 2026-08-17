@@ -230,8 +230,10 @@ public sealed class NamespaceModel
                 continue;
             }
 
+            registry.UnionPolicies.TryGetValue(schemaId, out var variantPolicy);
             var bodyProps = bodySchema != null
-                ? BuildVariantProperties(bodySchema, resolver, normalization)
+                ? BuildVariantProperties(bodySchema, resolver, normalization,
+                    variantPolicy?.ExcludedBaseProperties)
                 : Array.Empty<ModelProperty>();
 
             variants.Add(new WrapperKeyVariant(variant.Key, variantCsharpName, variant.VersionAdded, bodyProps));
@@ -349,12 +351,12 @@ public sealed class NamespaceModel
 
     private static IReadOnlyList<ModelProperty> BuildVariantProperties(
         NJsonSchema.JsonSchema body, ModelTypeResolver resolver,
-        NormalizationResult normalization)
+        NormalizationResult normalization,
+        ISet<string>? excludedBaseProperties = null)
     {
-        // Skip standard processor base properties — they live on the generated base interface.
-        var baseProps = new HashSet<string>(
-            new[] { "tag", "description", "ignore_failure" },
-            StringComparer.Ordinal);
+        // Properties owned by the union base class are excluded from individual variant bodies.
+        // The exclusion set is supplied by the plugin via UnionRenderingPolicy.ExcludedBaseProperties.
+        var baseProps = excludedBaseProperties ?? new HashSet<string>(StringComparer.Ordinal);
 
         IReadOnlyDictionary<string, NJsonSchema.JsonSchema> propSource;
         IReadOnlySet<string> required;
@@ -371,8 +373,10 @@ public sealed class NamespaceModel
         {
             // Schema was not discovered during normalization. This indicates a gap in
             // the discovery traversal. Fall back to direct properties ONLY (no AllOf
-            // iteration) and emit a diagnostic. In practice this should not happen if
-            // discovery is complete.
+            // iteration). In practice this should not happen if discovery is complete.
+            Console.Error.WriteLine(
+                $"[NamespaceModel] BuildVariantProperties: schema instance not found in normalization result. " +
+                $"Falling back to direct properties only. This indicates an incomplete schema discovery.");
             var directProps = new Dictionary<string, NJsonSchema.JsonSchema>(StringComparer.Ordinal);
             if (body.Properties != null)
                 foreach (var kv in body.Properties)

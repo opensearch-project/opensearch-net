@@ -28,6 +28,10 @@ public sealed class ReferenceGraph
     private readonly Dictionary<string, HashSet<string>> _edges =
         new(StringComparer.Ordinal);
 
+    // All registered schema IDs — maintained alongside _edges to provide a live IReadOnlySet view.
+    private readonly HashSet<string> _allNodes =
+        new(StringComparer.Ordinal);
+
     // Schema IDs that are external leaves (mapped to existing C# types)
     private readonly HashSet<string> _externalLeaves =
         new(StringComparer.Ordinal);
@@ -49,7 +53,7 @@ public sealed class ReferenceGraph
         new(StringComparer.Ordinal);
 
     /// <summary>All registered schema IDs (nodes in the graph).</summary>
-    public IReadOnlySet<string> AllNodes => _edges.Keys.ToHashSet(StringComparer.Ordinal);
+    public IReadOnlySet<string> AllNodes => _allNodes;
 
     /// <summary>All root schema IDs (entry points for reachability).</summary>
     public IReadOnlySet<string> Roots => _roots;
@@ -69,6 +73,7 @@ public sealed class ReferenceGraph
     public void RegisterNode(string schemaId)
     {
         ArgumentException.ThrowIfNullOrEmpty(schemaId);
+        _allNodes.Add(schemaId);
         _edges.TryAdd(schemaId, new HashSet<string>(StringComparer.Ordinal));
     }
 

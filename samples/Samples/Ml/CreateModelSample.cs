@@ -178,22 +178,27 @@ public class CreateModelSample : Sample
 
     private static async Task<string> WaitForTaskAsync(IOpenSearchClient client, string taskId, string label)
     {
-        while (true)
+        var deadline = DateTimeOffset.UtcNow.AddMinutes(10);
+        MlTaskState? lastState = null;
+        while (DateTimeOffset.UtcNow < deadline)
         {
             var taskResp = await client.Ml.GetTaskAsync(taskId);
             AssertValid(taskResp);
 
-            var state = taskResp.State;
-            Console.WriteLine($"  {label}: {state}");
+            lastState = taskResp.State;
+            Console.WriteLine($"  {label}: {lastState}");
 
-            if (state == MlTaskState.Failed)
+            if (lastState == MlTaskState.Failed)
                 throw new Exception($"{label} task {taskId} failed: {taskResp.OperationError}");
 
-            if (state is MlTaskState.Completed or MlTaskState.CompletedWithError)
+            if (lastState is MlTaskState.Completed or MlTaskState.CompletedWithError)
                 return taskResp.ModelId
                     ?? throw new Exception($"{label} task completed but returned no model_id");
 
             await Task.Delay(5_000);
         }
+
+        throw new TimeoutException(
+            $"{label} task {taskId} did not complete within 10 minutes. Last known state: {lastState}");
     }
 }

@@ -72,7 +72,7 @@ public sealed class ModelsGenerator : RazorGeneratorBase
             {
                 token.ThrowIfCancellationRequested();
                 var baseName = ResolveBaseName(grp, plugin);
-                var op = OperationModel.Build(doc, grp, baseName + "Request", baseName + "Response", plugin, resolver);
+                var op = OperationModel.Build(doc, grp, baseName + "Request", baseName + "Response", plugin, resolver, normalization);
 
                 await DoRazor(op.Request, ViewLocations.HighLevel("RequestBodyPartial.cshtml"),
                     GeneratorLocations.HighLevel(plugin.OutputFolder, op.Request.CsharpName + ".g.cs"), token);
@@ -148,7 +148,7 @@ public sealed class ModelsGenerator : RazorGeneratorBase
         foreach (var grp in BodyOpGroups(doc, plugin))
         {
             var baseName = ResolveBaseName(grp, plugin);
-            ops.Add(OperationModel.Build(doc, grp, baseName + "Request", baseName + "Response", plugin, resolver));
+            ops.Add(OperationModel.Build(doc, grp, baseName + "Request", baseName + "Response", plugin, resolver, normalization));
         }
         return (ns, ops);
     }
@@ -196,13 +196,13 @@ public sealed class ModelsGenerator : RazorGeneratorBase
     // Rendering helpers (public for test access)
     // ──────────────────────────────────────────────────────────────────────────
 
-    public static Task<string> RenderType(ModelType type, CancellationToken token) =>
+    public static Task<string> RenderType(ModelType type) =>
         RenderAsync(TemplateFor(type), type);
 
-    public static Task<string> RenderRequestBody(ModelType type, CancellationToken token) =>
+    public static Task<string> RenderRequestBody(ModelType type) =>
         RenderAsync(ViewLocations.HighLevel("RequestBodyPartial.cshtml"), type);
 
-    public static Task<string> RenderResponse(ModelType type, CancellationToken token) =>
+    public static Task<string> RenderResponse(ModelType type) =>
         RenderAsync(ViewLocations.HighLevel("ResponseType.cshtml"), type);
 
     public static async Task<IReadOnlyList<string>> WriteToTempDir(
@@ -263,7 +263,9 @@ public sealed class ModelsGenerator : RazorGeneratorBase
             foreach (var (id, schema) in doc.Components.Schemas)
             {
                 if (!schema.ActualSchema.IsEnum()) continue;
-                var name = ModelTypeResolver.RefToTypeName(id);
+                var name = plugin.RenamedTypes.TryGetValue(id, out var renamed)
+                    ? renamed
+                    : ModelTypeResolver.RefToTypeName(id);
                 if (name != csharpType) continue;
                 if (plugin.MappedCsharpType(id) != null) continue;
 

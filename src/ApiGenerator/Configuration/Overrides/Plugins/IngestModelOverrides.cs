@@ -97,6 +97,12 @@ public sealed class IngestModelOverrides : ModelOverridesBase
             {
                 // Minimal policy — only needed for structural classification.
                 // No code is generated from this policy because the union is suppressed.
+                // ExcludedBaseProperties lists properties owned by ProcessorBase that must
+                // not appear in individual variant property lists.
+                ExcludedBaseProperties = new HashSet<string>(StringComparer.Ordinal)
+                {
+                    "tag", "description", "ignore_failure",
+                },
                 BaseInterfaceName = "IProcessor",
                 FormatterName = "ProcessorFormatter",
                 ListDescriptorName = "ProcessorsDescriptor",

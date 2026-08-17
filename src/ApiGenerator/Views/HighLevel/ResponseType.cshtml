@@ -25,7 +25,7 @@ namespace OpenSearch.Client
 {
 @if (p.JsonFormatterType != null)
 {
-<text>        [JsonFormatter(typeof(@p.JsonFormatterType))]
+<text>        [JsonFormatter(typeof(@Raw(p.JsonFormatterType)))]
 </text>
 }
 <text>        [DataMember(Name = "@p.WireName")]
