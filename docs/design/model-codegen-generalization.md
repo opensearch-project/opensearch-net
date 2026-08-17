@@ -8,7 +8,7 @@
 - **Phase 2:** ✅ Complete — OperationGroupModel, parameter aggregation, all 2xx responses, incompatibility diagnostics
 - **Phase 3:** ✅ Complete — UnionClassifier, UnionModel IR, WrapperKeyOneOf/FlatWrapperKey/InternalDiscriminator/TypedKeys detection, 25 focused tests
 - **Phase 4:** ✅ Complete — production ReferenceGraph reachability, explicit ownership/output roles, deterministic emission, and explicit public roots; 23 focused tests (66 total)
-- **Phase 5:** ✅ Complete — production ingest generation enabled; generic `UnionRenderingPolicy` and dedicated policy-aware union renderer preserve `ProcessorBase`, generic descriptors, `Field`/`Fields` expression overloads, aliases, convenience overloads, and retained behavioral variants; 29 spec-covered hand-written processor variants plus the formatter and list descriptor replaced by generated output; four variants absent from the current spec remain hand-written while rendering policy generates their formatter/list dispatch for STJ and legacy compatibility; 21 focused tests (87 total).
+- **Phase 5:** ✅ Complete (infrastructure only) — generic `UnionRenderingPolicy` and policy-aware union renderer implemented and tested; `FlatWrapperKey` classification of `ProcessorContainer` validated. **Handwritten ingest implementation remains authoritative** — `ProcessorFormatter.cs`, `ProcessorsDescriptor.cs`, and all per-processor types are preserved. Union code generation for `ProcessorContainer` is suppressed via `SuppressedUnionSchemaIds`; the union is not a generation root, so neither it nor its dependent models are emitted. The generic machinery is additive and must not delete handwritten files; 21 focused tests (87 total).
 - **Phase 6:** ✅ Complete — document-scoped `SchemaNormalizer` with ordered passes (`AllOfPropertyCollectionPass`, `CompositionPreservationPass`, `DependencyCollectionPass`, `RequiredFieldPropagationPass`); recursive component/operation/inline schema discovery with deterministic synthetic identities; immutable normalized properties, required fields, composition, discriminator, and dependency facts; `NamespaceModel` and `ReferenceGraphBuilder` no longer interpret raw `allOf`; 33 focused tests (120 total), zero ML/SearchPipeline generated diff, and full build passing.
 
 ## Context
@@ -197,14 +197,17 @@ The initial mode reports warnings. CI later enables strict mode for structural i
 
 **Exit criteria:** Schema declaration order does not affect generated output, no duplicate type is emitted, and every generated model has a path from a root.
 
-### Phase 5 -- Ingest processor migration
+### Phase 5 -- Ingest processor classification (infrastructure only)
 
 1. Classify `ProcessorContainer` as `FlatWrapperKey` using `minProperties: 1` and `maxProperties: 1`.
-2. Reuse the union renderer to generate processor interfaces, variants, formatters, and fluent descriptors.
-3. Add `IngestModelOverrides` containing only C# policy.
-4. Remove hand-written processor artifacts replaced by generated output while retaining genuine behavioral base classes such as `InferenceProcessorBase`.
+2. Implement generic `UnionRenderingPolicy` infrastructure and policy-aware template (`PolicyWrapperKeyUnion.cshtml`).
+3. Add `IngestModelOverrides` containing C# policy for structural classification.
+4. **Suppress union code generation** for `ProcessorContainer` via `SuppressedUnionSchemaIds`. The handwritten `ProcessorFormatter.cs`, `ProcessorsDescriptor.cs`, and all per-processor types in `src/OpenSearch.Client/Ingest/Processors/` remain authoritative and are NOT replaced by generated output.
+5. Exclude the suppressed union from generation roots, so neither `ProcessorContainer` nor dependent processor models/enums are emitted.
 
-**Exit criteria:** Adding a processor to the spec and regenerating creates its model, formatter branch, and fluent descriptor method without C# generator changes.
+**Invariant:** Running production codegen does NOT delete, overwrite, or conflict with handwritten ingest files. The generic machinery is additive.
+
+**Exit criteria:** Union infrastructure is tested generically (via helper test plugins); production Ingest generation emits no replacement code; handwritten processors are preserved.
 
 ### Phase 6 -- Specification normalization
 
@@ -229,7 +232,7 @@ The initial mode reports warnings. CI later enables strict mode for structural i
 | PR A | Phase 0-1: baseline and `SchemaCatalog` | No change |
 | PR B | Phase 2: operation grouping and all 2xx responses | Only correctness fixes |
 | PR C | Phase 3-4: general union IR and reachability | No semantic change |
-| PR D | Phase 5: ingest processor generation | Intentional replacement of hand-written code |
+| PR D | Phase 5: ingest union infrastructure (classification + policy) | No handwritten code deletion; no replacement Ingest output |
 | PR E | Phase 6-7: normalization and strict diagnostics | No change except explicit correctness fixes |
 
 ## Validation gates

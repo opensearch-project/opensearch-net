@@ -130,8 +130,12 @@ public sealed class NamespaceModel
 
         // Wrapper-key unions are part of the current public plugin output. Their mapped-type
         // entries project references to generated interfaces, rather than declaring external types.
+        // Suppressed unions are excluded — they exist for structural classification only.
         foreach (var union in allModels.Values.OfType<WrapperKeyUnionModel>())
-            graph.MarkAsExplicitRoot(union.SchemaId);
+        {
+            if (!plugin.SuppressedUnionSchemaIds.Contains(union.SchemaId))
+                graph.MarkAsExplicitRoot(union.SchemaId);
+        }
 
         foreach (var explicitRoot in plugin.ExplicitlyPublicSchemaIds
             .Concat(explicitlyOpenSchemaIds ?? Enumerable.Empty<string>())
@@ -141,6 +145,7 @@ public sealed class NamespaceModel
         var emittable = new HashSet<string>(graph.ComputeEmittable(), StringComparer.Ordinal);
         var emit = allModels.Values
             .Where(type => emittable.Contains(type.SchemaId))
+            .Where(type => type is not WrapperKeyUnionModel || !plugin.SuppressedUnionSchemaIds.Contains(type.SchemaId))
             .OrderBy(type => type.SchemaId, StringComparer.Ordinal)
             .ToList();
 
