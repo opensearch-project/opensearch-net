@@ -6,6 +6,7 @@
   <ItemGroup>
     <ProjectReference Include="$(SolutionRoot)\src\ApiGenerator\ApiGenerator.csproj" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Include="JunitXml.TestLogger" Version="6.1.0" />
     <PackageReference Include="Nullean.VsTest.Pretty.TestLogger" Version="0.4.0" />
     <PackageReference Include="xunit" Version="2.9.3" />
     <PackageReference Include="xunit.runner.visualstudio" Version="3.1.1">
