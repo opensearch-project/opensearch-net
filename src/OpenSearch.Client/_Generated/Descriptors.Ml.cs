@@ -1039,25 +1039,25 @@ namespace OpenSearch.Client
         // Request parameters
     }
 
-    /// <summary>Descriptor for GetTask</summary>
-    public partial class GetMlTaskDescriptor
-        : RequestDescriptorBase<GetMlTaskDescriptor, GetTaskRequestParameters, IGetMlTaskRequest>,
-            IGetMlTaskRequest
+    /// <summary>Descriptor for GetMLTask</summary>
+    public partial class GetMLTaskDescriptor
+        : RequestDescriptorBase<GetMLTaskDescriptor, GetTaskRequestParameters, IGetMLTaskRequest>,
+            IGetMLTaskRequest
     {
-        internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetTask;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetMLTask;
 
         /// <summary>/_plugins/_ml/tasks/{task_id}</summary>
         /// <param name="taskId">this parameter is required</param>
-        public GetMlTaskDescriptor(Id taskId)
+        public GetMLTaskDescriptor(Id taskId)
             : base(r => r.Required("task_id", taskId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetMlTaskDescriptor()
+        protected GetMLTaskDescriptor()
             : base() { }
 
         // values part of the url path
-        Id IGetMlTaskRequest.TaskId => Self.RouteValues.Get<Id>("task_id");
+        Id IGetMLTaskRequest.TaskId => Self.RouteValues.Get<Id>("task_id");
         // Request parameters
     }
 

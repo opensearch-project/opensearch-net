@@ -21,7 +21,7 @@ namespace ApiGenerator.Configuration.Overrides.Plugins;
 public sealed class MlModelOverrides : ModelOverridesBase
 {
     public override string Namespace => "ml";
-    public override string OutputFolder => "Ml";
+    public override string OutputFolder => "ML";
     public override bool GenerateBodyOps => true;
     public override bool GenerateNonBodyOps => true;
 
@@ -36,7 +36,7 @@ public sealed class MlModelOverrides : ModelOverridesBase
         // "GetTask" collides with Tasks/GetTask in flat OpenSearch.Client namespace.
         // High-level types renamed via CodeConfiguration.HighLevelOnlyApiNameOverrides;
         // POCO generator renamed via OpNameOverrides. Low-level keeps "GetTask".
-        ["ml.get_task"] = "GetMlTask",
+        ["ml.get_task"] = "GetMLTask",
     };
 
     public override ISet<string> ExplicitlyPublicSchemaIds { get; } = new HashSet<string>(StringComparer.Ordinal)
@@ -53,13 +53,13 @@ public sealed class MlModelOverrides : ModelOverridesBase
     private static Dictionary<string, string> BuildRenamedTypes() => new(StringComparer.Ordinal)
     {
         // All generated types are in the flat OpenSearch.Client namespace.
-        ["ml._common___Task"] = "MlTask",             // shadows System.Threading.Tasks.Task
-        ["ml._common___Action"] = "MlAction",         // shadows System.Action delegate
-        ["ml._common___Node"] = "MlNode",             // collides with OpenSearch.Net.Node
-        ["ml._common___Aggregation"] = "MlAggregation", // collides with OSC's IAggregation hierarchy
-        ["ml._common___Result"] = "MlResult",         // collides with OSC's Document/Result enum
-        ["ml._common___TaskState"] = "MlTaskState",   // collides with OSC's TaskState class
-        ["ml._common___IndexSettings"] = "MlIndexSettings", // collides with OSC's IndexSettings class
-        ["ml._common___Metadata"] = "MlMetadata",    // collides with Tests.Domain.Metadata
+        ["ml._common___Task"] = "MLTask",             // shadows System.Threading.Tasks.Task
+        ["ml._common___Action"] = "MLAction",         // shadows System.Action delegate
+        ["ml._common___Node"] = "MLNode",             // collides with OpenSearch.Net.Node
+        ["ml._common___Aggregation"] = "MLAggregation", // collides with OSC's IAggregation hierarchy
+        ["ml._common___Result"] = "MLResult",         // collides with OSC's Document/Result enum
+        ["ml._common___TaskState"] = "MLTaskState",   // collides with OSC's TaskState class
+        ["ml._common___IndexSettings"] = "MLIndexSettings", // collides with OSC's IndexSettings class
+        ["ml._common___Metadata"] = "MLMetadata",    // collides with Tests.Domain.Metadata
     };
 }

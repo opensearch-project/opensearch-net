@@ -52,7 +52,7 @@ public interface IModelOverrides
 
     /// <summary>
     /// Operation groups whose generated C# name should differ from the default Pascal(snake_name).
-    /// Key: operation group (e.g. <c>"ml.get_task"</c>), Value: C# base name (e.g. <c>"GetMlTask"</c>).
+    /// Key: operation group (e.g. <c>"ml.get_task"</c>), Value: C# base name (e.g. <c>"GetMLTask"</c>).
     /// The base name is used to form <c>{BaseName}Request</c> / <c>{BaseName}Response</c>.
     /// </summary>
     IDictionary<string, string> OpNameOverrides { get; }
@@ -74,7 +74,7 @@ public interface IModelOverrides
     /// <summary>
     /// Schema IDs that ARE emitted as full models but under a renamed C# identifier to avoid
     /// collisions with BCL or framework types.
-    /// Key: schema ID, Value: safe C# name (e.g. <c>MlTask</c>).
+    /// Key: schema ID, Value: safe C# name (e.g. <c>MLTask</c>).
     /// </summary>
     IDictionary<string, string> RenamedTypes { get; }
 

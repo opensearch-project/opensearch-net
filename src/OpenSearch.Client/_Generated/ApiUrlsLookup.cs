@@ -497,7 +497,7 @@ namespace OpenSearch.Client
             ]
         );
 
-        internal static readonly ApiUrls MlGetTask = new(["_plugins/_ml/tasks/{task_id}"]);
+        internal static readonly ApiUrls MlGetMLTask = new(["_plugins/_ml/tasks/{task_id}"]);
 
         internal static readonly ApiUrls MlGetTool = new(["_plugins/_ml/tools/{tool_name}"]);
 

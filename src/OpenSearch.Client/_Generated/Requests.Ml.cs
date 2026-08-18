@@ -1310,33 +1310,33 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IGetMlTaskRequest : IRequest<GetTaskRequestParameters>
+    public partial interface IGetMLTaskRequest : IRequest<GetTaskRequestParameters>
     {
         [IgnoreDataMember]
         Id TaskId { get; }
     }
 
-    /// <summary>Request for GetTask</summary>
-    public partial class GetMlTaskRequest
+    /// <summary>Request for GetMLTask</summary>
+    public partial class GetMLTaskRequest
         : PlainRequestBase<GetTaskRequestParameters>,
-            IGetMlTaskRequest
+            IGetMLTaskRequest
     {
-        protected IGetMlTaskRequest Self => this;
-        internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetTask;
+        protected IGetMLTaskRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetMLTask;
 
         /// <summary>/_plugins/_ml/tasks/{task_id}</summary>
         /// <param name="taskId">this parameter is required</param>
-        public GetMlTaskRequest(Id taskId)
+        public GetMLTaskRequest(Id taskId)
             : base(r => r.Required("task_id", taskId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetMlTaskRequest()
+        protected GetMLTaskRequest()
             : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
-        Id IGetMlTaskRequest.TaskId => Self.RouteValues.Get<Id>("task_id");
+        Id IGetMLTaskRequest.TaskId => Self.RouteValues.Get<Id>("task_id");
 
         // Request parameters
     }

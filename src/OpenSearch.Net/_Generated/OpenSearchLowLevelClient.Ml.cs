@@ -1749,7 +1749,7 @@ namespace OpenSearch.Net.Specification.MlApi
         /// <param name="taskId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        public TResponse GetTask<TResponse>(
+        public TResponse GetMLTask<TResponse>(
             string taskId,
             GetTaskRequestParameters requestParameters = null
         )
@@ -1766,7 +1766,7 @@ namespace OpenSearch.Net.Specification.MlApi
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         [MapsApi("ml.get_task", "task_id")]
-        public Task<TResponse> GetTaskAsync<TResponse>(
+        public Task<TResponse> GetMLTaskAsync<TResponse>(
             string taskId,
             GetTaskRequestParameters requestParameters = null,
             CancellationToken ctx = default
