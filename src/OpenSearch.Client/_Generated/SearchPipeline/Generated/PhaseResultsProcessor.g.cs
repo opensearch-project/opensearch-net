@@ -52,8 +52,17 @@ namespace OpenSearch.Client
         [DataMember(Name = "combination")]
         IScoreCombination Combination { get; set; }
 
+        [DataMember(Name = "description")]
+        string Description { get; set; }
+
+        [DataMember(Name = "ignore_failure")]
+        bool? IgnoreFailure { get; set; }
+
         [DataMember(Name = "normalization")]
         IScoreNormalization Normalization { get; set; }
+
+        [DataMember(Name = "tag")]
+        string Tag { get; set; }
     }
 
     /// <inheritdoc cref="INormalizationPhaseResultsProcessor" />
@@ -61,7 +70,10 @@ namespace OpenSearch.Client
     {
         string IPhaseResultsProcessor.Name => "normalization-processor";
         public IScoreCombination Combination { get; set; }
+        public string Description { get; set; }
+        public bool? IgnoreFailure { get; set; }
         public IScoreNormalization Normalization { get; set; }
+        public string Tag { get; set; }
     }
 
     /// <inheritdoc cref="INormalizationPhaseResultsProcessor" />
@@ -74,15 +86,28 @@ namespace OpenSearch.Client
     {
         string IPhaseResultsProcessor.Name => null;
         IScoreCombination INormalizationPhaseResultsProcessor.Combination { get; set; }
+        string INormalizationPhaseResultsProcessor.Description { get; set; }
+        bool? INormalizationPhaseResultsProcessor.IgnoreFailure { get; set; }
         IScoreNormalization INormalizationPhaseResultsProcessor.Normalization { get; set; }
+        string INormalizationPhaseResultsProcessor.Tag { get; set; }
 
         public NormalizationPhaseResultsProcessorDescriptor Combination(
             IScoreCombination combination
         ) => Assign(combination, (a, val) => a.Combination = val);
 
+        public NormalizationPhaseResultsProcessorDescriptor Description(string description) =>
+            Assign(description, (a, val) => a.Description = val);
+
+        public NormalizationPhaseResultsProcessorDescriptor IgnoreFailure(
+            bool? ignoreFailure = true
+        ) => Assign(ignoreFailure, (a, val) => a.IgnoreFailure = val);
+
         public NormalizationPhaseResultsProcessorDescriptor Normalization(
             IScoreNormalization normalization
         ) => Assign(normalization, (a, val) => a.Normalization = val);
+
+        public NormalizationPhaseResultsProcessorDescriptor Tag(string tag) =>
+            Assign(tag, (a, val) => a.Tag = val);
     }
 
     [InterfaceDataContract]
