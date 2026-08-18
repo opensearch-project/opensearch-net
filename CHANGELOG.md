@@ -4,6 +4,14 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ## [Unreleased]
 ### ⚠️ Breaking Changes ⚠️
 ### Changed
+### Added
+### Removed
+### Fixed
+### Dependencies
+
+## [2.1.0]
+### ⚠️ Breaking Changes ⚠️
+### Changed
 - Added OpenSearch 3.8.0 to the CI integration test matrix ([#1014](https://github.com/opensearch-project/opensearch-net/pull/1014))
 ### Added
 - Added a `System.Text.Json` opt-in for the low-level client (`ConnectionConfiguration.UseSystemTextJson()`, plus the `OSC_USE_STJ` environment variable), mirroring the existing high-level `ConnectionSettings.UseSystemTextJson()` switch, so a standalone low-level client can select the same engine independently of a high-level one ([#388](https://github.com/opensearch-project/opensearch-net/issues/388))
@@ -23,6 +31,9 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed `DeleteByQueryResponse.IsValid` and `UpdateByQueryResponse.IsValid` returning `true` on transport-level failures (no HTTP response) by restoring the `ApiCall.Success` check that the overrides had dropped ([#997](https://github.com/opensearch-project/opensearch-net/issues/997))
 ### Dependencies
 - Bumps `Microsoft.SourceLink.GitHub` from 8.0.0 to 10.0.111 to resolve CVE-2026-62900 in the transitive `Microsoft.Build.Tasks.Git` dependency ([#1021](https://github.com/opensearch-project/opensearch-net/issues/1021))
+- Bumps `AWSSDK.Core` from 4.0.7.1 to 4.0.100.4 ([#993](https://github.com/opensearch-project/opensearch-net/pull/993))
+- Bumps `Bogus` from 35.6.3 to 35.6.5 ([#972](https://github.com/opensearch-project/opensearch-net/pull/972))
+- Bumps `Bullseye` from 5.0.0 to 6.1.0 ([#973](https://github.com/opensearch-project/opensearch-net/pull/973))
 
 ## [2.0.0]
 
