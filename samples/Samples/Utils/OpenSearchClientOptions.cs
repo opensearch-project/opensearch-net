@@ -17,10 +17,11 @@ public static class OpenSearchClientOptions
 {
     public static Func<ParseResult, IOpenSearchClient> AddOpenSearchClientOptions(this Command command, bool global = true)
     {
-        Option<string> host = new("--host")
+        Option<Uri> host = new("--host")
         {
             Description = "The OpenSearch host to connect to",
-            DefaultValueFactory = _ => "https://localhost:9200",
+            CustomParser = result => new Uri(result.Tokens[0].Value),
+            DefaultValueFactory = _ => new Uri("https://localhost:9200"),
             Recursive = global
         };
         Option<string> username = new("--username")
@@ -56,7 +57,7 @@ public static class OpenSearchClientOptions
 
         return parseResult =>
         {
-            var hostValue = new Uri(parseResult.GetRequiredValue(host));
+            var hostValue = parseResult.GetRequiredValue(host);
             var useAws = parseResult.GetRequiredValue(aws);
             var regionValue = parseResult.GetRequiredValue(awsRegion);
 
