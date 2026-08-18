@@ -53,8 +53,17 @@ namespace OpenSearch.Client
         [DataMember(Name = "agent_steps_summary")]
         bool? AgentStepsSummary { get; set; }
 
+        [DataMember(Name = "description")]
+        string Description { get; set; }
+
         [DataMember(Name = "dsl_query")]
         bool? DslQuery { get; set; }
+
+        [DataMember(Name = "ignore_failure")]
+        bool? IgnoreFailure { get; set; }
+
+        [DataMember(Name = "tag")]
+        string Tag { get; set; }
     }
 
     /// <inheritdoc cref="IAgenticContextResponseProcessor" />
@@ -62,7 +71,10 @@ namespace OpenSearch.Client
     {
         string IResponseProcessor.Name => "agentic_context";
         public bool? AgentStepsSummary { get; set; }
+        public string Description { get; set; }
         public bool? DslQuery { get; set; }
+        public bool? IgnoreFailure { get; set; }
+        public string Tag { get; set; }
     }
 
     /// <inheritdoc cref="IAgenticContextResponseProcessor" />
@@ -75,14 +87,27 @@ namespace OpenSearch.Client
     {
         string IResponseProcessor.Name => null;
         bool? IAgenticContextResponseProcessor.AgentStepsSummary { get; set; }
+        string IAgenticContextResponseProcessor.Description { get; set; }
         bool? IAgenticContextResponseProcessor.DslQuery { get; set; }
+        bool? IAgenticContextResponseProcessor.IgnoreFailure { get; set; }
+        string IAgenticContextResponseProcessor.Tag { get; set; }
 
         public AgenticContextResponseProcessorDescriptor AgentStepsSummary(
             bool? agentStepsSummary = true
         ) => Assign(agentStepsSummary, (a, val) => a.AgentStepsSummary = val);
 
+        public AgenticContextResponseProcessorDescriptor Description(string description) =>
+            Assign(description, (a, val) => a.Description = val);
+
         public AgenticContextResponseProcessorDescriptor DslQuery(bool? dslQuery = true) =>
             Assign(dslQuery, (a, val) => a.DslQuery = val);
+
+        public AgenticContextResponseProcessorDescriptor IgnoreFailure(
+            bool? ignoreFailure = true
+        ) => Assign(ignoreFailure, (a, val) => a.IgnoreFailure = val);
+
+        public AgenticContextResponseProcessorDescriptor Tag(string tag) =>
+            Assign(tag, (a, val) => a.Tag = val);
     }
 
     [InterfaceDataContract]
@@ -91,14 +116,23 @@ namespace OpenSearch.Client
         [DataMember(Name = "campaign_arn")]
         string CampaignArn { get; set; }
 
+        [DataMember(Name = "description")]
+        string Description { get; set; }
+
         [DataMember(Name = "iam_role_arn")]
         string IamRoleArn { get; set; }
+
+        [DataMember(Name = "ignore_failure")]
+        bool? IgnoreFailure { get; set; }
 
         [DataMember(Name = "item_id_field")]
         string ItemIdField { get; set; }
 
         [DataMember(Name = "recipe")]
         string Recipe { get; set; }
+
+        [DataMember(Name = "tag")]
+        string Tag { get; set; }
 
         [DataMember(Name = "weight")]
         float? Weight { get; set; }
@@ -110,9 +144,12 @@ namespace OpenSearch.Client
     {
         string IResponseProcessor.Name => "personalize_search_ranking";
         public string CampaignArn { get; set; }
+        public string Description { get; set; }
         public string IamRoleArn { get; set; }
+        public bool? IgnoreFailure { get; set; }
         public string ItemIdField { get; set; }
         public string Recipe { get; set; }
+        public string Tag { get; set; }
         public float? Weight { get; set; }
     }
 
@@ -126,17 +163,28 @@ namespace OpenSearch.Client
     {
         string IResponseProcessor.Name => null;
         string IPersonalizeSearchRankingResponseProcessor.CampaignArn { get; set; }
+        string IPersonalizeSearchRankingResponseProcessor.Description { get; set; }
         string IPersonalizeSearchRankingResponseProcessor.IamRoleArn { get; set; }
+        bool? IPersonalizeSearchRankingResponseProcessor.IgnoreFailure { get; set; }
         string IPersonalizeSearchRankingResponseProcessor.ItemIdField { get; set; }
         string IPersonalizeSearchRankingResponseProcessor.Recipe { get; set; }
+        string IPersonalizeSearchRankingResponseProcessor.Tag { get; set; }
         float? IPersonalizeSearchRankingResponseProcessor.Weight { get; set; }
 
         public PersonalizeSearchRankingResponseProcessorDescriptor CampaignArn(
             string campaignArn
         ) => Assign(campaignArn, (a, val) => a.CampaignArn = val);
 
+        public PersonalizeSearchRankingResponseProcessorDescriptor Description(
+            string description
+        ) => Assign(description, (a, val) => a.Description = val);
+
         public PersonalizeSearchRankingResponseProcessorDescriptor IamRoleArn(string iamRoleArn) =>
             Assign(iamRoleArn, (a, val) => a.IamRoleArn = val);
+
+        public PersonalizeSearchRankingResponseProcessorDescriptor IgnoreFailure(
+            bool? ignoreFailure = true
+        ) => Assign(ignoreFailure, (a, val) => a.IgnoreFailure = val);
 
         public PersonalizeSearchRankingResponseProcessorDescriptor ItemIdField(
             string itemIdField
@@ -144,6 +192,9 @@ namespace OpenSearch.Client
 
         public PersonalizeSearchRankingResponseProcessorDescriptor Recipe(string recipe) =>
             Assign(recipe, (a, val) => a.Recipe = val);
+
+        public PersonalizeSearchRankingResponseProcessorDescriptor Tag(string tag) =>
+            Assign(tag, (a, val) => a.Tag = val);
 
         public PersonalizeSearchRankingResponseProcessorDescriptor Weight(float? weight) =>
             Assign(weight, (a, val) => a.Weight = val);
@@ -155,11 +206,17 @@ namespace OpenSearch.Client
         [DataMember(Name = "context_field_list")]
         IList<string> ContextFieldList { get; set; }
 
+        [DataMember(Name = "description")]
+        string Description { get; set; }
+
         [DataMember(Name = "model_id")]
         string ModelId { get; set; }
 
         [DataMember(Name = "system_prompt")]
         string SystemPrompt { get; set; }
+
+        [DataMember(Name = "tag")]
+        string Tag { get; set; }
 
         [DataMember(Name = "user_instructions")]
         string UserInstructions { get; set; }
@@ -171,8 +228,10 @@ namespace OpenSearch.Client
     {
         string IResponseProcessor.Name => "retrieval_augmented_generation";
         public IList<string> ContextFieldList { get; set; }
+        public string Description { get; set; }
         public string ModelId { get; set; }
         public string SystemPrompt { get; set; }
+        public string Tag { get; set; }
         public string UserInstructions { get; set; }
     }
 
@@ -186,13 +245,19 @@ namespace OpenSearch.Client
     {
         string IResponseProcessor.Name => null;
         IList<string> IRetrievalAugmentedGenerationResponseProcessor.ContextFieldList { get; set; }
+        string IRetrievalAugmentedGenerationResponseProcessor.Description { get; set; }
         string IRetrievalAugmentedGenerationResponseProcessor.ModelId { get; set; }
         string IRetrievalAugmentedGenerationResponseProcessor.SystemPrompt { get; set; }
+        string IRetrievalAugmentedGenerationResponseProcessor.Tag { get; set; }
         string IRetrievalAugmentedGenerationResponseProcessor.UserInstructions { get; set; }
 
         public RetrievalAugmentedGenerationResponseProcessorDescriptor ContextFieldList(
             IList<string> contextFieldList
         ) => Assign(contextFieldList, (a, val) => a.ContextFieldList = val);
+
+        public RetrievalAugmentedGenerationResponseProcessorDescriptor Description(
+            string description
+        ) => Assign(description, (a, val) => a.Description = val);
 
         public RetrievalAugmentedGenerationResponseProcessorDescriptor ModelId(string modelId) =>
             Assign(modelId, (a, val) => a.ModelId = val);
@@ -200,6 +265,9 @@ namespace OpenSearch.Client
         public RetrievalAugmentedGenerationResponseProcessorDescriptor SystemPrompt(
             string systemPrompt
         ) => Assign(systemPrompt, (a, val) => a.SystemPrompt = val);
+
+        public RetrievalAugmentedGenerationResponseProcessorDescriptor Tag(string tag) =>
+            Assign(tag, (a, val) => a.Tag = val);
 
         public RetrievalAugmentedGenerationResponseProcessorDescriptor UserInstructions(
             string userInstructions
@@ -209,8 +277,17 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public interface IRenameFieldResponseProcessor : IResponseProcessor
     {
+        [DataMember(Name = "description")]
+        string Description { get; set; }
+
         [DataMember(Name = "field")]
         string Field { get; set; }
+
+        [DataMember(Name = "ignore_failure")]
+        bool? IgnoreFailure { get; set; }
+
+        [DataMember(Name = "tag")]
+        string Tag { get; set; }
 
         [DataMember(Name = "target_field")]
         string TargetField { get; set; }
@@ -220,7 +297,10 @@ namespace OpenSearch.Client
     public class RenameFieldResponseProcessor : IRenameFieldResponseProcessor
     {
         string IResponseProcessor.Name => "rename_field";
+        public string Description { get; set; }
         public string Field { get; set; }
+        public bool? IgnoreFailure { get; set; }
+        public string Tag { get; set; }
         public string TargetField { get; set; }
     }
 
@@ -230,11 +310,23 @@ namespace OpenSearch.Client
             IRenameFieldResponseProcessor
     {
         string IResponseProcessor.Name => null;
+        string IRenameFieldResponseProcessor.Description { get; set; }
         string IRenameFieldResponseProcessor.Field { get; set; }
+        bool? IRenameFieldResponseProcessor.IgnoreFailure { get; set; }
+        string IRenameFieldResponseProcessor.Tag { get; set; }
         string IRenameFieldResponseProcessor.TargetField { get; set; }
+
+        public RenameFieldResponseProcessorDescriptor Description(string description) =>
+            Assign(description, (a, val) => a.Description = val);
 
         public RenameFieldResponseProcessorDescriptor Field(string field) =>
             Assign(field, (a, val) => a.Field = val);
+
+        public RenameFieldResponseProcessorDescriptor IgnoreFailure(bool? ignoreFailure = true) =>
+            Assign(ignoreFailure, (a, val) => a.IgnoreFailure = val);
+
+        public RenameFieldResponseProcessorDescriptor Tag(string tag) =>
+            Assign(tag, (a, val) => a.Tag = val);
 
         public RenameFieldResponseProcessorDescriptor TargetField(string targetField) =>
             Assign(targetField, (a, val) => a.TargetField = val);
@@ -246,8 +338,17 @@ namespace OpenSearch.Client
         [DataMember(Name = "context")]
         ISearchPipelineRerankContext Context { get; set; }
 
+        [DataMember(Name = "description")]
+        string Description { get; set; }
+
+        [DataMember(Name = "ignore_failure")]
+        bool? IgnoreFailure { get; set; }
+
         [DataMember(Name = "ml_opensearch")]
         ISearchPipelineMLOpenSearchReranker MlOpensearch { get; set; }
+
+        [DataMember(Name = "tag")]
+        string Tag { get; set; }
     }
 
     /// <inheritdoc cref="IRerankResponseProcessor" />
@@ -255,7 +356,10 @@ namespace OpenSearch.Client
     {
         string IResponseProcessor.Name => "rerank";
         public ISearchPipelineRerankContext Context { get; set; }
+        public string Description { get; set; }
+        public bool? IgnoreFailure { get; set; }
         public ISearchPipelineMLOpenSearchReranker MlOpensearch { get; set; }
+        public string Tag { get; set; }
     }
 
     /// <inheritdoc cref="IRerankResponseProcessor" />
@@ -265,14 +369,26 @@ namespace OpenSearch.Client
     {
         string IResponseProcessor.Name => null;
         ISearchPipelineRerankContext IRerankResponseProcessor.Context { get; set; }
+        string IRerankResponseProcessor.Description { get; set; }
+        bool? IRerankResponseProcessor.IgnoreFailure { get; set; }
         ISearchPipelineMLOpenSearchReranker IRerankResponseProcessor.MlOpensearch { get; set; }
+        string IRerankResponseProcessor.Tag { get; set; }
 
         public RerankResponseProcessorDescriptor Context(ISearchPipelineRerankContext context) =>
             Assign(context, (a, val) => a.Context = val);
 
+        public RerankResponseProcessorDescriptor Description(string description) =>
+            Assign(description, (a, val) => a.Description = val);
+
+        public RerankResponseProcessorDescriptor IgnoreFailure(bool? ignoreFailure = true) =>
+            Assign(ignoreFailure, (a, val) => a.IgnoreFailure = val);
+
         public RerankResponseProcessorDescriptor MlOpensearch(
             ISearchPipelineMLOpenSearchReranker mlOpensearch
         ) => Assign(mlOpensearch, (a, val) => a.MlOpensearch = val);
+
+        public RerankResponseProcessorDescriptor Tag(string tag) =>
+            Assign(tag, (a, val) => a.Tag = val);
     }
 
     [InterfaceDataContract]
@@ -281,8 +397,17 @@ namespace OpenSearch.Client
         [DataMember(Name = "context_prefix")]
         string ContextPrefix { get; set; }
 
+        [DataMember(Name = "description")]
+        string Description { get; set; }
+
         [DataMember(Name = "field")]
         string Field { get; set; }
+
+        [DataMember(Name = "ignore_failure")]
+        bool? IgnoreFailure { get; set; }
+
+        [DataMember(Name = "tag")]
+        string Tag { get; set; }
     }
 
     /// <inheritdoc cref="ICollapseResponseProcessor" />
@@ -290,7 +415,10 @@ namespace OpenSearch.Client
     {
         string IResponseProcessor.Name => "collapse";
         public string ContextPrefix { get; set; }
+        public string Description { get; set; }
         public string Field { get; set; }
+        public bool? IgnoreFailure { get; set; }
+        public string Tag { get; set; }
     }
 
     /// <inheritdoc cref="ICollapseResponseProcessor" />
@@ -300,13 +428,25 @@ namespace OpenSearch.Client
     {
         string IResponseProcessor.Name => null;
         string ICollapseResponseProcessor.ContextPrefix { get; set; }
+        string ICollapseResponseProcessor.Description { get; set; }
         string ICollapseResponseProcessor.Field { get; set; }
+        bool? ICollapseResponseProcessor.IgnoreFailure { get; set; }
+        string ICollapseResponseProcessor.Tag { get; set; }
 
         public CollapseResponseProcessorDescriptor ContextPrefix(string contextPrefix) =>
             Assign(contextPrefix, (a, val) => a.ContextPrefix = val);
 
+        public CollapseResponseProcessorDescriptor Description(string description) =>
+            Assign(description, (a, val) => a.Description = val);
+
         public CollapseResponseProcessorDescriptor Field(string field) =>
             Assign(field, (a, val) => a.Field = val);
+
+        public CollapseResponseProcessorDescriptor IgnoreFailure(bool? ignoreFailure = true) =>
+            Assign(ignoreFailure, (a, val) => a.IgnoreFailure = val);
+
+        public CollapseResponseProcessorDescriptor Tag(string tag) =>
+            Assign(tag, (a, val) => a.Tag = val);
     }
 
     [InterfaceDataContract]
@@ -314,6 +454,15 @@ namespace OpenSearch.Client
     {
         [DataMember(Name = "context_prefix")]
         string ContextPrefix { get; set; }
+
+        [DataMember(Name = "description")]
+        string Description { get; set; }
+
+        [DataMember(Name = "ignore_failure")]
+        bool? IgnoreFailure { get; set; }
+
+        [DataMember(Name = "tag")]
+        string Tag { get; set; }
 
         [DataMember(Name = "target_size")]
         int? TargetSize { get; set; }
@@ -324,6 +473,9 @@ namespace OpenSearch.Client
     {
         string IResponseProcessor.Name => "truncate_hits";
         public string ContextPrefix { get; set; }
+        public string Description { get; set; }
+        public bool? IgnoreFailure { get; set; }
+        public string Tag { get; set; }
         public int? TargetSize { get; set; }
     }
 
@@ -334,10 +486,22 @@ namespace OpenSearch.Client
     {
         string IResponseProcessor.Name => null;
         string ITruncateHitsResponseProcessor.ContextPrefix { get; set; }
+        string ITruncateHitsResponseProcessor.Description { get; set; }
+        bool? ITruncateHitsResponseProcessor.IgnoreFailure { get; set; }
+        string ITruncateHitsResponseProcessor.Tag { get; set; }
         int? ITruncateHitsResponseProcessor.TargetSize { get; set; }
 
         public TruncateHitsResponseProcessorDescriptor ContextPrefix(string contextPrefix) =>
             Assign(contextPrefix, (a, val) => a.ContextPrefix = val);
+
+        public TruncateHitsResponseProcessorDescriptor Description(string description) =>
+            Assign(description, (a, val) => a.Description = val);
+
+        public TruncateHitsResponseProcessorDescriptor IgnoreFailure(bool? ignoreFailure = true) =>
+            Assign(ignoreFailure, (a, val) => a.IgnoreFailure = val);
+
+        public TruncateHitsResponseProcessorDescriptor Tag(string tag) =>
+            Assign(tag, (a, val) => a.Tag = val);
 
         public TruncateHitsResponseProcessorDescriptor TargetSize(int? targetSize) =>
             Assign(targetSize, (a, val) => a.TargetSize = val);
@@ -346,11 +510,20 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public interface ISortResponseProcessor : IResponseProcessor
     {
+        [DataMember(Name = "description")]
+        string Description { get; set; }
+
         [DataMember(Name = "field")]
         string Field { get; set; }
 
+        [DataMember(Name = "ignore_failure")]
+        bool? IgnoreFailure { get; set; }
+
         [DataMember(Name = "order")]
         string Order { get; set; }
+
+        [DataMember(Name = "tag")]
+        string Tag { get; set; }
 
         [DataMember(Name = "target_field")]
         string TargetField { get; set; }
@@ -360,8 +533,11 @@ namespace OpenSearch.Client
     public class SortResponseProcessor : ISortResponseProcessor
     {
         string IResponseProcessor.Name => "sort";
+        public string Description { get; set; }
         public string Field { get; set; }
+        public bool? IgnoreFailure { get; set; }
         public string Order { get; set; }
+        public string Tag { get; set; }
         public string TargetField { get; set; }
     }
 
@@ -371,15 +547,27 @@ namespace OpenSearch.Client
             ISortResponseProcessor
     {
         string IResponseProcessor.Name => null;
+        string ISortResponseProcessor.Description { get; set; }
         string ISortResponseProcessor.Field { get; set; }
+        bool? ISortResponseProcessor.IgnoreFailure { get; set; }
         string ISortResponseProcessor.Order { get; set; }
+        string ISortResponseProcessor.Tag { get; set; }
         string ISortResponseProcessor.TargetField { get; set; }
+
+        public SortResponseProcessorDescriptor Description(string description) =>
+            Assign(description, (a, val) => a.Description = val);
 
         public SortResponseProcessorDescriptor Field(string field) =>
             Assign(field, (a, val) => a.Field = val);
 
+        public SortResponseProcessorDescriptor IgnoreFailure(bool? ignoreFailure = true) =>
+            Assign(ignoreFailure, (a, val) => a.IgnoreFailure = val);
+
         public SortResponseProcessorDescriptor Order(string order) =>
             Assign(order, (a, val) => a.Order = val);
+
+        public SortResponseProcessorDescriptor Tag(string tag) =>
+            Assign(tag, (a, val) => a.Tag = val);
 
         public SortResponseProcessorDescriptor TargetField(string targetField) =>
             Assign(targetField, (a, val) => a.TargetField = val);
@@ -388,14 +576,23 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public interface ISplitResponseProcessor : IResponseProcessor
     {
+        [DataMember(Name = "description")]
+        string Description { get; set; }
+
         [DataMember(Name = "field")]
         string Field { get; set; }
+
+        [DataMember(Name = "ignore_failure")]
+        bool? IgnoreFailure { get; set; }
 
         [DataMember(Name = "preserve_trailing")]
         bool? PreserveTrailing { get; set; }
 
         [DataMember(Name = "separator")]
         string Separator { get; set; }
+
+        [DataMember(Name = "tag")]
+        string Tag { get; set; }
 
         [DataMember(Name = "target_field")]
         string TargetField { get; set; }
@@ -405,9 +602,12 @@ namespace OpenSearch.Client
     public class SplitResponseProcessor : ISplitResponseProcessor
     {
         string IResponseProcessor.Name => "split";
+        public string Description { get; set; }
         public string Field { get; set; }
+        public bool? IgnoreFailure { get; set; }
         public bool? PreserveTrailing { get; set; }
         public string Separator { get; set; }
+        public string Tag { get; set; }
         public string TargetField { get; set; }
     }
 
@@ -417,19 +617,31 @@ namespace OpenSearch.Client
             ISplitResponseProcessor
     {
         string IResponseProcessor.Name => null;
+        string ISplitResponseProcessor.Description { get; set; }
         string ISplitResponseProcessor.Field { get; set; }
+        bool? ISplitResponseProcessor.IgnoreFailure { get; set; }
         bool? ISplitResponseProcessor.PreserveTrailing { get; set; }
         string ISplitResponseProcessor.Separator { get; set; }
+        string ISplitResponseProcessor.Tag { get; set; }
         string ISplitResponseProcessor.TargetField { get; set; }
+
+        public SplitResponseProcessorDescriptor Description(string description) =>
+            Assign(description, (a, val) => a.Description = val);
 
         public SplitResponseProcessorDescriptor Field(string field) =>
             Assign(field, (a, val) => a.Field = val);
+
+        public SplitResponseProcessorDescriptor IgnoreFailure(bool? ignoreFailure = true) =>
+            Assign(ignoreFailure, (a, val) => a.IgnoreFailure = val);
 
         public SplitResponseProcessorDescriptor PreserveTrailing(bool? preserveTrailing = true) =>
             Assign(preserveTrailing, (a, val) => a.PreserveTrailing = val);
 
         public SplitResponseProcessorDescriptor Separator(string separator) =>
             Assign(separator, (a, val) => a.Separator = val);
+
+        public SplitResponseProcessorDescriptor Tag(string tag) =>
+            Assign(tag, (a, val) => a.Tag = val);
 
         public SplitResponseProcessorDescriptor TargetField(string targetField) =>
             Assign(targetField, (a, val) => a.TargetField = val);

@@ -52,6 +52,15 @@ namespace OpenSearch.Client
     {
         [DataMember(Name = "agent_id")]
         string AgentId { get; set; }
+
+        [DataMember(Name = "description")]
+        string Description { get; set; }
+
+        [DataMember(Name = "ignore_failure")]
+        bool? IgnoreFailure { get; set; }
+
+        [DataMember(Name = "tag")]
+        string Tag { get; set; }
     }
 
     /// <inheritdoc cref="IAgenticQueryTranslatorRequestProcessor" />
@@ -59,6 +68,9 @@ namespace OpenSearch.Client
     {
         string IRequestProcessor.Name => "agentic_query_translator";
         public string AgentId { get; set; }
+        public string Description { get; set; }
+        public bool? IgnoreFailure { get; set; }
+        public string Tag { get; set; }
     }
 
     /// <inheritdoc cref="IAgenticQueryTranslatorRequestProcessor" />
@@ -71,23 +83,48 @@ namespace OpenSearch.Client
     {
         string IRequestProcessor.Name => null;
         string IAgenticQueryTranslatorRequestProcessor.AgentId { get; set; }
+        string IAgenticQueryTranslatorRequestProcessor.Description { get; set; }
+        bool? IAgenticQueryTranslatorRequestProcessor.IgnoreFailure { get; set; }
+        string IAgenticQueryTranslatorRequestProcessor.Tag { get; set; }
 
         public AgenticQueryTranslatorRequestProcessorDescriptor AgentId(string agentId) =>
             Assign(agentId, (a, val) => a.AgentId = val);
+
+        public AgenticQueryTranslatorRequestProcessorDescriptor Description(string description) =>
+            Assign(description, (a, val) => a.Description = val);
+
+        public AgenticQueryTranslatorRequestProcessorDescriptor IgnoreFailure(
+            bool? ignoreFailure = true
+        ) => Assign(ignoreFailure, (a, val) => a.IgnoreFailure = val);
+
+        public AgenticQueryTranslatorRequestProcessorDescriptor Tag(string tag) =>
+            Assign(tag, (a, val) => a.Tag = val);
     }
 
     [InterfaceDataContract]
     public interface IFilterQueryRequestProcessor : IRequestProcessor
     {
+        [DataMember(Name = "description")]
+        string Description { get; set; }
+
+        [DataMember(Name = "ignore_failure")]
+        bool? IgnoreFailure { get; set; }
+
         [DataMember(Name = "query")]
         IQueryContainer Query { get; set; }
+
+        [DataMember(Name = "tag")]
+        string Tag { get; set; }
     }
 
     /// <inheritdoc cref="IFilterQueryRequestProcessor" />
     public class FilterQueryRequestProcessor : IFilterQueryRequestProcessor
     {
         string IRequestProcessor.Name => "filter_query";
+        public string Description { get; set; }
+        public bool? IgnoreFailure { get; set; }
         public IQueryContainer Query { get; set; }
+        public string Tag { get; set; }
     }
 
     /// <inheritdoc cref="IFilterQueryRequestProcessor" />
@@ -96,10 +133,22 @@ namespace OpenSearch.Client
             IFilterQueryRequestProcessor
     {
         string IRequestProcessor.Name => null;
+        string IFilterQueryRequestProcessor.Description { get; set; }
+        bool? IFilterQueryRequestProcessor.IgnoreFailure { get; set; }
         IQueryContainer IFilterQueryRequestProcessor.Query { get; set; }
+        string IFilterQueryRequestProcessor.Tag { get; set; }
+
+        public FilterQueryRequestProcessorDescriptor Description(string description) =>
+            Assign(description, (a, val) => a.Description = val);
+
+        public FilterQueryRequestProcessorDescriptor IgnoreFailure(bool? ignoreFailure = true) =>
+            Assign(ignoreFailure, (a, val) => a.IgnoreFailure = val);
 
         public FilterQueryRequestProcessorDescriptor Query(IQueryContainer query) =>
             Assign(query, (a, val) => a.Query = val);
+
+        public FilterQueryRequestProcessorDescriptor Tag(string tag) =>
+            Assign(tag, (a, val) => a.Tag = val);
     }
 
     [InterfaceDataContract]
@@ -108,8 +157,14 @@ namespace OpenSearch.Client
         [DataMember(Name = "default_model_id")]
         string DefaultModelId { get; set; }
 
+        [DataMember(Name = "description")]
+        string Description { get; set; }
+
         [DataMember(Name = "neural_field_default_id")]
         IDictionary<string, string> NeuralFieldDefaultId { get; set; }
+
+        [DataMember(Name = "tag")]
+        string Tag { get; set; }
     }
 
     /// <inheritdoc cref="INeuralQueryEnricherRequestProcessor" />
@@ -117,7 +172,9 @@ namespace OpenSearch.Client
     {
         string IRequestProcessor.Name => "neural_query_enricher";
         public string DefaultModelId { get; set; }
+        public string Description { get; set; }
         public IDictionary<string, string> NeuralFieldDefaultId { get; set; }
+        public string Tag { get; set; }
     }
 
     /// <inheritdoc cref="INeuralQueryEnricherRequestProcessor" />
@@ -130,36 +187,56 @@ namespace OpenSearch.Client
     {
         string IRequestProcessor.Name => null;
         string INeuralQueryEnricherRequestProcessor.DefaultModelId { get; set; }
+        string INeuralQueryEnricherRequestProcessor.Description { get; set; }
         IDictionary<
             string,
             string
         > INeuralQueryEnricherRequestProcessor.NeuralFieldDefaultId { get; set; }
+        string INeuralQueryEnricherRequestProcessor.Tag { get; set; }
 
         public NeuralQueryEnricherRequestProcessorDescriptor DefaultModelId(
             string defaultModelId
         ) => Assign(defaultModelId, (a, val) => a.DefaultModelId = val);
 
+        public NeuralQueryEnricherRequestProcessorDescriptor Description(string description) =>
+            Assign(description, (a, val) => a.Description = val);
+
         public NeuralQueryEnricherRequestProcessorDescriptor NeuralFieldDefaultId(
             IDictionary<string, string> neuralFieldDefaultId
         ) => Assign(neuralFieldDefaultId, (a, val) => a.NeuralFieldDefaultId = val);
+
+        public NeuralQueryEnricherRequestProcessorDescriptor Tag(string tag) =>
+            Assign(tag, (a, val) => a.Tag = val);
     }
 
     [InterfaceDataContract]
     public interface ISearchScriptRequestProcessor : IRequestProcessor
     {
+        [DataMember(Name = "description")]
+        string Description { get; set; }
+
+        [DataMember(Name = "ignore_failure")]
+        bool? IgnoreFailure { get; set; }
+
         [DataMember(Name = "lang")]
         string Lang { get; set; }
 
         [DataMember(Name = "source")]
         string Source { get; set; }
+
+        [DataMember(Name = "tag")]
+        string Tag { get; set; }
     }
 
     /// <inheritdoc cref="ISearchScriptRequestProcessor" />
     public class SearchScriptRequestProcessor : ISearchScriptRequestProcessor
     {
         string IRequestProcessor.Name => "script";
+        public string Description { get; set; }
+        public bool? IgnoreFailure { get; set; }
         public string Lang { get; set; }
         public string Source { get; set; }
+        public string Tag { get; set; }
     }
 
     /// <inheritdoc cref="ISearchScriptRequestProcessor" />
@@ -168,14 +245,26 @@ namespace OpenSearch.Client
             ISearchScriptRequestProcessor
     {
         string IRequestProcessor.Name => null;
+        string ISearchScriptRequestProcessor.Description { get; set; }
+        bool? ISearchScriptRequestProcessor.IgnoreFailure { get; set; }
         string ISearchScriptRequestProcessor.Lang { get; set; }
         string ISearchScriptRequestProcessor.Source { get; set; }
+        string ISearchScriptRequestProcessor.Tag { get; set; }
+
+        public SearchScriptRequestProcessorDescriptor Description(string description) =>
+            Assign(description, (a, val) => a.Description = val);
+
+        public SearchScriptRequestProcessorDescriptor IgnoreFailure(bool? ignoreFailure = true) =>
+            Assign(ignoreFailure, (a, val) => a.IgnoreFailure = val);
 
         public SearchScriptRequestProcessorDescriptor Lang(string lang) =>
             Assign(lang, (a, val) => a.Lang = val);
 
         public SearchScriptRequestProcessorDescriptor Source(string source) =>
             Assign(source, (a, val) => a.Source = val);
+
+        public SearchScriptRequestProcessorDescriptor Tag(string tag) =>
+            Assign(tag, (a, val) => a.Tag = val);
     }
 
     [InterfaceDataContract]
@@ -184,8 +273,17 @@ namespace OpenSearch.Client
         [DataMember(Name = "content_prefix")]
         string ContentPrefix { get; set; }
 
+        [DataMember(Name = "description")]
+        string Description { get; set; }
+
+        [DataMember(Name = "ignore_failure")]
+        bool? IgnoreFailure { get; set; }
+
         [DataMember(Name = "sample_factor")]
         float? SampleFactor { get; set; }
+
+        [DataMember(Name = "tag")]
+        string Tag { get; set; }
     }
 
     /// <inheritdoc cref="IOversampleRequestProcessor" />
@@ -193,7 +291,10 @@ namespace OpenSearch.Client
     {
         string IRequestProcessor.Name => "oversample";
         public string ContentPrefix { get; set; }
+        public string Description { get; set; }
+        public bool? IgnoreFailure { get; set; }
         public float? SampleFactor { get; set; }
+        public string Tag { get; set; }
     }
 
     /// <inheritdoc cref="IOversampleRequestProcessor" />
@@ -203,13 +304,25 @@ namespace OpenSearch.Client
     {
         string IRequestProcessor.Name => null;
         string IOversampleRequestProcessor.ContentPrefix { get; set; }
+        string IOversampleRequestProcessor.Description { get; set; }
+        bool? IOversampleRequestProcessor.IgnoreFailure { get; set; }
         float? IOversampleRequestProcessor.SampleFactor { get; set; }
+        string IOversampleRequestProcessor.Tag { get; set; }
 
         public OversampleRequestProcessorDescriptor ContentPrefix(string contentPrefix) =>
             Assign(contentPrefix, (a, val) => a.ContentPrefix = val);
 
+        public OversampleRequestProcessorDescriptor Description(string description) =>
+            Assign(description, (a, val) => a.Description = val);
+
+        public OversampleRequestProcessorDescriptor IgnoreFailure(bool? ignoreFailure = true) =>
+            Assign(ignoreFailure, (a, val) => a.IgnoreFailure = val);
+
         public OversampleRequestProcessorDescriptor SampleFactor(float? sampleFactor) =>
             Assign(sampleFactor, (a, val) => a.SampleFactor = val);
+
+        public OversampleRequestProcessorDescriptor Tag(string tag) =>
+            Assign(tag, (a, val) => a.Tag = val);
     }
 
     // ──────────────────────────────────────────────────────────────────────
