@@ -468,7 +468,7 @@ namespace OpenSearch.Net.Specification.MlApi
         public override string OperationName => "ml.get_stats";
     }
 
-    /// <summary>Request options for GetTask</summary>
+    /// <summary>Request options for GetMLTask</summary>
     public partial class GetTaskRequestParameters : RequestParameters<GetTaskRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;

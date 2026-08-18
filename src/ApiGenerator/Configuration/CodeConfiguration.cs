@@ -73,7 +73,7 @@ namespace ApiGenerator.Configuration
         /// </summary>
         public static readonly Dictionary<string, string> HighLevelOnlyApiNameOverrides = new()
         {
-            { "ml.get_task", "GetMlTask" },
+            { "ml.get_task", "GetMLTask" },
             // Disambiguates search_pipeline operations from generic Put/Get/Delete names.
             { "search_pipeline.put",    "PutSearchPipeline" },
             { "search_pipeline.get",    "GetSearchPipeline" },

@@ -1704,9 +1704,9 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        GetMlTaskResponse GetTask(
+        GetMLTaskResponse GetMLTask(
             Id taskId,
-            Func<GetMlTaskDescriptor, IGetMlTaskRequest> selector = null
+            Func<GetMLTaskDescriptor, IGetMLTaskRequest> selector = null
         );
 
         /// <summary>
@@ -1715,9 +1715,9 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        Task<GetMlTaskResponse> GetTaskAsync(
+        Task<GetMLTaskResponse> GetMLTaskAsync(
             Id taskId,
-            Func<GetMlTaskDescriptor, IGetMlTaskRequest> selector = null,
+            Func<GetMLTaskDescriptor, IGetMLTaskRequest> selector = null,
             CancellationToken ct = default
         );
 
@@ -1727,7 +1727,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        GetMlTaskResponse GetTask(IGetMlTaskRequest request);
+        GetMLTaskResponse GetMLTask(IGetMLTaskRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_task</c> API, read more about this API online:
@@ -1735,8 +1735,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        Task<GetMlTaskResponse> GetTaskAsync(
-            IGetMlTaskRequest request,
+        Task<GetMLTaskResponse> GetMLTaskAsync(
+            IGetMLTaskRequest request,
             CancellationToken ct = default
         );
 
@@ -5231,10 +5231,10 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        public GetMlTaskResponse GetTask(
+        public GetMLTaskResponse GetMLTask(
             Id taskId,
-            Func<GetMlTaskDescriptor, IGetMlTaskRequest> selector = null
-        ) => GetTask(selector.InvokeOrDefault(new GetMlTaskDescriptor(taskId: taskId)));
+            Func<GetMLTaskDescriptor, IGetMLTaskRequest> selector = null
+        ) => GetMLTask(selector.InvokeOrDefault(new GetMLTaskDescriptor(taskId: taskId)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_task</c> API, read more about this API online:
@@ -5242,11 +5242,11 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        public Task<GetMlTaskResponse> GetTaskAsync(
+        public Task<GetMLTaskResponse> GetMLTaskAsync(
             Id taskId,
-            Func<GetMlTaskDescriptor, IGetMlTaskRequest> selector = null,
+            Func<GetMLTaskDescriptor, IGetMLTaskRequest> selector = null,
             CancellationToken ct = default
-        ) => GetTaskAsync(selector.InvokeOrDefault(new GetMlTaskDescriptor(taskId: taskId)), ct);
+        ) => GetMLTaskAsync(selector.InvokeOrDefault(new GetMLTaskDescriptor(taskId: taskId)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_task</c> API, read more about this API online:
@@ -5254,8 +5254,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        public GetMlTaskResponse GetTask(IGetMlTaskRequest request) =>
-            DoRequest<IGetMlTaskRequest, GetMlTaskResponse>(request, request.RequestParameters);
+        public GetMLTaskResponse GetMLTask(IGetMLTaskRequest request) =>
+            DoRequest<IGetMLTaskRequest, GetMLTaskResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_task</c> API, read more about this API online:
@@ -5263,11 +5263,11 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        public Task<GetMlTaskResponse> GetTaskAsync(
-            IGetMlTaskRequest request,
+        public Task<GetMLTaskResponse> GetMLTaskAsync(
+            IGetMLTaskRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetMlTaskRequest, GetMlTaskResponse>(
+            DoRequestAsync<IGetMLTaskRequest, GetMLTaskResponse>(
                 request,
                 request.RequestParameters,
                 ct
