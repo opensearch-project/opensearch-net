@@ -1023,7 +1023,7 @@ paths:
       x-operation-group: cat.segment_replication
       x-version-added: '2.6'
       description: |-
-        Returns information about active and last-completed segment replication events on each replica shard, including related shard-level metrics.
+        Returns information about active and last-completed segment replication events on each replica shard, including related shard-level metrics. 
         These metrics provide information about how far behind the primary shard the replicas are lagging.
       externalDocs:
         url: https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/
@@ -1059,7 +1059,7 @@ paths:
       x-operation-group: cat.segment_replication
       x-version-added: '2.6'
       description: |-
-        Returns information about active and last-completed segment replication events on each replica shard, including related shard-level metrics.
+        Returns information about active and last-completed segment replication events on each replica shard, including related shard-level metrics. 
         These metrics provide information about how far behind the primary shard the replicas are lagging.
       externalDocs:
         url: https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/
@@ -18079,8 +18079,8 @@ components:
       name: keep_alive
       in: query
       description: |-
-        The amount of time that the result is saved in the cluster. For example, `2d` means that the results are stored in the cluster for 48 hours.
-        The saved search results are deleted after this period or if the search is canceled. Note that this includes the query execution time.
+        The amount of time that the result is saved in the cluster. For example, `2d` means that the results are stored in the cluster for 48 hours. 
+        The saved search results are deleted after this period or if the search is canceled. Note that this includes the query execution time. 
         If the query exceeds this amount of time, the process cancels this query automatically.
       schema:
         type: string
@@ -19928,7 +19928,7 @@ components:
       name: nodes
       in: query
       description: |-
-        A comma-separated list of node IDs or names used to limit the returned information.
+        A comma-separated list of node IDs or names used to limit the returned information. 
         Use `_local` to return information from the node to which you're connecting, specify a specific node from which to get information, or keep the parameter empty to get information from all nodes.
       style: form
       schema:
@@ -19936,7 +19936,7 @@ components:
         items:
           type: string
         description: |-
-          A comma-separated list of node IDs or names used to limit the returned information.
+          A comma-separated list of node IDs or names used to limit the returned information. 
           Use `_local` to return information from the node to which you're connecting, specify a specific node from which to get information, or keep the parameter empty to get information from all nodes.
     cat.tasks___query.parent_task_id:
       in: query
@@ -22690,7 +22690,7 @@ components:
       in: query
       name: wait_for_active_shards
       description: |-
-        The number of shard copies that must be active before proceeding with the operation.
+        The number of shard copies that must be active before proceeding with the operation. 
         Set to `all` or any positive integer up to the total number of shards in the index (`number_of_replicas+1`).
       schema:
         $ref: '#/components/schemas/_common___WaitForActiveShards'
@@ -27057,7 +27057,7 @@ components:
       name: flat_stat_paths
       description: |-
         Whether to return stats in the flat form, which can improve readability, especially for heavily nested stats.
-        For example, the flat form of `"processors": { "ingest": { "text_embedding_executions": 20181212 } }` is
+        For example, the flat form of `"processors": { "ingest": { "text_embedding_executions": 20181212 } }` is 
         `"processors.ingest.text_embedding_executions": "20181212"`.
       schema:
         type: boolean
@@ -31429,7 +31429,7 @@ components:
                 type: string
               on_failure:
                 description: |-
-                  The new processor to run immediately after another processor fails. The processors specified in the `on_failure` parameter run sequentially in the order specified.
+                  The new processor to run immediately after another processor fails. The processors specified in the `on_failure` parameter run sequentially in the order specified. 
                   If no pipeline are specified in `on_failure` array is specified, OpenSearch will not attempt to run the pipeline's remaining processors.
                 type: array
                 items:
@@ -33213,13 +33213,13 @@ components:
             properties:
               ignore_unavailable:
                 description: |-
-                  When `true`, the request ignores any data streams and indexes that are missing or closed.
+                  When `true`, the request ignores any data streams and indexes that are missing or closed. 
                   When `false`, the request returns an error for any data streams or indexes that is missing or closed.
                 type: boolean
               include_global_state:
                 description: |-
-                  When `true`, includes the current cluster state in the snapshot.
-                  The cluster state includes persistent cluster settings, composable index templates, legacy index templates, ingest pipelines, and ILM policies.
+                  When `true`, includes the current cluster state in the snapshot. 
+                  The cluster state includes persistent cluster settings, composable index templates, legacy index templates, ingest pipelines, and ILM policies. 
                   The cluster state also includes data stored in system indexes, such as watches and task records (configurable with `feature_states`).
                 type: boolean
                 default: true
@@ -33227,7 +33227,7 @@ components:
                 $ref: '#/components/schemas/_common___Indices'
               feature_states:
                 description: |-
-                  A list of feature states to include in the snapshot. Each feature state includes one or more system indexes which contain related data. You can view a list of features using the Get Feature API.
+                  A list of feature states to include in the snapshot. Each feature state includes one or more system indexes which contain related data. You can view a list of features using the Get Feature API.  
                   If `include_global_state` is `true`, all current feature states are included by default. If `include_global_state` is `false`, no feature states are included by default.
                 type: array
                 items:
@@ -33236,8 +33236,8 @@ components:
                 $ref: '#/components/schemas/_common___Metadata'
               partial:
                 description: |-
-                  When `true`, enables the restoration of a partial snapshot from indexes with unavailable shards.
-                  Only shards that were successfully included in the snapshot will be restored. All missing shards will be recreated as empty.
+                  When `true`, enables the restoration of a partial snapshot from indexes with unavailable shards. 
+                  Only shards that were successfully included in the snapshot will be restored. All missing shards will be recreated as empty. 
                   When `false`, the entire restore operation will fail if one or more indexes included in the snapshot do not have all primary shards available.
                 type: boolean
                 default: false
@@ -33274,26 +33274,26 @@ components:
                 type: boolean
                 default: false
                 description: |-
-                  How to handle data streams or indexes that are missing or closed.
-                  When `false`, the request returns an error for any data stream or index that is missing or closed.
-                  When `true`, the request ignores data streams and indexes in indexes that are missing or closed.
+                  How to handle data streams or indexes that are missing or closed. 
+                  When `false`, the request returns an error for any data stream or index that is missing or closed. 
+                  When `true`, the request ignores data streams and indexes in indexes that are missing or closed. 
               include_aliases:
                 type: boolean
                 default: true
                 description: |-
-                  How to handle index aliases from the original snapshot.
-                  When `true`, index aliases from the original snapshot are restored.
-                  When `false`, aliases along with associated indexes are not restored.
+                  How to handle index aliases from the original snapshot. 
+                  When `true`, index aliases from the original snapshot are restored. 
+                  When `false`, aliases along with associated indexes are not restored. 
               include_global_state:
                 type: boolean
                 default: false
                 description: |-
-                  Whether to restore the current cluster state. When `false`, the cluster state is not restored.
-                  When `true`, the current cluster state is restored.
+                  Whether to restore the current cluster state. When `false`, the cluster state is not restored. 
+                  When `true`, the current cluster state is restored. 
               index_settings:
                 description: |-
-                  A comma-delimited list of settings to add or change in all restored indexes.
-                  Use this parameter to override index settings during snapshot restoration.
+                  A comma-delimited list of settings to add or change in all restored indexes. 
+                  Use this parameter to override index settings during snapshot restoration. 
                   For data streams, these index settings are applied to the restored backing indexes.
                 $ref: '#/components/schemas/indices._common___IndexSettings'
               indices:
@@ -33304,7 +33304,7 @@ components:
                 description: |-
                   How the restore operation will behave if indexes in the snapshot do not have all primary shards available.
                   When `false`, the entire restore operation fails if any indexes in the snapshot do not have all primary shards available.
-                  When `true`, allows the restoration of a partial snapshot of indexes with unavailable shards. Only shards that were successfully included in the snapshot are restored.
+                  When `true`, allows the restoration of a partial snapshot of indexes with unavailable shards. Only shards that were successfully included in the snapshot are restored. 
                   All missing shards are recreated as empty. By default, the entire restore operation fails if one or more indexes included in the snapshot do not have all primary shards available. To change this behavior, set `partial` to `true`.
               rename_pattern:
                 type: string
@@ -34050,7 +34050,7 @@ components:
                   state:
                     description: |-
                       Shows the internal representation of the structure, which can
-                      differ from the external representation.
+                      differ from the external representation.                  
       description: ''
     cluster.state___200:
       content:
