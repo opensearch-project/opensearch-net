@@ -56,7 +56,8 @@ public sealed class OperationModel
         var pathParamNames = new HashSet<string>(
             groupModel.PathParameters.Select(p => p.Name),
             StringComparer.Ordinal);
-        var requestProps = BuildProperties(requestSchema, resolver, skipWireNames: pathParamNames);
+        var requestProps = BuildProperties(requestSchema, resolver, skipWireNames: pathParamNames,
+            plugin: registry, operationGroup: operationGroup);
         var versionAdded = groupModel.VersionAdded;
         var request = new RequestModel(operationGroup + "___RequestBody", requestCsharpName, requestProps, versionAdded);
 
@@ -163,7 +164,9 @@ public sealed class OperationModel
     private static IReadOnlyList<ModelProperty> BuildProperties(
         JsonSchema schema, ModelTypeResolver resolver,
         HashSet<string>? skipWireNames = null,
-        bool isResponse = false)
+        bool isResponse = false,
+        IModelOverrides? plugin = null,
+        string? operationGroup = null)
     {
         var requiredNames = new HashSet<string>(
             schema.RequiredProperties ?? Enumerable.Empty<string>(),
@@ -180,6 +183,14 @@ public sealed class OperationModel
                 var typeRef = resolver.ResolveTypeRef(p.Value);
                 var csharpType = typeRef.ToCsharp();
                 var isRequired = requiredNames.Contains(wireName);
+
+                // Property-level type override: check "{operationGroup}.{wireName}" key
+                if (plugin?.PropertyTypeOverrides != null && operationGroup != null)
+                {
+                    var overrideKey = $"{operationGroup}.{wireName}";
+                    if (plugin.PropertyTypeOverrides.TryGetValue(overrideKey, out var overrideType))
+                        csharpType = overrideType;
+                }
 
                 string? jsonFormatterType = null;
                 if (isResponse && ResponseBaseReservedWireNames.TryGetValue(wireName, out var prefix))

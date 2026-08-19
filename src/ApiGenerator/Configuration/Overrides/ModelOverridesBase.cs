@@ -66,6 +66,9 @@ public abstract class ModelOverridesBase : IModelOverrides
 
     public virtual ISet<string> SuppressedUnionSchemaIds { get; } = new HashSet<string>(StringComparer.Ordinal);
 
+    public virtual IDictionary<string, string> PropertyTypeOverrides { get; } =
+        new Dictionary<string, string>(StringComparer.Ordinal);
+
     public string? MappedCsharpType(string schemaId)
     {
         if (MappedTypes.TryGetValue(schemaId, out var t)) return t;
