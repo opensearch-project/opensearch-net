@@ -108,10 +108,16 @@ public sealed class NamespaceModel
                 .Select(p =>
                 {
                     var typeRef = resolver.ResolveTypeRef(p.Value);
+                    var csharpType = typeRef.ToCsharp();
+
+                    // Global schema-scoped property type override
+                    var overrideType = plugin.ResolvePropertyTypeOverride("", p.Key, id);
+                    if (overrideType != null) csharpType = overrideType;
+
                     return new ModelProperty(
                         WireName: p.Key,
                         CsharpName: ToPascal(p.Key),
-                        CsharpType: typeRef.ToCsharp(),
+                        CsharpType: csharpType,
                         Type: typeRef,
                         IsRequired: requiredNames.Contains(p.Key),
                         Description: p.Value.ActualSchema.Description,

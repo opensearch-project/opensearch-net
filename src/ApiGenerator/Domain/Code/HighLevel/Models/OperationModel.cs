@@ -166,7 +166,8 @@ public sealed class OperationModel
         HashSet<string>? skipWireNames = null,
         bool isResponse = false,
         IModelOverrides? plugin = null,
-        string? operationGroup = null)
+        string? operationGroup = null,
+        string? bodySchemaId = null)
     {
         var requiredNames = new HashSet<string>(
             schema.RequiredProperties ?? Enumerable.Empty<string>(),
@@ -184,11 +185,11 @@ public sealed class OperationModel
                 var csharpType = typeRef.ToCsharp();
                 var isRequired = requiredNames.Contains(wireName);
 
-                // Property-level type override: check "{operationGroup}.{wireName}" key
-                if (plugin?.PropertyTypeOverrides != null && operationGroup != null)
+                // Property-level type override: per-plugin (operation-scoped) + global (schema-scoped)
+                if (plugin != null && operationGroup != null)
                 {
-                    var overrideKey = $"{operationGroup}.{wireName}";
-                    if (plugin.PropertyTypeOverrides.TryGetValue(overrideKey, out var overrideType))
+                    var overrideType = plugin.ResolvePropertyTypeOverride(operationGroup, wireName, bodySchemaId);
+                    if (overrideType != null)
                         csharpType = overrideType;
                 }
 
