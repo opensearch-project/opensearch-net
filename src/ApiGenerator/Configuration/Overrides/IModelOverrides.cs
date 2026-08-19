@@ -109,4 +109,10 @@ public interface IModelOverrides
 
     string? MappedCsharpType(string schemaId);
     string? RenamedCsharpName(string schemaId);
+
+    /// <summary>
+    /// Resolves a property-level type override by checking per-plugin (operation-scoped)
+    /// and global (schema-scoped) overrides.
+    /// </summary>
+    string? ResolvePropertyTypeOverride(string operationGroup, string wireName, string? schemaId);
 }

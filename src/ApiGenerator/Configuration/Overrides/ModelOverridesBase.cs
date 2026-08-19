@@ -46,6 +46,20 @@ public abstract class ModelOverridesBase : IModelOverrides
         ["_common___Result"] = "Result",
     };
 
+    /// <summary>
+    /// Global property-level type overrides keyed by <c>"{schemaId}.{propertyName}"</c>.
+    /// Applies to any generated property that comes from the specified schema, regardless
+    /// of which operation or namespace uses it. Use for shared schema properties that always
+    /// map to a specific hand-written wrapper type (e.g. TypeMapping.properties → IProperties).
+    /// </summary>
+    private static readonly Dictionary<string, string> GlobalPropertyTypeOverrides = new(StringComparer.Ordinal)
+    {
+        // TypeMapping wrapper types
+        ["_common.mapping___TypeMapping.properties"] = "IProperties",
+        ["_common.mapping___TypeMapping.dynamic_templates"] = "IDynamicTemplateContainer",
+        ["_common.mapping___TypeMapping.dynamic"] = "Union<bool, DynamicMapping>",
+    };
+
     // ── Generation scope defaults ──────────────────────────────────────────────
     public abstract string Namespace { get; }
     public abstract string OutputFolder { get; }
@@ -73,6 +87,28 @@ public abstract class ModelOverridesBase : IModelOverrides
     {
         if (MappedTypes.TryGetValue(schemaId, out var t)) return t;
         if (GlobalMappedTypes.TryGetValue(schemaId, out t)) return t;
+        return null;
+    }
+
+    /// <summary>
+    /// Resolves a property-level type override. Checks (in order):
+    /// 1. Per-plugin PropertyTypeOverrides with operation-scoped key ("{operationGroup}.{wireName}")
+    /// 2. GlobalPropertyTypeOverrides with schema-scoped key ("{schemaId}.{wireName}")
+    /// Returns null if no override exists.
+    /// </summary>
+    public string? ResolvePropertyTypeOverride(string operationGroup, string wireName, string? schemaId)
+    {
+        // Per-plugin operation-scoped override (most specific)
+        var opKey = $"{operationGroup}.{wireName}";
+        if (PropertyTypeOverrides.TryGetValue(opKey, out var t)) return t;
+
+        // Global schema-scoped override
+        if (schemaId != null)
+        {
+            var schemaKey = $"{schemaId}.{wireName}";
+            if (GlobalPropertyTypeOverrides.TryGetValue(schemaKey, out t)) return t;
+        }
+
         return null;
     }
 
