@@ -53,7 +53,7 @@ namespace OpenSearch.Client
         string ResponseValidationRegex { get; set; }
 
         [DataMember(Name = "source_fields")]
-        object SourceFields { get; set; }
+        Fields SourceFields { get; set; }
 
         [DataMember(Name = "stop_words")]
         object StopWords { get; set; }
@@ -71,7 +71,7 @@ namespace OpenSearch.Client
         public IDictionary<string, object> Regex { get; set; }
         public string ResponseFilter { get; set; }
         public string ResponseValidationRegex { get; set; }
-        public object SourceFields { get; set; }
+        public Fields SourceFields { get; set; }
         public object StopWords { get; set; }
         public GuardrailsType? Type { get; set; }
     }
@@ -87,7 +87,7 @@ namespace OpenSearch.Client
         IDictionary<string, object> IGuardrails.Regex { get; set; }
         string IGuardrails.ResponseFilter { get; set; }
         string IGuardrails.ResponseValidationRegex { get; set; }
-        object IGuardrails.SourceFields { get; set; }
+        Fields IGuardrails.SourceFields { get; set; }
         object IGuardrails.StopWords { get; set; }
         GuardrailsType? IGuardrails.Type { get; set; }
 
@@ -112,7 +112,7 @@ namespace OpenSearch.Client
         public GuardrailsDescriptor ResponseValidationRegex(string responseValidationRegex) =>
             Assign(responseValidationRegex, (a, v) => a.ResponseValidationRegex = v);
 
-        public GuardrailsDescriptor SourceFields(object sourceFields) =>
+        public GuardrailsDescriptor SourceFields(Fields sourceFields) =>
             Assign(sourceFields, (a, v) => a.SourceFields = v);
 
         public GuardrailsDescriptor StopWords(object stopWords) =>

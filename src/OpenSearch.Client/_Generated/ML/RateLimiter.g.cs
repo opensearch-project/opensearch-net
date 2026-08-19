@@ -32,7 +32,7 @@ namespace OpenSearch.Client
     public interface IRateLimiter
     {
         [DataMember(Name = "limit")]
-        object Limit { get; set; }
+        string Limit { get; set; }
 
         [DataMember(Name = "unit")]
         RateLimiterUnit? Unit { get; set; }
@@ -40,7 +40,7 @@ namespace OpenSearch.Client
 
     public class RateLimiter : IRateLimiter
     {
-        public object Limit { get; set; }
+        public string Limit { get; set; }
         public RateLimiterUnit? Unit { get; set; }
     }
 
@@ -48,10 +48,10 @@ namespace OpenSearch.Client
         : DescriptorBase<RateLimiterDescriptor, IRateLimiter>,
             IRateLimiter
     {
-        object IRateLimiter.Limit { get; set; }
+        string IRateLimiter.Limit { get; set; }
         RateLimiterUnit? IRateLimiter.Unit { get; set; }
 
-        public RateLimiterDescriptor Limit(object limit) => Assign(limit, (a, v) => a.Limit = v);
+        public RateLimiterDescriptor Limit(string limit) => Assign(limit, (a, v) => a.Limit = v);
 
         public RateLimiterDescriptor Unit(RateLimiterUnit? unit) =>
             Assign(unit, (a, v) => a.Unit = v);
