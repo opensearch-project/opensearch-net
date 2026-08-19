@@ -540,3 +540,39 @@ The `--branch` value selects the spec release tag:
 3. `./build.sh codegen --branch main --include-high-level` without downloading a new spec.
 4. `git diff --exit-code` after regeneration (infrastructure-only phases must produce no diff).
 5. Full repository build and test per `DEVELOPER_GUIDE.md`.
+
+## Known Limitations & Future Work
+
+### Property-level type overrides (field-level override)
+
+**Status:** Pending
+
+The current `MappedTypes` mechanism maps **schema IDs** to C# types globally. This works for named `$ref` schemas (`_common___IndexName` → `IndexName`, `indices._common___IndexSettings` → `IIndexSettings`).
+
+However, some properties use **inline schemas** that have no named component ID — most notably:
+
+```yaml
+aliases:
+  type: object
+  additionalProperties:
+    $ref: '#/components/schemas/indices._common___Alias'
+```
+
+The generator emits `IDictionary<string, IAlias>` (correct on the wire), but the hand-written code uses `IAliases` — a wrapper dictionary type with:
+- `IndexName` keys (vs raw `string`)
+- `VerbatimDictionaryKeysFormatter` for serialization
+- `AliasesDescriptor` fluent builder
+
+**Why it can't be fixed with `MappedTypes`:** There is no schema ID to key on. The `aliases` property is inline in the request body — not a `$ref` to a named component.
+
+**Proposed solution:** Add a `PropertyTypeOverrides` dictionary to `IModelOverrides`:
+
+```csharp
+/// Key: "{operationGroup}.{propertyName}" (e.g. "indices.create.aliases")
+/// Value: C# type name (e.g. "IAliases")
+IDictionary<string, string> PropertyTypeOverrides { get; }
+```
+
+The `OperationModel.Build()` step would check this dictionary after resolving the default type from the spec, allowing per-property overrides for wrapper types, custom formatters, etc.
+
+**Affected types:** `IAliases`, `ISort` (oneOf union), `Indices` (when used inline without `$ref`).
