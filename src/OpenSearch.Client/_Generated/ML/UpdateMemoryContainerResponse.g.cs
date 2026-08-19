@@ -32,10 +32,10 @@ namespace OpenSearch.Client
     public class UpdateMemoryContainerResponse : ResponseBase
     {
         [DataMember(Name = "_id")]
-        public string Id { get; internal set; }
+        public Id Id { get; internal set; }
 
         [DataMember(Name = "_index")]
-        public string Index { get; internal set; }
+        public IndexName Index { get; internal set; }
 
         [DataMember(Name = "_primary_term")]
         public long? PrimaryTerm { get; internal set; }

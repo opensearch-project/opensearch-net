@@ -29,27 +29,27 @@ namespace OpenSearch.Client
     public partial interface IUnloadModelRequest
     {
         [DataMember(Name = "model_ids")]
-        IList<string> ModelIds { get; set; }
+        IList<Id> ModelIds { get; set; }
 
         [DataMember(Name = "node_ids")]
-        IList<string> NodeIds { get; set; }
+        IList<Id> NodeIds { get; set; }
     }
 
     public partial class UnloadModelRequest
     {
-        public IList<string> ModelIds { get; set; }
-        public IList<string> NodeIds { get; set; }
+        public IList<Id> ModelIds { get; set; }
+        public IList<Id> NodeIds { get; set; }
     }
 
     public partial class UnloadModelDescriptor
     {
-        IList<string> IUnloadModelRequest.ModelIds { get; set; }
-        IList<string> IUnloadModelRequest.NodeIds { get; set; }
+        IList<Id> IUnloadModelRequest.ModelIds { get; set; }
+        IList<Id> IUnloadModelRequest.NodeIds { get; set; }
 
-        public UnloadModelDescriptor ModelIds(IList<string> modelIds) =>
+        public UnloadModelDescriptor ModelIds(IList<Id> modelIds) =>
             Assign(modelIds, (a, v) => a.ModelIds = v);
 
-        public UnloadModelDescriptor NodeIds(IList<string> nodeIds) =>
+        public UnloadModelDescriptor NodeIds(IList<Id> nodeIds) =>
             Assign(nodeIds, (a, v) => a.NodeIds = v);
     }
 }

@@ -32,6 +32,6 @@ namespace OpenSearch.Client
     public class CreateMessageResponse : ResponseBase
     {
         [DataMember(Name = "message_id")]
-        public string MessageId { get; internal set; }
+        public Name MessageId { get; internal set; }
     }
 }

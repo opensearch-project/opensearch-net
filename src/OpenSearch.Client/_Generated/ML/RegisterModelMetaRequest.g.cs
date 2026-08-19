@@ -45,7 +45,7 @@ namespace OpenSearch.Client
         ModelFormat? ModelFormat { get; set; }
 
         [DataMember(Name = "model_group_id")]
-        string ModelGroupId { get; set; }
+        Id ModelGroupId { get; set; }
 
         [DataMember(Name = "name")]
         string Name { get; set; }
@@ -69,7 +69,7 @@ namespace OpenSearch.Client
         public IModelConfig ModelConfig { get; set; }
         public string ModelContentHashValue { get; set; }
         public ModelFormat? ModelFormat { get; set; }
-        public string ModelGroupId { get; set; }
+        public Id ModelGroupId { get; set; }
         public string Name { get; set; }
         public long? TotalChunks { get; set; }
         public string Url { get; set; }
@@ -83,7 +83,7 @@ namespace OpenSearch.Client
         IModelConfig IRegisterModelMetaRequest.ModelConfig { get; set; }
         string IRegisterModelMetaRequest.ModelContentHashValue { get; set; }
         ModelFormat? IRegisterModelMetaRequest.ModelFormat { get; set; }
-        string IRegisterModelMetaRequest.ModelGroupId { get; set; }
+        Id IRegisterModelMetaRequest.ModelGroupId { get; set; }
         string IRegisterModelMetaRequest.Name { get; set; }
         long? IRegisterModelMetaRequest.TotalChunks { get; set; }
         string IRegisterModelMetaRequest.Url { get; set; }
@@ -104,7 +104,7 @@ namespace OpenSearch.Client
         public RegisterModelMetaDescriptor ModelFormat(ModelFormat? modelFormat) =>
             Assign(modelFormat, (a, v) => a.ModelFormat = v);
 
-        public RegisterModelMetaDescriptor ModelGroupId(string modelGroupId) =>
+        public RegisterModelMetaDescriptor ModelGroupId(Id modelGroupId) =>
             Assign(modelGroupId, (a, v) => a.ModelGroupId = v);
 
         public RegisterModelMetaDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);

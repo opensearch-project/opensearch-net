@@ -32,7 +32,7 @@ namespace OpenSearch.Client
     public class GetControllerResponse : ResponseBase
     {
         [DataMember(Name = "model_id")]
-        public string ModelId { get; internal set; }
+        public Name ModelId { get; internal set; }
 
         [DataMember(Name = "user_rate_limiter")]
         public IDictionary<string, IRateLimiter> UserRateLimiter { get; internal set; }

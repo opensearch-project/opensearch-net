@@ -45,7 +45,7 @@ namespace OpenSearch.Client
         string Description { get; set; }
 
         [DataMember(Name = "name")]
-        string Name { get; set; }
+        Name Name { get; set; }
 
         [DataMember(Name = "parameters")]
         IParameters Parameters { get; set; }
@@ -66,7 +66,7 @@ namespace OpenSearch.Client
         public IList<string> BackendRoles { get; set; }
         public ICredential Credential { get; set; }
         public string Description { get; set; }
-        public string Name { get; set; }
+        public Name Name { get; set; }
         public IParameters Parameters { get; set; }
         public ConnectorProtocol? Protocol { get; set; }
         public long? Version { get; set; }
@@ -79,7 +79,7 @@ namespace OpenSearch.Client
         IList<string> IUpdateConnectorRequest.BackendRoles { get; set; }
         ICredential IUpdateConnectorRequest.Credential { get; set; }
         string IUpdateConnectorRequest.Description { get; set; }
-        string IUpdateConnectorRequest.Name { get; set; }
+        Name IUpdateConnectorRequest.Name { get; set; }
         IParameters IUpdateConnectorRequest.Parameters { get; set; }
         ConnectorProtocol? IUpdateConnectorRequest.Protocol { get; set; }
         long? IUpdateConnectorRequest.Version { get; set; }
@@ -99,7 +99,7 @@ namespace OpenSearch.Client
         public UpdateConnectorDescriptor Description(string description) =>
             Assign(description, (a, v) => a.Description = v);
 
-        public UpdateConnectorDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public UpdateConnectorDescriptor Name(Name name) => Assign(name, (a, v) => a.Name = v);
 
         public UpdateConnectorDescriptor Parameters(IParameters parameters) =>
             Assign(parameters, (a, v) => a.Parameters = v);

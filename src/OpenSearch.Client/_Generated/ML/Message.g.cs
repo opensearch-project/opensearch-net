@@ -44,10 +44,10 @@ namespace OpenSearch.Client
         string Input { get; set; }
 
         [DataMember(Name = "memory_id")]
-        string MemoryId { get; set; }
+        Name MemoryId { get; set; }
 
         [DataMember(Name = "message_id")]
-        string MessageId { get; set; }
+        Name MessageId { get; set; }
 
         [DataMember(Name = "origin")]
         string Origin { get; set; }
@@ -74,8 +74,8 @@ namespace OpenSearch.Client
         public IList<IContent> Content { get; set; }
         public string CreateTime { get; set; }
         public string Input { get; set; }
-        public string MemoryId { get; set; }
-        public string MessageId { get; set; }
+        public Name MemoryId { get; set; }
+        public Name MessageId { get; set; }
         public string Origin { get; set; }
         public string ParentMessageId { get; set; }
         public string PromptTemplate { get; set; }
@@ -90,8 +90,8 @@ namespace OpenSearch.Client
         IList<IContent> IMessage.Content { get; set; }
         string IMessage.CreateTime { get; set; }
         string IMessage.Input { get; set; }
-        string IMessage.MemoryId { get; set; }
-        string IMessage.MessageId { get; set; }
+        Name IMessage.MemoryId { get; set; }
+        Name IMessage.MessageId { get; set; }
         string IMessage.Origin { get; set; }
         string IMessage.ParentMessageId { get; set; }
         string IMessage.PromptTemplate { get; set; }
@@ -110,10 +110,10 @@ namespace OpenSearch.Client
 
         public MessageDescriptor Input(string input) => Assign(input, (a, v) => a.Input = v);
 
-        public MessageDescriptor MemoryId(string memoryId) =>
+        public MessageDescriptor MemoryId(Name memoryId) =>
             Assign(memoryId, (a, v) => a.MemoryId = v);
 
-        public MessageDescriptor MessageId(string messageId) =>
+        public MessageDescriptor MessageId(Name messageId) =>
             Assign(messageId, (a, v) => a.MessageId = v);
 
         public MessageDescriptor Origin(string origin) => Assign(origin, (a, v) => a.Origin = v);

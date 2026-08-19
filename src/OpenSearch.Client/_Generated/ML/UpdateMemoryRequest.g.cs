@@ -30,20 +30,20 @@ namespace OpenSearch.Client
     public partial interface IUpdateMemoryRequest
     {
         [DataMember(Name = "name")]
-        string Name { get; set; }
+        Name Name { get; set; }
     }
 
     public partial class UpdateMemoryRequest
     {
         /// <summary>Minimum OpenSearch version required for this API.</summary>
         public const string MinimumServerVersion = "2.12";
-        public string Name { get; set; }
+        public Name Name { get; set; }
     }
 
     public partial class UpdateMemoryDescriptor
     {
-        string IUpdateMemoryRequest.Name { get; set; }
+        Name IUpdateMemoryRequest.Name { get; set; }
 
-        public UpdateMemoryDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public UpdateMemoryDescriptor Name(Name name) => Assign(name, (a, v) => a.Name = v);
     }
 }

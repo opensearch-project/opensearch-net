@@ -36,7 +36,7 @@ namespace OpenSearch.Client
         string Description { get; set; }
 
         [DataMember(Name = "name")]
-        string Name { get; set; }
+        Name Name { get; set; }
     }
 
     public partial class UpdateMemoryContainerRequest
@@ -45,14 +45,14 @@ namespace OpenSearch.Client
         public const string MinimumServerVersion = "3.3";
         public IMemoryContainerConfiguration Configuration { get; set; }
         public string Description { get; set; }
-        public string Name { get; set; }
+        public Name Name { get; set; }
     }
 
     public partial class UpdateMemoryContainerDescriptor
     {
         IMemoryContainerConfiguration IUpdateMemoryContainerRequest.Configuration { get; set; }
         string IUpdateMemoryContainerRequest.Description { get; set; }
-        string IUpdateMemoryContainerRequest.Name { get; set; }
+        Name IUpdateMemoryContainerRequest.Name { get; set; }
 
         public UpdateMemoryContainerDescriptor Configuration(
             IMemoryContainerConfiguration configuration
@@ -61,7 +61,7 @@ namespace OpenSearch.Client
         public UpdateMemoryContainerDescriptor Description(string description) =>
             Assign(description, (a, v) => a.Description = v);
 
-        public UpdateMemoryContainerDescriptor Name(string name) =>
+        public UpdateMemoryContainerDescriptor Name(Name name) =>
             Assign(name, (a, v) => a.Name = v);
     }
 }

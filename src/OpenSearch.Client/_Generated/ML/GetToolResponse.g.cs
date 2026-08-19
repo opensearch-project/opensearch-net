@@ -38,7 +38,7 @@ namespace OpenSearch.Client
         public string Description { get; internal set; }
 
         [DataMember(Name = "name")]
-        public string Name { get; internal set; }
+        public Name Name { get; internal set; }
 
         [DataMember(Name = "type")]
         public string Type { get; internal set; }

@@ -38,10 +38,10 @@ namespace OpenSearch.Client
         string CreateTime { get; set; }
 
         [DataMember(Name = "memory_id")]
-        string MemoryId { get; set; }
+        Name MemoryId { get; set; }
 
         [DataMember(Name = "name")]
-        string Name { get; set; }
+        Name Name { get; set; }
 
         [DataMember(Name = "type")]
         string Type { get; set; }
@@ -57,8 +57,8 @@ namespace OpenSearch.Client
     {
         public IDictionary<string, object> AdditionalInfo { get; set; }
         public string CreateTime { get; set; }
-        public string MemoryId { get; set; }
-        public string Name { get; set; }
+        public Name MemoryId { get; set; }
+        public Name Name { get; set; }
         public string Type { get; set; }
         public string UpdatedTime { get; set; }
         public string User { get; set; }
@@ -68,8 +68,8 @@ namespace OpenSearch.Client
     {
         IDictionary<string, object> IMemory.AdditionalInfo { get; set; }
         string IMemory.CreateTime { get; set; }
-        string IMemory.MemoryId { get; set; }
-        string IMemory.Name { get; set; }
+        Name IMemory.MemoryId { get; set; }
+        Name IMemory.Name { get; set; }
         string IMemory.Type { get; set; }
         string IMemory.UpdatedTime { get; set; }
         string IMemory.User { get; set; }
@@ -80,10 +80,10 @@ namespace OpenSearch.Client
         public MemoryDescriptor CreateTime(string createTime) =>
             Assign(createTime, (a, v) => a.CreateTime = v);
 
-        public MemoryDescriptor MemoryId(string memoryId) =>
+        public MemoryDescriptor MemoryId(Name memoryId) =>
             Assign(memoryId, (a, v) => a.MemoryId = v);
 
-        public MemoryDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public MemoryDescriptor Name(Name name) => Assign(name, (a, v) => a.Name = v);
 
         public MemoryDescriptor Type(string type) => Assign(type, (a, v) => a.Type = v);
 

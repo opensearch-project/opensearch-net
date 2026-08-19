@@ -32,6 +32,6 @@ namespace OpenSearch.Client
     public class CreateMemoryResponse : ResponseBase
     {
         [DataMember(Name = "memory_id")]
-        public string MemoryId { get; internal set; }
+        public Name MemoryId { get; internal set; }
     }
 }

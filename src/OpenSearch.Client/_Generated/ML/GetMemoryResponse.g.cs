@@ -38,10 +38,10 @@ namespace OpenSearch.Client
         public string CreateTime { get; internal set; }
 
         [DataMember(Name = "memory_id")]
-        public string MemoryId { get; internal set; }
+        public Name MemoryId { get; internal set; }
 
         [DataMember(Name = "name")]
-        public string Name { get; internal set; }
+        public Name Name { get; internal set; }
 
         [DataMember(Name = "type")]
         public string Type { get; internal set; }

@@ -36,7 +36,7 @@ namespace OpenSearch.Client
         string Description { get; set; }
 
         [DataMember(Name = "name")]
-        string Name { get; set; }
+        Name Name { get; set; }
     }
 
     public partial class CreateMemoryContainerRequest
@@ -45,14 +45,14 @@ namespace OpenSearch.Client
         public const string MinimumServerVersion = "3.3";
         public IMemoryContainerConfiguration Configuration { get; set; }
         public string Description { get; set; }
-        public string Name { get; set; }
+        public Name Name { get; set; }
     }
 
     public partial class CreateMemoryContainerDescriptor
     {
         IMemoryContainerConfiguration ICreateMemoryContainerRequest.Configuration { get; set; }
         string ICreateMemoryContainerRequest.Description { get; set; }
-        string ICreateMemoryContainerRequest.Name { get; set; }
+        Name ICreateMemoryContainerRequest.Name { get; set; }
 
         public CreateMemoryContainerDescriptor Configuration(
             IMemoryContainerConfiguration configuration
@@ -61,7 +61,7 @@ namespace OpenSearch.Client
         public CreateMemoryContainerDescriptor Description(string description) =>
             Assign(description, (a, v) => a.Description = v);
 
-        public CreateMemoryContainerDescriptor Name(string name) =>
+        public CreateMemoryContainerDescriptor Name(Name name) =>
             Assign(name, (a, v) => a.Name = v);
     }
 }

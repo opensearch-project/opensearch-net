@@ -30,29 +30,29 @@ namespace OpenSearch.Client
     public partial interface IUndeployModelRequest
     {
         [DataMember(Name = "model_ids")]
-        IList<string> ModelIds { get; set; }
+        IList<Id> ModelIds { get; set; }
 
         [DataMember(Name = "node_ids")]
-        IList<string> NodeIds { get; set; }
+        IList<Id> NodeIds { get; set; }
     }
 
     public partial class UndeployModelRequest
     {
         /// <summary>Minimum OpenSearch version required for this API.</summary>
         public const string MinimumServerVersion = "2.7";
-        public IList<string> ModelIds { get; set; }
-        public IList<string> NodeIds { get; set; }
+        public IList<Id> ModelIds { get; set; }
+        public IList<Id> NodeIds { get; set; }
     }
 
     public partial class UndeployModelDescriptor
     {
-        IList<string> IUndeployModelRequest.ModelIds { get; set; }
-        IList<string> IUndeployModelRequest.NodeIds { get; set; }
+        IList<Id> IUndeployModelRequest.ModelIds { get; set; }
+        IList<Id> IUndeployModelRequest.NodeIds { get; set; }
 
-        public UndeployModelDescriptor ModelIds(IList<string> modelIds) =>
+        public UndeployModelDescriptor ModelIds(IList<Id> modelIds) =>
             Assign(modelIds, (a, v) => a.ModelIds = v);
 
-        public UndeployModelDescriptor NodeIds(IList<string> nodeIds) =>
+        public UndeployModelDescriptor NodeIds(IList<Id> nodeIds) =>
             Assign(nodeIds, (a, v) => a.NodeIds = v);
     }
 }

@@ -30,20 +30,20 @@ namespace OpenSearch.Client
     public partial interface ICreateMemoryRequest
     {
         [DataMember(Name = "name")]
-        string Name { get; set; }
+        Name Name { get; set; }
     }
 
     public partial class CreateMemoryRequest
     {
         /// <summary>Minimum OpenSearch version required for this API.</summary>
         public const string MinimumServerVersion = "2.12";
-        public string Name { get; set; }
+        public Name Name { get; set; }
     }
 
     public partial class CreateMemoryDescriptor
     {
-        string ICreateMemoryRequest.Name { get; set; }
+        Name ICreateMemoryRequest.Name { get; set; }
 
-        public CreateMemoryDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public CreateMemoryDescriptor Name(Name name) => Assign(name, (a, v) => a.Name = v);
     }
 }
