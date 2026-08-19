@@ -116,7 +116,7 @@ namespace OpenSearch.Client
         IMemory Memory { get; set; }
 
         [DataMember(Name = "memory_id")]
-        string MemoryId { get; set; }
+        Name MemoryId { get; set; }
 
         [DataMember(Name = "metadata")]
         IDictionary<string, object> Metadata { get; set; }
@@ -137,7 +137,7 @@ namespace OpenSearch.Client
         string ModelGroupId { get; set; }
 
         [DataMember(Name = "model_id")]
-        string ModelId { get; set; }
+        Name ModelId { get; set; }
 
         [DataMember(Name = "model_state")]
         ModelState? ModelState { get; set; }
@@ -149,7 +149,7 @@ namespace OpenSearch.Client
         string ModelVersion { get; set; }
 
         [DataMember(Name = "name")]
-        string Name { get; set; }
+        Name Name { get; set; }
 
         [DataMember(Name = "namespace")]
         IDictionary<string, object> Namespace { get; set; }
@@ -254,18 +254,18 @@ namespace OpenSearch.Client
         public long? LastUpdatedTime { get; set; }
         public int? LatestVersion { get; set; }
         public IMemory Memory { get; set; }
-        public string MemoryId { get; set; }
+        public Name MemoryId { get; set; }
         public IDictionary<string, object> Metadata { get; set; }
         public IModelConfig ModelConfig { get; set; }
         public string ModelContentHashValue { get; set; }
         public long? ModelContentSizeInBytes { get; set; }
         public ModelFormat? ModelFormat { get; set; }
         public string ModelGroupId { get; set; }
-        public string ModelId { get; set; }
+        public Name ModelId { get; set; }
         public ModelState? ModelState { get; set; }
         public string ModelTaskType { get; set; }
         public string ModelVersion { get; set; }
-        public string Name { get; set; }
+        public Name Name { get; set; }
         public IDictionary<string, object> Namespace { get; set; }
         public long? NamespaceSize { get; set; }
         public string Origin { get; set; }
@@ -323,18 +323,18 @@ namespace OpenSearch.Client
         long? ISource.LastUpdatedTime { get; set; }
         int? ISource.LatestVersion { get; set; }
         IMemory ISource.Memory { get; set; }
-        string ISource.MemoryId { get; set; }
+        Name ISource.MemoryId { get; set; }
         IDictionary<string, object> ISource.Metadata { get; set; }
         IModelConfig ISource.ModelConfig { get; set; }
         string ISource.ModelContentHashValue { get; set; }
         long? ISource.ModelContentSizeInBytes { get; set; }
         ModelFormat? ISource.ModelFormat { get; set; }
         string ISource.ModelGroupId { get; set; }
-        string ISource.ModelId { get; set; }
+        Name ISource.ModelId { get; set; }
         ModelState? ISource.ModelState { get; set; }
         string ISource.ModelTaskType { get; set; }
         string ISource.ModelVersion { get; set; }
-        string ISource.Name { get; set; }
+        Name ISource.Name { get; set; }
         IDictionary<string, object> ISource.Namespace { get; set; }
         long? ISource.NamespaceSize { get; set; }
         string ISource.Origin { get; set; }
@@ -441,7 +441,7 @@ namespace OpenSearch.Client
 
         public SourceDescriptor Memory(IMemory memory) => Assign(memory, (a, v) => a.Memory = v);
 
-        public SourceDescriptor MemoryId(string memoryId) =>
+        public SourceDescriptor MemoryId(Name memoryId) =>
             Assign(memoryId, (a, v) => a.MemoryId = v);
 
         public SourceDescriptor Metadata(IDictionary<string, object> metadata) =>
@@ -462,7 +462,7 @@ namespace OpenSearch.Client
         public SourceDescriptor ModelGroupId(string modelGroupId) =>
             Assign(modelGroupId, (a, v) => a.ModelGroupId = v);
 
-        public SourceDescriptor ModelId(string modelId) => Assign(modelId, (a, v) => a.ModelId = v);
+        public SourceDescriptor ModelId(Name modelId) => Assign(modelId, (a, v) => a.ModelId = v);
 
         public SourceDescriptor ModelState(ModelState? modelState) =>
             Assign(modelState, (a, v) => a.ModelState = v);
@@ -473,7 +473,7 @@ namespace OpenSearch.Client
         public SourceDescriptor ModelVersion(string modelVersion) =>
             Assign(modelVersion, (a, v) => a.ModelVersion = v);
 
-        public SourceDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public SourceDescriptor Name(Name name) => Assign(name, (a, v) => a.Name = v);
 
         public SourceDescriptor Namespace(IDictionary<string, object> @namespace) =>
             Assign(@namespace, (a, v) => a.Namespace = v);

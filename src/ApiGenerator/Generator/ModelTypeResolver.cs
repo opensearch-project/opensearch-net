@@ -60,7 +60,18 @@ public sealed class ModelTypeResolver
             }
         }
 
-        if (s.Type.HasFlag(JsonObjectType.String)) return new StringType();
+        if (s.Type.HasFlag(JsonObjectType.String))
+        {
+            // Check if this string-typed schema is a $ref to a mapped rich type (e.g. IndexName, Id, Name).
+            // NSwag inlines string-alias $refs, but SchemaCatalog or Reference.Id may recover the ID.
+            if ((TryGetReferenceId(schema, out var strRefId) || _schemas.TryGetId(schema, out strRefId))
+                && strRefId != null)
+            {
+                var mappedStr = _registry.MappedCsharpType(strRefId);
+                if (mappedStr != null) return new MappedType(mappedStr, false);
+            }
+            return new StringType();
+        }
         if (s.Type.HasFlag(JsonObjectType.Boolean)) return new PrimitiveType("bool", true);
         if (s.Type.HasFlag(JsonObjectType.Integer)) return new PrimitiveType(s.Format == "int64" ? "long" : "int", true);
         if (s.Type.HasFlag(JsonObjectType.Number)) return new PrimitiveType(s.Format == "double" ? "double" : "float", true);

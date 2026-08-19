@@ -32,7 +32,7 @@ namespace OpenSearch.Client
     public interface IGuardrails
     {
         [DataMember(Name = "index_name")]
-        string IndexName { get; set; }
+        IndexName IndexName { get; set; }
 
         [DataMember(Name = "input_guardrail")]
         IGuardrailsInputOutput InputGuardrail { get; set; }
@@ -64,7 +64,7 @@ namespace OpenSearch.Client
 
     public class Guardrails : IGuardrails
     {
-        public string IndexName { get; set; }
+        public IndexName IndexName { get; set; }
         public IGuardrailsInputOutput InputGuardrail { get; set; }
         public string ModelId { get; set; }
         public IGuardrailsInputOutput OutputGuardrail { get; set; }
@@ -80,7 +80,7 @@ namespace OpenSearch.Client
         : DescriptorBase<GuardrailsDescriptor, IGuardrails>,
             IGuardrails
     {
-        string IGuardrails.IndexName { get; set; }
+        IndexName IGuardrails.IndexName { get; set; }
         IGuardrailsInputOutput IGuardrails.InputGuardrail { get; set; }
         string IGuardrails.ModelId { get; set; }
         IGuardrailsInputOutput IGuardrails.OutputGuardrail { get; set; }
@@ -91,7 +91,7 @@ namespace OpenSearch.Client
         object IGuardrails.StopWords { get; set; }
         GuardrailsType? IGuardrails.Type { get; set; }
 
-        public GuardrailsDescriptor IndexName(string indexName) =>
+        public GuardrailsDescriptor IndexName(IndexName indexName) =>
             Assign(indexName, (a, v) => a.IndexName = v);
 
         public GuardrailsDescriptor InputGuardrail(IGuardrailsInputOutput inputGuardrail) =>

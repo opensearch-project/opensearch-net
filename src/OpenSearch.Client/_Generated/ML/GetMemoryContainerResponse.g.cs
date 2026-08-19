@@ -44,7 +44,7 @@ namespace OpenSearch.Client
         public long? LastUpdatedTime { get; internal set; }
 
         [DataMember(Name = "name")]
-        public string Name { get; internal set; }
+        public Name Name { get; internal set; }
 
         [DataMember(Name = "owner")]
         public IOwner Owner { get; internal set; }

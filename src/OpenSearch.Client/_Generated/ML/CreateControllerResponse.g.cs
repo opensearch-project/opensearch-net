@@ -32,7 +32,7 @@ namespace OpenSearch.Client
     public class CreateControllerResponse : ResponseBase
     {
         [DataMember(Name = "model_id")]
-        public string ModelId { get; internal set; }
+        public Name ModelId { get; internal set; }
 
         [DataMember(Name = "status")]
         public Status? OperationStatus { get; internal set; }

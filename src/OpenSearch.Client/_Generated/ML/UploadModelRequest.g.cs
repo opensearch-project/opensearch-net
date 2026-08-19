@@ -35,7 +35,7 @@ namespace OpenSearch.Client
         ModelFormat? ModelFormat { get; set; }
 
         [DataMember(Name = "model_group_id")]
-        string ModelGroupId { get; set; }
+        Id ModelGroupId { get; set; }
 
         [DataMember(Name = "name")]
         string Name { get; set; }
@@ -48,7 +48,7 @@ namespace OpenSearch.Client
     {
         public string Description { get; set; }
         public ModelFormat? ModelFormat { get; set; }
-        public string ModelGroupId { get; set; }
+        public Id ModelGroupId { get; set; }
         public string Name { get; set; }
         public string Version { get; set; }
     }
@@ -57,7 +57,7 @@ namespace OpenSearch.Client
     {
         string IUploadModelRequest.Description { get; set; }
         ModelFormat? IUploadModelRequest.ModelFormat { get; set; }
-        string IUploadModelRequest.ModelGroupId { get; set; }
+        Id IUploadModelRequest.ModelGroupId { get; set; }
         string IUploadModelRequest.Name { get; set; }
         string IUploadModelRequest.Version { get; set; }
 
@@ -67,7 +67,7 @@ namespace OpenSearch.Client
         public UploadModelDescriptor ModelFormat(ModelFormat? modelFormat) =>
             Assign(modelFormat, (a, v) => a.ModelFormat = v);
 
-        public UploadModelDescriptor ModelGroupId(string modelGroupId) =>
+        public UploadModelDescriptor ModelGroupId(Id modelGroupId) =>
             Assign(modelGroupId, (a, v) => a.ModelGroupId = v);
 
         public UploadModelDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);

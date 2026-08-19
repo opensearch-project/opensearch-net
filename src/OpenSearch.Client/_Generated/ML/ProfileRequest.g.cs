@@ -32,10 +32,10 @@ namespace OpenSearch.Client
     public interface IProfileRequest
     {
         [DataMember(Name = "model_ids")]
-        IList<string> ModelIds { get; set; }
+        IList<Id> ModelIds { get; set; }
 
         [DataMember(Name = "node_ids")]
-        IList<string> NodeIds { get; set; }
+        IList<Id> NodeIds { get; set; }
 
         [DataMember(Name = "return_all_models")]
         bool? ReturnAllModels { get; set; }
@@ -44,32 +44,32 @@ namespace OpenSearch.Client
         bool? ReturnAllTasks { get; set; }
 
         [DataMember(Name = "task_ids")]
-        IList<string> TaskIds { get; set; }
+        IList<Id> TaskIds { get; set; }
     }
 
     public class ProfileRequest : IProfileRequest
     {
-        public IList<string> ModelIds { get; set; }
-        public IList<string> NodeIds { get; set; }
+        public IList<Id> ModelIds { get; set; }
+        public IList<Id> NodeIds { get; set; }
         public bool? ReturnAllModels { get; set; }
         public bool? ReturnAllTasks { get; set; }
-        public IList<string> TaskIds { get; set; }
+        public IList<Id> TaskIds { get; set; }
     }
 
     public class ProfileRequestDescriptor
         : DescriptorBase<ProfileRequestDescriptor, IProfileRequest>,
             IProfileRequest
     {
-        IList<string> IProfileRequest.ModelIds { get; set; }
-        IList<string> IProfileRequest.NodeIds { get; set; }
+        IList<Id> IProfileRequest.ModelIds { get; set; }
+        IList<Id> IProfileRequest.NodeIds { get; set; }
         bool? IProfileRequest.ReturnAllModels { get; set; }
         bool? IProfileRequest.ReturnAllTasks { get; set; }
-        IList<string> IProfileRequest.TaskIds { get; set; }
+        IList<Id> IProfileRequest.TaskIds { get; set; }
 
-        public ProfileRequestDescriptor ModelIds(IList<string> modelIds) =>
+        public ProfileRequestDescriptor ModelIds(IList<Id> modelIds) =>
             Assign(modelIds, (a, v) => a.ModelIds = v);
 
-        public ProfileRequestDescriptor NodeIds(IList<string> nodeIds) =>
+        public ProfileRequestDescriptor NodeIds(IList<Id> nodeIds) =>
             Assign(nodeIds, (a, v) => a.NodeIds = v);
 
         public ProfileRequestDescriptor ReturnAllModels(bool? returnAllModels = true) =>
@@ -78,7 +78,7 @@ namespace OpenSearch.Client
         public ProfileRequestDescriptor ReturnAllTasks(bool? returnAllTasks = true) =>
             Assign(returnAllTasks, (a, v) => a.ReturnAllTasks = v);
 
-        public ProfileRequestDescriptor TaskIds(IList<string> taskIds) =>
+        public ProfileRequestDescriptor TaskIds(IList<Id> taskIds) =>
             Assign(taskIds, (a, v) => a.TaskIds = v);
     }
 }

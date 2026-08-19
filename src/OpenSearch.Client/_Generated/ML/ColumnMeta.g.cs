@@ -35,13 +35,13 @@ namespace OpenSearch.Client
         ColumnType? ColumnType { get; set; }
 
         [DataMember(Name = "name")]
-        string Name { get; set; }
+        Name Name { get; set; }
     }
 
     public class ColumnMeta : IColumnMeta
     {
         public ColumnType? ColumnType { get; set; }
-        public string Name { get; set; }
+        public Name Name { get; set; }
     }
 
     public class ColumnMetaDescriptor
@@ -49,11 +49,11 @@ namespace OpenSearch.Client
             IColumnMeta
     {
         ColumnType? IColumnMeta.ColumnType { get; set; }
-        string IColumnMeta.Name { get; set; }
+        Name IColumnMeta.Name { get; set; }
 
         public ColumnMetaDescriptor ColumnType(ColumnType? columnType) =>
             Assign(columnType, (a, v) => a.ColumnType = v);
 
-        public ColumnMetaDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public ColumnMetaDescriptor Name(Name name) => Assign(name, (a, v) => a.Name = v);
     }
 }

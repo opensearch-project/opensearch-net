@@ -32,10 +32,10 @@ namespace OpenSearch.Client
     public interface ISearchHitsHit
     {
         [DataMember(Name = "_id")]
-        string Id { get; set; }
+        Id Id { get; set; }
 
         [DataMember(Name = "_index")]
-        string Index { get; set; }
+        IndexName Index { get; set; }
 
         [DataMember(Name = "_primary_term")]
         int? PrimaryTerm { get; set; }
@@ -53,7 +53,7 @@ namespace OpenSearch.Client
         long? Version { get; set; }
 
         [DataMember(Name = "model_id")]
-        string ModelId { get; set; }
+        Name ModelId { get; set; }
 
         [DataMember(Name = "sort")]
         IList<float?> Sort { get; set; }
@@ -61,14 +61,14 @@ namespace OpenSearch.Client
 
     public class SearchHitsHit : ISearchHitsHit
     {
-        public string Id { get; set; }
-        public string Index { get; set; }
+        public Id Id { get; set; }
+        public IndexName Index { get; set; }
         public int? PrimaryTerm { get; set; }
         public float? Score { get; set; }
         public long? SeqNo { get; set; }
         public ISource Source { get; set; }
         public long? Version { get; set; }
-        public string ModelId { get; set; }
+        public Name ModelId { get; set; }
         public IList<float?> Sort { get; set; }
     }
 
@@ -76,19 +76,20 @@ namespace OpenSearch.Client
         : DescriptorBase<SearchHitsHitDescriptor, ISearchHitsHit>,
             ISearchHitsHit
     {
-        string ISearchHitsHit.Id { get; set; }
-        string ISearchHitsHit.Index { get; set; }
+        Id ISearchHitsHit.Id { get; set; }
+        IndexName ISearchHitsHit.Index { get; set; }
         int? ISearchHitsHit.PrimaryTerm { get; set; }
         float? ISearchHitsHit.Score { get; set; }
         long? ISearchHitsHit.SeqNo { get; set; }
         ISource ISearchHitsHit.Source { get; set; }
         long? ISearchHitsHit.Version { get; set; }
-        string ISearchHitsHit.ModelId { get; set; }
+        Name ISearchHitsHit.ModelId { get; set; }
         IList<float?> ISearchHitsHit.Sort { get; set; }
 
-        public SearchHitsHitDescriptor Id(string id) => Assign(id, (a, v) => a.Id = v);
+        public SearchHitsHitDescriptor Id(Id id) => Assign(id, (a, v) => a.Id = v);
 
-        public SearchHitsHitDescriptor Index(string index) => Assign(index, (a, v) => a.Index = v);
+        public SearchHitsHitDescriptor Index(IndexName index) =>
+            Assign(index, (a, v) => a.Index = v);
 
         public SearchHitsHitDescriptor PrimaryTerm(int? primaryTerm) =>
             Assign(primaryTerm, (a, v) => a.PrimaryTerm = v);
@@ -103,7 +104,7 @@ namespace OpenSearch.Client
         public SearchHitsHitDescriptor Version(long? version) =>
             Assign(version, (a, v) => a.Version = v);
 
-        public SearchHitsHitDescriptor ModelId(string modelId) =>
+        public SearchHitsHitDescriptor ModelId(Name modelId) =>
             Assign(modelId, (a, v) => a.ModelId = v);
 
         public SearchHitsHitDescriptor Sort(IList<float?> sort) =>

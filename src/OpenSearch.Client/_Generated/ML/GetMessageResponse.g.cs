@@ -44,10 +44,10 @@ namespace OpenSearch.Client
         public string Input { get; internal set; }
 
         [DataMember(Name = "memory_id")]
-        public string MemoryId { get; internal set; }
+        public Name MemoryId { get; internal set; }
 
         [DataMember(Name = "message_id")]
-        public string MessageId { get; internal set; }
+        public Name MessageId { get; internal set; }
 
         [DataMember(Name = "origin")]
         public string Origin { get; internal set; }

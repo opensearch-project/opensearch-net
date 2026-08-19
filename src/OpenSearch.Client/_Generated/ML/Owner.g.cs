@@ -38,7 +38,7 @@ namespace OpenSearch.Client
         IList<string> CustomAttributeNames { get; set; }
 
         [DataMember(Name = "name")]
-        string Name { get; set; }
+        Name Name { get; set; }
 
         [DataMember(Name = "roles")]
         IList<string> Roles { get; set; }
@@ -54,7 +54,7 @@ namespace OpenSearch.Client
     {
         public IList<string> BackendRoles { get; set; }
         public IList<string> CustomAttributeNames { get; set; }
-        public string Name { get; set; }
+        public Name Name { get; set; }
         public IList<string> Roles { get; set; }
         public string UserRequestedTenant { get; set; }
         public string UserRequestedTenantAccess { get; set; }
@@ -64,7 +64,7 @@ namespace OpenSearch.Client
     {
         IList<string> IOwner.BackendRoles { get; set; }
         IList<string> IOwner.CustomAttributeNames { get; set; }
-        string IOwner.Name { get; set; }
+        Name IOwner.Name { get; set; }
         IList<string> IOwner.Roles { get; set; }
         string IOwner.UserRequestedTenant { get; set; }
         string IOwner.UserRequestedTenantAccess { get; set; }
@@ -75,7 +75,7 @@ namespace OpenSearch.Client
         public OwnerDescriptor CustomAttributeNames(IList<string> customAttributeNames) =>
             Assign(customAttributeNames, (a, v) => a.CustomAttributeNames = v);
 
-        public OwnerDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public OwnerDescriptor Name(Name name) => Assign(name, (a, v) => a.Name = v);
 
         public OwnerDescriptor Roles(IList<string> roles) => Assign(roles, (a, v) => a.Roles = v);
 

@@ -38,7 +38,7 @@ namespace OpenSearch.Client
         string Description { get; set; }
 
         [DataMember(Name = "name")]
-        string Name { get; set; }
+        Name Name { get; set; }
 
         [DataMember(Name = "type")]
         string Type { get; set; }
@@ -51,7 +51,7 @@ namespace OpenSearch.Client
     {
         public IToolAttributes Attributes { get; set; }
         public string Description { get; set; }
-        public string Name { get; set; }
+        public Name Name { get; set; }
         public string Type { get; set; }
         public string Version { get; set; }
     }
@@ -60,7 +60,7 @@ namespace OpenSearch.Client
     {
         IToolAttributes ITool.Attributes { get; set; }
         string ITool.Description { get; set; }
-        string ITool.Name { get; set; }
+        Name ITool.Name { get; set; }
         string ITool.Type { get; set; }
         string ITool.Version { get; set; }
 
@@ -70,7 +70,7 @@ namespace OpenSearch.Client
         public ToolDescriptor Description(string description) =>
             Assign(description, (a, v) => a.Description = v);
 
-        public ToolDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public ToolDescriptor Name(Name name) => Assign(name, (a, v) => a.Name = v);
 
         public ToolDescriptor Type(string type) => Assign(type, (a, v) => a.Type = v);
 

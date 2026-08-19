@@ -48,7 +48,7 @@ namespace OpenSearch.Client
         ModelFormat? ModelFormat { get; set; }
 
         [DataMember(Name = "model_group_id")]
-        string ModelGroupId { get; set; }
+        Id ModelGroupId { get; set; }
 
         [DataMember(Name = "name")]
         string Name { get; set; }
@@ -70,7 +70,7 @@ namespace OpenSearch.Client
         public IModelConfig ModelConfig { get; set; }
         public string ModelContentHashValue { get; set; }
         public ModelFormat? ModelFormat { get; set; }
-        public string ModelGroupId { get; set; }
+        public Id ModelGroupId { get; set; }
         public string Name { get; set; }
         public string Url { get; set; }
         public string Version { get; set; }
@@ -84,7 +84,7 @@ namespace OpenSearch.Client
         IModelConfig IRegisterModelRequest.ModelConfig { get; set; }
         string IRegisterModelRequest.ModelContentHashValue { get; set; }
         ModelFormat? IRegisterModelRequest.ModelFormat { get; set; }
-        string IRegisterModelRequest.ModelGroupId { get; set; }
+        Id IRegisterModelRequest.ModelGroupId { get; set; }
         string IRegisterModelRequest.Name { get; set; }
         string IRegisterModelRequest.Url { get; set; }
         string IRegisterModelRequest.Version { get; set; }
@@ -107,7 +107,7 @@ namespace OpenSearch.Client
         public RegisterModelDescriptor ModelFormat(ModelFormat? modelFormat) =>
             Assign(modelFormat, (a, v) => a.ModelFormat = v);
 
-        public RegisterModelDescriptor ModelGroupId(string modelGroupId) =>
+        public RegisterModelDescriptor ModelGroupId(Id modelGroupId) =>
             Assign(modelGroupId, (a, v) => a.ModelGroupId = v);
 
         public RegisterModelDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
