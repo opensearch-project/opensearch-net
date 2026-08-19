@@ -37,7 +37,7 @@ namespace ApiGenerator.Domain.Code.HighLevel.Methods
     {
         public InitializerMethod(CsharpNames names, string link, string summary, Deprecation deprecated, Version versionAdded) : base(names, link, summary, deprecated, versionAdded) { }
 
-        public string MethodName => CsharpNames.MethodName;
+        public string MethodName => CsharpNames.HighLevelMethodName;
 
         public string ArgumentType => CsharpNames.GenericOrNonGenericInterfacePreference;
 

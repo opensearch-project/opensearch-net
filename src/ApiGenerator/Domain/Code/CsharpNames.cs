@@ -64,14 +64,25 @@ namespace ApiGenerator.Domain.Code
                 return replaced;
             }
 
-            MethodName = Replace(HighLevelApiName, null, Namespace, "", new string[0]);
-
             var namespaceRenames = new Dictionary<string, (string find, string replace, string[] exceptions)>
             {
                 { "Indices", (find: "Index", replace: "", exceptions: new [] { "SimulateIndexTemplate" }) },
             };
-            foreach (var (ns, (find, replace, exceptions)) in namespaceRenames)
-                MethodName = Replace(MethodName, ns, find, replace, exceptions);
+
+            string NormalizeMethodName(string apiName)
+            {
+                var result = Replace(apiName, null, Namespace, "", new string[0]);
+                foreach (var (ns, (find, replace, exceptions)) in namespaceRenames)
+                    result = Replace(result, ns, find, replace, exceptions);
+                return result;
+            }
+
+            // Low-level client method name is derived from the canonical ApiName so that a
+            // HighLevelOnlyApiNameOverrides entry does NOT rename the released low-level client
+            // method (e.g. LowLevel.Ml.GetTask stays GetTask). The high-level fluent/initializer
+            // methods use HighLevelMethodName instead.
+            MethodName = NormalizeMethodName(ApiName);
+            HighLevelMethodName = NormalizeMethodName(HighLevelApiName);
         }
 
         /// <summary> Pascal cased version of the namespace from the specification </summary>
@@ -84,6 +95,14 @@ namespace ApiGenerator.Domain.Code
         /// <pre>Uses <see cref="CodeConfiguration.ApiNameMapping"/> mapping of request implementations in the OSC code base</pre>
         /// </summary>
         public string MethodName { get; }
+
+        /// <summary>
+        /// Method name used for HIGH-LEVEL client fluent/initializer methods, descriptors, and
+        /// high-level ApiUrls lookups. Derived from <see cref="HighLevelApiName"/> so that a
+        /// <see cref="CodeConfiguration.HighLevelOnlyApiNameOverrides"/> entry renames the
+        /// high-level surface WITHOUT renaming the low-level client method (see <see cref="MethodName"/>).
+        /// </summary>
+        public string HighLevelMethodName { get; }
 
         public string ApiName { get; }
 

@@ -5,9 +5,9 @@
 @using ApiGenerator.Generator
 @inherits global::ApiGenerator.CodeTemplatePage<RequestPartialImplementation>
 @{
-	var apiLookup = $"ApiUrlsLookups.{Model.CsharpNames.Namespace}{Model.CsharpNames.MethodName}";
+	var apiLookup = $"ApiUrlsLookups.{Model.CsharpNames.Namespace}{Model.CsharpNames.HighLevelMethodName}";
 }
-/// <summary>Request for @Model.CsharpNames.MethodName@(Raw(Model.OfficialDocumentationLink.IsNullOrEmpty() ? "" : " <para>" + Model.OfficialDocumentationLink + "</para>"))</summary>
+/// <summary>Request for @Model.CsharpNames.HighLevelMethodName@(Raw(Model.OfficialDocumentationLink.IsNullOrEmpty() ? "" : " <para>" + Model.OfficialDocumentationLink + "</para>"))</summary>
 @if (Model.Stability != Stability.Stable)
 {
     string warningMessage = "";

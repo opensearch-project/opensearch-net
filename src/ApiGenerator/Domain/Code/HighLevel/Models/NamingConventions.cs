@@ -14,7 +14,10 @@ internal static class NamingConventions
 {
     /// <summary>
     /// Converts a snake_case or kebab-case wire name to PascalCase C# identifier.
-    /// Splits on underscores and hyphens, capitalizes each segment.
+    /// Splits on underscores and hyphens, capitalizes the first letter of each segment and
+    /// lower-cases the rest. The lower-casing is intentional: it normalizes UPPER_SNAKE_CASE
+    /// wire enum values (such as "TORCH_SCRIPT" or "ONNX") into idiomatic PascalCase
+    /// ("TorchScript", "Onnx") rather than leaving them as "TORCHSCRIPT"/"ONNX".
     /// </summary>
     public static string ToPascal(string name)
     {

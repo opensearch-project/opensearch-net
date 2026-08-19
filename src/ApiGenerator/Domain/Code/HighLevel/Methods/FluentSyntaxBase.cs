@@ -51,7 +51,7 @@ namespace ApiGenerator.Domain.Code.HighLevel.Methods
         /// </summary>
         private bool SelectorIsOptional => _selectorIsOptional || CodeConfiguration.DescriptorConstructors.ContainsKey(CsharpNames.DescriptorName);
 
-        public string MethodName => CsharpNames.MethodName;
+        public string MethodName => CsharpNames.HighLevelMethodName;
 
         public string OptionalSelectorSuffix => SelectorIsOptional ? " = null" : string.Empty;
 

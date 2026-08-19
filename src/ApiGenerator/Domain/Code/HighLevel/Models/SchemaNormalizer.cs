@@ -503,7 +503,7 @@ public sealed class NormalizationResult
 ///
 /// Does NOT mutate the document. Produces immutable property maps keyed by schema ID.
 /// Handles recursive schemas safely via cycle detection with deterministic override precedence:
-/// earlier allOf members are overridden by later ones; direct properties override all.
+/// earlier allOf members take precedence over later ones; direct properties override all.
 /// </summary>
 public sealed class AllOfPropertyCollectionPass : INormalizationPass
 {
