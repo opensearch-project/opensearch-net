@@ -96,6 +96,17 @@ public interface IModelOverrides
     /// </summary>
     ISet<string> SuppressedUnionSchemaIds { get; }
 
+    // ── Property-level overrides ─────────────────────────────────────────────
+
+    /// <summary>
+    /// Per-property type overrides for cases where the spec schema cannot express
+    /// the desired C# type (inline dicts, wrapper types, union shorthands).
+    /// Key: <c>"{operationGroup}.{propertyName}"</c> (e.g. <c>"indices.create.aliases"</c>)
+    /// or <c>"{schemaId}.{propertyName}"</c> for shared model properties.
+    /// Value: C# type string (e.g. <c>"IAliases"</c>).
+    /// </summary>
+    IDictionary<string, string> PropertyTypeOverrides { get; }
+
     string? MappedCsharpType(string schemaId);
     string? RenamedCsharpName(string schemaId);
 }
