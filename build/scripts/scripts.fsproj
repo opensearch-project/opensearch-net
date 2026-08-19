@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
@@ -19,9 +19,7 @@
   <ItemGroup>
     <Content Include="..\..\build.sh"><Link>build.sh</Link></Content>
     <Content Include="..\..\build.bat"><Link>build.bat</Link></Content>
-    <Content Include="..\..\.github\workflows\auto-label.yml"><Link>auto-label.yml</Link></Content>
     <Content Include="..\..\.github\workflows\backport.yml"><Link>backport.yml</Link></Content>
-    <Content Include="..\..\.github\auto-label.json"><Link>auto-label.json</Link></Content>
     <Content Include="..\..\.github\workflows\test-jobs.yml"><Link>test-jobs.yml</Link></Content>
     <Content Include="..\..\.github\workflows\integration.yml"><Link>integration.yml</Link></Content>
     <Content Include="..\..\.github\workflows\compile.yml"><Link>compile.yml</Link></Content>
@@ -34,7 +32,7 @@
   <ItemGroup>
     <PackageReference Update="FSharp.Core" Version="9.0.300" />
 
-    <PackageReference Include="Bullseye" Version="5.0.0" />
+    <PackageReference Include="Bullseye" Version="6.1.0" />
     <ProjectReference Include="$(SolutionRoot)\abstractions\src\OpenSearch.OpenSearch.Managed\OpenSearch.OpenSearch.Managed.csproj" />
 
     <PackageReference Include="Fake.Core.Environment" Version="6.1.3" />

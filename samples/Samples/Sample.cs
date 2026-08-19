@@ -6,7 +6,6 @@
 */
 
 using System.CommandLine;
-using System.CommandLine.Binding;
 using OpenSearch.Client;
 using OpenSearch.Net;
 
@@ -30,12 +29,13 @@ public abstract class Sample
 		_description = description;
 	}
 
-	public Command AsCommand(IValueDescriptor<IOpenSearchClient> clientDescriptor)
+	public Command AsCommand(Func<ParseResult, IOpenSearchClient> clientDescriptor)
 	{
 		var command = new Command(_name, _description);
 
-		command.SetHandler(async client =>
+		command.SetAction(async parseResult =>
         {
+            var client = clientDescriptor.Invoke(parseResult);
             try
             {
                 await Run(client);
@@ -51,7 +51,7 @@ public abstract class Sample
                     await Console.Error.WriteLineAsync($"Cleanup Failed: {e}");
                 }
             }
-        }, clientDescriptor);
+        });
 
 		return command;
 	}

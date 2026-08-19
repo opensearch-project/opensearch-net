@@ -587,7 +587,7 @@ namespace OpenSearch.Client
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -771,7 +771,7 @@ namespace OpenSearch.Client
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -1281,7 +1281,7 @@ namespace OpenSearch.Client
             set => Q("preference", value);
         }
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
@@ -1350,7 +1350,7 @@ namespace OpenSearch.Client
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -1435,7 +1435,7 @@ namespace OpenSearch.Client
             set => Q("preference", value);
         }
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
@@ -1494,7 +1494,7 @@ namespace OpenSearch.Client
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -1731,7 +1731,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>
-        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// The type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
         /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
@@ -1740,7 +1740,7 @@ namespace OpenSearch.Client
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>Comma-separated list of fields to retrieve capabilities for. Wildcard (<c>*</c>) expressions are supported.</summary>
+        /// <summary>A comma-separated list of fields to retrieve capabilities for. Wildcard (<c>*</c>) expressions are supported.</summary>
         public Fields Fields
         {
             get => Q<Fields>("fields");
@@ -1806,7 +1806,7 @@ namespace OpenSearch.Client
             set => Q("preference", value);
         }
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
@@ -1878,7 +1878,7 @@ namespace OpenSearch.Client
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: <c>internal</c>, <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>internal</c>, <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -2023,7 +2023,7 @@ namespace OpenSearch.Client
             set => Q("preference", value);
         }
 
-        /// <summary>Boolean) If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>Boolean) If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
@@ -2085,7 +2085,7 @@ namespace OpenSearch.Client
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type. One of <c>internal</c>, <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type. One of <c>internal</c>, <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -2261,7 +2261,7 @@ namespace OpenSearch.Client
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -2333,7 +2333,7 @@ namespace OpenSearch.Client
             set => Q("preference", value);
         }
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
@@ -2419,6 +2419,13 @@ namespace OpenSearch.Client
         Indices IMultiSearchRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         // Request parameters
+        /// <summary>Specifies whether to return partial results if there are shard request timeouts or shard failures.</summary>
+        public bool? AllowPartialResults
+        {
+            get => Q<bool?>("allow_partial_results");
+            set => Q("allow_partial_results", value);
+        }
+
         /// <summary>If <c>true</c>, network round-trips between the coordinating node and remote clusters are minimized for cross-cluster search requests.</summary>
         public bool? CcsMinimizeRoundtrips
         {
@@ -2619,7 +2626,7 @@ namespace OpenSearch.Client
             set => Q("preference", value);
         }
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
@@ -3469,6 +3476,13 @@ namespace OpenSearch.Client
             set => Q("ignore_unavailable", value);
         }
 
+        /// <summary>Indicates whether to return phase-level <c>took</c> time values in the response.</summary>
+        public bool? PhaseTook
+        {
+            get => Q<bool?>("phase_took");
+            set => Q("phase_took", value);
+        }
+
         /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
         public string Preference
         {
@@ -3502,6 +3516,13 @@ namespace OpenSearch.Client
         {
             get => Q<Time>("scroll");
             set => Q("scroll", value);
+        }
+
+        /// <summary>Customizable sequence of processing stages applied to search queries.</summary>
+        public string SearchPipeline
+        {
+            get => Q<string>("search_pipeline");
+            set => Q("search_pipeline", value);
         }
 
         /// <summary>The type of the search operation.</summary>
@@ -3630,7 +3651,7 @@ namespace OpenSearch.Client
             set => Q("preference", value);
         }
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");

@@ -52,27 +52,30 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.KnnApi
 {
-    /// <summary>Request options for DeleteModel <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#delete-model</para></summary>
+    /// <summary>Request options for DeleteModel <para>https://docs.opensearch.org/latest/vector-search/api/knn/#delete-a-model</para></summary>
     public partial class DeleteModelRequestParameters
         : RequestParameters<DeleteModelRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "knn.delete_model";
     }
 
-    /// <summary>Request options for GetModel <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#get-model</para></summary>
+    /// <summary>Request options for GetModel <para>https://docs.opensearch.org/latest/vector-search/api/knn/#get-a-model</para></summary>
     public partial class GetModelRequestParameters : RequestParameters<GetModelRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "knn.get_model";
     }
 
-    /// <summary>Request options for SearchModels <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#search-model</para></summary>
+    /// <summary>Request options for SearchModels <para>https://docs.opensearch.org/latest/vector-search/api/knn/#search-for-a-model</para></summary>
     public partial class SearchModelsRequestParameters
         : RequestParameters<SearchModelsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "knn.search_models";
 
         /// <summary>
         /// Whether to ignore if a wildcard indexes expression resolves into no concrete indexes. (This includes <c>_all</c> string or when no indexes
@@ -136,7 +139,7 @@ namespace OpenSearch.Net.Specification.KnnApi
             set => Q("df", value);
         }
 
-        /// <summary>Comma-separated list of fields to return as the docvalue representation of a field for each hit.</summary>
+        /// <summary>A comma-separated list of fields to return as the docvalue representation of a field for each hit.</summary>
         public string[] DocValueFields
         {
             get => Q<string[]>("docvalue_fields");
@@ -228,7 +231,7 @@ namespace OpenSearch.Net.Specification.KnnApi
             set => Q("request_cache", value);
         }
 
-        /// <summary>Comma-separated list of specific routing values.</summary>
+        /// <summary>A comma-separated list of specific routing values.</summary>
         public string[] Routing
         {
             get => Q<string[]>("routing");
@@ -263,7 +266,7 @@ namespace OpenSearch.Net.Specification.KnnApi
             set => Q("size", value);
         }
 
-        /// <summary>Comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs.</summary>
+        /// <summary>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs.</summary>
         public string[] Sort
         {
             get => Q<string[]>("sort");
@@ -298,7 +301,7 @@ namespace OpenSearch.Net.Specification.KnnApi
             set => Q("stats", value);
         }
 
-        /// <summary>Comma-separated list of stored fields to return.</summary>
+        /// <summary>A comma-separated list of stored fields to return.</summary>
         public string[] StoredFields
         {
             get => Q<string[]>("stored_fields");
@@ -383,11 +386,12 @@ namespace OpenSearch.Net.Specification.KnnApi
         }
     }
 
-    /// <summary>Request options for Stats <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#stats</para></summary>
+    /// <summary>Request options for Stats <para>https://docs.opensearch.org/latest/vector-search/api/knn/#stats</para></summary>
     public partial class StatsRequestParameters : RequestParameters<StatsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "knn.stats";
 
         /// <summary>Operation timeout.</summary>
         public TimeSpan Timeout
@@ -397,12 +401,13 @@ namespace OpenSearch.Net.Specification.KnnApi
         }
     }
 
-    /// <summary>Request options for TrainModel <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#train-model</para></summary>
+    /// <summary>Request options for TrainModel <para>https://docs.opensearch.org/latest/vector-search/api/knn/#train-a-model</para></summary>
     public partial class TrainModelRequestParameters
         : RequestParameters<TrainModelRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "knn.train_model";
 
         /// <summary>Preferred node to execute training.</summary>
         public string Preference
@@ -412,10 +417,11 @@ namespace OpenSearch.Net.Specification.KnnApi
         }
     }
 
-    /// <summary>Request options for Warmup <para>https://opensearch.org/docs/latest/search-plugins/knn/api/#warmup-operation</para></summary>
+    /// <summary>Request options for Warmup <para>https://docs.opensearch.org/latest/vector-search/api/knn/#warmup-operation</para></summary>
     public partial class WarmupRequestParameters : RequestParameters<WarmupRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "knn.warmup";
     }
 }

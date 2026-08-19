@@ -8,7 +8,8 @@ The below matrix shows the compatibility of the [`opensearch-net`](https://www.n
 | OpenSearch Version | Client Version |
 |--------------------|----------------|
 | 1.x                | 1.0.0, 1.1.0   |
-| 2.x                | 1.1.0          |
+| 2.x                | 1.1.0, 2.0.0   |
+| 3.x                | 2.0.0          |
 
 ## Upgrading
 

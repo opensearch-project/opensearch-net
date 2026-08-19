@@ -213,7 +213,18 @@ namespace ApiGenerator.Domain.Code
 
 		public static string GetEnumName(string schemaKey)
 		{
-			var enumName = schemaKey.Replace("_common", "").Replace("___", " ").SplitPascalCase().ToPascalCase();
+            var parts = schemaKey.Replace("_common", "").Split("___").Select(s => s.SplitPascalCase().ToPascalCase()).ToArray();
+
+            string enumName;
+
+            if (parts.Length == 1)
+                enumName = parts[0];
+            else
+            {
+                enumName = parts[1];
+                if (!enumName.StartsWith(parts[0])) enumName = parts[0] + enumName;
+            }
+
 			if (GlobalOverrides.Instance.RenameEnums.TryGetValue(enumName, out var renamed)) enumName = renamed;
 			return enumName;
 		}

@@ -58,6 +58,7 @@ namespace OpenSearch.Net.Specification.SmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "sm.create_policy";
     }
 
     /// <summary>Request options for DeletePolicy</summary>
@@ -66,6 +67,7 @@ namespace OpenSearch.Net.Specification.SmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "sm.delete_policy";
     }
 
     /// <summary>Request options for ExplainPolicy</summary>
@@ -74,6 +76,7 @@ namespace OpenSearch.Net.Specification.SmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "sm.explain_policy";
     }
 
     /// <summary>Request options for GetPolicies</summary>
@@ -82,6 +85,7 @@ namespace OpenSearch.Net.Specification.SmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "sm.get_policies";
 
         /// <summary>The starting index from which to retrieve snapshot management policies.</summary>
         public int? From
@@ -112,9 +116,9 @@ namespace OpenSearch.Net.Specification.SmApi
         }
 
         /// <summary>The order to sort the snapshot management policies.</summary>
-        public string SortOrder
+        public SortOrder? SortOrder
         {
-            get => Q<string>("sortOrder");
+            get => Q<SortOrder?>("sortOrder");
             set => Q("sortOrder", value);
         }
     }
@@ -124,6 +128,7 @@ namespace OpenSearch.Net.Specification.SmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "sm.get_policy";
     }
 
     /// <summary>Request options for StartPolicy</summary>
@@ -132,6 +137,7 @@ namespace OpenSearch.Net.Specification.SmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "sm.start_policy";
     }
 
     /// <summary>Request options for StopPolicy</summary>
@@ -140,6 +146,7 @@ namespace OpenSearch.Net.Specification.SmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "sm.stop_policy";
     }
 
     /// <summary>Request options for UpdatePolicy</summary>
@@ -148,6 +155,7 @@ namespace OpenSearch.Net.Specification.SmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "sm.update_policy";
 
         /// <summary>The primary term of the policy to update.</summary>
         public int? IfPrimaryTerm

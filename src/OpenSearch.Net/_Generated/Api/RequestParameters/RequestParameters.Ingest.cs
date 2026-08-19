@@ -58,6 +58,7 @@ namespace OpenSearch.Net.Specification.IngestApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "ingest.delete_pipeline";
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -94,6 +95,7 @@ namespace OpenSearch.Net.Specification.IngestApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ingest.get_pipeline";
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -123,6 +125,7 @@ namespace OpenSearch.Net.Specification.IngestApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ingest.processor_grok";
 
         /// <summary>Determines how to sort returned grok patterns by key name.</summary>
         public bool? SortByColumns
@@ -132,12 +135,13 @@ namespace OpenSearch.Net.Specification.IngestApi
         }
     }
 
-    /// <summary>Request options for PutPipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</para></summary>
+    /// <summary>Request options for PutPipeline <para>https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/</para></summary>
     public partial class PutPipelineRequestParameters
         : RequestParameters<PutPipelineRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "ingest.put_pipeline";
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -174,6 +178,7 @@ namespace OpenSearch.Net.Specification.IngestApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ingest.simulate";
 
         /// <summary>When <c>true</c>, the response includes output data for each processor in the pipeline.</summary>
         public bool? Verbose

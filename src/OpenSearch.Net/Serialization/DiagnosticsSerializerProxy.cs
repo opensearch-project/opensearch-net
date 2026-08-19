@@ -93,6 +93,9 @@ namespace OpenSearch.Net
 			return _wrapsUtf8JsonSerializer;
 		}
 
+		// The wrapped serializer, so callers (e.g. per-request response builders) can branch on the concrete engine.
+		internal IOpenSearchSerializer InnerSerializer => _serializer;
+
 		public object Deserialize(Type type, Stream stream)
 		{
 			using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Deserialize, _state))

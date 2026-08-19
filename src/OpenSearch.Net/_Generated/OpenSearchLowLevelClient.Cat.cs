@@ -268,7 +268,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/count/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-count/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Count<TResponse>(
             string index,
@@ -283,7 +283,7 @@ namespace OpenSearch.Net.Specification.CatApi
             );
 
         /// <summary>GET on /_cat/count/{index} <para>https://opensearch.org/docs/latest/api-reference/cat/cat-count/</para></summary>
-        /// <param name="index">Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("cat.count", "index")]
         public Task<TResponse> CountAsync<TResponse>(

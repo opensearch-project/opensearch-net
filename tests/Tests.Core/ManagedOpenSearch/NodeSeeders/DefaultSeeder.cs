@@ -30,6 +30,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using OpenSearch.Client;
+using Tests.Configuration;
 using Tests.Core.Client;
 using Tests.Core.Extensions;
 using Tests.Domain;
@@ -234,11 +235,26 @@ public class DefaultSeeder
         return mapping;
     }
 
-    public static IndexSettingsDescriptor ProjectIndexSettings(IndexSettingsDescriptor settings) =>
+    public static IndexSettingsDescriptor ProjectIndexSettings(IndexSettingsDescriptor settings)
+    {
         settings
             .Analysis(ProjectAnalysisSettings)
             .Setting("index.knn", true)
             .Setting("index.knn.algo_param.ef_search", 100);
+
+        // On OpenSearch 3.x the k-NN plugin serves the vector field from "derived source"
+        // (the vector is reconstructed from the vector index on read instead of being stored
+        // in _source). Concurrently, segment merges can close the vector file a get/_mget is
+        // still reading, surfacing as an AlreadyClosedException -> no_shard_available and
+        // flaking MultiGetParentApiTests. Disable derived source so the vector is stored in
+        // _source and this server-side race is avoided. The setting only exists on k-NN >= 2.19
+        // (added alongside derived source), so guard it by major version to avoid rejecting
+        // index creation on older clusters. See opensearch-net issue #988.
+        if (TestConfiguration.Instance.OpenSearchVersion.Major >= 3)
+            settings.Setting("index.knn.derived_source.enabled", false);
+
+        return settings;
+    }
 
     public static IAnalysis ProjectAnalysisSettings(AnalysisDescriptor analysis)
     {
@@ -277,6 +293,8 @@ public class DefaultSeeder
     public static PropertiesDescriptor<TProject> ProjectProperties<TProject>(PropertiesDescriptor<TProject> props)
         where TProject : Project
     {
+        var opensearchVersion = TestConfiguration.Instance.OpenSearchVersion;
+        var vectorSearchEngine = opensearchVersion.Major >= 3 ? "lucene" : "nmslib";
         props
             .Join(j => j
                 .Name(n => n.Join)
@@ -371,7 +389,7 @@ public class DefaultSeeder
                 .Method(m => m
                     .Name("hnsw")
                     .SpaceType("l2")
-                    .Engine("nmslib")
+                    .Engine(vectorSearchEngine)
                     .Parameters(p => p
                         .Parameter("ef_construction", 128)
                         .Parameter("m", 24)

@@ -58,6 +58,7 @@ namespace OpenSearch.Net.Specification.WlmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "wlm.create_query_group";
     }
 
     /// <summary>Request options for DeleteQueryGroup</summary>
@@ -66,6 +67,7 @@ namespace OpenSearch.Net.Specification.WlmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "wlm.delete_query_group";
     }
 
     /// <summary>Request options for GetQueryGroup</summary>
@@ -74,6 +76,7 @@ namespace OpenSearch.Net.Specification.WlmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "wlm.get_query_group";
     }
 
     /// <summary>Request options for UpdateQueryGroup</summary>
@@ -82,5 +85,6 @@ namespace OpenSearch.Net.Specification.WlmApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "wlm.update_query_group";
     }
 }

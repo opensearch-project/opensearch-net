@@ -58,6 +58,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "search_relevance.delete_experiments";
     }
 
     /// <summary>Request options for DeleteJudgments</summary>
@@ -66,6 +67,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "search_relevance.delete_judgments";
     }
 
     /// <summary>Request options for DeleteQuerySets</summary>
@@ -74,6 +76,16 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "search_relevance.delete_query_sets";
+    }
+
+    /// <summary>Request options for DeleteScheduledExperiments</summary>
+    public partial class DeleteScheduledExperimentsRequestParameters
+        : RequestParameters<DeleteScheduledExperimentsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
+        public override bool SupportsBody => false;
+        public override string OperationName => "search_relevance.delete_scheduled_experiments";
     }
 
     /// <summary>Request options for DeleteSearchConfigurations</summary>
@@ -82,6 +94,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "search_relevance.delete_search_configurations";
     }
 
     /// <summary>Request options for GetExperiments</summary>
@@ -90,6 +103,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "search_relevance.get_experiments";
     }
 
     /// <summary>Request options for GetJudgments</summary>
@@ -98,6 +112,51 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "search_relevance.get_judgments";
+    }
+
+    /// <summary>Request options for GetNodeStats</summary>
+    public partial class GetNodeStatsRequestParameters
+        : RequestParameters<GetNodeStatsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+        public override string OperationName => "search_relevance.get_node_stats";
+
+        /// <summary>Requests flattened stat paths as keys.</summary>
+        public string FlatStatPaths
+        {
+            get => Q<string>("flat_stat_paths");
+            set => Q("flat_stat_paths", value);
+        }
+
+        /// <summary>Whether to include all nodes.</summary>
+        public string IncludeAllNodes
+        {
+            get => Q<string>("include_all_nodes");
+            set => Q("include_all_nodes", value);
+        }
+
+        /// <summary>Whether to include individual nodes.</summary>
+        public string IncludeIndividualNodes
+        {
+            get => Q<string>("include_individual_nodes");
+            set => Q("include_individual_nodes", value);
+        }
+
+        /// <summary>Whether to include info.</summary>
+        public string IncludeInfo
+        {
+            get => Q<string>("include_info");
+            set => Q("include_info", value);
+        }
+
+        /// <summary>Whether to include metadata.</summary>
+        public string IncludeMetadata
+        {
+            get => Q<string>("include_metadata");
+            set => Q("include_metadata", value);
+        }
     }
 
     /// <summary>Request options for GetQuerySets</summary>
@@ -106,6 +165,16 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "search_relevance.get_query_sets";
+    }
+
+    /// <summary>Request options for GetScheduledExperiments</summary>
+    public partial class GetScheduledExperimentsRequestParameters
+        : RequestParameters<GetScheduledExperimentsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+        public override string OperationName => "search_relevance.get_scheduled_experiments";
     }
 
     /// <summary>Request options for GetSearchConfigurations</summary>
@@ -114,6 +183,50 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "search_relevance.get_search_configurations";
+    }
+
+    /// <summary>Request options for GetStats</summary>
+    public partial class GetStatsRequestParameters : RequestParameters<GetStatsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+        public override string OperationName => "search_relevance.get_stats";
+
+        /// <summary>Requests flattened stat paths as keys.</summary>
+        public string FlatStatPaths
+        {
+            get => Q<string>("flat_stat_paths");
+            set => Q("flat_stat_paths", value);
+        }
+
+        /// <summary>Whether to include all nodes.</summary>
+        public string IncludeAllNodes
+        {
+            get => Q<string>("include_all_nodes");
+            set => Q("include_all_nodes", value);
+        }
+
+        /// <summary>Whether to include individual nodes.</summary>
+        public string IncludeIndividualNodes
+        {
+            get => Q<string>("include_individual_nodes");
+            set => Q("include_individual_nodes", value);
+        }
+
+        /// <summary>Whether to include info.</summary>
+        public string IncludeInfo
+        {
+            get => Q<string>("include_info");
+            set => Q("include_info", value);
+        }
+
+        /// <summary>Whether to include metadata.</summary>
+        public string IncludeMetadata
+        {
+            get => Q<string>("include_metadata");
+            set => Q("include_metadata", value);
+        }
     }
 
     /// <summary>Request options for PostQuerySets</summary>
@@ -122,6 +235,16 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "search_relevance.post_query_sets";
+    }
+
+    /// <summary>Request options for PostScheduledExperiments</summary>
+    public partial class PostScheduledExperimentsRequestParameters
+        : RequestParameters<PostScheduledExperimentsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+        public override string OperationName => "search_relevance.post_scheduled_experiments";
     }
 
     /// <summary>Request options for PutExperiments</summary>
@@ -130,6 +253,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "search_relevance.put_experiments";
     }
 
     /// <summary>Request options for PutJudgments</summary>
@@ -138,6 +262,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "search_relevance.put_judgments";
     }
 
     /// <summary>Request options for PutQuerySets</summary>
@@ -146,6 +271,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "search_relevance.put_query_sets";
     }
 
     /// <summary>Request options for PutSearchConfigurations</summary>
@@ -154,5 +280,6 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "search_relevance.put_search_configurations";
     }
 }

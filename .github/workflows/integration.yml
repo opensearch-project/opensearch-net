@@ -10,13 +10,24 @@ env:
   OPENSEARCH_PLUGINS_DIRECTORY: /tmp/opensearch-plugins
 
 jobs:
+  # Run the integration suite against both serializer engines: the default Utf8Json engine and the opt-in
+  # System.Text.Json engine (OSC_USE_STJ=true). The high-level client honors OSC_USE_STJ (via
+  # ConnectionSettings/ConnectionSettingsBase), so the STJ leg exercises the opt-in serialization path end-to-end
+  # against a real cluster for every version, keeping both engines from regressing.
+  # NOTE: the YAML runner (integration-yaml-tests.yml) uses the low-level client, which is Utf8Json-only and ignores
+  # OSC_USE_STJ, so it is intentionally not dual-engine. See dev-docs/system-text-json-migration.md.
   integration-opensearch:
-    name: Integration OpenSearch
+    name: Integration OpenSearch (${{ matrix.engine.name }})
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         version:
+          - 3.8.0
+          - 3.6.0
+          - 3.4.0
+          - 3.2.0
+          - 3.0.0
           - 2.16.0
           - 2.14.0
           - 2.12.0
@@ -24,26 +35,26 @@ jobs:
           - 2.8.0
           - 2.6.0
           - 2.4.1
-          - 2.2.1
-          - 2.0.1
           - 1.3.14
           - 1.2.4
           - 1.1.0
+        engine:
+          - name: utf8json
+            use_stj: 'false'
+          - name: stj
+            use_stj: 'true'
 
     steps:
       - name: Checkout Client
-        uses: actions/checkout@v4
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
           path: client
 
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
         with:
-          dotnet-version: |
-            5.0.x
-            6.0.x
-            8.0.x
+          dotnet-version: 10.0.x
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
         with:
           path: ~/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
@@ -51,21 +62,24 @@ jobs:
             ${{ runner.os }}-nuget-
 
       - run: "./build.sh integrate $VERSION readonly,multinode,writable random:test_only_one --report"
-        name: Integration Tests
+        name: Integration Tests (${{ matrix.engine.name }})
         working-directory: client
         env:
           VERSION: ${{ matrix.version }}
+          OSC_USE_STJ: ${{ matrix.engine.use_stj }}
 
       # Run neural query integration tests separately as they use a significant amount of memory on their own
       - run: "./build.sh integrate ${{ matrix.version }} neuralquery random:test_only_one --report"
-        name: Neural Query Integration Tests
+        name: Neural Query Integration Tests (${{ matrix.engine.name }})
         working-directory: client
+        env:
+          OSC_USE_STJ: ${{ matrix.engine.use_stj }}
 
       - name: Upload test report
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: report-${{ matrix.version }}
+          name: report-${{ matrix.version }}-${{ matrix.engine.name }}
           path: client/build/output/*
 
   integration-opensearch-unreleased:
@@ -76,13 +90,13 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { opensearch_ref: '1.x', java_version: '11' }
-          - { opensearch_ref: '2.x', java_version: '17' }
+          - { opensearch_ref: '1.3', java_version: '11' }
+          - { opensearch_ref: '2.19', java_version: '17' }
           - { opensearch_ref: 'main', java_version: '21' }
 
     steps:
       - name: Checkout Client
-        uses: actions/checkout@v4
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
           path: client
 
@@ -92,14 +106,12 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
         with:
           dotnet-version: |
-            5.0.x
-            6.0.x
-            8.0.x
+            10.0.x
 
-      - uses: actions/cache@v4
+      - uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
         with:
           path: ~/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
@@ -107,7 +119,7 @@ jobs:
             ${{ runner.os }}-nuget-
 
       - name: Set up JDK
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@c1e323688fd81a25caa38c78aa6df2d33d3e20d9 # v4
         with:
           distribution: 'temurin'
           java-version: ${{ matrix.java_version }}
@@ -117,7 +129,7 @@ jobs:
         uses: ./client/.github/actions/build-opensearch
         with:
           ref: ${{ matrix.opensearch_ref }}
-          security_plugin: ${{ matrix.opensearch_ref == '1.x' }}
+          security_plugin: ${{ matrix.opensearch_ref == '1.3' }}
           knn_plugin: true
           plugins_output_directory: ${{ env.OPENSEARCH_PLUGINS_DIRECTORY }}
 
@@ -130,7 +142,7 @@ jobs:
 
       - name: Upload test report
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: report-unreleased-${{ matrix.opensearch_ref }}
           path: client/build/output/*

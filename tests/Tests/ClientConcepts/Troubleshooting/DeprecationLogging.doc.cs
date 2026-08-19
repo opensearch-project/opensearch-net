@@ -30,6 +30,7 @@ using System.Collections.Generic;
 using FluentAssertions;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.Net;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.DocumentationTests;

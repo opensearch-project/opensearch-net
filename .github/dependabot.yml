@@ -1,3 +1,4 @@
+version: 2
 updates:
   - directory: /
     open-pull-requests-limit: 3
@@ -7,4 +8,11 @@ updates:
     labels:
       - "dependabot"
       - "dependencies"
-version: 2
+    ignore:
+      # Temporarily ignore these until we update the SDK
+      - dependency-name: "System.Diagnostics.DiagnosticSource"
+        update-types:
+          - "version-update:semver-major"
+      - dependency-name: "BenchMarkDotNet"
+        versions:
+          - ">0.15.0"

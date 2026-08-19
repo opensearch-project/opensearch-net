@@ -37,6 +37,13 @@ namespace OpenSearch.Net
 
 		bool SupportsBody { get; }
 
+		/// <summary>
+		/// The OpenSearch REST API operation name this request maps to (for example <c>search</c> or
+		/// <c>indices.create</c>), used as the OpenTelemetry span name and <c>db.operation</c> tag.
+		/// <c>null</c> for requests that do not correspond to a named API operation.
+		/// </summary>
+		string OperationName { get; }
+
 		/// <summary> Allows you to completely circumvent the serializer to build the final response.</summary>
 		CustomResponseBuilderBase CustomResponseBuilder { get; set; }
 

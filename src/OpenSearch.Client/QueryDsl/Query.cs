@@ -123,6 +123,9 @@ namespace OpenSearch.Client
 		public static QueryContainer MultiMatch(Func<MultiMatchQueryDescriptor<T>, IMultiMatchQuery> selector) =>
 			new QueryContainerDescriptor<T>().MultiMatch(selector);
 
+		public static QueryContainer CombinedFields(Func<CombinedFieldsQueryDescriptor<T>, ICombinedFieldsQuery> selector) =>
+			new QueryContainerDescriptor<T>().CombinedFields(selector);
+
 		public static QueryContainer Nested(Func<NestedQueryDescriptor<T>, INestedQuery> selector) =>
 			new QueryContainerDescriptor<T>().Nested(selector);
 

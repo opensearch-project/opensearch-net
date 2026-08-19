@@ -58,6 +58,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "replication.autofollow_stats";
     }
 
     /// <summary>Request options for CreateRule <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#create-replication-rule</para></summary>
@@ -66,6 +67,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "replication.create_replication_rule";
     }
 
     /// <summary>Request options for DeleteRule <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#delete-replication-rule</para></summary>
@@ -74,6 +76,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => true;
+        public override string OperationName => "replication.delete_replication_rule";
     }
 
     /// <summary>Request options for FollowerStats <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#get-follower-cluster-stats</para></summary>
@@ -82,6 +85,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "replication.follower_stats";
     }
 
     /// <summary>Request options for LeaderStats <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#get-leader-cluster-stats</para></summary>
@@ -90,6 +94,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "replication.leader_stats";
     }
 
     /// <summary>Request options for Pause <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#pause-replication</para></summary>
@@ -97,6 +102,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "replication.pause";
     }
 
     /// <summary>Request options for Resume <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#resume-replication</para></summary>
@@ -104,6 +110,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "replication.resume";
     }
 
     /// <summary>Request options for Start <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#start-replication</para></summary>
@@ -111,6 +118,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "replication.start";
     }
 
     /// <summary>Request options for Status <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#get-replication-status</para></summary>
@@ -118,6 +126,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "replication.status";
     }
 
     /// <summary>Request options for Stop <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#stop-replication</para></summary>
@@ -125,6 +134,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "replication.stop";
     }
 
     /// <summary>Request options for UpdateSettings <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#update-settings</para></summary>
@@ -133,5 +143,6 @@ namespace OpenSearch.Net.Specification.ReplicationApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "replication.update_settings";
     }
 }

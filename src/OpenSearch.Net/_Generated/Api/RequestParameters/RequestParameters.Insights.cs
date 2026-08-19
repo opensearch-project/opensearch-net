@@ -58,11 +58,12 @@ namespace OpenSearch.Net.Specification.InsightsApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "insights.top_queries";
 
         /// <summary>Get top n queries by a specific metric.</summary>
-        public string Type
+        public InsightsMetricType? Type
         {
-            get => Q<string>("type");
+            get => Q<InsightsMetricType?>("type");
             set => Q("type", value);
         }
     }

@@ -27,8 +27,9 @@
 */
 
 using System;
-using OpenSearch.Net;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using Tests.Configuration;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
 using Tests.Framework.EndpointTests;
@@ -40,11 +41,17 @@ public class PutMappingApiTests
     : ApiIntegrationAgainstNewIndexTestBase
         <WritableCluster, PutMappingResponse, IPutMappingRequest, PutMappingDescriptor<Project>, PutMappingRequest<Project>>
 {
-    public PutMappingApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    private readonly string _vectorSearchEngine;
+
+    public PutMappingApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage)
+    {
+        var opensearchVersion = TestConfiguration.Instance.OpenSearchVersion;
+        _vectorSearchEngine = opensearchVersion.Major >= 3 ? "lucene" : "nmslib";
+    }
 
     protected override bool ExpectIsValid => true;
 
-    protected override object ExpectJson { get; } = new
+    protected override object ExpectJson => new
     {
         properties = new
         {
@@ -158,10 +165,11 @@ public class PutMappingApiTests
             {
                 type = "knn_vector",
                 dimension = 2,
-                method = new {
+                method = new
+                {
                     name = "hnsw",
                     space_type = "l2",
-                    engine = "nmslib",
+                    engine = _vectorSearchEngine,
                     parameters = new
                     {
                         ef_construction = 128,
@@ -236,7 +244,7 @@ public class PutMappingApiTests
                 .Method(m => m
                     .Name("hnsw")
                     .SpaceType("l2")
-                    .Engine("nmslib")
+                    .Engine(_vectorSearchEngine)
                     .Parameters(p => p
                         .Parameter("ef_construction", 128)
                         .Parameter("m", 24)
@@ -364,7 +372,7 @@ public class PutMappingApiTests
                 {
                     Name = "hnsw",
                     SpaceType = "l2",
-                    Engine = "nmslib",
+                    Engine = _vectorSearchEngine,
                     Parameters = new KnnMethodParameters
                     {
                         {"ef_construction", 128},

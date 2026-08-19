@@ -267,7 +267,7 @@ namespace OpenSearch.Client
 				if (IsIntegerGreaterThanZero(fraction))
 				{
 					Factor = fraction;
-					Interval = TimeUnit.Day;
+					Interval = TimeUnit.Days;
 					return;
 				}
 			}
@@ -277,7 +277,7 @@ namespace OpenSearch.Client
 				if (IsIntegerGreaterThanZero(fraction))
 				{
 					Factor = fraction;
-					Interval = TimeUnit.Hour;
+					Interval = TimeUnit.Hours;
 					return;
 				}
 			}
@@ -287,7 +287,7 @@ namespace OpenSearch.Client
 				if (IsIntegerGreaterThanZero(fraction))
 				{
 					Factor = fraction;
-					Interval = TimeUnit.Minute;
+					Interval = TimeUnit.Minutes;
 					return;
 				}
 			}
@@ -297,14 +297,14 @@ namespace OpenSearch.Client
 				if (IsIntegerGreaterThanZero(fraction))
 				{
 					Factor = fraction;
-					Interval = TimeUnit.Second;
+					Interval = TimeUnit.Seconds;
 					return;
 				}
 			}
 			if (IsIntegerGreaterThanZero(ms))
 			{
 				Factor = ms;
-				Interval = TimeUnit.Millisecond;
+				Interval = TimeUnit.Milliseconds;
 				return;
 			}
 
@@ -325,15 +325,15 @@ namespace OpenSearch.Client
 		{
 			switch (interval)
 			{
-				case TimeUnit.Day:
+				case TimeUnit.Days:
 					return factor * MillisecondsInADay;
-				case TimeUnit.Hour:
+				case TimeUnit.Hours:
 					return factor * MillisecondsInAnHour;
-				case TimeUnit.Minute:
+				case TimeUnit.Minutes:
 					return factor * MillisecondsInAMinute;
-				case TimeUnit.Second:
+				case TimeUnit.Seconds:
 					return factor * MillisecondsInASecond;
-				case TimeUnit.Millisecond:
+				case TimeUnit.Milliseconds:
 					return factor;
 				case TimeUnit.Microseconds:
 					return factor * MillisecondsInAMicrosecond;

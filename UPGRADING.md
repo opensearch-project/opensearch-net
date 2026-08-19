@@ -52,17 +52,32 @@
 
 # Upgrading OpenSearch.Net & OpenSearch.Client
 
+## Optional System.Text.Json high-level serializer
+
+The high-level client (`OpenSearch.Client`) serializes requests and responses using a bundled fork of the Utf8Json library. A `System.Text.Json`-based engine is now available as an **opt-in** alternative. The two engines are behaviorally equivalent for the client's own types (the full serialization test suite passes on both); the default remains Utf8Json to avoid changing serialization behavior within an already-released 2.x line.
+
+To use the System.Text.Json engine, opt in one of two ways (the programmatic call takes precedence over the environment variable):
+
+- Programmatically: `new ConnectionSettings(pool).UseSystemTextJson()` before creating your `OpenSearchClient`.
+- Via environment variable: set `OSC_USE_STJ=true` before creating your `ConnectionSettings` / `OpenSearchClient`.
+
+A custom source serializer supplied via `ConnectionSettings(..., sourceSerializer: ...)` (for example the `OpenSearch.Client.JsonNetSerializer` package) continues to work unchanged under either engine.
+
 ## 1.x.y to 2.0.0
 
 ### OpenSearch.Net
 
 #### General
 - Support for .NET Framework v4.6.1 has been removed, if you have a .NET Framework based project it is recommended to upgrade the project to target .NET Framework v4.7.2 or higher.
+- Support for dotnet 5 and dotnet 6 has been removed as they are EOL. Upgrade to dotnet 8 or higher.
 - The `MasterTimeSpanout` & `ClusterManagerTimeSpanout` parameters on all actions have been corrected to `MasterTimeout` and `ClusterManagerTimeout` respectively.
 - The `MasterTimeout` parameters on all actions have been marked `[Obsolete]`, please migrate to using `ClusterManagerTimeout` if your OpenSearch cluster is at least version `2.0.0` as `MasterTimeout` may be removed in future major versions.
 - The `ExpandWildcards` enum is now attributed with `[Flags]` to allow combining of multiple values e.g. `ExpandWildcards.Open | ExpandWildcards.Closed` to match open and closed indexes but not hidden.
 - The `Bytes` enum has been renamed to `ByteUnit`.
 - All instances of the `Routing` parameter now accept an array of strings instead of a single string to better represent the underlying API that accepts comma-separated lists.
+- The `SortOrder` enum has been moved from the `OpenSearch.Client` namespace to the `OpenSearch.Net` namespace.
+- The `TimeUnit` enum has been moved from the `OpenSearch.Client` namespace to the `OpenSearch.Net` namespace. The `Millisecond`, `Second`, `Minute`, `Hour` and `Day` variants names have been pluralized to `Milliseconds`, `Seconds`, `Minutes`, `Hours` and `Days` respectively.
+- `VersionType.Force` enum was removed as it is no longer in the specification
 
 #### Bulk Action
 - The `TypeQueryString` parameter has been renamed to simply `Type`.

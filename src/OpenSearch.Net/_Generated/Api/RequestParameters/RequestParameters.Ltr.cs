@@ -52,12 +52,73 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.LtrApi
 {
+    /// <summary>Request options for AddFeaturesToSet</summary>
+    public partial class AddFeaturesToSetRequestParameters
+        : RequestParameters<AddFeaturesToSetRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+        public override string OperationName => "ltr.add_features_to_set";
+
+        /// <summary>Whether to merge the feature list or append only.</summary>
+        public bool? Merge
+        {
+            get => Q<bool?>("merge");
+            set => Q("merge", value);
+        }
+
+        /// <summary>Specific routing value.</summary>
+        public string Routing
+        {
+            get => Q<string>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Version check to ensure feature set is modified with expected version.</summary>
+        public int? Version
+        {
+            get => Q<int?>("version");
+            set => Q("version", value);
+        }
+    }
+
+    /// <summary>Request options for AddFeaturesToSetByQuery</summary>
+    public partial class AddFeaturesToSetByQueryRequestParameters
+        : RequestParameters<AddFeaturesToSetByQueryRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => false;
+        public override string OperationName => "ltr.add_features_to_set_by_query";
+
+        /// <summary>Whether to merge the feature list or append only.</summary>
+        public bool? Merge
+        {
+            get => Q<bool?>("merge");
+            set => Q("merge", value);
+        }
+
+        /// <summary>Specific routing value.</summary>
+        public string Routing
+        {
+            get => Q<string>("routing");
+            set => Q("routing", value);
+        }
+
+        /// <summary>Version check to ensure feature set is modified with expected version.</summary>
+        public int? Version
+        {
+            get => Q<int?>("version");
+            set => Q("version", value);
+        }
+    }
+
     /// <summary>Request options for CacheStats</summary>
     public partial class CacheStatsRequestParameters
         : RequestParameters<CacheStatsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.cache_stats";
     }
 
     /// <summary>Request options for ClearCache</summary>
@@ -66,6 +127,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.clear_cache";
     }
 
     /// <summary>Request options for CreateDefaultStore</summary>
@@ -74,6 +136,71 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.create_default_store";
+    }
+
+    /// <summary>Request options for CreateFeature</summary>
+    public partial class CreateFeatureRequestParameters
+        : RequestParameters<CreateFeatureRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+        public override bool SupportsBody => true;
+        public override string OperationName => "ltr.create_feature";
+
+        /// <summary>Specific routing value.</summary>
+        public string Routing
+        {
+            get => Q<string>("routing");
+            set => Q("routing", value);
+        }
+    }
+
+    /// <summary>Request options for CreateFeatureset</summary>
+    public partial class CreateFeaturesetRequestParameters
+        : RequestParameters<CreateFeaturesetRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+        public override bool SupportsBody => true;
+        public override string OperationName => "ltr.create_featureset";
+
+        /// <summary>Specific routing value.</summary>
+        public string Routing
+        {
+            get => Q<string>("routing");
+            set => Q("routing", value);
+        }
+    }
+
+    /// <summary>Request options for CreateModel</summary>
+    public partial class CreateModelRequestParameters
+        : RequestParameters<CreateModelRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+        public override bool SupportsBody => true;
+        public override string OperationName => "ltr.create_model";
+
+        /// <summary>Specific routing value.</summary>
+        public string Routing
+        {
+            get => Q<string>("routing");
+            set => Q("routing", value);
+        }
+    }
+
+    /// <summary>Request options for CreateModelFromSet</summary>
+    public partial class CreateModelFromSetRequestParameters
+        : RequestParameters<CreateModelFromSetRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+        public override string OperationName => "ltr.create_model_from_set";
+
+        /// <summary>Specific routing value.</summary>
+        public string Routing
+        {
+            get => Q<string>("routing");
+            set => Q("routing", value);
+        }
     }
 
     /// <summary>Request options for CreateStore</summary>
@@ -82,6 +209,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.create_store";
     }
 
     /// <summary>Request options for DeleteDefaultStore</summary>
@@ -90,6 +218,34 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.delete_default_store";
+    }
+
+    /// <summary>Request options for DeleteFeature</summary>
+    public partial class DeleteFeatureRequestParameters
+        : RequestParameters<DeleteFeatureRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
+        public override bool SupportsBody => false;
+        public override string OperationName => "ltr.delete_feature";
+    }
+
+    /// <summary>Request options for DeleteFeatureset</summary>
+    public partial class DeleteFeaturesetRequestParameters
+        : RequestParameters<DeleteFeaturesetRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
+        public override bool SupportsBody => false;
+        public override string OperationName => "ltr.delete_featureset";
+    }
+
+    /// <summary>Request options for DeleteModel</summary>
+    public partial class DeleteModelRequestParameters
+        : RequestParameters<DeleteModelRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
+        public override bool SupportsBody => false;
+        public override string OperationName => "ltr.delete_model";
     }
 
     /// <summary>Request options for DeleteStore</summary>
@@ -98,6 +254,33 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.delete_store";
+    }
+
+    /// <summary>Request options for GetFeature</summary>
+    public partial class GetFeatureRequestParameters
+        : RequestParameters<GetFeatureRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+        public override string OperationName => "ltr.get_feature";
+    }
+
+    /// <summary>Request options for GetFeatureset</summary>
+    public partial class GetFeaturesetRequestParameters
+        : RequestParameters<GetFeaturesetRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+        public override string OperationName => "ltr.get_featureset";
+    }
+
+    /// <summary>Request options for GetModel</summary>
+    public partial class GetModelRequestParameters : RequestParameters<GetModelRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+        public override string OperationName => "ltr.get_model";
     }
 
     /// <summary>Request options for GetStore</summary>
@@ -105,6 +288,7 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.get_store";
     }
 
     /// <summary>Request options for ListStores</summary>
@@ -113,6 +297,97 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.list_stores";
+    }
+
+    /// <summary>Request options for SearchFeatures</summary>
+    public partial class SearchFeaturesRequestParameters
+        : RequestParameters<SearchFeaturesRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+        public override string OperationName => "ltr.search_features";
+
+        /// <summary>The offset from the first result (for pagination).</summary>
+        public int? From
+        {
+            get => Q<int?>("from");
+            set => Q("from", value);
+        }
+
+        /// <summary>A name prefix to filter features by.</summary>
+        public string Prefix
+        {
+            get => Q<string>("prefix");
+            set => Q("prefix", value);
+        }
+
+        /// <summary>The number of features to return.</summary>
+        public int? Size
+        {
+            get => Q<int?>("size");
+            set => Q("size", value);
+        }
+    }
+
+    /// <summary>Request options for SearchFeaturesets</summary>
+    public partial class SearchFeaturesetsRequestParameters
+        : RequestParameters<SearchFeaturesetsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+        public override string OperationName => "ltr.search_featuresets";
+
+        /// <summary>The offset from the first result (for pagination).</summary>
+        public int? From
+        {
+            get => Q<int?>("from");
+            set => Q("from", value);
+        }
+
+        /// <summary>A name prefix to filter feature sets by.</summary>
+        public string Prefix
+        {
+            get => Q<string>("prefix");
+            set => Q("prefix", value);
+        }
+
+        /// <summary>The number of feature sets to return.</summary>
+        public int? Size
+        {
+            get => Q<int?>("size");
+            set => Q("size", value);
+        }
+    }
+
+    /// <summary>Request options for SearchModels</summary>
+    public partial class SearchModelsRequestParameters
+        : RequestParameters<SearchModelsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+        public override string OperationName => "ltr.search_models";
+
+        /// <summary>The offset from the first result (for pagination).</summary>
+        public int? From
+        {
+            get => Q<int?>("from");
+            set => Q("from", value);
+        }
+
+        /// <summary>A name prefix to filter models by.</summary>
+        public string Prefix
+        {
+            get => Q<string>("prefix");
+            set => Q("prefix", value);
+        }
+
+        /// <summary>The number of models to return.</summary>
+        public int? Size
+        {
+            get => Q<int?>("size");
+            set => Q("size", value);
+        }
     }
 
     /// <summary>Request options for Stats</summary>
@@ -120,12 +395,45 @@ namespace OpenSearch.Net.Specification.LtrApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ltr.stats";
 
         /// <summary>The time in milliseconds to wait for a response.</summary>
         public TimeSpan Timeout
         {
             get => Q<TimeSpan>("timeout");
             set => Q("timeout", value);
+        }
+    }
+
+    /// <summary>Request options for UpdateFeature</summary>
+    public partial class UpdateFeatureRequestParameters
+        : RequestParameters<UpdateFeatureRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+        public override string OperationName => "ltr.update_feature";
+
+        /// <summary>Specific routing value.</summary>
+        public string Routing
+        {
+            get => Q<string>("routing");
+            set => Q("routing", value);
+        }
+    }
+
+    /// <summary>Request options for UpdateFeatureset</summary>
+    public partial class UpdateFeaturesetRequestParameters
+        : RequestParameters<UpdateFeaturesetRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+        public override string OperationName => "ltr.update_featureset";
+
+        /// <summary>Specific routing value.</summary>
+        public string Routing
+        {
+            get => Q<string>("routing");
+            set => Q("routing", value);
         }
     }
 }

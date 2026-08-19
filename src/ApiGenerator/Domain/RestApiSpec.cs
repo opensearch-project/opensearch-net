@@ -39,7 +39,7 @@ namespace ApiGenerator.Domain
     {
         public string Name { get; set; }
 		public bool IsFlag { get; set; }
-        public IEnumerable<string> Options { get; set; }
+        public IEnumerable<(string Value, string Alias)> Options { get; set; }
     }
 
     public class RestApiSpec

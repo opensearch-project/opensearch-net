@@ -58,6 +58,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "snapshot.cleanup_repository";
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
@@ -94,6 +95,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "snapshot.clone";
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
@@ -122,6 +124,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "snapshot.create";
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
@@ -164,6 +167,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "snapshot.create_repository";
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
@@ -207,6 +211,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "snapshot.delete";
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
@@ -236,6 +241,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "snapshot.delete_repository";
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
@@ -272,6 +278,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "snapshot.get";
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
@@ -305,8 +312,10 @@ namespace OpenSearch.Net.Specification.SnapshotApi
         }
 
         /// <summary>
-        /// When <c>true</c>, returns additional information about each snapshot such as the version of OpenSearch which took the snapshot, the start
-        /// and end times of the snapshot, and the number of shards contained in the snapshot.
+        /// When <c>true</c>, returns additional information about each snapshot, such as the version of OpenSearch which took the snapshot, the start
+        /// and end times of the snapshot, and the number of shards contained in the snapshot. When <c>false</c>, returns only snapshot names and
+        /// contained indexes. This is useful when the snapshots belong to a cloud-based repository, where each blob read is a cost or performance
+        /// concern.
         /// </summary>
         public bool? Verbose
         {
@@ -321,6 +330,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "snapshot.get_repository";
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
@@ -356,6 +366,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "snapshot.restore";
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
@@ -395,6 +406,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "snapshot.status";
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
@@ -431,6 +443,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "snapshot.verify_repository";
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a

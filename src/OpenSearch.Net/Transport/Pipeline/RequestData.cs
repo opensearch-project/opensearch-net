@@ -49,6 +49,7 @@ namespace OpenSearch.Net
 		{
 			_path = path;
 			CustomResponseBuilder = local?.CustomResponseBuilder;
+			OperationName = local?.OperationName;
 			PathAndQuery = CreatePathWithQueryStrings(path, ConnectionSettings, local);
 		}
 
@@ -147,6 +148,12 @@ namespace OpenSearch.Net
 		public PipelineFailure OnFailurePipelineFailure => MadeItToResponse ? PipelineFailure.BadResponse : PipelineFailure.BadRequest;
 		public string PathAndQuery { get; }
 		public TimeSpan PingTimeout { get; }
+
+		/// <summary>
+		/// The OpenSearch REST API operation name this request maps to (for example <c>search</c>), or <c>null</c>
+		/// when unknown. Used as the OpenTelemetry span name and <c>db.operation</c> tag.
+		/// </summary>
+		public string OperationName { get; }
 
 		public bool Pipelined { get; }
 		public PostData PostData { get; }

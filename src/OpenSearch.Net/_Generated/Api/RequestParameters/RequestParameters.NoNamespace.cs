@@ -57,6 +57,14 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "bulk";
+
+        /// <summary>Name of the data stream, index, or index alias to perform bulk actions on.</summary>
+        public string Index
+        {
+            get => Q<string>("index");
+            set => Q("index", value);
+        }
 
         /// <summary>
         /// ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value
@@ -146,6 +154,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "bulk_stream";
 
         /// <summary>Specifies for how long bulk operations should be accumulated into a batch before sending the batch to data nodes.</summary>
         public TimeSpan BatchInterval
@@ -249,6 +258,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => true;
+        public override string OperationName => "clear_scroll";
     }
 
     /// <summary>Request options for Count <para>https://opensearch.org/docs/latest/api-reference/count/</para></summary>
@@ -256,6 +266,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "count";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -376,6 +387,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "create";
 
         /// <summary>
         /// ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value
@@ -423,7 +435,7 @@ namespace OpenSearch.Net
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -446,6 +458,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "create_pit";
 
         /// <summary>Allow if point in time can be created with partial failures.</summary>
         public bool? AllowPartialPitCreation
@@ -475,7 +488,7 @@ namespace OpenSearch.Net
             set => Q("preference", value);
         }
 
-        /// <summary>Comma-separated list of specific routing values.</summary>
+        /// <summary>A comma-separated list of specific routing values.</summary>
         public string[] Routing
         {
             get => Q<string[]>("routing");
@@ -488,6 +501,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "delete";
 
         /// <summary>Only perform the operation if the document has this primary term.</summary>
         public long? IfPrimaryTerm
@@ -538,7 +552,7 @@ namespace OpenSearch.Net
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -562,6 +576,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "delete_all_pits";
     }
 
     /// <summary>Request options for DeleteByQuery <para>https://opensearch.org/docs/latest/api-reference/document-apis/delete-by-query/</para></summary>
@@ -570,6 +585,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "delete_by_query";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -811,6 +827,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "delete_by_query_rethrottle";
 
         /// <summary>The throttle for this request in sub-requests per second.</summary>
         public float? RequestsPerSecond
@@ -825,6 +842,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => true;
+        public override string OperationName => "delete_pit";
     }
 
     /// <summary>Request options for DeleteScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/delete-script/</para></summary>
@@ -833,6 +851,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "delete_script";
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -869,6 +888,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
         public override bool SupportsBody => false;
+        public override string OperationName => "exists";
 
         /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
         public string Preference
@@ -877,7 +897,7 @@ namespace OpenSearch.Net
             set => Q("preference", value);
         }
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
@@ -939,7 +959,7 @@ namespace OpenSearch.Net
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -953,6 +973,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
         public override bool SupportsBody => false;
+        public override string OperationName => "exists_source";
 
         /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
         public string Preference
@@ -961,7 +982,7 @@ namespace OpenSearch.Net
             set => Q("preference", value);
         }
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
@@ -1013,7 +1034,7 @@ namespace OpenSearch.Net
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -1026,6 +1047,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "explain";
 
         /// <summary>Analyzer to use for the query string. This parameter can only be used when the <c>q</c> query string parameter is specified.</summary>
         public string Analyzer
@@ -1118,6 +1140,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "field_caps";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -1131,7 +1154,7 @@ namespace OpenSearch.Net
         }
 
         /// <summary>
-        /// Type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
+        /// The type of index that wildcard patterns can match. If the request can target data streams, this argument determines whether wildcard
         /// expressions match hidden data streams. Supports comma-separated values, such as <c>open,hidden</c>.
         /// </summary>
         public ExpandWildcards? ExpandWildcards
@@ -1140,7 +1163,7 @@ namespace OpenSearch.Net
             set => Q("expand_wildcards", value);
         }
 
-        /// <summary>Comma-separated list of fields to retrieve capabilities for. Wildcard (<c>*</c>) expressions are supported.</summary>
+        /// <summary>A comma-separated list of fields to retrieve capabilities for. Wildcard (<c>*</c>) expressions are supported.</summary>
         public string[] Fields
         {
             get => Q<string[]>("fields");
@@ -1167,6 +1190,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "get";
 
         /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
         public string Preference
@@ -1175,7 +1199,7 @@ namespace OpenSearch.Net
             set => Q("preference", value);
         }
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
@@ -1240,7 +1264,7 @@ namespace OpenSearch.Net
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: <c>internal</c>, <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>internal</c>, <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -1254,6 +1278,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "get_all_pits";
     }
 
     /// <summary>Request options for GetScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/get-stored-script/</para></summary>
@@ -1261,6 +1286,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "get_script";
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -1287,6 +1313,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "get_script_context";
     }
 
     /// <summary>Request options for GetScriptLanguages <para>https://opensearch.org/docs/latest/api-reference/script-apis/get-script-language/</para></summary>
@@ -1295,6 +1322,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "get_script_languages";
     }
 
     /// <summary>Request options for Source <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
@@ -1302,6 +1330,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "get_source";
 
         /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
         public string Preference
@@ -1310,7 +1339,7 @@ namespace OpenSearch.Net
             set => Q("preference", value);
         }
 
-        /// <summary>Boolean) If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>Boolean) If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
@@ -1365,7 +1394,7 @@ namespace OpenSearch.Net
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type. One of <c>internal</c>, <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type. One of <c>internal</c>, <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -1378,6 +1407,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "index";
 
         /// <summary>Only perform the operation if the document has this primary term.</summary>
         public long? IfPrimaryTerm
@@ -1457,7 +1487,7 @@ namespace OpenSearch.Net
             set => Q("version", value);
         }
 
-        /// <summary>Specific version type: <c>external</c>, <c>external_gte</c>.</summary>
+        /// <summary>The specific version type: <c>external</c>, <c>external_gte</c>.</summary>
         public VersionType? VersionType
         {
             get => Q<VersionType?>("version_type");
@@ -1481,6 +1511,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "info";
     }
 
     /// <summary>Request options for MultiGet <para>https://opensearch.org/docs/latest/api-reference/document-apis/multi-get/</para></summary>
@@ -1488,6 +1519,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "mget";
 
         /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
         public string Preference
@@ -1496,7 +1528,7 @@ namespace OpenSearch.Net
             set => Q("preference", value);
         }
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
@@ -1559,6 +1591,14 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "msearch";
+
+        /// <summary>Specifies whether to return partial results if there are shard request timeouts or shard failures.</summary>
+        public bool? AllowPartialResults
+        {
+            get => Q<bool?>("allow_partial_results");
+            set => Q("allow_partial_results", value);
+        }
 
         /// <summary>If <c>true</c>, network round-trips between the coordinating node and remote clusters are minimized for cross-cluster search requests.</summary>
         public bool? CcsMinimizeRoundtrips
@@ -1621,6 +1661,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "msearch_template";
 
         /// <summary>If <c>true</c>, network round-trips are minimized for cross-cluster search requests.</summary>
         public bool? CcsMinimizeRoundtrips
@@ -1664,6 +1705,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "mtermvectors";
 
         /// <summary>
         /// A comma-separated list or a wildcard expression specifying the fields to include in the statistics. Used as the default list unless a
@@ -1715,7 +1757,7 @@ namespace OpenSearch.Net
             set => Q("preference", value);
         }
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
@@ -1756,6 +1798,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
         public override bool SupportsBody => false;
+        public override string OperationName => "ping";
     }
 
     /// <summary>Request options for PutScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/create-stored-script/</para></summary>
@@ -1763,6 +1806,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "put_script";
 
         /// <summary>Operation timeout for connection to cluster-manager node.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -1808,6 +1852,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "rank_eval";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -1848,6 +1893,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "reindex";
 
         /// <summary>If <c>true</c>, the request refreshes affected shards to make this operation visible to search.</summary>
         public Refresh? Refresh
@@ -1906,6 +1952,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "reindex_rethrottle";
 
         /// <summary>The throttle for this request in sub-requests per second.</summary>
         public float? RequestsPerSecond
@@ -1921,6 +1968,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "render_search_template";
     }
 
     /// <summary>Request options for ExecutePainlessScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/exec-script/</para></summary>
@@ -1929,6 +1977,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "scripts_painless_execute";
     }
 
     /// <summary>Request options for Scroll <para>https://opensearch.org/docs/latest/api-reference/scroll/#path-and-http-methods</para></summary>
@@ -1936,6 +1985,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "scroll";
 
         /// <summary>
         /// If <c>true</c>, the API response's <c>hit.total</c> property is returned as an integer. If <c>false</c>, the API response's
@@ -1953,6 +2003,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "search";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -2078,6 +2129,16 @@ namespace OpenSearch.Net
         {
             get => Q<bool?>("include_named_queries_score");
             set => Q("include_named_queries_score", value);
+        }
+
+        /// <summary>
+        /// A comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (<c>*</c>). To search all data streams and
+        /// indexes, omit this parameter or use <c>*</c> or <c>_all</c>.
+        /// </summary>
+        public string[] Index
+        {
+            get => Q<string[]>("index");
+            set => Q("index", value);
         }
 
         /// <summary>
@@ -2281,6 +2342,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "search_shards";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -2339,6 +2401,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "search_template";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -2390,6 +2453,13 @@ namespace OpenSearch.Net
             set => Q("ignore_unavailable", value);
         }
 
+        /// <summary>Indicates whether to return phase-level <c>took</c> time values in the response.</summary>
+        public bool? PhaseTook
+        {
+            get => Q<bool?>("phase_took");
+            set => Q("phase_took", value);
+        }
+
         /// <summary>Specifies the node or shard the operation should be performed on. Random by default.</summary>
         public string Preference
         {
@@ -2416,6 +2486,13 @@ namespace OpenSearch.Net
         {
             get => Q<TimeSpan>("scroll");
             set => Q("scroll", value);
+        }
+
+        /// <summary>Customizable sequence of processing stages applied to search queries.</summary>
+        public string SearchPipeline
+        {
+            get => Q<string>("search_pipeline");
+            set => Q("search_pipeline", value);
         }
 
         /// <summary>The type of the search operation.</summary>
@@ -2446,6 +2523,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "termvectors";
 
         /// <summary>
         /// A comma-separated list or a wildcard expression specifying the fields to include in the statistics. Used as the default list unless a
@@ -2497,7 +2575,7 @@ namespace OpenSearch.Net
             set => Q("preference", value);
         }
 
-        /// <summary>If <c>true</c>, the request is real-time as opposed to near-real-time.</summary>
+        /// <summary>If <c>true</c>, the request is real time as opposed to near real time.</summary>
         public bool? Realtime
         {
             get => Q<bool?>("realtime");
@@ -2538,6 +2616,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "update";
 
         /// <summary>Only perform the operation if the document has this primary term.</summary>
         public long? IfPrimaryTerm
@@ -2625,6 +2704,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "update_by_query";
 
         /// <summary>
         /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
@@ -2877,6 +2957,7 @@ namespace OpenSearch.Net
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "update_by_query_rethrottle";
 
         /// <summary>The throttle for this request in sub-requests per second.</summary>
         public float? RequestsPerSecond

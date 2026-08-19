@@ -27,6 +27,7 @@
 */
 
 using System.Collections.Generic;
+using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {

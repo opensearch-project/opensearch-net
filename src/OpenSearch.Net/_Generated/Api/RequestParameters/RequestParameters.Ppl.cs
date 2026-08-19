@@ -57,6 +57,7 @@ namespace OpenSearch.Net.Specification.PplApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ppl.explain";
 
         /// <summary>Specifies the response format (JSON, YAML).</summary>
         public string Format
@@ -78,6 +79,7 @@ namespace OpenSearch.Net.Specification.PplApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "ppl.get_stats";
 
         /// <summary>Specifies the response format (JSON, YAML).</summary>
         public string Format
@@ -99,6 +101,7 @@ namespace OpenSearch.Net.Specification.PplApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ppl.post_stats";
 
         /// <summary>Specifies the response format (JSON, YAML).</summary>
         public string Format
@@ -120,6 +123,7 @@ namespace OpenSearch.Net.Specification.PplApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "ppl.query";
 
         /// <summary>Specifies the response format (JSON OR YAML).</summary>
         public string Format

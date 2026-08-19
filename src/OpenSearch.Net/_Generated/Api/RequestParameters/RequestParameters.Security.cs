@@ -57,6 +57,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.authinfo";
 
         /// <summary>The type of the current authentication request.</summary>
         public string AuthType
@@ -78,6 +79,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.authtoken";
     }
 
     /// <summary>Request options for Cache</summary>
@@ -85,6 +87,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.cache";
     }
 
     /// <summary>Request options for ChangePassword <para>https://opensearch.org/docs/latest/security/access-control/api/#change-password</para></summary>
@@ -93,6 +96,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.change_password";
     }
 
     /// <summary>Request options for ConfigUpgradeCheck <para>https://opensearch.org/docs/latest/security/access-control/api/#configuration-upgrade-check</para></summary>
@@ -101,6 +105,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.config_upgrade_check";
     }
 
     /// <summary>Request options for ConfigUpgradePerform <para>https://opensearch.org/docs/latest/security/access-control/api/#configuration-upgrade</para></summary>
@@ -109,6 +114,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.config_upgrade_perform";
     }
 
     /// <summary>Request options for CreateActionGroup <para>https://opensearch.org/docs/latest/security/access-control/api/#create-action-group</para></summary>
@@ -117,6 +123,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.create_action_group";
     }
 
     /// <summary>Request options for CreateAllowlist <para>https://opensearch.org/docs/latest/security/access-control/api/#access-control-for-the-api</para></summary>
@@ -125,6 +132,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.create_allowlist";
     }
 
     /// <summary>Request options for CreateRole <para>https://opensearch.org/docs/latest/security/access-control/api/#create-role</para></summary>
@@ -133,6 +141,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.create_role";
     }
 
     /// <summary>Request options for CreateRoleMapping <para>https://opensearch.org/docs/latest/security/access-control/api/#create-role-mapping</para></summary>
@@ -141,6 +150,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.create_role_mapping";
     }
 
     /// <summary>Request options for CreateTenant <para>https://opensearch.org/docs/latest/security/access-control/api/#create-tenant</para></summary>
@@ -149,6 +159,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.create_tenant";
     }
 
     /// <summary>Request options for CreateUpdateTenancyConfig <para>https://opensearch.org/docs/latest/security/multi-tenancy/dynamic-config/#configuring-multi-tenancy-with-the-rest-api</para></summary>
@@ -157,6 +168,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.create_update_tenancy_config";
     }
 
     /// <summary>Request options for CreateUser <para>https://opensearch.org/docs/latest/security/access-control/api/#create-user</para></summary>
@@ -165,6 +177,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.create_user";
     }
 
     /// <summary>Request options for CreateUserLegacy</summary>
@@ -173,6 +186,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.create_user_legacy";
     }
 
     /// <summary>Request options for DeleteActionGroup <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-action-group</para></summary>
@@ -181,6 +195,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.delete_action_group";
     }
 
     /// <summary>Request options for DeleteDistinguishedName <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-distinguished-names</para></summary>
@@ -189,6 +204,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.delete_distinguished_name";
     }
 
     /// <summary>Request options for DeleteRole <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-role</para></summary>
@@ -197,6 +213,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.delete_role";
     }
 
     /// <summary>Request options for DeleteRoleMapping <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-role-mapping</para></summary>
@@ -205,6 +222,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.delete_role_mapping";
     }
 
     /// <summary>Request options for DeleteTenant <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-action-group</para></summary>
@@ -213,6 +231,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.delete_tenant";
     }
 
     /// <summary>Request options for DeleteUser <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-user</para></summary>
@@ -221,6 +240,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.delete_user";
     }
 
     /// <summary>Request options for DeleteUserLegacy</summary>
@@ -229,6 +249,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.delete_user_legacy";
     }
 
     /// <summary>Request options for FlushCache <para>https://opensearch.org/docs/latest/security/access-control/api/#flush-cache</para></summary>
@@ -237,6 +258,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.flush_cache";
     }
 
     /// <summary>Request options for GenerateOboToken <para>https://opensearch.org/docs/latest/security/access-control/authentication-tokens/#api-endpoint</para></summary>
@@ -245,6 +267,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.generate_obo_token";
     }
 
     /// <summary>Request options for GenerateUserToken</summary>
@@ -253,6 +276,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.generate_user_token";
     }
 
     /// <summary>Request options for GenerateUserTokenLegacy</summary>
@@ -261,6 +285,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.generate_user_token_legacy";
     }
 
     /// <summary>Request options for GetAccountDetails <para>https://opensearch.org/docs/latest/security/access-control/api/#get-account-details</para></summary>
@@ -269,6 +294,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_account_details";
     }
 
     /// <summary>Request options for GetActionGroup <para>https://opensearch.org/docs/latest/security/access-control/api/#get-action-group</para></summary>
@@ -277,6 +303,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_action_group";
     }
 
     /// <summary>Request options for GetActionGroups <para>https://opensearch.org/docs/latest/security/access-control/api/#get-action-groups</para></summary>
@@ -285,6 +312,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_action_groups";
     }
 
     /// <summary>Request options for GetAllCertificates</summary>
@@ -293,6 +321,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_all_certificates";
 
         /// <summary>The type of certificates (<c>HTTP</c>, <c>TRANSPORT</c>, or <c>ALL</c>) to retrieve from all nodes.</summary>
         public string CertType
@@ -315,6 +344,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_allowlist";
     }
 
     /// <summary>Request options for GetAuditConfiguration <para>https://opensearch.org/docs/latest/security/access-control/api/#audit-logs</para></summary>
@@ -323,6 +353,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_audit_configuration";
     }
 
     /// <summary>Request options for GetCertificates <para>https://opensearch.org/docs/latest/security/access-control/api/#get-certificates</para></summary>
@@ -331,6 +362,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_certificates";
     }
 
     /// <summary>Request options for GetConfiguration <para>https://opensearch.org/docs/latest/security/access-control/api/#get-configuration</para></summary>
@@ -339,6 +371,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_configuration";
     }
 
     /// <summary>Request options for GetDashboardsInfo</summary>
@@ -347,6 +380,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_dashboards_info";
     }
 
     /// <summary>Request options for GetDistinguishedName <para>https://opensearch.org/docs/latest/security/access-control/api/#get-distinguished-names</para></summary>
@@ -355,6 +389,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_distinguished_name";
 
         /// <summary>Whether to include or exclude any static node's DN settings from the final result.</summary>
         public bool? ShowAll
@@ -370,6 +405,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_distinguished_names";
 
         /// <summary>Whether to include or exclude any static node's DN settings from the final result.</summary>
         public bool? ShowAll
@@ -385,6 +421,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_node_certificates";
 
         /// <summary>The type of certificates (<c>HTTP</c>, <c>TRANSPORT</c>, or <c>ALL</c>) to retrieve from a node.</summary>
         public string CertType
@@ -407,6 +444,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_permissions_info";
     }
 
     /// <summary>Request options for GetRole <para>https://opensearch.org/docs/latest/security/access-control/api/#get-role</para></summary>
@@ -414,6 +452,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_role";
     }
 
     /// <summary>Request options for GetRoleMapping <para>https://opensearch.org/docs/latest/security/access-control/api/#get-role-mapping</para></summary>
@@ -422,6 +461,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_role_mapping";
     }
 
     /// <summary>Request options for GetRoleMappings <para>https://opensearch.org/docs/latest/security/access-control/api/#get-role-mappings</para></summary>
@@ -430,6 +470,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_role_mappings";
     }
 
     /// <summary>Request options for GetRoles <para>https://opensearch.org/docs/latest/security/access-control/api/#get-roles</para></summary>
@@ -437,6 +478,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_roles";
     }
 
     /// <summary>Request options for GetSslinfo</summary>
@@ -445,6 +487,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_sslinfo";
 
         /// <summary>Whether to include all domain names in the response.</summary>
         public bool? ShowDn
@@ -460,6 +503,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_tenancy_config";
     }
 
     /// <summary>Request options for GetTenant <para>https://opensearch.org/docs/latest/security/access-control/api/#get-tenant</para></summary>
@@ -467,6 +511,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_tenant";
     }
 
     /// <summary>Request options for GetTenants <para>https://opensearch.org/docs/latest/security/access-control/api/#get-tenants</para></summary>
@@ -475,6 +520,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_tenants";
     }
 
     /// <summary>Request options for GetUser <para>https://opensearch.org/docs/latest/security/access-control/api/#get-user</para></summary>
@@ -482,6 +528,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_user";
     }
 
     /// <summary>Request options for GetUserLegacy</summary>
@@ -490,6 +537,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_user_legacy";
     }
 
     /// <summary>Request options for GetUsers <para>https://opensearch.org/docs/latest/security/access-control/api/#get-users</para></summary>
@@ -497,6 +545,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_users";
     }
 
     /// <summary>Request options for GetUsersLegacy</summary>
@@ -505,6 +554,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.get_users_legacy";
     }
 
     /// <summary>Request options for Health <para>https://opensearch.org/docs/latest/security/access-control/api/#health-check</para></summary>
@@ -512,6 +562,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.health";
 
         /// <summary>
         /// A flag that determines whether to consider the security status before returning a response for a health query response. For example,
@@ -529,6 +580,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.migrate";
     }
 
     /// <summary>Request options for PatchActionGroup <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-action-group</para></summary>
@@ -537,6 +589,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PATCH;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.patch_action_group";
     }
 
     /// <summary>Request options for PatchActionGroups <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-action-groups</para></summary>
@@ -545,6 +598,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PATCH;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.patch_action_groups";
     }
 
     /// <summary>Request options for PatchAllowlist <para>https://opensearch.org/docs/latest/security/access-control/api/#access-control-for-the-api</para></summary>
@@ -553,6 +607,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PATCH;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.patch_allowlist";
     }
 
     /// <summary>Request options for PatchAuditConfiguration <para>https://opensearch.org/docs/latest/security/access-control/api/#audit-logs</para></summary>
@@ -561,6 +616,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PATCH;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.patch_audit_configuration";
     }
 
     /// <summary>Request options for PatchConfiguration <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-configuration</para></summary>
@@ -569,6 +625,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PATCH;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.patch_configuration";
     }
 
     /// <summary>Request options for PatchDistinguishedName</summary>
@@ -577,6 +634,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PATCH;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.patch_distinguished_name";
     }
 
     /// <summary>Request options for PatchDistinguishedNames <para>https://opensearch.org/docs/latest/security/access-control/api/#update-all-distinguished-names</para></summary>
@@ -585,6 +643,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PATCH;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.patch_distinguished_names";
     }
 
     /// <summary>Request options for PatchRole <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-role</para></summary>
@@ -592,6 +651,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PATCH;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.patch_role";
     }
 
     /// <summary>Request options for PatchRoleMapping <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-role-mapping</para></summary>
@@ -600,6 +660,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PATCH;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.patch_role_mapping";
     }
 
     /// <summary>Request options for PatchRoleMappings <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-role-mappings</para></summary>
@@ -608,6 +669,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PATCH;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.patch_role_mappings";
     }
 
     /// <summary>Request options for PatchRoles <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-roles</para></summary>
@@ -616,6 +678,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PATCH;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.patch_roles";
     }
 
     /// <summary>Request options for PatchTenant <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-tenant</para></summary>
@@ -624,6 +687,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PATCH;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.patch_tenant";
     }
 
     /// <summary>Request options for PatchTenants <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-tenants</para></summary>
@@ -632,6 +696,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PATCH;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.patch_tenants";
     }
 
     /// <summary>Request options for PatchUser <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-user</para></summary>
@@ -639,6 +704,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PATCH;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.patch_user";
     }
 
     /// <summary>Request options for PatchUsers <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-users</para></summary>
@@ -647,6 +713,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PATCH;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.patch_users";
     }
 
     /// <summary>Request options for PostDashboardsInfo</summary>
@@ -655,6 +722,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.post_dashboards_info";
     }
 
     /// <summary>Request options for ReloadHttpCertificates <para>https://opensearch.org/docs/latest/security/access-control/api/#reload-http-certificates</para></summary>
@@ -663,6 +731,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.reload_http_certificates";
     }
 
     /// <summary>Request options for ReloadTransportCertificates <para>https://opensearch.org/docs/latest/security/access-control/api/#reload-transport-certificates</para></summary>
@@ -671,6 +740,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.reload_transport_certificates";
     }
 
     /// <summary>Request options for TenantInfo</summary>
@@ -679,6 +749,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.tenant_info";
     }
 
     /// <summary>Request options for UpdateAuditConfiguration <para>https://opensearch.org/docs/latest/security/access-control/api/#audit-logs</para></summary>
@@ -687,6 +758,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.update_audit_configuration";
     }
 
     /// <summary>Request options for UpdateConfiguration <para>https://opensearch.org/docs/latest/security/access-control/api/#update-configuration</para></summary>
@@ -695,6 +767,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.update_configuration";
     }
 
     /// <summary>Request options for UpdateDistinguishedName <para>https://opensearch.org/docs/latest/security/access-control/api/#update-distinguished-names</para></summary>
@@ -703,6 +776,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
+        public override string OperationName => "security.update_distinguished_name";
     }
 
     /// <summary>Request options for Validate</summary>
@@ -710,6 +784,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.validate";
 
         /// <summary>Whether an invalid v6 configuration should be allowed.</summary>
         public bool? AcceptInvalid
@@ -724,6 +799,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.who_am_i";
     }
 
     /// <summary>Request options for WhoAmIProtected</summary>
@@ -732,5 +808,6 @@ namespace OpenSearch.Net.Specification.SecurityApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "security.who_am_i_protected";
     }
 }

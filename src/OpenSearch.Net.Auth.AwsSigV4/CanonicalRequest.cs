@@ -7,11 +7,11 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Web;
 using Amazon.Runtime;
-using Amazon.Runtime.Internal.Auth;
 using Amazon.Util;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -57,16 +57,22 @@ namespace OpenSearch.Net.Auth.AwsSigV4
 
 			var bodyBytes = await GetBodyBytes(request).ConfigureAwait(false);
 
-			var xAmzContentSha256 = AWSSDKUtils.ToHex(AWS4Signer.ComputeHash(bodyBytes), true);
+			var xAmzContentSha256 = AWSSDKUtils.ToHex(AwsSigV4Util.Sha256(bodyBytes), true);
 
-			var xAmzDate = AWS4Signer.FormatDateTime(signingTime, "yyyyMMddTHHmmssZ");
+			var xAmzDate = signingTime.ToUniversalTime().ToString(AwsSigV4Util.AmzDateFormat, CultureInfo.InvariantCulture);
 
 			var canonicalHeaders = new SortedDictionary<string, List<string>>();
 
 			CanonicalizeHeaders(canonicalHeaders, request.Headers);
 			CanonicalizeHeaders(canonicalHeaders, request.Content?.Headers);
 
-			canonicalHeaders[HeaderNames.Host] = new List<string> { request.RequestUri.Authority };
+			// Sign against the caller-supplied Host header if present, otherwise fall back to the request URI's
+			// authority. This lets the request be dispatched to a different host/port than it is signed for — e.g.
+			// tunnelling to a cluster on a private subnet via SSH local port forwarding, or connecting directly to
+			// http://localhost:9200 — by pointing the request URI at the tunnel while signing for the real endpoint.
+			var signingHost = request.Headers.Host;
+			if (string.IsNullOrEmpty(signingHost)) signingHost = request.RequestUri.Authority;
+			canonicalHeaders[HeaderNames.Host] = new List<string> { signingHost };
 			canonicalHeaders[HeaderNames.XAmzDate] = new List<string> { xAmzDate };
 			canonicalHeaders[HeaderNames.XAmzContentSha256] = new List<string> { xAmzContentSha256 };
 

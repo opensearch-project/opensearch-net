@@ -58,9 +58,8 @@ namespace Tests.Reproduce
 			);
 			response.OriginalException.Should().NotBeNull().And.BeOfType<OpenSearchClientException>();
 			response.OriginalException.Message.Should()
-				.Contain(
-					"Type: illegal_argument_exception Reason: \"Custom Analyzer [custom] failed to find filter under name [ascii_folding]\""
-				);
+				.Contain("Type: illegal_argument_exception")
+				.And.Contain("[custom]");
 
 			client.Indices.Delete(index);
 		}

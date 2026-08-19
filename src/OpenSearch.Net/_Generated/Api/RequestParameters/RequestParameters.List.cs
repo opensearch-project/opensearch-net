@@ -57,6 +57,7 @@ namespace OpenSearch.Net.Specification.ListApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "list.help";
     }
 
     /// <summary>Request options for Indices <para>https://opensearch.org/docs/latest/api-reference/list/list-indices/</para></summary>
@@ -64,6 +65,7 @@ namespace OpenSearch.Net.Specification.ListApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "list.indices";
 
         /// <summary>The unit used to display byte values.</summary>
         public ByteUnit? Bytes
@@ -94,7 +96,7 @@ namespace OpenSearch.Net.Specification.ListApi
             set => Q("format", value);
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
@@ -164,13 +166,13 @@ namespace OpenSearch.Net.Specification.ListApi
         /// Defines order in which indexes will be displayed. Accepted values are <c>asc</c> and <c>desc</c>. If <c>desc</c>, most recently created
         /// indexes would be displayed first.
         /// </summary>
-        public string Sort
+        public SortOrder? Sort
         {
-            get => Q<string>("sort");
+            get => Q<SortOrder?>("sort");
             set => Q("sort", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");
@@ -190,6 +192,7 @@ namespace OpenSearch.Net.Specification.ListApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "list.shards";
 
         /// <summary>The unit used to display byte values.</summary>
         public ByteUnit? Bytes
@@ -213,7 +216,7 @@ namespace OpenSearch.Net.Specification.ListApi
             set => Q("format", value);
         }
 
-        /// <summary>Comma-separated list of column names to display.</summary>
+        /// <summary>A comma-separated list of column names to display.</summary>
         public string[] Headers
         {
             get => Q<string[]>("h");
@@ -262,13 +265,13 @@ namespace OpenSearch.Net.Specification.ListApi
         /// Defines order in which shards will be displayed. Accepted values are <c>asc</c> and <c>desc</c>. If <c>desc</c>, most recently created
         /// shards would be displayed first.
         /// </summary>
-        public string Sort
+        public SortOrder? Sort
         {
-            get => Q<string>("sort");
+            get => Q<SortOrder?>("sort");
             set => Q("sort", value);
         }
 
-        /// <summary>Comma-separated list of column names or column aliases to sort by.</summary>
+        /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
         public string[] SortByColumns
         {
             get => Q<string[]>("s");

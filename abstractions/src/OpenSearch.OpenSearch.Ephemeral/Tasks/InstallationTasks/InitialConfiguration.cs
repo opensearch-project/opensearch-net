@@ -29,6 +29,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using OpenSearch.OpenSearch.Managed.ConsoleWriters;
 using OpenSearch.Stack.ArtifactsApi.Products;
 using SemanticVersioning;
@@ -50,15 +51,25 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
 
 			var isNewDemoScript = cluster.ClusterConfiguration.Version.BaseVersion() >= new Version(2, 12, 0);
 
-			const string securityInstallDemoConfigSubPath = "tools/install_demo_configuration.sh";
+            var env = new Dictionary<string, string>();
+            var args = new List<string>();
+
+			var securityInstallDemoConfigSubPath = "tools/install_demo_configuration.sh";
+            var scriptInterpreter = "/bin/bash";
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                securityInstallDemoConfigSubPath = "tools\\install_demo_configuration.bat";
+                scriptInterpreter = "cmd.exe";
+                args.Add("/c");
+            }
+
 			var securityInstallDemoConfig = Path.Combine(pluginSecurity, securityInstallDemoConfigSubPath);
 
 			cluster.Writer?.WriteDiagnostic($"{{{nameof(InitialConfiguration)}}} going to run [{securityInstallDemoConfigSubPath}]");
 
 			if (File.Exists(installConfigFile) && File.ReadLines(installConfigFile).Any(l => l.Contains("plugins.security"))) return;
 
-			var env = new Dictionary<string, string>();
-			var args = new List<string> { securityInstallDemoConfig, "-y", "-i" };
+            args.AddRange([ securityInstallDemoConfig, "-y", "-i" ]);
 
 			if (isNewDemoScript)
 			{
@@ -69,7 +80,7 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
 			ExecuteBinary(
 				cluster.ClusterConfiguration,
 				cluster.Writer,
-				"/bin/bash",
+				scriptInterpreter,
 				"install security plugin demo configuration",
 				env,
 				args.ToArray());

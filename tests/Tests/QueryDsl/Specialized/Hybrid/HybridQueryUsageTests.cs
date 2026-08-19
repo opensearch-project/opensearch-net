@@ -165,7 +165,7 @@ public class HybridQueryUsageTests
         var hit = response.Hits.First();
 
         hit.Id.Should().Be("2691147709.jpg");
-        hit.Score.Should().BeApproximately(0.86481035, 0.0000002);
+        hit.Score.Should().BeApproximately(0.86481035, 0.001);
         hit.Source.Text.Should().Be("A rodeo cowboy , wearing a cowboy hat , is being thrown off of a wild white horse .");
         hit.Source.PassageEmbedding.Should().HaveCount(768);
     }

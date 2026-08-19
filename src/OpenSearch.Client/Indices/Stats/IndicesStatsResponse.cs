@@ -28,7 +28,7 @@ public class IndicesStatsResponse : ResponseBase
 [JsonFormatter(typeof(Converter))]
 public class IndicesStatsDictionary : ResolvableDictionaryProxy<IndexName, IndicesStats>
 {
-    private IndicesStatsDictionary(IConnectionConfigurationValues s, IReadOnlyDictionary<IndexName, IndicesStats> d)
+    internal IndicesStatsDictionary(IConnectionConfigurationValues s, IReadOnlyDictionary<IndexName, IndicesStats> d)
         : base(s, d) { }
 
     private class Converter : ResolvableDictionaryFormatterBase<IndicesStatsDictionary, IndexName, IndicesStats>

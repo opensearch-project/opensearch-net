@@ -179,6 +179,8 @@ namespace OpenSearch.Client
 
 		public virtual void Visit(IMultiMatchQuery query) => Write("multi_match");
 
+		public virtual void Visit(ICombinedFieldsQuery query) => Write("combined_fields");
+
 		public virtual void Visit(INestedQuery query) => Write("nested");
 
         public virtual void Visit(INeuralQuery query) => Write("neural", query.Field);

@@ -3,43 +3,90 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 ### ⚠️ Breaking Changes ⚠️
+### Changed
+### Added
+
+- Added initial support for the bulk streaming API ([#935](https://github.com/opensearch-project/opensearch-net/pull/935))
+
+### Removed
+### Fixed
+### Dependencies
+
+## [2.1.0]
+### ⚠️ Breaking Changes ⚠️
+### Changed
+- Added OpenSearch 3.8.0 to the CI integration test matrix ([#1014](https://github.com/opensearch-project/opensearch-net/pull/1014))
+### Added
+- Added a `System.Text.Json` opt-in for the low-level client (`ConnectionConfiguration.UseSystemTextJson()`, plus the `OSC_USE_STJ` environment variable), mirroring the existing high-level `ConnectionSettings.UseSystemTextJson()` switch, so a standalone low-level client can select the same engine independently of a high-level one ([#388](https://github.com/opensearch-project/opensearch-net/issues/388))
+- Added native OpenTelemetry tracing via `System.Diagnostics.ActivitySource`, emitting a client span per request with standard semantic convention tags (`db.system`, `db.operation`, `server.address`, `server.port`, `http.request.method`, `http.response.status_code`, `url.full`); subscribe with `AddSource("OpenSearch.Net.RequestPipeline")` ([#1010](https://github.com/opensearch-project/opensearch-net/issues/1010))
+- Added support for `wildcard` field type ([#1004](https://github.com/opensearch-project/opensearch-net/pull/1004))
+- Added support for `data_type` (byte vectors), `space_type`, `mode`, and `compression_level` on the `knn_vector` field mapping ([#994](https://github.com/opensearch-project/opensearch-net/issues/994))
+- Added support for `method_parameters`, `rescore`, and `expand_nested_docs` on `KnnQuery` ([#994](https://github.com/opensearch-project/opensearch-net/issues/994))
+### Removed
+- Removed support for the `net6.0` target as .NET 6 is EOL ([#1008](https://github.com/opensearch-project/opensearch-net/pull/1008))
+### Fixed
+- Fixed `OpenSearch.Net.Auth.AwsSigV4` targeting only `netstandard2.0`, which forced `net8.0`/`net10.0` consumers onto the netstandard build and dragged in BCL shim packages (e.g. `Microsoft.Bcl.AsyncInterfaces`) that conflict with the framework's built-in assemblies and could crash the test host. The package now multi-targets `netstandard2.0;netstandard2.1;net8.0;net10.0` to match `OpenSearch.Net`, so modern consumers get a shim-free build ([#949](https://github.com/opensearch-project/opensearch-net/issues/949))
+- Fixed flaky `MultiGetParentApiTests` integration test on 3.x by disabling k-NN derived source on the `project` test index, avoiding a server-side `AlreadyClosedException` race between segment merges and `_mget` ([#988](https://github.com/opensearch-project/opensearch-net/issues/988))
+- Fixed `DynamicResponse` and `ServerError` parsing (`ResponseBuilder`, `ServerError.Create`/`TryCreate`/`CreateAsync`) ignoring the configured serializer and always deserializing through the legacy Utf8Json engine, even when the low- or high-level client had opted into `System.Text.Json` ([#388](https://github.com/opensearch-project/opensearch-net/issues/388))
+- Fixed the low-level `System.Text.Json` engine silently dropping `ServerError.Status`/`Error` (and any other `[DataMember]` property exposed through a non-public setter) by registering the existing `InterfaceDataContractResolver`, matching the high-level engine's `HighLevelContractResolver` ([#388](https://github.com/opensearch-project/opensearch-net/issues/388))
+- Fixed `MaxTimeoutReached`, `MaxRetriesReached`, and `FailedOverAllNodes` audit events having `Ended` stuck at `default(DateTime)` due to undisposed `Auditable` instances in `RequestPipeline.CreateClientException` ([#998](https://github.com/opensearch-project/opensearch-net/issues/998))
+- Fixed flaky `MovingAverageHoltWintersUsageTests` integration test which asserted moving-average values are non-negative; Holt-Winters forecasts can legitimately be negative, so the assertion now only checks the values deserialize to finite numbers ([#1000](https://github.com/opensearch-project/opensearch-net/issues/1000))
+- Fixed `DeleteByQueryResponse.IsValid` and `UpdateByQueryResponse.IsValid` returning `true` on transport-level failures (no HTTP response) by restoring the `ApiCall.Success` check that the overrides had dropped ([#997](https://github.com/opensearch-project/opensearch-net/issues/997))
+### Dependencies
+- Bumps `Microsoft.SourceLink.GitHub` from 8.0.0 to 10.0.111 to resolve CVE-2026-62900 in the transitive `Microsoft.Build.Tasks.Git` dependency ([#1021](https://github.com/opensearch-project/opensearch-net/issues/1021))
+- Bumps `AWSSDK.Core` from 4.0.7.1 to 4.0.100.4 ([#993](https://github.com/opensearch-project/opensearch-net/pull/993))
+- Bumps `Bogus` from 35.6.3 to 35.6.5 ([#972](https://github.com/opensearch-project/opensearch-net/pull/972))
+- Bumps `Bullseye` from 5.0.0 to 6.1.0 ([#973](https://github.com/opensearch-project/opensearch-net/pull/973))
+
+## [2.0.0]
+
+### ⚠️ Breaking Changes ⚠️
 - As part of [efforts to re-generate the client](https://github.com/opensearch-project/opensearch-net/pulls?q=is%3Apr+label%3Acode-gen+is%3Aclosed) from our [OpenAPI specification](https://github.com/opensearch-project/opensearch-api-specification) there have been numerous corrections and changes that resulted in breaking changes. Please refer to [UPGRADING.md](UPGRADING.md) for a complete list of these breakages and any relevant guidance for upgrading to this version of the client.
 
 ### Changed
 - Changed the namespace client properties on `IOpenSearchClient` to return corresponding interfaces to better enable mocking & unit testing ([#646](https://github.com/opensearch-project/opensearch-net/pull/646))
 - Changed `NeuralQuery`'s `ModelId` to be optional ([#917](https://github.com/opensearch-project/opensearch-net/pull/917))
+- Hardened `AwsSigV4HttpConnection` by computing the SigV4 signature against public crypto primitives (`System.Security.Cryptography`) and the public `AWSSDKUtils` helpers instead of the version-unstable internal `Amazon.Runtime.Internal.Auth.AWS4Signer` API. Produced signatures are unchanged — verified byte-for-byte against the existing known-answer tests and AWS's published SigV4 reference vector (for all `DateTimeKind`s, since the previous internal signer also normalized the signing time to UTC). ([#987](https://github.com/opensearch-project/opensearch-net/pull/987))
+- Changed unreleased integration test matrix to use specific branch versions `1.3` and `2.19` ([#984](https://github.com/opensearch-project/opensearch-net/pull/984))
+- Changed overrided docker image to major version instead of specific minor version in Jenkinsfile ([#991](https://github.com/opensearch-project/opensearch-net/pull/991))
 
 ### Added
+- Added an opt-in `System.Text.Json`-based high-level serializer engine. The default remains the bundled Utf8Json engine; opt in with `new ConnectionSettings(...).UseSystemTextJson()` or the `OSC_USE_STJ=true` environment variable. See [UPGRADING.md](UPGRADING.md) for details.
 - Added conditions to the Microsoft.CSharp, System.Buffers & System.Diagnostics.DiagnosticSource dependencies so that they are not included on net 6+ as the newer framework's natively provides those dependencies. ([#930](https://github.com/opensearch-project/opensearch-net/pull/930))
 - Added support for Hybrid query ([#917](https://github.com/opensearch-project/opensearch-net/pull/917))
+- Added support for `combined_fields` query ([#956](https://github.com/opensearch-project/opensearch-net/issues/956))
 - Added support for `MaxDistance` and `MinScore` to `KnnQuery` ([#917](https://github.com/opensearch-project/opensearch-net/pull/917))
-- Added initial support for the bulk streaming API ([#935](https://github.com/opensearch-project/opensearch-net/pull/935))
+- Added support for overriding the SigV4 signing host via the `Host` header, allowing requests to be dispatched to a different host/port than they are signed for (e.g. SSH local port forwarding or connecting directly to a tunnel), see [#978](https://github.com/opensearch-project/opensearch-net/issues/978)
+- Added 3.x support ([#974](https://github.com/opensearch-project/opensearch-net/pull/974))
 
 ### Removed
 - Removed support for the `net461` target ([#256](https://github.com/opensearch-project/opensearch-net/pull/256))
 - Removed the `Features` API which is not supported by OpenSearch from the low-level client ([#331](https://github.com/opensearch-project/opensearch-net/pull/331))
 - Removed the deprecated low-level `IndexTemplateV2` APIs in favour of the `ComposableIndexTemplate` APIs ([#437](https://github.com/opensearch-project/opensearch-net/pull/437))
+- Removed support for dotnet 5 and dotnet 6 as they are EOL and out of support
 
 ### Fixed
 - Fixed naming of `ClusterManagerTimeout` and `MasterTimeout` properties from `*TimeSpanout` in the low-level client ([#332](https://github.com/opensearch-project/opensearch-net/pull/332))
+- Fixed `StackOverflowException` when serializing a `KnnVectorProperty` returned from a custom `IPropertyVisitor` via `AutoMap` ([#963](https://github.com/opensearch-project/opensearch-net/pull/963))
+- Stabilized flaky pipeline-aggregation integration tests (moving average/function, derivative, serial differencing) that depended on the seeded date distribution filling every `date_histogram` bucket
 
 ### Dependencies
 - Bumps `System.Diagnostics.DiagnosticSource` from 6.0.1 to 8.0.1
 - Bumps `YamlDotNet` from 16.0.0 to 16.3.0
-- Bumps `AWSSDK.Core` from 3.7.400.11 to 4.0.0.10
+- Bumps `AWSSDK.Core` from 3.7.400.11 to 4.0.7.4
 - Bumps `Fake.Core.SemVer` from 6.1.0 to 6.1.3
 - Bumps `Bogus` from 35.6.0 to 35.6.3
 - Bumps `Fake.Core.Environment` from 6.1.0 to 6.1.3
-- Bumps `FluentAssertions` from 6.12.0 to 8.3.0
+- Bumps `FluentAssertions` from 6.12.0 to 8.5.0
 - Bumps `Microsoft.NET.Test.Sdk` from 17.11.0 to 17.13.0
 - Bumps `Microsoft.TestPlatform.ObjectModel` from 17.11.0 to 17.14.1
 - Bumps `BenchMarkDotNet` from 0.13.12 to 0.15.0
 - Bumps `Fake.IO.FileSystem` from 6.1.0 to 6.1.3
 - Bumps `Fake.IO.Zip` from 6.1.0 to 6.1.3
 - Bumps `Fake.Tools.Git` from 6.1.0 to 6.1.3
-- Bumps `CSharpier.Core` from 0.29.1 to 1.0.2
+- Bumps `CSharpier.Core` from 0.29.1 to 1.0.3
 - Bumps `Proc` from 0.8.1 to 0.9.1
-- Bumps `System.Text.Json` from 8.0.4 to 8.0.5
+- Bumps `System.Text.Json` from 8.0.4 to 8.0.6
 - Bumps `JunitXml.TestLogger` from 4.0.254 to 6.1.0
 - Bumps `FSharp.Core` from 8.0.400 to 9.0.300
 - Bumps `JetBrains.Annotations` from 2024.2.0 to 2024.3.0
@@ -55,6 +102,8 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Bumps `System.CommandLine.DragonFruit` from 0.3.0-alpha.20371.2 to 0.3.0-alpha.21216.1
 - Bumps `DiffPlex` from 1.7.2 to 1.8.0
 - Bumps `SharpYaml` from 2.1.1 to 2.1.3
+- Bumps `System.CommandLine` from 2.0.0-beta4.22272.1 to 2.0.0-beta6.25358.103
+- Bumps `Markdig` from 0.41.2 to 0.41.3
 
 ## [1.8.0]
 ### Added

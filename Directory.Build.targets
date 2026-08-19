@@ -1,5 +1,5 @@
 <Project>
-  <Import Project="src\_PublishArtifacts.Build.props" Condition="$(IsPackable) == True"/>
+  <Import Project="src\_PublishArtifacts.Build.props" Condition="$(IsPackable) == True" />
   <PropertyGroup Condition="$(SignAssembly) == True OR $(IsPackable) == True OR $(MSBuildProjectName.StartsWith('Tests'))">
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)\build\keys\keypair.snk</AssemblyOriginatorKeyFile>

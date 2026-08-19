@@ -157,7 +157,7 @@ namespace OpenSearch.Client
             Qs("s", sortbycolumns);
     }
 
-    /// <summary>Descriptor for PutPipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/create-update-ingest/</para></summary>
+    /// <summary>Descriptor for PutPipeline <para>https://docs.opensearch.org/latest/ingest-pipelines/create-ingest/</para></summary>
     public partial class PutPipelineDescriptor
         : RequestDescriptorBase<
             PutPipelineDescriptor,

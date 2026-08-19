@@ -13,18 +13,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout .NET Client
-        uses: actions/checkout@v4
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
       - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
         with:
-          dotnet-version: |
-            5.0.x
-            6.0.x
-            8.0.x
+          dotnet-version: 10.0.x
 
       - name: Cache Nuget Packages
-        uses: actions/cache@v3
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
         with:
           path: ~/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
@@ -57,18 +54,15 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout .NET Client
-        uses: actions/checkout@v4
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
       - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
         with:
-          dotnet-version: |
-            5.0.x
-            6.0.x
-            8.0.x
+          dotnet-version: 10.0.x
 
       - name: Cache Nuget Packages
-        uses: actions/cache@v3
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
         with:
           path: ~/.nuget/packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.?sproj') }}
@@ -83,18 +77,16 @@ jobs:
         run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
       - name: Generate GitHub App Token
-        if: github.repository == 'opensearch-project/opensearch-net'
         id: github_app_token
-        uses: tibdex/github-app-token@v1.5.0
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3
         with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.APP_PRIVATE_KEY }}
-          installation_id: 22958780
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@c5a7806660adbe173f04e3e038b0ccdcd758773c # v6
         with:
-          token: ${{ steps.github_app_token.outputs.token || secrets.GITHUB_TOKEN }}
+          token: ${{ steps.github_app_token.outputs.token }}
           commit-message: Re-generate client code using latest OpenSearch API specification (${{ steps.date.outputs.date }})
           title: Re-generated client code using latest OpenSearch API specification
           body: |

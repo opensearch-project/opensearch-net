@@ -41,6 +41,9 @@ namespace OpenSearch.Client
 		[DataMember(Name ="boosting")]
 		IBoostingQuery Boosting { get; set; }
 
+		[DataMember(Name ="combined_fields")]
+		ICombinedFieldsQuery CombinedFields { get; set; }
+
 		[DataMember(Name ="constant_score")]
 		IConstantScoreQuery ConstantScore { get; set; }
 

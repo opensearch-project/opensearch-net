@@ -145,6 +145,22 @@ namespace OpenSearch.Net
 		/// <param name="serializer">A serializer implementation used to serialize requests and deserialize responses</param>
 		public ConnectionConfiguration(IConnectionPool connectionPool, IConnection connection, IOpenSearchSerializer serializer)
 			: base(connectionPool, connection, serializer) { }
+
+		/// <summary>
+		/// Use the System.Text.Json-based low-level serializer instead of the default Utf8Json engine (GitHub issue
+		/// #388). This is the low-level programmatic opt-in; it takes precedence over the <c>OSC_USE_STJ</c>
+		/// environment variable and over any serializer passed to a constructor of this
+		/// class. Pass <c>false</c> to force the legacy Utf8Json engine.
+		/// <para>
+		/// This only applies to a standalone low-level <see cref="OpenSearchLowLevelClient"/> constructed directly
+		/// from a <see cref="ConnectionConfiguration"/> (as here). A low-level client obtained from a high-level one
+		/// via <c>OpenSearchClient.LowLevel</c> shares that client's <c>ConnectionSettings</c> and serializer, which
+		/// is governed by <c>ConnectionSettings.UseSystemTextJson()</c> instead — calling that method already
+		/// affects both the high-level and the shared low-level client, since they use the same underlying
+		/// <see cref="IConnectionConfigurationValues.RequestResponseSerializer"/>.
+		/// </para>
+		/// </summary>
+		public ConnectionConfiguration UseSystemTextJson(bool useSystemTextJson = true) => SetUseSystemTextJson(useSystemTextJson);
 	}
 
 	[Browsable(false)]
@@ -200,12 +216,20 @@ namespace OpenSearch.Net
 		private string _userAgent = ConnectionConfiguration.DefaultUserAgent;
 		private readonly Func<HttpMethod, int, bool> _statusCodeToResponseSuccess;
 
+		// Only set when the constructor's requestResponseSerializer parameter was null, i.e. an explicitly-supplied
+		// serializer always wins over both the toggle and the environment variables (see BuildRequestResponseSerializer).
+		private bool _useSystemTextJson;
+
 		protected ConnectionConfiguration(IConnectionPool connectionPool, IConnection connection, IOpenSearchSerializer requestResponseSerializer)
 		{
 			_connectionPool = connectionPool;
 			_connection = connection ?? new HttpConnection();
-			var serializer = requestResponseSerializer ?? new LowLevelRequestResponseSerializer();
-			UseThisRequestResponseSerializer = new DiagnosticsSerializerProxy(serializer);
+			// The low-level OpenSearch.Net client defaults to the Utf8Json engine; System.Text.Json is opt-in --
+			// programmatically via ConnectionConfiguration.UseSystemTextJson(), or via the OSC_USE_STJ
+			// environment variable when unset (mirroring the high-level ConnectionSettingsBase.UseSystemTextJson()).
+			// An explicitly-supplied requestResponseSerializer always wins over both.
+			_useSystemTextJson = requestResponseSerializer == null && (SystemTextJsonEnvironment.ReadOverride() ?? false);
+			BuildRequestResponseSerializer(requestResponseSerializer);
 
 			_connectionLimit = ConnectionConfiguration.DefaultConnectionLimit;
 			_requestTimeout = ConnectionConfiguration.DefaultTimeout;
@@ -228,6 +252,36 @@ namespace OpenSearch.Net
 		}
 
 		protected IOpenSearchSerializer UseThisRequestResponseSerializer { get; set; }
+
+		// Only null once, from the constructor when the caller passed no explicit serializer; every call after that
+		// (from UseSystemTextJson) passes null on purpose, i.e. keeps deferring to the toggle.
+		private IOpenSearchSerializer _explicitRequestResponseSerializer;
+
+		// Builds (or rebuilds) the low-level request/response serializer for the currently-selected engine, unless
+		// explicitSerializer is non-null, in which case it always wins (matches the pre-existing behavior of the
+		// constructor's requestResponseSerializer parameter, now also honored across UseSystemTextJson calls).
+		private void BuildRequestResponseSerializer(IOpenSearchSerializer explicitSerializer)
+		{
+			if (explicitSerializer != null)
+				_explicitRequestResponseSerializer = explicitSerializer;
+
+			var serializer = _explicitRequestResponseSerializer ??
+				(_useSystemTextJson ? (IOpenSearchSerializer)SystemTextJsonSerializer.Instance : new LowLevelRequestResponseSerializer());
+			UseThisRequestResponseSerializer = new DiagnosticsSerializerProxy(serializer);
+		}
+
+		/// <summary>
+		/// The low-level programmatic engine-selection switch (see <see cref="ConnectionConfiguration.UseSystemTextJson"/>
+		/// for the public, non-generic entry point). Has no effect if a serializer was explicitly supplied to this
+		/// instance's constructor -- that explicit serializer always wins.
+		/// </summary>
+		protected T SetUseSystemTextJson(bool useSystemTextJson) =>
+			Assign(useSystemTextJson, (a, v) =>
+			{
+				a._useSystemTextJson = v;
+				a.BuildRequestResponseSerializer(null);
+			});
+
 		BasicAuthenticationCredentials IConnectionConfigurationValues.BasicAuthenticationCredentials => _basicAuthCredentials;
 		ApiKeyAuthenticationCredentials IConnectionConfigurationValues.ApiKeyAuthenticationCredentials => _apiKeyAuthCredentials;
 		SemaphoreSlim IConnectionConfigurationValues.BootstrapLock => _semaphore;
@@ -592,6 +646,7 @@ namespace OpenSearch.Net
 		/// <summary>
 		/// Use a file path to a certificate to authenticate all HTTP requests. You can also set them on individual request using <see cref="RequestConfiguration.ClientCertificates" />
 		/// </summary>
+        [Obsolete("Please use ClientCertificate(X509Certificate) instead. See https://aka.ms/dotnet-warnings/SYSLIB0057 for more information.")]
 		public T ClientCertificate(string certificatePath) =>
 			Assign(new X509Certificate2Collection { new X509Certificate(certificatePath) }, (a, v) => a._clientCertificates = v);
 

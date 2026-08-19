@@ -34,6 +34,18 @@ namespace OpenSearch.Client
 {
 	internal static class StatefulSerializerExtensions
 	{
+		// Unwraps the (possibly DiagnosticsSerializerProxy-wrapped) serializer to the System.Text.Json high-level
+		// serializer when that engine is active, so per-request response builders can use the STJ per-request converter
+		// path instead of the legacy CreateStateful (Utf8Json formatter) path.
+		public static bool TryGetSystemTextJsonSerializer(IOpenSearchSerializer serializer, out SystemTextJsonHighLevelSerializer stj)
+		{
+			if (serializer is DiagnosticsSerializerProxy proxy)
+				serializer = proxy.InnerSerializer;
+
+			stj = serializer as SystemTextJsonHighLevelSerializer;
+			return stj != null;
+		}
+
 		public static DefaultHighLevelSerializer CreateStateful<T>(this IOpenSearchSerializer serializer, IJsonFormatter<T> formatter)
 		{
 			if (!(serializer is IInternalSerializer s) || !s.TryGetJsonFormatter(out var currentFormatterResolver))

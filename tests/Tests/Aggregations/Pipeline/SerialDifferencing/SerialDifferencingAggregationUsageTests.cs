@@ -27,6 +27,7 @@
 */
 
 using System;
+using System.Linq;
 using FluentAssertions;
 using OpenSearch.Client;
 using Tests.Core.Extensions;
@@ -119,18 +120,23 @@ namespace Tests.Aggregations.Pipeline.SerialDifferencing
 				commits.Should().NotBeNull();
 				commits.Value.Should().NotBe(null);
 
-				var secondDifference = item.SerialDifferencing("second_difference");
-
-				// serial differencing specified a lag of 2, so
-				// only expect values from the 3rd bucket onwards
+				// serial differencing specified a lag of 2, so no value is emitted for the first 2 buckets
 				if (differenceCount <= 2)
-					secondDifference.Should().BeNull();
-				else
-				{
-					secondDifference.Should().NotBeNull();
-					secondDifference.Value.Should().NotBe(null);
-				}
+					item.SerialDifferencing("second_difference").Should().BeNull();
 			}
+
+			// Verify the serial-difference values that ARE present (from the 3rd bucket onwards)
+			// deserialize as valid numbers (which may be negative, zero, or positive); empty months can
+			// legitimately have no value, so we don't require one in every bucket, which made this test
+			// seed/date-dependent.
+			var secondDifferences = projectsPerMonth.Buckets
+				.Skip(2)
+				.Select(b => b.SerialDifferencing("second_difference"))
+				.Where(d => d?.Value != null)
+				.Select(d => d.Value.Value)
+				.ToList();
+
+			secondDifferences.Should().NotBeEmpty();
 		}
 	}
 }

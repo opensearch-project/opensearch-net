@@ -36,6 +36,7 @@ namespace OpenSearch.Client
 	{
 		private IBoolQuery _bool;
 		private IBoostingQuery _boosting;
+		private ICombinedFieldsQuery _combinedFields;
 		private IConstantScoreQuery _constantScore;
 		private IDisMaxQuery _disMax;
 		private IDistanceFeatureQuery _distanceFeature;
@@ -104,6 +105,12 @@ namespace OpenSearch.Client
 		{
 			get => _boosting;
 			set => _boosting = Set(value);
+		}
+
+		ICombinedFieldsQuery IQueryContainer.CombinedFields
+		{
+			get => _combinedFields;
+			set => _combinedFields = Set(value);
 		}
 
 		IConstantScoreQuery IQueryContainer.ConstantScore

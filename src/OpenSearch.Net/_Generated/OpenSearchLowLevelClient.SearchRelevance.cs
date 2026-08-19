@@ -69,7 +69,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
         internal LowLevelSearchRelevanceNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
-        /// <summary>DELETE on /_plugins/search_relevance/experiments/{experiment_id}</summary>
+        /// <summary>DELETE on /_plugins/_search_relevance/experiments/{experiment_id}</summary>
         /// <param name="experimentId">The experiment id.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -80,12 +80,12 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
                 DELETE,
-                Url($"_plugins/search_relevance/experiments/{experimentId:experimentId}"),
+                Url($"_plugins/_search_relevance/experiments/{experimentId:experimentId}"),
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/search_relevance/experiments/{experiment_id}</summary>
+        /// <summary>DELETE on /_plugins/_search_relevance/experiments/{experiment_id}</summary>
         /// <param name="experimentId">The experiment id.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -98,13 +98,13 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequestAsync<TResponse>(
                 DELETE,
-                Url($"_plugins/search_relevance/experiments/{experimentId:experimentId}"),
+                Url($"_plugins/_search_relevance/experiments/{experimentId:experimentId}"),
                 ctx,
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/search_relevance/judgments/{judgment_id}</summary>
+        /// <summary>DELETE on /_plugins/_search_relevance/judgments/{judgment_id}</summary>
         /// <param name="judgmentId">The judgment id.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -115,12 +115,12 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
                 DELETE,
-                Url($"_plugins/search_relevance/judgments/{judgmentId:judgmentId}"),
+                Url($"_plugins/_search_relevance/judgments/{judgmentId:judgmentId}"),
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/search_relevance/judgments/{judgment_id}</summary>
+        /// <summary>DELETE on /_plugins/_search_relevance/judgments/{judgment_id}</summary>
         /// <param name="judgmentId">The judgment id.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -133,13 +133,13 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequestAsync<TResponse>(
                 DELETE,
-                Url($"_plugins/search_relevance/judgments/{judgmentId:judgmentId}"),
+                Url($"_plugins/_search_relevance/judgments/{judgmentId:judgmentId}"),
                 ctx,
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/search_relevance/query_sets/{query_set_id}</summary>
+        /// <summary>DELETE on /_plugins/_search_relevance/query_sets/{query_set_id}</summary>
         /// <param name="querySetId">The query set id.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -150,12 +150,12 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
                 DELETE,
-                Url($"_plugins/search_relevance/query_sets/{querySetId:querySetId}"),
+                Url($"_plugins/_search_relevance/query_sets/{querySetId:querySetId}"),
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/search_relevance/query_sets/{query_set_id}</summary>
+        /// <summary>DELETE on /_plugins/_search_relevance/query_sets/{query_set_id}</summary>
         /// <param name="querySetId">The query set id.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -168,13 +168,48 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequestAsync<TResponse>(
                 DELETE,
-                Url($"_plugins/search_relevance/query_sets/{querySetId:querySetId}"),
+                Url($"_plugins/_search_relevance/query_sets/{querySetId:querySetId}"),
                 ctx,
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/search_relevance/search_configurations/{search_configuration_id}</summary>
+        /// <summary>DELETE on /_plugins/_search_relevance/experiments/schedule/{experiment_id}</summary>
+        /// <param name="experimentId">The experiment id.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
+        public TResponse DeleteScheduledExperiments<TResponse>(
+            string experimentId,
+            DeleteScheduledExperimentsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                Url($"_plugins/_search_relevance/experiments/schedule/{experimentId:experimentId}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_plugins/_search_relevance/experiments/schedule/{experiment_id}</summary>
+        /// <param name="experimentId">The experiment id.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
+        [MapsApi("search_relevance.delete_scheduled_experiments", "experiment_id")]
+        public Task<TResponse> DeleteScheduledExperimentsAsync<TResponse>(
+            string experimentId,
+            DeleteScheduledExperimentsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                Url($"_plugins/_search_relevance/experiments/schedule/{experimentId:experimentId}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_plugins/_search_relevance/search_configurations/{search_configuration_id}</summary>
         /// <param name="searchConfigurationId">The search configuration id.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -186,13 +221,13 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             DoRequest<TResponse>(
                 DELETE,
                 Url(
-                    $"_plugins/search_relevance/search_configurations/{searchConfigurationId:searchConfigurationId}"
+                    $"_plugins/_search_relevance/search_configurations/{searchConfigurationId:searchConfigurationId}"
                 ),
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/search_relevance/search_configurations/{search_configuration_id}</summary>
+        /// <summary>DELETE on /_plugins/_search_relevance/search_configurations/{search_configuration_id}</summary>
         /// <param name="searchConfigurationId">The search configuration id.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -206,14 +241,14 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             DoRequestAsync<TResponse>(
                 DELETE,
                 Url(
-                    $"_plugins/search_relevance/search_configurations/{searchConfigurationId:searchConfigurationId}"
+                    $"_plugins/_search_relevance/search_configurations/{searchConfigurationId:searchConfigurationId}"
                 ),
                 ctx,
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/search_relevance/experiments</summary>
+        /// <summary>GET on /_plugins/_search_relevance/experiments</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public TResponse GetExperiments<TResponse>(
@@ -222,12 +257,12 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
                 GET,
-                "_plugins/search_relevance/experiments",
+                "_plugins/_search_relevance/experiments",
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/search_relevance/experiments</summary>
+        /// <summary>GET on /_plugins/_search_relevance/experiments</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         [MapsApi("search_relevance.get_experiments", "")]
@@ -238,13 +273,13 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequestAsync<TResponse>(
                 GET,
-                "_plugins/search_relevance/experiments",
+                "_plugins/_search_relevance/experiments",
                 ctx,
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/search_relevance/experiments/{experiment_id}</summary>
+        /// <summary>GET on /_plugins/_search_relevance/experiments/{experiment_id}</summary>
         /// <param name="experimentId">The experiment id.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -255,12 +290,12 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
                 GET,
-                Url($"_plugins/search_relevance/experiments/{experimentId:experimentId}"),
+                Url($"_plugins/_search_relevance/experiments/{experimentId:experimentId}"),
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/search_relevance/experiments/{experiment_id}</summary>
+        /// <summary>GET on /_plugins/_search_relevance/experiments/{experiment_id}</summary>
         /// <param name="experimentId">The experiment id.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -273,13 +308,13 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequestAsync<TResponse>(
                 GET,
-                Url($"_plugins/search_relevance/experiments/{experimentId:experimentId}"),
+                Url($"_plugins/_search_relevance/experiments/{experimentId:experimentId}"),
                 ctx,
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/search_relevance/judgments</summary>
+        /// <summary>GET on /_plugins/_search_relevance/judgments</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public TResponse GetJudgments<TResponse>(
@@ -288,12 +323,12 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
                 GET,
-                "_plugins/search_relevance/judgments",
+                "_plugins/_search_relevance/judgments",
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/search_relevance/judgments</summary>
+        /// <summary>GET on /_plugins/_search_relevance/judgments</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         [MapsApi("search_relevance.get_judgments", "")]
@@ -304,13 +339,13 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequestAsync<TResponse>(
                 GET,
-                "_plugins/search_relevance/judgments",
+                "_plugins/_search_relevance/judgments",
                 ctx,
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/search_relevance/judgments/{judgment_id}</summary>
+        /// <summary>GET on /_plugins/_search_relevance/judgments/{judgment_id}</summary>
         /// <param name="judgmentId">The judgment id.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -321,12 +356,12 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
                 GET,
-                Url($"_plugins/search_relevance/judgments/{judgmentId:judgmentId}"),
+                Url($"_plugins/_search_relevance/judgments/{judgmentId:judgmentId}"),
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/search_relevance/judgments/{judgment_id}</summary>
+        /// <summary>GET on /_plugins/_search_relevance/judgments/{judgment_id}</summary>
         /// <param name="judgmentId">The judgment id.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -339,13 +374,87 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequestAsync<TResponse>(
                 GET,
-                Url($"_plugins/search_relevance/judgments/{judgmentId:judgmentId}"),
+                Url($"_plugins/_search_relevance/judgments/{judgmentId:judgmentId}"),
                 ctx,
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/search_relevance/query_sets</summary>
+        /// <summary>GET on /_plugins/_search_relevance/{node_id}/stats</summary>
+        /// <param name="nodeId">The node id.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
+        public TResponse GetNodeStats<TResponse>(
+            string nodeId,
+            GetNodeStatsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_search_relevance/{nodeId:nodeId}/stats"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_search_relevance/{node_id}/stats</summary>
+        /// <param name="nodeId">The node id.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
+        [MapsApi("search_relevance.get_node_stats", "node_id")]
+        public Task<TResponse> GetNodeStatsAsync<TResponse>(
+            string nodeId,
+            GetNodeStatsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_search_relevance/{nodeId:nodeId}/stats"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_search_relevance/{node_id}/stats/{stat}</summary>
+        /// <param name="nodeId">The node id.</param>
+        /// <param name="stat">The statistic to return.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
+        public TResponse GetNodeStats<TResponse>(
+            string nodeId,
+            string stat,
+            GetNodeStatsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_search_relevance/{nodeId:nodeId}/stats/{stat:stat}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_search_relevance/{node_id}/stats/{stat}</summary>
+        /// <param name="nodeId">The node id.</param>
+        /// <param name="stat">The statistic to return.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
+        [MapsApi("search_relevance.get_node_stats", "node_id, stat")]
+        public Task<TResponse> GetNodeStatsAsync<TResponse>(
+            string nodeId,
+            string stat,
+            GetNodeStatsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_search_relevance/{nodeId:nodeId}/stats/{stat:stat}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_search_relevance/query_sets</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public TResponse GetQuerySets<TResponse>(
@@ -354,12 +463,12 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
                 GET,
-                "_plugins/search_relevance/query_sets",
+                "_plugins/_search_relevance/query_sets",
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/search_relevance/query_sets</summary>
+        /// <summary>GET on /_plugins/_search_relevance/query_sets</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         [MapsApi("search_relevance.get_query_sets", "")]
@@ -370,13 +479,13 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequestAsync<TResponse>(
                 GET,
-                "_plugins/search_relevance/query_sets",
+                "_plugins/_search_relevance/query_sets",
                 ctx,
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/search_relevance/query_sets/{query_set_id}</summary>
+        /// <summary>GET on /_plugins/_search_relevance/query_sets/{query_set_id}</summary>
         /// <param name="querySetId">The query set id.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -387,12 +496,12 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
                 GET,
-                Url($"_plugins/search_relevance/query_sets/{querySetId:querySetId}"),
+                Url($"_plugins/_search_relevance/query_sets/{querySetId:querySetId}"),
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/search_relevance/query_sets/{query_set_id}</summary>
+        /// <summary>GET on /_plugins/_search_relevance/query_sets/{query_set_id}</summary>
         /// <param name="querySetId">The query set id.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -405,13 +514,79 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequestAsync<TResponse>(
                 GET,
-                Url($"_plugins/search_relevance/query_sets/{querySetId:querySetId}"),
+                Url($"_plugins/_search_relevance/query_sets/{querySetId:querySetId}"),
                 ctx,
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/search_relevance/search_configurations</summary>
+        /// <summary>GET on /_plugins/_search_relevance/experiments/schedule</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
+        public TResponse GetScheduledExperiments<TResponse>(
+            GetScheduledExperimentsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                "_plugins/_search_relevance/experiments/schedule",
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_search_relevance/experiments/schedule</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
+        [MapsApi("search_relevance.get_scheduled_experiments", "")]
+        public Task<TResponse> GetScheduledExperimentsAsync<TResponse>(
+            GetScheduledExperimentsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_plugins/_search_relevance/experiments/schedule",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_search_relevance/experiments/schedule/{experiment_id}</summary>
+        /// <param name="experimentId">The experiment id.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
+        public TResponse GetScheduledExperiments<TResponse>(
+            string experimentId,
+            GetScheduledExperimentsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_search_relevance/experiments/schedule/{experimentId:experimentId}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_search_relevance/experiments/schedule/{experiment_id}</summary>
+        /// <param name="experimentId">The experiment id.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
+        [MapsApi("search_relevance.get_scheduled_experiments", "experiment_id")]
+        public Task<TResponse> GetScheduledExperimentsAsync<TResponse>(
+            string experimentId,
+            GetScheduledExperimentsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_search_relevance/experiments/schedule/{experimentId:experimentId}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_search_relevance/search_configurations</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public TResponse GetSearchConfigurations<TResponse>(
@@ -420,12 +595,12 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
                 GET,
-                "_plugins/search_relevance/search_configurations",
+                "_plugins/_search_relevance/search_configurations",
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/search_relevance/search_configurations</summary>
+        /// <summary>GET on /_plugins/_search_relevance/search_configurations</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         [MapsApi("search_relevance.get_search_configurations", "")]
@@ -436,13 +611,13 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequestAsync<TResponse>(
                 GET,
-                "_plugins/search_relevance/search_configurations",
+                "_plugins/_search_relevance/search_configurations",
                 ctx,
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/search_relevance/search_configurations/{search_configuration_id}</summary>
+        /// <summary>GET on /_plugins/_search_relevance/search_configurations/{search_configuration_id}</summary>
         /// <param name="searchConfigurationId">The search configuration id.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -454,13 +629,13 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             DoRequest<TResponse>(
                 GET,
                 Url(
-                    $"_plugins/search_relevance/search_configurations/{searchConfigurationId:searchConfigurationId}"
+                    $"_plugins/_search_relevance/search_configurations/{searchConfigurationId:searchConfigurationId}"
                 ),
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/search_relevance/search_configurations/{search_configuration_id}</summary>
+        /// <summary>GET on /_plugins/_search_relevance/search_configurations/{search_configuration_id}</summary>
         /// <param name="searchConfigurationId">The search configuration id.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -474,15 +649,79 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             DoRequestAsync<TResponse>(
                 GET,
                 Url(
-                    $"_plugins/search_relevance/search_configurations/{searchConfigurationId:searchConfigurationId}"
+                    $"_plugins/_search_relevance/search_configurations/{searchConfigurationId:searchConfigurationId}"
                 ),
                 ctx,
                 null,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/search_relevance/query_sets</summary>
-        /// <param name="body"></param>
+        /// <summary>GET on /_plugins/_search_relevance/stats</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
+        public TResponse GetStats<TResponse>(GetStatsRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                "_plugins/_search_relevance/stats",
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_search_relevance/stats</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
+        [MapsApi("search_relevance.get_stats", "")]
+        public Task<TResponse> GetStatsAsync<TResponse>(
+            GetStatsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_plugins/_search_relevance/stats",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_search_relevance/stats/{stat}</summary>
+        /// <param name="stat">The statistic to return.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
+        public TResponse GetStats<TResponse>(
+            string stat,
+            GetStatsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_plugins/_search_relevance/stats/{stat:stat}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_plugins/_search_relevance/stats/{stat}</summary>
+        /// <param name="stat">The statistic to return.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
+        [MapsApi("search_relevance.get_stats", "stat")]
+        public Task<TResponse> GetStatsAsync<TResponse>(
+            string stat,
+            GetStatsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_plugins/_search_relevance/stats/{stat:stat}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_search_relevance/query_sets</summary>
+        /// <param name="body">The schema for creating a query set.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public TResponse PostQuerySets<TResponse>(
@@ -492,13 +731,13 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
                 POST,
-                "_plugins/search_relevance/query_sets",
+                "_plugins/_search_relevance/query_sets",
                 body,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/search_relevance/query_sets</summary>
-        /// <param name="body"></param>
+        /// <summary>POST on /_plugins/_search_relevance/query_sets</summary>
+        /// <param name="body">The schema for creating a query set.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         [MapsApi("search_relevance.post_query_sets", "body")]
@@ -510,13 +749,48 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequestAsync<TResponse>(
                 POST,
-                "_plugins/search_relevance/query_sets",
+                "_plugins/_search_relevance/query_sets",
                 ctx,
                 body,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/search_relevance/experiments</summary>
+        /// <summary>POST on /_plugins/_search_relevance/experiments/schedule</summary>
+        /// <param name="body">The schema for scheduling experiments.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
+        public TResponse PostScheduledExperiments<TResponse>(
+            PostData body,
+            PostScheduledExperimentsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_plugins/_search_relevance/experiments/schedule",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_search_relevance/experiments/schedule</summary>
+        /// <param name="body">The schema for scheduling experiments.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
+        [MapsApi("search_relevance.post_scheduled_experiments", "body")]
+        public Task<TResponse> PostScheduledExperimentsAsync<TResponse>(
+            PostData body,
+            PostScheduledExperimentsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_plugins/_search_relevance/experiments/schedule",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_plugins/_search_relevance/experiments</summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -527,12 +801,12 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
                 PUT,
-                "_plugins/search_relevance/experiments",
+                "_plugins/_search_relevance/experiments",
                 body,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/search_relevance/experiments</summary>
+        /// <summary>PUT on /_plugins/_search_relevance/experiments</summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -545,13 +819,13 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequestAsync<TResponse>(
                 PUT,
-                "_plugins/search_relevance/experiments",
+                "_plugins/_search_relevance/experiments",
                 ctx,
                 body,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/search_relevance/judgments</summary>
+        /// <summary>PUT on /_plugins/_search_relevance/judgments</summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -562,12 +836,12 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
                 PUT,
-                "_plugins/search_relevance/judgments",
+                "_plugins/_search_relevance/judgments",
                 body,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/search_relevance/judgments</summary>
+        /// <summary>PUT on /_plugins/_search_relevance/judgments</summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -580,14 +854,14 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequestAsync<TResponse>(
                 PUT,
-                "_plugins/search_relevance/judgments",
+                "_plugins/_search_relevance/judgments",
                 ctx,
                 body,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/search_relevance/query_sets</summary>
-        /// <param name="body"></param>
+        /// <summary>PUT on /_plugins/_search_relevance/query_sets</summary>
+        /// <param name="body">The schema for updating a query set.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public TResponse PutQuerySets<TResponse>(
@@ -597,13 +871,13 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
                 PUT,
-                "_plugins/search_relevance/query_sets",
+                "_plugins/_search_relevance/query_sets",
                 body,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/search_relevance/query_sets</summary>
-        /// <param name="body"></param>
+        /// <summary>PUT on /_plugins/_search_relevance/query_sets</summary>
+        /// <param name="body">The schema for updating a query set.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         [MapsApi("search_relevance.put_query_sets", "body")]
@@ -615,13 +889,13 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequestAsync<TResponse>(
                 PUT,
-                "_plugins/search_relevance/query_sets",
+                "_plugins/_search_relevance/query_sets",
                 ctx,
                 body,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/search_relevance/search_configurations</summary>
+        /// <summary>PUT on /_plugins/_search_relevance/search_configurations</summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -632,12 +906,12 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(
                 PUT,
-                "_plugins/search_relevance/search_configurations",
+                "_plugins/_search_relevance/search_configurations",
                 body,
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/search_relevance/search_configurations</summary>
+        /// <summary>PUT on /_plugins/_search_relevance/search_configurations</summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -650,7 +924,7 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequestAsync<TResponse>(
                 PUT,
-                "_plugins/search_relevance/search_configurations",
+                "_plugins/_search_relevance/search_configurations",
                 ctx,
                 body,
                 RequestParams(requestParameters)

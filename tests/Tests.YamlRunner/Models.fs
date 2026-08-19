@@ -62,7 +62,7 @@ let (|IsDoCatch|_|) (s:string) =
     | "unavailable" -> Some Unavailable
     | "param" -> Some UnknownParameter
     | "request" -> Some OtherBadResponse
-    | s -> Some <| CatchRegex (Regex.Replace(s.Trim('/'), @"(?<!\\)\\_", "_"))
+    | s -> Some <| CatchRegex (Regex.Replace(s.Trim('/'), @"(?<!\\)\\_", "_") |> fun p -> Regex.Replace(p, @"([*+?])\+", "$1"))
 
 type NodeSelector =
     | NodeVersionSelector of string
@@ -123,6 +123,8 @@ type AssertValue =
         | :? String as id when id.StartsWith "$" -> Id <| StashedId.Create id
         | :? String as regex when regex.StartsWith "/" ->
             let expression = Regex.Replace(regex, @"(^[\s\r\n]*?\/|\/[\s\r\n]*?$)", ""); 
+            // Strip Java-style possessive quantifiers (*+, ++, ?+) which .NET doesn't support
+            let expression = Regex.Replace(expression, @"([*+?])\+", "$1")
             let opts = RegexOptions.IgnorePatternWhitespace 
             RegexAssertion { Regex = Regex(expression, opts) }
         | s -> Value s

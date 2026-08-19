@@ -119,6 +119,7 @@ namespace OpenSearch.Client
 				case FieldType.RankFeature: return Deserialize<RankFeatureProperty>(ref segmentReader, formatterResolver);
 				case FieldType.RankFeatures: return Deserialize<RankFeaturesProperty>(ref segmentReader, formatterResolver);
 				case FieldType.KnnVector: return Deserialize<KnnVectorProperty>(ref segmentReader, formatterResolver);
+				case FieldType.Wildcard: return Deserialize<WildcardProperty>(ref segmentReader, formatterResolver);
 				case FieldType.None:
 					// no "type" field in the property mapping, or FieldType enum could not be parsed from typeString
 					return Deserialize<ObjectProperty>(ref segmentReader, formatterResolver);
@@ -217,6 +218,12 @@ namespace OpenSearch.Client
 					break;
 				case IRankFeaturesProperty rankFeaturesProperty:
 					Serialize(ref writer, rankFeaturesProperty, formatterResolver);
+					break;
+				case IKnnVectorProperty knnVectorProperty:
+					Serialize(ref writer, knnVectorProperty, formatterResolver);
+					break;
+				case IWildcardProperty wildcardProperty:
+					Serialize(ref writer, wildcardProperty, formatterResolver);
 					break;
 				case IGenericProperty genericProperty:
 					Serialize(ref writer, genericProperty, formatterResolver);

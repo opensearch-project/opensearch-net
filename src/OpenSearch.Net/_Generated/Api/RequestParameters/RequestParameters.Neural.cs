@@ -57,6 +57,7 @@ namespace OpenSearch.Net.Specification.NeuralApi
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
+        public override string OperationName => "neural.stats";
 
         /// <summary>
         /// Whether to return stats in the flat form, which can improve readability, especially for heavily nested stats. For example, the flat form
@@ -67,6 +68,39 @@ namespace OpenSearch.Net.Specification.NeuralApi
         {
             get => Q<bool?>("flat_stat_paths");
             set => Q("flat_stat_paths", value);
+        }
+
+        /// <summary>
+        /// When <c>true</c> includes aggregated statistics across all nodes in the <c>all_nodes</c> category. When <c>false</c>, excludes the
+        /// <c>all_nodes</c> category from the response.
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
+        public bool? IncludeAllNodes
+        {
+            get => Q<bool?>("include_all_nodes");
+            set => Q("include_all_nodes", value);
+        }
+
+        /// <summary>
+        /// When <c>true</c> includes statistics for individual nodes in the <c>nodes</c> category. When <c>false</c>, excludes the <c>nodes</c>
+        /// category from the response.
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
+        public bool? IncludeIndividualNodes
+        {
+            get => Q<bool?>("include_individual_nodes");
+            set => Q("include_individual_nodes", value);
+        }
+
+        /// <summary>
+        /// When <c>true</c> includes cluster-wide information in the <c>info</c> category. When <c>false</c>, excludes the <c>info</c> category from
+        /// the response.
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
+        public bool? IncludeInfo
+        {
+            get => Q<bool?>("include_info");
+            set => Q("include_info", value);
         }
 
         /// <summary>

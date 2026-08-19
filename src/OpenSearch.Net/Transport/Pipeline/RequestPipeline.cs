@@ -177,6 +177,7 @@ namespace OpenSearch.Net
 			where TResponse : class, IOpenSearchResponse, new()
 		{
 			using (var audit = Audit(HealthyResponse, requestData.Node))
+			using (var activity = StartActivity(requestData))
 			using (var d = DiagnosticSource.Diagnose<RequestData, IApiCallDetails>(DiagnosticSources.RequestPipeline.CallOpenSearch, requestData))
 			{
 				audit.Path = requestData.PathAndQuery;
@@ -184,6 +185,7 @@ namespace OpenSearch.Net
 				{
 					var response = _connection.Request<TResponse>(requestData);
 					d.EndState = response.ApiCall;
+					SetActivityEndState(activity, response.ApiCall);
 					response.ApiCall.AuditTrail = AuditTrail;
 					audit.Stop();
 					ThrowBadAuthPipelineExceptionWhenNeeded(response.ApiCall, response);
@@ -194,6 +196,7 @@ namespace OpenSearch.Net
 				{
 					audit.Event = requestData.OnFailureAuditEvent;
 					audit.Exception = e;
+					SetActivityError(activity);
 					throw;
 				}
 			}
@@ -203,6 +206,7 @@ namespace OpenSearch.Net
 			where TResponse : class, IOpenSearchResponse, new()
 		{
 			using (var audit = Audit(HealthyResponse, requestData.Node))
+			using (var activity = StartActivity(requestData))
 			using (var d = DiagnosticSource.Diagnose<RequestData, IApiCallDetails>(DiagnosticSources.RequestPipeline.CallOpenSearch, requestData))
 			{
 				audit.Path = requestData.PathAndQuery;
@@ -210,6 +214,7 @@ namespace OpenSearch.Net
 				{
 					var response = await _connection.RequestAsync<TResponse>(requestData, cancellationToken).ConfigureAwait(false);
 					d.EndState = response.ApiCall;
+					SetActivityEndState(activity, response.ApiCall);
 					response.ApiCall.AuditTrail = AuditTrail;
 					audit.Stop();
 					ThrowBadAuthPipelineExceptionWhenNeeded(response.ApiCall, response);
@@ -220,9 +225,66 @@ namespace OpenSearch.Net
 				{
 					audit.Event = requestData.OnFailureAuditEvent;
 					audit.Exception = e;
+					SetActivityError(activity);
 					throw;
 				}
 			}
+		}
+
+		/// <summary>
+		/// Starts an OpenTelemetry <see cref="Activity"/> for a request to OpenSearch and stamps it with the
+		/// request-side semantic convention tags. Returns <c>null</c> when nobody is listening, in which case
+		/// no span is created and callers incur virtually no cost.
+		/// </summary>
+		private static Activity StartActivity(RequestData requestData)
+		{
+			if (!OpenSearchClientActivitySource.HasListeners) return null;
+
+			// Prefer the REST API operation name (e.g. "search") for the span name; fall back to the HTTP
+			// method when the request does not map to a named operation (ping, sniff, raw low-level calls).
+			var operationName = requestData.OperationName;
+			var spanName = string.IsNullOrEmpty(operationName) ? requestData.Method.GetStringValue() : operationName;
+
+			var activity = OpenSearchClientActivitySource.ActivitySource.StartActivity(spanName, ActivityKind.Client);
+
+			if (activity is not { IsAllDataRequested: true }) return activity;
+
+			activity.SetTag(OpenTelemetryAttributes.DbSystem, OpenTelemetryAttributes.DbSystemValue);
+			if (!string.IsNullOrEmpty(operationName))
+				activity.SetTag(OpenTelemetryAttributes.DbOperation, operationName);
+			activity.SetTag(OpenTelemetryAttributes.HttpRequestMethod, requestData.Method.GetStringValue());
+
+			var uri = requestData.Uri;
+			if (uri is not null)
+			{
+				activity.SetTag(OpenTelemetryAttributes.UrlFull, uri.AbsoluteUri);
+				activity.SetTag(OpenTelemetryAttributes.ServerAddress, uri.Host);
+				activity.SetTag(OpenTelemetryAttributes.ServerPort, uri.Port);
+			}
+
+			return activity;
+		}
+
+		/// <summary>Stamps an <see cref="Activity"/> with the response-side tags and status once a call completes.</summary>
+		private static void SetActivityEndState(Activity activity, IApiCallDetails apiCall)
+		{
+			if (activity is not { IsAllDataRequested: true } || apiCall is null) return;
+
+			if (apiCall.HttpStatusCode.HasValue)
+				activity.SetTag(OpenTelemetryAttributes.HttpResponseStatusCode, apiCall.HttpStatusCode.Value);
+
+#if !NETSTANDARD2_0 && !NETSTANDARD2_1
+			activity.SetStatus(apiCall.Success ? ActivityStatusCode.Ok : ActivityStatusCode.Error);
+#endif
+		}
+
+		/// <summary>Marks an <see cref="Activity"/> as failed when a call throws before producing a response.</summary>
+		private static void SetActivityError(Activity activity)
+		{
+#if !NETSTANDARD2_0 && !NETSTANDARD2_1
+			if (activity is { IsAllDataRequested: true })
+				activity.SetStatus(ActivityStatusCode.Error);
+#endif
 		}
 
 		public OpenSearchClientException CreateClientException<TResponse>(
@@ -249,20 +311,20 @@ namespace OpenSearch.Net
 			if (IsTakingTooLong)
 			{
 				pipelineFailure = PipelineFailure.MaxTimeoutReached;
-				Audit(MaxTimeoutReached);
+				Audit(MaxTimeoutReached).Dispose();
 				exceptionMessage = "Maximum timeout reached while retrying request";
 			}
 			else if (Retried >= MaxRetries && MaxRetries > 0)
 			{
 				pipelineFailure = PipelineFailure.MaxRetriesReached;
-				Audit(MaxRetriesReached);
+				Audit(MaxRetriesReached).Dispose();
 				exceptionMessage = "Maximum number of retries reached";
 
 				var now = _dateTimeProvider.Now();
 				var activeNodes = _connectionPool.Nodes.Count(n => n.IsAlive || n.DeadUntil <= now);
 				if (Retried >= activeNodes)
 				{
-					Audit(FailedOverAllNodes);
+					Audit(FailedOverAllNodes).Dispose();
 					exceptionMessage += ", failed over to all the known alive nodes before failing";
 				}
 			}

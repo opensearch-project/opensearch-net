@@ -177,7 +177,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IClearCacheRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public ClearCacheDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -201,10 +201,10 @@ namespace OpenSearch.Client
         /// <summary>If <c>true</c>, clears the fields cache. Use the <c>fields</c> parameter to clear the cache of specific fields only.</summary>
         public ClearCacheDescriptor Fielddata(bool? fielddata = true) => Qs("fielddata", fielddata);
 
-        /// <summary>Comma-separated list of field names used to limit the <c>fielddata</c> parameter.</summary>
+        /// <summary>A comma-separated list of field names used to limit the <c>fielddata</c> parameter.</summary>
         public ClearCacheDescriptor Fields(Fields fields) => Qs("fields", fields);
 
-        /// <summary>Comma-separated list of field names used to limit the &lt;c&gt;fielddata&lt;/c&gt; parameter.</summary>
+        /// <summary>A comma-separated list of field names used to limit the &lt;c&gt;fielddata&lt;/c&gt; parameter.</summary>
         public ClearCacheDescriptor Fields<T>(params Expression<Func<T, object>>[] fields)
             where T : class => Qs("fields", fields?.Select(e => (Field)e));
 
@@ -312,7 +312,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices ICloseIndexRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list or wildcard expression of index names used to limit the request.</summary>
+        /// <summary>A comma-separated list or wildcard expression of index names used to limit the request.</summary>
         public CloseIndexDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -381,7 +381,7 @@ namespace OpenSearch.Client
         // values part of the url path
         IndexName ICreateIndexRequest.Index => Self.RouteValues.Get<IndexName>("index");
 
-        /// <summary>Name of the index you wish to create.</summary>
+        /// <summary>The name of the index you wish to create.</summary>
         public CreateIndexDescriptor Index(IndexName index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -435,7 +435,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IDeleteIndexRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of indexes to delete. You cannot specify index aliases. By default, this parameter does not support wildcards (<c>*</c>) or <c>_all</c>. To use wildcards or <c>_all</c>, set the <c>action.destructive_requires_name</c> cluster setting to <c>false</c>.</summary>
+        /// <summary>A comma-separated list of indexes to delete. You cannot specify index aliases. By default, this parameter does not support wildcards (<c>*</c>) or <c>_all</c>. To use wildcards or <c>_all</c>, set the <c>action.destructive_requires_name</c> cluster setting to <c>false</c>.</summary>
         public DeleteIndexDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -502,7 +502,7 @@ namespace OpenSearch.Client
         Indices IDeleteAliasRequest.Index => Self.RouteValues.Get<Indices>("index");
         Names IDeleteAliasRequest.Name => Self.RouteValues.Get<Names>("name");
 
-        /// <summary>Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (<c>*</c>).</summary>
+        /// <summary>A comma-separated list of data streams or indexes used to limit the request. Supports wildcards (<c>*</c>).</summary>
         public DeleteAliasDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -639,7 +639,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IIndexExistsRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases. Supports wildcards (<c>*</c>).</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases. Supports wildcards (<c>*</c>).</summary>
         public IndexExistsDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -712,7 +712,7 @@ namespace OpenSearch.Client
         Indices IAliasExistsRequest.Index => Self.RouteValues.Get<Indices>("index");
         Names IAliasExistsRequest.Name => Self.RouteValues.Get<Names>("name");
 
-        /// <summary>Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
+        /// <summary>A comma-separated list of data streams or indexes used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public AliasExistsDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -852,7 +852,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IFlushRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases to flush. Supports wildcards (<c>*</c>). To flush all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases to flush. Supports wildcards (<c>*</c>). To flush all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public FlushDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -975,7 +975,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IGetIndexRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and index aliases used to limit the request. Wildcard expressions (*) are supported.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and index aliases used to limit the request. Wildcard expressions (*) are supported.</summary>
         public GetIndexDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -1055,7 +1055,7 @@ namespace OpenSearch.Client
         Indices IGetAliasRequest.Index => Self.RouteValues.Get<Indices>("index");
         Names IGetAliasRequest.Name => Self.RouteValues.Get<Names>("name");
 
-        /// <summary>Comma-separated list of data streams or indexes used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
+        /// <summary>A comma-separated list of data streams or indexes used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public GetAliasDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1067,7 +1067,7 @@ namespace OpenSearch.Client
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
         public GetAliasDescriptor AllIndices() => Index(Indices.All);
 
-        /// <summary>Comma-separated list of aliases to retrieve. Supports wildcards (<c>*</c>). To retrieve all aliases, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
+        /// <summary>A comma-separated list of aliases to retrieve. Supports wildcards (<c>*</c>). To retrieve all aliases, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public GetAliasDescriptor Name(Names name) =>
             Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
@@ -1119,7 +1119,7 @@ namespace OpenSearch.Client
         Fields IGetFieldMappingRequest.Fields => Self.RouteValues.Get<Fields>("fields");
         Indices IGetFieldMappingRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public GetFieldMappingDescriptor<TDocument> Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1177,7 +1177,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Name IGetComposableIndexTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
 
-        /// <summary>Name of the index template to retrieve. Wildcard (*) expressions are supported.</summary>
+        /// <summary>The name of the index template to retrieve. Wildcard (*) expressions are supported.</summary>
         public GetComposableIndexTemplateDescriptor Name(Name name) =>
             Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
@@ -1226,7 +1226,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IGetMappingRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public GetMappingDescriptor<TDocument> Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1302,7 +1302,7 @@ namespace OpenSearch.Client
         Indices IGetIndexSettingsRequest.Index => Self.RouteValues.Get<Indices>("index");
         Names IGetIndexSettingsRequest.Name => Self.RouteValues.Get<Names>("name");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public GetIndexSettingsDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1314,7 +1314,7 @@ namespace OpenSearch.Client
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
         public GetIndexSettingsDescriptor AllIndices() => Index(Indices.All);
 
-        /// <summary>Comma-separated list or wildcard expression of settings to retrieve.</summary>
+        /// <summary>A comma-separated list or wildcard expression of settings to retrieve.</summary>
         public GetIndexSettingsDescriptor Name(Names name) =>
             Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
@@ -1378,7 +1378,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Names IGetIndexTemplateRequest.Name => Self.RouteValues.Get<Names>("name");
 
-        /// <summary>Comma-separated list of index template names used to limit the request. Wildcard (<c>*</c>) expressions are supported. To return all index templates, omit this parameter or use a value of <c>_all</c> or <c>*</c>.</summary>
+        /// <summary>A comma-separated list of index template names used to limit the request. Wildcard (<c>*</c>) expressions are supported. To return all index templates, omit this parameter or use a value of <c>_all</c> or <c>*</c>.</summary>
         public GetIndexTemplateDescriptor Name(Names name) =>
             Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
@@ -1423,7 +1423,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IOpenIndexRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). By default, you must explicitly name the indexes you using to limit the request. To limit a request using <c>_all</c>, <c>*</c>, or other wildcard expressions, change the <c>action.destructive_requires_name</c> setting to false. You can update this setting in the <c>opensearch.yml</c> file or using the cluster update settings API.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). By default, you must explicitly name the indexes you using to limit the request. To limit a request using <c>_all</c>, <c>*</c>, or other wildcard expressions, change the <c>action.destructive_requires_name</c> setting to false. You can update this setting in the <c>opensearch.yml</c> file or using the cluster update settings API.</summary>
         public OpenIndexDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Required("index", v));
 
@@ -1508,7 +1508,7 @@ namespace OpenSearch.Client
         Indices IPutAliasRequest.Index => Self.RouteValues.Get<Indices>("index");
         Name IPutAliasRequest.Name => Self.RouteValues.Get<Name>("name");
 
-        /// <summary>Comma-separated list of data streams or indexes to add. Supports wildcards (<c>*</c>). Wildcard patterns that match both data streams and indexes return an error.</summary>
+        /// <summary>A comma-separated list of data streams or indexes to add. Supports wildcards (<c>*</c>). Wildcard patterns that match both data streams and indexes return an error.</summary>
         public PutAliasDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1678,7 +1678,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IUpdateIndexSettingsRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public UpdateIndexSettingsDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1787,7 +1787,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IRefreshRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public RefreshDescriptor Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
@@ -1874,7 +1874,7 @@ namespace OpenSearch.Client
         Name IRolloverIndexRequest.Alias => Self.RouteValues.Get<Name>("alias");
         IndexName IRolloverIndexRequest.NewIndex => Self.RouteValues.Get<IndexName>("new_index");
 
-        /// <summary>Name of the index to create. Supports date math. Data streams do not support this parameter.</summary>
+        /// <summary>The name of the index to create. Supports date math. Data streams do not support this parameter.</summary>
         public RolloverIndexDescriptor NewIndex(IndexName newIndex) =>
             Assign(newIndex, (a, v) => a.RouteValues.Optional("new_index", v));
 
@@ -2084,11 +2084,11 @@ namespace OpenSearch.Client
             Assign(metric, (a, v) => a.RouteValues.Optional("metric", v));
 
         // Request parameters
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
+        /// <summary>A comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
         public IndicesStatsDescriptor CompletionFields(Fields completionfields) =>
             Qs("completion_fields", completionfields);
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
+        /// <summary>A comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
         public IndicesStatsDescriptor CompletionFields<T>(
             params Expression<Func<T, object>>[] fields
         )
@@ -2098,20 +2098,20 @@ namespace OpenSearch.Client
         public IndicesStatsDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data statistics.</summary>
+        /// <summary>A comma-separated list or wildcard expressions of fields to include in field data statistics.</summary>
         public IndicesStatsDescriptor FielddataFields(Fields fielddatafields) =>
             Qs("fielddata_fields", fielddatafields);
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in field data statistics.</summary>
+        /// <summary>A comma-separated list or wildcard expressions of fields to include in field data statistics.</summary>
         public IndicesStatsDescriptor FielddataFields<T>(
             params Expression<Func<T, object>>[] fields
         )
             where T : class => Qs("fielddata_fields", fields?.Select(e => (Field)e));
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
+        /// <summary>A comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
         public IndicesStatsDescriptor Fields(Fields fields) => Qs("fields", fields);
 
-        /// <summary>Comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
+        /// <summary>A comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
         public IndicesStatsDescriptor Fields<T>(params Expression<Func<T, object>>[] fields)
             where T : class => Qs("fields", fields?.Select(e => (Field)e));
 
@@ -2119,7 +2119,7 @@ namespace OpenSearch.Client
         public IndicesStatsDescriptor ForbidClosedIndices(bool? forbidclosedindices = true) =>
             Qs("forbid_closed_indices", forbidclosedindices);
 
-        /// <summary>Comma-separated list of search groups to include in the search statistics.</summary>
+        /// <summary>A comma-separated list of search groups to include in the search statistics.</summary>
         public IndicesStatsDescriptor Groups(params string[] groups) => Qs("groups", groups);
 
         /// <summary>If <c>true</c>, the call reports the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested).</summary>
@@ -2184,7 +2184,7 @@ namespace OpenSearch.Client
         // values part of the url path
         Indices IValidateQueryRequest.Index => Self.RouteValues.Get<Indices>("index");
 
-        /// <summary>Comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (<c>*</c>). To search all data streams or indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
+        /// <summary>A comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (<c>*</c>). To search all data streams or indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
         public ValidateQueryDescriptor<TDocument> Index(Indices index) =>
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 

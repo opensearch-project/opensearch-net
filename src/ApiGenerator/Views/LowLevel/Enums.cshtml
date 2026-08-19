@@ -7,10 +7,31 @@
     private static bool IsFlag(EnumDescription e) =>
 	    e.IsFlag || e.Name.EndsWith("Metric") || e.Name.EndsWith("Feature");
 
-    private static string GetEnumValue(string enumName, string value) =>
-	    enumName == "Size" && value == string.Empty
-		    ? "Raw"
-		    : value.ToPascalCase(true);
+    private static string GetEnumMember(string enumName, (string Value, string Alias) option)
+    {
+        var (value, alias) = option;
+        
+        if (enumName == "Size" && value == string.Empty) return "Raw";
+        
+        return value switch
+        {
+            "0" => "Zero",
+            "1" => "One",
+            "2" => "Two",
+            "3" => "Three",
+            "4" => "Four",
+            "5" => "Five",
+            "6" => "Six",
+            "7" => "Seven",
+            "8" => "Eight",
+            "9" => "Nine",
+            "asc" => "Ascending",
+            "desc" => "Descending",
+            "b" when enumName == "ByteUnit" => "B",
+            _ when !alias.IsNullOrEmpty() => alias.ToPascalCase(),
+            _ => value.ToPascalCase()
+        };
+    }
 }
 // ReSharper disable RedundantUsingDirective
 using System;
@@ -30,11 +51,11 @@ namespace OpenSearch.Net
 	@(isFlag ? "[Flags, StringEnum]" : "[StringEnum]")
 	public enum @e.Name
 	{
-	@foreach (var (o, i) in e.Options.OrderBy(o => o == "_all" ? 1 : 0).Select((o, i) => (o, i)))
+	@foreach (var (o, i) in e.Options.OrderBy(o => o.Value == "_all" ? 1 : 0).Select((o, i) => (o, i)))
 	{
 		<text>@(i > 0 ? "," : null)
-		[EnumMember(Value = "@(o)")]
-		@(GetEnumValue(e.Name, o))@(isFlag ? Raw($" = 1 << {i}") : null)</text>
+		[EnumMember(Value = "@(o.Value)")]
+		@(GetEnumMember(e.Name, o))@(isFlag ? Raw($" = 1 << {i}") : null)</text>
 	}
     }</text>
 }
@@ -58,16 +79,16 @@ namespace OpenSearch.Net
 		    public static string GetStringValue(this @(e.Name) enumValue)
 		    {
 		    </text>
-		    if (e.Options.Any(o => o == "_all"))
+		    if (e.Options.Any(o => o.Value == "_all"))
 		    {
 			    <text>if ((enumValue & @(e.Name).All) != 0) return "_all";
 			    </text>
 		    }
 		    <text>var list = new @(Raw("List<string>()"));
 		    </text>
-		    foreach (var o in e.Options.Where(o => o != "_all"))
+		    foreach (var o in e.Options.Where(o => o.Value != "_all"))
 		    {
-			    <text>if ((enumValue & @(e.Name).@(GetEnumValue(e.Name, o))) != 0) list.Add("@(o)");
+			    <text>if ((enumValue & @(e.Name).@(GetEnumMember(e.Name, o))) != 0) list.Add("@(o.Value)");
 			    </text>
 		    }
 		    <text>return string.Join(",", list);
@@ -80,7 +101,7 @@ namespace OpenSearch.Net
 				enumValue switch {
 				@foreach (var o in e.Options)
 				{
-					<text>@(e.Name).@(GetEnumValue(e.Name, o)) => "@(o)",
+					<text>@(e.Name).@(GetEnumMember(e.Name, o)) => "@(o.Value)",
 					</text>
 				}
 					_ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum '@(e.Name)'")
