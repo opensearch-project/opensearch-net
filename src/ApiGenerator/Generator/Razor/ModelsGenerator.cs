@@ -227,11 +227,20 @@ public sealed class ModelsGenerator : RazorGeneratorBase
     // Utilities
     // ──────────────────────────────────────────────────────────────────────────
 
+    /// <summary>
+    /// Matches an operation group to a plugin namespace. Supports both dotted namespaces
+    /// (e.g. "ml" matches "ml.get_task") and root-level operations (e.g. "search"
+    /// matches "search" exactly when Namespace="search").
+    /// </summary>
+    private static bool MatchesNamespace(string operationGroup, string ns) =>
+        operationGroup.StartsWith(ns + ".", StringComparison.Ordinal)
+        || operationGroup.Equals(ns, StringComparison.Ordinal);
+
     internal static IReadOnlyList<string> BodyOpGroups(OpenApiDocument doc, IModelOverrides plugin) =>
         doc.Paths.Values.SelectMany(p => p.Values)
             .Where(op => op.ExtensionData != null
                 && op.ExtensionData.TryGetValue("x-operation-group", out var g)
-                && g?.ToString()?.StartsWith(plugin.Namespace + ".", StringComparison.Ordinal) == true)
+                && g != null && MatchesNamespace(g.ToString(), plugin.Namespace))
             .Where(op => op.ActualRequestBody?.Content?.ContainsKey("application/json") == true)
             .Select(op => op.ExtensionData!["x-operation-group"]!.ToString()!)
             .Where(g => !plugin.ExcludedOps.Contains(g))
@@ -243,7 +252,7 @@ public sealed class ModelsGenerator : RazorGeneratorBase
         doc.Paths.Values.SelectMany(p => p.Values)
             .Where(op => op.ExtensionData != null
                 && op.ExtensionData.TryGetValue("x-operation-group", out var g)
-                && g?.ToString()?.StartsWith(plugin.Namespace + ".", StringComparison.Ordinal) == true)
+                && g != null && MatchesNamespace(g.ToString(), plugin.Namespace))
             .Where(op => op.ActualRequestBody?.Content?.ContainsKey("application/json") != true)
             .Select(op => op.ExtensionData!["x-operation-group"]!.ToString()!)
             .Where(g => !plugin.ExcludedOps.Contains(g))
