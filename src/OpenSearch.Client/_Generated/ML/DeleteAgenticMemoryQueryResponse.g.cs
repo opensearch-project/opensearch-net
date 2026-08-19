@@ -41,7 +41,7 @@ namespace OpenSearch.Client
         public long? Deleted { get; internal set; }
 
         [DataMember(Name = "failures")]
-        public IList<object> Failures { get; internal set; }
+        public IList<string> Failures { get; internal set; }
 
         [DataMember(Name = "noops")]
         public long? Noops { get; internal set; }

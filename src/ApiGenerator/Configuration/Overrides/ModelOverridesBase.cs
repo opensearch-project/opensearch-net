@@ -24,11 +24,13 @@ public abstract class ModelOverridesBase : IModelOverrides
         // Shared OSC types
         ["_common___Id"] = "Id",
         ["_common___IndexName"] = "IndexName",
+        ["_common___Indices"] = "Indices",
         ["_common___Name"] = "Name",
         ["_common___Fields"] = "Fields",
         ["_common___NodeIds"] = "NodeIds",
         ["_common___ShardStatistics"] = "ShardStatistics",
         ["_common___Retries"] = "Retries",
+        ["indices._common___IndexSettings"] = "IIndexSettings",
         // Primitive fallbacks: no dedicated OSC type exists for these.
         ["_common___VersionNumber"] = "long?",
         ["_common___SequenceNumber"] = "long?",

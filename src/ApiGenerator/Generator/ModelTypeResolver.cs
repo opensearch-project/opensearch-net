@@ -110,11 +110,18 @@ public sealed class ModelTypeResolver
         if (s.Type.HasFlag(JsonObjectType.Object) && s.AllowAdditionalProperties)
             return new DictionaryType(new FallbackType(), false);
 
-        if (TryGetReferenceId(schema, out var refSchemaId))
+        if (TryGetReferenceId(schema, out var refSchemaId) || _schemas.TryGetId(schema, out refSchemaId))
         {
-            var mapped = _registry.MappedCsharpType(refSchemaId);
-            if (mapped != null) return new MappedType(mapped, false);
-            return new ObjectRefType(CsharpTypeName(refSchemaId), false);
+            if (refSchemaId != null)
+            {
+                var mapped = _registry.MappedCsharpType(refSchemaId);
+                if (mapped != null) return new MappedType(mapped, false);
+                // Only emit ObjectRefType for schemas with actual properties (true object types).
+                // Schemas that are just unions/aliases (oneOf, $ref to primitives) without properties
+                // should fall through to FallbackType to avoid generating non-existent interfaces.
+                if (s.Properties?.Count > 0)
+                    return new ObjectRefType(CsharpTypeName(refSchemaId), false);
+            }
         }
 
         return new FallbackType();
