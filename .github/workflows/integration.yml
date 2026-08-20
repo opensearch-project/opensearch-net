@@ -10,8 +10,14 @@ env:
   OPENSEARCH_PLUGINS_DIRECTORY: /tmp/opensearch-plugins
 
 jobs:
+  # Run the integration suite against both serializer engines: the default Utf8Json engine and the opt-in
+  # System.Text.Json engine (OSC_USE_STJ=true). The high-level client honors OSC_USE_STJ (via
+  # ConnectionSettings/ConnectionSettingsBase), so the STJ leg exercises the opt-in serialization path end-to-end
+  # against a real cluster for every version, keeping both engines from regressing.
+  # NOTE: the YAML runner (integration-yaml-tests.yml) uses the low-level client, which is Utf8Json-only and ignores
+  # OSC_USE_STJ, so it is intentionally not dual-engine. See dev-docs/system-text-json-migration.md.
   integration-opensearch:
-    name: Integration OpenSearch
+    name: Integration OpenSearch (${{ matrix.engine.name }})
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -32,6 +38,11 @@ jobs:
           - 1.3.14
           - 1.2.4
           - 1.1.0
+        engine:
+          - name: utf8json
+            use_stj: 'false'
+          - name: stj
+            use_stj: 'true'
 
     steps:
       - name: Checkout Client
@@ -51,21 +62,24 @@ jobs:
             ${{ runner.os }}-nuget-
 
       - run: "./build.sh integrate $VERSION readonly,multinode,writable random:test_only_one --report"
-        name: Integration Tests
+        name: Integration Tests (${{ matrix.engine.name }})
         working-directory: client
         env:
           VERSION: ${{ matrix.version }}
+          OSC_USE_STJ: ${{ matrix.engine.use_stj }}
 
       # Run neural query integration tests separately as they use a significant amount of memory on their own
       - run: "./build.sh integrate ${{ matrix.version }} neuralquery random:test_only_one --report"
-        name: Neural Query Integration Tests
+        name: Neural Query Integration Tests (${{ matrix.engine.name }})
         working-directory: client
+        env:
+          OSC_USE_STJ: ${{ matrix.engine.use_stj }}
 
       - name: Upload test report
         if: failure()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: report-${{ matrix.version }}
+          name: report-${{ matrix.version }}-${{ matrix.engine.name }}
           path: client/build/output/*
 
   integration-opensearch-unreleased:

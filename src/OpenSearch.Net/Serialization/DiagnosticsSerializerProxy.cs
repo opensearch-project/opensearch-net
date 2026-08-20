@@ -93,6 +93,9 @@ namespace OpenSearch.Net
 			return _wrapsUtf8JsonSerializer;
 		}
 
+		// The wrapped serializer, so callers (e.g. per-request response builders) can branch on the concrete engine.
+		internal IOpenSearchSerializer InnerSerializer => _serializer;
+
 		public object Deserialize(Type type, Stream stream)
 		{
 			using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Deserialize, _state))
@@ -106,16 +109,16 @@ namespace OpenSearch.Net
 				return _serializer.Deserialize<T>(stream);
 		}
 
-		public Task<object> DeserializeAsync(Type type, Stream stream, CancellationToken cancellationToken = default)
+		public async Task<object> DeserializeAsync(Type type, Stream stream, CancellationToken cancellationToken = default)
 		{
 			using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Deserialize, _state))
-				return _serializer.DeserializeAsync(type, stream, cancellationToken);
+				return await _serializer.DeserializeAsync(type, stream, cancellationToken).ConfigureAwait(false);
 		}
 
-		public Task<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default)
+		public async Task<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default)
 		{
 			using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Deserialize, _state))
-				return _serializer.DeserializeAsync<T>(stream, cancellationToken);
+				return await _serializer.DeserializeAsync<T>(stream, cancellationToken).ConfigureAwait(false);
 		}
 
 		public void Serialize<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None)
@@ -124,12 +127,12 @@ namespace OpenSearch.Net
 				_serializer.Serialize(data, stream, formatting);
 		}
 
-		public Task SerializeAsync<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None,
+		public async Task SerializeAsync<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None,
 			CancellationToken cancellationToken = default
 		)
 		{
 			using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Serialize, _state))
-				return _serializer.SerializeAsync(data, stream, formatting, cancellationToken);
+				await _serializer.SerializeAsync(data, stream, formatting, cancellationToken).ConfigureAwait(false);
 		}
 
 	}

@@ -106,14 +106,19 @@ namespace OpenSearch.Client
 		private readonly HashSet<Type> _disableIdInference = new HashSet<Type>();
 		private readonly FluentDictionary<Type, string> _idProperties = new FluentDictionary<Type, string>();
 		private readonly Inferrer _inferrer;
-		private readonly IPropertyMappingProvider _propertyMappingProvider;
+		private IPropertyMappingProvider _propertyMappingProvider;
 		private readonly FluentDictionary<MemberInfo, IPropertyMapping> _propertyMappings = new FluentDictionary<MemberInfo, IPropertyMapping>();
 		private readonly FluentDictionary<Type, string> _routeProperties = new FluentDictionary<Type, string>();
-		private readonly IOpenSearchSerializer _sourceSerializer;
+		private IOpenSearchSerializer _sourceSerializer;
+
+		// Retained so the high-level serializers can be rebuilt if UseSystemTextJson() is called after construction.
+		private readonly ConnectionSettings.SourceSerializerFactory _sourceSerializerFactory;
+		private readonly IPropertyMappingProvider _configuredPropertyMappingProvider;
 
 		private bool _defaultDisableAllInference;
 		private Func<string, string> _defaultFieldNameInferrer;
 		private string _defaultIndex;
+		private bool _useSystemTextJson;
 
 		protected ConnectionSettingsBase(
 			IConnectionPool connectionPool,
@@ -123,22 +128,56 @@ namespace OpenSearch.Client
 		)
 			: base(connectionPool, connection, null)
 		{
-			var formatterResolver = new OpenSearchClientFormatterResolver(this);
-			var defaultSerializer = new DefaultHighLevelSerializer(formatterResolver);
-			var sourceSerializer = sourceSerializerFactory?.Invoke(defaultSerializer, this) ?? defaultSerializer;
-			var serializerAsMappingProvider = sourceSerializer as IPropertyMappingProvider;
+			_sourceSerializerFactory = sourceSerializerFactory;
+			_configuredPropertyMappingProvider = propertyMappingProvider;
 
-			_propertyMappingProvider = propertyMappingProvider ?? serializerAsMappingProvider ?? new PropertyMappingProvider();
+			// High-level serializer engine selection. The default is the legacy Utf8Json engine; System.Text.Json is
+			// opt-in — programmatically via UseSystemTextJson(), or when unset via the OSC_USE_STJ=true environment
+			// variable. Keeping Utf8Json the default avoids introducing a
+			// serializer breaking change into an already-released 2.x line; callers opt in when ready. The low-level
+			// OpenSearch.Net client reads the same environment variable independently (see
+			// ConnectionConfiguration{T}.UseSystemTextJson) but selects its own engine separately.
+			_useSystemTextJson = SystemTextJsonEnvironment.ReadOverride() ?? false;
+			BuildHighLevelSerializers();
 
-			//We wrap these in an internal proxy to facilitate serialization diagnostics
-			_sourceSerializer = new DiagnosticsSerializerProxy(sourceSerializer, "source");
-			UseThisRequestResponseSerializer = new DiagnosticsSerializerProxy(defaultSerializer);
 			_defaultFieldNameInferrer = p => p.ToCamelCase();
 			_defaultIndices = new FluentDictionary<Type, string>();
 			_defaultRelationNames = new FluentDictionary<Type, string>();
 			_inferrer = new Inferrer(this);
 
 			UserAgent(ConnectionSettings.DefaultUserAgent);
+		}
+
+		// Builds (or rebuilds) the request/response and source serializers for the currently-selected engine, plus the
+		// property-mapping provider derived from the source serializer. Called from the constructor and from
+		// UseSystemTextJson() so a programmatic engine switch takes effect before the client reads these.
+		private void BuildHighLevelSerializers()
+		{
+			var formatterResolver = new OpenSearchClientFormatterResolver(this);
+			IOpenSearchSerializer defaultSerializer = _useSystemTextJson
+				? new SystemTextJsonHighLevelSerializer(this)
+				: new DefaultHighLevelSerializer(formatterResolver);
+			var sourceSerializer = _sourceSerializerFactory?.Invoke(defaultSerializer, this) ?? defaultSerializer;
+			var serializerAsMappingProvider = sourceSerializer as IPropertyMappingProvider;
+
+			_propertyMappingProvider = _configuredPropertyMappingProvider ?? serializerAsMappingProvider ?? new PropertyMappingProvider();
+
+			//We wrap these in an internal proxy to facilitate serialization diagnostics
+			_sourceSerializer = new DiagnosticsSerializerProxy(sourceSerializer, "source");
+			UseThisRequestResponseSerializer = new DiagnosticsSerializerProxy(defaultSerializer);
+		}
+
+		/// <summary>
+		/// Use the System.Text.Json-based high-level serializer instead of the default Utf8Json engine. This is the
+		/// programmatic opt-in for the serializer migration (GitHub issue #388); it takes precedence over the
+		/// <c>OSC_USE_STJ</c> environment variable. Pass <c>false</c> to force the legacy
+		/// Utf8Json engine.
+		/// </summary>
+		public TConnectionSettings UseSystemTextJson(bool useSystemTextJson = true)
+		{
+			_useSystemTextJson = useSystemTextJson;
+			BuildHighLevelSerializers();
+			return (TConnectionSettings)this;
 		}
 
 		bool IConnectionSettingsValues.DefaultDisableIdInference => _defaultDisableAllInference;

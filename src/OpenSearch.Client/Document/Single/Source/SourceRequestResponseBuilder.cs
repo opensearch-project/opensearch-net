@@ -41,14 +41,11 @@ namespace OpenSearch.Client
 		{
 			if (response.Success)
 			{
-				if (builtInSerializer is IInternalSerializer internalSerializer &&
-					internalSerializer.TryGetJsonFormatter(out var formatter))
+				var sourceSerializer = GetSourceSerializer(builtInSerializer);
+				return new SourceResponse<TDocument>
 				{
-					var sourceSerializer = formatter.GetConnectionSettings().SourceSerializer;
-					return new SourceResponse<TDocument> { Body = sourceSerializer.Deserialize<TDocument>(stream) };
-				}
-
-				return new SourceResponse<TDocument> { Body = builtInSerializer.Deserialize<TDocument>(stream) };
+					Body = (sourceSerializer ?? builtInSerializer).Deserialize<TDocument>(stream)
+				};
 			}
 
 			return new SourceResponse<TDocument>();
@@ -58,23 +55,30 @@ namespace OpenSearch.Client
 		{
 			if (response.Success)
 			{
-				if (builtInSerializer is IInternalSerializer internalSerializer &&
-					internalSerializer.TryGetJsonFormatter(out var formatter))
-				{
-					var sourceSerializer = formatter.GetConnectionSettings().SourceSerializer;
-					return new SourceResponse<TDocument>
-					{
-						Body = await sourceSerializer.DeserializeAsync<TDocument>(stream, ctx).ConfigureAwait(false)
-					};
-				}
-
+				var sourceSerializer = GetSourceSerializer(builtInSerializer);
 				return new SourceResponse<TDocument>
 				{
-					Body = await builtInSerializer.DeserializeAsync<TDocument>(stream, ctx).ConfigureAwait(false)
+					Body = await (sourceSerializer ?? builtInSerializer).DeserializeAsync<TDocument>(stream, ctx).ConfigureAwait(false)
 				};
 			}
 
 			return new SourceResponse<TDocument>();
+		}
+
+		// The _source document body is (de)serialized by the connection's configured SourceSerializer (e.g. a
+		// Newtonsoft JsonNetSerializer) rather than the built-in serializer. The legacy engine reached it via the
+		// Utf8Json formatter resolver; under System.Text.Json unwrap the STJ serializer and read its Settings. Returns
+		// null when neither engine exposes settings, in which case the caller falls back to the built-in serializer.
+		private static IOpenSearchSerializer GetSourceSerializer(IOpenSearchSerializer builtInSerializer)
+		{
+			if (builtInSerializer is IInternalSerializer internalSerializer &&
+				internalSerializer.TryGetJsonFormatter(out var formatter))
+				return formatter.GetConnectionSettings().SourceSerializer;
+
+			if (StatefulSerializerExtensions.TryGetSystemTextJsonSerializer(builtInSerializer, out var stj))
+				return stj.Settings.SourceSerializer;
+
+			return null;
 		}
 	}
 }
