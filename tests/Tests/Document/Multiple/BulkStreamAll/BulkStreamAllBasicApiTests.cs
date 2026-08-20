@@ -41,7 +41,7 @@ namespace Tests.Document.Multiple.BulkStreamAll
 			{
 				Interlocked.Increment(ref seenPages);
 				b.Items.Should().NotBeNull();
-				b.Page.Should().BeGreaterOrEqualTo(0);
+				b.Page.Should().BeGreaterThanOrEqualTo(0);
 			});
 
 			seenPages.Should().Be(pages);
@@ -73,7 +73,7 @@ namespace Tests.Document.Multiple.BulkStreamAll
 			});
 
 			// 350 docs / 100 per batch = 4 batches (pages 0, 1, 2, 3)
-			maxPageSeen.Should().BeGreaterOrEqualTo(3);
+			maxPageSeen.Should().BeGreaterThanOrEqualTo(3);
 		}
 
 		[I]

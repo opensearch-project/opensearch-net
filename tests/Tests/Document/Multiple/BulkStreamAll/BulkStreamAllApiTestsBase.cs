@@ -8,6 +8,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 

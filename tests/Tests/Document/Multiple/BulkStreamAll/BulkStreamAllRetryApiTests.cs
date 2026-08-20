@@ -105,7 +105,7 @@ namespace Tests.Document.Multiple.BulkStreamAll
 
 			// Attempt 10: would be 1024s without cap
 			var delay = RetryStrategy.ComputeDelay(10, baseDelay, maxDelay);
-			delay.TotalSeconds.Should().BeLessOrEqualTo(2.0);
+			delay.TotalSeconds.Should().BeLessThanOrEqualTo(2.0);
 		}
 
 		[U]
@@ -116,7 +116,7 @@ namespace Tests.Document.Multiple.BulkStreamAll
 
 			// Should not overflow or throw for large attempt numbers
 			var delay = RetryStrategy.ComputeDelay(50, baseDelay, maxDelay);
-			delay.TotalSeconds.Should().BeLessOrEqualTo(30.0);
+			delay.TotalSeconds.Should().BeLessThanOrEqualTo(30.0);
 			delay.TotalMilliseconds.Should().BeGreaterThan(0);
 		}
 	}
