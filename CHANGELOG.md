@@ -5,6 +5,9 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### ⚠️ Breaking Changes ⚠️
 ### Changed
 ### Added
+
+- Added initial support for the bulk streaming API ([#935](https://github.com/opensearch-project/opensearch-net/pull/935))
+
 ### Removed
 ### Fixed
 - Fixed `SerializeAsync` and `DeserializeAsync` diagnostic spans measuring only Task creation time instead of actual execution time ([#950](https://github.com/opensearch-project/opensearch-net/issues/950))
