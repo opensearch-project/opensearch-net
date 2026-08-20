@@ -7,6 +7,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Added initial support for the bulk streaming API ([#935](https://github.com/opensearch-project/opensearch-net/pull/935))
+- Added `BulkStreamAll`, a high-level streaming bulk ingestion helper with automatic batching, exponential-backoff retries, document-ID affinity routing, backpressure, and progress reporting, built on the bulk streaming API ([#1020](https://github.com/opensearch-project/opensearch-net/pull/1020))
 
 ### Removed
 ### Fixed

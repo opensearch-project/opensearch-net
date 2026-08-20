@@ -133,6 +133,8 @@ namespace Tests.CodeStandards
 				let firstFuncArg = type.GetGenericArguments().First()
 				let secondFuncArg = type.GetGenericArguments().Last()
 				where !exclude(firstFuncArg, secondFuncArg)
+				// DocumentAffinityKey is a value-extractor selector (Func<T,string>), not a descriptor-state selector
+				where !(m.Name == nameof(BulkStreamAllDescriptor<object>.DocumentAffinityKey) && m.DeclaringType.GetGenericTypeDefinition() == typeof(BulkStreamAllDescriptor<>))
 				let lastArgIsNotInterface = !secondFuncArg.IsInterface
 				where lastArgIsNotInterface
 				select $"{m.Name} on {m.DeclaringType.Name}";
@@ -223,6 +225,8 @@ namespace Tests.CodeStandards
 				where !(m.Name == "Lang" && dt == typeof(ScriptQueryDescriptor<>))
 				where !(m.Name == nameof(BulkAllDescriptor<object>.RefreshOnCompleted) && dt == typeof(BulkAllDescriptor<>))
 				where !(m.Name == nameof(BulkAllDescriptor<object>.ContinueAfterDroppedDocuments) && dt == typeof(BulkAllDescriptor<>))
+				where !(m.Name == nameof(BulkStreamAllDescriptor<object>.RefreshOnCompleted) && dt == typeof(BulkStreamAllDescriptor<>))
+				where !(m.Name == nameof(BulkStreamAllDescriptor<object>.ContinueAfterDroppedDocuments) && dt == typeof(BulkStreamAllDescriptor<>))
 				where !(m.Name == nameof(ReindexDescriptor<object, object>.OmitIndexCreation) && dt == typeof(ReindexDescriptor<,>))
 				where !(m.Name == nameof(PutMappingDescriptor<object>.AutoMap))
 				where !(m.Name == nameof(PutMappingDescriptor<object>.Dynamic))
