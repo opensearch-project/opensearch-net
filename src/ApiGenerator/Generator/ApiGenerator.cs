@@ -68,7 +68,6 @@ namespace ApiGenerator.Generator
 			RecursiveDelete(GeneratorLocations.LowLevelGeneratedFolder);
 			await DoGenerate(
 				new RazorGeneratorBase[] {
-					//low level client
 					new LowLevelClientInterfaceGenerator(),
 					new LowLevelClientImplementationGenerator(),
 					new RequestParametersGenerator(),
@@ -83,12 +82,12 @@ namespace ApiGenerator.Generator
 			await DoGenerate(
 				new RazorGeneratorBase[]
 				{
-					//high level client
 					new ApiUrlsLookupsGenerator(),
 					new HighLevelClientInterfaceGenerator(),
 					new HighLevelClientImplementationGenerator(),
 					new DescriptorsGenerator(),
 					new RequestsGenerator(),
+					new ModelsGenerator(),
 				},
 				highLevel: true
 			);
@@ -96,7 +95,7 @@ namespace ApiGenerator.Generator
 
 		public static async Task<RestApiSpec> CreateRestApiSpecModel(CancellationToken token = default)
 		{
-			var json = PreprocessRawOpenApiSpec(await File.ReadAllTextAsync(GeneratorLocations.OpenApiSpecFile, token));
+			var (json, openSchemaIds) = PreprocessRawOpenApiSpec(await File.ReadAllTextAsync(GeneratorLocations.OpenApiSpecFile, token));
 			var document = await OpenApiDocument.FromJsonAsync(json, token);
             JsonSchemaReferenceUtilities.UpdateSchemaReferencePaths(document);
 
@@ -129,10 +128,10 @@ namespace ApiGenerator.Generator
 				.OrderBy(e => e.Name)
 				.ToImmutableList();
 
-			return new RestApiSpec { Endpoints = endpoints, EnumsInTheSpec = enumsInSpec };
+			return new RestApiSpec { Endpoints = endpoints, EnumsInTheSpec = enumsInSpec, Document = document, ExplicitlyOpenSchemaIds = openSchemaIds };
 		}
 
-		private static string PreprocessRawOpenApiSpec(string yaml)
+		private static (string json, HashSet<string> openSchemaIds) PreprocessRawOpenApiSpec(string yaml)
 		{
 			// FIXME: work-around until NSwag adds support for requestBody references: https://github.com/RicoSuter/NSwag/pull/4747
 			dynamic doc = new DeserializerBuilder().Build().Deserialize(yaml)!;
@@ -150,10 +149,21 @@ namespace ApiGenerator.Generator
 					operation["requestBody"] = requestBodies[((string) reference).Split('/').Last()];
 				}
 			}
-			return new SerializerBuilder()
+
+			var openSchemaIds = new HashSet<string>(StringComparer.Ordinal);
+			foreach (KeyValuePair<object, dynamic> kv in doc["components"]["schemas"])
+			{
+				if (kv.Value is not Dictionary<object, dynamic> schemaDef) continue;
+				if (schemaDef.TryGetValue("additionalProperties", out var ap)
+					&& (ap is bool b && b || ap is string s && s == "true"))
+					openSchemaIds.Add((string)kv.Key);
+			}
+
+			var json = new SerializerBuilder()
 				.JsonCompatible()
 				.Build()
 				.Serialize(doc);
+			return (json, openSchemaIds);
 		}
 
 		private static void RecursiveDelete(string path)

@@ -27,6 +27,7 @@
 */
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -47,13 +48,14 @@ namespace ApiGenerator
         /// <param name="branch">The stack's branch we are targeting the generation for</param>
         /// <param name="interactive">Run the generation interactively, this will ignore all flags</param>
         /// <param name="download">Whether to download the specs or use an already downloaded copy</param>
-        /// <param name="includeHighLevel">Also generate the high level client (OpenSearch.Client)</param>
+        /// <param name="includeHighLevel">Also generate the high level client and typed models (OpenSearch.Client)</param>
         /// <param name="skipGenerate">Only download the specs, skip all code generation</param>
         /// <param name="token"></param>
         /// <returns></returns>
         private static async Task<int> Main(
-            string branch, bool interactive = false, bool download = false, bool includeHighLevel = false, bool skipGenerate = false
-            , CancellationToken token = default)
+            string branch, bool interactive = false, bool download = false, bool includeHighLevel = false,
+            bool skipGenerate = false,
+            CancellationToken token = default)
         {
             Interactive = interactive;
             try
@@ -83,6 +85,8 @@ namespace ApiGenerator
             return 0;
         }
 
+        internal static bool ShouldRunLowLevelOnly(bool includeHighLevel) => !includeHighLevel;
+
         private static async Task<int> Generate(bool download, string branch, bool includeHighLevel, bool skipGenerate, CancellationToken token = default)
         {
             var redownloadCoreSpecification = Ask("Download online rest specifications?", download);
@@ -100,7 +104,7 @@ namespace ApiGenerator
                 throw new Exception($"Branch to download from is null or empty");
 
             var generateCode = Ask("Generate code from the specification files on disk?", !skipGenerate);
-            var lowLevelOnly = generateCode && Ask("Generate low level client only?", !includeHighLevel);
+            var lowLevelOnly = generateCode && Ask("Generate low level client only?", ShouldRunLowLevelOnly(includeHighLevel));
 
             static string YesNo(bool value) => value ? "[bold green]Yes[/]" : "[grey]No[/]";
             var grid = new Grid()
@@ -147,6 +151,19 @@ namespace ApiGenerator
             Console.WriteLine();
             AnsiConsole.Write(new Rule("[b white on chartreuse4] Generating code [/]").LeftJustified());
             Console.WriteLine();
+
+            // Allowlist all operations from enabled model plugins so the base-half generator
+            // emits their descriptors/requests/client-methods.
+            if (!lowLevelOnly)
+            {
+                foreach (var plugin in Generator.Razor.ModelsGenerator.EnabledPlugins)
+                {
+                    foreach (var op in spec.Endpoints.Keys
+                                 .Where(k => k.StartsWith(plugin.Namespace + ".", StringComparison.Ordinal))
+                                 .Where(k => !plugin.ExcludedOps.Contains(k)))
+                        CodeConfiguration.EnableHighLevelCodeGen.Add(op);
+                }
+            }
 
             await Generator.ApiGenerator.Generate(lowLevelOnly, spec, token);
 

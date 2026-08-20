@@ -91,9 +91,12 @@ namespace ApiGenerator.Generator
                     if (!allParts.TryGetValue(paramName, out var part))
                     {
                         var type = GetOpenSearchType(schema, trackEnumToGenerate);
+                        // ML task IDs are plain alphanumeric strings, not the <node:number>
+                        // format the Tasks-API TaskId type requires. Use Id (same as model_id).
+                        var clrOverride = paramName == "task_id" && ns == "ml" ? "Id" : null;
                         part = allParts[paramName] = new UrlPart
                         {
-                            ClrTypeNameOverride = null,
+                            ClrTypeNameOverride = clrOverride,
                             Deprecated = isDeprecated,
                             Description = description?.SanitizeDescription(),
                             Name = paramName,

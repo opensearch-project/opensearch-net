@@ -1,13 +1,26 @@
 @using System.Collections.ObjectModel
+@using System.Linq
 @using ApiGenerator
+@using ApiGenerator.Configuration
 @using ApiGenerator.Domain.Specification
 @using ApiGenerator.Domain.Code
+@using ApiGenerator.Generator.Razor
 @inherits CodeTemplatePage<KeyValuePair<string, ReadOnlyCollection<ApiEndpoint>>>
 @{
 	var (ns, endpoints) = Model;
+	// Namespaces generated entirely from the OpenAPI spec (all endpoints opted in via
+	// EnableHighLevelCodeGen) carry only the OpenSearch notice; legacy namespaces ported from
+	// Elasticsearch keep the historical attribution header.
+	var newlyGenerated = endpoints.All(e => CodeConfiguration.EnableHighLevelCodeGen.Contains(e.Name));
+	var rawNs = ns;
 	ns = ns != CsharpNames.RootNamespace ? $".{CsharpNames.ApiNamespace}.{ns}{CsharpNames.ApiNamespaceSuffix}" : null;
+	// Check if the plugin owning this namespace has opted out of the low-level API import.
+	// rawNs is already PascalCase (e.g. "SearchPipeline"); plugin.Namespace is the spec prefix
+	// (e.g. "search_pipeline"), so compare after PascalCase conversion.
+	var suppressLowLevel = ModelsGenerator.EnabledPlugins
+		.Any(p => p.Namespace.ToPascalCase() == rawNs && p.SuppressLowLevelApiImport);
 }
-@{ await IncludeLegacyGeneratorNotice(); }
+@{ if (newlyGenerated) { await IncludeGeneratorNotice(); } else { await IncludeLegacyGeneratorNotice(); } }
 // ReSharper disable RedundantUsingDirective
 using System;
 using System.Collections.Generic;
@@ -17,10 +30,27 @@ using System.Linq.Expressions;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
-@if (ns != null)
+@if (ns != null && !suppressLowLevel)
 {
     <text>using OpenSearch.Net@(ns);
 </text>
+}
+@if (ns != null && suppressLowLevel)
+{
+    // The low-level namespace import is suppressed to avoid ambiguity with identically-named
+    // classes in the top-level OpenSearch.Net namespace (e.g. DeleteRequestParameters).
+    // Emit an explicit alias per unique RequestParameters type so the rest of the file
+    // resolves them without the blanket namespace import.
+    var fullNs = "OpenSearch.Net" + ns;
+    var paramTypes = endpoints
+        .Select(e => e.CsharpNames.ParametersName)
+        .Distinct()
+        .OrderBy(t => t);
+    foreach (var pType in paramTypes)
+    {
+<text>using @pType = @fullNs.@pType;
+</text>
+    }
 }
 
 // ReSharper disable RedundantBaseConstructorCall

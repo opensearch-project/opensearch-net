@@ -28,6 +28,8 @@
 
 using System;
 using System.Diagnostics;
+using System.Linq;
+using System.Reflection;
 using System.Runtime.ExceptionServices;
 using System.Threading.Tasks;
 using OpenSearch.OpenSearch.Ephemeral;
@@ -59,6 +61,41 @@ namespace Tests.Framework.EndpointTests
 
 		protected virtual void ExpectResponse(TResponse response) { }
 
+		/// <summary>
+		/// Returns true when the running OpenSearch version is below the minimum version declared
+		/// by <c>TInitializer.MinimumServerVersion</c>, signalling that all [I] tests should be skipped.
+		/// The <paramref name="reason"/> string is set to a human-readable explanation.
+		/// </summary>
+		protected static bool SkipForMinimumVersion(out string reason)
+		{
+			var field = typeof(TInitializer).GetField(
+				"MinimumServerVersion",
+				BindingFlags.Public | BindingFlags.Static);
+
+			if (field == null || field.GetValue(null) is not string minVersion)
+			{
+				reason = null;
+				return false;
+			}
+
+			// x-version-added in the spec uses 2-component versions (e.g. "2.7", "1.3").
+			// OpenSearchVersion requires 3-component semver (e.g. "2.7.0").
+			// Normalize by appending ".0" when needed.
+			if (minVersion.Count(c => c == '.') < 2)
+				minVersion += ".0";
+
+			var serverVersion = TestClient.Configuration.OpenSearchVersion;
+			if (serverVersion != null && serverVersion < minVersion)
+			{
+				reason = $"{typeof(TInitializer).Name} requires OpenSearch >= {minVersion}; " +
+				         $"running against {serverVersion}";
+				return true;
+			}
+
+			reason = null;
+			return false;
+		}
+
 		// https://youtrack.jetbrains.com/issue/RIDER-19912
 		[U] protected override Task HitsTheCorrectUrl() => base.HitsTheCorrectUrl();
 
@@ -68,13 +105,23 @@ namespace Tests.Framework.EndpointTests
 
 		[U] protected override void SerializesFluent() => base.SerializesFluent();
 
-		[I] public virtual async Task ReturnsExpectedStatusCode() =>
+		[I] public virtual async Task ReturnsExpectedStatusCode()
+		{
+			if (SkipForMinimumVersion(out var reason)) { Console.WriteLine(reason); return; }
 			await AssertOnAllResponses(r => r.ApiCall.HttpStatusCode.Should().Be(ExpectStatusCode));
+		}
 
-		[I] public virtual async Task ReturnsExpectedIsValid() =>
+		[I] public virtual async Task ReturnsExpectedIsValid()
+		{
+			if (SkipForMinimumVersion(out var reason)) { Console.WriteLine(reason); return; }
 			await AssertOnAllResponses(r => r.ShouldHaveExpectedIsValid(ExpectIsValid));
+		}
 
-		[I] public virtual async Task ReturnsExpectedResponse() => await AssertOnAllResponses(ExpectResponse);
+		[I] public virtual async Task ReturnsExpectedResponse()
+		{
+			if (SkipForMinimumVersion(out var reason)) { Console.WriteLine(reason); return; }
+			await AssertOnAllResponses(ExpectResponse);
+		}
 
 		protected override Task AssertOnAllResponses(Action<TResponse> assert) =>
 			base.AssertOnAllResponses((r) =>

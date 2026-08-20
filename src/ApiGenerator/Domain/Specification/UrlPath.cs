@@ -52,7 +52,22 @@ namespace ApiGenerator.Domain.Specification
         public string ConstructorArguments => string.Join(", ", Parts.Select(p => $"{p.HighLevelTypeName} {p.NameAsArgument}"));
         public string RequestBaseArguments =>
             !Parts.Any() ? string.Empty
-                : "r => r." + string.Join(".", Parts.Select(p => $"{(p.Required ? "Required" : "Optional")}(\"{p.Name}\", {p.NameAsArgument})"));
+                : "r => r." + string.Join(".", Parts.Select(p =>
+                {
+                    var arg = IsIntegralType(p.HighLevelTypeName)
+                        // Integral URL parts are not IUrlParameter; wrap via Name (IUrlParameter
+                        // with implicit operator from string).  Use null-conditional to avoid
+                        // NullReferenceException when the nullable long? is null at runtime.
+                        ? $"(Name)({p.NameAsArgument}?.ToString())"
+                        : p.NameAsArgument;
+                    return $"{(p.Required ? "Required" : "Optional")}(\"{p.Name}\", {arg})";
+                }));
+
+        /// <summary>Returns true when the high-level type is a nullable integral primitive that
+        /// is not itself an IUrlParameter (long?, int?, etc.).</summary>
+        private static bool IsIntegralType(string highLevelTypeName) =>
+            highLevelTypeName == "long?" || highLevelTypeName == "int?" ||
+            highLevelTypeName == "float?" || highLevelTypeName == "double?";
 
         public string TypedSubClassBaseArguments => string.Join(", ", Parts.Select(p => p.NameAsArgument));
 
