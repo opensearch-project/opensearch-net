@@ -13,6 +13,12 @@ using System.Linq;
 
 namespace ApiGenerator.Domain.Code.HighLevel.Models;
 
+/// <summary>
+/// A property in a generated model type.
+/// <para><c>IsRequired</c> tracks whether the property is marked "required" in the OpenAPI schema.
+/// Reserved for future use (nullable annotations, [Required] attribute generation).
+/// Not yet consumed by any Razor template.</para>
+/// </summary>
 public sealed record ModelProperty(
     string WireName,
     string CsharpName,

@@ -120,6 +120,54 @@
     }
     sb2.Append("    }");
     var builderCode = sb2.ToString();
+
+    // ────────────────────────────────────────────────────────────────────────
+    // STJ converter (pre-built as raw string)
+    // ────────────────────────────────────────────────────────────────────────
+    var converterName = m.CsharpName + "Converter";
+    var sb3 = new System.Text.StringBuilder();
+    sb3.AppendLine("    /// <summary>");
+    sb3.AppendLine("    /// System.Text.Json converter for <see cref=\"" + ifaceName + "\"/> wrapper-key union.");
+    sb3.AppendLine("    /// </summary>");
+    sb3.AppendLine("    internal class " + converterName + " : System.Text.Json.Serialization.JsonConverter<" + ifaceName + ">");
+    sb3.AppendLine("    {");
+    sb3.AppendLine("        public override " + ifaceName + " Read(ref System.Text.Json.Utf8JsonReader reader, Type typeToConvert, System.Text.Json.JsonSerializerOptions options)");
+    sb3.AppendLine("        {");
+    sb3.AppendLine("            if (reader.TokenType == System.Text.Json.JsonTokenType.Null) { reader.Read(); return null; }");
+    sb3.AppendLine("            using var doc = System.Text.Json.JsonDocument.ParseValue(ref reader);");
+    sb3.AppendLine("            var root = doc.RootElement;");
+    sb3.AppendLine("            if (root.ValueKind != System.Text.Json.JsonValueKind.Object) return null;");
+    sb3.AppendLine("            foreach (var property in root.EnumerateObject())");
+    sb3.AppendLine("            {");
+    sb3.AppendLine("                var body = property.Value.GetRawText();");
+    sb3.AppendLine("                switch (property.Name)");
+    sb3.AppendLine("                {");
+    foreach (var v in m.AllVariants)
+        sb3.AppendLine("                    case \"" + v.Key + "\": return System.Text.Json.JsonSerializer.Deserialize<" + v.CsharpName + ">(body, options);");
+    sb3.AppendLine("                }");
+    sb3.AppendLine("                break; // only first key matters");
+    sb3.AppendLine("            }");
+    sb3.AppendLine("            return null;");
+    sb3.AppendLine("        }");
+    sb3.AppendLine("");
+    sb3.AppendLine("        public override void Write(System.Text.Json.Utf8JsonWriter writer, " + ifaceName + " value, System.Text.Json.JsonSerializerOptions options)");
+    sb3.AppendLine("        {");
+    sb3.AppendLine("            if (value?.Name == null) { writer.WriteNullValue(); return; }");
+    sb3.AppendLine("            writer.WriteStartObject();");
+    sb3.AppendLine("            writer.WritePropertyName(value.Name);");
+    sb3.AppendLine("            switch (value)");
+    sb3.AppendLine("            {");
+    foreach (var v in m.AllVariants)
+    {
+        var vi = "I" + v.InterfaceName;
+        sb3.AppendLine("                case " + vi + " v: System.Text.Json.JsonSerializer.Serialize(writer, v, options); break;");
+    }
+    sb3.AppendLine("                default: System.Text.Json.JsonSerializer.Serialize(writer, value, value.GetType(), options); break;");
+    sb3.AppendLine("            }");
+    sb3.AppendLine("            writer.WriteEndObject();");
+    sb3.AppendLine("        }");
+    sb3.Append("    }");
+    var converterCode = sb3.ToString();
 }
 using System;
 using System.Collections.Generic;
@@ -439,6 +487,8 @@ foreach (var bp in m.BaseProperties)
     // ──────────────────────────────────────────────────────────────────────
 
     @Raw(formatterCode)
+
+    @Raw(converterCode)
 
     @Raw(builderCode)
 }
