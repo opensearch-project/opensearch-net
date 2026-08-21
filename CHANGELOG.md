@@ -4,6 +4,9 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ## [Unreleased]
 ### ⚠️ Breaking Changes ⚠️
 ### Changed
+
+- Updated API spec downloader to fetch from `https://api-spec.opensearch.org/opensearch-openapi.yaml` instead of the branch-pinned GitHub releases URL; removed the `--branch` CLI parameter from the ApiGenerator ([#1030](https://github.com/opensearch-project/opensearch-net/pull/1030))
+
 ### Added
 
 - Added initial support for the bulk streaming API ([#935](https://github.com/opensearch-project/opensearch-net/pull/935))
