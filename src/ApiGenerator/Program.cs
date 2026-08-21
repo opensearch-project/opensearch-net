@@ -44,7 +44,6 @@ namespace ApiGenerator
         /// <summary>
         /// A main function can also take <see cref="CancellationToken"/> which is hooked up to support termination (e.g CTRL+C)
         /// </summary>
-        /// <param name="branch">The stack's branch we are targeting the generation for</param>
         /// <param name="interactive">Run the generation interactively, this will ignore all flags</param>
         /// <param name="download">Whether to download the specs or use an already downloaded copy</param>
         /// <param name="includeHighLevel">Also generate the high level client (OpenSearch.Client)</param>
@@ -52,18 +51,13 @@ namespace ApiGenerator
         /// <param name="token"></param>
         /// <returns></returns>
         private static async Task<int> Main(
-            string branch, bool interactive = false, bool download = false, bool includeHighLevel = false, bool skipGenerate = false
+            bool interactive = false, bool download = false, bool includeHighLevel = false, bool skipGenerate = false
             , CancellationToken token = default)
         {
             Interactive = interactive;
             try
             {
-                if (string.IsNullOrEmpty(branch))
-                {
-
-                    throw new ArgumentException("--branch can not be null");
-                }
-                await Generate(download, branch, includeHighLevel, skipGenerate, token);
+                await Generate(download, includeHighLevel, skipGenerate, token);
             }
             catch (OperationCanceledException)
             {
@@ -83,21 +77,9 @@ namespace ApiGenerator
             return 0;
         }
 
-        private static async Task<int> Generate(bool download, string branch, bool includeHighLevel, bool skipGenerate, CancellationToken token = default)
+        private static async Task<int> Generate(bool download, bool includeHighLevel, bool skipGenerate, CancellationToken token = default)
         {
             var redownloadCoreSpecification = Ask("Download online rest specifications?", download);
-
-            var downloadBranch = branch;
-            if (Interactive && redownloadCoreSpecification)
-            {
-                Console.Write($"Branch to download specification from (default {downloadBranch}): ");
-                var readBranch = Console.ReadLine()?.Trim();
-                if (!string.IsNullOrEmpty(readBranch))
-                    downloadBranch = readBranch;
-            }
-
-            if (string.IsNullOrEmpty(downloadBranch))
-                throw new Exception($"Branch to download from is null or empty");
 
             var generateCode = Ask("Generate code from the specification files on disk?", !skipGenerate);
             var lowLevelOnly = generateCode && Ask("Generate low level client only?", !includeHighLevel);
@@ -107,7 +89,6 @@ namespace ApiGenerator
                 .AddColumn(new GridColumn().PadRight(4))
                 .AddColumn()
                 .AddRow("[b]Download specification[/]", $"{YesNo(download)}")
-                .AddRow("[b]Download branch[/]", $"{downloadBranch}")
                 .AddRow("[b]Generate code from specification[/]", $"{YesNo(generateCode)}")
                 .AddRow("[b]Include high level client[/]", $"{YesNo(!lowLevelOnly)}");
 
@@ -123,7 +104,7 @@ namespace ApiGenerator
                 Console.WriteLine();
                 AnsiConsole.Write(new Rule("[b white on chartreuse4] Downloading specification [/]").LeftJustified());
                 Console.WriteLine();
-                await RestSpecDownloader.DownloadAsync(downloadBranch, token);
+                await RestSpecDownloader.DownloadAsync(token);
             }
 
             if (!generateCode) return 0;
