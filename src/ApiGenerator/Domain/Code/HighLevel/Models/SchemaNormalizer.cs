@@ -25,7 +25,7 @@ namespace ApiGenerator.Domain.Code.HighLevel.Models;
 ///
 /// The normalizer does NOT mutate the raw OpenAPI document.
 ///
-/// Phase 6 closure: The normalizer recursively discovers and registers EVERY schema
+/// The normalizer recursively discovers and registers EVERY schema
 /// instance reachable from document components AND inline operation request/response
 /// schemas, following properties, item, additionalProperties, allOf, oneOf, anyOf.
 /// Canonical component schemas use SchemaCatalog IDs; all other instances receive
@@ -59,7 +59,13 @@ public sealed class SchemaNormalizer
     /// Runs the normalization pipeline over the document and returns the result.
     /// The result is reusable across all consumers for this document.
     /// </summary>
-    public NormalizationResult Normalize(OpenApiDocument document)
+    /// <param name="document">The parsed OpenAPI document.</param>
+    /// <param name="explicitlyOpenSchemaIds">
+    /// Schema IDs that have <c>additionalProperties: true</c> explicitly in the raw spec.
+    /// Extracted from YAML preprocessing because NJsonSchema cannot distinguish "not set" from "true".
+    /// Pass <c>null</c> if not available (all schemas will have <c>AdditionalProperties = null</c>).
+    /// </param>
+    public NormalizationResult Normalize(OpenApiDocument document, HashSet<string>? explicitlyOpenSchemaIds = null)
     {
         ArgumentNullException.ThrowIfNull(document);
 
@@ -74,7 +80,7 @@ public sealed class SchemaNormalizer
         foreach (var pass in _passes)
             pass.Execute(context);
 
-        return context.Freeze();
+        return context.Freeze(explicitlyOpenSchemaIds);
     }
 
     /// <summary>Returns the default ordered pass sequence.</summary>
@@ -353,7 +359,7 @@ public sealed class NormalizationContext
     }
 
     /// <summary>Freeze the mutable context into an immutable result.</summary>
-    public NormalizationResult Freeze()
+    public NormalizationResult Freeze(HashSet<string>? explicitlyOpenSchemaIds = null)
     {
         var schemas = new Dictionary<string, NormalizedSchema>(StringComparer.Ordinal);
 
@@ -391,7 +397,8 @@ public sealed class NormalizationContext
                 : new HashSet<string>(StringComparer.Ordinal);
 
             schemas[schemaId] = new NormalizedSchema(
-                schemaId, props, required, allOf, oneOf, anyOf, discriminator, inlineRefs, dependencies);
+                schemaId, props, required, allOf, oneOf, anyOf, discriminator, inlineRefs, dependencies,
+                additionalProperties: ResolveAdditionalProperties(schemaId, explicitlyOpenSchemaIds));
         }
 
         // Build the frozen instance->ID map
@@ -399,6 +406,30 @@ public sealed class NormalizationContext
             SchemaInstanceIds, ReferenceEqualityComparer.Instance);
 
         return new NormalizationResult(schemas, ExecutedPasses.ToList(), Catalog, frozenInstanceMap);
+    }
+
+    /// <summary>
+    /// Resolve the three-state additionalProperties for a schema.
+    /// NJsonSchema's <c>AllowAdditionalProperties</c> is <c>true</c> by default (JSON Schema spec),
+    /// so "not set" and "true" are indistinguishable after parsing. The <paramref name="explicitlyOpenSchemaIds"/>
+    /// set (extracted from raw YAML) disambiguates: if the ID is in the set, it's explicitly true;
+    /// if NJsonSchema says false, it's explicitly false; otherwise it's unset (null).
+    /// </summary>
+    private bool? ResolveAdditionalProperties(string schemaId, HashSet<string>? explicitlyOpenSchemaIds)
+    {
+        if (explicitlyOpenSchemaIds?.Contains(schemaId) == true)
+            return true;
+
+        // Check if NJsonSchema reports AllowAdditionalProperties = false (explicitly closed)
+        if (RegisteredSchemas.TryGetValue(schemaId, out var schema))
+        {
+            var actual = schema.ActualSchema;
+            if (!actual.AllowAdditionalProperties)
+                return false;
+        }
+
+        // NJsonSchema says true (default) but not in explicit set → unset
+        return null;
     }
 }
 
@@ -488,6 +519,13 @@ public sealed class NormalizationResult
 
     /// <summary>Number of schemas normalized.</summary>
     public int Count => _schemas.Count;
+
+    /// <summary>
+    /// Whether the schema has <c>additionalProperties: true</c> explicitly in the spec.
+    /// Returns <c>false</c> if the schema is not found or has no explicit additionalProperties.
+    /// </summary>
+    public bool IsExplicitlyOpen(string schemaId) =>
+        _schemas.TryGetValue(schemaId, out var s) && s.AdditionalProperties == true;
 }
 
 /// <summary>

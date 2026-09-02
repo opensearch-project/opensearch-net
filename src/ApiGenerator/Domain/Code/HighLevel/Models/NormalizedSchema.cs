@@ -77,6 +77,14 @@ public sealed class NormalizedSchema
     public IReadOnlySet<string> DependencySchemaIds { get; }
 
     /// <summary>
+    /// Three-state additionalProperties: <c>true</c> = explicitly open (additionalProperties: true
+    /// in spec), <c>false</c> = explicitly closed, <c>null</c> = not specified (NJsonSchema default).
+    /// NJsonSchema collapses "not set" and "true" into <c>AllowAdditionalProperties = true</c>,
+    /// so this value is derived from raw YAML preprocessing during normalization.
+    /// </summary>
+    public bool? AdditionalProperties { get; }
+
+    /// <summary>
     /// Whether this schema uses allOf composition (has at least one allOf member).
     /// </summary>
     public bool HasAllOfComposition => AllOfMembers.Count > 0;
@@ -95,7 +103,8 @@ public sealed class NormalizedSchema
         IReadOnlyList<CompositionMember> anyOfVariants,
         DiscriminatorInfo? discriminator,
         IReadOnlyList<InlinePropertyRef> inlinePropertyRefs,
-        IReadOnlySet<string> dependencySchemaIds)
+        IReadOnlySet<string> dependencySchemaIds,
+        bool? additionalProperties = null)
     {
         SchemaId = schemaId ?? throw new ArgumentNullException(nameof(schemaId));
         EffectiveProperties = effectiveProperties ?? throw new ArgumentNullException(nameof(effectiveProperties));
@@ -106,6 +115,7 @@ public sealed class NormalizedSchema
         Discriminator = discriminator;
         InlinePropertyRefs = inlinePropertyRefs ?? throw new ArgumentNullException(nameof(inlinePropertyRefs));
         DependencySchemaIds = dependencySchemaIds ?? throw new ArgumentNullException(nameof(dependencySchemaIds));
+        AdditionalProperties = additionalProperties;
 
         // Derive BaseSchemaIds from AllOfMembers for backward compatibility
         var baseIds = new List<string>();

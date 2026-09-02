@@ -48,16 +48,14 @@ public sealed class NamespaceModel
             @namespace,
             plugin,
             resolver,
-            new SchemaNormalizer(resolver.Schemas).Normalize(doc),
-            explicitlyOpenSchemaIds);
+            new SchemaNormalizer(resolver.Schemas).Normalize(doc, explicitlyOpenSchemaIds));
 
     /// <summary>
     /// Core build path. Production supplies the single document-scoped normalization result.
     /// </summary>
     public static NamespaceModel Build(
         OpenApiDocument doc, string @namespace, IModelOverrides plugin, ModelTypeResolver resolver,
-        NormalizationResult normalization,
-        HashSet<string>? explicitlyOpenSchemaIds = null)
+        NormalizationResult normalization)
     {
         ArgumentNullException.ThrowIfNull(normalization);
 
@@ -95,7 +93,7 @@ public sealed class NamespaceModel
             var propSource = normalization.TryGet(id, out var normalized)
                 ? normalized.EffectiveProperties
                 : (IReadOnlyDictionary<string, NJsonSchema.JsonSchema>)new Dictionary<string, NJsonSchema.JsonSchema>(StringComparer.Ordinal);
-            var isOpen = explicitlyOpenSchemaIds?.Contains(id) ?? false;
+            var isOpen = normalization.IsExplicitlyOpen(id);
             // Skip schemas with no properties unless they're explicitly open (pure dictionary wrappers).
             if (propSource.Count == 0 && !isOpen) continue;
 
@@ -144,7 +142,7 @@ public sealed class NamespaceModel
         }
 
         foreach (var explicitRoot in plugin.ExplicitlyPublicSchemaIds
-            .Concat(explicitlyOpenSchemaIds ?? Enumerable.Empty<string>())
+            .Concat(normalization.SchemaIds.Where(normalization.IsExplicitlyOpen))
             .Distinct(StringComparer.Ordinal))
             graph.MarkAsExplicitRoot(explicitRoot);
 

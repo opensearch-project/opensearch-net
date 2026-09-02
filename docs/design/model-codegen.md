@@ -1,7 +1,4 @@
-# Model Code Generation — Consolidated Design
-
-Combines the implementation reference (`plugin-model-codegen.md`) and the
-generalization plan (`model-codegen-generalization.md`) into a single source of truth.
+# Model Code Generation — Design Reference
 
 ---
 
@@ -24,7 +21,7 @@ generalization plan (`model-codegen-generalization.md`) into a single source of 
             │
             ▼
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│  SchemaCatalog   [Phase 1 ✅]                                                │
+│  SchemaCatalog                                                               │
 │                                                                              │
 │  Built once from doc.Components.Schemas immediately after NSwag parsing.    │
 │  Provides three canonical maps:                                              │
@@ -38,10 +35,10 @@ generalization plan (`model-codegen-generalization.md`) into a single source of 
                                   │
                                   ▼
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│  SchemaNormalizer   [Phase 6 ✅]                                             │
+│  SchemaNormalizer                                                            │
 │                                                                              │
-│  Ordered passes — each pass reads raw NSwag schemas and writes normalized    │
-│  facts into immutable records; no C# names or template decisions here:       │
+│  Ordered passes — each pass inspects parsed NSwag schema objects and writes   │
+│  normalized facts into immutable records; no C# names or template decisions: │
 │                                                                              │
 │  1. AllOfPropertyCollectionPass                                              │
 │       allOf: [$ref, {properties}]  ──►  base ref + owned property set       │
@@ -59,9 +56,9 @@ generalization plan (`model-codegen-generalization.md`) into a single source of 
                                   │
                                   ▼
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│  Semantic IR   [Phase 2–5 ✅]                                                │
+│  Semantic IR                                                                 │
 │                                                                              │
-│  OperationGroupModel  (Phase 2)                                              │
+│  OperationGroupModel                                                         │
 │    Aggregates all operations sharing the same x-operation-group value.       │
 │    ├── Variants        (GET /foo, POST /foo, …)                               │
 │    ├── PathParameters  (intersection of required params across all paths)    │
@@ -69,7 +66,7 @@ generalization plan (`model-codegen-generalization.md`) into a single source of 
 │    ├── RequestBody     (application/json schema ref)                         │
 │    └── SuccessResponses (all 2xx, with incompatibility diagnostic)           │
 │                                                                              │
-│  UnionClassifier  (Phase 3)                                                  │
+│  UnionClassifier                                                             │
 │    Inspects normalized schema facts and classifies into one of:              │
 │                                                                              │
 │    WrapperKeyOneOf ── oneOf where every variant has exactly one              │
@@ -88,7 +85,7 @@ generalization plan (`model-codegen-generalization.md`) into a single source of 
 │    TypedKeys       ── object whose additional-properties value schemas       │
 │                       are distinct named types keyed by a string identifier. │
 │                                                                              │
-│  ReferenceGraph  (Phase 4)                                                   │
+│  ReferenceGraph                                                              │
 │    Marks operation request/response models and explicit public roots.        │
 │    Follows TypeRef dependencies to build the reachable set.                  │
 │    Schemas mapped to existing C# types are external leaves.                  │
@@ -134,14 +131,15 @@ generalization plan (`model-codegen-generalization.md`) into a single source of 
 │                                                                            │
 │  Pass 2 — Body operations (when GenerateBodyOps = true)                    │
 │    For each x-operation-group with an application/json request body:       │
-│      OperationModel.Build() → RequestBodyPartial.cshtml (request partial)  │
-│                             → ResponseType.cshtml      (response POCO)     │
-│      Any new enums found are emitted inline.                               │
+│      OperationModel.Build() → RequestBodyPartial.cshtml (request body)    │
+│                             → ResponseType.cshtml      (response POCO)    │
+│      Any referenced enums not already emitted in Pass 1 are added.        │
 │                                                                            │
 │  Pass 3 — Non-body operations (when GenerateNonBodyOps = true)             │
-│    For operations with no JSON body: ResponseType.cshtml only.             │
+│    GET/DELETE operations have no request body but still return typed        │
+│    responses. Emits ResponseType.cshtml only (no request partial).         │
 │                                                                            │
-│  Union rendering (UnionRenderingPolicy, Phase 5)                           │
+│  Union rendering (UnionRenderingPolicy)                                    │
 │    Each UnionModel carries a policy that selects the correct template.     │
 │    WrapperKeyOneOf / FlatWrapperKey → WrapperKeyUnion.cshtml               │
 │    (future) InternalDiscriminator  → dedicated template                    │
@@ -153,8 +151,8 @@ generalization plan (`model-codegen-generalization.md`) into a single source of 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │  Razor Templates                                                             │
 │                                                                              │
-│  Model.cshtml             — interface + class + descriptor for ObjectModel  │
-│  EnumType.cshtml          — [StringEnum] enum with [EnumMember] wire values  │
+│  Model.cshtml             — interface + class + descriptor for ObjectModel;  │
+│                             also handles EnumModel via @if branching         │
 │  RequestBodyPartial.cshtml— body-only partial class (properties + fluent)   │
 │  ResponseType.cshtml      — response POCO                                   │
 │  WrapperKeyUnion.cshtml   — full union: base interface, per-variant types,  │
@@ -169,14 +167,14 @@ generalization plan (`model-codegen-generalization.md`) into a single source of 
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │  _Generated/<OutputFolder>/                                                  │
 │                                                                              │
-│  Example — ml namespace (OutputFolder = "Ml"):                               │
-│    Ml/<SharedModel>.g.cs          interface + class + descriptor             │
-│    Ml/<EnumName>.g.cs             [StringEnum] enum                          │
-│    Ml/<Op>Request.g.cs            request body partial                       │
-│    Ml/<Op>Response.g.cs           response POCO                              │
-│    Descriptors.Ml.cs              high-level descriptor extensions           │
-│    Requests.Ml.cs                 typed request / route-value wrappers       │
-│    OpenSearchClient.Ml.cs         IOpenSearchClient.Ml fluent entry point    │
+│  Example — ml namespace (OutputFolder = "ML"):                                │
+│    ML/<SharedModel>.g.cs          interface + class + descriptor             │
+│    ML/<EnumName>.g.cs             [StringEnum] enum                          │
+│    ML/<Op>Request.g.cs            request body partial                       │
+│    ML/<Op>Response.g.cs           response POCO                              │
+│    Descriptors.ML.cs              high-level descriptor extensions           │
+│    Requests.ML.cs                 typed request / route-value wrappers       │
+│    OpenSearchClient.ML.cs         IOpenSearchClient.ML fluent entry point    │
 │                                                                              │
 │  Example — search_pipeline (OutputFolder = "SearchPipeline/Generated"):      │
 │    SearchPipeline/Generated/RequestProcessor.g.cs   (union — 5 variants)    │
@@ -271,7 +269,7 @@ explicitly introduces a new schema pattern, regenerated output must remain uncha
 | `OutputFolder` | Subfolder under `_Generated/`, e.g. `"Ml"` |
 | `GenerateBodyOps` | Emit request/response pairs for operations with a JSON body |
 | `GenerateNonBodyOps` | Emit response-only types for operations without a JSON body |
-| `UseObjectSchemaIds` | Enable reverse-lookup of object schemas by instance identity |
+| `IncludeOperationSchemasInReachability` | Whether operation schemas seed shared-model reachability |
 | `ExcludedOps` | `x-operation-group` values to skip (e.g. streaming endpoints) |
 | `OpNameOverrides` | Per-operation rename: spec operation group → C# base name |
 | `RenamedTypes` | Per-schema rename: spec schema id → C# type name |
@@ -283,7 +281,7 @@ explicitly introduces a new schema pattern, regenerated output must remain uncha
 
 ### `SchemaCatalog`
 
-`src/ApiGenerator/Domain/SchemaCatalog.cs`
+`src/ApiGenerator/Domain/Code/HighLevel/Models/SchemaCatalog.cs`
 
 Built once immediately after NSwag parsing. All later identity lookups go through here
 instead of maintaining separate `_enumSchemaIds` / `_objectSchemaIds` maps or rescanning
@@ -291,7 +289,7 @@ instead of maintaining separate `_enumSchemaIds` / `_objectSchemaIds` maps or re
 
 ### `SchemaNormalizer`
 
-`src/ApiGenerator/Generator/Normalization/SchemaNormalizer.cs`
+`src/ApiGenerator/Domain/Code/HighLevel/Models/SchemaNormalizer.cs`
 
 Document-scoped. Runs four ordered passes that produce immutable normalized facts
 consumed by `NamespaceModel`, `UnionClassifier`, and `ReferenceGraphBuilder`.
@@ -307,7 +305,7 @@ across status codes.
 
 ### `UnionClassifier`
 
-`src/ApiGenerator/Generator/UnionClassifier.cs`
+`src/ApiGenerator/Domain/Code/HighLevel/Models/UnionClassifier.cs`
 
 Inspects normalized schema facts and returns a `UnionModel` with a `UnionEncoding`
 discriminant (`WrapperKeyOneOf`, `FlatWrapperKey`, `InternalDiscriminator`, `TypedKeys`).
@@ -334,7 +332,7 @@ WrapperKeyUnionModel
 
 ### `UnionRenderingPolicy`
 
-`src/ApiGenerator/Generator/Rendering/UnionRenderingPolicy.cs`
+`src/ApiGenerator/Configuration/Overrides/UnionRenderingPolicy.cs`
 
 Each `UnionModel` carries a policy that selects the correct Razor template.
 `SuppressedUnionSchemaIds` on the plugin overrides prevents the union from becoming a
@@ -354,7 +352,7 @@ union does not require manual registration in `SystemTextJsonHighLevelSerializer
 
 ### `ReferenceGraph` / `ReferenceGraphBuilder`
 
-`src/ApiGenerator/Domain/ReferenceGraph.cs`
+`src/ApiGenerator/Domain/Code/HighLevel/Models/ReferenceGraph.cs`
 
 Records dependencies through `TypeRef` as models are resolved. Marks operation
 request/response models and explicit public roots. Provides the reachable set to
@@ -378,7 +376,7 @@ canonical schema ID from `SchemaCatalog`. Uses `MappedCsharpType` overrides and
 
 - **Streaming ops excluded** — `ml.predict_model_stream` / `ml.execute_agent_stream`
   require chunked/SSE transport not yet available in the high-level client.
-- **Op rename** — `ml.get_task` → `GetMlTask` (avoids collision with `Tasks.GetTask`).
+- **Op rename** — `ml.get_task` → `GetMLTask` (avoids collision with `Tasks.GetTask`).
 - **Type renames** — eight schema ids prefixed with `Ml` to avoid collisions with BCL
   (`Task`, `Action`), OpenSearch.Net (`Node`), and OSC types (`Aggregation`, `Result`,
   `TaskState`, `IndexSettings`, `Metadata`).
@@ -396,9 +394,12 @@ canonical schema ID from `SchemaCatalog`. Uses `MappedCsharpType` overrides and
 - `MappedTypes` — maps three processor union schema IDs to `IRequestProcessor`,
   `IResponseProcessor`, `IPhaseResultsProcessor` so array-item resolution emits
   `IList<IRequestProcessor>` rather than falling back to `IList<object>`.
-- `RenamedTypes` — avoids collisions: `SortResponseProcessor` → `SearchPipelineSort`, etc.
+- `RenamedTypes` — avoids collisions with ingest types: `SortResponseProcessor`,
+  `SplitResponseProcessor` retain their names; `SearchPipelineStructure` → `SearchPipeline`;
+  `RerankContext` → `SearchPipelineRerankContext`; `MLOpenSearchReranker` →
+  `SearchPipelineMLOpenSearchReranker`.
 
-### `IngestModelOverrides` (infrastructure only — Phase 5)
+### `IngestModelOverrides` (infrastructure only)
 
 `src/ApiGenerator/Configuration/Overrides/Plugins/IngestModelOverrides.cs`
 
@@ -524,55 +525,36 @@ emission to preserve handwritten code. The migration path when ready:
 
 ```bash
 # From the repo root — downloads the latest spec and regenerates everything
-dotnet run --project src/ApiGenerator -- --branch main --include-high-level --download
+dotnet run --project src/ApiGenerator -- --download --include-high-level
 
 # Skip download if opensearch-openapi.yaml is already present
-dotnet run --project src/ApiGenerator -- --branch main --include-high-level
+dotnet run --project src/ApiGenerator -- --include-high-level
 ```
-
-The `--branch` value selects the spec release tag:
-`https://github.com/opensearch-project/opensearch-api-specification/releases/download/<branch>-latest/opensearch-openapi.yaml`
 
 ### Validation Gates (every PR)
 
 1. `dotnet clean` and `dotnet build` for `ApiGenerator`.
 2. Focused `ApiGenerator.Tests` tests.
-3. `./build.sh codegen --branch main --include-high-level` without downloading a new spec.
+3. `./build.sh codegen --include-high-level` without downloading a new spec.
 4. `git diff --exit-code` after regeneration (infrastructure-only phases must produce no diff).
 5. Full repository build and test per `DEVELOPER_GUIDE.md`.
 
-## Known Limitations & Future Work
+## Design Notes
 
 ### Property-level type overrides (field-level override)
 
-**Status:** Pending
+**Status:** ✅ Implemented
 
-The current `MappedTypes` mechanism maps **schema IDs** to C# types globally. This works for named `$ref` schemas (`_common___IndexName` → `IndexName`, `indices._common___IndexSettings` → `IIndexSettings`).
+`PropertyTypeOverrides` in `IModelOverrides` allows per-property C# type overrides
+keyed by `"{operationGroup}.{propertyName}"` or `"{schemaId}.{propertyName}"`.
+`GlobalPropertyTypeOverrides` in `ModelOverridesBase` provides schema-scoped overrides
+shared across all plugins (e.g. `TypeMapping.properties` → `IProperties`).
 
-However, some properties use **inline schemas** that have no named component ID — most notably:
+Resolution order in `ResolvePropertyTypeOverride`:
+1. Per-plugin operation-scoped key (`"{operationGroup}.{wireName}"`)
+2. Global schema-scoped key (`"{schemaId}.{wireName}"`)
 
-```yaml
-aliases:
-  type: object
-  additionalProperties:
-    $ref: '#/components/schemas/indices._common___Alias'
-```
-
-The generator emits `IDictionary<string, IAlias>` (correct on the wire), but the hand-written code uses `IAliases` — a wrapper dictionary type with:
-- `IndexName` keys (vs raw `string`)
-- `VerbatimDictionaryKeysFormatter` for serialization
-- `AliasesDescriptor` fluent builder
-
-**Why it can't be fixed with `MappedTypes`:** There is no schema ID to key on. The `aliases` property is inline in the request body — not a `$ref` to a named component.
-
-**Proposed solution:** Add a `PropertyTypeOverrides` dictionary to `IModelOverrides`:
-
-```csharp
-/// Key: "{operationGroup}.{propertyName}" (e.g. "indices.create.aliases")
-/// Value: C# type name (e.g. "IAliases")
-IDictionary<string, string> PropertyTypeOverrides { get; }
-```
-
-The `OperationModel.Build()` step would check this dictionary after resolving the default type from the spec, allowing per-property overrides for wrapper types, custom formatters, etc.
-
-**Affected types:** `IAliases`, `ISort` (oneOf union), `Indices` (when used inline without `$ref`).
+This handles inline schemas that have no named component ID (e.g. `aliases` in
+`indices.create`). The hand-written code uses `IAliases` — a wrapper dictionary type
+with `IndexName` keys and `VerbatimDictionaryKeysFormatter`. The codegen override maps
+the inline schema property to the correct wrapper type.

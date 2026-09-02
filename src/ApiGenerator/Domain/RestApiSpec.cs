@@ -51,7 +51,7 @@ namespace ApiGenerator.Domain
 		/// <summary>
 		/// The raw NSwag OpenApiDocument used to build this spec.
 		/// Populated by <see cref="Generator.ApiGenerator.CreateRestApiSpecModel"/> and consumed by
-		/// <see cref="Generator.Razor.ModelsGenerator"/> when <c>--include-models</c> is passed.
+		/// <see cref="Generator.Razor.ModelsGenerator"/> when <c>--include-high-level</c> is passed.
 		/// </summary>
 		internal OpenApiDocument? Document { get; set; }
 

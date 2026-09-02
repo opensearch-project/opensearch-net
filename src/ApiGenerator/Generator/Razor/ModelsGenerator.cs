@@ -38,16 +38,16 @@ public sealed class ModelsGenerator : RazorGeneratorBase
 
         // One catalog and normalization per document, shared across ALL plugins.
         var catalog = new SchemaCatalog(spec.Document);
-        var normalization = new SchemaNormalizer(catalog).Normalize(spec.Document);
+        var normalization = new SchemaNormalizer(catalog).Normalize(spec.Document, spec.ExplicitlyOpenSchemaIds);
 
         foreach (var plugin in EnabledPlugins)
-            await GeneratePlugin(spec.Document, spec.ExplicitlyOpenSchemaIds, plugin, catalog, normalization, progressBar, token);
+            await GeneratePlugin(spec.Document, plugin, catalog, normalization, progressBar, token);
     }
 
-    private async Task GeneratePlugin(OpenApiDocument doc, HashSet<string> openSchemaIds, IModelOverrides plugin, SchemaCatalog catalog, NormalizationResult normalization, ProgressBar progressBar, CancellationToken token)
+    private async Task GeneratePlugin(OpenApiDocument doc, IModelOverrides plugin, SchemaCatalog catalog, NormalizationResult normalization, ProgressBar progressBar, CancellationToken token)
     {
         var resolver = new ModelTypeResolver(plugin, catalog);
-        var ns = NamespaceModel.Build(doc, plugin.Namespace, plugin, resolver, normalization, openSchemaIds);
+        var ns = NamespaceModel.Build(doc, plugin.Namespace, plugin, resolver, normalization);
 
         // Emit shared models/enums
         foreach (var t in ns.TypesToEmit)
