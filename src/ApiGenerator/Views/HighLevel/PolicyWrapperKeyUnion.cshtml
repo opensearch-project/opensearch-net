@@ -18,6 +18,10 @@
     };
     // Precompute strings that contain generic <> to avoid Razor parsing them as HTML tags.
     var jsonFormatterAttr = "[JsonFormatter(typeof(" + formatterName + "))]";
+    // System.Text.Json wiring: attach the generated converter to the union interface so the STJ
+    // backend picks it up (attribute priority beats options.Converters and works inside collections,
+    // e.g. IList<IRequestProcessor>). Matches the converter class name built below (m.CsharpName + "Converter").
+    var stjConverterAttr  = "[System.Text.Json.Serialization.JsonConverter(typeof(" + m.CsharpName + "Converter))]";
     var listType          = "IList<" + ifaceName + ">";
     var descriptorBase    = "DescriptorPromiseBase<" + builderName + ", " + listType + ">";
 
@@ -191,6 +195,7 @@ namespace OpenSearch.Client
 <text>
     /// <summary>Base interface for all <c>@m.CsharpName</c> variants.</summary>
     @Raw(jsonFormatterAttr)
+    @Raw(stjConverterAttr)
     public interface @ifaceName
     {
         /// <summary>The discriminator key used for serialization.</summary>

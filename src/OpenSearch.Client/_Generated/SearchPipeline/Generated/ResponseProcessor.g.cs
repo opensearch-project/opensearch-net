@@ -36,6 +36,7 @@ namespace OpenSearch.Client
 
     /// <summary>Base interface for all <c>ResponseProcessor</c> variants.</summary>
     [JsonFormatter(typeof(ResponseProcessorFormatter))]
+    [System.Text.Json.Serialization.JsonConverter(typeof(ResponseProcessorConverter))]
     public interface IResponseProcessor
     {
         /// <summary>The discriminator key used for serialization.</summary>

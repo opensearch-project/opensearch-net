@@ -36,6 +36,7 @@ namespace OpenSearch.Client
 
     /// <summary>Base interface for all <c>PhaseResultsProcessor</c> variants.</summary>
     [JsonFormatter(typeof(PhaseResultsProcessorFormatter))]
+    [System.Text.Json.Serialization.JsonConverter(typeof(PhaseResultsProcessorConverter))]
     public interface IPhaseResultsProcessor
     {
         /// <summary>The discriminator key used for serialization.</summary>
