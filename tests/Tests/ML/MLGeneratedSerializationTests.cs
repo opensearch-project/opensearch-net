@@ -20,7 +20,7 @@ namespace Tests.ML
 	/// interface (<see cref="IModelConfig"/>), (2) a response that deserializes fields correctly,
 	/// and (3) an enum property that serializes as its <c>[EnumMember]</c> wire string.
 	/// </summary>
-	public class MlGeneratedSerializationTests
+	public class MLGeneratedSerializationTests
 	{
 		/// <summary>
 		/// Test 1: <c>ml.register_model</c> request with a nested <see cref="IModelConfig"/> object.

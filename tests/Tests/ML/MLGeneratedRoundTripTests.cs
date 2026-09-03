@@ -27,23 +27,23 @@ namespace Tests.ML
 	/// Builds minimal JSON fixtures from [DataMember] properties and verifies round-trip
 	/// correctness. Serves as a regression safety net for serializer migrations.
 	/// </summary>
-	public class MlGeneratedRoundTripTests
+	public class MLGeneratedRoundTripTests
 	{
 		// ── Response deserialization ──────────────────────────────────────────────
 
-		public static IEnumerable<object[]> MlResponseTypes =>
-			FindMlTypes("Response")
+		public static IEnumerable<object[]> MLResponseTypes =>
+			FindMLTypes("Response")
 				.Where(t => typeof(ResponseBase).IsAssignableFrom(t)
 					&& !typeof(WriteResponseBase).IsAssignableFrom(t)
 					&& HasDataMembers(t))
 				.Select(t => new object[] { t });
 
 		[TU]
-		[MemberData(nameof(MlResponseTypes))]
+		[MemberData(nameof(MLResponseTypes))]
 		public void Response_Deserializes_WithoutException(Type responseType)
 		{
 			var json = BuildSampleJson(responseType);
-			var method = typeof(MlGeneratedRoundTripTests)
+			var method = typeof(MLGeneratedRoundTripTests)
 				.GetMethod(nameof(DeserializeResponse), BindingFlags.NonPublic | BindingFlags.Static)!
 				.MakeGenericMethod(responseType);
 
@@ -53,19 +53,19 @@ namespace Tests.ML
 
 		// ── Request serialization ────────────────────────────────────────────────
 
-		public static IEnumerable<object[]> MlRequestTypes =>
-			FindMlTypes("Request")
+		public static IEnumerable<object[]> MLRequestTypes =>
+			FindMLTypes("Request")
 				.Where(t => HasDataMembers(t))
 				.Select(t => new object[] { t });
 
 		[TU]
-		[MemberData(nameof(MlRequestTypes))]
+		[MemberData(nameof(MLRequestTypes))]
 		public void Request_RoundTrips_PrimitiveProperties(Type requestType)
 		{
 			// Build sample JSON from [DataMember] wire names and deserialize into the request type.
 			// This tests the same code path as responses — verifying DataMember bindings work.
 			var json = BuildSampleJson(requestType);
-			var method = typeof(MlGeneratedRoundTripTests)
+			var method = typeof(MLGeneratedRoundTripTests)
 				.GetMethod(nameof(DeserializeRequest), BindingFlags.NonPublic | BindingFlags.Static)!
 				.MakeGenericMethod(requestType);
 
@@ -83,20 +83,20 @@ namespace Tests.ML
 
 		// ── Helpers ──────────────────────────────────────────────────────────────
 
-		private static IEnumerable<Type> FindMlTypes(string suffix) =>
+		private static IEnumerable<Type> FindMLTypes(string suffix) =>
 			typeof(OpenSearchClient).Assembly
 				.GetTypes()
 				.Where(t => t.Namespace == "OpenSearch.Client"
 					&& t.Name.EndsWith(suffix)
 					&& t.IsClass && !t.IsAbstract
-					&& IsMlGenerated(t.Name, suffix))
+					&& IsMLGenerated(t.Name, suffix))
 				.OrderBy(t => t.Name);
 
-		private static bool IsMlGenerated(string typeName, string suffix) =>
-			MlOperationPrefixes.Any(p => typeName.StartsWith(p, StringComparison.Ordinal))
-			|| MlGeneratedNames.Contains(typeName);
+		private static bool IsMLGenerated(string typeName, string suffix) =>
+			MLOperationPrefixes.Any(p => typeName.StartsWith(p, StringComparison.Ordinal))
+			|| MLGeneratedNames.Contains(typeName);
 
-		private static readonly HashSet<string> MlGeneratedNames = new(StringComparer.Ordinal)
+		private static readonly HashSet<string> MLGeneratedNames = new(StringComparer.Ordinal)
 		{
 			// Body ops
 			"AddAgenticMemoryRequest", "AddAgenticMemoryResponse",
@@ -113,9 +113,13 @@ namespace Tests.ML
 			"ExecuteAgentRequest", "ExecuteAgentResponse",
 			"ExecuteAlgorithmRequest", "ExecuteAlgorithmResponse",
 			"ExecuteToolRequest", "ExecuteToolResponse",
+			"GetProfileRequest",
+			"GetProfileModelsRequest",
+			"GetProfileTasksRequest",
 			"LoadModelRequest", "LoadModelResponse",
 			"PredictModelRequest", "PredictModelResponse",
 			"PredictRequest", "PredictResponse",
+			"ProfileRequest",
 			"RegisterAgentsRequest", "RegisterAgentsResponse",
 			"RegisterModelGroupRequest", "RegisterModelGroupResponse",
 			"RegisterModelMetaRequest", "RegisterModelMetaResponse",
@@ -127,6 +131,8 @@ namespace Tests.ML
 			"SearchMemoryRequest", "SearchMemoryResponse",
 			"SearchMessageRequest", "SearchMessageResponse",
 			"SearchModelGroupRequest", "SearchModelGroupResponse",
+			"SearchModelsRequest",
+			"SearchTasksRequest",
 			"TrainPredictRequest", "TrainPredictResponse",
 			"TrainRequest", "TrainResponse",
 			"UndeployModelRequest", "UndeployModelResponse",
@@ -148,14 +154,14 @@ namespace Tests.ML
 			"GetConnectorResponse", "GetControllerResponse",
 			"GetMemoryContainerResponse", "GetMemoryResponse",
 			"GetMessageResponse", "GetMessageTracesResponse",
-			"GetMlTaskResponse", "GetModelGroupResponse", "GetModelResponse",
+			"GetMLTaskResponse", "GetModelGroupResponse", "GetModelResponse",
 			"GetProfileModelsResponse", "GetProfileResponse", "GetProfileTasksResponse",
 			"GetStatsResponse", "GetToolResponse",
 			"SearchModelGroupsResponse", "SearchModelsResponse",
 			"SearchResponse", "SearchTasksResponse",
 		};
 
-		private static readonly string[] MlOperationPrefixes = { };
+		private static readonly string[] MLOperationPrefixes = { };
 
 		private static T DeserializeResponse<T>(string json) where T : class, new() =>
 			Expect(json).NoRoundTrip().DeserializesTo<T>();
