@@ -47,9 +47,10 @@ namespace OpenSearch.Client
     {
         internal static readonly ApiUrls NoNamespaceBulk = new(["_bulk", "{index}/_bulk"]);
 
-        internal static readonly ApiUrls NoNamespaceBulkStream = new(
-            ["_bulk/stream", "{index}/_bulk/stream"]
-        );
+        internal static readonly ApiUrls NoNamespaceBulkStream = new([
+            "_bulk/stream",
+            "{index}/_bulk/stream",
+        ]);
 
         internal static readonly ApiUrls CatAliases = new(["_cat/aliases", "_cat/aliases/{name}"]);
 
