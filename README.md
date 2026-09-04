@@ -27,7 +27,7 @@
 **OpenSearch.Client** is [a community-driven, open source fork](https://aws.amazon.com/blogs/opensource/introducing-opensearch/) of elasticsearch-net high level client NEST licensed under the [Apache v2.0 License](LICENSE.txt). For more information, see [opensearch.org](https://opensearch.org/).
 
 ## Stable Release
-You're reading the documentation for the next release of opensearch-net, which should be **2.0.0**.
+You're reading the documentation for the next release of opensearch-net, which should be **2.1.0**.
 Please read [UPGRADING](UPGRADING.md) when upgrading from a previous version.
 The current stable release is [1.7.1](https://github.com/opensearch-project/opensearch-net/blob/v1.7.1/README.md).
 

@@ -39,13 +39,14 @@ namespace ApiGenerator
     {
 		private static readonly HttpClient Http = new();
 
-		public static async Task DownloadAsync(string branch, CancellationToken token)
+		private const string SpecUrl = "https://api-spec.opensearch.org/opensearch-openapi.yaml";
+
+	public static async Task DownloadAsync(CancellationToken token)
 		{
-			var githubUrl = $"https://github.com/opensearch-project/opensearch-api-specification/releases/download/{branch}-latest/opensearch-openapi.yaml";
-			Console.WriteLine($"Downloading OpenAPI spec for branch {branch}");
-			var spec = await Http.GetStringAsync(githubUrl, token);
+			Console.WriteLine($"Downloading OpenAPI spec from {SpecUrl}");
+			var spec = await Http.GetStringAsync(SpecUrl, token);
 			await File.WriteAllTextAsync(GeneratorLocations.OpenApiSpecFile, spec, token);
-            Console.WriteLine($"Downloaded OpenAPI spec for branch {branch}");
+            Console.WriteLine("Downloaded OpenAPI spec");
         }
 	}
 }

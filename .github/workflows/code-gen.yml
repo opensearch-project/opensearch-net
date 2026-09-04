@@ -29,7 +29,7 @@ jobs:
             ${{ runner.os }}-nuget-
 
       - name: Run Code Generator
-        run: ./build.sh codegen --branch main --include-high-level
+        run: ./build.sh codegen --include-high-level
 
       - name: Check For Uncommitted Changes
         shell: bash -eo pipefail {0}
@@ -70,7 +70,7 @@ jobs:
             ${{ runner.os }}-nuget-
 
       - name: Download Latest Spec && Run Code Generator
-        run: ./build.sh codegen --branch main --include-high-level --download
+        run: ./build.sh codegen --include-high-level --download
 
       - name: Get Current Date
         id: date

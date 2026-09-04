@@ -139,6 +139,52 @@ namespace OpenSearch.Client
             DoRequestAsync<IBulkRequest, BulkResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
+        /// <c>PUT</c> request to the <c>bulk_stream</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/">https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.0 or greater.</remarks>
+        public BulkStreamResponse BulkStream(
+            Func<BulkStreamDescriptor, IBulkStreamRequest> selector
+        ) => BulkStream(selector.InvokeOrDefault(new BulkStreamDescriptor()));
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>bulk_stream</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/">https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.0 or greater.</remarks>
+        public Task<BulkStreamResponse> BulkStreamAsync(
+            Func<BulkStreamDescriptor, IBulkStreamRequest> selector,
+            CancellationToken ct = default
+        ) => BulkStreamAsync(selector.InvokeOrDefault(new BulkStreamDescriptor()), ct);
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>bulk_stream</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/">https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.0 or greater.</remarks>
+        public BulkStreamResponse BulkStream(IBulkStreamRequest request) =>
+            DoRequest<IBulkStreamRequest, BulkStreamResponse>(request, request.RequestParameters);
+
+        /// <summary>
+        /// <c>PUT</c> request to the <c>bulk_stream</c> API, read more about this API online:
+        /// <para></para>
+        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/">https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 2.17.0 or greater.</remarks>
+        public Task<BulkStreamResponse> BulkStreamAsync(
+            IBulkStreamRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IBulkStreamRequest, BulkStreamResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
+
+        /// <summary>
         /// <c>DELETE</c> request to the <c>clear_scroll</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://opensearch.org/docs/latest/api-reference/scroll/">https://opensearch.org/docs/latest/api-reference/scroll/</a>

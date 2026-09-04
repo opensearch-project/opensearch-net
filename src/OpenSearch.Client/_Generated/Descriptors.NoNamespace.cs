@@ -135,6 +135,96 @@ namespace OpenSearch.Client
             Qs("wait_for_active_shards", waitforactiveshards);
     }
 
+    /// <summary>Descriptor for BulkStream <para>https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</para></summary>
+    public partial class BulkStreamDescriptor
+        : RequestDescriptorBase<
+            BulkStreamDescriptor,
+            BulkStreamRequestParameters,
+            IBulkStreamRequest
+        >,
+            IBulkStreamRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceBulkStream;
+
+        /// <summary>/_bulk/stream</summary>
+        public BulkStreamDescriptor()
+            : base() { }
+
+        /// <summary>/{index}/_bulk/stream</summary>
+        /// <param name="index">Optional, accepts null</param>
+        public BulkStreamDescriptor(IndexName index)
+            : base(r => r.Optional("index", index)) { }
+
+        // values part of the url path
+        IndexName IBulkStreamRequest.Index => Self.RouteValues.Get<IndexName>("index");
+
+        /// <summary>Name of the data stream, index, or index alias to perform bulk actions on.</summary>
+        public BulkStreamDescriptor Index(IndexName index) =>
+            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+
+        /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
+        public BulkStreamDescriptor Index<TOther>()
+            where TOther : class =>
+            Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (IndexName)v));
+
+        // Request parameters
+        /// <summary>Specifies for how long bulk operations should be accumulated into a batch before sending the batch to data nodes.</summary>
+        public BulkStreamDescriptor BatchInterval(Time batchinterval) =>
+            Qs("batch_interval", batchinterval);
+
+        /// <summary>Specifies how many bulk operations should be accumulated into a batch before sending the batch to data nodes.</summary>
+        public BulkStreamDescriptor BatchSize(long? batchsize) => Qs("batch_size", batchsize);
+
+        /// <summary>ID of the pipeline to use to preprocess incoming documents. If the index has a default ingest pipeline specified, then setting the value to <c>_none</c> disables the default ingest pipeline for this request. If a final pipeline is configured it will always run, regardless of the value of this parameter.</summary>
+        public BulkStreamDescriptor Pipeline(string pipeline) => Qs("pipeline", pipeline);
+
+        /// <summary>If <c>true</c>, OpenSearch refreshes the affected shards to make this operation visible to search, if <c>wait_for</c> then wait for a refresh to make this operation visible to search, if <c>false</c> do nothing with refreshes. Valid values: <c>true</c>, <c>false</c>, <c>wait_for</c>.</summary>
+        public BulkStreamDescriptor Refresh(Refresh? refresh) => Qs("refresh", refresh);
+
+        /// <summary>If <c>true</c>, the request's actions must target an index alias.</summary>
+        public BulkStreamDescriptor RequireAlias(bool? requirealias = true) =>
+            Qs("require_alias", requirealias);
+
+        /// <summary>
+        /// A document is routed to a particular shard in an index using the following formula
+        /// <para> shard_num = hash(_routing) % num_primary_shards</para>
+        /// <para>OpenSearch will use the document id if not provided. </para>
+        /// <para>For requests that are constructed from/for a document OpenSearch.Client will automatically infer the routing key
+        /// if that document has a <see cref="OpenSearch.Client.JoinField" /> or a routing mapping on for its type exists on <see cref="OpenSearch.Client.ConnectionSettings" /></para>
+        /// </summary>
+        public BulkStreamDescriptor Routing(Routing routing) => Qs("routing", routing);
+
+        /// <summary>Whether the _source should be included in the response.</summary>
+        public BulkStreamDescriptor SourceEnabled(bool? sourceenabled = true) =>
+            Qs("_source", sourceenabled);
+
+        /// <summary>A comma-separated list of source fields to exclude from the response.</summary>
+        public BulkStreamDescriptor SourceExcludes(Fields sourceexcludes) =>
+            Qs("_source_excludes", sourceexcludes);
+
+        /// <summary>A comma-separated list of source fields to exclude from the response.</summary>
+        public BulkStreamDescriptor SourceExcludes<T>(params Expression<Func<T, object>>[] fields)
+            where T : class => Qs("_source_excludes", fields?.Select(e => (Field)e));
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public BulkStreamDescriptor SourceIncludes(Fields sourceincludes) =>
+            Qs("_source_includes", sourceincludes);
+
+        /// <summary>A comma-separated list of source fields to include in the response.</summary>
+        public BulkStreamDescriptor SourceIncludes<T>(params Expression<Func<T, object>>[] fields)
+            where T : class => Qs("_source_includes", fields?.Select(e => (Field)e));
+
+        /// <summary>Period each action waits for the following operations: automatic index creation, dynamic mapping updates, waiting for active shards.</summary>
+        public BulkStreamDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
+
+        /// <summary>Default document type for items which don't provide one.</summary>
+        public BulkStreamDescriptor Type(string type) => Qs("type", type);
+
+        /// <summary>The number of shard copies that must be active before proceeding with the operation. Set to all or any positive integer up to the total number of shards in the index (<c>number_of_replicas+1</c>).</summary>
+        public BulkStreamDescriptor WaitForActiveShards(string waitforactiveshards) =>
+            Qs("wait_for_active_shards", waitforactiveshards);
+    }
+
     /// <summary>Descriptor for ClearScroll <para>https://opensearch.org/docs/latest/api-reference/scroll/</para></summary>
     public partial class ClearScrollDescriptor
         : RequestDescriptorBase<
