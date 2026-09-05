@@ -14,6 +14,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Removed
 ### Fixed
 - Fixed `SerializeAsync` and `DeserializeAsync` diagnostic spans measuring only Task creation time instead of actual execution time ([#950](https://github.com/opensearch-project/opensearch-net/issues/950))
+- Replaced the GitHub App token with the `opensearch-ci-bot` PAT in the Code Generation workflow ([#1035](https://github.com/opensearch-project/opensearch-net/pull/1035))
 
 ### Dependencies
 
