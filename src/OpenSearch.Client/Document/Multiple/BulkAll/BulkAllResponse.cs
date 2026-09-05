@@ -42,6 +42,15 @@ namespace OpenSearch.Client
 		/// <summary>The number of back off retries were needed to store this document.</summary>
 		public int Retries { get; internal set; }
 
+
+
+
+		/// <summary>
+		/// The index of the worker that processed this buffer. Meaningful when a <c>DocumentAffinityKey</c> is set
+		/// (batches sharing a key are handled by the same worker); <c>0</c> otherwise.
+		/// </summary>
+		public int WorkerIndex { get; internal set; }
+
 		/// <summary>The items returned from the bulk response</summary>
 		public IReadOnlyCollection<BulkResponseItemBase> Items { get; internal set; } = EmptyReadOnly<BulkResponseItemBase>.Collection;
 	}

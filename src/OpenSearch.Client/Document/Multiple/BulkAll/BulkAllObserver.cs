@@ -35,6 +35,7 @@ namespace OpenSearch.Client
 	{
 		private long _totalNumberOfFailedBuffers;
 		private long _totalNumberOfRetries;
+		private long _totalDocumentsProcessed;
 
 		public BulkAllObserver(
 			Action<BulkAllResponse> onNext = null,
@@ -47,8 +48,13 @@ namespace OpenSearch.Client
 
 		public long TotalNumberOfRetries => _totalNumberOfRetries;
 
+		/// <summary>The total number of documents in buffers that were successfully processed (delivered to <see cref="IObserver{T}.OnNext"/>).</summary>
+		public long TotalDocumentsProcessed => _totalDocumentsProcessed;
+
 		internal void IncrementTotalNumberOfRetries() => Interlocked.Increment(ref _totalNumberOfRetries);
 
 		internal void IncrementTotalNumberOfFailedBuffers() => Interlocked.Increment(ref _totalNumberOfFailedBuffers);
+
+		internal void AddDocumentsProcessed(long count) => Interlocked.Add(ref _totalDocumentsProcessed, count);
 	}
 }

@@ -201,6 +201,7 @@ namespace OpenSearch.Client
 			_options.Converters.Add(new GetRepositoryResponseConverter());
 			_options.Converters.Add(new BulkResponseItemConverter());
 			_options.Converters.Add(new BulkRequestConverter(settings));
+			_options.Converters.Add(new BulkStreamRequestConverter(settings));
 			_options.Converters.Add(new MultiGetRequestConverter(settings));
 			_options.Converters.Add(new MultiSearchConverter(settings));
 
