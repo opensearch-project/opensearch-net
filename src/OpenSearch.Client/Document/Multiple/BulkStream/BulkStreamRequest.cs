@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
+using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
@@ -23,11 +24,17 @@ namespace OpenSearch.Client
 
 	public partial class BulkStreamRequest
 	{
+		protected sealed override void RequestDefaults(BulkStreamRequestParameters parameters) =>
+			parameters.CustomResponseBuilder = BulkStreamResponseBuilder.Instance;
+
 		public BulkOperationsCollection<IBulkOperation> Operations { get; set; }
 	}
 
 	public partial class BulkStreamDescriptor
 	{
+		protected sealed override void RequestDefaults(BulkStreamRequestParameters parameters) =>
+			parameters.CustomResponseBuilder = BulkStreamResponseBuilder.Instance;
+
 		BulkOperationsCollection<IBulkOperation> IBulkStreamRequest.Operations { get; set; } = new BulkOperationsCollection<IBulkOperation>();
 
 		public BulkStreamDescriptor Create<T>(Func<BulkCreateDescriptor<T>, IBulkCreateOperation<T>> bulkCreateSelector)

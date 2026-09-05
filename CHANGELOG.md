@@ -10,6 +10,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 
 - Added initial support for the bulk streaming API ([#935](https://github.com/opensearch-project/opensearch-net/pull/935))
+- Extended the `BulkAll` helper with exponential-backoff-with-jitter retries (`RetryBaseDelay`/`RetryMaxDelay`), document-ID affinity routing (`DocumentAffinityKey`) that preserves per-key ordering, a fluent `WaitForActiveShards`, and a `TotalDocumentsProcessed` progress counter ([#1020](https://github.com/opensearch-project/opensearch-net/pull/1020))
 
 ### Removed
 ### Fixed

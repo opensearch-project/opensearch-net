@@ -124,6 +124,26 @@ namespace OpenSearch.Client
 		/// <see cref="IObserver{T}.OnNext"/> is only called for successful batches.
 		/// </summary>
 		Action<BulkResponse> BulkResponseCallback { get; set; }
+
+		/// <summary>
+		/// Optional per-document affinity key. When set, documents sharing a key are routed to the same worker and that
+		/// worker dispatches its batches strictly in order with at most one batch in flight, preserving on-the-wire
+		/// ordering for operations that share a key. A slow or retrying worker holds up only its own key, not the
+		/// others. When <c>null</c> (the default) batches are dispatched round-robin with no ordering guarantee.
+		/// </summary>
+		Func<T, string> DocumentAffinityKey { get; set; }
+
+		/// <summary>
+		/// When set, retries use exponential backoff with jitter starting from this base delay (doubling per attempt,
+		/// randomized, capped by <see cref="RetryMaxDelay" />) instead of the fixed <see cref="BackOffTime" />.
+		/// </summary>
+		TimeSpan? RetryBaseDelay { get; set; }
+
+		/// <summary>
+		/// The maximum delay between retries when <see cref="RetryBaseDelay" /> is set. Ignored when
+		/// <see cref="RetryBaseDelay" /> is not set (the fixed <see cref="BackOffTime" /> is used instead).
+		/// </summary>
+		TimeSpan? RetryMaxDelay { get; set; }
 	}
 
 	public class BulkAllRequest<T> : IBulkAllRequest<T>, IHelperCallable
@@ -189,6 +209,15 @@ namespace OpenSearch.Client
 		/// <inheritdoc />
 		public Action<BulkResponse> BulkResponseCallback { get; set; }
 
+		/// <inheritdoc />
+		public Func<T, string> DocumentAffinityKey { get; set; }
+
+		/// <inheritdoc />
+		public TimeSpan? RetryBaseDelay { get; set; }
+
+		/// <inheritdoc />
+		public TimeSpan? RetryMaxDelay { get; set; }
+
 		internal RequestMetaData ParentMetaData { get; set; }
 
 		RequestMetaData IHelperCallable.ParentMetaData { get => ParentMetaData; set => ParentMetaData = value; }
@@ -224,6 +253,9 @@ namespace OpenSearch.Client
 		Time IBulkAllRequest<T>.Timeout { get; set; }
 		int? IBulkAllRequest<T>.WaitForActiveShards { get; set; }
 		Action<BulkResponse> IBulkAllRequest<T>.BulkResponseCallback { get; set; }
+		Func<T, string> IBulkAllRequest<T>.DocumentAffinityKey { get; set; }
+		TimeSpan? IBulkAllRequest<T>.RetryBaseDelay { get; set; }
+		TimeSpan? IBulkAllRequest<T>.RetryMaxDelay { get; set; }
 		RequestMetaData IHelperCallable.ParentMetaData { get; set; }
 
 		/// <inheritdoc cref="IBulkAllRequest{T}.MaxDegreeOfParallelism" />
@@ -290,5 +322,19 @@ namespace OpenSearch.Client
 		/// <inheritdoc cref="IBulkAllRequest{T}.BulkResponseCallback" />
 		public BulkAllDescriptor<T> BulkResponseCallback(Action<BulkResponse> callback) =>
 			Assign(callback, (a, v) => a.BulkResponseCallback = v);
+
+		/// <inheritdoc cref="IBulkAllRequest{T}.WaitForActiveShards" />
+		public BulkAllDescriptor<T> WaitForActiveShards(int? shards) =>
+			Assign(shards, (a, v) => a.WaitForActiveShards = v);
+
+		/// <inheritdoc cref="IBulkAllRequest{T}.DocumentAffinityKey" />
+		public BulkAllDescriptor<T> DocumentAffinityKey(Func<T, string> keySelector) =>
+			Assign(keySelector, (a, v) => a.DocumentAffinityKey = v);
+
+		/// <inheritdoc cref="IBulkAllRequest{T}.RetryBaseDelay" />
+		public BulkAllDescriptor<T> RetryBaseDelay(TimeSpan? delay) => Assign(delay, (a, v) => a.RetryBaseDelay = v);
+
+		/// <inheritdoc cref="IBulkAllRequest{T}.RetryMaxDelay" />
+		public BulkAllDescriptor<T> RetryMaxDelay(TimeSpan? delay) => Assign(delay, (a, v) => a.RetryMaxDelay = v);
 	}
 }
