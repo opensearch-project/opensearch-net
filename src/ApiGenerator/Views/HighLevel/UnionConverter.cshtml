@@ -22,7 +22,7 @@ namespace OpenSearch.Client
     {
         public override @ifaceName Read(ref System.Text.Json.Utf8JsonReader reader, Type typeToConvert, System.Text.Json.JsonSerializerOptions options)
         {
-            if (reader.TokenType == System.Text.Json.JsonTokenType.Null) { reader.Read(); return null; }
+            if (reader.TokenType == System.Text.Json.JsonTokenType.Null) { return null; }
             using var doc = System.Text.Json.JsonDocument.ParseValue(ref reader);
             var root = doc.RootElement;
             if (root.ValueKind != System.Text.Json.JsonValueKind.Object) return null;

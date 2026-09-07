@@ -38,7 +38,6 @@ namespace OpenSearch.Client
         {
             if (reader.TokenType == System.Text.Json.JsonTokenType.Null)
             {
-                reader.Read();
                 return null;
             }
             using var doc = System.Text.Json.JsonDocument.ParseValue(ref reader);
