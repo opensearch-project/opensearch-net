@@ -186,4 +186,59 @@ public sealed record WrapperKeyUnionModel(
     /// <summary>Only the variants that should be generated (not retained).</summary>
     public IReadOnlyList<WrapperKeyVariant> GeneratedVariants =>
         Variants.Where(v => !v.IsRetained).ToList();
+
+    /// <summary>STJ converter class name (e.g. <c>RequestProcessorConverter</c>).</summary>
+    public string ConverterName => CsharpName + "Converter";
+
+    /// <summary>
+    /// Projects this union into a standalone <see cref="UnionFormatterModel"/> so the
+    /// Utf8Json formatter is emitted into its own <c>*Formatter.g.cs</c> file. Uses
+    /// <see cref="AllVariants"/> (retained + generated) for dispatch, matching the
+    /// former in-template formatter behavior.
+    /// </summary>
+    public UnionFormatterModel ToFormatterModel() =>
+        new(SchemaId, CsharpName, FormatterName, EffectiveInterfaceName,
+            AllVariants.Select(UnionDispatchVariant.From).ToList());
+
+    /// <summary>
+    /// Projects this union into a standalone <see cref="UnionConverterModel"/> so the
+    /// System.Text.Json converter is emitted into its own <c>*Converter.g.cs</c> file.
+    /// </summary>
+    public UnionConverterModel ToConverterModel() =>
+        new(SchemaId, CsharpName, ConverterName, EffectiveInterfaceName,
+            AllVariants.Select(UnionDispatchVariant.From).ToList());
 }
+/// <summary>
+/// The minimal per-variant facts a formatter/converter needs to dispatch on the wrapper key.
+/// Decouples the formatter/converter templates from the full <see cref="WrapperKeyVariant"/>.
+/// </summary>
+public sealed record UnionDispatchVariant(string Key, string ConcreteType, string InterfaceType)
+{
+    public static UnionDispatchVariant From(WrapperKeyVariant v) =>
+        new(v.Key, v.CsharpName, "I" + v.InterfaceName);
+}
+
+/// <summary>
+/// Synthetic type: the Utf8Json <c>IJsonFormatter&lt;T&gt;</c> for a wrapper-key union,
+/// emitted into its own <c>{CsharpName}Formatter.g.cs</c> file so it can be deleted wholesale
+/// when Utf8Json is removed. Rendered by <c>UnionFormatter.cshtml</c>.
+/// </summary>
+public sealed record UnionFormatterModel(
+    string SchemaId,
+    string CsharpName,
+    string FormatterName,
+    string UnionInterfaceName,
+    IReadOnlyList<UnionDispatchVariant> Variants) : ModelType(SchemaId, CsharpName);
+
+/// <summary>
+/// Synthetic type: the System.Text.Json <c>JsonConverter&lt;T&gt;</c> for a wrapper-key union,
+/// emitted into its own <c>{CsharpName}Converter.g.cs</c> file, mirroring the hand-written
+/// per-union converter layout (e.g. <c>Ingest/ProcessorConverter.cs</c>).
+/// Rendered by <c>UnionConverter.cshtml</c>.
+/// </summary>
+public sealed record UnionConverterModel(
+    string SchemaId,
+    string CsharpName,
+    string ConverterName,
+    string UnionInterfaceName,
+    IReadOnlyList<UnionDispatchVariant> Variants) : ModelType(SchemaId, CsharpName);

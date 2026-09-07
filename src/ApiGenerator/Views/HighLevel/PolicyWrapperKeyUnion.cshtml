@@ -17,79 +17,12 @@
         return valueTypes.Contains(bare) ? bare + "?" : ct;
     };
     // Precompute strings that contain generic <> to avoid Razor parsing them as HTML tags.
+    // The formatter and converter attributes reference types emitted into sibling files
+    // ({CsharpName}Formatter.g.cs / {CsharpName}Converter.g.cs); legal cross-file, same-assembly.
     var jsonFormatterAttr = "[JsonFormatter(typeof(" + formatterName + "))]";
-    // System.Text.Json wiring: attach the generated converter to the union interface so the STJ
-    // backend picks it up (attribute priority beats options.Converters and works inside collections,
-    // e.g. IList<IRequestProcessor>). Matches the converter class name built below (m.CsharpName + "Converter").
     var stjConverterAttr  = "[System.Text.Json.Serialization.JsonConverter(typeof(" + m.CsharpName + "Converter))]";
     var listType          = "IList<" + ifaceName + ">";
     var descriptorBase    = "DescriptorPromiseBase<" + builderName + ", " + listType + ">";
-
-    // ────────────────────────────────────────────────────────────────────────
-    // Formatter (pre-built as raw string to avoid Razor generic issues)
-    // ────────────────────────────────────────────────────────────────────────
-    var sb = new System.Text.StringBuilder();
-    sb.AppendLine("    internal class " + formatterName + " : IJsonFormatter<" + ifaceName + ">");
-    sb.AppendLine("    {");
-    sb.AppendLine("        private static readonly AutomataDictionary Keys = new AutomataDictionary");
-    sb.AppendLine("        {");
-    for (int ki = 0; ki < m.AllVariants.Count; ki++)
-        sb.AppendLine("            { \"" + m.AllVariants[ki].Key + "\", " + ki + " },");
-    sb.AppendLine("        };");
-    sb.AppendLine("");
-    sb.AppendLine("        public " + ifaceName + " Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)");
-    sb.AppendLine("        {");
-    sb.AppendLine("            if (reader.GetCurrentJsonToken() != JsonToken.BeginObject)");
-    sb.AppendLine("            {");
-    sb.AppendLine("                reader.ReadNextBlock();");
-    sb.AppendLine("                return null;");
-    sb.AppendLine("            }");
-    sb.AppendLine("            reader.ReadNext();");
-    sb.AppendLine("            " + ifaceName + " result = null;");
-    sb.AppendLine("            var key = reader.ReadPropertyNameSegmentRaw();");
-    sb.AppendLine("            if (Keys.TryGetValue(key, out var keyIdx))");
-    sb.AppendLine("            {");
-    sb.AppendLine("                switch (keyIdx)");
-    sb.AppendLine("                {");
-    for (int ki = 0; ki < m.AllVariants.Count; ki++)
-    {
-        var vn = m.AllVariants[ki].CsharpName;
-        sb.AppendLine("                    case " + ki + ":");
-        sb.AppendLine("                        result = formatterResolver.GetFormatter<" + vn + ">().Deserialize(ref reader, formatterResolver);");
-        sb.AppendLine("                        break;");
-    }
-    sb.AppendLine("                }");
-    sb.AppendLine("            }");
-    sb.AppendLine("            else");
-    sb.AppendLine("                reader.ReadNextBlock();");
-    sb.AppendLine("            reader.ReadIsEndObjectWithVerify();");
-    sb.AppendLine("            return result;");
-    sb.AppendLine("        }");
-    sb.AppendLine("");
-    sb.AppendLine("        public void Serialize(ref JsonWriter writer, " + ifaceName + " value, IJsonFormatterResolver formatterResolver)");
-    sb.AppendLine("        {");
-    sb.AppendLine("            if (value?.Name == null) { writer.WriteNull(); return; }");
-    sb.AppendLine("            writer.WriteBeginObject();");
-    sb.AppendLine("            writer.WritePropertyName(value.Name);");
-    sb.AppendLine("            switch (value.Name)");
-    sb.AppendLine("            {");
-    foreach (var v in m.AllVariants)
-    {
-        var vi = "I" + v.InterfaceName;
-        sb.AppendLine("                case \"" + v.Key + "\":");
-        sb.AppendLine("                    formatterResolver.GetFormatter<" + vi + ">()");
-        sb.AppendLine("                        .Serialize(ref writer, value as " + vi + ", formatterResolver);");
-        sb.AppendLine("                    break;");
-    }
-    sb.AppendLine("                default:");
-    sb.AppendLine("                    DynamicObjectResolver.ExcludeNullCamelCase.GetFormatter<" + ifaceName + ">()");
-    sb.AppendLine("                        .Serialize(ref writer, value, formatterResolver);");
-    sb.AppendLine("                    break;");
-    sb.AppendLine("            }");
-    sb.AppendLine("            writer.WriteEndObject();");
-    sb.AppendLine("        }");
-    sb.Append("    }");
-    var formatterCode = sb.ToString();
 
     // ────────────────────────────────────────────────────────────────────────
     // Fluent list builder descriptor (pre-built as raw string)
@@ -124,54 +57,6 @@
     }
     sb2.Append("    }");
     var builderCode = sb2.ToString();
-
-    // ────────────────────────────────────────────────────────────────────────
-    // STJ converter (pre-built as raw string)
-    // ────────────────────────────────────────────────────────────────────────
-    var converterName = m.CsharpName + "Converter";
-    var sb3 = new System.Text.StringBuilder();
-    sb3.AppendLine("    /// <summary>");
-    sb3.AppendLine("    /// System.Text.Json converter for <see cref=\"" + ifaceName + "\"/> wrapper-key union.");
-    sb3.AppendLine("    /// </summary>");
-    sb3.AppendLine("    internal class " + converterName + " : System.Text.Json.Serialization.JsonConverter<" + ifaceName + ">");
-    sb3.AppendLine("    {");
-    sb3.AppendLine("        public override " + ifaceName + " Read(ref System.Text.Json.Utf8JsonReader reader, Type typeToConvert, System.Text.Json.JsonSerializerOptions options)");
-    sb3.AppendLine("        {");
-    sb3.AppendLine("            if (reader.TokenType == System.Text.Json.JsonTokenType.Null) { reader.Read(); return null; }");
-    sb3.AppendLine("            using var doc = System.Text.Json.JsonDocument.ParseValue(ref reader);");
-    sb3.AppendLine("            var root = doc.RootElement;");
-    sb3.AppendLine("            if (root.ValueKind != System.Text.Json.JsonValueKind.Object) return null;");
-    sb3.AppendLine("            foreach (var property in root.EnumerateObject())");
-    sb3.AppendLine("            {");
-    sb3.AppendLine("                var body = property.Value.GetRawText();");
-    sb3.AppendLine("                switch (property.Name)");
-    sb3.AppendLine("                {");
-    foreach (var v in m.AllVariants)
-        sb3.AppendLine("                    case \"" + v.Key + "\": return System.Text.Json.JsonSerializer.Deserialize<" + v.CsharpName + ">(body, options);");
-    sb3.AppendLine("                }");
-    sb3.AppendLine("                break; // only first key matters");
-    sb3.AppendLine("            }");
-    sb3.AppendLine("            return null;");
-    sb3.AppendLine("        }");
-    sb3.AppendLine("");
-    sb3.AppendLine("        public override void Write(System.Text.Json.Utf8JsonWriter writer, " + ifaceName + " value, System.Text.Json.JsonSerializerOptions options)");
-    sb3.AppendLine("        {");
-    sb3.AppendLine("            if (value?.Name == null) { writer.WriteNullValue(); return; }");
-    sb3.AppendLine("            writer.WriteStartObject();");
-    sb3.AppendLine("            writer.WritePropertyName(value.Name);");
-    sb3.AppendLine("            switch (value)");
-    sb3.AppendLine("            {");
-    foreach (var v in m.AllVariants)
-    {
-        var vi = "I" + v.InterfaceName;
-        sb3.AppendLine("                case " + vi + " v: System.Text.Json.JsonSerializer.Serialize(writer, v, options); break;");
-    }
-    sb3.AppendLine("                default: System.Text.Json.JsonSerializer.Serialize(writer, value, value.GetType(), options); break;");
-    sb3.AppendLine("            }");
-    sb3.AppendLine("            writer.WriteEndObject();");
-    sb3.AppendLine("        }");
-    sb3.Append("    }");
-    var converterCode = sb3.ToString();
 }
 using System;
 using System.Collections.Generic;
@@ -180,8 +65,6 @@ using System.Linq.Expressions;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
-using OpenSearch.Net.Utf8Json.Internal;
-using OpenSearch.Net.Utf8Json.Resolvers;
 
 #pragma warning disable 3005 // CLS-compliant identifier differing only in case (alias properties)
 
@@ -488,12 +371,10 @@ foreach (var bp in m.BaseProperties)
 }
 
     // ──────────────────────────────────────────────────────────────────────
-    // Formatter + fluent builder (pre-built to avoid Razor/generic-<> issues)
+    // Fluent builder (pre-built to avoid Razor/generic-<> issues).
+    // Formatter + converter are emitted into sibling {CsharpName}Formatter.g.cs /
+    // {CsharpName}Converter.g.cs files (UnionFormatter.cshtml / UnionConverter.cshtml).
     // ──────────────────────────────────────────────────────────────────────
-
-    @Raw(formatterCode)
-
-    @Raw(converterCode)
 
     @Raw(builderCode)
 }

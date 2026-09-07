@@ -1,0 +1,64 @@
+@using System
+@using ApiGenerator.Domain.Code.HighLevel.Models
+@inherits ApiGenerator.CodeTemplatePage<UnionConverterModel>
+@{ await IncludeGeneratorNotice(); }
+@{
+    var m             = Model;
+    var ifaceName     = m.UnionInterfaceName;
+    var converterName = m.ConverterName;
+    // Fragments containing generic <> are precomputed as locals and emitted via @Raw at a
+    // token boundary (start of expression) so Razor does not parse the <> as HTML tags and
+    // does not treat "@Raw" glued to an identifier as literal text.
+    var converterDecl = converterName + " : System.Text.Json.Serialization.JsonConverter<" + ifaceName + ">";
+}
+using System;
+
+namespace OpenSearch.Client
+{
+    /// <summary>
+    /// System.Text.Json converter for <see cref="@ifaceName"/> wrapper-key union.
+    /// </summary>
+    internal class @Raw(converterDecl)
+    {
+        public override @ifaceName Read(ref System.Text.Json.Utf8JsonReader reader, Type typeToConvert, System.Text.Json.JsonSerializerOptions options)
+        {
+            if (reader.TokenType == System.Text.Json.JsonTokenType.Null) { reader.Read(); return null; }
+            using var doc = System.Text.Json.JsonDocument.ParseValue(ref reader);
+            var root = doc.RootElement;
+            if (root.ValueKind != System.Text.Json.JsonValueKind.Object) return null;
+            foreach (var property in root.EnumerateObject())
+            {
+                var body = property.Value.GetRawText();
+                switch (property.Name)
+                {
+@foreach (var v in m.Variants)
+{
+    var readCase = "case \"" + v.Key + "\": return System.Text.Json.JsonSerializer.Deserialize<" + v.ConcreteType + ">(body, options);";
+<text>                    @Raw(readCase)
+</text>
+}
+                }
+                break; // only first key matters
+            }
+            return null;
+        }
+
+        public override void Write(System.Text.Json.Utf8JsonWriter writer, @ifaceName value, System.Text.Json.JsonSerializerOptions options)
+        {
+            if (value?.Name == null) { writer.WriteNullValue(); return; }
+            writer.WriteStartObject();
+            writer.WritePropertyName(value.Name);
+            switch (value)
+            {
+@foreach (var v in m.Variants)
+{
+    var writeCase = "case " + v.InterfaceType + " v: System.Text.Json.JsonSerializer.Serialize(writer, v, options); break;";
+<text>                @Raw(writeCase)
+</text>
+}
+                default: System.Text.Json.JsonSerializer.Serialize(writer, value, value.GetType(), options); break;
+            }
+            writer.WriteEndObject();
+        }
+    }
+}

@@ -57,6 +57,23 @@ public sealed class ModelsGenerator : RazorGeneratorBase
             await DoRazor(t, template,
                 GeneratorLocations.HighLevel(plugin.OutputFolder, t.CsharpName + ".g.cs"), token);
             progressBar.Tick($"Generated {plugin.Namespace} model: {t.CsharpName}");
+
+            // Wrapper-key unions emit their Utf8Json formatter and STJ converter into
+            // separate sibling files ({CsharpName}Formatter.g.cs / {CsharpName}Converter.g.cs),
+            // matching the hand-written per-union layout (e.g. Ingest/ProcessorConverter.cs) and
+            // keeping the deletable Utf8Json formatter isolated in its own file.
+            if (t is WrapperKeyUnionModel union)
+            {
+                var formatter = union.ToFormatterModel();
+                await DoRazor(formatter, TemplateFor(formatter),
+                    GeneratorLocations.HighLevel(plugin.OutputFolder, union.FormatterName + ".g.cs"), token);
+                progressBar.Tick($"Generated {plugin.Namespace} formatter: {union.FormatterName}");
+
+                var converter = union.ToConverterModel();
+                await DoRazor(converter, TemplateFor(converter),
+                    GeneratorLocations.HighLevel(plugin.OutputFolder, union.ConverterName + ".g.cs"), token);
+                progressBar.Tick($"Generated {plugin.Namespace} converter: {union.ConverterName}");
+            }
         }
 
         if (!plugin.GenerateBodyOps && !plugin.GenerateNonBodyOps) return;
@@ -188,6 +205,8 @@ public sealed class ModelsGenerator : RazorGeneratorBase
         WrapperKeyUnionModel { RenderingPolicy: not null } =>
             ViewLocations.HighLevel("PolicyWrapperKeyUnion.cshtml"),
         WrapperKeyUnionModel => ViewLocations.HighLevel("WrapperKeyUnion.cshtml"),
+        UnionFormatterModel => ViewLocations.HighLevel("UnionFormatter.cshtml"),
+        UnionConverterModel => ViewLocations.HighLevel("UnionConverter.cshtml"),
         _ => ViewLocations.HighLevel("Model.cshtml"),
     };
 
@@ -219,6 +238,19 @@ public sealed class ModelsGenerator : RazorGeneratorBase
             var outputPath = Path.Combine(tempDir, t.CsharpName + ".g.cs");
             await File.WriteAllTextAsync(outputPath, rendered, token);
             paths.Add(outputPath);
+
+            if (t is WrapperKeyUnionModel union)
+            {
+                var formatter = union.ToFormatterModel();
+                var fmtPath = Path.Combine(tempDir, union.FormatterName + ".g.cs");
+                await File.WriteAllTextAsync(fmtPath, await RenderAsync(TemplateFor(formatter), formatter), token);
+                paths.Add(fmtPath);
+
+                var converter = union.ToConverterModel();
+                var convPath = Path.Combine(tempDir, union.ConverterName + ".g.cs");
+                await File.WriteAllTextAsync(convPath, await RenderAsync(TemplateFor(converter), converter), token);
+                paths.Add(convPath);
+            }
         }
         return paths;
     }

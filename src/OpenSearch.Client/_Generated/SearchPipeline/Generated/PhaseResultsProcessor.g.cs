@@ -25,8 +25,6 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
 using OpenSearch.Net.Utf8Json;
-using OpenSearch.Net.Utf8Json.Internal;
-using OpenSearch.Net.Utf8Json.Resolvers;
 
 namespace OpenSearch.Client
 {
@@ -142,167 +140,10 @@ namespace OpenSearch.Client
     }
 
     // ──────────────────────────────────────────────────────────────────────
-    // Formatter + fluent builder (pre-built to avoid Razor/generic-<> issues)
+    // Fluent builder (pre-built to avoid Razor/generic-<> issues).
+    // Formatter + converter are emitted into sibling {CsharpName}Formatter.g.cs /
+    // {CsharpName}Converter.g.cs files (UnionFormatter.cshtml / UnionConverter.cshtml).
     // ──────────────────────────────────────────────────────────────────────
-
-    internal class PhaseResultsProcessorFormatter : IJsonFormatter<IPhaseResultsProcessor>
-    {
-        private static readonly AutomataDictionary Keys = new AutomataDictionary
-        {
-            { "normalization-processor", 0 },
-            { "score-ranker-processor", 1 },
-        };
-
-        public IPhaseResultsProcessor Deserialize(
-            ref JsonReader reader,
-            IJsonFormatterResolver formatterResolver
-        )
-        {
-            if (reader.GetCurrentJsonToken() != JsonToken.BeginObject)
-            {
-                reader.ReadNextBlock();
-                return null;
-            }
-            reader.ReadNext();
-            IPhaseResultsProcessor result = null;
-            var key = reader.ReadPropertyNameSegmentRaw();
-            if (Keys.TryGetValue(key, out var keyIdx))
-            {
-                result = keyIdx switch
-                {
-                    0 => formatterResolver
-                        .GetFormatter<NormalizationPhaseResultsProcessor>()
-                        .Deserialize(ref reader, formatterResolver),
-                    1 => formatterResolver
-                        .GetFormatter<ScoreRankerPhaseResultsProcessor>()
-                        .Deserialize(ref reader, formatterResolver),
-                    _ => null,
-                };
-            }
-            else
-                reader.ReadNextBlock();
-            reader.ReadIsEndObjectWithVerify();
-            return result;
-        }
-
-        public void Serialize(
-            ref JsonWriter writer,
-            IPhaseResultsProcessor value,
-            IJsonFormatterResolver formatterResolver
-        )
-        {
-            if (value?.Name == null)
-            {
-                writer.WriteNull();
-                return;
-            }
-            writer.WriteBeginObject();
-            writer.WritePropertyName(value.Name);
-            switch (value.Name)
-            {
-                case "normalization-processor":
-                    formatterResolver
-                        .GetFormatter<INormalizationPhaseResultsProcessor>()
-                        .Serialize(
-                            ref writer,
-                            value as INormalizationPhaseResultsProcessor,
-                            formatterResolver
-                        );
-                    break;
-                case "score-ranker-processor":
-                    formatterResolver
-                        .GetFormatter<IScoreRankerPhaseResultsProcessor>()
-                        .Serialize(
-                            ref writer,
-                            value as IScoreRankerPhaseResultsProcessor,
-                            formatterResolver
-                        );
-                    break;
-                default:
-                    DynamicObjectResolver
-                        .ExcludeNullCamelCase.GetFormatter<IPhaseResultsProcessor>()
-                        .Serialize(ref writer, value, formatterResolver);
-                    break;
-            }
-            writer.WriteEndObject();
-        }
-    }
-
-    /// <summary>
-    /// System.Text.Json converter for <see cref="IPhaseResultsProcessor"/> wrapper-key union.
-    /// </summary>
-    internal class PhaseResultsProcessorConverter
-        : System.Text.Json.Serialization.JsonConverter<IPhaseResultsProcessor>
-    {
-        public override IPhaseResultsProcessor Read(
-            ref System.Text.Json.Utf8JsonReader reader,
-            Type typeToConvert,
-            System.Text.Json.JsonSerializerOptions options
-        )
-        {
-            if (reader.TokenType == System.Text.Json.JsonTokenType.Null)
-            {
-                reader.Read();
-                return null;
-            }
-            using var doc = System.Text.Json.JsonDocument.ParseValue(ref reader);
-            var root = doc.RootElement;
-            if (root.ValueKind != System.Text.Json.JsonValueKind.Object)
-                return null;
-            foreach (var property in root.EnumerateObject())
-            {
-                var body = property.Value.GetRawText();
-                switch (property.Name)
-                {
-                    case "normalization-processor":
-                        return System.Text.Json.JsonSerializer.Deserialize<NormalizationPhaseResultsProcessor>(
-                            body,
-                            options
-                        );
-                    case "score-ranker-processor":
-                        return System.Text.Json.JsonSerializer.Deserialize<ScoreRankerPhaseResultsProcessor>(
-                            body,
-                            options
-                        );
-                }
-                break; // only first key matters
-            }
-            return null;
-        }
-
-        public override void Write(
-            System.Text.Json.Utf8JsonWriter writer,
-            IPhaseResultsProcessor value,
-            System.Text.Json.JsonSerializerOptions options
-        )
-        {
-            if (value?.Name == null)
-            {
-                writer.WriteNullValue();
-                return;
-            }
-            writer.WriteStartObject();
-            writer.WritePropertyName(value.Name);
-            switch (value)
-            {
-                case INormalizationPhaseResultsProcessor v:
-                    System.Text.Json.JsonSerializer.Serialize(writer, v, options);
-                    break;
-                case IScoreRankerPhaseResultsProcessor v:
-                    System.Text.Json.JsonSerializer.Serialize(writer, v, options);
-                    break;
-                default:
-                    System.Text.Json.JsonSerializer.Serialize(
-                        writer,
-                        value,
-                        value.GetType(),
-                        options
-                    );
-                    break;
-            }
-            writer.WriteEndObject();
-        }
-    }
 
     public class PhaseResultsProcessorsDescriptor
         : DescriptorPromiseBase<PhaseResultsProcessorsDescriptor, IList<IPhaseResultsProcessor>>
