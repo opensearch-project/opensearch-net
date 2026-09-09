@@ -1,0 +1,66 @@
+@using System
+@using ApiGenerator.Domain.Code.HighLevel.Models
+@inherits ApiGenerator.CodeTemplatePage<RequestModel>
+@{ await IncludeGeneratorNotice(); }
+@{
+    var iface = Model.InterfaceName;
+    var name  = Model.CsharpName;
+    var descriptorName = name.EndsWith("Request")
+        ? name.Substring(0, name.Length - "Request".Length) + "Descriptor"
+        : name + "Descriptor";
+}
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using OpenSearch.Net;
+
+namespace OpenSearch.Client
+{
+@if (Model.VersionAdded != null)
+{
+<text>    /// <remarks>Supported by OpenSearch servers of version @(Model.VersionAdded) or greater.</remarks>
+</text>
+}
+    public partial interface @iface
+    {
+@foreach (var prop in Model.Properties)
+{
+<text>        [DataMember(Name = "@prop.WireName")]
+        @Raw(prop.CsharpType) @prop.CsharpName { get; set; }
+</text>
+}
+    }
+
+    public partial class @name
+    {
+@if (Model.VersionAdded != null)
+{
+<text>        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "@(Model.VersionAdded)";
+</text>
+}
+@foreach (var prop in Model.Properties)
+{
+<text>        public @Raw(prop.CsharpType) @prop.CsharpName { get; set; }
+</text>
+}
+    }
+
+    public partial class @descriptorName
+    {
+@foreach (var prop in Model.Properties)
+{
+        var propIfaceName = iface + "." + prop.CsharpName;
+<text>        @Raw(prop.CsharpType) @Raw(propIfaceName) { get; set; }
+</text>
+}
+@foreach (var prop in Model.Properties)
+{
+        var rawLowerParamName = char.ToLowerInvariant(prop.CsharpName[0]) + prop.CsharpName.Substring(1);
+        var lowerParamName = SafeParam(rawLowerParamName);
+        var defaultValue = prop.CsharpType == "bool?" ? " = true" : "";
+<text>        public @descriptorName @(prop.CsharpName)(@Raw(prop.CsharpType) @(lowerParamName)@Raw(defaultValue)) =>
+            Assign(@(lowerParamName), (a, v) => a.@prop.CsharpName = v);
+</text>
+}
+    }
+}

@@ -50,6 +50,9 @@ namespace ApiGenerator.Generator.Razor
 			.EnableDebugMode()
             .Build();
 
+        protected static Task<string> RenderAsync<TModel>(string viewLocation, TModel model)
+            => Engine.CompileRenderAsync(viewLocation, model);
+
         protected static async Task DoRazor<TModel>(TModel model, string viewLocation, string targetLocation, CancellationToken token)
         {
             try

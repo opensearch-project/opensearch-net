@@ -1,0 +1,87 @@
+@using System
+@using ApiGenerator.Domain.Code.HighLevel.Models
+@inherits ApiGenerator.CodeTemplatePage<UnionFormatterModel>
+@{ await IncludeGeneratorNotice(); }
+@{
+    var m             = Model;
+    var ifaceName     = m.UnionInterfaceName;
+    var formatterName = m.FormatterName;
+    // Fragments containing generic <> are precomputed as locals and emitted via @Raw at a
+    // token boundary (start of expression) so Razor does not parse the <> as HTML tags and
+    // does not treat "@Raw" glued to an identifier as literal text.
+    var formatterDecl = formatterName + " : IJsonFormatter<" + ifaceName + ">";
+    var defaultFormatterCall = "DynamicObjectResolver.ExcludeNullCamelCase.GetFormatter<" + ifaceName + ">()";
+}
+using OpenSearch.Net.Utf8Json;
+using OpenSearch.Net.Utf8Json.Internal;
+using OpenSearch.Net.Utf8Json.Resolvers;
+
+namespace OpenSearch.Client
+{
+    internal class @Raw(formatterDecl)
+    {
+        private static readonly AutomataDictionary Keys = new AutomataDictionary
+        {
+@for (var ki = 0; ki < m.Variants.Count; ki++)
+{
+<text>            { "@m.Variants[ki].Key", @ki },
+</text>
+}
+        };
+
+        public @ifaceName Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+        {
+            if (reader.GetCurrentJsonToken() != JsonToken.BeginObject)
+            {
+                reader.ReadNextBlock();
+                return null;
+            }
+            reader.ReadNext();
+            @ifaceName result = null;
+            var key = reader.ReadPropertyNameSegmentRaw();
+            if (Keys.TryGetValue(key, out var keyIdx))
+            {
+                result = keyIdx switch
+                {
+@for (var ki = 0; ki < m.Variants.Count; ki++)
+{
+    var arm = ki + " => formatterResolver.GetFormatter<" + m.Variants[ki].ConcreteType + ">().Deserialize(ref reader, formatterResolver),";
+<text>                    @Raw(arm)
+</text>
+}
+                    _ => null
+                };
+            }
+            else
+                reader.ReadNextBlock();
+            reader.ReadIsEndObjectWithVerify();
+            return result;
+        }
+
+        public void Serialize(ref JsonWriter writer, @ifaceName value, IJsonFormatterResolver formatterResolver)
+        {
+            if (value?.Name == null) { writer.WriteNull(); return; }
+            writer.WriteBeginObject();
+            writer.WritePropertyName(value.Name);
+            switch (value.Name)
+            {
+@foreach (var v in m.Variants)
+{
+    var caseLabel  = "case \"" + v.Key + "\":";
+    var serialize1 = "formatterResolver.GetFormatter<" + v.InterfaceType + ">()";
+    var serialize2 = ".Serialize(ref writer, value as " + v.InterfaceType + ", formatterResolver);";
+<text>                @Raw(caseLabel)
+                    @Raw(serialize1)
+                        @Raw(serialize2)
+                    break;
+</text>
+}
+                default:
+                    @Raw(defaultFormatterCall)
+                        .Serialize(ref writer, value, formatterResolver);
+                    break;
+            }
+            writer.WriteEndObject();
+        }
+    }
+}

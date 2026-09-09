@@ -74,7 +74,8 @@ namespace Tests.Framework.EndpointTests
 		[I] public virtual async Task ReturnsExpectedIsValid() =>
 			await AssertOnAllResponses(r => r.ShouldHaveExpectedIsValid(ExpectIsValid));
 
-		[I] public virtual async Task ReturnsExpectedResponse() => await AssertOnAllResponses(ExpectResponse);
+		[I] public virtual async Task ReturnsExpectedResponse() =>
+			await AssertOnAllResponses(ExpectResponse);
 
 		protected override Task AssertOnAllResponses(Action<TResponse> assert) =>
 			base.AssertOnAllResponses((r) =>
