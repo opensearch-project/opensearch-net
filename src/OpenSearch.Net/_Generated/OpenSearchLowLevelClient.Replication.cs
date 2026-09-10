@@ -69,7 +69,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
         internal LowLevelReplicationNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
-        /// <summary>GET on /_plugins/_replication/autofollow_stats <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#get-auto-follow-stats</para></summary>
+        /// <summary>GET on /_plugins/_replication/autofollow_stats <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#get-auto-follow-stats</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
         public TResponse AutofollowStats<TResponse>(
@@ -83,7 +83,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_replication/autofollow_stats <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#get-auto-follow-stats</para></summary>
+        /// <summary>GET on /_plugins/_replication/autofollow_stats <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#get-auto-follow-stats</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
         [MapsApi("replication.autofollow_stats", "")]
@@ -100,7 +100,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_replication/_autofollow <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#create-replication-rule</para></summary>
+        /// <summary>POST on /_plugins/_replication/_autofollow <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#create-replication-rule</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
@@ -116,7 +116,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_replication/_autofollow <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#create-replication-rule</para></summary>
+        /// <summary>POST on /_plugins/_replication/_autofollow <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#create-replication-rule</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
@@ -135,7 +135,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_replication/_autofollow <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#delete-replication-rule</para></summary>
+        /// <summary>DELETE on /_plugins/_replication/_autofollow <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#delete-replication-rule</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
@@ -151,7 +151,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_replication/_autofollow <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#delete-replication-rule</para></summary>
+        /// <summary>DELETE on /_plugins/_replication/_autofollow <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#delete-replication-rule</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
@@ -170,7 +170,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_replication/follower_stats <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#get-follower-cluster-stats</para></summary>
+        /// <summary>GET on /_plugins/_replication/follower_stats <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#get-follower-cluster-stats</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
         public TResponse FollowerStats<TResponse>(
@@ -184,7 +184,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_replication/follower_stats <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#get-follower-cluster-stats</para></summary>
+        /// <summary>GET on /_plugins/_replication/follower_stats <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#get-follower-cluster-stats</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
         [MapsApi("replication.follower_stats", "")]
@@ -201,7 +201,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_replication/leader_stats <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#get-leader-cluster-stats</para></summary>
+        /// <summary>GET on /_plugins/_replication/leader_stats <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#get-leader-cluster-stats</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
         public TResponse LeaderStats<TResponse>(
@@ -215,7 +215,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_replication/leader_stats <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#get-leader-cluster-stats</para></summary>
+        /// <summary>GET on /_plugins/_replication/leader_stats <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#get-leader-cluster-stats</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
         [MapsApi("replication.leader_stats", "")]
@@ -232,7 +232,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_replication/{index}/_pause <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#pause-replication</para></summary>
+        /// <summary>POST on /_plugins/_replication/{index}/_pause <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#pause-replication</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -250,7 +250,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_replication/{index}/_pause <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#pause-replication</para></summary>
+        /// <summary>POST on /_plugins/_replication/{index}/_pause <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#pause-replication</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -271,7 +271,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_replication/{index}/_resume <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#resume-replication</para></summary>
+        /// <summary>POST on /_plugins/_replication/{index}/_resume <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#resume-replication</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -289,7 +289,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_replication/{index}/_resume <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#resume-replication</para></summary>
+        /// <summary>POST on /_plugins/_replication/{index}/_resume <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#resume-replication</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -310,7 +310,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_replication/{index}/_start <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#start-replication</para></summary>
+        /// <summary>PUT on /_plugins/_replication/{index}/_start <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#start-replication</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -328,7 +328,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_replication/{index}/_start <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#start-replication</para></summary>
+        /// <summary>PUT on /_plugins/_replication/{index}/_start <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#start-replication</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -349,7 +349,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_replication/{index}/_status <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#get-replication-status</para></summary>
+        /// <summary>GET on /_plugins/_replication/{index}/_status <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#get-replication-status</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
@@ -365,7 +365,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_replication/{index}/_status <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#get-replication-status</para></summary>
+        /// <summary>GET on /_plugins/_replication/{index}/_status <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#get-replication-status</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
@@ -384,7 +384,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_replication/{index}/_stop <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#stop-replication</para></summary>
+        /// <summary>POST on /_plugins/_replication/{index}/_stop <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#stop-replication</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -402,7 +402,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_replication/{index}/_stop <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#stop-replication</para></summary>
+        /// <summary>POST on /_plugins/_replication/{index}/_stop <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#stop-replication</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -423,7 +423,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_replication/{index}/_update <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#update-settings</para></summary>
+        /// <summary>PUT on /_plugins/_replication/{index}/_update <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#update-settings</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -441,7 +441,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_replication/{index}/_update <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#update-settings</para></summary>
+        /// <summary>PUT on /_plugins/_replication/{index}/_update <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#update-settings</para></summary>
         /// <param name="index">The name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

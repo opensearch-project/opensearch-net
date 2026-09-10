@@ -60,7 +60,7 @@ namespace OpenSearch.Client.Specification.TasksApi
         /// <summary>
         /// <c>POST</c> request to the <c>tasks.cancel</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling">https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/cancel-tasks/">https://docs.opensearch.org/latest/api-reference/tasks/cancel-tasks/</a>
         /// </summary>
         CancelTasksResponse Cancel(
             Func<CancelTasksDescriptor, ICancelTasksRequest> selector = null
@@ -69,7 +69,7 @@ namespace OpenSearch.Client.Specification.TasksApi
         /// <summary>
         /// <c>POST</c> request to the <c>tasks.cancel</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling">https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/cancel-tasks/">https://docs.opensearch.org/latest/api-reference/tasks/cancel-tasks/</a>
         /// </summary>
         Task<CancelTasksResponse> CancelAsync(
             Func<CancelTasksDescriptor, ICancelTasksRequest> selector = null,
@@ -79,14 +79,14 @@ namespace OpenSearch.Client.Specification.TasksApi
         /// <summary>
         /// <c>POST</c> request to the <c>tasks.cancel</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling">https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/cancel-tasks/">https://docs.opensearch.org/latest/api-reference/tasks/cancel-tasks/</a>
         /// </summary>
         CancelTasksResponse Cancel(ICancelTasksRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>tasks.cancel</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling">https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/cancel-tasks/">https://docs.opensearch.org/latest/api-reference/tasks/cancel-tasks/</a>
         /// </summary>
         Task<CancelTasksResponse> CancelAsync(
             ICancelTasksRequest request,
@@ -96,7 +96,7 @@ namespace OpenSearch.Client.Specification.TasksApi
         /// <summary>
         /// <c>GET</c> request to the <c>tasks.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/">https://docs.opensearch.org/latest/api-reference/tasks/</a>
         /// </summary>
         GetTaskResponse GetTask(
             TaskId taskId,
@@ -106,7 +106,7 @@ namespace OpenSearch.Client.Specification.TasksApi
         /// <summary>
         /// <c>GET</c> request to the <c>tasks.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/">https://docs.opensearch.org/latest/api-reference/tasks/</a>
         /// </summary>
         Task<GetTaskResponse> GetTaskAsync(
             TaskId taskId,
@@ -117,28 +117,28 @@ namespace OpenSearch.Client.Specification.TasksApi
         /// <summary>
         /// <c>GET</c> request to the <c>tasks.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/">https://docs.opensearch.org/latest/api-reference/tasks/</a>
         /// </summary>
         GetTaskResponse GetTask(IGetTaskRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>tasks.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/">https://docs.opensearch.org/latest/api-reference/tasks/</a>
         /// </summary>
         Task<GetTaskResponse> GetTaskAsync(IGetTaskRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>GET</c> request to the <c>tasks.list</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/">https://docs.opensearch.org/latest/api-reference/tasks/</a>
         /// </summary>
         ListTasksResponse List(Func<ListTasksDescriptor, IListTasksRequest> selector = null);
 
         /// <summary>
         /// <c>GET</c> request to the <c>tasks.list</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/">https://docs.opensearch.org/latest/api-reference/tasks/</a>
         /// </summary>
         Task<ListTasksResponse> ListAsync(
             Func<ListTasksDescriptor, IListTasksRequest> selector = null,
@@ -148,14 +148,14 @@ namespace OpenSearch.Client.Specification.TasksApi
         /// <summary>
         /// <c>GET</c> request to the <c>tasks.list</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/">https://docs.opensearch.org/latest/api-reference/tasks/</a>
         /// </summary>
         ListTasksResponse List(IListTasksRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>tasks.list</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/">https://docs.opensearch.org/latest/api-reference/tasks/</a>
         /// </summary>
         Task<ListTasksResponse> ListAsync(
             IListTasksRequest request,
@@ -177,7 +177,7 @@ namespace OpenSearch.Client.Specification.TasksApi
         /// <summary>
         /// <c>POST</c> request to the <c>tasks.cancel</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling">https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/cancel-tasks/">https://docs.opensearch.org/latest/api-reference/tasks/cancel-tasks/</a>
         /// </summary>
         public CancelTasksResponse Cancel(
             Func<CancelTasksDescriptor, ICancelTasksRequest> selector = null
@@ -186,7 +186,7 @@ namespace OpenSearch.Client.Specification.TasksApi
         /// <summary>
         /// <c>POST</c> request to the <c>tasks.cancel</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling">https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/cancel-tasks/">https://docs.opensearch.org/latest/api-reference/tasks/cancel-tasks/</a>
         /// </summary>
         public Task<CancelTasksResponse> CancelAsync(
             Func<CancelTasksDescriptor, ICancelTasksRequest> selector = null,
@@ -196,7 +196,7 @@ namespace OpenSearch.Client.Specification.TasksApi
         /// <summary>
         /// <c>POST</c> request to the <c>tasks.cancel</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling">https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/cancel-tasks/">https://docs.opensearch.org/latest/api-reference/tasks/cancel-tasks/</a>
         /// </summary>
         public CancelTasksResponse Cancel(ICancelTasksRequest request) =>
             DoRequest<ICancelTasksRequest, CancelTasksResponse>(request, request.RequestParameters);
@@ -204,7 +204,7 @@ namespace OpenSearch.Client.Specification.TasksApi
         /// <summary>
         /// <c>POST</c> request to the <c>tasks.cancel</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling">https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/cancel-tasks/">https://docs.opensearch.org/latest/api-reference/tasks/cancel-tasks/</a>
         /// </summary>
         public Task<CancelTasksResponse> CancelAsync(
             ICancelTasksRequest request,
@@ -219,7 +219,7 @@ namespace OpenSearch.Client.Specification.TasksApi
         /// <summary>
         /// <c>GET</c> request to the <c>tasks.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/">https://docs.opensearch.org/latest/api-reference/tasks/</a>
         /// </summary>
         public GetTaskResponse GetTask(
             TaskId taskId,
@@ -229,7 +229,7 @@ namespace OpenSearch.Client.Specification.TasksApi
         /// <summary>
         /// <c>GET</c> request to the <c>tasks.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/">https://docs.opensearch.org/latest/api-reference/tasks/</a>
         /// </summary>
         public Task<GetTaskResponse> GetTaskAsync(
             TaskId taskId,
@@ -240,7 +240,7 @@ namespace OpenSearch.Client.Specification.TasksApi
         /// <summary>
         /// <c>GET</c> request to the <c>tasks.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/">https://docs.opensearch.org/latest/api-reference/tasks/</a>
         /// </summary>
         public GetTaskResponse GetTask(IGetTaskRequest request) =>
             DoRequest<IGetTaskRequest, GetTaskResponse>(request, request.RequestParameters);
@@ -248,7 +248,7 @@ namespace OpenSearch.Client.Specification.TasksApi
         /// <summary>
         /// <c>GET</c> request to the <c>tasks.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/">https://docs.opensearch.org/latest/api-reference/tasks/</a>
         /// </summary>
         public Task<GetTaskResponse> GetTaskAsync(
             IGetTaskRequest request,
@@ -263,7 +263,7 @@ namespace OpenSearch.Client.Specification.TasksApi
         /// <summary>
         /// <c>GET</c> request to the <c>tasks.list</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/">https://docs.opensearch.org/latest/api-reference/tasks/</a>
         /// </summary>
         public ListTasksResponse List(
             Func<ListTasksDescriptor, IListTasksRequest> selector = null
@@ -272,7 +272,7 @@ namespace OpenSearch.Client.Specification.TasksApi
         /// <summary>
         /// <c>GET</c> request to the <c>tasks.list</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/">https://docs.opensearch.org/latest/api-reference/tasks/</a>
         /// </summary>
         public Task<ListTasksResponse> ListAsync(
             Func<ListTasksDescriptor, IListTasksRequest> selector = null,
@@ -282,7 +282,7 @@ namespace OpenSearch.Client.Specification.TasksApi
         /// <summary>
         /// <c>GET</c> request to the <c>tasks.list</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/">https://docs.opensearch.org/latest/api-reference/tasks/</a>
         /// </summary>
         public ListTasksResponse List(IListTasksRequest request) =>
             DoRequest<IListTasksRequest, ListTasksResponse>(request, request.RequestParameters);
@@ -290,7 +290,7 @@ namespace OpenSearch.Client.Specification.TasksApi
         /// <summary>
         /// <c>GET</c> request to the <c>tasks.list</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/tasks/">https://opensearch.org/docs/latest/api-reference/tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/tasks/">https://docs.opensearch.org/latest/api-reference/tasks/</a>
         /// </summary>
         public Task<ListTasksResponse> ListAsync(
             IListTasksRequest request,

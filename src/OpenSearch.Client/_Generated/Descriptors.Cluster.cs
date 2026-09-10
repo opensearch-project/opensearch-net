@@ -57,7 +57,7 @@ using OpenSearch.Net.Utf8Json;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-    /// <summary>Descriptor for AllocationExplain <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</para></summary>
+    /// <summary>Descriptor for AllocationExplain <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-allocation/</para></summary>
     public partial class ClusterAllocationExplainDescriptor
         : RequestDescriptorBase<
             ClusterAllocationExplainDescriptor,
@@ -80,7 +80,7 @@ namespace OpenSearch.Client
         ) => Qs("include_yes_decisions", includeyesdecisions);
     }
 
-    /// <summary>Descriptor for DeleteComponentTemplate <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for DeleteComponentTemplate <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class DeleteComponentTemplateDescriptor
         : RequestDescriptorBase<
             DeleteComponentTemplateDescriptor,
@@ -105,7 +105,7 @@ namespace OpenSearch.Client
         Name IDeleteComponentTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
 
         // Request parameters
-        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public DeleteComponentTemplateDescriptor ClusterManagerTimeout(
             Time clustermanagertimeout
@@ -122,7 +122,7 @@ namespace OpenSearch.Client
         public DeleteComponentTemplateDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    /// <summary>Descriptor for DeleteVotingConfigExclusions <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for DeleteVotingConfigExclusions <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class DeleteVotingConfigExclusionsDescriptor
         : RequestDescriptorBase<
             DeleteVotingConfigExclusionsDescriptor,
@@ -140,7 +140,7 @@ namespace OpenSearch.Client
             Qs("wait_for_removal", waitforremoval);
     }
 
-    /// <summary>Descriptor for ComponentTemplateExists <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for ComponentTemplateExists <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ComponentTemplateExistsDescriptor
         : RequestDescriptorBase<
             ComponentTemplateExistsDescriptor,
@@ -165,7 +165,7 @@ namespace OpenSearch.Client
         Name IComponentTemplateExistsRequest.Name => Self.RouteValues.Get<Name>("name");
 
         // Request parameters
-        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public ComponentTemplateExistsDescriptor ClusterManagerTimeout(
             Time clustermanagertimeout
@@ -182,7 +182,7 @@ namespace OpenSearch.Client
             Qs("master_timeout", mastertimeout);
     }
 
-    /// <summary>Descriptor for GetComponentTemplate <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for GetComponentTemplate <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class GetComponentTemplateDescriptor
         : RequestDescriptorBase<
             GetComponentTemplateDescriptor,
@@ -210,7 +210,7 @@ namespace OpenSearch.Client
             Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
         // Request parameters
-        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public GetComponentTemplateDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
@@ -230,7 +230,7 @@ namespace OpenSearch.Client
             Qs("master_timeout", mastertimeout);
     }
 
-    /// <summary>Descriptor for GetSettings <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</para></summary>
+    /// <summary>Descriptor for GetSettings <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-settings/</para></summary>
     public partial class ClusterGetSettingsDescriptor
         : RequestDescriptorBase<
             ClusterGetSettingsDescriptor,
@@ -243,7 +243,7 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public ClusterGetSettingsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
@@ -267,7 +267,7 @@ namespace OpenSearch.Client
         public ClusterGetSettingsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    /// <summary>Descriptor for Health <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
+    /// <summary>Descriptor for Health <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-health/</para></summary>
     public partial class ClusterHealthDescriptor
         : RequestDescriptorBase<
             ClusterHealthDescriptor,
@@ -307,7 +307,7 @@ namespace OpenSearch.Client
         public ClusterHealthDescriptor AwarenessAttribute(string awarenessattribute) =>
             Qs("awareness_attribute", awarenessattribute);
 
-        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public ClusterHealthDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
@@ -329,7 +329,7 @@ namespace OpenSearch.Client
         public ClusterHealthDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
-        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         public ClusterHealthDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
 
         /// <summary>Waits until the specified number of shards is active before returning a response. Use <c>all</c> for all shards.</summary>
@@ -359,7 +359,7 @@ namespace OpenSearch.Client
             Qs("wait_for_status", waitforstatus);
     }
 
-    /// <summary>Descriptor for PendingTasks <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for PendingTasks <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ClusterPendingTasksDescriptor
         : RequestDescriptorBase<
             ClusterPendingTasksDescriptor,
@@ -372,7 +372,7 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public ClusterPendingTasksDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
@@ -388,7 +388,7 @@ namespace OpenSearch.Client
             Qs("master_timeout", mastertimeout);
     }
 
-    /// <summary>Descriptor for PostVotingConfigExclusions <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for PostVotingConfigExclusions <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class PostVotingConfigExclusionsDescriptor
         : RequestDescriptorBase<
             PostVotingConfigExclusionsDescriptor,
@@ -413,7 +413,7 @@ namespace OpenSearch.Client
         public PostVotingConfigExclusionsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    /// <summary>Descriptor for PutComponentTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</para></summary>
+    /// <summary>Descriptor for PutComponentTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</para></summary>
     public partial class PutComponentTemplateDescriptor
         : RequestDescriptorBase<
             PutComponentTemplateDescriptor,
@@ -438,7 +438,7 @@ namespace OpenSearch.Client
         Name IPutComponentTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
 
         // Request parameters
-        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public PutComponentTemplateDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
@@ -457,7 +457,7 @@ namespace OpenSearch.Client
         public PutComponentTemplateDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    /// <summary>Descriptor for PutSettings <para>https://opensearch.org/docs/latest/api-reference/cluster-settings/</para></summary>
+    /// <summary>Descriptor for PutSettings <para>https://docs.opensearch.org/latest/api-reference/cluster-settings/</para></summary>
     public partial class ClusterPutSettingsDescriptor
         : RequestDescriptorBase<
             ClusterPutSettingsDescriptor,
@@ -470,7 +470,7 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public ClusterPutSettingsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
@@ -490,7 +490,7 @@ namespace OpenSearch.Client
         public ClusterPutSettingsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    /// <summary>Descriptor for RemoteInfo <para>https://opensearch.org/docs/latest/api-reference/remote-info/</para></summary>
+    /// <summary>Descriptor for RemoteInfo <para>https://docs.opensearch.org/latest/api-reference/remote-info/</para></summary>
     public partial class RemoteInfoDescriptor
         : RequestDescriptorBase<
             RemoteInfoDescriptor,
@@ -504,7 +504,7 @@ namespace OpenSearch.Client
         // Request parameters
     }
 
-    /// <summary>Descriptor for Reroute <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for Reroute <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ClusterRerouteDescriptor
         : RequestDescriptorBase<
             ClusterRerouteDescriptor,
@@ -517,7 +517,7 @@ namespace OpenSearch.Client
 
         // values part of the url path
         // Request parameters
-        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public ClusterRerouteDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
@@ -547,7 +547,7 @@ namespace OpenSearch.Client
         public ClusterRerouteDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    /// <summary>Descriptor for State <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for State <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ClusterStateDescriptor
         : RequestDescriptorBase<
             ClusterStateDescriptor,
@@ -589,7 +589,7 @@ namespace OpenSearch.Client
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
         public ClusterStateDescriptor AllIndices() => Index(Indices.All);
 
-        /// <summary>Limits the information returned to only the <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/#metric-groups">specified metric groups</a>.</summary>
+        /// <summary>Limits the information returned to only the <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/#metric-groups">specified metric groups</a>.</summary>
         public ClusterStateDescriptor Metric(Metrics metric) =>
             Assign(metric, (a, v) => a.RouteValues.Optional("metric", v));
 
@@ -598,7 +598,7 @@ namespace OpenSearch.Client
         public ClusterStateDescriptor AllowNoIndices(bool? allownoindices = true) =>
             Qs("allow_no_indices", allownoindices);
 
-        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
+        /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public ClusterStateDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
             Qs("cluster_manager_timeout", clustermanagertimeout);
@@ -634,7 +634,7 @@ namespace OpenSearch.Client
             Qs("wait_for_timeout", waitfortimeout);
     }
 
-    /// <summary>Descriptor for Stats <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</para></summary>
+    /// <summary>Descriptor for Stats <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/</para></summary>
     public partial class ClusterStatsDescriptor
         : RequestDescriptorBase<
             ClusterStatsDescriptor,
@@ -677,7 +677,7 @@ namespace OpenSearch.Client
         Metrics IClusterStatsRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
         NodeIds IClusterStatsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
-        /// <summary>A comma-separated list of <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/#index-metric-groups">index metric groups</a>, for example, <c>docs,store</c>.</summary>
+        /// <summary>A comma-separated list of <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/#index-metric-groups">index metric groups</a>, for example, <c>docs,store</c>.</summary>
         public ClusterStatsDescriptor IndexMetric(IndexMetrics indexMetric) =>
             Assign(indexMetric, (a, v) => a.RouteValues.Optional("index_metric", v));
 
@@ -685,7 +685,7 @@ namespace OpenSearch.Client
         public ClusterStatsDescriptor Metric(Metrics metric) =>
             Assign(metric, (a, v) => a.RouteValues.Optional("metric", v));
 
-        /// <summary>A comma-separated list of node IDs used to filter results. Supports <a href="https://opensearch.org/docs/latest/api-reference/nodes-apis/index/#node-filters">node filters</a>.</summary>
+        /// <summary>A comma-separated list of node IDs used to filter results. Supports <a href="https://docs.opensearch.org/latest/api-reference/nodes-apis/index/#node-filters">node filters</a>.</summary>
         public ClusterStatsDescriptor NodeId(NodeIds nodeId) =>
             Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
 

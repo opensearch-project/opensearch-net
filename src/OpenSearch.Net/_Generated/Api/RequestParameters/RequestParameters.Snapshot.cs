@@ -52,7 +52,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.SnapshotApi
 {
-    /// <summary>Request options for CleanupRepository <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for CleanupRepository <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class CleanupRepositoryRequestParameters
         : RequestParameters<CleanupRepositoryRequestParameters>
     {
@@ -62,7 +62,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -89,7 +89,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
         }
     }
 
-    /// <summary>Request options for Clone <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for Clone <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class CloneSnapshotRequestParameters
         : RequestParameters<CloneSnapshotRequestParameters>
     {
@@ -99,7 +99,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -119,7 +119,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
         }
     }
 
-    /// <summary>Request options for Snapshot <para>https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</para></summary>
+    /// <summary>Request options for Snapshot <para>https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/</para></summary>
     public partial class SnapshotRequestParameters : RequestParameters<SnapshotRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
@@ -128,7 +128,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -161,7 +161,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
         }
     }
 
-    /// <summary>Request options for CreateRepository <para>https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</para></summary>
+    /// <summary>Request options for CreateRepository <para>https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/</para></summary>
     public partial class CreateRepositoryRequestParameters
         : RequestParameters<CreateRepositoryRequestParameters>
     {
@@ -171,7 +171,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -205,7 +205,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
         }
     }
 
-    /// <summary>Request options for Delete <para>https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/</para></summary>
+    /// <summary>Request options for Delete <para>https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot/</para></summary>
     public partial class DeleteSnapshotRequestParameters
         : RequestParameters<DeleteSnapshotRequestParameters>
     {
@@ -215,7 +215,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -235,7 +235,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
         }
     }
 
-    /// <summary>Request options for DeleteRepository <para>https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/</para></summary>
+    /// <summary>Request options for DeleteRepository <para>https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot-repository/</para></summary>
     public partial class DeleteRepositoryRequestParameters
         : RequestParameters<DeleteRepositoryRequestParameters>
     {
@@ -245,7 +245,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -272,7 +272,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
         }
     }
 
-    /// <summary>Request options for Get <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for Get <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class GetSnapshotRequestParameters
         : RequestParameters<GetSnapshotRequestParameters>
     {
@@ -282,7 +282,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -324,7 +324,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
         }
     }
 
-    /// <summary>Request options for GetRepository <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/</para></summary>
+    /// <summary>Request options for GetRepository <para>https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/</para></summary>
     public partial class GetRepositoryRequestParameters
         : RequestParameters<GetRepositoryRequestParameters>
     {
@@ -334,7 +334,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -361,7 +361,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
         }
     }
 
-    /// <summary>Request options for Restore <para>https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/</para></summary>
+    /// <summary>Request options for Restore <para>https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/</para></summary>
     public partial class RestoreRequestParameters : RequestParameters<RestoreRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -370,7 +370,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -400,7 +400,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
         }
     }
 
-    /// <summary>Request options for Status <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</para></summary>
+    /// <summary>Request options for Status <para>https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/</para></summary>
     public partial class SnapshotStatusRequestParameters
         : RequestParameters<SnapshotStatusRequestParameters>
     {
@@ -410,7 +410,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -437,7 +437,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
         }
     }
 
-    /// <summary>Request options for VerifyRepository <para>https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/</para></summary>
+    /// <summary>Request options for VerifyRepository <para>https://docs.opensearch.org/latest/api-reference/snapshots/verify-snapshot-repository/</para></summary>
     public partial class VerifyRepositoryRequestParameters
         : RequestParameters<VerifyRepositoryRequestParameters>
     {
@@ -447,7 +447,7 @@ namespace OpenSearch.Net.Specification.SnapshotApi
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout

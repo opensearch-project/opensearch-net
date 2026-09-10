@@ -160,7 +160,7 @@ namespace OpenSearch.Net.Specification.SearchPipelineApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_search/pipeline/{id} <para>https://opensearch.org/docs/latest/search-plugins/search-pipelines/creating-search-pipeline/</para></summary>
+        /// <summary>PUT on /_search/pipeline/{id} <para>https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/</para></summary>
         /// <param name="id">Pipeline ID.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -178,7 +178,7 @@ namespace OpenSearch.Net.Specification.SearchPipelineApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_search/pipeline/{id} <para>https://opensearch.org/docs/latest/search-plugins/search-pipelines/creating-search-pipeline/</para></summary>
+        /// <summary>PUT on /_search/pipeline/{id} <para>https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/</para></summary>
         /// <param name="id">Pipeline ID.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

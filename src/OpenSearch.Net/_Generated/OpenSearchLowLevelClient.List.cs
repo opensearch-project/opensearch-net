@@ -69,14 +69,14 @@ namespace OpenSearch.Net.Specification.ListApi
         internal LowLevelListNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
-        /// <summary>GET on /_list <para>https://opensearch.org/docs/latest/api-reference/list/index/</para></summary>
+        /// <summary>GET on /_list <para>https://docs.opensearch.org/latest/api-reference/list/index/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
         public TResponse Help<TResponse>(HelpRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_list", null, RequestParams(requestParameters));
 
-        /// <summary>GET on /_list <para>https://opensearch.org/docs/latest/api-reference/list/index/</para></summary>
+        /// <summary>GET on /_list <para>https://docs.opensearch.org/latest/api-reference/list/index/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
         [MapsApi("list.help", "")]
@@ -87,14 +87,14 @@ namespace OpenSearch.Net.Specification.ListApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequestAsync<TResponse>(GET, "_list", ctx, null, RequestParams(requestParameters));
 
-        /// <summary>GET on /_list/indices <para>https://opensearch.org/docs/latest/api-reference/list/list-indices/</para></summary>
+        /// <summary>GET on /_list/indices <para>https://docs.opensearch.org/latest/api-reference/list/list-indices/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
         public TResponse Indices<TResponse>(IndicesRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_list/indices", null, RequestParams(requestParameters));
 
-        /// <summary>GET on /_list/indices <para>https://opensearch.org/docs/latest/api-reference/list/list-indices/</para></summary>
+        /// <summary>GET on /_list/indices <para>https://docs.opensearch.org/latest/api-reference/list/list-indices/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
         [MapsApi("list.indices", "")]
@@ -111,7 +111,7 @@ namespace OpenSearch.Net.Specification.ListApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_list/indices/{index} <para>https://opensearch.org/docs/latest/api-reference/list/list-indices/</para></summary>
+        /// <summary>GET on /_list/indices/{index} <para>https://docs.opensearch.org/latest/api-reference/list/list-indices/</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
@@ -127,7 +127,7 @@ namespace OpenSearch.Net.Specification.ListApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_list/indices/{index} <para>https://opensearch.org/docs/latest/api-reference/list/list-indices/</para></summary>
+        /// <summary>GET on /_list/indices/{index} <para>https://docs.opensearch.org/latest/api-reference/list/list-indices/</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
@@ -146,14 +146,14 @@ namespace OpenSearch.Net.Specification.ListApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_list/shards <para>https://opensearch.org/docs/latest/api-reference/list/list-shards/</para></summary>
+        /// <summary>GET on /_list/shards <para>https://docs.opensearch.org/latest/api-reference/list/list-shards/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
         public TResponse Shards<TResponse>(ShardsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_list/shards", null, RequestParams(requestParameters));
 
-        /// <summary>GET on /_list/shards <para>https://opensearch.org/docs/latest/api-reference/list/list-shards/</para></summary>
+        /// <summary>GET on /_list/shards <para>https://docs.opensearch.org/latest/api-reference/list/list-shards/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
         [MapsApi("list.shards", "")]
@@ -170,7 +170,7 @@ namespace OpenSearch.Net.Specification.ListApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_list/shards/{index} <para>https://opensearch.org/docs/latest/api-reference/list/list-shards/</para></summary>
+        /// <summary>GET on /_list/shards/{index} <para>https://docs.opensearch.org/latest/api-reference/list/list-shards/</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
@@ -186,7 +186,7 @@ namespace OpenSearch.Net.Specification.ListApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_list/shards/{index} <para>https://opensearch.org/docs/latest/api-reference/list/list-shards/</para></summary>
+        /// <summary>GET on /_list/shards/{index} <para>https://docs.opensearch.org/latest/api-reference/list/list-shards/</para></summary>
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>

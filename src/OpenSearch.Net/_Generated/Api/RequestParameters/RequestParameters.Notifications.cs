@@ -52,7 +52,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.NotificationsApi
 {
-    /// <summary>Request options for CreateConfig <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#create-channel-configuration</para></summary>
+    /// <summary>Request options for CreateConfig <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#create-channel-configuration</para></summary>
     public partial class CreateConfigRequestParameters
         : RequestParameters<CreateConfigRequestParameters>
     {
@@ -61,7 +61,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
         public override string OperationName => "notifications.create_config";
     }
 
-    /// <summary>Request options for DeleteConfig <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#delete-channel-configuration</para></summary>
+    /// <summary>Request options for DeleteConfig <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#delete-channel-configuration</para></summary>
     public partial class DeleteConfigRequestParameters
         : RequestParameters<DeleteConfigRequestParameters>
     {
@@ -70,7 +70,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
         public override string OperationName => "notifications.delete_config";
     }
 
-    /// <summary>Request options for DeleteConfigs <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#delete-channel-configuration</para></summary>
+    /// <summary>Request options for DeleteConfigs <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#delete-channel-configuration</para></summary>
     public partial class DeleteConfigsRequestParameters
         : RequestParameters<DeleteConfigsRequestParameters>
     {
@@ -101,7 +101,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
         public override string OperationName => "notifications.get_config";
     }
 
-    /// <summary>Request options for GetConfigs <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#list-all-notification-configurations</para></summary>
+    /// <summary>Request options for GetConfigs <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#list-all-notification-configurations</para></summary>
     public partial class GetConfigsRequestParameters
         : RequestParameters<GetConfigsRequestParameters>
     {
@@ -316,7 +316,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
         }
     }
 
-    /// <summary>Request options for ListChannels <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#list-all-notification-channels</para></summary>
+    /// <summary>Request options for ListChannels <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#list-all-notification-channels</para></summary>
     public partial class ListChannelsRequestParameters
         : RequestParameters<ListChannelsRequestParameters>
     {
@@ -325,7 +325,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
         public override string OperationName => "notifications.list_channels";
     }
 
-    /// <summary>Request options for ListFeatures <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#list-supported-channel-configurations</para></summary>
+    /// <summary>Request options for ListFeatures <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#list-supported-channel-configurations</para></summary>
     public partial class ListFeaturesRequestParameters
         : RequestParameters<ListFeaturesRequestParameters>
     {
@@ -334,7 +334,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
         public override string OperationName => "notifications.list_features";
     }
 
-    /// <summary>Request options for SendTest <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#send-test-notification</para></summary>
+    /// <summary>Request options for SendTest <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#send-test-notification</para></summary>
     public partial class SendTestRequestParameters : RequestParameters<SendTestRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -342,7 +342,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
         public override string OperationName => "notifications.send_test";
     }
 
-    /// <summary>Request options for UpdateConfig <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#update-channel-configuration</para></summary>
+    /// <summary>Request options for UpdateConfig <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#update-channel-configuration</para></summary>
     public partial class UpdateConfigRequestParameters
         : RequestParameters<UpdateConfigRequestParameters>
     {

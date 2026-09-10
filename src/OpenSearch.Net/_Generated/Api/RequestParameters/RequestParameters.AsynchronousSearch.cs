@@ -52,7 +52,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.AsynchronousSearchApi
 {
-    /// <summary>Request options for Delete <para>https://opensearch.org/docs/latest/search-plugins/async/index/#delete-searches-and-results</para></summary>
+    /// <summary>Request options for Delete <para>https://docs.opensearch.org/latest/search-plugins/async/index/#delete-searches-and-results</para></summary>
     public partial class DeleteRequestParameters : RequestParameters<DeleteRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
@@ -60,7 +60,7 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
         public override string OperationName => "asynchronous_search.delete";
     }
 
-    /// <summary>Request options for Get <para>https://opensearch.org/docs/latest/search-plugins/async/index/#get-partial-results</para></summary>
+    /// <summary>Request options for Get <para>https://docs.opensearch.org/latest/search-plugins/async/index/#get-partial-results</para></summary>
     public partial class GetRequestParameters : RequestParameters<GetRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -68,7 +68,7 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
         public override string OperationName => "asynchronous_search.get";
     }
 
-    /// <summary>Request options for Search <para>https://opensearch.org/docs/latest/search-plugins/async/index/#rest-api</para></summary>
+    /// <summary>Request options for Search <para>https://docs.opensearch.org/latest/search-plugins/async/index/#rest-api</para></summary>
     public partial class SearchRequestParameters : RequestParameters<SearchRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -114,7 +114,7 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
         }
     }
 
-    /// <summary>Request options for Stats <para>https://opensearch.org/docs/latest/search-plugins/async/index/#monitor-stats</para></summary>
+    /// <summary>Request options for Stats <para>https://docs.opensearch.org/latest/search-plugins/async/index/#monitor-stats</para></summary>
     public partial class StatsRequestParameters : RequestParameters<StatsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;

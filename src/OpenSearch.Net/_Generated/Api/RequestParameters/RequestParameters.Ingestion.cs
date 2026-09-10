@@ -52,7 +52,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.IngestionApi
 {
-    /// <summary>Request options for GetState <para>https://docs.opensearch.org/docs/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
+    /// <summary>Request options for GetState <para>https://docs.opensearch.org/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
     public partial class GetStateRequestParameters : RequestParameters<GetStateRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -81,7 +81,7 @@ namespace OpenSearch.Net.Specification.IngestionApi
         }
     }
 
-    /// <summary>Request options for Pause <para>https://docs.opensearch.org/docs/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
+    /// <summary>Request options for Pause <para>https://docs.opensearch.org/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
     public partial class PauseRequestParameters : RequestParameters<PauseRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -103,7 +103,7 @@ namespace OpenSearch.Net.Specification.IngestionApi
         }
     }
 
-    /// <summary>Request options for Resume <para>https://docs.opensearch.org/docs/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
+    /// <summary>Request options for Resume <para>https://docs.opensearch.org/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
     public partial class ResumeRequestParameters : RequestParameters<ResumeRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;

@@ -90,7 +90,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.cache";
     }
 
-    /// <summary>Request options for ChangePassword <para>https://opensearch.org/docs/latest/security/access-control/api/#change-password</para></summary>
+    /// <summary>Request options for ChangePassword <para>https://docs.opensearch.org/latest/security/access-control/api/#change-password</para></summary>
     public partial class ChangePasswordRequestParameters
         : RequestParameters<ChangePasswordRequestParameters>
     {
@@ -99,7 +99,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.change_password";
     }
 
-    /// <summary>Request options for ConfigUpgradeCheck <para>https://opensearch.org/docs/latest/security/access-control/api/#configuration-upgrade-check</para></summary>
+    /// <summary>Request options for ConfigUpgradeCheck <para>https://docs.opensearch.org/latest/security/access-control/api/#configuration-upgrade-check</para></summary>
     public partial class ConfigUpgradeCheckRequestParameters
         : RequestParameters<ConfigUpgradeCheckRequestParameters>
     {
@@ -108,7 +108,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.config_upgrade_check";
     }
 
-    /// <summary>Request options for ConfigUpgradePerform <para>https://opensearch.org/docs/latest/security/access-control/api/#configuration-upgrade</para></summary>
+    /// <summary>Request options for ConfigUpgradePerform <para>https://docs.opensearch.org/latest/security/access-control/api/#configuration-upgrade</para></summary>
     public partial class ConfigUpgradePerformRequestParameters
         : RequestParameters<ConfigUpgradePerformRequestParameters>
     {
@@ -117,7 +117,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.config_upgrade_perform";
     }
 
-    /// <summary>Request options for CreateActionGroup <para>https://opensearch.org/docs/latest/security/access-control/api/#create-action-group</para></summary>
+    /// <summary>Request options for CreateActionGroup <para>https://docs.opensearch.org/latest/security/access-control/api/#create-action-group</para></summary>
     public partial class CreateActionGroupRequestParameters
         : RequestParameters<CreateActionGroupRequestParameters>
     {
@@ -126,7 +126,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.create_action_group";
     }
 
-    /// <summary>Request options for CreateAllowlist <para>https://opensearch.org/docs/latest/security/access-control/api/#access-control-for-the-api</para></summary>
+    /// <summary>Request options for CreateAllowlist <para>https://docs.opensearch.org/latest/security/access-control/api/#access-control-for-the-api</para></summary>
     public partial class CreateAllowlistRequestParameters
         : RequestParameters<CreateAllowlistRequestParameters>
     {
@@ -135,7 +135,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.create_allowlist";
     }
 
-    /// <summary>Request options for CreateRole <para>https://opensearch.org/docs/latest/security/access-control/api/#create-role</para></summary>
+    /// <summary>Request options for CreateRole <para>https://docs.opensearch.org/latest/security/access-control/api/#create-role</para></summary>
     public partial class CreateRoleRequestParameters
         : RequestParameters<CreateRoleRequestParameters>
     {
@@ -144,7 +144,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.create_role";
     }
 
-    /// <summary>Request options for CreateRoleMapping <para>https://opensearch.org/docs/latest/security/access-control/api/#create-role-mapping</para></summary>
+    /// <summary>Request options for CreateRoleMapping <para>https://docs.opensearch.org/latest/security/access-control/api/#create-role-mapping</para></summary>
     public partial class CreateRoleMappingRequestParameters
         : RequestParameters<CreateRoleMappingRequestParameters>
     {
@@ -153,7 +153,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.create_role_mapping";
     }
 
-    /// <summary>Request options for CreateTenant <para>https://opensearch.org/docs/latest/security/access-control/api/#create-tenant</para></summary>
+    /// <summary>Request options for CreateTenant <para>https://docs.opensearch.org/latest/security/access-control/api/#create-tenant</para></summary>
     public partial class CreateTenantRequestParameters
         : RequestParameters<CreateTenantRequestParameters>
     {
@@ -162,7 +162,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.create_tenant";
     }
 
-    /// <summary>Request options for CreateUpdateTenancyConfig <para>https://opensearch.org/docs/latest/security/multi-tenancy/dynamic-config/#configuring-multi-tenancy-with-the-rest-api</para></summary>
+    /// <summary>Request options for CreateUpdateTenancyConfig <para>https://docs.opensearch.org/latest/security/multi-tenancy/dynamic-config/#configuring-multi-tenancy-with-the-rest-api</para></summary>
     public partial class CreateUpdateTenancyConfigRequestParameters
         : RequestParameters<CreateUpdateTenancyConfigRequestParameters>
     {
@@ -171,7 +171,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.create_update_tenancy_config";
     }
 
-    /// <summary>Request options for CreateUser <para>https://opensearch.org/docs/latest/security/access-control/api/#create-user</para></summary>
+    /// <summary>Request options for CreateUser <para>https://docs.opensearch.org/latest/security/access-control/api/#create-user</para></summary>
     public partial class CreateUserRequestParameters
         : RequestParameters<CreateUserRequestParameters>
     {
@@ -189,7 +189,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.create_user_legacy";
     }
 
-    /// <summary>Request options for DeleteActionGroup <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-action-group</para></summary>
+    /// <summary>Request options for DeleteActionGroup <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-action-group</para></summary>
     public partial class DeleteActionGroupRequestParameters
         : RequestParameters<DeleteActionGroupRequestParameters>
     {
@@ -198,7 +198,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.delete_action_group";
     }
 
-    /// <summary>Request options for DeleteDistinguishedName <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-distinguished-names</para></summary>
+    /// <summary>Request options for DeleteDistinguishedName <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-distinguished-names</para></summary>
     public partial class DeleteDistinguishedNameRequestParameters
         : RequestParameters<DeleteDistinguishedNameRequestParameters>
     {
@@ -207,7 +207,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.delete_distinguished_name";
     }
 
-    /// <summary>Request options for DeleteRole <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-role</para></summary>
+    /// <summary>Request options for DeleteRole <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-role</para></summary>
     public partial class DeleteRoleRequestParameters
         : RequestParameters<DeleteRoleRequestParameters>
     {
@@ -216,7 +216,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.delete_role";
     }
 
-    /// <summary>Request options for DeleteRoleMapping <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-role-mapping</para></summary>
+    /// <summary>Request options for DeleteRoleMapping <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-role-mapping</para></summary>
     public partial class DeleteRoleMappingRequestParameters
         : RequestParameters<DeleteRoleMappingRequestParameters>
     {
@@ -225,7 +225,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.delete_role_mapping";
     }
 
-    /// <summary>Request options for DeleteTenant <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-action-group</para></summary>
+    /// <summary>Request options for DeleteTenant <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-action-group</para></summary>
     public partial class DeleteTenantRequestParameters
         : RequestParameters<DeleteTenantRequestParameters>
     {
@@ -234,7 +234,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.delete_tenant";
     }
 
-    /// <summary>Request options for DeleteUser <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-user</para></summary>
+    /// <summary>Request options for DeleteUser <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-user</para></summary>
     public partial class DeleteUserRequestParameters
         : RequestParameters<DeleteUserRequestParameters>
     {
@@ -252,7 +252,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.delete_user_legacy";
     }
 
-    /// <summary>Request options for FlushCache <para>https://opensearch.org/docs/latest/security/access-control/api/#flush-cache</para></summary>
+    /// <summary>Request options for FlushCache <para>https://docs.opensearch.org/latest/security/access-control/api/#flush-cache</para></summary>
     public partial class FlushCacheRequestParameters
         : RequestParameters<FlushCacheRequestParameters>
     {
@@ -261,7 +261,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.flush_cache";
     }
 
-    /// <summary>Request options for GenerateOboToken <para>https://opensearch.org/docs/latest/security/access-control/authentication-tokens/#api-endpoint</para></summary>
+    /// <summary>Request options for GenerateOboToken <para>https://docs.opensearch.org/latest/security/access-control/authentication-tokens/#api-endpoint</para></summary>
     public partial class GenerateOboTokenRequestParameters
         : RequestParameters<GenerateOboTokenRequestParameters>
     {
@@ -288,7 +288,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.generate_user_token_legacy";
     }
 
-    /// <summary>Request options for GetAccountDetails <para>https://opensearch.org/docs/latest/security/access-control/api/#get-account-details</para></summary>
+    /// <summary>Request options for GetAccountDetails <para>https://docs.opensearch.org/latest/security/access-control/api/#get-account-details</para></summary>
     public partial class GetAccountDetailsRequestParameters
         : RequestParameters<GetAccountDetailsRequestParameters>
     {
@@ -297,7 +297,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.get_account_details";
     }
 
-    /// <summary>Request options for GetActionGroup <para>https://opensearch.org/docs/latest/security/access-control/api/#get-action-group</para></summary>
+    /// <summary>Request options for GetActionGroup <para>https://docs.opensearch.org/latest/security/access-control/api/#get-action-group</para></summary>
     public partial class GetActionGroupRequestParameters
         : RequestParameters<GetActionGroupRequestParameters>
     {
@@ -306,7 +306,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.get_action_group";
     }
 
-    /// <summary>Request options for GetActionGroups <para>https://opensearch.org/docs/latest/security/access-control/api/#get-action-groups</para></summary>
+    /// <summary>Request options for GetActionGroups <para>https://docs.opensearch.org/latest/security/access-control/api/#get-action-groups</para></summary>
     public partial class GetActionGroupsRequestParameters
         : RequestParameters<GetActionGroupsRequestParameters>
     {
@@ -338,7 +338,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         }
     }
 
-    /// <summary>Request options for GetAllowlist <para>https://opensearch.org/docs/latest/security/access-control/api/#access-control-for-the-api</para></summary>
+    /// <summary>Request options for GetAllowlist <para>https://docs.opensearch.org/latest/security/access-control/api/#access-control-for-the-api</para></summary>
     public partial class GetAllowlistRequestParameters
         : RequestParameters<GetAllowlistRequestParameters>
     {
@@ -347,7 +347,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.get_allowlist";
     }
 
-    /// <summary>Request options for GetAuditConfiguration <para>https://opensearch.org/docs/latest/security/access-control/api/#audit-logs</para></summary>
+    /// <summary>Request options for GetAuditConfiguration <para>https://docs.opensearch.org/latest/security/access-control/api/#audit-logs</para></summary>
     public partial class GetAuditConfigurationRequestParameters
         : RequestParameters<GetAuditConfigurationRequestParameters>
     {
@@ -356,7 +356,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.get_audit_configuration";
     }
 
-    /// <summary>Request options for GetCertificates <para>https://opensearch.org/docs/latest/security/access-control/api/#get-certificates</para></summary>
+    /// <summary>Request options for GetCertificates <para>https://docs.opensearch.org/latest/security/access-control/api/#get-certificates</para></summary>
     public partial class GetCertificatesRequestParameters
         : RequestParameters<GetCertificatesRequestParameters>
     {
@@ -365,7 +365,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.get_certificates";
     }
 
-    /// <summary>Request options for GetConfiguration <para>https://opensearch.org/docs/latest/security/access-control/api/#get-configuration</para></summary>
+    /// <summary>Request options for GetConfiguration <para>https://docs.opensearch.org/latest/security/access-control/api/#get-configuration</para></summary>
     public partial class GetConfigurationRequestParameters
         : RequestParameters<GetConfigurationRequestParameters>
     {
@@ -383,7 +383,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.get_dashboards_info";
     }
 
-    /// <summary>Request options for GetDistinguishedName <para>https://opensearch.org/docs/latest/security/access-control/api/#get-distinguished-names</para></summary>
+    /// <summary>Request options for GetDistinguishedName <para>https://docs.opensearch.org/latest/security/access-control/api/#get-distinguished-names</para></summary>
     public partial class GetDistinguishedNameRequestParameters
         : RequestParameters<GetDistinguishedNameRequestParameters>
     {
@@ -399,7 +399,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         }
     }
 
-    /// <summary>Request options for GetDistinguishedNames <para>https://opensearch.org/docs/latest/security/access-control/api/#get-distinguished-names</para></summary>
+    /// <summary>Request options for GetDistinguishedNames <para>https://docs.opensearch.org/latest/security/access-control/api/#get-distinguished-names</para></summary>
     public partial class GetDistinguishedNamesRequestParameters
         : RequestParameters<GetDistinguishedNamesRequestParameters>
     {
@@ -447,7 +447,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.get_permissions_info";
     }
 
-    /// <summary>Request options for GetRole <para>https://opensearch.org/docs/latest/security/access-control/api/#get-role</para></summary>
+    /// <summary>Request options for GetRole <para>https://docs.opensearch.org/latest/security/access-control/api/#get-role</para></summary>
     public partial class GetRoleRequestParameters : RequestParameters<GetRoleRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -455,7 +455,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.get_role";
     }
 
-    /// <summary>Request options for GetRoleMapping <para>https://opensearch.org/docs/latest/security/access-control/api/#get-role-mapping</para></summary>
+    /// <summary>Request options for GetRoleMapping <para>https://docs.opensearch.org/latest/security/access-control/api/#get-role-mapping</para></summary>
     public partial class GetRoleMappingRequestParameters
         : RequestParameters<GetRoleMappingRequestParameters>
     {
@@ -464,7 +464,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.get_role_mapping";
     }
 
-    /// <summary>Request options for GetRoleMappings <para>https://opensearch.org/docs/latest/security/access-control/api/#get-role-mappings</para></summary>
+    /// <summary>Request options for GetRoleMappings <para>https://docs.opensearch.org/latest/security/access-control/api/#get-role-mappings</para></summary>
     public partial class GetRoleMappingsRequestParameters
         : RequestParameters<GetRoleMappingsRequestParameters>
     {
@@ -473,7 +473,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.get_role_mappings";
     }
 
-    /// <summary>Request options for GetRoles <para>https://opensearch.org/docs/latest/security/access-control/api/#get-roles</para></summary>
+    /// <summary>Request options for GetRoles <para>https://docs.opensearch.org/latest/security/access-control/api/#get-roles</para></summary>
     public partial class GetRolesRequestParameters : RequestParameters<GetRolesRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -497,7 +497,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         }
     }
 
-    /// <summary>Request options for GetTenancyConfig <para>https://opensearch.org/docs/latest/security/multi-tenancy/dynamic-config/#configuring-multi-tenancy-with-the-rest-api</para></summary>
+    /// <summary>Request options for GetTenancyConfig <para>https://docs.opensearch.org/latest/security/multi-tenancy/dynamic-config/#configuring-multi-tenancy-with-the-rest-api</para></summary>
     public partial class GetTenancyConfigRequestParameters
         : RequestParameters<GetTenancyConfigRequestParameters>
     {
@@ -506,7 +506,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.get_tenancy_config";
     }
 
-    /// <summary>Request options for GetTenant <para>https://opensearch.org/docs/latest/security/access-control/api/#get-tenant</para></summary>
+    /// <summary>Request options for GetTenant <para>https://docs.opensearch.org/latest/security/access-control/api/#get-tenant</para></summary>
     public partial class GetTenantRequestParameters : RequestParameters<GetTenantRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -514,7 +514,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.get_tenant";
     }
 
-    /// <summary>Request options for GetTenants <para>https://opensearch.org/docs/latest/security/access-control/api/#get-tenants</para></summary>
+    /// <summary>Request options for GetTenants <para>https://docs.opensearch.org/latest/security/access-control/api/#get-tenants</para></summary>
     public partial class GetTenantsRequestParameters
         : RequestParameters<GetTenantsRequestParameters>
     {
@@ -523,7 +523,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.get_tenants";
     }
 
-    /// <summary>Request options for GetUser <para>https://opensearch.org/docs/latest/security/access-control/api/#get-user</para></summary>
+    /// <summary>Request options for GetUser <para>https://docs.opensearch.org/latest/security/access-control/api/#get-user</para></summary>
     public partial class GetUserRequestParameters : RequestParameters<GetUserRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -540,7 +540,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.get_user_legacy";
     }
 
-    /// <summary>Request options for GetUsers <para>https://opensearch.org/docs/latest/security/access-control/api/#get-users</para></summary>
+    /// <summary>Request options for GetUsers <para>https://docs.opensearch.org/latest/security/access-control/api/#get-users</para></summary>
     public partial class GetUsersRequestParameters : RequestParameters<GetUsersRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -557,7 +557,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.get_users_legacy";
     }
 
-    /// <summary>Request options for Health <para>https://opensearch.org/docs/latest/security/access-control/api/#health-check</para></summary>
+    /// <summary>Request options for Health <para>https://docs.opensearch.org/latest/security/access-control/api/#health-check</para></summary>
     public partial class HealthRequestParameters : RequestParameters<HealthRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -583,7 +583,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.migrate";
     }
 
-    /// <summary>Request options for PatchActionGroup <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-action-group</para></summary>
+    /// <summary>Request options for PatchActionGroup <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-action-group</para></summary>
     public partial class PatchActionGroupRequestParameters
         : RequestParameters<PatchActionGroupRequestParameters>
     {
@@ -592,7 +592,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.patch_action_group";
     }
 
-    /// <summary>Request options for PatchActionGroups <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-action-groups</para></summary>
+    /// <summary>Request options for PatchActionGroups <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-action-groups</para></summary>
     public partial class PatchActionGroupsRequestParameters
         : RequestParameters<PatchActionGroupsRequestParameters>
     {
@@ -601,7 +601,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.patch_action_groups";
     }
 
-    /// <summary>Request options for PatchAllowlist <para>https://opensearch.org/docs/latest/security/access-control/api/#access-control-for-the-api</para></summary>
+    /// <summary>Request options for PatchAllowlist <para>https://docs.opensearch.org/latest/security/access-control/api/#access-control-for-the-api</para></summary>
     public partial class PatchAllowlistRequestParameters
         : RequestParameters<PatchAllowlistRequestParameters>
     {
@@ -610,7 +610,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.patch_allowlist";
     }
 
-    /// <summary>Request options for PatchAuditConfiguration <para>https://opensearch.org/docs/latest/security/access-control/api/#audit-logs</para></summary>
+    /// <summary>Request options for PatchAuditConfiguration <para>https://docs.opensearch.org/latest/security/access-control/api/#audit-logs</para></summary>
     public partial class PatchAuditConfigurationRequestParameters
         : RequestParameters<PatchAuditConfigurationRequestParameters>
     {
@@ -619,7 +619,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.patch_audit_configuration";
     }
 
-    /// <summary>Request options for PatchConfiguration <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-configuration</para></summary>
+    /// <summary>Request options for PatchConfiguration <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-configuration</para></summary>
     public partial class PatchConfigurationRequestParameters
         : RequestParameters<PatchConfigurationRequestParameters>
     {
@@ -637,7 +637,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.patch_distinguished_name";
     }
 
-    /// <summary>Request options for PatchDistinguishedNames <para>https://opensearch.org/docs/latest/security/access-control/api/#update-all-distinguished-names</para></summary>
+    /// <summary>Request options for PatchDistinguishedNames <para>https://docs.opensearch.org/latest/security/access-control/api/#update-all-distinguished-names</para></summary>
     public partial class PatchDistinguishedNamesRequestParameters
         : RequestParameters<PatchDistinguishedNamesRequestParameters>
     {
@@ -646,7 +646,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.patch_distinguished_names";
     }
 
-    /// <summary>Request options for PatchRole <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-role</para></summary>
+    /// <summary>Request options for PatchRole <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-role</para></summary>
     public partial class PatchRoleRequestParameters : RequestParameters<PatchRoleRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PATCH;
@@ -654,7 +654,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.patch_role";
     }
 
-    /// <summary>Request options for PatchRoleMapping <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-role-mapping</para></summary>
+    /// <summary>Request options for PatchRoleMapping <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-role-mapping</para></summary>
     public partial class PatchRoleMappingRequestParameters
         : RequestParameters<PatchRoleMappingRequestParameters>
     {
@@ -663,7 +663,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.patch_role_mapping";
     }
 
-    /// <summary>Request options for PatchRoleMappings <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-role-mappings</para></summary>
+    /// <summary>Request options for PatchRoleMappings <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-role-mappings</para></summary>
     public partial class PatchRoleMappingsRequestParameters
         : RequestParameters<PatchRoleMappingsRequestParameters>
     {
@@ -672,7 +672,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.patch_role_mappings";
     }
 
-    /// <summary>Request options for PatchRoles <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-roles</para></summary>
+    /// <summary>Request options for PatchRoles <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-roles</para></summary>
     public partial class PatchRolesRequestParameters
         : RequestParameters<PatchRolesRequestParameters>
     {
@@ -681,7 +681,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.patch_roles";
     }
 
-    /// <summary>Request options for PatchTenant <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-tenant</para></summary>
+    /// <summary>Request options for PatchTenant <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-tenant</para></summary>
     public partial class PatchTenantRequestParameters
         : RequestParameters<PatchTenantRequestParameters>
     {
@@ -690,7 +690,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.patch_tenant";
     }
 
-    /// <summary>Request options for PatchTenants <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-tenants</para></summary>
+    /// <summary>Request options for PatchTenants <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-tenants</para></summary>
     public partial class PatchTenantsRequestParameters
         : RequestParameters<PatchTenantsRequestParameters>
     {
@@ -699,7 +699,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.patch_tenants";
     }
 
-    /// <summary>Request options for PatchUser <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-user</para></summary>
+    /// <summary>Request options for PatchUser <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-user</para></summary>
     public partial class PatchUserRequestParameters : RequestParameters<PatchUserRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PATCH;
@@ -707,7 +707,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.patch_user";
     }
 
-    /// <summary>Request options for PatchUsers <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-users</para></summary>
+    /// <summary>Request options for PatchUsers <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-users</para></summary>
     public partial class PatchUsersRequestParameters
         : RequestParameters<PatchUsersRequestParameters>
     {
@@ -725,7 +725,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.post_dashboards_info";
     }
 
-    /// <summary>Request options for ReloadHttpCertificates <para>https://opensearch.org/docs/latest/security/access-control/api/#reload-http-certificates</para></summary>
+    /// <summary>Request options for ReloadHttpCertificates <para>https://docs.opensearch.org/latest/security/access-control/api/#reload-http-certificates</para></summary>
     public partial class ReloadHttpCertificatesRequestParameters
         : RequestParameters<ReloadHttpCertificatesRequestParameters>
     {
@@ -734,7 +734,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.reload_http_certificates";
     }
 
-    /// <summary>Request options for ReloadTransportCertificates <para>https://opensearch.org/docs/latest/security/access-control/api/#reload-transport-certificates</para></summary>
+    /// <summary>Request options for ReloadTransportCertificates <para>https://docs.opensearch.org/latest/security/access-control/api/#reload-transport-certificates</para></summary>
     public partial class ReloadTransportCertificatesRequestParameters
         : RequestParameters<ReloadTransportCertificatesRequestParameters>
     {
@@ -752,7 +752,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.tenant_info";
     }
 
-    /// <summary>Request options for UpdateAuditConfiguration <para>https://opensearch.org/docs/latest/security/access-control/api/#audit-logs</para></summary>
+    /// <summary>Request options for UpdateAuditConfiguration <para>https://docs.opensearch.org/latest/security/access-control/api/#audit-logs</para></summary>
     public partial class UpdateAuditConfigurationRequestParameters
         : RequestParameters<UpdateAuditConfigurationRequestParameters>
     {
@@ -761,7 +761,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.update_audit_configuration";
     }
 
-    /// <summary>Request options for UpdateConfiguration <para>https://opensearch.org/docs/latest/security/access-control/api/#update-configuration</para></summary>
+    /// <summary>Request options for UpdateConfiguration <para>https://docs.opensearch.org/latest/security/access-control/api/#update-configuration</para></summary>
     public partial class UpdateConfigurationRequestParameters
         : RequestParameters<UpdateConfigurationRequestParameters>
     {
@@ -770,7 +770,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.update_configuration";
     }
 
-    /// <summary>Request options for UpdateDistinguishedName <para>https://opensearch.org/docs/latest/security/access-control/api/#update-distinguished-names</para></summary>
+    /// <summary>Request options for UpdateDistinguishedName <para>https://docs.opensearch.org/latest/security/access-control/api/#update-distinguished-names</para></summary>
     public partial class UpdateDistinguishedNameRequestParameters
         : RequestParameters<UpdateDistinguishedNameRequestParameters>
     {

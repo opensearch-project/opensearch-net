@@ -60,7 +60,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.add_block</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         AddIndexBlockResponse AddBlock(
             Indices index,
@@ -71,7 +71,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.add_block</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<AddIndexBlockResponse> AddBlockAsync(
             Indices index,
@@ -83,14 +83,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.add_block</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         AddIndexBlockResponse AddBlock(IAddIndexBlockRequest request);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.add_block</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<AddIndexBlockResponse> AddBlockAsync(
             IAddIndexBlockRequest request,
@@ -100,14 +100,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.analyze</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/">https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/analyze-apis/perform-text-analysis/">https://docs.opensearch.org/latest/api-reference/analyze-apis/perform-text-analysis/</a>
         /// </summary>
         AnalyzeResponse Analyze(Func<AnalyzeDescriptor, IAnalyzeRequest> selector = null);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.analyze</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/">https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/analyze-apis/perform-text-analysis/">https://docs.opensearch.org/latest/api-reference/analyze-apis/perform-text-analysis/</a>
         /// </summary>
         Task<AnalyzeResponse> AnalyzeAsync(
             Func<AnalyzeDescriptor, IAnalyzeRequest> selector = null,
@@ -117,21 +117,21 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.analyze</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/">https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/analyze-apis/perform-text-analysis/">https://docs.opensearch.org/latest/api-reference/analyze-apis/perform-text-analysis/</a>
         /// </summary>
         AnalyzeResponse Analyze(IAnalyzeRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.analyze</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/">https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/analyze-apis/perform-text-analysis/">https://docs.opensearch.org/latest/api-reference/analyze-apis/perform-text-analysis/</a>
         /// </summary>
         Task<AnalyzeResponse> AnalyzeAsync(IAnalyzeRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.clear_cache</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/">https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/clear-index-cache/">https://docs.opensearch.org/latest/api-reference/index-apis/clear-index-cache/</a>
         /// </summary>
         ClearCacheResponse ClearCache(
             Indices index = null,
@@ -141,7 +141,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.clear_cache</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/">https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/clear-index-cache/">https://docs.opensearch.org/latest/api-reference/index-apis/clear-index-cache/</a>
         /// </summary>
         Task<ClearCacheResponse> ClearCacheAsync(
             Indices index = null,
@@ -152,14 +152,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.clear_cache</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/">https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/clear-index-cache/">https://docs.opensearch.org/latest/api-reference/index-apis/clear-index-cache/</a>
         /// </summary>
         ClearCacheResponse ClearCache(IClearCacheRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.clear_cache</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/">https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/clear-index-cache/">https://docs.opensearch.org/latest/api-reference/index-apis/clear-index-cache/</a>
         /// </summary>
         Task<ClearCacheResponse> ClearCacheAsync(
             IClearCacheRequest request,
@@ -169,7 +169,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.clone</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clone/">https://opensearch.org/docs/latest/api-reference/index-apis/clone/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/clone/">https://docs.opensearch.org/latest/api-reference/index-apis/clone/</a>
         /// </summary>
         CloneIndexResponse Clone(
             IndexName index,
@@ -180,7 +180,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.clone</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clone/">https://opensearch.org/docs/latest/api-reference/index-apis/clone/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/clone/">https://docs.opensearch.org/latest/api-reference/index-apis/clone/</a>
         /// </summary>
         Task<CloneIndexResponse> CloneAsync(
             IndexName index,
@@ -192,14 +192,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.clone</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clone/">https://opensearch.org/docs/latest/api-reference/index-apis/clone/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/clone/">https://docs.opensearch.org/latest/api-reference/index-apis/clone/</a>
         /// </summary>
         CloneIndexResponse Clone(ICloneIndexRequest request);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.clone</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clone/">https://opensearch.org/docs/latest/api-reference/index-apis/clone/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/clone/">https://docs.opensearch.org/latest/api-reference/index-apis/clone/</a>
         /// </summary>
         Task<CloneIndexResponse> CloneAsync(
             ICloneIndexRequest request,
@@ -209,7 +209,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.close</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/close-index/">https://opensearch.org/docs/latest/api-reference/index-apis/close-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/close-index/">https://docs.opensearch.org/latest/api-reference/index-apis/close-index/</a>
         /// </summary>
         CloseIndexResponse Close(
             Indices index,
@@ -219,7 +219,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.close</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/close-index/">https://opensearch.org/docs/latest/api-reference/index-apis/close-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/close-index/">https://docs.opensearch.org/latest/api-reference/index-apis/close-index/</a>
         /// </summary>
         Task<CloseIndexResponse> CloseAsync(
             Indices index,
@@ -230,14 +230,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.close</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/close-index/">https://opensearch.org/docs/latest/api-reference/index-apis/close-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/close-index/">https://docs.opensearch.org/latest/api-reference/index-apis/close-index/</a>
         /// </summary>
         CloseIndexResponse Close(ICloseIndexRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.close</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/close-index/">https://opensearch.org/docs/latest/api-reference/index-apis/close-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/close-index/">https://docs.opensearch.org/latest/api-reference/index-apis/close-index/</a>
         /// </summary>
         Task<CloseIndexResponse> CloseAsync(
             ICloseIndexRequest request,
@@ -247,7 +247,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/create-index/">https://opensearch.org/docs/latest/api-reference/index-apis/create-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/create-index/">https://docs.opensearch.org/latest/api-reference/index-apis/create-index/</a>
         /// </summary>
         CreateIndexResponse Create(
             IndexName index,
@@ -257,7 +257,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/create-index/">https://opensearch.org/docs/latest/api-reference/index-apis/create-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/create-index/">https://docs.opensearch.org/latest/api-reference/index-apis/create-index/</a>
         /// </summary>
         Task<CreateIndexResponse> CreateAsync(
             IndexName index,
@@ -268,14 +268,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/create-index/">https://opensearch.org/docs/latest/api-reference/index-apis/create-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/create-index/">https://docs.opensearch.org/latest/api-reference/index-apis/create-index/</a>
         /// </summary>
         CreateIndexResponse Create(ICreateIndexRequest request);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/create-index/">https://opensearch.org/docs/latest/api-reference/index-apis/create-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/create-index/">https://docs.opensearch.org/latest/api-reference/index-apis/create-index/</a>
         /// </summary>
         Task<CreateIndexResponse> CreateAsync(
             ICreateIndexRequest request,
@@ -285,7 +285,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/">https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/">https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/</a>
         /// </summary>
         DeleteIndexResponse Delete(
             Indices index,
@@ -295,7 +295,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/">https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/">https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/</a>
         /// </summary>
         Task<DeleteIndexResponse> DeleteAsync(
             Indices index,
@@ -306,14 +306,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/">https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/">https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/</a>
         /// </summary>
         DeleteIndexResponse Delete(IDeleteIndexRequest request);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/">https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/">https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/</a>
         /// </summary>
         Task<DeleteIndexResponse> DeleteAsync(
             IDeleteIndexRequest request,
@@ -323,7 +323,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases">https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/alias/delete-alias/">https://docs.opensearch.org/latest/api-reference/alias/delete-alias/</a>
         /// </summary>
         DeleteAliasResponse DeleteAlias(
             Indices index,
@@ -334,7 +334,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases">https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/alias/delete-alias/">https://docs.opensearch.org/latest/api-reference/alias/delete-alias/</a>
         /// </summary>
         Task<DeleteAliasResponse> DeleteAliasAsync(
             Indices index,
@@ -346,14 +346,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases">https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/alias/delete-alias/">https://docs.opensearch.org/latest/api-reference/alias/delete-alias/</a>
         /// </summary>
         DeleteAliasResponse DeleteAlias(IDeleteAliasRequest request);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases">https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/alias/delete-alias/">https://docs.opensearch.org/latest/api-reference/alias/delete-alias/</a>
         /// </summary>
         Task<DeleteAliasResponse> DeleteAliasAsync(
             IDeleteAliasRequest request,
@@ -363,7 +363,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/#delete-a-template">https://docs.opensearch.org/latest/im-plugin/index-templates/#delete-a-template</a>
         /// </summary>
         DeleteComposableIndexTemplateResponse DeleteComposableTemplate(
             Name name,
@@ -376,7 +376,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/#delete-a-template">https://docs.opensearch.org/latest/im-plugin/index-templates/#delete-a-template</a>
         /// </summary>
         Task<DeleteComposableIndexTemplateResponse> DeleteComposableTemplateAsync(
             Name name,
@@ -390,7 +390,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/#delete-a-template">https://docs.opensearch.org/latest/im-plugin/index-templates/#delete-a-template</a>
         /// </summary>
         DeleteComposableIndexTemplateResponse DeleteComposableTemplate(
             IDeleteComposableIndexTemplateRequest request
@@ -399,7 +399,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/#delete-a-template">https://docs.opensearch.org/latest/im-plugin/index-templates/#delete-a-template</a>
         /// </summary>
         Task<DeleteComposableIndexTemplateResponse> DeleteComposableTemplateAsync(
             IDeleteComposableIndexTemplateRequest request,
@@ -409,7 +409,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         DeleteIndexTemplateResponse DeleteTemplate(
             Name name,
@@ -419,7 +419,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<DeleteIndexTemplateResponse> DeleteTemplateAsync(
             Name name,
@@ -430,14 +430,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         DeleteIndexTemplateResponse DeleteTemplate(IDeleteIndexTemplateRequest request);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<DeleteIndexTemplateResponse> DeleteTemplateAsync(
             IDeleteIndexTemplateRequest request,
@@ -447,7 +447,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/exists/">https://opensearch.org/docs/latest/api-reference/index-apis/exists/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/exists/">https://docs.opensearch.org/latest/api-reference/index-apis/exists/</a>
         /// </summary>
         ExistsResponse Exists(
             Indices index,
@@ -457,7 +457,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/exists/">https://opensearch.org/docs/latest/api-reference/index-apis/exists/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/exists/">https://docs.opensearch.org/latest/api-reference/index-apis/exists/</a>
         /// </summary>
         Task<ExistsResponse> ExistsAsync(
             Indices index,
@@ -468,14 +468,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/exists/">https://opensearch.org/docs/latest/api-reference/index-apis/exists/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/exists/">https://docs.opensearch.org/latest/api-reference/index-apis/exists/</a>
         /// </summary>
         ExistsResponse Exists(IIndexExistsRequest request);
 
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/exists/">https://opensearch.org/docs/latest/api-reference/index-apis/exists/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/exists/">https://docs.opensearch.org/latest/api-reference/index-apis/exists/</a>
         /// </summary>
         Task<ExistsResponse> ExistsAsync(
             IIndexExistsRequest request,
@@ -485,7 +485,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         ExistsResponse AliasExists(
             Names name,
@@ -495,7 +495,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<ExistsResponse> AliasExistsAsync(
             Names name,
@@ -506,14 +506,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         ExistsResponse AliasExists(IAliasExistsRequest request);
 
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<ExistsResponse> AliasExistsAsync(
             IAliasExistsRequest request,
@@ -523,7 +523,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         ExistsResponse ComposableTemplateExists(
             Name name,
@@ -536,7 +536,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         Task<ExistsResponse> ComposableTemplateExistsAsync(
             Name name,
@@ -550,14 +550,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         ExistsResponse ComposableTemplateExists(IComposableIndexTemplateExistsRequest request);
 
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         Task<ExistsResponse> ComposableTemplateExistsAsync(
             IComposableIndexTemplateExistsRequest request,
@@ -567,7 +567,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         ExistsResponse TemplateExists(
             Names name,
@@ -577,7 +577,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<ExistsResponse> TemplateExistsAsync(
             Names name,
@@ -588,14 +588,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         ExistsResponse TemplateExists(IIndexTemplateExistsRequest request);
 
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<ExistsResponse> TemplateExistsAsync(
             IIndexTemplateExistsRequest request,
@@ -605,7 +605,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.flush</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         FlushResponse Flush(
             Indices index = null,
@@ -615,7 +615,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.flush</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<FlushResponse> FlushAsync(
             Indices index = null,
@@ -626,21 +626,21 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.flush</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         FlushResponse Flush(IFlushRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.flush</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<FlushResponse> FlushAsync(IFlushRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.forcemerge</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         ForceMergeResponse ForceMerge(
             Indices index = null,
@@ -650,7 +650,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.forcemerge</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<ForceMergeResponse> ForceMergeAsync(
             Indices index = null,
@@ -661,14 +661,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.forcemerge</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         ForceMergeResponse ForceMerge(IForceMergeRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.forcemerge</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<ForceMergeResponse> ForceMergeAsync(
             IForceMergeRequest request,
@@ -678,7 +678,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/get-index/">https://opensearch.org/docs/latest/api-reference/index-apis/get-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-index/">https://docs.opensearch.org/latest/api-reference/index-apis/get-index/</a>
         /// </summary>
         GetIndexResponse Get(
             Indices index,
@@ -688,7 +688,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/get-index/">https://opensearch.org/docs/latest/api-reference/index-apis/get-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-index/">https://docs.opensearch.org/latest/api-reference/index-apis/get-index/</a>
         /// </summary>
         Task<GetIndexResponse> GetAsync(
             Indices index,
@@ -699,21 +699,21 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/get-index/">https://opensearch.org/docs/latest/api-reference/index-apis/get-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-index/">https://docs.opensearch.org/latest/api-reference/index-apis/get-index/</a>
         /// </summary>
         GetIndexResponse Get(IGetIndexRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/get-index/">https://opensearch.org/docs/latest/api-reference/index-apis/get-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-index/">https://docs.opensearch.org/latest/api-reference/index-apis/get-index/</a>
         /// </summary>
         Task<GetIndexResponse> GetAsync(IGetIndexRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-alias/">https://opensearch.org/docs/latest/im-plugin/index-alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-alias/">https://docs.opensearch.org/latest/im-plugin/index-alias/</a>
         /// </summary>
         GetAliasResponse GetAlias(
             Indices index = null,
@@ -723,7 +723,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-alias/">https://opensearch.org/docs/latest/im-plugin/index-alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-alias/">https://docs.opensearch.org/latest/im-plugin/index-alias/</a>
         /// </summary>
         Task<GetAliasResponse> GetAliasAsync(
             Indices index = null,
@@ -734,14 +734,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-alias/">https://opensearch.org/docs/latest/im-plugin/index-alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-alias/">https://docs.opensearch.org/latest/im-plugin/index-alias/</a>
         /// </summary>
         GetAliasResponse GetAlias(IGetAliasRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-alias/">https://opensearch.org/docs/latest/im-plugin/index-alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-alias/">https://docs.opensearch.org/latest/im-plugin/index-alias/</a>
         /// </summary>
         Task<GetAliasResponse> GetAliasAsync(
             IGetAliasRequest request,
@@ -751,7 +751,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_field_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/field-types/index/">https://opensearch.org/docs/latest/field-types/index/</a>
+        /// <a href="https://docs.opensearch.org/latest/field-types/index/">https://docs.opensearch.org/latest/field-types/index/</a>
         /// </summary>
         GetFieldMappingResponse GetFieldMapping<TDocument>(
             Fields fields,
@@ -762,7 +762,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_field_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/field-types/index/">https://opensearch.org/docs/latest/field-types/index/</a>
+        /// <a href="https://docs.opensearch.org/latest/field-types/index/">https://docs.opensearch.org/latest/field-types/index/</a>
         /// </summary>
         Task<GetFieldMappingResponse> GetFieldMappingAsync<TDocument>(
             Fields fields,
@@ -774,14 +774,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_field_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/field-types/index/">https://opensearch.org/docs/latest/field-types/index/</a>
+        /// <a href="https://docs.opensearch.org/latest/field-types/index/">https://docs.opensearch.org/latest/field-types/index/</a>
         /// </summary>
         GetFieldMappingResponse GetFieldMapping(IGetFieldMappingRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_field_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/field-types/index/">https://opensearch.org/docs/latest/field-types/index/</a>
+        /// <a href="https://docs.opensearch.org/latest/field-types/index/">https://docs.opensearch.org/latest/field-types/index/</a>
         /// </summary>
         Task<GetFieldMappingResponse> GetFieldMappingAsync(
             IGetFieldMappingRequest request,
@@ -791,7 +791,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         GetComposableIndexTemplateResponse GetComposableTemplate(
             Name name = null,
@@ -804,7 +804,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         Task<GetComposableIndexTemplateResponse> GetComposableTemplateAsync(
             Name name = null,
@@ -818,7 +818,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         GetComposableIndexTemplateResponse GetComposableTemplate(
             IGetComposableIndexTemplateRequest request
@@ -827,7 +827,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         Task<GetComposableIndexTemplateResponse> GetComposableTemplateAsync(
             IGetComposableIndexTemplateRequest request,
@@ -837,7 +837,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/field-types/index/#get-a-mapping">https://opensearch.org/docs/latest/field-types/index/#get-a-mapping</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-mapping/">https://docs.opensearch.org/latest/api-reference/index-apis/get-mapping/</a>
         /// </summary>
         GetMappingResponse GetMapping<TDocument>(
             Func<GetMappingDescriptor<TDocument>, IGetMappingRequest> selector = null
@@ -847,7 +847,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/field-types/index/#get-a-mapping">https://opensearch.org/docs/latest/field-types/index/#get-a-mapping</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-mapping/">https://docs.opensearch.org/latest/api-reference/index-apis/get-mapping/</a>
         /// </summary>
         Task<GetMappingResponse> GetMappingAsync<TDocument>(
             Func<GetMappingDescriptor<TDocument>, IGetMappingRequest> selector = null,
@@ -858,14 +858,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/field-types/index/#get-a-mapping">https://opensearch.org/docs/latest/field-types/index/#get-a-mapping</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-mapping/">https://docs.opensearch.org/latest/api-reference/index-apis/get-mapping/</a>
         /// </summary>
         GetMappingResponse GetMapping(IGetMappingRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/field-types/index/#get-a-mapping">https://opensearch.org/docs/latest/field-types/index/#get-a-mapping</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-mapping/">https://docs.opensearch.org/latest/api-reference/index-apis/get-mapping/</a>
         /// </summary>
         Task<GetMappingResponse> GetMappingAsync(
             IGetMappingRequest request,
@@ -875,7 +875,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/">https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-settings/">https://docs.opensearch.org/latest/api-reference/index-apis/get-settings/</a>
         /// </summary>
         GetIndexSettingsResponse GetSettings(
             Indices index = null,
@@ -885,7 +885,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/">https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-settings/">https://docs.opensearch.org/latest/api-reference/index-apis/get-settings/</a>
         /// </summary>
         Task<GetIndexSettingsResponse> GetSettingsAsync(
             Indices index = null,
@@ -896,14 +896,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/">https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-settings/">https://docs.opensearch.org/latest/api-reference/index-apis/get-settings/</a>
         /// </summary>
         GetIndexSettingsResponse GetSettings(IGetIndexSettingsRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/">https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-settings/">https://docs.opensearch.org/latest/api-reference/index-apis/get-settings/</a>
         /// </summary>
         Task<GetIndexSettingsResponse> GetSettingsAsync(
             IGetIndexSettingsRequest request,
@@ -913,7 +913,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         GetIndexTemplateResponse GetTemplate(
             Names name = null,
@@ -923,7 +923,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<GetIndexTemplateResponse> GetTemplateAsync(
             Names name = null,
@@ -934,14 +934,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         GetIndexTemplateResponse GetTemplate(IGetIndexTemplateRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<GetIndexTemplateResponse> GetTemplateAsync(
             IGetIndexTemplateRequest request,
@@ -951,7 +951,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.open</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/open-index/">https://opensearch.org/docs/latest/api-reference/index-apis/open-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/open-index/">https://docs.opensearch.org/latest/api-reference/index-apis/open-index/</a>
         /// </summary>
         OpenIndexResponse Open(
             Indices index,
@@ -961,7 +961,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.open</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/open-index/">https://opensearch.org/docs/latest/api-reference/index-apis/open-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/open-index/">https://docs.opensearch.org/latest/api-reference/index-apis/open-index/</a>
         /// </summary>
         Task<OpenIndexResponse> OpenAsync(
             Indices index,
@@ -972,14 +972,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.open</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/open-index/">https://opensearch.org/docs/latest/api-reference/index-apis/open-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/open-index/">https://docs.opensearch.org/latest/api-reference/index-apis/open-index/</a>
         /// </summary>
         OpenIndexResponse Open(IOpenIndexRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.open</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/open-index/">https://opensearch.org/docs/latest/api-reference/index-apis/open-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/open-index/">https://docs.opensearch.org/latest/api-reference/index-apis/open-index/</a>
         /// </summary>
         Task<OpenIndexResponse> OpenAsync(
             IOpenIndexRequest request,
@@ -989,7 +989,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/">https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/">https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/</a>
         /// </summary>
         PutAliasResponse PutAlias(
             Indices index = null,
@@ -999,7 +999,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/">https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/">https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/</a>
         /// </summary>
         Task<PutAliasResponse> PutAliasAsync(
             Indices index = null,
@@ -1010,14 +1010,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/">https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/">https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/</a>
         /// </summary>
         PutAliasResponse PutAlias(IPutAliasRequest request);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/">https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/">https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/</a>
         /// </summary>
         Task<PutAliasResponse> PutAliasAsync(
             IPutAliasRequest request,
@@ -1027,7 +1027,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         PutComposableIndexTemplateResponse PutComposableTemplate(
             Name name,
@@ -1037,7 +1037,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         Task<PutComposableIndexTemplateResponse> PutComposableTemplateAsync(
             Name name,
@@ -1048,7 +1048,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         PutComposableIndexTemplateResponse PutComposableTemplate(
             IPutComposableIndexTemplateRequest request
@@ -1057,7 +1057,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         Task<PutComposableIndexTemplateResponse> PutComposableTemplateAsync(
             IPutComposableIndexTemplateRequest request,
@@ -1067,7 +1067,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/">https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/put-mapping/">https://docs.opensearch.org/latest/api-reference/index-apis/put-mapping/</a>
         /// </summary>
         PutMappingResponse PutMapping<TDocument>(
             Func<PutMappingDescriptor<TDocument>, IPutMappingRequest> selector
@@ -1077,7 +1077,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/">https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/put-mapping/">https://docs.opensearch.org/latest/api-reference/index-apis/put-mapping/</a>
         /// </summary>
         Task<PutMappingResponse> PutMappingAsync<TDocument>(
             Func<PutMappingDescriptor<TDocument>, IPutMappingRequest> selector,
@@ -1088,14 +1088,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/">https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/put-mapping/">https://docs.opensearch.org/latest/api-reference/index-apis/put-mapping/</a>
         /// </summary>
         PutMappingResponse PutMapping(IPutMappingRequest request);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/">https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/put-mapping/">https://docs.opensearch.org/latest/api-reference/index-apis/put-mapping/</a>
         /// </summary>
         Task<PutMappingResponse> PutMappingAsync(
             IPutMappingRequest request,
@@ -1105,7 +1105,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/">https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/update-settings/">https://docs.opensearch.org/latest/api-reference/index-apis/update-settings/</a>
         /// </summary>
         UpdateIndexSettingsResponse UpdateSettings(
             Indices index,
@@ -1115,7 +1115,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/">https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/update-settings/">https://docs.opensearch.org/latest/api-reference/index-apis/update-settings/</a>
         /// </summary>
         Task<UpdateIndexSettingsResponse> UpdateSettingsAsync(
             Indices index,
@@ -1126,14 +1126,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/">https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/update-settings/">https://docs.opensearch.org/latest/api-reference/index-apis/update-settings/</a>
         /// </summary>
         UpdateIndexSettingsResponse UpdateSettings(IUpdateIndexSettingsRequest request);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/">https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/update-settings/">https://docs.opensearch.org/latest/api-reference/index-apis/update-settings/</a>
         /// </summary>
         Task<UpdateIndexSettingsResponse> UpdateSettingsAsync(
             IUpdateIndexSettingsRequest request,
@@ -1143,7 +1143,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         PutIndexTemplateResponse PutTemplate(
             Name name,
@@ -1153,7 +1153,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         Task<PutIndexTemplateResponse> PutTemplateAsync(
             Name name,
@@ -1164,14 +1164,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         PutIndexTemplateResponse PutTemplate(IPutIndexTemplateRequest request);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         Task<PutIndexTemplateResponse> PutTemplateAsync(
             IPutIndexTemplateRequest request,
@@ -1181,7 +1181,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.refresh</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability">https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/refresh/">https://docs.opensearch.org/latest/api-reference/index-apis/refresh/</a>
         /// </summary>
         RefreshResponse Refresh(
             Indices index = null,
@@ -1191,7 +1191,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.refresh</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability">https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/refresh/">https://docs.opensearch.org/latest/api-reference/index-apis/refresh/</a>
         /// </summary>
         Task<RefreshResponse> RefreshAsync(
             Indices index = null,
@@ -1202,21 +1202,21 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.refresh</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability">https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/refresh/">https://docs.opensearch.org/latest/api-reference/index-apis/refresh/</a>
         /// </summary>
         RefreshResponse Refresh(IRefreshRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.refresh</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability">https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/refresh/">https://docs.opensearch.org/latest/api-reference/index-apis/refresh/</a>
         /// </summary>
         Task<RefreshResponse> RefreshAsync(IRefreshRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.resolve_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         ResolveIndexResponse Resolve(
             Names name,
@@ -1226,7 +1226,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.resolve_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<ResolveIndexResponse> ResolveAsync(
             Names name,
@@ -1237,14 +1237,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.resolve_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         ResolveIndexResponse Resolve(IResolveIndexRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.resolve_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<ResolveIndexResponse> ResolveAsync(
             IResolveIndexRequest request,
@@ -1254,7 +1254,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.rollover</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/">https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/</a>
+        /// <a href="https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/">https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/</a>
         /// </summary>
         RolloverIndexResponse Rollover(
             Name alias,
@@ -1264,7 +1264,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.rollover</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/">https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/</a>
+        /// <a href="https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/">https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/</a>
         /// </summary>
         Task<RolloverIndexResponse> RolloverAsync(
             Name alias,
@@ -1275,14 +1275,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.rollover</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/">https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/</a>
+        /// <a href="https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/">https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/</a>
         /// </summary>
         RolloverIndexResponse Rollover(IRolloverIndexRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.rollover</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/">https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/</a>
+        /// <a href="https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/">https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/</a>
         /// </summary>
         Task<RolloverIndexResponse> RolloverAsync(
             IRolloverIndexRequest request,
@@ -1292,7 +1292,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.shrink</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/shrink-index/">https://opensearch.org/docs/latest/api-reference/index-apis/shrink-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/">https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/</a>
         /// </summary>
         ShrinkIndexResponse Shrink(
             IndexName index,
@@ -1303,7 +1303,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.shrink</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/shrink-index/">https://opensearch.org/docs/latest/api-reference/index-apis/shrink-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/">https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/</a>
         /// </summary>
         Task<ShrinkIndexResponse> ShrinkAsync(
             IndexName index,
@@ -1315,14 +1315,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.shrink</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/shrink-index/">https://opensearch.org/docs/latest/api-reference/index-apis/shrink-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/">https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/</a>
         /// </summary>
         ShrinkIndexResponse Shrink(IShrinkIndexRequest request);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.shrink</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/shrink-index/">https://opensearch.org/docs/latest/api-reference/index-apis/shrink-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/">https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/</a>
         /// </summary>
         Task<ShrinkIndexResponse> ShrinkAsync(
             IShrinkIndexRequest request,
@@ -1332,7 +1332,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.split</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/split/">https://opensearch.org/docs/latest/api-reference/index-apis/split/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/split/">https://docs.opensearch.org/latest/api-reference/index-apis/split/</a>
         /// </summary>
         SplitIndexResponse Split(
             IndexName index,
@@ -1343,7 +1343,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.split</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/split/">https://opensearch.org/docs/latest/api-reference/index-apis/split/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/split/">https://docs.opensearch.org/latest/api-reference/index-apis/split/</a>
         /// </summary>
         Task<SplitIndexResponse> SplitAsync(
             IndexName index,
@@ -1355,14 +1355,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.split</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/split/">https://opensearch.org/docs/latest/api-reference/index-apis/split/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/split/">https://docs.opensearch.org/latest/api-reference/index-apis/split/</a>
         /// </summary>
         SplitIndexResponse Split(ISplitIndexRequest request);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.split</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/split/">https://opensearch.org/docs/latest/api-reference/index-apis/split/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/split/">https://docs.opensearch.org/latest/api-reference/index-apis/split/</a>
         /// </summary>
         Task<SplitIndexResponse> SplitAsync(
             ISplitIndexRequest request,
@@ -1372,7 +1372,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         IndicesStatsResponse Stats(
             Indices index = null,
@@ -1382,7 +1382,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<IndicesStatsResponse> StatsAsync(
             Indices index = null,
@@ -1393,14 +1393,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         IndicesStatsResponse Stats(IIndicesStatsRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<IndicesStatsResponse> StatsAsync(
             IIndicesStatsRequest request,
@@ -1410,14 +1410,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.update_aliases</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/alias/">https://opensearch.org/docs/latest/api-reference/index-apis/alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/alias/">https://docs.opensearch.org/latest/api-reference/index-apis/alias/</a>
         /// </summary>
         BulkAliasResponse BulkAlias(Func<BulkAliasDescriptor, IBulkAliasRequest> selector);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.update_aliases</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/alias/">https://opensearch.org/docs/latest/api-reference/index-apis/alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/alias/">https://docs.opensearch.org/latest/api-reference/index-apis/alias/</a>
         /// </summary>
         Task<BulkAliasResponse> BulkAliasAsync(
             Func<BulkAliasDescriptor, IBulkAliasRequest> selector,
@@ -1427,14 +1427,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.update_aliases</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/alias/">https://opensearch.org/docs/latest/api-reference/index-apis/alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/alias/">https://docs.opensearch.org/latest/api-reference/index-apis/alias/</a>
         /// </summary>
         BulkAliasResponse BulkAlias(IBulkAliasRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.update_aliases</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/alias/">https://opensearch.org/docs/latest/api-reference/index-apis/alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/alias/">https://docs.opensearch.org/latest/api-reference/index-apis/alias/</a>
         /// </summary>
         Task<BulkAliasResponse> BulkAliasAsync(
             IBulkAliasRequest request,
@@ -1444,7 +1444,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.validate_query</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         ValidateQueryResponse ValidateQuery<TDocument>(
             Func<ValidateQueryDescriptor<TDocument>, IValidateQueryRequest> selector = null
@@ -1454,7 +1454,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.validate_query</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<ValidateQueryResponse> ValidateQueryAsync<TDocument>(
             Func<ValidateQueryDescriptor<TDocument>, IValidateQueryRequest> selector = null,
@@ -1465,14 +1465,14 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.validate_query</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         ValidateQueryResponse ValidateQuery(IValidateQueryRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>indices.validate_query</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<ValidateQueryResponse> ValidateQueryAsync(
             IValidateQueryRequest request,
@@ -1494,7 +1494,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.add_block</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public AddIndexBlockResponse AddBlock(
             Indices index,
@@ -1508,7 +1508,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.add_block</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<AddIndexBlockResponse> AddBlockAsync(
             Indices index,
@@ -1524,7 +1524,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.add_block</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public AddIndexBlockResponse AddBlock(IAddIndexBlockRequest request) =>
             DoRequest<IAddIndexBlockRequest, AddIndexBlockResponse>(
@@ -1535,7 +1535,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.add_block</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<AddIndexBlockResponse> AddBlockAsync(
             IAddIndexBlockRequest request,
@@ -1550,7 +1550,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.analyze</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/">https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/analyze-apis/perform-text-analysis/">https://docs.opensearch.org/latest/api-reference/analyze-apis/perform-text-analysis/</a>
         /// </summary>
         public AnalyzeResponse Analyze(Func<AnalyzeDescriptor, IAnalyzeRequest> selector = null) =>
             Analyze(selector.InvokeOrDefault(new AnalyzeDescriptor()));
@@ -1558,7 +1558,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.analyze</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/">https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/analyze-apis/perform-text-analysis/">https://docs.opensearch.org/latest/api-reference/analyze-apis/perform-text-analysis/</a>
         /// </summary>
         public Task<AnalyzeResponse> AnalyzeAsync(
             Func<AnalyzeDescriptor, IAnalyzeRequest> selector = null,
@@ -1568,7 +1568,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.analyze</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/">https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/analyze-apis/perform-text-analysis/">https://docs.opensearch.org/latest/api-reference/analyze-apis/perform-text-analysis/</a>
         /// </summary>
         public AnalyzeResponse Analyze(IAnalyzeRequest request) =>
             DoRequest<IAnalyzeRequest, AnalyzeResponse>(request, request.RequestParameters);
@@ -1576,7 +1576,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.analyze</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/">https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/analyze-apis/perform-text-analysis/">https://docs.opensearch.org/latest/api-reference/analyze-apis/perform-text-analysis/</a>
         /// </summary>
         public Task<AnalyzeResponse> AnalyzeAsync(
             IAnalyzeRequest request,
@@ -1591,7 +1591,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.clear_cache</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/">https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/clear-index-cache/">https://docs.opensearch.org/latest/api-reference/index-apis/clear-index-cache/</a>
         /// </summary>
         public ClearCacheResponse ClearCache(
             Indices index = null,
@@ -1601,7 +1601,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.clear_cache</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/">https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/clear-index-cache/">https://docs.opensearch.org/latest/api-reference/index-apis/clear-index-cache/</a>
         /// </summary>
         public Task<ClearCacheResponse> ClearCacheAsync(
             Indices index = null,
@@ -1616,7 +1616,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.clear_cache</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/">https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/clear-index-cache/">https://docs.opensearch.org/latest/api-reference/index-apis/clear-index-cache/</a>
         /// </summary>
         public ClearCacheResponse ClearCache(IClearCacheRequest request) =>
             DoRequest<IClearCacheRequest, ClearCacheResponse>(request, request.RequestParameters);
@@ -1624,7 +1624,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.clear_cache</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/">https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/clear-index-cache/">https://docs.opensearch.org/latest/api-reference/index-apis/clear-index-cache/</a>
         /// </summary>
         public Task<ClearCacheResponse> ClearCacheAsync(
             IClearCacheRequest request,
@@ -1639,7 +1639,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.clone</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clone/">https://opensearch.org/docs/latest/api-reference/index-apis/clone/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/clone/">https://docs.opensearch.org/latest/api-reference/index-apis/clone/</a>
         /// </summary>
         public CloneIndexResponse Clone(
             IndexName index,
@@ -1651,7 +1651,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.clone</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clone/">https://opensearch.org/docs/latest/api-reference/index-apis/clone/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/clone/">https://docs.opensearch.org/latest/api-reference/index-apis/clone/</a>
         /// </summary>
         public Task<CloneIndexResponse> CloneAsync(
             IndexName index,
@@ -1667,7 +1667,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.clone</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clone/">https://opensearch.org/docs/latest/api-reference/index-apis/clone/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/clone/">https://docs.opensearch.org/latest/api-reference/index-apis/clone/</a>
         /// </summary>
         public CloneIndexResponse Clone(ICloneIndexRequest request) =>
             DoRequest<ICloneIndexRequest, CloneIndexResponse>(request, request.RequestParameters);
@@ -1675,7 +1675,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.clone</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/clone/">https://opensearch.org/docs/latest/api-reference/index-apis/clone/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/clone/">https://docs.opensearch.org/latest/api-reference/index-apis/clone/</a>
         /// </summary>
         public Task<CloneIndexResponse> CloneAsync(
             ICloneIndexRequest request,
@@ -1690,7 +1690,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.close</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/close-index/">https://opensearch.org/docs/latest/api-reference/index-apis/close-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/close-index/">https://docs.opensearch.org/latest/api-reference/index-apis/close-index/</a>
         /// </summary>
         public CloseIndexResponse Close(
             Indices index,
@@ -1700,7 +1700,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.close</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/close-index/">https://opensearch.org/docs/latest/api-reference/index-apis/close-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/close-index/">https://docs.opensearch.org/latest/api-reference/index-apis/close-index/</a>
         /// </summary>
         public Task<CloseIndexResponse> CloseAsync(
             Indices index,
@@ -1711,7 +1711,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.close</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/close-index/">https://opensearch.org/docs/latest/api-reference/index-apis/close-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/close-index/">https://docs.opensearch.org/latest/api-reference/index-apis/close-index/</a>
         /// </summary>
         public CloseIndexResponse Close(ICloseIndexRequest request) =>
             DoRequest<ICloseIndexRequest, CloseIndexResponse>(request, request.RequestParameters);
@@ -1719,7 +1719,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.close</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/close-index/">https://opensearch.org/docs/latest/api-reference/index-apis/close-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/close-index/">https://docs.opensearch.org/latest/api-reference/index-apis/close-index/</a>
         /// </summary>
         public Task<CloseIndexResponse> CloseAsync(
             ICloseIndexRequest request,
@@ -1734,7 +1734,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/create-index/">https://opensearch.org/docs/latest/api-reference/index-apis/create-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/create-index/">https://docs.opensearch.org/latest/api-reference/index-apis/create-index/</a>
         /// </summary>
         public CreateIndexResponse Create(
             IndexName index,
@@ -1744,7 +1744,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/create-index/">https://opensearch.org/docs/latest/api-reference/index-apis/create-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/create-index/">https://docs.opensearch.org/latest/api-reference/index-apis/create-index/</a>
         /// </summary>
         public Task<CreateIndexResponse> CreateAsync(
             IndexName index,
@@ -1755,7 +1755,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/create-index/">https://opensearch.org/docs/latest/api-reference/index-apis/create-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/create-index/">https://docs.opensearch.org/latest/api-reference/index-apis/create-index/</a>
         /// </summary>
         public CreateIndexResponse Create(ICreateIndexRequest request) =>
             DoRequest<ICreateIndexRequest, CreateIndexResponse>(request, request.RequestParameters);
@@ -1763,7 +1763,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/create-index/">https://opensearch.org/docs/latest/api-reference/index-apis/create-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/create-index/">https://docs.opensearch.org/latest/api-reference/index-apis/create-index/</a>
         /// </summary>
         public Task<CreateIndexResponse> CreateAsync(
             ICreateIndexRequest request,
@@ -1778,7 +1778,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/">https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/">https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/</a>
         /// </summary>
         public DeleteIndexResponse Delete(
             Indices index,
@@ -1788,7 +1788,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/">https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/">https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/</a>
         /// </summary>
         public Task<DeleteIndexResponse> DeleteAsync(
             Indices index,
@@ -1799,7 +1799,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/">https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/">https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/</a>
         /// </summary>
         public DeleteIndexResponse Delete(IDeleteIndexRequest request) =>
             DoRequest<IDeleteIndexRequest, DeleteIndexResponse>(request, request.RequestParameters);
@@ -1807,7 +1807,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/">https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/">https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/</a>
         /// </summary>
         public Task<DeleteIndexResponse> DeleteAsync(
             IDeleteIndexRequest request,
@@ -1822,7 +1822,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases">https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/alias/delete-alias/">https://docs.opensearch.org/latest/api-reference/alias/delete-alias/</a>
         /// </summary>
         public DeleteAliasResponse DeleteAlias(
             Indices index,
@@ -1836,7 +1836,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases">https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/alias/delete-alias/">https://docs.opensearch.org/latest/api-reference/alias/delete-alias/</a>
         /// </summary>
         public Task<DeleteAliasResponse> DeleteAliasAsync(
             Indices index,
@@ -1852,7 +1852,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases">https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/alias/delete-alias/">https://docs.opensearch.org/latest/api-reference/alias/delete-alias/</a>
         /// </summary>
         public DeleteAliasResponse DeleteAlias(IDeleteAliasRequest request) =>
             DoRequest<IDeleteAliasRequest, DeleteAliasResponse>(request, request.RequestParameters);
@@ -1860,7 +1860,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases">https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/alias/delete-alias/">https://docs.opensearch.org/latest/api-reference/alias/delete-alias/</a>
         /// </summary>
         public Task<DeleteAliasResponse> DeleteAliasAsync(
             IDeleteAliasRequest request,
@@ -1875,7 +1875,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/#delete-a-template">https://docs.opensearch.org/latest/im-plugin/index-templates/#delete-a-template</a>
         /// </summary>
         public DeleteComposableIndexTemplateResponse DeleteComposableTemplate(
             Name name,
@@ -1891,7 +1891,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/#delete-a-template">https://docs.opensearch.org/latest/im-plugin/index-templates/#delete-a-template</a>
         /// </summary>
         public Task<DeleteComposableIndexTemplateResponse> DeleteComposableTemplateAsync(
             Name name,
@@ -1909,7 +1909,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/#delete-a-template">https://docs.opensearch.org/latest/im-plugin/index-templates/#delete-a-template</a>
         /// </summary>
         public DeleteComposableIndexTemplateResponse DeleteComposableTemplate(
             IDeleteComposableIndexTemplateRequest request
@@ -1922,7 +1922,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/#delete-a-template">https://docs.opensearch.org/latest/im-plugin/index-templates/#delete-a-template</a>
         /// </summary>
         public Task<DeleteComposableIndexTemplateResponse> DeleteComposableTemplateAsync(
             IDeleteComposableIndexTemplateRequest request,
@@ -1936,7 +1936,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public DeleteIndexTemplateResponse DeleteTemplate(
             Name name,
@@ -1947,7 +1947,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<DeleteIndexTemplateResponse> DeleteTemplateAsync(
             Name name,
@@ -1962,7 +1962,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public DeleteIndexTemplateResponse DeleteTemplate(IDeleteIndexTemplateRequest request) =>
             DoRequest<IDeleteIndexTemplateRequest, DeleteIndexTemplateResponse>(
@@ -1973,7 +1973,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>indices.delete_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<DeleteIndexTemplateResponse> DeleteTemplateAsync(
             IDeleteIndexTemplateRequest request,
@@ -1988,7 +1988,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/exists/">https://opensearch.org/docs/latest/api-reference/index-apis/exists/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/exists/">https://docs.opensearch.org/latest/api-reference/index-apis/exists/</a>
         /// </summary>
         public ExistsResponse Exists(
             Indices index,
@@ -1998,7 +1998,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/exists/">https://opensearch.org/docs/latest/api-reference/index-apis/exists/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/exists/">https://docs.opensearch.org/latest/api-reference/index-apis/exists/</a>
         /// </summary>
         public Task<ExistsResponse> ExistsAsync(
             Indices index,
@@ -2009,7 +2009,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/exists/">https://opensearch.org/docs/latest/api-reference/index-apis/exists/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/exists/">https://docs.opensearch.org/latest/api-reference/index-apis/exists/</a>
         /// </summary>
         public ExistsResponse Exists(IIndexExistsRequest request) =>
             DoRequest<IIndexExistsRequest, ExistsResponse>(request, request.RequestParameters);
@@ -2017,7 +2017,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/exists/">https://opensearch.org/docs/latest/api-reference/index-apis/exists/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/exists/">https://docs.opensearch.org/latest/api-reference/index-apis/exists/</a>
         /// </summary>
         public Task<ExistsResponse> ExistsAsync(
             IIndexExistsRequest request,
@@ -2032,7 +2032,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ExistsResponse AliasExists(
             Names name,
@@ -2042,7 +2042,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ExistsResponse> AliasExistsAsync(
             Names name,
@@ -2053,7 +2053,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ExistsResponse AliasExists(IAliasExistsRequest request) =>
             DoRequest<IAliasExistsRequest, ExistsResponse>(request, request.RequestParameters);
@@ -2061,7 +2061,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ExistsResponse> AliasExistsAsync(
             IAliasExistsRequest request,
@@ -2076,7 +2076,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         public ExistsResponse ComposableTemplateExists(
             Name name,
@@ -2092,7 +2092,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         public Task<ExistsResponse> ComposableTemplateExistsAsync(
             Name name,
@@ -2110,7 +2110,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         public ExistsResponse ComposableTemplateExists(
             IComposableIndexTemplateExistsRequest request
@@ -2123,7 +2123,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         public Task<ExistsResponse> ComposableTemplateExistsAsync(
             IComposableIndexTemplateExistsRequest request,
@@ -2138,7 +2138,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ExistsResponse TemplateExists(
             Names name,
@@ -2149,7 +2149,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ExistsResponse> TemplateExistsAsync(
             Names name,
@@ -2164,7 +2164,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ExistsResponse TemplateExists(IIndexTemplateExistsRequest request) =>
             DoRequest<IIndexTemplateExistsRequest, ExistsResponse>(
@@ -2175,7 +2175,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>indices.exists_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ExistsResponse> TemplateExistsAsync(
             IIndexTemplateExistsRequest request,
@@ -2190,7 +2190,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.flush</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public FlushResponse Flush(
             Indices index = null,
@@ -2200,7 +2200,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.flush</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<FlushResponse> FlushAsync(
             Indices index = null,
@@ -2211,7 +2211,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.flush</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public FlushResponse Flush(IFlushRequest request) =>
             DoRequest<IFlushRequest, FlushResponse>(request, request.RequestParameters);
@@ -2219,7 +2219,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.flush</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<FlushResponse> FlushAsync(
             IFlushRequest request,
@@ -2229,7 +2229,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.forcemerge</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ForceMergeResponse ForceMerge(
             Indices index = null,
@@ -2239,7 +2239,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.forcemerge</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ForceMergeResponse> ForceMergeAsync(
             Indices index = null,
@@ -2254,7 +2254,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.forcemerge</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ForceMergeResponse ForceMerge(IForceMergeRequest request) =>
             DoRequest<IForceMergeRequest, ForceMergeResponse>(request, request.RequestParameters);
@@ -2262,7 +2262,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.forcemerge</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ForceMergeResponse> ForceMergeAsync(
             IForceMergeRequest request,
@@ -2277,7 +2277,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/get-index/">https://opensearch.org/docs/latest/api-reference/index-apis/get-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-index/">https://docs.opensearch.org/latest/api-reference/index-apis/get-index/</a>
         /// </summary>
         public GetIndexResponse Get(
             Indices index,
@@ -2287,7 +2287,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/get-index/">https://opensearch.org/docs/latest/api-reference/index-apis/get-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-index/">https://docs.opensearch.org/latest/api-reference/index-apis/get-index/</a>
         /// </summary>
         public Task<GetIndexResponse> GetAsync(
             Indices index,
@@ -2298,7 +2298,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/get-index/">https://opensearch.org/docs/latest/api-reference/index-apis/get-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-index/">https://docs.opensearch.org/latest/api-reference/index-apis/get-index/</a>
         /// </summary>
         public GetIndexResponse Get(IGetIndexRequest request) =>
             DoRequest<IGetIndexRequest, GetIndexResponse>(request, request.RequestParameters);
@@ -2306,7 +2306,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/get-index/">https://opensearch.org/docs/latest/api-reference/index-apis/get-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-index/">https://docs.opensearch.org/latest/api-reference/index-apis/get-index/</a>
         /// </summary>
         public Task<GetIndexResponse> GetAsync(
             IGetIndexRequest request,
@@ -2321,7 +2321,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-alias/">https://opensearch.org/docs/latest/im-plugin/index-alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-alias/">https://docs.opensearch.org/latest/im-plugin/index-alias/</a>
         /// </summary>
         public GetAliasResponse GetAlias(
             Indices index = null,
@@ -2331,7 +2331,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-alias/">https://opensearch.org/docs/latest/im-plugin/index-alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-alias/">https://docs.opensearch.org/latest/im-plugin/index-alias/</a>
         /// </summary>
         public Task<GetAliasResponse> GetAliasAsync(
             Indices index = null,
@@ -2346,7 +2346,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-alias/">https://opensearch.org/docs/latest/im-plugin/index-alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-alias/">https://docs.opensearch.org/latest/im-plugin/index-alias/</a>
         /// </summary>
         public GetAliasResponse GetAlias(IGetAliasRequest request) =>
             DoRequest<IGetAliasRequest, GetAliasResponse>(request, request.RequestParameters);
@@ -2354,7 +2354,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-alias/">https://opensearch.org/docs/latest/im-plugin/index-alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-alias/">https://docs.opensearch.org/latest/im-plugin/index-alias/</a>
         /// </summary>
         public Task<GetAliasResponse> GetAliasAsync(
             IGetAliasRequest request,
@@ -2369,7 +2369,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_field_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/field-types/index/">https://opensearch.org/docs/latest/field-types/index/</a>
+        /// <a href="https://docs.opensearch.org/latest/field-types/index/">https://docs.opensearch.org/latest/field-types/index/</a>
         /// </summary>
         public GetFieldMappingResponse GetFieldMapping<TDocument>(
             Fields fields,
@@ -2383,7 +2383,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_field_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/field-types/index/">https://opensearch.org/docs/latest/field-types/index/</a>
+        /// <a href="https://docs.opensearch.org/latest/field-types/index/">https://docs.opensearch.org/latest/field-types/index/</a>
         /// </summary>
         public Task<GetFieldMappingResponse> GetFieldMappingAsync<TDocument>(
             Fields fields,
@@ -2399,7 +2399,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_field_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/field-types/index/">https://opensearch.org/docs/latest/field-types/index/</a>
+        /// <a href="https://docs.opensearch.org/latest/field-types/index/">https://docs.opensearch.org/latest/field-types/index/</a>
         /// </summary>
         public GetFieldMappingResponse GetFieldMapping(IGetFieldMappingRequest request) =>
             DoRequest<IGetFieldMappingRequest, GetFieldMappingResponse>(
@@ -2410,7 +2410,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_field_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/field-types/index/">https://opensearch.org/docs/latest/field-types/index/</a>
+        /// <a href="https://docs.opensearch.org/latest/field-types/index/">https://docs.opensearch.org/latest/field-types/index/</a>
         /// </summary>
         public Task<GetFieldMappingResponse> GetFieldMappingAsync(
             IGetFieldMappingRequest request,
@@ -2425,7 +2425,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         public GetComposableIndexTemplateResponse GetComposableTemplate(
             Name name = null,
@@ -2443,7 +2443,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         public Task<GetComposableIndexTemplateResponse> GetComposableTemplateAsync(
             Name name = null,
@@ -2463,7 +2463,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         public GetComposableIndexTemplateResponse GetComposableTemplate(
             IGetComposableIndexTemplateRequest request
@@ -2476,7 +2476,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         public Task<GetComposableIndexTemplateResponse> GetComposableTemplateAsync(
             IGetComposableIndexTemplateRequest request,
@@ -2491,7 +2491,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/field-types/index/#get-a-mapping">https://opensearch.org/docs/latest/field-types/index/#get-a-mapping</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-mapping/">https://docs.opensearch.org/latest/api-reference/index-apis/get-mapping/</a>
         /// </summary>
         public GetMappingResponse GetMapping<TDocument>(
             Func<GetMappingDescriptor<TDocument>, IGetMappingRequest> selector = null
@@ -2502,7 +2502,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/field-types/index/#get-a-mapping">https://opensearch.org/docs/latest/field-types/index/#get-a-mapping</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-mapping/">https://docs.opensearch.org/latest/api-reference/index-apis/get-mapping/</a>
         /// </summary>
         public Task<GetMappingResponse> GetMappingAsync<TDocument>(
             Func<GetMappingDescriptor<TDocument>, IGetMappingRequest> selector = null,
@@ -2514,7 +2514,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/field-types/index/#get-a-mapping">https://opensearch.org/docs/latest/field-types/index/#get-a-mapping</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-mapping/">https://docs.opensearch.org/latest/api-reference/index-apis/get-mapping/</a>
         /// </summary>
         public GetMappingResponse GetMapping(IGetMappingRequest request) =>
             DoRequest<IGetMappingRequest, GetMappingResponse>(request, request.RequestParameters);
@@ -2522,7 +2522,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/field-types/index/#get-a-mapping">https://opensearch.org/docs/latest/field-types/index/#get-a-mapping</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-mapping/">https://docs.opensearch.org/latest/api-reference/index-apis/get-mapping/</a>
         /// </summary>
         public Task<GetMappingResponse> GetMappingAsync(
             IGetMappingRequest request,
@@ -2537,7 +2537,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/">https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-settings/">https://docs.opensearch.org/latest/api-reference/index-apis/get-settings/</a>
         /// </summary>
         public GetIndexSettingsResponse GetSettings(
             Indices index = null,
@@ -2550,7 +2550,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/">https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-settings/">https://docs.opensearch.org/latest/api-reference/index-apis/get-settings/</a>
         /// </summary>
         public Task<GetIndexSettingsResponse> GetSettingsAsync(
             Indices index = null,
@@ -2565,7 +2565,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/">https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-settings/">https://docs.opensearch.org/latest/api-reference/index-apis/get-settings/</a>
         /// </summary>
         public GetIndexSettingsResponse GetSettings(IGetIndexSettingsRequest request) =>
             DoRequest<IGetIndexSettingsRequest, GetIndexSettingsResponse>(
@@ -2576,7 +2576,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/">https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/get-settings/">https://docs.opensearch.org/latest/api-reference/index-apis/get-settings/</a>
         /// </summary>
         public Task<GetIndexSettingsResponse> GetSettingsAsync(
             IGetIndexSettingsRequest request,
@@ -2591,7 +2591,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public GetIndexTemplateResponse GetTemplate(
             Names name = null,
@@ -2604,7 +2604,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<GetIndexTemplateResponse> GetTemplateAsync(
             Names name = null,
@@ -2619,7 +2619,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public GetIndexTemplateResponse GetTemplate(IGetIndexTemplateRequest request) =>
             DoRequest<IGetIndexTemplateRequest, GetIndexTemplateResponse>(
@@ -2630,7 +2630,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.get_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<GetIndexTemplateResponse> GetTemplateAsync(
             IGetIndexTemplateRequest request,
@@ -2645,7 +2645,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.open</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/open-index/">https://opensearch.org/docs/latest/api-reference/index-apis/open-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/open-index/">https://docs.opensearch.org/latest/api-reference/index-apis/open-index/</a>
         /// </summary>
         public OpenIndexResponse Open(
             Indices index,
@@ -2655,7 +2655,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.open</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/open-index/">https://opensearch.org/docs/latest/api-reference/index-apis/open-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/open-index/">https://docs.opensearch.org/latest/api-reference/index-apis/open-index/</a>
         /// </summary>
         public Task<OpenIndexResponse> OpenAsync(
             Indices index,
@@ -2666,7 +2666,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.open</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/open-index/">https://opensearch.org/docs/latest/api-reference/index-apis/open-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/open-index/">https://docs.opensearch.org/latest/api-reference/index-apis/open-index/</a>
         /// </summary>
         public OpenIndexResponse Open(IOpenIndexRequest request) =>
             DoRequest<IOpenIndexRequest, OpenIndexResponse>(request, request.RequestParameters);
@@ -2674,7 +2674,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.open</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/open-index/">https://opensearch.org/docs/latest/api-reference/index-apis/open-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/open-index/">https://docs.opensearch.org/latest/api-reference/index-apis/open-index/</a>
         /// </summary>
         public Task<OpenIndexResponse> OpenAsync(
             IOpenIndexRequest request,
@@ -2689,7 +2689,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/">https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/">https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/</a>
         /// </summary>
         public PutAliasResponse PutAlias(
             Indices index = null,
@@ -2699,7 +2699,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/">https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/">https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/</a>
         /// </summary>
         public Task<PutAliasResponse> PutAliasAsync(
             Indices index = null,
@@ -2714,7 +2714,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/">https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/">https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/</a>
         /// </summary>
         public PutAliasResponse PutAlias(IPutAliasRequest request) =>
             DoRequest<IPutAliasRequest, PutAliasResponse>(request, request.RequestParameters);
@@ -2722,7 +2722,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_alias</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/">https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/">https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/</a>
         /// </summary>
         public Task<PutAliasResponse> PutAliasAsync(
             IPutAliasRequest request,
@@ -2737,7 +2737,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         public PutComposableIndexTemplateResponse PutComposableTemplate(
             Name name,
@@ -2750,7 +2750,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         public Task<PutComposableIndexTemplateResponse> PutComposableTemplateAsync(
             Name name,
@@ -2765,7 +2765,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         public PutComposableIndexTemplateResponse PutComposableTemplate(
             IPutComposableIndexTemplateRequest request
@@ -2778,7 +2778,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_index_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         public Task<PutComposableIndexTemplateResponse> PutComposableTemplateAsync(
             IPutComposableIndexTemplateRequest request,
@@ -2793,7 +2793,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/">https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/put-mapping/">https://docs.opensearch.org/latest/api-reference/index-apis/put-mapping/</a>
         /// </summary>
         public PutMappingResponse PutMapping<TDocument>(
             Func<PutMappingDescriptor<TDocument>, IPutMappingRequest> selector
@@ -2804,7 +2804,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/">https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/put-mapping/">https://docs.opensearch.org/latest/api-reference/index-apis/put-mapping/</a>
         /// </summary>
         public Task<PutMappingResponse> PutMappingAsync<TDocument>(
             Func<PutMappingDescriptor<TDocument>, IPutMappingRequest> selector,
@@ -2816,7 +2816,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/">https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/put-mapping/">https://docs.opensearch.org/latest/api-reference/index-apis/put-mapping/</a>
         /// </summary>
         public PutMappingResponse PutMapping(IPutMappingRequest request) =>
             DoRequest<IPutMappingRequest, PutMappingResponse>(request, request.RequestParameters);
@@ -2824,7 +2824,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_mapping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/">https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/put-mapping/">https://docs.opensearch.org/latest/api-reference/index-apis/put-mapping/</a>
         /// </summary>
         public Task<PutMappingResponse> PutMappingAsync(
             IPutMappingRequest request,
@@ -2839,7 +2839,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/">https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/update-settings/">https://docs.opensearch.org/latest/api-reference/index-apis/update-settings/</a>
         /// </summary>
         public UpdateIndexSettingsResponse UpdateSettings(
             Indices index,
@@ -2852,7 +2852,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/">https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/update-settings/">https://docs.opensearch.org/latest/api-reference/index-apis/update-settings/</a>
         /// </summary>
         public Task<UpdateIndexSettingsResponse> UpdateSettingsAsync(
             Indices index,
@@ -2867,7 +2867,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/">https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/update-settings/">https://docs.opensearch.org/latest/api-reference/index-apis/update-settings/</a>
         /// </summary>
         public UpdateIndexSettingsResponse UpdateSettings(IUpdateIndexSettingsRequest request) =>
             DoRequest<IUpdateIndexSettingsRequest, UpdateIndexSettingsResponse>(
@@ -2878,7 +2878,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/">https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/update-settings/">https://docs.opensearch.org/latest/api-reference/index-apis/update-settings/</a>
         /// </summary>
         public Task<UpdateIndexSettingsResponse> UpdateSettingsAsync(
             IUpdateIndexSettingsRequest request,
@@ -2893,7 +2893,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         public PutIndexTemplateResponse PutTemplate(
             Name name,
@@ -2903,7 +2903,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         public Task<PutIndexTemplateResponse> PutTemplateAsync(
             Name name,
@@ -2918,7 +2918,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         public PutIndexTemplateResponse PutTemplate(IPutIndexTemplateRequest request) =>
             DoRequest<IPutIndexTemplateRequest, PutIndexTemplateResponse>(
@@ -2929,7 +2929,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.put_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/">https://opensearch.org/docs/latest/im-plugin/index-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/">https://docs.opensearch.org/latest/im-plugin/index-templates/</a>
         /// </summary>
         public Task<PutIndexTemplateResponse> PutTemplateAsync(
             IPutIndexTemplateRequest request,
@@ -2944,7 +2944,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.refresh</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability">https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/refresh/">https://docs.opensearch.org/latest/api-reference/index-apis/refresh/</a>
         /// </summary>
         public RefreshResponse Refresh(
             Indices index = null,
@@ -2954,7 +2954,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.refresh</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability">https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/refresh/">https://docs.opensearch.org/latest/api-reference/index-apis/refresh/</a>
         /// </summary>
         public Task<RefreshResponse> RefreshAsync(
             Indices index = null,
@@ -2966,7 +2966,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.refresh</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability">https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/refresh/">https://docs.opensearch.org/latest/api-reference/index-apis/refresh/</a>
         /// </summary>
         public RefreshResponse Refresh(IRefreshRequest request) =>
             DoRequest<IRefreshRequest, RefreshResponse>(request, request.RequestParameters);
@@ -2974,7 +2974,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.refresh</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability">https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/refresh/">https://docs.opensearch.org/latest/api-reference/index-apis/refresh/</a>
         /// </summary>
         public Task<RefreshResponse> RefreshAsync(
             IRefreshRequest request,
@@ -2989,7 +2989,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.resolve_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ResolveIndexResponse Resolve(
             Names name,
@@ -2999,7 +2999,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.resolve_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ResolveIndexResponse> ResolveAsync(
             Names name,
@@ -3010,7 +3010,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.resolve_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ResolveIndexResponse Resolve(IResolveIndexRequest request) =>
             DoRequest<IResolveIndexRequest, ResolveIndexResponse>(
@@ -3021,7 +3021,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.resolve_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ResolveIndexResponse> ResolveAsync(
             IResolveIndexRequest request,
@@ -3036,7 +3036,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.rollover</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/">https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/</a>
+        /// <a href="https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/">https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/</a>
         /// </summary>
         public RolloverIndexResponse Rollover(
             Name alias,
@@ -3046,7 +3046,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.rollover</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/">https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/</a>
+        /// <a href="https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/">https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/</a>
         /// </summary>
         public Task<RolloverIndexResponse> RolloverAsync(
             Name alias,
@@ -3057,7 +3057,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.rollover</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/">https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/</a>
+        /// <a href="https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/">https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/</a>
         /// </summary>
         public RolloverIndexResponse Rollover(IRolloverIndexRequest request) =>
             DoRequest<IRolloverIndexRequest, RolloverIndexResponse>(
@@ -3068,7 +3068,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.rollover</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/">https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/</a>
+        /// <a href="https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/">https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/</a>
         /// </summary>
         public Task<RolloverIndexResponse> RolloverAsync(
             IRolloverIndexRequest request,
@@ -3083,7 +3083,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.shrink</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/shrink-index/">https://opensearch.org/docs/latest/api-reference/index-apis/shrink-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/">https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/</a>
         /// </summary>
         public ShrinkIndexResponse Shrink(
             IndexName index,
@@ -3097,7 +3097,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.shrink</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/shrink-index/">https://opensearch.org/docs/latest/api-reference/index-apis/shrink-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/">https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/</a>
         /// </summary>
         public Task<ShrinkIndexResponse> ShrinkAsync(
             IndexName index,
@@ -3113,7 +3113,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.shrink</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/shrink-index/">https://opensearch.org/docs/latest/api-reference/index-apis/shrink-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/">https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/</a>
         /// </summary>
         public ShrinkIndexResponse Shrink(IShrinkIndexRequest request) =>
             DoRequest<IShrinkIndexRequest, ShrinkIndexResponse>(request, request.RequestParameters);
@@ -3121,7 +3121,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.shrink</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/shrink-index/">https://opensearch.org/docs/latest/api-reference/index-apis/shrink-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/">https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/</a>
         /// </summary>
         public Task<ShrinkIndexResponse> ShrinkAsync(
             IShrinkIndexRequest request,
@@ -3136,7 +3136,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.split</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/split/">https://opensearch.org/docs/latest/api-reference/index-apis/split/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/split/">https://docs.opensearch.org/latest/api-reference/index-apis/split/</a>
         /// </summary>
         public SplitIndexResponse Split(
             IndexName index,
@@ -3148,7 +3148,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.split</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/split/">https://opensearch.org/docs/latest/api-reference/index-apis/split/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/split/">https://docs.opensearch.org/latest/api-reference/index-apis/split/</a>
         /// </summary>
         public Task<SplitIndexResponse> SplitAsync(
             IndexName index,
@@ -3164,7 +3164,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.split</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/split/">https://opensearch.org/docs/latest/api-reference/index-apis/split/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/split/">https://docs.opensearch.org/latest/api-reference/index-apis/split/</a>
         /// </summary>
         public SplitIndexResponse Split(ISplitIndexRequest request) =>
             DoRequest<ISplitIndexRequest, SplitIndexResponse>(request, request.RequestParameters);
@@ -3172,7 +3172,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>PUT</c> request to the <c>indices.split</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/split/">https://opensearch.org/docs/latest/api-reference/index-apis/split/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/split/">https://docs.opensearch.org/latest/api-reference/index-apis/split/</a>
         /// </summary>
         public Task<SplitIndexResponse> SplitAsync(
             ISplitIndexRequest request,
@@ -3187,7 +3187,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public IndicesStatsResponse Stats(
             Indices index = null,
@@ -3197,7 +3197,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<IndicesStatsResponse> StatsAsync(
             Indices index = null,
@@ -3212,7 +3212,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public IndicesStatsResponse Stats(IIndicesStatsRequest request) =>
             DoRequest<IIndicesStatsRequest, IndicesStatsResponse>(
@@ -3223,7 +3223,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>indices.stats</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<IndicesStatsResponse> StatsAsync(
             IIndicesStatsRequest request,
@@ -3238,7 +3238,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.update_aliases</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/alias/">https://opensearch.org/docs/latest/api-reference/index-apis/alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/alias/">https://docs.opensearch.org/latest/api-reference/index-apis/alias/</a>
         /// </summary>
         public BulkAliasResponse BulkAlias(Func<BulkAliasDescriptor, IBulkAliasRequest> selector) =>
             BulkAlias(selector.InvokeOrDefault(new BulkAliasDescriptor()));
@@ -3246,7 +3246,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.update_aliases</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/alias/">https://opensearch.org/docs/latest/api-reference/index-apis/alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/alias/">https://docs.opensearch.org/latest/api-reference/index-apis/alias/</a>
         /// </summary>
         public Task<BulkAliasResponse> BulkAliasAsync(
             Func<BulkAliasDescriptor, IBulkAliasRequest> selector,
@@ -3256,7 +3256,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.update_aliases</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/alias/">https://opensearch.org/docs/latest/api-reference/index-apis/alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/alias/">https://docs.opensearch.org/latest/api-reference/index-apis/alias/</a>
         /// </summary>
         public BulkAliasResponse BulkAlias(IBulkAliasRequest request) =>
             DoRequest<IBulkAliasRequest, BulkAliasResponse>(request, request.RequestParameters);
@@ -3264,7 +3264,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.update_aliases</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/alias/">https://opensearch.org/docs/latest/api-reference/index-apis/alias/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/alias/">https://docs.opensearch.org/latest/api-reference/index-apis/alias/</a>
         /// </summary>
         public Task<BulkAliasResponse> BulkAliasAsync(
             IBulkAliasRequest request,
@@ -3279,7 +3279,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.validate_query</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ValidateQueryResponse ValidateQuery<TDocument>(
             Func<ValidateQueryDescriptor<TDocument>, IValidateQueryRequest> selector = null
@@ -3290,7 +3290,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.validate_query</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ValidateQueryResponse> ValidateQueryAsync<TDocument>(
             Func<ValidateQueryDescriptor<TDocument>, IValidateQueryRequest> selector = null,
@@ -3305,7 +3305,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.validate_query</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ValidateQueryResponse ValidateQuery(IValidateQueryRequest request) =>
             DoRequest<IValidateQueryRequest, ValidateQueryResponse>(
@@ -3316,7 +3316,7 @@ namespace OpenSearch.Client.Specification.IndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>indices.validate_query</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ValidateQueryResponse> ValidateQueryAsync(
             IValidateQueryRequest request,

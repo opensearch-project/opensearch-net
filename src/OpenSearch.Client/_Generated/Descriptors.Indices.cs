@@ -57,7 +57,7 @@ using OpenSearch.Net.Utf8Json;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-    /// <summary>Descriptor for AddBlock <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for AddBlock <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class AddIndexBlockDescriptor
         : RequestDescriptorBase<
             AddIndexBlockDescriptor,
@@ -124,7 +124,7 @@ namespace OpenSearch.Client
         public AddIndexBlockDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    /// <summary>Descriptor for Analyze <para>https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/</para></summary>
+    /// <summary>Descriptor for Analyze <para>https://docs.opensearch.org/latest/api-reference/analyze-apis/perform-text-analysis/</para></summary>
     public partial class AnalyzeDescriptor
         : RequestDescriptorBase<AnalyzeDescriptor, AnalyzeRequestParameters, IAnalyzeRequest>,
             IAnalyzeRequest
@@ -154,7 +154,7 @@ namespace OpenSearch.Client
         // Request parameters
     }
 
-    /// <summary>Descriptor for ClearCache <para>https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</para></summary>
+    /// <summary>Descriptor for ClearCache <para>https://docs.opensearch.org/latest/api-reference/index-apis/clear-index-cache/</para></summary>
     public partial class ClearCacheDescriptor
         : RequestDescriptorBase<
             ClearCacheDescriptor,
@@ -223,7 +223,7 @@ namespace OpenSearch.Client
         public ClearCacheDescriptor Request(bool? request = true) => Qs("request", request);
     }
 
-    /// <summary>Descriptor for Clone <para>https://opensearch.org/docs/latest/api-reference/index-apis/clone/</para></summary>
+    /// <summary>Descriptor for Clone <para>https://docs.opensearch.org/latest/api-reference/index-apis/clone/</para></summary>
     public partial class CloneIndexDescriptor
         : RequestDescriptorBase<
             CloneIndexDescriptor,
@@ -288,7 +288,7 @@ namespace OpenSearch.Client
             Qs("wait_for_completion", waitforcompletion);
     }
 
-    /// <summary>Descriptor for Close <para>https://opensearch.org/docs/latest/api-reference/index-apis/close-index/</para></summary>
+    /// <summary>Descriptor for Close <para>https://docs.opensearch.org/latest/api-reference/index-apis/close-index/</para></summary>
     public partial class CloseIndexDescriptor
         : RequestDescriptorBase<
             CloseIndexDescriptor,
@@ -357,7 +357,7 @@ namespace OpenSearch.Client
             Qs("wait_for_active_shards", waitforactiveshards);
     }
 
-    /// <summary>Descriptor for Create <para>https://opensearch.org/docs/latest/api-reference/index-apis/create-index/</para></summary>
+    /// <summary>Descriptor for Create <para>https://docs.opensearch.org/latest/api-reference/index-apis/create-index/</para></summary>
     public partial class CreateIndexDescriptor
         : RequestDescriptorBase<
             CreateIndexDescriptor,
@@ -411,7 +411,7 @@ namespace OpenSearch.Client
             Qs("wait_for_active_shards", waitforactiveshards);
     }
 
-    /// <summary>Descriptor for Delete <para>https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/</para></summary>
+    /// <summary>Descriptor for Delete <para>https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/</para></summary>
     public partial class DeleteIndexDescriptor
         : RequestDescriptorBase<
             DeleteIndexDescriptor,
@@ -476,7 +476,7 @@ namespace OpenSearch.Client
         public DeleteIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    /// <summary>Descriptor for DeleteAlias <para>https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases</para></summary>
+    /// <summary>Descriptor for DeleteAlias <para>https://docs.opensearch.org/latest/api-reference/alias/delete-alias/</para></summary>
     public partial class DeleteAliasDescriptor
         : RequestDescriptorBase<
             DeleteAliasDescriptor,
@@ -531,7 +531,7 @@ namespace OpenSearch.Client
         public DeleteAliasDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    /// <summary>Descriptor for DeleteComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
+    /// <summary>Descriptor for DeleteComposableTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/#delete-a-template</para></summary>
     public partial class DeleteComposableIndexTemplateDescriptor
         : RequestDescriptorBase<
             DeleteComposableIndexTemplateDescriptor,
@@ -574,7 +574,7 @@ namespace OpenSearch.Client
             Qs("timeout", timeout);
     }
 
-    /// <summary>Descriptor for DeleteTemplate <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for DeleteTemplate <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class DeleteIndexTemplateDescriptor
         : RequestDescriptorBase<
             DeleteIndexTemplateDescriptor,
@@ -615,7 +615,7 @@ namespace OpenSearch.Client
         public DeleteIndexTemplateDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    /// <summary>Descriptor for Exists <para>https://opensearch.org/docs/latest/api-reference/index-apis/exists/</para></summary>
+    /// <summary>Descriptor for Exists <para>https://docs.opensearch.org/latest/api-reference/index-apis/exists/</para></summary>
     public partial class IndexExistsDescriptor
         : RequestDescriptorBase<
             IndexExistsDescriptor,
@@ -681,7 +681,7 @@ namespace OpenSearch.Client
         public IndexExistsDescriptor Local(bool? local = true) => Qs("local", local);
     }
 
-    /// <summary>Descriptor for AliasExists <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for AliasExists <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class AliasExistsDescriptor
         : RequestDescriptorBase<
             AliasExistsDescriptor,
@@ -741,7 +741,7 @@ namespace OpenSearch.Client
         public AliasExistsDescriptor Local(bool? local = true) => Qs("local", local);
     }
 
-    /// <summary>Descriptor for ComposableTemplateExists <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
+    /// <summary>Descriptor for ComposableTemplateExists <para>https://docs.opensearch.org/latest/im-plugin/index-templates/</para></summary>
     public partial class ComposableIndexTemplateExistsDescriptor
         : RequestDescriptorBase<
             ComposableIndexTemplateExistsDescriptor,
@@ -788,7 +788,7 @@ namespace OpenSearch.Client
             Qs("master_timeout", mastertimeout);
     }
 
-    /// <summary>Descriptor for TemplateExists <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for TemplateExists <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class IndexTemplateExistsDescriptor
         : RequestDescriptorBase<
             IndexTemplateExistsDescriptor,
@@ -833,7 +833,7 @@ namespace OpenSearch.Client
             Qs("master_timeout", mastertimeout);
     }
 
-    /// <summary>Descriptor for Flush <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for Flush <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class FlushDescriptor
         : RequestDescriptorBase<FlushDescriptor, FlushRequestParameters, IFlushRequest>,
             IFlushRequest
@@ -885,7 +885,7 @@ namespace OpenSearch.Client
             Qs("wait_if_ongoing", waitifongoing);
     }
 
-    /// <summary>Descriptor for ForceMerge <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for ForceMerge <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ForceMergeDescriptor
         : RequestDescriptorBase<
             ForceMergeDescriptor,
@@ -955,7 +955,7 @@ namespace OpenSearch.Client
             Qs("wait_for_completion", waitforcompletion);
     }
 
-    /// <summary>Descriptor for Get <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-index/</para></summary>
+    /// <summary>Descriptor for Get <para>https://docs.opensearch.org/latest/api-reference/index-apis/get-index/</para></summary>
     public partial class GetIndexDescriptor
         : RequestDescriptorBase<GetIndexDescriptor, GetIndexRequestParameters, IGetIndexRequest>,
             IGetIndexRequest
@@ -1024,7 +1024,7 @@ namespace OpenSearch.Client
             Qs("master_timeout", mastertimeout);
     }
 
-    /// <summary>Descriptor for GetAlias <para>https://opensearch.org/docs/latest/im-plugin/index-alias/</para></summary>
+    /// <summary>Descriptor for GetAlias <para>https://docs.opensearch.org/latest/im-plugin/index-alias/</para></summary>
     public partial class GetAliasDescriptor
         : RequestDescriptorBase<GetAliasDescriptor, GetAliasRequestParameters, IGetAliasRequest>,
             IGetAliasRequest
@@ -1088,7 +1088,7 @@ namespace OpenSearch.Client
         public GetAliasDescriptor Local(bool? local = true) => Qs("local", local);
     }
 
-    /// <summary>Descriptor for GetFieldMapping <para>https://opensearch.org/docs/latest/field-types/index/</para></summary>
+    /// <summary>Descriptor for GetFieldMapping <para>https://docs.opensearch.org/latest/field-types/index/</para></summary>
     public partial class GetFieldMappingDescriptor<TDocument>
         : RequestDescriptorBase<
             GetFieldMappingDescriptor<TDocument>,
@@ -1154,7 +1154,7 @@ namespace OpenSearch.Client
         public GetFieldMappingDescriptor<TDocument> Local(bool? local = true) => Qs("local", local);
     }
 
-    /// <summary>Descriptor for GetComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
+    /// <summary>Descriptor for GetComposableTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/</para></summary>
     public partial class GetComposableIndexTemplateDescriptor
         : RequestDescriptorBase<
             GetComposableIndexTemplateDescriptor,
@@ -1203,7 +1203,7 @@ namespace OpenSearch.Client
             Qs("master_timeout", mastertimeout);
     }
 
-    /// <summary>Descriptor for GetMapping <para>https://opensearch.org/docs/latest/field-types/index/#get-a-mapping</para></summary>
+    /// <summary>Descriptor for GetMapping <para>https://docs.opensearch.org/latest/api-reference/index-apis/get-mapping/</para></summary>
     public partial class GetMappingDescriptor<TDocument>
         : RequestDescriptorBase<
             GetMappingDescriptor<TDocument>,
@@ -1267,7 +1267,7 @@ namespace OpenSearch.Client
             Qs("master_timeout", mastertimeout);
     }
 
-    /// <summary>Descriptor for GetSettings <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</para></summary>
+    /// <summary>Descriptor for GetSettings <para>https://docs.opensearch.org/latest/api-reference/index-apis/get-settings/</para></summary>
     public partial class GetIndexSettingsDescriptor
         : RequestDescriptorBase<
             GetIndexSettingsDescriptor,
@@ -1355,7 +1355,7 @@ namespace OpenSearch.Client
             Qs("master_timeout", mastertimeout);
     }
 
-    /// <summary>Descriptor for GetTemplate <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for GetTemplate <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class GetIndexTemplateDescriptor
         : RequestDescriptorBase<
             GetIndexTemplateDescriptor,
@@ -1403,7 +1403,7 @@ namespace OpenSearch.Client
             Qs("master_timeout", mastertimeout);
     }
 
-    /// <summary>Descriptor for Open <para>https://opensearch.org/docs/latest/api-reference/index-apis/open-index/</para></summary>
+    /// <summary>Descriptor for Open <para>https://docs.opensearch.org/latest/api-reference/index-apis/open-index/</para></summary>
     public partial class OpenIndexDescriptor
         : RequestDescriptorBase<OpenIndexDescriptor, OpenIndexRequestParameters, IOpenIndexRequest>,
             IOpenIndexRequest
@@ -1477,7 +1477,7 @@ namespace OpenSearch.Client
             Qs("wait_for_completion", waitforcompletion);
     }
 
-    /// <summary>Descriptor for PutAlias <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</para></summary>
+    /// <summary>Descriptor for PutAlias <para>https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/</para></summary>
     public partial class PutAliasDescriptor
         : RequestDescriptorBase<PutAliasDescriptor, PutAliasRequestParameters, IPutAliasRequest>,
             IPutAliasRequest
@@ -1541,7 +1541,7 @@ namespace OpenSearch.Client
         public PutAliasDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    /// <summary>Descriptor for PutComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
+    /// <summary>Descriptor for PutComposableTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/</para></summary>
     public partial class PutComposableIndexTemplateDescriptor
         : RequestDescriptorBase<
             PutComposableIndexTemplateDescriptor,
@@ -1587,7 +1587,7 @@ namespace OpenSearch.Client
             Qs("master_timeout", mastertimeout);
     }
 
-    /// <summary>Descriptor for PutMapping <para>https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/</para></summary>
+    /// <summary>Descriptor for PutMapping <para>https://docs.opensearch.org/latest/api-reference/index-apis/put-mapping/</para></summary>
     public partial class PutMappingDescriptor<TDocument>
         : RequestDescriptorBase<
             PutMappingDescriptor<TDocument>,
@@ -1655,7 +1655,7 @@ namespace OpenSearch.Client
             Qs("write_index_only", writeindexonly);
     }
 
-    /// <summary>Descriptor for UpdateSettings <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/</para></summary>
+    /// <summary>Descriptor for UpdateSettings <para>https://docs.opensearch.org/latest/api-reference/index-apis/update-settings/</para></summary>
     public partial class UpdateIndexSettingsDescriptor
         : RequestDescriptorBase<
             UpdateIndexSettingsDescriptor,
@@ -1727,7 +1727,7 @@ namespace OpenSearch.Client
         public UpdateIndexSettingsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    /// <summary>Descriptor for PutTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
+    /// <summary>Descriptor for PutTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/</para></summary>
     public partial class PutIndexTemplateDescriptor
         : RequestDescriptorBase<
             PutIndexTemplateDescriptor,
@@ -1768,7 +1768,7 @@ namespace OpenSearch.Client
             Qs("master_timeout", mastertimeout);
     }
 
-    /// <summary>Descriptor for Refresh <para>https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability</para></summary>
+    /// <summary>Descriptor for Refresh <para>https://docs.opensearch.org/latest/api-reference/index-apis/refresh/</para></summary>
     public partial class RefreshDescriptor
         : RequestDescriptorBase<RefreshDescriptor, RefreshRequestParameters, IRefreshRequest>,
             IRefreshRequest
@@ -1813,7 +1813,7 @@ namespace OpenSearch.Client
             Qs("ignore_unavailable", ignoreunavailable);
     }
 
-    /// <summary>Descriptor for Resolve <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for Resolve <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ResolveIndexDescriptor
         : RequestDescriptorBase<
             ResolveIndexDescriptor,
@@ -1843,7 +1843,7 @@ namespace OpenSearch.Client
             Qs("expand_wildcards", expandwildcards);
     }
 
-    /// <summary>Descriptor for Rollover <para>https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/</para></summary>
+    /// <summary>Descriptor for Rollover <para>https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/</para></summary>
     public partial class RolloverIndexDescriptor
         : RequestDescriptorBase<
             RolloverIndexDescriptor,
@@ -1902,7 +1902,7 @@ namespace OpenSearch.Client
             Qs("wait_for_active_shards", waitforactiveshards);
     }
 
-    /// <summary>Descriptor for Shrink <para>https://opensearch.org/docs/latest/api-reference/index-apis/shrink-index/</para></summary>
+    /// <summary>Descriptor for Shrink <para>https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/</para></summary>
     public partial class ShrinkIndexDescriptor
         : RequestDescriptorBase<
             ShrinkIndexDescriptor,
@@ -1967,7 +1967,7 @@ namespace OpenSearch.Client
             Qs("wait_for_completion", waitforcompletion);
     }
 
-    /// <summary>Descriptor for Split <para>https://opensearch.org/docs/latest/api-reference/index-apis/split/</para></summary>
+    /// <summary>Descriptor for Split <para>https://docs.opensearch.org/latest/api-reference/index-apis/split/</para></summary>
     public partial class SplitIndexDescriptor
         : RequestDescriptorBase<
             SplitIndexDescriptor,
@@ -2032,7 +2032,7 @@ namespace OpenSearch.Client
             Qs("wait_for_completion", waitforcompletion);
     }
 
-    /// <summary>Descriptor for Stats <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for Stats <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class IndicesStatsDescriptor
         : RequestDescriptorBase<
             IndicesStatsDescriptor,
@@ -2136,7 +2136,7 @@ namespace OpenSearch.Client
         public IndicesStatsDescriptor Level(Level? level) => Qs("level", level);
     }
 
-    /// <summary>Descriptor for BulkAlias <para>https://opensearch.org/docs/latest/api-reference/index-apis/alias/</para></summary>
+    /// <summary>Descriptor for BulkAlias <para>https://docs.opensearch.org/latest/api-reference/index-apis/alias/</para></summary>
     public partial class BulkAliasDescriptor
         : RequestDescriptorBase<BulkAliasDescriptor, BulkAliasRequestParameters, IBulkAliasRequest>,
             IBulkAliasRequest
@@ -2161,7 +2161,7 @@ namespace OpenSearch.Client
         public BulkAliasDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    /// <summary>Descriptor for ValidateQuery <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for ValidateQuery <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ValidateQueryDescriptor<TDocument>
         : RequestDescriptorBase<
             ValidateQueryDescriptor<TDocument>,

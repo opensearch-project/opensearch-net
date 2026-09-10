@@ -60,7 +60,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         DeleteDanglingIndexResponse DeleteDanglingIndex(
             IndexUuid indexUuid,
@@ -70,7 +70,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         Task<DeleteDanglingIndexResponse> DeleteDanglingIndexAsync(
             IndexUuid indexUuid,
@@ -81,14 +81,14 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         DeleteDanglingIndexResponse DeleteDanglingIndex(IDeleteDanglingIndexRequest request);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         Task<DeleteDanglingIndexResponse> DeleteDanglingIndexAsync(
             IDeleteDanglingIndexRequest request,
@@ -98,7 +98,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         ImportDanglingIndexResponse ImportDanglingIndex(
             IndexUuid indexUuid,
@@ -108,7 +108,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         Task<ImportDanglingIndexResponse> ImportDanglingIndexAsync(
             IndexUuid indexUuid,
@@ -119,14 +119,14 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         ImportDanglingIndexResponse ImportDanglingIndex(IImportDanglingIndexRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         Task<ImportDanglingIndexResponse> ImportDanglingIndexAsync(
             IImportDanglingIndexRequest request,
@@ -136,7 +136,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         ListDanglingIndicesResponse List(
             Func<ListDanglingIndicesDescriptor, IListDanglingIndicesRequest> selector = null
@@ -145,7 +145,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         Task<ListDanglingIndicesResponse> ListAsync(
             Func<ListDanglingIndicesDescriptor, IListDanglingIndicesRequest> selector = null,
@@ -155,14 +155,14 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         ListDanglingIndicesResponse List(IListDanglingIndicesRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         Task<ListDanglingIndicesResponse> ListAsync(
             IListDanglingIndicesRequest request,
@@ -184,7 +184,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         public DeleteDanglingIndexResponse DeleteDanglingIndex(
             IndexUuid indexUuid,
@@ -197,7 +197,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         public Task<DeleteDanglingIndexResponse> DeleteDanglingIndexAsync(
             IndexUuid indexUuid,
@@ -212,7 +212,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         public DeleteDanglingIndexResponse DeleteDanglingIndex(
             IDeleteDanglingIndexRequest request
@@ -225,7 +225,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>dangling_indices.delete_dangling_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         public Task<DeleteDanglingIndexResponse> DeleteDanglingIndexAsync(
             IDeleteDanglingIndexRequest request,
@@ -240,7 +240,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         public ImportDanglingIndexResponse ImportDanglingIndex(
             IndexUuid indexUuid,
@@ -253,7 +253,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         public Task<ImportDanglingIndexResponse> ImportDanglingIndexAsync(
             IndexUuid indexUuid,
@@ -268,7 +268,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         public ImportDanglingIndexResponse ImportDanglingIndex(
             IImportDanglingIndexRequest request
@@ -281,7 +281,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// <summary>
         /// <c>POST</c> request to the <c>dangling_indices.import_dangling_index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         public Task<ImportDanglingIndexResponse> ImportDanglingIndexAsync(
             IImportDanglingIndexRequest request,
@@ -296,7 +296,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         public ListDanglingIndicesResponse List(
             Func<ListDanglingIndicesDescriptor, IListDanglingIndicesRequest> selector = null
@@ -305,7 +305,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         public Task<ListDanglingIndicesResponse> ListAsync(
             Func<ListDanglingIndicesDescriptor, IListDanglingIndicesRequest> selector = null,
@@ -315,7 +315,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         public ListDanglingIndicesResponse List(IListDanglingIndicesRequest request) =>
             DoRequest<IListDanglingIndicesRequest, ListDanglingIndicesResponse>(
@@ -326,7 +326,7 @@ namespace OpenSearch.Client.Specification.DanglingIndicesApi
         /// <summary>
         /// <c>GET</c> request to the <c>dangling_indices.list_dangling_indices</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/">https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/">https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</a>
         /// </summary>
         public Task<ListDanglingIndicesResponse> ListAsync(
             IListDanglingIndicesRequest request,

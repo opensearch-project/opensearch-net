@@ -52,7 +52,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net
 {
-    /// <summary>Request options for Bulk <para>https://opensearch.org/docs/latest/api-reference/document-apis/bulk/</para></summary>
+    /// <summary>Request options for Bulk <para>https://docs.opensearch.org/latest/api-reference/document-apis/bulk/</para></summary>
     public partial class BulkRequestParameters : RequestParameters<BulkRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -148,7 +148,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for BulkStream <para>https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</para></summary>
+    /// <summary>Request options for BulkStream <para>https://docs.opensearch.org/latest/api-reference/document-apis/bulk-streaming/</para></summary>
     public partial class BulkStreamRequestParameters
         : RequestParameters<BulkStreamRequestParameters>
     {
@@ -252,7 +252,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for ClearScroll <para>https://opensearch.org/docs/latest/api-reference/scroll/</para></summary>
+    /// <summary>Request options for ClearScroll <para>https://docs.opensearch.org/latest/api-reference/scroll/</para></summary>
     public partial class ClearScrollRequestParameters
         : RequestParameters<ClearScrollRequestParameters>
     {
@@ -261,7 +261,7 @@ namespace OpenSearch.Net
         public override string OperationName => "clear_scroll";
     }
 
-    /// <summary>Request options for Count <para>https://opensearch.org/docs/latest/api-reference/count/</para></summary>
+    /// <summary>Request options for Count <para>https://docs.opensearch.org/latest/api-reference/count/</para></summary>
     public partial class CountRequestParameters : RequestParameters<CountRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -382,7 +382,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for Create <para>https://opensearch.org/docs/latest/api-reference/document-apis/index-document/</para></summary>
+    /// <summary>Request options for Create <para>https://docs.opensearch.org/latest/api-reference/document-apis/index-document/</para></summary>
     public partial class CreateRequestParameters : RequestParameters<CreateRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
@@ -453,12 +453,22 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for CreatePit <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</para></summary>
+    /// <summary>Request options for CreatePit <para>https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#create-a-pit</para></summary>
     public partial class CreatePitRequestParameters : RequestParameters<CreatePitRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
         public override string OperationName => "create_pit";
+
+        /// <summary>
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
 
         /// <summary>Allow if point in time can be created with partial failures.</summary>
         public bool? AllowPartialPitCreation
@@ -472,6 +482,20 @@ namespace OpenSearch.Net
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
             set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If <c>true</c>, concrete, expanded or aliased indexes will be ignored when frozen.</summary>
+        public bool? IgnoreThrottled
+        {
+            get => Q<bool?>("ignore_throttled");
+            set => Q("ignore_throttled", value);
+        }
+
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
         }
 
         /// <summary>Specify the keep alive for point in time.</summary>
@@ -496,7 +520,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for Delete <para>https://opensearch.org/docs/latest/api-reference/document-apis/delete-document/</para></summary>
+    /// <summary>Request options for Delete <para>https://docs.opensearch.org/latest/api-reference/document-apis/delete-document/</para></summary>
     public partial class DeleteRequestParameters : RequestParameters<DeleteRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
@@ -570,7 +594,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for DeleteAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
+    /// <summary>Request options for DeleteAllPits <para>https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits</para></summary>
     public partial class DeleteAllPitsRequestParameters
         : RequestParameters<DeleteAllPitsRequestParameters>
     {
@@ -579,7 +603,7 @@ namespace OpenSearch.Net
         public override string OperationName => "delete_all_pits";
     }
 
-    /// <summary>Request options for DeleteByQuery <para>https://opensearch.org/docs/latest/api-reference/document-apis/delete-by-query/</para></summary>
+    /// <summary>Request options for DeleteByQuery <para>https://docs.opensearch.org/latest/api-reference/document-apis/delete-by-query/</para></summary>
     public partial class DeleteByQueryRequestParameters
         : RequestParameters<DeleteByQueryRequestParameters>
     {
@@ -821,7 +845,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for DeleteByQueryRethrottle <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for DeleteByQueryRethrottle <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class DeleteByQueryRethrottleRequestParameters
         : RequestParameters<DeleteByQueryRethrottleRequestParameters>
     {
@@ -837,7 +861,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for DeletePit <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
+    /// <summary>Request options for DeletePit <para>https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits</para></summary>
     public partial class DeletePitRequestParameters : RequestParameters<DeletePitRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
@@ -845,7 +869,7 @@ namespace OpenSearch.Net
         public override string OperationName => "delete_pit";
     }
 
-    /// <summary>Request options for DeleteScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/delete-script/</para></summary>
+    /// <summary>Request options for DeleteScript <para>https://docs.opensearch.org/latest/api-reference/script-apis/delete-script/</para></summary>
     public partial class DeleteScriptRequestParameters
         : RequestParameters<DeleteScriptRequestParameters>
     {
@@ -882,7 +906,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for DocumentExists <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    /// <summary>Request options for DocumentExists <para>https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</para></summary>
     public partial class DocumentExistsRequestParameters
         : RequestParameters<DocumentExistsRequestParameters>
     {
@@ -967,7 +991,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for SourceExists <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    /// <summary>Request options for SourceExists <para>https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</para></summary>
     public partial class SourceExistsRequestParameters
         : RequestParameters<SourceExistsRequestParameters>
     {
@@ -1042,7 +1066,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for Explain <para>https://opensearch.org/docs/latest/api-reference/explain/</para></summary>
+    /// <summary>Request options for Explain <para>https://docs.opensearch.org/latest/api-reference/explain/</para></summary>
     public partial class ExplainRequestParameters : RequestParameters<ExplainRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -1134,7 +1158,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for FieldCapabilities <para>https://opensearch.org/docs/latest/field-types/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations</para></summary>
+    /// <summary>Request options for FieldCapabilities <para>https://docs.opensearch.org/latest/mappings/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations</para></summary>
     public partial class FieldCapabilitiesRequestParameters
         : RequestParameters<FieldCapabilitiesRequestParameters>
     {
@@ -1185,7 +1209,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for Get <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    /// <summary>Request options for Get <para>https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</para></summary>
     public partial class GetRequestParameters : RequestParameters<GetRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -1272,7 +1296,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for GetAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</para></summary>
+    /// <summary>Request options for GetAllPits <para>https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#list-all-pits</para></summary>
     public partial class GetAllPitsRequestParameters
         : RequestParameters<GetAllPitsRequestParameters>
     {
@@ -1281,7 +1305,7 @@ namespace OpenSearch.Net
         public override string OperationName => "get_all_pits";
     }
 
-    /// <summary>Request options for GetScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/get-stored-script/</para></summary>
+    /// <summary>Request options for GetScript <para>https://docs.opensearch.org/latest/api-reference/script-apis/get-stored-script/</para></summary>
     public partial class GetScriptRequestParameters : RequestParameters<GetScriptRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -1307,7 +1331,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for GetScriptContext <para>https://opensearch.org/docs/latest/api-reference/script-apis/get-script-contexts/</para></summary>
+    /// <summary>Request options for GetScriptContext <para>https://docs.opensearch.org/latest/api-reference/script-apis/get-script-contexts/</para></summary>
     public partial class GetScriptContextRequestParameters
         : RequestParameters<GetScriptContextRequestParameters>
     {
@@ -1316,7 +1340,7 @@ namespace OpenSearch.Net
         public override string OperationName => "get_script_context";
     }
 
-    /// <summary>Request options for GetScriptLanguages <para>https://opensearch.org/docs/latest/api-reference/script-apis/get-script-language/</para></summary>
+    /// <summary>Request options for GetScriptLanguages <para>https://docs.opensearch.org/latest/api-reference/script-apis/get-script-language/</para></summary>
     public partial class GetScriptLanguagesRequestParameters
         : RequestParameters<GetScriptLanguagesRequestParameters>
     {
@@ -1325,7 +1349,7 @@ namespace OpenSearch.Net
         public override string OperationName => "get_script_languages";
     }
 
-    /// <summary>Request options for Source <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    /// <summary>Request options for Source <para>https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</para></summary>
     public partial class SourceRequestParameters : RequestParameters<SourceRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -1402,7 +1426,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for Index <para>https://opensearch.org/docs/latest/api-reference/document-apis/index-document/</para></summary>
+    /// <summary>Request options for Index <para>https://docs.opensearch.org/latest/api-reference/document-apis/index-document/</para></summary>
     public partial class IndexRequestParameters : RequestParameters<IndexRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
@@ -1505,7 +1529,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for RootNodeInfo <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for RootNodeInfo <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class RootNodeInfoRequestParameters
         : RequestParameters<RootNodeInfoRequestParameters>
     {
@@ -1514,7 +1538,7 @@ namespace OpenSearch.Net
         public override string OperationName => "info";
     }
 
-    /// <summary>Request options for MultiGet <para>https://opensearch.org/docs/latest/api-reference/document-apis/multi-get/</para></summary>
+    /// <summary>Request options for MultiGet <para>https://docs.opensearch.org/latest/api-reference/document-apis/multi-get/</para></summary>
     public partial class MultiGetRequestParameters : RequestParameters<MultiGetRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -1585,7 +1609,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for MultiSearch <para>https://opensearch.org/docs/latest/api-reference/multi-search/</para></summary>
+    /// <summary>Request options for MultiSearch <para>https://docs.opensearch.org/latest/api-reference/multi-search/</para></summary>
     public partial class MultiSearchRequestParameters
         : RequestParameters<MultiSearchRequestParameters>
     {
@@ -1655,7 +1679,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for MultiSearchTemplate <para>https://opensearch.org/docs/latest/search-plugins/search-template/</para></summary>
+    /// <summary>Request options for MultiSearchTemplate <para>https://docs.opensearch.org/latest/search-plugins/search-template/</para></summary>
     public partial class MultiSearchTemplateRequestParameters
         : RequestParameters<MultiSearchTemplateRequestParameters>
     {
@@ -1699,7 +1723,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for MultiTermVectors <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for MultiTermVectors <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class MultiTermVectorsRequestParameters
         : RequestParameters<MultiTermVectorsRequestParameters>
     {
@@ -1793,7 +1817,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for Ping <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for Ping <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class PingRequestParameters : RequestParameters<PingRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
@@ -1801,7 +1825,7 @@ namespace OpenSearch.Net
         public override string OperationName => "ping";
     }
 
-    /// <summary>Request options for PutScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/create-stored-script/</para></summary>
+    /// <summary>Request options for PutScript <para>https://docs.opensearch.org/latest/api-reference/script-apis/create-stored-script/</para></summary>
     public partial class PutScriptRequestParameters : RequestParameters<PutScriptRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
@@ -1847,7 +1871,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for RankEval <para>https://opensearch.org/docs/latest/api-reference/rank-eval/</para></summary>
+    /// <summary>Request options for RankEval <para>https://docs.opensearch.org/latest/api-reference/rank-eval/</para></summary>
     public partial class RankEvalRequestParameters : RequestParameters<RankEvalRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -1887,7 +1911,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for ReindexOnServer <para>https://opensearch.org/docs/latest/im-plugin/reindex-data/</para></summary>
+    /// <summary>Request options for ReindexOnServer <para>https://docs.opensearch.org/latest/im-plugin/reindex-data/</para></summary>
     public partial class ReindexOnServerRequestParameters
         : RequestParameters<ReindexOnServerRequestParameters>
     {
@@ -1946,7 +1970,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for ReindexRethrottle <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for ReindexRethrottle <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ReindexRethrottleRequestParameters
         : RequestParameters<ReindexRethrottleRequestParameters>
     {
@@ -1962,7 +1986,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for RenderSearchTemplate <para>https://opensearch.org/docs/latest/search-plugins/search-template/</para></summary>
+    /// <summary>Request options for RenderSearchTemplate <para>https://docs.opensearch.org/latest/search-plugins/search-template/</para></summary>
     public partial class RenderSearchTemplateRequestParameters
         : RequestParameters<RenderSearchTemplateRequestParameters>
     {
@@ -1971,7 +1995,7 @@ namespace OpenSearch.Net
         public override string OperationName => "render_search_template";
     }
 
-    /// <summary>Request options for ExecutePainlessScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/exec-script/</para></summary>
+    /// <summary>Request options for ExecutePainlessScript <para>https://docs.opensearch.org/latest/api-reference/script-apis/exec-script/</para></summary>
     public partial class ExecutePainlessScriptRequestParameters
         : RequestParameters<ExecutePainlessScriptRequestParameters>
     {
@@ -1980,7 +2004,7 @@ namespace OpenSearch.Net
         public override string OperationName => "scripts_painless_execute";
     }
 
-    /// <summary>Request options for Scroll <para>https://opensearch.org/docs/latest/api-reference/scroll/#path-and-http-methods</para></summary>
+    /// <summary>Request options for Scroll <para>https://docs.opensearch.org/latest/api-reference/search-apis/scroll/#endpoints</para></summary>
     public partial class ScrollRequestParameters : RequestParameters<ScrollRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -1998,7 +2022,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for Search <para>https://opensearch.org/docs/latest/api-reference/search/</para></summary>
+    /// <summary>Request options for Search <para>https://docs.opensearch.org/latest/api-reference/search/</para></summary>
     public partial class SearchRequestParameters : RequestParameters<SearchRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -2336,7 +2360,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for SearchShards <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for SearchShards <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class SearchShardsRequestParameters
         : RequestParameters<SearchShardsRequestParameters>
     {
@@ -2395,7 +2419,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for SearchTemplate <para>https://opensearch.org/docs/latest/search-plugins/search-template/</para></summary>
+    /// <summary>Request options for SearchTemplate <para>https://docs.opensearch.org/latest/search-plugins/search-template/</para></summary>
     public partial class SearchTemplateRequestParameters
         : RequestParameters<SearchTemplateRequestParameters>
     {
@@ -2517,7 +2541,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for TermVectors <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for TermVectors <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class TermVectorsRequestParameters
         : RequestParameters<TermVectorsRequestParameters>
     {
@@ -2611,7 +2635,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for Update <para>https://opensearch.org/docs/latest/api-reference/document-apis/update-document/</para></summary>
+    /// <summary>Request options for Update <para>https://docs.opensearch.org/latest/api-reference/document-apis/update-document/</para></summary>
     public partial class UpdateRequestParameters : RequestParameters<UpdateRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -2698,7 +2722,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for UpdateByQuery <para>https://opensearch.org/docs/latest/api-reference/document-apis/update-by-query/</para></summary>
+    /// <summary>Request options for UpdateByQuery <para>https://docs.opensearch.org/latest/api-reference/document-apis/update-by-query/</para></summary>
     public partial class UpdateByQueryRequestParameters
         : RequestParameters<UpdateByQueryRequestParameters>
     {
@@ -2951,7 +2975,7 @@ namespace OpenSearch.Net
         }
     }
 
-    /// <summary>Request options for UpdateByQueryRethrottle <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for UpdateByQueryRethrottle <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class UpdateByQueryRethrottleRequestParameters
         : RequestParameters<UpdateByQueryRethrottleRequestParameters>
     {

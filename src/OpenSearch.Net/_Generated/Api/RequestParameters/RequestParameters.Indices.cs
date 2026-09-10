@@ -52,7 +52,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.IndicesApi
 {
-    /// <summary>Request options for AddBlock <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for AddBlock <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class AddIndexBlockRequestParameters
         : RequestParameters<AddIndexBlockRequestParameters>
     {
@@ -110,7 +110,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for Analyze <para>https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/</para></summary>
+    /// <summary>Request options for Analyze <para>https://docs.opensearch.org/latest/api-reference/analyze-apis/perform-text-analysis/</para></summary>
     public partial class AnalyzeRequestParameters : RequestParameters<AnalyzeRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -125,7 +125,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for ClearCache <para>https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</para></summary>
+    /// <summary>Request options for ClearCache <para>https://docs.opensearch.org/latest/api-reference/index-apis/clear-index-cache/</para></summary>
     public partial class ClearCacheRequestParameters
         : RequestParameters<ClearCacheRequestParameters>
     {
@@ -205,7 +205,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for Clone <para>https://opensearch.org/docs/latest/api-reference/index-apis/clone/</para></summary>
+    /// <summary>Request options for Clone <para>https://docs.opensearch.org/latest/api-reference/index-apis/clone/</para></summary>
     public partial class CloneIndexRequestParameters
         : RequestParameters<CloneIndexRequestParameters>
     {
@@ -267,7 +267,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for Close <para>https://opensearch.org/docs/latest/api-reference/index-apis/close-index/</para></summary>
+    /// <summary>Request options for Close <para>https://docs.opensearch.org/latest/api-reference/index-apis/close-index/</para></summary>
     public partial class CloseIndexRequestParameters
         : RequestParameters<CloseIndexRequestParameters>
     {
@@ -342,7 +342,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for Create <para>https://opensearch.org/docs/latest/api-reference/index-apis/create-index/</para></summary>
+    /// <summary>Request options for Create <para>https://docs.opensearch.org/latest/api-reference/index-apis/create-index/</para></summary>
     public partial class CreateIndexRequestParameters
         : RequestParameters<CreateIndexRequestParameters>
     {
@@ -389,7 +389,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for CreateDataStream <para>https://opensearch.org/docs/latest/im-plugin/data-streams/</para></summary>
+    /// <summary>Request options for CreateDataStream <para>https://docs.opensearch.org/latest/im-plugin/data-streams/</para></summary>
     public partial class CreateDataStreamRequestParameters
         : RequestParameters<CreateDataStreamRequestParameters>
     {
@@ -398,7 +398,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         public override string OperationName => "indices.create_data_stream";
     }
 
-    /// <summary>Request options for DataStreamsStats <para>https://opensearch.org/docs/latest/im-plugin/data-streams/</para></summary>
+    /// <summary>Request options for DataStreamsStats <para>https://docs.opensearch.org/latest/im-plugin/data-streams/</para></summary>
     public partial class DataStreamsStatsRequestParameters
         : RequestParameters<DataStreamsStatsRequestParameters>
     {
@@ -407,7 +407,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         public override string OperationName => "indices.data_streams_stats";
     }
 
-    /// <summary>Request options for Delete <para>https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/</para></summary>
+    /// <summary>Request options for Delete <para>https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/</para></summary>
     public partial class DeleteIndexRequestParameters
         : RequestParameters<DeleteIndexRequestParameters>
     {
@@ -472,7 +472,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for DeleteAlias <para>https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases</para></summary>
+    /// <summary>Request options for DeleteAlias <para>https://docs.opensearch.org/latest/api-reference/alias/delete-alias/</para></summary>
     public partial class DeleteAliasRequestParameters
         : RequestParameters<DeleteAliasRequestParameters>
     {
@@ -509,7 +509,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for DeleteDataStream <para>https://opensearch.org/docs/latest/im-plugin/data-streams/</para></summary>
+    /// <summary>Request options for DeleteDataStream <para>https://docs.opensearch.org/latest/im-plugin/data-streams/</para></summary>
     public partial class DeleteDataStreamRequestParameters
         : RequestParameters<DeleteDataStreamRequestParameters>
     {
@@ -518,7 +518,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         public override string OperationName => "indices.delete_data_stream";
     }
 
-    /// <summary>Request options for DeleteComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
+    /// <summary>Request options for DeleteComposableTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/#delete-a-template</para></summary>
     public partial class DeleteComposableIndexTemplateRequestParameters
         : RequestParameters<DeleteComposableIndexTemplateRequestParameters>
     {
@@ -555,7 +555,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for DeleteTemplate <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for DeleteTemplate <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class DeleteIndexTemplateRequestParameters
         : RequestParameters<DeleteIndexTemplateRequestParameters>
     {
@@ -592,7 +592,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for Exists <para>https://opensearch.org/docs/latest/api-reference/index-apis/exists/</para></summary>
+    /// <summary>Request options for Exists <para>https://docs.opensearch.org/latest/api-reference/index-apis/exists/</para></summary>
     public partial class IndexExistsRequestParameters
         : RequestParameters<IndexExistsRequestParameters>
     {
@@ -658,7 +658,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for AliasExists <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for AliasExists <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class AliasExistsRequestParameters
         : RequestParameters<AliasExistsRequestParameters>
     {
@@ -702,7 +702,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for ComposableTemplateExists <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
+    /// <summary>Request options for ComposableTemplateExists <para>https://docs.opensearch.org/latest/im-plugin/index-templates/</para></summary>
     public partial class ComposableIndexTemplateExistsRequestParameters
         : RequestParameters<ComposableIndexTemplateExistsRequestParameters>
     {
@@ -746,7 +746,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for TemplateExists <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for TemplateExists <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class IndexTemplateExistsRequestParameters
         : RequestParameters<IndexTemplateExistsRequestParameters>
     {
@@ -787,7 +787,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for Flush <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for Flush <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class FlushRequestParameters : RequestParameters<FlushRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -840,7 +840,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for ForceMerge <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for ForceMerge <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ForceMergeRequestParameters
         : RequestParameters<ForceMergeRequestParameters>
     {
@@ -913,7 +913,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for Get <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-index/</para></summary>
+    /// <summary>Request options for Get <para>https://docs.opensearch.org/latest/api-reference/index-apis/get-index/</para></summary>
     public partial class GetIndexRequestParameters : RequestParameters<GetIndexRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -994,7 +994,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for GetAlias <para>https://opensearch.org/docs/latest/im-plugin/index-alias/</para></summary>
+    /// <summary>Request options for GetAlias <para>https://docs.opensearch.org/latest/im-plugin/index-alias/</para></summary>
     public partial class GetAliasRequestParameters : RequestParameters<GetAliasRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -1037,7 +1037,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for GetDataStream <para>https://opensearch.org/docs/latest/im-plugin/data-streams/</para></summary>
+    /// <summary>Request options for GetDataStream <para>https://docs.opensearch.org/latest/im-plugin/data-streams/</para></summary>
     public partial class GetDataStreamRequestParameters
         : RequestParameters<GetDataStreamRequestParameters>
     {
@@ -1046,7 +1046,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         public override string OperationName => "indices.get_data_stream";
     }
 
-    /// <summary>Request options for GetFieldMapping <para>https://opensearch.org/docs/latest/field-types/index/</para></summary>
+    /// <summary>Request options for GetFieldMapping <para>https://docs.opensearch.org/latest/field-types/index/</para></summary>
     public partial class GetFieldMappingRequestParameters
         : RequestParameters<GetFieldMappingRequestParameters>
     {
@@ -1097,7 +1097,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for GetComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
+    /// <summary>Request options for GetComposableTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/</para></summary>
     public partial class GetComposableIndexTemplateRequestParameters
         : RequestParameters<GetComposableIndexTemplateRequestParameters>
     {
@@ -1144,7 +1144,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for GetMapping <para>https://opensearch.org/docs/latest/field-types/index/#get-a-mapping</para></summary>
+    /// <summary>Request options for GetMapping <para>https://docs.opensearch.org/latest/api-reference/index-apis/get-mapping/</para></summary>
     public partial class GetMappingRequestParameters
         : RequestParameters<GetMappingRequestParameters>
     {
@@ -1219,7 +1219,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for GetSettings <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</para></summary>
+    /// <summary>Request options for GetSettings <para>https://docs.opensearch.org/latest/api-reference/index-apis/get-settings/</para></summary>
     public partial class GetIndexSettingsRequestParameters
         : RequestParameters<GetIndexSettingsRequestParameters>
     {
@@ -1301,7 +1301,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for GetTemplate <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for GetTemplate <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class GetIndexTemplateRequestParameters
         : RequestParameters<GetIndexTemplateRequestParameters>
     {
@@ -1345,7 +1345,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for GetUpgrade <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for GetUpgrade <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class GetUpgradeRequestParameters
         : RequestParameters<GetUpgradeRequestParameters>
     {
@@ -1378,7 +1378,30 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for Open <para>https://opensearch.org/docs/latest/api-reference/index-apis/open-index/</para></summary>
+    /// <summary>Request options for ModifyDataStream <para>https://docs.opensearch.org/latest/im-plugin/data-streams/</para></summary>
+    public partial class ModifyDataStreamRequestParameters
+        : RequestParameters<ModifyDataStreamRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+        public override string OperationName => "indices.modify_data_stream";
+
+        /// <summary>Operation timeout for connection to cluster-manager node.</summary>
+        public TimeSpan ClusterManagerTimeout
+        {
+            get => Q<TimeSpan>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>Period to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
+        public TimeSpan Timeout
+        {
+            get => Q<TimeSpan>("timeout");
+            set => Q("timeout", value);
+        }
+    }
+
+    /// <summary>Request options for Open <para>https://docs.opensearch.org/latest/api-reference/index-apis/open-index/</para></summary>
     public partial class OpenIndexRequestParameters : RequestParameters<OpenIndexRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -1467,7 +1490,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for PutAlias <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</para></summary>
+    /// <summary>Request options for PutAlias <para>https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/</para></summary>
     public partial class PutAliasRequestParameters : RequestParameters<PutAliasRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
@@ -1503,7 +1526,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for PutComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
+    /// <summary>Request options for PutComposableTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/</para></summary>
     public partial class PutComposableIndexTemplateRequestParameters
         : RequestParameters<PutComposableIndexTemplateRequestParameters>
     {
@@ -1544,7 +1567,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for PutMapping <para>https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/</para></summary>
+    /// <summary>Request options for PutMapping <para>https://docs.opensearch.org/latest/api-reference/index-apis/put-mapping/</para></summary>
     public partial class PutMappingRequestParameters
         : RequestParameters<PutMappingRequestParameters>
     {
@@ -1616,7 +1639,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for UpdateSettings <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/</para></summary>
+    /// <summary>Request options for UpdateSettings <para>https://docs.opensearch.org/latest/api-reference/index-apis/update-settings/</para></summary>
     public partial class UpdateIndexSettingsRequestParameters
         : RequestParameters<UpdateIndexSettingsRequestParameters>
     {
@@ -1695,7 +1718,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for PutTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
+    /// <summary>Request options for PutTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/</para></summary>
     public partial class PutIndexTemplateRequestParameters
         : RequestParameters<PutIndexTemplateRequestParameters>
     {
@@ -1732,7 +1755,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for RecoveryStatus <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for RecoveryStatus <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class RecoveryStatusRequestParameters
         : RequestParameters<RecoveryStatusRequestParameters>
     {
@@ -1755,7 +1778,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for Refresh <para>https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability</para></summary>
+    /// <summary>Request options for Refresh <para>https://docs.opensearch.org/latest/api-reference/index-apis/refresh/</para></summary>
     public partial class RefreshRequestParameters : RequestParameters<RefreshRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -1791,7 +1814,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for Resolve <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for Resolve <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ResolveIndexRequestParameters
         : RequestParameters<ResolveIndexRequestParameters>
     {
@@ -1811,7 +1834,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for Rollover <para>https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/</para></summary>
+    /// <summary>Request options for Rollover <para>https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/</para></summary>
     public partial class RolloverIndexRequestParameters
         : RequestParameters<RolloverIndexRequestParameters>
     {
@@ -1865,7 +1888,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for Segments <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for Segments <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class SegmentsRequestParameters : RequestParameters<SegmentsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -1908,7 +1931,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for ShardStores <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for ShardStores <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class IndicesShardStoresRequestParameters
         : RequestParameters<IndicesShardStoresRequestParameters>
     {
@@ -1951,7 +1974,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for Shrink <para>https://opensearch.org/docs/latest/api-reference/index-apis/shrink-index/</para></summary>
+    /// <summary>Request options for Shrink <para>https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/</para></summary>
     public partial class ShrinkIndexRequestParameters
         : RequestParameters<ShrinkIndexRequestParameters>
     {
@@ -2013,7 +2036,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for SimulateIndexTemplate <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for SimulateIndexTemplate <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class SimulateIndexTemplateRequestParameters
         : RequestParameters<SimulateIndexTemplateRequestParameters>
     {
@@ -2043,7 +2066,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for SimulateTemplate <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for SimulateTemplate <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class SimulateTemplateRequestParameters
         : RequestParameters<SimulateTemplateRequestParameters>
     {
@@ -2091,7 +2114,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for Split <para>https://opensearch.org/docs/latest/api-reference/index-apis/split/</para></summary>
+    /// <summary>Request options for Split <para>https://docs.opensearch.org/latest/api-reference/index-apis/split/</para></summary>
     public partial class SplitIndexRequestParameters
         : RequestParameters<SplitIndexRequestParameters>
     {
@@ -2153,7 +2176,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for Stats <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for Stats <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class IndicesStatsRequestParameters
         : RequestParameters<IndicesStatsRequestParameters>
     {
@@ -2231,7 +2254,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for BulkAlias <para>https://opensearch.org/docs/latest/api-reference/index-apis/alias/</para></summary>
+    /// <summary>Request options for BulkAlias <para>https://docs.opensearch.org/latest/api-reference/index-apis/alias/</para></summary>
     public partial class BulkAliasRequestParameters : RequestParameters<BulkAliasRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -2267,7 +2290,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for Upgrade <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for Upgrade <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class UpgradeRequestParameters : RequestParameters<UpgradeRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -2314,7 +2337,7 @@ namespace OpenSearch.Net.Specification.IndicesApi
         }
     }
 
-    /// <summary>Request options for ValidateQuery <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for ValidateQuery <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ValidateQueryRequestParameters
         : RequestParameters<ValidateQueryRequestParameters>
     {

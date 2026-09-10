@@ -69,7 +69,7 @@ namespace OpenSearch.Net.Specification.IngestApi
         internal LowLevelIngestNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
-        /// <summary>DELETE on /_ingest/pipeline/{id} <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</para></summary>
+        /// <summary>DELETE on /_ingest/pipeline/{id} <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/delete-ingest/</para></summary>
         /// <param name="id">The pipeline ID or wildcard expression of pipeline IDs used to limit the request. To delete all ingest pipelines in a cluster, use a value of &lt;c&gt;*&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse DeletePipeline<TResponse>(
@@ -84,7 +84,7 @@ namespace OpenSearch.Net.Specification.IngestApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_ingest/pipeline/{id} <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</para></summary>
+        /// <summary>DELETE on /_ingest/pipeline/{id} <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/delete-ingest/</para></summary>
         /// <param name="id">The pipeline ID or wildcard expression of pipeline IDs used to limit the request. To delete all ingest pipelines in a cluster, use a value of &lt;c&gt;*&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ingest.delete_pipeline", "id")]
@@ -102,7 +102,7 @@ namespace OpenSearch.Net.Specification.IngestApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_ingest/pipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</para></summary>
+        /// <summary>GET on /_ingest/pipeline <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetPipeline<TResponse>(
             GetPipelineRequestParameters requestParameters = null
@@ -110,7 +110,7 @@ namespace OpenSearch.Net.Specification.IngestApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_ingest/pipeline", null, RequestParams(requestParameters));
 
-        /// <summary>GET on /_ingest/pipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</para></summary>
+        /// <summary>GET on /_ingest/pipeline <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ingest.get_pipeline", "")]
         public Task<TResponse> GetPipelineAsync<TResponse>(
@@ -126,7 +126,7 @@ namespace OpenSearch.Net.Specification.IngestApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_ingest/pipeline/{id} <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</para></summary>
+        /// <summary>GET on /_ingest/pipeline/{id} <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/</para></summary>
         /// <param name="id">A comma-separated list of pipeline IDs to retrieve. Wildcard (&lt;c&gt;*&lt;/c&gt;) expressions are supported. To get all ingest pipelines, omit this parameter or use &lt;c&gt;*&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetPipeline<TResponse>(
@@ -141,7 +141,7 @@ namespace OpenSearch.Net.Specification.IngestApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_ingest/pipeline/{id} <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</para></summary>
+        /// <summary>GET on /_ingest/pipeline/{id} <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/</para></summary>
         /// <param name="id">A comma-separated list of pipeline IDs to retrieve. Wildcard (&lt;c&gt;*&lt;/c&gt;) expressions are supported. To get all ingest pipelines, omit this parameter or use &lt;c&gt;*&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ingest.get_pipeline", "id")]
@@ -159,7 +159,7 @@ namespace OpenSearch.Net.Specification.IngestApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_ingest/processor/grok <para>https://opensearch.org/docs/latest</para></summary>
+        /// <summary>GET on /_ingest/processor/grok <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GrokProcessorPatterns<TResponse>(
             GrokProcessorPatternsRequestParameters requestParameters = null
@@ -172,7 +172,7 @@ namespace OpenSearch.Net.Specification.IngestApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_ingest/processor/grok <para>https://opensearch.org/docs/latest</para></summary>
+        /// <summary>GET on /_ingest/processor/grok <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ingest.processor_grok", "")]
         public Task<TResponse> GrokProcessorPatternsAsync<TResponse>(
@@ -225,7 +225,7 @@ namespace OpenSearch.Net.Specification.IngestApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_ingest/pipeline/_simulate <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</para></summary>
+        /// <summary>POST on /_ingest/pipeline/_simulate <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/</para></summary>
         /// <param name="body">The simulate definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse SimulatePipeline<TResponse>(
@@ -240,7 +240,7 @@ namespace OpenSearch.Net.Specification.IngestApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_ingest/pipeline/_simulate <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</para></summary>
+        /// <summary>POST on /_ingest/pipeline/_simulate <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/</para></summary>
         /// <param name="body">The simulate definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ingest.simulate", "body")]
@@ -258,7 +258,7 @@ namespace OpenSearch.Net.Specification.IngestApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_ingest/pipeline/{id}/_simulate <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</para></summary>
+        /// <summary>POST on /_ingest/pipeline/{id}/_simulate <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/</para></summary>
         /// <param name="id">The pipeline to test. If you don&#x27;t specify a &lt;c&gt;pipeline&lt;/c&gt; in the request body, this parameter is required.</param>
         /// <param name="body">The simulate definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -275,7 +275,7 @@ namespace OpenSearch.Net.Specification.IngestApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_ingest/pipeline/{id}/_simulate <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</para></summary>
+        /// <summary>POST on /_ingest/pipeline/{id}/_simulate <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/</para></summary>
         /// <param name="id">The pipeline to test. If you don&#x27;t specify a &lt;c&gt;pipeline&lt;/c&gt; in the request body, this parameter is required.</param>
         /// <param name="body">The simulate definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

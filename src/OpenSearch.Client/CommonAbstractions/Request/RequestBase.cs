@@ -124,6 +124,8 @@ namespace OpenSearch.Client
 
 			RequestState.RequestParameters.RequestConfiguration.Accept = RequestState.RequestParameters.AcceptHeaderFromFormat(format);
 		}
+
+		protected void SetAcceptHeader(Enum format) => SetAcceptHeader(format?.GetStringValue());
 	}
 
 	public abstract partial class PlainRequestBase<TParameters> : RequestBase<TParameters>

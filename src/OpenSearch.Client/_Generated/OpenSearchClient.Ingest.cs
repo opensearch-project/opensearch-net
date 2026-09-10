@@ -39,7 +39,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>ingest.delete_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/delete-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/delete-ingest/</a>
         /// </summary>
         DeletePipelineResponse DeletePipeline(
             Id id,
@@ -49,7 +49,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>ingest.delete_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/delete-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/delete-ingest/</a>
         /// </summary>
         Task<DeletePipelineResponse> DeletePipelineAsync(
             Id id,
@@ -60,14 +60,14 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>ingest.delete_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/delete-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/delete-ingest/</a>
         /// </summary>
         DeletePipelineResponse DeletePipeline(IDeletePipelineRequest request);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ingest.delete_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/delete-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/delete-ingest/</a>
         /// </summary>
         Task<DeletePipelineResponse> DeletePipelineAsync(
             IDeletePipelineRequest request,
@@ -77,7 +77,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.get_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/</a>
         /// </summary>
         GetPipelineResponse GetPipeline(
             Func<GetPipelineDescriptor, IGetPipelineRequest> selector = null
@@ -86,7 +86,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.get_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/</a>
         /// </summary>
         Task<GetPipelineResponse> GetPipelineAsync(
             Func<GetPipelineDescriptor, IGetPipelineRequest> selector = null,
@@ -96,14 +96,14 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.get_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/</a>
         /// </summary>
         GetPipelineResponse GetPipeline(IGetPipelineRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.get_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/</a>
         /// </summary>
         Task<GetPipelineResponse> GetPipelineAsync(
             IGetPipelineRequest request,
@@ -113,7 +113,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.processor_grok</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         GrokProcessorPatternsResponse GrokProcessorPatterns(
             Func<GrokProcessorPatternsDescriptor, IGrokProcessorPatternsRequest> selector = null
@@ -122,7 +122,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.processor_grok</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<GrokProcessorPatternsResponse> GrokProcessorPatternsAsync(
             Func<GrokProcessorPatternsDescriptor, IGrokProcessorPatternsRequest> selector = null,
@@ -132,14 +132,14 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.processor_grok</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         GrokProcessorPatternsResponse GrokProcessorPatterns(IGrokProcessorPatternsRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.processor_grok</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<GrokProcessorPatternsResponse> GrokProcessorPatternsAsync(
             IGrokProcessorPatternsRequest request,
@@ -187,7 +187,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>POST</c> request to the <c>ingest.simulate</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/</a>
         /// </summary>
         SimulatePipelineResponse SimulatePipeline(
             Func<SimulatePipelineDescriptor, ISimulatePipelineRequest> selector = null
@@ -196,7 +196,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>POST</c> request to the <c>ingest.simulate</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/</a>
         /// </summary>
         Task<SimulatePipelineResponse> SimulatePipelineAsync(
             Func<SimulatePipelineDescriptor, ISimulatePipelineRequest> selector = null,
@@ -206,14 +206,14 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>POST</c> request to the <c>ingest.simulate</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/</a>
         /// </summary>
         SimulatePipelineResponse SimulatePipeline(ISimulatePipelineRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ingest.simulate</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/</a>
         /// </summary>
         Task<SimulatePipelineResponse> SimulatePipelineAsync(
             ISimulatePipelineRequest request,
@@ -235,7 +235,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>ingest.delete_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/delete-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/delete-ingest/</a>
         /// </summary>
         public DeletePipelineResponse DeletePipeline(
             Id id,
@@ -245,7 +245,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>ingest.delete_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/delete-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/delete-ingest/</a>
         /// </summary>
         public Task<DeletePipelineResponse> DeletePipelineAsync(
             Id id,
@@ -257,7 +257,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>ingest.delete_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/delete-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/delete-ingest/</a>
         /// </summary>
         public DeletePipelineResponse DeletePipeline(IDeletePipelineRequest request) =>
             DoRequest<IDeletePipelineRequest, DeletePipelineResponse>(
@@ -268,7 +268,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>ingest.delete_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/delete-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/delete-ingest/</a>
         /// </summary>
         public Task<DeletePipelineResponse> DeletePipelineAsync(
             IDeletePipelineRequest request,
@@ -283,7 +283,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.get_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/</a>
         /// </summary>
         public GetPipelineResponse GetPipeline(
             Func<GetPipelineDescriptor, IGetPipelineRequest> selector = null
@@ -292,7 +292,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.get_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/</a>
         /// </summary>
         public Task<GetPipelineResponse> GetPipelineAsync(
             Func<GetPipelineDescriptor, IGetPipelineRequest> selector = null,
@@ -302,7 +302,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.get_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/</a>
         /// </summary>
         public GetPipelineResponse GetPipeline(IGetPipelineRequest request) =>
             DoRequest<IGetPipelineRequest, GetPipelineResponse>(request, request.RequestParameters);
@@ -310,7 +310,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.get_pipeline</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/</a>
         /// </summary>
         public Task<GetPipelineResponse> GetPipelineAsync(
             IGetPipelineRequest request,
@@ -325,7 +325,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.processor_grok</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public GrokProcessorPatternsResponse GrokProcessorPatterns(
             Func<GrokProcessorPatternsDescriptor, IGrokProcessorPatternsRequest> selector = null
@@ -334,7 +334,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.processor_grok</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<GrokProcessorPatternsResponse> GrokProcessorPatternsAsync(
             Func<GrokProcessorPatternsDescriptor, IGrokProcessorPatternsRequest> selector = null,
@@ -348,7 +348,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.processor_grok</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public GrokProcessorPatternsResponse GrokProcessorPatterns(
             IGrokProcessorPatternsRequest request
@@ -361,7 +361,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>GET</c> request to the <c>ingest.processor_grok</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<GrokProcessorPatternsResponse> GrokProcessorPatternsAsync(
             IGrokProcessorPatternsRequest request,
@@ -420,7 +420,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>POST</c> request to the <c>ingest.simulate</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/</a>
         /// </summary>
         public SimulatePipelineResponse SimulatePipeline(
             Func<SimulatePipelineDescriptor, ISimulatePipelineRequest> selector = null
@@ -429,7 +429,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>POST</c> request to the <c>ingest.simulate</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/</a>
         /// </summary>
         public Task<SimulatePipelineResponse> SimulatePipelineAsync(
             Func<SimulatePipelineDescriptor, ISimulatePipelineRequest> selector = null,
@@ -439,7 +439,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>POST</c> request to the <c>ingest.simulate</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/</a>
         /// </summary>
         public SimulatePipelineResponse SimulatePipeline(ISimulatePipelineRequest request) =>
             DoRequest<ISimulatePipelineRequest, SimulatePipelineResponse>(
@@ -450,7 +450,7 @@ namespace OpenSearch.Client.Specification.IngestApi
         /// <summary>
         /// <c>POST</c> request to the <c>ingest.simulate</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/">https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/">https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/</a>
         /// </summary>
         public Task<SimulatePipelineResponse> SimulatePipelineAsync(
             ISimulatePipelineRequest request,

@@ -52,7 +52,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.TasksApi
 {
-    /// <summary>Request options for Cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
+    /// <summary>Request options for Cancel <para>https://docs.opensearch.org/latest/api-reference/tasks/cancel-tasks/</para></summary>
     public partial class CancelTasksRequestParameters
         : RequestParameters<CancelTasksRequestParameters>
     {
@@ -93,7 +93,15 @@ namespace OpenSearch.Net.Specification.TasksApi
         }
     }
 
-    /// <summary>Request options for GetTask <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
+    /// <summary>Request options for Delete <para>https://docs.opensearch.org/latest/api-reference/tasks/delete-task/</para></summary>
+    public partial class DeleteRequestParameters : RequestParameters<DeleteRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
+        public override bool SupportsBody => false;
+        public override string OperationName => "tasks.delete";
+    }
+
+    /// <summary>Request options for GetTask <para>https://docs.opensearch.org/latest/api-reference/tasks/</para></summary>
     public partial class GetTaskRequestParameters : RequestParameters<GetTaskRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -115,7 +123,7 @@ namespace OpenSearch.Net.Specification.TasksApi
         }
     }
 
-    /// <summary>Request options for List <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
+    /// <summary>Request options for List <para>https://docs.opensearch.org/latest/api-reference/tasks/</para></summary>
     public partial class ListTasksRequestParameters : RequestParameters<ListTasksRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;

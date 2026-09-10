@@ -60,7 +60,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.cleanup_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         CleanupRepositoryResponse CleanupRepository(
             Name repository,
@@ -70,7 +70,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.cleanup_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<CleanupRepositoryResponse> CleanupRepositoryAsync(
             Name repository,
@@ -81,14 +81,14 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.cleanup_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         CleanupRepositoryResponse CleanupRepository(ICleanupRepositoryRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.cleanup_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<CleanupRepositoryResponse> CleanupRepositoryAsync(
             ICleanupRepositoryRequest request,
@@ -98,7 +98,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.clone</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         CloneSnapshotResponse Clone(
             Name repository,
@@ -110,7 +110,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.clone</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<CloneSnapshotResponse> CloneAsync(
             Name repository,
@@ -123,14 +123,14 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.clone</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         CloneSnapshotResponse Clone(ICloneSnapshotRequest request);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.clone</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<CloneSnapshotResponse> CloneAsync(
             ICloneSnapshotRequest request,
@@ -140,7 +140,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/</a>
         /// </summary>
         SnapshotResponse Snapshot(
             Name repository,
@@ -151,7 +151,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/</a>
         /// </summary>
         Task<SnapshotResponse> SnapshotAsync(
             Name repository,
@@ -163,14 +163,14 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/</a>
         /// </summary>
         SnapshotResponse Snapshot(ISnapshotRequest request);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/</a>
         /// </summary>
         Task<SnapshotResponse> SnapshotAsync(
             ISnapshotRequest request,
@@ -180,7 +180,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/</a>
         /// </summary>
         CreateRepositoryResponse CreateRepository(
             Name repository,
@@ -190,7 +190,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/</a>
         /// </summary>
         Task<CreateRepositoryResponse> CreateRepositoryAsync(
             Name repository,
@@ -201,14 +201,14 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/</a>
         /// </summary>
         CreateRepositoryResponse CreateRepository(ICreateRepositoryRequest request);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/</a>
         /// </summary>
         Task<CreateRepositoryResponse> CreateRepositoryAsync(
             ICreateRepositoryRequest request,
@@ -218,7 +218,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot/</a>
         /// </summary>
         DeleteSnapshotResponse Delete(
             Name repository,
@@ -229,7 +229,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot/</a>
         /// </summary>
         Task<DeleteSnapshotResponse> DeleteAsync(
             Name repository,
@@ -241,14 +241,14 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot/</a>
         /// </summary>
         DeleteSnapshotResponse Delete(IDeleteSnapshotRequest request);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot/</a>
         /// </summary>
         Task<DeleteSnapshotResponse> DeleteAsync(
             IDeleteSnapshotRequest request,
@@ -258,7 +258,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot-repository/</a>
         /// </summary>
         DeleteRepositoryResponse DeleteRepository(
             Names repository,
@@ -268,7 +268,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot-repository/</a>
         /// </summary>
         Task<DeleteRepositoryResponse> DeleteRepositoryAsync(
             Names repository,
@@ -279,14 +279,14 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot-repository/</a>
         /// </summary>
         DeleteRepositoryResponse DeleteRepository(IDeleteRepositoryRequest request);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot-repository/</a>
         /// </summary>
         Task<DeleteRepositoryResponse> DeleteRepositoryAsync(
             IDeleteRepositoryRequest request,
@@ -296,7 +296,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         GetSnapshotResponse Get(
             Name repository,
@@ -307,7 +307,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<GetSnapshotResponse> GetAsync(
             Name repository,
@@ -319,14 +319,14 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         GetSnapshotResponse Get(IGetSnapshotRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<GetSnapshotResponse> GetAsync(
             IGetSnapshotRequest request,
@@ -336,7 +336,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/</a>
         /// </summary>
         GetRepositoryResponse GetRepository(
             Func<GetRepositoryDescriptor, IGetRepositoryRequest> selector = null
@@ -345,7 +345,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/</a>
         /// </summary>
         Task<GetRepositoryResponse> GetRepositoryAsync(
             Func<GetRepositoryDescriptor, IGetRepositoryRequest> selector = null,
@@ -355,14 +355,14 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/</a>
         /// </summary>
         GetRepositoryResponse GetRepository(IGetRepositoryRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/</a>
         /// </summary>
         Task<GetRepositoryResponse> GetRepositoryAsync(
             IGetRepositoryRequest request,
@@ -372,7 +372,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.restore</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/</a>
         /// </summary>
         RestoreResponse Restore(
             Name repository,
@@ -383,7 +383,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.restore</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/</a>
         /// </summary>
         Task<RestoreResponse> RestoreAsync(
             Name repository,
@@ -395,21 +395,21 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.restore</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/</a>
         /// </summary>
         RestoreResponse Restore(IRestoreRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.restore</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/</a>
         /// </summary>
         Task<RestoreResponse> RestoreAsync(IRestoreRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.status</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/">https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/</a>
         /// </summary>
         SnapshotStatusResponse Status(
             Func<SnapshotStatusDescriptor, ISnapshotStatusRequest> selector = null
@@ -418,7 +418,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.status</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/">https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/</a>
         /// </summary>
         Task<SnapshotStatusResponse> StatusAsync(
             Func<SnapshotStatusDescriptor, ISnapshotStatusRequest> selector = null,
@@ -428,14 +428,14 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.status</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/">https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/</a>
         /// </summary>
         SnapshotStatusResponse Status(ISnapshotStatusRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.status</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/">https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/</a>
         /// </summary>
         Task<SnapshotStatusResponse> StatusAsync(
             ISnapshotStatusRequest request,
@@ -445,7 +445,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.verify_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/verify-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/verify-snapshot-repository/</a>
         /// </summary>
         VerifyRepositoryResponse VerifyRepository(
             Name repository,
@@ -455,7 +455,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.verify_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/verify-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/verify-snapshot-repository/</a>
         /// </summary>
         Task<VerifyRepositoryResponse> VerifyRepositoryAsync(
             Name repository,
@@ -466,14 +466,14 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.verify_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/verify-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/verify-snapshot-repository/</a>
         /// </summary>
         VerifyRepositoryResponse VerifyRepository(IVerifyRepositoryRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.verify_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/verify-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/verify-snapshot-repository/</a>
         /// </summary>
         Task<VerifyRepositoryResponse> VerifyRepositoryAsync(
             IVerifyRepositoryRequest request,
@@ -495,7 +495,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.cleanup_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public CleanupRepositoryResponse CleanupRepository(
             Name repository,
@@ -508,7 +508,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.cleanup_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<CleanupRepositoryResponse> CleanupRepositoryAsync(
             Name repository,
@@ -523,7 +523,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.cleanup_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public CleanupRepositoryResponse CleanupRepository(ICleanupRepositoryRequest request) =>
             DoRequest<ICleanupRepositoryRequest, CleanupRepositoryResponse>(
@@ -534,7 +534,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.cleanup_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<CleanupRepositoryResponse> CleanupRepositoryAsync(
             ICleanupRepositoryRequest request,
@@ -549,7 +549,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.clone</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public CloneSnapshotResponse Clone(
             Name repository,
@@ -570,7 +570,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.clone</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<CloneSnapshotResponse> CloneAsync(
             Name repository,
@@ -593,7 +593,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.clone</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public CloneSnapshotResponse Clone(ICloneSnapshotRequest request) =>
             DoRequest<ICloneSnapshotRequest, CloneSnapshotResponse>(
@@ -604,7 +604,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.clone</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<CloneSnapshotResponse> CloneAsync(
             ICloneSnapshotRequest request,
@@ -619,7 +619,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/</a>
         /// </summary>
         public SnapshotResponse Snapshot(
             Name repository,
@@ -635,7 +635,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/</a>
         /// </summary>
         public Task<SnapshotResponse> SnapshotAsync(
             Name repository,
@@ -653,7 +653,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/</a>
         /// </summary>
         public SnapshotResponse Snapshot(ISnapshotRequest request) =>
             DoRequest<ISnapshotRequest, SnapshotResponse>(request, request.RequestParameters);
@@ -661,7 +661,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/</a>
         /// </summary>
         public Task<SnapshotResponse> SnapshotAsync(
             ISnapshotRequest request,
@@ -676,7 +676,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/</a>
         /// </summary>
         public CreateRepositoryResponse CreateRepository(
             Name repository,
@@ -689,7 +689,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/</a>
         /// </summary>
         public Task<CreateRepositoryResponse> CreateRepositoryAsync(
             Name repository,
@@ -704,7 +704,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/</a>
         /// </summary>
         public CreateRepositoryResponse CreateRepository(ICreateRepositoryRequest request) =>
             DoRequest<ICreateRepositoryRequest, CreateRepositoryResponse>(
@@ -715,7 +715,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>PUT</c> request to the <c>snapshot.create_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/</a>
         /// </summary>
         public Task<CreateRepositoryResponse> CreateRepositoryAsync(
             ICreateRepositoryRequest request,
@@ -730,7 +730,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot/</a>
         /// </summary>
         public DeleteSnapshotResponse Delete(
             Name repository,
@@ -746,7 +746,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot/</a>
         /// </summary>
         public Task<DeleteSnapshotResponse> DeleteAsync(
             Name repository,
@@ -764,7 +764,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot/</a>
         /// </summary>
         public DeleteSnapshotResponse Delete(IDeleteSnapshotRequest request) =>
             DoRequest<IDeleteSnapshotRequest, DeleteSnapshotResponse>(
@@ -775,7 +775,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot/</a>
         /// </summary>
         public Task<DeleteSnapshotResponse> DeleteAsync(
             IDeleteSnapshotRequest request,
@@ -790,7 +790,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot-repository/</a>
         /// </summary>
         public DeleteRepositoryResponse DeleteRepository(
             Names repository,
@@ -803,7 +803,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot-repository/</a>
         /// </summary>
         public Task<DeleteRepositoryResponse> DeleteRepositoryAsync(
             Names repository,
@@ -818,7 +818,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot-repository/</a>
         /// </summary>
         public DeleteRepositoryResponse DeleteRepository(IDeleteRepositoryRequest request) =>
             DoRequest<IDeleteRepositoryRequest, DeleteRepositoryResponse>(
@@ -829,7 +829,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>snapshot.delete_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot-repository/</a>
         /// </summary>
         public Task<DeleteRepositoryResponse> DeleteRepositoryAsync(
             IDeleteRepositoryRequest request,
@@ -844,7 +844,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public GetSnapshotResponse Get(
             Name repository,
@@ -860,7 +860,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<GetSnapshotResponse> GetAsync(
             Name repository,
@@ -878,7 +878,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public GetSnapshotResponse Get(IGetSnapshotRequest request) =>
             DoRequest<IGetSnapshotRequest, GetSnapshotResponse>(request, request.RequestParameters);
@@ -886,7 +886,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<GetSnapshotResponse> GetAsync(
             IGetSnapshotRequest request,
@@ -901,7 +901,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/</a>
         /// </summary>
         public GetRepositoryResponse GetRepository(
             Func<GetRepositoryDescriptor, IGetRepositoryRequest> selector = null
@@ -910,7 +910,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/</a>
         /// </summary>
         public Task<GetRepositoryResponse> GetRepositoryAsync(
             Func<GetRepositoryDescriptor, IGetRepositoryRequest> selector = null,
@@ -920,7 +920,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/</a>
         /// </summary>
         public GetRepositoryResponse GetRepository(IGetRepositoryRequest request) =>
             DoRequest<IGetRepositoryRequest, GetRepositoryResponse>(
@@ -931,7 +931,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.get_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/</a>
         /// </summary>
         public Task<GetRepositoryResponse> GetRepositoryAsync(
             IGetRepositoryRequest request,
@@ -946,7 +946,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.restore</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/</a>
         /// </summary>
         public RestoreResponse Restore(
             Name repository,
@@ -962,7 +962,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.restore</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/</a>
         /// </summary>
         public Task<RestoreResponse> RestoreAsync(
             Name repository,
@@ -980,7 +980,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.restore</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/</a>
         /// </summary>
         public RestoreResponse Restore(IRestoreRequest request) =>
             DoRequest<IRestoreRequest, RestoreResponse>(request, request.RequestParameters);
@@ -988,7 +988,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.restore</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/">https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/">https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/</a>
         /// </summary>
         public Task<RestoreResponse> RestoreAsync(
             IRestoreRequest request,
@@ -1003,7 +1003,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.status</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/">https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/</a>
         /// </summary>
         public SnapshotStatusResponse Status(
             Func<SnapshotStatusDescriptor, ISnapshotStatusRequest> selector = null
@@ -1012,7 +1012,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.status</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/">https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/</a>
         /// </summary>
         public Task<SnapshotStatusResponse> StatusAsync(
             Func<SnapshotStatusDescriptor, ISnapshotStatusRequest> selector = null,
@@ -1022,7 +1022,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.status</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/">https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/</a>
         /// </summary>
         public SnapshotStatusResponse Status(ISnapshotStatusRequest request) =>
             DoRequest<ISnapshotStatusRequest, SnapshotStatusResponse>(
@@ -1033,7 +1033,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>GET</c> request to the <c>snapshot.status</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/">https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/">https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/</a>
         /// </summary>
         public Task<SnapshotStatusResponse> StatusAsync(
             ISnapshotStatusRequest request,
@@ -1048,7 +1048,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.verify_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/verify-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/verify-snapshot-repository/</a>
         /// </summary>
         public VerifyRepositoryResponse VerifyRepository(
             Name repository,
@@ -1061,7 +1061,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.verify_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/verify-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/verify-snapshot-repository/</a>
         /// </summary>
         public Task<VerifyRepositoryResponse> VerifyRepositoryAsync(
             Name repository,
@@ -1076,7 +1076,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.verify_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/verify-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/verify-snapshot-repository/</a>
         /// </summary>
         public VerifyRepositoryResponse VerifyRepository(IVerifyRepositoryRequest request) =>
             DoRequest<IVerifyRepositoryRequest, VerifyRepositoryResponse>(
@@ -1087,7 +1087,7 @@ namespace OpenSearch.Client.Specification.SnapshotApi
         /// <summary>
         /// <c>POST</c> request to the <c>snapshot.verify_repository</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/">https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/snapshots/verify-snapshot-repository/">https://docs.opensearch.org/latest/api-reference/snapshots/verify-snapshot-repository/</a>
         /// </summary>
         public Task<VerifyRepositoryResponse> VerifyRepositoryAsync(
             IVerifyRepositoryRequest request,

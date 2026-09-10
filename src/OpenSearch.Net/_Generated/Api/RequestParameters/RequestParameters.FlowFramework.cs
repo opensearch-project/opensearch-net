@@ -52,7 +52,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.FlowFrameworkApi
 {
-    /// <summary>Request options for Create <para>https://opensearch.org/docs/latest/automating-configurations/api/create-workflow/</para></summary>
+    /// <summary>Request options for Create <para>https://docs.opensearch.org/latest/automating-configurations/api/create-workflow/</para></summary>
     public partial class CreateRequestParameters : RequestParameters<CreateRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -96,7 +96,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
         }
     }
 
-    /// <summary>Request options for Delete <para>https://opensearch.org/docs/latest/automating-configurations/api/delete-workflow/</para></summary>
+    /// <summary>Request options for Delete <para>https://docs.opensearch.org/latest/automating-configurations/api/delete-workflow/</para></summary>
     public partial class DeleteRequestParameters : RequestParameters<DeleteRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
@@ -114,7 +114,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
         }
     }
 
-    /// <summary>Request options for Deprovision <para>https://opensearch.org/docs/latest/automating-configurations/api/deprovision-workflow/</para></summary>
+    /// <summary>Request options for Deprovision <para>https://docs.opensearch.org/latest/automating-configurations/api/deprovision-workflow/</para></summary>
     public partial class DeprovisionRequestParameters
         : RequestParameters<DeprovisionRequestParameters>
     {
@@ -130,7 +130,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
         }
     }
 
-    /// <summary>Request options for Get <para>https://opensearch.org/docs/latest/automating-configurations/api/get-workflow/</para></summary>
+    /// <summary>Request options for Get <para>https://docs.opensearch.org/latest/automating-configurations/api/get-workflow/</para></summary>
     public partial class GetRequestParameters : RequestParameters<GetRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -138,7 +138,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
         public override string OperationName => "flow_framework.get";
     }
 
-    /// <summary>Request options for GetStatus <para>https://opensearch.org/docs/latest/automating-configurations/api/get-workflow-status/</para></summary>
+    /// <summary>Request options for GetStatus <para>https://docs.opensearch.org/latest/automating-configurations/api/get-workflow-status/</para></summary>
     public partial class GetStatusRequestParameters : RequestParameters<GetStatusRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -153,7 +153,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
         }
     }
 
-    /// <summary>Request options for GetSteps <para>https://opensearch.org/docs/latest/automating-configurations/api/get-workflow-steps/</para></summary>
+    /// <summary>Request options for GetSteps <para>https://docs.opensearch.org/latest/automating-configurations/api/get-workflow-steps/</para></summary>
     public partial class GetStepsRequestParameters : RequestParameters<GetStepsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -168,7 +168,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
         }
     }
 
-    /// <summary>Request options for Provision <para>https://opensearch.org/docs/latest/automating-configurations/api/provision-workflow/</para></summary>
+    /// <summary>Request options for Provision <para>https://docs.opensearch.org/latest/automating-configurations/api/provision-workflow/</para></summary>
     public partial class ProvisionRequestParameters : RequestParameters<ProvisionRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -176,7 +176,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
         public override string OperationName => "flow_framework.provision";
     }
 
-    /// <summary>Request options for Search <para>https://opensearch.org/docs/latest/automating-configurations/api/provision-workflow/</para></summary>
+    /// <summary>Request options for Search <para>https://docs.opensearch.org/latest/automating-configurations/api/provision-workflow/</para></summary>
     public partial class SearchRequestParameters : RequestParameters<SearchRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -184,7 +184,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
         public override string OperationName => "flow_framework.search";
     }
 
-    /// <summary>Request options for SearchState <para>https://opensearch.org/docs/latest/automating-configurations/api/search-workflow-state/</para></summary>
+    /// <summary>Request options for SearchState <para>https://docs.opensearch.org/latest/automating-configurations/api/search-workflow-state/</para></summary>
     public partial class SearchStateRequestParameters
         : RequestParameters<SearchStateRequestParameters>
     {
@@ -193,7 +193,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
         public override string OperationName => "flow_framework.search_state";
     }
 
-    /// <summary>Request options for Update <para>https://opensearch.org/docs/latest/automating-configurations/api/create-workflow/</para></summary>
+    /// <summary>Request options for Update <para>https://docs.opensearch.org/latest/automating-configurations/api/create-workflow/</para></summary>
     public partial class UpdateRequestParameters : RequestParameters<UpdateRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;

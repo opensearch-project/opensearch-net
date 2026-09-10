@@ -62,7 +62,7 @@ namespace OpenSearch.Client
     public partial interface IClusterAllocationExplainRequest
         : IRequest<ClusterAllocationExplainRequestParameters> { }
 
-    /// <summary>Request for AllocationExplain <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</para></summary>
+    /// <summary>Request for AllocationExplain <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-allocation/</para></summary>
     public partial class ClusterAllocationExplainRequest
         : PlainRequestBase<ClusterAllocationExplainRequestParameters>,
             IClusterAllocationExplainRequest
@@ -99,7 +99,7 @@ namespace OpenSearch.Client
         Name Name { get; }
     }
 
-    /// <summary>Request for DeleteComponentTemplate <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for DeleteComponentTemplate <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class DeleteComponentTemplateRequest
         : PlainRequestBase<DeleteComponentTemplateRequestParameters>,
             IDeleteComponentTemplateRequest
@@ -124,7 +124,7 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -161,7 +161,7 @@ namespace OpenSearch.Client
     public partial interface IDeleteVotingConfigExclusionsRequest
         : IRequest<DeleteVotingConfigExclusionsRequestParameters> { }
 
-    /// <summary>Request for DeleteVotingConfigExclusions <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for DeleteVotingConfigExclusions <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class DeleteVotingConfigExclusionsRequest
         : PlainRequestBase<DeleteVotingConfigExclusionsRequestParameters>,
             IDeleteVotingConfigExclusionsRequest
@@ -192,7 +192,7 @@ namespace OpenSearch.Client
         Name Name { get; }
     }
 
-    /// <summary>Request for ComponentTemplateExists <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for ComponentTemplateExists <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ComponentTemplateExistsRequest
         : PlainRequestBase<ComponentTemplateExistsRequestParameters>,
             IComponentTemplateExistsRequest
@@ -217,7 +217,7 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -258,7 +258,7 @@ namespace OpenSearch.Client
         Name Name { get; }
     }
 
-    /// <summary>Request for GetComponentTemplate <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for GetComponentTemplate <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class GetComponentTemplateRequest
         : PlainRequestBase<GetComponentTemplateRequestParameters>,
             IGetComponentTemplateRequest
@@ -282,7 +282,7 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -330,7 +330,7 @@ namespace OpenSearch.Client
     public partial interface IClusterGetSettingsRequest
         : IRequest<ClusterGetSettingsRequestParameters> { }
 
-    /// <summary>Request for GetSettings <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</para></summary>
+    /// <summary>Request for GetSettings <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-settings/</para></summary>
     public partial class ClusterGetSettingsRequest
         : PlainRequestBase<ClusterGetSettingsRequestParameters>,
             IClusterGetSettingsRequest
@@ -343,7 +343,7 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -401,7 +401,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for Health <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
+    /// <summary>Request for Health <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-health/</para></summary>
     public partial class ClusterHealthRequest
         : PlainRequestBase<ClusterHealthRequestParameters>,
             IClusterHealthRequest
@@ -435,7 +435,7 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -480,7 +480,7 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         public Time Timeout
         {
@@ -538,7 +538,7 @@ namespace OpenSearch.Client
     public partial interface IClusterPendingTasksRequest
         : IRequest<ClusterPendingTasksRequestParameters> { }
 
-    /// <summary>Request for PendingTasks <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for PendingTasks <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ClusterPendingTasksRequest
         : PlainRequestBase<ClusterPendingTasksRequestParameters>,
             IClusterPendingTasksRequest
@@ -551,7 +551,7 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -588,7 +588,7 @@ namespace OpenSearch.Client
     public partial interface IPostVotingConfigExclusionsRequest
         : IRequest<PostVotingConfigExclusionsRequestParameters> { }
 
-    /// <summary>Request for PostVotingConfigExclusions <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for PostVotingConfigExclusions <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class PostVotingConfigExclusionsRequest
         : PlainRequestBase<PostVotingConfigExclusionsRequestParameters>,
             IPostVotingConfigExclusionsRequest
@@ -638,7 +638,7 @@ namespace OpenSearch.Client
         Name Name { get; }
     }
 
-    /// <summary>Request for PutComponentTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</para></summary>
+    /// <summary>Request for PutComponentTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</para></summary>
     public partial class PutComponentTemplateRequest
         : PlainRequestBase<PutComponentTemplateRequestParameters>,
             IPutComponentTemplateRequest
@@ -663,7 +663,7 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -707,7 +707,7 @@ namespace OpenSearch.Client
     public partial interface IClusterPutSettingsRequest
         : IRequest<ClusterPutSettingsRequestParameters> { }
 
-    /// <summary>Request for PutSettings <para>https://opensearch.org/docs/latest/api-reference/cluster-settings/</para></summary>
+    /// <summary>Request for PutSettings <para>https://docs.opensearch.org/latest/api-reference/cluster-settings/</para></summary>
     public partial class ClusterPutSettingsRequest
         : PlainRequestBase<ClusterPutSettingsRequestParameters>,
             IClusterPutSettingsRequest
@@ -720,7 +720,7 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -767,7 +767,7 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public partial interface IRemoteInfoRequest : IRequest<RemoteInfoRequestParameters> { }
 
-    /// <summary>Request for RemoteInfo <para>https://opensearch.org/docs/latest/api-reference/remote-info/</para></summary>
+    /// <summary>Request for RemoteInfo <para>https://docs.opensearch.org/latest/api-reference/remote-info/</para></summary>
     public partial class RemoteInfoRequest
         : PlainRequestBase<RemoteInfoRequestParameters>,
             IRemoteInfoRequest
@@ -782,7 +782,7 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public partial interface IClusterRerouteRequest : IRequest<ClusterRerouteRequestParameters> { }
 
-    /// <summary>Request for Reroute <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for Reroute <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ClusterRerouteRequest
         : PlainRequestBase<ClusterRerouteRequestParameters>,
             IClusterRerouteRequest
@@ -795,7 +795,7 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -866,7 +866,7 @@ namespace OpenSearch.Client
         Metrics Metric { get; }
     }
 
-    /// <summary>Request for State <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for State <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ClusterStateRequest
         : PlainRequestBase<ClusterStateRequestParameters>,
             IClusterStateRequest
@@ -909,7 +909,7 @@ namespace OpenSearch.Client
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -991,7 +991,7 @@ namespace OpenSearch.Client
         NodeIds NodeId { get; }
     }
 
-    /// <summary>Request for Stats <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</para></summary>
+    /// <summary>Request for Stats <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/</para></summary>
     public partial class ClusterStatsRequest
         : PlainRequestBase<ClusterStatsRequestParameters>,
             IClusterStatsRequest

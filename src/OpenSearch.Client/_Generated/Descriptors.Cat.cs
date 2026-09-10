@@ -57,7 +57,7 @@ using OpenSearch.Net.Utf8Json;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-    /// <summary>Descriptor for Aliases <para>https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/</para></summary>
+    /// <summary>Descriptor for Aliases <para>https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/</para></summary>
     public partial class CatAliasesDescriptor
         : RequestDescriptorBase<
             CatAliasesDescriptor,
@@ -90,7 +90,7 @@ namespace OpenSearch.Client
             Qs("expand_wildcards", expandwildcards);
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatAliasesDescriptor Format(string format) => Qs("format", format);
+        public CatAliasesDescriptor Format(CatResponseFormat? format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatAliasesDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -109,7 +109,7 @@ namespace OpenSearch.Client
         public CatAliasesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
-    /// <summary>Descriptor for AllPitSegments <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</para></summary>
+    /// <summary>Descriptor for AllPitSegments <para>https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</para></summary>
     public partial class CatAllPitSegmentsDescriptor
         : RequestDescriptorBase<
             CatAllPitSegmentsDescriptor,
@@ -126,7 +126,8 @@ namespace OpenSearch.Client
         public CatAllPitSegmentsDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatAllPitSegmentsDescriptor Format(string format) => Qs("format", format);
+        public CatAllPitSegmentsDescriptor Format(CatResponseFormat? format) =>
+            Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatAllPitSegmentsDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -142,7 +143,7 @@ namespace OpenSearch.Client
         public CatAllPitSegmentsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
-    /// <summary>Descriptor for Allocation <para>https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/</para></summary>
+    /// <summary>Descriptor for Allocation <para>https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/</para></summary>
     public partial class CatAllocationDescriptor
         : RequestDescriptorBase<
             CatAllocationDescriptor,
@@ -179,7 +180,7 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>A short version of the HTTP <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatAllocationDescriptor Format(string format) => Qs("format", format);
+        public CatAllocationDescriptor Format(CatResponseFormat? format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatAllocationDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -205,7 +206,7 @@ namespace OpenSearch.Client
         public CatAllocationDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
-    /// <summary>Descriptor for ClusterManager <para>https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</para></summary>
+    /// <summary>Descriptor for ClusterManager <para>https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</para></summary>
     public partial class CatClusterManagerDescriptor
         : RequestDescriptorBase<
             CatClusterManagerDescriptor,
@@ -224,7 +225,8 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>A short version of the HTTP <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatClusterManagerDescriptor Format(string format) => Qs("format", format);
+        public CatClusterManagerDescriptor Format(CatResponseFormat? format) =>
+            Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatClusterManagerDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -250,7 +252,7 @@ namespace OpenSearch.Client
         public CatClusterManagerDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
-    /// <summary>Descriptor for Count <para>https://opensearch.org/docs/latest/api-reference/cat/cat-count/</para></summary>
+    /// <summary>Descriptor for Count <para>https://docs.opensearch.org/latest/api-reference/cat/cat-count/</para></summary>
     public partial class CatCountDescriptor
         : RequestDescriptorBase<CatCountDescriptor, CatCountRequestParameters, ICatCountRequest>,
             ICatCountRequest
@@ -283,7 +285,7 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatCountDescriptor Format(string format) => Qs("format", format);
+        public CatCountDescriptor Format(CatResponseFormat? format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatCountDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -299,7 +301,7 @@ namespace OpenSearch.Client
         public CatCountDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
-    /// <summary>Descriptor for Fielddata <para>https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/</para></summary>
+    /// <summary>Descriptor for Fielddata <para>https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/</para></summary>
     public partial class CatFielddataDescriptor
         : RequestDescriptorBase<
             CatFielddataDescriptor,
@@ -335,7 +337,7 @@ namespace OpenSearch.Client
         public CatFielddataDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatFielddataDescriptor Format(string format) => Qs("format", format);
+        public CatFielddataDescriptor Format(CatResponseFormat? format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatFielddataDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -351,7 +353,7 @@ namespace OpenSearch.Client
         public CatFielddataDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
-    /// <summary>Descriptor for Health <para>https://opensearch.org/docs/latest/api-reference/cat/cat-health/</para></summary>
+    /// <summary>Descriptor for Health <para>https://docs.opensearch.org/latest/api-reference/cat/cat-health/</para></summary>
     public partial class CatHealthDescriptor
         : RequestDescriptorBase<CatHealthDescriptor, CatHealthRequestParameters, ICatHealthRequest>,
             ICatHealthRequest
@@ -361,7 +363,7 @@ namespace OpenSearch.Client
         // values part of the url path
         // Request parameters
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatHealthDescriptor Format(string format) => Qs("format", format);
+        public CatHealthDescriptor Format(CatResponseFormat? format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatHealthDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -381,7 +383,7 @@ namespace OpenSearch.Client
         public CatHealthDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
-    /// <summary>Descriptor for Help <para>https://opensearch.org/docs/latest/api-reference/cat/index/</para></summary>
+    /// <summary>Descriptor for Help <para>https://docs.opensearch.org/latest/api-reference/cat/index/</para></summary>
     public partial class CatHelpDescriptor
         : RequestDescriptorBase<CatHelpDescriptor, CatHelpRequestParameters, ICatHelpRequest>,
             ICatHelpRequest
@@ -391,7 +393,7 @@ namespace OpenSearch.Client
         // Request parameters
     }
 
-    /// <summary>Descriptor for Indices <para>https://opensearch.org/docs/latest/api-reference/cat/cat-indices/</para></summary>
+    /// <summary>Descriptor for Indices <para>https://docs.opensearch.org/latest/api-reference/cat/cat-indices/</para></summary>
     public partial class CatIndicesDescriptor
         : RequestDescriptorBase<
             CatIndicesDescriptor,
@@ -440,7 +442,7 @@ namespace OpenSearch.Client
             Qs("expand_wildcards", expandwildcards);
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatIndicesDescriptor Format(string format) => Qs("format", format);
+        public CatIndicesDescriptor Format(CatResponseFormat? format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatIndicesDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -476,7 +478,7 @@ namespace OpenSearch.Client
         public CatIndicesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
-    /// <summary>Descriptor for Master <para>https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</para></summary>
+    /// <summary>Descriptor for Master <para>https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</para></summary>
     public partial class CatMasterDescriptor
         : RequestDescriptorBase<CatMasterDescriptor, CatMasterRequestParameters, ICatMasterRequest>,
             ICatMasterRequest
@@ -491,7 +493,7 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatMasterDescriptor Format(string format) => Qs("format", format);
+        public CatMasterDescriptor Format(CatResponseFormat? format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatMasterDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -517,7 +519,7 @@ namespace OpenSearch.Client
         public CatMasterDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
-    /// <summary>Descriptor for NodeAttributes <para>https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/</para></summary>
+    /// <summary>Descriptor for NodeAttributes <para>https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/</para></summary>
     public partial class CatNodeAttributesDescriptor
         : RequestDescriptorBase<
             CatNodeAttributesDescriptor,
@@ -536,7 +538,8 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatNodeAttributesDescriptor Format(string format) => Qs("format", format);
+        public CatNodeAttributesDescriptor Format(CatResponseFormat? format) =>
+            Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatNodeAttributesDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -562,7 +565,7 @@ namespace OpenSearch.Client
         public CatNodeAttributesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
-    /// <summary>Descriptor for Nodes <para>https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/</para></summary>
+    /// <summary>Descriptor for Nodes <para>https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/</para></summary>
     public partial class CatNodesDescriptor
         : RequestDescriptorBase<CatNodesDescriptor, CatNodesRequestParameters, ICatNodesRequest>,
             ICatNodesRequest
@@ -580,7 +583,7 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatNodesDescriptor Format(string format) => Qs("format", format);
+        public CatNodesDescriptor Format(CatResponseFormat? format) => Qs("format", format);
 
         /// <summary>When <c>true</c>, returns the full node ID. When <c>false</c>, returns the shortened node ID.</summary>
         public CatNodesDescriptor FullId(bool? fullid = true) => Qs("full_id", fullid);
@@ -612,7 +615,7 @@ namespace OpenSearch.Client
         public CatNodesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
-    /// <summary>Descriptor for PendingTasks <para>https://opensearch.org/docs/latest/api-reference/cat/cat-pending-tasks/</para></summary>
+    /// <summary>Descriptor for PendingTasks <para>https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/</para></summary>
     public partial class CatPendingTasksDescriptor
         : RequestDescriptorBase<
             CatPendingTasksDescriptor,
@@ -631,7 +634,7 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatPendingTasksDescriptor Format(string format) => Qs("format", format);
+        public CatPendingTasksDescriptor Format(CatResponseFormat? format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatPendingTasksDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -657,7 +660,7 @@ namespace OpenSearch.Client
         public CatPendingTasksDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
-    /// <summary>Descriptor for PitSegments <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</para></summary>
+    /// <summary>Descriptor for PitSegments <para>https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</para></summary>
     public partial class CatPitSegmentsDescriptor
         : RequestDescriptorBase<
             CatPitSegmentsDescriptor,
@@ -674,7 +677,7 @@ namespace OpenSearch.Client
         public CatPitSegmentsDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatPitSegmentsDescriptor Format(string format) => Qs("format", format);
+        public CatPitSegmentsDescriptor Format(CatResponseFormat? format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatPitSegmentsDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -690,7 +693,7 @@ namespace OpenSearch.Client
         public CatPitSegmentsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
-    /// <summary>Descriptor for Plugins <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>
+    /// <summary>Descriptor for Plugins <para>https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</para></summary>
     public partial class CatPluginsDescriptor
         : RequestDescriptorBase<
             CatPluginsDescriptor,
@@ -709,7 +712,7 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatPluginsDescriptor Format(string format) => Qs("format", format);
+        public CatPluginsDescriptor Format(CatResponseFormat? format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatPluginsDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -735,7 +738,7 @@ namespace OpenSearch.Client
         public CatPluginsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
-    /// <summary>Descriptor for Recovery <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>
+    /// <summary>Descriptor for Recovery <para>https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</para></summary>
     public partial class CatRecoveryDescriptor
         : RequestDescriptorBase<
             CatRecoveryDescriptor,
@@ -782,7 +785,7 @@ namespace OpenSearch.Client
         public CatRecoveryDescriptor Detailed(bool? detailed = true) => Qs("detailed", detailed);
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatRecoveryDescriptor Format(string format) => Qs("format", format);
+        public CatRecoveryDescriptor Format(CatResponseFormat? format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatRecoveryDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -798,7 +801,7 @@ namespace OpenSearch.Client
         public CatRecoveryDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
-    /// <summary>Descriptor for Repositories <para>https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/</para></summary>
+    /// <summary>Descriptor for Repositories <para>https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/</para></summary>
     public partial class CatRepositoriesDescriptor
         : RequestDescriptorBase<
             CatRepositoriesDescriptor,
@@ -817,7 +820,7 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatRepositoriesDescriptor Format(string format) => Qs("format", format);
+        public CatRepositoriesDescriptor Format(CatResponseFormat? format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatRepositoriesDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -843,7 +846,7 @@ namespace OpenSearch.Client
         public CatRepositoriesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
-    /// <summary>Descriptor for SegmentReplication <para>https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/</para></summary>
+    /// <summary>Descriptor for SegmentReplication <para>https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/</para></summary>
     public partial class CatSegmentReplicationDescriptor
         : RequestDescriptorBase<
             CatSegmentReplicationDescriptor,
@@ -903,7 +906,8 @@ namespace OpenSearch.Client
             Qs("expand_wildcards", expandwildcards);
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatSegmentReplicationDescriptor Format(string format) => Qs("format", format);
+        public CatSegmentReplicationDescriptor Format(CatResponseFormat? format) =>
+            Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatSegmentReplicationDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -934,7 +938,7 @@ namespace OpenSearch.Client
         public CatSegmentReplicationDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
-    /// <summary>Descriptor for Segments <para>https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</para></summary>
+    /// <summary>Descriptor for Segments <para>https://docs.opensearch.org/latest/api-reference/cat/cat-segments/</para></summary>
     public partial class CatSegmentsDescriptor
         : RequestDescriptorBase<
             CatSegmentsDescriptor,
@@ -979,7 +983,7 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatSegmentsDescriptor Format(string format) => Qs("format", format);
+        public CatSegmentsDescriptor Format(CatResponseFormat? format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatSegmentsDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -1002,7 +1006,7 @@ namespace OpenSearch.Client
         public CatSegmentsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
-    /// <summary>Descriptor for Shards <para>https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</para></summary>
+    /// <summary>Descriptor for Shards <para>https://docs.opensearch.org/latest/api-reference/cat/cat-shards/</para></summary>
     public partial class CatShardsDescriptor
         : RequestDescriptorBase<CatShardsDescriptor, CatShardsRequestParameters, ICatShardsRequest>,
             ICatShardsRequest
@@ -1043,7 +1047,7 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatShardsDescriptor Format(string format) => Qs("format", format);
+        public CatShardsDescriptor Format(CatResponseFormat? format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatShardsDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -1069,7 +1073,7 @@ namespace OpenSearch.Client
         public CatShardsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
-    /// <summary>Descriptor for Snapshots <para>https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</para></summary>
+    /// <summary>Descriptor for Snapshots <para>https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/</para></summary>
     public partial class CatSnapshotsDescriptor
         : RequestDescriptorBase<
             CatSnapshotsDescriptor,
@@ -1103,7 +1107,7 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatSnapshotsDescriptor Format(string format) => Qs("format", format);
+        public CatSnapshotsDescriptor Format(CatResponseFormat? format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatSnapshotsDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -1130,7 +1134,7 @@ namespace OpenSearch.Client
         public CatSnapshotsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
-    /// <summary>Descriptor for Tasks <para>https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</para></summary>
+    /// <summary>Descriptor for Tasks <para>https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/</para></summary>
     public partial class CatTasksDescriptor
         : RequestDescriptorBase<CatTasksDescriptor, CatTasksRequestParameters, ICatTasksRequest>,
             ICatTasksRequest
@@ -1146,7 +1150,7 @@ namespace OpenSearch.Client
         public CatTasksDescriptor Detailed(bool? detailed = true) => Qs("detailed", detailed);
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatTasksDescriptor Format(string format) => Qs("format", format);
+        public CatTasksDescriptor Format(CatResponseFormat? format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatTasksDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -1169,7 +1173,7 @@ namespace OpenSearch.Client
         public CatTasksDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
-    /// <summary>Descriptor for Templates <para>https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</para></summary>
+    /// <summary>Descriptor for Templates <para>https://docs.opensearch.org/latest/api-reference/cat/cat-templates/</para></summary>
     public partial class CatTemplatesDescriptor
         : RequestDescriptorBase<
             CatTemplatesDescriptor,
@@ -1203,7 +1207,7 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatTemplatesDescriptor Format(string format) => Qs("format", format);
+        public CatTemplatesDescriptor Format(CatResponseFormat? format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatTemplatesDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -1229,7 +1233,7 @@ namespace OpenSearch.Client
         public CatTemplatesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
     }
 
-    /// <summary>Descriptor for ThreadPool <para>https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</para></summary>
+    /// <summary>Descriptor for ThreadPool <para>https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/</para></summary>
     public partial class CatThreadPoolDescriptor
         : RequestDescriptorBase<
             CatThreadPoolDescriptor,
@@ -1264,7 +1268,7 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatThreadPoolDescriptor Format(string format) => Qs("format", format);
+        public CatThreadPoolDescriptor Format(CatResponseFormat? format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatThreadPoolDescriptor Headers(params string[] headers) => Qs("h", headers);

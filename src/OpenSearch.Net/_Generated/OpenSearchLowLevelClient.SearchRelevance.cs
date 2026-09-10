@@ -248,6 +248,41 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>POST on /_plugins/_search_relevance/experiments/_search</summary>
+        /// <param name="body">A search request body delegated to SearchSourceBuilder.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.5.0 or greater.</remarks>
+        public TResponse ExperimentsSearch<TResponse>(
+            PostData body,
+            ExperimentsSearchRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_plugins/_search_relevance/experiments/_search",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_search_relevance/experiments/_search</summary>
+        /// <param name="body">A search request body delegated to SearchSourceBuilder.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.5.0 or greater.</remarks>
+        [MapsApi("search_relevance.experiments_search", "body")]
+        public Task<TResponse> ExperimentsSearchAsync<TResponse>(
+            PostData body,
+            ExperimentsSearchRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_plugins/_search_relevance/experiments/_search",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>GET on /_plugins/_search_relevance/experiments</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -720,6 +755,41 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>POST on /_plugins/_search_relevance/judgments/_search</summary>
+        /// <param name="body">A search request body delegated to SearchSourceBuilder.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.5.0 or greater.</remarks>
+        public TResponse JudgmentsSearch<TResponse>(
+            PostData body,
+            JudgmentsSearchRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_plugins/_search_relevance/judgments/_search",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_search_relevance/judgments/_search</summary>
+        /// <param name="body">A search request body delegated to SearchSourceBuilder.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.5.0 or greater.</remarks>
+        [MapsApi("search_relevance.judgments_search", "body")]
+        public Task<TResponse> JudgmentsSearchAsync<TResponse>(
+            PostData body,
+            JudgmentsSearchRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_plugins/_search_relevance/judgments/_search",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>POST on /_plugins/_search_relevance/query_sets</summary>
         /// <param name="body">The schema for creating a query set.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -925,6 +995,76 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
             DoRequestAsync<TResponse>(
                 PUT,
                 "_plugins/_search_relevance/search_configurations",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_search_relevance/query_sets/_search</summary>
+        /// <param name="body">A search request body delegated to SearchSourceBuilder.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.5.0 or greater.</remarks>
+        public TResponse QuerySetsSearch<TResponse>(
+            PostData body,
+            QuerySetsSearchRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_plugins/_search_relevance/query_sets/_search",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_search_relevance/query_sets/_search</summary>
+        /// <param name="body">A search request body delegated to SearchSourceBuilder.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.5.0 or greater.</remarks>
+        [MapsApi("search_relevance.query_sets_search", "body")]
+        public Task<TResponse> QuerySetsSearchAsync<TResponse>(
+            PostData body,
+            QuerySetsSearchRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_plugins/_search_relevance/query_sets/_search",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_search_relevance/search_configurations/_search</summary>
+        /// <param name="body">A search request body delegated to SearchSourceBuilder.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.5.0 or greater.</remarks>
+        public TResponse SearchConfigurationsSearch<TResponse>(
+            PostData body,
+            SearchConfigurationsSearchRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                POST,
+                "_plugins/_search_relevance/search_configurations/_search",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>POST on /_plugins/_search_relevance/search_configurations/_search</summary>
+        /// <param name="body">A search request body delegated to SearchSourceBuilder.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.5.0 or greater.</remarks>
+        [MapsApi("search_relevance.search_configurations_search", "body")]
+        public Task<TResponse> SearchConfigurationsSearchAsync<TResponse>(
+            PostData body,
+            SearchConfigurationsSearchRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                POST,
+                "_plugins/_search_relevance/search_configurations/_search",
                 ctx,
                 body,
                 RequestParams(requestParameters)

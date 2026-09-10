@@ -69,7 +69,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
         internal LowLevelNotificationsNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
-        /// <summary>POST on /_plugins/_notifications/configs <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#create-channel-configuration</para></summary>
+        /// <summary>POST on /_plugins/_notifications/configs <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#create-channel-configuration</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -85,7 +85,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_notifications/configs <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#create-channel-configuration</para></summary>
+        /// <summary>POST on /_plugins/_notifications/configs <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#create-channel-configuration</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -104,7 +104,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_notifications/configs/{config_id} <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#delete-channel-configuration</para></summary>
+        /// <summary>DELETE on /_plugins/_notifications/configs/{config_id} <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#delete-channel-configuration</para></summary>
         /// <param name="configId">The ID of the channel configuration to delete.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -120,7 +120,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_notifications/configs/{config_id} <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#delete-channel-configuration</para></summary>
+        /// <summary>DELETE on /_plugins/_notifications/configs/{config_id} <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#delete-channel-configuration</para></summary>
         /// <param name="configId">The ID of the channel configuration to delete.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -139,7 +139,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_notifications/configs <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#delete-channel-configuration</para></summary>
+        /// <summary>DELETE on /_plugins/_notifications/configs <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#delete-channel-configuration</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.2.0 or greater.</remarks>
         public TResponse DeleteConfigs<TResponse>(
@@ -153,7 +153,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_notifications/configs <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#delete-channel-configuration</para></summary>
+        /// <summary>DELETE on /_plugins/_notifications/configs <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#delete-channel-configuration</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.2.0 or greater.</remarks>
         [MapsApi("notifications.delete_configs", "")]
@@ -205,7 +205,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_notifications/configs <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#list-all-notification-configurations</para></summary>
+        /// <summary>GET on /_plugins/_notifications/configs <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#list-all-notification-configurations</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -221,7 +221,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_notifications/configs <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#list-all-notification-configurations</para></summary>
+        /// <summary>GET on /_plugins/_notifications/configs <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#list-all-notification-configurations</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -240,7 +240,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_notifications/channels <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#list-all-notification-channels</para></summary>
+        /// <summary>GET on /_plugins/_notifications/channels <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#list-all-notification-channels</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TResponse ListChannels<TResponse>(
@@ -254,7 +254,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_notifications/channels <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#list-all-notification-channels</para></summary>
+        /// <summary>GET on /_plugins/_notifications/channels <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#list-all-notification-channels</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         [MapsApi("notifications.list_channels", "")]
@@ -271,7 +271,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_notifications/features <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#list-supported-channel-configurations</para></summary>
+        /// <summary>GET on /_plugins/_notifications/features <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#list-supported-channel-configurations</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TResponse ListFeatures<TResponse>(
@@ -285,7 +285,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_notifications/features <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#list-supported-channel-configurations</para></summary>
+        /// <summary>GET on /_plugins/_notifications/features <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#list-supported-channel-configurations</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         [MapsApi("notifications.list_features", "")]
@@ -302,7 +302,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_notifications/feature/test/{config_id} <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#send-test-notification</para></summary>
+        /// <summary>POST on /_plugins/_notifications/feature/test/{config_id} <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#send-test-notification</para></summary>
         /// <param name="configId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -319,7 +319,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_notifications/feature/test/{config_id} <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#send-test-notification</para></summary>
+        /// <summary>POST on /_plugins/_notifications/feature/test/{config_id} <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#send-test-notification</para></summary>
         /// <param name="configId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
@@ -339,7 +339,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_notifications/configs/{config_id} <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#update-channel-configuration</para></summary>
+        /// <summary>PUT on /_plugins/_notifications/configs/{config_id} <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#update-channel-configuration</para></summary>
         /// <param name="configId"></param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -357,7 +357,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_notifications/configs/{config_id} <para>https://opensearch.org/docs/latest/observing-your-data/notifications/api/#update-channel-configuration</para></summary>
+        /// <summary>PUT on /_plugins/_notifications/configs/{config_id} <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#update-channel-configuration</para></summary>
         /// <param name="configId"></param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

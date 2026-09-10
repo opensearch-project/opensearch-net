@@ -69,7 +69,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
         internal LowLevelGeospatialNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
-        /// <summary>DELETE on /_plugins/geospatial/ip2geo/datasource/{name} <para>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#deleting-the-ip2geo-data-source</para></summary>
+        /// <summary>DELETE on /_plugins/geospatial/ip2geo/datasource/{name} <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#deleting-the-ip2geo-data-source</para></summary>
         /// <param name="name"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.11.0 or greater.</remarks>
@@ -85,7 +85,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/geospatial/ip2geo/datasource/{name} <para>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#deleting-the-ip2geo-data-source</para></summary>
+        /// <summary>DELETE on /_plugins/geospatial/ip2geo/datasource/{name} <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#deleting-the-ip2geo-data-source</para></summary>
         /// <param name="name"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.11.0 or greater.</remarks>
@@ -174,7 +174,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/geospatial/ip2geo/datasource <para>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#sending-a-get-request</para></summary>
+        /// <summary>GET on /_plugins/geospatial/ip2geo/datasource <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#sending-a-get-request</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.11.0 or greater.</remarks>
         public TResponse GetIp2geoDatasource<TResponse>(
@@ -188,7 +188,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/geospatial/ip2geo/datasource <para>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#sending-a-get-request</para></summary>
+        /// <summary>GET on /_plugins/geospatial/ip2geo/datasource <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#sending-a-get-request</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.11.0 or greater.</remarks>
         [MapsApi("geospatial.get_ip2geo_datasource", "")]
@@ -205,7 +205,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/geospatial/ip2geo/datasource/{name} <para>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#sending-a-get-request</para></summary>
+        /// <summary>GET on /_plugins/geospatial/ip2geo/datasource/{name} <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#sending-a-get-request</para></summary>
         /// <param name="name"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.11.0 or greater.</remarks>
@@ -221,7 +221,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/geospatial/ip2geo/datasource/{name} <para>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#sending-a-get-request</para></summary>
+        /// <summary>GET on /_plugins/geospatial/ip2geo/datasource/{name} <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#sending-a-get-request</para></summary>
         /// <param name="name"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.11.0 or greater.</remarks>
@@ -271,7 +271,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/geospatial/ip2geo/datasource/{name} <para>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#data-source-options</para></summary>
+        /// <summary>PUT on /_plugins/geospatial/ip2geo/datasource/{name} <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#data-source-options</para></summary>
         /// <param name="name"></param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -289,7 +289,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/geospatial/ip2geo/datasource/{name} <para>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#data-source-options</para></summary>
+        /// <summary>PUT on /_plugins/geospatial/ip2geo/datasource/{name} <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#data-source-options</para></summary>
         /// <param name="name"></param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -310,7 +310,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/geospatial/ip2geo/datasource/{name}/_settings <para>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#updating-an-ip2geo-data-source</para></summary>
+        /// <summary>PUT on /_plugins/geospatial/ip2geo/datasource/{name}/_settings <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#updating-an-ip2geo-data-source</para></summary>
         /// <param name="name"></param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -328,7 +328,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/geospatial/ip2geo/datasource/{name}/_settings <para>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#updating-an-ip2geo-data-source</para></summary>
+        /// <summary>PUT on /_plugins/geospatial/ip2geo/datasource/{name}/_settings <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#updating-an-ip2geo-data-source</para></summary>
         /// <param name="name"></param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

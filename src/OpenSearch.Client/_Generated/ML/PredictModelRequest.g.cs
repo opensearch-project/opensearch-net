@@ -29,8 +29,23 @@ namespace OpenSearch.Client
     /// <remarks>Supported by OpenSearch servers of version 2.12 or greater.</remarks>
     public partial interface IPredictModelRequest
     {
+        [DataMember(Name = "action_type")]
+        PredictionActionType? ActionType { get; set; }
+
+        [DataMember(Name = "context")]
+        string Context { get; set; }
+
+        [DataMember(Name = "dlq")]
+        IDictionary<string, string> Dlq { get; set; }
+
+        [DataMember(Name = "parameters")]
+        IDictionary<string, string> Parameters { get; set; }
+
         [DataMember(Name = "query_text")]
         string QueryText { get; set; }
+
+        [DataMember(Name = "question")]
+        string Question { get; set; }
 
         [DataMember(Name = "text_docs")]
         IList<string> TextDocs { get; set; }
@@ -40,17 +55,42 @@ namespace OpenSearch.Client
     {
         /// <summary>Minimum OpenSearch version required for this API.</summary>
         public const string MinimumServerVersion = "2.12";
+        public PredictionActionType? ActionType { get; set; }
+        public string Context { get; set; }
+        public IDictionary<string, string> Dlq { get; set; }
+        public IDictionary<string, string> Parameters { get; set; }
         public string QueryText { get; set; }
+        public string Question { get; set; }
         public IList<string> TextDocs { get; set; }
     }
 
     public partial class PredictModelDescriptor
     {
+        PredictionActionType? IPredictModelRequest.ActionType { get; set; }
+        string IPredictModelRequest.Context { get; set; }
+        IDictionary<string, string> IPredictModelRequest.Dlq { get; set; }
+        IDictionary<string, string> IPredictModelRequest.Parameters { get; set; }
         string IPredictModelRequest.QueryText { get; set; }
+        string IPredictModelRequest.Question { get; set; }
         IList<string> IPredictModelRequest.TextDocs { get; set; }
+
+        public PredictModelDescriptor ActionType(PredictionActionType? actionType) =>
+            Assign(actionType, (a, v) => a.ActionType = v);
+
+        public PredictModelDescriptor Context(string context) =>
+            Assign(context, (a, v) => a.Context = v);
+
+        public PredictModelDescriptor Dlq(IDictionary<string, string> dlq) =>
+            Assign(dlq, (a, v) => a.Dlq = v);
+
+        public PredictModelDescriptor Parameters(IDictionary<string, string> parameters) =>
+            Assign(parameters, (a, v) => a.Parameters = v);
 
         public PredictModelDescriptor QueryText(string queryText) =>
             Assign(queryText, (a, v) => a.QueryText = v);
+
+        public PredictModelDescriptor Question(string question) =>
+            Assign(question, (a, v) => a.Question = v);
 
         public PredictModelDescriptor TextDocs(IList<string> textDocs) =>
             Assign(textDocs, (a, v) => a.TextDocs = v);

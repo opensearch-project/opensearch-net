@@ -52,7 +52,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.DanglingIndicesApi
 {
-    /// <summary>Request options for DeleteDanglingIndex <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
+    /// <summary>Request options for DeleteDanglingIndex <para>https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</para></summary>
     public partial class DeleteDanglingIndexRequestParameters
         : RequestParameters<DeleteDanglingIndexRequestParameters>
     {
@@ -93,7 +93,7 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
         }
     }
 
-    /// <summary>Request options for ImportDanglingIndex <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
+    /// <summary>Request options for ImportDanglingIndex <para>https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</para></summary>
     public partial class ImportDanglingIndexRequestParameters
         : RequestParameters<ImportDanglingIndexRequestParameters>
     {
@@ -134,7 +134,7 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
         }
     }
 
-    /// <summary>Request options for List <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
+    /// <summary>Request options for List <para>https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</para></summary>
     public partial class ListDanglingIndicesRequestParameters
         : RequestParameters<ListDanglingIndicesRequestParameters>
     {

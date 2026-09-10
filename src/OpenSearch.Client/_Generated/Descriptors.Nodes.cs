@@ -57,7 +57,7 @@ using OpenSearch.Net.Utf8Json;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-    /// <summary>Descriptor for HotThreads <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
+    /// <summary>Descriptor for HotThreads <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
     public partial class NodesHotThreadsDescriptor
         : RequestDescriptorBase<
             NodesHotThreadsDescriptor,
@@ -105,7 +105,7 @@ namespace OpenSearch.Client
         public NodesHotThreadsDescriptor Type(NodesSampleType? type) => Qs("type", type);
     }
 
-    /// <summary>Descriptor for Info <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
+    /// <summary>Descriptor for Info <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-info/</para></summary>
     public partial class NodesInfoDescriptor
         : RequestDescriptorBase<NodesInfoDescriptor, NodesInfoRequestParameters, INodesInfoRequest>,
             INodesInfoRequest
@@ -153,7 +153,7 @@ namespace OpenSearch.Client
         public NodesInfoDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    /// <summary>Descriptor for ReloadSecureSettings <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
+    /// <summary>Descriptor for ReloadSecureSettings <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
     public partial class ReloadSecureSettingsDescriptor
         : RequestDescriptorBase<
             ReloadSecureSettingsDescriptor,
@@ -185,7 +185,7 @@ namespace OpenSearch.Client
         public ReloadSecureSettingsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    /// <summary>Descriptor for Stats <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
+    /// <summary>Descriptor for Stats <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
     public partial class NodesStatsDescriptor
         : RequestDescriptorBase<
             NodesStatsDescriptor,
@@ -292,7 +292,7 @@ namespace OpenSearch.Client
         public NodesStatsDescriptor Types(params string[] types) => Qs("types", types);
     }
 
-    /// <summary>Descriptor for Usage <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for Usage <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class NodesUsageDescriptor
         : RequestDescriptorBase<
             NodesUsageDescriptor,

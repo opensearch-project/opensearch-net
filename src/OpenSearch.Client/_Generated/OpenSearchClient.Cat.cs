@@ -60,7 +60,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.aliases</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/">https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/">https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/</a>
         /// </summary>
         CatResponse<CatAliasesRecord> Aliases(
             Func<CatAliasesDescriptor, ICatAliasesRequest> selector = null
@@ -69,7 +69,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.aliases</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/">https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/">https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/</a>
         /// </summary>
         Task<CatResponse<CatAliasesRecord>> AliasesAsync(
             Func<CatAliasesDescriptor, ICatAliasesRequest> selector = null,
@@ -79,14 +79,14 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.aliases</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/">https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/">https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/</a>
         /// </summary>
         CatResponse<CatAliasesRecord> Aliases(ICatAliasesRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.aliases</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/">https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/">https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/</a>
         /// </summary>
         Task<CatResponse<CatAliasesRecord>> AliasesAsync(
             ICatAliasesRequest request,
@@ -96,7 +96,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.all_pit_segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/point-in-time-api/">https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         CatResponse<CatAllPitSegmentsRecord> AllPitSegments(
@@ -106,7 +106,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.all_pit_segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/point-in-time-api/">https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         Task<CatResponse<CatAllPitSegmentsRecord>> AllPitSegmentsAsync(
@@ -117,7 +117,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.all_pit_segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/point-in-time-api/">https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         CatResponse<CatAllPitSegmentsRecord> AllPitSegments(ICatAllPitSegmentsRequest request);
@@ -125,7 +125,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.all_pit_segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/point-in-time-api/">https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         Task<CatResponse<CatAllPitSegmentsRecord>> AllPitSegmentsAsync(
@@ -136,7 +136,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.allocation</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/">https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/">https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/</a>
         /// </summary>
         CatResponse<CatAllocationRecord> Allocation(
             Func<CatAllocationDescriptor, ICatAllocationRequest> selector = null
@@ -145,7 +145,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.allocation</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/">https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/">https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/</a>
         /// </summary>
         Task<CatResponse<CatAllocationRecord>> AllocationAsync(
             Func<CatAllocationDescriptor, ICatAllocationRequest> selector = null,
@@ -155,14 +155,14 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.allocation</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/">https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/">https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/</a>
         /// </summary>
         CatResponse<CatAllocationRecord> Allocation(ICatAllocationRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.allocation</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/">https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/">https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/</a>
         /// </summary>
         Task<CatResponse<CatAllocationRecord>> AllocationAsync(
             ICatAllocationRequest request,
@@ -172,7 +172,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.cluster_manager</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         CatResponse<CatClusterManagerRecord> ClusterManager(
@@ -182,7 +182,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.cluster_manager</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         Task<CatResponse<CatClusterManagerRecord>> ClusterManagerAsync(
@@ -193,7 +193,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.cluster_manager</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         CatResponse<CatClusterManagerRecord> ClusterManager(ICatClusterManagerRequest request);
@@ -201,7 +201,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.cluster_manager</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         Task<CatResponse<CatClusterManagerRecord>> ClusterManagerAsync(
@@ -212,7 +212,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.count</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-count/">https://opensearch.org/docs/latest/api-reference/cat/cat-count/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-count/">https://docs.opensearch.org/latest/api-reference/cat/cat-count/</a>
         /// </summary>
         CatResponse<CatCountRecord> Count(
             Func<CatCountDescriptor, ICatCountRequest> selector = null
@@ -221,7 +221,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.count</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-count/">https://opensearch.org/docs/latest/api-reference/cat/cat-count/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-count/">https://docs.opensearch.org/latest/api-reference/cat/cat-count/</a>
         /// </summary>
         Task<CatResponse<CatCountRecord>> CountAsync(
             Func<CatCountDescriptor, ICatCountRequest> selector = null,
@@ -231,14 +231,14 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.count</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-count/">https://opensearch.org/docs/latest/api-reference/cat/cat-count/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-count/">https://docs.opensearch.org/latest/api-reference/cat/cat-count/</a>
         /// </summary>
         CatResponse<CatCountRecord> Count(ICatCountRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.count</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-count/">https://opensearch.org/docs/latest/api-reference/cat/cat-count/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-count/">https://docs.opensearch.org/latest/api-reference/cat/cat-count/</a>
         /// </summary>
         Task<CatResponse<CatCountRecord>> CountAsync(
             ICatCountRequest request,
@@ -248,7 +248,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.fielddata</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/">https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/">https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/</a>
         /// </summary>
         CatResponse<CatFielddataRecord> Fielddata(
             Func<CatFielddataDescriptor, ICatFielddataRequest> selector = null
@@ -257,7 +257,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.fielddata</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/">https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/">https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/</a>
         /// </summary>
         Task<CatResponse<CatFielddataRecord>> FielddataAsync(
             Func<CatFielddataDescriptor, ICatFielddataRequest> selector = null,
@@ -267,14 +267,14 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.fielddata</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/">https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/">https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/</a>
         /// </summary>
         CatResponse<CatFielddataRecord> Fielddata(ICatFielddataRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.fielddata</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/">https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/">https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/</a>
         /// </summary>
         Task<CatResponse<CatFielddataRecord>> FielddataAsync(
             ICatFielddataRequest request,
@@ -284,7 +284,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.health</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-health/">https://opensearch.org/docs/latest/api-reference/cat/cat-health/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-health/">https://docs.opensearch.org/latest/api-reference/cat/cat-health/</a>
         /// </summary>
         CatResponse<CatHealthRecord> Health(
             Func<CatHealthDescriptor, ICatHealthRequest> selector = null
@@ -293,7 +293,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.health</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-health/">https://opensearch.org/docs/latest/api-reference/cat/cat-health/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-health/">https://docs.opensearch.org/latest/api-reference/cat/cat-health/</a>
         /// </summary>
         Task<CatResponse<CatHealthRecord>> HealthAsync(
             Func<CatHealthDescriptor, ICatHealthRequest> selector = null,
@@ -303,14 +303,14 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.health</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-health/">https://opensearch.org/docs/latest/api-reference/cat/cat-health/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-health/">https://docs.opensearch.org/latest/api-reference/cat/cat-health/</a>
         /// </summary>
         CatResponse<CatHealthRecord> Health(ICatHealthRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.health</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-health/">https://opensearch.org/docs/latest/api-reference/cat/cat-health/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-health/">https://docs.opensearch.org/latest/api-reference/cat/cat-health/</a>
         /// </summary>
         Task<CatResponse<CatHealthRecord>> HealthAsync(
             ICatHealthRequest request,
@@ -320,14 +320,14 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.help</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/index/">https://opensearch.org/docs/latest/api-reference/cat/index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/index/">https://docs.opensearch.org/latest/api-reference/cat/index/</a>
         /// </summary>
         CatResponse<CatHelpRecord> Help(Func<CatHelpDescriptor, ICatHelpRequest> selector = null);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.help</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/index/">https://opensearch.org/docs/latest/api-reference/cat/index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/index/">https://docs.opensearch.org/latest/api-reference/cat/index/</a>
         /// </summary>
         Task<CatResponse<CatHelpRecord>> HelpAsync(
             Func<CatHelpDescriptor, ICatHelpRequest> selector = null,
@@ -337,14 +337,14 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.help</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/index/">https://opensearch.org/docs/latest/api-reference/cat/index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/index/">https://docs.opensearch.org/latest/api-reference/cat/index/</a>
         /// </summary>
         CatResponse<CatHelpRecord> Help(ICatHelpRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.help</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/index/">https://opensearch.org/docs/latest/api-reference/cat/index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/index/">https://docs.opensearch.org/latest/api-reference/cat/index/</a>
         /// </summary>
         Task<CatResponse<CatHelpRecord>> HelpAsync(
             ICatHelpRequest request,
@@ -354,7 +354,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.indices</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-indices/">https://opensearch.org/docs/latest/api-reference/cat/cat-indices/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-indices/">https://docs.opensearch.org/latest/api-reference/cat/cat-indices/</a>
         /// </summary>
         CatResponse<CatIndicesRecord> Indices(
             Func<CatIndicesDescriptor, ICatIndicesRequest> selector = null
@@ -363,7 +363,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.indices</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-indices/">https://opensearch.org/docs/latest/api-reference/cat/cat-indices/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-indices/">https://docs.opensearch.org/latest/api-reference/cat/cat-indices/</a>
         /// </summary>
         Task<CatResponse<CatIndicesRecord>> IndicesAsync(
             Func<CatIndicesDescriptor, ICatIndicesRequest> selector = null,
@@ -373,14 +373,14 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.indices</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-indices/">https://opensearch.org/docs/latest/api-reference/cat/cat-indices/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-indices/">https://docs.opensearch.org/latest/api-reference/cat/cat-indices/</a>
         /// </summary>
         CatResponse<CatIndicesRecord> Indices(ICatIndicesRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.indices</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-indices/">https://opensearch.org/docs/latest/api-reference/cat/cat-indices/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-indices/">https://docs.opensearch.org/latest/api-reference/cat/cat-indices/</a>
         /// </summary>
         Task<CatResponse<CatIndicesRecord>> IndicesAsync(
             ICatIndicesRequest request,
@@ -390,7 +390,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.master</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead."
@@ -402,7 +402,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.master</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead."
@@ -415,7 +415,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.master</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead."
@@ -425,7 +425,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.master</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead."
@@ -438,7 +438,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.nodeattrs</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/">https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/</a>
         /// </summary>
         CatResponse<CatNodeAttributesRecord> NodeAttributes(
             Func<CatNodeAttributesDescriptor, ICatNodeAttributesRequest> selector = null
@@ -447,7 +447,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.nodeattrs</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/">https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/</a>
         /// </summary>
         Task<CatResponse<CatNodeAttributesRecord>> NodeAttributesAsync(
             Func<CatNodeAttributesDescriptor, ICatNodeAttributesRequest> selector = null,
@@ -457,14 +457,14 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.nodeattrs</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/">https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/</a>
         /// </summary>
         CatResponse<CatNodeAttributesRecord> NodeAttributes(ICatNodeAttributesRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.nodeattrs</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/">https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/</a>
         /// </summary>
         Task<CatResponse<CatNodeAttributesRecord>> NodeAttributesAsync(
             ICatNodeAttributesRequest request,
@@ -474,7 +474,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.nodes</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/">https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/</a>
         /// </summary>
         CatResponse<CatNodesRecord> Nodes(
             Func<CatNodesDescriptor, ICatNodesRequest> selector = null
@@ -483,7 +483,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.nodes</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/">https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/</a>
         /// </summary>
         Task<CatResponse<CatNodesRecord>> NodesAsync(
             Func<CatNodesDescriptor, ICatNodesRequest> selector = null,
@@ -493,14 +493,14 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.nodes</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/">https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/</a>
         /// </summary>
         CatResponse<CatNodesRecord> Nodes(ICatNodesRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.nodes</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/">https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/</a>
         /// </summary>
         Task<CatResponse<CatNodesRecord>> NodesAsync(
             ICatNodesRequest request,
@@ -510,7 +510,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pending_tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-pending-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-pending-tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/">https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/</a>
         /// </summary>
         CatResponse<CatPendingTasksRecord> PendingTasks(
             Func<CatPendingTasksDescriptor, ICatPendingTasksRequest> selector = null
@@ -519,7 +519,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pending_tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-pending-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-pending-tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/">https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/</a>
         /// </summary>
         Task<CatResponse<CatPendingTasksRecord>> PendingTasksAsync(
             Func<CatPendingTasksDescriptor, ICatPendingTasksRequest> selector = null,
@@ -529,14 +529,14 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pending_tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-pending-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-pending-tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/">https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/</a>
         /// </summary>
         CatResponse<CatPendingTasksRecord> PendingTasks(ICatPendingTasksRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pending_tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-pending-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-pending-tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/">https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/</a>
         /// </summary>
         Task<CatResponse<CatPendingTasksRecord>> PendingTasksAsync(
             ICatPendingTasksRequest request,
@@ -546,7 +546,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pit_segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/point-in-time-api/">https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         CatResponse<CatPitSegmentsRecord> PitSegments(
@@ -556,7 +556,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pit_segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/point-in-time-api/">https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         Task<CatResponse<CatPitSegmentsRecord>> PitSegmentsAsync(
@@ -567,7 +567,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pit_segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/point-in-time-api/">https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         CatResponse<CatPitSegmentsRecord> PitSegments(ICatPitSegmentsRequest request);
@@ -575,7 +575,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pit_segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/point-in-time-api/">https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         Task<CatResponse<CatPitSegmentsRecord>> PitSegmentsAsync(
@@ -586,7 +586,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.plugins</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/">https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</a>
         /// </summary>
         CatResponse<CatPluginsRecord> Plugins(
             Func<CatPluginsDescriptor, ICatPluginsRequest> selector = null
@@ -595,7 +595,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.plugins</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/">https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</a>
         /// </summary>
         Task<CatResponse<CatPluginsRecord>> PluginsAsync(
             Func<CatPluginsDescriptor, ICatPluginsRequest> selector = null,
@@ -605,14 +605,14 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.plugins</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/">https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</a>
         /// </summary>
         CatResponse<CatPluginsRecord> Plugins(ICatPluginsRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.plugins</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/">https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</a>
         /// </summary>
         Task<CatResponse<CatPluginsRecord>> PluginsAsync(
             ICatPluginsRequest request,
@@ -622,7 +622,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.recovery</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/">https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</a>
         /// </summary>
         CatResponse<CatRecoveryRecord> Recovery(
             Func<CatRecoveryDescriptor, ICatRecoveryRequest> selector = null
@@ -631,7 +631,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.recovery</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/">https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</a>
         /// </summary>
         Task<CatResponse<CatRecoveryRecord>> RecoveryAsync(
             Func<CatRecoveryDescriptor, ICatRecoveryRequest> selector = null,
@@ -641,14 +641,14 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.recovery</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/">https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</a>
         /// </summary>
         CatResponse<CatRecoveryRecord> Recovery(ICatRecoveryRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.recovery</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/">https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</a>
         /// </summary>
         Task<CatResponse<CatRecoveryRecord>> RecoveryAsync(
             ICatRecoveryRequest request,
@@ -658,7 +658,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.repositories</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/">https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/">https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/</a>
         /// </summary>
         CatResponse<CatRepositoriesRecord> Repositories(
             Func<CatRepositoriesDescriptor, ICatRepositoriesRequest> selector = null
@@ -667,7 +667,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.repositories</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/">https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/">https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/</a>
         /// </summary>
         Task<CatResponse<CatRepositoriesRecord>> RepositoriesAsync(
             Func<CatRepositoriesDescriptor, ICatRepositoriesRequest> selector = null,
@@ -677,14 +677,14 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.repositories</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/">https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/">https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/</a>
         /// </summary>
         CatResponse<CatRepositoriesRecord> Repositories(ICatRepositoriesRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.repositories</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/">https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/">https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/</a>
         /// </summary>
         Task<CatResponse<CatRepositoriesRecord>> RepositoriesAsync(
             ICatRepositoriesRequest request,
@@ -694,7 +694,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segment_replication</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/">https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/">https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.6.0 or greater.</remarks>
         CatResponse<CatSegmentReplicationRecord> SegmentReplication(
@@ -704,7 +704,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segment_replication</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/">https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/">https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.6.0 or greater.</remarks>
         Task<CatResponse<CatSegmentReplicationRecord>> SegmentReplicationAsync(
@@ -715,7 +715,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segment_replication</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/">https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/">https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.6.0 or greater.</remarks>
         CatResponse<CatSegmentReplicationRecord> SegmentReplication(
@@ -725,7 +725,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segment_replication</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/">https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/">https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.6.0 or greater.</remarks>
         Task<CatResponse<CatSegmentReplicationRecord>> SegmentReplicationAsync(
@@ -736,7 +736,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segments/">https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-segments/">https://docs.opensearch.org/latest/api-reference/cat/cat-segments/</a>
         /// </summary>
         CatResponse<CatSegmentsRecord> Segments(
             Func<CatSegmentsDescriptor, ICatSegmentsRequest> selector = null
@@ -745,7 +745,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segments/">https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-segments/">https://docs.opensearch.org/latest/api-reference/cat/cat-segments/</a>
         /// </summary>
         Task<CatResponse<CatSegmentsRecord>> SegmentsAsync(
             Func<CatSegmentsDescriptor, ICatSegmentsRequest> selector = null,
@@ -755,14 +755,14 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segments/">https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-segments/">https://docs.opensearch.org/latest/api-reference/cat/cat-segments/</a>
         /// </summary>
         CatResponse<CatSegmentsRecord> Segments(ICatSegmentsRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segments/">https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-segments/">https://docs.opensearch.org/latest/api-reference/cat/cat-segments/</a>
         /// </summary>
         Task<CatResponse<CatSegmentsRecord>> SegmentsAsync(
             ICatSegmentsRequest request,
@@ -772,7 +772,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.shards</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-shards/">https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-shards/">https://docs.opensearch.org/latest/api-reference/cat/cat-shards/</a>
         /// </summary>
         CatResponse<CatShardsRecord> Shards(
             Func<CatShardsDescriptor, ICatShardsRequest> selector = null
@@ -781,7 +781,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.shards</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-shards/">https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-shards/">https://docs.opensearch.org/latest/api-reference/cat/cat-shards/</a>
         /// </summary>
         Task<CatResponse<CatShardsRecord>> ShardsAsync(
             Func<CatShardsDescriptor, ICatShardsRequest> selector = null,
@@ -791,14 +791,14 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.shards</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-shards/">https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-shards/">https://docs.opensearch.org/latest/api-reference/cat/cat-shards/</a>
         /// </summary>
         CatResponse<CatShardsRecord> Shards(ICatShardsRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.shards</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-shards/">https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-shards/">https://docs.opensearch.org/latest/api-reference/cat/cat-shards/</a>
         /// </summary>
         Task<CatResponse<CatShardsRecord>> ShardsAsync(
             ICatShardsRequest request,
@@ -808,7 +808,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.snapshots</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/">https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/">https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/</a>
         /// </summary>
         CatResponse<CatSnapshotsRecord> Snapshots(
             Func<CatSnapshotsDescriptor, ICatSnapshotsRequest> selector = null
@@ -817,7 +817,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.snapshots</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/">https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/">https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/</a>
         /// </summary>
         Task<CatResponse<CatSnapshotsRecord>> SnapshotsAsync(
             Func<CatSnapshotsDescriptor, ICatSnapshotsRequest> selector = null,
@@ -827,14 +827,14 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.snapshots</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/">https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/">https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/</a>
         /// </summary>
         CatResponse<CatSnapshotsRecord> Snapshots(ICatSnapshotsRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.snapshots</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/">https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/">https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/</a>
         /// </summary>
         Task<CatResponse<CatSnapshotsRecord>> SnapshotsAsync(
             ICatSnapshotsRequest request,
@@ -844,7 +844,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/">https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/</a>
         /// </summary>
         CatResponse<CatTasksRecord> Tasks(
             Func<CatTasksDescriptor, ICatTasksRequest> selector = null
@@ -853,7 +853,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/">https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/</a>
         /// </summary>
         Task<CatResponse<CatTasksRecord>> TasksAsync(
             Func<CatTasksDescriptor, ICatTasksRequest> selector = null,
@@ -863,14 +863,14 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/">https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/</a>
         /// </summary>
         CatResponse<CatTasksRecord> Tasks(ICatTasksRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/">https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/</a>
         /// </summary>
         Task<CatResponse<CatTasksRecord>> TasksAsync(
             ICatTasksRequest request,
@@ -880,7 +880,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.templates</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-templates/">https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-templates/">https://docs.opensearch.org/latest/api-reference/cat/cat-templates/</a>
         /// </summary>
         CatResponse<CatTemplatesRecord> Templates(
             Func<CatTemplatesDescriptor, ICatTemplatesRequest> selector = null
@@ -889,7 +889,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.templates</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-templates/">https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-templates/">https://docs.opensearch.org/latest/api-reference/cat/cat-templates/</a>
         /// </summary>
         Task<CatResponse<CatTemplatesRecord>> TemplatesAsync(
             Func<CatTemplatesDescriptor, ICatTemplatesRequest> selector = null,
@@ -899,14 +899,14 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.templates</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-templates/">https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-templates/">https://docs.opensearch.org/latest/api-reference/cat/cat-templates/</a>
         /// </summary>
         CatResponse<CatTemplatesRecord> Templates(ICatTemplatesRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.templates</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-templates/">https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-templates/">https://docs.opensearch.org/latest/api-reference/cat/cat-templates/</a>
         /// </summary>
         Task<CatResponse<CatTemplatesRecord>> TemplatesAsync(
             ICatTemplatesRequest request,
@@ -916,7 +916,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.thread_pool</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/">https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/">https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/</a>
         /// </summary>
         CatResponse<CatThreadPoolRecord> ThreadPool(
             Func<CatThreadPoolDescriptor, ICatThreadPoolRequest> selector = null
@@ -925,7 +925,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.thread_pool</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/">https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/">https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/</a>
         /// </summary>
         Task<CatResponse<CatThreadPoolRecord>> ThreadPoolAsync(
             Func<CatThreadPoolDescriptor, ICatThreadPoolRequest> selector = null,
@@ -935,14 +935,14 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.thread_pool</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/">https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/">https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/</a>
         /// </summary>
         CatResponse<CatThreadPoolRecord> ThreadPool(ICatThreadPoolRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.thread_pool</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/">https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/">https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/</a>
         /// </summary>
         Task<CatResponse<CatThreadPoolRecord>> ThreadPoolAsync(
             ICatThreadPoolRequest request,
@@ -964,7 +964,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.aliases</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/">https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/">https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/</a>
         /// </summary>
         public CatResponse<CatAliasesRecord> Aliases(
             Func<CatAliasesDescriptor, ICatAliasesRequest> selector = null
@@ -973,7 +973,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.aliases</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/">https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/">https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/</a>
         /// </summary>
         public Task<CatResponse<CatAliasesRecord>> AliasesAsync(
             Func<CatAliasesDescriptor, ICatAliasesRequest> selector = null,
@@ -983,7 +983,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.aliases</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/">https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/">https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/</a>
         /// </summary>
         public CatResponse<CatAliasesRecord> Aliases(ICatAliasesRequest request) =>
             DoCat<ICatAliasesRequest, CatAliasesRequestParameters, CatAliasesRecord>(request);
@@ -991,7 +991,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.aliases</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/">https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/">https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/</a>
         /// </summary>
         public Task<CatResponse<CatAliasesRecord>> AliasesAsync(
             ICatAliasesRequest request,
@@ -1005,7 +1005,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.all_pit_segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/point-in-time-api/">https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public CatResponse<CatAllPitSegmentsRecord> AllPitSegments(
@@ -1015,7 +1015,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.all_pit_segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/point-in-time-api/">https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public Task<CatResponse<CatAllPitSegmentsRecord>> AllPitSegmentsAsync(
@@ -1026,7 +1026,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.all_pit_segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/point-in-time-api/">https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public CatResponse<CatAllPitSegmentsRecord> AllPitSegments(
@@ -1041,7 +1041,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.all_pit_segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/point-in-time-api/">https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public Task<CatResponse<CatAllPitSegmentsRecord>> AllPitSegmentsAsync(
@@ -1057,7 +1057,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.allocation</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/">https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/">https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/</a>
         /// </summary>
         public CatResponse<CatAllocationRecord> Allocation(
             Func<CatAllocationDescriptor, ICatAllocationRequest> selector = null
@@ -1066,7 +1066,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.allocation</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/">https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/">https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/</a>
         /// </summary>
         public Task<CatResponse<CatAllocationRecord>> AllocationAsync(
             Func<CatAllocationDescriptor, ICatAllocationRequest> selector = null,
@@ -1076,7 +1076,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.allocation</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/">https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/">https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/</a>
         /// </summary>
         public CatResponse<CatAllocationRecord> Allocation(ICatAllocationRequest request) =>
             DoCat<ICatAllocationRequest, CatAllocationRequestParameters, CatAllocationRecord>(
@@ -1086,7 +1086,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.allocation</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/">https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/">https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/</a>
         /// </summary>
         public Task<CatResponse<CatAllocationRecord>> AllocationAsync(
             ICatAllocationRequest request,
@@ -1100,7 +1100,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.cluster_manager</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public CatResponse<CatClusterManagerRecord> ClusterManager(
@@ -1110,7 +1110,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.cluster_manager</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Task<CatResponse<CatClusterManagerRecord>> ClusterManagerAsync(
@@ -1121,7 +1121,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.cluster_manager</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public CatResponse<CatClusterManagerRecord> ClusterManager(
@@ -1136,7 +1136,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.cluster_manager</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Task<CatResponse<CatClusterManagerRecord>> ClusterManagerAsync(
@@ -1152,7 +1152,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.count</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-count/">https://opensearch.org/docs/latest/api-reference/cat/cat-count/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-count/">https://docs.opensearch.org/latest/api-reference/cat/cat-count/</a>
         /// </summary>
         public CatResponse<CatCountRecord> Count(
             Func<CatCountDescriptor, ICatCountRequest> selector = null
@@ -1161,7 +1161,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.count</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-count/">https://opensearch.org/docs/latest/api-reference/cat/cat-count/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-count/">https://docs.opensearch.org/latest/api-reference/cat/cat-count/</a>
         /// </summary>
         public Task<CatResponse<CatCountRecord>> CountAsync(
             Func<CatCountDescriptor, ICatCountRequest> selector = null,
@@ -1171,7 +1171,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.count</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-count/">https://opensearch.org/docs/latest/api-reference/cat/cat-count/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-count/">https://docs.opensearch.org/latest/api-reference/cat/cat-count/</a>
         /// </summary>
         public CatResponse<CatCountRecord> Count(ICatCountRequest request) =>
             DoCat<ICatCountRequest, CatCountRequestParameters, CatCountRecord>(request);
@@ -1179,7 +1179,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.count</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-count/">https://opensearch.org/docs/latest/api-reference/cat/cat-count/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-count/">https://docs.opensearch.org/latest/api-reference/cat/cat-count/</a>
         /// </summary>
         public Task<CatResponse<CatCountRecord>> CountAsync(
             ICatCountRequest request,
@@ -1189,7 +1189,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.fielddata</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/">https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/">https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/</a>
         /// </summary>
         public CatResponse<CatFielddataRecord> Fielddata(
             Func<CatFielddataDescriptor, ICatFielddataRequest> selector = null
@@ -1198,7 +1198,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.fielddata</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/">https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/">https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/</a>
         /// </summary>
         public Task<CatResponse<CatFielddataRecord>> FielddataAsync(
             Func<CatFielddataDescriptor, ICatFielddataRequest> selector = null,
@@ -1208,7 +1208,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.fielddata</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/">https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/">https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/</a>
         /// </summary>
         public CatResponse<CatFielddataRecord> Fielddata(ICatFielddataRequest request) =>
             DoCat<ICatFielddataRequest, CatFielddataRequestParameters, CatFielddataRecord>(request);
@@ -1216,7 +1216,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.fielddata</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/">https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/">https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/</a>
         /// </summary>
         public Task<CatResponse<CatFielddataRecord>> FielddataAsync(
             ICatFielddataRequest request,
@@ -1230,7 +1230,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.health</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-health/">https://opensearch.org/docs/latest/api-reference/cat/cat-health/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-health/">https://docs.opensearch.org/latest/api-reference/cat/cat-health/</a>
         /// </summary>
         public CatResponse<CatHealthRecord> Health(
             Func<CatHealthDescriptor, ICatHealthRequest> selector = null
@@ -1239,7 +1239,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.health</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-health/">https://opensearch.org/docs/latest/api-reference/cat/cat-health/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-health/">https://docs.opensearch.org/latest/api-reference/cat/cat-health/</a>
         /// </summary>
         public Task<CatResponse<CatHealthRecord>> HealthAsync(
             Func<CatHealthDescriptor, ICatHealthRequest> selector = null,
@@ -1249,7 +1249,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.health</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-health/">https://opensearch.org/docs/latest/api-reference/cat/cat-health/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-health/">https://docs.opensearch.org/latest/api-reference/cat/cat-health/</a>
         /// </summary>
         public CatResponse<CatHealthRecord> Health(ICatHealthRequest request) =>
             DoCat<ICatHealthRequest, CatHealthRequestParameters, CatHealthRecord>(request);
@@ -1257,7 +1257,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.health</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-health/">https://opensearch.org/docs/latest/api-reference/cat/cat-health/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-health/">https://docs.opensearch.org/latest/api-reference/cat/cat-health/</a>
         /// </summary>
         public Task<CatResponse<CatHealthRecord>> HealthAsync(
             ICatHealthRequest request,
@@ -1268,7 +1268,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.help</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/index/">https://opensearch.org/docs/latest/api-reference/cat/index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/index/">https://docs.opensearch.org/latest/api-reference/cat/index/</a>
         /// </summary>
         public CatResponse<CatHelpRecord> Help(
             Func<CatHelpDescriptor, ICatHelpRequest> selector = null
@@ -1277,7 +1277,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.help</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/index/">https://opensearch.org/docs/latest/api-reference/cat/index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/index/">https://docs.opensearch.org/latest/api-reference/cat/index/</a>
         /// </summary>
         public Task<CatResponse<CatHelpRecord>> HelpAsync(
             Func<CatHelpDescriptor, ICatHelpRequest> selector = null,
@@ -1287,7 +1287,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.help</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/index/">https://opensearch.org/docs/latest/api-reference/cat/index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/index/">https://docs.opensearch.org/latest/api-reference/cat/index/</a>
         /// </summary>
         public CatResponse<CatHelpRecord> Help(ICatHelpRequest request) =>
             DoCat<ICatHelpRequest, CatHelpRequestParameters, CatHelpRecord>(request);
@@ -1295,7 +1295,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.help</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/index/">https://opensearch.org/docs/latest/api-reference/cat/index/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/index/">https://docs.opensearch.org/latest/api-reference/cat/index/</a>
         /// </summary>
         public Task<CatResponse<CatHelpRecord>> HelpAsync(
             ICatHelpRequest request,
@@ -1305,7 +1305,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.indices</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-indices/">https://opensearch.org/docs/latest/api-reference/cat/cat-indices/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-indices/">https://docs.opensearch.org/latest/api-reference/cat/cat-indices/</a>
         /// </summary>
         public CatResponse<CatIndicesRecord> Indices(
             Func<CatIndicesDescriptor, ICatIndicesRequest> selector = null
@@ -1314,7 +1314,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.indices</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-indices/">https://opensearch.org/docs/latest/api-reference/cat/cat-indices/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-indices/">https://docs.opensearch.org/latest/api-reference/cat/cat-indices/</a>
         /// </summary>
         public Task<CatResponse<CatIndicesRecord>> IndicesAsync(
             Func<CatIndicesDescriptor, ICatIndicesRequest> selector = null,
@@ -1324,7 +1324,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.indices</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-indices/">https://opensearch.org/docs/latest/api-reference/cat/cat-indices/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-indices/">https://docs.opensearch.org/latest/api-reference/cat/cat-indices/</a>
         /// </summary>
         public CatResponse<CatIndicesRecord> Indices(ICatIndicesRequest request) =>
             DoCat<ICatIndicesRequest, CatIndicesRequestParameters, CatIndicesRecord>(request);
@@ -1332,7 +1332,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.indices</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-indices/">https://opensearch.org/docs/latest/api-reference/cat/cat-indices/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-indices/">https://docs.opensearch.org/latest/api-reference/cat/cat-indices/</a>
         /// </summary>
         public Task<CatResponse<CatIndicesRecord>> IndicesAsync(
             ICatIndicesRequest request,
@@ -1346,7 +1346,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.master</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead."
@@ -1358,7 +1358,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.master</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead."
@@ -1371,7 +1371,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.master</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead."
@@ -1382,7 +1382,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.master</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/">https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
         [Obsolete(
             "Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead."
@@ -1396,7 +1396,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.nodeattrs</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/">https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/</a>
         /// </summary>
         public CatResponse<CatNodeAttributesRecord> NodeAttributes(
             Func<CatNodeAttributesDescriptor, ICatNodeAttributesRequest> selector = null
@@ -1405,7 +1405,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.nodeattrs</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/">https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/</a>
         /// </summary>
         public Task<CatResponse<CatNodeAttributesRecord>> NodeAttributesAsync(
             Func<CatNodeAttributesDescriptor, ICatNodeAttributesRequest> selector = null,
@@ -1415,7 +1415,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.nodeattrs</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/">https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/</a>
         /// </summary>
         public CatResponse<CatNodeAttributesRecord> NodeAttributes(
             ICatNodeAttributesRequest request
@@ -1429,7 +1429,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.nodeattrs</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/">https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/</a>
         /// </summary>
         public Task<CatResponse<CatNodeAttributesRecord>> NodeAttributesAsync(
             ICatNodeAttributesRequest request,
@@ -1444,7 +1444,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.nodes</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/">https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/</a>
         /// </summary>
         public CatResponse<CatNodesRecord> Nodes(
             Func<CatNodesDescriptor, ICatNodesRequest> selector = null
@@ -1453,7 +1453,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.nodes</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/">https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/</a>
         /// </summary>
         public Task<CatResponse<CatNodesRecord>> NodesAsync(
             Func<CatNodesDescriptor, ICatNodesRequest> selector = null,
@@ -1463,7 +1463,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.nodes</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/">https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/</a>
         /// </summary>
         public CatResponse<CatNodesRecord> Nodes(ICatNodesRequest request) =>
             DoCat<ICatNodesRequest, CatNodesRequestParameters, CatNodesRecord>(request);
@@ -1471,7 +1471,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.nodes</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/">https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/">https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/</a>
         /// </summary>
         public Task<CatResponse<CatNodesRecord>> NodesAsync(
             ICatNodesRequest request,
@@ -1481,7 +1481,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pending_tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-pending-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-pending-tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/">https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/</a>
         /// </summary>
         public CatResponse<CatPendingTasksRecord> PendingTasks(
             Func<CatPendingTasksDescriptor, ICatPendingTasksRequest> selector = null
@@ -1490,7 +1490,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pending_tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-pending-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-pending-tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/">https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/</a>
         /// </summary>
         public Task<CatResponse<CatPendingTasksRecord>> PendingTasksAsync(
             Func<CatPendingTasksDescriptor, ICatPendingTasksRequest> selector = null,
@@ -1500,7 +1500,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pending_tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-pending-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-pending-tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/">https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/</a>
         /// </summary>
         public CatResponse<CatPendingTasksRecord> PendingTasks(ICatPendingTasksRequest request) =>
             DoCat<ICatPendingTasksRequest, CatPendingTasksRequestParameters, CatPendingTasksRecord>(
@@ -1510,7 +1510,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pending_tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-pending-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-pending-tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/">https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/</a>
         /// </summary>
         public Task<CatResponse<CatPendingTasksRecord>> PendingTasksAsync(
             ICatPendingTasksRequest request,
@@ -1525,7 +1525,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pit_segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/point-in-time-api/">https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public CatResponse<CatPitSegmentsRecord> PitSegments(
@@ -1535,7 +1535,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pit_segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/point-in-time-api/">https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public Task<CatResponse<CatPitSegmentsRecord>> PitSegmentsAsync(
@@ -1546,7 +1546,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pit_segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/point-in-time-api/">https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public CatResponse<CatPitSegmentsRecord> PitSegments(ICatPitSegmentsRequest request) =>
@@ -1557,7 +1557,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pit_segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/point-in-time-api/">https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public Task<CatResponse<CatPitSegmentsRecord>> PitSegmentsAsync(
@@ -1573,7 +1573,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.plugins</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/">https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</a>
         /// </summary>
         public CatResponse<CatPluginsRecord> Plugins(
             Func<CatPluginsDescriptor, ICatPluginsRequest> selector = null
@@ -1582,7 +1582,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.plugins</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/">https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</a>
         /// </summary>
         public Task<CatResponse<CatPluginsRecord>> PluginsAsync(
             Func<CatPluginsDescriptor, ICatPluginsRequest> selector = null,
@@ -1592,7 +1592,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.plugins</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/">https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</a>
         /// </summary>
         public CatResponse<CatPluginsRecord> Plugins(ICatPluginsRequest request) =>
             DoCat<ICatPluginsRequest, CatPluginsRequestParameters, CatPluginsRecord>(request);
@@ -1600,7 +1600,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.plugins</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/">https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</a>
         /// </summary>
         public Task<CatResponse<CatPluginsRecord>> PluginsAsync(
             ICatPluginsRequest request,
@@ -1614,7 +1614,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.recovery</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/">https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</a>
         /// </summary>
         public CatResponse<CatRecoveryRecord> Recovery(
             Func<CatRecoveryDescriptor, ICatRecoveryRequest> selector = null
@@ -1623,7 +1623,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.recovery</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/">https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</a>
         /// </summary>
         public Task<CatResponse<CatRecoveryRecord>> RecoveryAsync(
             Func<CatRecoveryDescriptor, ICatRecoveryRequest> selector = null,
@@ -1633,7 +1633,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.recovery</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/">https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</a>
         /// </summary>
         public CatResponse<CatRecoveryRecord> Recovery(ICatRecoveryRequest request) =>
             DoCat<ICatRecoveryRequest, CatRecoveryRequestParameters, CatRecoveryRecord>(request);
@@ -1641,7 +1641,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.recovery</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/">https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/">https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</a>
         /// </summary>
         public Task<CatResponse<CatRecoveryRecord>> RecoveryAsync(
             ICatRecoveryRequest request,
@@ -1655,7 +1655,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.repositories</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/">https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/">https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/</a>
         /// </summary>
         public CatResponse<CatRepositoriesRecord> Repositories(
             Func<CatRepositoriesDescriptor, ICatRepositoriesRequest> selector = null
@@ -1664,7 +1664,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.repositories</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/">https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/">https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/</a>
         /// </summary>
         public Task<CatResponse<CatRepositoriesRecord>> RepositoriesAsync(
             Func<CatRepositoriesDescriptor, ICatRepositoriesRequest> selector = null,
@@ -1674,7 +1674,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.repositories</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/">https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/">https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/</a>
         /// </summary>
         public CatResponse<CatRepositoriesRecord> Repositories(ICatRepositoriesRequest request) =>
             DoCat<ICatRepositoriesRequest, CatRepositoriesRequestParameters, CatRepositoriesRecord>(
@@ -1684,7 +1684,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.repositories</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/">https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/">https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/</a>
         /// </summary>
         public Task<CatResponse<CatRepositoriesRecord>> RepositoriesAsync(
             ICatRepositoriesRequest request,
@@ -1699,7 +1699,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segment_replication</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/">https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/">https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.6.0 or greater.</remarks>
         public CatResponse<CatSegmentReplicationRecord> SegmentReplication(
@@ -1709,7 +1709,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segment_replication</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/">https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/">https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.6.0 or greater.</remarks>
         public Task<CatResponse<CatSegmentReplicationRecord>> SegmentReplicationAsync(
@@ -1724,7 +1724,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segment_replication</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/">https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/">https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.6.0 or greater.</remarks>
         public CatResponse<CatSegmentReplicationRecord> SegmentReplication(
@@ -1739,7 +1739,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segment_replication</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/">https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/">https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.6.0 or greater.</remarks>
         public Task<CatResponse<CatSegmentReplicationRecord>> SegmentReplicationAsync(
@@ -1755,7 +1755,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segments/">https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-segments/">https://docs.opensearch.org/latest/api-reference/cat/cat-segments/</a>
         /// </summary>
         public CatResponse<CatSegmentsRecord> Segments(
             Func<CatSegmentsDescriptor, ICatSegmentsRequest> selector = null
@@ -1764,7 +1764,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segments/">https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-segments/">https://docs.opensearch.org/latest/api-reference/cat/cat-segments/</a>
         /// </summary>
         public Task<CatResponse<CatSegmentsRecord>> SegmentsAsync(
             Func<CatSegmentsDescriptor, ICatSegmentsRequest> selector = null,
@@ -1774,7 +1774,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segments/">https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-segments/">https://docs.opensearch.org/latest/api-reference/cat/cat-segments/</a>
         /// </summary>
         public CatResponse<CatSegmentsRecord> Segments(ICatSegmentsRequest request) =>
             DoCat<ICatSegmentsRequest, CatSegmentsRequestParameters, CatSegmentsRecord>(request);
@@ -1782,7 +1782,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segments</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-segments/">https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-segments/">https://docs.opensearch.org/latest/api-reference/cat/cat-segments/</a>
         /// </summary>
         public Task<CatResponse<CatSegmentsRecord>> SegmentsAsync(
             ICatSegmentsRequest request,
@@ -1796,7 +1796,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.shards</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-shards/">https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-shards/">https://docs.opensearch.org/latest/api-reference/cat/cat-shards/</a>
         /// </summary>
         public CatResponse<CatShardsRecord> Shards(
             Func<CatShardsDescriptor, ICatShardsRequest> selector = null
@@ -1805,7 +1805,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.shards</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-shards/">https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-shards/">https://docs.opensearch.org/latest/api-reference/cat/cat-shards/</a>
         /// </summary>
         public Task<CatResponse<CatShardsRecord>> ShardsAsync(
             Func<CatShardsDescriptor, ICatShardsRequest> selector = null,
@@ -1815,7 +1815,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.shards</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-shards/">https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-shards/">https://docs.opensearch.org/latest/api-reference/cat/cat-shards/</a>
         /// </summary>
         public CatResponse<CatShardsRecord> Shards(ICatShardsRequest request) =>
             DoCat<ICatShardsRequest, CatShardsRequestParameters, CatShardsRecord>(request);
@@ -1823,7 +1823,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.shards</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-shards/">https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-shards/">https://docs.opensearch.org/latest/api-reference/cat/cat-shards/</a>
         /// </summary>
         public Task<CatResponse<CatShardsRecord>> ShardsAsync(
             ICatShardsRequest request,
@@ -1834,7 +1834,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.snapshots</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/">https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/">https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/</a>
         /// </summary>
         public CatResponse<CatSnapshotsRecord> Snapshots(
             Func<CatSnapshotsDescriptor, ICatSnapshotsRequest> selector = null
@@ -1843,7 +1843,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.snapshots</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/">https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/">https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/</a>
         /// </summary>
         public Task<CatResponse<CatSnapshotsRecord>> SnapshotsAsync(
             Func<CatSnapshotsDescriptor, ICatSnapshotsRequest> selector = null,
@@ -1853,7 +1853,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.snapshots</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/">https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/">https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/</a>
         /// </summary>
         public CatResponse<CatSnapshotsRecord> Snapshots(ICatSnapshotsRequest request) =>
             DoCat<ICatSnapshotsRequest, CatSnapshotsRequestParameters, CatSnapshotsRecord>(request);
@@ -1861,7 +1861,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.snapshots</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/">https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/">https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/</a>
         /// </summary>
         public Task<CatResponse<CatSnapshotsRecord>> SnapshotsAsync(
             ICatSnapshotsRequest request,
@@ -1875,7 +1875,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/">https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/</a>
         /// </summary>
         public CatResponse<CatTasksRecord> Tasks(
             Func<CatTasksDescriptor, ICatTasksRequest> selector = null
@@ -1884,7 +1884,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/">https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/</a>
         /// </summary>
         public Task<CatResponse<CatTasksRecord>> TasksAsync(
             Func<CatTasksDescriptor, ICatTasksRequest> selector = null,
@@ -1894,7 +1894,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/">https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/</a>
         /// </summary>
         public CatResponse<CatTasksRecord> Tasks(ICatTasksRequest request) =>
             DoCat<ICatTasksRequest, CatTasksRequestParameters, CatTasksRecord>(request);
@@ -1902,7 +1902,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/">https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/">https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/</a>
         /// </summary>
         public Task<CatResponse<CatTasksRecord>> TasksAsync(
             ICatTasksRequest request,
@@ -1912,7 +1912,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.templates</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-templates/">https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-templates/">https://docs.opensearch.org/latest/api-reference/cat/cat-templates/</a>
         /// </summary>
         public CatResponse<CatTemplatesRecord> Templates(
             Func<CatTemplatesDescriptor, ICatTemplatesRequest> selector = null
@@ -1921,7 +1921,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.templates</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-templates/">https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-templates/">https://docs.opensearch.org/latest/api-reference/cat/cat-templates/</a>
         /// </summary>
         public Task<CatResponse<CatTemplatesRecord>> TemplatesAsync(
             Func<CatTemplatesDescriptor, ICatTemplatesRequest> selector = null,
@@ -1931,7 +1931,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.templates</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-templates/">https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-templates/">https://docs.opensearch.org/latest/api-reference/cat/cat-templates/</a>
         /// </summary>
         public CatResponse<CatTemplatesRecord> Templates(ICatTemplatesRequest request) =>
             DoCat<ICatTemplatesRequest, CatTemplatesRequestParameters, CatTemplatesRecord>(request);
@@ -1939,7 +1939,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.templates</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-templates/">https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-templates/">https://docs.opensearch.org/latest/api-reference/cat/cat-templates/</a>
         /// </summary>
         public Task<CatResponse<CatTemplatesRecord>> TemplatesAsync(
             ICatTemplatesRequest request,
@@ -1953,7 +1953,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.thread_pool</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/">https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/">https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/</a>
         /// </summary>
         public CatResponse<CatThreadPoolRecord> ThreadPool(
             Func<CatThreadPoolDescriptor, ICatThreadPoolRequest> selector = null
@@ -1962,7 +1962,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.thread_pool</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/">https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/">https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/</a>
         /// </summary>
         public Task<CatResponse<CatThreadPoolRecord>> ThreadPoolAsync(
             Func<CatThreadPoolDescriptor, ICatThreadPoolRequest> selector = null,
@@ -1972,7 +1972,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.thread_pool</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/">https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/">https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/</a>
         /// </summary>
         public CatResponse<CatThreadPoolRecord> ThreadPool(ICatThreadPoolRequest request) =>
             DoCat<ICatThreadPoolRequest, CatThreadPoolRequestParameters, CatThreadPoolRecord>(
@@ -1982,7 +1982,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <summary>
         /// <c>GET</c> request to the <c>cat.thread_pool</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/">https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/">https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/</a>
         /// </summary>
         public Task<CatResponse<CatThreadPoolRecord>> ThreadPoolAsync(
             ICatThreadPoolRequest request,

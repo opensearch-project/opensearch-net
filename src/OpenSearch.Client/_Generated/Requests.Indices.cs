@@ -68,7 +68,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for AddBlock <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for AddBlock <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class AddIndexBlockRequest
         : PlainRequestBase<AddIndexBlockRequestParameters>,
             IAddIndexBlockRequest
@@ -152,7 +152,7 @@ namespace OpenSearch.Client
         IndexName Index { get; }
     }
 
-    /// <summary>Request for Analyze <para>https://opensearch.org/docs/latest/api-reference/analyze-apis/perform-text-analysis/</para></summary>
+    /// <summary>Request for Analyze <para>https://docs.opensearch.org/latest/api-reference/analyze-apis/perform-text-analysis/</para></summary>
     public partial class AnalyzeRequest
         : PlainRequestBase<AnalyzeRequestParameters>,
             IAnalyzeRequest
@@ -183,7 +183,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for ClearCache <para>https://opensearch.org/docs/latest/api-reference/index-apis/clear-index-cache/</para></summary>
+    /// <summary>Request for ClearCache <para>https://docs.opensearch.org/latest/api-reference/index-apis/clear-index-cache/</para></summary>
     public partial class ClearCacheRequest
         : PlainRequestBase<ClearCacheRequestParameters>,
             IClearCacheRequest
@@ -280,7 +280,7 @@ namespace OpenSearch.Client
         IndexName Target { get; }
     }
 
-    /// <summary>Request for Clone <para>https://opensearch.org/docs/latest/api-reference/index-apis/clone/</para></summary>
+    /// <summary>Request for Clone <para>https://docs.opensearch.org/latest/api-reference/index-apis/clone/</para></summary>
     public partial class CloneIndexRequest
         : PlainRequestBase<CloneIndexRequestParameters>,
             ICloneIndexRequest
@@ -368,7 +368,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for Close <para>https://opensearch.org/docs/latest/api-reference/index-apis/close-index/</para></summary>
+    /// <summary>Request for Close <para>https://docs.opensearch.org/latest/api-reference/index-apis/close-index/</para></summary>
     public partial class CloseIndexRequest
         : PlainRequestBase<CloseIndexRequestParameters>,
             ICloseIndexRequest
@@ -465,7 +465,7 @@ namespace OpenSearch.Client
         IndexName Index { get; }
     }
 
-    /// <summary>Request for Create <para>https://opensearch.org/docs/latest/api-reference/index-apis/create-index/</para></summary>
+    /// <summary>Request for Create <para>https://docs.opensearch.org/latest/api-reference/index-apis/create-index/</para></summary>
     public partial class CreateIndexRequest
         : PlainRequestBase<CreateIndexRequestParameters>,
             ICreateIndexRequest
@@ -534,7 +534,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for Delete <para>https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/</para></summary>
+    /// <summary>Request for Delete <para>https://docs.opensearch.org/latest/api-reference/index-apis/delete-index/</para></summary>
     public partial class DeleteIndexRequest
         : PlainRequestBase<DeleteIndexRequestParameters>,
             IDeleteIndexRequest
@@ -624,7 +624,7 @@ namespace OpenSearch.Client
         Names Name { get; }
     }
 
-    /// <summary>Request for DeleteAlias <para>https://opensearch.org/docs/latest/im-plugin/index-alias/#delete-aliases</para></summary>
+    /// <summary>Request for DeleteAlias <para>https://docs.opensearch.org/latest/api-reference/alias/delete-alias/</para></summary>
     public partial class DeleteAliasRequest
         : PlainRequestBase<DeleteAliasRequestParameters>,
             IDeleteAliasRequest
@@ -688,7 +688,7 @@ namespace OpenSearch.Client
         Name Name { get; }
     }
 
-    /// <summary>Request for DeleteComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#delete-a-template</para></summary>
+    /// <summary>Request for DeleteComposableTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/#delete-a-template</para></summary>
     public partial class DeleteComposableIndexTemplateRequest
         : PlainRequestBase<DeleteComposableIndexTemplateRequestParameters>,
             IDeleteComposableIndexTemplateRequest
@@ -748,7 +748,7 @@ namespace OpenSearch.Client
         Name Name { get; }
     }
 
-    /// <summary>Request for DeleteTemplate <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for DeleteTemplate <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class DeleteIndexTemplateRequest
         : PlainRequestBase<DeleteIndexTemplateRequestParameters>,
             IDeleteIndexTemplateRequest
@@ -807,7 +807,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for Exists <para>https://opensearch.org/docs/latest/api-reference/index-apis/exists/</para></summary>
+    /// <summary>Request for Exists <para>https://docs.opensearch.org/latest/api-reference/index-apis/exists/</para></summary>
     public partial class IndexExistsRequest
         : PlainRequestBase<IndexExistsRequestParameters>,
             IIndexExistsRequest
@@ -898,7 +898,7 @@ namespace OpenSearch.Client
         Names Name { get; }
     }
 
-    /// <summary>Request for AliasExists <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for AliasExists <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class AliasExistsRequest
         : PlainRequestBase<AliasExistsRequestParameters>,
             IAliasExistsRequest
@@ -974,7 +974,7 @@ namespace OpenSearch.Client
         Name Name { get; }
     }
 
-    /// <summary>Request for ComposableTemplateExists <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
+    /// <summary>Request for ComposableTemplateExists <para>https://docs.opensearch.org/latest/im-plugin/index-templates/</para></summary>
     public partial class ComposableIndexTemplateExistsRequest
         : PlainRequestBase<ComposableIndexTemplateExistsRequestParameters>,
             IComposableIndexTemplateExistsRequest
@@ -1041,7 +1041,7 @@ namespace OpenSearch.Client
         Names Name { get; }
     }
 
-    /// <summary>Request for TemplateExists <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for TemplateExists <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class IndexTemplateExistsRequest
         : PlainRequestBase<IndexTemplateExistsRequestParameters>,
             IIndexTemplateExistsRequest
@@ -1104,7 +1104,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for Flush <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for Flush <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class FlushRequest : PlainRequestBase<FlushRequestParameters>, IFlushRequest
     {
         protected IFlushRequest Self => this;
@@ -1177,7 +1177,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for ForceMerge <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for ForceMerge <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ForceMergeRequest
         : PlainRequestBase<ForceMergeRequestParameters>,
             IForceMergeRequest
@@ -1271,7 +1271,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for Get <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-index/</para></summary>
+    /// <summary>Request for Get <para>https://docs.opensearch.org/latest/api-reference/index-apis/get-index/</para></summary>
     public partial class GetIndexRequest
         : PlainRequestBase<GetIndexRequestParameters>,
             IGetIndexRequest
@@ -1378,7 +1378,7 @@ namespace OpenSearch.Client
         Names Name { get; }
     }
 
-    /// <summary>Request for GetAlias <para>https://opensearch.org/docs/latest/im-plugin/index-alias/</para></summary>
+    /// <summary>Request for GetAlias <para>https://docs.opensearch.org/latest/im-plugin/index-alias/</para></summary>
     public partial class GetAliasRequest
         : PlainRequestBase<GetAliasRequestParameters>,
             IGetAliasRequest
@@ -1460,7 +1460,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for GetFieldMapping <para>https://opensearch.org/docs/latest/field-types/index/</para></summary>
+    /// <summary>Request for GetFieldMapping <para>https://docs.opensearch.org/latest/field-types/index/</para></summary>
     public partial class GetFieldMappingRequest
         : PlainRequestBase<GetFieldMappingRequestParameters>,
             IGetFieldMappingRequest
@@ -1543,7 +1543,7 @@ namespace OpenSearch.Client
         Name Name { get; }
     }
 
-    /// <summary>Request for GetComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
+    /// <summary>Request for GetComposableTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/</para></summary>
     public partial class GetComposableIndexTemplateRequest
         : PlainRequestBase<GetComposableIndexTemplateRequestParameters>,
             IGetComposableIndexTemplateRequest
@@ -1611,7 +1611,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for GetMapping <para>https://opensearch.org/docs/latest/field-types/index/#get-a-mapping</para></summary>
+    /// <summary>Request for GetMapping <para>https://docs.opensearch.org/latest/api-reference/index-apis/get-mapping/</para></summary>
     public partial class GetMappingRequest
         : PlainRequestBase<GetMappingRequestParameters>,
             IGetMappingRequest
@@ -1700,7 +1700,7 @@ namespace OpenSearch.Client
         Names Name { get; }
     }
 
-    /// <summary>Request for GetSettings <para>https://opensearch.org/docs/latest/api-reference/index-apis/get-settings/</para></summary>
+    /// <summary>Request for GetSettings <para>https://docs.opensearch.org/latest/api-reference/index-apis/get-settings/</para></summary>
     public partial class GetIndexSettingsRequest
         : PlainRequestBase<GetIndexSettingsRequestParameters>,
             IGetIndexSettingsRequest
@@ -1817,7 +1817,7 @@ namespace OpenSearch.Client
         Names Name { get; }
     }
 
-    /// <summary>Request for GetTemplate <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for GetTemplate <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class GetIndexTemplateRequest
         : PlainRequestBase<GetIndexTemplateRequestParameters>,
             IGetIndexTemplateRequest
@@ -1882,7 +1882,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for Open <para>https://opensearch.org/docs/latest/api-reference/index-apis/open-index/</para></summary>
+    /// <summary>Request for Open <para>https://docs.opensearch.org/latest/api-reference/index-apis/open-index/</para></summary>
     public partial class OpenIndexRequest
         : PlainRequestBase<OpenIndexRequestParameters>,
             IOpenIndexRequest
@@ -1997,7 +1997,7 @@ namespace OpenSearch.Client
         Name Name { get; }
     }
 
-    /// <summary>Request for PutAlias <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-alias/</para></summary>
+    /// <summary>Request for PutAlias <para>https://docs.opensearch.org/latest/api-reference/index-apis/update-alias/</para></summary>
     public partial class PutAliasRequest
         : PlainRequestBase<PutAliasRequestParameters>,
             IPutAliasRequest
@@ -2070,7 +2070,7 @@ namespace OpenSearch.Client
         Name Name { get; }
     }
 
-    /// <summary>Request for PutComposableTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
+    /// <summary>Request for PutComposableTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/</para></summary>
     public partial class PutComposableIndexTemplateRequest
         : PlainRequestBase<PutComposableIndexTemplateRequestParameters>,
             IPutComposableIndexTemplateRequest
@@ -2135,7 +2135,7 @@ namespace OpenSearch.Client
 
     public partial interface IPutMappingRequest<TDocument> : IPutMappingRequest { }
 
-    /// <summary>Request for PutMapping <para>https://opensearch.org/docs/latest/api-reference/index-apis/put-mapping/</para></summary>
+    /// <summary>Request for PutMapping <para>https://docs.opensearch.org/latest/api-reference/index-apis/put-mapping/</para></summary>
     public partial class PutMappingRequest
         : PlainRequestBase<PutMappingRequestParameters>,
             IPutMappingRequest
@@ -2246,7 +2246,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for UpdateSettings <para>https://opensearch.org/docs/latest/api-reference/index-apis/update-settings/</para></summary>
+    /// <summary>Request for UpdateSettings <para>https://docs.opensearch.org/latest/api-reference/index-apis/update-settings/</para></summary>
     public partial class UpdateIndexSettingsRequest
         : PlainRequestBase<UpdateIndexSettingsRequestParameters>,
             IUpdateIndexSettingsRequest
@@ -2346,7 +2346,7 @@ namespace OpenSearch.Client
         Name Name { get; }
     }
 
-    /// <summary>Request for PutTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/</para></summary>
+    /// <summary>Request for PutTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/</para></summary>
     public partial class PutIndexTemplateRequest
         : PlainRequestBase<PutIndexTemplateRequestParameters>,
             IPutIndexTemplateRequest
@@ -2405,7 +2405,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for Refresh <para>https://opensearch.org/docs/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#refresh-level-and-request-level-durability</para></summary>
+    /// <summary>Request for Refresh <para>https://docs.opensearch.org/latest/api-reference/index-apis/refresh/</para></summary>
     public partial class RefreshRequest
         : PlainRequestBase<RefreshRequestParameters>,
             IRefreshRequest
@@ -2463,7 +2463,7 @@ namespace OpenSearch.Client
         Names Name { get; }
     }
 
-    /// <summary>Request for Resolve <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for Resolve <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ResolveIndexRequest
         : PlainRequestBase<ResolveIndexRequestParameters>,
             IResolveIndexRequest
@@ -2508,7 +2508,7 @@ namespace OpenSearch.Client
         IndexName NewIndex { get; }
     }
 
-    /// <summary>Request for Rollover <para>https://opensearch.org/docs/latest/dashboards/im-dashboards/rollover/</para></summary>
+    /// <summary>Request for Rollover <para>https://docs.opensearch.org/latest/dashboards/im-dashboards/rollover/</para></summary>
     public partial class RolloverIndexRequest
         : PlainRequestBase<RolloverIndexRequestParameters>,
             IRolloverIndexRequest
@@ -2596,7 +2596,7 @@ namespace OpenSearch.Client
         IndexName Target { get; }
     }
 
-    /// <summary>Request for Shrink <para>https://opensearch.org/docs/latest/api-reference/index-apis/shrink-index/</para></summary>
+    /// <summary>Request for Shrink <para>https://docs.opensearch.org/latest/api-reference/index-apis/shrink-index/</para></summary>
     public partial class ShrinkIndexRequest
         : PlainRequestBase<ShrinkIndexRequestParameters>,
             IShrinkIndexRequest
@@ -2687,7 +2687,7 @@ namespace OpenSearch.Client
         IndexName Target { get; }
     }
 
-    /// <summary>Request for Split <para>https://opensearch.org/docs/latest/api-reference/index-apis/split/</para></summary>
+    /// <summary>Request for Split <para>https://docs.opensearch.org/latest/api-reference/index-apis/split/</para></summary>
     public partial class SplitIndexRequest
         : PlainRequestBase<SplitIndexRequestParameters>,
             ISplitIndexRequest
@@ -2778,7 +2778,7 @@ namespace OpenSearch.Client
         Metrics Metric { get; }
     }
 
-    /// <summary>Request for Stats <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for Stats <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class IndicesStatsRequest
         : PlainRequestBase<IndicesStatsRequestParameters>,
             IIndicesStatsRequest
@@ -2887,7 +2887,7 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public partial interface IBulkAliasRequest : IRequest<BulkAliasRequestParameters> { }
 
-    /// <summary>Request for BulkAlias <para>https://opensearch.org/docs/latest/api-reference/index-apis/alias/</para></summary>
+    /// <summary>Request for BulkAlias <para>https://docs.opensearch.org/latest/api-reference/index-apis/alias/</para></summary>
     public partial class BulkAliasRequest
         : PlainRequestBase<BulkAliasRequestParameters>,
             IBulkAliasRequest
@@ -2936,7 +2936,7 @@ namespace OpenSearch.Client
 
     public partial interface IValidateQueryRequest<TDocument> : IValidateQueryRequest { }
 
-    /// <summary>Request for ValidateQuery <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for ValidateQuery <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ValidateQueryRequest
         : PlainRequestBase<ValidateQueryRequestParameters>,
             IValidateQueryRequest

@@ -117,7 +117,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>bulk</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/bulk/">https://opensearch.org/docs/latest/api-reference/document-apis/bulk/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/bulk/">https://docs.opensearch.org/latest/api-reference/document-apis/bulk/</a>
         /// </summary>
         public BulkResponse Bulk(Func<BulkDescriptor, IBulkRequest> selector) =>
             Bulk(selector.InvokeOrDefault(new BulkDescriptor()));
@@ -125,7 +125,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>bulk</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/bulk/">https://opensearch.org/docs/latest/api-reference/document-apis/bulk/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/bulk/">https://docs.opensearch.org/latest/api-reference/document-apis/bulk/</a>
         /// </summary>
         public Task<BulkResponse> BulkAsync(
             Func<BulkDescriptor, IBulkRequest> selector,
@@ -135,7 +135,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>bulk</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/bulk/">https://opensearch.org/docs/latest/api-reference/document-apis/bulk/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/bulk/">https://docs.opensearch.org/latest/api-reference/document-apis/bulk/</a>
         /// </summary>
         public BulkResponse Bulk(IBulkRequest request) =>
             DoRequest<IBulkRequest, BulkResponse>(request, request.RequestParameters);
@@ -143,7 +143,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>bulk</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/bulk/">https://opensearch.org/docs/latest/api-reference/document-apis/bulk/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/bulk/">https://docs.opensearch.org/latest/api-reference/document-apis/bulk/</a>
         /// </summary>
         public Task<BulkResponse> BulkAsync(IBulkRequest request, CancellationToken ct = default) =>
             DoRequestAsync<IBulkRequest, BulkResponse>(request, request.RequestParameters, ct);
@@ -151,7 +151,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>PUT</c> request to the <c>bulk_stream</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/">https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/bulk-streaming/">https://docs.opensearch.org/latest/api-reference/document-apis/bulk-streaming/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.17.0 or greater.</remarks>
         public BulkStreamResponse BulkStream(
@@ -161,7 +161,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>PUT</c> request to the <c>bulk_stream</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/">https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/bulk-streaming/">https://docs.opensearch.org/latest/api-reference/document-apis/bulk-streaming/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.17.0 or greater.</remarks>
         public Task<BulkStreamResponse> BulkStreamAsync(
@@ -172,7 +172,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>PUT</c> request to the <c>bulk_stream</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/">https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/bulk-streaming/">https://docs.opensearch.org/latest/api-reference/document-apis/bulk-streaming/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.17.0 or greater.</remarks>
         public BulkStreamResponse BulkStream(IBulkStreamRequest request) =>
@@ -181,7 +181,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>PUT</c> request to the <c>bulk_stream</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/">https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/bulk-streaming/">https://docs.opensearch.org/latest/api-reference/document-apis/bulk-streaming/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.17.0 or greater.</remarks>
         public Task<BulkStreamResponse> BulkStreamAsync(
@@ -197,7 +197,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>DELETE</c> request to the <c>clear_scroll</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/scroll/">https://opensearch.org/docs/latest/api-reference/scroll/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/scroll/">https://docs.opensearch.org/latest/api-reference/scroll/</a>
         /// </summary>
         public ClearScrollResponse ClearScroll(
             Func<ClearScrollDescriptor, IClearScrollRequest> selector = null
@@ -206,7 +206,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>DELETE</c> request to the <c>clear_scroll</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/scroll/">https://opensearch.org/docs/latest/api-reference/scroll/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/scroll/">https://docs.opensearch.org/latest/api-reference/scroll/</a>
         /// </summary>
         public Task<ClearScrollResponse> ClearScrollAsync(
             Func<ClearScrollDescriptor, IClearScrollRequest> selector = null,
@@ -216,7 +216,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>DELETE</c> request to the <c>clear_scroll</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/scroll/">https://opensearch.org/docs/latest/api-reference/scroll/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/scroll/">https://docs.opensearch.org/latest/api-reference/scroll/</a>
         /// </summary>
         public ClearScrollResponse ClearScroll(IClearScrollRequest request) =>
             DoRequest<IClearScrollRequest, ClearScrollResponse>(request, request.RequestParameters);
@@ -224,7 +224,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>DELETE</c> request to the <c>clear_scroll</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/scroll/">https://opensearch.org/docs/latest/api-reference/scroll/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/scroll/">https://docs.opensearch.org/latest/api-reference/scroll/</a>
         /// </summary>
         public Task<ClearScrollResponse> ClearScrollAsync(
             IClearScrollRequest request,
@@ -239,7 +239,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>count</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/count/">https://opensearch.org/docs/latest/api-reference/count/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/count/">https://docs.opensearch.org/latest/api-reference/count/</a>
         /// </summary>
         public CountResponse Count<TDocument>(
             Func<CountDescriptor<TDocument>, ICountRequest> selector = null
@@ -250,7 +250,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>count</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/count/">https://opensearch.org/docs/latest/api-reference/count/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/count/">https://docs.opensearch.org/latest/api-reference/count/</a>
         /// </summary>
         public Task<CountResponse> CountAsync<TDocument>(
             Func<CountDescriptor<TDocument>, ICountRequest> selector = null,
@@ -262,7 +262,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>count</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/count/">https://opensearch.org/docs/latest/api-reference/count/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/count/">https://docs.opensearch.org/latest/api-reference/count/</a>
         /// </summary>
         public CountResponse Count(ICountRequest request) =>
             DoRequest<ICountRequest, CountResponse>(request, request.RequestParameters);
@@ -270,7 +270,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>count</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/count/">https://opensearch.org/docs/latest/api-reference/count/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/count/">https://docs.opensearch.org/latest/api-reference/count/</a>
         /// </summary>
         public Task<CountResponse> CountAsync(
             ICountRequest request,
@@ -280,7 +280,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>PUT</c> request to the <c>create</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/index-document/">https://opensearch.org/docs/latest/api-reference/document-apis/index-document/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/index-document/">https://docs.opensearch.org/latest/api-reference/document-apis/index-document/</a>
         /// </summary>
         public CreateResponse Create<TDocument>(
             TDocument document,
@@ -294,7 +294,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>PUT</c> request to the <c>create</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/index-document/">https://opensearch.org/docs/latest/api-reference/document-apis/index-document/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/index-document/">https://docs.opensearch.org/latest/api-reference/document-apis/index-document/</a>
         /// </summary>
         public Task<CreateResponse> CreateAsync<TDocument>(
             TDocument document,
@@ -310,7 +310,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>PUT</c> request to the <c>create</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/index-document/">https://opensearch.org/docs/latest/api-reference/document-apis/index-document/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/index-document/">https://docs.opensearch.org/latest/api-reference/document-apis/index-document/</a>
         /// </summary>
         public CreateResponse Create<TDocument>(ICreateRequest<TDocument> request)
             where TDocument : class =>
@@ -322,7 +322,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>PUT</c> request to the <c>create</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/index-document/">https://opensearch.org/docs/latest/api-reference/document-apis/index-document/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/index-document/">https://docs.opensearch.org/latest/api-reference/document-apis/index-document/</a>
         /// </summary>
         public Task<CreateResponse> CreateAsync<TDocument>(
             ICreateRequest<TDocument> request,
@@ -338,7 +338,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>create_pit</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#create-a-pit">https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#create-a-pit</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public CreatePitResponse CreatePit(
@@ -349,7 +349,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>create_pit</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#create-a-pit">https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#create-a-pit</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public Task<CreatePitResponse> CreatePitAsync(
@@ -361,7 +361,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>create_pit</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#create-a-pit">https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#create-a-pit</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public CreatePitResponse CreatePit(ICreatePitRequest request) =>
@@ -370,7 +370,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>create_pit</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#create-a-pit">https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#create-a-pit</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public Task<CreatePitResponse> CreatePitAsync(
@@ -386,7 +386,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>DELETE</c> request to the <c>delete</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/delete-document/">https://opensearch.org/docs/latest/api-reference/document-apis/delete-document/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/delete-document/">https://docs.opensearch.org/latest/api-reference/document-apis/delete-document/</a>
         /// </summary>
         public DeleteResponse Delete<TDocument>(
             DocumentPath<TDocument> id,
@@ -406,7 +406,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>DELETE</c> request to the <c>delete</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/delete-document/">https://opensearch.org/docs/latest/api-reference/document-apis/delete-document/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/delete-document/">https://docs.opensearch.org/latest/api-reference/document-apis/delete-document/</a>
         /// </summary>
         public Task<DeleteResponse> DeleteAsync<TDocument>(
             DocumentPath<TDocument> id,
@@ -428,7 +428,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>DELETE</c> request to the <c>delete</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/delete-document/">https://opensearch.org/docs/latest/api-reference/document-apis/delete-document/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/delete-document/">https://docs.opensearch.org/latest/api-reference/document-apis/delete-document/</a>
         /// </summary>
         public DeleteResponse Delete(IDeleteRequest request) =>
             DoRequest<IDeleteRequest, DeleteResponse>(request, request.RequestParameters);
@@ -436,7 +436,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>DELETE</c> request to the <c>delete</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/delete-document/">https://opensearch.org/docs/latest/api-reference/document-apis/delete-document/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/delete-document/">https://docs.opensearch.org/latest/api-reference/document-apis/delete-document/</a>
         /// </summary>
         public Task<DeleteResponse> DeleteAsync(
             IDeleteRequest request,
@@ -446,7 +446,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>DELETE</c> request to the <c>delete_all_pits</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits">https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public DeleteAllPitsResponse DeleteAllPits(
@@ -456,7 +456,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>DELETE</c> request to the <c>delete_all_pits</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits">https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public Task<DeleteAllPitsResponse> DeleteAllPitsAsync(
@@ -467,7 +467,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>DELETE</c> request to the <c>delete_all_pits</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits">https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public DeleteAllPitsResponse DeleteAllPits(IDeleteAllPitsRequest request) =>
@@ -479,7 +479,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>DELETE</c> request to the <c>delete_all_pits</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits">https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public Task<DeleteAllPitsResponse> DeleteAllPitsAsync(
@@ -495,7 +495,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>delete_by_query</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/delete-by-query/">https://opensearch.org/docs/latest/api-reference/document-apis/delete-by-query/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/delete-by-query/">https://docs.opensearch.org/latest/api-reference/document-apis/delete-by-query/</a>
         /// </summary>
         public DeleteByQueryResponse DeleteByQuery<TDocument>(
             Func<DeleteByQueryDescriptor<TDocument>, IDeleteByQueryRequest> selector
@@ -506,7 +506,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>delete_by_query</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/delete-by-query/">https://opensearch.org/docs/latest/api-reference/document-apis/delete-by-query/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/delete-by-query/">https://docs.opensearch.org/latest/api-reference/document-apis/delete-by-query/</a>
         /// </summary>
         public Task<DeleteByQueryResponse> DeleteByQueryAsync<TDocument>(
             Func<DeleteByQueryDescriptor<TDocument>, IDeleteByQueryRequest> selector,
@@ -521,7 +521,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>delete_by_query</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/delete-by-query/">https://opensearch.org/docs/latest/api-reference/document-apis/delete-by-query/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/delete-by-query/">https://docs.opensearch.org/latest/api-reference/document-apis/delete-by-query/</a>
         /// </summary>
         public DeleteByQueryResponse DeleteByQuery(IDeleteByQueryRequest request) =>
             DoRequest<IDeleteByQueryRequest, DeleteByQueryResponse>(
@@ -532,7 +532,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>delete_by_query</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/delete-by-query/">https://opensearch.org/docs/latest/api-reference/document-apis/delete-by-query/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/delete-by-query/">https://docs.opensearch.org/latest/api-reference/document-apis/delete-by-query/</a>
         /// </summary>
         public Task<DeleteByQueryResponse> DeleteByQueryAsync(
             IDeleteByQueryRequest request,
@@ -547,7 +547,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>delete_by_query_rethrottle</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ListTasksResponse DeleteByQueryRethrottle(
             TaskId taskId,
@@ -560,7 +560,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>delete_by_query_rethrottle</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ListTasksResponse> DeleteByQueryRethrottleAsync(
             TaskId taskId,
@@ -576,7 +576,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>delete_by_query_rethrottle</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ListTasksResponse DeleteByQueryRethrottle(IDeleteByQueryRethrottleRequest request) =>
             DoRequest<IDeleteByQueryRethrottleRequest, ListTasksResponse>(
@@ -587,7 +587,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>delete_by_query_rethrottle</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ListTasksResponse> DeleteByQueryRethrottleAsync(
             IDeleteByQueryRethrottleRequest request,
@@ -602,7 +602,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>DELETE</c> request to the <c>delete_pit</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits">https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public DeletePitResponse DeletePit(
@@ -612,7 +612,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>DELETE</c> request to the <c>delete_pit</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits">https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public Task<DeletePitResponse> DeletePitAsync(
@@ -623,7 +623,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>DELETE</c> request to the <c>delete_pit</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits">https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public DeletePitResponse DeletePit(IDeletePitRequest request) =>
@@ -632,7 +632,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>DELETE</c> request to the <c>delete_pit</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits">https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public Task<DeletePitResponse> DeletePitAsync(
@@ -648,7 +648,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>DELETE</c> request to the <c>delete_script</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/script-apis/delete-script/">https://opensearch.org/docs/latest/api-reference/script-apis/delete-script/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/script-apis/delete-script/">https://docs.opensearch.org/latest/api-reference/script-apis/delete-script/</a>
         /// </summary>
         public DeleteScriptResponse DeleteScript(
             Id id,
@@ -658,7 +658,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>DELETE</c> request to the <c>delete_script</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/script-apis/delete-script/">https://opensearch.org/docs/latest/api-reference/script-apis/delete-script/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/script-apis/delete-script/">https://docs.opensearch.org/latest/api-reference/script-apis/delete-script/</a>
         /// </summary>
         public Task<DeleteScriptResponse> DeleteScriptAsync(
             Id id,
@@ -669,7 +669,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>DELETE</c> request to the <c>delete_script</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/script-apis/delete-script/">https://opensearch.org/docs/latest/api-reference/script-apis/delete-script/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/script-apis/delete-script/">https://docs.opensearch.org/latest/api-reference/script-apis/delete-script/</a>
         /// </summary>
         public DeleteScriptResponse DeleteScript(IDeleteScriptRequest request) =>
             DoRequest<IDeleteScriptRequest, DeleteScriptResponse>(
@@ -680,7 +680,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>DELETE</c> request to the <c>delete_script</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/script-apis/delete-script/">https://opensearch.org/docs/latest/api-reference/script-apis/delete-script/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/script-apis/delete-script/">https://docs.opensearch.org/latest/api-reference/script-apis/delete-script/</a>
         /// </summary>
         public Task<DeleteScriptResponse> DeleteScriptAsync(
             IDeleteScriptRequest request,
@@ -695,7 +695,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>HEAD</c> request to the <c>exists</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/">https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/">https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</a>
         /// </summary>
         public ExistsResponse DocumentExists<TDocument>(
             DocumentPath<TDocument> id,
@@ -715,7 +715,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>HEAD</c> request to the <c>exists</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/">https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/">https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</a>
         /// </summary>
         public Task<ExistsResponse> DocumentExistsAsync<TDocument>(
             DocumentPath<TDocument> id,
@@ -737,7 +737,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>HEAD</c> request to the <c>exists</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/">https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/">https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</a>
         /// </summary>
         public ExistsResponse DocumentExists(IDocumentExistsRequest request) =>
             DoRequest<IDocumentExistsRequest, ExistsResponse>(request, request.RequestParameters);
@@ -745,7 +745,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>HEAD</c> request to the <c>exists</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/">https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/">https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</a>
         /// </summary>
         public Task<ExistsResponse> DocumentExistsAsync(
             IDocumentExistsRequest request,
@@ -760,7 +760,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>HEAD</c> request to the <c>exists_source</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/">https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/">https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</a>
         /// </summary>
         public ExistsResponse SourceExists<TDocument>(
             DocumentPath<TDocument> id,
@@ -780,7 +780,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>HEAD</c> request to the <c>exists_source</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/">https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/">https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</a>
         /// </summary>
         public Task<ExistsResponse> SourceExistsAsync<TDocument>(
             DocumentPath<TDocument> id,
@@ -802,7 +802,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>HEAD</c> request to the <c>exists_source</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/">https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/">https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</a>
         /// </summary>
         public ExistsResponse SourceExists(ISourceExistsRequest request) =>
             DoRequest<ISourceExistsRequest, ExistsResponse>(request, request.RequestParameters);
@@ -810,7 +810,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>HEAD</c> request to the <c>exists_source</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/">https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/">https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</a>
         /// </summary>
         public Task<ExistsResponse> SourceExistsAsync(
             ISourceExistsRequest request,
@@ -825,7 +825,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>explain</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/explain/">https://opensearch.org/docs/latest/api-reference/explain/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/explain/">https://docs.opensearch.org/latest/api-reference/explain/</a>
         /// </summary>
         public ExplainResponse<TDocument> Explain<TDocument>(
             DocumentPath<TDocument> id,
@@ -845,7 +845,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>explain</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/explain/">https://opensearch.org/docs/latest/api-reference/explain/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/explain/">https://docs.opensearch.org/latest/api-reference/explain/</a>
         /// </summary>
         public Task<ExplainResponse<TDocument>> ExplainAsync<TDocument>(
             DocumentPath<TDocument> id,
@@ -867,7 +867,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>explain</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/explain/">https://opensearch.org/docs/latest/api-reference/explain/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/explain/">https://docs.opensearch.org/latest/api-reference/explain/</a>
         /// </summary>
         public ExplainResponse<TDocument> Explain<TDocument>(IExplainRequest request)
             where TDocument : class =>
@@ -879,7 +879,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>explain</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/explain/">https://opensearch.org/docs/latest/api-reference/explain/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/explain/">https://docs.opensearch.org/latest/api-reference/explain/</a>
         /// </summary>
         public Task<ExplainResponse<TDocument>> ExplainAsync<TDocument>(
             IExplainRequest request,
@@ -895,7 +895,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>field_caps</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/field-types/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations">https://opensearch.org/docs/latest/field-types/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations</a>
+        /// <a href="https://docs.opensearch.org/latest/mappings/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations">https://docs.opensearch.org/latest/mappings/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations</a>
         /// </summary>
         public FieldCapabilitiesResponse FieldCapabilities(
             Indices index = null,
@@ -908,7 +908,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>field_caps</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/field-types/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations">https://opensearch.org/docs/latest/field-types/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations</a>
+        /// <a href="https://docs.opensearch.org/latest/mappings/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations">https://docs.opensearch.org/latest/mappings/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations</a>
         /// </summary>
         public Task<FieldCapabilitiesResponse> FieldCapabilitiesAsync(
             Indices index = null,
@@ -923,7 +923,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>field_caps</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/field-types/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations">https://opensearch.org/docs/latest/field-types/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations</a>
+        /// <a href="https://docs.opensearch.org/latest/mappings/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations">https://docs.opensearch.org/latest/mappings/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations</a>
         /// </summary>
         public FieldCapabilitiesResponse FieldCapabilities(IFieldCapabilitiesRequest request) =>
             DoRequest<IFieldCapabilitiesRequest, FieldCapabilitiesResponse>(
@@ -934,7 +934,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>field_caps</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/field-types/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations">https://opensearch.org/docs/latest/field-types/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations</a>
+        /// <a href="https://docs.opensearch.org/latest/mappings/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations">https://docs.opensearch.org/latest/mappings/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations</a>
         /// </summary>
         public Task<FieldCapabilitiesResponse> FieldCapabilitiesAsync(
             IFieldCapabilitiesRequest request,
@@ -949,7 +949,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>GET</c> request to the <c>get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/">https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/">https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</a>
         /// </summary>
         public GetResponse<TDocument> Get<TDocument>(
             DocumentPath<TDocument> id,
@@ -969,7 +969,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>GET</c> request to the <c>get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/">https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/">https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</a>
         /// </summary>
         public Task<GetResponse<TDocument>> GetAsync<TDocument>(
             DocumentPath<TDocument> id,
@@ -991,7 +991,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>GET</c> request to the <c>get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/">https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/">https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</a>
         /// </summary>
         public GetResponse<TDocument> Get<TDocument>(IGetRequest request)
             where TDocument : class =>
@@ -1000,7 +1000,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>GET</c> request to the <c>get</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/">https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/">https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</a>
         /// </summary>
         public Task<GetResponse<TDocument>> GetAsync<TDocument>(
             IGetRequest request,
@@ -1016,7 +1016,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>GET</c> request to the <c>get_all_pits</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#list-all-pits">https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#list-all-pits</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public GetAllPitsResponse GetAllPits(
@@ -1026,7 +1026,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>GET</c> request to the <c>get_all_pits</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#list-all-pits">https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#list-all-pits</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public Task<GetAllPitsResponse> GetAllPitsAsync(
@@ -1037,7 +1037,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>GET</c> request to the <c>get_all_pits</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#list-all-pits">https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#list-all-pits</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public GetAllPitsResponse GetAllPits(IGetAllPitsRequest request) =>
@@ -1046,7 +1046,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>GET</c> request to the <c>get_all_pits</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits">https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#list-all-pits">https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#list-all-pits</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public Task<GetAllPitsResponse> GetAllPitsAsync(
@@ -1062,7 +1062,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>GET</c> request to the <c>get_script</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/script-apis/get-stored-script/">https://opensearch.org/docs/latest/api-reference/script-apis/get-stored-script/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/script-apis/get-stored-script/">https://docs.opensearch.org/latest/api-reference/script-apis/get-stored-script/</a>
         /// </summary>
         public GetScriptResponse GetScript(
             Id id,
@@ -1072,7 +1072,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>GET</c> request to the <c>get_script</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/script-apis/get-stored-script/">https://opensearch.org/docs/latest/api-reference/script-apis/get-stored-script/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/script-apis/get-stored-script/">https://docs.opensearch.org/latest/api-reference/script-apis/get-stored-script/</a>
         /// </summary>
         public Task<GetScriptResponse> GetScriptAsync(
             Id id,
@@ -1083,7 +1083,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>GET</c> request to the <c>get_script</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/script-apis/get-stored-script/">https://opensearch.org/docs/latest/api-reference/script-apis/get-stored-script/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/script-apis/get-stored-script/">https://docs.opensearch.org/latest/api-reference/script-apis/get-stored-script/</a>
         /// </summary>
         public GetScriptResponse GetScript(IGetScriptRequest request) =>
             DoRequest<IGetScriptRequest, GetScriptResponse>(request, request.RequestParameters);
@@ -1091,7 +1091,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>GET</c> request to the <c>get_script</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/script-apis/get-stored-script/">https://opensearch.org/docs/latest/api-reference/script-apis/get-stored-script/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/script-apis/get-stored-script/">https://docs.opensearch.org/latest/api-reference/script-apis/get-stored-script/</a>
         /// </summary>
         public Task<GetScriptResponse> GetScriptAsync(
             IGetScriptRequest request,
@@ -1106,7 +1106,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>GET</c> request to the <c>get_source</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/">https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/">https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</a>
         /// </summary>
         public SourceResponse<TDocument> Source<TDocument>(
             DocumentPath<TDocument> id,
@@ -1126,7 +1126,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>GET</c> request to the <c>get_source</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/">https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/">https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</a>
         /// </summary>
         public Task<SourceResponse<TDocument>> SourceAsync<TDocument>(
             DocumentPath<TDocument> id,
@@ -1148,7 +1148,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>GET</c> request to the <c>get_source</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/">https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/">https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</a>
         /// </summary>
         public SourceResponse<TDocument> Source<TDocument>(ISourceRequest request)
             where TDocument : class =>
@@ -1163,7 +1163,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>GET</c> request to the <c>get_source</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/">https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/">https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</a>
         /// </summary>
         public Task<SourceResponse<TDocument>> SourceAsync<TDocument>(
             ISourceRequest request,
@@ -1182,7 +1182,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>PUT</c> request to the <c>index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/index-document/">https://opensearch.org/docs/latest/api-reference/document-apis/index-document/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/index-document/">https://docs.opensearch.org/latest/api-reference/document-apis/index-document/</a>
         /// </summary>
         public IndexResponse Index<TDocument>(
             TDocument document,
@@ -1196,7 +1196,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>PUT</c> request to the <c>index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/index-document/">https://opensearch.org/docs/latest/api-reference/document-apis/index-document/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/index-document/">https://docs.opensearch.org/latest/api-reference/document-apis/index-document/</a>
         /// </summary>
         public Task<IndexResponse> IndexAsync<TDocument>(
             TDocument document,
@@ -1212,7 +1212,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>PUT</c> request to the <c>index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/index-document/">https://opensearch.org/docs/latest/api-reference/document-apis/index-document/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/index-document/">https://docs.opensearch.org/latest/api-reference/document-apis/index-document/</a>
         /// </summary>
         public IndexResponse Index<TDocument>(IIndexRequest<TDocument> request)
             where TDocument : class =>
@@ -1221,7 +1221,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>PUT</c> request to the <c>index</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/index-document/">https://opensearch.org/docs/latest/api-reference/document-apis/index-document/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/index-document/">https://docs.opensearch.org/latest/api-reference/document-apis/index-document/</a>
         /// </summary>
         public Task<IndexResponse> IndexAsync<TDocument>(
             IIndexRequest<TDocument> request,
@@ -1237,7 +1237,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>GET</c> request to the <c>info</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public RootNodeInfoResponse RootNodeInfo(
             Func<RootNodeInfoDescriptor, IRootNodeInfoRequest> selector = null
@@ -1246,7 +1246,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>GET</c> request to the <c>info</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<RootNodeInfoResponse> RootNodeInfoAsync(
             Func<RootNodeInfoDescriptor, IRootNodeInfoRequest> selector = null,
@@ -1256,7 +1256,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>GET</c> request to the <c>info</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public RootNodeInfoResponse RootNodeInfo(IRootNodeInfoRequest request) =>
             DoRequest<IRootNodeInfoRequest, RootNodeInfoResponse>(
@@ -1267,7 +1267,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>GET</c> request to the <c>info</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<RootNodeInfoResponse> RootNodeInfoAsync(
             IRootNodeInfoRequest request,
@@ -1282,7 +1282,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>mget</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/multi-get/">https://opensearch.org/docs/latest/api-reference/document-apis/multi-get/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/multi-get/">https://docs.opensearch.org/latest/api-reference/document-apis/multi-get/</a>
         /// </summary>
         public MultiGetResponse MultiGet(
             Func<MultiGetDescriptor, IMultiGetRequest> selector = null
@@ -1291,7 +1291,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>mget</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/multi-get/">https://opensearch.org/docs/latest/api-reference/document-apis/multi-get/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/multi-get/">https://docs.opensearch.org/latest/api-reference/document-apis/multi-get/</a>
         /// </summary>
         public Task<MultiGetResponse> MultiGetAsync(
             Func<MultiGetDescriptor, IMultiGetRequest> selector = null,
@@ -1301,7 +1301,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>mget</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/multi-get/">https://opensearch.org/docs/latest/api-reference/document-apis/multi-get/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/multi-get/">https://docs.opensearch.org/latest/api-reference/document-apis/multi-get/</a>
         /// </summary>
         public MultiGetResponse MultiGet(IMultiGetRequest request) =>
             DoRequest<IMultiGetRequest, MultiGetResponse>(request, request.RequestParameters);
@@ -1309,7 +1309,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>mget</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/multi-get/">https://opensearch.org/docs/latest/api-reference/document-apis/multi-get/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/multi-get/">https://docs.opensearch.org/latest/api-reference/document-apis/multi-get/</a>
         /// </summary>
         public Task<MultiGetResponse> MultiGetAsync(
             IMultiGetRequest request,
@@ -1324,7 +1324,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>msearch</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/multi-search/">https://opensearch.org/docs/latest/api-reference/multi-search/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/multi-search/">https://docs.opensearch.org/latest/api-reference/multi-search/</a>
         /// </summary>
         public MultiSearchResponse MultiSearch(
             Indices index = null,
@@ -1334,7 +1334,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>msearch</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/multi-search/">https://opensearch.org/docs/latest/api-reference/multi-search/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/multi-search/">https://docs.opensearch.org/latest/api-reference/multi-search/</a>
         /// </summary>
         public Task<MultiSearchResponse> MultiSearchAsync(
             Indices index = null,
@@ -1349,7 +1349,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>msearch</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/multi-search/">https://opensearch.org/docs/latest/api-reference/multi-search/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/multi-search/">https://docs.opensearch.org/latest/api-reference/multi-search/</a>
         /// </summary>
         public MultiSearchResponse MultiSearch(IMultiSearchRequest request) =>
             DoRequest<IMultiSearchRequest, MultiSearchResponse>(request, request.RequestParameters);
@@ -1357,7 +1357,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>msearch</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/multi-search/">https://opensearch.org/docs/latest/api-reference/multi-search/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/multi-search/">https://docs.opensearch.org/latest/api-reference/multi-search/</a>
         /// </summary>
         public Task<MultiSearchResponse> MultiSearchAsync(
             IMultiSearchRequest request,
@@ -1372,7 +1372,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>msearch_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/search-template/">https://opensearch.org/docs/latest/search-plugins/search-template/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/search-template/">https://docs.opensearch.org/latest/search-plugins/search-template/</a>
         /// </summary>
         public MultiSearchResponse MultiSearchTemplate(
             Indices index = null,
@@ -1385,7 +1385,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>msearch_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/search-template/">https://opensearch.org/docs/latest/search-plugins/search-template/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/search-template/">https://docs.opensearch.org/latest/search-plugins/search-template/</a>
         /// </summary>
         public Task<MultiSearchResponse> MultiSearchTemplateAsync(
             Indices index = null,
@@ -1400,7 +1400,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>msearch_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/search-template/">https://opensearch.org/docs/latest/search-plugins/search-template/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/search-template/">https://docs.opensearch.org/latest/search-plugins/search-template/</a>
         /// </summary>
         public MultiSearchResponse MultiSearchTemplate(IMultiSearchTemplateRequest request) =>
             DoRequest<IMultiSearchTemplateRequest, MultiSearchResponse>(
@@ -1411,7 +1411,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>msearch_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/search-template/">https://opensearch.org/docs/latest/search-plugins/search-template/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/search-template/">https://docs.opensearch.org/latest/search-plugins/search-template/</a>
         /// </summary>
         public Task<MultiSearchResponse> MultiSearchTemplateAsync(
             IMultiSearchTemplateRequest request,
@@ -1426,7 +1426,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>mtermvectors</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public MultiTermVectorsResponse MultiTermVectors(
             Func<MultiTermVectorsDescriptor, IMultiTermVectorsRequest> selector = null
@@ -1435,7 +1435,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>mtermvectors</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<MultiTermVectorsResponse> MultiTermVectorsAsync(
             Func<MultiTermVectorsDescriptor, IMultiTermVectorsRequest> selector = null,
@@ -1445,7 +1445,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>mtermvectors</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public MultiTermVectorsResponse MultiTermVectors(IMultiTermVectorsRequest request) =>
             DoRequest<IMultiTermVectorsRequest, MultiTermVectorsResponse>(
@@ -1456,7 +1456,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>mtermvectors</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<MultiTermVectorsResponse> MultiTermVectorsAsync(
             IMultiTermVectorsRequest request,
@@ -1471,7 +1471,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>HEAD</c> request to the <c>ping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public PingResponse Ping(Func<PingDescriptor, IPingRequest> selector = null) =>
             Ping(selector.InvokeOrDefault(new PingDescriptor()));
@@ -1479,7 +1479,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>HEAD</c> request to the <c>ping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<PingResponse> PingAsync(
             Func<PingDescriptor, IPingRequest> selector = null,
@@ -1489,7 +1489,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>HEAD</c> request to the <c>ping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public PingResponse Ping(IPingRequest request) =>
             DoRequest<IPingRequest, PingResponse>(request, request.RequestParameters);
@@ -1497,7 +1497,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>HEAD</c> request to the <c>ping</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<PingResponse> PingAsync(IPingRequest request, CancellationToken ct = default) =>
             DoRequestAsync<IPingRequest, PingResponse>(request, request.RequestParameters, ct);
@@ -1505,7 +1505,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>PUT</c> request to the <c>put_script</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/script-apis/create-stored-script/">https://opensearch.org/docs/latest/api-reference/script-apis/create-stored-script/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/script-apis/create-stored-script/">https://docs.opensearch.org/latest/api-reference/script-apis/create-stored-script/</a>
         /// </summary>
         public PutScriptResponse PutScript(
             Id id,
@@ -1515,7 +1515,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>PUT</c> request to the <c>put_script</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/script-apis/create-stored-script/">https://opensearch.org/docs/latest/api-reference/script-apis/create-stored-script/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/script-apis/create-stored-script/">https://docs.opensearch.org/latest/api-reference/script-apis/create-stored-script/</a>
         /// </summary>
         public Task<PutScriptResponse> PutScriptAsync(
             Id id,
@@ -1526,7 +1526,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>PUT</c> request to the <c>put_script</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/script-apis/create-stored-script/">https://opensearch.org/docs/latest/api-reference/script-apis/create-stored-script/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/script-apis/create-stored-script/">https://docs.opensearch.org/latest/api-reference/script-apis/create-stored-script/</a>
         /// </summary>
         public PutScriptResponse PutScript(IPutScriptRequest request) =>
             DoRequest<IPutScriptRequest, PutScriptResponse>(request, request.RequestParameters);
@@ -1534,7 +1534,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>PUT</c> request to the <c>put_script</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/script-apis/create-stored-script/">https://opensearch.org/docs/latest/api-reference/script-apis/create-stored-script/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/script-apis/create-stored-script/">https://docs.opensearch.org/latest/api-reference/script-apis/create-stored-script/</a>
         /// </summary>
         public Task<PutScriptResponse> PutScriptAsync(
             IPutScriptRequest request,
@@ -1549,7 +1549,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>reindex</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/reindex-data/">https://opensearch.org/docs/latest/im-plugin/reindex-data/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/reindex-data/">https://docs.opensearch.org/latest/im-plugin/reindex-data/</a>
         /// </summary>
         public ReindexOnServerResponse ReindexOnServer(
             Func<ReindexOnServerDescriptor, IReindexOnServerRequest> selector
@@ -1558,7 +1558,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>reindex</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/reindex-data/">https://opensearch.org/docs/latest/im-plugin/reindex-data/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/reindex-data/">https://docs.opensearch.org/latest/im-plugin/reindex-data/</a>
         /// </summary>
         public Task<ReindexOnServerResponse> ReindexOnServerAsync(
             Func<ReindexOnServerDescriptor, IReindexOnServerRequest> selector,
@@ -1568,7 +1568,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>reindex</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/reindex-data/">https://opensearch.org/docs/latest/im-plugin/reindex-data/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/reindex-data/">https://docs.opensearch.org/latest/im-plugin/reindex-data/</a>
         /// </summary>
         public ReindexOnServerResponse ReindexOnServer(IReindexOnServerRequest request) =>
             DoRequest<IReindexOnServerRequest, ReindexOnServerResponse>(
@@ -1579,7 +1579,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>reindex</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/reindex-data/">https://opensearch.org/docs/latest/im-plugin/reindex-data/</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/reindex-data/">https://docs.opensearch.org/latest/im-plugin/reindex-data/</a>
         /// </summary>
         public Task<ReindexOnServerResponse> ReindexOnServerAsync(
             IReindexOnServerRequest request,
@@ -1594,7 +1594,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>reindex_rethrottle</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ReindexRethrottleResponse ReindexRethrottle(
             TaskId taskId,
@@ -1607,7 +1607,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>reindex_rethrottle</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ReindexRethrottleResponse> ReindexRethrottleAsync(
             TaskId taskId,
@@ -1622,7 +1622,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>reindex_rethrottle</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ReindexRethrottleResponse ReindexRethrottle(IReindexRethrottleRequest request) =>
             DoRequest<IReindexRethrottleRequest, ReindexRethrottleResponse>(
@@ -1633,7 +1633,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>reindex_rethrottle</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ReindexRethrottleResponse> ReindexRethrottleAsync(
             IReindexRethrottleRequest request,
@@ -1648,7 +1648,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>render_search_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/search-template/">https://opensearch.org/docs/latest/search-plugins/search-template/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/search-template/">https://docs.opensearch.org/latest/search-plugins/search-template/</a>
         /// </summary>
         public RenderSearchTemplateResponse RenderSearchTemplate(
             Func<RenderSearchTemplateDescriptor, IRenderSearchTemplateRequest> selector = null
@@ -1657,7 +1657,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>render_search_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/search-template/">https://opensearch.org/docs/latest/search-plugins/search-template/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/search-template/">https://docs.opensearch.org/latest/search-plugins/search-template/</a>
         /// </summary>
         public Task<RenderSearchTemplateResponse> RenderSearchTemplateAsync(
             Func<RenderSearchTemplateDescriptor, IRenderSearchTemplateRequest> selector = null,
@@ -1671,7 +1671,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>render_search_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/search-template/">https://opensearch.org/docs/latest/search-plugins/search-template/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/search-template/">https://docs.opensearch.org/latest/search-plugins/search-template/</a>
         /// </summary>
         public RenderSearchTemplateResponse RenderSearchTemplate(
             IRenderSearchTemplateRequest request
@@ -1684,7 +1684,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>render_search_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/search-template/">https://opensearch.org/docs/latest/search-plugins/search-template/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/search-template/">https://docs.opensearch.org/latest/search-plugins/search-template/</a>
         /// </summary>
         public Task<RenderSearchTemplateResponse> RenderSearchTemplateAsync(
             IRenderSearchTemplateRequest request,
@@ -1699,7 +1699,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>scripts_painless_execute</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/script-apis/exec-script/">https://opensearch.org/docs/latest/api-reference/script-apis/exec-script/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/script-apis/exec-script/">https://docs.opensearch.org/latest/api-reference/script-apis/exec-script/</a>
         /// </summary>
         public ExecutePainlessScriptResponse<TResult> ExecutePainlessScript<TResult>(
             Func<ExecutePainlessScriptDescriptor, IExecutePainlessScriptRequest> selector = null
@@ -1711,7 +1711,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>scripts_painless_execute</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/script-apis/exec-script/">https://opensearch.org/docs/latest/api-reference/script-apis/exec-script/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/script-apis/exec-script/">https://docs.opensearch.org/latest/api-reference/script-apis/exec-script/</a>
         /// </summary>
         public Task<ExecutePainlessScriptResponse<TResult>> ExecutePainlessScriptAsync<TResult>(
             Func<ExecutePainlessScriptDescriptor, IExecutePainlessScriptRequest> selector = null,
@@ -1725,7 +1725,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>scripts_painless_execute</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/script-apis/exec-script/">https://opensearch.org/docs/latest/api-reference/script-apis/exec-script/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/script-apis/exec-script/">https://docs.opensearch.org/latest/api-reference/script-apis/exec-script/</a>
         /// </summary>
         public ExecutePainlessScriptResponse<TResult> ExecutePainlessScript<TResult>(
             IExecutePainlessScriptRequest request
@@ -1738,7 +1738,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>scripts_painless_execute</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/script-apis/exec-script/">https://opensearch.org/docs/latest/api-reference/script-apis/exec-script/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/script-apis/exec-script/">https://docs.opensearch.org/latest/api-reference/script-apis/exec-script/</a>
         /// </summary>
         public Task<ExecutePainlessScriptResponse<TResult>> ExecutePainlessScriptAsync<TResult>(
             IExecutePainlessScriptRequest request,
@@ -1753,7 +1753,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>scroll</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/scroll/#path-and-http-methods">https://opensearch.org/docs/latest/api-reference/scroll/#path-and-http-methods</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/scroll/#endpoints">https://docs.opensearch.org/latest/api-reference/search-apis/scroll/#endpoints</a>
         /// </summary>
         public ISearchResponse<TDocument> Scroll<TInferDocument, TDocument>(
             Time scroll,
@@ -1769,7 +1769,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>scroll</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/scroll/#path-and-http-methods">https://opensearch.org/docs/latest/api-reference/scroll/#path-and-http-methods</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/scroll/#endpoints">https://docs.opensearch.org/latest/api-reference/search-apis/scroll/#endpoints</a>
         /// </summary>
         public async Task<ISearchResponse<TDocument>> ScrollAsync<TInferDocument, TDocument>(
             Time scroll,
@@ -1790,7 +1790,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>scroll</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/scroll/#path-and-http-methods">https://opensearch.org/docs/latest/api-reference/scroll/#path-and-http-methods</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/scroll/#endpoints">https://docs.opensearch.org/latest/api-reference/search-apis/scroll/#endpoints</a>
         /// </summary>
         public ISearchResponse<TDocument> Scroll<TDocument>(
             Time scroll,
@@ -1805,7 +1805,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>scroll</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/scroll/#path-and-http-methods">https://opensearch.org/docs/latest/api-reference/scroll/#path-and-http-methods</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/scroll/#endpoints">https://docs.opensearch.org/latest/api-reference/search-apis/scroll/#endpoints</a>
         /// </summary>
         public async Task<ISearchResponse<TDocument>> ScrollAsync<TDocument>(
             Time scroll,
@@ -1823,7 +1823,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>scroll</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/scroll/#path-and-http-methods">https://opensearch.org/docs/latest/api-reference/scroll/#path-and-http-methods</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/scroll/#endpoints">https://docs.opensearch.org/latest/api-reference/search-apis/scroll/#endpoints</a>
         /// </summary>
         public ISearchResponse<TDocument> Scroll<TDocument>(IScrollRequest request)
             where TDocument : class =>
@@ -1835,7 +1835,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>scroll</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/scroll/#path-and-http-methods">https://opensearch.org/docs/latest/api-reference/scroll/#path-and-http-methods</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/scroll/#endpoints">https://docs.opensearch.org/latest/api-reference/search-apis/scroll/#endpoints</a>
         /// </summary>
         public async Task<ISearchResponse<TDocument>> ScrollAsync<TDocument>(
             IScrollRequest request,
@@ -1852,7 +1852,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>search</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/search/">https://opensearch.org/docs/latest/api-reference/search/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search/">https://docs.opensearch.org/latest/api-reference/search/</a>
         /// </summary>
         public ISearchResponse<TDocument> Search<TInferDocument, TDocument>(
             Func<SearchDescriptor<TInferDocument>, ISearchRequest> selector = null
@@ -1864,7 +1864,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>search</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/search/">https://opensearch.org/docs/latest/api-reference/search/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search/">https://docs.opensearch.org/latest/api-reference/search/</a>
         /// </summary>
         public async Task<ISearchResponse<TDocument>> SearchAsync<TInferDocument, TDocument>(
             Func<SearchDescriptor<TInferDocument>, ISearchRequest> selector = null,
@@ -1881,7 +1881,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>search</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/search/">https://opensearch.org/docs/latest/api-reference/search/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search/">https://docs.opensearch.org/latest/api-reference/search/</a>
         /// </summary>
         public ISearchResponse<TDocument> Search<TDocument>(
             Func<SearchDescriptor<TDocument>, ISearchRequest> selector = null
@@ -1892,7 +1892,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>search</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/search/">https://opensearch.org/docs/latest/api-reference/search/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search/">https://docs.opensearch.org/latest/api-reference/search/</a>
         /// </summary>
         public async Task<ISearchResponse<TDocument>> SearchAsync<TDocument>(
             Func<SearchDescriptor<TDocument>, ISearchRequest> selector = null,
@@ -1908,7 +1908,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>search</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/search/">https://opensearch.org/docs/latest/api-reference/search/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search/">https://docs.opensearch.org/latest/api-reference/search/</a>
         /// </summary>
         public ISearchResponse<TDocument> Search<TDocument>(ISearchRequest request)
             where TDocument : class =>
@@ -1920,7 +1920,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>search</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/search/">https://opensearch.org/docs/latest/api-reference/search/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/search/">https://docs.opensearch.org/latest/api-reference/search/</a>
         /// </summary>
         public async Task<ISearchResponse<TDocument>> SearchAsync<TDocument>(
             ISearchRequest request,
@@ -1937,7 +1937,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>search_shards</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public SearchShardsResponse SearchShards<TDocument>(
             Func<SearchShardsDescriptor<TDocument>, ISearchShardsRequest> selector = null
@@ -1948,7 +1948,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>search_shards</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<SearchShardsResponse> SearchShardsAsync<TDocument>(
             Func<SearchShardsDescriptor<TDocument>, ISearchShardsRequest> selector = null,
@@ -1963,7 +1963,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>search_shards</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public SearchShardsResponse SearchShards(ISearchShardsRequest request) =>
             DoRequest<ISearchShardsRequest, SearchShardsResponse>(
@@ -1974,7 +1974,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>search_shards</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<SearchShardsResponse> SearchShardsAsync(
             ISearchShardsRequest request,
@@ -1989,7 +1989,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>search_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/search-template/">https://opensearch.org/docs/latest/search-plugins/search-template/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/search-template/">https://docs.opensearch.org/latest/search-plugins/search-template/</a>
         /// </summary>
         public ISearchResponse<TDocument> SearchTemplate<TDocument>(
             Func<SearchTemplateDescriptor<TDocument>, ISearchTemplateRequest> selector = null
@@ -2002,7 +2002,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>search_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/search-template/">https://opensearch.org/docs/latest/search-plugins/search-template/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/search-template/">https://docs.opensearch.org/latest/search-plugins/search-template/</a>
         /// </summary>
         public async Task<ISearchResponse<TDocument>> SearchTemplateAsync<TDocument>(
             Func<SearchTemplateDescriptor<TDocument>, ISearchTemplateRequest> selector = null,
@@ -2018,7 +2018,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>search_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/search-template/">https://opensearch.org/docs/latest/search-plugins/search-template/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/search-template/">https://docs.opensearch.org/latest/search-plugins/search-template/</a>
         /// </summary>
         public ISearchResponse<TDocument> SearchTemplate<TDocument>(ISearchTemplateRequest request)
             where TDocument : class =>
@@ -2030,7 +2030,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>search_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/search-template/">https://opensearch.org/docs/latest/search-plugins/search-template/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/search-template/">https://docs.opensearch.org/latest/search-plugins/search-template/</a>
         /// </summary>
         public async Task<ISearchResponse<TDocument>> SearchTemplateAsync<TDocument>(
             ISearchTemplateRequest request,
@@ -2047,7 +2047,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>termvectors</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public TermVectorsResponse TermVectors<TDocument>(
             Func<TermVectorsDescriptor<TDocument>, ITermVectorsRequest<TDocument>> selector = null
@@ -2060,7 +2060,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>termvectors</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<TermVectorsResponse> TermVectorsAsync<TDocument>(
             Func<TermVectorsDescriptor<TDocument>, ITermVectorsRequest<TDocument>> selector = null,
@@ -2075,7 +2075,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>termvectors</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public TermVectorsResponse TermVectors<TDocument>(ITermVectorsRequest<TDocument> request)
             where TDocument : class =>
@@ -2087,7 +2087,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>termvectors</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<TermVectorsResponse> TermVectorsAsync<TDocument>(
             ITermVectorsRequest<TDocument> request,
@@ -2103,7 +2103,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>update</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/update-document/">https://opensearch.org/docs/latest/api-reference/document-apis/update-document/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/update-document/">https://docs.opensearch.org/latest/api-reference/document-apis/update-document/</a>
         /// </summary>
         public UpdateResponse<TDocument> Update<TDocument, TPartialDocument>(
             DocumentPath<TDocument> id,
@@ -2127,7 +2127,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>update</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/update-document/">https://opensearch.org/docs/latest/api-reference/document-apis/update-document/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/update-document/">https://docs.opensearch.org/latest/api-reference/document-apis/update-document/</a>
         /// </summary>
         public Task<UpdateResponse<TDocument>> UpdateAsync<TDocument, TPartialDocument>(
             DocumentPath<TDocument> id,
@@ -2153,7 +2153,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>update</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/update-document/">https://opensearch.org/docs/latest/api-reference/document-apis/update-document/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/update-document/">https://docs.opensearch.org/latest/api-reference/document-apis/update-document/</a>
         /// </summary>
         public UpdateResponse<TDocument> Update<TDocument>(
             DocumentPath<TDocument> id,
@@ -2176,7 +2176,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>update</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/update-document/">https://opensearch.org/docs/latest/api-reference/document-apis/update-document/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/update-document/">https://docs.opensearch.org/latest/api-reference/document-apis/update-document/</a>
         /// </summary>
         public Task<UpdateResponse<TDocument>> UpdateAsync<TDocument>(
             DocumentPath<TDocument> id,
@@ -2201,7 +2201,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>update</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/update-document/">https://opensearch.org/docs/latest/api-reference/document-apis/update-document/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/update-document/">https://docs.opensearch.org/latest/api-reference/document-apis/update-document/</a>
         /// </summary>
         public UpdateResponse<TDocument> Update<TDocument, TPartialDocument>(
             IUpdateRequest<TDocument, TPartialDocument> request
@@ -2216,7 +2216,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>update</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/update-document/">https://opensearch.org/docs/latest/api-reference/document-apis/update-document/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/update-document/">https://docs.opensearch.org/latest/api-reference/document-apis/update-document/</a>
         /// </summary>
         public Task<UpdateResponse<TDocument>> UpdateAsync<TDocument, TPartialDocument>(
             IUpdateRequest<TDocument, TPartialDocument> request,
@@ -2233,7 +2233,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>update_by_query</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/update-by-query/">https://opensearch.org/docs/latest/api-reference/document-apis/update-by-query/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/update-by-query/">https://docs.opensearch.org/latest/api-reference/document-apis/update-by-query/</a>
         /// </summary>
         public UpdateByQueryResponse UpdateByQuery<TDocument>(
             Func<UpdateByQueryDescriptor<TDocument>, IUpdateByQueryRequest> selector = null
@@ -2244,7 +2244,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>update_by_query</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/update-by-query/">https://opensearch.org/docs/latest/api-reference/document-apis/update-by-query/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/update-by-query/">https://docs.opensearch.org/latest/api-reference/document-apis/update-by-query/</a>
         /// </summary>
         public Task<UpdateByQueryResponse> UpdateByQueryAsync<TDocument>(
             Func<UpdateByQueryDescriptor<TDocument>, IUpdateByQueryRequest> selector = null,
@@ -2259,7 +2259,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>update_by_query</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/update-by-query/">https://opensearch.org/docs/latest/api-reference/document-apis/update-by-query/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/update-by-query/">https://docs.opensearch.org/latest/api-reference/document-apis/update-by-query/</a>
         /// </summary>
         public UpdateByQueryResponse UpdateByQuery(IUpdateByQueryRequest request) =>
             DoRequest<IUpdateByQueryRequest, UpdateByQueryResponse>(
@@ -2270,7 +2270,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>update_by_query</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/document-apis/update-by-query/">https://opensearch.org/docs/latest/api-reference/document-apis/update-by-query/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/update-by-query/">https://docs.opensearch.org/latest/api-reference/document-apis/update-by-query/</a>
         /// </summary>
         public Task<UpdateByQueryResponse> UpdateByQueryAsync(
             IUpdateByQueryRequest request,
@@ -2285,7 +2285,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>update_by_query_rethrottle</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ListTasksResponse UpdateByQueryRethrottle(
             TaskId taskId,
@@ -2298,7 +2298,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>update_by_query_rethrottle</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ListTasksResponse> UpdateByQueryRethrottleAsync(
             TaskId taskId,
@@ -2314,7 +2314,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>update_by_query_rethrottle</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ListTasksResponse UpdateByQueryRethrottle(IUpdateByQueryRethrottleRequest request) =>
             DoRequest<IUpdateByQueryRethrottleRequest, ListTasksResponse>(
@@ -2325,7 +2325,7 @@ namespace OpenSearch.Client
         /// <summary>
         /// <c>POST</c> request to the <c>update_by_query_rethrottle</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ListTasksResponse> UpdateByQueryRethrottleAsync(
             IUpdateByQueryRethrottleRequest request,

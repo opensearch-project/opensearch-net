@@ -69,7 +69,7 @@ namespace OpenSearch.Net.Specification.SecurityAnalyticsApi
         internal LowLevelSecurityAnalyticsNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
-        /// <summary>GET on /_plugins/_security_analytics/alerts <para>https://docs.opensearch.org/docs/latest/security-analytics/api-tools/alert-finding-api/#get-alerts</para></summary>
+        /// <summary>GET on /_plugins/_security_analytics/alerts <para>https://docs.opensearch.org/latest/security-analytics/api-tools/alert-finding-api/#get-alerts</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public TResponse GetAlerts<TResponse>(GetAlertsRequestParameters requestParameters = null)
@@ -81,7 +81,7 @@ namespace OpenSearch.Net.Specification.SecurityAnalyticsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security_analytics/alerts <para>https://docs.opensearch.org/docs/latest/security-analytics/api-tools/alert-finding-api/#get-alerts</para></summary>
+        /// <summary>GET on /_plugins/_security_analytics/alerts <para>https://docs.opensearch.org/latest/security-analytics/api-tools/alert-finding-api/#get-alerts</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         [MapsApi("security_analytics.get_alerts", "")]
@@ -98,7 +98,7 @@ namespace OpenSearch.Net.Specification.SecurityAnalyticsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security_analytics/findings/_search <para>https://docs.opensearch.org/docs/latest/security-analytics/api-tools/alert-finding-api/#get-findings</para></summary>
+        /// <summary>GET on /_plugins/_security_analytics/findings/_search <para>https://docs.opensearch.org/latest/security-analytics/api-tools/alert-finding-api/#get-findings</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public TResponse GetFindings<TResponse>(
@@ -112,7 +112,7 @@ namespace OpenSearch.Net.Specification.SecurityAnalyticsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security_analytics/findings/_search <para>https://docs.opensearch.org/docs/latest/security-analytics/api-tools/alert-finding-api/#get-findings</para></summary>
+        /// <summary>GET on /_plugins/_security_analytics/findings/_search <para>https://docs.opensearch.org/latest/security-analytics/api-tools/alert-finding-api/#get-findings</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         [MapsApi("security_analytics.get_findings", "")]
@@ -129,7 +129,7 @@ namespace OpenSearch.Net.Specification.SecurityAnalyticsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security_analytics/findings/correlate <para>https://docs.opensearch.org/docs/latest/security-analytics/api-tools/correlation-eng/#list-correlations-for-a-finding-belonging-to-a-log-type</para></summary>
+        /// <summary>GET on /_plugins/_security_analytics/findings/correlate <para>https://docs.opensearch.org/latest/security-analytics/api-tools/correlation-eng/#list-correlations-for-a-finding-belonging-to-a-log-type</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         public TResponse SearchFindingCorrelations<TResponse>(
@@ -143,7 +143,7 @@ namespace OpenSearch.Net.Specification.SecurityAnalyticsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security_analytics/findings/correlate <para>https://docs.opensearch.org/docs/latest/security-analytics/api-tools/correlation-eng/#list-correlations-for-a-finding-belonging-to-a-log-type</para></summary>
+        /// <summary>GET on /_plugins/_security_analytics/findings/correlate <para>https://docs.opensearch.org/latest/security-analytics/api-tools/correlation-eng/#list-correlations-for-a-finding-belonging-to-a-log-type</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         [MapsApi("security_analytics.search_finding_correlations", "")]

@@ -65,7 +65,7 @@ namespace OpenSearch.Client
         NodeIds NodeId { get; }
     }
 
-    /// <summary>Request for HotThreads <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
+    /// <summary>Request for HotThreads <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
     public partial class NodesHotThreadsRequest
         : PlainRequestBase<NodesHotThreadsRequestParameters>,
             INodesHotThreadsRequest
@@ -140,7 +140,7 @@ namespace OpenSearch.Client
         NodeIds NodeId { get; }
     }
 
-    /// <summary>Request for Info <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
+    /// <summary>Request for Info <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-info/</para></summary>
     public partial class NodesInfoRequest
         : PlainRequestBase<NodesInfoRequestParameters>,
             INodesInfoRequest
@@ -199,7 +199,7 @@ namespace OpenSearch.Client
         NodeIds NodeId { get; }
     }
 
-    /// <summary>Request for ReloadSecureSettings <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
+    /// <summary>Request for ReloadSecureSettings <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
     public partial class ReloadSecureSettingsRequest
         : PlainRequestBase<ReloadSecureSettingsRequestParameters>,
             IReloadSecureSettingsRequest
@@ -242,7 +242,7 @@ namespace OpenSearch.Client
         NodeIds NodeId { get; }
     }
 
-    /// <summary>Request for Stats <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
+    /// <summary>Request for Stats <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
     public partial class NodesStatsRequest
         : PlainRequestBase<NodesStatsRequestParameters>,
             INodesStatsRequest
@@ -366,7 +366,7 @@ namespace OpenSearch.Client
         NodeIds NodeId { get; }
     }
 
-    /// <summary>Request for Usage <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for Usage <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class NodesUsageRequest
         : PlainRequestBase<NodesUsageRequestParameters>,
             INodesUsageRequest

@@ -52,34 +52,44 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.IsmApi
 {
-    /// <summary>Request options for AddPolicy <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#add-policy</para></summary>
+    /// <summary>Request options for AddPolicy <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#add-policy</para></summary>
     public partial class AddPolicyRequestParameters : RequestParameters<AddPolicyRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
         public override string OperationName => "ism.add_policy";
-        public string Index
+
+        /// <summary>
+        /// A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data
+        /// streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.
+        /// </summary>
+        public string[] Index
         {
-            get => Q<string>("index");
+            get => Q<string[]>("index");
             set => Q("index", value);
         }
     }
 
-    /// <summary>Request options for ChangePolicy <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#update-managed-index-policy</para></summary>
+    /// <summary>Request options for ChangePolicy <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#update-managed-index-policy</para></summary>
     public partial class ChangePolicyRequestParameters
         : RequestParameters<ChangePolicyRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
         public override string OperationName => "ism.change_policy";
-        public string Index
+
+        /// <summary>
+        /// A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data
+        /// streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.
+        /// </summary>
+        public string[] Index
         {
-            get => Q<string>("index");
+            get => Q<string[]>("index");
             set => Q("index", value);
         }
     }
 
-    /// <summary>Request options for DeletePolicy <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#delete-policy</para></summary>
+    /// <summary>Request options for DeletePolicy <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#delete-policy</para></summary>
     public partial class DeletePolicyRequestParameters
         : RequestParameters<DeletePolicyRequestParameters>
     {
@@ -88,7 +98,7 @@ namespace OpenSearch.Net.Specification.IsmApi
         public override string OperationName => "ism.delete_policy";
     }
 
-    /// <summary>Request options for ExistsPolicy <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#get-policy</para></summary>
+    /// <summary>Request options for ExistsPolicy <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#get-policy</para></summary>
     public partial class ExistsPolicyRequestParameters
         : RequestParameters<ExistsPolicyRequestParameters>
     {
@@ -97,7 +107,7 @@ namespace OpenSearch.Net.Specification.IsmApi
         public override string OperationName => "ism.exists_policy";
     }
 
-    /// <summary>Request options for ExplainPolicy <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#explain-index</para></summary>
+    /// <summary>Request options for ExplainPolicy <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#explain-index</para></summary>
     public partial class ExplainPolicyRequestParameters
         : RequestParameters<ExplainPolicyRequestParameters>
     {
@@ -106,7 +116,7 @@ namespace OpenSearch.Net.Specification.IsmApi
         public override string OperationName => "ism.explain_policy";
     }
 
-    /// <summary>Request options for GetPolicies <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#get-policy</para></summary>
+    /// <summary>Request options for GetPolicies <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#get-policy</para></summary>
     public partial class GetPoliciesRequestParameters
         : RequestParameters<GetPoliciesRequestParameters>
     {
@@ -115,7 +125,7 @@ namespace OpenSearch.Net.Specification.IsmApi
         public override string OperationName => "ism.get_policies";
     }
 
-    /// <summary>Request options for GetPolicy <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#put-policy</para></summary>
+    /// <summary>Request options for GetPolicy <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#get-policy</para></summary>
     public partial class GetPolicyRequestParameters : RequestParameters<GetPolicyRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -123,7 +133,7 @@ namespace OpenSearch.Net.Specification.IsmApi
         public override string OperationName => "ism.get_policy";
     }
 
-    /// <summary>Request options for PutPolicies <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#create-policy</para></summary>
+    /// <summary>Request options for PutPolicies <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#create-policy</para></summary>
     public partial class PutPoliciesRequestParameters
         : RequestParameters<PutPoliciesRequestParameters>
     {
@@ -151,7 +161,7 @@ namespace OpenSearch.Net.Specification.IsmApi
         }
     }
 
-    /// <summary>Request options for PutPolicy <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#create-policy</para></summary>
+    /// <summary>Request options for PutPolicy <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#create-policy</para></summary>
     public partial class PutPolicyRequestParameters : RequestParameters<PutPolicyRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
@@ -173,7 +183,7 @@ namespace OpenSearch.Net.Specification.IsmApi
         }
     }
 
-    /// <summary>Request options for RefreshSearchAnalyzers <para>https://opensearch.org/docs/latest/im-plugin/refresh-analyzer/</para></summary>
+    /// <summary>Request options for RefreshSearchAnalyzers <para>https://docs.opensearch.org/latest/im-plugin/refresh-analyzer/</para></summary>
     public partial class RefreshSearchAnalyzersRequestParameters
         : RequestParameters<RefreshSearchAnalyzersRequestParameters>
     {
@@ -182,30 +192,40 @@ namespace OpenSearch.Net.Specification.IsmApi
         public override string OperationName => "ism.refresh_search_analyzers";
     }
 
-    /// <summary>Request options for RemovePolicy <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#remove-policy</para></summary>
+    /// <summary>Request options for RemovePolicy <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#remove-policy-from-index</para></summary>
     public partial class RemovePolicyRequestParameters
         : RequestParameters<RemovePolicyRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
         public override string OperationName => "ism.remove_policy";
-        public string Index
+
+        /// <summary>
+        /// A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data
+        /// streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.
+        /// </summary>
+        public string[] Index
         {
-            get => Q<string>("index");
+            get => Q<string[]>("index");
             set => Q("index", value);
         }
     }
 
-    /// <summary>Request options for RetryIndex <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#retry-failed-index</para></summary>
+    /// <summary>Request options for RetryIndex <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#retry-failed-index</para></summary>
     public partial class RetryIndexRequestParameters
         : RequestParameters<RetryIndexRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
         public override string OperationName => "ism.retry_index";
-        public string Index
+
+        /// <summary>
+        /// A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data
+        /// streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.
+        /// </summary>
+        public string[] Index
         {
-            get => Q<string>("index");
+            get => Q<string[]>("index");
             set => Q("index", value);
         }
     }

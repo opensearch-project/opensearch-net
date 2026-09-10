@@ -121,7 +121,7 @@ namespace OpenSearch.Client.Specification.SearchPipelineApi
         /// <summary>
         /// <c>PUT</c> request to the <c>search_pipeline.put</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/search-pipelines/creating-search-pipeline/">https://opensearch.org/docs/latest/search-plugins/search-pipelines/creating-search-pipeline/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/">https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
         PutSearchPipelineResponse Put(
@@ -132,7 +132,7 @@ namespace OpenSearch.Client.Specification.SearchPipelineApi
         /// <summary>
         /// <c>PUT</c> request to the <c>search_pipeline.put</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/search-pipelines/creating-search-pipeline/">https://opensearch.org/docs/latest/search-plugins/search-pipelines/creating-search-pipeline/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/">https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
         Task<PutSearchPipelineResponse> PutAsync(
@@ -144,7 +144,7 @@ namespace OpenSearch.Client.Specification.SearchPipelineApi
         /// <summary>
         /// <c>PUT</c> request to the <c>search_pipeline.put</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/search-pipelines/creating-search-pipeline/">https://opensearch.org/docs/latest/search-plugins/search-pipelines/creating-search-pipeline/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/">https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
         PutSearchPipelineResponse Put(IPutSearchPipelineRequest request);
@@ -152,7 +152,7 @@ namespace OpenSearch.Client.Specification.SearchPipelineApi
         /// <summary>
         /// <c>PUT</c> request to the <c>search_pipeline.put</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/search-pipelines/creating-search-pipeline/">https://opensearch.org/docs/latest/search-plugins/search-pipelines/creating-search-pipeline/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/">https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
         Task<PutSearchPipelineResponse> PutAsync(
@@ -275,7 +275,7 @@ namespace OpenSearch.Client.Specification.SearchPipelineApi
         /// <summary>
         /// <c>PUT</c> request to the <c>search_pipeline.put</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/search-pipelines/creating-search-pipeline/">https://opensearch.org/docs/latest/search-plugins/search-pipelines/creating-search-pipeline/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/">https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
         public PutSearchPipelineResponse Put(
@@ -286,7 +286,7 @@ namespace OpenSearch.Client.Specification.SearchPipelineApi
         /// <summary>
         /// <c>PUT</c> request to the <c>search_pipeline.put</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/search-pipelines/creating-search-pipeline/">https://opensearch.org/docs/latest/search-plugins/search-pipelines/creating-search-pipeline/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/">https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
         public Task<PutSearchPipelineResponse> PutAsync(
@@ -298,7 +298,7 @@ namespace OpenSearch.Client.Specification.SearchPipelineApi
         /// <summary>
         /// <c>PUT</c> request to the <c>search_pipeline.put</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/search-pipelines/creating-search-pipeline/">https://opensearch.org/docs/latest/search-plugins/search-pipelines/creating-search-pipeline/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/">https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
         public PutSearchPipelineResponse Put(IPutSearchPipelineRequest request) =>
@@ -310,7 +310,7 @@ namespace OpenSearch.Client.Specification.SearchPipelineApi
         /// <summary>
         /// <c>PUT</c> request to the <c>search_pipeline.put</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/search-plugins/search-pipelines/creating-search-pipeline/">https://opensearch.org/docs/latest/search-plugins/search-pipelines/creating-search-pipeline/</a>
+        /// <a href="https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/">https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
         public Task<PutSearchPipelineResponse> PutAsync(

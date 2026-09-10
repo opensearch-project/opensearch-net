@@ -66,7 +66,7 @@ namespace OpenSearch.Client
         IndexUuid IndexUuid { get; }
     }
 
-    /// <summary>Request for DeleteDanglingIndex <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
+    /// <summary>Request for DeleteDanglingIndex <para>https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</para></summary>
     public partial class DeleteDanglingIndexRequest
         : PlainRequestBase<DeleteDanglingIndexRequestParameters>,
             IDeleteDanglingIndexRequest
@@ -131,7 +131,7 @@ namespace OpenSearch.Client
         IndexUuid IndexUuid { get; }
     }
 
-    /// <summary>Request for ImportDanglingIndex <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
+    /// <summary>Request for ImportDanglingIndex <para>https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</para></summary>
     public partial class ImportDanglingIndexRequest
         : PlainRequestBase<ImportDanglingIndexRequestParameters>,
             IImportDanglingIndexRequest
@@ -192,7 +192,7 @@ namespace OpenSearch.Client
     public partial interface IListDanglingIndicesRequest
         : IRequest<ListDanglingIndicesRequestParameters> { }
 
-    /// <summary>Request for List <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
+    /// <summary>Request for List <para>https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</para></summary>
     public partial class ListDanglingIndicesRequest
         : PlainRequestBase<ListDanglingIndicesRequestParameters>,
             IListDanglingIndicesRequest
