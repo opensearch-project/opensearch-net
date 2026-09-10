@@ -97,6 +97,8 @@ namespace OpenSearch.Net
 			RequestConfiguration.Accept = AcceptHeaderFromFormat(format);
 		}
 
+		protected void SetAcceptHeader(System.Enum format) => SetAcceptHeader(format?.GetStringValue());
+
 		/// <inheritdoc />
 		public string AcceptHeaderFromFormat(string format)
 		{
