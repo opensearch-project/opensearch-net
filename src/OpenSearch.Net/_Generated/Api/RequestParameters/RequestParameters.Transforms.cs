@@ -52,7 +52,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.TransformsApi
 {
-    /// <summary>Request options for Delete <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#delete-a-transform-job</para></summary>
+    /// <summary>Request options for Delete <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#delete-a-transform-job</para></summary>
     public partial class DeleteRequestParameters : RequestParameters<DeleteRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
@@ -60,7 +60,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
         public override string OperationName => "transforms.delete";
     }
 
-    /// <summary>Request options for Explain <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#get-the-status-of-a-transform-job</para></summary>
+    /// <summary>Request options for Explain <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#get-the-status-of-a-transform-job</para></summary>
     public partial class ExplainRequestParameters : RequestParameters<ExplainRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -68,7 +68,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
         public override string OperationName => "transforms.explain";
     }
 
-    /// <summary>Request options for Get <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#get-a-transform-jobs-details</para></summary>
+    /// <summary>Request options for Get <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#get-a-transform-jobs-details</para></summary>
     public partial class GetRequestParameters : RequestParameters<GetRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -76,7 +76,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
         public override string OperationName => "transforms.get";
     }
 
-    /// <summary>Request options for Preview <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#preview-a-transform-jobs-results</para></summary>
+    /// <summary>Request options for Preview <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#preview-a-transform-jobs-results</para></summary>
     public partial class PreviewRequestParameters : RequestParameters<PreviewRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -84,7 +84,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
         public override string OperationName => "transforms.preview";
     }
 
-    /// <summary>Request options for Put <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#create-a-transform-job</para></summary>
+    /// <summary>Request options for Put <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#create-a-transform-job</para></summary>
     public partial class PutRequestParameters : RequestParameters<PutRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
@@ -106,7 +106,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
         }
     }
 
-    /// <summary>Request options for Search <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#get-a-transform-jobs-details</para></summary>
+    /// <summary>Request options for Search <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#get-a-transform-jobs-details</para></summary>
     public partial class SearchRequestParameters : RequestParameters<SearchRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -135,7 +135,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
         }
     }
 
-    /// <summary>Request options for Start <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#start-a-transform-job</para></summary>
+    /// <summary>Request options for Start <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#start-a-transform-job</para></summary>
     public partial class StartRequestParameters : RequestParameters<StartRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -143,7 +143,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
         public override string OperationName => "transforms.start";
     }
 
-    /// <summary>Request options for Stop <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#stop-a-transform-job</para></summary>
+    /// <summary>Request options for Stop <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#stop-a-transform-job</para></summary>
     public partial class StopRequestParameters : RequestParameters<StopRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;

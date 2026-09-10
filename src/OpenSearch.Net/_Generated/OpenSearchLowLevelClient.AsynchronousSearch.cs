@@ -69,7 +69,7 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
         internal LowLevelAsynchronousSearchNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
-        /// <summary>DELETE on /_plugins/_asynchronous_search/{id} <para>https://opensearch.org/docs/latest/search-plugins/async/index/#delete-searches-and-results</para></summary>
+        /// <summary>DELETE on /_plugins/_asynchronous_search/{id} <para>https://docs.opensearch.org/latest/search-plugins/async/index/#delete-searches-and-results</para></summary>
         /// <param name="id"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Delete<TResponse>(
@@ -84,7 +84,7 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_asynchronous_search/{id} <para>https://opensearch.org/docs/latest/search-plugins/async/index/#delete-searches-and-results</para></summary>
+        /// <summary>DELETE on /_plugins/_asynchronous_search/{id} <para>https://docs.opensearch.org/latest/search-plugins/async/index/#delete-searches-and-results</para></summary>
         /// <param name="id"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("asynchronous_search.delete", "id")]
@@ -102,7 +102,7 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_asynchronous_search/{id} <para>https://opensearch.org/docs/latest/search-plugins/async/index/#get-partial-results</para></summary>
+        /// <summary>GET on /_plugins/_asynchronous_search/{id} <para>https://docs.opensearch.org/latest/search-plugins/async/index/#get-partial-results</para></summary>
         /// <param name="id"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Get<TResponse>(string id, GetRequestParameters requestParameters = null)
@@ -114,7 +114,7 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_asynchronous_search/{id} <para>https://opensearch.org/docs/latest/search-plugins/async/index/#get-partial-results</para></summary>
+        /// <summary>GET on /_plugins/_asynchronous_search/{id} <para>https://docs.opensearch.org/latest/search-plugins/async/index/#get-partial-results</para></summary>
         /// <param name="id"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("asynchronous_search.get", "id")]
@@ -132,7 +132,7 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_asynchronous_search <para>https://opensearch.org/docs/latest/search-plugins/async/index/#rest-api</para></summary>
+        /// <summary>POST on /_plugins/_asynchronous_search <para>https://docs.opensearch.org/latest/search-plugins/async/index/#rest-api</para></summary>
         /// <param name="body">The search definition using the Query DSL.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Search<TResponse>(
@@ -147,7 +147,7 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_asynchronous_search <para>https://opensearch.org/docs/latest/search-plugins/async/index/#rest-api</para></summary>
+        /// <summary>POST on /_plugins/_asynchronous_search <para>https://docs.opensearch.org/latest/search-plugins/async/index/#rest-api</para></summary>
         /// <param name="body">The search definition using the Query DSL.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("asynchronous_search.search", "body")]
@@ -165,7 +165,7 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_asynchronous_search/stats <para>https://opensearch.org/docs/latest/search-plugins/async/index/#monitor-stats</para></summary>
+        /// <summary>GET on /_plugins/_asynchronous_search/stats <para>https://docs.opensearch.org/latest/search-plugins/async/index/#monitor-stats</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Stats<TResponse>(StatsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -176,7 +176,7 @@ namespace OpenSearch.Net.Specification.AsynchronousSearchApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_asynchronous_search/stats <para>https://opensearch.org/docs/latest/search-plugins/async/index/#monitor-stats</para></summary>
+        /// <summary>GET on /_plugins/_asynchronous_search/stats <para>https://docs.opensearch.org/latest/search-plugins/async/index/#monitor-stats</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("asynchronous_search.stats", "")]
         public Task<TResponse> StatsAsync<TResponse>(

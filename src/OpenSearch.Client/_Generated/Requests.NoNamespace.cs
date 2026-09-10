@@ -64,7 +64,7 @@ namespace OpenSearch.Client
         IndexName Index { get; }
     }
 
-    /// <summary>Request for Bulk <para>https://opensearch.org/docs/latest/api-reference/document-apis/bulk/</para></summary>
+    /// <summary>Request for Bulk <para>https://docs.opensearch.org/latest/api-reference/document-apis/bulk/</para></summary>
     public partial class BulkRequest : PlainRequestBase<BulkRequestParameters>, IBulkRequest
     {
         protected IBulkRequest Self => this;
@@ -180,7 +180,7 @@ namespace OpenSearch.Client
         IndexName Index { get; }
     }
 
-    /// <summary>Request for BulkStream <para>https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</para></summary>
+    /// <summary>Request for BulkStream <para>https://docs.opensearch.org/latest/api-reference/document-apis/bulk-streaming/</para></summary>
     public partial class BulkStreamRequest
         : PlainRequestBase<BulkStreamRequestParameters>,
             IBulkStreamRequest
@@ -308,7 +308,7 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public partial interface IClearScrollRequest : IRequest<ClearScrollRequestParameters> { }
 
-    /// <summary>Request for ClearScroll <para>https://opensearch.org/docs/latest/api-reference/scroll/</para></summary>
+    /// <summary>Request for ClearScroll <para>https://docs.opensearch.org/latest/api-reference/scroll/</para></summary>
     public partial class ClearScrollRequest
         : PlainRequestBase<ClearScrollRequestParameters>,
             IClearScrollRequest
@@ -329,7 +329,7 @@ namespace OpenSearch.Client
 
     public partial interface ICountRequest<TDocument> : ICountRequest { }
 
-    /// <summary>Request for Count <para>https://opensearch.org/docs/latest/api-reference/count/</para></summary>
+    /// <summary>Request for Count <para>https://docs.opensearch.org/latest/api-reference/count/</para></summary>
     public partial class CountRequest : PlainRequestBase<CountRequestParameters>, ICountRequest
     {
         protected ICountRequest Self => this;
@@ -494,7 +494,7 @@ namespace OpenSearch.Client
         IndexName Index { get; }
     }
 
-    /// <summary>Request for Create <para>https://opensearch.org/docs/latest/api-reference/document-apis/index-document/</para></summary>
+    /// <summary>Request for Create <para>https://docs.opensearch.org/latest/api-reference/document-apis/index-document/</para></summary>
     public partial class CreateRequest<TDocument>
         : PlainRequestBase<CreateRequestParameters>,
             ICreateRequest<TDocument>
@@ -612,7 +612,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for CreatePit <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</para></summary>
+    /// <summary>Request for CreatePit <para>https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#create-a-pit</para></summary>
     public partial class CreatePitRequest
         : PlainRequestBase<CreatePitRequestParameters>,
             ICreatePitRequest
@@ -635,6 +635,16 @@ namespace OpenSearch.Client
         Indices ICreatePitRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         // Request parameters
+        /// <summary>
+        /// If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed
+        /// indexes. This behavior applies even if the request targets other open indexes.
+        /// </summary>
+        public bool? AllowNoIndices
+        {
+            get => Q<bool?>("allow_no_indices");
+            set => Q("allow_no_indices", value);
+        }
+
         /// <summary>Allow if point in time can be created with partial failures.</summary>
         public bool? AllowPartialPitCreation
         {
@@ -647,6 +657,20 @@ namespace OpenSearch.Client
         {
             get => Q<ExpandWildcards?>("expand_wildcards");
             set => Q("expand_wildcards", value);
+        }
+
+        /// <summary>If <c>true</c>, concrete, expanded or aliased indexes will be ignored when frozen.</summary>
+        public bool? IgnoreThrottled
+        {
+            get => Q<bool?>("ignore_throttled");
+            set => Q("ignore_throttled", value);
+        }
+
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
+        public bool? IgnoreUnavailable
+        {
+            get => Q<bool?>("ignore_unavailable");
+            set => Q("ignore_unavailable", value);
         }
 
         /// <summary>Specify the keep alive for point in time.</summary>
@@ -690,7 +714,7 @@ namespace OpenSearch.Client
 
     public partial interface IDeleteRequest<TDocument> : IDeleteRequest { }
 
-    /// <summary>Request for Delete <para>https://opensearch.org/docs/latest/api-reference/document-apis/delete-document/</para></summary>
+    /// <summary>Request for Delete <para>https://docs.opensearch.org/latest/api-reference/document-apis/delete-document/</para></summary>
     public partial class DeleteRequest : PlainRequestBase<DeleteRequestParameters>, IDeleteRequest
     {
         protected IDeleteRequest Self => this;
@@ -821,7 +845,7 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public partial interface IDeleteAllPitsRequest : IRequest<DeleteAllPitsRequestParameters> { }
 
-    /// <summary>Request for DeleteAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
+    /// <summary>Request for DeleteAllPits <para>https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits</para></summary>
     public partial class DeleteAllPitsRequest
         : PlainRequestBase<DeleteAllPitsRequestParameters>,
             IDeleteAllPitsRequest
@@ -842,7 +866,7 @@ namespace OpenSearch.Client
 
     public partial interface IDeleteByQueryRequest<TDocument> : IDeleteByQueryRequest { }
 
-    /// <summary>Request for DeleteByQuery <para>https://opensearch.org/docs/latest/api-reference/document-apis/delete-by-query/</para></summary>
+    /// <summary>Request for DeleteByQuery <para>https://docs.opensearch.org/latest/api-reference/document-apis/delete-by-query/</para></summary>
     public partial class DeleteByQueryRequest
         : PlainRequestBase<DeleteByQueryRequestParameters>,
             IDeleteByQueryRequest
@@ -1130,7 +1154,7 @@ namespace OpenSearch.Client
         TaskId TaskId { get; }
     }
 
-    /// <summary>Request for DeleteByQueryRethrottle <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for DeleteByQueryRethrottle <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class DeleteByQueryRethrottleRequest
         : PlainRequestBase<DeleteByQueryRethrottleRequestParameters>,
             IDeleteByQueryRethrottleRequest
@@ -1164,7 +1188,7 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public partial interface IDeletePitRequest : IRequest<DeletePitRequestParameters> { }
 
-    /// <summary>Request for DeletePit <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
+    /// <summary>Request for DeletePit <para>https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits</para></summary>
     public partial class DeletePitRequest
         : PlainRequestBase<DeletePitRequestParameters>,
             IDeletePitRequest
@@ -1183,7 +1207,7 @@ namespace OpenSearch.Client
         Id Id { get; }
     }
 
-    /// <summary>Request for DeleteScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/delete-script/</para></summary>
+    /// <summary>Request for DeleteScript <para>https://docs.opensearch.org/latest/api-reference/script-apis/delete-script/</para></summary>
     public partial class DeleteScriptRequest
         : PlainRequestBase<DeleteScriptRequestParameters>,
             IDeleteScriptRequest
@@ -1247,7 +1271,7 @@ namespace OpenSearch.Client
 
     public partial interface IDocumentExistsRequest<TDocument> : IDocumentExistsRequest { }
 
-    /// <summary>Request for DocumentExists <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    /// <summary>Request for DocumentExists <para>https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</para></summary>
     public partial class DocumentExistsRequest
         : PlainRequestBase<DocumentExistsRequestParameters>,
             IDocumentExistsRequest
@@ -1401,7 +1425,7 @@ namespace OpenSearch.Client
 
     public partial interface ISourceExistsRequest<TDocument> : ISourceExistsRequest { }
 
-    /// <summary>Request for SourceExists <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    /// <summary>Request for SourceExists <para>https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</para></summary>
     public partial class SourceExistsRequest
         : PlainRequestBase<SourceExistsRequestParameters>,
             ISourceExistsRequest
@@ -1548,7 +1572,7 @@ namespace OpenSearch.Client
 
     public partial interface IExplainRequest<TDocument> : IExplainRequest { }
 
-    /// <summary>Request for Explain <para>https://opensearch.org/docs/latest/api-reference/explain/</para></summary>
+    /// <summary>Request for Explain <para>https://docs.opensearch.org/latest/api-reference/explain/</para></summary>
     public partial class ExplainRequest
         : PlainRequestBase<ExplainRequestParameters>,
             IExplainRequest
@@ -1697,7 +1721,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for FieldCapabilities <para>https://opensearch.org/docs/latest/field-types/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations</para></summary>
+    /// <summary>Request for FieldCapabilities <para>https://docs.opensearch.org/latest/mappings/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations</para></summary>
     public partial class FieldCapabilitiesRequest
         : PlainRequestBase<FieldCapabilitiesRequestParameters>,
             IFieldCapabilitiesRequest
@@ -1774,7 +1798,7 @@ namespace OpenSearch.Client
 
     public partial interface IGetRequest<TDocument> : IGetRequest { }
 
-    /// <summary>Request for Get <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    /// <summary>Request for Get <para>https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</para></summary>
     public partial class GetRequest : PlainRequestBase<GetRequestParameters>, IGetRequest
     {
         protected IGetRequest Self => this;
@@ -1918,7 +1942,7 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public partial interface IGetAllPitsRequest : IRequest<GetAllPitsRequestParameters> { }
 
-    /// <summary>Request for GetAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</para></summary>
+    /// <summary>Request for GetAllPits <para>https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#list-all-pits</para></summary>
     public partial class GetAllPitsRequest
         : PlainRequestBase<GetAllPitsRequestParameters>,
             IGetAllPitsRequest
@@ -1937,7 +1961,7 @@ namespace OpenSearch.Client
         Id Id { get; }
     }
 
-    /// <summary>Request for GetScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/get-stored-script/</para></summary>
+    /// <summary>Request for GetScript <para>https://docs.opensearch.org/latest/api-reference/script-apis/get-stored-script/</para></summary>
     public partial class GetScriptRequest
         : PlainRequestBase<GetScriptRequestParameters>,
             IGetScriptRequest
@@ -1991,7 +2015,7 @@ namespace OpenSearch.Client
 
     public partial interface ISourceRequest<TDocument> : ISourceRequest { }
 
-    /// <summary>Request for Source <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    /// <summary>Request for Source <para>https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</para></summary>
     public partial class SourceRequest : PlainRequestBase<SourceRequestParameters>, ISourceRequest
     {
         protected ISourceRequest Self => this;
@@ -2132,7 +2156,7 @@ namespace OpenSearch.Client
         IndexName Index { get; }
     }
 
-    /// <summary>Request for Index <para>https://opensearch.org/docs/latest/api-reference/document-apis/index-document/</para></summary>
+    /// <summary>Request for Index <para>https://docs.opensearch.org/latest/api-reference/document-apis/index-document/</para></summary>
     public partial class IndexRequest<TDocument>
         : PlainRequestBase<IndexRequestParameters>,
             IIndexRequest<TDocument>
@@ -2282,7 +2306,7 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public partial interface IRootNodeInfoRequest : IRequest<RootNodeInfoRequestParameters> { }
 
-    /// <summary>Request for RootNodeInfo <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for RootNodeInfo <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class RootNodeInfoRequest
         : PlainRequestBase<RootNodeInfoRequestParameters>,
             IRootNodeInfoRequest
@@ -2304,7 +2328,7 @@ namespace OpenSearch.Client
         Fields StoredFields { get; set; }
     }
 
-    /// <summary>Request for MultiGet <para>https://opensearch.org/docs/latest/api-reference/document-apis/multi-get/</para></summary>
+    /// <summary>Request for MultiGet <para>https://docs.opensearch.org/latest/api-reference/document-apis/multi-get/</para></summary>
     public partial class MultiGetRequest
         : PlainRequestBase<MultiGetRequestParameters>,
             IMultiGetRequest
@@ -2397,7 +2421,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for MultiSearch <para>https://opensearch.org/docs/latest/api-reference/multi-search/</para></summary>
+    /// <summary>Request for MultiSearch <para>https://docs.opensearch.org/latest/api-reference/multi-search/</para></summary>
     public partial class MultiSearchRequest
         : PlainRequestBase<MultiSearchRequestParameters>,
             IMultiSearchRequest
@@ -2489,7 +2513,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for MultiSearchTemplate <para>https://opensearch.org/docs/latest/search-plugins/search-template/</para></summary>
+    /// <summary>Request for MultiSearchTemplate <para>https://docs.opensearch.org/latest/search-plugins/search-template/</para></summary>
     public partial class MultiSearchTemplateRequest
         : PlainRequestBase<MultiSearchTemplateRequestParameters>,
             IMultiSearchTemplateRequest
@@ -2554,7 +2578,7 @@ namespace OpenSearch.Client
         IndexName Index { get; }
     }
 
-    /// <summary>Request for MultiTermVectors <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for MultiTermVectors <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class MultiTermVectorsRequest
         : PlainRequestBase<MultiTermVectorsRequestParameters>,
             IMultiTermVectorsRequest
@@ -2672,7 +2696,7 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public partial interface IPingRequest : IRequest<PingRequestParameters> { }
 
-    /// <summary>Request for Ping <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for Ping <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class PingRequest : PlainRequestBase<PingRequestParameters>, IPingRequest
     {
         protected IPingRequest Self => this;
@@ -2692,7 +2716,7 @@ namespace OpenSearch.Client
         Id Id { get; }
     }
 
-    /// <summary>Request for PutScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/create-stored-script/</para></summary>
+    /// <summary>Request for PutScript <para>https://docs.opensearch.org/latest/api-reference/script-apis/create-stored-script/</para></summary>
     public partial class PutScriptRequest
         : PlainRequestBase<PutScriptRequestParameters>,
             IPutScriptRequest
@@ -2757,7 +2781,7 @@ namespace OpenSearch.Client
     public partial interface IReindexOnServerRequest
         : IRequest<ReindexOnServerRequestParameters> { }
 
-    /// <summary>Request for ReindexOnServer <para>https://opensearch.org/docs/latest/im-plugin/reindex-data/</para></summary>
+    /// <summary>Request for ReindexOnServer <para>https://docs.opensearch.org/latest/im-plugin/reindex-data/</para></summary>
     public partial class ReindexOnServerRequest
         : PlainRequestBase<ReindexOnServerRequestParameters>,
             IReindexOnServerRequest
@@ -2829,7 +2853,7 @@ namespace OpenSearch.Client
         TaskId TaskId { get; }
     }
 
-    /// <summary>Request for ReindexRethrottle <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for ReindexRethrottle <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ReindexRethrottleRequest
         : PlainRequestBase<ReindexRethrottleRequestParameters>,
             IReindexRethrottleRequest
@@ -2868,7 +2892,7 @@ namespace OpenSearch.Client
         Id Id { get; }
     }
 
-    /// <summary>Request for RenderSearchTemplate <para>https://opensearch.org/docs/latest/search-plugins/search-template/</para></summary>
+    /// <summary>Request for RenderSearchTemplate <para>https://docs.opensearch.org/latest/search-plugins/search-template/</para></summary>
     public partial class RenderSearchTemplateRequest
         : PlainRequestBase<RenderSearchTemplateRequestParameters>,
             IRenderSearchTemplateRequest
@@ -2896,7 +2920,7 @@ namespace OpenSearch.Client
     public partial interface IExecutePainlessScriptRequest
         : IRequest<ExecutePainlessScriptRequestParameters> { }
 
-    /// <summary>Request for ExecutePainlessScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/exec-script/</para></summary>
+    /// <summary>Request for ExecutePainlessScript <para>https://docs.opensearch.org/latest/api-reference/script-apis/exec-script/</para></summary>
     public partial class ExecutePainlessScriptRequest
         : PlainRequestBase<ExecutePainlessScriptRequestParameters>,
             IExecutePainlessScriptRequest
@@ -2911,7 +2935,7 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public partial interface IScrollRequest : IRequest<ScrollRequestParameters> { }
 
-    /// <summary>Request for Scroll <para>https://opensearch.org/docs/latest/api-reference/scroll/#path-and-http-methods</para></summary>
+    /// <summary>Request for Scroll <para>https://docs.opensearch.org/latest/api-reference/search-apis/scroll/#endpoints</para></summary>
     public partial class ScrollRequest : PlainRequestBase<ScrollRequestParameters>, IScrollRequest
     {
         protected IScrollRequest Self => this;
@@ -2946,7 +2970,7 @@ namespace OpenSearch.Client
 
     public partial interface ISearchRequest<TInferDocument> : ISearchRequest { }
 
-    /// <summary>Request for Search <para>https://opensearch.org/docs/latest/api-reference/search/</para></summary>
+    /// <summary>Request for Search <para>https://docs.opensearch.org/latest/api-reference/search/</para></summary>
     public partial class SearchRequest : PlainRequestBase<SearchRequestParameters>, ISearchRequest
     {
         protected ISearchRequest Self => this;
@@ -3301,7 +3325,7 @@ namespace OpenSearch.Client
 
     public partial interface ISearchShardsRequest<TDocument> : ISearchShardsRequest { }
 
-    /// <summary>Request for SearchShards <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for SearchShards <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class SearchShardsRequest
         : PlainRequestBase<SearchShardsRequestParameters>,
             ISearchShardsRequest
@@ -3404,7 +3428,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for SearchTemplate <para>https://opensearch.org/docs/latest/search-plugins/search-template/</para></summary>
+    /// <summary>Request for SearchTemplate <para>https://docs.opensearch.org/latest/search-plugins/search-template/</para></summary>
     public partial class SearchTemplateRequest
         : PlainRequestBase<SearchTemplateRequestParameters>,
             ISearchTemplateRequest
@@ -3557,7 +3581,7 @@ namespace OpenSearch.Client
         IndexName Index { get; }
     }
 
-    /// <summary>Request for TermVectors <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for TermVectors <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class TermVectorsRequest<TDocument>
         : PlainRequestBase<TermVectorsRequestParameters>,
             ITermVectorsRequest<TDocument>
@@ -3705,7 +3729,7 @@ namespace OpenSearch.Client
         IndexName Index { get; }
     }
 
-    /// <summary>Request for Update <para>https://opensearch.org/docs/latest/api-reference/document-apis/update-document/</para></summary>
+    /// <summary>Request for Update <para>https://docs.opensearch.org/latest/api-reference/document-apis/update-document/</para></summary>
     public partial class UpdateRequest<TDocument, TPartialDocument>
         : PlainRequestBase<UpdateRequestParameters>,
             IUpdateRequest<TDocument, TPartialDocument>
@@ -3842,7 +3866,7 @@ namespace OpenSearch.Client
 
     public partial interface IUpdateByQueryRequest<TDocument> : IUpdateByQueryRequest { }
 
-    /// <summary>Request for UpdateByQuery <para>https://opensearch.org/docs/latest/api-reference/document-apis/update-by-query/</para></summary>
+    /// <summary>Request for UpdateByQuery <para>https://docs.opensearch.org/latest/api-reference/document-apis/update-by-query/</para></summary>
     public partial class UpdateByQueryRequest
         : PlainRequestBase<UpdateByQueryRequestParameters>,
             IUpdateByQueryRequest
@@ -4141,7 +4165,7 @@ namespace OpenSearch.Client
         TaskId TaskId { get; }
     }
 
-    /// <summary>Request for UpdateByQueryRethrottle <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for UpdateByQueryRethrottle <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class UpdateByQueryRethrottleRequest
         : PlainRequestBase<UpdateByQueryRethrottleRequestParameters>,
             IUpdateByQueryRethrottleRequest

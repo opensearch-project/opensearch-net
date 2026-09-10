@@ -65,7 +65,7 @@ namespace OpenSearch.Client
         TaskId TaskId { get; }
     }
 
-    /// <summary>Request for Cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
+    /// <summary>Request for Cancel <para>https://docs.opensearch.org/latest/api-reference/tasks/cancel-tasks/</para></summary>
     public partial class CancelTasksRequest
         : PlainRequestBase<CancelTasksRequestParameters>,
             ICancelTasksRequest
@@ -127,7 +127,7 @@ namespace OpenSearch.Client
         TaskId TaskId { get; }
     }
 
-    /// <summary>Request for GetTask <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
+    /// <summary>Request for GetTask <para>https://docs.opensearch.org/latest/api-reference/tasks/</para></summary>
     public partial class GetTaskRequest
         : PlainRequestBase<GetTaskRequestParameters>,
             IGetTaskRequest
@@ -168,7 +168,7 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public partial interface IListTasksRequest : IRequest<ListTasksRequestParameters> { }
 
-    /// <summary>Request for List <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
+    /// <summary>Request for List <para>https://docs.opensearch.org/latest/api-reference/tasks/</para></summary>
     public partial class ListTasksRequest
         : PlainRequestBase<ListTasksRequestParameters>,
             IListTasksRequest

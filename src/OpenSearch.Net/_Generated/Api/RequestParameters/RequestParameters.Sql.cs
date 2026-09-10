@@ -52,7 +52,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.SqlApi
 {
-    /// <summary>Request options for Close <para>https://opensearch.org/docs/latest/search-plugins/sql/sql-ppl-api/</para></summary>
+    /// <summary>Request options for Close <para>https://docs.opensearch.org/latest/search-plugins/sql/sql-ppl-api/</para></summary>
     public partial class CloseRequestParameters : RequestParameters<CloseRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -60,9 +60,9 @@ namespace OpenSearch.Net.Specification.SqlApi
         public override string OperationName => "sql.close";
 
         /// <summary>Specifies the response format (JSON or YAML).</summary>
-        public string Format
+        public SqlResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<SqlResponseFormat?>("format");
             set => Q("format", value);
         }
 
@@ -74,7 +74,7 @@ namespace OpenSearch.Net.Specification.SqlApi
         }
     }
 
-    /// <summary>Request options for Explain <para>https://opensearch.org/docs/latest/search-plugins/sql/sql-ppl-api/</para></summary>
+    /// <summary>Request options for Explain <para>https://docs.opensearch.org/latest/search-plugins/sql/sql-ppl-api/</para></summary>
     public partial class ExplainRequestParameters : RequestParameters<ExplainRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -82,9 +82,9 @@ namespace OpenSearch.Net.Specification.SqlApi
         public override string OperationName => "sql.explain";
 
         /// <summary>Specifies the response format (JSON or YAML).</summary>
-        public string Format
+        public SqlResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<SqlResponseFormat?>("format");
             set => Q("format", value);
         }
 
@@ -96,7 +96,7 @@ namespace OpenSearch.Net.Specification.SqlApi
         }
     }
 
-    /// <summary>Request options for GetStats <para>https://opensearch.org/docs/latest/search-plugins/sql/monitoring/</para></summary>
+    /// <summary>Request options for GetStats <para>https://docs.opensearch.org/latest/search-plugins/sql/monitoring/</para></summary>
     public partial class GetStatsRequestParameters : RequestParameters<GetStatsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -104,9 +104,9 @@ namespace OpenSearch.Net.Specification.SqlApi
         public override string OperationName => "sql.get_stats";
 
         /// <summary>Specifies the response format (JSON or YAML).</summary>
-        public string Format
+        public SqlResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<SqlResponseFormat?>("format");
             set => Q("format", value);
         }
 
@@ -118,7 +118,7 @@ namespace OpenSearch.Net.Specification.SqlApi
         }
     }
 
-    /// <summary>Request options for PostStats <para>https://opensearch.org/docs/latest/search-plugins/sql/monitoring/</para></summary>
+    /// <summary>Request options for PostStats <para>https://docs.opensearch.org/latest/search-plugins/sql/monitoring/</para></summary>
     public partial class PostStatsRequestParameters : RequestParameters<PostStatsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -126,9 +126,9 @@ namespace OpenSearch.Net.Specification.SqlApi
         public override string OperationName => "sql.post_stats";
 
         /// <summary>Specifies the response format (JSON or YAML).</summary>
-        public string Format
+        public SqlResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<SqlResponseFormat?>("format");
             set => Q("format", value);
         }
 
@@ -140,7 +140,7 @@ namespace OpenSearch.Net.Specification.SqlApi
         }
     }
 
-    /// <summary>Request options for Query <para>https://opensearch.org/docs/latest/search-plugins/sql/sql-ppl-api/</para></summary>
+    /// <summary>Request options for Query <para>https://docs.opensearch.org/latest/search-plugins/sql/sql-ppl-api/</para></summary>
     public partial class QueryRequestParameters : RequestParameters<QueryRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -148,9 +148,9 @@ namespace OpenSearch.Net.Specification.SqlApi
         public override string OperationName => "sql.query";
 
         /// <summary>Specifies the response format (JSON or YAML).</summary>
-        public string Format
+        public SqlResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<SqlResponseFormat?>("format");
             set => Q("format", value);
         }
 
@@ -162,7 +162,7 @@ namespace OpenSearch.Net.Specification.SqlApi
         }
     }
 
-    /// <summary>Request options for Settings <para>https://opensearch.org/docs/latest/search-plugins/sql/settings/</para></summary>
+    /// <summary>Request options for Settings <para>https://docs.opensearch.org/latest/search-plugins/sql/settings/</para></summary>
     public partial class SettingsRequestParameters : RequestParameters<SettingsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
@@ -170,9 +170,9 @@ namespace OpenSearch.Net.Specification.SqlApi
         public override string OperationName => "sql.settings";
 
         /// <summary>Specifies the response format (JSON or YAML).</summary>
-        public string Format
+        public SqlResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<SqlResponseFormat?>("format");
             set => Q("format", value);
         }
     }

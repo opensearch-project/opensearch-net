@@ -52,7 +52,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.IngestApi
 {
-    /// <summary>Request options for DeletePipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</para></summary>
+    /// <summary>Request options for DeletePipeline <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/delete-ingest/</para></summary>
     public partial class DeletePipelineRequestParameters
         : RequestParameters<DeletePipelineRequestParameters>
     {
@@ -89,7 +89,7 @@ namespace OpenSearch.Net.Specification.IngestApi
         }
     }
 
-    /// <summary>Request options for GetPipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</para></summary>
+    /// <summary>Request options for GetPipeline <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/</para></summary>
     public partial class GetPipelineRequestParameters
         : RequestParameters<GetPipelineRequestParameters>
     {
@@ -119,7 +119,7 @@ namespace OpenSearch.Net.Specification.IngestApi
         }
     }
 
-    /// <summary>Request options for GrokProcessorPatterns <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for GrokProcessorPatterns <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class GrokProcessorPatternsRequestParameters
         : RequestParameters<GrokProcessorPatternsRequestParameters>
     {
@@ -172,7 +172,7 @@ namespace OpenSearch.Net.Specification.IngestApi
         }
     }
 
-    /// <summary>Request options for SimulatePipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</para></summary>
+    /// <summary>Request options for SimulatePipeline <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/</para></summary>
     public partial class SimulatePipelineRequestParameters
         : RequestParameters<SimulatePipelineRequestParameters>
     {

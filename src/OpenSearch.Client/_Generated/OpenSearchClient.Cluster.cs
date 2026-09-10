@@ -60,7 +60,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.allocation_explain</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-allocation/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-allocation/</a>
         /// </summary>
         ClusterAllocationExplainResponse AllocationExplain(
             Func<ClusterAllocationExplainDescriptor, IClusterAllocationExplainRequest> selector =
@@ -70,7 +70,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.allocation_explain</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-allocation/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-allocation/</a>
         /// </summary>
         Task<ClusterAllocationExplainResponse> AllocationExplainAsync(
             Func<ClusterAllocationExplainDescriptor, IClusterAllocationExplainRequest> selector =
@@ -81,7 +81,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.allocation_explain</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-allocation/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-allocation/</a>
         /// </summary>
         ClusterAllocationExplainResponse AllocationExplain(
             IClusterAllocationExplainRequest request
@@ -90,7 +90,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.allocation_explain</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-allocation/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-allocation/</a>
         /// </summary>
         Task<ClusterAllocationExplainResponse> AllocationExplainAsync(
             IClusterAllocationExplainRequest request,
@@ -100,7 +100,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>cluster.delete_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         DeleteComponentTemplateResponse DeleteComponentTemplate(
             Name name,
@@ -110,7 +110,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>cluster.delete_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<DeleteComponentTemplateResponse> DeleteComponentTemplateAsync(
             Name name,
@@ -122,7 +122,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>cluster.delete_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         DeleteComponentTemplateResponse DeleteComponentTemplate(
             IDeleteComponentTemplateRequest request
@@ -131,7 +131,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>cluster.delete_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<DeleteComponentTemplateResponse> DeleteComponentTemplateAsync(
             IDeleteComponentTemplateRequest request,
@@ -141,7 +141,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>cluster.delete_voting_config_exclusions</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         DeleteVotingConfigExclusionsResponse DeleteVotingConfigExclusions(
             Func<
@@ -153,7 +153,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>cluster.delete_voting_config_exclusions</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<DeleteVotingConfigExclusionsResponse> DeleteVotingConfigExclusionsAsync(
             Func<
@@ -166,7 +166,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>cluster.delete_voting_config_exclusions</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         DeleteVotingConfigExclusionsResponse DeleteVotingConfigExclusions(
             IDeleteVotingConfigExclusionsRequest request
@@ -175,7 +175,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>cluster.delete_voting_config_exclusions</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<DeleteVotingConfigExclusionsResponse> DeleteVotingConfigExclusionsAsync(
             IDeleteVotingConfigExclusionsRequest request,
@@ -185,7 +185,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>cluster.exists_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         ExistsResponse ComponentTemplateExists(
             Name name,
@@ -195,7 +195,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>cluster.exists_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<ExistsResponse> ComponentTemplateExistsAsync(
             Name name,
@@ -207,14 +207,14 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>cluster.exists_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         ExistsResponse ComponentTemplateExists(IComponentTemplateExistsRequest request);
 
         /// <summary>
         /// <c>HEAD</c> request to the <c>cluster.exists_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<ExistsResponse> ComponentTemplateExistsAsync(
             IComponentTemplateExistsRequest request,
@@ -224,7 +224,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.get_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         GetComponentTemplateResponse GetComponentTemplate(
             Name name = null,
@@ -234,7 +234,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.get_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<GetComponentTemplateResponse> GetComponentTemplateAsync(
             Name name = null,
@@ -245,14 +245,14 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.get_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         GetComponentTemplateResponse GetComponentTemplate(IGetComponentTemplateRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.get_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<GetComponentTemplateResponse> GetComponentTemplateAsync(
             IGetComponentTemplateRequest request,
@@ -262,7 +262,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.get_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-settings/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-settings/</a>
         /// </summary>
         ClusterGetSettingsResponse GetSettings(
             Func<ClusterGetSettingsDescriptor, IClusterGetSettingsRequest> selector = null
@@ -271,7 +271,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.get_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-settings/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-settings/</a>
         /// </summary>
         Task<ClusterGetSettingsResponse> GetSettingsAsync(
             Func<ClusterGetSettingsDescriptor, IClusterGetSettingsRequest> selector = null,
@@ -281,14 +281,14 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.get_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-settings/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-settings/</a>
         /// </summary>
         ClusterGetSettingsResponse GetSettings(IClusterGetSettingsRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.get_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-settings/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-settings/</a>
         /// </summary>
         Task<ClusterGetSettingsResponse> GetSettingsAsync(
             IClusterGetSettingsRequest request,
@@ -298,7 +298,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.health</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-health/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-health/</a>
         /// </summary>
         ClusterHealthResponse Health(
             Indices index = null,
@@ -308,7 +308,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.health</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-health/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-health/</a>
         /// </summary>
         Task<ClusterHealthResponse> HealthAsync(
             Indices index = null,
@@ -319,14 +319,14 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.health</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-health/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-health/</a>
         /// </summary>
         ClusterHealthResponse Health(IClusterHealthRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.health</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-health/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-health/</a>
         /// </summary>
         Task<ClusterHealthResponse> HealthAsync(
             IClusterHealthRequest request,
@@ -336,7 +336,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.pending_tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         ClusterPendingTasksResponse PendingTasks(
             Func<ClusterPendingTasksDescriptor, IClusterPendingTasksRequest> selector = null
@@ -345,7 +345,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.pending_tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<ClusterPendingTasksResponse> PendingTasksAsync(
             Func<ClusterPendingTasksDescriptor, IClusterPendingTasksRequest> selector = null,
@@ -355,14 +355,14 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.pending_tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         ClusterPendingTasksResponse PendingTasks(IClusterPendingTasksRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.pending_tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<ClusterPendingTasksResponse> PendingTasksAsync(
             IClusterPendingTasksRequest request,
@@ -372,7 +372,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.post_voting_config_exclusions</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         PostVotingConfigExclusionsResponse PostVotingConfigExclusions(
             Func<
@@ -384,7 +384,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.post_voting_config_exclusions</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<PostVotingConfigExclusionsResponse> PostVotingConfigExclusionsAsync(
             Func<
@@ -397,7 +397,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.post_voting_config_exclusions</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         PostVotingConfigExclusionsResponse PostVotingConfigExclusions(
             IPostVotingConfigExclusionsRequest request
@@ -406,7 +406,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.post_voting_config_exclusions</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<PostVotingConfigExclusionsResponse> PostVotingConfigExclusionsAsync(
             IPostVotingConfigExclusionsRequest request,
@@ -416,7 +416,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://docs.opensearch.org/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
         /// </summary>
         PutComponentTemplateResponse PutComponentTemplate(
             Name name,
@@ -426,7 +426,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://docs.opensearch.org/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
         /// </summary>
         Task<PutComponentTemplateResponse> PutComponentTemplateAsync(
             Name name,
@@ -437,14 +437,14 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://docs.opensearch.org/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
         /// </summary>
         PutComponentTemplateResponse PutComponentTemplate(IPutComponentTemplateRequest request);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://docs.opensearch.org/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
         /// </summary>
         Task<PutComponentTemplateResponse> PutComponentTemplateAsync(
             IPutComponentTemplateRequest request,
@@ -454,7 +454,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-settings/">https://docs.opensearch.org/latest/api-reference/cluster-settings/</a>
         /// </summary>
         ClusterPutSettingsResponse PutSettings(
             Func<ClusterPutSettingsDescriptor, IClusterPutSettingsRequest> selector
@@ -463,7 +463,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-settings/">https://docs.opensearch.org/latest/api-reference/cluster-settings/</a>
         /// </summary>
         Task<ClusterPutSettingsResponse> PutSettingsAsync(
             Func<ClusterPutSettingsDescriptor, IClusterPutSettingsRequest> selector,
@@ -473,14 +473,14 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-settings/">https://docs.opensearch.org/latest/api-reference/cluster-settings/</a>
         /// </summary>
         ClusterPutSettingsResponse PutSettings(IClusterPutSettingsRequest request);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-settings/">https://docs.opensearch.org/latest/api-reference/cluster-settings/</a>
         /// </summary>
         Task<ClusterPutSettingsResponse> PutSettingsAsync(
             IClusterPutSettingsRequest request,
@@ -490,7 +490,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.remote_info</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/remote-info/">https://opensearch.org/docs/latest/api-reference/remote-info/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/remote-info/">https://docs.opensearch.org/latest/api-reference/remote-info/</a>
         /// </summary>
         RemoteInfoResponse RemoteInfo(
             Func<RemoteInfoDescriptor, IRemoteInfoRequest> selector = null
@@ -499,7 +499,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.remote_info</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/remote-info/">https://opensearch.org/docs/latest/api-reference/remote-info/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/remote-info/">https://docs.opensearch.org/latest/api-reference/remote-info/</a>
         /// </summary>
         Task<RemoteInfoResponse> RemoteInfoAsync(
             Func<RemoteInfoDescriptor, IRemoteInfoRequest> selector = null,
@@ -509,14 +509,14 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.remote_info</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/remote-info/">https://opensearch.org/docs/latest/api-reference/remote-info/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/remote-info/">https://docs.opensearch.org/latest/api-reference/remote-info/</a>
         /// </summary>
         RemoteInfoResponse RemoteInfo(IRemoteInfoRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.remote_info</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/remote-info/">https://opensearch.org/docs/latest/api-reference/remote-info/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/remote-info/">https://docs.opensearch.org/latest/api-reference/remote-info/</a>
         /// </summary>
         Task<RemoteInfoResponse> RemoteInfoAsync(
             IRemoteInfoRequest request,
@@ -526,7 +526,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.reroute</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         ClusterRerouteResponse Reroute(
             Func<ClusterRerouteDescriptor, IClusterRerouteRequest> selector = null
@@ -535,7 +535,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.reroute</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<ClusterRerouteResponse> RerouteAsync(
             Func<ClusterRerouteDescriptor, IClusterRerouteRequest> selector = null,
@@ -545,14 +545,14 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.reroute</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         ClusterRerouteResponse Reroute(IClusterRerouteRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.reroute</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<ClusterRerouteResponse> RerouteAsync(
             IClusterRerouteRequest request,
@@ -562,7 +562,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.state</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         ClusterStateResponse State(
             Indices index = null,
@@ -572,7 +572,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.state</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<ClusterStateResponse> StateAsync(
             Indices index = null,
@@ -583,14 +583,14 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.state</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         ClusterStateResponse State(IClusterStateRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.state</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         Task<ClusterStateResponse> StateAsync(
             IClusterStateRequest request,
@@ -600,7 +600,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.stats</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/</a>
         /// </summary>
         ClusterStatsResponse Stats(
             Func<ClusterStatsDescriptor, IClusterStatsRequest> selector = null
@@ -609,7 +609,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.stats</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/</a>
         /// </summary>
         Task<ClusterStatsResponse> StatsAsync(
             Func<ClusterStatsDescriptor, IClusterStatsRequest> selector = null,
@@ -619,14 +619,14 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.stats</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/</a>
         /// </summary>
         ClusterStatsResponse Stats(IClusterStatsRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.stats</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/</a>
         /// </summary>
         Task<ClusterStatsResponse> StatsAsync(
             IClusterStatsRequest request,
@@ -648,7 +648,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.allocation_explain</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-allocation/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-allocation/</a>
         /// </summary>
         public ClusterAllocationExplainResponse AllocationExplain(
             Func<ClusterAllocationExplainDescriptor, IClusterAllocationExplainRequest> selector =
@@ -658,7 +658,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.allocation_explain</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-allocation/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-allocation/</a>
         /// </summary>
         public Task<ClusterAllocationExplainResponse> AllocationExplainAsync(
             Func<ClusterAllocationExplainDescriptor, IClusterAllocationExplainRequest> selector =
@@ -673,7 +673,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.allocation_explain</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-allocation/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-allocation/</a>
         /// </summary>
         public ClusterAllocationExplainResponse AllocationExplain(
             IClusterAllocationExplainRequest request
@@ -686,7 +686,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.allocation_explain</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-allocation/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-allocation/</a>
         /// </summary>
         public Task<ClusterAllocationExplainResponse> AllocationExplainAsync(
             IClusterAllocationExplainRequest request,
@@ -701,7 +701,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>cluster.delete_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public DeleteComponentTemplateResponse DeleteComponentTemplate(
             Name name,
@@ -714,7 +714,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>cluster.delete_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<DeleteComponentTemplateResponse> DeleteComponentTemplateAsync(
             Name name,
@@ -730,7 +730,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>cluster.delete_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public DeleteComponentTemplateResponse DeleteComponentTemplate(
             IDeleteComponentTemplateRequest request
@@ -743,7 +743,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>cluster.delete_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<DeleteComponentTemplateResponse> DeleteComponentTemplateAsync(
             IDeleteComponentTemplateRequest request,
@@ -758,7 +758,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>cluster.delete_voting_config_exclusions</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public DeleteVotingConfigExclusionsResponse DeleteVotingConfigExclusions(
             Func<
@@ -773,7 +773,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>cluster.delete_voting_config_exclusions</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<DeleteVotingConfigExclusionsResponse> DeleteVotingConfigExclusionsAsync(
             Func<
@@ -790,7 +790,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>cluster.delete_voting_config_exclusions</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public DeleteVotingConfigExclusionsResponse DeleteVotingConfigExclusions(
             IDeleteVotingConfigExclusionsRequest request
@@ -803,7 +803,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>DELETE</c> request to the <c>cluster.delete_voting_config_exclusions</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<DeleteVotingConfigExclusionsResponse> DeleteVotingConfigExclusionsAsync(
             IDeleteVotingConfigExclusionsRequest request,
@@ -817,7 +817,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>cluster.exists_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ExistsResponse ComponentTemplateExists(
             Name name,
@@ -830,7 +830,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>cluster.exists_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ExistsResponse> ComponentTemplateExistsAsync(
             Name name,
@@ -846,7 +846,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>cluster.exists_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ExistsResponse ComponentTemplateExists(IComponentTemplateExistsRequest request) =>
             DoRequest<IComponentTemplateExistsRequest, ExistsResponse>(
@@ -857,7 +857,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>HEAD</c> request to the <c>cluster.exists_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ExistsResponse> ComponentTemplateExistsAsync(
             IComponentTemplateExistsRequest request,
@@ -872,7 +872,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.get_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public GetComponentTemplateResponse GetComponentTemplate(
             Name name = null,
@@ -885,7 +885,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.get_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<GetComponentTemplateResponse> GetComponentTemplateAsync(
             Name name = null,
@@ -900,7 +900,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.get_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public GetComponentTemplateResponse GetComponentTemplate(
             IGetComponentTemplateRequest request
@@ -913,7 +913,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.get_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<GetComponentTemplateResponse> GetComponentTemplateAsync(
             IGetComponentTemplateRequest request,
@@ -928,7 +928,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.get_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-settings/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-settings/</a>
         /// </summary>
         public ClusterGetSettingsResponse GetSettings(
             Func<ClusterGetSettingsDescriptor, IClusterGetSettingsRequest> selector = null
@@ -937,7 +937,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.get_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-settings/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-settings/</a>
         /// </summary>
         public Task<ClusterGetSettingsResponse> GetSettingsAsync(
             Func<ClusterGetSettingsDescriptor, IClusterGetSettingsRequest> selector = null,
@@ -947,7 +947,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.get_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-settings/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-settings/</a>
         /// </summary>
         public ClusterGetSettingsResponse GetSettings(IClusterGetSettingsRequest request) =>
             DoRequest<IClusterGetSettingsRequest, ClusterGetSettingsResponse>(
@@ -958,7 +958,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.get_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-settings/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-settings/</a>
         /// </summary>
         public Task<ClusterGetSettingsResponse> GetSettingsAsync(
             IClusterGetSettingsRequest request,
@@ -973,7 +973,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.health</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-health/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-health/</a>
         /// </summary>
         public ClusterHealthResponse Health(
             Indices index = null,
@@ -983,7 +983,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.health</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-health/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-health/</a>
         /// </summary>
         public Task<ClusterHealthResponse> HealthAsync(
             Indices index = null,
@@ -998,7 +998,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.health</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-health/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-health/</a>
         /// </summary>
         public ClusterHealthResponse Health(IClusterHealthRequest request) =>
             DoRequest<IClusterHealthRequest, ClusterHealthResponse>(
@@ -1009,7 +1009,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.health</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-health/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-health/</a>
         /// </summary>
         public Task<ClusterHealthResponse> HealthAsync(
             IClusterHealthRequest request,
@@ -1024,7 +1024,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.pending_tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ClusterPendingTasksResponse PendingTasks(
             Func<ClusterPendingTasksDescriptor, IClusterPendingTasksRequest> selector = null
@@ -1033,7 +1033,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.pending_tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ClusterPendingTasksResponse> PendingTasksAsync(
             Func<ClusterPendingTasksDescriptor, IClusterPendingTasksRequest> selector = null,
@@ -1043,7 +1043,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.pending_tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ClusterPendingTasksResponse PendingTasks(IClusterPendingTasksRequest request) =>
             DoRequest<IClusterPendingTasksRequest, ClusterPendingTasksResponse>(
@@ -1054,7 +1054,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.pending_tasks</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ClusterPendingTasksResponse> PendingTasksAsync(
             IClusterPendingTasksRequest request,
@@ -1069,7 +1069,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.post_voting_config_exclusions</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public PostVotingConfigExclusionsResponse PostVotingConfigExclusions(
             Func<
@@ -1084,7 +1084,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.post_voting_config_exclusions</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<PostVotingConfigExclusionsResponse> PostVotingConfigExclusionsAsync(
             Func<
@@ -1101,7 +1101,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.post_voting_config_exclusions</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public PostVotingConfigExclusionsResponse PostVotingConfigExclusions(
             IPostVotingConfigExclusionsRequest request
@@ -1114,7 +1114,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.post_voting_config_exclusions</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<PostVotingConfigExclusionsResponse> PostVotingConfigExclusionsAsync(
             IPostVotingConfigExclusionsRequest request,
@@ -1129,7 +1129,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://docs.opensearch.org/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
         /// </summary>
         public PutComponentTemplateResponse PutComponentTemplate(
             Name name,
@@ -1142,7 +1142,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://docs.opensearch.org/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
         /// </summary>
         public Task<PutComponentTemplateResponse> PutComponentTemplateAsync(
             Name name,
@@ -1157,7 +1157,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://docs.opensearch.org/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
         /// </summary>
         public PutComponentTemplateResponse PutComponentTemplate(
             IPutComponentTemplateRequest request
@@ -1170,7 +1170,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_component_template</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
+        /// <a href="https://docs.opensearch.org/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template">https://docs.opensearch.org/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</a>
         /// </summary>
         public Task<PutComponentTemplateResponse> PutComponentTemplateAsync(
             IPutComponentTemplateRequest request,
@@ -1185,7 +1185,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-settings/">https://docs.opensearch.org/latest/api-reference/cluster-settings/</a>
         /// </summary>
         public ClusterPutSettingsResponse PutSettings(
             Func<ClusterPutSettingsDescriptor, IClusterPutSettingsRequest> selector
@@ -1194,7 +1194,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-settings/">https://docs.opensearch.org/latest/api-reference/cluster-settings/</a>
         /// </summary>
         public Task<ClusterPutSettingsResponse> PutSettingsAsync(
             Func<ClusterPutSettingsDescriptor, IClusterPutSettingsRequest> selector,
@@ -1204,7 +1204,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-settings/">https://docs.opensearch.org/latest/api-reference/cluster-settings/</a>
         /// </summary>
         public ClusterPutSettingsResponse PutSettings(IClusterPutSettingsRequest request) =>
             DoRequest<IClusterPutSettingsRequest, ClusterPutSettingsResponse>(
@@ -1215,7 +1215,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>PUT</c> request to the <c>cluster.put_settings</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-settings/">https://opensearch.org/docs/latest/api-reference/cluster-settings/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-settings/">https://docs.opensearch.org/latest/api-reference/cluster-settings/</a>
         /// </summary>
         public Task<ClusterPutSettingsResponse> PutSettingsAsync(
             IClusterPutSettingsRequest request,
@@ -1230,7 +1230,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.remote_info</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/remote-info/">https://opensearch.org/docs/latest/api-reference/remote-info/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/remote-info/">https://docs.opensearch.org/latest/api-reference/remote-info/</a>
         /// </summary>
         public RemoteInfoResponse RemoteInfo(
             Func<RemoteInfoDescriptor, IRemoteInfoRequest> selector = null
@@ -1239,7 +1239,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.remote_info</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/remote-info/">https://opensearch.org/docs/latest/api-reference/remote-info/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/remote-info/">https://docs.opensearch.org/latest/api-reference/remote-info/</a>
         /// </summary>
         public Task<RemoteInfoResponse> RemoteInfoAsync(
             Func<RemoteInfoDescriptor, IRemoteInfoRequest> selector = null,
@@ -1249,7 +1249,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.remote_info</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/remote-info/">https://opensearch.org/docs/latest/api-reference/remote-info/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/remote-info/">https://docs.opensearch.org/latest/api-reference/remote-info/</a>
         /// </summary>
         public RemoteInfoResponse RemoteInfo(IRemoteInfoRequest request) =>
             DoRequest<IRemoteInfoRequest, RemoteInfoResponse>(request, request.RequestParameters);
@@ -1257,7 +1257,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.remote_info</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/remote-info/">https://opensearch.org/docs/latest/api-reference/remote-info/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/remote-info/">https://docs.opensearch.org/latest/api-reference/remote-info/</a>
         /// </summary>
         public Task<RemoteInfoResponse> RemoteInfoAsync(
             IRemoteInfoRequest request,
@@ -1272,7 +1272,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.reroute</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ClusterRerouteResponse Reroute(
             Func<ClusterRerouteDescriptor, IClusterRerouteRequest> selector = null
@@ -1281,7 +1281,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.reroute</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ClusterRerouteResponse> RerouteAsync(
             Func<ClusterRerouteDescriptor, IClusterRerouteRequest> selector = null,
@@ -1291,7 +1291,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.reroute</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ClusterRerouteResponse Reroute(IClusterRerouteRequest request) =>
             DoRequest<IClusterRerouteRequest, ClusterRerouteResponse>(
@@ -1302,7 +1302,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>POST</c> request to the <c>cluster.reroute</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ClusterRerouteResponse> RerouteAsync(
             IClusterRerouteRequest request,
@@ -1317,7 +1317,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.state</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ClusterStateResponse State(
             Indices index = null,
@@ -1327,7 +1327,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.state</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ClusterStateResponse> StateAsync(
             Indices index = null,
@@ -1342,7 +1342,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.state</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public ClusterStateResponse State(IClusterStateRequest request) =>
             DoRequest<IClusterStateRequest, ClusterStateResponse>(
@@ -1353,7 +1353,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.state</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest">https://opensearch.org/docs/latest</a>
+        /// <a href="https://docs.opensearch.org/latest/">https://docs.opensearch.org/latest/</a>
         /// </summary>
         public Task<ClusterStateResponse> StateAsync(
             IClusterStateRequest request,
@@ -1368,7 +1368,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.stats</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/</a>
         /// </summary>
         public ClusterStatsResponse Stats(
             Func<ClusterStatsDescriptor, IClusterStatsRequest> selector = null
@@ -1377,7 +1377,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.stats</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/</a>
         /// </summary>
         public Task<ClusterStatsResponse> StatsAsync(
             Func<ClusterStatsDescriptor, IClusterStatsRequest> selector = null,
@@ -1387,7 +1387,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.stats</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/</a>
         /// </summary>
         public ClusterStatsResponse Stats(IClusterStatsRequest request) =>
             DoRequest<IClusterStatsRequest, ClusterStatsResponse>(
@@ -1398,7 +1398,7 @@ namespace OpenSearch.Client.Specification.ClusterApi
         /// <summary>
         /// <c>GET</c> request to the <c>cluster.stats</c> API, read more about this API online:
         /// <para></para>
-        /// <a href="https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/">https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</a>
+        /// <a href="https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/">https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/</a>
         /// </summary>
         public Task<ClusterStatsResponse> StatsAsync(
             IClusterStatsRequest request,

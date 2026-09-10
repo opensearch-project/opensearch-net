@@ -106,7 +106,7 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
     }
 
-    /// <summary>Descriptor for Put <para>https://opensearch.org/docs/latest/search-plugins/search-pipelines/creating-search-pipeline/</para></summary>
+    /// <summary>Descriptor for Put <para>https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/</para></summary>
     public partial class PutSearchPipelineDescriptor
         : RequestDescriptorBase<
             PutSearchPipelineDescriptor,

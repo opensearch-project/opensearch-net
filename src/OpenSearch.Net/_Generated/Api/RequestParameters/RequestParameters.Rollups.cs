@@ -52,7 +52,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.RollupsApi
 {
-    /// <summary>Request options for Delete <para>https://opensearch.org/docs/latest/im-plugin/index-rollups/rollup-api/#delete-an-index-rollup-job</para></summary>
+    /// <summary>Request options for Delete <para>https://docs.opensearch.org/latest/im-plugin/index-rollups/rollup-api/#delete-an-index-rollup-job</para></summary>
     public partial class DeleteRequestParameters : RequestParameters<DeleteRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
@@ -60,7 +60,7 @@ namespace OpenSearch.Net.Specification.RollupsApi
         public override string OperationName => "rollups.delete";
     }
 
-    /// <summary>Request options for Explain <para>https://opensearch.org/docs/latest/im-plugin/index-rollups/rollup-api/#explain-an-index-rollup-job</para></summary>
+    /// <summary>Request options for Explain <para>https://docs.opensearch.org/latest/im-plugin/index-rollups/rollup-api/#explain-an-index-rollup-job</para></summary>
     public partial class ExplainRequestParameters : RequestParameters<ExplainRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -68,7 +68,7 @@ namespace OpenSearch.Net.Specification.RollupsApi
         public override string OperationName => "rollups.explain";
     }
 
-    /// <summary>Request options for Get <para>https://opensearch.org/docs/latest/im-plugin/index-rollups/rollup-api/#get-an-index-rollup-job</para></summary>
+    /// <summary>Request options for Get <para>https://docs.opensearch.org/latest/im-plugin/index-rollups/rollup-api/#get-an-index-rollup-job</para></summary>
     public partial class GetRequestParameters : RequestParameters<GetRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -76,7 +76,7 @@ namespace OpenSearch.Net.Specification.RollupsApi
         public override string OperationName => "rollups.get";
     }
 
-    /// <summary>Request options for Put <para>https://opensearch.org/docs/latest/im-plugin/index-rollups/rollup-api/#create-or-update-an-index-rollup-job</para></summary>
+    /// <summary>Request options for Put <para>https://docs.opensearch.org/latest/im-plugin/index-rollups/rollup-api/#create-or-update-an-index-rollup-job</para></summary>
     public partial class PutRequestParameters : RequestParameters<PutRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
@@ -98,7 +98,7 @@ namespace OpenSearch.Net.Specification.RollupsApi
         }
     }
 
-    /// <summary>Request options for Start <para>https://opensearch.org/docs/latest/im-plugin/index-rollups/rollup-api/#start-or-stop-an-index-rollup-job</para></summary>
+    /// <summary>Request options for Start <para>https://docs.opensearch.org/latest/im-plugin/index-rollups/rollup-api/#start-or-stop-an-index-rollup-job</para></summary>
     public partial class StartRequestParameters : RequestParameters<StartRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -106,7 +106,7 @@ namespace OpenSearch.Net.Specification.RollupsApi
         public override string OperationName => "rollups.start";
     }
 
-    /// <summary>Request options for Stop <para>https://opensearch.org/docs/latest/im-plugin/index-rollups/rollup-api/#start-or-stop-an-index-rollup-job</para></summary>
+    /// <summary>Request options for Stop <para>https://docs.opensearch.org/latest/im-plugin/index-rollups/rollup-api/#start-or-stop-an-index-rollup-job</para></summary>
     public partial class StopRequestParameters : RequestParameters<StopRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;

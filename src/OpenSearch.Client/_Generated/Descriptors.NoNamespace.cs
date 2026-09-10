@@ -56,7 +56,7 @@ using OpenSearch.Net.Utf8Json;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-    /// <summary>Descriptor for Bulk <para>https://opensearch.org/docs/latest/api-reference/document-apis/bulk/</para></summary>
+    /// <summary>Descriptor for Bulk <para>https://docs.opensearch.org/latest/api-reference/document-apis/bulk/</para></summary>
     public partial class BulkDescriptor
         : RequestDescriptorBase<BulkDescriptor, BulkRequestParameters, IBulkRequest>,
             IBulkRequest
@@ -135,7 +135,7 @@ namespace OpenSearch.Client
             Qs("wait_for_active_shards", waitforactiveshards);
     }
 
-    /// <summary>Descriptor for BulkStream <para>https://opensearch.org/docs/latest/api-reference/document-apis/bulk-streaming/</para></summary>
+    /// <summary>Descriptor for BulkStream <para>https://docs.opensearch.org/latest/api-reference/document-apis/bulk-streaming/</para></summary>
     public partial class BulkStreamDescriptor
         : RequestDescriptorBase<
             BulkStreamDescriptor,
@@ -225,7 +225,7 @@ namespace OpenSearch.Client
             Qs("wait_for_active_shards", waitforactiveshards);
     }
 
-    /// <summary>Descriptor for ClearScroll <para>https://opensearch.org/docs/latest/api-reference/scroll/</para></summary>
+    /// <summary>Descriptor for ClearScroll <para>https://docs.opensearch.org/latest/api-reference/scroll/</para></summary>
     public partial class ClearScrollDescriptor
         : RequestDescriptorBase<
             ClearScrollDescriptor,
@@ -239,7 +239,7 @@ namespace OpenSearch.Client
         // Request parameters
     }
 
-    /// <summary>Descriptor for Count <para>https://opensearch.org/docs/latest/api-reference/count/</para></summary>
+    /// <summary>Descriptor for Count <para>https://docs.opensearch.org/latest/api-reference/count/</para></summary>
     public partial class CountDescriptor<TDocument>
         : RequestDescriptorBase<
             CountDescriptor<TDocument>,
@@ -333,7 +333,7 @@ namespace OpenSearch.Client
             Qs("terminate_after", terminateafter);
     }
 
-    /// <summary>Descriptor for Create <para>https://opensearch.org/docs/latest/api-reference/document-apis/index-document/</para></summary>
+    /// <summary>Descriptor for Create <para>https://docs.opensearch.org/latest/api-reference/document-apis/index-document/</para></summary>
     public partial class CreateDescriptor<TDocument>
         : RequestDescriptorBase<
             CreateDescriptor<TDocument>,
@@ -412,7 +412,7 @@ namespace OpenSearch.Client
             Qs("wait_for_active_shards", waitforactiveshards);
     }
 
-    /// <summary>Descriptor for CreatePit <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#create-a-pit</para></summary>
+    /// <summary>Descriptor for CreatePit <para>https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#create-a-pit</para></summary>
     public partial class CreatePitDescriptor
         : RequestDescriptorBase<CreatePitDescriptor, CreatePitRequestParameters, ICreatePitRequest>,
             ICreatePitRequest
@@ -445,6 +445,10 @@ namespace OpenSearch.Client
         public CreatePitDescriptor AllIndices() => Index(Indices.All);
 
         // Request parameters
+        /// <summary>If <c>false</c>, the request returns an error if any wildcard expression, index alias, or <c>_all</c> value targets only missing or closed indexes. This behavior applies even if the request targets other open indexes.</summary>
+        public CreatePitDescriptor AllowNoIndices(bool? allownoindices = true) =>
+            Qs("allow_no_indices", allownoindices);
+
         /// <summary>Allow if point in time can be created with partial failures.</summary>
         public CreatePitDescriptor AllowPartialPitCreation(bool? allowpartialpitcreation = true) =>
             Qs("allow_partial_pit_creation", allowpartialpitcreation);
@@ -452,6 +456,14 @@ namespace OpenSearch.Client
         /// <summary>Whether to expand wildcard expression to concrete indexes that are open, closed or both.</summary>
         public CreatePitDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
+
+        /// <summary>If <c>true</c>, concrete, expanded or aliased indexes will be ignored when frozen.</summary>
+        public CreatePitDescriptor IgnoreThrottled(bool? ignorethrottled = true) =>
+            Qs("ignore_throttled", ignorethrottled);
+
+        /// <summary>If <c>false</c>, the request returns an error if it targets a missing or closed index.</summary>
+        public CreatePitDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
+            Qs("ignore_unavailable", ignoreunavailable);
 
         /// <summary>Specify the keep alive for point in time.</summary>
         public CreatePitDescriptor KeepAlive(Time keepalive) => Qs("keep_alive", keepalive);
@@ -469,7 +481,7 @@ namespace OpenSearch.Client
         public CreatePitDescriptor Routing(Routing routing) => Qs("routing", routing);
     }
 
-    /// <summary>Descriptor for Delete <para>https://opensearch.org/docs/latest/api-reference/document-apis/delete-document/</para></summary>
+    /// <summary>Descriptor for Delete <para>https://docs.opensearch.org/latest/api-reference/document-apis/delete-document/</para></summary>
     public partial class DeleteDescriptor<TDocument>
         : RequestDescriptorBase<
             DeleteDescriptor<TDocument>,
@@ -553,7 +565,7 @@ namespace OpenSearch.Client
             Qs("wait_for_active_shards", waitforactiveshards);
     }
 
-    /// <summary>Descriptor for DeleteAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
+    /// <summary>Descriptor for DeleteAllPits <para>https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits</para></summary>
     public partial class DeleteAllPitsDescriptor
         : RequestDescriptorBase<
             DeleteAllPitsDescriptor,
@@ -567,7 +579,7 @@ namespace OpenSearch.Client
         // Request parameters
     }
 
-    /// <summary>Descriptor for DeleteByQuery <para>https://opensearch.org/docs/latest/api-reference/document-apis/delete-by-query/</para></summary>
+    /// <summary>Descriptor for DeleteByQuery <para>https://docs.opensearch.org/latest/api-reference/document-apis/delete-by-query/</para></summary>
     public partial class DeleteByQueryDescriptor<TDocument>
         : RequestDescriptorBase<
             DeleteByQueryDescriptor<TDocument>,
@@ -742,7 +754,7 @@ namespace OpenSearch.Client
         ) => Qs("wait_for_completion", waitforcompletion);
     }
 
-    /// <summary>Descriptor for DeleteByQueryRethrottle <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for DeleteByQueryRethrottle <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class DeleteByQueryRethrottleDescriptor
         : RequestDescriptorBase<
             DeleteByQueryRethrottleDescriptor,
@@ -772,7 +784,7 @@ namespace OpenSearch.Client
             Qs("requests_per_second", requestspersecond);
     }
 
-    /// <summary>Descriptor for DeletePit <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#delete-pits</para></summary>
+    /// <summary>Descriptor for DeletePit <para>https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits</para></summary>
     public partial class DeletePitDescriptor
         : RequestDescriptorBase<DeletePitDescriptor, DeletePitRequestParameters, IDeletePitRequest>,
             IDeletePitRequest
@@ -782,7 +794,7 @@ namespace OpenSearch.Client
         // Request parameters
     }
 
-    /// <summary>Descriptor for DeleteScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/delete-script/</para></summary>
+    /// <summary>Descriptor for DeleteScript <para>https://docs.opensearch.org/latest/api-reference/script-apis/delete-script/</para></summary>
     public partial class DeleteScriptDescriptor
         : RequestDescriptorBase<
             DeleteScriptDescriptor,
@@ -823,7 +835,7 @@ namespace OpenSearch.Client
         public DeleteScriptDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    /// <summary>Descriptor for DocumentExists <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    /// <summary>Descriptor for DocumentExists <para>https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</para></summary>
     public partial class DocumentExistsDescriptor<TDocument>
         : RequestDescriptorBase<
             DocumentExistsDescriptor<TDocument>,
@@ -937,7 +949,7 @@ namespace OpenSearch.Client
             Qs("version_type", versiontype);
     }
 
-    /// <summary>Descriptor for SourceExists <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    /// <summary>Descriptor for SourceExists <para>https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</para></summary>
     public partial class SourceExistsDescriptor<TDocument>
         : RequestDescriptorBase<
             SourceExistsDescriptor<TDocument>,
@@ -1041,7 +1053,7 @@ namespace OpenSearch.Client
             Qs("version_type", versiontype);
     }
 
-    /// <summary>Descriptor for Explain <para>https://opensearch.org/docs/latest/api-reference/explain/</para></summary>
+    /// <summary>Descriptor for Explain <para>https://docs.opensearch.org/latest/api-reference/explain/</para></summary>
     public partial class ExplainDescriptor<TDocument>
         : RequestDescriptorBase<
             ExplainDescriptor<TDocument>,
@@ -1147,7 +1159,7 @@ namespace OpenSearch.Client
         ) => Qs("_source_includes", fields?.Select(e => (Field)e));
     }
 
-    /// <summary>Descriptor for FieldCapabilities <para>https://opensearch.org/docs/latest/field-types/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations</para></summary>
+    /// <summary>Descriptor for FieldCapabilities <para>https://docs.opensearch.org/latest/mappings/supported-field-types/alias/#using-aliases-in-field-capabilities-api-operations</para></summary>
     public partial class FieldCapabilitiesDescriptor
         : RequestDescriptorBase<
             FieldCapabilitiesDescriptor,
@@ -1207,7 +1219,7 @@ namespace OpenSearch.Client
             Qs("include_unmapped", includeunmapped);
     }
 
-    /// <summary>Descriptor for Get <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    /// <summary>Descriptor for Get <para>https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</para></summary>
     public partial class GetDescriptor<TDocument>
         : RequestDescriptorBase<
             GetDescriptor<TDocument>,
@@ -1314,7 +1326,7 @@ namespace OpenSearch.Client
             Qs("version_type", versiontype);
     }
 
-    /// <summary>Descriptor for GetAllPits <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/#list-all-pits</para></summary>
+    /// <summary>Descriptor for GetAllPits <para>https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#list-all-pits</para></summary>
     public partial class GetAllPitsDescriptor
         : RequestDescriptorBase<
             GetAllPitsDescriptor,
@@ -1328,7 +1340,7 @@ namespace OpenSearch.Client
         // Request parameters
     }
 
-    /// <summary>Descriptor for GetScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/get-stored-script/</para></summary>
+    /// <summary>Descriptor for GetScript <para>https://docs.opensearch.org/latest/api-reference/script-apis/get-stored-script/</para></summary>
     public partial class GetScriptDescriptor
         : RequestDescriptorBase<GetScriptDescriptor, GetScriptRequestParameters, IGetScriptRequest>,
             IGetScriptRequest
@@ -1362,7 +1374,7 @@ namespace OpenSearch.Client
             Qs("master_timeout", mastertimeout);
     }
 
-    /// <summary>Descriptor for Source <para>https://opensearch.org/docs/latest/api-reference/document-apis/get-documents/</para></summary>
+    /// <summary>Descriptor for Source <para>https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</para></summary>
     public partial class SourceDescriptor<TDocument>
         : RequestDescriptorBase<
             SourceDescriptor<TDocument>,
@@ -1461,7 +1473,7 @@ namespace OpenSearch.Client
             Qs("version_type", versiontype);
     }
 
-    /// <summary>Descriptor for Index <para>https://opensearch.org/docs/latest/api-reference/document-apis/index-document/</para></summary>
+    /// <summary>Descriptor for Index <para>https://docs.opensearch.org/latest/api-reference/document-apis/index-document/</para></summary>
     public partial class IndexDescriptor<TDocument>
         : RequestDescriptorBase<
             IndexDescriptor<TDocument>,
@@ -1563,7 +1575,7 @@ namespace OpenSearch.Client
             Qs("wait_for_active_shards", waitforactiveshards);
     }
 
-    /// <summary>Descriptor for RootNodeInfo <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for RootNodeInfo <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class RootNodeInfoDescriptor
         : RequestDescriptorBase<
             RootNodeInfoDescriptor,
@@ -1577,7 +1589,7 @@ namespace OpenSearch.Client
         // Request parameters
     }
 
-    /// <summary>Descriptor for MultiGet <para>https://opensearch.org/docs/latest/api-reference/document-apis/multi-get/</para></summary>
+    /// <summary>Descriptor for MultiGet <para>https://docs.opensearch.org/latest/api-reference/document-apis/multi-get/</para></summary>
     public partial class MultiGetDescriptor
         : RequestDescriptorBase<MultiGetDescriptor, MultiGetRequestParameters, IMultiGetRequest>,
             IMultiGetRequest
@@ -1645,7 +1657,7 @@ namespace OpenSearch.Client
             where T : class => Qs("_source_includes", fields?.Select(e => (Field)e));
     }
 
-    /// <summary>Descriptor for MultiSearch <para>https://opensearch.org/docs/latest/api-reference/multi-search/</para></summary>
+    /// <summary>Descriptor for MultiSearch <para>https://docs.opensearch.org/latest/api-reference/multi-search/</para></summary>
     public partial class MultiSearchDescriptor
         : RequestDescriptorBase<
             MultiSearchDescriptor,
@@ -1714,7 +1726,7 @@ namespace OpenSearch.Client
             Qs("typed_keys", typedkeys);
     }
 
-    /// <summary>Descriptor for MultiSearchTemplate <para>https://opensearch.org/docs/latest/search-plugins/search-template/</para></summary>
+    /// <summary>Descriptor for MultiSearchTemplate <para>https://docs.opensearch.org/latest/search-plugins/search-template/</para></summary>
     public partial class MultiSearchTemplateDescriptor
         : RequestDescriptorBase<
             MultiSearchTemplateDescriptor,
@@ -1772,7 +1784,7 @@ namespace OpenSearch.Client
             Qs("typed_keys", typedkeys);
     }
 
-    /// <summary>Descriptor for MultiTermVectors <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for MultiTermVectors <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class MultiTermVectorsDescriptor
         : RequestDescriptorBase<
             MultiTermVectorsDescriptor,
@@ -1856,7 +1868,7 @@ namespace OpenSearch.Client
             Qs("version_type", versiontype);
     }
 
-    /// <summary>Descriptor for Ping <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for Ping <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class PingDescriptor
         : RequestDescriptorBase<PingDescriptor, PingRequestParameters, IPingRequest>,
             IPingRequest
@@ -1866,7 +1878,7 @@ namespace OpenSearch.Client
         // Request parameters
     }
 
-    /// <summary>Descriptor for PutScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/create-stored-script/</para></summary>
+    /// <summary>Descriptor for PutScript <para>https://docs.opensearch.org/latest/api-reference/script-apis/create-stored-script/</para></summary>
     public partial class PutScriptDescriptor
         : RequestDescriptorBase<PutScriptDescriptor, PutScriptRequestParameters, IPutScriptRequest>,
             IPutScriptRequest
@@ -1914,7 +1926,7 @@ namespace OpenSearch.Client
         public PutScriptDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    /// <summary>Descriptor for ReindexOnServer <para>https://opensearch.org/docs/latest/im-plugin/reindex-data/</para></summary>
+    /// <summary>Descriptor for ReindexOnServer <para>https://docs.opensearch.org/latest/im-plugin/reindex-data/</para></summary>
     public partial class ReindexOnServerDescriptor
         : RequestDescriptorBase<
             ReindexOnServerDescriptor,
@@ -1953,7 +1965,7 @@ namespace OpenSearch.Client
             Qs("wait_for_completion", waitforcompletion);
     }
 
-    /// <summary>Descriptor for ReindexRethrottle <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for ReindexRethrottle <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ReindexRethrottleDescriptor
         : RequestDescriptorBase<
             ReindexRethrottleDescriptor,
@@ -1983,7 +1995,7 @@ namespace OpenSearch.Client
             Qs("requests_per_second", requestspersecond);
     }
 
-    /// <summary>Descriptor for RenderSearchTemplate <para>https://opensearch.org/docs/latest/search-plugins/search-template/</para></summary>
+    /// <summary>Descriptor for RenderSearchTemplate <para>https://docs.opensearch.org/latest/search-plugins/search-template/</para></summary>
     public partial class RenderSearchTemplateDescriptor
         : RequestDescriptorBase<
             RenderSearchTemplateDescriptor,
@@ -2012,7 +2024,7 @@ namespace OpenSearch.Client
         // Request parameters
     }
 
-    /// <summary>Descriptor for ExecutePainlessScript <para>https://opensearch.org/docs/latest/api-reference/script-apis/exec-script/</para></summary>
+    /// <summary>Descriptor for ExecutePainlessScript <para>https://docs.opensearch.org/latest/api-reference/script-apis/exec-script/</para></summary>
     public partial class ExecutePainlessScriptDescriptor
         : RequestDescriptorBase<
             ExecutePainlessScriptDescriptor,
@@ -2026,7 +2038,7 @@ namespace OpenSearch.Client
         // Request parameters
     }
 
-    /// <summary>Descriptor for Scroll <para>https://opensearch.org/docs/latest/api-reference/scroll/#path-and-http-methods</para></summary>
+    /// <summary>Descriptor for Scroll <para>https://docs.opensearch.org/latest/api-reference/search-apis/scroll/#endpoints</para></summary>
     public partial class ScrollDescriptor<TInferDocument>
         : RequestDescriptorBase<
             ScrollDescriptor<TInferDocument>,
@@ -2045,7 +2057,7 @@ namespace OpenSearch.Client
         ) => Qs("rest_total_hits_as_int", totalhitsasinteger);
     }
 
-    /// <summary>Descriptor for Search <para>https://opensearch.org/docs/latest/api-reference/search/</para></summary>
+    /// <summary>Descriptor for Search <para>https://docs.opensearch.org/latest/api-reference/search/</para></summary>
     public partial class SearchDescriptor<TInferDocument>
         : RequestDescriptorBase<
             SearchDescriptor<TInferDocument>,
@@ -2229,7 +2241,7 @@ namespace OpenSearch.Client
             Qs("verbose_pipeline", verbosepipeline);
     }
 
-    /// <summary>Descriptor for SearchShards <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for SearchShards <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class SearchShardsDescriptor<TDocument>
         : RequestDescriptorBase<
             SearchShardsDescriptor<TDocument>,
@@ -2296,7 +2308,7 @@ namespace OpenSearch.Client
         public SearchShardsDescriptor<TDocument> Routing(Routing routing) => Qs("routing", routing);
     }
 
-    /// <summary>Descriptor for SearchTemplate <para>https://opensearch.org/docs/latest/search-plugins/search-template/</para></summary>
+    /// <summary>Descriptor for SearchTemplate <para>https://docs.opensearch.org/latest/search-plugins/search-template/</para></summary>
     public partial class SearchTemplateDescriptor<TDocument>
         : RequestDescriptorBase<
             SearchTemplateDescriptor<TDocument>,
@@ -2402,7 +2414,7 @@ namespace OpenSearch.Client
             Qs("typed_keys", typedkeys);
     }
 
-    /// <summary>Descriptor for TermVectors <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for TermVectors <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class TermVectorsDescriptor<TDocument>
         : RequestDescriptorBase<
             TermVectorsDescriptor<TDocument>,
@@ -2512,7 +2524,7 @@ namespace OpenSearch.Client
             Qs("version_type", versiontype);
     }
 
-    /// <summary>Descriptor for Update <para>https://opensearch.org/docs/latest/api-reference/document-apis/update-document/</para></summary>
+    /// <summary>Descriptor for Update <para>https://docs.opensearch.org/latest/api-reference/document-apis/update-document/</para></summary>
     public partial class UpdateDescriptor<TDocument, TPartialDocument>
         : RequestDescriptorBase<
             UpdateDescriptor<TDocument, TPartialDocument>,
@@ -2613,7 +2625,7 @@ namespace OpenSearch.Client
         ) => Qs("wait_for_active_shards", waitforactiveshards);
     }
 
-    /// <summary>Descriptor for UpdateByQuery <para>https://opensearch.org/docs/latest/api-reference/document-apis/update-by-query/</para></summary>
+    /// <summary>Descriptor for UpdateByQuery <para>https://docs.opensearch.org/latest/api-reference/document-apis/update-by-query/</para></summary>
     public partial class UpdateByQueryDescriptor<TDocument>
         : RequestDescriptorBase<
             UpdateByQueryDescriptor<TDocument>,
@@ -2792,7 +2804,7 @@ namespace OpenSearch.Client
         ) => Qs("wait_for_completion", waitforcompletion);
     }
 
-    /// <summary>Descriptor for UpdateByQueryRethrottle <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for UpdateByQueryRethrottle <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class UpdateByQueryRethrottleDescriptor
         : RequestDescriptorBase<
             UpdateByQueryRethrottleDescriptor,

@@ -52,9 +52,6 @@ namespace OpenSearch.Client
         [DataMember(Name = "_version")]
         long? Version { get; set; }
 
-        [DataMember(Name = "model_id")]
-        Name ModelId { get; set; }
-
         [DataMember(Name = "sort")]
         IList<float?> Sort { get; set; }
     }
@@ -68,7 +65,6 @@ namespace OpenSearch.Client
         public long? SeqNo { get; set; }
         public ISource Source { get; set; }
         public long? Version { get; set; }
-        public Name ModelId { get; set; }
         public IList<float?> Sort { get; set; }
     }
 
@@ -83,7 +79,6 @@ namespace OpenSearch.Client
         long? ISearchHitsHit.SeqNo { get; set; }
         ISource ISearchHitsHit.Source { get; set; }
         long? ISearchHitsHit.Version { get; set; }
-        Name ISearchHitsHit.ModelId { get; set; }
         IList<float?> ISearchHitsHit.Sort { get; set; }
 
         public SearchHitsHitDescriptor Id(Id id) => Assign(id, (a, v) => a.Id = v);
@@ -103,9 +98,6 @@ namespace OpenSearch.Client
 
         public SearchHitsHitDescriptor Version(long? version) =>
             Assign(version, (a, v) => a.Version = v);
-
-        public SearchHitsHitDescriptor ModelId(Name modelId) =>
-            Assign(modelId, (a, v) => a.ModelId = v);
 
         public SearchHitsHitDescriptor Sort(IList<float?> sort) =>
             Assign(sort, (a, v) => a.Sort = v);

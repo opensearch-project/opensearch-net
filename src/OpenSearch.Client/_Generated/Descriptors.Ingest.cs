@@ -40,7 +40,7 @@ using SimulatePipelineRequestParameters = OpenSearch.Net.Specification.IngestApi
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-    /// <summary>Descriptor for DeletePipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</para></summary>
+    /// <summary>Descriptor for DeletePipeline <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/delete-ingest/</para></summary>
     public partial class DeletePipelineDescriptor
         : RequestDescriptorBase<
             DeletePipelineDescriptor,
@@ -81,7 +81,7 @@ namespace OpenSearch.Client
         public DeletePipelineDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    /// <summary>Descriptor for GetPipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</para></summary>
+    /// <summary>Descriptor for GetPipeline <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/</para></summary>
     public partial class GetPipelineDescriptor
         : RequestDescriptorBase<
             GetPipelineDescriptor,
@@ -122,7 +122,7 @@ namespace OpenSearch.Client
             Qs("master_timeout", mastertimeout);
     }
 
-    /// <summary>Descriptor for GrokProcessorPatterns <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Descriptor for GrokProcessorPatterns <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class GrokProcessorPatternsDescriptor
         : RequestDescriptorBase<
             GrokProcessorPatternsDescriptor,
@@ -181,7 +181,7 @@ namespace OpenSearch.Client
         public PutPipelineDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    /// <summary>Descriptor for SimulatePipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</para></summary>
+    /// <summary>Descriptor for SimulatePipeline <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/</para></summary>
     public partial class SimulatePipelineDescriptor
         : RequestDescriptorBase<
             SimulatePipelineDescriptor,

@@ -66,7 +66,7 @@ namespace OpenSearch.Client
         Name RepositoryName { get; }
     }
 
-    /// <summary>Request for CleanupRepository <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for CleanupRepository <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class CleanupRepositoryRequest
         : PlainRequestBase<CleanupRepositoryRequestParameters>,
             ICleanupRepositoryRequest
@@ -91,7 +91,7 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -131,7 +131,7 @@ namespace OpenSearch.Client
         Name TargetSnapshot { get; }
     }
 
-    /// <summary>Request for Clone <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for Clone <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class CloneSnapshotRequest
         : PlainRequestBase<CloneSnapshotRequestParameters>,
             ICloneSnapshotRequest
@@ -168,7 +168,7 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -198,7 +198,7 @@ namespace OpenSearch.Client
         Name Snapshot { get; }
     }
 
-    /// <summary>Request for Snapshot <para>https://opensearch.org/docs/latest/api-reference/snapshots/create-snapshot/</para></summary>
+    /// <summary>Request for Snapshot <para>https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/</para></summary>
     public partial class SnapshotRequest
         : PlainRequestBase<SnapshotRequestParameters>,
             ISnapshotRequest
@@ -227,7 +227,7 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -267,7 +267,7 @@ namespace OpenSearch.Client
         Name RepositoryName { get; }
     }
 
-    /// <summary>Request for CreateRepository <para>https://opensearch.org/docs/latest/api-reference/snapshots/create-repository/</para></summary>
+    /// <summary>Request for CreateRepository <para>https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/</para></summary>
     public partial class CreateRepositoryRequest
         : PlainRequestBase<CreateRepositoryRequestParameters>,
             ICreateRepositoryRequest
@@ -292,7 +292,7 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -336,7 +336,7 @@ namespace OpenSearch.Client
         Name Snapshot { get; }
     }
 
-    /// <summary>Request for Delete <para>https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot/</para></summary>
+    /// <summary>Request for Delete <para>https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot/</para></summary>
     public partial class DeleteSnapshotRequest
         : PlainRequestBase<DeleteSnapshotRequestParameters>,
             IDeleteSnapshotRequest
@@ -365,7 +365,7 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -392,7 +392,7 @@ namespace OpenSearch.Client
         Names RepositoryName { get; }
     }
 
-    /// <summary>Request for DeleteRepository <para>https://opensearch.org/docs/latest/api-reference/snapshots/delete-snapshot-repository/</para></summary>
+    /// <summary>Request for DeleteRepository <para>https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot-repository/</para></summary>
     public partial class DeleteRepositoryRequest
         : PlainRequestBase<DeleteRepositoryRequestParameters>,
             IDeleteRepositoryRequest
@@ -417,7 +417,7 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -454,7 +454,7 @@ namespace OpenSearch.Client
         Names Snapshot { get; }
     }
 
-    /// <summary>Request for Get <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for Get <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class GetSnapshotRequest
         : PlainRequestBase<GetSnapshotRequestParameters>,
             IGetSnapshotRequest
@@ -483,7 +483,7 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -532,7 +532,7 @@ namespace OpenSearch.Client
         Names RepositoryName { get; }
     }
 
-    /// <summary>Request for GetRepository <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-repository/</para></summary>
+    /// <summary>Request for GetRepository <para>https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/</para></summary>
     public partial class GetRepositoryRequest
         : PlainRequestBase<GetRepositoryRequestParameters>,
             IGetRepositoryRequest
@@ -556,7 +556,7 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -593,7 +593,7 @@ namespace OpenSearch.Client
         Name Snapshot { get; }
     }
 
-    /// <summary>Request for Restore <para>https://opensearch.org/docs/latest/api-reference/snapshots/restore-snapshot/</para></summary>
+    /// <summary>Request for Restore <para>https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/</para></summary>
     public partial class RestoreRequest
         : PlainRequestBase<RestoreRequestParameters>,
             IRestoreRequest
@@ -622,7 +622,7 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -662,7 +662,7 @@ namespace OpenSearch.Client
         Names Snapshot { get; }
     }
 
-    /// <summary>Request for Status <para>https://opensearch.org/docs/latest/api-reference/snapshots/get-snapshot-status/</para></summary>
+    /// <summary>Request for Status <para>https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/</para></summary>
     public partial class SnapshotStatusRequest
         : PlainRequestBase<SnapshotStatusRequestParameters>,
             ISnapshotStatusRequest
@@ -695,7 +695,7 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout
@@ -729,7 +729,7 @@ namespace OpenSearch.Client
         Name RepositoryName { get; }
     }
 
-    /// <summary>Request for VerifyRepository <para>https://opensearch.org/docs/latest/api-reference/snapshots/verify-snapshot-repository/</para></summary>
+    /// <summary>Request for VerifyRepository <para>https://docs.opensearch.org/latest/api-reference/snapshots/verify-snapshot-repository/</para></summary>
     public partial class VerifyRepositoryRequest
         : PlainRequestBase<VerifyRepositoryRequestParameters>,
             IVerifyRepositoryRequest
@@ -754,7 +754,7 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public Time ClusterManagerTimeout

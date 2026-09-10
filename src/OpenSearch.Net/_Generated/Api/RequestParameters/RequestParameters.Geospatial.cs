@@ -52,7 +52,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.GeospatialApi
 {
-    /// <summary>Request options for DeleteIp2geoDatasource <para>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#deleting-the-ip2geo-data-source</para></summary>
+    /// <summary>Request options for DeleteIp2geoDatasource <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#deleting-the-ip2geo-data-source</para></summary>
     public partial class DeleteIp2geoDatasourceRequestParameters
         : RequestParameters<DeleteIp2geoDatasourceRequestParameters>
     {
@@ -79,7 +79,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
         public override string OperationName => "geospatial.geojson_upload_put";
     }
 
-    /// <summary>Request options for GetIp2geoDatasource <para>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#sending-a-get-request</para></summary>
+    /// <summary>Request options for GetIp2geoDatasource <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#sending-a-get-request</para></summary>
     public partial class GetIp2geoDatasourceRequestParameters
         : RequestParameters<GetIp2geoDatasourceRequestParameters>
     {
@@ -97,7 +97,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
         public override string OperationName => "geospatial.get_upload_stats";
     }
 
-    /// <summary>Request options for PutIp2geoDatasource <para>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#data-source-options</para></summary>
+    /// <summary>Request options for PutIp2geoDatasource <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#data-source-options</para></summary>
     public partial class PutIp2geoDatasourceRequestParameters
         : RequestParameters<PutIp2geoDatasourceRequestParameters>
     {
@@ -106,7 +106,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
         public override string OperationName => "geospatial.put_ip2geo_datasource";
     }
 
-    /// <summary>Request options for PutIp2geoDatasourceSettings <para>https://docs.opensearch.org/docs/latest/ingest-pipelines/processors/ip2geo/#updating-an-ip2geo-data-source</para></summary>
+    /// <summary>Request options for PutIp2geoDatasourceSettings <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#updating-an-ip2geo-data-source</para></summary>
     public partial class PutIp2geoDatasourceSettingsRequestParameters
         : RequestParameters<PutIp2geoDatasourceSettingsRequestParameters>
     {

@@ -52,7 +52,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.ClusterApi
 {
-    /// <summary>Request options for AllocationExplain <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-allocation/</para></summary>
+    /// <summary>Request options for AllocationExplain <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-allocation/</para></summary>
     public partial class ClusterAllocationExplainRequestParameters
         : RequestParameters<ClusterAllocationExplainRequestParameters>
     {
@@ -78,7 +78,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
     }
 
-    /// <summary>Request options for DeleteComponentTemplate <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for DeleteComponentTemplate <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class DeleteComponentTemplateRequestParameters
         : RequestParameters<DeleteComponentTemplateRequestParameters>
     {
@@ -88,7 +88,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -121,7 +121,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
     }
 
-    /// <summary>Request options for DeleteDecommissionAwareness <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-decommission/#example-decommissioning-and-recommissioning-a-zone</para></summary>
+    /// <summary>Request options for DeleteDecommissionAwareness <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-decommission/#decommissioning-and-recommissioning-a-zone</para></summary>
     public partial class DeleteDecommissionAwarenessRequestParameters
         : RequestParameters<DeleteDecommissionAwarenessRequestParameters>
     {
@@ -130,7 +130,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override string OperationName => "cluster.delete_decommission_awareness";
     }
 
-    /// <summary>Request options for DeleteVotingConfigExclusions <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for DeleteVotingConfigExclusions <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class DeleteVotingConfigExclusionsRequestParameters
         : RequestParameters<DeleteVotingConfigExclusionsRequestParameters>
     {
@@ -150,7 +150,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
     }
 
-    /// <summary>Request options for DeleteWeightedRouting <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-deleting-weights</para></summary>
+    /// <summary>Request options for DeleteWeightedRouting <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-awareness/#example-request-deleting-the-configuration</para></summary>
     public partial class DeleteWeightedRoutingRequestParameters
         : RequestParameters<DeleteWeightedRoutingRequestParameters>
     {
@@ -159,7 +159,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override string OperationName => "cluster.delete_weighted_routing";
     }
 
-    /// <summary>Request options for ComponentTemplateExists <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for ComponentTemplateExists <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ComponentTemplateExistsRequestParameters
         : RequestParameters<ComponentTemplateExistsRequestParameters>
     {
@@ -169,7 +169,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -202,7 +202,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
     }
 
-    /// <summary>Request options for GetComponentTemplate <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for GetComponentTemplate <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class GetComponentTemplateRequestParameters
         : RequestParameters<GetComponentTemplateRequestParameters>
     {
@@ -212,7 +212,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -256,7 +256,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
     }
 
-    /// <summary>Request options for GetDecommissionAwareness <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-decommission/#example-getting-zone-decommission-status</para></summary>
+    /// <summary>Request options for GetDecommissionAwareness <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-decommission/#getting-zone-decommission-status</para></summary>
     public partial class GetDecommissionAwarenessRequestParameters
         : RequestParameters<GetDecommissionAwarenessRequestParameters>
     {
@@ -265,7 +265,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override string OperationName => "cluster.get_decommission_awareness";
     }
 
-    /// <summary>Request options for GetSettings <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-settings/</para></summary>
+    /// <summary>Request options for GetSettings <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-settings/</para></summary>
     public partial class ClusterGetSettingsRequestParameters
         : RequestParameters<ClusterGetSettingsRequestParameters>
     {
@@ -275,7 +275,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -326,7 +326,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
     }
 
-    /// <summary>Request options for GetWeightedRouting <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-getting-weights-for-all-zones</para></summary>
+    /// <summary>Request options for GetWeightedRouting <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-awareness/#example-request-viewing-the-configuration</para></summary>
     public partial class GetWeightedRoutingRequestParameters
         : RequestParameters<GetWeightedRoutingRequestParameters>
     {
@@ -335,7 +335,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override string OperationName => "cluster.get_weighted_routing";
     }
 
-    /// <summary>Request options for Health <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-health/</para></summary>
+    /// <summary>Request options for Health <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-health/</para></summary>
     public partial class ClusterHealthRequestParameters
         : RequestParameters<ClusterHealthRequestParameters>
     {
@@ -355,7 +355,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -400,7 +400,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         public TimeSpan Timeout
         {
@@ -454,7 +454,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
     }
 
-    /// <summary>Request options for PendingTasks <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for PendingTasks <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ClusterPendingTasksRequestParameters
         : RequestParameters<ClusterPendingTasksRequestParameters>
     {
@@ -464,7 +464,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -497,7 +497,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
     }
 
-    /// <summary>Request options for PostVotingConfigExclusions <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for PostVotingConfigExclusions <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class PostVotingConfigExclusionsRequestParameters
         : RequestParameters<PostVotingConfigExclusionsRequestParameters>
     {
@@ -536,7 +536,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
     }
 
-    /// <summary>Request options for PutComponentTemplate <para>https://opensearch.org/docs/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</para></summary>
+    /// <summary>Request options for PutComponentTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</para></summary>
     public partial class PutComponentTemplateRequestParameters
         : RequestParameters<PutComponentTemplateRequestParameters>
     {
@@ -546,7 +546,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -586,7 +586,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
     }
 
-    /// <summary>Request options for PutDecommissionAwareness <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-decommission/#example-decommissioning-and-recommissioning-a-zone</para></summary>
+    /// <summary>Request options for PutDecommissionAwareness <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-decommission/#decommissioning-and-recommissioning-a-zone</para></summary>
     public partial class PutDecommissionAwarenessRequestParameters
         : RequestParameters<PutDecommissionAwarenessRequestParameters>
     {
@@ -595,7 +595,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override string OperationName => "cluster.put_decommission_awareness";
     }
 
-    /// <summary>Request options for PutSettings <para>https://opensearch.org/docs/latest/api-reference/cluster-settings/</para></summary>
+    /// <summary>Request options for PutSettings <para>https://docs.opensearch.org/latest/api-reference/cluster-settings/</para></summary>
     public partial class ClusterPutSettingsRequestParameters
         : RequestParameters<ClusterPutSettingsRequestParameters>
     {
@@ -605,7 +605,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -649,7 +649,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
     }
 
-    /// <summary>Request options for PutWeightedRouting <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-awareness/#example-weighted-round-robin-search</para></summary>
+    /// <summary>Request options for PutWeightedRouting <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-awareness/#example-request-updating-the-configuration</para></summary>
     public partial class PutWeightedRoutingRequestParameters
         : RequestParameters<PutWeightedRoutingRequestParameters>
     {
@@ -658,7 +658,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override string OperationName => "cluster.put_weighted_routing";
     }
 
-    /// <summary>Request options for RemoteInfo <para>https://opensearch.org/docs/latest/api-reference/remote-info/</para></summary>
+    /// <summary>Request options for RemoteInfo <para>https://docs.opensearch.org/latest/api-reference/remote-info/</para></summary>
     public partial class RemoteInfoRequestParameters
         : RequestParameters<RemoteInfoRequestParameters>
     {
@@ -667,7 +667,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override string OperationName => "cluster.remote_info";
     }
 
-    /// <summary>Request options for Reroute <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for Reroute <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ClusterRerouteRequestParameters
         : RequestParameters<ClusterRerouteRequestParameters>
     {
@@ -677,7 +677,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -738,7 +738,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
     }
 
-    /// <summary>Request options for State <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for State <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ClusterStateRequestParameters
         : RequestParameters<ClusterStateRequestParameters>
     {
@@ -758,7 +758,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
 
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://opensearch.org/docs/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TimeSpan ClusterManagerTimeout
@@ -827,7 +827,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         }
     }
 
-    /// <summary>Request options for Stats <para>https://opensearch.org/docs/latest/api-reference/cluster-api/cluster-stats/</para></summary>
+    /// <summary>Request options for Stats <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/</para></summary>
     public partial class ClusterStatsRequestParameters
         : RequestParameters<ClusterStatsRequestParameters>
     {

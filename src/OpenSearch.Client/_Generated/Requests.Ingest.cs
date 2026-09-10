@@ -48,7 +48,7 @@ namespace OpenSearch.Client
         Id Id { get; }
     }
 
-    /// <summary>Request for DeletePipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/delete-ingest/</para></summary>
+    /// <summary>Request for DeletePipeline <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/delete-ingest/</para></summary>
     public partial class DeletePipelineRequest
         : PlainRequestBase<DeletePipelineRequestParameters>,
             IDeletePipelineRequest
@@ -107,7 +107,7 @@ namespace OpenSearch.Client
         Id Id { get; }
     }
 
-    /// <summary>Request for GetPipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/get-ingest/</para></summary>
+    /// <summary>Request for GetPipeline <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/get-ingest/</para></summary>
     public partial class GetPipelineRequest
         : PlainRequestBase<GetPipelineRequestParameters>,
             IGetPipelineRequest
@@ -155,7 +155,7 @@ namespace OpenSearch.Client
     public partial interface IGrokProcessorPatternsRequest
         : IRequest<GrokProcessorPatternsRequestParameters> { }
 
-    /// <summary>Request for GrokProcessorPatterns <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request for GrokProcessorPatterns <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class GrokProcessorPatternsRequest
         : PlainRequestBase<GrokProcessorPatternsRequestParameters>,
             IGrokProcessorPatternsRequest
@@ -240,7 +240,7 @@ namespace OpenSearch.Client
         Id Id { get; }
     }
 
-    /// <summary>Request for SimulatePipeline <para>https://opensearch.org/docs/latest/api-reference/ingest-apis/simulate-ingest/</para></summary>
+    /// <summary>Request for SimulatePipeline <para>https://docs.opensearch.org/latest/api-reference/ingest-apis/simulate-ingest/</para></summary>
     public partial class SimulatePipelineRequest
         : PlainRequestBase<SimulatePipelineRequestParameters>,
             ISimulatePipelineRequest

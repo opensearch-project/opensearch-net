@@ -52,7 +52,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.RemoteStoreApi
 {
-    /// <summary>Request options for Restore <para>https://opensearch.org/docs/latest/opensearch/remote/#restoring-from-a-backup</para></summary>
+    /// <summary>Request options for Restore <para>https://docs.opensearch.org/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#restoring-from-a-backup</para></summary>
     public partial class RestoreRequestParameters : RequestParameters<RestoreRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;

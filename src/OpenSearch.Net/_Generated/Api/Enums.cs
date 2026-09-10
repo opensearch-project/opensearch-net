@@ -90,6 +90,25 @@ namespace OpenSearch.Net
     }
 
     [StringEnum]
+    public enum CatResponseFormat
+    {
+        [EnumMember(Value = "cbor")]
+        Cbor,
+
+        [EnumMember(Value = "json")]
+        Json,
+
+        [EnumMember(Value = "smile")]
+        Smile,
+
+        [EnumMember(Value = "text")]
+        Text,
+
+        [EnumMember(Value = "yaml")]
+        Yaml,
+    }
+
+    [StringEnum]
     public enum ClusterHealthLevel
     {
         [EnumMember(Value = "awareness_attributes")]
@@ -513,6 +532,25 @@ namespace OpenSearch.Net
 
         [EnumMember(Value = "shards")]
         Shards,
+    }
+
+    [StringEnum]
+    public enum ListResponseFormat
+    {
+        [EnumMember(Value = "cbor")]
+        Cbor,
+
+        [EnumMember(Value = "json")]
+        Json,
+
+        [EnumMember(Value = "smile")]
+        Smile,
+
+        [EnumMember(Value = "text")]
+        Text,
+
+        [EnumMember(Value = "yaml")]
+        Yaml,
     }
 
     [Flags, StringEnum]
@@ -1129,6 +1167,40 @@ namespace OpenSearch.Net
     }
 
     [StringEnum]
+    public enum PplResponseFormat
+    {
+        [EnumMember(Value = "cost")]
+        Cost,
+
+        [EnumMember(Value = "csv")]
+        Csv,
+
+        [EnumMember(Value = "extended")]
+        Extended,
+
+        [EnumMember(Value = "jdbc")]
+        Jdbc,
+
+        [EnumMember(Value = "json")]
+        Json,
+
+        [EnumMember(Value = "raw")]
+        Raw,
+
+        [EnumMember(Value = "simple")]
+        Simple,
+
+        [EnumMember(Value = "standard")]
+        Standard,
+
+        [EnumMember(Value = "viz")]
+        Viz,
+
+        [EnumMember(Value = "yaml")]
+        Yaml,
+    }
+
+    [StringEnum]
     public enum Refresh
     {
         [EnumMember(Value = "false")]
@@ -1236,6 +1308,40 @@ namespace OpenSearch.Net
     }
 
     [StringEnum]
+    public enum SqlResponseFormat
+    {
+        [EnumMember(Value = "cost")]
+        Cost,
+
+        [EnumMember(Value = "csv")]
+        Csv,
+
+        [EnumMember(Value = "extended")]
+        Extended,
+
+        [EnumMember(Value = "jdbc")]
+        Jdbc,
+
+        [EnumMember(Value = "json")]
+        Json,
+
+        [EnumMember(Value = "raw")]
+        Raw,
+
+        [EnumMember(Value = "simple")]
+        Simple,
+
+        [EnumMember(Value = "standard")]
+        Standard,
+
+        [EnumMember(Value = "viz")]
+        Viz,
+
+        [EnumMember(Value = "yaml")]
+        Yaml,
+    }
+
+    [StringEnum]
     public enum SuggestMode
     {
         [EnumMember(Value = "always")]
@@ -1333,6 +1439,7 @@ namespace OpenSearch.Net
         static partial void RegisterEnumStringResolvers()
         {
             AddEnumStringResolver<ByteUnit>(GetStringValue);
+            AddEnumStringResolver<CatResponseFormat>(GetStringValue);
             AddEnumStringResolver<ClusterHealthLevel>(GetStringValue);
             AddEnumStringResolver<ClusterRerouteMetric>(GetStringValue);
             AddEnumStringResolver<ClusterStateMetric>(GetStringValue);
@@ -1348,6 +1455,7 @@ namespace OpenSearch.Net
             AddEnumStringResolver<InsightsMetricType>(GetStringValue);
             AddEnumStringResolver<KnnStatName>(GetStringValue);
             AddEnumStringResolver<Level>(GetStringValue);
+            AddEnumStringResolver<ListResponseFormat>(GetStringValue);
             AddEnumStringResolver<LtrStatName>(GetStringValue);
             AddEnumStringResolver<MlFunctionName>(GetStringValue);
             AddEnumStringResolver<MlMemoryType>(GetStringValue);
@@ -1361,6 +1469,7 @@ namespace OpenSearch.Net
             AddEnumStringResolver<NodesUsageMetric>(GetStringValue);
             AddEnumStringResolver<NotificationsNotificationConfigType>(GetStringValue);
             AddEnumStringResolver<OpType>(GetStringValue);
+            AddEnumStringResolver<PplResponseFormat>(GetStringValue);
             AddEnumStringResolver<Refresh>(GetStringValue);
             AddEnumStringResolver<SearchType>(GetStringValue);
             AddEnumStringResolver<SecurityAnalyticsAlertsAlertSeverityLevel>(GetStringValue);
@@ -1369,6 +1478,7 @@ namespace OpenSearch.Net
             AddEnumStringResolver<SecurityAnalyticsFindingsRuleSeverity>(GetStringValue);
             AddEnumStringResolver<SlicesCalculation>(GetStringValue);
             AddEnumStringResolver<SortOrder>(GetStringValue);
+            AddEnumStringResolver<SqlResponseFormat>(GetStringValue);
             AddEnumStringResolver<SuggestMode>(GetStringValue);
             AddEnumStringResolver<TasksGroupBy>(GetStringValue);
             AddEnumStringResolver<TimeUnit>(GetStringValue);
@@ -1393,6 +1503,19 @@ namespace OpenSearch.Net
                 ByteUnit.Tb => "tb",
                 _ => throw new ArgumentException(
                     $"'{enumValue.ToString()}' is not a valid value for enum 'ByteUnit'"
+                ),
+            };
+
+        public static string GetStringValue(this CatResponseFormat enumValue) =>
+            enumValue switch
+            {
+                CatResponseFormat.Cbor => "cbor",
+                CatResponseFormat.Json => "json",
+                CatResponseFormat.Smile => "smile",
+                CatResponseFormat.Text => "text",
+                CatResponseFormat.Yaml => "yaml",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'CatResponseFormat'"
                 ),
             };
 
@@ -1720,6 +1843,19 @@ namespace OpenSearch.Net
                 Level.Shards => "shards",
                 _ => throw new ArgumentException(
                     $"'{enumValue.ToString()}' is not a valid value for enum 'Level'"
+                ),
+            };
+
+        public static string GetStringValue(this ListResponseFormat enumValue) =>
+            enumValue switch
+            {
+                ListResponseFormat.Cbor => "cbor",
+                ListResponseFormat.Json => "json",
+                ListResponseFormat.Smile => "smile",
+                ListResponseFormat.Text => "text",
+                ListResponseFormat.Yaml => "yaml",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'ListResponseFormat'"
                 ),
             };
 
@@ -2131,6 +2267,24 @@ namespace OpenSearch.Net
                 ),
             };
 
+        public static string GetStringValue(this PplResponseFormat enumValue) =>
+            enumValue switch
+            {
+                PplResponseFormat.Cost => "cost",
+                PplResponseFormat.Csv => "csv",
+                PplResponseFormat.Extended => "extended",
+                PplResponseFormat.Jdbc => "jdbc",
+                PplResponseFormat.Json => "json",
+                PplResponseFormat.Raw => "raw",
+                PplResponseFormat.Simple => "simple",
+                PplResponseFormat.Standard => "standard",
+                PplResponseFormat.Viz => "viz",
+                PplResponseFormat.Yaml => "yaml",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'PplResponseFormat'"
+                ),
+            };
+
         public static string GetStringValue(this Refresh enumValue) =>
             enumValue switch
             {
@@ -2221,6 +2375,24 @@ namespace OpenSearch.Net
                 SortOrder.Descending => "desc",
                 _ => throw new ArgumentException(
                     $"'{enumValue.ToString()}' is not a valid value for enum 'SortOrder'"
+                ),
+            };
+
+        public static string GetStringValue(this SqlResponseFormat enumValue) =>
+            enumValue switch
+            {
+                SqlResponseFormat.Cost => "cost",
+                SqlResponseFormat.Csv => "csv",
+                SqlResponseFormat.Extended => "extended",
+                SqlResponseFormat.Jdbc => "jdbc",
+                SqlResponseFormat.Json => "json",
+                SqlResponseFormat.Raw => "raw",
+                SqlResponseFormat.Simple => "simple",
+                SqlResponseFormat.Standard => "standard",
+                SqlResponseFormat.Viz => "viz",
+                SqlResponseFormat.Yaml => "yaml",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'SqlResponseFormat'"
                 ),
             };
 

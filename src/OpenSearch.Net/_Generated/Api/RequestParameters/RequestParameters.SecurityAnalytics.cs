@@ -52,7 +52,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.SecurityAnalyticsApi
 {
-    /// <summary>Request options for GetAlerts <para>https://docs.opensearch.org/docs/latest/security-analytics/api-tools/alert-finding-api/#get-alerts</para></summary>
+    /// <summary>Request options for GetAlerts <para>https://docs.opensearch.org/latest/security-analytics/api-tools/alert-finding-api/#get-alerts</para></summary>
     public partial class GetAlertsRequestParameters : RequestParameters<GetAlertsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -144,7 +144,7 @@ namespace OpenSearch.Net.Specification.SecurityAnalyticsApi
         }
     }
 
-    /// <summary>Request options for GetFindings <para>https://docs.opensearch.org/docs/latest/security-analytics/api-tools/alert-finding-api/#get-findings</para></summary>
+    /// <summary>Request options for GetFindings <para>https://docs.opensearch.org/latest/security-analytics/api-tools/alert-finding-api/#get-findings</para></summary>
     public partial class GetFindingsRequestParameters
         : RequestParameters<GetFindingsRequestParameters>
     {
@@ -250,7 +250,7 @@ namespace OpenSearch.Net.Specification.SecurityAnalyticsApi
         }
     }
 
-    /// <summary>Request options for SearchFindingCorrelations <para>https://docs.opensearch.org/docs/latest/security-analytics/api-tools/correlation-eng/#list-correlations-for-a-finding-belonging-to-a-log-type</para></summary>
+    /// <summary>Request options for SearchFindingCorrelations <para>https://docs.opensearch.org/latest/security-analytics/api-tools/correlation-eng/#list-correlations-for-a-finding-belonging-to-a-log-type</para></summary>
     public partial class SearchFindingCorrelationsRequestParameters
         : RequestParameters<SearchFindingCorrelationsRequestParameters>
     {

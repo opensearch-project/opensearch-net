@@ -69,7 +69,7 @@ namespace OpenSearch.Net.Specification.RemoteStoreApi
         internal LowLevelRemoteStoreNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
-        /// <summary>POST on /_remotestore/_restore <para>https://opensearch.org/docs/latest/opensearch/remote/#restoring-from-a-backup</para></summary>
+        /// <summary>POST on /_remotestore/_restore <para>https://docs.opensearch.org/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#restoring-from-a-backup</para></summary>
         /// <param name="body">Comma-separated list of index IDs.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Restore<TResponse>(
@@ -84,7 +84,7 @@ namespace OpenSearch.Net.Specification.RemoteStoreApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_remotestore/_restore <para>https://opensearch.org/docs/latest/opensearch/remote/#restoring-from-a-backup</para></summary>
+        /// <summary>POST on /_remotestore/_restore <para>https://docs.opensearch.org/latest/tuning-your-cluster/availability-and-recovery/remote-store/index/#restoring-from-a-backup</para></summary>
         /// <param name="body">Comma-separated list of index IDs.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("remote_store.restore", "body")]

@@ -69,7 +69,7 @@ namespace OpenSearch.Net.Specification.IngestionApi
         internal LowLevelIngestionNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
-        /// <summary>GET on /{index}/ingestion/_state <para>https://docs.opensearch.org/docs/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
+        /// <summary>GET on /{index}/ingestion/_state <para>https://docs.opensearch.org/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
         /// <param name="index">Index for which ingestion state should be retrieved.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -85,7 +85,7 @@ namespace OpenSearch.Net.Specification.IngestionApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /{index}/ingestion/_state <para>https://docs.opensearch.org/docs/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
+        /// <summary>GET on /{index}/ingestion/_state <para>https://docs.opensearch.org/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
         /// <param name="index">Index for which ingestion state should be retrieved.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -104,7 +104,7 @@ namespace OpenSearch.Net.Specification.IngestionApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /{index}/ingestion/_pause <para>https://docs.opensearch.org/docs/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
+        /// <summary>POST on /{index}/ingestion/_pause <para>https://docs.opensearch.org/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
         /// <param name="index">Index for which ingestion should be paused.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -120,7 +120,7 @@ namespace OpenSearch.Net.Specification.IngestionApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /{index}/ingestion/_pause <para>https://docs.opensearch.org/docs/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
+        /// <summary>POST on /{index}/ingestion/_pause <para>https://docs.opensearch.org/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
         /// <param name="index">Index for which ingestion should be paused.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
@@ -139,7 +139,7 @@ namespace OpenSearch.Net.Specification.IngestionApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /{index}/ingestion/_resume <para>https://docs.opensearch.org/docs/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
+        /// <summary>POST on /{index}/ingestion/_resume <para>https://docs.opensearch.org/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
         /// <param name="index">Index for which ingestion should be resumed.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -157,7 +157,7 @@ namespace OpenSearch.Net.Specification.IngestionApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /{index}/ingestion/_resume <para>https://docs.opensearch.org/docs/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
+        /// <summary>POST on /{index}/ingestion/_resume <para>https://docs.opensearch.org/latest/api-reference/document-apis/pull-based-ingestion-management/</para></summary>
         /// <param name="index">Index for which ingestion should be resumed.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

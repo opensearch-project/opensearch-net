@@ -69,7 +69,7 @@ namespace OpenSearch.Net.Specification.PplApi
         internal LowLevelPplNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
-        /// <summary>POST on /_plugins/_ppl/_explain <para>https://opensearch.org/docs/latest/search-plugins/sql/sql-ppl-api/</para></summary>
+        /// <summary>POST on /_plugins/_ppl/_explain <para>https://docs.opensearch.org/latest/search-plugins/sql/sql-ppl-api/</para></summary>
         /// <param name="body">Contains the PPL query to explain.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Explain<TResponse>(
@@ -84,7 +84,7 @@ namespace OpenSearch.Net.Specification.PplApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_ppl/_explain <para>https://opensearch.org/docs/latest/search-plugins/sql/sql-ppl-api/</para></summary>
+        /// <summary>POST on /_plugins/_ppl/_explain <para>https://docs.opensearch.org/latest/search-plugins/sql/sql-ppl-api/</para></summary>
         /// <param name="body">Contains the PPL query to explain.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ppl.explain", "body")]
@@ -102,7 +102,7 @@ namespace OpenSearch.Net.Specification.PplApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_ppl/stats <para>https://opensearch.org/docs/latest/search-plugins/sql/monitoring/</para></summary>
+        /// <summary>GET on /_plugins/_ppl/stats <para>https://docs.opensearch.org/latest/search-plugins/sql/monitoring/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetStats<TResponse>(GetStatsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -113,7 +113,7 @@ namespace OpenSearch.Net.Specification.PplApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_ppl/stats <para>https://opensearch.org/docs/latest/search-plugins/sql/monitoring/</para></summary>
+        /// <summary>GET on /_plugins/_ppl/stats <para>https://docs.opensearch.org/latest/search-plugins/sql/monitoring/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ppl.get_stats", "")]
         public Task<TResponse> GetStatsAsync<TResponse>(
@@ -129,7 +129,7 @@ namespace OpenSearch.Net.Specification.PplApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_ppl/stats <para>https://opensearch.org/docs/latest/search-plugins/sql/monitoring/</para></summary>
+        /// <summary>POST on /_plugins/_ppl/stats <para>https://docs.opensearch.org/latest/search-plugins/sql/monitoring/</para></summary>
         /// <param name="body">Defines the statistics collection parameters.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse PostStats<TResponse>(
@@ -144,7 +144,7 @@ namespace OpenSearch.Net.Specification.PplApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_ppl/stats <para>https://opensearch.org/docs/latest/search-plugins/sql/monitoring/</para></summary>
+        /// <summary>POST on /_plugins/_ppl/stats <para>https://docs.opensearch.org/latest/search-plugins/sql/monitoring/</para></summary>
         /// <param name="body">Defines the statistics collection parameters.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ppl.post_stats", "body")]
@@ -162,7 +162,7 @@ namespace OpenSearch.Net.Specification.PplApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_ppl <para>https://opensearch.org/docs/latest/search-plugins/sql/sql-ppl-api/</para></summary>
+        /// <summary>POST on /_plugins/_ppl <para>https://docs.opensearch.org/latest/search-plugins/sql/sql-ppl-api/</para></summary>
         /// <param name="body">Contains the PPL query to execute.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Query<TResponse>(
@@ -172,7 +172,7 @@ namespace OpenSearch.Net.Specification.PplApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(POST, "_plugins/_ppl", body, RequestParams(requestParameters));
 
-        /// <summary>POST on /_plugins/_ppl <para>https://opensearch.org/docs/latest/search-plugins/sql/sql-ppl-api/</para></summary>
+        /// <summary>POST on /_plugins/_ppl <para>https://docs.opensearch.org/latest/search-plugins/sql/sql-ppl-api/</para></summary>
         /// <param name="body">Contains the PPL query to execute.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ppl.query", "body")]

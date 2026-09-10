@@ -69,7 +69,7 @@ namespace OpenSearch.Net.Specification.IsmApi
         internal LowLevelIsmNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
-        /// <summary>POST on /_plugins/_ism/add <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#add-policy</para></summary>
+        /// <summary>POST on /_plugins/_ism/add <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#add-policy</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse AddPolicy<TResponse>(
@@ -79,7 +79,7 @@ namespace OpenSearch.Net.Specification.IsmApi
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(POST, "_plugins/_ism/add", body, RequestParams(requestParameters));
 
-        /// <summary>POST on /_plugins/_ism/add <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#add-policy</para></summary>
+        /// <summary>POST on /_plugins/_ism/add <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#add-policy</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ism.add_policy", "body")]
@@ -97,8 +97,8 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_ism/add/{index} <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#add-policy</para></summary>
-        /// <param name="index"></param>
+        /// <summary>POST on /_plugins/_ism/add/{index} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#add-policy</para></summary>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse AddPolicy<TResponse>(
@@ -114,8 +114,8 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_ism/add/{index} <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#add-policy</para></summary>
-        /// <param name="index"></param>
+        /// <summary>POST on /_plugins/_ism/add/{index} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#add-policy</para></summary>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ism.add_policy", "index, body")]
@@ -134,7 +134,7 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_ism/change_policy <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#update-managed-index-policy</para></summary>
+        /// <summary>POST on /_plugins/_ism/change_policy <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#update-managed-index-policy</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse ChangePolicy<TResponse>(
@@ -149,7 +149,7 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_ism/change_policy <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#update-managed-index-policy</para></summary>
+        /// <summary>POST on /_plugins/_ism/change_policy <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#update-managed-index-policy</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ism.change_policy", "body")]
@@ -167,8 +167,8 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_ism/change_policy/{index} <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#update-managed-index-policy</para></summary>
-        /// <param name="index"></param>
+        /// <summary>POST on /_plugins/_ism/change_policy/{index} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#update-managed-index-policy</para></summary>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse ChangePolicy<TResponse>(
@@ -184,8 +184,8 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_ism/change_policy/{index} <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#update-managed-index-policy</para></summary>
-        /// <param name="index"></param>
+        /// <summary>POST on /_plugins/_ism/change_policy/{index} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#update-managed-index-policy</para></summary>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ism.change_policy", "index, body")]
@@ -204,7 +204,7 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_ism/policies/{policy_id} <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#delete-policy</para></summary>
+        /// <summary>DELETE on /_plugins/_ism/policies/{policy_id} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#delete-policy</para></summary>
         /// <param name="policyId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse DeletePolicy<TResponse>(
@@ -219,7 +219,7 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_ism/policies/{policy_id} <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#delete-policy</para></summary>
+        /// <summary>DELETE on /_plugins/_ism/policies/{policy_id} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#delete-policy</para></summary>
         /// <param name="policyId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ism.delete_policy", "policy_id")]
@@ -237,7 +237,7 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>HEAD on /_plugins/_ism/policies/{policy_id} <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#get-policy</para></summary>
+        /// <summary>HEAD on /_plugins/_ism/policies/{policy_id} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#get-policy</para></summary>
         /// <param name="policyId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse ExistsPolicy<TResponse>(
@@ -252,7 +252,7 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>HEAD on /_plugins/_ism/policies/{policy_id} <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#get-policy</para></summary>
+        /// <summary>HEAD on /_plugins/_ism/policies/{policy_id} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#get-policy</para></summary>
         /// <param name="policyId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ism.exists_policy", "policy_id")]
@@ -270,7 +270,7 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_ism/explain <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#explain-index</para></summary>
+        /// <summary>POST on /_plugins/_ism/explain <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#explain-index</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse ExplainPolicy<TResponse>(
@@ -285,7 +285,7 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_ism/explain <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#explain-index</para></summary>
+        /// <summary>POST on /_plugins/_ism/explain <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#explain-index</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ism.explain_policy", "body")]
@@ -303,8 +303,8 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_ism/explain/{index} <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#explain-index</para></summary>
-        /// <param name="index"></param>
+        /// <summary>POST on /_plugins/_ism/explain/{index} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#explain-index</para></summary>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse ExplainPolicy<TResponse>(
@@ -320,8 +320,8 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_ism/explain/{index} <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#explain-index</para></summary>
-        /// <param name="index"></param>
+        /// <summary>POST on /_plugins/_ism/explain/{index} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#explain-index</para></summary>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ism.explain_policy", "index, body")]
@@ -340,7 +340,7 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_ism/policies <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#get-policy</para></summary>
+        /// <summary>GET on /_plugins/_ism/policies <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#get-policy</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetPolicies<TResponse>(
             GetPoliciesRequestParameters requestParameters = null
@@ -353,7 +353,7 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_ism/policies <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#get-policy</para></summary>
+        /// <summary>GET on /_plugins/_ism/policies <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#get-policy</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ism.get_policies", "")]
         public Task<TResponse> GetPoliciesAsync<TResponse>(
@@ -369,7 +369,7 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_ism/policies/{policy_id} <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#put-policy</para></summary>
+        /// <summary>GET on /_plugins/_ism/policies/{policy_id} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#get-policy</para></summary>
         /// <param name="policyId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetPolicy<TResponse>(
@@ -384,7 +384,7 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_ism/policies/{policy_id} <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#put-policy</para></summary>
+        /// <summary>GET on /_plugins/_ism/policies/{policy_id} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#get-policy</para></summary>
         /// <param name="policyId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ism.get_policy", "policy_id")]
@@ -402,7 +402,7 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_ism/policies <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#create-policy</para></summary>
+        /// <summary>PUT on /_plugins/_ism/policies <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#create-policy</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse PutPolicies<TResponse>(
@@ -417,7 +417,7 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_ism/policies <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#create-policy</para></summary>
+        /// <summary>PUT on /_plugins/_ism/policies <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#create-policy</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ism.put_policies", "body")]
@@ -435,7 +435,7 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_ism/policies/{policy_id} <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#create-policy</para></summary>
+        /// <summary>PUT on /_plugins/_ism/policies/{policy_id} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#create-policy</para></summary>
         /// <param name="policyId"></param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -452,7 +452,7 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_ism/policies/{policy_id} <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#create-policy</para></summary>
+        /// <summary>PUT on /_plugins/_ism/policies/{policy_id} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#create-policy</para></summary>
         /// <param name="policyId"></param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -472,8 +472,8 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_refresh_search_analyzers/{index} <para>https://opensearch.org/docs/latest/im-plugin/refresh-analyzer/</para></summary>
-        /// <param name="index"></param>
+        /// <summary>POST on /_plugins/_refresh_search_analyzers/{index} <para>https://docs.opensearch.org/latest/im-plugin/refresh-analyzer/</para></summary>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse RefreshSearchAnalyzers<TResponse>(
             string index,
@@ -487,8 +487,8 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_refresh_search_analyzers/{index} <para>https://opensearch.org/docs/latest/im-plugin/refresh-analyzer/</para></summary>
-        /// <param name="index"></param>
+        /// <summary>POST on /_plugins/_refresh_search_analyzers/{index} <para>https://docs.opensearch.org/latest/im-plugin/refresh-analyzer/</para></summary>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ism.refresh_search_analyzers", "index")]
         public Task<TResponse> RefreshSearchAnalyzersAsync<TResponse>(
@@ -505,7 +505,7 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_ism/remove <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#remove-policy</para></summary>
+        /// <summary>POST on /_plugins/_ism/remove <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#remove-policy-from-index</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse RemovePolicy<TResponse>(
             RemovePolicyRequestParameters requestParameters = null
@@ -518,7 +518,7 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_ism/remove <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#remove-policy</para></summary>
+        /// <summary>POST on /_plugins/_ism/remove <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#remove-policy-from-index</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ism.remove_policy", "")]
         public Task<TResponse> RemovePolicyAsync<TResponse>(
@@ -534,8 +534,8 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_ism/remove/{index} <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#remove-policy</para></summary>
-        /// <param name="index"></param>
+        /// <summary>POST on /_plugins/_ism/remove/{index} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#remove-policy-from-index</para></summary>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse RemovePolicy<TResponse>(
             string index,
@@ -549,8 +549,8 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_ism/remove/{index} <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#remove-policy</para></summary>
-        /// <param name="index"></param>
+        /// <summary>POST on /_plugins/_ism/remove/{index} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#remove-policy-from-index</para></summary>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ism.remove_policy", "index")]
         public Task<TResponse> RemovePolicyAsync<TResponse>(
@@ -567,7 +567,7 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_ism/retry <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#retry-failed-index</para></summary>
+        /// <summary>POST on /_plugins/_ism/retry <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#retry-failed-index</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse RetryIndex<TResponse>(
@@ -582,7 +582,7 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_ism/retry <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#retry-failed-index</para></summary>
+        /// <summary>POST on /_plugins/_ism/retry <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#retry-failed-index</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ism.retry_index", "body")]
@@ -600,8 +600,8 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_ism/retry/{index} <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#retry-failed-index</para></summary>
-        /// <param name="index"></param>
+        /// <summary>POST on /_plugins/_ism/retry/{index} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#retry-failed-index</para></summary>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse RetryIndex<TResponse>(
@@ -617,8 +617,8 @@ namespace OpenSearch.Net.Specification.IsmApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_ism/retry/{index} <para>https://opensearch.org/docs/latest/im-plugin/ism/api/#retry-failed-index</para></summary>
-        /// <param name="index"></param>
+        /// <summary>POST on /_plugins/_ism/retry/{index} <para>https://docs.opensearch.org/latest/im-plugin/ism/api/#retry-failed-index</para></summary>
+        /// <param name="index">A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To target all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("ism.retry_index", "index, body")]

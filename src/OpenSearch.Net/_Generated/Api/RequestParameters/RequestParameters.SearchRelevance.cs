@@ -97,6 +97,15 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
         public override string OperationName => "search_relevance.delete_search_configurations";
     }
 
+    /// <summary>Request options for ExperimentsSearch</summary>
+    public partial class ExperimentsSearchRequestParameters
+        : RequestParameters<ExperimentsSearchRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+        public override string OperationName => "search_relevance.experiments_search";
+    }
+
     /// <summary>Request options for GetExperiments</summary>
     public partial class GetExperimentsRequestParameters
         : RequestParameters<GetExperimentsRequestParameters>
@@ -229,6 +238,15 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
         }
     }
 
+    /// <summary>Request options for JudgmentsSearch</summary>
+    public partial class JudgmentsSearchRequestParameters
+        : RequestParameters<JudgmentsSearchRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+        public override string OperationName => "search_relevance.judgments_search";
+    }
+
     /// <summary>Request options for PostQuerySets</summary>
     public partial class PostQuerySetsRequestParameters
         : RequestParameters<PostQuerySetsRequestParameters>
@@ -281,5 +299,23 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
         public override string OperationName => "search_relevance.put_search_configurations";
+    }
+
+    /// <summary>Request options for QuerySetsSearch</summary>
+    public partial class QuerySetsSearchRequestParameters
+        : RequestParameters<QuerySetsSearchRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+        public override string OperationName => "search_relevance.query_sets_search";
+    }
+
+    /// <summary>Request options for SearchConfigurationsSearch</summary>
+    public partial class SearchConfigurationsSearchRequestParameters
+        : RequestParameters<SearchConfigurationsSearchRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
+        public override bool SupportsBody => true;
+        public override string OperationName => "search_relevance.search_configurations_search";
     }
 }

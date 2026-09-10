@@ -91,7 +91,7 @@ namespace OpenSearch.Net.Specification.SearchPipelineApi
         }
     }
 
-    /// <summary>Request options for Put <para>https://opensearch.org/docs/latest/search-plugins/search-pipelines/creating-search-pipeline/</para></summary>
+    /// <summary>Request options for Put <para>https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/</para></summary>
     public partial class PutRequestParameters : RequestParameters<PutRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;

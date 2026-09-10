@@ -52,7 +52,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.NodesApi
 {
-    /// <summary>Request options for HotThreads <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
+    /// <summary>Request options for HotThreads <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
     public partial class NodesHotThreadsRequestParameters
         : RequestParameters<NodesHotThreadsRequestParameters>
     {
@@ -103,7 +103,7 @@ namespace OpenSearch.Net.Specification.NodesApi
         }
     }
 
-    /// <summary>Request options for Info <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-info/</para></summary>
+    /// <summary>Request options for Info <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-info/</para></summary>
     public partial class NodesInfoRequestParameters : RequestParameters<NodesInfoRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -125,7 +125,7 @@ namespace OpenSearch.Net.Specification.NodesApi
         }
     }
 
-    /// <summary>Request options for ReloadSecureSettings <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
+    /// <summary>Request options for ReloadSecureSettings <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
     public partial class ReloadSecureSettingsRequestParameters
         : RequestParameters<ReloadSecureSettingsRequestParameters>
     {
@@ -141,7 +141,7 @@ namespace OpenSearch.Net.Specification.NodesApi
         }
     }
 
-    /// <summary>Request options for Stats <para>https://opensearch.org/docs/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
+    /// <summary>Request options for Stats <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
     public partial class NodesStatsRequestParameters
         : RequestParameters<NodesStatsRequestParameters>
     {
@@ -206,7 +206,7 @@ namespace OpenSearch.Net.Specification.NodesApi
         }
     }
 
-    /// <summary>Request options for Usage <para>https://opensearch.org/docs/latest</para></summary>
+    /// <summary>Request options for Usage <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class NodesUsageRequestParameters
         : RequestParameters<NodesUsageRequestParameters>
     {

@@ -52,7 +52,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.ReplicationApi
 {
-    /// <summary>Request options for AutofollowStats <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#get-auto-follow-stats</para></summary>
+    /// <summary>Request options for AutofollowStats <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#get-auto-follow-stats</para></summary>
     public partial class AutofollowStatsRequestParameters
         : RequestParameters<AutofollowStatsRequestParameters>
     {
@@ -61,7 +61,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
         public override string OperationName => "replication.autofollow_stats";
     }
 
-    /// <summary>Request options for CreateRule <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#create-replication-rule</para></summary>
+    /// <summary>Request options for CreateRule <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#create-replication-rule</para></summary>
     public partial class CreateReplicationRuleRequestParameters
         : RequestParameters<CreateReplicationRuleRequestParameters>
     {
@@ -70,7 +70,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
         public override string OperationName => "replication.create_replication_rule";
     }
 
-    /// <summary>Request options for DeleteRule <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#delete-replication-rule</para></summary>
+    /// <summary>Request options for DeleteRule <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#delete-replication-rule</para></summary>
     public partial class DeleteReplicationRuleRequestParameters
         : RequestParameters<DeleteReplicationRuleRequestParameters>
     {
@@ -79,7 +79,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
         public override string OperationName => "replication.delete_replication_rule";
     }
 
-    /// <summary>Request options for FollowerStats <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#get-follower-cluster-stats</para></summary>
+    /// <summary>Request options for FollowerStats <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#get-follower-cluster-stats</para></summary>
     public partial class FollowerStatsRequestParameters
         : RequestParameters<FollowerStatsRequestParameters>
     {
@@ -88,7 +88,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
         public override string OperationName => "replication.follower_stats";
     }
 
-    /// <summary>Request options for LeaderStats <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#get-leader-cluster-stats</para></summary>
+    /// <summary>Request options for LeaderStats <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#get-leader-cluster-stats</para></summary>
     public partial class LeaderStatsRequestParameters
         : RequestParameters<LeaderStatsRequestParameters>
     {
@@ -97,7 +97,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
         public override string OperationName => "replication.leader_stats";
     }
 
-    /// <summary>Request options for Pause <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#pause-replication</para></summary>
+    /// <summary>Request options for Pause <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#pause-replication</para></summary>
     public partial class PauseRequestParameters : RequestParameters<PauseRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -105,7 +105,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
         public override string OperationName => "replication.pause";
     }
 
-    /// <summary>Request options for Resume <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#resume-replication</para></summary>
+    /// <summary>Request options for Resume <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#resume-replication</para></summary>
     public partial class ResumeRequestParameters : RequestParameters<ResumeRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -113,7 +113,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
         public override string OperationName => "replication.resume";
     }
 
-    /// <summary>Request options for Start <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#start-replication</para></summary>
+    /// <summary>Request options for Start <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#start-replication</para></summary>
     public partial class StartRequestParameters : RequestParameters<StartRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
@@ -121,7 +121,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
         public override string OperationName => "replication.start";
     }
 
-    /// <summary>Request options for Status <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#get-replication-status</para></summary>
+    /// <summary>Request options for Status <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#get-replication-status</para></summary>
     public partial class StatusRequestParameters : RequestParameters<StatusRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -129,7 +129,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
         public override string OperationName => "replication.status";
     }
 
-    /// <summary>Request options for Stop <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#stop-replication</para></summary>
+    /// <summary>Request options for Stop <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#stop-replication</para></summary>
     public partial class StopRequestParameters : RequestParameters<StopRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
@@ -137,7 +137,7 @@ namespace OpenSearch.Net.Specification.ReplicationApi
         public override string OperationName => "replication.stop";
     }
 
-    /// <summary>Request options for UpdateSettings <para>https://opensearch.org/docs/latest/tuning-your-cluster/replication-plugin/api/#update-settings</para></summary>
+    /// <summary>Request options for UpdateSettings <para>https://docs.opensearch.org/latest/tuning-your-cluster/replication-plugin/api/#update-settings</para></summary>
     public partial class UpdateSettingsRequestParameters
         : RequestParameters<UpdateSettingsRequestParameters>
     {

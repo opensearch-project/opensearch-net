@@ -57,7 +57,7 @@ using OpenSearch.Net.Utf8Json;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-    /// <summary>Descriptor for DeleteDanglingIndex <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
+    /// <summary>Descriptor for DeleteDanglingIndex <para>https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</para></summary>
     public partial class DeleteDanglingIndexDescriptor
         : RequestDescriptorBase<
             DeleteDanglingIndexDescriptor,
@@ -103,7 +103,7 @@ namespace OpenSearch.Client
         public DeleteDanglingIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    /// <summary>Descriptor for ImportDanglingIndex <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
+    /// <summary>Descriptor for ImportDanglingIndex <para>https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</para></summary>
     public partial class ImportDanglingIndexDescriptor
         : RequestDescriptorBase<
             ImportDanglingIndexDescriptor,
@@ -149,7 +149,7 @@ namespace OpenSearch.Client
         public ImportDanglingIndexDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
     }
 
-    /// <summary>Descriptor for List <para>https://opensearch.org/docs/latest/api-reference/index-apis/dangling-index/</para></summary>
+    /// <summary>Descriptor for List <para>https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</para></summary>
     public partial class ListDanglingIndicesDescriptor
         : RequestDescriptorBase<
             ListDanglingIndicesDescriptor,

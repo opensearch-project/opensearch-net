@@ -130,7 +130,7 @@ namespace OpenSearch.Client
         Id Id { get; }
     }
 
-    /// <summary>Request for Put <para>https://opensearch.org/docs/latest/search-plugins/search-pipelines/creating-search-pipeline/</para></summary>
+    /// <summary>Request for Put <para>https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/</para></summary>
     public partial class PutSearchPipelineRequest
         : PlainRequestBase<PutRequestParameters>,
             IPutSearchPipelineRequest

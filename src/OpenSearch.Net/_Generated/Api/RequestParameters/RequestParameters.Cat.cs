@@ -52,7 +52,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.CatApi
 {
-    /// <summary>Request options for Aliases <para>https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/</para></summary>
+    /// <summary>Request options for Aliases <para>https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/</para></summary>
     public partial class CatAliasesRequestParameters
         : RequestParameters<CatAliasesRequestParameters>
     {
@@ -68,9 +68,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -114,7 +114,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
     }
 
-    /// <summary>Request options for AllPitSegments <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</para></summary>
+    /// <summary>Request options for AllPitSegments <para>https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</para></summary>
     public partial class CatAllPitSegmentsRequestParameters
         : RequestParameters<CatAllPitSegmentsRequestParameters>
     {
@@ -130,9 +130,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -169,7 +169,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
     }
 
-    /// <summary>Request options for Allocation <para>https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/</para></summary>
+    /// <summary>Request options for Allocation <para>https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/</para></summary>
     public partial class CatAllocationRequestParameters
         : RequestParameters<CatAllocationRequestParameters>
     {
@@ -193,9 +193,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>A short version of the HTTP <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -249,7 +249,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
     }
 
-    /// <summary>Request options for ClusterManager <para>https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</para></summary>
+    /// <summary>Request options for ClusterManager <para>https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</para></summary>
     public partial class CatClusterManagerRequestParameters
         : RequestParameters<CatClusterManagerRequestParameters>
     {
@@ -266,9 +266,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>A short version of the HTTP <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -322,7 +322,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
     }
 
-    /// <summary>Request options for Count <para>https://opensearch.org/docs/latest/api-reference/cat/cat-count/</para></summary>
+    /// <summary>Request options for Count <para>https://docs.opensearch.org/latest/api-reference/cat/cat-count/</para></summary>
     public partial class CatCountRequestParameters : RequestParameters<CatCountRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -330,9 +330,9 @@ namespace OpenSearch.Net.Specification.CatApi
         public override string OperationName => "cat.count";
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -369,7 +369,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
     }
 
-    /// <summary>Request options for Fielddata <para>https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/</para></summary>
+    /// <summary>Request options for Fielddata <para>https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/</para></summary>
     public partial class CatFielddataRequestParameters
         : RequestParameters<CatFielddataRequestParameters>
     {
@@ -392,9 +392,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -431,7 +431,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
     }
 
-    /// <summary>Request options for Health <para>https://opensearch.org/docs/latest/api-reference/cat/cat-health/</para></summary>
+    /// <summary>Request options for Health <para>https://docs.opensearch.org/latest/api-reference/cat/cat-health/</para></summary>
     public partial class CatHealthRequestParameters : RequestParameters<CatHealthRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -439,9 +439,9 @@ namespace OpenSearch.Net.Specification.CatApi
         public override string OperationName => "cat.health";
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -485,7 +485,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
     }
 
-    /// <summary>Request options for Help <para>https://opensearch.org/docs/latest/api-reference/cat/index/</para></summary>
+    /// <summary>Request options for Help <para>https://docs.opensearch.org/latest/api-reference/cat/index/</para></summary>
     public partial class CatHelpRequestParameters : RequestParameters<CatHelpRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -493,7 +493,7 @@ namespace OpenSearch.Net.Specification.CatApi
         public override string OperationName => "cat.help";
     }
 
-    /// <summary>Request options for Indices <para>https://opensearch.org/docs/latest/api-reference/cat/cat-indices/</para></summary>
+    /// <summary>Request options for Indices <para>https://docs.opensearch.org/latest/api-reference/cat/cat-indices/</para></summary>
     public partial class CatIndicesRequestParameters
         : RequestParameters<CatIndicesRequestParameters>
     {
@@ -524,9 +524,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -601,7 +601,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
     }
 
-    /// <summary>Request options for Master <para>https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</para></summary>
+    /// <summary>Request options for Master <para>https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</para></summary>
     public partial class CatMasterRequestParameters : RequestParameters<CatMasterRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -617,9 +617,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -673,7 +673,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
     }
 
-    /// <summary>Request options for NodeAttributes <para>https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/</para></summary>
+    /// <summary>Request options for NodeAttributes <para>https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/</para></summary>
     public partial class CatNodeAttributesRequestParameters
         : RequestParameters<CatNodeAttributesRequestParameters>
     {
@@ -690,9 +690,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -746,7 +746,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
     }
 
-    /// <summary>Request options for Nodes <para>https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/</para></summary>
+    /// <summary>Request options for Nodes <para>https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/</para></summary>
     public partial class CatNodesRequestParameters : RequestParameters<CatNodesRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -769,9 +769,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -835,7 +835,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
     }
 
-    /// <summary>Request options for PendingTasks <para>https://opensearch.org/docs/latest/api-reference/cat/cat-pending-tasks/</para></summary>
+    /// <summary>Request options for PendingTasks <para>https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/</para></summary>
     public partial class CatPendingTasksRequestParameters
         : RequestParameters<CatPendingTasksRequestParameters>
     {
@@ -852,9 +852,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -908,7 +908,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
     }
 
-    /// <summary>Request options for PitSegments <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</para></summary>
+    /// <summary>Request options for PitSegments <para>https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</para></summary>
     public partial class CatPitSegmentsRequestParameters
         : RequestParameters<CatPitSegmentsRequestParameters>
     {
@@ -924,9 +924,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -963,7 +963,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
     }
 
-    /// <summary>Request options for Plugins <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>
+    /// <summary>Request options for Plugins <para>https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</para></summary>
     public partial class CatPluginsRequestParameters
         : RequestParameters<CatPluginsRequestParameters>
     {
@@ -980,9 +980,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -1036,7 +1036,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
     }
 
-    /// <summary>Request options for Recovery <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>
+    /// <summary>Request options for Recovery <para>https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</para></summary>
     public partial class CatRecoveryRequestParameters
         : RequestParameters<CatRecoveryRequestParameters>
     {
@@ -1066,9 +1066,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -1115,7 +1115,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
     }
 
-    /// <summary>Request options for Repositories <para>https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/</para></summary>
+    /// <summary>Request options for Repositories <para>https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/</para></summary>
     public partial class CatRepositoriesRequestParameters
         : RequestParameters<CatRepositoriesRequestParameters>
     {
@@ -1132,9 +1132,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -1188,7 +1188,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
     }
 
-    /// <summary>Request options for SegmentReplication <para>https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/</para></summary>
+    /// <summary>Request options for SegmentReplication <para>https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/</para></summary>
     public partial class CatSegmentReplicationRequestParameters
         : RequestParameters<CatSegmentReplicationRequestParameters>
     {
@@ -1242,9 +1242,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -1319,7 +1319,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
     }
 
-    /// <summary>Request options for Segments <para>https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</para></summary>
+    /// <summary>Request options for Segments <para>https://docs.opensearch.org/latest/api-reference/cat/cat-segments/</para></summary>
     public partial class CatSegmentsRequestParameters
         : RequestParameters<CatSegmentsRequestParameters>
     {
@@ -1343,9 +1343,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -1392,7 +1392,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
     }
 
-    /// <summary>Request options for Shards <para>https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</para></summary>
+    /// <summary>Request options for Shards <para>https://docs.opensearch.org/latest/api-reference/cat/cat-shards/</para></summary>
     public partial class CatShardsRequestParameters : RequestParameters<CatShardsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -1415,9 +1415,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -1471,7 +1471,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
     }
 
-    /// <summary>Request options for Snapshots <para>https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</para></summary>
+    /// <summary>Request options for Snapshots <para>https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/</para></summary>
     public partial class CatSnapshotsRequestParameters
         : RequestParameters<CatSnapshotsRequestParameters>
     {
@@ -1488,9 +1488,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -1554,7 +1554,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
     }
 
-    /// <summary>Request options for Tasks <para>https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</para></summary>
+    /// <summary>Request options for Tasks <para>https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/</para></summary>
     public partial class CatTasksRequestParameters : RequestParameters<CatTasksRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -1576,9 +1576,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -1633,7 +1633,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
     }
 
-    /// <summary>Request options for Templates <para>https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</para></summary>
+    /// <summary>Request options for Templates <para>https://docs.opensearch.org/latest/api-reference/cat/cat-templates/</para></summary>
     public partial class CatTemplatesRequestParameters
         : RequestParameters<CatTemplatesRequestParameters>
     {
@@ -1650,9 +1650,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -1706,7 +1706,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
     }
 
-    /// <summary>Request options for ThreadPool <para>https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</para></summary>
+    /// <summary>Request options for ThreadPool <para>https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/</para></summary>
     public partial class CatThreadPoolRequestParameters
         : RequestParameters<CatThreadPoolRequestParameters>
     {
@@ -1723,9 +1723,9 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);

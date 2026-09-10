@@ -52,7 +52,7 @@ using System.Text;
 // ReSharper disable once CheckNamespace
 namespace OpenSearch.Net.Specification.ListApi
 {
-    /// <summary>Request options for Help <para>https://opensearch.org/docs/latest/api-reference/list/index/</para></summary>
+    /// <summary>Request options for Help <para>https://docs.opensearch.org/latest/api-reference/list/index/</para></summary>
     public partial class HelpRequestParameters : RequestParameters<HelpRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -60,7 +60,7 @@ namespace OpenSearch.Net.Specification.ListApi
         public override string OperationName => "list.help";
     }
 
-    /// <summary>Request options for Indices <para>https://opensearch.org/docs/latest/api-reference/list/list-indices/</para></summary>
+    /// <summary>Request options for Indices <para>https://docs.opensearch.org/latest/api-reference/list/list-indices/</para></summary>
     public partial class IndicesRequestParameters : RequestParameters<IndicesRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -90,9 +90,9 @@ namespace OpenSearch.Net.Specification.ListApi
         }
 
         /// <summary>A short version of the Accept header, such as <c>JSON</c>, <c>YAML</c>.</summary>
-        public string Format
+        public ListResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<ListResponseFormat?>("format");
             set => Q("format", value);
         }
 
@@ -187,7 +187,7 @@ namespace OpenSearch.Net.Specification.ListApi
         }
     }
 
-    /// <summary>Request options for Shards <para>https://opensearch.org/docs/latest/api-reference/list/list-shards/</para></summary>
+    /// <summary>Request options for Shards <para>https://docs.opensearch.org/latest/api-reference/list/list-shards/</para></summary>
     public partial class ShardsRequestParameters : RequestParameters<ShardsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
@@ -210,9 +210,9 @@ namespace OpenSearch.Net.Specification.ListApi
         }
 
         /// <summary>A short version of the Accept header, such as <c>JSON</c>, <c>YAML</c>.</summary>
-        public string Format
+        public ListResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<ListResponseFormat?>("format");
             set => Q("format", value);
         }
 

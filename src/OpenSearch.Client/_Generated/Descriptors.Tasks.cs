@@ -57,7 +57,7 @@ using OpenSearch.Net.Utf8Json;
 // ReSharper disable RedundantNameQualifier
 namespace OpenSearch.Client
 {
-    /// <summary>Descriptor for Cancel <para>https://opensearch.org/docs/latest/api-reference/tasks/#task-canceling</para></summary>
+    /// <summary>Descriptor for Cancel <para>https://docs.opensearch.org/latest/api-reference/tasks/cancel-tasks/</para></summary>
     public partial class CancelTasksDescriptor
         : RequestDescriptorBase<
             CancelTasksDescriptor,
@@ -100,7 +100,7 @@ namespace OpenSearch.Client
             Qs("wait_for_completion", waitforcompletion);
     }
 
-    /// <summary>Descriptor for GetTask <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
+    /// <summary>Descriptor for GetTask <para>https://docs.opensearch.org/latest/api-reference/tasks/</para></summary>
     public partial class GetTaskDescriptor
         : RequestDescriptorBase<GetTaskDescriptor, GetTaskRequestParameters, IGetTaskRequest>,
             IGetTaskRequest
@@ -129,7 +129,7 @@ namespace OpenSearch.Client
             Qs("wait_for_completion", waitforcompletion);
     }
 
-    /// <summary>Descriptor for List <para>https://opensearch.org/docs/latest/api-reference/tasks/</para></summary>
+    /// <summary>Descriptor for List <para>https://docs.opensearch.org/latest/api-reference/tasks/</para></summary>
     public partial class ListTasksDescriptor
         : RequestDescriptorBase<ListTasksDescriptor, ListTasksRequestParameters, IListTasksRequest>,
             IListTasksRequest

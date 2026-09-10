@@ -65,7 +65,7 @@ namespace OpenSearch.Client
         Names Name { get; }
     }
 
-    /// <summary>Request for Aliases <para>https://opensearch.org/docs/latest/api-reference/cat/cat-aliases/</para></summary>
+    /// <summary>Request for Aliases <para>https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/</para></summary>
     public partial class CatAliasesRequest
         : PlainRequestBase<CatAliasesRequestParameters>,
             ICatAliasesRequest
@@ -95,9 +95,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -145,7 +145,7 @@ namespace OpenSearch.Client
     public partial interface ICatAllPitSegmentsRequest
         : IRequest<CatAllPitSegmentsRequestParameters> { }
 
-    /// <summary>Request for AllPitSegments <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</para></summary>
+    /// <summary>Request for AllPitSegments <para>https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</para></summary>
     public partial class CatAllPitSegmentsRequest
         : PlainRequestBase<CatAllPitSegmentsRequestParameters>,
             ICatAllPitSegmentsRequest
@@ -164,9 +164,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -210,7 +210,7 @@ namespace OpenSearch.Client
         NodeIds NodeId { get; }
     }
 
-    /// <summary>Request for Allocation <para>https://opensearch.org/docs/latest/api-reference/cat/cat-allocation/</para></summary>
+    /// <summary>Request for Allocation <para>https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/</para></summary>
     public partial class CatAllocationRequest
         : PlainRequestBase<CatAllocationRequestParameters>,
             ICatAllocationRequest
@@ -248,9 +248,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>A short version of the HTTP <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -308,7 +308,7 @@ namespace OpenSearch.Client
     public partial interface ICatClusterManagerRequest
         : IRequest<CatClusterManagerRequestParameters> { }
 
-    /// <summary>Request for ClusterManager <para>https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</para></summary>
+    /// <summary>Request for ClusterManager <para>https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</para></summary>
     public partial class CatClusterManagerRequest
         : PlainRequestBase<CatClusterManagerRequestParameters>,
             ICatClusterManagerRequest
@@ -328,9 +328,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>A short version of the HTTP <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -391,7 +391,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for Count <para>https://opensearch.org/docs/latest/api-reference/cat/cat-count/</para></summary>
+    /// <summary>Request for Count <para>https://docs.opensearch.org/latest/api-reference/cat/cat-count/</para></summary>
     public partial class CatCountRequest
         : PlainRequestBase<CatCountRequestParameters>,
             ICatCountRequest
@@ -414,9 +414,9 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -460,7 +460,7 @@ namespace OpenSearch.Client
         Fields Fields { get; }
     }
 
-    /// <summary>Request for Fielddata <para>https://opensearch.org/docs/latest/api-reference/cat/cat-field-data/</para></summary>
+    /// <summary>Request for Fielddata <para>https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/</para></summary>
     public partial class CatFielddataRequest
         : PlainRequestBase<CatFielddataRequestParameters>,
             ICatFielddataRequest
@@ -490,9 +490,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -532,7 +532,7 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public partial interface ICatHealthRequest : IRequest<CatHealthRequestParameters> { }
 
-    /// <summary>Request for Health <para>https://opensearch.org/docs/latest/api-reference/cat/cat-health/</para></summary>
+    /// <summary>Request for Health <para>https://docs.opensearch.org/latest/api-reference/cat/cat-health/</para></summary>
     public partial class CatHealthRequest
         : PlainRequestBase<CatHealthRequestParameters>,
             ICatHealthRequest
@@ -544,9 +544,9 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -593,7 +593,7 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public partial interface ICatHelpRequest : IRequest<CatHelpRequestParameters> { }
 
-    /// <summary>Request for Help <para>https://opensearch.org/docs/latest/api-reference/cat/index/</para></summary>
+    /// <summary>Request for Help <para>https://docs.opensearch.org/latest/api-reference/cat/index/</para></summary>
     public partial class CatHelpRequest
         : PlainRequestBase<CatHelpRequestParameters>,
             ICatHelpRequest
@@ -612,7 +612,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for Indices <para>https://opensearch.org/docs/latest/api-reference/cat/cat-indices/</para></summary>
+    /// <summary>Request for Indices <para>https://docs.opensearch.org/latest/api-reference/cat/cat-indices/</para></summary>
     public partial class CatIndicesRequest
         : PlainRequestBase<CatIndicesRequestParameters>,
             ICatIndicesRequest
@@ -657,9 +657,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -737,7 +737,7 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public partial interface ICatMasterRequest : IRequest<CatMasterRequestParameters> { }
 
-    /// <summary>Request for Master <para>https://opensearch.org/docs/latest/api-reference/cat/cat-cluster_manager/</para></summary>
+    /// <summary>Request for Master <para>https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</para></summary>
     public partial class CatMasterRequest
         : PlainRequestBase<CatMasterRequestParameters>,
             ICatMasterRequest
@@ -757,9 +757,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -817,7 +817,7 @@ namespace OpenSearch.Client
     public partial interface ICatNodeAttributesRequest
         : IRequest<CatNodeAttributesRequestParameters> { }
 
-    /// <summary>Request for NodeAttributes <para>https://opensearch.org/docs/latest/api-reference/cat/cat-nodeattrs/</para></summary>
+    /// <summary>Request for NodeAttributes <para>https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/</para></summary>
     public partial class CatNodeAttributesRequest
         : PlainRequestBase<CatNodeAttributesRequestParameters>,
             ICatNodeAttributesRequest
@@ -837,9 +837,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -896,7 +896,7 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public partial interface ICatNodesRequest : IRequest<CatNodesRequestParameters> { }
 
-    /// <summary>Request for Nodes <para>https://opensearch.org/docs/latest/api-reference/cat/cat-nodes/</para></summary>
+    /// <summary>Request for Nodes <para>https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/</para></summary>
     public partial class CatNodesRequest
         : PlainRequestBase<CatNodesRequestParameters>,
             ICatNodesRequest
@@ -923,9 +923,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -993,7 +993,7 @@ namespace OpenSearch.Client
     public partial interface ICatPendingTasksRequest
         : IRequest<CatPendingTasksRequestParameters> { }
 
-    /// <summary>Request for PendingTasks <para>https://opensearch.org/docs/latest/api-reference/cat/cat-pending-tasks/</para></summary>
+    /// <summary>Request for PendingTasks <para>https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/</para></summary>
     public partial class CatPendingTasksRequest
         : PlainRequestBase<CatPendingTasksRequestParameters>,
             ICatPendingTasksRequest
@@ -1013,9 +1013,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -1072,7 +1072,7 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public partial interface ICatPitSegmentsRequest : IRequest<CatPitSegmentsRequestParameters> { }
 
-    /// <summary>Request for PitSegments <para>https://opensearch.org/docs/latest/search-plugins/point-in-time-api/</para></summary>
+    /// <summary>Request for PitSegments <para>https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</para></summary>
     public partial class CatPitSegmentsRequest
         : PlainRequestBase<CatPitSegmentsRequestParameters>,
             ICatPitSegmentsRequest
@@ -1091,9 +1091,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -1133,7 +1133,7 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public partial interface ICatPluginsRequest : IRequest<CatPluginsRequestParameters> { }
 
-    /// <summary>Request for Plugins <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>
+    /// <summary>Request for Plugins <para>https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</para></summary>
     public partial class CatPluginsRequest
         : PlainRequestBase<CatPluginsRequestParameters>,
             ICatPluginsRequest
@@ -1153,9 +1153,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -1216,7 +1216,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for Recovery <para>https://opensearch.org/docs/latest/api-reference/cat/cat-plugins/</para></summary>
+    /// <summary>Request for Recovery <para>https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</para></summary>
     public partial class CatRecoveryRequest
         : PlainRequestBase<CatRecoveryRequestParameters>,
             ICatRecoveryRequest
@@ -1260,9 +1260,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -1303,7 +1303,7 @@ namespace OpenSearch.Client
     public partial interface ICatRepositoriesRequest
         : IRequest<CatRepositoriesRequestParameters> { }
 
-    /// <summary>Request for Repositories <para>https://opensearch.org/docs/latest/api-reference/cat/cat-repositories/</para></summary>
+    /// <summary>Request for Repositories <para>https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/</para></summary>
     public partial class CatRepositoriesRequest
         : PlainRequestBase<CatRepositoriesRequestParameters>,
             ICatRepositoriesRequest
@@ -1323,9 +1323,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -1387,7 +1387,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for SegmentReplication <para>https://opensearch.org/docs/latest/api-reference/cat/cat-segment-replication/</para></summary>
+    /// <summary>Request for SegmentReplication <para>https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/</para></summary>
     public partial class CatSegmentReplicationRequest
         : PlainRequestBase<CatSegmentReplicationRequestParameters>,
             ICatSegmentReplicationRequest
@@ -1455,9 +1455,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -1529,7 +1529,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for Segments <para>https://opensearch.org/docs/latest/api-reference/cat/cat-segments/</para></summary>
+    /// <summary>Request for Segments <para>https://docs.opensearch.org/latest/api-reference/cat/cat-segments/</para></summary>
     public partial class CatSegmentsRequest
         : PlainRequestBase<CatSegmentsRequestParameters>,
             ICatSegmentsRequest
@@ -1567,9 +1567,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -1623,7 +1623,7 @@ namespace OpenSearch.Client
         Indices Index { get; }
     }
 
-    /// <summary>Request for Shards <para>https://opensearch.org/docs/latest/api-reference/cat/cat-shards/</para></summary>
+    /// <summary>Request for Shards <para>https://docs.opensearch.org/latest/api-reference/cat/cat-shards/</para></summary>
     public partial class CatShardsRequest
         : PlainRequestBase<CatShardsRequestParameters>,
             ICatShardsRequest
@@ -1661,9 +1661,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -1724,7 +1724,7 @@ namespace OpenSearch.Client
         Names RepositoryName { get; }
     }
 
-    /// <summary>Request for Snapshots <para>https://opensearch.org/docs/latest/api-reference/cat/cat-snapshots/</para></summary>
+    /// <summary>Request for Snapshots <para>https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/</para></summary>
     public partial class CatSnapshotsRequest
         : PlainRequestBase<CatSnapshotsRequestParameters>,
             ICatSnapshotsRequest
@@ -1755,9 +1755,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -1814,7 +1814,7 @@ namespace OpenSearch.Client
     [InterfaceDataContract]
     public partial interface ICatTasksRequest : IRequest<CatTasksRequestParameters> { }
 
-    /// <summary>Request for Tasks <para>https://opensearch.org/docs/latest/api-reference/cat/cat-tasks/</para></summary>
+    /// <summary>Request for Tasks <para>https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/</para></summary>
     public partial class CatTasksRequest
         : PlainRequestBase<CatTasksRequestParameters>,
             ICatTasksRequest
@@ -1840,9 +1840,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -1904,7 +1904,7 @@ namespace OpenSearch.Client
         Name Name { get; }
     }
 
-    /// <summary>Request for Templates <para>https://opensearch.org/docs/latest/api-reference/cat/cat-templates/</para></summary>
+    /// <summary>Request for Templates <para>https://docs.opensearch.org/latest/api-reference/cat/cat-templates/</para></summary>
     public partial class CatTemplatesRequest
         : PlainRequestBase<CatTemplatesRequestParameters>,
             ICatTemplatesRequest
@@ -1935,9 +1935,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);
@@ -1998,7 +1998,7 @@ namespace OpenSearch.Client
         Names ThreadPoolPatterns { get; }
     }
 
-    /// <summary>Request for ThreadPool <para>https://opensearch.org/docs/latest/api-reference/cat/cat-thread-pool/</para></summary>
+    /// <summary>Request for ThreadPool <para>https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/</para></summary>
     public partial class CatThreadPoolRequest
         : PlainRequestBase<CatThreadPoolRequestParameters>,
             ICatThreadPoolRequest
@@ -2030,9 +2030,9 @@ namespace OpenSearch.Client
         }
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public string Format
+        public CatResponseFormat? Format
         {
-            get => Q<string>("format");
+            get => Q<CatResponseFormat?>("format");
             set
             {
                 Q("format", value);

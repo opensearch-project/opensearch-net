@@ -150,7 +150,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/account <para>https://opensearch.org/docs/latest/security/access-control/api/#change-password</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/account <para>https://docs.opensearch.org/latest/security/access-control/api/#change-password</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse ChangePassword<TResponse>(
@@ -165,7 +165,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/account <para>https://opensearch.org/docs/latest/security/access-control/api/#change-password</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/account <para>https://docs.opensearch.org/latest/security/access-control/api/#change-password</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.change_password", "body")]
@@ -183,7 +183,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/_upgrade_check <para>https://opensearch.org/docs/latest/security/access-control/api/#configuration-upgrade-check</para></summary>
+        /// <summary>GET on /_plugins/_security/api/_upgrade_check <para>https://docs.opensearch.org/latest/security/access-control/api/#configuration-upgrade-check</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.14.0 or greater.</remarks>
         public TResponse ConfigUpgradeCheck<TResponse>(
@@ -197,7 +197,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/_upgrade_check <para>https://opensearch.org/docs/latest/security/access-control/api/#configuration-upgrade-check</para></summary>
+        /// <summary>GET on /_plugins/_security/api/_upgrade_check <para>https://docs.opensearch.org/latest/security/access-control/api/#configuration-upgrade-check</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.14.0 or greater.</remarks>
         [MapsApi("security.config_upgrade_check", "")]
@@ -214,7 +214,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_security/api/_upgrade_perform <para>https://opensearch.org/docs/latest/security/access-control/api/#configuration-upgrade</para></summary>
+        /// <summary>POST on /_plugins/_security/api/_upgrade_perform <para>https://docs.opensearch.org/latest/security/access-control/api/#configuration-upgrade</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.14.0 or greater.</remarks>
@@ -230,7 +230,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_security/api/_upgrade_perform <para>https://opensearch.org/docs/latest/security/access-control/api/#configuration-upgrade</para></summary>
+        /// <summary>POST on /_plugins/_security/api/_upgrade_perform <para>https://docs.opensearch.org/latest/security/access-control/api/#configuration-upgrade</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.14.0 or greater.</remarks>
@@ -249,7 +249,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/actiongroups/{action_group} <para>https://opensearch.org/docs/latest/security/access-control/api/#create-action-group</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/actiongroups/{action_group} <para>https://docs.opensearch.org/latest/security/access-control/api/#create-action-group</para></summary>
         /// <param name="actionGroup">The name of the action group to create or replace.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -266,7 +266,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/actiongroups/{action_group} <para>https://opensearch.org/docs/latest/security/access-control/api/#create-action-group</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/actiongroups/{action_group} <para>https://docs.opensearch.org/latest/security/access-control/api/#create-action-group</para></summary>
         /// <param name="actionGroup">The name of the action group to create or replace.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -286,7 +286,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/allowlist <para>https://opensearch.org/docs/latest/security/access-control/api/#access-control-for-the-api</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/allowlist <para>https://docs.opensearch.org/latest/security/access-control/api/#access-control-for-the-api</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>
@@ -302,7 +302,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/allowlist <para>https://opensearch.org/docs/latest/security/access-control/api/#access-control-for-the-api</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/allowlist <para>https://docs.opensearch.org/latest/security/access-control/api/#access-control-for-the-api</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>
@@ -321,7 +321,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/roles/{role} <para>https://opensearch.org/docs/latest/security/access-control/api/#create-role</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/roles/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#create-role</para></summary>
         /// <param name="role">The name of the role to create.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -338,7 +338,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/roles/{role} <para>https://opensearch.org/docs/latest/security/access-control/api/#create-role</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/roles/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#create-role</para></summary>
         /// <param name="role">The name of the role to create.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -358,7 +358,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/rolesmapping/{role} <para>https://opensearch.org/docs/latest/security/access-control/api/#create-role-mapping</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/rolesmapping/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#create-role-mapping</para></summary>
         /// <param name="role">The name of the role for which to create a role mapping.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -375,7 +375,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/rolesmapping/{role} <para>https://opensearch.org/docs/latest/security/access-control/api/#create-role-mapping</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/rolesmapping/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#create-role-mapping</para></summary>
         /// <param name="role">The name of the role for which to create a role mapping.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -395,7 +395,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/tenants/{tenant} <para>https://opensearch.org/docs/latest/security/access-control/api/#create-tenant</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/tenants/{tenant} <para>https://docs.opensearch.org/latest/security/access-control/api/#create-tenant</para></summary>
         /// <param name="tenant">The name of the tenant to create.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -412,7 +412,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/tenants/{tenant} <para>https://opensearch.org/docs/latest/security/access-control/api/#create-tenant</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/tenants/{tenant} <para>https://docs.opensearch.org/latest/security/access-control/api/#create-tenant</para></summary>
         /// <param name="tenant">The name of the tenant to create.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -432,7 +432,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/tenancy/config <para>https://opensearch.org/docs/latest/security/multi-tenancy/dynamic-config/#configuring-multi-tenancy-with-the-rest-api</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/tenancy/config <para>https://docs.opensearch.org/latest/security/multi-tenancy/dynamic-config/#configuring-multi-tenancy-with-the-rest-api</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
@@ -448,7 +448,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/tenancy/config <para>https://opensearch.org/docs/latest/security/multi-tenancy/dynamic-config/#configuring-multi-tenancy-with-the-rest-api</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/tenancy/config <para>https://docs.opensearch.org/latest/security/multi-tenancy/dynamic-config/#configuring-multi-tenancy-with-the-rest-api</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
@@ -467,7 +467,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/internalusers/{username} <para>https://opensearch.org/docs/latest/security/access-control/api/#create-user</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/internalusers/{username} <para>https://docs.opensearch.org/latest/security/access-control/api/#create-user</para></summary>
         /// <param name="username">The name of the user to create.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -484,7 +484,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/internalusers/{username} <para>https://opensearch.org/docs/latest/security/access-control/api/#create-user</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/internalusers/{username} <para>https://docs.opensearch.org/latest/security/access-control/api/#create-user</para></summary>
         /// <param name="username">The name of the user to create.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -541,7 +541,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_security/api/actiongroups/{action_group} <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-action-group</para></summary>
+        /// <summary>DELETE on /_plugins/_security/api/actiongroups/{action_group} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-action-group</para></summary>
         /// <param name="actionGroup">The name of the action group to delete.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse DeleteActionGroup<TResponse>(
@@ -556,7 +556,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_security/api/actiongroups/{action_group} <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-action-group</para></summary>
+        /// <summary>DELETE on /_plugins/_security/api/actiongroups/{action_group} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-action-group</para></summary>
         /// <param name="actionGroup">The name of the action group to delete.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.delete_action_group", "action_group")]
@@ -574,7 +574,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_security/api/nodesdn/{cluster_name} <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-distinguished-names</para></summary>
+        /// <summary>DELETE on /_plugins/_security/api/nodesdn/{cluster_name} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-distinguished-names</para></summary>
         /// <param name="clusterName">The cluster name to delete from list of distinguished names.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse DeleteDistinguishedName<TResponse>(
@@ -589,7 +589,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_security/api/nodesdn/{cluster_name} <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-distinguished-names</para></summary>
+        /// <summary>DELETE on /_plugins/_security/api/nodesdn/{cluster_name} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-distinguished-names</para></summary>
         /// <param name="clusterName">The cluster name to delete from list of distinguished names.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.delete_distinguished_name", "cluster_name")]
@@ -607,7 +607,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_security/api/roles/{role} <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-role</para></summary>
+        /// <summary>DELETE on /_plugins/_security/api/roles/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-role</para></summary>
         /// <param name="role">The name of the role to delete.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse DeleteRole<TResponse>(
@@ -622,7 +622,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_security/api/roles/{role} <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-role</para></summary>
+        /// <summary>DELETE on /_plugins/_security/api/roles/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-role</para></summary>
         /// <param name="role">The name of the role to delete.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.delete_role", "role")]
@@ -640,7 +640,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_security/api/rolesmapping/{role} <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-role-mapping</para></summary>
+        /// <summary>DELETE on /_plugins/_security/api/rolesmapping/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-role-mapping</para></summary>
         /// <param name="role">The name of the role for which to delete the role&#x27;s mappings.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse DeleteRoleMapping<TResponse>(
@@ -655,7 +655,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_security/api/rolesmapping/{role} <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-role-mapping</para></summary>
+        /// <summary>DELETE on /_plugins/_security/api/rolesmapping/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-role-mapping</para></summary>
         /// <param name="role">The name of the role for which to delete the role&#x27;s mappings.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.delete_role_mapping", "role")]
@@ -673,7 +673,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_security/api/tenants/{tenant} <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-action-group</para></summary>
+        /// <summary>DELETE on /_plugins/_security/api/tenants/{tenant} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-action-group</para></summary>
         /// <param name="tenant">The name of the tenant to delete.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse DeleteTenant<TResponse>(
@@ -688,7 +688,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_security/api/tenants/{tenant} <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-action-group</para></summary>
+        /// <summary>DELETE on /_plugins/_security/api/tenants/{tenant} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-action-group</para></summary>
         /// <param name="tenant">The name of the tenant to delete.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.delete_tenant", "tenant")]
@@ -706,7 +706,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_security/api/internalusers/{username} <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-user</para></summary>
+        /// <summary>DELETE on /_plugins/_security/api/internalusers/{username} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-user</para></summary>
         /// <param name="username">The name of the user to delete.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse DeleteUser<TResponse>(
@@ -721,7 +721,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_security/api/internalusers/{username} <para>https://opensearch.org/docs/latest/security/access-control/api/#delete-user</para></summary>
+        /// <summary>DELETE on /_plugins/_security/api/internalusers/{username} <para>https://docs.opensearch.org/latest/security/access-control/api/#delete-user</para></summary>
         /// <param name="username">The name of the user to delete.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.delete_user", "username")]
@@ -772,7 +772,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_security/api/cache <para>https://opensearch.org/docs/latest/security/access-control/api/#flush-cache</para></summary>
+        /// <summary>DELETE on /_plugins/_security/api/cache <para>https://docs.opensearch.org/latest/security/access-control/api/#flush-cache</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse FlushCache<TResponse>(FlushCacheRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -783,7 +783,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_security/api/cache <para>https://opensearch.org/docs/latest/security/access-control/api/#flush-cache</para></summary>
+        /// <summary>DELETE on /_plugins/_security/api/cache <para>https://docs.opensearch.org/latest/security/access-control/api/#flush-cache</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.flush_cache", "")]
         public Task<TResponse> FlushCacheAsync<TResponse>(
@@ -799,7 +799,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_security/api/generateonbehalfoftoken <para>https://opensearch.org/docs/latest/security/access-control/authentication-tokens/#api-endpoint</para></summary>
+        /// <summary>POST on /_plugins/_security/api/generateonbehalfoftoken <para>https://docs.opensearch.org/latest/security/access-control/authentication-tokens/#api-endpoint</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
@@ -815,7 +815,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_security/api/generateonbehalfoftoken <para>https://opensearch.org/docs/latest/security/access-control/authentication-tokens/#api-endpoint</para></summary>
+        /// <summary>POST on /_plugins/_security/api/generateonbehalfoftoken <para>https://docs.opensearch.org/latest/security/access-control/authentication-tokens/#api-endpoint</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
@@ -904,7 +904,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/account <para>https://opensearch.org/docs/latest/security/access-control/api/#get-account-details</para></summary>
+        /// <summary>GET on /_plugins/_security/api/account <para>https://docs.opensearch.org/latest/security/access-control/api/#get-account-details</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetAccountDetails<TResponse>(
             GetAccountDetailsRequestParameters requestParameters = null
@@ -917,7 +917,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/account <para>https://opensearch.org/docs/latest/security/access-control/api/#get-account-details</para></summary>
+        /// <summary>GET on /_plugins/_security/api/account <para>https://docs.opensearch.org/latest/security/access-control/api/#get-account-details</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.get_account_details", "")]
         public Task<TResponse> GetAccountDetailsAsync<TResponse>(
@@ -933,7 +933,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/actiongroups/{action_group} <para>https://opensearch.org/docs/latest/security/access-control/api/#get-action-group</para></summary>
+        /// <summary>GET on /_plugins/_security/api/actiongroups/{action_group} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-action-group</para></summary>
         /// <param name="actionGroup">The name of the action group to retrieve.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetActionGroup<TResponse>(
@@ -948,7 +948,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/actiongroups/{action_group} <para>https://opensearch.org/docs/latest/security/access-control/api/#get-action-group</para></summary>
+        /// <summary>GET on /_plugins/_security/api/actiongroups/{action_group} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-action-group</para></summary>
         /// <param name="actionGroup">The name of the action group to retrieve.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.get_action_group", "action_group")]
@@ -966,7 +966,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/actiongroups <para>https://opensearch.org/docs/latest/security/access-control/api/#get-action-groups</para></summary>
+        /// <summary>GET on /_plugins/_security/api/actiongroups <para>https://docs.opensearch.org/latest/security/access-control/api/#get-action-groups</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetActionGroups<TResponse>(
             GetActionGroupsRequestParameters requestParameters = null
@@ -979,7 +979,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/actiongroups <para>https://opensearch.org/docs/latest/security/access-control/api/#get-action-groups</para></summary>
+        /// <summary>GET on /_plugins/_security/api/actiongroups <para>https://docs.opensearch.org/latest/security/access-control/api/#get-action-groups</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.get_action_groups", "")]
         public Task<TResponse> GetActionGroupsAsync<TResponse>(
@@ -1026,7 +1026,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/allowlist <para>https://opensearch.org/docs/latest/security/access-control/api/#access-control-for-the-api</para></summary>
+        /// <summary>GET on /_plugins/_security/api/allowlist <para>https://docs.opensearch.org/latest/security/access-control/api/#access-control-for-the-api</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>
         public TResponse GetAllowlist<TResponse>(
@@ -1040,7 +1040,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/allowlist <para>https://opensearch.org/docs/latest/security/access-control/api/#access-control-for-the-api</para></summary>
+        /// <summary>GET on /_plugins/_security/api/allowlist <para>https://docs.opensearch.org/latest/security/access-control/api/#access-control-for-the-api</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>
         [MapsApi("security.get_allowlist", "")]
@@ -1057,7 +1057,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/audit <para>https://opensearch.org/docs/latest/security/access-control/api/#audit-logs</para></summary>
+        /// <summary>GET on /_plugins/_security/api/audit <para>https://docs.opensearch.org/latest/security/access-control/api/#audit-logs</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetAuditConfiguration<TResponse>(
             GetAuditConfigurationRequestParameters requestParameters = null
@@ -1070,7 +1070,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/audit <para>https://opensearch.org/docs/latest/security/access-control/api/#audit-logs</para></summary>
+        /// <summary>GET on /_plugins/_security/api/audit <para>https://docs.opensearch.org/latest/security/access-control/api/#audit-logs</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.get_audit_configuration", "")]
         public Task<TResponse> GetAuditConfigurationAsync<TResponse>(
@@ -1086,7 +1086,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/ssl/certs <para>https://opensearch.org/docs/latest/security/access-control/api/#get-certificates</para></summary>
+        /// <summary>GET on /_plugins/_security/api/ssl/certs <para>https://docs.opensearch.org/latest/security/access-control/api/#get-certificates</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public TResponse GetCertificates<TResponse>(
@@ -1100,7 +1100,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/ssl/certs <para>https://opensearch.org/docs/latest/security/access-control/api/#get-certificates</para></summary>
+        /// <summary>GET on /_plugins/_security/api/ssl/certs <para>https://docs.opensearch.org/latest/security/access-control/api/#get-certificates</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         [MapsApi("security.get_certificates", "")]
@@ -1117,7 +1117,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/securityconfig <para>https://opensearch.org/docs/latest/security/access-control/api/#get-configuration</para></summary>
+        /// <summary>GET on /_plugins/_security/api/securityconfig <para>https://docs.opensearch.org/latest/security/access-control/api/#get-configuration</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.10.0 or greater.</remarks>
         public TResponse GetConfiguration<TResponse>(
@@ -1131,7 +1131,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/securityconfig <para>https://opensearch.org/docs/latest/security/access-control/api/#get-configuration</para></summary>
+        /// <summary>GET on /_plugins/_security/api/securityconfig <para>https://docs.opensearch.org/latest/security/access-control/api/#get-configuration</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.10.0 or greater.</remarks>
         [MapsApi("security.get_configuration", "")]
@@ -1177,7 +1177,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/nodesdn/{cluster_name} <para>https://opensearch.org/docs/latest/security/access-control/api/#get-distinguished-names</para></summary>
+        /// <summary>GET on /_plugins/_security/api/nodesdn/{cluster_name} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-distinguished-names</para></summary>
         /// <param name="clusterName">The name of the cluster to retrieve that cluster&#x27;s nodes DN settings.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetDistinguishedName<TResponse>(
@@ -1192,7 +1192,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/nodesdn/{cluster_name} <para>https://opensearch.org/docs/latest/security/access-control/api/#get-distinguished-names</para></summary>
+        /// <summary>GET on /_plugins/_security/api/nodesdn/{cluster_name} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-distinguished-names</para></summary>
         /// <param name="clusterName">The name of the cluster to retrieve that cluster&#x27;s nodes DN settings.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.get_distinguished_name", "cluster_name")]
@@ -1210,7 +1210,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/nodesdn <para>https://opensearch.org/docs/latest/security/access-control/api/#get-distinguished-names</para></summary>
+        /// <summary>GET on /_plugins/_security/api/nodesdn <para>https://docs.opensearch.org/latest/security/access-control/api/#get-distinguished-names</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetDistinguishedNames<TResponse>(
             GetDistinguishedNamesRequestParameters requestParameters = null
@@ -1223,7 +1223,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/nodesdn <para>https://opensearch.org/docs/latest/security/access-control/api/#get-distinguished-names</para></summary>
+        /// <summary>GET on /_plugins/_security/api/nodesdn <para>https://docs.opensearch.org/latest/security/access-control/api/#get-distinguished-names</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.get_distinguished_names", "")]
         public Task<TResponse> GetDistinguishedNamesAsync<TResponse>(
@@ -1303,7 +1303,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/roles/{role} <para>https://opensearch.org/docs/latest/security/access-control/api/#get-role</para></summary>
+        /// <summary>GET on /_plugins/_security/api/roles/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-role</para></summary>
         /// <param name="role">The name of the role to retrieve.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetRole<TResponse>(
@@ -1318,7 +1318,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/roles/{role} <para>https://opensearch.org/docs/latest/security/access-control/api/#get-role</para></summary>
+        /// <summary>GET on /_plugins/_security/api/roles/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-role</para></summary>
         /// <param name="role">The name of the role to retrieve.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.get_role", "role")]
@@ -1336,7 +1336,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/rolesmapping/{role} <para>https://opensearch.org/docs/latest/security/access-control/api/#get-role-mapping</para></summary>
+        /// <summary>GET on /_plugins/_security/api/rolesmapping/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-role-mapping</para></summary>
         /// <param name="role">The name of the role mapping to retrieve.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetRoleMapping<TResponse>(
@@ -1351,7 +1351,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/rolesmapping/{role} <para>https://opensearch.org/docs/latest/security/access-control/api/#get-role-mapping</para></summary>
+        /// <summary>GET on /_plugins/_security/api/rolesmapping/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-role-mapping</para></summary>
         /// <param name="role">The name of the role mapping to retrieve.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.get_role_mapping", "role")]
@@ -1369,7 +1369,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/rolesmapping <para>https://opensearch.org/docs/latest/security/access-control/api/#get-role-mappings</para></summary>
+        /// <summary>GET on /_plugins/_security/api/rolesmapping <para>https://docs.opensearch.org/latest/security/access-control/api/#get-role-mappings</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetRoleMappings<TResponse>(
             GetRoleMappingsRequestParameters requestParameters = null
@@ -1382,7 +1382,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/rolesmapping <para>https://opensearch.org/docs/latest/security/access-control/api/#get-role-mappings</para></summary>
+        /// <summary>GET on /_plugins/_security/api/rolesmapping <para>https://docs.opensearch.org/latest/security/access-control/api/#get-role-mappings</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.get_role_mappings", "")]
         public Task<TResponse> GetRoleMappingsAsync<TResponse>(
@@ -1398,7 +1398,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/roles <para>https://opensearch.org/docs/latest/security/access-control/api/#get-roles</para></summary>
+        /// <summary>GET on /_plugins/_security/api/roles <para>https://docs.opensearch.org/latest/security/access-control/api/#get-roles</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetRoles<TResponse>(GetRolesRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -1409,7 +1409,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/roles <para>https://opensearch.org/docs/latest/security/access-control/api/#get-roles</para></summary>
+        /// <summary>GET on /_plugins/_security/api/roles <para>https://docs.opensearch.org/latest/security/access-control/api/#get-roles</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.get_roles", "")]
         public Task<TResponse> GetRolesAsync<TResponse>(
@@ -1452,7 +1452,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/tenancy/config <para>https://opensearch.org/docs/latest/security/multi-tenancy/dynamic-config/#configuring-multi-tenancy-with-the-rest-api</para></summary>
+        /// <summary>GET on /_plugins/_security/api/tenancy/config <para>https://docs.opensearch.org/latest/security/multi-tenancy/dynamic-config/#configuring-multi-tenancy-with-the-rest-api</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         public TResponse GetTenancyConfig<TResponse>(
@@ -1466,7 +1466,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/tenancy/config <para>https://opensearch.org/docs/latest/security/multi-tenancy/dynamic-config/#configuring-multi-tenancy-with-the-rest-api</para></summary>
+        /// <summary>GET on /_plugins/_security/api/tenancy/config <para>https://docs.opensearch.org/latest/security/multi-tenancy/dynamic-config/#configuring-multi-tenancy-with-the-rest-api</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         [MapsApi("security.get_tenancy_config", "")]
@@ -1483,7 +1483,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/tenants/{tenant} <para>https://opensearch.org/docs/latest/security/access-control/api/#get-tenant</para></summary>
+        /// <summary>GET on /_plugins/_security/api/tenants/{tenant} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-tenant</para></summary>
         /// <param name="tenant">The name of the tenant to retrieve.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetTenant<TResponse>(
@@ -1498,7 +1498,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/tenants/{tenant} <para>https://opensearch.org/docs/latest/security/access-control/api/#get-tenant</para></summary>
+        /// <summary>GET on /_plugins/_security/api/tenants/{tenant} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-tenant</para></summary>
         /// <param name="tenant">The name of the tenant to retrieve.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.get_tenant", "tenant")]
@@ -1516,7 +1516,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/tenants <para>https://opensearch.org/docs/latest/security/access-control/api/#get-tenants</para></summary>
+        /// <summary>GET on /_plugins/_security/api/tenants <para>https://docs.opensearch.org/latest/security/access-control/api/#get-tenants</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetTenants<TResponse>(GetTenantsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -1527,7 +1527,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/tenants <para>https://opensearch.org/docs/latest/security/access-control/api/#get-tenants</para></summary>
+        /// <summary>GET on /_plugins/_security/api/tenants <para>https://docs.opensearch.org/latest/security/access-control/api/#get-tenants</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.get_tenants", "")]
         public Task<TResponse> GetTenantsAsync<TResponse>(
@@ -1543,7 +1543,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/internalusers/{username} <para>https://opensearch.org/docs/latest/security/access-control/api/#get-user</para></summary>
+        /// <summary>GET on /_plugins/_security/api/internalusers/{username} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-user</para></summary>
         /// <param name="username">The name of the user to retrieve.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetUser<TResponse>(
@@ -1558,7 +1558,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/internalusers/{username} <para>https://opensearch.org/docs/latest/security/access-control/api/#get-user</para></summary>
+        /// <summary>GET on /_plugins/_security/api/internalusers/{username} <para>https://docs.opensearch.org/latest/security/access-control/api/#get-user</para></summary>
         /// <param name="username">The name of the user to retrieve.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.get_user", "username")]
@@ -1609,7 +1609,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/internalusers <para>https://opensearch.org/docs/latest/security/access-control/api/#get-users</para></summary>
+        /// <summary>GET on /_plugins/_security/api/internalusers <para>https://docs.opensearch.org/latest/security/access-control/api/#get-users</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse GetUsers<TResponse>(GetUsersRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -1620,7 +1620,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_security/api/internalusers <para>https://opensearch.org/docs/latest/security/access-control/api/#get-users</para></summary>
+        /// <summary>GET on /_plugins/_security/api/internalusers <para>https://docs.opensearch.org/latest/security/access-control/api/#get-users</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.get_users", "")]
         public Task<TResponse> GetUsersAsync<TResponse>(
@@ -1665,7 +1665,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_security/health <para>https://opensearch.org/docs/latest/security/access-control/api/#health-check</para></summary>
+        /// <summary>POST on /_plugins/_security/health <para>https://docs.opensearch.org/latest/security/access-control/api/#health-check</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Health<TResponse>(HealthRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -1676,7 +1676,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_security/health <para>https://opensearch.org/docs/latest/security/access-control/api/#health-check</para></summary>
+        /// <summary>POST on /_plugins/_security/health <para>https://docs.opensearch.org/latest/security/access-control/api/#health-check</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.health", "")]
         public Task<TResponse> HealthAsync<TResponse>(
@@ -1719,7 +1719,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/actiongroups/{action_group} <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-action-group</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/actiongroups/{action_group} <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-action-group</para></summary>
         /// <param name="actionGroup">The name of the action group to update.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1736,7 +1736,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/actiongroups/{action_group} <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-action-group</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/actiongroups/{action_group} <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-action-group</para></summary>
         /// <param name="actionGroup">The name of the action group to update.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1756,7 +1756,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/actiongroups <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-action-groups</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/actiongroups <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-action-groups</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse PatchActionGroups<TResponse>(
@@ -1771,7 +1771,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/actiongroups <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-action-groups</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/actiongroups <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-action-groups</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.patch_action_groups", "body")]
@@ -1789,7 +1789,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/allowlist <para>https://opensearch.org/docs/latest/security/access-control/api/#access-control-for-the-api</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/allowlist <para>https://docs.opensearch.org/latest/security/access-control/api/#access-control-for-the-api</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>
@@ -1805,7 +1805,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/allowlist <para>https://opensearch.org/docs/latest/security/access-control/api/#access-control-for-the-api</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/allowlist <para>https://docs.opensearch.org/latest/security/access-control/api/#access-control-for-the-api</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>
@@ -1824,7 +1824,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/audit <para>https://opensearch.org/docs/latest/security/access-control/api/#audit-logs</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/audit <para>https://docs.opensearch.org/latest/security/access-control/api/#audit-logs</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse PatchAuditConfiguration<TResponse>(
@@ -1839,7 +1839,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/audit <para>https://opensearch.org/docs/latest/security/access-control/api/#audit-logs</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/audit <para>https://docs.opensearch.org/latest/security/access-control/api/#audit-logs</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.patch_audit_configuration", "body")]
@@ -1857,7 +1857,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/securityconfig <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-configuration</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/securityconfig <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-configuration</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.10.0 or greater.</remarks>
@@ -1873,7 +1873,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/securityconfig <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-configuration</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/securityconfig <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-configuration</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.10.0 or greater.</remarks>
@@ -1929,7 +1929,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/nodesdn <para>https://opensearch.org/docs/latest/security/access-control/api/#update-all-distinguished-names</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/nodesdn <para>https://docs.opensearch.org/latest/security/access-control/api/#update-all-distinguished-names</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse PatchDistinguishedNames<TResponse>(
@@ -1944,7 +1944,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/nodesdn <para>https://opensearch.org/docs/latest/security/access-control/api/#update-all-distinguished-names</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/nodesdn <para>https://docs.opensearch.org/latest/security/access-control/api/#update-all-distinguished-names</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.patch_distinguished_names", "body")]
@@ -1962,7 +1962,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/roles/{role} <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-role</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/roles/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-role</para></summary>
         /// <param name="role">The name of the role to update.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1979,7 +1979,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/roles/{role} <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-role</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/roles/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-role</para></summary>
         /// <param name="role">The name of the role to update.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -1999,7 +1999,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/rolesmapping/{role} <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-role-mapping</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/rolesmapping/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-role-mapping</para></summary>
         /// <param name="role">The name of the role to update a role mapping for.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -2016,7 +2016,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/rolesmapping/{role} <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-role-mapping</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/rolesmapping/{role} <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-role-mapping</para></summary>
         /// <param name="role">The name of the role to update a role mapping for.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -2036,7 +2036,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/rolesmapping <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-role-mappings</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/rolesmapping <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-role-mappings</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse PatchRoleMappings<TResponse>(
@@ -2051,7 +2051,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/rolesmapping <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-role-mappings</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/rolesmapping <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-role-mappings</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.patch_role_mappings", "body")]
@@ -2069,7 +2069,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/roles <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-roles</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/roles <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-roles</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse PatchRoles<TResponse>(
@@ -2084,7 +2084,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/roles <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-roles</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/roles <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-roles</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.patch_roles", "body")]
@@ -2102,7 +2102,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/tenants/{tenant} <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-tenant</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/tenants/{tenant} <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-tenant</para></summary>
         /// <param name="tenant">The name of the tenant to update.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -2119,7 +2119,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/tenants/{tenant} <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-tenant</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/tenants/{tenant} <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-tenant</para></summary>
         /// <param name="tenant">The name of the tenant to update.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -2139,7 +2139,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/tenants <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-tenants</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/tenants <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-tenants</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse PatchTenants<TResponse>(
@@ -2154,7 +2154,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/tenants <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-tenants</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/tenants <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-tenants</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.patch_tenants", "body")]
@@ -2172,7 +2172,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/internalusers/{username} <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-user</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/internalusers/{username} <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-user</para></summary>
         /// <param name="username">The name of the user to update.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -2189,7 +2189,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/internalusers/{username} <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-user</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/internalusers/{username} <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-user</para></summary>
         /// <param name="username">The name of the user to update.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -2209,7 +2209,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/internalusers <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-users</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/internalusers <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-users</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse PatchUsers<TResponse>(
@@ -2224,7 +2224,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PATCH on /_plugins/_security/api/internalusers <para>https://opensearch.org/docs/latest/security/access-control/api/#patch-users</para></summary>
+        /// <summary>PATCH on /_plugins/_security/api/internalusers <para>https://docs.opensearch.org/latest/security/access-control/api/#patch-users</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.patch_users", "body")]
@@ -2271,7 +2271,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/ssl/http/reloadcerts <para>https://opensearch.org/docs/latest/security/access-control/api/#reload-http-certificates</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/ssl/http/reloadcerts <para>https://docs.opensearch.org/latest/security/access-control/api/#reload-http-certificates</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.8.0 or greater.</remarks>
         public TResponse ReloadHttpCertificates<TResponse>(
@@ -2285,7 +2285,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/ssl/http/reloadcerts <para>https://opensearch.org/docs/latest/security/access-control/api/#reload-http-certificates</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/ssl/http/reloadcerts <para>https://docs.opensearch.org/latest/security/access-control/api/#reload-http-certificates</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.8.0 or greater.</remarks>
         [MapsApi("security.reload_http_certificates", "")]
@@ -2302,7 +2302,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/ssl/transport/reloadcerts <para>https://opensearch.org/docs/latest/security/access-control/api/#reload-transport-certificates</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/ssl/transport/reloadcerts <para>https://docs.opensearch.org/latest/security/access-control/api/#reload-transport-certificates</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.8.0 or greater.</remarks>
         public TResponse ReloadTransportCertificates<TResponse>(
@@ -2316,7 +2316,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/ssl/transport/reloadcerts <para>https://opensearch.org/docs/latest/security/access-control/api/#reload-transport-certificates</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/ssl/transport/reloadcerts <para>https://docs.opensearch.org/latest/security/access-control/api/#reload-transport-certificates</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.8.0 or greater.</remarks>
         [MapsApi("security.reload_transport_certificates", "")]
@@ -2360,7 +2360,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/audit/config <para>https://opensearch.org/docs/latest/security/access-control/api/#audit-logs</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/audit/config <para>https://docs.opensearch.org/latest/security/access-control/api/#audit-logs</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse UpdateAuditConfiguration<TResponse>(
@@ -2375,7 +2375,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/audit/config <para>https://opensearch.org/docs/latest/security/access-control/api/#audit-logs</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/audit/config <para>https://docs.opensearch.org/latest/security/access-control/api/#audit-logs</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("security.update_audit_configuration", "body")]
@@ -2393,7 +2393,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/securityconfig/config <para>https://opensearch.org/docs/latest/security/access-control/api/#update-configuration</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/securityconfig/config <para>https://docs.opensearch.org/latest/security/access-control/api/#update-configuration</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.10.0 or greater.</remarks>
@@ -2409,7 +2409,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/securityconfig/config <para>https://opensearch.org/docs/latest/security/access-control/api/#update-configuration</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/securityconfig/config <para>https://docs.opensearch.org/latest/security/access-control/api/#update-configuration</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.10.0 or greater.</remarks>
@@ -2428,7 +2428,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/nodesdn/{cluster_name} <para>https://opensearch.org/docs/latest/security/access-control/api/#update-distinguished-names</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/nodesdn/{cluster_name} <para>https://docs.opensearch.org/latest/security/access-control/api/#update-distinguished-names</para></summary>
         /// <param name="clusterName">The name of the cluster containing the &lt;c&gt;nodesDn&lt;/c&gt; value to create or update.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -2445,7 +2445,7 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_security/api/nodesdn/{cluster_name} <para>https://opensearch.org/docs/latest/security/access-control/api/#update-distinguished-names</para></summary>
+        /// <summary>PUT on /_plugins/_security/api/nodesdn/{cluster_name} <para>https://docs.opensearch.org/latest/security/access-control/api/#update-distinguished-names</para></summary>
         /// <param name="clusterName">The name of the cluster containing the &lt;c&gt;nodesDn&lt;/c&gt; value to create or update.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>

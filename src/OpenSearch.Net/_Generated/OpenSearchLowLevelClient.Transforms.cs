@@ -69,7 +69,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
         internal LowLevelTransformsNamespace(OpenSearchLowLevelClient client)
             : base(client) { }
 
-        /// <summary>DELETE on /_plugins/_transform/{id} <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#delete-a-transform-job</para></summary>
+        /// <summary>DELETE on /_plugins/_transform/{id} <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#delete-a-transform-job</para></summary>
         /// <param name="id">Transform to delete.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Delete<TResponse>(
@@ -84,7 +84,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>DELETE on /_plugins/_transform/{id} <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#delete-a-transform-job</para></summary>
+        /// <summary>DELETE on /_plugins/_transform/{id} <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#delete-a-transform-job</para></summary>
         /// <param name="id">Transform to delete.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("transforms.delete", "id")]
@@ -102,7 +102,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_transform/{id}/_explain <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#get-the-status-of-a-transform-job</para></summary>
+        /// <summary>GET on /_plugins/_transform/{id}/_explain <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#get-the-status-of-a-transform-job</para></summary>
         /// <param name="id">Transform to explain.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Explain<TResponse>(
@@ -117,7 +117,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_transform/{id}/_explain <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#get-the-status-of-a-transform-job</para></summary>
+        /// <summary>GET on /_plugins/_transform/{id}/_explain <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#get-the-status-of-a-transform-job</para></summary>
         /// <param name="id">Transform to explain.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("transforms.explain", "id")]
@@ -135,7 +135,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_transform/{id} <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#get-a-transform-jobs-details</para></summary>
+        /// <summary>GET on /_plugins/_transform/{id} <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#get-a-transform-jobs-details</para></summary>
         /// <param name="id">Transform to access.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Get<TResponse>(string id, GetRequestParameters requestParameters = null)
@@ -147,7 +147,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_transform/{id} <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#get-a-transform-jobs-details</para></summary>
+        /// <summary>GET on /_plugins/_transform/{id} <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#get-a-transform-jobs-details</para></summary>
         /// <param name="id">Transform to access.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("transforms.get", "id")]
@@ -165,7 +165,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_transform/_preview <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#preview-a-transform-jobs-results</para></summary>
+        /// <summary>POST on /_plugins/_transform/_preview <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#preview-a-transform-jobs-results</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Preview<TResponse>(
@@ -180,7 +180,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_transform/_preview <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#preview-a-transform-jobs-results</para></summary>
+        /// <summary>POST on /_plugins/_transform/_preview <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#preview-a-transform-jobs-results</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("transforms.preview", "body")]
@@ -198,7 +198,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_transform/{id} <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#create-a-transform-job</para></summary>
+        /// <summary>PUT on /_plugins/_transform/{id} <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#create-a-transform-job</para></summary>
         /// <param name="id">Transform to create/update.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -215,7 +215,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>PUT on /_plugins/_transform/{id} <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#create-a-transform-job</para></summary>
+        /// <summary>PUT on /_plugins/_transform/{id} <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#create-a-transform-job</para></summary>
         /// <param name="id">Transform to create/update.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -235,7 +235,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_transform <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#get-a-transform-jobs-details</para></summary>
+        /// <summary>GET on /_plugins/_transform <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#get-a-transform-jobs-details</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Search<TResponse>(SearchRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
@@ -246,7 +246,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>GET on /_plugins/_transform <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#get-a-transform-jobs-details</para></summary>
+        /// <summary>GET on /_plugins/_transform <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#get-a-transform-jobs-details</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("transforms.search", "")]
         public Task<TResponse> SearchAsync<TResponse>(
@@ -262,7 +262,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_transform/{id}/_start <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#start-a-transform-job</para></summary>
+        /// <summary>POST on /_plugins/_transform/{id}/_start <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#start-a-transform-job</para></summary>
         /// <param name="id">Transform to start.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Start<TResponse>(
@@ -277,7 +277,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_transform/{id}/_start <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#start-a-transform-job</para></summary>
+        /// <summary>POST on /_plugins/_transform/{id}/_start <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#start-a-transform-job</para></summary>
         /// <param name="id">Transform to start.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("transforms.start", "id")]
@@ -295,7 +295,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_transform/{id}/_stop <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#stop-a-transform-job</para></summary>
+        /// <summary>POST on /_plugins/_transform/{id}/_stop <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#stop-a-transform-job</para></summary>
         /// <param name="id">Transform to stop.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Stop<TResponse>(string id, StopRequestParameters requestParameters = null)
@@ -307,7 +307,7 @@ namespace OpenSearch.Net.Specification.TransformsApi
                 RequestParams(requestParameters)
             );
 
-        /// <summary>POST on /_plugins/_transform/{id}/_stop <para>https://opensearch.org/docs/latest/im-plugin/index-transforms/transforms-apis/#stop-a-transform-job</para></summary>
+        /// <summary>POST on /_plugins/_transform/{id}/_stop <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#stop-a-transform-job</para></summary>
         /// <param name="id">Transform to stop.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("transforms.stop", "id")]
