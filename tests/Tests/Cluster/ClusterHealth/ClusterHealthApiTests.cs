@@ -65,6 +65,10 @@ namespace Tests.Cluster.ClusterHealth
 			response.NumberOfDataNodes.Should().BeGreaterThanOrEqualTo(1);
 			response.ActivePrimaryShards.Should().BeGreaterThanOrEqualTo(1);
 			response.ActiveShards.Should().BeGreaterThanOrEqualTo(1);
+			if (Cluster.ClusterConfiguration.Version < "2.0.0")
+				response.DiscoveredMaster.Should().BeTrue();
+			else
+				response.DiscoveredClusterManager.Should().BeTrue();
 		}
 	}
 
