@@ -11,6 +11,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added initial support for the bulk streaming API ([#935](https://github.com/opensearch-project/opensearch-net/pull/935))
 - Extended the `BulkAll` helper with exponential-backoff-with-jitter retries (`RetryBaseDelay`/`RetryMaxDelay`), document-ID affinity routing (`DocumentAffinityKey`) that preserves per-key ordering, a fluent `WaitForActiveShards`, and a `TotalDocumentsProcessed` progress counter ([#1020](https://github.com/opensearch-project/opensearch-net/pull/1020))
+- Generate a high-level `search_relevance` namespace client (Search Relevance Workbench: query sets, judgments, search configurations, experiments, and stats) using the plugin-based model code generation introduced in [#1017](https://github.com/opensearch-project/opensearch-net/pull/1017). Extended that generator to support spec shapes needed by this namespace: request-body `oneOf`/`anyOf` composition flattening (`OperationModel`, mirroring the existing response-side handling) for `PutExperiments`/`PutJudgments`, and camelCase wire-name splitting (`NamingConventions.ToPascal`) so properties like `querySetId` render as `QuerySetId` instead of `Querysetid` — the latter fix also corrects `ml._common___Output.dataAsMap` (`Dataasmap` → `DataAsMap`) and several `ml.ToolName` enum members (e.g. `Ppltool` → `PplTool`) that were already affected in [#1017](https://github.com/opensearch-project/opensearch-net/pull/1017)
 
 ### Removed
 ### Fixed

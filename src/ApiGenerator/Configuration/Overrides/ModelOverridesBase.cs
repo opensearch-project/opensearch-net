@@ -31,6 +31,26 @@ public abstract class ModelOverridesBase : IModelOverrides
         ["_common___ShardStatistics"] = "ShardStatistics",
         ["_common___Retries"] = "Retries",
         ["indices._common___IndexSettings"] = "IIndexSettings",
+        // The generic search-result envelope (_core.search___SearchResult) is reused outside
+        // its own namespace — e.g. by search_relevance's list endpoints and by
+        // _core.msearch___MultiSearchItem — so its component schemas are mapped here rather
+        // than in a single plugin's overrides.
+        ["_common___ClusterStatistics"] = "ClusterStatistics",
+        ["_core.search___Profile"] = "Profile",
+        // ISuggest<T> is generic over the hit document type, which _core.search___Suggest has
+        // no way to express (it nests the generic _core.search___TDocument placeholder several
+        // levels down). Close it with object, matching how other unresolvable generic document
+        // placeholders in OSC already fall back to object (e.g. IList<object> SearchAfter).
+        ["_core.search___Suggest"] = "ISuggest<object>",
+        // _common___PhaseTook's properties (dfs_pre_query, query, fetch, ...) are a uniform
+        // phase-name -> millis map, so a dictionary is a more accurate fit than inventing a
+        // single-purpose POCO for six loosely related timing fields.
+        ["_common___PhaseTook"] = "IDictionary<string, long?>",
+        // _core.search___ProcessorExecutionDetail's fields are heterogeneous (name/duration/
+        // status/tag/error, plus free-form input_data/output_data) and this is a search
+        // profiling/debugging field, not part of the primary response payload. Falling back to
+        // a plain dictionary avoids a single-purpose POCO for a field most callers won't use.
+        ["_core.search___ProcessorExecutionDetail"] = "IDictionary<string, object>",
         // Primitive fallbacks: no dedicated OSC type exists for these.
         ["_common___VersionNumber"] = "long?",
         ["_common___SequenceNumber"] = "long?",
