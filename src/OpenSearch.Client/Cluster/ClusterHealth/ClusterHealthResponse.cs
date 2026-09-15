@@ -51,6 +51,16 @@ namespace OpenSearch.Client
 		[DataMember(Name = "delayed_unassigned_shards")]
 		public int DelayedUnassignedShards { get; internal set; }
 
+		/// <summary>Whether the cluster-manager node has been discovered.</summary>
+		///<remarks>Introduced in OpenSearch 2.0 instead of <see cref="DiscoveredMaster"/></remarks>
+		[DataMember(Name = "discovered_cluster_manager")]
+		public bool? DiscoveredClusterManager { get; internal set; }
+
+		/// <summary>Whether the cluster-manager node has been discovered.</summary>
+		///<remarks>Deprecated as of OpenSearch 2.0, use <see cref="DiscoveredClusterManager"/> instead</remarks>
+		[DataMember(Name = "discovered_master")]
+		public bool? DiscoveredMaster { get; internal set; }
+
 		[DataMember(Name = "indices")]
 		[JsonFormatter(typeof(ResolvableReadOnlyDictionaryFormatter<IndexName, IndexHealthStats>))]
 		public IReadOnlyDictionary<IndexName, IndexHealthStats> Indices { get; internal set; } =
