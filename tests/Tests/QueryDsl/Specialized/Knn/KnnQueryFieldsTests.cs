@@ -76,4 +76,36 @@ public class KnnQueryFieldsTests
 			.Knn(k => k.Field(f => f.Vector).Vector(1.5f, -2.6f).K(30).Rescore(false)));
 		disabled.Should().Contain("\"rescore\":false");
 	}
+
+	// Radial search (OpenSearch 2.14+) bounds a k-NN query by max_distance or min_score
+	// INSTEAD OF k. These queries must not be treated as conditionless just because k is unset,
+	// otherwise the whole knn clause is silently dropped from the request (issue #1049).
+
+	[U]
+	public void MaxDistanceOnlySerializes()
+	{
+		var fluent = Serialize(new QueryContainerDescriptor<Project>()
+			.Knn(k => k.Field(f => f.Vector).Vector(1.5f, -2.6f).MaxDistance(1.0f)));
+		fluent.Should().Contain("\"max_distance\":1").And.NotContain("\"k\":");
+
+		var initializer = Serialize(new KnnQuery
+		{
+			Field = "vector", Vector = new[] { 1.5f, -2.6f }, MaxDistance = 1.0f,
+		});
+		initializer.Should().Contain("\"max_distance\":1").And.NotContain("\"k\":");
+	}
+
+	[U]
+	public void MinScoreOnlySerializes()
+	{
+		var fluent = Serialize(new QueryContainerDescriptor<Project>()
+			.Knn(k => k.Field(f => f.Vector).Vector(1.5f, -2.6f).MinScore(0.95f)));
+		fluent.Should().Contain("\"min_score\":0.95").And.NotContain("\"k\":");
+
+		var initializer = Serialize(new KnnQuery
+		{
+			Field = "vector", Vector = new[] { 1.5f, -2.6f }, MinScore = 0.95f,
+		});
+		initializer.Should().Contain("\"min_score\":0.95").And.NotContain("\"k\":");
+	}
 }
