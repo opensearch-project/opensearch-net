@@ -12,9 +12,11 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added initial support for the bulk streaming API ([#935](https://github.com/opensearch-project/opensearch-net/pull/935))
 - Added `DiscoveredMaster` and `DiscoveredClusterManager` properties to `ClusterHealthResponse` ([#1044](https://github.com/opensearch-project/opensearch-net/issues/1044))
 - Extended the `BulkAll` helper with exponential-backoff-with-jitter retries (`RetryBaseDelay`/`RetryMaxDelay`), document-ID affinity routing (`DocumentAffinityKey`) that preserves per-key ordering, a fluent `WaitForActiveShards`, and a `TotalDocumentsProcessed` progress counter ([#1020](https://github.com/opensearch-project/opensearch-net/pull/1020))
+- Brought the high-level `NeuralQuery` up to the documented field set, adding `max_distance`, `min_score`, `query_image`, `filter`, `query_tokens`, `semantic_field_search_analyzer`, `method_parameters`, `rescore`, and `expand_nested_docs` ([#1050](https://github.com/opensearch-project/opensearch-net/pull/1050))
 
 ### Removed
 ### Fixed
+- Fixed the high-level `KnnQuery` and `NeuralQuery` being silently dropped from a request when bounded by `max_distance` or `min_score` (radial search) instead of `k`; the conditionless check no longer requires `k` ([#1050](https://github.com/opensearch-project/opensearch-net/pull/1050))
 - Fixed `SerializeAsync` and `DeserializeAsync` diagnostic spans measuring only Task creation time instead of actual execution time ([#950](https://github.com/opensearch-project/opensearch-net/issues/950))
 - Replaced the GitHub App token with the `opensearch-ci-bot` PAT in the Code Generation workflow ([#1035](https://github.com/opensearch-project/opensearch-net/pull/1035))
 - Fixed the Code Generation workflow failing to open its regeneration pull request with `remote: Duplicate header: "Authorization"` (git exit 128), by bumping `peter-evans/create-pull-request` to v7 ([#1042](https://github.com/opensearch-project/opensearch-net/pull/1042))
