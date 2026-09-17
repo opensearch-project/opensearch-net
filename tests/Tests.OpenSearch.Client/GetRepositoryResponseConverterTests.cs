@@ -58,11 +58,12 @@ namespace Tests.OpenSearch.Client.Serialization
 
 		[U] public void Read_S3Repository()
 		{
-			var response = Deserialize(@"{""my-repo"":{""type"":""s3"",""settings"":{""bucket"":""foobucket""}}}");
+			var response = Deserialize(@"{""my-repo"":{""type"":""s3"",""settings"":{""bucket"":""foobucket"",""region"":""us-east-1""}}}");
 			var repo = response.S3("my-repo");
 			repo.Should().NotBeNull();
 			repo.Type.Should().Be("s3");
 			repo.Settings.Bucket.Should().Be("foobucket");
+			repo.Settings.Region.Should().Be("us-east-1");
 		}
 
 		[U] public void Read_AzureRepository()

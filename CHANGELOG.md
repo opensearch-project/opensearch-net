@@ -11,6 +11,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Added initial support for the bulk streaming API ([#935](https://github.com/opensearch-project/opensearch-net/pull/935))
 - Added `DiscoveredMaster` and `DiscoveredClusterManager` properties to `ClusterHealthResponse` ([#1044](https://github.com/opensearch-project/opensearch-net/issues/1044))
+- Added `Uuid`, `Version`, `VersionId`, `RemoteStoreIndexShallowCopy`, and `DataStreams` properties to the typed `Snapshot` response type, and a `Region` property to `IS3RepositorySettings` ([#1045](https://github.com/opensearch-project/opensearch-net/issues/1045))
 - Extended the `BulkAll` helper with exponential-backoff-with-jitter retries (`RetryBaseDelay`/`RetryMaxDelay`), document-ID affinity routing (`DocumentAffinityKey`) that preserves per-key ordering, a fluent `WaitForActiveShards`, and a `TotalDocumentsProcessed` progress counter ([#1020](https://github.com/opensearch-project/opensearch-net/pull/1020))
 - Brought the high-level `NeuralQuery` up to the documented field set, adding `max_distance`, `min_score`, `query_image`, `filter`, `query_tokens`, `semantic_field_search_analyzer`, `method_parameters`, `rescore`, and `expand_nested_docs` ([#1050](https://github.com/opensearch-project/opensearch-net/pull/1050))
 
