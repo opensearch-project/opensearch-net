@@ -163,6 +163,14 @@ namespace OpenSearch.Client
 		/// </summary>
 		[DataMember(Name = "max_snapshot_bytes_per_sec")]
 		string MaxSnapshotBytesPerSecond { get; set; }
+
+		/// <summary>
+		/// Allows specifying the signing region to use when accessing the S3 bucket. This is a deprecated setting
+		/// that is still honored for backwards compatibility; the region is normally derived from the S3 client
+		/// configuration instead.
+		/// </summary>
+		[DataMember(Name = "region")]
+		string Region { get; set; }
 	}
 
 	/// <inheritdoc />
@@ -213,6 +221,9 @@ namespace OpenSearch.Client
 
 		/// <inheritdoc />
 		public string MaxSnapshotBytesPerSecond { get; set; }
+
+		/// <inheritdoc />
+		public string Region { get; set; }
 	}
 
 	/// <inheritdoc cref="IS3RepositorySettings"/>
@@ -235,6 +246,7 @@ namespace OpenSearch.Client
 		bool? IS3RepositorySettings.ReadOnly { get; set; }
 		string IS3RepositorySettings.MaxRestoreBytesPerSecond { get; set; }
 		string IS3RepositorySettings.MaxSnapshotBytesPerSecond { get; set; }
+		string IS3RepositorySettings.Region { get; set; }
 
 		/// <inheritdoc cref="IS3RepositorySettings.Bucket" />
 		public S3RepositorySettingsDescriptor Bucket(string bucket) => Assign(bucket, (a, v) => a.Bucket = v);
@@ -283,6 +295,9 @@ namespace OpenSearch.Client
 		/// <inheritdoc cref="IS3RepositorySettings.MaxSnapshotBytesPerSecond" />
 		public S3RepositorySettingsDescriptor MaxSnapshotBytesPerSecond(string maxSnapshotBytesPerSecond) =>
 			Assign(maxSnapshotBytesPerSecond, (a, v) => a.MaxSnapshotBytesPerSecond = v);
+
+		/// <inheritdoc cref="IS3RepositorySettings.Region" />
+		public S3RepositorySettingsDescriptor Region(string region) => Assign(region, (a, v) => a.Region = v);
 	}
 
 	/// <inheritdoc cref="IS3Repository"/>

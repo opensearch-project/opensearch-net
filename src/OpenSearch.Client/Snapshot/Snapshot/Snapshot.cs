@@ -53,6 +53,21 @@ namespace OpenSearch.Client
 		[DataMember(Name ="snapshot")]
 		public string Name { get; internal set; }
 
+		[DataMember(Name ="uuid")]
+		public string Uuid { get; internal set; }
+
+		[DataMember(Name ="version")]
+		public string Version { get; internal set; }
+
+		[DataMember(Name ="version_id")]
+		public int? VersionId { get; internal set; }
+
+		[DataMember(Name ="remote_store_index_shallow_copy")]
+		public bool? RemoteStoreIndexShallowCopy { get; internal set; }
+
+		[DataMember(Name ="data_streams")]
+		public IReadOnlyCollection<string> DataStreams { get; internal set; }
+
 		[DataMember(Name ="shards")]
 		public ShardStatistics Shards { get; internal set; }
 
