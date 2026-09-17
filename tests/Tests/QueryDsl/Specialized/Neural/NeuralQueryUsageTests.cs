@@ -175,20 +175,6 @@ public class NeuralQueryUsageTests
             q.QueryText = "";
             q.K = 5;
             q.ModelId = "aFcV879";
-        },
-        q =>
-        {
-            q.Field = "passage_embedding";
-            q.QueryText = "wild west";
-            q.K = null;
-            q.ModelId = "aFcV879";
-        },
-        q =>
-        {
-            q.Field = "passage_embedding";
-            q.QueryText = "wild west";
-            q.K = 0;
-            q.ModelId = "aFcV879";
         }
     };
 

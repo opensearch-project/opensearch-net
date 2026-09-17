@@ -117,7 +117,13 @@ public class KnnQuery : FieldNameQueryBase, IKnnQuery
 
 	internal override void InternalWrapInContainer(IQueryContainer container) => container.Knn = this;
 
-	internal static bool IsConditionless(IKnnQuery q) => q.Vector == null || q.Vector.Length == 0 || q.K == null || q.K == 0 || q.Field.IsConditionless();
+	internal static bool IsConditionless(IKnnQuery q) =>
+		q.Vector == null
+		|| q.Vector.Length == 0
+		|| q.Field.IsConditionless()
+		// A k-NN query must be bounded by exactly one of k (top-K), max_distance, or min_score (radial search).
+		// Treating a query as conditionless unless k is set silently dropped valid radial-search queries.
+		|| ((q.K == null || q.K == 0) && q.MaxDistance == null && q.MinScore == null);
 }
 
 public class KnnQueryDescriptor<T>
