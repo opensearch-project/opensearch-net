@@ -131,6 +131,13 @@ namespace ApiGenerator.Domain.Specification
                     case "node_id":
                         return "Name";
 
+                    // Search Relevance Workbench-specific opaque identifiers
+                    case "experiment_id":
+                    case "judgment_id":
+                    case "query_set_id":
+                    case "search_configuration_id":
+                        return "Id";
+
                     // Integer URL segment used by ml.upload_chunk.
                     case "chunk_number":
                         return "long?";

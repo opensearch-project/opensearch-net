@@ -55,6 +55,7 @@ using OpenSearch.Client.Specification.IngestApi;
 using OpenSearch.Client.Specification.MlApi;
 using OpenSearch.Client.Specification.NodesApi;
 using OpenSearch.Client.Specification.SearchPipelineApi;
+using OpenSearch.Client.Specification.SearchRelevanceApi;
 using OpenSearch.Client.Specification.SnapshotApi;
 using OpenSearch.Client.Specification.TasksApi;
 
@@ -93,6 +94,9 @@ namespace OpenSearch.Client
         /// <summary>Search Pipeline APIs</summary>
         public ISearchPipelineNamespace SearchPipeline { get; private set; }
 
+        /// <summary>Search Relevance APIs</summary>
+        public ISearchRelevanceNamespace SearchRelevance { get; private set; }
+
         /// <summary>Snapshot APIs</summary>
         public ISnapshotNamespace Snapshot { get; private set; }
 
@@ -110,6 +114,7 @@ namespace OpenSearch.Client
             Nodes = new NodesNamespace(this);
             Http = new HttpNamespace(this);
             SearchPipeline = new SearchPipelineNamespace(this);
+            SearchRelevance = new SearchRelevanceNamespace(this);
             Snapshot = new SnapshotNamespace(this);
             Tasks = new TasksNamespace(this);
         }

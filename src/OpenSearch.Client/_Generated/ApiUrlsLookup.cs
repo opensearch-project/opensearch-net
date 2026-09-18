@@ -724,6 +724,101 @@ namespace OpenSearch.Client
 
         internal static readonly ApiUrls SearchPipelinePut = new(["_search/pipeline/{id}"]);
 
+        internal static readonly ApiUrls SearchRelevanceDeleteExperiments = new([
+            "_plugins/_search_relevance/experiments/{experiment_id}",
+        ]);
+
+        internal static readonly ApiUrls SearchRelevanceDeleteJudgments = new([
+            "_plugins/_search_relevance/judgments/{judgment_id}",
+        ]);
+
+        internal static readonly ApiUrls SearchRelevanceDeleteQuerySets = new([
+            "_plugins/_search_relevance/query_sets/{query_set_id}",
+        ]);
+
+        internal static readonly ApiUrls SearchRelevanceDeleteScheduledExperiments = new([
+            "_plugins/_search_relevance/experiments/schedule/{experiment_id}",
+        ]);
+
+        internal static readonly ApiUrls SearchRelevanceDeleteSearchConfigurations = new([
+            "_plugins/_search_relevance/search_configurations/{search_configuration_id}",
+        ]);
+
+        internal static readonly ApiUrls SearchRelevanceExperimentsSearch = new([
+            "_plugins/_search_relevance/experiments/_search",
+        ]);
+
+        internal static readonly ApiUrls SearchRelevanceGetExperiments = new([
+            "_plugins/_search_relevance/experiments",
+            "_plugins/_search_relevance/experiments/{experiment_id}",
+        ]);
+
+        internal static readonly ApiUrls SearchRelevanceGetJudgments = new([
+            "_plugins/_search_relevance/judgments",
+            "_plugins/_search_relevance/judgments/{judgment_id}",
+        ]);
+
+        internal static readonly ApiUrls SearchRelevanceGetNodeStats = new([
+            "_plugins/_search_relevance/{node_id}/stats",
+            "_plugins/_search_relevance/{node_id}/stats/{stat}",
+        ]);
+
+        internal static readonly ApiUrls SearchRelevanceGetQuerySets = new([
+            "_plugins/_search_relevance/query_sets",
+            "_plugins/_search_relevance/query_sets/{query_set_id}",
+        ]);
+
+        internal static readonly ApiUrls SearchRelevanceGetScheduledExperiments = new([
+            "_plugins/_search_relevance/experiments/schedule",
+            "_plugins/_search_relevance/experiments/schedule/{experiment_id}",
+        ]);
+
+        internal static readonly ApiUrls SearchRelevanceGetSearchConfigurations = new([
+            "_plugins/_search_relevance/search_configurations",
+            "_plugins/_search_relevance/search_configurations/{search_configuration_id}",
+        ]);
+
+        internal static readonly ApiUrls SearchRelevanceGetStats = new([
+            "_plugins/_search_relevance/stats",
+            "_plugins/_search_relevance/stats/{stat}",
+        ]);
+
+        internal static readonly ApiUrls SearchRelevanceJudgmentsSearch = new([
+            "_plugins/_search_relevance/judgments/_search",
+        ]);
+
+        internal static readonly ApiUrls SearchRelevancePostQuerySets = new([
+            "_plugins/_search_relevance/query_sets",
+        ]);
+
+        internal static readonly ApiUrls SearchRelevancePostScheduledExperiments = new([
+            "_plugins/_search_relevance/experiments/schedule",
+        ]);
+
+        internal static readonly ApiUrls SearchRelevancePutExperiments = new([
+            "_plugins/_search_relevance/experiments",
+        ]);
+
+        internal static readonly ApiUrls SearchRelevancePutJudgments = new([
+            "_plugins/_search_relevance/judgments",
+        ]);
+
+        internal static readonly ApiUrls SearchRelevancePutQuerySets = new([
+            "_plugins/_search_relevance/query_sets",
+        ]);
+
+        internal static readonly ApiUrls SearchRelevancePutSearchConfigurations = new([
+            "_plugins/_search_relevance/search_configurations",
+        ]);
+
+        internal static readonly ApiUrls SearchRelevanceQuerySetsSearch = new([
+            "_plugins/_search_relevance/query_sets/_search",
+        ]);
+
+        internal static readonly ApiUrls SearchRelevanceSearchConfigurationsSearch = new([
+            "_plugins/_search_relevance/search_configurations/_search",
+        ]);
+
         internal static readonly ApiUrls NoNamespaceSearchShards = new([
             "_search_shards",
             "{index}/_search_shards",

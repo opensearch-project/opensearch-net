@@ -56,19 +56,27 @@ public sealed class OperationModel
         var pathParamNames = new HashSet<string>(
             groupModel.PathParameters.Select(p => p.Name),
             StringComparer.Ordinal);
-        var requestProps = BuildProperties(requestSchema, resolver, skipWireNames: pathParamNames,
-            plugin: registry, operationGroup: operationGroup);
+
+        // oneOf/anyOf request body: flatten all variants' properties into a single request class,
+        // same treatment as the response side below. A bare composition schema (no wrapper key,
+        // no discriminator — e.g. search_relevance.put_experiments' anyOf of three sibling experiment
+        // types) has no top-level Properties of its own, so BuildProperties would otherwise emit an
+        // empty request type.
+        var requestProps = HasFlattenableComposition(requestSchema)
+            ? FlattenCompositionProperties(requestSchema, resolver, normalization, skipWireNames: pathParamNames)
+            : BuildProperties(requestSchema, resolver, skipWireNames: pathParamNames,
+                plugin: registry, operationGroup: operationGroup);
         var versionAdded = groupModel.VersionAdded;
         var request = new RequestModel(operationGroup + "___RequestBody", requestCsharpName, requestProps, versionAdded);
 
         var responseSchema = groupModel.PrimarySuccessResponse?.Schema;
 
-        // oneOf response: flatten all variants' properties into a single response class.
+        // oneOf/anyOf response: flatten all variants' properties into a single response class.
         // A bodyless success response (for example, 204) produces an empty response model.
         var responseProps = responseSchema == null
             ? new List<ModelProperty>()
-            : responseSchema.OneOf?.Count > 0
-                ? FlattenOneOfProperties(responseSchema, resolver, normalization)
+            : HasFlattenableComposition(responseSchema)
+                ? FlattenCompositionProperties(responseSchema, resolver, normalization, skipWireNames: null)
                 : BuildProperties(responseSchema, resolver, skipWireNames: null, isResponse: true);
         var response = new ResponseModel(operationGroup + "___Response", responseCsharpName, responseProps, "ResponseBase", versionAdded);
 
@@ -240,31 +248,49 @@ public sealed class OperationModel
     }
 
     /// <summary>
-    /// Flatten all oneOf variants' properties into a single property list.
+    /// A schema is a "bare composition" — <c>oneOf</c>/<c>anyOf</c> of sibling schemas with no
+    /// wrapper key or discriminator of its own — when it has no top-level properties but does
+    /// have composition members. <see cref="UnionClassifier"/> handles wrapper-key/discriminator
+    /// encodings; this covers the remaining case where the spec author just listed alternative
+    /// full-object shapes (e.g. search_relevance's per-experiment-type / per-judgment-type bodies).
+    /// </summary>
+    private static bool HasFlattenableComposition(JsonSchema schema)
+    {
+        var actual = schema.ActualSchema;
+        if ((actual.Properties?.Count ?? 0) > 0) return false;
+        return actual.OneOf.Count > 0 || actual.AnyOf.Count > 0;
+    }
+
+    /// <summary>
+    /// Flatten all oneOf/anyOf variants' properties into a single property list.
     /// Each variant's properties are merged; duplicates (by wire name) are kept from the first variant.
     /// All properties are nullable since only one variant's fields will be populated at runtime.
     /// </summary>
-    private static IReadOnlyList<ModelProperty> FlattenOneOfProperties(
-        JsonSchema schema, ModelTypeResolver resolver, NormalizationResult? normalization)
+    private static IReadOnlyList<ModelProperty> FlattenCompositionProperties(
+        JsonSchema schema, ModelTypeResolver resolver, NormalizationResult? normalization,
+        HashSet<string>? skipWireNames)
     {
         var seen = new HashSet<string>(StringComparer.Ordinal);
         var props = new List<ModelProperty>();
+        var actual = schema.ActualSchema;
+        var variants = actual.OneOf.Count > 0 ? actual.OneOf : actual.AnyOf;
 
-        foreach (var variant in schema.OneOf)
+        foreach (var variant in variants)
         {
-            var actual = variant.ActualSchema;
+            var variantActual = variant.ActualSchema;
             // Use normalized effective properties when available so allOf-composed variant
             // properties are included (plain .Properties only covers top-level declarations).
             IReadOnlyDictionary<string, JsonSchema> variantProps;
-            if (normalization != null && normalization.TryGetForSchema(actual, out var normalized))
+            if (normalization != null && normalization.TryGetForSchema(variantActual, out var normalized))
                 variantProps = normalized.EffectiveProperties;
             else
-                variantProps = actual.Properties != null
-                    ? actual.Properties.ToDictionary(p => p.Key, p => (JsonSchema)p.Value, StringComparer.Ordinal)
+                variantProps = variantActual.Properties != null
+                    ? variantActual.Properties.ToDictionary(p => p.Key, p => (JsonSchema)p.Value, StringComparer.Ordinal)
                     : new Dictionary<string, JsonSchema>(StringComparer.Ordinal);
 
             foreach (var p in variantProps.OrderBy(p => p.Key, StringComparer.Ordinal))
             {
+                if (skipWireNames != null && skipWireNames.Contains(p.Key)) continue;
                 if (!seen.Add(p.Key)) continue;
                 var typeRef = resolver.ResolveTypeRef(p.Value);
                 props.Add(new ModelProperty(

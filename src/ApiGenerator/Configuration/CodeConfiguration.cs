@@ -78,6 +78,9 @@ namespace ApiGenerator.Configuration
             { "search_pipeline.put",    "PutSearchPipeline" },
             { "search_pipeline.get",    "GetSearchPipeline" },
             { "search_pipeline.delete", "DeleteSearchPipeline" },
+            // "GetStats" collides with ml.get_stats in the flat OpenSearch.Client namespace.
+            // Kept in sync with SearchRelevanceModelOverrides.OpNameOverrides.
+            { "search_relevance.get_stats", "GetSearchRelevanceStats" },
         };
 
         public static readonly HashSet<string> EnableHighLevelCodeGen = new HashSet<string>();

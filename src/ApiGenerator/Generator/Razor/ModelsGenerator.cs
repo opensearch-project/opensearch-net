@@ -30,6 +30,7 @@ public sealed class ModelsGenerator : RazorGeneratorBase
         new MlModelOverrides(),
         new SearchPipelineModelOverrides(),
         new IngestModelOverrides(),
+        new SearchRelevanceModelOverrides(),
     };
 
     public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
