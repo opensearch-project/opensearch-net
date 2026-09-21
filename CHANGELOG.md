@@ -18,6 +18,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Removed
 ### Fixed
+- Fixed the docs deployment failing at the `Deploy` step (`git failed with exit code 1`) by publishing via the native GitHub Actions Pages pipeline (`actions/upload-pages-artifact` + `actions/deploy-pages`) instead of force-pushing the `gh-pages` branch ([#1054](https://github.com/opensearch-project/opensearch-net/pull/1054))
 - Fixed the high-level `KnnQuery` and `NeuralQuery` being silently dropped from a request when bounded by `max_distance` or `min_score` (radial search) instead of `k`; the conditionless check no longer requires `k` ([#1050](https://github.com/opensearch-project/opensearch-net/pull/1050))
 - Fixed `SerializeAsync` and `DeserializeAsync` diagnostic spans measuring only Task creation time instead of actual execution time ([#950](https://github.com/opensearch-project/opensearch-net/issues/950))
 - Replaced the GitHub App token with the `opensearch-ci-bot` PAT in the Code Generation workflow ([#1035](https://github.com/opensearch-project/opensearch-net/pull/1035))
