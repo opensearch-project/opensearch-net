@@ -4,6 +4,14 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ## [Unreleased]
 ### ⚠️ Breaking Changes ⚠️
 ### Changed
+### Added
+### Removed
+### Fixed
+### Dependencies
+
+## [2.2.0]
+### ⚠️ Breaking Changes ⚠️
+### Changed
 
 - Updated API spec downloader to fetch from `https://api-spec.opensearch.org/opensearch-openapi.yaml` instead of the branch-pinned GitHub releases URL; removed the `--branch` CLI parameter from the ApiGenerator ([#1030](https://github.com/opensearch-project/opensearch-net/pull/1030))
 
@@ -13,7 +21,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Added `DiscoveredMaster` and `DiscoveredClusterManager` properties to `ClusterHealthResponse` ([#1044](https://github.com/opensearch-project/opensearch-net/issues/1044))
 - Added `Uuid`, `Version`, `VersionId`, `RemoteStoreIndexShallowCopy`, and `DataStreams` properties to the typed `Snapshot` response type, and a `Region` property to `IS3RepositorySettings` ([#1045](https://github.com/opensearch-project/opensearch-net/issues/1045))
 - Extended the `BulkAll` helper with exponential-backoff-with-jitter retries (`RetryBaseDelay`/`RetryMaxDelay`), document-ID affinity routing (`DocumentAffinityKey`) that preserves per-key ordering, a fluent `WaitForActiveShards`, and a `TotalDocumentsProcessed` progress counter ([#1020](https://github.com/opensearch-project/opensearch-net/pull/1020))
-- Generate a high-level `search_relevance` namespace client (Search Relevance Workbench: query sets, judgments, search configurations, experiments, and stats) using the plugin-based model code generation introduced in [#1017](https://github.com/opensearch-project/opensearch-net/pull/1017). Extended that generator to support spec shapes needed by this namespace: request-body `oneOf`/`anyOf` composition flattening (`OperationModel`, mirroring the existing response-side handling) for `PutExperiments`/`PutJudgments`, and camelCase wire-name splitting (`NamingConventions.ToPascal`) so properties like `querySetId` render as `QuerySetId` instead of `Querysetid` — the latter fix also corrects `ml._common___Output.dataAsMap` (`Dataasmap` → `DataAsMap`) and several `ml.ToolName` enum members (e.g. `Ppltool` → `PplTool`) that were already affected in [#1017](https://github.com/opensearch-project/opensearch-net/pull/1017)
+- Generate a high-level `search_relevance` namespace client (Search Relevance Workbench: query sets, judgments, search configurations, experiments, and stats) ([#1046](https://github.com/opensearch-project/opensearch-net/issues/1046))
 - Brought the high-level `NeuralQuery` up to the documented field set, adding `max_distance`, `min_score`, `query_image`, `filter`, `query_tokens`, `semantic_field_search_analyzer`, `method_parameters`, `rescore`, and `expand_nested_docs` ([#1050](https://github.com/opensearch-project/opensearch-net/pull/1050))
 
 ### Removed
@@ -25,6 +33,12 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed the regenerated client failing to compile after the spec began modeling the `cat`/`list` `format` parameter as an enum (`CatResponseFormat`/`ListResponseFormat`), by adding a `SetAcceptHeader(Enum)` overload to the low-level `RequestParameters` and high-level `RequestBase` ([#1043](https://github.com/opensearch-project/opensearch-net/pull/1043))
 
 ### Dependencies
+- Bumps `AWSSDK.Core` from 4.0.100.4 to 4.0.102 ([#1031](https://github.com/opensearch-project/opensearch-net/pull/1031))
+- Bumps `CSharpier.Core` from 1.0.3 to 1.3.0 ([#1024](https://github.com/opensearch-project/opensearch-net/pull/1024))
+- Bumps `FluentAssertions` from 8.5.0 to 8.11.0 ([#1053](https://github.com/opensearch-project/opensearch-net/pull/1053))
+- Bumps `Bullseye` from 6.1.0 to 6.2.0 ([#1039](https://github.com/opensearch-project/opensearch-net/pull/1039))
+- Bumps `Fake.IO.Zip` from 6.1.3 to 6.1.4 ([#1040](https://github.com/opensearch-project/opensearch-net/pull/1040))
+- Bumps `Fake.Core.Environment`, `Fake.Core.SemVer`, `Fake.IO.FileSystem`, and `Fake.Tools.Git` from 6.1.3 to 6.1.4 ([#1033](https://github.com/opensearch-project/opensearch-net/pull/1033))
 
 ## [2.1.0]
 ### ⚠️ Breaking Changes ⚠️
