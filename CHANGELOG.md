@@ -16,6 +16,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Updated API spec downloader to fetch from `https://api-spec.opensearch.org/opensearch-openapi.yaml` instead of the branch-pinned GitHub releases URL; removed the `--branch` CLI parameter from the ApiGenerator ([#1030](https://github.com/opensearch-project/opensearch-net/pull/1030))
 
 ### Added
+- Added a pull request template ([#1056](https://github.com/opensearch-project/opensearch-net/pull/1056))
 
 - Added initial support for the bulk streaming API ([#935](https://github.com/opensearch-project/opensearch-net/pull/935))
 - Added `DiscoveredMaster` and `DiscoveredClusterManager` properties to `ClusterHealthResponse` ([#1044](https://github.com/opensearch-project/opensearch-net/issues/1044))
