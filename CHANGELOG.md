@@ -5,11 +5,11 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### ⚠️ Breaking Changes ⚠️
 ### Changed
 ### Added
-- Generated fluent processor-builder overloads for the high-level search pipeline `Put` API, so `RequestProcessors`/`ResponseProcessors`/`PhaseResultsProcessors` accept a builder selector (`.RequestProcessors(rp => rp.FilterQuery(...))`) in addition to a processor list ([#451](https://github.com/opensearch-project/opensearch-net/issues/451))
-- Generated a fluent query-builder selector overload for every generated `IQueryContainer` property (for example the search pipeline `filter_query` processor and the ML `Search*` request bodies), so a query can be built inline (`.Query(q => q.Term(...))`) instead of pre-constructing a `QueryContainer` ([#451](https://github.com/opensearch-project/opensearch-net/issues/451))
+- Added fluent processor builders to the search pipeline `Put` API ([#451](https://github.com/opensearch-project/opensearch-net/issues/451))
+- Added fluent `Query(q => ...)` overloads to generated types with query properties ([#451](https://github.com/opensearch-project/opensearch-net/issues/451))
 ### Removed
 ### Fixed
-- Fixed the generated wrapper-key union descriptors (search pipeline processors) serializing as `null`, because each variant descriptor reported a `null` discriminator name; they now report the wire name, so fluent processor builders produce the correct JSON ([#451](https://github.com/opensearch-project/opensearch-net/issues/451))
+- Fixed search pipeline processor descriptors serializing as `null` ([#451](https://github.com/opensearch-project/opensearch-net/issues/451))
 ### Dependencies
 
 ## [2.2.0]
@@ -20,8 +20,6 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Added
 - Added a pull request template ([#1056](https://github.com/opensearch-project/opensearch-net/pull/1056))
-
-- Added fluent processor descriptors to the high-level search pipeline `Put` API, so `RequestProcessors`/`ResponseProcessors`/`PhaseResultsProcessors` accept a builder selector (`.RequestProcessors(rp => rp.FilterQuery(...))`) in addition to a processor list ([#451](https://github.com/opensearch-project/opensearch-net/issues/451))
 
 - Added initial support for the bulk streaming API ([#935](https://github.com/opensearch-project/opensearch-net/pull/935))
 - Added `DiscoveredMaster` and `DiscoveredClusterManager` properties to `ClusterHealthResponse` ([#1044](https://github.com/opensearch-project/opensearch-net/issues/1044))
