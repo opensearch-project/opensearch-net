@@ -83,7 +83,7 @@ namespace OpenSearch.Client
         >,
             INormalizationPhaseResultsProcessor
     {
-        string IPhaseResultsProcessor.Name => null;
+        string IPhaseResultsProcessor.Name => "normalization-processor";
         IScoreCombination INormalizationPhaseResultsProcessor.Combination { get; set; }
         string INormalizationPhaseResultsProcessor.Description { get; set; }
         bool? INormalizationPhaseResultsProcessor.IgnoreFailure { get; set; }
@@ -131,7 +131,7 @@ namespace OpenSearch.Client
         >,
             IScoreRankerPhaseResultsProcessor
     {
-        string IPhaseResultsProcessor.Name => null;
+        string IPhaseResultsProcessor.Name => "score-ranker-processor";
         IScoreRankerCombination IScoreRankerPhaseResultsProcessor.Combination { get; set; }
 
         public ScoreRankerPhaseResultsProcessorDescriptor Combination(

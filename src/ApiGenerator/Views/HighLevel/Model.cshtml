@@ -1,7 +1,19 @@
 @using System
+@using System.Linq
 @using ApiGenerator.Domain.Code.HighLevel.Models
 @inherits ApiGenerator.CodeTemplatePage<ModelType>
 @{ await IncludeGeneratorNotice(); }
+@{
+    // Object models with an IQueryContainer property generate a Func<...> query-builder
+    // selector overload, which needs System; only emit the using then.
+    var needsSystem = Model is ObjectModel om
+        && om.Properties.Any(p => p.CsharpType == "IQueryContainer");
+}
+@if (needsSystem)
+{
+<text>using System;
+</text>
+}
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
@@ -77,6 +89,15 @@ else if (Model is ObjectModel objectModel)
         var paramDefault = p.CsharpType == "bool?" ? " = true" : "";
 @:        public @(name)Descriptor @(p.CsharpName)(@Raw(p.CsharpType) @(paramName)@Raw(paramDefault)) =>
 @:            Assign(@(paramName), (a, v) => a.@p.CsharpName = v);
+        if (p.CsharpType == "IQueryContainer")
+        {
+            var qSig = "        public " + name + "Descriptor " + p.CsharpName
+                + "(Func<QueryContainerDescriptor<object>, QueryContainer> selector) =>";
+            var qBody = "            Assign(selector, (a, v) => a." + p.CsharpName
+                + " = v?.Invoke(new QueryContainerDescriptor<object>()));";
+@:@Raw(qSig)
+@:@Raw(qBody)
+        }
     }
     if (isOpen)
     {

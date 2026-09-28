@@ -80,7 +80,7 @@ namespace OpenSearch.Client
         >,
             IAgenticQueryTranslatorRequestProcessor
     {
-        string IRequestProcessor.Name => null;
+        string IRequestProcessor.Name => "agentic_query_translator";
         string IAgenticQueryTranslatorRequestProcessor.AgentId { get; set; }
         string IAgenticQueryTranslatorRequestProcessor.Description { get; set; }
         bool? IAgenticQueryTranslatorRequestProcessor.IgnoreFailure { get; set; }
@@ -131,7 +131,7 @@ namespace OpenSearch.Client
         : DescriptorBase<FilterQueryRequestProcessorDescriptor, IFilterQueryRequestProcessor>,
             IFilterQueryRequestProcessor
     {
-        string IRequestProcessor.Name => null;
+        string IRequestProcessor.Name => "filter_query";
         string IFilterQueryRequestProcessor.Description { get; set; }
         bool? IFilterQueryRequestProcessor.IgnoreFailure { get; set; }
         IQueryContainer IFilterQueryRequestProcessor.Query { get; set; }
@@ -145,6 +145,16 @@ namespace OpenSearch.Client
 
         public FilterQueryRequestProcessorDescriptor Query(IQueryContainer query) =>
             Assign(query, (a, val) => a.Query = val);
+
+        public FilterQueryRequestProcessorDescriptor Query(
+            Func<QueryContainerDescriptor<object>, QueryContainer> selector
+        ) =>
+            Assign(
+                selector,
+                (a, val) =>
+                    a.Query =
+                        selector != null ? selector(new QueryContainerDescriptor<object>()) : null
+            );
 
         public FilterQueryRequestProcessorDescriptor Tag(string tag) =>
             Assign(tag, (a, val) => a.Tag = val);
@@ -184,7 +194,7 @@ namespace OpenSearch.Client
         >,
             INeuralQueryEnricherRequestProcessor
     {
-        string IRequestProcessor.Name => null;
+        string IRequestProcessor.Name => "neural_query_enricher";
         string INeuralQueryEnricherRequestProcessor.DefaultModelId { get; set; }
         string INeuralQueryEnricherRequestProcessor.Description { get; set; }
         IDictionary<
@@ -243,7 +253,7 @@ namespace OpenSearch.Client
         : DescriptorBase<SearchScriptRequestProcessorDescriptor, ISearchScriptRequestProcessor>,
             ISearchScriptRequestProcessor
     {
-        string IRequestProcessor.Name => null;
+        string IRequestProcessor.Name => "script";
         string ISearchScriptRequestProcessor.Description { get; set; }
         bool? ISearchScriptRequestProcessor.IgnoreFailure { get; set; }
         string ISearchScriptRequestProcessor.Lang { get; set; }
@@ -301,7 +311,7 @@ namespace OpenSearch.Client
         : DescriptorBase<OversampleRequestProcessorDescriptor, IOversampleRequestProcessor>,
             IOversampleRequestProcessor
     {
-        string IRequestProcessor.Name => null;
+        string IRequestProcessor.Name => "oversample";
         string IOversampleRequestProcessor.ContentPrefix { get; set; }
         string IOversampleRequestProcessor.Description { get; set; }
         bool? IOversampleRequestProcessor.IgnoreFailure { get; set; }
@@ -375,7 +385,7 @@ namespace OpenSearch.Client
         : DescriptorBase<MLInferenceRequestProcessorDescriptor, IMLInferenceRequestProcessor>,
             IMLInferenceRequestProcessor
     {
-        string IRequestProcessor.Name => null;
+        string IRequestProcessor.Name => "ml_inference";
         string IMLInferenceRequestProcessor.Description { get; set; }
         string IMLInferenceRequestProcessor.FunctionName { get; set; }
         bool? IMLInferenceRequestProcessor.IgnoreFailure { get; set; }

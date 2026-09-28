@@ -84,7 +84,7 @@ namespace OpenSearch.Client
         >,
             IAgenticContextResponseProcessor
     {
-        string IResponseProcessor.Name => null;
+        string IResponseProcessor.Name => "agentic_context";
         bool? IAgenticContextResponseProcessor.AgentStepsSummary { get; set; }
         string IAgenticContextResponseProcessor.Description { get; set; }
         bool? IAgenticContextResponseProcessor.DslQuery { get; set; }
@@ -160,7 +160,7 @@ namespace OpenSearch.Client
         >,
             IPersonalizeSearchRankingResponseProcessor
     {
-        string IResponseProcessor.Name => null;
+        string IResponseProcessor.Name => "personalize_search_ranking";
         string IPersonalizeSearchRankingResponseProcessor.CampaignArn { get; set; }
         string IPersonalizeSearchRankingResponseProcessor.Description { get; set; }
         string IPersonalizeSearchRankingResponseProcessor.IamRoleArn { get; set; }
@@ -242,7 +242,7 @@ namespace OpenSearch.Client
         >,
             IRetrievalAugmentedGenerationResponseProcessor
     {
-        string IResponseProcessor.Name => null;
+        string IResponseProcessor.Name => "retrieval_augmented_generation";
         IList<string> IRetrievalAugmentedGenerationResponseProcessor.ContextFieldList { get; set; }
         string IRetrievalAugmentedGenerationResponseProcessor.Description { get; set; }
         string IRetrievalAugmentedGenerationResponseProcessor.ModelId { get; set; }
@@ -308,7 +308,7 @@ namespace OpenSearch.Client
         : DescriptorBase<RenameFieldResponseProcessorDescriptor, IRenameFieldResponseProcessor>,
             IRenameFieldResponseProcessor
     {
-        string IResponseProcessor.Name => null;
+        string IResponseProcessor.Name => "rename_field";
         string IRenameFieldResponseProcessor.Description { get; set; }
         string IRenameFieldResponseProcessor.Field { get; set; }
         bool? IRenameFieldResponseProcessor.IgnoreFailure { get; set; }
@@ -366,7 +366,7 @@ namespace OpenSearch.Client
         : DescriptorBase<RerankResponseProcessorDescriptor, IRerankResponseProcessor>,
             IRerankResponseProcessor
     {
-        string IResponseProcessor.Name => null;
+        string IResponseProcessor.Name => "rerank";
         ISearchPipelineRerankContext IRerankResponseProcessor.Context { get; set; }
         string IRerankResponseProcessor.Description { get; set; }
         bool? IRerankResponseProcessor.IgnoreFailure { get; set; }
@@ -425,7 +425,7 @@ namespace OpenSearch.Client
         : DescriptorBase<CollapseResponseProcessorDescriptor, ICollapseResponseProcessor>,
             ICollapseResponseProcessor
     {
-        string IResponseProcessor.Name => null;
+        string IResponseProcessor.Name => "collapse";
         string ICollapseResponseProcessor.ContextPrefix { get; set; }
         string ICollapseResponseProcessor.Description { get; set; }
         string ICollapseResponseProcessor.Field { get; set; }
@@ -483,7 +483,7 @@ namespace OpenSearch.Client
         : DescriptorBase<TruncateHitsResponseProcessorDescriptor, ITruncateHitsResponseProcessor>,
             ITruncateHitsResponseProcessor
     {
-        string IResponseProcessor.Name => null;
+        string IResponseProcessor.Name => "truncate_hits";
         string ITruncateHitsResponseProcessor.ContextPrefix { get; set; }
         string ITruncateHitsResponseProcessor.Description { get; set; }
         bool? ITruncateHitsResponseProcessor.IgnoreFailure { get; set; }
@@ -545,7 +545,7 @@ namespace OpenSearch.Client
         : DescriptorBase<SortResponseProcessorDescriptor, ISortResponseProcessor>,
             ISortResponseProcessor
     {
-        string IResponseProcessor.Name => null;
+        string IResponseProcessor.Name => "sort";
         string ISortResponseProcessor.Description { get; set; }
         string ISortResponseProcessor.Field { get; set; }
         bool? ISortResponseProcessor.IgnoreFailure { get; set; }
@@ -615,7 +615,7 @@ namespace OpenSearch.Client
         : DescriptorBase<SplitResponseProcessorDescriptor, ISplitResponseProcessor>,
             ISplitResponseProcessor
     {
-        string IResponseProcessor.Name => null;
+        string IResponseProcessor.Name => "split";
         string ISplitResponseProcessor.Description { get; set; }
         string ISplitResponseProcessor.Field { get; set; }
         bool? ISplitResponseProcessor.IgnoreFailure { get; set; }

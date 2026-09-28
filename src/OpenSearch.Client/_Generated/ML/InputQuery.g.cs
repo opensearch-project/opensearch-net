@@ -20,6 +20,7 @@
 //      Windows     :   build.bat codegen
 //
 // -----------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
@@ -61,6 +62,11 @@ namespace OpenSearch.Client
 
         public InputQueryDescriptor Query(IQueryContainer query) =>
             Assign(query, (a, v) => a.Query = v);
+
+        public InputQueryDescriptor Query(
+            Func<QueryContainerDescriptor<object>, QueryContainer> selector
+        ) =>
+            Assign(selector, (a, v) => a.Query = v?.Invoke(new QueryContainerDescriptor<object>()));
 
         public InputQueryDescriptor Size(long? size) => Assign(size, (a, v) => a.Size = v);
     }
