@@ -324,6 +324,99 @@ namespace OpenSearch.Client
             Assign(tag, (a, val) => a.Tag = val);
     }
 
+    [InterfaceDataContract]
+    public interface IMLInferenceRequestProcessor : IRequestProcessor
+    {
+        [DataMember(Name = "description")]
+        string Description { get; set; }
+
+        [DataMember(Name = "function_name")]
+        string FunctionName { get; set; }
+
+        [DataMember(Name = "ignore_failure")]
+        bool? IgnoreFailure { get; set; }
+
+        [DataMember(Name = "input_map")]
+        IList<IDictionary<string, string>> InputMap { get; set; }
+
+        [DataMember(Name = "model_config")]
+        IDictionary<string, object> ModelConfig { get; set; }
+
+        [DataMember(Name = "model_id")]
+        string ModelId { get; set; }
+
+        [DataMember(Name = "model_input")]
+        string ModelInput { get; set; }
+
+        [DataMember(Name = "output_map")]
+        IList<IDictionary<string, string>> OutputMap { get; set; }
+
+        [DataMember(Name = "tag")]
+        string Tag { get; set; }
+    }
+
+    /// <inheritdoc cref="IMLInferenceRequestProcessor" />
+    public class MLInferenceRequestProcessor : IMLInferenceRequestProcessor
+    {
+        string IRequestProcessor.Name => "ml_inference";
+        public string Description { get; set; }
+        public string FunctionName { get; set; }
+        public bool? IgnoreFailure { get; set; }
+        public IList<IDictionary<string, string>> InputMap { get; set; }
+        public IDictionary<string, object> ModelConfig { get; set; }
+        public string ModelId { get; set; }
+        public string ModelInput { get; set; }
+        public IList<IDictionary<string, string>> OutputMap { get; set; }
+        public string Tag { get; set; }
+    }
+
+    /// <inheritdoc cref="IMLInferenceRequestProcessor" />
+    public class MLInferenceRequestProcessorDescriptor
+        : DescriptorBase<MLInferenceRequestProcessorDescriptor, IMLInferenceRequestProcessor>,
+            IMLInferenceRequestProcessor
+    {
+        string IRequestProcessor.Name => null;
+        string IMLInferenceRequestProcessor.Description { get; set; }
+        string IMLInferenceRequestProcessor.FunctionName { get; set; }
+        bool? IMLInferenceRequestProcessor.IgnoreFailure { get; set; }
+        IList<IDictionary<string, string>> IMLInferenceRequestProcessor.InputMap { get; set; }
+        IDictionary<string, object> IMLInferenceRequestProcessor.ModelConfig { get; set; }
+        string IMLInferenceRequestProcessor.ModelId { get; set; }
+        string IMLInferenceRequestProcessor.ModelInput { get; set; }
+        IList<IDictionary<string, string>> IMLInferenceRequestProcessor.OutputMap { get; set; }
+        string IMLInferenceRequestProcessor.Tag { get; set; }
+
+        public MLInferenceRequestProcessorDescriptor Description(string description) =>
+            Assign(description, (a, val) => a.Description = val);
+
+        public MLInferenceRequestProcessorDescriptor FunctionName(string functionName) =>
+            Assign(functionName, (a, val) => a.FunctionName = val);
+
+        public MLInferenceRequestProcessorDescriptor IgnoreFailure(bool? ignoreFailure = true) =>
+            Assign(ignoreFailure, (a, val) => a.IgnoreFailure = val);
+
+        public MLInferenceRequestProcessorDescriptor InputMap(
+            IList<IDictionary<string, string>> inputMap
+        ) => Assign(inputMap, (a, val) => a.InputMap = val);
+
+        public MLInferenceRequestProcessorDescriptor ModelConfig(
+            IDictionary<string, object> modelConfig
+        ) => Assign(modelConfig, (a, val) => a.ModelConfig = val);
+
+        public MLInferenceRequestProcessorDescriptor ModelId(string modelId) =>
+            Assign(modelId, (a, val) => a.ModelId = val);
+
+        public MLInferenceRequestProcessorDescriptor ModelInput(string modelInput) =>
+            Assign(modelInput, (a, val) => a.ModelInput = val);
+
+        public MLInferenceRequestProcessorDescriptor OutputMap(
+            IList<IDictionary<string, string>> outputMap
+        ) => Assign(outputMap, (a, val) => a.OutputMap = val);
+
+        public MLInferenceRequestProcessorDescriptor Tag(string tag) =>
+            Assign(tag, (a, val) => a.Tag = val);
+    }
+
     // ──────────────────────────────────────────────────────────────────────
     // Fluent builder (pre-built to avoid Razor/generic-<> issues).
     // Formatter + converter are emitted into sibling {CsharpName}Formatter.g.cs /
@@ -390,6 +483,15 @@ namespace OpenSearch.Client
             Assign(
                 selector,
                 (a, sel) => a.AddIfNotNull(sel?.Invoke(new OversampleRequestProcessorDescriptor()))
+            );
+
+        /// <inheritdoc cref="IMLInferenceRequestProcessor" />
+        public RequestProcessorsDescriptor MlInference(
+            Func<MLInferenceRequestProcessorDescriptor, IMLInferenceRequestProcessor> selector
+        ) =>
+            Assign(
+                selector,
+                (a, sel) => a.AddIfNotNull(sel?.Invoke(new MLInferenceRequestProcessorDescriptor()))
             );
     }
 }

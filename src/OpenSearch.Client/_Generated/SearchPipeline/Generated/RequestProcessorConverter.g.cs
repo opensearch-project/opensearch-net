@@ -74,6 +74,11 @@ namespace OpenSearch.Client
                             body,
                             options
                         );
+                    case "ml_inference":
+                        return System.Text.Json.JsonSerializer.Deserialize<MLInferenceRequestProcessor>(
+                            body,
+                            options
+                        );
                 }
                 break; // only first key matters
             }
@@ -108,6 +113,9 @@ namespace OpenSearch.Client
                     System.Text.Json.JsonSerializer.Serialize(writer, v, options);
                     break;
                 case IOversampleRequestProcessor v:
+                    System.Text.Json.JsonSerializer.Serialize(writer, v, options);
+                    break;
+                case IMLInferenceRequestProcessor v:
                     System.Text.Json.JsonSerializer.Serialize(writer, v, options);
                     break;
                 default:

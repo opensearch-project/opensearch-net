@@ -35,6 +35,7 @@ namespace OpenSearch.Client
             { "neural_query_enricher", 2 },
             { "script", 3 },
             { "oversample", 4 },
+            { "ml_inference", 5 },
         };
 
         public IRequestProcessor Deserialize(
@@ -68,6 +69,9 @@ namespace OpenSearch.Client
                         .Deserialize(ref reader, formatterResolver),
                     4 => formatterResolver
                         .GetFormatter<OversampleRequestProcessor>()
+                        .Deserialize(ref reader, formatterResolver),
+                    5 => formatterResolver
+                        .GetFormatter<MLInferenceRequestProcessor>()
                         .Deserialize(ref reader, formatterResolver),
                     _ => null,
                 };
@@ -135,6 +139,15 @@ namespace OpenSearch.Client
                         .Serialize(
                             ref writer,
                             value as IOversampleRequestProcessor,
+                            formatterResolver
+                        );
+                    break;
+                case "ml_inference":
+                    formatterResolver
+                        .GetFormatter<IMLInferenceRequestProcessor>()
+                        .Serialize(
+                            ref writer,
+                            value as IMLInferenceRequestProcessor,
                             formatterResolver
                         );
                     break;

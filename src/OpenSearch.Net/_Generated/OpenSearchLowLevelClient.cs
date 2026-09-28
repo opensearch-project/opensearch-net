@@ -2008,7 +2008,7 @@ namespace OpenSearch.Net
 
         /// <summary>POST on /{index}/_termvectors <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="index">The name of the index containing the document.</param>
-        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
+        /// <param name="body">Define parameters and or supply a document to get term vectors for. See documentation.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse TermVectors<TResponse>(
             string index,
@@ -2025,7 +2025,7 @@ namespace OpenSearch.Net
 
         /// <summary>POST on /{index}/_termvectors <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="index">The name of the index containing the document.</param>
-        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
+        /// <param name="body">Define parameters and or supply a document to get term vectors for. See documentation.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("termvectors", "index, body")]
         public Task<TResponse> TermVectorsAsync<TResponse>(
@@ -2046,7 +2046,7 @@ namespace OpenSearch.Net
         /// <summary>POST on /{index}/_termvectors/{id} <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="index">The name of the index containing the document.</param>
         /// <param name="id">The unique identifier of the document.</param>
-        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
+        /// <param name="body">Define parameters and or supply a document to get term vectors for. See documentation.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse TermVectors<TResponse>(
             string index,
@@ -2065,7 +2065,7 @@ namespace OpenSearch.Net
         /// <summary>POST on /{index}/_termvectors/{id} <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="index">The name of the index containing the document.</param>
         /// <param name="id">The unique identifier of the document.</param>
-        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
+        /// <param name="body">Define parameters and or supply a document to get term vectors for. See documentation.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         [MapsApi("termvectors", "index, id, body")]
         public Task<TResponse> TermVectorsAsync<TResponse>(

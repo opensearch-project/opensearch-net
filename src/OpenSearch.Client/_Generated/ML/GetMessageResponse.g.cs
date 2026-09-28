@@ -66,5 +66,8 @@ namespace OpenSearch.Client
 
         [DataMember(Name = "trace_number")]
         public long? TraceNumber { get; internal set; }
+
+        [DataMember(Name = "updated_time")]
+        public string UpdatedTime { get; internal set; }
     }
 }
