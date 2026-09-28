@@ -66,6 +66,9 @@ namespace OpenSearch.Client
 
         [DataMember(Name = "trace_number")]
         long? TraceNumber { get; set; }
+
+        [DataMember(Name = "updated_time")]
+        string UpdatedTime { get; set; }
     }
 
     public class Message : IMessage
@@ -82,6 +85,7 @@ namespace OpenSearch.Client
         public string Response { get; set; }
         public string Role { get; set; }
         public long? TraceNumber { get; set; }
+        public string UpdatedTime { get; set; }
     }
 
     public class MessageDescriptor : DescriptorBase<MessageDescriptor, IMessage>, IMessage
@@ -98,6 +102,7 @@ namespace OpenSearch.Client
         string IMessage.Response { get; set; }
         string IMessage.Role { get; set; }
         long? IMessage.TraceNumber { get; set; }
+        string IMessage.UpdatedTime { get; set; }
 
         public MessageDescriptor AdditionalInfo(IDictionary<string, object> additionalInfo) =>
             Assign(additionalInfo, (a, v) => a.AdditionalInfo = v);
@@ -131,5 +136,8 @@ namespace OpenSearch.Client
 
         public MessageDescriptor TraceNumber(long? traceNumber) =>
             Assign(traceNumber, (a, v) => a.TraceNumber = v);
+
+        public MessageDescriptor UpdatedTime(string updatedTime) =>
+            Assign(updatedTime, (a, v) => a.UpdatedTime = v);
     }
 }
