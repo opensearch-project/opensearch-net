@@ -120,7 +120,7 @@ namespace OpenSearch.Client
     /// <inheritdoc cref="@vIface" />
     public class @vDesc : @Raw(vDescBase), @vIface
     {
-        string @Raw(ifaceNameMember) => null;
+        string @Raw(ifaceNameMember) => "@vKey";
 </text>
     foreach (var p in m.BaseProperties)
     {
@@ -152,6 +152,16 @@ namespace OpenSearch.Client
         public @vDesc @(p.CsharpName)(@Raw(pType) @(param)@Raw(pDefault)) =>
             Assign(@(param), (a, val) => a.@p.CsharpName = val);
 </text>
+        if (p.CsharpType == "IQueryContainer")
+        {
+            var qSig = "        public " + vDesc + " " + p.CsharpName
+                + "(Func<QueryContainerDescriptor<object>, QueryContainer> selector) =>";
+            var qBody = "            Assign(selector, (a, val) => a." + p.CsharpName
+                + " = selector != null ? selector(new QueryContainerDescriptor<object>()) : null);";
+<text>@Raw(qSig)
+@Raw(qBody)
+</text>
+        }
     }
     foreach (var p in variant.BodyProperties)
     {
@@ -163,6 +173,16 @@ namespace OpenSearch.Client
         public @vDesc @(p.CsharpName)(@Raw(pType) @(param)@Raw(pDefault)) =>
             Assign(@(param), (a, val) => a.@p.CsharpName = val);
 </text>
+        if (p.CsharpType == "IQueryContainer")
+        {
+            var qSig = "        public " + vDesc + " " + p.CsharpName
+                + "(Func<QueryContainerDescriptor<object>, QueryContainer> selector) =>";
+            var qBody = "            Assign(selector, (a, val) => a." + p.CsharpName
+                + " = selector != null ? selector(new QueryContainerDescriptor<object>()) : null);";
+<text>@Raw(qSig)
+@Raw(qBody)
+</text>
+        }
     }
 <text>    }
 

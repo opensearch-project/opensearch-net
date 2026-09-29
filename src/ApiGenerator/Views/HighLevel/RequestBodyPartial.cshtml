@@ -1,4 +1,5 @@
 @using System
+@using System.Linq
 @using ApiGenerator.Domain.Code.HighLevel.Models
 @inherits ApiGenerator.CodeTemplatePage<RequestModel>
 @{ await IncludeGeneratorNotice(); }
@@ -8,6 +9,20 @@
     var descriptorName = name.EndsWith("Request")
         ? name.Substring(0, name.Length - "Request".Length) + "Descriptor"
         : name + "Descriptor";
+    // A generated Func<...> selector overload (query builder or union-list builder) needs
+    // System; only emit the using when at least one such property is present.
+    var needsSystem = Model.Properties.Any(p =>
+        p.CsharpType == "IQueryContainer"
+        || (p.Type is ListType { Element: MappedType { Name: var en } } lt
+            && !lt.IsNullable
+            && en.StartsWith("I", StringComparison.Ordinal)
+            && en.Length > 1
+            && char.IsUpper(en[1])));
+}
+@if (needsSystem)
+{
+<text>using System;
+</text>
 }
 using System.Collections.Generic;
 using System.Runtime.Serialization;
@@ -61,6 +76,38 @@ namespace OpenSearch.Client
 <text>        public @descriptorName @(prop.CsharpName)(@Raw(prop.CsharpType) @(lowerParamName)@Raw(defaultValue)) =>
             Assign(@(lowerParamName), (a, v) => a.@prop.CsharpName = v);
 </text>
+        // Any IQueryContainer property also gets a fluent query-builder selector overload.
+        if (prop.CsharpType == "IQueryContainer")
+        {
+            var qSig = "        public " + descriptorName + " " + prop.CsharpName
+                + "(Func<QueryContainerDescriptor<object>, QueryContainer> selector) =>";
+            var qBody = "            Assign(selector, (a, v) => a." + prop.CsharpName
+                + " = v?.Invoke(new QueryContainerDescriptor<object>()));";
+<text>        @Raw(qSig)
+@Raw(qBody)
+</text>
+        }
+        // When the property is a list of a wrapper-key union interface (e.g.
+        // IList<IRequestProcessor>), also emit a fluent selector overload backed by the
+        // union's collection descriptor (e.g. RequestProcessorsDescriptor), so processors
+        // can be defined with a builder instead of only a pre-built list. The union element
+        // resolves to a MappedType whose name is the interface (e.g. "IRequestProcessor");
+        // the collection descriptor is that interface minus the leading "I" plus "sDescriptor".
+        if (prop.Type is ListType { Element: MappedType { Name: var elementName } } listType
+            && !listType.IsNullable
+            && elementName.StartsWith("I", StringComparison.Ordinal)
+            && elementName.Length > 1
+            && char.IsUpper(elementName[1]))
+        {
+            var builderName = elementName.Substring(1) + "sDescriptor";
+            var selectorSig = "public " + descriptorName + " " + prop.CsharpName
+                + "(Func<" + builderName + ", IPromise<" + prop.CsharpType + ">> selector) =>";
+            var selectorBody = "            Assign(selector, (a, v) => a." + prop.CsharpName
+                + " = v?.Invoke(new " + builderName + "())?.Value);";
+<text>        @Raw(selectorSig)
+@Raw(selectorBody)
+</text>
+        }
 }
     }
 }
