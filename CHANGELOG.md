@@ -10,6 +10,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Removed
 ### Fixed
 - Fixed search pipeline processor descriptors serializing as `null` ([#451](https://github.com/opensearch-project/opensearch-net/issues/451))
+- Fixed flaky `cluster.health/10_basic.yml` YAML tests by skipping the two `wait_for_active_shards` sections; `_cluster/health` evaluates that parameter against the whole cluster, so neither section's wait condition guarantees its own cluster-wide shard-count assertions ([#1034](https://github.com/opensearch-project/opensearch-net/issues/1034))
 ### Dependencies
 
 ## [2.2.0]

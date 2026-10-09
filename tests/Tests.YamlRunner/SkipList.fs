@@ -36,7 +36,19 @@ let SkipList = dict<SkipFile,SkipSection> [
     
     // Incorrectly being run due to OpenSearch 1.x/2.x being numerically <7.2.0, but feature-wise >7.10
     SkipFile "cat.indices/10_basic.yml", Section "Test cat indices output for closed index (pre 7.2.0)"
-    SkipFile "cluster.health/10_basic.yml", Section "cluster health with closed index (pre 7.2.0)"
+
+    // cluster.health/10_basic.yml carries the same pre-7.2.0 section, plus two flaky ones:
+    // `_cluster/health` evaluates `wait_for_active_shards` against the whole cluster, so
+    // `wait_for_active_shards: 1` can return while an unrelated shard is still initializing (breaking
+    // `match: { initializing_shards: 0 }`), and `wait_for_active_shards: all` returns a 408 with
+    // `timed_out: true` whenever any shard copy in the cluster is unassigned (breaking `is_false: timed_out`).
+    // Both sections create test_index with `number_of_replicas: 0`, so the offending copies are never theirs.
+    // https://github.com/opensearch-project/opensearch-net/issues/1034
+    SkipFile "cluster.health/10_basic.yml", Sections [
+        "cluster health with closed index (pre 7.2.0)"
+        "cluster health basic test, one index with wait for active shards"
+        "cluster health basic test, one index with wait for all active shards"
+    ]
 
     // .NET method arg typings make this not possible, index is a required parameter
     SkipFile "indices.put_mapping/all_path_options_with_types.yml", Section "put mapping with blank index"
