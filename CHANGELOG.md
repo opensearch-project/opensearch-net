@@ -10,6 +10,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Removed
 ### Fixed
 - Fixed search pipeline processor descriptors serializing as `null` ([#451](https://github.com/opensearch-project/opensearch-net/issues/451))
+- Fixed flaky YAML tests caused by the query-insights plugin creating `top_queries-*` indexes mid-run, by setting the top N queries exporter to `none` in CI ([#1034](https://github.com/opensearch-project/opensearch-net/issues/1034))
 ### Dependencies
 
 ## [2.2.0]
