@@ -38,11 +38,20 @@ runs:
         # The query-insights plugin defaults its top N queries exporter to `local_index`, which
         # periodically creates `top_queries-<date>-<hash>` indexes. Those indexes are not created by
         # the tests but are visible to them, breaking YAML tests that assert on cluster-wide shard
-        # listings or counts. Set the exporter to `none` so no such index is created. This is applied
-        # conditionally because the setting is unknown to distributions that do not bundle the plugin,
-        # and an unknown setting in opensearch.yml stops the node from starting.
+        # listings or counts. Set the exporter to `none` so no such index is created.
+        #
+        # The setting only exists in query-insights 2.19 and later, and an unknown setting in
+        # opensearch.yml stops the node from starting, so gate on the plugin's own version. Checking
+        # only that the plugin directory exists is not enough: 2.16 and 2.17 bundle the plugin but
+        # register no exporter settings.
         if [[ -d "$QUERY_INSIGHTS_DIR" ]]; then
-          printf "\nsearch.insights.top_queries.exporter.type: none" >> $CONFIG_FILE
+          QUERY_INSIGHTS_VERSION=$(cat $QUERY_INSIGHTS_DIR/plugin-descriptor.properties | grep '^version=' | cut -d'=' -f 2)
+          QUERY_INSIGHTS_VERSION_COMPONENTS=(${QUERY_INSIGHTS_VERSION//./ })
+          QUERY_INSIGHTS_MAJOR="${QUERY_INSIGHTS_VERSION_COMPONENTS[0]}"
+          QUERY_INSIGHTS_MINOR="${QUERY_INSIGHTS_VERSION_COMPONENTS[1]}"
+          if (( $QUERY_INSIGHTS_MAJOR > 2 || ( $QUERY_INSIGHTS_MAJOR == 2 && $QUERY_INSIGHTS_MINOR >= 19 ) )); then
+            printf "\nsearch.insights.top_queries.exporter.type: none" >> $CONFIG_FILE
+          fi
         fi
 
         bash ./client/.ci/generate-certs.sh
