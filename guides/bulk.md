@@ -146,6 +146,46 @@ foreach (var item in response.ItemsWithErrors) {
 }
 ```
 
+## BulkAll
+
+The `bulk` API sends a single request. When you need to index a large or streamed set of documents, the `BulkAll` helper partitions the documents into batches, sends each batch to `_bulk`, and transparently retries transient failures. It returns an observable you subscribe to:
+
+```cs
+var documents = GetDocuments(); // IEnumerable<MyDocument>, ideally lazily evaluated
+
+var observable = client.BulkAll(documents, b => b
+    .Index(movies)
+    .Size(1000)                 // documents per batch
+    .MaxDegreeOfParallelism(4)  // batches in flight
+    .BackOffRetries(2)          // retries per batch on HTTP 429
+    .BackOffTime(TimeSpan.FromSeconds(5)));
+
+observable.Wait(TimeSpan.FromMinutes(15), response =>
+{
+    // called once per successful batch
+    Console.WriteLine($"Indexed page {response.Page}");
+});
+```
+
+### Setting the document `_id` from a field
+
+By default `BulkAll` infers each document's `_id` the same way the rest of the client does (from an `Id` property, a type mapping, or an `[OpenSearchType(IdProperty = ...)]` attribute). To derive the `_id` from an arbitrary field at index time, use `DocumentIdSelector`:
+
+```cs
+var observable = client.BulkAll(documents, b => b
+    .Index(movies)
+    .DocumentIdSelector(d => d.ExternalId)); // each document is indexed with _id = d.ExternalId
+```
+
+`DocumentIdSelector` applies to the default bulk operation. If you supply your own `BufferToBulk` callback you take complete control of how each batch is translated into bulk operations, so `DocumentIdSelector` is ignored and you set the `_id` yourself:
+
+```cs
+var observable = client.BulkAll(documents, b => b
+    .Index(movies)
+    .BufferToBulk((descriptor, buffer) =>
+        descriptor.IndexMany(buffer, (op, document) => op.Id(document.ExternalId))));
+```
+
 ## Cleanup
 
 To clean up the resources created in this guide, delete the `movies` and `books` indices:
