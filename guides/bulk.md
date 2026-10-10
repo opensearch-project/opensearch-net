@@ -167,14 +167,45 @@ observable.Wait(TimeSpan.FromMinutes(15), response =>
 });
 ```
 
-### Setting the document `_id` from a field
+### Setting the document `_id`
 
-By default `BulkAll` infers each document's `_id` the same way the rest of the client does (from an `Id` property, a type mapping, or an `[OpenSearchType(IdProperty = ...)]` attribute). To derive the `_id` from an arbitrary field at index time, use `DocumentIdSelector`:
+By default `BulkAll` infers each document's `_id` the same way the rest of the client does. This inference is unchanged since the fork from Elasticsearch and resolves in the following order:
+
+1. A property named `Id` on the document type is used as the `_id`:
+
+   ```cs
+   public class Person
+   {
+       public string Id { get; set; }
+       public string FirstName { get; set; }
+       public string LastName { get; set; }
+   }
+   ```
+
+2. A different property can be configured as the id on `ConnectionSettings`:
+
+   ```cs
+   var settings = new ConnectionSettings()
+       .DefaultMappingFor<Person>(m => m.IdProperty(p => p.FirstName));
+   ```
+
+3. The `[OpenSearchType]` attribute can specify the id property on the type itself:
+
+   ```cs
+   [OpenSearchType(IdProperty = nameof(Person.LastName))]
+   public class Person
+   {
+       public string FirstName { get; set; }
+       public string LastName { get; set; }
+   }
+   ```
+
+If you only need to derive the `_id` from a field for a particular bulk operation — without changing the type or the global mapping — use `DocumentIdSelector`:
 
 ```cs
 var observable = client.BulkAll(documents, b => b
     .Index(movies)
-    .DocumentIdSelector(d => d.ExternalId)); // each document is indexed with _id = d.ExternalId
+    .DocumentIdSelector(d => d.FirstName)); // each document is indexed with _id = d.FirstName
 ```
 
 `DocumentIdSelector` applies to the default bulk operation. If you supply your own `BufferToBulk` callback you take complete control of how each batch is translated into bulk operations, so `DocumentIdSelector` is ignored and you set the `_id` yourself:
@@ -183,7 +214,7 @@ var observable = client.BulkAll(documents, b => b
 var observable = client.BulkAll(documents, b => b
     .Index(movies)
     .BufferToBulk((descriptor, buffer) =>
-        descriptor.IndexMany(buffer, (op, document) => op.Id(document.ExternalId))));
+        descriptor.IndexMany(buffer, (op, document) => op.Id(document.FirstName))));
 ```
 
 ## Cleanup
