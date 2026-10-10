@@ -134,17 +134,17 @@ namespace OpenSearch.Client
 		Func<T, string> DocumentAffinityKey { get; set; }
 
 		/// <summary>
-		/// Optional selector that derives the <c>_id</c> of each document from the document itself, applied to the
-		/// default bulk operation. When set, each document is indexed with <c>Id(selector(document))</c> instead of
-		/// relying on id inference. Use this to make <c>_id</c> deterministic from a field on the document (for example
-		/// <c>d => d.DocumentIdSelector(e =&gt; e.MyKey)</c>).
+		/// Optional function that computes the <c>_id</c> of each document from the document itself, applied to the
+		/// default bulk operation. When set, each document is indexed with <c>Id(DocumentId(document))</c> instead of
+		/// relying on id inference. The function can return any string — a single field, or a value computed from the
+		/// document (for example <c>d => $"{d.Region}-{d.Key}"</c>).
 		/// <para>
 		/// This is ignored when <see cref="BufferToBulk" /> is set: <see cref="BufferToBulk" /> gives you complete
 		/// control over how the buffer is translated to a bulk operation, so you are responsible for setting the id
 		/// yourself in that callback.
 		/// </para>
 		/// </summary>
-		Func<T, string> DocumentIdSelector { get; set; }
+		Func<T, string> DocumentId { get; set; }
 
 		/// <summary>
 		/// When set, retries use exponential backoff with jitter starting from this base delay (doubling per attempt,
@@ -226,7 +226,7 @@ namespace OpenSearch.Client
 		public Func<T, string> DocumentAffinityKey { get; set; }
 
 		/// <inheritdoc />
-		public Func<T, string> DocumentIdSelector { get; set; }
+		public Func<T, string> DocumentId { get; set; }
 
 		/// <inheritdoc />
 		public TimeSpan? RetryBaseDelay { get; set; }
@@ -270,7 +270,7 @@ namespace OpenSearch.Client
 		int? IBulkAllRequest<T>.WaitForActiveShards { get; set; }
 		Action<BulkResponse> IBulkAllRequest<T>.BulkResponseCallback { get; set; }
 		Func<T, string> IBulkAllRequest<T>.DocumentAffinityKey { get; set; }
-		Func<T, string> IBulkAllRequest<T>.DocumentIdSelector { get; set; }
+		Func<T, string> IBulkAllRequest<T>.DocumentId { get; set; }
 		TimeSpan? IBulkAllRequest<T>.RetryBaseDelay { get; set; }
 		TimeSpan? IBulkAllRequest<T>.RetryMaxDelay { get; set; }
 		RequestMetaData IHelperCallable.ParentMetaData { get; set; }
@@ -348,9 +348,9 @@ namespace OpenSearch.Client
 		public BulkAllDescriptor<T> DocumentAffinityKey(Func<T, string> keySelector) =>
 			Assign(keySelector, (a, v) => a.DocumentAffinityKey = v);
 
-		/// <inheritdoc cref="IBulkAllRequest{T}.DocumentIdSelector" />
-		public BulkAllDescriptor<T> DocumentIdSelector(Func<T, string> idSelector) =>
-			Assign(idSelector, (a, v) => a.DocumentIdSelector = v);
+		/// <inheritdoc cref="IBulkAllRequest{T}.DocumentId" />
+		public BulkAllDescriptor<T> DocumentId(Func<T, string> documentId) =>
+			Assign(documentId, (a, v) => a.DocumentId = v);
 
 		/// <inheritdoc cref="IBulkAllRequest{T}.RetryBaseDelay" />
 		public BulkAllDescriptor<T> RetryBaseDelay(TimeSpan? delay) => Assign(delay, (a, v) => a.RetryBaseDelay = v);

@@ -364,8 +364,8 @@ namespace OpenSearch.Client
 					s.Index(request.Index);
 					s.Timeout(request.Timeout);
 					if (request.BufferToBulk != null) request.BufferToBulk(s, buffer);
-					else if (request.DocumentIdSelector != null)
-						s.IndexMany(buffer, (op, document) => op.Id(request.DocumentIdSelector(document)));
+					else if (request.DocumentId != null)
+						s.IndexMany(buffer, (op, document) => op.Id(request.DocumentId(document)));
 					else s.IndexMany(buffer);
 					if (!string.IsNullOrEmpty(request.Pipeline)) s.Pipeline(request.Pipeline);
 					if (request.Routing != null) s.Routing(request.Routing);

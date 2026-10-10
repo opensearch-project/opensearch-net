@@ -133,8 +133,8 @@ namespace Tests.CodeStandards
 				let firstFuncArg = type.GetGenericArguments().First()
 				let secondFuncArg = type.GetGenericArguments().Last()
 				where !exclude(firstFuncArg, secondFuncArg)
-				// DocumentAffinityKey and DocumentIdSelector are value-extractor selectors (Func<T,string>), not descriptor-state selectors
-				where !((m.Name == nameof(BulkAllDescriptor<object>.DocumentAffinityKey) || m.Name == nameof(BulkAllDescriptor<object>.DocumentIdSelector))
+				// DocumentAffinityKey and DocumentId are value-extractor selectors (Func<T,string>), not descriptor-state selectors
+				where !((m.Name == nameof(BulkAllDescriptor<object>.DocumentAffinityKey) || m.Name == nameof(BulkAllDescriptor<object>.DocumentId))
 					&& m.DeclaringType.GetGenericTypeDefinition() == typeof(BulkAllDescriptor<>))
 				let lastArgIsNotInterface = !secondFuncArg.IsInterface
 				where lastArgIsNotInterface

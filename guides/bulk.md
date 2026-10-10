@@ -200,15 +200,15 @@ By default `BulkAll` infers each document's `_id` the same way the rest of the c
    }
    ```
 
-If you only need to derive the `_id` from a field for a particular bulk operation — without changing the type or the global mapping — use `DocumentIdSelector`:
+If you only need to set the `_id` from the document for a particular bulk operation — without changing the type or the global mapping — use `DocumentId`. The function can return any string, whether a single field or a value computed from the document:
 
 ```cs
 var observable = client.BulkAll(documents, b => b
     .Index(movies)
-    .DocumentIdSelector(d => d.FirstName)); // each document is indexed with _id = d.FirstName
+    .DocumentId(d => d.FirstName)); // each document is indexed with _id = d.FirstName
 ```
 
-`DocumentIdSelector` applies to the default bulk operation. If you supply your own `BufferToBulk` callback you take complete control of how each batch is translated into bulk operations, so `DocumentIdSelector` is ignored and you set the `_id` yourself:
+`DocumentId` applies to the default bulk operation. If you supply your own `BufferToBulk` callback you take complete control of how each batch is translated into bulk operations, so `DocumentId` is ignored and you set the `_id` yourself:
 
 ```cs
 var observable = client.BulkAll(documents, b => b

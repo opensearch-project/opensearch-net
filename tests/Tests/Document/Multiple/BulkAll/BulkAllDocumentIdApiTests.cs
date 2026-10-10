@@ -20,9 +20,9 @@ using Tests.Domain.Extensions;
 
 namespace Tests.Document.Multiple.BulkAll
 {
-	// Deterministic unit coverage for BulkAll's DocumentIdSelector (opensearch-net#353). Uses an in-memory connection
+	// Deterministic unit coverage for BulkAll's DocumentId (opensearch-net#353). Uses an in-memory connection
 	// that records the raw _bulk body so we can assert the per-document _id the action line carried.
-	public class BulkAllDocumentIdSelectorApiTests
+	public class BulkAllDocumentIdApiTests
 	{
 		private class SmallObject
 		{
@@ -31,46 +31,46 @@ namespace Tests.Document.Multiple.BulkAll
 		}
 
 		[U]
-		public void DocumentIdSelectorDerivesTheIdFromTheSelectedField()
+		public void DocumentIdDerivesTheIdFromTheDocument()
 		{
 			var connection = new RecordingBulkConnection();
 
 			var run = RunBulkAll(connection, documents: 3, size: 3,
-				configure: f => f.DocumentIdSelector(d => d.Name));
+				configure: f => f.DocumentId(d => d.Name));
 
 			run.Error.Should().BeNull();
 			connection.ActionIds.Should().Equal(new[] { "name-0", "name-1", "name-2" },
-				"each document's _id must come from the selector, not from id inference");
+				"each document's _id must come from the DocumentId function, not from id inference");
 		}
 
 		[U]
-		public void BufferToBulkTakesPrecedenceOverDocumentIdSelector()
+		public void BufferToBulkTakesPrecedenceOverDocumentId()
 		{
 			var connection = new RecordingBulkConnection();
 
-			// BufferToBulk is the complete-control escape hatch: when set, the id selector is ignored and the caller
-			// owns the operation. Here BufferToBulk sets its own id, so that id — not the selector's — must win.
+			// BufferToBulk is the complete-control escape hatch: when set, DocumentId is ignored and the caller
+			// owns the operation. Here BufferToBulk sets its own id, so that id — not DocumentId's — must win.
 			var run = RunBulkAll(connection, documents: 2, size: 2,
 				configure: f => f
-					.DocumentIdSelector(d => d.Name)
+					.DocumentId(d => d.Name)
 					.BufferToBulk((b, buffer) => b.IndexMany(buffer, (op, doc) => op.Id($"buffer-{doc.Id}"))));
 
 			run.Error.Should().BeNull();
 			connection.ActionIds.Should().Equal(new[] { "buffer-0", "buffer-1" },
-				"BufferToBulk owns the operation and the DocumentIdSelector must be ignored when it is set");
+				"BufferToBulk owns the operation and DocumentId must be ignored when it is set");
 		}
 
 		[U]
-		public void NoDocumentIdSelectorFallsBackToInferredIds()
+		public void NoDocumentIdFallsBackToInferredIds()
 		{
 			var connection = new RecordingBulkConnection();
 
-			// SmallObject.Id is the inferred id property, so without a selector the _id must be the inferred value.
+			// SmallObject.Id is the inferred id property, so without DocumentId the _id must be the inferred value.
 			var run = RunBulkAll(connection, documents: 2, size: 2, configure: null);
 
 			run.Error.Should().BeNull();
 			connection.ActionIds.Should().Equal(new[] { "0", "1" },
-				"with no selector and no BufferToBulk, the default path must infer the id");
+				"with no DocumentId and no BufferToBulk, the default path must infer the id");
 		}
 
 		private readonly struct RunResult
