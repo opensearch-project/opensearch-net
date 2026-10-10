@@ -71,12 +71,51 @@ namespace OpenSearch.Net
 
 		private static readonly System.Net.Http.HttpMethod Patch = new System.Net.Http.HttpMethod("PATCH");
 
+		/// <summary> Null when the <see cref="HttpClient" /> is supplied by the caller. </summary>
 		private RequestDataHttpClientFactory HttpClientFactory { get; }
 
-		public int InUseHandlers => HttpClientFactory.InUseHandlers;
-		public int RemovedHandlers => HttpClientFactory.RemovedHandlers;
+		/// <summary> Null when the <see cref="HttpClient" /> is created and owned by this connection. </summary>
+		private readonly Func<RequestData, HttpClient> _httpClientProvider;
+
+		public int InUseHandlers => HttpClientFactory?.InUseHandlers ?? 0;
+		public int RemovedHandlers => HttpClientFactory?.RemovedHandlers ?? 0;
 
 		public HttpConnection() => HttpClientFactory = new RequestDataHttpClientFactory(r => CreateHttpClientHandler(r));
+
+		/// <summary>
+		/// Creates a connection that sends every request through the supplied <paramref name="httpClient" />.
+		/// <para>See <see cref="HttpConnection(Func{RequestData, HttpClient})" /> for the responsibilities this places on the caller.</para>
+		/// </summary>
+		/// <param name="httpClient">The client to send requests with. It is not disposed by this connection.</param>
+		public HttpConnection(HttpClient httpClient) : this(CreateProvider(httpClient)) { }
+
+		/// <summary>
+		/// Creates a connection that asks <paramref name="httpClientProvider" /> for the <see cref="HttpClient" /> to send each request with,
+		/// e.g. <c>_ => httpClientFactory.CreateClient("opensearch")</c> to integrate with <c>IHttpClientFactory</c>.
+		/// <para>
+		/// The caller owns the returned clients and their handlers, so the handler-level settings this connection would otherwise
+		/// apply in <see cref="CreateHttpClientHandler" /> must be configured on the caller's handler instead:
+		/// <see cref="IConnectionConfigurationValues.EnableHttpCompression" /> (response decompression),
+		/// <see cref="IConnectionConfigurationValues.ConnectionLimit" />, proxy settings, client certificates,
+		/// <see cref="IConnectionConfigurationValues.ServerCertificateValidationCallback" /> and
+		/// <see cref="IConnectionConfigurationValues.DnsRefreshTimeout" /> (handler lifetime).
+		/// </para>
+		/// <para>
+		/// <see cref="IConnectionConfigurationValues.RequestTimeout" /> is still honoured per request through cancellation, but the
+		/// client's own <see cref="HttpClient.Timeout" /> applies as well, so it should be at least as long as the request timeout
+		/// (or <see cref="Timeout.InfiniteTimeSpan" />).
+		/// </para>
+		/// </summary>
+		/// <param name="httpClientProvider">Returns the client to send a request with. Returned clients are not disposed by this connection.</param>
+		public HttpConnection(Func<RequestData, HttpClient> httpClientProvider) =>
+			_httpClientProvider = httpClientProvider ?? throw new ArgumentNullException(nameof(httpClientProvider));
+
+		private static Func<RequestData, HttpClient> CreateProvider(HttpClient httpClient)
+		{
+			if (httpClient == null) throw new ArgumentNullException(nameof(httpClient));
+
+			return _ => httpClient;
+		}
 
 		public virtual TResponse Request<TResponse>(RequestData requestData)
 			where TResponse : class, IOpenSearchResponse, new()
@@ -108,7 +147,8 @@ namespace OpenSearch.Net
 					if (requestData.ThreadPoolStats)
 						threadPoolStats = ThreadPoolStats.GetStats();
 
-					responseMessage = client.SendAsync(requestMessage, HttpCompletionOption.ResponseHeadersRead).GetAwaiter().GetResult();
+					using (var timeout = CreateRequestTimeout(requestData, CancellationToken.None))
+						responseMessage = client.SendAsync(requestMessage, HttpCompletionOption.ResponseHeadersRead, timeout?.Token ?? CancellationToken.None).GetAwaiter().GetResult();
 					statusCode = (int)responseMessage.StatusCode;
 					d.EndState = statusCode;
 				}
@@ -176,7 +216,8 @@ namespace OpenSearch.Net
 					if (requestData.ThreadPoolStats)
 						threadPoolStats = ThreadPoolStats.GetStats();
 
-					responseMessage = await client.SendAsync(requestMessage, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+					using (var timeout = CreateRequestTimeout(requestData, cancellationToken))
+						responseMessage = await client.SendAsync(requestMessage, HttpCompletionOption.ResponseHeadersRead, timeout?.Token ?? cancellationToken).ConfigureAwait(false);
 					statusCode = (int)responseMessage.StatusCode;
 					d.EndState = statusCode;
 				}
@@ -217,7 +258,29 @@ namespace OpenSearch.Net
 
 		void IDisposable.Dispose() => DisposeManagedResources();
 
-		private HttpClient GetClient(RequestData requestData) => HttpClientFactory.CreateClient(requestData);
+		private HttpClient GetClient(RequestData requestData)
+		{
+			if (_httpClientProvider == null)
+				return HttpClientFactory.CreateClient(requestData);
+
+			return _httpClientProvider(requestData)
+				?? throw new InvalidOperationException($"The {nameof(HttpClient)} provider passed to {nameof(HttpConnection)} returned null.");
+		}
+
+		/// <summary>
+		/// Enforces <see cref="RequestData.RequestTimeout" /> on a caller supplied <see cref="HttpClient" />, whose
+		/// <see cref="HttpClient.Timeout" /> can't be changed per request. Owned clients get it via <see cref="HttpClient.Timeout" />
+		/// already, so this returns null for them.
+		/// </summary>
+		private CancellationTokenSource CreateRequestTimeout(RequestData requestData, CancellationToken cancellationToken)
+		{
+			if (_httpClientProvider == null) return null;
+
+			var timeout = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
+			if (requestData.RequestTimeout > TimeSpan.Zero)
+				timeout.CancelAfter(requestData.RequestTimeout);
+			return timeout;
+		}
 
 		protected virtual HttpMessageHandler CreateHttpClientHandler(RequestData requestData)
 		{
@@ -457,6 +520,6 @@ namespace OpenSearch.Net
 			}
 		}
 
-		protected virtual void DisposeManagedResources() => HttpClientFactory.Dispose();
+		protected virtual void DisposeManagedResources() => HttpClientFactory?.Dispose();
 	}
 }

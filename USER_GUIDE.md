@@ -14,6 +14,10 @@
   - [OpenSearch.Net](#opensearchnet)
     - [Getting Started](#getting-started-2)
     - [Connecting](#connecting-2)
+  - [Customizing the HTTP Client](#customizing-the-http-client)
+    - [Adding Message Handlers](#adding-message-handlers)
+    - [Supplying Your Own HttpClient](#supplying-your-own-httpclient)
+    - [Dependency Injection and IHttpClientFactory](#dependency-injection-and-ihttpclientfactory)
   - [Observability](#observability)
   - [Advanced Features](#advanced-features)
 
@@ -307,6 +311,63 @@ var client = new OpenSearchLowLevelClient(config);
 
 Note the main difference here is that we are instantiating an `OpenSearchLowLevelClient` rather than `OpenSearchClient`, and `ConnectionConfiguration` instead of `ConnectionSettings`.
 
+
+## Customizing the HTTP Client
+
+By default `HttpConnection` creates, pools and rotates its own `HttpClient`s, applying the handler-level connection settings (compression, connection limit, proxy, certificates, DNS refresh) for you.
+
+### Adding Message Handlers
+
+To decorate the HTTP pipeline (tracing, custom authentication, resilience) while keeping that behaviour, subclass `HttpConnection` and wrap the handler it creates. This is how `AwsSigV4HttpConnection` works.
+
+```csharp
+public class MyHttpConnection : HttpConnection
+{
+    protected override HttpMessageHandler CreateHttpClientHandler(RequestData requestData) =>
+        new MyDelegatingHandler(base.CreateHttpClientHandler(requestData));
+}
+
+var settings = new ConnectionSettings(new Uri("http://localhost:9200"), new MyHttpConnection());
+```
+
+### Supplying Your Own HttpClient
+
+`HttpConnection` can also send requests through an `HttpClient` you own, either a single instance or one returned per request:
+
+```csharp
+var connection = new HttpConnection(httpClient);
+// or
+var connection = new HttpConnection(requestData => httpClientFactory.CreateClient("opensearch"));
+```
+
+The client and its handler are then yours: they are not disposed by the connection, and the handler-level settings listed above are **not** applied, so configure decompression, `MaxConnectionsPerServer`, proxy and certificates on your own handler. `RequestTimeout` is still enforced per request, but the client's own `HttpClient.Timeout` applies too, so set it to at least the request timeout (or `Timeout.InfiniteTimeSpan`).
+
+### Dependency Injection and IHttpClientFactory
+
+[OpenSearch.Client.Extensions.DependencyInjection](src/OpenSearch.Client.Extensions.DependencyInjection) registers the client with `Microsoft.Extensions.DependencyInjection` and sends its requests through a named `IHttpClientFactory` client.
+
+```xml
+<PackageReference Include="OpenSearch.Client.Extensions.DependencyInjection" Version="2.*" />
+```
+
+`AddOpenSearchClient` registers singleton `IOpenSearchClient` and `IOpenSearchLowLevelClient` services and returns the `IHttpClientBuilder` for the named client, so the standard handler APIs can be chained:
+
+```csharp
+builder.Services.AddOpenSearchClient(new Uri("http://localhost:9200"), (serviceProvider, settings) => settings
+        .DefaultIndex("my-index")
+        .EnableHttpCompression())
+    .AddHttpMessageHandler<MyTracingHandler>();
+
+// or, for full control over the connection pool and settings:
+builder.Services.AddOpenSearchClient((serviceProvider, connection) =>
+    new ConnectionSettings(new StaticConnectionPool(nodes), connection).DefaultIndex("my-index"));
+```
+
+The settings factory must pass the `connection` it is given to `ConnectionSettings` for requests to go through `IHttpClientFactory`.
+
+The named client is preconfigured to match `HttpConnection`: its primary handler is built from the connection settings (compression, connection limit, proxy, server certificate validation, client certificates), its handler lifetime defaults to `DnsRefreshTimeout`, and its `HttpClient.Timeout` is disabled in favour of `RequestTimeout`. Each can be overridden on the builder, e.g. with `ConfigurePrimaryHttpMessageHandler` or `SetHandlerLifetime`.
+
+Note that the client already retries and fails over across nodes (see `MaxRetries`). Resilience handlers such as `AddStandardResilienceHandler()` retry within each of those attempts and apply their own timeouts, so tune them with that in mind.
 
 ## Observability
 

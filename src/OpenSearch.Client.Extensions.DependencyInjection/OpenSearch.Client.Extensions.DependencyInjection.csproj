@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <PackageId>OpenSearch.Client.Extensions.DependencyInjection</PackageId>
+    <Title>OpenSearch.Client.Extensions.DependencyInjection</Title>
+    <PackageTags>opensearch;search;lucene;client;opensearch.client;dependencyinjection;httpclientfactory</PackageTags>
+    <Description>
+      Registers OpenSearch.Client with Microsoft.Extensions.DependencyInjection and sends its requests through IHttpClientFactory,
+      so the HTTP pipeline can be customised with the standard IHttpClientBuilder APIs (message handlers, resilience, logging).
+    </Description>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net8.0;net10.0</TargetFrameworks>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(TestPackageVersion)'!=''">
+    <PackageReference Include="OpenSearch.Client" Version="$(TestPackageVersion)" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TestPackageVersion)'==''">
+    <ProjectReference Include="$(SolutionRoot)\src\OpenSearch.Client\OpenSearch.Client.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Tests.Extensions.DependencyInjection" Key="$(ExposedPublicKey)" />
+  </ItemGroup>
+</Project>

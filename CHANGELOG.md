@@ -7,6 +7,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Added
 - Added fluent processor builders to the search pipeline `Put` API ([#451](https://github.com/opensearch-project/opensearch-net/issues/451))
 - Added fluent `Query(q => ...)` overloads to generated types with query properties ([#451](https://github.com/opensearch-project/opensearch-net/issues/451))
+- Added `HttpConnection(HttpClient)` and `HttpConnection(Func<RequestData, HttpClient>)` constructors to send requests through a caller-owned `HttpClient`, and the `OpenSearch.Client.Extensions.DependencyInjection` package with `services.AddOpenSearchClient(...)` to register the client and route its requests through `IHttpClientFactory` ([#1027](https://github.com/opensearch-project/opensearch-net/issues/1027))
 ### Removed
 ### Fixed
 - Fixed search pipeline processor descriptors serializing as `null` ([#451](https://github.com/opensearch-project/opensearch-net/issues/451))
