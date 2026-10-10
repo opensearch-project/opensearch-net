@@ -146,6 +146,77 @@ foreach (var item in response.ItemsWithErrors) {
 }
 ```
 
+## BulkAll
+
+The `bulk` API sends a single request. When you need to index a large or streamed set of documents, the `BulkAll` helper partitions the documents into batches, sends each batch to `_bulk`, and transparently retries transient failures. It returns an observable you subscribe to:
+
+```cs
+var documents = GetDocuments(); // IEnumerable<MyDocument>, ideally lazily evaluated
+
+var observable = client.BulkAll(documents, b => b
+    .Index(movies)
+    .Size(1000)                 // documents per batch
+    .MaxDegreeOfParallelism(4)  // batches in flight
+    .BackOffRetries(2)          // retries per batch on HTTP 429
+    .BackOffTime(TimeSpan.FromSeconds(5)));
+
+observable.Wait(TimeSpan.FromMinutes(15), response =>
+{
+    // called once per successful batch
+    Console.WriteLine($"Indexed page {response.Page}");
+});
+```
+
+### Setting the document `_id`
+
+By default `BulkAll` infers each document's `_id` the same way the rest of the client does. This inference is unchanged since the fork from Elasticsearch and resolves in the following order:
+
+1. A property named `Id` on the document type is used as the `_id`:
+
+   ```cs
+   public class Person
+   {
+       public string Id { get; set; }
+       public string FirstName { get; set; }
+       public string LastName { get; set; }
+   }
+   ```
+
+2. A different property can be configured as the id on `ConnectionSettings`:
+
+   ```cs
+   var settings = new ConnectionSettings()
+       .DefaultMappingFor<Person>(m => m.IdProperty(p => p.FirstName));
+   ```
+
+3. The `[OpenSearchType]` attribute can specify the id property on the type itself:
+
+   ```cs
+   [OpenSearchType(IdProperty = nameof(Person.LastName))]
+   public class Person
+   {
+       public string FirstName { get; set; }
+       public string LastName { get; set; }
+   }
+   ```
+
+If you only need to set the `_id` from the document for a particular bulk operation — without changing the type or the global mapping — use `DocumentId`. The function can return any string, whether a single field or a value computed from the document:
+
+```cs
+var observable = client.BulkAll(documents, b => b
+    .Index(movies)
+    .DocumentId(d => d.FirstName)); // each document is indexed with _id = d.FirstName
+```
+
+`DocumentId` applies to the default bulk operation. If you supply your own `BufferToBulk` callback you take complete control of how each batch is translated into bulk operations, so `DocumentId` is ignored and you set the `_id` yourself:
+
+```cs
+var observable = client.BulkAll(documents, b => b
+    .Index(movies)
+    .BufferToBulk((descriptor, buffer) =>
+        descriptor.IndexMany(buffer, (op, document) => op.Id(document.FirstName))));
+```
+
 ## Cleanup
 
 To clean up the resources created in this guide, delete the `movies` and `books` indices:
