@@ -352,28 +352,26 @@ Because the connection creates no handlers in this mode, per-request client cert
 
 ### Dependency Injection and IHttpClientFactory
 
-[OpenSearch.Client.Extensions.DependencyInjection](src/OpenSearch.Client.Extensions.DependencyInjection) registers the client with `Microsoft.Extensions.DependencyInjection` and sends its requests through a named `IHttpClientFactory` client.
-
-```xml
-<PackageReference Include="OpenSearch.Client.Extensions.DependencyInjection" Version="2.*" />
-```
-
-`AddOpenSearchClient` registers singleton `IOpenSearchClient` and `IOpenSearchLowLevelClient` services and returns the `IHttpClientBuilder` for the named client, so the standard handler APIs can be chained:
+To send requests through a named `IHttpClientFactory` client, register the client and pass a connection that asks the factory for it:
 
 ```csharp
-builder.Services.AddOpenSearchClient(new Uri("http://localhost:9200"), (serviceProvider, settings) => settings
-        .DefaultIndex("my-index")
-        .EnableHttpCompression())
-    .AddHttpMessageHandler<MyTracingHandler>();
+builder.Services.AddHttpClient("opensearch")
+    .ConfigureHttpClient(client => client.Timeout = Timeout.InfiniteTimeSpan)
+    .ConfigurePrimaryHttpMessageHandler(serviceProvider =>
+        HttpConnection.CreateDefaultHttpClientHandler(serviceProvider.GetRequiredService<IConnectionSettingsValues>()))
+    .AddStandardResilienceHandler();
 
-// or, for full control over the connection pool and settings:
-builder.Services.AddOpenSearchClient((serviceProvider, connection) =>
-    new ConnectionSettings(new StaticConnectionPool(nodes), connection).DefaultIndex("my-index"));
+builder.Services.AddSingleton<IConnectionSettingsValues>(serviceProvider =>
+{
+    var httpClientFactory = serviceProvider.GetRequiredService<IHttpClientFactory>();
+    var connection = new HttpConnection(_ => httpClientFactory.CreateClient("opensearch"));
+    return new ConnectionSettings(new Uri("http://localhost:9200"), connection).DefaultIndex("my-index");
+});
+builder.Services.AddSingleton<IOpenSearchClient>(serviceProvider =>
+    new OpenSearchClient(serviceProvider.GetRequiredService<IConnectionSettingsValues>()));
 ```
 
-The settings factory must pass the `connection` it is given to `ConnectionSettings` for requests to go through `IHttpClientFactory`. Only one client can be registered per service collection; calling `AddOpenSearchClient` again throws.
-
-The named client is preconfigured to match `HttpConnection`: its primary handler is built from the connection settings (compression, connection limit, proxy, server certificate validation, client certificates), its handler lifetime defaults to `DnsRefreshTimeout` (at least one second, the minimum `IHttpClientFactory` allows), and its `HttpClient.Timeout` is disabled in favour of `RequestTimeout`. Each can be overridden on the builder, e.g. with `ConfigurePrimaryHttpMessageHandler` or `SetHandlerLifetime`.
+`CreateDefaultHttpClientHandler` gives the named client the same primary handler `HttpConnection` would create, and disabling `HttpClient.Timeout` leaves timeouts to `RequestTimeout`. Use `SetHandlerLifetime` to match `DnsRefreshTimeout` if you rely on it. The limitations described in [Supplying Your Own HttpClient](#supplying-your-own-httpclient) apply.
 
 Note that the client already retries and fails over across nodes (see `MaxRetries`). Resilience handlers such as `AddStandardResilienceHandler()` retry within each of those attempts and apply their own timeouts, so tune them with that in mind. When a resilience handler gives up (e.g. its timeout elapses or its circuit is open), the attempt fails and the client moves on to the next node.
 
