@@ -116,7 +116,7 @@ public class OpenSearchServiceCollectionExtensionsTests
 		handler.AutomaticDecompression.Should().Be(DecompressionMethods.GZip | DecompressionMethods.Deflate);
 		handler.MaxConnectionsPerServer.Should().Be(12);
 		handler.Proxy.GetProxy(new Uri("http://remote:9200")).Should().Be(new Uri("http://proxy:8080"));
-		handler.Proxy.Should().BeOfType<WebProxy>();
+		handler.Proxy.IsBypassed(new Uri("http://127.0.0.1:9200")).Should().BeTrue("same proxy semantics as HttpConnection");
 		handler.Proxy.Credentials.Should().BeOfType<NetworkCredential>().Which.Password.Should().Be("pass");
 		handler.ServerCertificateCustomValidationCallback.Should().NotBeNull();
 	}
@@ -154,6 +154,29 @@ public class OpenSearchServiceCollectionExtensionsTests
 		using var provider = services.BuildServiceProvider();
 
 		HandlerLifetime(provider).Should().Be(TimeSpan.FromMinutes(1));
+	}
+
+	[U]
+	public void SubSecondDnsRefreshTimeoutIsRaisedToTheFactoryMinimum()
+	{
+		var services = new ServiceCollection();
+		services.AddOpenSearchClient(Node, (_, s) => s.DnsRefreshTimeout(TimeSpan.Zero))
+			.ConfigurePrimaryHttpMessageHandler(() => new MockHttpMessageHandler(_ => JsonResponse()));
+		using var provider = services.BuildServiceProvider();
+
+		HandlerLifetime(provider).Should().Be(TimeSpan.FromSeconds(1));
+		provider.GetRequiredService<IOpenSearchLowLevelClient>().DoRequest<StringResponse>(HttpMethod.GET, "/").Success.Should().BeTrue();
+	}
+
+	[U]
+	public void RegisteringTwiceIsRejected()
+	{
+		var services = new ServiceCollection();
+		services.AddOpenSearchClient(Node, httpClientName: "a");
+
+		Action act = () => services.AddOpenSearchClient(Node, httpClientName: "b");
+
+		act.Should().Throw<InvalidOperationException>().WithMessage("*already been called*");
 	}
 
 	[U]

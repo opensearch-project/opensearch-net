@@ -340,7 +340,15 @@ var connection = new HttpConnection(httpClient);
 var connection = new HttpConnection(requestData => httpClientFactory.CreateClient("opensearch"));
 ```
 
-The client and its handler are then yours: they are not disposed by the connection, and the handler-level settings listed above are **not** applied, so configure decompression, `MaxConnectionsPerServer`, proxy and certificates on your own handler. `RequestTimeout` is still enforced per request, but the client's own `HttpClient.Timeout` applies too, so set it to at least the request timeout (or `Timeout.InfiniteTimeSpan`).
+The client and its handler are then yours: they are not disposed by the connection, and the handler-level settings listed above are **not** applied, so configure decompression, `MaxConnectionsPerServer`, proxy and certificates on your own handler. `HttpConnection.CreateDefaultHttpClientHandler(settings)` creates a handler configured from your connection settings:
+
+```csharp
+var httpClient = new HttpClient(new MyDelegatingHandler(HttpConnection.CreateDefaultHttpClientHandler(settings)));
+```
+
+Because the connection creates no handlers in this mode, per-request client certificates (`RequestConfiguration.ClientCertificates`) and overrides of `CreateHttpClientHandler` in a subclass are not applied either.
+
+`RequestTimeout` is still enforced per request, but the client's own `HttpClient.Timeout` applies too, so set it to at least the request timeout (or `Timeout.InfiniteTimeSpan`). Exceptions thrown by your handler pipeline count as a failed call to the node, so the request fails over to the next node as for any other transport failure.
 
 ### Dependency Injection and IHttpClientFactory
 
@@ -363,11 +371,11 @@ builder.Services.AddOpenSearchClient((serviceProvider, connection) =>
     new ConnectionSettings(new StaticConnectionPool(nodes), connection).DefaultIndex("my-index"));
 ```
 
-The settings factory must pass the `connection` it is given to `ConnectionSettings` for requests to go through `IHttpClientFactory`.
+The settings factory must pass the `connection` it is given to `ConnectionSettings` for requests to go through `IHttpClientFactory`. Only one client can be registered per service collection; calling `AddOpenSearchClient` again throws.
 
-The named client is preconfigured to match `HttpConnection`: its primary handler is built from the connection settings (compression, connection limit, proxy, server certificate validation, client certificates), its handler lifetime defaults to `DnsRefreshTimeout`, and its `HttpClient.Timeout` is disabled in favour of `RequestTimeout`. Each can be overridden on the builder, e.g. with `ConfigurePrimaryHttpMessageHandler` or `SetHandlerLifetime`.
+The named client is preconfigured to match `HttpConnection`: its primary handler is built from the connection settings (compression, connection limit, proxy, server certificate validation, client certificates), its handler lifetime defaults to `DnsRefreshTimeout` (at least one second, the minimum `IHttpClientFactory` allows), and its `HttpClient.Timeout` is disabled in favour of `RequestTimeout`. Each can be overridden on the builder, e.g. with `ConfigurePrimaryHttpMessageHandler` or `SetHandlerLifetime`.
 
-Note that the client already retries and fails over across nodes (see `MaxRetries`). Resilience handlers such as `AddStandardResilienceHandler()` retry within each of those attempts and apply their own timeouts, so tune them with that in mind.
+Note that the client already retries and fails over across nodes (see `MaxRetries`). Resilience handlers such as `AddStandardResilienceHandler()` retry within each of those attempts and apply their own timeouts, so tune them with that in mind. When a resilience handler gives up (e.g. its timeout elapses or its circuit is open), the attempt fails and the client moves on to the next node.
 
 ## Observability
 

@@ -6,6 +6,7 @@
 */
 
 using System;
+using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using Microsoft.Extensions.Http;
@@ -20,6 +21,9 @@ namespace Microsoft.Extensions.DependencyInjection
 	{
 		/// <summary> The name of the <see cref="HttpClient" /> registered when none is specified. </summary>
 		public const string DefaultHttpClientName = "OpenSearch.Client";
+
+		/// <summary> The shortest <see cref="HttpClientFactoryOptions.HandlerLifetime" /> <see cref="IHttpClientFactory" /> accepts. </summary>
+		private static readonly TimeSpan MinimumHandlerLifetime = TimeSpan.FromSeconds(1);
 
 		/// <summary>
 		/// Registers a singleton <see cref="IOpenSearchClient" /> (and its <see cref="IOpenSearchLowLevelClient" />) talking to
@@ -51,13 +55,18 @@ namespace Microsoft.Extensions.DependencyInjection
 		/// <see cref="ConnectionSettings" /> for requests to go through the named <see cref="HttpClient" /> <paramref name="httpClientName" />.
 		/// <para>
 		/// The named client's primary handler is created from the connection settings (compression, connection limit, proxy,
-		/// certificates), its handler lifetime defaults to <see cref="IConnectionConfigurationValues.DnsRefreshTimeout" />, and its
+		/// certificates), its handler lifetime defaults to <see cref="IConnectionConfigurationValues.DnsRefreshTimeout" /> (at least one
+		/// second, the minimum <see cref="IHttpClientFactory" /> allows), and its
 		/// <see cref="HttpClient.Timeout" /> is disabled in favour of <see cref="IConnectionConfigurationValues.RequestTimeout" />.
 		/// Each of these can be overridden on the returned builder.
 		/// </para>
 		/// <para>
 		/// The client already retries and fails over across nodes, see <see cref="IConnectionConfigurationValues.MaxRetries" />.
-		/// Resilience handlers added to the builder retry within a single attempt on top of that.
+		/// Resilience handlers added to the builder retry within a single attempt on top of that, and their failures are reported
+		/// as a failed attempt so the client fails over to the next node.
+		/// </para>
+		/// <para>
+		/// Only one client can be registered per service collection; calling this again throws.
 		/// </para>
 		/// </summary>
 		/// <param name="services">The service collection.</param>
@@ -79,6 +88,13 @@ namespace Microsoft.Extensions.DependencyInjection
 			if (settingsFactory == null) throw new ArgumentNullException(nameof(settingsFactory));
 			if (httpClientName == null) throw new ArgumentNullException(nameof(httpClientName));
 
+			// The client and its settings are registered as single services, which a second registration would silently replace,
+			// leaving the first named HttpClient configured from the second registration's settings.
+			if (services.Any(d => d.ServiceType == typeof(OpenSearchClientRegistration)))
+				throw new InvalidOperationException(
+					$"{nameof(AddOpenSearchClient)} has already been called on this service collection, only one OpenSearch client can be registered.");
+
+			services.AddSingleton<OpenSearchClientRegistration>();
 			services.AddSingleton(serviceProvider =>
 			{
 				var connection = new HttpClientFactoryConnection(serviceProvider.GetRequiredService<IHttpClientFactory>(), httpClientName);
@@ -93,12 +109,18 @@ namespace Microsoft.Extensions.DependencyInjection
 			// IHttpClientFactory, which itself depends on these options, so an eager dependency deadlocks the container.
 			services.AddOptions<HttpClientFactoryOptions>(httpClientName)
 				.Configure<IServiceProvider>((options, serviceProvider) =>
-					options.HandlerLifetime = serviceProvider.GetRequiredService<IConnectionSettingsValues>().DnsRefreshTimeout);
+					options.HandlerLifetime = HandlerLifetime(serviceProvider.GetRequiredService<IConnectionSettingsValues>().DnsRefreshTimeout));
 
 			return services.AddHttpClient(httpClientName)
 				.ConfigureHttpClient(client => client.Timeout = Timeout.InfiniteTimeSpan)
 				.ConfigurePrimaryHttpMessageHandler(serviceProvider =>
-					ConnectionSettingsHttpMessageHandler.Create(serviceProvider.GetRequiredService<IConnectionSettingsValues>()));
+					HttpConnection.CreateDefaultHttpClientHandler(serviceProvider.GetRequiredService<IConnectionSettingsValues>()));
 		}
+
+		private static TimeSpan HandlerLifetime(TimeSpan dnsRefreshTimeout) =>
+			dnsRefreshTimeout == Timeout.InfiniteTimeSpan || dnsRefreshTimeout >= MinimumHandlerLifetime ? dnsRefreshTimeout : MinimumHandlerLifetime;
+
+		/// <summary> Marks a service collection <see cref="AddOpenSearchClient(IServiceCollection, Func{IServiceProvider, IConnection, IConnectionSettingsValues}, string)" /> was called on. </summary>
+		private sealed class OpenSearchClientRegistration { }
 	}
 }

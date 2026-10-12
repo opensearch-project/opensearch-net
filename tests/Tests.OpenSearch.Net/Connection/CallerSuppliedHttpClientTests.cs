@@ -110,6 +110,52 @@ namespace Tests.OpenSearch.Net.Connection
 				.WithInnerException<InvalidOperationException>().WithMessage("*returned null*");
 		}
 
+		[U] public async Task PipelineExceptionsFailOverToTheNextNode()
+		{
+			var nodes = new[] { new Uri("http://node1:9200"), new Uri("http://node2:9200") };
+			var handler = new RecordingHandler(failFor: nodes[0]);
+			using var httpClient = new HttpClient(handler);
+			var settings = new ConnectionConfiguration(new StaticConnectionPool(nodes, randomize: false), new HttpConnection(httpClient));
+			var client = new OpenSearchLowLevelClient(settings);
+
+			var syncResponse = client.DoRequest<StringResponse>(HttpMethod.GET, "/");
+			var asyncResponse = await client.DoRequestAsync<StringResponse>(HttpMethod.GET, "/", CancellationToken.None);
+
+			foreach (var response in new[] { syncResponse, asyncResponse })
+			{
+				response.Success.Should().BeTrue();
+				response.ApiCall.Uri.Host.Should().Be("node2");
+			}
+		}
+
+		[U] public void PipelineExceptionIsReportedAsFailedCall()
+		{
+			using var httpClient = new HttpClient(new RecordingHandler(failFor: Node));
+			var client = CreateClient(new HttpConnection(httpClient));
+
+			var response = client.DoRequest<StringResponse>(HttpMethod.GET, "/");
+
+			response.Success.Should().BeFalse();
+			response.OriginalException.Should().BeOfType<HttpRequestException>()
+				.Which.InnerException.Should().BeOfType<PipelineFailureException>();
+		}
+
+		[U] public void DefaultHttpClientHandlerIsConfiguredFromSettings()
+		{
+			var settings = new ConnectionConfiguration(Node)
+				.EnableHttpCompression()
+				.ConnectionLimit(12)
+				.Proxy(new Uri("http://proxy:8080"), "user", "pass");
+
+			var handler = HttpConnection.CreateDefaultHttpClientHandler(settings);
+
+			handler.AutomaticDecompression.Should().Be(DecompressionMethods.GZip | DecompressionMethods.Deflate);
+			handler.MaxConnectionsPerServer.Should().Be(12);
+			handler.Proxy.GetProxy(new Uri("http://remote:9200")).Should().Be(new Uri("http://proxy:8080"));
+			handler.Proxy.IsBypassed(new Uri("http://127.0.0.1:9200")).Should().BeTrue();
+			((Action)(() => HttpConnection.CreateDefaultHttpClientHandler(null))).Should().Throw<ArgumentNullException>();
+		}
+
 		[U] public void NullArgumentsAreRejected()
 		{
 			Action nullClient = () => new HttpConnection((HttpClient)null);
@@ -128,18 +174,28 @@ namespace Tests.OpenSearch.Net.Connection
 		private sealed class RecordingHandler : HttpMessageHandler
 		{
 			private readonly bool _waitForCancellation;
+			private readonly Uri _failFor;
 
-			public RecordingHandler(bool waitForCancellation = false) => _waitForCancellation = waitForCancellation;
+			public RecordingHandler(bool waitForCancellation = false, Uri failFor = null)
+			{
+				_waitForCancellation = waitForCancellation;
+				_failFor = failFor;
+			}
 
 			public List<HttpRequestMessage> Requests { get; } = new();
 
 			protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
 			{
 				Requests.Add(request);
+				if (_failFor != null && request.RequestUri.Authority == _failFor.Authority)
+					throw new PipelineFailureException();
 				if (_waitForCancellation)
 					await Task.Delay(Timeout.Infinite, cancellationToken);
 				return new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent("{}", Encoding.UTF8, "application/json") };
 			}
 		}
+
+		/// <summary> Stands in for a handler specific failure, e.g. a resilience handler's open circuit. </summary>
+		private sealed class PipelineFailureException : Exception { }
 	}
 }
