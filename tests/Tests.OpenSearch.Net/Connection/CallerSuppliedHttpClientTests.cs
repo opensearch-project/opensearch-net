@@ -7,6 +7,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -102,7 +103,7 @@ namespace Tests.OpenSearch.Net.Connection
 
 		[U] public void ProviderReturningNullIsReported()
 		{
-			var client = CreateClient(new HttpConnection(_ => null));
+			var client = CreateClient(new HttpConnection(_ => (HttpClient)null));
 
 			Action act = () => client.DoRequest<StringResponse>(HttpMethod.GET, "/");
 
@@ -156,13 +157,98 @@ namespace Tests.OpenSearch.Net.Connection
 			((Action)(() => HttpConnection.CreateDefaultHttpClientHandler(null))).Should().Throw<ArgumentNullException>();
 		}
 
+		[U] public async Task SendsSyncAndAsyncRequestsThroughSuppliedHandler()
+		{
+			var handler = new RecordingHandler();
+			var paths = new List<string>();
+			var client = CreateClient(new HttpConnection(requestData =>
+			{
+				paths.Add(requestData.PathAndQuery);
+				return handler;
+			}));
+
+			client.DoRequest<StringResponse>(HttpMethod.GET, "/sync").Success.Should().BeTrue();
+			(await client.DoRequestAsync<StringResponse>(HttpMethod.GET, "/async", CancellationToken.None)).Success.Should().BeTrue();
+
+			paths.Should().Equal("/sync", "/async");
+			handler.Requests.Select(r => r.RequestUri).Should().Equal(new Uri(Node, "/sync"), new Uri(Node, "/async"));
+			handler.Disposed.Should().BeFalse();
+		}
+
+		[U] public async Task SuppliedClientTimeoutCapsALongerRequestTimeout()
+		{
+			using var httpClient = new HttpClient(new RecordingHandler(delay: TimeSpan.FromMilliseconds(500)))
+			{
+				Timeout = TimeSpan.FromMilliseconds(100)
+			};
+			var client = CreateClient(new HttpConnection(httpClient), c => c.RequestTimeout(TimeSpan.FromSeconds(30)));
+
+			var response = await client.DoRequestAsync<StringResponse>(HttpMethod.GET, "/", CancellationToken.None);
+
+			response.Success.Should().BeFalse("the client's own Timeout applies on top of RequestTimeout");
+		}
+
+		[U] public async Task RequestTimeoutIsTheOnlyLimitForSuppliedHandler()
+		{
+			var handler = new RecordingHandler(delay: TimeSpan.FromMilliseconds(300));
+			var client = CreateClient(new HttpConnection(_ => handler), c => c.RequestTimeout(TimeSpan.FromMilliseconds(100)));
+			var longerTimeout = new PingRequestParameters
+			{
+				RequestConfiguration = new RequestConfiguration { RequestTimeout = TimeSpan.FromSeconds(30) }
+			};
+
+			var defaultTimeout = await client.DoRequestAsync<StringResponse>(HttpMethod.GET, "/", CancellationToken.None);
+			var overridden = await client.DoRequestAsync<StringResponse>(HttpMethod.GET, "/", CancellationToken.None, null, longerTimeout);
+			var overriddenSync = client.DoRequest<StringResponse>(HttpMethod.GET, "/", null, longerTimeout);
+
+			defaultTimeout.Success.Should().BeFalse();
+			defaultTimeout.OriginalException.Should().BeAssignableTo<OperationCanceledException>();
+			overridden.Success.Should().BeTrue("a per request timeout longer than the default takes effect");
+			overriddenSync.Success.Should().BeTrue();
+		}
+
+		[U] public async Task PipelineExceptionsFromSuppliedHandlerFailOverToTheNextNode()
+		{
+			var nodes = new[] { new Uri("http://node1:9200"), new Uri("http://node2:9200") };
+			var handler = new RecordingHandler(failFor: nodes[0]);
+			var settings = new ConnectionConfiguration(new StaticConnectionPool(nodes, randomize: false), new HttpConnection(_ => handler));
+
+			var response = await new OpenSearchLowLevelClient(settings).DoRequestAsync<StringResponse>(HttpMethod.GET, "/", CancellationToken.None);
+
+			response.Success.Should().BeTrue();
+			response.ApiCall.Uri.Host.Should().Be("node2");
+		}
+
+		[U] public void DisposingConnectionDoesNotDisposeSuppliedHandler()
+		{
+			var handler = new RecordingHandler();
+			var connection = new HttpConnection(_ => handler);
+			CreateClient(connection).DoRequest<StringResponse>(HttpMethod.GET, "/");
+
+			((IDisposable)connection).Dispose();
+
+			handler.Disposed.Should().BeFalse();
+		}
+
+		[U] public void HandlerProviderReturningNullIsReported()
+		{
+			var client = CreateClient(new HttpConnection(_ => (HttpMessageHandler)null));
+
+			Action act = () => client.DoRequest<StringResponse>(HttpMethod.GET, "/");
+
+			act.Should().Throw<UnexpectedOpenSearchClientException>()
+				.WithInnerException<InvalidOperationException>().WithMessage("*HttpMessageHandler provider*returned null*");
+		}
+
 		[U] public void NullArgumentsAreRejected()
 		{
 			Action nullClient = () => new HttpConnection((HttpClient)null);
 			Action nullProvider = () => new HttpConnection((Func<RequestData, HttpClient>)null);
+			Action nullHandlerProvider = () => new HttpConnection((Func<RequestData, HttpMessageHandler>)null);
 
 			nullClient.Should().Throw<ArgumentNullException>().WithParameterName("httpClient");
 			nullProvider.Should().Throw<ArgumentNullException>().WithParameterName("httpClientProvider");
+			nullHandlerProvider.Should().Throw<ArgumentNullException>().WithParameterName("httpMessageHandlerProvider");
 		}
 
 		private static OpenSearchLowLevelClient CreateClient(IConnection connection, Func<ConnectionConfiguration, ConnectionConfiguration> configure = null)
@@ -175,14 +261,18 @@ namespace Tests.OpenSearch.Net.Connection
 		{
 			private readonly bool _waitForCancellation;
 			private readonly Uri _failFor;
+			private readonly TimeSpan? _delay;
 
-			public RecordingHandler(bool waitForCancellation = false, Uri failFor = null)
+			public RecordingHandler(bool waitForCancellation = false, Uri failFor = null, TimeSpan? delay = null)
 			{
 				_waitForCancellation = waitForCancellation;
 				_failFor = failFor;
+				_delay = delay;
 			}
 
 			public List<HttpRequestMessage> Requests { get; } = new();
+
+			public bool Disposed { get; private set; }
 
 			protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
 			{
@@ -191,7 +281,15 @@ namespace Tests.OpenSearch.Net.Connection
 					throw new PipelineFailureException();
 				if (_waitForCancellation)
 					await Task.Delay(Timeout.Infinite, cancellationToken);
+				if (_delay.HasValue)
+					await Task.Delay(_delay.Value, cancellationToken);
 				return new HttpResponseMessage(HttpStatusCode.OK) { Content = new StringContent("{}", Encoding.UTF8, "application/json") };
+			}
+
+			protected override void Dispose(bool disposing)
+			{
+				Disposed = true;
+				base.Dispose(disposing);
 			}
 		}
 

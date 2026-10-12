@@ -332,15 +332,17 @@ var settings = new ConnectionSettings(new Uri("http://localhost:9200"), new MyHt
 
 ### Supplying Your Own HttpClient
 
-`HttpConnection` can also send requests through an `HttpClient` you own, either a single instance or one returned per request:
+`HttpConnection` can also send requests through an `HttpClient` or `HttpMessageHandler` you own:
 
 ```csharp
 var connection = new HttpConnection(httpClient);
-// or
-var connection = new HttpConnection(requestData => httpClientFactory.CreateClient("opensearch"));
+// or one per request
+var connection = new HttpConnection(requestData => httpClient);
+// or a handler, which leaves timeouts entirely to RequestTimeout (see below)
+var connection = new HttpConnection(requestData => httpMessageHandler);
 ```
 
-The client and its handler are then yours: they are not disposed by the connection, and the handler-level settings listed above are **not** applied, so configure decompression, `MaxConnectionsPerServer`, proxy and certificates on your own handler. `HttpConnection.CreateDefaultHttpClientHandler(settings)` creates a handler configured from your connection settings:
+The client or handler is then yours: they are not disposed by the connection, and the handler-level settings listed above are **not** applied, so configure decompression, `MaxConnectionsPerServer`, proxy and certificates on your own handler. `HttpConnection.CreateDefaultHttpClientHandler(settings)` creates a handler configured from your connection settings:
 
 ```csharp
 var httpClient = new HttpClient(new MyDelegatingHandler(HttpConnection.CreateDefaultHttpClientHandler(settings)));
@@ -348,30 +350,29 @@ var httpClient = new HttpClient(new MyDelegatingHandler(HttpConnection.CreateDef
 
 Because the connection creates no handlers in this mode, per-request client certificates (`RequestConfiguration.ClientCertificates`) and overrides of `CreateHttpClientHandler` in a subclass are not applied either.
 
-`RequestTimeout` is still enforced per request, but the client's own `HttpClient.Timeout` applies too, so set it to at least the request timeout (or `Timeout.InfiniteTimeSpan`). Exceptions thrown by your handler pipeline count as a failed call to the node, so the request fails over to the next node as for any other transport failure.
+`RequestTimeout` is still enforced per request. With a supplied `HttpClient`, its own `HttpClient.Timeout` applies too and caps it, so a longer `RequestTimeout` (including a per-request override) never takes effect; set `HttpClient.Timeout` to `Timeout.InfiniteTimeSpan`, or supply a handler instead. With a supplied handler there is no client timeout, so `RequestTimeout` is the only limit, but client-level configuration such as `DefaultRequestHeaders` is not applied. Exceptions thrown by your handler pipeline count as a failed call to the node, so the request fails over to the next node as for any other transport failure.
 
 ### Dependency Injection and IHttpClientFactory
 
-To send requests through a named `IHttpClientFactory` client, register the client and pass a connection that asks the factory for it:
+To send requests through a named `IHttpClientFactory` client's handler pipeline, pass a connection that asks `IHttpMessageHandlerFactory` for its handler:
 
 ```csharp
 builder.Services.AddHttpClient("opensearch")
-    .ConfigureHttpClient(client => client.Timeout = Timeout.InfiniteTimeSpan)
     .ConfigurePrimaryHttpMessageHandler(serviceProvider =>
         HttpConnection.CreateDefaultHttpClientHandler(serviceProvider.GetRequiredService<IConnectionSettingsValues>()))
     .AddStandardResilienceHandler();
 
 builder.Services.AddSingleton<IConnectionSettingsValues>(serviceProvider =>
 {
-    var httpClientFactory = serviceProvider.GetRequiredService<IHttpClientFactory>();
-    var connection = new HttpConnection(_ => httpClientFactory.CreateClient("opensearch"));
+    var handlerFactory = serviceProvider.GetRequiredService<IHttpMessageHandlerFactory>();
+    var connection = new HttpConnection(_ => handlerFactory.CreateHandler("opensearch"));
     return new ConnectionSettings(new Uri("http://localhost:9200"), connection).DefaultIndex("my-index");
 });
 builder.Services.AddSingleton<IOpenSearchClient>(serviceProvider =>
     new OpenSearchClient(serviceProvider.GetRequiredService<IConnectionSettingsValues>()));
 ```
 
-`CreateDefaultHttpClientHandler` gives the named client the same primary handler `HttpConnection` would create, and disabling `HttpClient.Timeout` leaves timeouts to `RequestTimeout`. Use `SetHandlerLifetime` to match `DnsRefreshTimeout` if you rely on it. The limitations described in [Supplying Your Own HttpClient](#supplying-your-own-httpclient) apply.
+The factory still pools and rotates the handlers and runs every handler added to the builder, and `CreateDefaultHttpClientHandler` gives it the same primary handler `HttpConnection` would create. Sending through the handler rather than `CreateClient` means `RequestTimeout` is the only timeout; settings applied with `ConfigureHttpClient` are not used. Use `SetHandlerLifetime` to match `DnsRefreshTimeout` if you rely on it. The limitations described in [Supplying Your Own HttpClient](#supplying-your-own-httpclient) apply.
 
 Note that the client already retries and fails over across nodes (see `MaxRetries`). Resilience handlers such as `AddStandardResilienceHandler()` retry within each of those attempts and apply their own timeouts, so tune them with that in mind. When a resilience handler gives up (e.g. its timeout elapses or its circuit is open), the attempt fails and the client moves on to the next node.
 

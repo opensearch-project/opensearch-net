@@ -91,8 +91,7 @@ namespace OpenSearch.Net
 		public HttpConnection(HttpClient httpClient) : this(CreateProvider(httpClient)) { }
 
 		/// <summary>
-		/// Creates a connection that asks <paramref name="httpClientProvider" /> for the <see cref="HttpClient" /> to send each request with,
-		/// e.g. <c>_ => httpClientFactory.CreateClient("opensearch")</c> to integrate with <c>IHttpClientFactory</c>.
+		/// Creates a connection that asks <paramref name="httpClientProvider" /> for the <see cref="HttpClient" /> to send each request with.
 		/// <para>
 		/// The caller owns the returned clients and their handlers, so the handler-level settings this connection would otherwise
 		/// apply in <see cref="CreateHttpClientHandler" /> must be configured on the caller's handler instead:
@@ -110,19 +109,50 @@ namespace OpenSearch.Net
 		/// </para>
 		/// <para>
 		/// <see cref="IConnectionConfigurationValues.RequestTimeout" /> is still honoured per request through cancellation, but the
-		/// client's own <see cref="HttpClient.Timeout" /> applies as well, so it should be at least as long as the request timeout
-		/// (or <see cref="Timeout.InfiniteTimeSpan" />).
+		/// client's own <see cref="HttpClient.Timeout" /> applies as well and caps it: a longer request timeout never takes effect. Set
+		/// <see cref="HttpClient.Timeout" /> to <see cref="Timeout.InfiniteTimeSpan" />, or use
+		/// <see cref="HttpConnection(Func{RequestData, HttpMessageHandler})" /> to make the request timeout the only limit.
 		/// </para>
 		/// </summary>
 		/// <param name="httpClientProvider">Returns the client to send a request with. Returned clients are not disposed by this connection.</param>
 		public HttpConnection(Func<RequestData, HttpClient> httpClientProvider) =>
 			_httpClientProvider = httpClientProvider ?? throw new ArgumentNullException(nameof(httpClientProvider));
 
+		/// <summary>
+		/// Creates a connection that asks <paramref name="httpMessageHandlerProvider" /> for the <see cref="HttpMessageHandler" /> to send
+		/// each request through, e.g. <c>_ => httpMessageHandlerFactory.CreateHandler("opensearch")</c> to send through a named
+		/// <c>IHttpClientFactory</c> client's handler pipeline.
+		/// <para>
+		/// Unlike with a supplied <see cref="HttpClient" />, no client level timeout applies, so
+		/// <see cref="IConnectionConfigurationValues.RequestTimeout" /> and per request overrides of it are the only limit on a request.
+		/// Client level configuration such as <see cref="HttpClient.DefaultRequestHeaders" /> is not applied either. Otherwise the
+		/// responsibilities described on <see cref="HttpConnection(Func{RequestData, HttpClient})" /> apply.
+		/// </para>
+		/// </summary>
+		/// <param name="httpMessageHandlerProvider">Returns the handler to send a request through. Returned handlers are not disposed by this connection.</param>
+		public HttpConnection(Func<RequestData, HttpMessageHandler> httpMessageHandlerProvider)
+			: this(CreateProvider(httpMessageHandlerProvider)) { }
+
 		private static Func<RequestData, HttpClient> CreateProvider(HttpClient httpClient)
 		{
 			if (httpClient == null) throw new ArgumentNullException(nameof(httpClient));
 
 			return _ => httpClient;
+		}
+
+		private static Func<RequestData, HttpClient> CreateProvider(Func<RequestData, HttpMessageHandler> httpMessageHandlerProvider)
+		{
+			if (httpMessageHandlerProvider == null) throw new ArgumentNullException(nameof(httpMessageHandlerProvider));
+
+			// Clients are cheap to create around a handler, the same as IHttpClientFactory does. With no client timeout, the request
+			// timeout enforced through cancellation is the only one.
+			return requestData =>
+			{
+				var handler = httpMessageHandlerProvider(requestData)
+					?? throw new InvalidOperationException(
+						$"The {nameof(HttpMessageHandler)} provider passed to {nameof(HttpConnection)} returned null.");
+				return new HttpClient(handler, disposeHandler: false) { Timeout = Timeout.InfiniteTimeSpan };
+			};
 		}
 
 		public virtual TResponse Request<TResponse>(RequestData requestData)
