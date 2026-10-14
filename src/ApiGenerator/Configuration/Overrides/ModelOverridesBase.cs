@@ -82,6 +82,15 @@ public abstract class ModelOverridesBase : IModelOverrides
     };
 
     /// <summary>
+    /// Mapped schemas whose C# type is already a list (e.g. <c>NodeIds</c> holds several node ids).
+    /// An array of one of these resolves to the mapped type itself, not a list of it.
+    /// </summary>
+    private static readonly HashSet<string> GlobalListMappedTypes = new(StringComparer.Ordinal)
+    {
+        "_common___NodeIds",
+    };
+
+    /// <summary>
     /// Global property-level type overrides keyed by <c>"{schemaId}.{propertyName}"</c>.
     /// Applies to any generated property that comes from the specified schema, regardless
     /// of which operation or namespace uses it. Use for shared schema properties that always
@@ -117,6 +126,8 @@ public abstract class ModelOverridesBase : IModelOverrides
 
     public virtual IDictionary<string, string> PropertyTypeOverrides { get; } =
         new Dictionary<string, string>(StringComparer.Ordinal);
+
+    public bool IsListMappedType(string schemaId) => GlobalListMappedTypes.Contains(schemaId);
 
     public string? MappedJsonFormatter(string schemaId) =>
         GlobalMappedTypeFormatters.TryGetValue(schemaId, out var f) ? f : null;

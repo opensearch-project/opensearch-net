@@ -11,8 +11,8 @@ using OpenSearch.Net.Utf8Json;
 namespace OpenSearch.Client
 {
 	/// <summary>
-	/// Serializes <see cref="NodeIds"/> as a single JSON string (one id) or an array of strings (several ids), and
-	/// reads either form; a string is parsed as a comma-separated list. An empty array reads as <c>null</c>.
+	/// Serializes <see cref="NodeIds"/> as a JSON array of node id strings, and reads either an array or a single
+	/// string (parsed as a comma-separated list). An empty array reads as <c>null</c>.
 	/// </summary>
 	internal class NodeIdsFormatter : IJsonFormatter<NodeIds>
 	{
@@ -43,12 +43,6 @@ namespace OpenSearch.Client
 			if (value == null)
 			{
 				writer.WriteNull();
-				return;
-			}
-
-			if (value.Value.Count == 1)
-			{
-				writer.WriteString(value.Value[0]);
 				return;
 			}
 

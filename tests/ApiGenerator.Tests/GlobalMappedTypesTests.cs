@@ -22,7 +22,7 @@ public class GlobalMappedTypesTests
 {
     [Theory]
     [InlineData("name", "Name")]
-    [InlineData("worker_nodes", "IList<NodeIds>")]
+    [InlineData("worker_nodes", "NodeIds")]
     [InlineData("failures", "IList<BulkIndexByScrollFailure>")]
     [InlineData("limit", "double?")]
     public async Task MappedSchemasResolveToSerializableTypes(string property, string expectedType)

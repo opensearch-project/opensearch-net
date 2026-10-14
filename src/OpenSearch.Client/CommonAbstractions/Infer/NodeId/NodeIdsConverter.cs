@@ -13,8 +13,8 @@ using System.Text.Json.Serialization;
 namespace OpenSearch.Client
 {
 	/// <summary>
-	/// System.Text.Json counterpart of <see cref="NodeIdsFormatter"/>. Writes one id as a string and several as an
-	/// array; reads either form, parsing a string as a comma-separated list. An empty array reads as <c>null</c>.
+	/// System.Text.Json counterpart of <see cref="NodeIdsFormatter"/>. Writes a JSON array of node id strings; reads
+	/// either an array or a single string (parsed as a comma-separated list). An empty array reads as <c>null</c>.
 	/// </summary>
 	internal class NodeIdsConverter : JsonConverter<NodeIds>
 	{
@@ -44,12 +44,6 @@ namespace OpenSearch.Client
 			if (value == null)
 			{
 				writer.WriteNullValue();
-				return;
-			}
-
-			if (value.Value.Count == 1)
-			{
-				writer.WriteStringValue(value.Value[0]);
 				return;
 			}
 

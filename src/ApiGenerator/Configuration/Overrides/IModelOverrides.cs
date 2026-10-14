@@ -114,6 +114,12 @@ public interface IModelOverrides
     /// </summary>
     string? MappedJsonFormatter(string schemaId);
 
+    /// <summary>
+    /// Whether the mapped C# type for the schema is itself a list, so an array of it resolves to the
+    /// mapped type rather than a list of it.
+    /// </summary>
+    bool IsListMappedType(string schemaId);
+
     string? RenamedCsharpName(string schemaId);
 
     /// <summary>

@@ -241,10 +241,12 @@ namespace Tests.ML
 			{ typeof(IQueryContainer), "{\"match_all\":{}}" },
 			{ typeof(QueryContainer), "{\"match_all\":{}}" },
 			{ typeof(Fields), "[\"test\"]" },
+			// NodeIds is a list of node ids and is always an array on the wire.
+			{ typeof(NodeIds), "[\"test\"]" },
 			{ typeof(ErrorCause), "{\"type\":\"test\",\"reason\":\"test\"}" },
 		};
 
-		/// <summary>Path-parameter style types that serialize as a single JSON string.</summary>
+		/// <summary>Path-parameter style types whose fixture value reads back through <c>ToString()</c> as <c>"test"</c>.</summary>
 		private static bool IsStringBacked(Type t) =>
 			t == typeof(Name) || t == typeof(Id) || t == typeof(IndexName) || t == typeof(NodeIds);
 
