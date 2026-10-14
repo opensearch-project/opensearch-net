@@ -37,6 +37,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.NetworkInformation;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -71,12 +72,88 @@ namespace OpenSearch.Net
 
 		private static readonly System.Net.Http.HttpMethod Patch = new System.Net.Http.HttpMethod("PATCH");
 
+		/// <summary> Null when the <see cref="HttpClient" /> is supplied by the caller. </summary>
 		private RequestDataHttpClientFactory HttpClientFactory { get; }
 
-		public int InUseHandlers => HttpClientFactory.InUseHandlers;
-		public int RemovedHandlers => HttpClientFactory.RemovedHandlers;
+		/// <summary> Null when the <see cref="HttpClient" /> is created and owned by this connection. </summary>
+		private readonly Func<RequestData, HttpClient> _httpClientProvider;
+
+		public int InUseHandlers => HttpClientFactory?.InUseHandlers ?? 0;
+		public int RemovedHandlers => HttpClientFactory?.RemovedHandlers ?? 0;
 
 		public HttpConnection() => HttpClientFactory = new RequestDataHttpClientFactory(r => CreateHttpClientHandler(r));
+
+		/// <summary>
+		/// Creates a connection that sends every request through the supplied <paramref name="httpClient" />.
+		/// <para>See <see cref="HttpConnection(Func{RequestData, HttpClient})" /> for the responsibilities this places on the caller.</para>
+		/// </summary>
+		/// <param name="httpClient">The client to send requests with. It is not disposed by this connection.</param>
+		public HttpConnection(HttpClient httpClient) : this(CreateProvider(httpClient)) { }
+
+		/// <summary>
+		/// Creates a connection that asks <paramref name="httpClientProvider" /> for the <see cref="HttpClient" /> to send each request with.
+		/// <para>
+		/// The caller owns the returned clients and their handlers, so the handler-level settings this connection would otherwise
+		/// apply in <see cref="CreateHttpClientHandler" /> must be configured on the caller's handler instead:
+		/// <see cref="IConnectionConfigurationValues.EnableHttpCompression" /> (response decompression),
+		/// <see cref="IConnectionConfigurationValues.ConnectionLimit" />, proxy settings, client certificates,
+		/// <see cref="IConnectionConfigurationValues.ServerCertificateValidationCallback" /> and
+		/// <see cref="IConnectionConfigurationValues.DnsRefreshTimeout" /> (handler lifetime). <see cref="CreateDefaultHttpClientHandler" />
+		/// creates a handler configured from the settings. Since this connection creates no handlers, per request
+		/// <see cref="IRequestConfiguration.ClientCertificates" /> are not applied, and neither is an override of
+		/// <see cref="CreateHttpClientHandler" /> in a subclass.
+		/// </para>
+		/// <para>
+		/// Exceptions thrown by the client's handler pipeline, such as a resilience handler's timeout or open circuit, are reported as a
+		/// failed call to the node, so the request fails over to the next node like any other transport failure.
+		/// </para>
+		/// <para>
+		/// <see cref="IConnectionConfigurationValues.RequestTimeout" /> is still honoured per request through cancellation, but the
+		/// client's own <see cref="HttpClient.Timeout" /> applies as well and caps it: a longer request timeout never takes effect. Set
+		/// <see cref="HttpClient.Timeout" /> to <see cref="Timeout.InfiniteTimeSpan" />, or use
+		/// <see cref="HttpConnection(Func{RequestData, HttpMessageHandler})" /> to make the request timeout the only limit.
+		/// </para>
+		/// </summary>
+		/// <param name="httpClientProvider">Returns the client to send a request with. Returned clients are not disposed by this connection.</param>
+		public HttpConnection(Func<RequestData, HttpClient> httpClientProvider) =>
+			_httpClientProvider = httpClientProvider ?? throw new ArgumentNullException(nameof(httpClientProvider));
+
+		/// <summary>
+		/// Creates a connection that asks <paramref name="httpMessageHandlerProvider" /> for the <see cref="HttpMessageHandler" /> to send
+		/// each request through, e.g. <c>_ => httpMessageHandlerFactory.CreateHandler("opensearch")</c> to send through a named
+		/// <c>IHttpClientFactory</c> client's handler pipeline.
+		/// <para>
+		/// Unlike with a supplied <see cref="HttpClient" />, no client level timeout applies, so
+		/// <see cref="IConnectionConfigurationValues.RequestTimeout" /> and per request overrides of it are the only limit on a request.
+		/// Client level configuration such as <see cref="HttpClient.DefaultRequestHeaders" /> is not applied either. Otherwise the
+		/// responsibilities described on <see cref="HttpConnection(Func{RequestData, HttpClient})" /> apply.
+		/// </para>
+		/// </summary>
+		/// <param name="httpMessageHandlerProvider">Returns the handler to send a request through. Returned handlers are not disposed by this connection.</param>
+		public HttpConnection(Func<RequestData, HttpMessageHandler> httpMessageHandlerProvider)
+			: this(CreateProvider(httpMessageHandlerProvider)) { }
+
+		private static Func<RequestData, HttpClient> CreateProvider(HttpClient httpClient)
+		{
+			if (httpClient == null) throw new ArgumentNullException(nameof(httpClient));
+
+			return _ => httpClient;
+		}
+
+		private static Func<RequestData, HttpClient> CreateProvider(Func<RequestData, HttpMessageHandler> httpMessageHandlerProvider)
+		{
+			if (httpMessageHandlerProvider == null) throw new ArgumentNullException(nameof(httpMessageHandlerProvider));
+
+			// Clients are cheap to create around a handler, the same as IHttpClientFactory does. With no client timeout, the request
+			// timeout enforced through cancellation is the only one.
+			return requestData =>
+			{
+				var handler = httpMessageHandlerProvider(requestData)
+					?? throw new InvalidOperationException(
+						$"The {nameof(HttpMessageHandler)} provider passed to {nameof(HttpConnection)} returned null.");
+				return new HttpClient(handler, disposeHandler: false) { Timeout = Timeout.InfiniteTimeSpan };
+			};
+		}
 
 		public virtual TResponse Request<TResponse>(RequestData requestData)
 			where TResponse : class, IOpenSearchResponse, new()
@@ -108,7 +185,7 @@ namespace OpenSearch.Net
 					if (requestData.ThreadPoolStats)
 						threadPoolStats = ThreadPoolStats.GetStats();
 
-					responseMessage = client.SendAsync(requestMessage, HttpCompletionOption.ResponseHeadersRead).GetAwaiter().GetResult();
+					responseMessage = SendAsync(client, requestMessage, requestData, CancellationToken.None).GetAwaiter().GetResult();
 					statusCode = (int)responseMessage.StatusCode;
 					d.EndState = statusCode;
 				}
@@ -176,7 +253,7 @@ namespace OpenSearch.Net
 					if (requestData.ThreadPoolStats)
 						threadPoolStats = ThreadPoolStats.GetStats();
 
-					responseMessage = await client.SendAsync(requestMessage, HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+					responseMessage = await SendAsync(client, requestMessage, requestData, cancellationToken).ConfigureAwait(false);
 					statusCode = (int)responseMessage.StatusCode;
 					d.EndState = statusCode;
 				}
@@ -217,18 +294,75 @@ namespace OpenSearch.Net
 
 		void IDisposable.Dispose() => DisposeManagedResources();
 
-		private HttpClient GetClient(RequestData requestData) => HttpClientFactory.CreateClient(requestData);
-
-		protected virtual HttpMessageHandler CreateHttpClientHandler(RequestData requestData)
+		private HttpClient GetClient(RequestData requestData)
 		{
-			var handler = new HttpClientHandler { AutomaticDecompression = requestData.HttpCompression ? GZip | Deflate : None, };
+			if (_httpClientProvider == null)
+				return HttpClientFactory.CreateClient(requestData);
 
-			// same limit as desktop clr
-			if (requestData.ConnectionSettings.ConnectionLimit > 0)
+			return _httpClientProvider(requestData)
+				?? throw new InvalidOperationException($"The {nameof(HttpClient)} provider passed to {nameof(HttpConnection)} returned null.");
+		}
+
+		private async Task<HttpResponseMessage> SendAsync(HttpClient client, HttpRequestMessage requestMessage, RequestData requestData,
+			CancellationToken cancellationToken
+		)
+		{
+			using (var timeout = CreateRequestTimeout(requestData, cancellationToken))
 			{
 				try
 				{
-					handler.MaxConnectionsPerServer = requestData.ConnectionSettings.ConnectionLimit;
+					return await client.SendAsync(requestMessage, HttpCompletionOption.ResponseHeadersRead, timeout?.Token ?? cancellationToken)
+						.ConfigureAwait(false);
+				}
+				// A caller supplied pipeline can fail with any exception, e.g. a resilience handler's timeout or open circuit. Surface it
+				// like a transport failure so the node is marked dead and the request fails over, rather than escaping the pipeline.
+				catch (Exception e) when (_httpClientProvider != null && !(e is HttpRequestException || e is TaskCanceledException)
+					&& !cancellationToken.IsCancellationRequested)
+				{
+					throw new HttpRequestException(e.Message, e);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Enforces <see cref="RequestData.RequestTimeout" /> on a caller supplied <see cref="HttpClient" />, whose
+		/// <see cref="HttpClient.Timeout" /> can't be changed per request. Owned clients get it via <see cref="HttpClient.Timeout" />
+		/// already, so this returns null for them, as it does when there is no timeout.
+		/// </summary>
+		private CancellationTokenSource CreateRequestTimeout(RequestData requestData, CancellationToken cancellationToken)
+		{
+			if (_httpClientProvider == null || requestData.RequestTimeout <= TimeSpan.Zero) return null;
+
+			var timeout = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
+			timeout.CancelAfter(requestData.RequestTimeout);
+			return timeout;
+		}
+
+		protected virtual HttpMessageHandler CreateHttpClientHandler(RequestData requestData) =>
+			BuildHttpClientHandler(requestData.ConnectionSettings, requestData.ClientCertificates);
+
+		/// <summary>
+		/// Creates the handler this connection would create for <paramref name="settings" />, applying response decompression,
+		/// <see cref="IConnectionConfigurationValues.ConnectionLimit" />, proxy settings, server certificate validation and client certificates.
+		/// Useful as the primary handler of an <see cref="HttpClient" /> passed to <see cref="HttpConnection(Func{RequestData, HttpClient})" />.
+		/// </summary>
+		public static HttpClientHandler CreateDefaultHttpClientHandler(IConnectionConfigurationValues settings)
+		{
+			if (settings == null) throw new ArgumentNullException(nameof(settings));
+
+			return BuildHttpClientHandler(settings, settings.ClientCertificates);
+		}
+
+		private static HttpClientHandler BuildHttpClientHandler(IConnectionConfigurationValues settings, X509CertificateCollection clientCertificates)
+		{
+			var handler = new HttpClientHandler { AutomaticDecompression = settings.EnableHttpCompression ? GZip | Deflate : None, };
+
+			// same limit as desktop clr
+			if (settings.ConnectionLimit > 0)
+			{
+				try
+				{
+					handler.MaxConnectionsPerServer = settings.ConnectionLimit;
 				}
 				catch (MissingMethodException e)
 				{
@@ -240,27 +374,27 @@ namespace OpenSearch.Net
 				}
 			}
 
-			if (!requestData.ProxyAddress.IsNullOrEmpty())
+			if (!settings.ProxyAddress.IsNullOrEmpty())
 			{
-				var uri = new Uri(requestData.ProxyAddress);
+				var uri = new Uri(settings.ProxyAddress);
 				var proxy = new WebProxy(uri);
-				if (!string.IsNullOrEmpty(requestData.ProxyUsername))
+				if (!string.IsNullOrEmpty(settings.ProxyUsername))
 				{
-					var credentials = new NetworkCredential(requestData.ProxyUsername, requestData.ProxyPassword);
+					var credentials = new NetworkCredential(settings.ProxyUsername, settings.ProxyPassword);
 					proxy.Credentials = credentials;
 				}
 				handler.Proxy = proxy;
 			}
-			else if (requestData.DisableAutomaticProxyDetection) handler.UseProxy = false;
+			else if (settings.DisableAutomaticProxyDetection) handler.UseProxy = false;
 
-			var callback = requestData.ConnectionSettings?.ServerCertificateValidationCallback;
+			var callback = settings.ServerCertificateValidationCallback;
 			if (callback != null && handler.ServerCertificateCustomValidationCallback == null)
 				handler.ServerCertificateCustomValidationCallback = callback;
 
-			if (requestData.ClientCertificates != null)
+			if (clientCertificates != null)
 			{
 				handler.ClientCertificateOptions = ClientCertificateOption.Manual;
-				handler.ClientCertificates.AddRange(requestData.ClientCertificates);
+				handler.ClientCertificates.AddRange(clientCertificates);
 			}
 
 			return handler;
@@ -457,6 +591,6 @@ namespace OpenSearch.Net
 			}
 		}
 
-		protected virtual void DisposeManagedResources() => HttpClientFactory.Dispose();
+		protected virtual void DisposeManagedResources() => HttpClientFactory?.Dispose();
 	}
 }
