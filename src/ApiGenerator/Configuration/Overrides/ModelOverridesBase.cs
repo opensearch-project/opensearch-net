@@ -55,8 +55,11 @@ public abstract class ModelOverridesBase : IModelOverrides
         ["_common___VersionNumber"] = "long?",
         ["_common___SequenceNumber"] = "long?",
         ["_common___VersionString"] = "string",
-        ["_common___StringifiedDouble"] = "string",
-        ["_common___BulkByScrollFailure"] = "string",
+        // A number that the server may also send as a string; GlobalMappedTypeFormatters attaches
+        // the string-tolerant formatter, matching hand-written OSC (e.g. BM25Similarity.B).
+        ["_common___StringifiedDouble"] = "double?",
+        // Hand-written failure type already used by DeleteByQueryResponse/ReindexOnServerResponse.
+        ["_common___BulkByScrollFailure"] = "BulkIndexByScrollFailure",
         // Duration types map to the OSC Time class.
         ["_common___Duration"] = "Time",
         ["_common___DurationLarge"] = "Time",
@@ -64,6 +67,27 @@ public abstract class ModelOverridesBase : IModelOverrides
         ["_common___WriteResponseBase"] = "WriteResponseBase",
         // Hand-written Result enum already exists in OpenSearch.Client.Document/Result.cs.
         ["_common___Result"] = "Result",
+    };
+
+    /// <summary>
+    /// Utf8Json formatters to apply to properties whose type comes from a mapped schema, keyed by
+    /// schema ID. Use when the mapped C# type needs a non-default wire encoding.
+    /// The System.Text.Json serializer honours the same attribute via OpenSearch.Client's
+    /// <c>MemberFormatterConverters</c>, so any formatter listed here must also have an STJ converter
+    /// registered there, or STJ silently falls back to the default encoding.
+    /// </summary>
+    private static readonly Dictionary<string, string> GlobalMappedTypeFormatters = new(StringComparer.Ordinal)
+    {
+        ["_common___StringifiedDouble"] = "NullableStringDoubleFormatter",
+    };
+
+    /// <summary>
+    /// Mapped schemas whose C# type is already a list (e.g. <c>NodeIds</c> holds several node ids).
+    /// An array of one of these resolves to the mapped type itself, not a list of it.
+    /// </summary>
+    private static readonly HashSet<string> GlobalListMappedTypes = new(StringComparer.Ordinal)
+    {
+        "_common___NodeIds",
     };
 
     /// <summary>
@@ -102,6 +126,11 @@ public abstract class ModelOverridesBase : IModelOverrides
 
     public virtual IDictionary<string, string> PropertyTypeOverrides { get; } =
         new Dictionary<string, string>(StringComparer.Ordinal);
+
+    public bool IsListMappedType(string schemaId) => GlobalListMappedTypes.Contains(schemaId);
+
+    public string? MappedJsonFormatter(string schemaId) =>
+        GlobalMappedTypeFormatters.TryGetValue(schemaId, out var f) ? f : null;
 
     public string? MappedCsharpType(string schemaId)
     {

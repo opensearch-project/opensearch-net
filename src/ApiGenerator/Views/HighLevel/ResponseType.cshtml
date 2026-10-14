@@ -23,9 +23,9 @@ namespace OpenSearch.Client
     {
 @foreach (var p in Model.Properties)
 {
-@if (p.JsonFormatterType != null)
+@if (p.EffectiveJsonFormatterType != null)
 {
-<text>        [JsonFormatter(typeof(@Raw(p.JsonFormatterType)))]
+<text>        [JsonFormatter(typeof(@Raw(p.EffectiveJsonFormatterType)))]
 </text>
 }
 <text>        [DataMember(Name = "@p.WireName")]

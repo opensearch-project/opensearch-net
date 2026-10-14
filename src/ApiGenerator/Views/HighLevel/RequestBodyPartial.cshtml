@@ -39,6 +39,11 @@ namespace OpenSearch.Client
     {
 @foreach (var prop in Model.Properties)
 {
+@if (prop.EffectiveJsonFormatterType != null)
+{
+<text>        [JsonFormatter(typeof(@Raw(prop.EffectiveJsonFormatterType)))]
+</text>
+}
 <text>        [DataMember(Name = "@prop.WireName")]
         @Raw(prop.CsharpType) @prop.CsharpName { get; set; }
 </text>
