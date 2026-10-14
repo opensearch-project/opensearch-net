@@ -95,9 +95,7 @@ namespace ApiGenerator.Generator
 
 		public static async Task<RestApiSpec> CreateRestApiSpecModel(CancellationToken token = default)
 		{
-			var (json, openSchemaIds) = PreprocessRawOpenApiSpec(await File.ReadAllTextAsync(GeneratorLocations.OpenApiSpecFile, token));
-			var document = await OpenApiDocument.FromJsonAsync(json, token);
-            JsonSchemaReferenceUtilities.UpdateSchemaReferencePaths(document);
+			var (document, openSchemaIds) = await LoadOpenApiDocument(GeneratorLocations.OpenApiSpecFile, token);
 
 			var enumsToGenerate = new Dictionary<string, bool>();
 
@@ -129,6 +127,16 @@ namespace ApiGenerator.Generator
 				.ToImmutableList();
 
 			return new RestApiSpec { Endpoints = endpoints, EnumsInTheSpec = enumsInSpec, Document = document, ExplicitlyOpenSchemaIds = openSchemaIds };
+		}
+
+		/// <summary>Loads and preprocesses the OpenAPI spec at <paramref name="path"/>, as code generation does.</summary>
+		internal static async Task<(OpenApiDocument Document, HashSet<string> OpenSchemaIds)> LoadOpenApiDocument(
+			string path, CancellationToken token = default)
+		{
+			var (json, openSchemaIds) = PreprocessRawOpenApiSpec(await File.ReadAllTextAsync(path, token));
+			var document = await OpenApiDocument.FromJsonAsync(json, token);
+			JsonSchemaReferenceUtilities.UpdateSchemaReferencePaths(document);
+			return (document, openSchemaIds);
 		}
 
 		private static (string json, HashSet<string> openSchemaIds) PreprocessRawOpenApiSpec(string yaml)

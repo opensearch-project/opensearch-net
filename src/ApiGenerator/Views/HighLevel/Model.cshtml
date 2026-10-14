@@ -54,6 +54,10 @@ else if (Model is ObjectModel objectModel)
 @:    {
     foreach (var p in objectModel.Properties)
     {
+        if (p.EffectiveJsonFormatterType != null)
+        {
+@:        [JsonFormatter(typeof(@Raw(p.EffectiveJsonFormatterType)))]
+        }
 @:        [DataMember(Name = "@p.WireName")]
 @:        @Raw(p.CsharpType) @p.CsharpName { get; set; }
     }
