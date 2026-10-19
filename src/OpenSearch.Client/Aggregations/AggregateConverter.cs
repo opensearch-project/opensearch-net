@@ -837,7 +837,8 @@ namespace OpenSearch.Client
 		{
 			if (element.ValueKind == JsonValueKind.Number)
 				return element.TryGetInt64(out var l) ? l : (long)element.GetDouble();
-			if (element.ValueKind == JsonValueKind.String && long.TryParse(element.GetString(), out var s))
+			if (element.ValueKind == JsonValueKind.String &&
+				long.TryParse(element.GetString(), NumberStyles.Integer, CultureInfo.InvariantCulture, out var s))
 				return s;
 			return 0;
 		}
@@ -851,7 +852,9 @@ namespace OpenSearch.Client
 				case JsonValueKind.Number:
 					return element.TryGetInt64(out var l) ? l : (long)element.GetDouble();
 				case JsonValueKind.String:
-					return long.TryParse(element.GetString(), out var s) ? s : (long?)null;
+					return long.TryParse(element.GetString(), NumberStyles.Integer, CultureInfo.InvariantCulture, out var s)
+						? s
+						: (long?)null;
 				default:
 					return null;
 			}
