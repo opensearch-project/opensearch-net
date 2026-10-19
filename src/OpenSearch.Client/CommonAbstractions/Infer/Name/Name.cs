@@ -29,10 +29,12 @@
 using System;
 using System.Diagnostics;
 using OpenSearch.Net;
+using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
 	[DebuggerDisplay("{DebugDisplay,nq}")]
+	[JsonFormatter(typeof(NameFormatter))]
 	public class Name : IEquatable<Name>, IUrlParameter
 	{
 		public Name(string name) => Value = name?.Trim();

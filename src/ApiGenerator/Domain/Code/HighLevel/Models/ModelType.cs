@@ -27,7 +27,16 @@ public sealed record ModelProperty(
     bool IsRequired,
     string? Description,
     string? VersionAdded,
-    string? JsonFormatterType = null);
+    string? JsonFormatterType = null)
+{
+    /// <summary>
+    /// The formatter to declare on the property: an explicit <see cref="JsonFormatterType"/>, else the
+    /// formatter carried by a mapped type, provided no property-level override replaced that type.
+    /// </summary>
+    public string? EffectiveJsonFormatterType =>
+        JsonFormatterType
+        ?? (Type is MappedType { JsonFormatter: not null } m && m.Name == CsharpType ? m.JsonFormatter : null);
+}
 
 /// <summary>A single member of a generated enum: its wire value and PascalCase C# name.</summary>
 public sealed record EnumMember(string WireValue, string CsharpName);

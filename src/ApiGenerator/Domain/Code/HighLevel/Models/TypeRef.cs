@@ -82,7 +82,14 @@ public sealed record MappedType : TypeRef
 {
     public string Name { get; }
     public override bool IsNullable { get; }
-    public MappedType(string name, bool isNullable) { Name = name; IsNullable = isNullable; }
+    /// <summary>Utf8Json formatter a property of this type must declare, or <c>null</c>.</summary>
+    public string? JsonFormatter { get; }
+    public MappedType(string name, bool isNullable, string? jsonFormatter = null)
+    {
+        Name = name;
+        IsNullable = isNullable;
+        JsonFormatter = jsonFormatter;
+    }
     public override string ToCsharp() => Name;
 }
 
