@@ -14,7 +14,6 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed search pipeline processor descriptors serializing as `null` ([#1063](https://github.com/opensearch-project/opensearch-net/pull/1063))
 - Fixed flaky YAML tests caused by the query-insights plugin creating `top_queries-*` indexes mid-run, by setting the top N queries exporter to `none` in CI ([#1034](https://github.com/opensearch-project/opensearch-net/issues/1034))
 - Fixed `RateLimiter.Limit` and `DeleteAgenticMemoryQueryResponse.Failures` failing to deserialize, by typing them as `double?` and `IList<BulkIndexByScrollFailure>` to match what the server returns ([#1072](https://github.com/opensearch-project/opensearch-net/pull/1072))
-- Fixed numeric values sent as JSON strings (e.g. `"5.5"`) and `CartesianPoint` coordinate strings being parsed with the current culture by the default serializer, which silently misread decimals (e.g. `"5.5"` as `55`) under cultures such as de-DE ([#1072](https://github.com/opensearch-project/opensearch-net/pull/1072))
 ### Dependencies
 
 ## [2.2.0]
