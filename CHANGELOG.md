@@ -13,6 +13,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Fixed
 - Fixed search pipeline processor descriptors serializing as `null` ([#1063](https://github.com/opensearch-project/opensearch-net/pull/1063))
 - Fixed flaky YAML tests caused by the query-insights plugin creating `top_queries-*` indexes mid-run, by setting the top N queries exporter to `none` in CI ([#1034](https://github.com/opensearch-project/opensearch-net/issues/1034))
+- Fixed `IntStringFormatter` and `NullableStringIntFormatter` parsing integer wire values with the current thread culture instead of `InvariantCulture` ([#1076](https://github.com/opensearch-project/opensearch-net/issues/1076))
 ### Dependencies
 
 ## [2.2.0]
