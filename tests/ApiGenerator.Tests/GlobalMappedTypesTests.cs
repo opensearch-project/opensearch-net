@@ -16,22 +16,12 @@ using Xunit;
 namespace ApiGenerator.Tests;
 
 /// <summary>
-/// Global schema mappings must resolve to C# types that can round-trip through the JSON serializer.
+/// A global schema mapping that needs a non-default wire encoding must carry its formatter, and only
+/// that mapping must carry it. Property-type correctness against the real spec is covered by
+/// <see cref="SpecTypeFidelityTests"/>.
 /// </summary>
 public class GlobalMappedTypesTests
 {
-    [Theory]
-    [InlineData("name", "Name")]
-    [InlineData("worker_nodes", "IList<NodeIds>")]
-    [InlineData("failures", "IList<BulkIndexByScrollFailure>")]
-    [InlineData("limit", "double?")]
-    public async Task MappedSchemasResolveToSerializableTypes(string property, string expectedType)
-    {
-        var prop = await ResolveProperty(property);
-
-        Assert.Equal(expectedType, prop.CsharpType);
-    }
-
     [Fact]
     public async Task StringifiedDoubleCarriesStringTolerantFormatter()
     {
