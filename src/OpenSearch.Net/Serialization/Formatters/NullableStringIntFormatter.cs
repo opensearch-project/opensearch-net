@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-using System.Globalization;
 using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Net
@@ -43,7 +42,7 @@ namespace OpenSearch.Net
 					return null;
 				case JsonToken.String:
 					var s = reader.ReadString();
-					if (!int.TryParse(s, NumberStyles.Integer, CultureInfo.InvariantCulture, out var i))
+					if (!int.TryParse(s, out var i))
 						throw new JsonParsingException($"Cannot parse {typeof(int).FullName} from: {s}");
 
 					return i;

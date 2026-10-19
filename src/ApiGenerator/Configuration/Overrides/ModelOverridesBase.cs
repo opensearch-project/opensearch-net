@@ -131,7 +131,8 @@ public abstract class ModelOverridesBase : IModelOverrides
     /// <summary>
     /// Resolves a property-level type override. Checks (in order):
     /// 1. Per-plugin PropertyTypeOverrides with operation-scoped key ("{operationGroup}.{wireName}")
-    /// 2. GlobalPropertyTypeOverrides with schema-scoped key ("{schemaId}.{wireName}")
+    /// 2. Per-plugin PropertyTypeOverrides with schema-scoped key ("{schemaId}.{wireName}")
+    /// 3. GlobalPropertyTypeOverrides with schema-scoped key ("{schemaId}.{wireName}")
     /// Returns null if no override exists.
     /// </summary>
     public string? ResolvePropertyTypeOverride(string operationGroup, string wireName, string? schemaId)
@@ -140,10 +141,14 @@ public abstract class ModelOverridesBase : IModelOverrides
         var opKey = $"{operationGroup}.{wireName}";
         if (PropertyTypeOverrides.TryGetValue(opKey, out var t)) return t;
 
-        // Global schema-scoped override
         if (schemaId != null)
         {
             var schemaKey = $"{schemaId}.{wireName}";
+
+            // Per-plugin schema-scoped override
+            if (PropertyTypeOverrides.TryGetValue(schemaKey, out t)) return t;
+
+            // Global schema-scoped override
             if (GlobalPropertyTypeOverrides.TryGetValue(schemaKey, out t)) return t;
         }
 

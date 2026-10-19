@@ -149,7 +149,6 @@ namespace OpenSearch.Client
 			_options.Converters.Add(new TotalHitsConverter());
 			_options.Converters.Add(new TaskIdConverter());
 			_options.Converters.Add(new NameConverter());
-			_options.Converters.Add(new NodeIdsConverter());
 			_options.Converters.Add(new AutoExpandReplicasConverter());
 			_options.Converters.Add(new ReindexRoutingConverter());
 			_options.Converters.Add(new GeoOrientationConverter());

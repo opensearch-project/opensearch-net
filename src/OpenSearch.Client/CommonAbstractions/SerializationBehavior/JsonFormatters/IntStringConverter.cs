@@ -33,7 +33,7 @@ namespace OpenSearch.Client
 
 		public override void Write(Utf8JsonWriter writer, string value, JsonSerializerOptions options)
 		{
-			if (int.TryParse(value, NumberStyles.Integer, CultureInfo.InvariantCulture, out var i))
+			if (int.TryParse(value, out var i))
 				writer.WriteNumberValue(i);
 			else
 				throw new InvalidOperationException($"expected a int string value, but found {value}");

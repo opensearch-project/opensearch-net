@@ -59,7 +59,7 @@ namespace OpenSearch.Client
         MlTaskType? TaskType { get; set; }
 
         [DataMember(Name = "worker_node")]
-        NodeIds WorkerNode { get; set; }
+        IList<string> WorkerNode { get; set; }
     }
 
     public class MLTask : IMLTask
@@ -73,7 +73,7 @@ namespace OpenSearch.Client
         public MLTaskState? State { get; set; }
         public string TaskId { get; set; }
         public MlTaskType? TaskType { get; set; }
-        public NodeIds WorkerNode { get; set; }
+        public IList<string> WorkerNode { get; set; }
     }
 
     public class MLTaskDescriptor : DescriptorBase<MLTaskDescriptor, IMLTask>, IMLTask
@@ -87,7 +87,7 @@ namespace OpenSearch.Client
         MLTaskState? IMLTask.State { get; set; }
         string IMLTask.TaskId { get; set; }
         MlTaskType? IMLTask.TaskType { get; set; }
-        NodeIds IMLTask.WorkerNode { get; set; }
+        IList<string> IMLTask.WorkerNode { get; set; }
 
         public MLTaskDescriptor CreateTime(long? createTime) =>
             Assign(createTime, (a, v) => a.CreateTime = v);
@@ -112,7 +112,7 @@ namespace OpenSearch.Client
         public MLTaskDescriptor TaskType(MlTaskType? taskType) =>
             Assign(taskType, (a, v) => a.TaskType = v);
 
-        public MLTaskDescriptor WorkerNode(NodeIds workerNode) =>
+        public MLTaskDescriptor WorkerNode(IList<string> workerNode) =>
             Assign(workerNode, (a, v) => a.WorkerNode = v);
     }
 }

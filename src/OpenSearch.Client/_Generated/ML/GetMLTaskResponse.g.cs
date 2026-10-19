@@ -59,6 +59,6 @@ namespace OpenSearch.Client
         public MlTaskType? TaskType { get; internal set; }
 
         [DataMember(Name = "worker_node")]
-        public NodeIds WorkerNode { get; internal set; }
+        public IList<string> WorkerNode { get; internal set; }
     }
 }

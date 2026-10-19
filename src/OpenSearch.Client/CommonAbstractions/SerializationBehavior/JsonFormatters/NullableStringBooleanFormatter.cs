@@ -26,7 +26,6 @@
 *  under the License.
 */
 
-using System.Globalization;
 using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
@@ -43,7 +42,7 @@ namespace OpenSearch.Client
 					return null;
 				case JsonToken.String:
 					var s = reader.ReadString();
-					if (!long.TryParse(s, NumberStyles.Integer, CultureInfo.InvariantCulture, out var l))
+					if (!long.TryParse(s, out var l))
 						throw new JsonParsingException($"Cannot parse {typeof(long).FullName} from: {s}");
 
 					return l;
@@ -111,7 +110,7 @@ namespace OpenSearch.Client
 			{
 				case JsonToken.String:
 					var s = reader.ReadString();
-					if (!long.TryParse(s, NumberStyles.Integer, CultureInfo.InvariantCulture, out var i))
+					if (!long.TryParse(s, out var i))
 						throw new JsonParsingException($"Cannot parse {typeof(long).FullName} from: {s}");
 
 					return i;
@@ -135,7 +134,7 @@ namespace OpenSearch.Client
 			{
 				case JsonToken.String:
 					var s = reader.ReadString();
-					if (!int.TryParse(s, NumberStyles.Integer, CultureInfo.InvariantCulture, out var i))
+					if (!int.TryParse(s, out var i))
 						throw new JsonParsingException($"Cannot parse {typeof(int).FullName} from: {s}");
 
 					return i;
@@ -162,7 +161,7 @@ namespace OpenSearch.Client
 					return null;
 				case JsonToken.String:
 					var s = reader.ReadString();
-					if (!int.TryParse(s, NumberStyles.Integer, CultureInfo.InvariantCulture, out var i))
+					if (!int.TryParse(s, out var i))
 						throw new JsonParsingException($"Cannot parse {typeof(int).FullName} from: {s}");
 
 					return i;
@@ -197,7 +196,7 @@ namespace OpenSearch.Client
 					return null;
 				case JsonToken.String:
 					var s = reader.ReadString();
-					if (!double.TryParse(s, NumberStyles.Float, CultureInfo.InvariantCulture, out var d))
+					if (!double.TryParse(s, out var d))
 						throw new JsonParsingException($"Cannot parse {typeof(double).FullName} from: {s}");
 
 					return d;

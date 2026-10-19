@@ -50,6 +50,23 @@ public sealed class MlModelOverrides : ModelOverridesBase
 
     public override IDictionary<string, string> RenamedTypes { get; } = BuildRenamedTypes();
 
+    // ML node-id arrays. The spec types these items as NodeIds (a request-filter union
+    // oneOf[NodeId, array<NodeId>]), so an array of them would generate a list of unions.
+    // The server returns a flat list of node-id strings, so force IList<string>.
+    // Schema-scoped keys cover the namespace models; the get_task response is generated via the
+    // operation path and reroutes to the Task schema, so it needs the operation-scoped key.
+    // opensearch-api-specification#1284 fixes the spec items to the scalar NodeId (string);
+    // once merged these overrides become redundant and can be removed.
+    public override IDictionary<string, string> PropertyTypeOverrides { get; } = new Dictionary<string, string>(StringComparer.Ordinal)
+    {
+        ["ml._common___Source.worker_node"] = "IList<string>",
+        ["ml._common___Source.planning_worker_nodes"] = "IList<string>",
+        ["ml._common___Task.worker_node"] = "IList<string>",
+        ["ml._common___ModelProfile.worker_nodes"] = "IList<string>",
+        ["ml._common___ModelProfile.target_worker_nodes"] = "IList<string>",
+        ["ml.get_task.worker_node"] = "IList<string>",
+    };
+
     private static Dictionary<string, string> BuildRenamedTypes() => new(StringComparer.Ordinal)
     {
         // All generated types are in the flat OpenSearch.Client namespace.

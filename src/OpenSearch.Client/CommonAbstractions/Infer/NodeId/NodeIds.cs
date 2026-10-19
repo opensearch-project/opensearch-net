@@ -31,12 +31,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using OpenSearch.Net;
-using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
 	[DebuggerDisplay("{DebugDisplay,nq}")]
-	[JsonFormatter(typeof(NodeIdsFormatter))]
 	public class NodeIds : IEquatable<NodeIds>, IUrlParameter
 	{
 		public NodeIds(IEnumerable<string> nodeIds)
