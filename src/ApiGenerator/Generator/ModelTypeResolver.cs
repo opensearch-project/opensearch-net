@@ -83,7 +83,7 @@ public sealed class ModelTypeResolver
             {
                 var mapped = _registry.MappedCsharpType(refId);
                 if (mapped != null)
-                    return _registry.IsListMappedType(refId) ? Mapped(refId, mapped) : new ListType(Mapped(refId, mapped), false);
+                    return new ListType(Mapped(refId, mapped), false);
                 return new ListType(new ObjectRefType(CsharpTypeName(refId), false), false);
             }
             return new ListType(ResolveTypeRef(item), false);
