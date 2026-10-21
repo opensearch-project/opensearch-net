@@ -6,6 +6,7 @@
 */
 
 using System;
+using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -30,7 +31,7 @@ namespace OpenSearch.Net.Serialization.Converters
 					var s = reader.GetString();
 					if (string.IsNullOrEmpty(s))
 						return null;
-					if (int.TryParse(s, out var result))
+					if (int.TryParse(s, NumberStyles.Integer, CultureInfo.InvariantCulture, out var result))
 						return result;
 					throw new JsonException($"Cannot parse int from string value: '{s}'.");
 				default:

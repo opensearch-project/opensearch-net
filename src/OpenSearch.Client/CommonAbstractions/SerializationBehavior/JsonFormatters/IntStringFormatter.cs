@@ -40,7 +40,7 @@ namespace OpenSearch.Client
 	{
 		public void Serialize(ref JsonWriter writer, string value, IJsonFormatterResolver formatterResolver)
 		{
-			if (int.TryParse(value, out var i))
+			if (int.TryParse(value, NumberStyles.Integer, CultureInfo.InvariantCulture, out var i))
 				writer.WriteInt32(i);
 			else
 				throw new InvalidOperationException($"expected a int string value, but found {value}");
