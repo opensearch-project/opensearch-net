@@ -226,6 +226,37 @@ namespace OpenSearch.Net.Specification.ClusterApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>GET on /_cluster/settings/_describe <para>https://docs.opensearch.org/latest/api-reference/cluster-api/describe-cluster-settings/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public TResponse DescribeSettings<TResponse>(
+            DescribeSettingsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                "_cluster/settings/_describe",
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_cluster/settings/_describe <para>https://docs.opensearch.org/latest/api-reference/cluster-api/describe-cluster-settings/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        [MapsApi("cluster.describe_settings", "")]
+        public Task<TResponse> DescribeSettingsAsync<TResponse>(
+            DescribeSettingsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_cluster/settings/_describe",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>HEAD on /_component_template/{name} <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="name">The name of the component template. Wildcard (*) expressions are supported.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
