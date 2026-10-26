@@ -28,6 +28,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
@@ -106,7 +107,7 @@ namespace OpenSearch.Client
 		public bool TryGetValue(string key, out DateTimeOffset value)
 		{
 			var exists = TryGetValue(key, out object o);
-			if (!exists || !long.TryParse(o.ToString(), out var l))
+			if (!exists || !long.TryParse(o.ToString(), NumberStyles.Integer, CultureInfo.InvariantCulture, out var l))
 			{
 				value = default(DateTimeOffset);
 				return false;

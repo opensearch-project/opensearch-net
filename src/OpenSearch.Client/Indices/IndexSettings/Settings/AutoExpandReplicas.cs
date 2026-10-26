@@ -27,6 +27,7 @@
 */
 
 using System;
+using System.Globalization;
 using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
@@ -129,7 +130,7 @@ namespace OpenSearch.Client
 			if (expandReplicaParts.Length != 2)
 				throw new ArgumentException("must contain a 'from' and 'to' value", nameof(value));
 
-			if (!int.TryParse(expandReplicaParts[0], out var minReplicas))
+			if (!int.TryParse(expandReplicaParts[0], NumberStyles.Integer, CultureInfo.InvariantCulture, out var minReplicas))
 				throw new FormatException("minReplicas must be an integer");
 
 			var maxReplicas = 0;
@@ -137,7 +138,7 @@ namespace OpenSearch.Client
 			var allMaxReplicas = expandReplicaParts[1] == AllMaxReplicas;
 
 			if (!allMaxReplicas)
-				parsedMaxReplicas = int.TryParse(expandReplicaParts[1], out maxReplicas);
+				parsedMaxReplicas = int.TryParse(expandReplicaParts[1], NumberStyles.Integer, CultureInfo.InvariantCulture, out maxReplicas);
 
 			if (!parsedMaxReplicas && !allMaxReplicas)
 				throw new FormatException("minReplicas must be an integer or 'all'");

@@ -27,6 +27,7 @@
 */
 
 using System;
+using System.Globalization;
 using System.IO;
 using System.Text;
 using OpenSearch.Net.Utf8Json;
@@ -98,17 +99,17 @@ namespace OpenSearch.Client
 					$"failed to parse {coordinates}, expected 2 or 3 coordinates but found: {values.Length}");
 
 			var s = values[0].Trim();
-			if (!float.TryParse(s, out var x))
+			if (!float.TryParse(s, NumberStyles.Float, CultureInfo.InvariantCulture, out var x))
 				throw new InvalidOperationException($"failed to parse float for x from {s}");
 
 			s = values[1].Trim();
-			if (!float.TryParse(s, out var y))
+			if (!float.TryParse(s, NumberStyles.Float, CultureInfo.InvariantCulture, out var y))
 				throw new InvalidOperationException($"failed to parse float for y from {s}");
 
 			if (values.Length > 2)
 			{
 				s = values[2].Trim();
-				if (!float.TryParse(s, out var _))
+				if (!float.TryParse(s, NumberStyles.Float, CultureInfo.InvariantCulture, out var _))
 					throw new InvalidOperationException($"failed to parse float for z from {s}");
 			}
 
