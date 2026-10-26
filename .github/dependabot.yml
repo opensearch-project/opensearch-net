@@ -8,6 +8,7 @@ updates:
     labels:
       - "dependabot"
       - "dependencies"
+      - "skip-changelog"
     ignore:
       # Temporarily ignore these until we update the SDK
       - dependency-name: "System.Diagnostics.DiagnosticSource"
