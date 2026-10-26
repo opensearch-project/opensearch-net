@@ -159,6 +159,37 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override string OperationName => "cluster.delete_weighted_routing";
     }
 
+    /// <summary>Request options for DescribeSettings <para>https://docs.opensearch.org/latest/api-reference/cluster-api/describe-cluster-settings/</para></summary>
+    public partial class DescribeSettingsRequestParameters
+        : RequestParameters<DescribeSettingsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
+        public override bool SupportsBody => false;
+        public override string OperationName => "cluster.describe_settings";
+
+        /// <summary>
+        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
+        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public TimeSpan ClusterManagerTimeout
+        {
+            get => Q<TimeSpan>("cluster_manager_timeout");
+            set => Q("cluster_manager_timeout", value);
+        }
+
+        /// <summary>
+        /// A comma-separated list of exact setting names to describe. Wildcards are not supported; each name must be an exact, valid setting key. At
+        /// least one name is required.
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public string[] Settings
+        {
+            get => Q<string[]>("settings");
+            set => Q("settings", value);
+        }
+    }
+
     /// <summary>Request options for ComponentTemplateExists <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ComponentTemplateExistsRequestParameters
         : RequestParameters<ComponentTemplateExistsRequestParameters>
