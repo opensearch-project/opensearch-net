@@ -5,9 +5,18 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### ⚠️ Breaking Changes ⚠️
 ### Changed
 ### Added
+### Removed
+### Fixed
+### Dependencies
+
+## [2.3.0]
+### ⚠️ Breaking Changes ⚠️
+### Changed
+### Added
 - Added fluent processor builders to the search pipeline `Put` API ([#1063](https://github.com/opensearch-project/opensearch-net/pull/1063))
 - Added fluent `Query(q => ...)` overloads to generated types with query properties ([#1063](https://github.com/opensearch-project/opensearch-net/pull/1063))
 - Added `DocumentId` to `BulkAll` to set each document's `_id` from a function of the document ([#1065](https://github.com/opensearch-project/opensearch-net/pull/1065))
+- Added the `cluster.describe_settings` low-level API (`DescribeSettings`) and the `updated_time` property to the ML `Message` type, from the latest OpenSearch API specification ([#1059](https://github.com/opensearch-project/opensearch-net/pull/1059), [#1078](https://github.com/opensearch-project/opensearch-net/pull/1078))
 - Added `HttpConnection(HttpClient)`, `HttpConnection(Func<RequestData, HttpClient>)` and `HttpConnection(Func<RequestData, HttpMessageHandler>)` constructors to send requests through a caller-owned `HttpClient` or handler (e.g. an `IHttpClientFactory` client's handler pipeline), and `HttpConnection.CreateDefaultHttpClientHandler(settings)` to build a handler from connection settings ([#1027](https://github.com/opensearch-project/opensearch-net/issues/1027))
 ### Removed
 ### Fixed
@@ -16,6 +25,10 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fixed `RateLimiter.Limit` and `DeleteAgenticMemoryQueryResponse.Failures` failing to deserialize, by typing them as `double?` and `IList<BulkIndexByScrollFailure>` to match what the server returns ([#1072](https://github.com/opensearch-project/opensearch-net/pull/1072))
 - Fixed JSON serializers and converters parsing numeric wire values with the current thread culture instead of `InvariantCulture`, which could misparse under a non-invariant culture ([#1076](https://github.com/opensearch-project/opensearch-net/issues/1076))
 ### Dependencies
+- Bumps `FSharp.Core` from 9.0.300 to 10.1.401 ([#1061](https://github.com/opensearch-project/opensearch-net/pull/1061))
+- Bumps `FSharp.Data` from 6.6.0 to 8.2.0 ([#1062](https://github.com/opensearch-project/opensearch-net/pull/1062))
+- Bumps `Fake.Core.Environment`, `Fake.Core.SemVer`, `Fake.IO.FileSystem`, and `Fake.Tools.Git` from 6.1.4 to 6.2.0 ([#1071](https://github.com/opensearch-project/opensearch-net/pull/1071))
+- Bumps `Fake.IO.Zip` from 6.1.4 to 6.2.0 ([#1075](https://github.com/opensearch-project/opensearch-net/pull/1075))
 
 ## [2.2.0]
 ### ⚠️ Breaking Changes ⚠️
