@@ -128,7 +128,8 @@ public sealed class OperationModel
         OpenApiDocument doc,
         string operationGroup,
         string responseCsharpName,
-        ModelTypeResolver resolver)
+        ModelTypeResolver resolver,
+        IModelOverrides? plugin = null)
     {
         var groupModel = OperationGroupModel.Build(doc, operationGroup, resolver.Schemas);
 
@@ -143,11 +144,13 @@ public sealed class OperationModel
         else if (isWriteResponseBase)
         {
             responseProps = BuildProperties(responseSchema, resolver,
-                skipWireNames: WriteResponseBasePropertyNames, isResponse: true);
+                skipWireNames: WriteResponseBasePropertyNames, isResponse: true,
+                plugin: plugin, operationGroup: operationGroup);
         }
         else
         {
-            responseProps = BuildProperties(responseSchema, resolver, skipWireNames: null, isResponse: true);
+            responseProps = BuildProperties(responseSchema, resolver, skipWireNames: null, isResponse: true,
+                plugin: plugin, operationGroup: operationGroup);
         }
 
         return new ResponseModel(operationGroup + "___Response", responseCsharpName,

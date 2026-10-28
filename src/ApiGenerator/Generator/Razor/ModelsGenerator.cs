@@ -118,7 +118,7 @@ public sealed class ModelsGenerator : RazorGeneratorBase
             {
                 token.ThrowIfCancellationRequested();
                 var baseName = ResolveBaseName(grp, plugin);
-                var resp = OperationModel.BuildResponseOnly(doc, grp, baseName + "Response", resolver);
+                var resp = OperationModel.BuildResponseOnly(doc, grp, baseName + "Response", resolver, plugin);
 
                 await DoRazor(resp, ViewLocations.HighLevel("ResponseType.cshtml"),
                     GeneratorLocations.HighLevel(plugin.OutputFolder, resp.CsharpName + ".g.cs"), token);
@@ -184,7 +184,7 @@ public sealed class ModelsGenerator : RazorGeneratorBase
         foreach (var grp in NonBodyOpGroups(doc, plugin))
         {
             var baseName = ResolveBaseName(grp, plugin);
-            var resp = OperationModel.BuildResponseOnly(doc, grp, baseName + "Response", resolver);
+            var resp = OperationModel.BuildResponseOnly(doc, grp, baseName + "Response", resolver, plugin);
             responses.Add(resp);
             enums.AddRange(CollectNewEnums(doc, resp, plugin, alreadyEmittedEnums));
         }

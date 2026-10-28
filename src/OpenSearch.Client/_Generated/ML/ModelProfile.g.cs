@@ -59,7 +59,7 @@ namespace OpenSearch.Client
         IModelStats Register { get; set; }
 
         [DataMember(Name = "target_worker_nodes")]
-        IList<NodeIds> TargetWorkerNodes { get; set; }
+        IList<string> TargetWorkerNodes { get; set; }
 
         [DataMember(Name = "train")]
         IModelStats Train { get; set; }
@@ -71,7 +71,7 @@ namespace OpenSearch.Client
         IModelStats Undeploy { get; set; }
 
         [DataMember(Name = "worker_nodes")]
-        IList<NodeIds> WorkerNodes { get; set; }
+        IList<string> WorkerNodes { get; set; }
     }
 
     public class ModelProfile : IModelProfile
@@ -85,11 +85,11 @@ namespace OpenSearch.Client
         public IPredictRequestStats PredictRequestStats { get; set; }
         public string Predictor { get; set; }
         public IModelStats Register { get; set; }
-        public IList<NodeIds> TargetWorkerNodes { get; set; }
+        public IList<string> TargetWorkerNodes { get; set; }
         public IModelStats Train { get; set; }
         public IModelStats TrainPredict { get; set; }
         public IModelStats Undeploy { get; set; }
-        public IList<NodeIds> WorkerNodes { get; set; }
+        public IList<string> WorkerNodes { get; set; }
     }
 
     public class ModelProfileDescriptor
@@ -105,11 +105,11 @@ namespace OpenSearch.Client
         IPredictRequestStats IModelProfile.PredictRequestStats { get; set; }
         string IModelProfile.Predictor { get; set; }
         IModelStats IModelProfile.Register { get; set; }
-        IList<NodeIds> IModelProfile.TargetWorkerNodes { get; set; }
+        IList<string> IModelProfile.TargetWorkerNodes { get; set; }
         IModelStats IModelProfile.Train { get; set; }
         IModelStats IModelProfile.TrainPredict { get; set; }
         IModelStats IModelProfile.Undeploy { get; set; }
-        IList<NodeIds> IModelProfile.WorkerNodes { get; set; }
+        IList<string> IModelProfile.WorkerNodes { get; set; }
 
         public ModelProfileDescriptor Deploy(IModelStats deploy) =>
             Assign(deploy, (a, v) => a.Deploy = v);
@@ -139,7 +139,7 @@ namespace OpenSearch.Client
         public ModelProfileDescriptor Register(IModelStats register) =>
             Assign(register, (a, v) => a.Register = v);
 
-        public ModelProfileDescriptor TargetWorkerNodes(IList<NodeIds> targetWorkerNodes) =>
+        public ModelProfileDescriptor TargetWorkerNodes(IList<string> targetWorkerNodes) =>
             Assign(targetWorkerNodes, (a, v) => a.TargetWorkerNodes = v);
 
         public ModelProfileDescriptor Train(IModelStats train) =>
@@ -151,7 +151,7 @@ namespace OpenSearch.Client
         public ModelProfileDescriptor Undeploy(IModelStats undeploy) =>
             Assign(undeploy, (a, v) => a.Undeploy = v);
 
-        public ModelProfileDescriptor WorkerNodes(IList<NodeIds> workerNodes) =>
+        public ModelProfileDescriptor WorkerNodes(IList<string> workerNodes) =>
             Assign(workerNodes, (a, v) => a.WorkerNodes = v);
     }
 }
