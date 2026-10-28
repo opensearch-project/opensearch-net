@@ -108,6 +108,12 @@ public interface IModelOverrides
     IDictionary<string, string> PropertyTypeOverrides { get; }
 
     string? MappedCsharpType(string schemaId);
+
+    /// <summary>
+    /// The Utf8Json formatter to apply to properties typed by the mapped schema, or <c>null</c>.
+    /// </summary>
+    string? MappedJsonFormatter(string schemaId);
+
     string? RenamedCsharpName(string schemaId);
 
     /// <summary>
