@@ -356,10 +356,12 @@ namespace OpenSearch.Net
 
 		private static HttpMessageHandler BuildHttpMessageHandler(IConnectionConfigurationValues settings, X509CertificateCollection clientCertificates)
 		{
+			var automaticDecompression = settings.EnableHttpCompression ? GZip | Deflate : None;
+
 #if NETCOREAPP2_1_OR_GREATER
-			var handler = new SocketsHttpHandler { AutomaticDecompression = settings.EnableHttpCompression ? GZip | Deflate : None, };
+			var handler = new SocketsHttpHandler { AutomaticDecompression = automaticDecompression, };
 #else
-			var handler = new HttpClientHandler { AutomaticDecompression = settings.EnableHttpCompression ? GZip | Deflate : None, };
+			var handler = new HttpClientHandler { AutomaticDecompression = automaticDecompression, };
 #endif
 			// same limit as desktop clr
 			if (settings.ConnectionLimit > 0)
@@ -400,7 +402,8 @@ namespace OpenSearch.Net
 
 			if (clientCertificates != null)
 			{
-				handler.SslOptions.ClientCertificates?.AddRange(clientCertificates);
+				handler.SslOptions.ClientCertificates ??= [];
+				handler.SslOptions.ClientCertificates.AddRange(clientCertificates);
 			}
 #else
 			if (callback != null && handler.ServerCertificateCustomValidationCallback == null)
