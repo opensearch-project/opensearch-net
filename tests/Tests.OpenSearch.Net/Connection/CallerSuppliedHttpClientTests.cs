@@ -148,13 +148,14 @@ namespace Tests.OpenSearch.Net.Connection
 				.ConnectionLimit(12)
 				.Proxy(new Uri("http://proxy:8080"), "user", "pass");
 
-			var handler = HttpConnection.CreateDefaultHttpClientHandler(settings);
+			var handler = HttpConnection.CreateDefaultHttpMessageHandler(settings);
+            var socketHttpHandler = handler.Should().BeOfType<SocketsHttpHandler>().Subject;
 
-			handler.AutomaticDecompression.Should().Be(DecompressionMethods.GZip | DecompressionMethods.Deflate);
-			handler.MaxConnectionsPerServer.Should().Be(12);
-			handler.Proxy.GetProxy(new Uri("http://remote:9200")).Should().Be(new Uri("http://proxy:8080"));
-			handler.Proxy.IsBypassed(new Uri("http://127.0.0.1:9200")).Should().BeTrue();
-			((Action)(() => HttpConnection.CreateDefaultHttpClientHandler(null))).Should().Throw<ArgumentNullException>();
+            socketHttpHandler.AutomaticDecompression.Should().Be(DecompressionMethods.GZip | DecompressionMethods.Deflate);
+            socketHttpHandler.MaxConnectionsPerServer.Should().Be(12);
+            socketHttpHandler.Proxy.GetProxy(new Uri("http://remote:9200")).Should().Be(new Uri("http://proxy:8080"));
+            socketHttpHandler.Proxy.IsBypassed(new Uri("http://127.0.0.1:9200")).Should().BeTrue();
+			((Action)(() => HttpConnection.CreateDefaultHttpMessageHandler(null))).Should().Throw<ArgumentNullException>();
 		}
 
 		[U] public async Task SendsSyncAndAsyncRequestsThroughSuppliedHandler()
