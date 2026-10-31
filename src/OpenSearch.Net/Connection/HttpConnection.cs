@@ -98,7 +98,7 @@ namespace OpenSearch.Net
 		/// <see cref="IConnectionConfigurationValues.EnableHttpCompression" /> (response decompression),
 		/// <see cref="IConnectionConfigurationValues.ConnectionLimit" />, proxy settings, client certificates,
 		/// <see cref="IConnectionConfigurationValues.ServerCertificateValidationCallback" /> and
-		/// <see cref="IConnectionConfigurationValues.DnsRefreshTimeout" /> (handler lifetime). <see cref="CreateDefaultHttpClientHandler" />
+		/// <see cref="IConnectionConfigurationValues.DnsRefreshTimeout" /> (handler lifetime). <see cref="CreateDefaultHttpMessageHandler" />
 		/// creates a handler configured from the settings. Since this connection creates no handlers, per request
 		/// <see cref="IRequestConfiguration.ClientCertificates" /> are not applied, and neither is an override of
 		/// <see cref="CreateHttpClientHandler" /> in a subclass.
@@ -339,24 +339,30 @@ namespace OpenSearch.Net
 		}
 
 		protected virtual HttpMessageHandler CreateHttpClientHandler(RequestData requestData) =>
-			BuildHttpClientHandler(requestData.ConnectionSettings, requestData.ClientCertificates);
+			BuildHttpMessageHandler(requestData.ConnectionSettings, requestData.ClientCertificates);
 
 		/// <summary>
 		/// Creates the handler this connection would create for <paramref name="settings" />, applying response decompression,
 		/// <see cref="IConnectionConfigurationValues.ConnectionLimit" />, proxy settings, server certificate validation and client certificates.
 		/// Useful as the primary handler of an <see cref="HttpClient" /> passed to <see cref="HttpConnection(Func{RequestData, HttpClient})" />.
 		/// </summary>
-		public static HttpClientHandler CreateDefaultHttpClientHandler(IConnectionConfigurationValues settings)
+		public static HttpMessageHandler CreateDefaultHttpMessageHandler(IConnectionConfigurationValues settings)
 		{
-			if (settings == null) throw new ArgumentNullException(nameof(settings));
+			if (settings == null)
+				throw new ArgumentNullException(nameof(settings));
 
-			return BuildHttpClientHandler(settings, settings.ClientCertificates);
+			return BuildHttpMessageHandler(settings, settings.ClientCertificates);
 		}
 
-		private static HttpClientHandler BuildHttpClientHandler(IConnectionConfigurationValues settings, X509CertificateCollection clientCertificates)
+		private static HttpMessageHandler BuildHttpMessageHandler(IConnectionConfigurationValues settings, X509CertificateCollection clientCertificates)
 		{
-			var handler = new HttpClientHandler { AutomaticDecompression = settings.EnableHttpCompression ? GZip | Deflate : None, };
+			var automaticDecompression = settings.EnableHttpCompression ? GZip | Deflate : None;
 
+#if NETCOREAPP2_1_OR_GREATER
+			var handler = new SocketsHttpHandler { AutomaticDecompression = automaticDecompression, };
+#else
+			var handler = new HttpClientHandler { AutomaticDecompression = automaticDecompression, };
+#endif
 			// same limit as desktop clr
 			if (settings.ConnectionLimit > 0)
 			{
@@ -388,6 +394,18 @@ namespace OpenSearch.Net
 			else if (settings.DisableAutomaticProxyDetection) handler.UseProxy = false;
 
 			var callback = settings.ServerCertificateValidationCallback;
+
+#if NETCOREAPP2_1_OR_GREATER
+			if (callback != null && handler.SslOptions.RemoteCertificateValidationCallback == null)
+				handler.SslOptions.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors)
+					=> callback(sender, certificate, chain, sslPolicyErrors);
+
+			if (clientCertificates != null)
+			{
+				handler.SslOptions.ClientCertificates ??= [];
+				handler.SslOptions.ClientCertificates.AddRange(clientCertificates);
+			}
+#else
 			if (callback != null && handler.ServerCertificateCustomValidationCallback == null)
 				handler.ServerCertificateCustomValidationCallback = callback;
 
@@ -396,6 +414,7 @@ namespace OpenSearch.Net
 				handler.ClientCertificateOptions = ClientCertificateOption.Manual;
 				handler.ClientCertificates.AddRange(clientCertificates);
 			}
+#endif
 
 			return handler;
 		}
