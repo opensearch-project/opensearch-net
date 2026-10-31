@@ -3,6 +3,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 ### ⚠️ Breaking Changes ⚠️
+- The `CreateDefaultHttpClientHandler` method of the `HttpConnection` class is now called `CreateDefaultHttpMessageHandler` because, depending on the framework, it returns either `HttpClientHandler` or `SocketsHttpHandler`.
 ### Changed
 ### Added
 ### Removed
