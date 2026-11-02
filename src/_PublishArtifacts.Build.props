@@ -7,8 +7,8 @@
     <PackageIcon>nuget-icon.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.111" PrivateAssets="All" />
-    <PackageReference Include="ConfigureAwaitChecker.Analyzer" Version="5.0.0.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
+    <PackageReference Include="ConfigureAwaitChecker.Analyzer" PrivateAssets="All" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(SolutionRoot)/build/nuget-icon.png">

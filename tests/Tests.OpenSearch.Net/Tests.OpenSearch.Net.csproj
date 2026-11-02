@@ -5,14 +5,14 @@
     <IsTestProject>True</IsTestProject>
   </PropertyGroup>
   <ItemGroup Condition="'$(TestPackageVersion)'!=''">
-    <PackageReference Include="OpenSearch.Net" Version="$(TestPackageVersion)" />
+    <PackageReference Include="OpenSearch.Net" />
   </ItemGroup>
   <ItemGroup Condition="'$(TestPackageVersion)'==''">
     <ProjectReference Include="$(SolutionRoot)\src\OpenSearch.Net\OpenSearch.Net.csproj" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(SolutionRoot)\tests\Tests.Core\Tests.Core.csproj" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit.runner.visualstudio" />
   </ItemGroup>
 </Project>

@@ -30,20 +30,20 @@
     <Content Include="..\..\.github\license-header-fs.txt"><Link>license-header-fs.txt</Link></Content>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Update="FSharp.Core" Version="10.1.401" />
+    <PackageReference Include="FSharp.Core" />
 
-    <PackageReference Include="Bullseye" Version="6.3.0" />
+    <PackageReference Include="Bullseye" />
     <ProjectReference Include="$(SolutionRoot)\abstractions\src\OpenSearch.OpenSearch.Managed\OpenSearch.OpenSearch.Managed.csproj" />
 
-    <PackageReference Include="Fake.Core.Environment" Version="6.2.0" />
-    <PackageReference Include="Fake.Core.SemVer" Version="6.2.0" />
-    <PackageReference Include="Fake.IO.FileSystem" Version="6.2.0" />
-    <PackageReference Include="Fake.IO.Zip" Version="6.2.0" />
-    <PackageReference Include="Fake.Tools.Git" Version="6.2.0" />
+    <PackageReference Include="Fake.Core.Environment" />
+    <PackageReference Include="Fake.Core.SemVer" />
+    <PackageReference Include="Fake.IO.FileSystem" />
+    <PackageReference Include="Fake.IO.Zip" />
+    <PackageReference Include="Fake.Tools.Git" />
 
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Newtonsoft.Json" />
 
-    <PackageReference Include="Octokit" Version="14.0.0" />
-    <PackageReference Include="Proc" Version="0.9.1" />
+    <PackageReference Include="Octokit" />
+    <PackageReference Include="Proc" />
   </ItemGroup>
 </Project>
