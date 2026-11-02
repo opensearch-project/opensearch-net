@@ -286,6 +286,41 @@ namespace OpenSearch.Net.Specification.SecurityApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>PUT on /_plugins/_security/api/actiongroups <para>https://docs.opensearch.org/latest/security/api/action-groups/create-action-group/</para></summary>
+        /// <param name="body">A non-empty object mapping action group names to complete action group definitions.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public TResponse CreateActionGroups<TResponse>(
+            PostData body,
+            CreateActionGroupsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                "_plugins/_security/api/actiongroups",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_plugins/_security/api/actiongroups <para>https://docs.opensearch.org/latest/security/api/action-groups/create-action-group/</para></summary>
+        /// <param name="body">A non-empty object mapping action group names to complete action group definitions.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        [MapsApi("security.create_action_groups", "body")]
+        public Task<TResponse> CreateActionGroupsAsync<TResponse>(
+            PostData body,
+            CreateActionGroupsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                "_plugins/_security/api/actiongroups",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>PUT on /_plugins/_security/api/allowlist <para>https://docs.opensearch.org/latest/security/access-control/api/#access-control-for-the-api</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -390,6 +425,41 @@ namespace OpenSearch.Net.Specification.SecurityApi
             DoRequestAsync<TResponse>(
                 PUT,
                 Url($"_plugins/_security/api/rolesmapping/{role:role}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_plugins/_security/api/rolesmapping <para>https://docs.opensearch.org/latest/security/api/role-mappings/create-role-mapping/</para></summary>
+        /// <param name="body">A non-empty object mapping existing role names to complete role mapping definitions.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        public TResponse CreateRoleMappings<TResponse>(
+            PostData body,
+            CreateRoleMappingsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                "_plugins/_security/api/rolesmapping",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_plugins/_security/api/rolesmapping <para>https://docs.opensearch.org/latest/security/api/role-mappings/create-role-mapping/</para></summary>
+        /// <param name="body">A non-empty object mapping existing role names to complete role mapping definitions.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
+        [MapsApi("security.create_role_mappings", "body")]
+        public Task<TResponse> CreateRoleMappingsAsync<TResponse>(
+            PostData body,
+            CreateRoleMappingsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                "_plugins/_security/api/rolesmapping",
                 ctx,
                 body,
                 RequestParams(requestParameters)
