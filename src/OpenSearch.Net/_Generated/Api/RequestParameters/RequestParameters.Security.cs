@@ -126,6 +126,15 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override string OperationName => "security.create_action_group";
     }
 
+    /// <summary>Request options for CreateActionGroups <para>https://docs.opensearch.org/latest/security/api/action-groups/create-action-group/</para></summary>
+    public partial class CreateActionGroupsRequestParameters
+        : RequestParameters<CreateActionGroupsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+        public override bool SupportsBody => true;
+        public override string OperationName => "security.create_action_groups";
+    }
+
     /// <summary>Request options for CreateAllowlist <para>https://docs.opensearch.org/latest/security/access-control/api/#access-control-for-the-api</para></summary>
     public partial class CreateAllowlistRequestParameters
         : RequestParameters<CreateAllowlistRequestParameters>
@@ -151,6 +160,22 @@ namespace OpenSearch.Net.Specification.SecurityApi
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
         public override string OperationName => "security.create_role_mapping";
+    }
+
+    /// <summary>Request options for CreateRoleMappings <para>https://docs.opensearch.org/latest/security/api/role-mappings/create-role-mapping/</para></summary>
+    public partial class CreateRoleMappingsRequestParameters
+        : RequestParameters<CreateRoleMappingsRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
+        public override bool SupportsBody => true;
+        public override string OperationName => "security.create_role_mappings";
+
+        /// <summary>If false, returns a task ID after validation and runs the configuration write and reload asynchronously.</summary>
+        public bool? WaitForCompletion
+        {
+            get => Q<bool?>("wait_for_completion");
+            set => Q("wait_for_completion", value);
+        }
     }
 
     /// <summary>Request options for CreateTenant <para>https://docs.opensearch.org/latest/security/access-control/api/#create-tenant</para></summary>
