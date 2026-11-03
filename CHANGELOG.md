@@ -6,6 +6,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 - Moved NuGet package versions to a central `Directory.Packages.props` using Central Package Management, so each project no longer pins its own package versions ([#1091](https://github.com/opensearch-project/opensearch-net/pull/1091))
 ### Added
+- Added a `.NET format` GitHub Actions workflow that runs `dotnet format --verify-no-changes` on pushes and pull requests to `main`
 ### Removed
 ### Fixed
 ### Dependencies
