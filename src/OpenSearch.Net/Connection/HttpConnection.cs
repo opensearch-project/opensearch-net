@@ -347,12 +347,10 @@ namespace OpenSearch.Net
 		/// Useful as the primary handler of an <see cref="HttpClient" /> passed to <see cref="HttpConnection(Func{RequestData, HttpClient})" />.
 		public static HttpClientHandler CreateDefaultHttpClientHandler(IConnectionConfigurationValues settings)
 		{
-#if NET6_0_OR_GREATER
-			ArgumentNullException.ThrowIfNull(settings);
-#else
+#pragma warning disable CA1510 // Targets without ArgumentNullException.ThrowIfNull
 			if (settings == null)
 				throw new ArgumentNullException(nameof(settings));
-#endif
+#pragma warning restore CA1510
 
 			return BuildHttpClientHandler(settings, settings.ClientCertificates);
 		}
@@ -386,12 +384,10 @@ namespace OpenSearch.Net
 		/// <returns>A <see cref="SocketsHttpHandler" /> configured from <paramref name="settings" />.</returns>
 		public static SocketsHttpHandler CreateDefaultSocketsHttpHandler(IConnectionConfigurationValues settings)
 		{
-#if NET6_0_OR_GREATER
-			ArgumentNullException.ThrowIfNull(settings);
-#else
+#pragma warning disable CA1510 // Targets without ArgumentNullException.ThrowIfNull
 			if (settings == null)
 				throw new ArgumentNullException(nameof(settings));
-#endif
+#pragma warning restore CA1510
 
 			return BuildSocketsHttpHandler(settings, settings.ClientCertificates);
 		}
@@ -429,12 +425,10 @@ namespace OpenSearch.Net
 		/// <returns>An <see cref="HttpMessageHandler" /> configured from <paramref name="settings" />.</returns>
 		public static HttpMessageHandler CreateDefaultHttpMessageHandler(IConnectionConfigurationValues settings)
 		{
-#if NET6_0_OR_GREATER
-			ArgumentNullException.ThrowIfNull(settings);
-#else
+#pragma warning disable CA1510 // Targets without ArgumentNullException.ThrowIfNull
 			if (settings == null)
 				throw new ArgumentNullException(nameof(settings));
-#endif
+#pragma warning restore CA1510
 
 #if NETCOREAPP2_1_OR_GREATER
 			return BuildSocketsHttpHandler(settings, settings.ClientCertificates);
