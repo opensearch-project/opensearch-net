@@ -190,8 +190,7 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface IListDanglingIndicesRequest
-        : IRequest<ListDanglingIndicesRequestParameters>
-    { }
+        : IRequest<ListDanglingIndicesRequestParameters> { }
 
     /// <summary>Request for List <para>https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</para></summary>
     public partial class ListDanglingIndicesRequest

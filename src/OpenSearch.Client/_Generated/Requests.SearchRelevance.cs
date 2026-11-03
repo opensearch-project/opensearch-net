@@ -206,8 +206,7 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface IExperimentsSearchRequest
-        : IRequest<ExperimentsSearchRequestParameters>
-    { }
+        : IRequest<ExperimentsSearchRequestParameters> { }
 
     /// <summary>Request for ExperimentsSearch</summary>
     public partial class ExperimentsSearchRequest
@@ -525,8 +524,7 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface IJudgmentsSearchRequest
-        : IRequest<JudgmentsSearchRequestParameters>
-    { }
+        : IRequest<JudgmentsSearchRequestParameters> { }
 
     /// <summary>Request for JudgmentsSearch</summary>
     public partial class JudgmentsSearchRequest
@@ -557,8 +555,7 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface IPostScheduledExperimentsRequest
-        : IRequest<PostScheduledExperimentsRequestParameters>
-    { }
+        : IRequest<PostScheduledExperimentsRequestParameters> { }
 
     /// <summary>Request for PostScheduledExperiments</summary>
     public partial class PostScheduledExperimentsRequest
@@ -619,8 +616,7 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface IPutSearchConfigurationsRequest
-        : IRequest<PutSearchConfigurationsRequestParameters>
-    { }
+        : IRequest<PutSearchConfigurationsRequestParameters> { }
 
     /// <summary>Request for PutSearchConfigurations</summary>
     public partial class PutSearchConfigurationsRequest
@@ -636,8 +632,7 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface IQuerySetsSearchRequest
-        : IRequest<QuerySetsSearchRequestParameters>
-    { }
+        : IRequest<QuerySetsSearchRequestParameters> { }
 
     /// <summary>Request for QuerySetsSearch</summary>
     public partial class QuerySetsSearchRequest
@@ -653,8 +648,7 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface ISearchConfigurationsSearchRequest
-        : IRequest<SearchConfigurationsSearchRequestParameters>
-    { }
+        : IRequest<SearchConfigurationsSearchRequestParameters> { }
 
     /// <summary>Request for SearchConfigurationsSearch</summary>
     public partial class SearchConfigurationsSearchRequest

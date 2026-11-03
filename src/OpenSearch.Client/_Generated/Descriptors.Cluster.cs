@@ -658,8 +658,7 @@ namespace OpenSearch.Client
                 r.Optional("metric", metric)
                     .Optional("index_metric", indexMetric)
                     .Optional("node_id", nodeId)
-            )
-        { }
+            ) { }
 
         /// <summary>/_cluster/stats/{metric}/nodes/{node_id}</summary>
         /// <param name="metric">Optional, accepts null</param>

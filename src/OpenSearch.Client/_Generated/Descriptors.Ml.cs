@@ -258,8 +258,7 @@ namespace OpenSearch.Client
                 r.Required("memory_container_id", memoryContainerId)
                     .Required("type", type)
                     .Required("id", id)
-            )
-        { }
+            ) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
@@ -641,8 +640,7 @@ namespace OpenSearch.Client
                 r.Required("memory_container_id", memoryContainerId)
                     .Required("type", type)
                     .Required("id", id)
-            )
-        { }
+            ) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
@@ -1467,8 +1465,7 @@ namespace OpenSearch.Client
                 r.Required("memory_container_id", memoryContainerId)
                     .Required("type", type)
                     .Required("id", id)
-            )
-        { }
+            ) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
@@ -1684,8 +1681,7 @@ namespace OpenSearch.Client
             : base(r =>
                 r.Required("model_id", modelId)
                     .Required("chunk_number", (Name)(chunkNumber?.ToString()))
-            )
-        { }
+            ) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
