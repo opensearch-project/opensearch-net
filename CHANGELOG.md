@@ -3,9 +3,10 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 ### ⚠️ Breaking Changes ⚠️
-- The `CreateDefaultHttpClientHandler` method of the `HttpConnection` class is now called `CreateDefaultHttpMessageHandler` because, depending on the framework, it returns either `HttpClientHandler` or `SocketsHttpHandler`.
 ### Changed
 ### Added
+- Added `HttpConnection.CreateDefaultSocketsHttpHandler(settings)` to build a `SocketsHttpHandler` from connection settings, for use as the primary handler of an `HttpClient` passed to `HttpConnection(Func<RequestData, HttpClient>)`
+- Added `HttpConnection.CreateDefaultHttpMessageHandler(settings)` to build the default `HttpMessageHandler` for connection settings, returning either `HttpClientHandler` or `SocketsHttpHandler` depending on the framework
 ### Removed
 ### Fixed
 ### Dependencies
