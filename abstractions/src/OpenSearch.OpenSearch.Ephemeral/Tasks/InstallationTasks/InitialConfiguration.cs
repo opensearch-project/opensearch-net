@@ -36,25 +36,25 @@ using SemanticVersioning;
 
 namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
 {
-	public class InitialConfiguration : ClusterComposeTask
-	{
-		public override void Run(IEphemeralCluster<EphemeralClusterConfiguration> cluster)
-		{
-			var fs = cluster.FileSystem;
+    public class InitialConfiguration : ClusterComposeTask
+    {
+        public override void Run(IEphemeralCluster<EphemeralClusterConfiguration> cluster)
+        {
+            var fs = cluster.FileSystem;
 
-			var installConfigDir = Path.Combine(fs.OpenSearchHome, "config");
-			var installConfigFile = Path.Combine(installConfigDir, "opensearch.yml");
-			var pluginSecurity = Path.Combine(fs.OpenSearchHome, "plugins/opensearch-security");
+            var installConfigDir = Path.Combine(fs.OpenSearchHome, "config");
+            var installConfigFile = Path.Combine(installConfigDir, "opensearch.yml");
+            var pluginSecurity = Path.Combine(fs.OpenSearchHome, "plugins/opensearch-security");
 
-			if (!Directory.Exists(pluginSecurity))
-				return;
+            if (!Directory.Exists(pluginSecurity))
+                return;
 
-			var isNewDemoScript = cluster.ClusterConfiguration.Version.BaseVersion() >= new Version(2, 12, 0);
+            var isNewDemoScript = cluster.ClusterConfiguration.Version.BaseVersion() >= new Version(2, 12, 0);
 
             var env = new Dictionary<string, string>();
             var args = new List<string>();
 
-			var securityInstallDemoConfigSubPath = "tools/install_demo_configuration.sh";
+            var securityInstallDemoConfigSubPath = "tools/install_demo_configuration.sh";
             var scriptInterpreter = "/bin/bash";
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
@@ -63,27 +63,28 @@ namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
                 args.Add("/c");
             }
 
-			var securityInstallDemoConfig = Path.Combine(pluginSecurity, securityInstallDemoConfigSubPath);
+            var securityInstallDemoConfig = Path.Combine(pluginSecurity, securityInstallDemoConfigSubPath);
 
-			cluster.Writer?.WriteDiagnostic($"{{{nameof(InitialConfiguration)}}} going to run [{securityInstallDemoConfigSubPath}]");
+            cluster.Writer?.WriteDiagnostic($"{{{nameof(InitialConfiguration)}}} going to run [{securityInstallDemoConfigSubPath}]");
 
-			if (File.Exists(installConfigFile) && File.ReadLines(installConfigFile).Any(l => l.Contains("plugins.security"))) return;
+            if (File.Exists(installConfigFile) && File.ReadLines(installConfigFile).Any(l => l.Contains("plugins.security")))
+                return;
 
-            args.AddRange([ securityInstallDemoConfig, "-y", "-i" ]);
+            args.AddRange([securityInstallDemoConfig, "-y", "-i"]);
 
-			if (isNewDemoScript)
-			{
-				env.Add("OPENSEARCH_INITIAL_ADMIN_PASSWORD", "admin");
-				args.Add("-t");
-			}
+            if (isNewDemoScript)
+            {
+                env.Add("OPENSEARCH_INITIAL_ADMIN_PASSWORD", "admin");
+                args.Add("-t");
+            }
 
-			ExecuteBinary(
-				cluster.ClusterConfiguration,
-				cluster.Writer,
-				scriptInterpreter,
-				"install security plugin demo configuration",
-				env,
-				args.ToArray());
-		}
-	}
+            ExecuteBinary(
+                cluster.ClusterConfiguration,
+                cluster.Writer,
+                scriptInterpreter,
+                "install security plugin demo configuration",
+                env,
+                args.ToArray());
+        }
+    }
 }

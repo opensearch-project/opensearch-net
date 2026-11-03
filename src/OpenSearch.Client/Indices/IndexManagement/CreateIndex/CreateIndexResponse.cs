@@ -30,12 +30,12 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
-	public class CreateIndexResponse : AcknowledgedResponseBase
-	{
-		[DataMember(Name = "shards_acknowledged")]
-		public bool ShardsAcknowledged { get; set; }
+    public class CreateIndexResponse : AcknowledgedResponseBase
+    {
+        [DataMember(Name = "shards_acknowledged")]
+        public bool ShardsAcknowledged { get; set; }
 
-		[DataMember(Name = "index")]
-		public string Index { get; set; }
-	}
+        [DataMember(Name = "index")]
+        public string Index { get; set; }
+    }
 }

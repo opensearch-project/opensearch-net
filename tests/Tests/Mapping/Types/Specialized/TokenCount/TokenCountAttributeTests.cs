@@ -30,38 +30,38 @@ using OpenSearch.Client;
 
 namespace Tests.Mapping.Types.Specialized.TokenCount
 {
-	public class TokenCountTest
-	{
-		[TokenCount(
-			Index = false,
-			Analyzer = "standard",
-			EnablePositionIncrements = false,
-			NullValue = 0)]
-		public int Full { get; set; }
+    public class TokenCountTest
+    {
+        [TokenCount(
+            Index = false,
+            Analyzer = "standard",
+            EnablePositionIncrements = false,
+            NullValue = 0)]
+        public int Full { get; set; }
 
-		[TokenCount]
-		public int Minimal { get; set; }
-	}
+        [TokenCount]
+        public int Minimal { get; set; }
+    }
 
-	public class TokenCountAttributeTests : AttributeTestsBase<TokenCountTest>
-	{
-		protected override object ExpectJson => new
-		{
-			properties = new
-			{
-				full = new
-				{
-					type = "token_count",
-					analyzer = "standard",
-					enable_position_increments = false,
-					index = false,
-					null_value = 0.0,
-				},
-				minimal = new
-				{
-					type = "token_count"
-				}
-			}
-		};
-	}
+    public class TokenCountAttributeTests : AttributeTestsBase<TokenCountTest>
+    {
+        protected override object ExpectJson => new
+        {
+            properties = new
+            {
+                full = new
+                {
+                    type = "token_count",
+                    analyzer = "standard",
+                    enable_position_increments = false,
+                    index = false,
+                    null_value = 0.0,
+                },
+                minimal = new
+                {
+                    type = "token_count"
+                }
+            }
+        };
+    }
 }

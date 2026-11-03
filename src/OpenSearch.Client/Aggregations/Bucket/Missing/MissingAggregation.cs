@@ -33,34 +33,34 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	[InterfaceDataContract]
-	[ReadAs(typeof(MissingAggregation))]
-	public interface IMissingAggregation : IBucketAggregation
-	{
-		[DataMember(Name ="field")]
-		Field Field { get; set; }
-	}
+    [InterfaceDataContract]
+    [ReadAs(typeof(MissingAggregation))]
+    public interface IMissingAggregation : IBucketAggregation
+    {
+        [DataMember(Name = "field")]
+        Field Field { get; set; }
+    }
 
-	public class MissingAggregation : BucketAggregationBase, IMissingAggregation
-	{
-		internal MissingAggregation() { }
+    public class MissingAggregation : BucketAggregationBase, IMissingAggregation
+    {
+        internal MissingAggregation() { }
 
-		public MissingAggregation(string name) : base(name) { }
+        public MissingAggregation(string name) : base(name) { }
 
-		public Field Field { get; set; }
+        public Field Field { get; set; }
 
-		internal override void WrapInContainer(AggregationContainer c) => c.Missing = this;
-	}
+        internal override void WrapInContainer(AggregationContainer c) => c.Missing = this;
+    }
 
-	public class MissingAggregationDescriptor<T>
-		: BucketAggregationDescriptorBase<MissingAggregationDescriptor<T>, IMissingAggregation, T>
-			, IMissingAggregation
-		where T : class
-	{
-		Field IMissingAggregation.Field { get; set; }
+    public class MissingAggregationDescriptor<T>
+        : BucketAggregationDescriptorBase<MissingAggregationDescriptor<T>, IMissingAggregation, T>
+            , IMissingAggregation
+        where T : class
+    {
+        Field IMissingAggregation.Field { get; set; }
 
-		public MissingAggregationDescriptor<T> Field(Field field) => Assign(field, (a, v) => a.Field = v);
+        public MissingAggregationDescriptor<T> Field(Field field) => Assign(field, (a, v) => a.Field = v);
 
-		public MissingAggregationDescriptor<T> Field<TValue>(Expression<Func<T, TValue>> field) => Assign(field, (a, v) => a.Field = v);
-	}
+        public MissingAggregationDescriptor<T> Field<TValue>(Expression<Func<T, TValue>> field) => Assign(field, (a, v) => a.Field = v);
+    }
 }

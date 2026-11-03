@@ -32,13 +32,13 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum StringFielddataFormat
-	{
-		[EnumMember(Value = "paged_bytes")]
-		PagedBytes,
+    [StringEnum]
+    public enum StringFielddataFormat
+    {
+        [EnumMember(Value = "paged_bytes")]
+        PagedBytes,
 
-		[EnumMember(Value = "disabled")]
-		Disabled
-	}
+        [EnumMember(Value = "disabled")]
+        Disabled
+    }
 }

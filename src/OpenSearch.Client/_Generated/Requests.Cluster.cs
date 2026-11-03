@@ -60,7 +60,8 @@ namespace OpenSearch.Client
 {
     [InterfaceDataContract]
     public partial interface IClusterAllocationExplainRequest
-        : IRequest<ClusterAllocationExplainRequestParameters> { }
+        : IRequest<ClusterAllocationExplainRequestParameters>
+    { }
 
     /// <summary>Request for AllocationExplain <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-allocation/</para></summary>
     public partial class ClusterAllocationExplainRequest
@@ -159,7 +160,8 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface IDeleteVotingConfigExclusionsRequest
-        : IRequest<DeleteVotingConfigExclusionsRequestParameters> { }
+        : IRequest<DeleteVotingConfigExclusionsRequestParameters>
+    { }
 
     /// <summary>Request for DeleteVotingConfigExclusions <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class DeleteVotingConfigExclusionsRequest
@@ -328,7 +330,8 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface IClusterGetSettingsRequest
-        : IRequest<ClusterGetSettingsRequestParameters> { }
+        : IRequest<ClusterGetSettingsRequestParameters>
+    { }
 
     /// <summary>Request for GetSettings <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-settings/</para></summary>
     public partial class ClusterGetSettingsRequest
@@ -536,7 +539,8 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface IClusterPendingTasksRequest
-        : IRequest<ClusterPendingTasksRequestParameters> { }
+        : IRequest<ClusterPendingTasksRequestParameters>
+    { }
 
     /// <summary>Request for PendingTasks <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ClusterPendingTasksRequest
@@ -586,7 +590,8 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface IPostVotingConfigExclusionsRequest
-        : IRequest<PostVotingConfigExclusionsRequestParameters> { }
+        : IRequest<PostVotingConfigExclusionsRequestParameters>
+    { }
 
     /// <summary>Request for PostVotingConfigExclusions <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class PostVotingConfigExclusionsRequest
@@ -705,7 +710,8 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface IClusterPutSettingsRequest
-        : IRequest<ClusterPutSettingsRequestParameters> { }
+        : IRequest<ClusterPutSettingsRequestParameters>
+    { }
 
     /// <summary>Request for PutSettings <para>https://docs.opensearch.org/latest/api-reference/cluster-settings/</para></summary>
     public partial class ClusterPutSettingsRequest
@@ -1012,7 +1018,8 @@ namespace OpenSearch.Client
                 r.Optional("metric", metric)
                     .Optional("index_metric", indexMetric)
                     .Optional("node_id", nodeId)
-            ) { }
+            )
+        { }
 
         /// <summary>/_cluster/stats/{metric}/nodes/{node_id}</summary>
         /// <param name="metric">Optional, accepts null</param>

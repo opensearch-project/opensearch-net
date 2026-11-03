@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("get_script.json")]
-	public partial interface IGetScriptRequest { }
+    [MapsApi("get_script.json")]
+    public partial interface IGetScriptRequest { }
 
-	public partial class GetScriptRequest { }
+    public partial class GetScriptRequest { }
 
-	public partial class GetScriptDescriptor { }
+    public partial class GetScriptDescriptor { }
 }

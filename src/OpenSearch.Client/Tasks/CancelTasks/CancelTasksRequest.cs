@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("tasks.cancel.json")]
-	public partial interface ICancelTasksRequest { }
+    [MapsApi("tasks.cancel.json")]
+    public partial interface ICancelTasksRequest { }
 
-	public partial class CancelTasksRequest { }
+    public partial class CancelTasksRequest { }
 
-	public partial class CancelTasksDescriptor { }
+    public partial class CancelTasksDescriptor { }
 }

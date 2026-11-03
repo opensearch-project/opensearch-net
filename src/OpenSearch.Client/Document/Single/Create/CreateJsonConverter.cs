@@ -28,8 +28,8 @@
 
 namespace OpenSearch.Client
 {
-	internal class CreateRequestFormatter<TDocument> : ProxyRequestFormatterBase<ICreateRequest<TDocument>, CreateRequest<TDocument>>
-		where TDocument : class
-	{
-	}
+    internal class CreateRequestFormatter<TDocument> : ProxyRequestFormatterBase<ICreateRequest<TDocument>, CreateRequest<TDocument>>
+        where TDocument : class
+    {
+    }
 }

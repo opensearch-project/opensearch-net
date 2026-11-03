@@ -32,9 +32,9 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	public abstract class MetricAggregateBase : IAggregate
-	{
-		[DataMember(Name = "meta")]
-		public IReadOnlyDictionary<string, object> Meta { get; set; } = EmptyReadOnly<string, object>.Dictionary;
-	}
+    public abstract class MetricAggregateBase : IAggregate
+    {
+        [DataMember(Name = "meta")]
+        public IReadOnlyDictionary<string, object> Meta { get; set; } = EmptyReadOnly<string, object>.Dictionary;
+    }
 }

@@ -28,25 +28,25 @@
 
 namespace OpenSearch.Client
 {
-	public interface IQueriesCacheSettings
-	{
-		/// <summary>
-		/// Whether the query cache is enabled. <c>True</c> by default.
-		/// </summary>
-		bool? Enabled { get; set; }
-	}
+    public interface IQueriesCacheSettings
+    {
+        /// <summary>
+        /// Whether the query cache is enabled. <c>True</c> by default.
+        /// </summary>
+        bool? Enabled { get; set; }
+    }
 
-	public class QueriesCacheSettings : IQueriesCacheSettings
-	{
-		public bool? Enabled { get; set; }
-	}
+    public class QueriesCacheSettings : IQueriesCacheSettings
+    {
+        public bool? Enabled { get; set; }
+    }
 
-	public class QueriesCacheSettingsDescriptor : DescriptorBase<QueriesCacheSettingsDescriptor, IQueriesCacheSettings>, IQueriesCacheSettings
-	{
-		bool? IQueriesCacheSettings.Enabled { get; set; }
+    public class QueriesCacheSettingsDescriptor : DescriptorBase<QueriesCacheSettingsDescriptor, IQueriesCacheSettings>, IQueriesCacheSettings
+    {
+        bool? IQueriesCacheSettings.Enabled { get; set; }
 
-		/// <inheritdoc />
-		public QueriesCacheSettingsDescriptor Enabled(bool? enabled = true) =>
-			Assign(enabled, (a, v) => a.Enabled = v);
-	}
+        /// <inheritdoc />
+        public QueriesCacheSettingsDescriptor Enabled(bool? enabled = true) =>
+            Assign(enabled, (a, v) => a.Enabled = v);
+    }
 }

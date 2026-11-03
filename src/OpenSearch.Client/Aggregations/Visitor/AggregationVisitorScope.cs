@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	public enum AggregationVisitorScope
-	{
-		Unknown,
-		Aggregation,
-		Bucket
-	}
+    public enum AggregationVisitorScope
+    {
+        Unknown,
+        Aggregation,
+        Bucket
+    }
 }

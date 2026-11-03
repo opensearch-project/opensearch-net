@@ -30,10 +30,10 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
-	[DataContract]
-	public abstract class IndicesResponseBase : AcknowledgedResponseBase
-	{
-		[DataMember(Name = "_shards")]
-		public ShardStatistics ShardsHit { get; internal set; }
-	}
+    [DataContract]
+    public abstract class IndicesResponseBase : AcknowledgedResponseBase
+    {
+        [DataMember(Name = "_shards")]
+        public ShardStatistics ShardsHit { get; internal set; }
+    }
 }

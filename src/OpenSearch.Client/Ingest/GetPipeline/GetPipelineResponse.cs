@@ -32,10 +32,10 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	[JsonFormatter(typeof(DictionaryResponseFormatter<GetPipelineResponse, string, IPipeline>))]
-	public class GetPipelineResponse : DictionaryResponseBase<string, IPipeline>
-	{
-		[IgnoreDataMember]
-		public IReadOnlyDictionary<string, IPipeline> Pipelines => Self.BackingDictionary;
-	}
+    [JsonFormatter(typeof(DictionaryResponseFormatter<GetPipelineResponse, string, IPipeline>))]
+    public class GetPipelineResponse : DictionaryResponseBase<string, IPipeline>
+    {
+        [IgnoreDataMember]
+        public IReadOnlyDictionary<string, IPipeline> Pipelines => Self.BackingDictionary;
+    }
 }

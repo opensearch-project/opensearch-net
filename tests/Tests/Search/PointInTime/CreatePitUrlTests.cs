@@ -15,16 +15,17 @@ namespace Tests.Search.PointInTime;
 
 public class CreatePitUrlTests
 {
-	[U] public async Task Urls()
-	{
-		const string index = "temp";
-		const string keepAlive = "1h";
+    [U]
+    public async Task Urls()
+    {
+        const string index = "temp";
+        const string keepAlive = "1h";
 
-		await POST($"/{index}/_search/point_in_time?keep_alive={keepAlive}")
-				.Fluent(c => c.CreatePit(index, c => c.KeepAlive(keepAlive)))
-				.Request(c => c.CreatePit(new CreatePitRequest(index) { KeepAlive = keepAlive }))
-				.FluentAsync(c => c.CreatePitAsync(index, c => c.KeepAlive(keepAlive)))
-				.RequestAsync(c => c.CreatePitAsync(new CreatePitRequest(index) { KeepAlive = keepAlive }))
-			;
-	}
+        await POST($"/{index}/_search/point_in_time?keep_alive={keepAlive}")
+                .Fluent(c => c.CreatePit(index, c => c.KeepAlive(keepAlive)))
+                .Request(c => c.CreatePit(new CreatePitRequest(index) { KeepAlive = keepAlive }))
+                .FluentAsync(c => c.CreatePitAsync(index, c => c.KeepAlive(keepAlive)))
+                .RequestAsync(c => c.CreatePitAsync(new CreatePitRequest(index) { KeepAlive = keepAlive }))
+            ;
+    }
 }

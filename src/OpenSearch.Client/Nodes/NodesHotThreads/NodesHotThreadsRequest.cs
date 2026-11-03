@@ -31,22 +31,22 @@ using OpenSearch.Net.Specification.NodesApi;
 
 namespace OpenSearch.Client
 {
-	[MapsApi("nodes.hot_threads.json")]
-	public partial interface INodesHotThreadsRequest { }
+    [MapsApi("nodes.hot_threads.json")]
+    public partial interface INodesHotThreadsRequest { }
 
-	public partial class NodesHotThreadsRequest
-	{
-		protected override string ContentType => RequestData.MimeTypeTextPlain;
+    public partial class NodesHotThreadsRequest
+    {
+        protected override string ContentType => RequestData.MimeTypeTextPlain;
 
-		protected sealed override void RequestDefaults(NodesHotThreadsRequestParameters parameters) =>
-			parameters.CustomResponseBuilder = NodeHotThreadsResponseBuilder.Instance;
-	}
+        protected sealed override void RequestDefaults(NodesHotThreadsRequestParameters parameters) =>
+            parameters.CustomResponseBuilder = NodeHotThreadsResponseBuilder.Instance;
+    }
 
-	public partial class NodesHotThreadsDescriptor
-	{
-		protected override string ContentType => RequestData.MimeTypeTextPlain;
+    public partial class NodesHotThreadsDescriptor
+    {
+        protected override string ContentType => RequestData.MimeTypeTextPlain;
 
-		protected sealed override void RequestDefaults(NodesHotThreadsRequestParameters parameters) =>
-			parameters.CustomResponseBuilder = NodeHotThreadsResponseBuilder.Instance;
-	}
+        protected sealed override void RequestDefaults(NodesHotThreadsRequestParameters parameters) =>
+            parameters.CustomResponseBuilder = NodeHotThreadsResponseBuilder.Instance;
+    }
 }

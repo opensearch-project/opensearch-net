@@ -27,12 +27,12 @@
 */
 
 using System.IO;
+using OpenSearch.Client;
+using OpenSearch.Net;
 using OpenSearch.OpenSearch.Ephemeral;
 using OpenSearch.OpenSearch.Ephemeral.Plugins;
 using OpenSearch.OpenSearch.Xunit;
 using OpenSearch.Stack.ArtifactsApi.Products;
-using OpenSearch.Net;
-using OpenSearch.Client;
 using Tests.Configuration;
 using Tests.Core.Client;
 using Tests.Core.Extensions;

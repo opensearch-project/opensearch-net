@@ -31,13 +31,13 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum EdgeNGramSide
-	{
-		[EnumMember(Value = "front")]
-		Front,
+    [StringEnum]
+    public enum EdgeNGramSide
+    {
+        [EnumMember(Value = "front")]
+        Front,
 
-		[EnumMember(Value = "back")]
-		Back,
-	}
+        [EnumMember(Value = "back")]
+        Back,
+    }
 }

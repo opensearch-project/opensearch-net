@@ -48,8 +48,8 @@ namespace ApiGenerator.Domain.Code.HighLevel.Methods
 
         public override string GenericWhereClause =>
             string.Join(" ", CsharpNames.SplitGeneric(MethodGenerics)
-                .Where(g=>g.Contains("Document"))
-                .Select(g=>$"where {g} : class")
+                .Where(g => g.Contains("Document"))
+                .Select(g => $"where {g} : class")
             );
 
         private bool IsCatMethod => CsharpNames.Namespace == "Cat";

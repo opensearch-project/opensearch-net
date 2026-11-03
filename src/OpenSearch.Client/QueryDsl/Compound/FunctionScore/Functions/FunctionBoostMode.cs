@@ -32,25 +32,25 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum FunctionBoostMode
-	{
-		[EnumMember(Value = "multiply")]
-		Multiply,
+    [StringEnum]
+    public enum FunctionBoostMode
+    {
+        [EnumMember(Value = "multiply")]
+        Multiply,
 
-		[EnumMember(Value = "replace")]
-		Replace,
+        [EnumMember(Value = "replace")]
+        Replace,
 
-		[EnumMember(Value = "sum")]
-		Sum,
+        [EnumMember(Value = "sum")]
+        Sum,
 
-		[EnumMember(Value = "avg")]
-		Average,
+        [EnumMember(Value = "avg")]
+        Average,
 
-		[EnumMember(Value = "max")]
-		Max,
+        [EnumMember(Value = "max")]
+        Max,
 
-		[EnumMember(Value = "min")]
-		Min
-	}
+        [EnumMember(Value = "min")]
+        Min
+    }
 }

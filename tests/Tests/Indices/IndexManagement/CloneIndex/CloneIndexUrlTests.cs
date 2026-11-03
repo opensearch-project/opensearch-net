@@ -27,25 +27,26 @@
 */
 
 using System.Threading.Tasks;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
 
 namespace Tests.Indices.IndexManagement.CloneIndex
 {
-	public class CloneIndexUrlTests
-	{
-		[U] public async Task Urls()
-		{
-			var index = "index1";
-			var target = "target";
-			await PUT($"/{index}/_clone/{target}")
-					.Fluent(c => c.Indices.Clone(index, target))
-					.Request(c => c.Indices.Clone(new CloneIndexRequest(index, target)))
-					.FluentAsync(c => c.Indices.CloneAsync(index, target))
-					.RequestAsync(c => c.Indices.CloneAsync(new CloneIndexRequest(index, target)))
-				;
-		}
-	}
+    public class CloneIndexUrlTests
+    {
+        [U]
+        public async Task Urls()
+        {
+            var index = "index1";
+            var target = "target";
+            await PUT($"/{index}/_clone/{target}")
+                    .Fluent(c => c.Indices.Clone(index, target))
+                    .Request(c => c.Indices.Clone(new CloneIndexRequest(index, target)))
+                    .FluentAsync(c => c.Indices.CloneAsync(index, target))
+                    .RequestAsync(c => c.Indices.CloneAsync(new CloneIndexRequest(index, target)))
+                ;
+        }
+    }
 }

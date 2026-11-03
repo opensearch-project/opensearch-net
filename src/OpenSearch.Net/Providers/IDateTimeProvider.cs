@@ -30,10 +30,10 @@ using System;
 
 namespace OpenSearch.Net
 {
-	public interface IDateTimeProvider
-	{
-		DateTime Now();
+    public interface IDateTimeProvider
+    {
+        DateTime Now();
 
-		DateTime DeadTime(int attempts, TimeSpan? timeoutFactor, TimeSpan? maxDeadTimeout);
-	}
+        DateTime DeadTime(int attempts, TimeSpan? timeoutFactor, TimeSpan? maxDeadTimeout);
+    }
 }

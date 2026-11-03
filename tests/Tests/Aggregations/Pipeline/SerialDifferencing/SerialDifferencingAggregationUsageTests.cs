@@ -37,106 +37,106 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Aggregations.Pipeline.SerialDifferencing
 {
-	public class SerialDifferencingAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
-	{
-		public SerialDifferencingAggregationUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public class SerialDifferencingAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
+    {
+        public SerialDifferencingAggregationUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override object AggregationJson => new
-		{
-			projects_started_per_month = new
-			{
-				date_histogram = new
-				{
-					field = "startedOn",
-					calendar_interval = "month",
-					min_doc_count = 0
-				},
-				aggs = new
-				{
-					commits = new
-					{
-						sum = new
-						{
-							field = "numberOfCommits"
-						}
-					},
-					second_difference = new
-					{
-						serial_diff = new
-						{
-							buckets_path = "commits",
-							lag = 2
-						}
-					}
-				}
-			}
-		};
+        protected override object AggregationJson => new
+        {
+            projects_started_per_month = new
+            {
+                date_histogram = new
+                {
+                    field = "startedOn",
+                    calendar_interval = "month",
+                    min_doc_count = 0
+                },
+                aggs = new
+                {
+                    commits = new
+                    {
+                        sum = new
+                        {
+                            field = "numberOfCommits"
+                        }
+                    },
+                    second_difference = new
+                    {
+                        serial_diff = new
+                        {
+                            buckets_path = "commits",
+                            lag = 2
+                        }
+                    }
+                }
+            }
+        };
 
-		protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
-			.DateHistogram("projects_started_per_month", dh => dh
-				.Field(p => p.StartedOn)
-				.CalendarInterval(DateInterval.Month)
-				.MinimumDocumentCount(0)
-				.Aggregations(aa => aa
-					.Sum("commits", sm => sm
-						.Field(p => p.NumberOfCommits)
-					)
-					.SerialDifferencing("second_difference", d => d
-						.BucketsPath("commits")
-						.Lag(2)
-					)
-				)
-			);
+        protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
+            .DateHistogram("projects_started_per_month", dh => dh
+                .Field(p => p.StartedOn)
+                .CalendarInterval(DateInterval.Month)
+                .MinimumDocumentCount(0)
+                .Aggregations(aa => aa
+                    .Sum("commits", sm => sm
+                        .Field(p => p.NumberOfCommits)
+                    )
+                    .SerialDifferencing("second_difference", d => d
+                        .BucketsPath("commits")
+                        .Lag(2)
+                    )
+                )
+            );
 
-		protected override AggregationDictionary InitializerAggs =>
-			new DateHistogramAggregation("projects_started_per_month")
-			{
-				Field = "startedOn",
-				CalendarInterval = DateInterval.Month,
-				MinimumDocumentCount = 0,
-				Aggregations =
-					new SumAggregation("commits", "numberOfCommits")
-					&& new SerialDifferencingAggregation("second_difference", "commits")
-					{
-						Lag = 2
-					}
-			};
+        protected override AggregationDictionary InitializerAggs =>
+            new DateHistogramAggregation("projects_started_per_month")
+            {
+                Field = "startedOn",
+                CalendarInterval = DateInterval.Month,
+                MinimumDocumentCount = 0,
+                Aggregations =
+                    new SumAggregation("commits", "numberOfCommits")
+                    && new SerialDifferencingAggregation("second_difference", "commits")
+                    {
+                        Lag = 2
+                    }
+            };
 
-		protected override void ExpectResponse(ISearchResponse<Project> response)
-		{
-			response.ShouldBeValid();
+        protected override void ExpectResponse(ISearchResponse<Project> response)
+        {
+            response.ShouldBeValid();
 
-			var projectsPerMonth = response.Aggregations.DateHistogram("projects_started_per_month");
-			projectsPerMonth.Should().NotBeNull();
-			projectsPerMonth.Buckets.Should().NotBeNull();
-			projectsPerMonth.Buckets.Count.Should().BeGreaterThan(0);
+            var projectsPerMonth = response.Aggregations.DateHistogram("projects_started_per_month");
+            projectsPerMonth.Should().NotBeNull();
+            projectsPerMonth.Buckets.Should().NotBeNull();
+            projectsPerMonth.Buckets.Count.Should().BeGreaterThan(0);
 
-			var differenceCount = 0;
+            var differenceCount = 0;
 
-			foreach (var item in projectsPerMonth.Buckets)
-			{
-				differenceCount++;
-				var commits = item.Sum("commits");
-				commits.Should().NotBeNull();
-				commits.Value.Should().NotBe(null);
+            foreach (var item in projectsPerMonth.Buckets)
+            {
+                differenceCount++;
+                var commits = item.Sum("commits");
+                commits.Should().NotBeNull();
+                commits.Value.Should().NotBe(null);
 
-				// serial differencing specified a lag of 2, so no value is emitted for the first 2 buckets
-				if (differenceCount <= 2)
-					item.SerialDifferencing("second_difference").Should().BeNull();
-			}
+                // serial differencing specified a lag of 2, so no value is emitted for the first 2 buckets
+                if (differenceCount <= 2)
+                    item.SerialDifferencing("second_difference").Should().BeNull();
+            }
 
-			// Verify the serial-difference values that ARE present (from the 3rd bucket onwards)
-			// deserialize as valid numbers (which may be negative, zero, or positive); empty months can
-			// legitimately have no value, so we don't require one in every bucket, which made this test
-			// seed/date-dependent.
-			var secondDifferences = projectsPerMonth.Buckets
-				.Skip(2)
-				.Select(b => b.SerialDifferencing("second_difference"))
-				.Where(d => d?.Value != null)
-				.Select(d => d.Value.Value)
-				.ToList();
+            // Verify the serial-difference values that ARE present (from the 3rd bucket onwards)
+            // deserialize as valid numbers (which may be negative, zero, or positive); empty months can
+            // legitimately have no value, so we don't require one in every bucket, which made this test
+            // seed/date-dependent.
+            var secondDifferences = projectsPerMonth.Buckets
+                .Skip(2)
+                .Select(b => b.SerialDifferencing("second_difference"))
+                .Where(d => d?.Value != null)
+                .Select(d => d.Value.Value)
+                .ToList();
 
-			secondDifferences.Should().NotBeEmpty();
-		}
-	}
+            secondDifferences.Should().NotBeEmpty();
+        }
+    }
 }

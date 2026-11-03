@@ -26,33 +26,33 @@
 *  under the License.
 */
 
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Cat.CatShards
 {
-	public class CatShardsApiTests
-		: ApiIntegrationTestBase<ReadOnlyCluster, CatResponse<CatShardsRecord>, ICatShardsRequest, CatShardsDescriptor, CatShardsRequest>
-	{
-		public CatShardsApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public class CatShardsApiTests
+        : ApiIntegrationTestBase<ReadOnlyCluster, CatResponse<CatShardsRecord>, ICatShardsRequest, CatShardsDescriptor, CatShardsRequest>
+    {
+        public CatShardsApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override bool ExpectIsValid => true;
-		protected override int ExpectStatusCode => 200;
-		protected override HttpMethod HttpMethod => HttpMethod.GET;
-		protected override string UrlPath => "/_cat/shards";
+        protected override bool ExpectIsValid => true;
+        protected override int ExpectStatusCode => 200;
+        protected override HttpMethod HttpMethod => HttpMethod.GET;
+        protected override string UrlPath => "/_cat/shards";
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Cat.Shards(),
-			(client, f) => client.Cat.ShardsAsync(),
-			(client, r) => client.Cat.Shards(r),
-			(client, r) => client.Cat.ShardsAsync(r)
-		);
+        protected override LazyResponses ClientUsage() => Calls(
+            (client, f) => client.Cat.Shards(),
+            (client, f) => client.Cat.ShardsAsync(),
+            (client, r) => client.Cat.Shards(r),
+            (client, r) => client.Cat.ShardsAsync(r)
+        );
 
-		protected override void ExpectResponse(CatResponse<CatShardsRecord> response) =>
-			response.Records.Should().NotBeEmpty().And.Contain(a => !string.IsNullOrEmpty(a.PrimaryOrReplica));
-	}
+        protected override void ExpectResponse(CatResponse<CatShardsRecord> response) =>
+            response.Records.Should().NotBeEmpty().And.Contain(a => !string.IsNullOrEmpty(a.PrimaryOrReplica));
+    }
 }

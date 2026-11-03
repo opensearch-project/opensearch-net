@@ -26,24 +26,24 @@
 *  under the License.
 */
 
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
 namespace Tests.Reproduce
 {
-	public class GithubIssue3411
-	{
-		[U]
-		public void IndexNameParsesClusterAndIndexWithMultipleColons()
-		{
-			var name = "write::some-name";
-			IndexName indexName = name;
-			indexName.Cluster.Should().Be("write");
-			indexName.Name.Should().Be(":some-name");
+    public class GithubIssue3411
+    {
+        [U]
+        public void IndexNameParsesClusterAndIndexWithMultipleColons()
+        {
+            var name = "write::some-name";
+            IndexName indexName = name;
+            indexName.Cluster.Should().Be("write");
+            indexName.Name.Should().Be(":some-name");
 
-			var inferrer = new Inferrer(new ConnectionSettings());
-			inferrer.IndexName(indexName).Should().Be(name);
-		}
-	}
+            var inferrer = new Inferrer(new ConnectionSettings());
+            inferrer.IndexName(indexName).Should().Be(name);
+        }
+    }
 }

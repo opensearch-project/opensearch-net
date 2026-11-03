@@ -37,16 +37,16 @@ namespace ApiGenerator
 {
     public static class RestSpecDownloader
     {
-		private static readonly HttpClient Http = new();
+        private static readonly HttpClient Http = new();
 
-		private const string SpecUrl = "https://api-spec.opensearch.org/opensearch-openapi.yaml";
+        private const string SpecUrl = "https://api-spec.opensearch.org/opensearch-openapi.yaml";
 
-	public static async Task DownloadAsync(CancellationToken token)
-		{
-			Console.WriteLine($"Downloading OpenAPI spec from {SpecUrl}");
-			var spec = await Http.GetStringAsync(SpecUrl, token);
-			await File.WriteAllTextAsync(GeneratorLocations.OpenApiSpecFile, spec, token);
+        public static async Task DownloadAsync(CancellationToken token)
+        {
+            Console.WriteLine($"Downloading OpenAPI spec from {SpecUrl}");
+            var spec = await Http.GetStringAsync(SpecUrl, token);
+            await File.WriteAllTextAsync(GeneratorLocations.OpenApiSpecFile, spec, token);
             Console.WriteLine("Downloaded OpenAPI spec");
         }
-	}
+    }
 }

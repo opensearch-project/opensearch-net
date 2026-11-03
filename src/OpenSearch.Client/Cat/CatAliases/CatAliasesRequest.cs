@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("cat.aliases.json")]
-	public partial interface ICatAliasesRequest { }
+    [MapsApi("cat.aliases.json")]
+    public partial interface ICatAliasesRequest { }
 
-	public partial class CatAliasesRequest { }
+    public partial class CatAliasesRequest { }
 
-	public partial class CatAliasesDescriptor { }
+    public partial class CatAliasesDescriptor { }
 }

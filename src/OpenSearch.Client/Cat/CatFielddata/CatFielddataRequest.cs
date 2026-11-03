@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("cat.fielddata.json")]
-	public partial interface ICatFielddataRequest { }
+    [MapsApi("cat.fielddata.json")]
+    public partial interface ICatFielddataRequest { }
 
-	public partial class CatFielddataRequest { }
+    public partial class CatFielddataRequest { }
 
-	public partial class CatFielddataDescriptor { }
+    public partial class CatFielddataDescriptor { }
 }

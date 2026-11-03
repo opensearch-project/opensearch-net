@@ -2779,7 +2779,8 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface IReindexOnServerRequest
-        : IRequest<ReindexOnServerRequestParameters> { }
+        : IRequest<ReindexOnServerRequestParameters>
+    { }
 
     /// <summary>Request for ReindexOnServer <para>https://docs.opensearch.org/latest/im-plugin/reindex-data/</para></summary>
     public partial class ReindexOnServerRequest
@@ -2918,7 +2919,8 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface IExecutePainlessScriptRequest
-        : IRequest<ExecutePainlessScriptRequestParameters> { }
+        : IRequest<ExecutePainlessScriptRequestParameters>
+    { }
 
     /// <summary>Request for ExecutePainlessScript <para>https://docs.opensearch.org/latest/api-reference/script-apis/exec-script/</para></summary>
     public partial class ExecutePainlessScriptRequest

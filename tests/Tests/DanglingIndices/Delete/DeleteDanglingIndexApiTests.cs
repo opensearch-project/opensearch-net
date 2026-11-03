@@ -27,35 +27,35 @@
 */
 
 using System;
-using OpenSearch.Net;
 using OpenSearch.Client;
+using OpenSearch.Net;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.DanglingIndices.Delete
 {
-	public class DeleteDanglingIndexApiTests
-		: ApiTestBase<ReadOnlyCluster, DeleteDanglingIndexResponse, IDeleteDanglingIndexRequest, DeleteDanglingIndexDescriptor, DeleteDanglingIndexRequest>
-	{
-		private static readonly string IndexUuid = "indexuuid";
+    public class DeleteDanglingIndexApiTests
+        : ApiTestBase<ReadOnlyCluster, DeleteDanglingIndexResponse, IDeleteDanglingIndexRequest, DeleteDanglingIndexDescriptor, DeleteDanglingIndexRequest>
+    {
+        private static readonly string IndexUuid = "indexuuid";
 
-		public DeleteDanglingIndexApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+        public DeleteDanglingIndexApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override Func<DeleteDanglingIndexDescriptor, IDeleteDanglingIndexRequest> Fluent => d => d;
+        protected override Func<DeleteDanglingIndexDescriptor, IDeleteDanglingIndexRequest> Fluent => d => d;
 
-		protected override HttpMethod HttpMethod => HttpMethod.DELETE;
+        protected override HttpMethod HttpMethod => HttpMethod.DELETE;
 
-		protected override DeleteDanglingIndexRequest Initializer => new DeleteDanglingIndexRequest(IndexUuid);
-		protected override string UrlPath => $"/_dangling/{IndexUuid}";
+        protected override DeleteDanglingIndexRequest Initializer => new DeleteDanglingIndexRequest(IndexUuid);
+        protected override string UrlPath => $"/_dangling/{IndexUuid}";
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.DanglingIndices.DeleteDanglingIndex(IndexUuid, f),
-			(client, f) => client.DanglingIndices.DeleteDanglingIndexAsync(IndexUuid, f),
-			(client, r) => client.DanglingIndices.DeleteDanglingIndex(r),
-			(client, r) => client.DanglingIndices.DeleteDanglingIndexAsync(r)
-		);
+        protected override LazyResponses ClientUsage() => Calls(
+            (client, f) => client.DanglingIndices.DeleteDanglingIndex(IndexUuid, f),
+            (client, f) => client.DanglingIndices.DeleteDanglingIndexAsync(IndexUuid, f),
+            (client, r) => client.DanglingIndices.DeleteDanglingIndex(r),
+            (client, r) => client.DanglingIndices.DeleteDanglingIndexAsync(r)
+        );
 
-		protected override DeleteDanglingIndexDescriptor NewDescriptor() => new DeleteDanglingIndexDescriptor(IndexUuid);
-	}
+        protected override DeleteDanglingIndexDescriptor NewDescriptor() => new DeleteDanglingIndexDescriptor(IndexUuid);
+    }
 }

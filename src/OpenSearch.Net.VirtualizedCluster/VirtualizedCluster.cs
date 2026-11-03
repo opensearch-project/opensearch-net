@@ -33,60 +33,60 @@ using OpenSearch.Net.VirtualizedCluster.Providers;
 
 namespace OpenSearch.Net.VirtualizedCluster
 {
-	public class VirtualizedCluster
-	{
-		private readonly FixedPipelineFactory _fixedRequestPipeline;
-		private readonly TestableDateTimeProvider _dateTimeProvider;
-		private readonly ConnectionConfiguration _settings;
-		private Func<IOpenSearchLowLevelClient, Func<RequestConfigurationDescriptor, IRequestConfiguration>, Task<IOpenSearchResponse>> _asyncCall;
-		private Func<IOpenSearchLowLevelClient, Func<RequestConfigurationDescriptor, IRequestConfiguration>, IOpenSearchResponse> _syncCall;
+    public class VirtualizedCluster
+    {
+        private readonly FixedPipelineFactory _fixedRequestPipeline;
+        private readonly TestableDateTimeProvider _dateTimeProvider;
+        private readonly ConnectionConfiguration _settings;
+        private Func<IOpenSearchLowLevelClient, Func<RequestConfigurationDescriptor, IRequestConfiguration>, Task<IOpenSearchResponse>> _asyncCall;
+        private Func<IOpenSearchLowLevelClient, Func<RequestConfigurationDescriptor, IRequestConfiguration>, IOpenSearchResponse> _syncCall;
 
-		private class VirtualResponse : OpenSearchResponseBase { }
+        private class VirtualResponse : OpenSearchResponseBase { }
 
-		public VirtualizedCluster(TestableDateTimeProvider dateTimeProvider, ConnectionConfiguration settings)
-		{
-			_dateTimeProvider = dateTimeProvider;
-			_settings = settings;
-			_fixedRequestPipeline = new FixedPipelineFactory(settings, _dateTimeProvider);
+        public VirtualizedCluster(TestableDateTimeProvider dateTimeProvider, ConnectionConfiguration settings)
+        {
+            _dateTimeProvider = dateTimeProvider;
+            _settings = settings;
+            _fixedRequestPipeline = new FixedPipelineFactory(settings, _dateTimeProvider);
 
-			_syncCall = (c, r) => c.Search<VirtualResponse>(PostData.Serializable(new {}), new SearchRequestParameters
-			{
-					RequestConfiguration = r?.Invoke(new RequestConfigurationDescriptor(null))
-			});
-			_asyncCall = async (c, r) =>
-			{
-				var res = await c.SearchAsync<VirtualResponse>
-				(
-					PostData.Serializable(new { }),
-					new SearchRequestParameters { RequestConfiguration = r?.Invoke(new RequestConfigurationDescriptor(null)) },
-					CancellationToken.None
-				).ConfigureAwait(false);
-				return (IOpenSearchResponse)res;
-			};
-		}
+            _syncCall = (c, r) => c.Search<VirtualResponse>(PostData.Serializable(new { }), new SearchRequestParameters
+            {
+                RequestConfiguration = r?.Invoke(new RequestConfigurationDescriptor(null))
+            });
+            _asyncCall = async (c, r) =>
+            {
+                var res = await c.SearchAsync<VirtualResponse>
+                (
+                    PostData.Serializable(new { }),
+                    new SearchRequestParameters { RequestConfiguration = r?.Invoke(new RequestConfigurationDescriptor(null)) },
+                    CancellationToken.None
+                ).ConfigureAwait(false);
+                return (IOpenSearchResponse)res;
+            };
+        }
 
-		public VirtualClusterConnection Connection => Client.Settings.Connection as VirtualClusterConnection;
-		public IConnectionPool ConnectionPool => Client.Settings.ConnectionPool;
-		public OpenSearchLowLevelClient Client => _fixedRequestPipeline?.Client;
+        public VirtualClusterConnection Connection => Client.Settings.Connection as VirtualClusterConnection;
+        public IConnectionPool ConnectionPool => Client.Settings.ConnectionPool;
+        public OpenSearchLowLevelClient Client => _fixedRequestPipeline?.Client;
 
-		public VirtualizedCluster ClientProxiesTo(
-			Func<IOpenSearchLowLevelClient, Func<RequestConfigurationDescriptor, IRequestConfiguration>, IOpenSearchResponse> sync,
-			Func<IOpenSearchLowLevelClient, Func<RequestConfigurationDescriptor, IRequestConfiguration>, Task<IOpenSearchResponse>> async
-		)
-		{
-			_syncCall = sync;
-			_asyncCall = async;
-			return this;
-		}
+        public VirtualizedCluster ClientProxiesTo(
+            Func<IOpenSearchLowLevelClient, Func<RequestConfigurationDescriptor, IRequestConfiguration>, IOpenSearchResponse> sync,
+            Func<IOpenSearchLowLevelClient, Func<RequestConfigurationDescriptor, IRequestConfiguration>, Task<IOpenSearchResponse>> async
+        )
+        {
+            _syncCall = sync;
+            _asyncCall = async;
+            return this;
+        }
 
-		public IOpenSearchResponse ClientCall(Func<RequestConfigurationDescriptor, IRequestConfiguration> requestOverrides = null) =>
-			_syncCall(Client, requestOverrides);
+        public IOpenSearchResponse ClientCall(Func<RequestConfigurationDescriptor, IRequestConfiguration> requestOverrides = null) =>
+            _syncCall(Client, requestOverrides);
 
-		public async Task<IOpenSearchResponse> ClientCallAsync(Func<RequestConfigurationDescriptor, IRequestConfiguration> requestOverrides = null) =>
-			await _asyncCall(Client, requestOverrides).ConfigureAwait(false);
+        public async Task<IOpenSearchResponse> ClientCallAsync(Func<RequestConfigurationDescriptor, IRequestConfiguration> requestOverrides = null) =>
+            await _asyncCall(Client, requestOverrides).ConfigureAwait(false);
 
-		public void ChangeTime(Func<DateTime, DateTime> change) => _dateTimeProvider.ChangeTime(change);
+        public void ChangeTime(Func<DateTime, DateTime> change) => _dateTimeProvider.ChangeTime(change);
 
-		public void ClientThrows(bool throws) => _settings.ThrowExceptions(throws);
-	}
+        public void ClientThrows(bool throws) => _settings.ThrowExceptions(throws);
+    }
 }

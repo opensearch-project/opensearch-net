@@ -43,7 +43,8 @@ namespace ApiGenerator.Domain.Code
             Namespace = CreateCSharpNamespace(endpointNamespace);
             if (CodeConfiguration.ApiNameMapping.TryGetValue(name, out var mapsApiMethodName))
                 ApiName = mapsApiMethodName;
-            else ApiName = endpointMethodName.ToPascalCase();
+            else
+                ApiName = endpointMethodName.ToPascalCase();
 
             // High-level name override: allows the high-level types (Request/Response/Descriptor)
             // to use a different name than the low-level ParametersName, avoiding collisions in
@@ -55,11 +56,14 @@ namespace ApiGenerator.Domain.Code
             //if the api name starts with the namespace do not repeat it in the method name
             string Replace(string original, string ns, string find, string replace, string[] exceptions)
             {
-                if (ns != null && Namespace != ns) return original;
-                if (exceptions.Contains(original)) return original;
+                if (ns != null && Namespace != ns)
+                    return original;
+                if (exceptions.Contains(original))
+                    return original;
 
                 var replaced = original.Replace(find, replace);
-                if (string.IsNullOrEmpty(replaced)) return original;
+                if (string.IsNullOrEmpty(replaced))
+                    return original;
 
                 return replaced;
             }
@@ -119,8 +123,10 @@ namespace ApiGenerator.Domain.Code
         {
             get
             {
-                if (Namespace == "Cat") return $"CatResponse<{HighLevelApiName}Record>";
-                else if (HighLevelApiName.EndsWith("Exists")) return $"ExistsResponse";
+                if (Namespace == "Cat")
+                    return $"CatResponse<{HighLevelApiName}Record>";
+                else if (HighLevelApiName.EndsWith("Exists"))
+                    return $"ExistsResponse";
 
                 var generatedName = $"{HighLevelApiName}Response";
                 var name = CodeConfiguration.ResponseLookup.TryGetValue(generatedName, out var lookup) ? lookup.Item1 : generatedName;
@@ -143,8 +149,10 @@ namespace ApiGenerator.Domain.Code
             switch (endpointNamespace)
             {
                 case null:
-                case "": return RootNamespace;
-                default: return endpointNamespace.ToPascalCase();
+                case "":
+                    return RootNamespace;
+                default:
+                    return endpointNamespace.ToPascalCase();
             }
         }
 
@@ -155,7 +163,8 @@ namespace ApiGenerator.Domain.Code
             var method = MethodName;
             // This is temporary for transition period
             // TODO: remove in branch once it in opensearch is scrubbed
-            if (pc("{type}") && !method.Contains("Type")) method += "UsingType";
+            if (pc("{type}") && !method.Contains("Type"))
+                method += "UsingType";
 
             if (Namespace == "Indices" && !pc("{index}"))
                 return (method + "ForAll").Replace("AsyncForAll", "ForAllAsync");
@@ -196,7 +205,7 @@ namespace ApiGenerator.Domain.Code
         //&& ResponseGenerics.FirstOrDefault() == DescriptorBoundDocumentGeneric ;
 
         public string DescriptorBoundDocumentGeneric =>
-            HighLevelDescriptorMethodGenerics.FirstOrDefault(g=>g == "TDocument") ?? HighLevelDescriptorMethodGenerics.Last();
+            HighLevelDescriptorMethodGenerics.FirstOrDefault(g => g == "TDocument") ?? HighLevelDescriptorMethodGenerics.Last();
 
         public List<string> HighLevelDescriptorMethodGenerics => DescriptorGenerics
             .Concat(ResponseGenerics)
@@ -228,7 +237,7 @@ namespace ApiGenerator.Domain.Code
         public string GenericResponseName => GenericsDeclaredOnResponse.IsNullOrEmpty() ? null : $"{ResponseName}{GenericsDeclaredOnResponse}";
 
         public string GenericOrNonGenericDescriptorName => GenericDescriptorName ?? DescriptorName;
-        public string GenericOrNonGenericInterfaceName => GenericInterfaceName  ?? RequestInterfaceName;
+        public string GenericOrNonGenericInterfaceName => GenericInterfaceName ?? RequestInterfaceName;
         public string GenericOrNonGenericResponseName
         {
             get
@@ -252,8 +261,8 @@ namespace ApiGenerator.Domain.Code
 
         public bool CustomResponseBuilderPerRequestOverride(out string call) => CodeConfiguration.ResponseBuilderInClientCalls.TryGetValue(RequestName, out call);
 
-		public static string GetEnumName(string schemaKey)
-		{
+        public static string GetEnumName(string schemaKey)
+        {
             var parts = schemaKey.Replace("_common", "").Split("___").Select(s => s.SplitPascalCase().ToPascalCase()).ToArray();
 
             string enumName;
@@ -263,11 +272,13 @@ namespace ApiGenerator.Domain.Code
             else
             {
                 enumName = parts[1];
-                if (!enumName.StartsWith(parts[0])) enumName = parts[0] + enumName;
+                if (!enumName.StartsWith(parts[0]))
+                    enumName = parts[0] + enumName;
             }
 
-			if (GlobalOverrides.Instance.RenameEnums.TryGetValue(enumName, out var renamed)) enumName = renamed;
-			return enumName;
-		}
+            if (GlobalOverrides.Instance.RenameEnums.TryGetValue(enumName, out var renamed))
+                enumName = renamed;
+            return enumName;
+        }
     }
 }

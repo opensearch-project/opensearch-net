@@ -32,10 +32,10 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[DataContract]
-	public class GetSnapshotResponse : ResponseBase
-	{
-		[DataMember(Name ="snapshots")]
-		public IReadOnlyCollection<Snapshot> Snapshots { get; internal set; } = EmptyReadOnly<Snapshot>.Collection;
-	}
+    [DataContract]
+    public class GetSnapshotResponse : ResponseBase
+    {
+        [DataMember(Name = "snapshots")]
+        public IReadOnlyCollection<Snapshot> Snapshots { get; internal set; } = EmptyReadOnly<Snapshot>.Collection;
+    }
 }

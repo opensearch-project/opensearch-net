@@ -15,14 +15,15 @@ namespace Tests.Indices.IndexSettings.ComposableIndexTemplates.DeleteComposableI
 
 public class DeleteComposableIndexTemplateUrlTests
 {
-	[U] public async Task Urls()
-	{
-		const string name = "temp";
-		await DELETE($"/_index_template/{name}")
-				.Fluent(c => c.Indices.DeleteComposableTemplate(name))
-				.Request(c => c.Indices.DeleteComposableTemplate(new DeleteComposableIndexTemplateRequest(name)))
-				.FluentAsync(c => c.Indices.DeleteComposableTemplateAsync(name))
-				.RequestAsync(c => c.Indices.DeleteComposableTemplateAsync(new DeleteComposableIndexTemplateRequest(name)))
-			;
-	}
+    [U]
+    public async Task Urls()
+    {
+        const string name = "temp";
+        await DELETE($"/_index_template/{name}")
+                .Fluent(c => c.Indices.DeleteComposableTemplate(name))
+                .Request(c => c.Indices.DeleteComposableTemplate(new DeleteComposableIndexTemplateRequest(name)))
+                .FluentAsync(c => c.Indices.DeleteComposableTemplateAsync(name))
+                .RequestAsync(c => c.Indices.DeleteComposableTemplateAsync(new DeleteComposableIndexTemplateRequest(name)))
+            ;
+    }
 }

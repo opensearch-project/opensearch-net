@@ -46,7 +46,8 @@ namespace ApiGenerator.Domain.Code.HighLevel.Requests
         public IEnumerable<FluentRouteSetter> GetFluentRouteSetters()
         {
             var setters = new List<FluentRouteSetter>();
-            if (!Parts.Any()) return setters;
+            if (!Parts.Any())
+                return setters;
 
             var alwaysGenerate = new[] { "index" };
             var parts = Parts

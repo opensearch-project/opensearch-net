@@ -32,26 +32,26 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Net
 {
-	internal class InterfaceReadOnlyCollectionSingleOrEnumerableFormatter<T> : IJsonFormatter<IReadOnlyCollection<T>>
-	{
-		public IReadOnlyCollection<T> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			var token = reader.GetCurrentJsonToken();
-			return token == JsonToken.BeginArray
-				? formatterResolver.GetFormatter<IReadOnlyCollection<T>>().Deserialize(ref reader, formatterResolver)
-				: new ReadOnlyCollection<T>(new List<T>(1) { formatterResolver.GetFormatter<T>().Deserialize(ref reader, formatterResolver) });
-		}
+    internal class InterfaceReadOnlyCollectionSingleOrEnumerableFormatter<T> : IJsonFormatter<IReadOnlyCollection<T>>
+    {
+        public IReadOnlyCollection<T> Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+        {
+            var token = reader.GetCurrentJsonToken();
+            return token == JsonToken.BeginArray
+                ? formatterResolver.GetFormatter<IReadOnlyCollection<T>>().Deserialize(ref reader, formatterResolver)
+                : new ReadOnlyCollection<T>(new List<T>(1) { formatterResolver.GetFormatter<T>().Deserialize(ref reader, formatterResolver) });
+        }
 
-		public void Serialize(ref JsonWriter writer, IReadOnlyCollection<T> value, IJsonFormatterResolver formatterResolver)
-		{
-			if (value == null)
-			{
-				writer.WriteNull();
-				return;
-			}
+        public void Serialize(ref JsonWriter writer, IReadOnlyCollection<T> value, IJsonFormatterResolver formatterResolver)
+        {
+            if (value == null)
+            {
+                writer.WriteNull();
+                return;
+            }
 
-			var formatter = formatterResolver.GetFormatter<IReadOnlyCollection<T>>();
-			formatter.Serialize(ref writer, value, formatterResolver);
-		}
-	}
+            var formatter = formatterResolver.GetFormatter<IReadOnlyCollection<T>>();
+            formatter.Serialize(ref writer, value, formatterResolver);
+        }
+    }
 }

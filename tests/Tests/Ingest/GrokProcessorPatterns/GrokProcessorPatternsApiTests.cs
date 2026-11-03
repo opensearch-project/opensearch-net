@@ -27,35 +27,35 @@
 */
 
 using System;
-using OpenSearch.Net;
 using OpenSearch.Client;
+using OpenSearch.Net;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Ingest.GrokProcessorPatterns
 {
-	public class GrokProcessorPatternsApiTests
-		: ApiIntegrationTestBase<ReadOnlyCluster, GrokProcessorPatternsResponse, IGrokProcessorPatternsRequest, GrokProcessorPatternsDescriptor,
-			GrokProcessorPatternsRequest>
-	{
-		public GrokProcessorPatternsApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public class GrokProcessorPatternsApiTests
+        : ApiIntegrationTestBase<ReadOnlyCluster, GrokProcessorPatternsResponse, IGrokProcessorPatternsRequest, GrokProcessorPatternsDescriptor,
+            GrokProcessorPatternsRequest>
+    {
+        public GrokProcessorPatternsApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override bool ExpectIsValid => true;
-		protected override int ExpectStatusCode => 200;
+        protected override bool ExpectIsValid => true;
+        protected override int ExpectStatusCode => 200;
 
-		protected override Func<GrokProcessorPatternsDescriptor, IGrokProcessorPatternsRequest> Fluent => d => d;
+        protected override Func<GrokProcessorPatternsDescriptor, IGrokProcessorPatternsRequest> Fluent => d => d;
 
-		protected override HttpMethod HttpMethod => HttpMethod.GET;
+        protected override HttpMethod HttpMethod => HttpMethod.GET;
 
-		protected override GrokProcessorPatternsRequest Initializer => new GrokProcessorPatternsRequest();
-		protected override string UrlPath => $"/_ingest/processor/grok";
+        protected override GrokProcessorPatternsRequest Initializer => new GrokProcessorPatternsRequest();
+        protected override string UrlPath => $"/_ingest/processor/grok";
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Ingest.GrokProcessorPatterns(f),
-			(client, f) => client.Ingest.GrokProcessorPatternsAsync(f),
-			(client, r) => client.Ingest.GrokProcessorPatterns(r),
-			(client, r) => client.Ingest.GrokProcessorPatternsAsync(r)
-		);
-	}
+        protected override LazyResponses ClientUsage() => Calls(
+            (client, f) => client.Ingest.GrokProcessorPatterns(f),
+            (client, f) => client.Ingest.GrokProcessorPatternsAsync(f),
+            (client, r) => client.Ingest.GrokProcessorPatterns(r),
+            (client, r) => client.Ingest.GrokProcessorPatternsAsync(r)
+        );
+    }
 }

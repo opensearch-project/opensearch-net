@@ -33,62 +33,62 @@ using System.Threading.Tasks;
 
 namespace OpenSearch.Net
 {
-	public interface IRequestPipeline : IDisposable
-	{
-		List<Audit> AuditTrail { get; }
-		bool FirstPoolUsageNeedsSniffing { get; }
-		bool IsTakingTooLong { get; }
-		int MaxRetries { get; }
+    public interface IRequestPipeline : IDisposable
+    {
+        List<Audit> AuditTrail { get; }
+        bool FirstPoolUsageNeedsSniffing { get; }
+        bool IsTakingTooLong { get; }
+        int MaxRetries { get; }
 
-		int Retried { get; }
-		bool SniffsOnConnectionFailure { get; }
-		bool SniffsOnStaleCluster { get; }
-		bool StaleClusterState { get; }
+        int Retried { get; }
+        bool SniffsOnConnectionFailure { get; }
+        bool SniffsOnStaleCluster { get; }
+        bool StaleClusterState { get; }
 
-		DateTime StartedOn { get; }
+        DateTime StartedOn { get; }
 
-		TResponse CallOpenSearch<TResponse>(RequestData requestData)
-			where TResponse : class, IOpenSearchResponse, new();
+        TResponse CallOpenSearch<TResponse>(RequestData requestData)
+            where TResponse : class, IOpenSearchResponse, new();
 
-		Task<TResponse> CallOpenSearchAsync<TResponse>(RequestData requestData, CancellationToken cancellationToken)
-			where TResponse : class, IOpenSearchResponse, new();
+        Task<TResponse> CallOpenSearchAsync<TResponse>(RequestData requestData, CancellationToken cancellationToken)
+            where TResponse : class, IOpenSearchResponse, new();
 
-		void MarkAlive(Node node);
+        void MarkAlive(Node node);
 
-		void MarkDead(Node node);
+        void MarkDead(Node node);
 
-		IEnumerable<Node> NextNode();
+        IEnumerable<Node> NextNode();
 
-		void Ping(Node node);
+        void Ping(Node node);
 
-		Task PingAsync(Node node, CancellationToken cancellationToken);
+        Task PingAsync(Node node, CancellationToken cancellationToken);
 
-		void FirstPoolUsage(SemaphoreSlim semaphore);
+        void FirstPoolUsage(SemaphoreSlim semaphore);
 
-		Task FirstPoolUsageAsync(SemaphoreSlim semaphore, CancellationToken cancellationToken);
+        Task FirstPoolUsageAsync(SemaphoreSlim semaphore, CancellationToken cancellationToken);
 
-		void Sniff();
+        void Sniff();
 
-		Task SniffAsync(CancellationToken cancellationToken);
+        Task SniffAsync(CancellationToken cancellationToken);
 
-		void SniffOnStaleCluster();
+        void SniffOnStaleCluster();
 
-		Task SniffOnStaleClusterAsync(CancellationToken cancellationToken);
+        Task SniffOnStaleClusterAsync(CancellationToken cancellationToken);
 
-		void SniffOnConnectionFailure();
+        void SniffOnConnectionFailure();
 
-		Task SniffOnConnectionFailureAsync(CancellationToken cancellationToken);
+        Task SniffOnConnectionFailureAsync(CancellationToken cancellationToken);
 
-		void BadResponse<TResponse>(ref TResponse response, IApiCallDetails callDetails, RequestData data, OpenSearchClientException exception)
-			where TResponse : class, IOpenSearchResponse, new();
+        void BadResponse<TResponse>(ref TResponse response, IApiCallDetails callDetails, RequestData data, OpenSearchClientException exception)
+            where TResponse : class, IOpenSearchResponse, new();
 
-		void ThrowNoNodesAttempted(RequestData requestData, List<PipelineException> seenExceptions);
+        void ThrowNoNodesAttempted(RequestData requestData, List<PipelineException> seenExceptions);
 
-		void AuditCancellationRequested();
+        void AuditCancellationRequested();
 
-		OpenSearchClientException CreateClientException<TResponse>(TResponse response, IApiCallDetails callDetails, RequestData data,
-			List<PipelineException> seenExceptions
-		)
-			where TResponse : class, IOpenSearchResponse, new();
-	}
+        OpenSearchClientException CreateClientException<TResponse>(TResponse response, IApiCallDetails callDetails, RequestData data,
+            List<PipelineException> seenExceptions
+        )
+            where TResponse : class, IOpenSearchResponse, new();
+    }
 }

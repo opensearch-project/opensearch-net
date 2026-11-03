@@ -30,16 +30,16 @@ using OpenSearch.OpenSearch.Ephemeral;
 
 namespace OpenSearch.OpenSearch.Xunit
 {
-	/// <summary>
-	///     Base class for a cluster that integrates with Xunit tests
-	/// </summary>
-	public abstract class XunitClusterBase(XunitClusterConfiguration configuration)
+    /// <summary>
+    ///     Base class for a cluster that integrates with Xunit tests
+    /// </summary>
+    public abstract class XunitClusterBase(XunitClusterConfiguration configuration)
         : XunitClusterBase<XunitClusterConfiguration>(configuration);
 
-	/// <summary>
-	///     Base class for a cluster that integrates with Xunit tests
-	/// </summary>
-	public abstract class XunitClusterBase<TConfiguration>(TConfiguration configuration)
+    /// <summary>
+    ///     Base class for a cluster that integrates with Xunit tests
+    /// </summary>
+    public abstract class XunitClusterBase<TConfiguration>(TConfiguration configuration)
         : EphemeralCluster<TConfiguration>(configuration)
         where TConfiguration : XunitClusterConfiguration;
 }

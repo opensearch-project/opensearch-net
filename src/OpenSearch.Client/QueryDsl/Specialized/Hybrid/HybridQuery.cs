@@ -20,7 +20,7 @@ namespace OpenSearch.Client;
 [ReadAs(typeof(HybridQuery))]
 public interface IHybridQuery : IQuery
 {
-	[DataMember(Name = "pagination_depth")]
+    [DataMember(Name = "pagination_depth")]
     int? PaginationDepth { get; set; }
 
     [DataMember(Name = "queries")]
@@ -32,8 +32,8 @@ public class HybridQuery : QueryBase, IHybridQuery
 {
     private IList<QueryContainer> _queries;
 
-	/// <inheritdoc />
-	public int? PaginationDepth { get; set; }
+    /// <inheritdoc />
+    public int? PaginationDepth { get; set; }
 
     /// <inheritdoc />
     public IEnumerable<QueryContainer> Queries
@@ -42,31 +42,31 @@ public class HybridQuery : QueryBase, IHybridQuery
         set => _queries = value?.AsInstanceOrToListOrNull();
     }
 
-	protected override bool Conditionless => IsConditionless(this);
+    protected override bool Conditionless => IsConditionless(this);
 
-	internal override void InternalWrapInContainer(IQueryContainer container) => container.Hybrid = this;
+    internal override void InternalWrapInContainer(IQueryContainer container) => container.Hybrid = this;
 
-	internal static bool IsConditionless(IHybridQuery q) => q.Queries.NotWritable();
+    internal static bool IsConditionless(IHybridQuery q) => q.Queries.NotWritable();
 }
 
 public class HybridQueryDescriptor<T>
-	: QueryDescriptorBase<HybridQueryDescriptor<T>, IHybridQuery>,
-		IHybridQuery
-	where T : class
+    : QueryDescriptorBase<HybridQueryDescriptor<T>, IHybridQuery>,
+        IHybridQuery
+    where T : class
 {
     private IList<QueryContainer> _queries;
 
-	protected override bool Conditionless => HybridQuery.IsConditionless(this);
+    protected override bool Conditionless => HybridQuery.IsConditionless(this);
 
-	int? IHybridQuery.PaginationDepth { get; set; }
+    int? IHybridQuery.PaginationDepth { get; set; }
     IEnumerable<QueryContainer> IHybridQuery.Queries
     {
         get => _queries;
         set => _queries = value?.AsInstanceOrToListOrNull();
     }
 
-	/// <inheritdoc cref="IHybridQuery.PaginationDepth" />
-	public HybridQueryDescriptor<T> PaginationDepth(int? paginationDepth) => Assign(paginationDepth, (a, v) => a.PaginationDepth = v);
+    /// <inheritdoc cref="IHybridQuery.PaginationDepth" />
+    public HybridQueryDescriptor<T> PaginationDepth(int? paginationDepth) => Assign(paginationDepth, (a, v) => a.PaginationDepth = v);
 
     /// <inheritdoc cref="IHybridQuery.Queries" />
     public HybridQueryDescriptor<T> Queries(params Func<QueryContainerDescriptor<T>, QueryContainer>[] queries) =>

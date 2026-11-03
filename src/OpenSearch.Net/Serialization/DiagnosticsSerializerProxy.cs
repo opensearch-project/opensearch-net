@@ -36,104 +36,104 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Net
 {
-	public class SerializerRegistrationInformation
-	{
-		private readonly string _stringRepresentation;
+    public class SerializerRegistrationInformation
+    {
+        private readonly string _stringRepresentation;
 
-		public SerializerRegistrationInformation(Type type, string purpose)
-		{
-			TypeInformation = type;
-			Purpose = purpose;
-			_stringRepresentation = $"{Purpose}: {TypeInformation.FullName}";
-		}
-
-
-		public Type TypeInformation { get; }
-
-		/// <summary>
-		/// A string describing the purpose of the serializer emitting this events.
-		/// <para>In `Elastisearch.Net` this will always be "request/response"</para>
-		/// <para>Using `OpenSearch.Client` this could also be `source` allowing you to differentiate between the internal and configured source serializer</para>
-		/// </summary>
-		public string Purpose { get; }
-
-		public override string ToString() => _stringRepresentation;
-	}
-
-	/// <summary>
-	/// Wraps configured serializer so that we can emit diagnostics per configured serializer.
-	/// </summary>
-	internal class DiagnosticsSerializerProxy : IOpenSearchSerializer, IInternalSerializer
-	{
-		private readonly IOpenSearchSerializer _serializer;
-		private readonly bool _wrapsUtf8JsonSerializer;
-		private readonly SerializerRegistrationInformation _state;
-		private readonly IJsonFormatterResolver _formatterResolver;
-		private static DiagnosticSource DiagnosticSource { get; } = new DiagnosticListener(DiagnosticSources.Serializer.SourceName);
-
-		public DiagnosticsSerializerProxy(IOpenSearchSerializer serializer, string purpose = "request/response")
-		{
-			_serializer = serializer;
-			_state = new SerializerRegistrationInformation(serializer.GetType(), purpose);
-			if (serializer is IInternalSerializer s && s.TryGetJsonFormatter(out var formatterResolver))
-			{
-				_formatterResolver = formatterResolver;
-				_wrapsUtf8JsonSerializer = true;
-			}
-			else
-			{
-				_formatterResolver = null;
-				_wrapsUtf8JsonSerializer = false;
-			}
-		}
-
-		public bool TryGetJsonFormatter(out IJsonFormatterResolver formatterResolver)
-		{
-			formatterResolver = _formatterResolver;
-			return _wrapsUtf8JsonSerializer;
-		}
-
-		// The wrapped serializer, so callers (e.g. per-request response builders) can branch on the concrete engine.
-		internal IOpenSearchSerializer InnerSerializer => _serializer;
-
-		public object Deserialize(Type type, Stream stream)
-		{
-			using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Deserialize, _state))
-				return _serializer.Deserialize(type, stream);
-		}
+        public SerializerRegistrationInformation(Type type, string purpose)
+        {
+            TypeInformation = type;
+            Purpose = purpose;
+            _stringRepresentation = $"{Purpose}: {TypeInformation.FullName}";
+        }
 
 
-		public T Deserialize<T>(Stream stream)
-		{
-			using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Deserialize, _state))
-				return _serializer.Deserialize<T>(stream);
-		}
+        public Type TypeInformation { get; }
 
-		public async Task<object> DeserializeAsync(Type type, Stream stream, CancellationToken cancellationToken = default)
-		{
-			using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Deserialize, _state))
-				return await _serializer.DeserializeAsync(type, stream, cancellationToken).ConfigureAwait(false);
-		}
+        /// <summary>
+        /// A string describing the purpose of the serializer emitting this events.
+        /// <para>In `Elastisearch.Net` this will always be "request/response"</para>
+        /// <para>Using `OpenSearch.Client` this could also be `source` allowing you to differentiate between the internal and configured source serializer</para>
+        /// </summary>
+        public string Purpose { get; }
 
-		public async Task<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default)
-		{
-			using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Deserialize, _state))
-				return await _serializer.DeserializeAsync<T>(stream, cancellationToken).ConfigureAwait(false);
-		}
+        public override string ToString() => _stringRepresentation;
+    }
 
-		public void Serialize<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None)
-		{
-			using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Serialize, _state))
-				_serializer.Serialize(data, stream, formatting);
-		}
+    /// <summary>
+    /// Wraps configured serializer so that we can emit diagnostics per configured serializer.
+    /// </summary>
+    internal class DiagnosticsSerializerProxy : IOpenSearchSerializer, IInternalSerializer
+    {
+        private readonly IOpenSearchSerializer _serializer;
+        private readonly bool _wrapsUtf8JsonSerializer;
+        private readonly SerializerRegistrationInformation _state;
+        private readonly IJsonFormatterResolver _formatterResolver;
+        private static DiagnosticSource DiagnosticSource { get; } = new DiagnosticListener(DiagnosticSources.Serializer.SourceName);
 
-		public async Task SerializeAsync<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None,
-			CancellationToken cancellationToken = default
-		)
-		{
-			using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Serialize, _state))
-				await _serializer.SerializeAsync(data, stream, formatting, cancellationToken).ConfigureAwait(false);
-		}
+        public DiagnosticsSerializerProxy(IOpenSearchSerializer serializer, string purpose = "request/response")
+        {
+            _serializer = serializer;
+            _state = new SerializerRegistrationInformation(serializer.GetType(), purpose);
+            if (serializer is IInternalSerializer s && s.TryGetJsonFormatter(out var formatterResolver))
+            {
+                _formatterResolver = formatterResolver;
+                _wrapsUtf8JsonSerializer = true;
+            }
+            else
+            {
+                _formatterResolver = null;
+                _wrapsUtf8JsonSerializer = false;
+            }
+        }
 
-	}
+        public bool TryGetJsonFormatter(out IJsonFormatterResolver formatterResolver)
+        {
+            formatterResolver = _formatterResolver;
+            return _wrapsUtf8JsonSerializer;
+        }
+
+        // The wrapped serializer, so callers (e.g. per-request response builders) can branch on the concrete engine.
+        internal IOpenSearchSerializer InnerSerializer => _serializer;
+
+        public object Deserialize(Type type, Stream stream)
+        {
+            using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Deserialize, _state))
+                return _serializer.Deserialize(type, stream);
+        }
+
+
+        public T Deserialize<T>(Stream stream)
+        {
+            using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Deserialize, _state))
+                return _serializer.Deserialize<T>(stream);
+        }
+
+        public async Task<object> DeserializeAsync(Type type, Stream stream, CancellationToken cancellationToken = default)
+        {
+            using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Deserialize, _state))
+                return await _serializer.DeserializeAsync(type, stream, cancellationToken).ConfigureAwait(false);
+        }
+
+        public async Task<T> DeserializeAsync<T>(Stream stream, CancellationToken cancellationToken = default)
+        {
+            using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Deserialize, _state))
+                return await _serializer.DeserializeAsync<T>(stream, cancellationToken).ConfigureAwait(false);
+        }
+
+        public void Serialize<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None)
+        {
+            using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Serialize, _state))
+                _serializer.Serialize(data, stream, formatting);
+        }
+
+        public async Task SerializeAsync<T>(T data, Stream stream, SerializationFormatting formatting = SerializationFormatting.None,
+            CancellationToken cancellationToken = default
+        )
+        {
+            using (DiagnosticSource.Diagnose(DiagnosticSources.Serializer.Serialize, _state))
+                await _serializer.SerializeAsync(data, stream, formatting, cancellationToken).ConfigureAwait(false);
+        }
+
+    }
 }

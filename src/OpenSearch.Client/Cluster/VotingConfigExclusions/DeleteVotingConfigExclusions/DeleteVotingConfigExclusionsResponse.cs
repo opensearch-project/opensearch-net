@@ -28,7 +28,7 @@
 
 namespace OpenSearch.Client
 {
-	public class DeleteVotingConfigExclusionsResponse : ResponseBase
-	{
-	}
+    public class DeleteVotingConfigExclusionsResponse : ResponseBase
+    {
+    }
 }

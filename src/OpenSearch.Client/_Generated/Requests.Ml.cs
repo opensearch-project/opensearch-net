@@ -87,7 +87,8 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface ICreateConnectorRequest
-        : IRequest<CreateConnectorRequestParameters> { }
+        : IRequest<CreateConnectorRequestParameters>
+    { }
 
     /// <summary>Request for CreateConnector</summary>
     public partial class CreateConnectorRequest
@@ -150,7 +151,8 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface ICreateMemoryContainerRequest
-        : IRequest<CreateMemoryContainerRequestParameters> { }
+        : IRequest<CreateMemoryContainerRequestParameters>
+    { }
 
     /// <summary>Request for CreateMemoryContainer</summary>
     public partial class CreateMemoryContainerRequest
@@ -232,7 +234,8 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface ICreateModelMetaRequest
-        : IRequest<CreateModelMetaRequestParameters> { }
+        : IRequest<CreateModelMetaRequestParameters>
+    { }
 
     /// <summary>Request for CreateModelMeta</summary>
     public partial class CreateModelMetaRequest
@@ -309,7 +312,8 @@ namespace OpenSearch.Client
                 r.Required("memory_container_id", memoryContainerId)
                     .Required("type", type)
                     .Required("id", id)
-            ) { }
+            )
+        { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
@@ -801,7 +805,8 @@ namespace OpenSearch.Client
                 r.Required("memory_container_id", memoryContainerId)
                     .Required("type", type)
                     .Required("id", id)
-            ) { }
+            )
+        { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
@@ -1492,7 +1497,8 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface IRegisterModelGroupRequest
-        : IRequest<RegisterModelGroupRequestParameters> { }
+        : IRequest<RegisterModelGroupRequestParameters>
+    { }
 
     /// <summary>Request for RegisterModelGroup</summary>
     public partial class RegisterModelGroupRequest
@@ -1508,7 +1514,8 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface IRegisterModelMetaRequest
-        : IRequest<RegisterModelMetaRequestParameters> { }
+        : IRequest<RegisterModelMetaRequestParameters>
+    { }
 
     /// <summary>Request for RegisterModelMeta</summary>
     public partial class RegisterModelMetaRequest
@@ -1581,7 +1588,8 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface ISearchConnectorsRequest
-        : IRequest<SearchConnectorsRequestParameters> { }
+        : IRequest<SearchConnectorsRequestParameters>
+    { }
 
     /// <summary>Request for SearchConnectors</summary>
     public partial class SearchConnectorsRequest
@@ -1612,7 +1620,8 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface ISearchMemoryContainerRequest
-        : IRequest<SearchMemoryContainerRequestParameters> { }
+        : IRequest<SearchMemoryContainerRequestParameters>
+    { }
 
     /// <summary>Request for SearchMemoryContainer</summary>
     public partial class SearchMemoryContainerRequest
@@ -1660,7 +1669,8 @@ namespace OpenSearch.Client
 
     [InterfaceDataContract]
     public partial interface ISearchModelGroupRequest
-        : IRequest<SearchModelGroupRequestParameters> { }
+        : IRequest<SearchModelGroupRequestParameters>
+    { }
 
     /// <summary>Request for SearchModelGroup</summary>
     public partial class SearchModelGroupRequest
@@ -1843,7 +1853,8 @@ namespace OpenSearch.Client
                 r.Required("memory_container_id", memoryContainerId)
                     .Required("type", type)
                     .Required("id", id)
-            ) { }
+            )
+        { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
@@ -2115,7 +2126,8 @@ namespace OpenSearch.Client
             : base(r =>
                 r.Required("model_id", modelId)
                     .Required("chunk_number", (Name)(chunkNumber?.ToString()))
-            ) { }
+            )
+        { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]

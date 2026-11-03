@@ -28,5 +28,5 @@
 
 namespace OpenSearch.Client
 {
-	public class PutMappingResponse : IndicesResponseBase { }
+    public class PutMappingResponse : IndicesResponseBase { }
 }
