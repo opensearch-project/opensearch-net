@@ -12,7 +12,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup Condition="'$(TestPackageVersion)'!=''">
-    <PackageReference Include="OpenSearch.Net" Version="$(TestPackageVersion)"/>
+    <PackageReference Include="OpenSearch.Net"/>
   </ItemGroup>
   <ItemGroup Condition="'$(TestPackageVersion)'==''">
     <ProjectReference Include="$(SolutionRoot)\src\OpenSearch.Net\OpenSearch.Net.csproj"/>
