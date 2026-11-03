@@ -90,32 +90,32 @@ namespace OpenSearch.Net
 		/// <param name="httpClient">The client to send requests with. It is not disposed by this connection.</param>
 		public HttpConnection(HttpClient httpClient) : this(CreateProvider(httpClient)) { }
 
-        /// <summary>
-        /// Creates a connection that asks <paramref name="httpClientProvider" /> for the <see cref="HttpClient" /> to send each request with.
-        /// <para>
-        /// The caller owns the returned clients and their handlers, so the handler-level settings this connection would otherwise
-        /// apply in <see cref="CreateHttpClientHandler" /> must be configured on the caller's handler instead:
-        /// <see cref="IConnectionConfigurationValues.EnableHttpCompression" /> (response decompression),
-        /// <see cref="IConnectionConfigurationValues.ConnectionLimit" />, proxy settings, client certificates,
-        /// <see cref="IConnectionConfigurationValues.ServerCertificateValidationCallback" /> and
-        /// <see cref="IConnectionConfigurationValues.DnsRefreshTimeout" /> (handler lifetime). <see cref="CreateDefaultHttpClientHandler" />
-        /// creates a handler configured from the settings. Since this connection creates no handlers, per request
-        /// <see cref="IRequestConfiguration.ClientCertificates" /> are not applied, and neither is an override of
-        /// <see cref="CreateHttpClientHandler" /> in a subclass.
-        /// </para>
-        /// <para>
-        /// Exceptions thrown by the client's handler pipeline, such as a resilience handler's timeout or open circuit, are reported as a
-        /// failed call to the node, so the request fails over to the next node like any other transport failure.
-        /// </para>
-        /// <para>
-        /// <see cref="IConnectionConfigurationValues.RequestTimeout" /> is still honoured per request through cancellation, but the
-        /// client's own <see cref="HttpClient.Timeout" /> applies as well and caps it: a longer request timeout never takes effect. Set
-        /// <see cref="HttpClient.Timeout" /> to <see cref="Timeout.InfiniteTimeSpan" />, or use
-        /// <see cref="HttpConnection(Func{RequestData, HttpMessageHandler})" /> to make the request timeout the only limit.
-        /// </para>
-        /// </summary>
-        /// <param name="httpClientProvider">Returns the client to send a request with. Returned clients are not disposed by this connection.</param>
-        public HttpConnection(Func<RequestData, HttpClient> httpClientProvider) =>
+		/// <summary>
+		/// Creates a connection that asks <paramref name="httpClientProvider" /> for the <see cref="HttpClient" /> to send each request with.
+		/// <para>
+		/// The caller owns the returned clients and their handlers, so the handler-level settings this connection would otherwise
+		/// apply in <see cref="CreateHttpClientHandler" /> must be configured on the caller's handler instead:
+		/// <see cref="IConnectionConfigurationValues.EnableHttpCompression" /> (response decompression),
+		/// <see cref="IConnectionConfigurationValues.ConnectionLimit" />, proxy settings, client certificates,
+		/// <see cref="IConnectionConfigurationValues.ServerCertificateValidationCallback" /> and
+		/// <see cref="IConnectionConfigurationValues.DnsRefreshTimeout" /> (handler lifetime). <see cref="CreateDefaultHttpClientHandler" />
+		/// creates a handler configured from the settings. Since this connection creates no handlers, per request
+		/// <see cref="IRequestConfiguration.ClientCertificates" /> are not applied, and neither is an override of
+		/// <see cref="CreateHttpClientHandler" /> in a subclass.
+		/// </para>
+		/// <para>
+		/// Exceptions thrown by the client's handler pipeline, such as a resilience handler's timeout or open circuit, are reported as a
+		/// failed call to the node, so the request fails over to the next node like any other transport failure.
+		/// </para>
+		/// <para>
+		/// <see cref="IConnectionConfigurationValues.RequestTimeout" /> is still honoured per request through cancellation, but the
+		/// client's own <see cref="HttpClient.Timeout" /> applies as well and caps it: a longer request timeout never takes effect. Set
+		/// <see cref="HttpClient.Timeout" /> to <see cref="Timeout.InfiniteTimeSpan" />, or use
+		/// <see cref="HttpConnection(Func{RequestData, HttpMessageHandler})" /> to make the request timeout the only limit.
+		/// </para>
+		/// </summary>
+		/// <param name="httpClientProvider">Returns the client to send a request with. Returned clients are not disposed by this connection.</param>
+		public HttpConnection(Func<RequestData, HttpClient> httpClientProvider) =>
 			_httpClientProvider = httpClientProvider ?? throw new ArgumentNullException(nameof(httpClientProvider));
 
 		/// <summary>
