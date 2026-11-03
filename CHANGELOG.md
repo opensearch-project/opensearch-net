@@ -4,6 +4,7 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ## [Unreleased]
 ### ⚠️ Breaking Changes ⚠️
 ### Changed
+- Moved NuGet package versions to a central `Directory.Packages.props` using Central Package Management, so each project no longer pins its own package versions ([#1091](https://github.com/opensearch-project/opensearch-net/pull/1091))
 ### Added
 ### Removed
 ### Fixed
