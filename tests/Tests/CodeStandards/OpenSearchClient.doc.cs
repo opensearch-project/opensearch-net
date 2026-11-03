@@ -113,7 +113,7 @@ namespace Tests.CodeStandards
                 var concreteParameters = concreteMethod.GetParameters();
                 var interfaceParameters = interfaceMethodInfo.GetParameters();
 
-                for (int i = 0; i < concreteParameters.Length; i++)
+                for (var i = 0; i < concreteParameters.Length; i++)
                 {
                     var parameterInfo = concreteParameters[i];
                     var interfaceParameter = interfaceParameters[i];

@@ -43,8 +43,7 @@ namespace Tests.Reproduce
                 Sample = (ref ActivityCreationOptions<ActivityContext> _) => ActivitySamplingResult.AllData,
                 ActivityStopped = a =>
                 {
-                    var url = a.TagObjects.FirstOrDefault(t => t.Key == "url.full").Value as string;
-                    if (url != null && url.Contains(marker))
+                    if (a.TagObjects.FirstOrDefault(t => t.Key == "url.full").Value is string url && url.Contains(marker))
                         activities.Add(a);
                 }
             };
@@ -62,11 +61,9 @@ namespace Tests.Reproduce
         }
 
         [U]
-        public void ActivitySourceNameConstantMatchesTheDocumentedName()
-        {
+        public void ActivitySourceNameConstantMatchesTheDocumentedName() =>
             // The source name is the public contract users pass to AddSource(...); guard it against silent change.
             OpenSearchClientActivitySource.ActivitySourceName.Should().Be(SourceName);
-        }
 
         [U]
         public void EmitsActivityWithSemanticConventionTags()

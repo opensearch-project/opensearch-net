@@ -45,16 +45,10 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Write_Bool()
-        {
-            JsonSerializer.Serialize<TrackTotalHits>(true, Options()).Should().Be("true");
-        }
+        public void Write_Bool() => JsonSerializer.Serialize<TrackTotalHits>(true, Options()).Should().Be("true");
 
         [U]
-        public void Write_Long()
-        {
-            JsonSerializer.Serialize<TrackTotalHits>(5000L, Options()).Should().Be("5000");
-        }
+        public void Write_Long() => JsonSerializer.Serialize<TrackTotalHits>(5000L, Options()).Should().Be("5000");
 
         [U]
         public void RoundTrip_Bool()

@@ -42,11 +42,9 @@ namespace Tests.OpenSearch.Client.Serialization
         [U] public void Deserialize_Scripted() => Deserialize("scripted").Should().BeOfType<ScriptedSimilarity>();
 
         [U]
-        public void Deserialize_UnknownType_ReturnsCustomSimilarity()
-        {
+        public void Deserialize_UnknownType_ReturnsCustomSimilarity() =>
             // The legacy formatter treated any unrecognized type as a user-defined CustomSimilarity.
             Deserialize("my_custom_similarity").Should().BeOfType<CustomSimilarity>();
-        }
 
         [U]
         public void Deserialize_MissingType_ReturnsCustomSimilarity()
@@ -73,9 +71,6 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Serialize_Null_WritesNull()
-        {
-            JsonSerializer.Serialize<ISimilarity>(null, Options()).Should().Be("null");
-        }
+        public void Serialize_Null_WritesNull() => JsonSerializer.Serialize<ISimilarity>(null, Options()).Should().Be("null");
     }
 }

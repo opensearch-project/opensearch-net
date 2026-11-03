@@ -57,14 +57,14 @@ using System.Threading;
 namespace OpenSearch.Net
 {
 #if !NETSTANDARD2_1 && !NET6_0_OR_GREATER
-	internal class PollingCounter : IDisposable
-	{
-		// ReSharper disable UnusedParameter.Local
-		public PollingCounter(string largeBuffers, RecyclableMemoryStreamManager.Events eventsWriter, Func<double> func) { }
-		// ReSharper restore UnusedParameter.Local
+    internal class PollingCounter : IDisposable
+    {
+        // ReSharper disable UnusedParameter.Local
+        public PollingCounter(string largeBuffers, RecyclableMemoryStreamManager.Events eventsWriter, Func<double> func) { }
+        // ReSharper restore UnusedParameter.Local
 
-		public void Dispose() {}
-	}
+        public void Dispose() { }
+    }
 #endif
 
     internal sealed partial class RecyclableMemoryStreamManager

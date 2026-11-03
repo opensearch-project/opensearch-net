@@ -75,7 +75,7 @@ namespace Tests.ClientConcepts.Troubleshooting
                     }
                 }
             };
-            var response = this.Client.Search<Project>(request);
+            var response = Client.Search<Project>(request);
 
             response.ApiCall.DeprecationWarnings.Should().NotBeNullOrEmpty();
             response.ApiCall.DeprecationWarnings.Should().HaveCountGreaterThanOrEqualTo(2);

@@ -105,16 +105,10 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Deserialize_Null_ReturnsNull()
-        {
-            Deserialize("null").Should().BeNull();
-        }
+        public void Deserialize_Null_ReturnsNull() => Deserialize("null").Should().BeNull();
 
         [U]
-        public void Serialize_Null_WritesNull()
-        {
-            JsonSerializer.Serialize<IRangeQuery>(null, Options()).Should().Be("null");
-        }
+        public void Serialize_Null_WritesNull() => JsonSerializer.Serialize<IRangeQuery>(null, Options()).Should().Be("null");
 
         [U]
         public void Serialize_ByRuntimeType()

@@ -99,9 +99,6 @@ namespace Tests.ML.GetModelGroup
             }
         }
 
-        protected override void ExpectResponse(GetModelGroupResponse response)
-        {
-            response.Name.Should().NotBeNullOrEmpty();
-        }
+        protected override void ExpectResponse(GetModelGroupResponse response) => response.Name.Should().NotBeNullOrEmpty();
     }
 }

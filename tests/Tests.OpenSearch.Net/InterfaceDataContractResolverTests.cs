@@ -107,10 +107,7 @@ namespace Tests.OpenSearch.Net.Serialization
             private ExplicitCtorBound() { }
 
             [System.Text.Json.Serialization.JsonConstructor]
-            public ExplicitCtorBound(string label)
-            {
-                Label = label;
-            }
+            public ExplicitCtorBound(string label) => Label = label;
 
             public string Label { get; }
         }

@@ -55,9 +55,7 @@ namespace Tests.Framework.EndpointTests
             if (_coordinatedUsage.Skips(name))
                 return;
 
-            var lazyResponses = await ExecuteOnceInOrderUntil(name);
-            if (lazyResponses == null)
-                throw new Exception($"{name} is defined but it yields no LazyResponses object");
+            var lazyResponses = await ExecuteOnceInOrderUntil(name) ?? throw new Exception($"{name} is defined but it yields no LazyResponses object");
 
             await AssertOnAllResponses<TResponse>(name, lazyResponses, (v, r) => assert(r));
         }
@@ -65,18 +63,14 @@ namespace Tests.Framework.EndpointTests
         protected async Task Assert<TResponse>(string name, Action<string, TResponse> assert)
             where TResponse : class, IResponse
         {
-            var lazyResponses = await ExecuteOnceInOrderUntil(name);
-            if (lazyResponses == null)
-                throw new Exception($"{name} is defined but it yields no LazyResponses object");
+            var lazyResponses = await ExecuteOnceInOrderUntil(name) ?? throw new Exception($"{name} is defined but it yields no LazyResponses object");
 
             await AssertOnAllResponses(name, lazyResponses, assert);
         }
 
         protected async Task AssertRunsToCompletion(string name)
         {
-            var lazyResponses = await ExecuteOnceInOrderUntil(name);
-            if (lazyResponses == null)
-                throw new Exception($"{name} is defined but it yields no LazyResponses object");
+            var lazyResponses = await ExecuteOnceInOrderUntil(name) ?? throw new Exception($"{name} is defined but it yields no LazyResponses object");
         }
 
         private async Task AssertOnAllResponses<TResponse>(string name, LazyResponses responses, Action<string, TResponse> assert)

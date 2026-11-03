@@ -74,22 +74,13 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Deserialize_UnknownKey_ReturnsNull()
-        {
-            Deserialize(@"{""unknown"":{}}").Should().BeNull();
-        }
+        public void Deserialize_UnknownKey_ReturnsNull() => Deserialize(@"{""unknown"":{}}").Should().BeNull();
 
         [U]
-        public void Deserialize_Null_ReturnsNull()
-        {
-            Deserialize("null").Should().BeNull();
-        }
+        public void Deserialize_Null_ReturnsNull() => Deserialize("null").Should().BeNull();
 
         [U]
-        public void Deserialize_NonObject_ReturnsNull()
-        {
-            Deserialize("42").Should().BeNull();
-        }
+        public void Deserialize_NonObject_ReturnsNull() => Deserialize("42").Should().BeNull();
 
         [U]
         public void Serialize_Set_WrapsInSetKey()
@@ -101,10 +92,7 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Serialize_Null_WritesNull()
-        {
-            JsonSerializer.Serialize<IProcessor>(null, Options()).Should().Be("null");
-        }
+        public void Serialize_Null_WritesNull() => JsonSerializer.Serialize<IProcessor>(null, Options()).Should().Be("null");
 
         [U]
         public void RoundTrip_Set_PreservesCommonAndSpecificMembers()

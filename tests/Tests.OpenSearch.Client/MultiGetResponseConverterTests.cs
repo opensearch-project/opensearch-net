@@ -87,11 +87,9 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Read_NullRequest_ReturnsNull()
-        {
+        public void Read_NullRequest_ReturnsNull() =>
             // Legacy returned null when the formatter had no request.
             Deserialize(@"{""docs"":[]}", null).Should().BeNull();
-        }
 
         [U]
         public void Read_NoDocsProperty_ReturnsEmptyResponse()

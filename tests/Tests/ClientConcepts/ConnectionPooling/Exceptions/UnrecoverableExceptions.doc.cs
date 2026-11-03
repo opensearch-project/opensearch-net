@@ -132,7 +132,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.Exceptions
             );
         }
 
-        private static byte[] HtmlNginx401Response = Encoding.UTF8.GetBytes(StubResponse.NginxHtml401Response);
+        private static readonly byte[] HtmlNginx401Response = Encoding.UTF8.GetBytes(StubResponse.NginxHtml401Response);
 
         /**
 		 * When a bad authentication response occurs, the client attempts to deserialize the response body returned;

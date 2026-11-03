@@ -47,11 +47,9 @@ namespace Tests.OpenSearch.Client.Serialization
         [U] public void Read_Null_ReturnsNull() => Deserialize("null").Should().BeNull();
 
         [U]
-        public void Roundtrip_Object_IsCompact()
-        {
+        public void Roundtrip_Object_IsCompact() =>
             // Indented input must be re-emitted unindented (compact), matching legacy WriteUnindented.
             Roundtrip("{\n  \"a\": 1,\n  \"b\": [1, 2, 3]\n}").Should().Be(@"{""a"":1,""b"":[1,2,3]}");
-        }
 
         [U] public void Roundtrip_Array() => Roundtrip(@"[1,""two"",true,null]").Should().Be(@"[1,""two"",true,null]");
 

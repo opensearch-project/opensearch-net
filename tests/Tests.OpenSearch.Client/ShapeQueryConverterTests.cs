@@ -112,11 +112,9 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Deserialize_NoShapeOrIndexedShape_ReturnsNull()
-        {
+        public void Deserialize_NoShapeOrIndexedShape_ReturnsNull() =>
             // The legacy formatter returns null when neither shape nor indexed_shape is present.
             Deserialize(@"{""location"":{""relation"":""within""}}").Should().BeNull();
-        }
 
         [U] public void Deserialize_Null_ReturnsNull() => Deserialize("null").Should().BeNull();
 

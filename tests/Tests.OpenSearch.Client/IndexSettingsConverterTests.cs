@@ -138,10 +138,7 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Write_Null_WritesNull()
-        {
-            JsonSerializer.Serialize<IIndexSettings>(null, Options()).Should().Be("null");
-        }
+        public void Write_Null_WritesNull() => JsonSerializer.Serialize<IIndexSettings>(null, Options()).Should().Be("null");
 
         [U]
         public void RoundTrip_KnownAndCustomSettings()

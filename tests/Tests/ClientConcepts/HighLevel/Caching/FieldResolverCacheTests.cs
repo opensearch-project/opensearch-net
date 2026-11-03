@@ -575,8 +575,8 @@ namespace Tests.ClientConcepts.HighLevel.Caching
 
             private readonly FieldInfo _propertyNameComparisonField;
             private readonly FieldInfo _propertyNameTypeField;
-            private FieldInfo _fieldComparisonField;
-            private FieldInfo _fieldTypeField;
+            private readonly FieldInfo _fieldComparisonField;
+            private readonly FieldInfo _fieldTypeField;
 
             public ExpressionExtensions()
             {

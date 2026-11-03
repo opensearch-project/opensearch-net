@@ -52,7 +52,7 @@ namespace OpenSearch.Client.JsonNetSerializer.Converters
         };
 
         private readonly IOpenSearchSerializer _builtInSerializer;
-        private IMemoryStreamFactory _memoryStreamFactory;
+        private readonly IMemoryStreamFactory _memoryStreamFactory;
 
         public HandleOscTypesOnSourceJsonConverter(IOpenSearchSerializer builtInSerializer, IMemoryStreamFactory memoryStreamFactory
         )

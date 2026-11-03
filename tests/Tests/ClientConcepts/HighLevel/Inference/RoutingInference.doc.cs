@@ -72,7 +72,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		* The real power of the `Routing` is in the inference rules (the default inferred routing for an object will be null).
 		* Lets look at an example of this given the following POCO:
 		*/
-        class MyDTO
+        private class MyDTO
         {
             public Guid Routing { get; set; }
             public string Name { get; set; }
@@ -123,7 +123,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		* The name of this property can be anything. Be sure the read the <<parent-child-relationships, section on Parent/Child relationships>> to get a complete
 		 * walkthrough on using Parent Child joins with OSC.
 		*/
-        class MyOtherDTO
+        private class MyOtherDTO
         {
             public JoinField SomeJoinField { get; set; }
             public Guid Id { get; set; }
@@ -169,7 +169,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
                 )
             ).Expect("y").WhenInferringRoutingOn(dto);
         }
-        class BadDTO
+        private class BadDTO
         {
             public JoinField SomeJoinField { get; set; }
             public JoinField AnotherJoinField { get; set; }

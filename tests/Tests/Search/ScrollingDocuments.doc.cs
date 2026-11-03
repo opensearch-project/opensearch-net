@@ -88,7 +88,7 @@ namespace Tests.Search
         [I]
         public void SimpleScrollAllObservable()
         {
-            int numberOfSlices = Environment.ProcessorCount; // <1> See documentation for choosing an appropriate number of slices.
+            var numberOfSlices = Environment.ProcessorCount; // <1> See documentation for choosing an appropriate number of slices.
 
             var scrollAllObservable = Client.ScrollAll<Project>("10s", numberOfSlices, sc => sc
                 .MaxDegreeOfParallelism(numberOfSlices) // <2> Number of concurrent sliced scroll requests. Usually want to set this to the same value as the number of slices
@@ -112,7 +112,7 @@ namespace Tests.Search
         [I]
         public void ComplexScrollAllObservable()
         {
-            int numberOfSlices = Environment.ProcessorCount;
+            var numberOfSlices = Environment.ProcessorCount;
 
             var scrollAllObservable = Client.ScrollAll<Project>("10s", numberOfSlices, sc => sc
                 .MaxDegreeOfParallelism(numberOfSlices)

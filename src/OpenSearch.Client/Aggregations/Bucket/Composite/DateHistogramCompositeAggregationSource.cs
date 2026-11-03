@@ -48,13 +48,13 @@ namespace OpenSearch.Client
         /// The calendar interval to use when bucketing documents
         /// </summary>
         [DataMember(Name = "calendar_interval")]
-Union<DateInterval?, DateMathTime> CalendarInterval { get; set; }
+        Union<DateInterval?, DateMathTime> CalendarInterval { get; set; }
 
         /// <summary>
         /// The fixed interval to use when bucketing documents
         /// </summary>
         [DataMember(Name = "fixed_interval")]
-Time FixedInterval { get; set; }
+        Time FixedInterval { get; set; }
 
         /// <summary>
         /// Used to indicate that bucketing should use a different time zone.

@@ -26,30 +26,19 @@ namespace Tests.OpenSearch.Net.Serialization
         }
 
         [U]
-        public void Read_Number_ReturnsInt()
-        {
-            JsonSerializer.Deserialize<int?>("42", Options()).Should().Be(42);
-        }
+        public void Read_Number_ReturnsInt() => JsonSerializer.Deserialize<int?>("42", Options()).Should().Be(42);
 
         [U]
-        public void Read_NumericString_ReturnsInt()
-        {
-            JsonSerializer.Deserialize<int?>(@"""42""", Options()).Should().Be(42);
-        }
+        public void Read_NumericString_ReturnsInt() => JsonSerializer.Deserialize<int?>(@"""42""", Options()).Should().Be(42);
 
         [U]
-        public void Read_Null_ReturnsNull()
-        {
-            JsonSerializer.Deserialize<int?>("null", Options()).Should().BeNull();
-        }
+        public void Read_Null_ReturnsNull() => JsonSerializer.Deserialize<int?>("null", Options()).Should().BeNull();
 
         [U]
-        public void Read_EmptyString_ReturnsNull()
-        {
+        public void Read_EmptyString_ReturnsNull() =>
             // NOTE: intentional behaviour change from the legacy Utf8Json formatter, which threw on "".
             // The System.Text.Json converter treats an empty string as null.
             JsonSerializer.Deserialize<int?>(@"""""", Options()).Should().BeNull();
-        }
 
         [U]
         public void Read_NonNumericString_Throws()
@@ -59,15 +48,9 @@ namespace Tests.OpenSearch.Net.Serialization
         }
 
         [U]
-        public void Write_Value_WritesNumber()
-        {
-            JsonSerializer.Serialize<int?>(7, Options()).Should().Be("7");
-        }
+        public void Write_Value_WritesNumber() => JsonSerializer.Serialize<int?>(7, Options()).Should().Be("7");
 
         [U]
-        public void Write_Null_WritesNull()
-        {
-            JsonSerializer.Serialize<int?>(null, Options()).Should().Be("null");
-        }
+        public void Write_Null_WritesNull() => JsonSerializer.Serialize<int?>(null, Options()).Should().Be("null");
     }
 }

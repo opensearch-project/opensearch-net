@@ -1270,7 +1270,7 @@ namespace OpenSearch.Net.Utf8Json.Resolvers
 #if NET5_0_OR_GREATER
             public static readonly MethodInfo GetUninitializedObject = ExpressionUtility.GetMethodInfo(() => System.Runtime.CompilerServices.RuntimeHelpers.GetUninitializedObject(default(Type)));
 #else
-			public static readonly MethodInfo GetUninitializedObject = ExpressionUtility.GetMethodInfo(() => System.Runtime.Serialization.FormatterServices.GetUninitializedObject(default(Type)));
+            public static readonly MethodInfo GetUninitializedObject = ExpressionUtility.GetMethodInfo(() => System.Runtime.Serialization.FormatterServices.GetUninitializedObject(default(Type)));
 #endif
 
             public static readonly MethodInfo GetTypeMethod = ExpressionUtility.GetMethodInfo((object o) => o.GetType());

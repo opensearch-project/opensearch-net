@@ -554,7 +554,7 @@ namespace OpenSearch.Net
                     await stream.DisposeAsync().ConfigureAwait(false);
 
 #else
-						stream.Dispose();
+                    stream.Dispose();
 #endif
                 }
                 else

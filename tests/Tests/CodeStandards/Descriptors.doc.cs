@@ -111,8 +111,7 @@ namespace Tests.CodeStandards
                     ? first.GetGenericTypeDefinition()
                     : first;
 
-                Type value;
-                if (!exclusions.TryGetValue(key, out value))
+                if (!exclusions.TryGetValue(key, out var value))
                     return false;
 
                 return second.IsGenericType
@@ -169,9 +168,7 @@ namespace Tests.CodeStandards
                 var descriptor = descriptors.First(d => query.IsAssignableFrom(d));
                 foreach (var boolProperty in query.GetProperties().Where(p => p.PropertyType == typeof(bool?)))
                 {
-                    var descriptorMethod = descriptor.GetMethod(boolProperty.Name);
-                    if (descriptorMethod == null)
-                        throw new Exception($"No method for property {boolProperty.Name} on {descriptor.Name}");
+                    var descriptorMethod = descriptor.GetMethod(boolProperty.Name) ?? throw new Exception($"No method for property {boolProperty.Name} on {descriptor.Name}");
 
                     var parameters = descriptorMethod.GetParameters();
 

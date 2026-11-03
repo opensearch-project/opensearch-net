@@ -79,7 +79,7 @@ namespace OpenSearch.Net.VirtualizedCluster.MockResponses
 
             var nodeResponse = new
             {
-                name = name,
+                name,
                 transport_address = $"127.0.0.1:{port + 1000}]",
                 host = Guid.NewGuid().ToString("N").Substring(0, 8),
                 ip = "127.0.0.1",
@@ -97,7 +97,7 @@ namespace OpenSearch.Net.VirtualizedCluster.MockResponses
                         publish_address = $"{fqdn}{host}:{port}"
                     }
                     : null,
-                settings = settings
+                settings
             };
             if (node.ClusterManagerEligible)
                 nodeResponse.roles.Add("cluster_manager");

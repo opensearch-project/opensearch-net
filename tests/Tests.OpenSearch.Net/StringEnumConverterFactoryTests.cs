@@ -38,47 +38,27 @@ namespace Tests.OpenSearch.Net.Serialization
         }
 
         [U]
-        public void Write_UsesVerbatimFieldName()
-        {
-            JsonSerializer.Serialize(Color.DarkBlue, Options()).Should().Be(@"""DarkBlue""");
-        }
+        public void Write_UsesVerbatimFieldName() => JsonSerializer.Serialize(Color.DarkBlue, Options()).Should().Be(@"""DarkBlue""");
 
         [U]
-        public void Write_UsesEnumMemberValue()
-        {
-            JsonSerializer.Serialize(Color.Green, Options()).Should().Be(@"""bright-green""");
-        }
+        public void Write_UsesEnumMemberValue() => JsonSerializer.Serialize(Color.Green, Options()).Should().Be(@"""bright-green""");
 
         [U]
-        public void Read_SerializedName()
-        {
-            JsonSerializer.Deserialize<Color>(@"""darkBlue""", Options()).Should().Be(Color.DarkBlue);
-        }
+        public void Read_SerializedName() => JsonSerializer.Deserialize<Color>(@"""darkBlue""", Options()).Should().Be(Color.DarkBlue);
 
         [U]
-        public void Read_EnumMemberValue()
-        {
-            JsonSerializer.Deserialize<Color>(@"""bright-green""", Options()).Should().Be(Color.Green);
-        }
+        public void Read_EnumMemberValue() => JsonSerializer.Deserialize<Color>(@"""bright-green""", Options()).Should().Be(Color.Green);
 
         [U]
-        public void Read_IsCaseInsensitive()
-        {
-            JsonSerializer.Deserialize<Color>(@"""DARKBLUE""", Options()).Should().Be(Color.DarkBlue);
-        }
+        public void Read_IsCaseInsensitive() => JsonSerializer.Deserialize<Color>(@"""DARKBLUE""", Options()).Should().Be(Color.DarkBlue);
 
         [U]
-        public void Read_RawFieldName()
-        {
-            JsonSerializer.Deserialize<Color>(@"""Red""", Options()).Should().Be(Color.Red);
-        }
+        public void Read_RawFieldName() => JsonSerializer.Deserialize<Color>(@"""Red""", Options()).Should().Be(Color.Red);
 
         [U]
-        public void Read_NumericValue()
-        {
+        public void Read_NumericValue() =>
             // Green is the second member (index 1).
             JsonSerializer.Deserialize<Color>("1", Options()).Should().Be(Color.Green);
-        }
 
         [U]
         public void Read_UnknownString_Throws()
@@ -88,10 +68,7 @@ namespace Tests.OpenSearch.Net.Serialization
         }
 
         [U]
-        public void Nullable_Null_ReturnsNull()
-        {
-            JsonSerializer.Deserialize<Color?>("null", Options()).Should().BeNull();
-        }
+        public void Nullable_Null_ReturnsNull() => JsonSerializer.Deserialize<Color?>("null", Options()).Should().BeNull();
 
         [U]
         public void Nullable_Value_RoundTrips()

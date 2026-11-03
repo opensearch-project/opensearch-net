@@ -73,8 +73,8 @@ namespace Tests.ClientConcepts.ConnectionPooling.RoundRobin
             var staticPool = new StaticConnectionPool(uris, randomize: false);
             var sniffingPool = new SniffingConnectionPool(uris, randomize: false);
 
-            this.AssertCreateView(staticPool);
-            this.AssertCreateView(sniffingPool);
+            AssertCreateView(staticPool);
+            AssertCreateView(sniffingPool);
         }
 
         private void AssertCreateView(IConnectionPool pool)

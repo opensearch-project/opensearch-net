@@ -53,10 +53,7 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Deserialize_FromString()
-        {
-            Deserialize<TimeSpan>("\"00:05:00\"").Should().Be(TimeSpan.FromMinutes(5));
-        }
+        public void Deserialize_FromString() => Deserialize<TimeSpan>("\"00:05:00\"").Should().Be(TimeSpan.FromMinutes(5));
 
         [U]
         public void Deserialize_FromUnexpectedToken_Throws()
@@ -95,16 +92,10 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Nullable_Deserialize_Null()
-        {
-            Deserialize<TimeSpan?>("null").Should().BeNull();
-        }
+        public void Nullable_Deserialize_Null() => Deserialize<TimeSpan?>("null").Should().BeNull();
 
         [U]
-        public void Nullable_Deserialize_FromString()
-        {
-            Deserialize<TimeSpan?>("\"01:00:00\"").Should().Be(TimeSpan.FromHours(1));
-        }
+        public void Nullable_Deserialize_FromString() => Deserialize<TimeSpan?>("\"01:00:00\"").Should().Be(TimeSpan.FromHours(1));
 
         [U]
         public void Nullable_RoundTrips_Value()

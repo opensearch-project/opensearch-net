@@ -78,9 +78,7 @@ namespace Tests.Mapping.LocalMetadata
         public static TDescriptor AddTestLocalMetadata<TDescriptor>(this TDescriptor descriptor)
             where TDescriptor : IDescriptor
         {
-            var propertyDescriptor = descriptor as IProperty;
-
-            if (propertyDescriptor == null)
+            if (descriptor is not IProperty propertyDescriptor)
                 return descriptor;
 
             if (propertyDescriptor.LocalMetadata == null)

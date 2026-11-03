@@ -38,11 +38,9 @@ namespace Tests.OpenSearch.Client.Serialization
         [U] public void Deserialize_DelimitedPayload() => Deserialize("delimited_payload").Should().BeOfType<DelimitedPayloadTokenFilter>();
 
         [U]
-        public void Deserialize_DelimitedPayload_ByAlias()
-        {
+        public void Deserialize_DelimitedPayload_ByAlias() =>
             // The legacy formatter mapped both "delimited_payload" and "delimited_payload_filter" to the same type.
             Deserialize("delimited_payload_filter").Should().BeOfType<DelimitedPayloadTokenFilter>();
-        }
 
         [U] public void Deserialize_DictionaryDecompounder() => Deserialize("dictionary_decompounder").Should().BeOfType<DictionaryDecompounderTokenFilter>();
         [U] public void Deserialize_EdgeNGram() => Deserialize("edge_ngram").Should().BeOfType<EdgeNGramTokenFilter>();
@@ -89,10 +87,7 @@ namespace Tests.OpenSearch.Client.Serialization
         [U] public void Deserialize_PredicateTokenFilter() => Deserialize("predicate_token_filter").Should().BeOfType<PredicateTokenFilter>();
 
         [U]
-        public void Deserialize_UnknownType_ReturnsNull()
-        {
-            Deserialize("does_not_exist").Should().BeNull();
-        }
+        public void Deserialize_UnknownType_ReturnsNull() => Deserialize("does_not_exist").Should().BeNull();
 
         [U]
         public void Deserialize_MissingType_ReturnsNull()
@@ -119,9 +114,6 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Serialize_Null_WritesNull()
-        {
-            JsonSerializer.Serialize<ITokenFilter>(null, Options()).Should().Be("null");
-        }
+        public void Serialize_Null_WritesNull() => JsonSerializer.Serialize<ITokenFilter>(null, Options()).Should().Be("null");
     }
 }

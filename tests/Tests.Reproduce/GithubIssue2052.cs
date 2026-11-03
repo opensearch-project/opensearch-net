@@ -108,10 +108,10 @@ namespace Tests.Reproduce
                 yield return new
                 {
                     // ReSharper disable RedundantAnonymousTypePropertyName
-                    depth = depth,
-                    source = source,
-                    remoteStackIndex = remoteStackIndex,
-                    className = className,
+                    depth,
+                    source,
+                    remoteStackIndex,
+                    className,
                     // ReSharper restore RedundantAnonymousTypePropertyName
                     message = e.Message,
                     stackTraceString = stackTrace,

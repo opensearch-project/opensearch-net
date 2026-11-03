@@ -45,10 +45,7 @@ namespace Tests.OpenSearch.Client.Serialization
             JsonDocument.Parse(JsonSerializer.Serialize(value, Options())).RootElement;
 
         [U]
-        public void Write_Null_WritesNull()
-        {
-            JsonSerializer.Serialize<ISourceOnlyRepository>(null, Options()).Should().Be("null");
-        }
+        public void Write_Null_WritesNull() => JsonSerializer.Serialize<ISourceOnlyRepository>(null, Options()).Should().Be("null");
 
         [U]
         public void Write_EmptyDelegateType_WritesNull()
@@ -102,10 +99,7 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Read_NoSettings_ReturnsNull()
-        {
-            Deserialize(@"{""type"":""source""}").Should().BeNull();
-        }
+        public void Read_NoSettings_ReturnsNull() => Deserialize(@"{""type"":""source""}").Should().BeNull();
 
         [U]
         public void Read_FsDelegate_DispatchesSettings()

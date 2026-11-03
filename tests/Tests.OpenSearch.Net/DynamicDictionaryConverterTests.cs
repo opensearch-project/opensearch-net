@@ -82,10 +82,7 @@ namespace Tests.OpenSearch.Net.Serialization
         }
 
         [U]
-        public void Write_Null_WritesNull()
-        {
-            JsonSerializer.Serialize<DynamicDictionary>(null, Options()).Should().Be("null");
-        }
+        public void Write_Null_WritesNull() => JsonSerializer.Serialize<DynamicDictionary>(null, Options()).Should().Be("null");
 
         // A fractional value that happens to be integral (e.g. 3.0) must round-trip with its trailing ".0" preserved.
         // System.Text.Json's WriteNumberValue(double) would emit "3", breaking dynamic response comparisons such as the

@@ -61,7 +61,7 @@ namespace Tests.ClientConcepts.HighLevel.CovariantHits
         [U]
         public void CanDeserializeHits()
         {
-            var result = this._client.Search<C>(s => s
+            var result = _client.Search<C>(s => s
                 .Size(100)
             );
             result.ApiCall.Should().NotBeNull();

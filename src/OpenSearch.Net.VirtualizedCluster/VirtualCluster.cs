@@ -78,10 +78,7 @@ namespace OpenSearch.Net.VirtualizedCluster
         }
 
         [Obsolete("Use ClusterManagerEligible instead", false)]
-        public VirtualCluster MasterEligible(params int[] ports)
-        {
-            return ClusterManagerEligible(ports);
-        }
+        public VirtualCluster MasterEligible(params int[] ports) => ClusterManagerEligible(ports);
 
         public VirtualCluster StoresNoData(params int[] ports)
         {

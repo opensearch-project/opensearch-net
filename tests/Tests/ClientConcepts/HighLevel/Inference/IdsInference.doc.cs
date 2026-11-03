@@ -74,7 +74,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		*
 		* Imagine your codebase has the following type that we want to index into OpenSearch
 		*/
-        class MyDTO
+        private class MyDTO
         {
             public Guid Id { get; set; }
             public string Name { get; set; }
@@ -134,7 +134,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		* to the name of the property that should be used for the document id
 		*/
         [OpenSearchType(IdProperty = nameof(Name))]
-        class MyOtherDTO
+        private class MyOtherDTO
         {
             public Guid Id { get; set; }
             public string Name { get; set; }

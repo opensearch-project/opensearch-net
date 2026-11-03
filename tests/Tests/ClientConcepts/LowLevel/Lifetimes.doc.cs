@@ -71,7 +71,7 @@ namespace Tests.ClientConcepts.LowLevel
 
             protected override void DisposeManagedResources()
             {
-                this.IsDisposed = true;
+                IsDisposed = true;
                 base.DisposeManagedResources();
             }
         }
@@ -84,7 +84,7 @@ namespace Tests.ClientConcepts.LowLevel
 
             protected override void DisposeManagedResources()
             {
-                this.IsDisposed = true;
+                IsDisposed = true;
                 base.DisposeManagedResources();
             }
         }
@@ -95,7 +95,7 @@ namespace Tests.ClientConcepts.LowLevel
 
             protected override void DisposeManagedResources()
             {
-                this.IsDisposed = true;
+                IsDisposed = true;
                 base.DisposeManagedResources();
             }
         }

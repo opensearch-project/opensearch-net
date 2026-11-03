@@ -141,11 +141,9 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void SettingsAwareConverter_IndexName_UsesInferrer()
-        {
+        public void SettingsAwareConverter_IndexName_UsesInferrer() =>
             // IndexName is resolved through the settings Inferrer and serialized as a bare string by IndexNameConverter.
             Serialize<IndexName>("my-index").Should().Be(@"""my-index""");
-        }
 
         [U]
         public void SettingsAwareConverter_Indices_SerializedByMultiSyntaxConverter()

@@ -56,8 +56,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference.Equality
             foreach (var t in notEqual)
             {
                 (t != name).ShouldBeTrue(t);
-                if (t != null)
-                    t.Should().NotBeEquivalentTo(name);
+                t?.Should().NotBeEquivalentTo(name);
             }
         }
 

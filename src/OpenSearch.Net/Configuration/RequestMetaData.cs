@@ -49,11 +49,11 @@ namespace OpenSearch.Net
 #if NETSTANDARD2_1 || NET6_0_OR_GREATER
             return _metaDataItems.TryAdd(key, value);
 #else
-			if (_metaDataItems.ContainsKey(key))
-				return false;
+            if (_metaDataItems.ContainsKey(key))
+                return false;
 
-			_metaDataItems.Add(key, value);
-			return true;
+            _metaDataItems.Add(key, value);
+            return true;
 #endif
         }
 

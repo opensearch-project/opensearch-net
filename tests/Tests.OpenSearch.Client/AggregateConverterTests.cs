@@ -298,22 +298,13 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void EmptyObject_ReturnsNull()
-        {
-            Deserialize(@"{}").Should().BeNull();
-        }
+        public void EmptyObject_ReturnsNull() => Deserialize(@"{}").Should().BeNull();
 
         [U]
-        public void MetaOnly_ReturnsNull()
-        {
-            Deserialize(@"{""meta"":{""foo"":""bar""}}").Should().BeNull();
-        }
+        public void MetaOnly_ReturnsNull() => Deserialize(@"{""meta"":{""foo"":""bar""}}").Should().BeNull();
 
         [U]
-        public void Null_ReturnsNull()
-        {
-            Deserialize("null").Should().BeNull();
-        }
+        public void Null_ReturnsNull() => Deserialize("null").Should().BeNull();
 
         [U]
         public void Write_Throws()

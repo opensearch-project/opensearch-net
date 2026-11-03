@@ -194,10 +194,10 @@ namespace Tests.CommonOptions.TimeUnit
         private class StringParsingTestCases : List<Tuple<string, TimeSpan, string>>
         {
             public void Add(string original, TimeSpan expect, string toString) =>
-                this.Add(Tuple.Create(original, expect, toString));
+                Add(Tuple.Create(original, expect, toString));
 
             public void Add(string bad, string argumentExceptionContains) =>
-                this.Add(Tuple.Create(bad, TimeSpan.FromDays(1), argumentExceptionContains));
+                Add(Tuple.Create(bad, TimeSpan.FromDays(1), argumentExceptionContains));
         }
 
         // hide
@@ -254,7 +254,7 @@ namespace Tests.CommonOptions.TimeUnit
         private class DoubleParsingTestCases : List<Tuple<double, TimeSpan, string>>
         {
             public void Add(double original, TimeSpan expect, string toString) =>
-                this.Add(Tuple.Create(original, expect, toString));
+                Add(Tuple.Create(original, expect, toString));
         }
 
         // hide

@@ -52,7 +52,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 	 */
     public class VisitorPattern
     {
-        private IOpenSearchClient client = TestClient.DisabledStreaming;
+        private readonly IOpenSearchClient client = TestClient.DisabledStreaming;
 
         /**
 		* Using the following POCO
@@ -77,18 +77,12 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
             public override void Visit(
                 INumberProperty type,
                 PropertyInfo propertyInfo,
-                OpenSearchPropertyAttributeBase attribute) //<1> Override the `Visit` method on `INumberProperty` and set `DocValues = false`
-            {
-                type.DocValues = false;
-            }
+                OpenSearchPropertyAttributeBase attribute) => type.DocValues = false; //<1> Override the `Visit` method on `INumberProperty` and set `DocValues = false`
 
             public override void Visit(
                 IBooleanProperty type,
                 PropertyInfo propertyInfo,
-                OpenSearchPropertyAttributeBase attribute) //<2> Similarily, override the `Visit` method on `IBooleanProperty` and set `DocValues = false`
-            {
-                type.DocValues = false;
-            }
+                OpenSearchPropertyAttributeBase attribute) => type.DocValues = false; //<2> Similarily, override the `Visit` method on `IBooleanProperty` and set `DocValues = false`
         }
 
         [U]
@@ -244,10 +238,7 @@ namespace Tests.ClientConcepts.HighLevel.Mapping
 
         public class IgnoreInheritedPropertiesVisitor<T> : NoopPropertyVisitor
         {
-            public override bool SkipProperty(PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute)
-            {
-                return propertyInfo?.DeclaringType != typeof(T);
-            }
+            public override bool SkipProperty(PropertyInfo propertyInfo, OpenSearchPropertyAttributeBase attribute) => propertyInfo?.DeclaringType != typeof(T);
         }
 
         [U]

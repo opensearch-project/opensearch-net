@@ -77,43 +77,26 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Deserialize_UnknownString_ReturnsNull()
-        {
+        public void Deserialize_UnknownString_ReturnsNull() =>
             // Legacy formatter returned null for an unrecognised string.
             Deserialize(@"""nonsense""").Should().BeNull();
-        }
 
         [U]
-        public void Deserialize_Null_ReturnsNull()
-        {
-            Deserialize("null").Should().BeNull();
-        }
+        public void Deserialize_Null_ReturnsNull() => Deserialize("null").Should().BeNull();
 
         // --- Write ---
 
         [U]
-        public void Serialize_BoolTrue_WritesBoolean()
-        {
-            Serialize(new Union<bool, DynamicMapping>(true)).Should().Be("true");
-        }
+        public void Serialize_BoolTrue_WritesBoolean() => Serialize(new Union<bool, DynamicMapping>(true)).Should().Be("true");
 
         [U]
-        public void Serialize_BoolFalse_WritesBoolean()
-        {
-            Serialize(new Union<bool, DynamicMapping>(false)).Should().Be("false");
-        }
+        public void Serialize_BoolFalse_WritesBoolean() => Serialize(new Union<bool, DynamicMapping>(false)).Should().Be("false");
 
         [U]
-        public void Serialize_Strict_WritesEnumString()
-        {
-            Serialize(new Union<bool, DynamicMapping>(DynamicMapping.Strict)).Should().Be(@"""strict""");
-        }
+        public void Serialize_Strict_WritesEnumString() => Serialize(new Union<bool, DynamicMapping>(DynamicMapping.Strict)).Should().Be(@"""strict""");
 
         [U]
-        public void Serialize_Null_WritesNull()
-        {
-            Serialize(null).Should().Be("null");
-        }
+        public void Serialize_Null_WritesNull() => Serialize(null).Should().Be("null");
 
         // --- Round-trip ---
 

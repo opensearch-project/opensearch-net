@@ -51,7 +51,7 @@ namespace Tests.CommonOptions.Union
 	 */
     public class Union
     {
-        private IOpenSearchSerializer serializer = TestClient.DefaultInMemoryClient.RequestResponseSerializer;
+        private readonly IOpenSearchSerializer serializer = TestClient.DefaultInMemoryClient.RequestResponseSerializer;
 
         /**
 		 * ==== Implicit conversion

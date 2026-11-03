@@ -86,9 +86,9 @@ namespace OpenSearch.Net
             e.GetObjectData(si, sc);
 #pragma warning restore SYSLIB0051 // Type or member is obsolete
 #else
-			var si = new SerializationInfo(e.GetType(), new FormatterConverter());
-			var sc = new StreamingContext();
-			e.GetObjectData(si, sc);
+            var si = new SerializationInfo(e.GetType(), new FormatterConverter());
+            var sc = new StreamingContext();
+            e.GetObjectData(si, sc);
 #endif
             var helpUrl = si.GetString("HelpURL");
             var stackTrace = si.GetString("StackTraceString");

@@ -66,39 +66,21 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Deserialize_Null_ReturnsNull()
-        {
-            JsonSerializer.Deserialize<IFuzziness>("null", Options()).Should().BeNull();
-        }
+        public void Deserialize_Null_ReturnsNull() => JsonSerializer.Deserialize<IFuzziness>("null", Options()).Should().BeNull();
 
         [U]
-        public void Serialize_Auto()
-        {
-            JsonSerializer.Serialize<IFuzziness>(Fuzziness.Auto, Options()).Should().Be(@"""AUTO""");
-        }
+        public void Serialize_Auto() => JsonSerializer.Serialize<IFuzziness>(Fuzziness.Auto, Options()).Should().Be(@"""AUTO""");
 
         [U]
-        public void Serialize_AutoLength()
-        {
-            JsonSerializer.Serialize<IFuzziness>(Fuzziness.AutoLength(3, 6), Options()).Should().Be(@"""AUTO:3,6""");
-        }
+        public void Serialize_AutoLength() => JsonSerializer.Serialize<IFuzziness>(Fuzziness.AutoLength(3, 6), Options()).Should().Be(@"""AUTO:3,6""");
 
         [U]
-        public void Serialize_EditDistance()
-        {
-            JsonSerializer.Serialize<IFuzziness>(Fuzziness.EditDistance(2), Options()).Should().Be("2");
-        }
+        public void Serialize_EditDistance() => JsonSerializer.Serialize<IFuzziness>(Fuzziness.EditDistance(2), Options()).Should().Be("2");
 
         [U]
-        public void Serialize_Ratio()
-        {
-            JsonSerializer.Serialize<IFuzziness>(Fuzziness.Ratio(0.5), Options()).Should().Be("0.5");
-        }
+        public void Serialize_Ratio() => JsonSerializer.Serialize<IFuzziness>(Fuzziness.Ratio(0.5), Options()).Should().Be("0.5");
 
         [U]
-        public void Serialize_Null_WritesNull()
-        {
-            JsonSerializer.Serialize<IFuzziness>(null, Options()).Should().Be("null");
-        }
+        public void Serialize_Null_WritesNull() => JsonSerializer.Serialize<IFuzziness>(null, Options()).Should().Be("null");
     }
 }

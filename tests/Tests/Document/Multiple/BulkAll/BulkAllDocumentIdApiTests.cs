@@ -75,10 +75,7 @@ namespace Tests.Document.Multiple.BulkAll
 
         private readonly struct RunResult
         {
-            public RunResult(Exception error)
-            {
-                Error = error;
-            }
+            public RunResult(Exception error) => Error = error;
 
             public Exception Error { get; }
         }

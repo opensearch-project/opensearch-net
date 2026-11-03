@@ -121,19 +121,16 @@ namespace Tests.ClientConcepts.HighLevel.Indexing
 		*
 		* For large bulk requests, it could be prudent to increase the default indexing timeout to avoid exceptions.
 		*/
-        public void IncreasingTimeouts()
-        {
-            client.Bulk(b => b
-                .Index("people")
-                .Pipeline("person-pipeline")
-                .Timeout("5m") //<1> increases the server-side bulk timeout
-                .Index<Person>(/*snip*/)
-                .Index<Person>(/*snip*/)
-                .Index<Person>(/*snip*/)
-                .RequestConfiguration(rc => rc
-                    .RequestTimeout(TimeSpan.FromMinutes(5)) //<2> increases the HTTP request timeout
-                )
+        public void IncreasingTimeouts() => client.Bulk(b => b
+                                                         .Index("people")
+                                                         .Pipeline("person-pipeline")
+                                                         .Timeout("5m") //<1> increases the server-side bulk timeout
+                                                         .Index<Person>(/*snip*/)
+                                                         .Index<Person>(/*snip*/)
+                                                         .Index<Person>(/*snip*/)
+                                                         .RequestConfiguration(rc => rc
+                                                             .RequestTimeout(TimeSpan.FromMinutes(5)) //<2> increases the HTTP request timeout
+                                                         )
             );
-        }
     }
 }

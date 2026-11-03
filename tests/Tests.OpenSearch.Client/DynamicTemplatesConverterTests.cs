@@ -43,12 +43,17 @@ namespace Tests.OpenSearch.Client.Serialization
 
         private static DynamicTemplateContainer SampleContainer()
         {
-            var container = new DynamicTemplateContainer();
-            container.Add("strings", new DynamicTemplate
+            var container = new DynamicTemplateContainer
             {
-                Match = "*",
-                MatchMappingType = "string"
-            });
+                {
+                    "strings",
+                    new DynamicTemplate
+                    {
+                        Match = "*",
+                        MatchMappingType = "string"
+                    }
+                }
+            };
             return container;
         }
 

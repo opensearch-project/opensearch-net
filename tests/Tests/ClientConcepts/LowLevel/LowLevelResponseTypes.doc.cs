@@ -54,9 +54,7 @@ namespace Tests.ClientConcepts.LowLevel
 		 *
 		 */
 
-        public static string Response()
-        {
-            return @"{
+        public static string Response() => @"{
 				""boolean"" : true,
 				""string"" : ""v"",
 				""number"" : 29,
@@ -80,12 +78,11 @@ namespace Tests.ClientConcepts.LowLevel
 					}
 				]
 			}";
-        }
 
         public LowLevelResponseTypes()
         {
             var connection = new InMemoryConnection(Response().Utf8Bytes());
-            this.Client = new OpenSearchClient(new ConnectionSettings(connection).ApplyDomainSettings());
+            Client = new OpenSearchClient(new ConnectionSettings(connection).ApplyDomainSettings());
         }
 
         private OpenSearchClient Client { get; }

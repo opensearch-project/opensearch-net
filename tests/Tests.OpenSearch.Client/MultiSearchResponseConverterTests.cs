@@ -90,10 +90,7 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Read_NullRequest_ReturnsNull()
-        {
-            Deserialize(@"{""responses"":[]}", null).Should().BeNull();
-        }
+        public void Read_NullRequest_ReturnsNull() => Deserialize(@"{""responses"":[]}", null).Should().BeNull();
 
         [U]
         public void Read_NoResponsesProperty_ReturnsResponseWithTook()

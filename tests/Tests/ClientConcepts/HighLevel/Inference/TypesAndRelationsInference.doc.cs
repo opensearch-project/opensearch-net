@@ -101,10 +101,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 
         //hide
         [U]
-        public void RoundTripSerializationPreservesCluster()
-        {
-            Expect("project").WhenSerializing(Relation<Project>());
-        }
+        public void RoundTripSerializationPreservesCluster() => Expect("project").WhenSerializing(Relation<Project>());
 
         //hide
         [U]

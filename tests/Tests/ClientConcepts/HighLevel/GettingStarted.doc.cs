@@ -51,7 +51,7 @@ namespace Tests.ClientConcepts.HighLevel
 	 */
     public class GettingStarted
     {
-        private IOpenSearchClient client = new OpenSearchClient(new ConnectionSettings(new SingleNodeConnectionPool(new Uri("http://localhost:9200")), new InMemoryConnection()));
+        private readonly IOpenSearchClient client = new OpenSearchClient(new ConnectionSettings(new SingleNodeConnectionPool(new Uri("http://localhost:9200")), new InMemoryConnection()));
 
         /**[float]
 		 * === Connecting

@@ -55,15 +55,12 @@ namespace Tests.ML
         /// Fluent descriptor form: all properties must appear with their wire names in the request body.
         /// </summary>
         [U]
-        public void FluentDescriptorSerializesRequest()
-        {
-            Expect(ExpectedJson).FromRequest(c => c.Ml.RegisterModelGroup(d => d
-                .Name("g1")
-                .Description("d")
-                .AccessMode(ModelGroupAccessMode.Restricted)
-                .BackendRoles(new List<string> { "r1", "r2" })
-                .AddAllBackendRoles(false)));
-        }
+        public void FluentDescriptorSerializesRequest() => Expect(ExpectedJson).FromRequest(c => c.Ml.RegisterModelGroup(d => d
+                                                                        .Name("g1")
+                                                                        .Description("d")
+                                                                        .AccessMode(ModelGroupAccessMode.Restricted)
+                                                                        .BackendRoles(new List<string> { "r1", "r2" })
+                                                                        .AddAllBackendRoles(false)));
 
         /// <summary>
         /// Response deserialization: JSON wire names must map to the correct C# properties.

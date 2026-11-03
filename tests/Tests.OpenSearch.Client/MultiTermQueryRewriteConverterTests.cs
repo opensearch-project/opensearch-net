@@ -59,22 +59,13 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Write_Null()
-        {
-            JsonSerializer.Serialize<MultiTermQueryRewrite>(null, Options()).Should().Be("null");
-        }
+        public void Write_Null() => JsonSerializer.Serialize<MultiTermQueryRewrite>(null, Options()).Should().Be("null");
 
         [U]
-        public void Write_ConstantScore()
-        {
-            JsonSerializer.Serialize(MultiTermQueryRewrite.ConstantScore, Options()).Should().Be(@"""constant_score""");
-        }
+        public void Write_ConstantScore() => JsonSerializer.Serialize(MultiTermQueryRewrite.ConstantScore, Options()).Should().Be(@"""constant_score""");
 
         [U]
-        public void Write_TopTermsWithSize()
-        {
-            JsonSerializer.Serialize(MultiTermQueryRewrite.TopTerms(5), Options()).Should().Be(@"""top_terms_5""");
-        }
+        public void Write_TopTermsWithSize() => JsonSerializer.Serialize(MultiTermQueryRewrite.TopTerms(5), Options()).Should().Be(@"""top_terms_5""");
 
         [U]
         public void RoundTrip_TopTermsBoost()

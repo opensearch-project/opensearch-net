@@ -347,10 +347,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
             public string Name { get; set; }
         }
         [U]
-        public void BuiltInAnnotiatons()
-        {
-            Expect("naam").WhenSerializing(Field<BuiltIn>(p => p.Name));
-        }
+        public void BuiltInAnnotiatons() => Expect("naam").WhenSerializing(Field<BuiltIn>(p => p.Name));
 
         /**[[data-member-field-attribute]]
 		 * ==== DataMember attributes
@@ -365,10 +362,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
         }
 
         [U]
-        public void DataAnnotationAttribute()
-        {
-            Expect("nameFromDataMember").WhenSerializing(Field<DataMember>(p => p.Name));
-        }
+        public void DataAnnotationAttribute() => Expect("nameFromDataMember").WhenSerializing(Field<DataMember>(p => p.Name));
 
         /**[[serializer-specific-field-attribute]]
 		* ==== Serializer specific attributes
@@ -384,10 +378,7 @@ namespace Tests.ClientConcepts.HighLevel.Inference
         }
 
         [U]
-        public void SerializerSpecificAnnotations()
-        {
-            Expect("nameInJson").WhenSerializing(Field<SerializerSpecific>(p => p.Name));
-        }
+        public void SerializerSpecificAnnotations() => Expect("nameInJson").WhenSerializing(Field<SerializerSpecific>(p => p.Name));
 
         /**
 		* If both a OSC property attribute and a serializer specific attribute are present on a property,
@@ -417,9 +408,9 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		* Resolution of field names is cached _per_ `ConnectionSettings` instance. To demonstrate,
 		* take the following simple POCOs
 		*/
-        class A { public C C { get; set; } }
-        class B { public C C { get; set; } }
-        class C
+        private class A { public C C { get; set; } }
+        private class B { public C C { get; set; } }
+        private class C
         {
             public string Name { get; set; }
         }
@@ -510,12 +501,9 @@ namespace Tests.ClientConcepts.HighLevel.Inference
 		*/
         private class CustomPropertyMappingProvider : PropertyMappingProvider
         {
-            public override IPropertyMapping CreatePropertyMapping(MemberInfo memberInfo)
-            {
-                return memberInfo.Name == nameof(Precedence.AskSerializer)
+            public override IPropertyMapping CreatePropertyMapping(MemberInfo memberInfo) => memberInfo.Name == nameof(Precedence.AskSerializer)
                     ? new PropertyMapping { Name = "ask" }
                     : base.CreatePropertyMapping(memberInfo);
-            }
         }
 
         [U]

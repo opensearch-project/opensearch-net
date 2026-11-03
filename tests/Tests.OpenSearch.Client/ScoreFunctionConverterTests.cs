@@ -238,23 +238,15 @@ namespace Tests.OpenSearch.Client.Serialization
         // --- null ---
 
         [U]
-        public void Deserialize_Null_ReturnsNull()
-        {
-            Deserialize("null").Should().BeNull();
-        }
+        public void Deserialize_Null_ReturnsNull() => Deserialize("null").Should().BeNull();
 
         [U]
-        public void Deserialize_EmptyObject_ReturnsNull()
-        {
+        public void Deserialize_EmptyObject_ReturnsNull() =>
             // No function body and no weight => null, matching the legacy formatter.
             Deserialize("{}").Should().BeNull();
-        }
 
         [U]
-        public void Serialize_Null_WritesNull()
-        {
-            JsonSerializer.Serialize<IScoreFunction>(null, Options()).Should().Be("null");
-        }
+        public void Serialize_Null_WritesNull() => JsonSerializer.Serialize<IScoreFunction>(null, Options()).Should().Be("null");
 
         // --- Round-trip ---
 

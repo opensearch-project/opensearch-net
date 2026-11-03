@@ -102,7 +102,7 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
             static string ToSnakeCase(string s) // <1> function to convert a string to snake case
             {
                 var builder = new StringBuilder(s.Length);
-                for (int i = 0; i < s.Length; i++)
+                for (var i = 0; i < s.Length; i++)
                 {
                     var c = s[i];
                     if (char.IsUpper(c))

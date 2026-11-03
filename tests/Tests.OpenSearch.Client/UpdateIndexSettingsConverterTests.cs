@@ -94,10 +94,7 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Write_Null_WritesNull()
-        {
-            JsonSerializer.Serialize<IUpdateIndexSettingsRequest>(null, Options()).Should().Be("null");
-        }
+        public void Write_Null_WritesNull() => JsonSerializer.Serialize<IUpdateIndexSettingsRequest>(null, Options()).Should().Be("null");
 
         [U]
         public void Read_Null_ReturnsRequestWithEmptySettings()

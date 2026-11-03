@@ -74,10 +74,7 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Deserialize_UnknownOperation_ReturnsNull()
-        {
-            Deserialize(@"{""frobnicate"":{""_index"":""i""}}").Should().BeNull();
-        }
+        public void Deserialize_UnknownOperation_ReturnsNull() => Deserialize(@"{""frobnicate"":{""_index"":""i""}}").Should().BeNull();
 
         [U]
         public void Deserialize_NonObject_ReturnsNull()
@@ -88,17 +85,12 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Deserialize_Null_ReturnsNull()
-        {
-            Deserialize("null").Should().BeNull();
-        }
+        public void Deserialize_Null_ReturnsNull() => Deserialize("null").Should().BeNull();
 
         [U]
-        public void Deserialize_EmptyObject_ReturnsNull()
-        {
+        public void Deserialize_EmptyObject_ReturnsNull() =>
             // No property to dispatch on => null, matching the legacy switch leaving the item null.
             Deserialize("{}").Should().BeNull();
-        }
 
         [U]
         public void Deserialize_OnlyFirstKeyConsidered()

@@ -53,12 +53,9 @@ namespace Tests.ClientConcepts.LowLevel
     {
         private readonly WritableCluster _cluster;
 
-        public GettingStarted(WritableCluster cluster)
-        {
-            _cluster = cluster;
-        }
+        public GettingStarted(WritableCluster cluster) => _cluster = cluster;
 
-        private IOpenSearchLowLevelClient lowlevelClient = new OpenSearchLowLevelClient(new ConnectionConfiguration(new SingleNodeConnectionPool(new Uri("http://localhost:9200")), new InMemoryConnection()));
+        private readonly IOpenSearchLowLevelClient lowlevelClient = new OpenSearchLowLevelClient(new ConnectionConfiguration(new SingleNodeConnectionPool(new Uri("http://localhost:9200")), new InMemoryConnection()));
 
         /**[float]
 		 * === Connecting
@@ -140,10 +137,10 @@ namespace Tests.ClientConcepts.LowLevel
             };
 
             var ndexResponse = lowlevelClient.Index<BytesResponse>("people", "1", PostData.Serializable(person)); //<1> synchronous method that returns an `IndexResponse`
-            byte[] responseBytes = ndexResponse.Body;
+            var responseBytes = ndexResponse.Body;
 
             var asyncIndexResponse = await lowlevelClient.IndexAsync<StringResponse>("people", "1", PostData.Serializable(person)); //<2> asynchronous method that returns a `Task<IndexResponse>` that can be awaited
-            string responseString = asyncIndexResponse.Body;
+            var responseString = asyncIndexResponse.Body;
         }
 
         /**
@@ -163,7 +160,7 @@ namespace Tests.ClientConcepts.LowLevel
             };
 
             var ndexResponse = await lowlevelClient.IndexAsync<BytesResponse>("people", "1", PostData.Serializable(person));
-            byte[] responseStream = ndexResponse.Body;
+            var responseStream = ndexResponse.Body;
         }
 
         /**
@@ -193,7 +190,7 @@ namespace Tests.ClientConcepts.LowLevel
             };
 
             var ndexResponse = lowlevelClient.Bulk<StringResponse>(PostData.MultiJson(people));
-            string responseStream = ndexResponse.Body;
+            var responseStream = ndexResponse.Body;
         }
         /**
 		* The client will serialize each item seperately and join items up using the `\n` character as required by the Bulk API. Refer to the

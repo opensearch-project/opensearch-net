@@ -52,22 +52,13 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Write_Number()
-        {
-            JsonSerializer.Serialize<MinimumShouldMatch>(3, Options()).Should().Be("3");
-        }
+        public void Write_Number() => JsonSerializer.Serialize<MinimumShouldMatch>(3, Options()).Should().Be("3");
 
         [U]
-        public void Write_String()
-        {
-            JsonSerializer.Serialize<MinimumShouldMatch>("75%", Options()).Should().Be(@"""75%""");
-        }
+        public void Write_String() => JsonSerializer.Serialize<MinimumShouldMatch>("75%", Options()).Should().Be(@"""75%""");
 
         [U]
-        public void Write_Null()
-        {
-            JsonSerializer.Serialize<MinimumShouldMatch>(null, Options()).Should().Be("null");
-        }
+        public void Write_Null() => JsonSerializer.Serialize<MinimumShouldMatch>(null, Options()).Should().Be("null");
 
         [U]
         public void RoundTrip_Number()

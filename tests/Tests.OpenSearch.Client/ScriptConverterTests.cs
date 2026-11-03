@@ -70,16 +70,10 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Deserialize_NoKnownField_ReturnsNull()
-        {
-            JsonSerializer.Deserialize<IScript>(@"{""foo"":""bar""}", Options()).Should().BeNull();
-        }
+        public void Deserialize_NoKnownField_ReturnsNull() => JsonSerializer.Deserialize<IScript>(@"{""foo"":""bar""}", Options()).Should().BeNull();
 
         [U]
-        public void Deserialize_Null_ReturnsNull()
-        {
-            JsonSerializer.Deserialize<IScript>("null", Options()).Should().BeNull();
-        }
+        public void Deserialize_Null_ReturnsNull() => JsonSerializer.Deserialize<IScript>("null", Options()).Should().BeNull();
 
         [U]
         public void Serialize_InlineScript()
@@ -103,9 +97,6 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Serialize_Null_WritesNull()
-        {
-            JsonSerializer.Serialize<IScript>(null, Options()).Should().Be("null");
-        }
+        public void Serialize_Null_WritesNull() => JsonSerializer.Serialize<IScript>(null, Options()).Should().Be("null");
     }
 }

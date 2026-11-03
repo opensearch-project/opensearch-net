@@ -64,7 +64,7 @@ namespace Tests.ClientConcepts.Troubleshooting
         public void DefaultDebug()
         {
             // hide
-            var client = this.Client;
+            var client = Client;
 
             var response = client.Search<Project>(s => s
                 .Query(q => q
@@ -209,7 +209,7 @@ namespace Tests.ClientConcepts.Troubleshooting
         public void RequestConfigurationTcpStats()
         {
             // hide
-            var client = this.Client;
+            var client = Client;
 
             var response = client.Search<Project>(s => s
                 .RequestConfiguration(r => r
@@ -238,7 +238,7 @@ namespace Tests.ClientConcepts.Troubleshooting
         public void TcpStatistics()
         {
             // hide
-            var client = this.Client;
+            var client = Client;
 
             var tcpStatistics = TcpStats.GetActiveTcpConnections(); // <1> Retrieve details about active TCP connections, including local and remote addresses and ports
             var ipv4Stats = TcpStats.GetTcpStatistics(NetworkInterfaceComponent.IPv4); // <2> Retrieve statistics about IPv4
@@ -285,7 +285,7 @@ namespace Tests.ClientConcepts.Troubleshooting
         public void RequestConfigurationThreadPoolStats()
         {
             // hide
-            var client = this.Client;
+            var client = Client;
 
             var response = client.Search<Project>(s => s
                 .RequestConfiguration(r => r

@@ -116,12 +116,14 @@ public class AwsSigV4HttpConnectionTests
 
     private static async Task<HttpRequestMessage> CreateIndexAndCaptureRequest(string service, DateTime signingTime)
     {
-        var response = new HttpResponseMessage(HttpStatusCode.OK);
-        response.Content = new StringContent(@"{
+        var response = new HttpResponseMessage(HttpStatusCode.OK)
+        {
+            Content = new StringContent(@"{
 	""acknowledged"": true,
 	""shards_acknowledged"": true,
     ""index"": ""sample-index1""
-}", Encoding.UTF8, "application/json");
+}", Encoding.UTF8, "application/json")
+        };
 
         HttpRequestMessage sentRequest = null;
 

@@ -69,9 +69,9 @@ namespace Tests.ClientConcepts.HighLevel.Serialization
 
             public MyPluginProperty(string name, string language)
             {
-                this.Name = name;
-                this.Language = language;
-                this.Numeric = true;
+                Name = name;
+                Language = language;
+                Numeric = true;
             }
 
             [PropertyName("language")]

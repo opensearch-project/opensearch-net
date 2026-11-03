@@ -56,7 +56,7 @@ namespace Tests.QueryDsl.BoolDsl
 		*/
         public void VerboseWay()
         {
-            var searchResults = this.Client.Search<Project>(s => s
+            var searchResults = Client.Search<Project>(s => s
                 .Query(q => q
                     .Bool(b => b
                         .Should(
@@ -98,7 +98,7 @@ namespace Tests.QueryDsl.BoolDsl
         public void UsingOperator()
         {
             //hide
-            var client = this.Client;
+            var client = Client;
 
             var firstSearchResponse = client.Search<Project>(s => s
                 .Query(q => q
@@ -171,7 +171,7 @@ namespace Tests.QueryDsl.BoolDsl
         public void MustQueries()
         {
             //hide
-            var client = this.Client;
+            var client = Client;
 
             var firstSearchResponse = client.Search<Project>(s => s
                 .Query(q => q
@@ -264,14 +264,11 @@ namespace Tests.QueryDsl.BoolDsl
 		*/
 
         [U]
-        public void JoinsMustQueries()
-        {
-            Assert(
+        public void JoinsMustQueries() => Assert(
                 q => q.Query() && q.Query() && q.Query(), // <1> three queries `&&` together using the Fluent API
                 Query && Query && Query, // <2> three queries `&&` together using Object Initialzer syntax
                 c => c.Bool.Must.Should().HaveCount(3) // <3> assert the resulting `bool` query in each case has 3 `must` clauses
             );
-        }
 
 
         /**[[unary-negation-operator]]
@@ -284,7 +281,7 @@ namespace Tests.QueryDsl.BoolDsl
         public void MustNotQuery()
         {
             //hide
-            var client = this.Client;
+            var client = Client;
 
             var firstSearchResponse = client.Search<Project>(s => s
                 .Query(q => !q
@@ -333,22 +330,16 @@ namespace Tests.QueryDsl.BoolDsl
 
         // hide
         [U]
-        public void MustNotOperator()
-        {
-            Assert(q => !q.Query(), !Query, c => c.Bool.MustNot.Should().HaveCount(1));
-        }
+        public void MustNotOperator() => Assert(q => !q.Query(), !Query, c => c.Bool.MustNot.Should().HaveCount(1));
 
         /**Two queries marked with the unary `!`  operator can be combined with the `&&` operator to form
 		 * a single `bool` query with two `must_not` clauses
 		 */
         [U]
-        public void MustNotOperatorAnd()
-        {
-            Assert(
+        public void MustNotOperatorAnd() => Assert(
                 q => !q.Query() && !q.Query(), // <1> two queries with `!` operator applied, `&&` together using the Fluent API
                 !Query && !Query, // <2> two queries with `!` operator applied, `&&` together using the Object Initializer syntax
                 c => c.Bool.MustNot.Should().HaveCount(2)); // <3> assert the resulting `bool` query in each case has two `must_not` clauses
-        }
 
         /**[[unary-plus-operator]]
 		 * ==== Unary + operator
@@ -359,7 +350,7 @@ namespace Tests.QueryDsl.BoolDsl
         public void FilterQuery()
         {
             //hide
-            var client = this.Client;
+            var client = Client;
 
             var firstSearchResponse = client.Search<Project>(s => s
                 .Query(q => +q
@@ -408,10 +399,7 @@ namespace Tests.QueryDsl.BoolDsl
 
         //hide
         [U]
-        public void UnaryAddOperator()
-        {
-            Assert(q => +q.Query(), +Query, c => c.Bool.Filter.Should().HaveCount(1));
-        }
+        public void UnaryAddOperator() => Assert(q => +q.Query(), +Query, c => c.Bool.Filter.Should().HaveCount(1));
 
         /**
 		 * This runs the {ref_current}/query-filter-context.html[query in a filter context],
@@ -422,13 +410,10 @@ namespace Tests.QueryDsl.BoolDsl
 		 * combined with the `&&` operator to form a single `bool` query with two `filter` clauses
 		*/
         [U]
-        public void UnaryAddOperatorAnd()
-        {
-            Assert(
+        public void UnaryAddOperatorAnd() => Assert(
                 q => +q.Query() && +q.Query(),
                 +Query && +Query,
                 c => c.Bool.Filter.Should().HaveCount(2));
-        }
 
         /**[float]
 		* === Combining bool queries
@@ -453,9 +438,7 @@ namespace Tests.QueryDsl.BoolDsl
 		* This can be constructed with OSC using
 		*/
         [U]
-        public void JoinsMustWithMustNot()
-        {
-            Assert(
+        public void JoinsMustWithMustNot() => Assert(
                 q => q.Query() && q.Query() && q.Query() && !q.Query(),
                 Query && Query && Query && !Query,
                 c =>
@@ -463,7 +446,6 @@ namespace Tests.QueryDsl.BoolDsl
                     c.Bool.Must.Should().HaveCount(3);
                     c.Bool.MustNot.Should().HaveCount(1);
                 });
-        }
 
         /** An even more complex example
 		 *
@@ -490,9 +472,7 @@ namespace Tests.QueryDsl.BoolDsl
 		 *....
 		 */
         [U]
-        public void JoinsMustWithMustNotAndFilter()
-        {
-            Assert(
+        public void JoinsMustWithMustNotAndFilter() => Assert(
                 q => q.Query() && q.Query() && q.Query() && !q.Query() && +q.Query() && +q.Query(),
                 Query && Query && Query && !Query && +Query && +Query,
                 c =>
@@ -501,7 +481,6 @@ namespace Tests.QueryDsl.BoolDsl
                     c.Bool.MustNot.Should().HaveCount(1);
                     c.Bool.Filter.Should().HaveCount(2);
                 });
-        }
 
         /** You can still mix and match actual `bool` queries with operator overloaded queries e.g
 		*
@@ -513,9 +492,7 @@ namespace Tests.QueryDsl.BoolDsl
 		* This will still merge into a single `bool` query.
 		*/
         [U]
-        public void MixAndMatch()
-        {
-            Assert(
+        public void MixAndMatch() => Assert(
                 q => q.Bool(b => b.Must(mq => mq.Query(), mq => mq.Query(), mq => mq.Query())) && !q.Query(),
                 new BoolQuery { Must = new QueryContainer[] { Query, Query, Query } } && !Query,
                 c =>
@@ -523,7 +500,6 @@ namespace Tests.QueryDsl.BoolDsl
                     c.Bool.Must.Should().HaveCount(3);
                     c.Bool.MustNot.Should().HaveCount(1);
                 });
-        }
 
         /**==== Combining queries with || or should clauses
 		 *
@@ -589,9 +565,7 @@ namespace Tests.QueryDsl.BoolDsl
 		*....
 		*/
         [U]
-        public void JoinsWithShouldClauses()
-        {
-            Assert(
+        public void JoinsWithShouldClauses() => Assert(
                 q => q.Query() && (q.Query() || q.Query() || q.Query()),
                 Query && (Query || Query || Query),
                 c =>
@@ -602,7 +576,6 @@ namespace Tests.QueryDsl.BoolDsl
                     lastMustClause.Bool.Should().NotBeNull();
                     lastMustClause.Bool.Should.Should().HaveCount(3);
                 });
-        }
 
         /** TIP: *Add parentheses to force evaluation order*
 		*
@@ -623,9 +596,7 @@ namespace Tests.QueryDsl.BoolDsl
 		* of the original query because only matching on `term5` or `term6` should still be a hit.
 		**/
         [U]
-        public void MixAndMatchMinimumShouldMatch()
-        {
-            Assert(
+        public void MixAndMatchMinimumShouldMatch() => Assert(
                 q => q.Bool(b => b
                     .Should(mq => mq.Query(), mq => mq.Query(), mq => mq.Query(), mq => mq.Query())
                     .MinimumShouldMatch(2)
@@ -642,7 +613,6 @@ namespace Tests.QueryDsl.BoolDsl
                     var nestedBool = c.Bool.Should.First() as IQueryContainer;
                     nestedBool.Bool.Should.Should().HaveCount(4);
                 });
-        }
 
         /**[float]
 		* === Locked bool queries
@@ -653,39 +623,30 @@ namespace Tests.QueryDsl.BoolDsl
 		* Here we demonstrate that two locked `bool` queries are not combined
 		*/
         [U]
-        public void DoNotCombineLockedBools()
-        {
-            Assert(
+        public void DoNotCombineLockedBools() => Assert(
                 q => q.Bool(b => b.Name("leftBool").Should(mq => mq.Query()))
                      || q.Bool(b => b.Name("rightBool").Should(mq => mq.Query())),
                 new BoolQuery { Name = "leftBool", Should = new QueryContainer[] { Query } }
                 || new BoolQuery { Name = "rightBool", Should = new QueryContainer[] { Query } },
                 c => AssertDoesNotJoinOntoLockedBool(c, "leftBool"));
-        }
 
         /** neither are two `bool` queries where either right query is locked */
         [U]
-        public void DoNotCombineRightLockedBool()
-        {
-            Assert(
+        public void DoNotCombineRightLockedBool() => Assert(
                 q => q.Bool(b => b.Should(mq => mq.Query()))
                      || q.Bool(b => b.Name("rightBool").Should(mq => mq.Query())),
                 new BoolQuery { Should = new QueryContainer[] { Query } }
                 || new BoolQuery { Name = "rightBool", Should = new QueryContainer[] { Query } },
                 c => AssertDoesNotJoinOntoLockedBool(c, "rightBool"));
-        }
 
         /** or the left query is locked */
         [U]
-        public void DoNotCombineLeftLockedBool()
-        {
-            Assert(
+        public void DoNotCombineLeftLockedBool() => Assert(
                 q => q.Bool(b => b.Name("leftBool").Should(mq => mq.Query()))
                      || q.Bool(b => b.Should(mq => mq.Query())),
                 new BoolQuery { Name = "leftBool", Should = new QueryContainer[] { Query } }
                 || new BoolQuery { Should = new QueryContainer[] { Query } },
                 c => AssertDoesNotJoinOntoLockedBool(c, "leftBool"));
-        }
 
         //hide
         private static void AssertDoesNotJoinOntoLockedBool(IQueryContainer c, string firstName)

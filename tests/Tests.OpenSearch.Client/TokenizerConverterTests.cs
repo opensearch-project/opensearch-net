@@ -108,10 +108,7 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Serialize_Null_WritesNull()
-        {
-            JsonSerializer.Serialize<ITokenizer>(null, Options()).Should().Be("null");
-        }
+        public void Serialize_Null_WritesNull() => JsonSerializer.Serialize<ITokenizer>(null, Options()).Should().Be("null");
 
         [U]
         public void RoundTrip_NGram()

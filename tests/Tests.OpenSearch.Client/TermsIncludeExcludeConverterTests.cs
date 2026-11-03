@@ -73,10 +73,7 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Include_Deserialize_Null()
-        {
-            JsonSerializer.Deserialize<TermsInclude>("null", IncludeOptions()).Should().BeNull();
-        }
+        public void Include_Deserialize_Null() => JsonSerializer.Deserialize<TermsInclude>("null", IncludeOptions()).Should().BeNull();
 
         [U]
         public void Include_Serialize_StringArray()
@@ -100,10 +97,7 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Include_Serialize_Null()
-        {
-            JsonSerializer.Serialize<TermsInclude>(null, IncludeOptions()).Should().Be("null");
-        }
+        public void Include_Serialize_Null() => JsonSerializer.Serialize<TermsInclude>(null, IncludeOptions()).Should().Be("null");
 
         [U]
         public void Include_RoundTrip_Partition()
@@ -147,10 +141,7 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Exclude_Deserialize_Null()
-        {
-            JsonSerializer.Deserialize<TermsExclude>("null", ExcludeOptions()).Should().BeNull();
-        }
+        public void Exclude_Deserialize_Null() => JsonSerializer.Deserialize<TermsExclude>("null", ExcludeOptions()).Should().BeNull();
 
         [U]
         public void Exclude_Serialize_StringArray()
@@ -167,10 +158,7 @@ namespace Tests.OpenSearch.Client.Serialization
         }
 
         [U]
-        public void Exclude_Serialize_Null()
-        {
-            JsonSerializer.Serialize<TermsExclude>(null, ExcludeOptions()).Should().Be("null");
-        }
+        public void Exclude_Serialize_Null() => JsonSerializer.Serialize<TermsExclude>(null, ExcludeOptions()).Should().Be("null");
 
         [U]
         public void Exclude_RoundTrip_StringArray()

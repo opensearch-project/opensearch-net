@@ -159,8 +159,7 @@ namespace OpenSearch.Net.VirtualizedCluster.Audit
             if (Response.ApiCall.Success)
                 throw new Exception("Expected call to not be valid");
 
-            var exception = Response.ApiCall.OriginalException as OpenSearchClientException;
-            if (exception == null)
+            if (Response.ApiCall.OriginalException is not OpenSearchClientException exception)
                 throw new Exception("OriginalException on response is not expected OpenSearchClientException");
             assert(exception);
 
@@ -173,9 +172,7 @@ namespace OpenSearch.Net.VirtualizedCluster.Audit
             await callAsync().ConfigureAwait(false);
             if (Response.ApiCall.Success)
                 throw new Exception("Expected call to not be valid");
-            exception = ResponseAsync.ApiCall.OriginalException as OpenSearchClientException;
-            if (exception == null)
-                throw new Exception("OriginalException on response is not expected OpenSearchClientException");
+            exception = ResponseAsync.ApiCall.OriginalException as OpenSearchClientException ?? throw new Exception("OriginalException on response is not expected OpenSearchClientException");
             assert(exception);
 
             AsyncAuditTrail = exception.AuditTrail;

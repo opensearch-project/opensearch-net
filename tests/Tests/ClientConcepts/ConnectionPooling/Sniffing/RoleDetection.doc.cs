@@ -404,10 +404,7 @@ namespace Tests.ClientConcepts.ConnectionPooling.Sniffing
         private readonly SniffRoleDetectionCluster _cluster;
         private IConnectionSettingsValues _settings;
 
-        public RealWorldRoleDetection(SniffRoleDetectionCluster cluster)
-        {
-            this._cluster = cluster;
-        }
+        public RealWorldRoleDetection(SniffRoleDetectionCluster cluster) => _cluster = cluster;
 
         [I]
         public async Task SniffPicksUpRoles()
@@ -439,16 +436,16 @@ namespace Tests.ClientConcepts.ConnectionPooling.Sniffing
 
         private RequestPipeline CreatePipeline()
         {
-            var uri = TestConnectionSettings.CreateUri(this._cluster.Nodes.First().Port ?? 9200);
-            this._settings = new ConnectionSettings(new SniffingConnectionPool(new[] { uri }));
-            var pipeline = new RequestPipeline(this._settings, DateTimeProvider.Default, new RecyclableMemoryStreamFactory(),
+            var uri = TestConnectionSettings.CreateUri(_cluster.Nodes.First().Port ?? 9200);
+            _settings = new ConnectionSettings(new SniffingConnectionPool(new[] { uri }));
+            var pipeline = new RequestPipeline(_settings, DateTimeProvider.Default, new RecyclableMemoryStreamFactory(),
                 new SearchRequestParameters());
             return pipeline;
         }
 
         private Node AssertSniffResponse()
         {
-            var nodes = this._settings.ConnectionPool.Nodes;
+            var nodes = _settings.ConnectionPool.Nodes;
             nodes.Should().NotBeEmpty().And.HaveCount(1);
             var node = nodes.First();
             return node;
