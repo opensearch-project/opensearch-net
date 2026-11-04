@@ -30,7 +30,7 @@
     <PackageVersion Include="FSharp.Core" Version="10.1.403" />
     <PackageVersion Include="FSharp.Data" Version="8.2.0" />
     <PackageVersion Include="Glob" Version="1.1.9" />
-    <PackageVersion Include="JetBrains.Annotations" Version="2024.3.0" />
+    <PackageVersion Include="JetBrains.Annotations" Version="2026.2.0" />
     <PackageVersion Include="JunitXml.TestLogger" Version="6.1.0" />
     <PackageVersion Include="Markdig" Version="0.41.3" />
     <PackageVersion Include="Microsoft.CSharp" Version="4.7.0" />
