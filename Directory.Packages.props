@@ -32,7 +32,7 @@
     <PackageVersion Include="Glob" Version="1.1.9" />
     <PackageVersion Include="JetBrains.Annotations" Version="2026.2.0" />
     <PackageVersion Include="JunitXml.TestLogger" Version="6.1.0" />
-    <PackageVersion Include="Markdig" Version="0.41.3" />
+    <PackageVersion Include="Markdig" Version="1.6.0" />
     <PackageVersion Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageVersion Include="Microsoft.Extensions.Caching.Memory" Version="8.0.1" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
