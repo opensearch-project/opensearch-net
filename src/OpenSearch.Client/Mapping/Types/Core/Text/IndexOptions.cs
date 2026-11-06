@@ -31,19 +31,19 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum IndexOptions
-	{
-		[EnumMember(Value = "docs")]
-		Docs,
+    [StringEnum]
+    public enum IndexOptions
+    {
+        [EnumMember(Value = "docs")]
+        Docs,
 
-		[EnumMember(Value = "freqs")]
-		Freqs,
+        [EnumMember(Value = "freqs")]
+        Freqs,
 
-		[EnumMember(Value = "positions")]
-		Positions,
+        [EnumMember(Value = "positions")]
+        Positions,
 
-		[EnumMember(Value = "offsets")]
-		Offsets,
-	}
+        [EnumMember(Value = "offsets")]
+        Offsets,
+    }
 }

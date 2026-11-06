@@ -29,80 +29,80 @@
 using System;
 using System.Linq;
 using System.Text;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
-using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Core.Extensions;
+using Tests.Core.ManagedOpenSearch.Clusters;
 
 namespace Tests.Framework.SerializationTests
 {
-	public class BytesResponseTests : IClusterFixture<ReadOnlyCluster>
-	{
-		private readonly ReadOnlyCluster _cluster;
+    public class BytesResponseTests : IClusterFixture<ReadOnlyCluster>
+    {
+        private readonly ReadOnlyCluster _cluster;
 
-		public BytesResponseTests(ReadOnlyCluster cluster) => _cluster = cluster;
+        public BytesResponseTests(ReadOnlyCluster cluster) => _cluster = cluster;
 
-		[I]
-		public void NonNullBytesResponse()
-		{
-			var client = _cluster.Client;
+        [I]
+        public void NonNullBytesResponse()
+        {
+            var client = _cluster.Client;
 
-			var bytesResponse = client.LowLevel.Search<BytesResponse>("project", PostData.Serializable(new { }));
-			bytesResponse.Success.Should().BeTrue();
-			bytesResponse.Body.Should().NotBeNull();
-			bytesResponse.Body.Should().BeEquivalentTo(bytesResponse.ResponseBodyInBytes);
-		}
+            var bytesResponse = client.LowLevel.Search<BytesResponse>("project", PostData.Serializable(new { }));
+            bytesResponse.Success.Should().BeTrue();
+            bytesResponse.Body.Should().NotBeNull();
+            bytesResponse.Body.Should().BeEquivalentTo(bytesResponse.ResponseBodyInBytes);
+        }
 
-		[I]
-		public void NonNullBytesLowLevelResponse()
-		{
-			var settings  = new ConnectionConfiguration(_cluster.NodesUris().First());
-			settings = (ConnectionConfiguration)_cluster.UpdateSettings(settings);
-			var lowLevelClient = new OpenSearchLowLevelClient(settings);
+        [I]
+        public void NonNullBytesLowLevelResponse()
+        {
+            var settings = new ConnectionConfiguration(_cluster.NodesUris().First());
+            settings = (ConnectionConfiguration)_cluster.UpdateSettings(settings);
+            var lowLevelClient = new OpenSearchLowLevelClient(settings);
 
-			var bytesResponse = lowLevelClient.Search<BytesResponse>("project", PostData.Serializable(new { }));
+            var bytesResponse = lowLevelClient.Search<BytesResponse>("project", PostData.Serializable(new { }));
 
-			bytesResponse.Success.Should().BeTrue();
-			bytesResponse.Body.Should().NotBeNull();
-			bytesResponse.Body.Should().BeEquivalentTo(bytesResponse.ResponseBodyInBytes);
-		}
+            bytesResponse.Success.Should().BeTrue();
+            bytesResponse.Body.Should().NotBeNull();
+            bytesResponse.Body.Should().BeEquivalentTo(bytesResponse.ResponseBodyInBytes);
+        }
 
-		[U]
-		public void TryGetServerErrorDoesNotThrowException()
-		{
-			var responseBytes = Encoding.UTF8.GetBytes(StubResponse.NginxHtml401Response);
+        [U]
+        public void TryGetServerErrorDoesNotThrowException()
+        {
+            var responseBytes = Encoding.UTF8.GetBytes(StubResponse.NginxHtml401Response);
 
-			var client = FixedResponseClient.Create(responseBytes, 401,
-				modifySettings: s => s.DisableDirectStreaming(),
-				contentType: "text/html",
-				exception: new Exception("problem with the request as a result of 401")
-			);
+            var client = FixedResponseClient.Create(responseBytes, 401,
+                modifySettings: s => s.DisableDirectStreaming(),
+                contentType: "text/html",
+                exception: new Exception("problem with the request as a result of 401")
+            );
 
-			var bytesResponse = client.LowLevel.Search<BytesResponse>("project", PostData.Serializable(new { }));
+            var bytesResponse = client.LowLevel.Search<BytesResponse>("project", PostData.Serializable(new { }));
 
-			bytesResponse.Body.Should().NotBeNull();
-			bytesResponse.Body.Should().BeEquivalentTo(responseBytes);
-			bytesResponse.TryGetServerError(out var serverError).Should().BeFalse();
-			serverError.Should().BeNull();
-		}
+            bytesResponse.Body.Should().NotBeNull();
+            bytesResponse.Body.Should().BeEquivalentTo(responseBytes);
+            bytesResponse.TryGetServerError(out var serverError).Should().BeFalse();
+            serverError.Should().BeNull();
+        }
 
-		[U]
-		public void SkipDeserializationForStatusCodesSetsBody()
-		{
-			var responseBytes = Encoding.UTF8.GetBytes(StubResponse.NginxHtml401Response);
+        [U]
+        public void SkipDeserializationForStatusCodesSetsBody()
+        {
+            var responseBytes = Encoding.UTF8.GetBytes(StubResponse.NginxHtml401Response);
 
-			var client = FixedResponseClient.Create(responseBytes, 401,
-				modifySettings: s => s.DisableDirectStreaming().SkipDeserializationForStatusCodes(401),
-				contentType: "text/html",
-				exception: new Exception("problem with the request as a result of 401")
-			);
+            var client = FixedResponseClient.Create(responseBytes, 401,
+                modifySettings: s => s.DisableDirectStreaming().SkipDeserializationForStatusCodes(401),
+                contentType: "text/html",
+                exception: new Exception("problem with the request as a result of 401")
+            );
 
-			var bytesResponse = client.LowLevel.Search<BytesResponse>("project", PostData.Serializable(new { }));
+            var bytesResponse = client.LowLevel.Search<BytesResponse>("project", PostData.Serializable(new { }));
 
-			bytesResponse.Body.Should().NotBeNull();
-			bytesResponse.Body.Should().BeEquivalentTo(responseBytes);
-		}
-	}
+            bytesResponse.Body.Should().NotBeNull();
+            bytesResponse.Body.Should().BeEquivalentTo(responseBytes);
+        }
+    }
 }

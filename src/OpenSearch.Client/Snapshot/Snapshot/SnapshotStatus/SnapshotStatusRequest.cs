@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("snapshot.status.json")]
-	public partial interface ISnapshotStatusRequest { }
+    [MapsApi("snapshot.status.json")]
+    public partial interface ISnapshotStatusRequest { }
 
-	public partial class SnapshotStatusRequest { }
+    public partial class SnapshotStatusRequest { }
 
-	public partial class SnapshotStatusDescriptor { }
+    public partial class SnapshotStatusDescriptor { }
 }

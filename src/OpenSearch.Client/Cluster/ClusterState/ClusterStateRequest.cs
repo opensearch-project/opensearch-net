@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("cluster.state.json")]
-	public partial interface IClusterStateRequest { }
+    [MapsApi("cluster.state.json")]
+    public partial interface IClusterStateRequest { }
 
-	public partial class ClusterStateRequest { }
+    public partial class ClusterStateRequest { }
 
-	public partial class ClusterStateDescriptor { }
+    public partial class ClusterStateDescriptor { }
 }

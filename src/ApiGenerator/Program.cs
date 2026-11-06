@@ -109,7 +109,8 @@ namespace ApiGenerator
                 await RestSpecDownloader.DownloadAsync(token);
             }
 
-            if (!generateCode) return 0;
+            if (!generateCode)
+                return 0;
 
             Console.WriteLine();
             AnsiConsole.Write(new Rule("[b white on chartreuse4] Loading specification [/]").LeftJustified());
@@ -162,7 +163,8 @@ namespace ApiGenerator
 
         private static bool Ask(string question, bool defaultAnswer = true)
         {
-            if (!Interactive) return defaultAnswer;
+            if (!Interactive)
+                return defaultAnswer;
 
             var answer = "invalid";
             var defaultResponse = defaultAnswer ? "y" : "n";
@@ -171,7 +173,8 @@ namespace ApiGenerator
             {
                 Console.Write($"{question}[y/N] (default {defaultResponse}): ");
                 answer = Console.ReadLine()?.Trim().ToLowerInvariant();
-                if (string.IsNullOrWhiteSpace(answer)) answer = defaultResponse;
+                if (string.IsNullOrWhiteSpace(answer))
+                    answer = defaultResponse;
                 defaultAnswer = answer == "y";
             }
             return defaultAnswer;

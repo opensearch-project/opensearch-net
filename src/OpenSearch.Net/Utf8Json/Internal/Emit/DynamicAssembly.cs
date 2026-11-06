@@ -56,39 +56,39 @@ using System.Reflection.Emit;
 
 namespace OpenSearch.Net.Utf8Json.Internal.Emit
 {
-	internal class DynamicAssembly
-	{
-		private static readonly byte[] PublicKey = Assembly.GetExecutingAssembly().GetName().GetPublicKey();
+    internal class DynamicAssembly
+    {
+        private static readonly byte[] PublicKey = Assembly.GetExecutingAssembly().GetName().GetPublicKey();
 
-		private readonly ModuleBuilder _moduleBuilder;
-		private readonly object _gate = new object();
+        private readonly ModuleBuilder _moduleBuilder;
+        private readonly object _gate = new object();
 
-		public DynamicAssembly(string moduleName)
-		{
-			var assemblyName = new AssemblyName(moduleName);
-			assemblyName.SetPublicKey(PublicKey);
-			var assemblyBuilder = AssemblyBuilder.DefineDynamicAssembly(assemblyName, AssemblyBuilderAccess.Run);
-			_moduleBuilder = assemblyBuilder.DefineDynamicModule(moduleName);
-		}
+        public DynamicAssembly(string moduleName)
+        {
+            var assemblyName = new AssemblyName(moduleName);
+            assemblyName.SetPublicKey(PublicKey);
+            var assemblyBuilder = AssemblyBuilder.DefineDynamicAssembly(assemblyName, AssemblyBuilderAccess.Run);
+            _moduleBuilder = assemblyBuilder.DefineDynamicModule(moduleName);
+        }
 
-		// requires lock on mono environment. see: https://github.com/neuecc/MessagePack-CSharp/issues/161
+        // requires lock on mono environment. see: https://github.com/neuecc/MessagePack-CSharp/issues/161
 
-		public TypeBuilder DefineType(string name, TypeAttributes attr)
-		{
-			lock (_gate)
-				return _moduleBuilder.DefineType(name, attr);
-		}
+        public TypeBuilder DefineType(string name, TypeAttributes attr)
+        {
+            lock (_gate)
+                return _moduleBuilder.DefineType(name, attr);
+        }
 
-		public TypeBuilder DefineType(string name, TypeAttributes attr, Type parent)
-		{
-			lock (_gate)
-				return _moduleBuilder.DefineType(name, attr, parent);
-		}
+        public TypeBuilder DefineType(string name, TypeAttributes attr, Type parent)
+        {
+            lock (_gate)
+                return _moduleBuilder.DefineType(name, attr, parent);
+        }
 
-		public TypeBuilder DefineType(string name, TypeAttributes attr, Type parent, Type[] interfaces)
-		{
-			lock (_gate)
-				return _moduleBuilder.DefineType(name, attr, parent, interfaces);
-		}
-	}
+        public TypeBuilder DefineType(string name, TypeAttributes attr, Type parent, Type[] interfaces)
+        {
+            lock (_gate)
+                return _moduleBuilder.DefineType(name, attr, parent, interfaces);
+        }
+    }
 }

@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("snapshot.get.json")]
-	public partial interface IGetSnapshotRequest { }
+    [MapsApi("snapshot.get.json")]
+    public partial interface IGetSnapshotRequest { }
 
-	public partial class GetSnapshotRequest { }
+    public partial class GetSnapshotRequest { }
 
-	public partial class GetSnapshotDescriptor { }
+    public partial class GetSnapshotDescriptor { }
 }

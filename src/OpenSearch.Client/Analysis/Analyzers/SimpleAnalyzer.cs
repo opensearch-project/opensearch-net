@@ -28,20 +28,20 @@
 
 namespace OpenSearch.Client
 {
-	/// <summary>
-	/// An analyzer of type simple that is built using a Lower Case Tokenizer.
-	/// </summary>
-	public interface ISimpleAnalyzer : IAnalyzer { }
+    /// <summary>
+    /// An analyzer of type simple that is built using a Lower Case Tokenizer.
+    /// </summary>
+    public interface ISimpleAnalyzer : IAnalyzer { }
 
-	/// <inheritdoc />
-	public class SimpleAnalyzer : AnalyzerBase, ISimpleAnalyzer
-	{
-		public SimpleAnalyzer() : base("simple") { }
-	}
+    /// <inheritdoc />
+    public class SimpleAnalyzer : AnalyzerBase, ISimpleAnalyzer
+    {
+        public SimpleAnalyzer() : base("simple") { }
+    }
 
-	/// <inheritdoc />
-	public class SimpleAnalyzerDescriptor : AnalyzerDescriptorBase<SimpleAnalyzerDescriptor, ISimpleAnalyzer>, ISimpleAnalyzer
-	{
-		protected override string Type => "simple";
-	}
+    /// <inheritdoc />
+    public class SimpleAnalyzerDescriptor : AnalyzerDescriptorBase<SimpleAnalyzerDescriptor, ISimpleAnalyzer>, ISimpleAnalyzer
+    {
+        protected override string Type => "simple";
+    }
 }

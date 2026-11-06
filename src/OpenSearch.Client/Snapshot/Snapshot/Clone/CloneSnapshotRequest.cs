@@ -30,34 +30,34 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
-	[MapsApi("snapshot.clone.json")]
-	[ReadAs(typeof(CloneSnapshotRequest))]
-	public partial interface ICloneSnapshotRequest
-	{
-		/// <summary>
-		/// The indices to clone.
-		/// </summary>
-		[DataMember(Name = "indices")]
-		Indices Indices { get; set; }
-	}
+    [MapsApi("snapshot.clone.json")]
+    [ReadAs(typeof(CloneSnapshotRequest))]
+    public partial interface ICloneSnapshotRequest
+    {
+        /// <summary>
+        /// The indices to clone.
+        /// </summary>
+        [DataMember(Name = "indices")]
+        Indices Indices { get; set; }
+    }
 
-	public partial class CloneSnapshotRequest
-	{
-		/// <inheritdoc />
-		public Indices Indices { get; set; }
-	}
+    public partial class CloneSnapshotRequest
+    {
+        /// <inheritdoc />
+        public Indices Indices { get; set; }
+    }
 
-	public partial class CloneSnapshotDescriptor
-	{
-		Indices ICloneSnapshotRequest.Indices { get; set; }
+    public partial class CloneSnapshotDescriptor
+    {
+        Indices ICloneSnapshotRequest.Indices { get; set; }
 
-		/// <inheritdoc cref="IRestoreRequest.Indices" />
-		public CloneSnapshotDescriptor Index(IndexName index) => Indices(index);
+        /// <inheritdoc cref="IRestoreRequest.Indices" />
+        public CloneSnapshotDescriptor Index(IndexName index) => Indices(index);
 
-		/// <inheritdoc cref="IRestoreRequest.Indices" />
-		public CloneSnapshotDescriptor Index<T>() where T : class => Indices(typeof(T));
+        /// <inheritdoc cref="IRestoreRequest.Indices" />
+        public CloneSnapshotDescriptor Index<T>() where T : class => Indices(typeof(T));
 
-		/// <inheritdoc cref="IRestoreRequest.Indices" />
-		public CloneSnapshotDescriptor Indices(Indices indices) => Assign(indices, (a, v) => a.Indices = v);
-	}
+        /// <inheritdoc cref="IRestoreRequest.Indices" />
+        public CloneSnapshotDescriptor Indices(Indices indices) => Assign(indices, (a, v) => a.Indices = v);
+    }
 }

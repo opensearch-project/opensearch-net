@@ -32,10 +32,10 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	public class Profile
-	{
-		[DataMember(Name = "shards")]
-		public IReadOnlyCollection<ShardProfile> Shards { get; internal set; } =
-			EmptyReadOnly<ShardProfile>.Collection;
-	}
+    public class Profile
+    {
+        [DataMember(Name = "shards")]
+        public IReadOnlyCollection<ShardProfile> Shards { get; internal set; } =
+            EmptyReadOnly<ShardProfile>.Collection;
+    }
 }

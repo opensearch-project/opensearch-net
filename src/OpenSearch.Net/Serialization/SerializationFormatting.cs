@@ -28,13 +28,13 @@
 
 namespace OpenSearch.Net
 {
-	/// <summary>
-	/// A hint to <see cref="IOpenSearchSerializer"/> how to format the json.
-	/// Implementation of <see cref="IOpenSearchSerializer"/> might choose to ignore this hint though.
-	/// </summary>
-	public enum SerializationFormatting
-	{
-		None,
-		Indented
-	}
+    /// <summary>
+    /// A hint to <see cref="IOpenSearchSerializer"/> how to format the json.
+    /// Implementation of <see cref="IOpenSearchSerializer"/> might choose to ignore this hint though.
+    /// </summary>
+    public enum SerializationFormatting
+    {
+        None,
+        Indented
+    }
 }

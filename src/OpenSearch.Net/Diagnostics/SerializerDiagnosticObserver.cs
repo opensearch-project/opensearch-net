@@ -31,13 +31,13 @@ using System.Collections.Generic;
 
 namespace OpenSearch.Net.Diagnostics
 {
-	/// <summary> Provides a typed listener any time an <see cref="IOpenSearchSerializer"/> does a write or read</summary>
-	public class SerializerDiagnosticObserver : TypedDiagnosticObserverBase<SerializerRegistrationInformation>
-	{
-		public SerializerDiagnosticObserver(
-			Action<KeyValuePair<string, SerializerRegistrationInformation>> onNext,
-			Action<Exception> onError = null,
-			Action onCompleted = null
-		) : base(onNext, onError, onCompleted) { }
-	}
+    /// <summary> Provides a typed listener any time an <see cref="IOpenSearchSerializer"/> does a write or read</summary>
+    public class SerializerDiagnosticObserver : TypedDiagnosticObserverBase<SerializerRegistrationInformation>
+    {
+        public SerializerDiagnosticObserver(
+            Action<KeyValuePair<string, SerializerRegistrationInformation>> onNext,
+            Action<Exception> onError = null,
+            Action onCompleted = null
+        ) : base(onNext, onError, onCompleted) { }
+    }
 }

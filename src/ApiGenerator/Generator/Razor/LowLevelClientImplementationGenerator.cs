@@ -38,28 +38,28 @@ namespace ApiGenerator.Generator.Razor;
 
 public class LowLevelClientImplementationGenerator : RazorGeneratorBase
 {
-	public override string Title => "OpenSearch.Net client implementation";
+    public override string Title => "OpenSearch.Net client implementation";
 
-	public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
-	{
-		await DoRazor(spec, View(), Target(), token);
+    public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
+    {
+        await DoRazor(spec, View(), Target(), token);
 
-		await DoRazor(HttpMethod.All, View("Http"), Target("Http"), token);
+        await DoRazor(HttpMethod.All, View("Http"), Target("Http"), token);
 
-		await DoRazorDependantFiles(
-			progressBar,
-			spec.EndpointsPerNamespaceLowLevel.Where(kv => kv.Key != CsharpNames.RootNamespace).ToList(),
-			View("Namespace"),
-			kv => kv.Key,
-			Target,
-			token
-		);
+        await DoRazorDependantFiles(
+            progressBar,
+            spec.EndpointsPerNamespaceLowLevel.Where(kv => kv.Key != CsharpNames.RootNamespace).ToList(),
+            View("Namespace"),
+            kv => kv.Key,
+            Target,
+            token
+        );
 
-		return;
+        return;
 
-		string View(string id = null) =>
-			ViewLocations.LowLevel("Client", "Implementation", $"OpenSearchLowLevelClient{(id != null ? $".{id}" : string.Empty)}.cshtml");
+        string View(string id = null) =>
+            ViewLocations.LowLevel("Client", "Implementation", $"OpenSearchLowLevelClient{(id != null ? $".{id}" : string.Empty)}.cshtml");
 
-		string Target(string id = null) => GeneratorLocations.LowLevel($"OpenSearchLowLevelClient{(id != null ? $".{id}" : string.Empty)}.cs");
-	}
+        string Target(string id = null) => GeneratorLocations.LowLevel($"OpenSearchLowLevelClient{(id != null ? $".{id}" : string.Empty)}.cs");
+    }
 }

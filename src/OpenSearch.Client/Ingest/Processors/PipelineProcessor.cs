@@ -31,34 +31,34 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	/// <summary> Executes another pipeline.</summary>
-	[InterfaceDataContract]
-	public interface IPipelineProcessor : IProcessor
-	{
-		/// <summary>The name of the pipeline to execute. </summary>
-		[DataMember(Name = "name")]
-		string ProcessorName { get; set; }
-	}
+    /// <summary> Executes another pipeline.</summary>
+    [InterfaceDataContract]
+    public interface IPipelineProcessor : IProcessor
+    {
+        /// <summary>The name of the pipeline to execute. </summary>
+        [DataMember(Name = "name")]
+        string ProcessorName { get; set; }
+    }
 
-	/// <inheritdoc cref="IPipelineProcessor" />
-	public class PipelineProcessor : ProcessorBase, IPipelineProcessor
-	{
-		/// <inheritdoc />
-		[DataMember(Name = "name")]
-		public string ProcessorName { get; set; }
+    /// <inheritdoc cref="IPipelineProcessor" />
+    public class PipelineProcessor : ProcessorBase, IPipelineProcessor
+    {
+        /// <inheritdoc />
+        [DataMember(Name = "name")]
+        public string ProcessorName { get; set; }
 
-		internal const string ProcessorTypeName = "pipeline";
-		protected override string Name => ProcessorTypeName;
-	}
+        internal const string ProcessorTypeName = "pipeline";
+        protected override string Name => ProcessorTypeName;
+    }
 
-	/// <inheritdoc cref="IPipelineProcessor" />
-	public class PipelineProcessorDescriptor
-		: ProcessorDescriptorBase<PipelineProcessorDescriptor, IPipelineProcessor>, IPipelineProcessor
-	{
-		protected override string Name => PipelineProcessor.ProcessorTypeName;
-		string IPipelineProcessor.ProcessorName { get; set; }
+    /// <inheritdoc cref="IPipelineProcessor" />
+    public class PipelineProcessorDescriptor
+        : ProcessorDescriptorBase<PipelineProcessorDescriptor, IPipelineProcessor>, IPipelineProcessor
+    {
+        protected override string Name => PipelineProcessor.ProcessorTypeName;
+        string IPipelineProcessor.ProcessorName { get; set; }
 
-		/// <inheritdoc cref="IPipelineProcessor.ProcessorName"/>
-		public PipelineProcessorDescriptor ProcessorName(string processorName) => Assign(processorName, (a, v) => a.ProcessorName = v);
-	}
+        /// <inheritdoc cref="IPipelineProcessor.ProcessorName"/>
+        public PipelineProcessorDescriptor ProcessorName(string processorName) => Assign(processorName, (a, v) => a.ProcessorName = v);
+    }
 }

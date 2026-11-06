@@ -27,35 +27,35 @@
 */
 
 using System;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework;
 
 namespace Tests.CodeStandards.Serialization
 {
-	public class JsonProperties
-	{
-		/**
+    public class JsonProperties
+    {
+        /**
 		* Our Utf8Json formatter resolver picks up attributes set on the interface
 		*/
-		[U]
-		public void SeesInterfaceProperties()
-		{
-			var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-			var settings = new ConnectionSettings(pool, new InMemoryConnection());
-			var c = new OpenSearchClient(settings);
+        [U]
+        public void SeesInterfaceProperties()
+        {
+            var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+            var settings = new ConnectionSettings(pool, new InMemoryConnection());
+            var c = new OpenSearchClient(settings);
 
 
-			var serializer = c.RequestResponseSerializer;
-			var serialized = serializer.SerializeToString(new OpenSearch.Client.Analysis { CharFilters = new CharFilters() });
-			serialized.Should().NotContain("char_filters").And.NotContain("charFilters");
-			serialized.Should().Contain("char_filter");
+            var serializer = c.RequestResponseSerializer;
+            var serialized = serializer.SerializeToString(new OpenSearch.Client.Analysis { CharFilters = new CharFilters() });
+            serialized.Should().NotContain("char_filters").And.NotContain("charFilters");
+            serialized.Should().Contain("char_filter");
 
-			serialized = serializer.SerializeToString(new AnalysisDescriptor().CharFilters(cf=>cf));
-			serialized.Should().NotContain("char_filters").And.NotContain("charFilters");
-			serialized.Should().Contain("char_filter");
-		}
-	}
+            serialized = serializer.SerializeToString(new AnalysisDescriptor().CharFilters(cf => cf));
+            serialized.Should().NotContain("char_filters").And.NotContain("charFilters");
+            serialized.Should().Contain("char_filter");
+        }
+    }
 }

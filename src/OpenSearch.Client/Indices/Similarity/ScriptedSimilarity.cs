@@ -31,36 +31,36 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
-	/// <summary>
-	/// A similarity that allows a script to be used in order to specify how scores should be computed.
-	/// </summary>
-	public interface IScriptedSimilarity : ISimilarity
-	{
-		/// <summary>
-		/// Script to calculate similarity
-		/// </summary>
-		[DataMember(Name ="script")]
-		IScript Script { get; set; }
-	}
+    /// <summary>
+    /// A similarity that allows a script to be used in order to specify how scores should be computed.
+    /// </summary>
+    public interface IScriptedSimilarity : ISimilarity
+    {
+        /// <summary>
+        /// Script to calculate similarity
+        /// </summary>
+        [DataMember(Name = "script")]
+        IScript Script { get; set; }
+    }
 
-	/// <inheritdoc />
-	public class ScriptedSimilarity : IScriptedSimilarity
-	{
-		/// <inheritdoc />
-		public IScript Script { get; set; }
+    /// <inheritdoc />
+    public class ScriptedSimilarity : IScriptedSimilarity
+    {
+        /// <inheritdoc />
+        public IScript Script { get; set; }
 
-		public string Type => "scripted";
-	}
+        public string Type => "scripted";
+    }
 
-	/// <inheritdoc cref="IScriptedSimilarity" />
-	public class ScriptedSimilarityDescriptor
-		: DescriptorBase<ScriptedSimilarityDescriptor, IScriptedSimilarity>, IScriptedSimilarity
-	{
-		IScript IScriptedSimilarity.Script { get; set; }
-		string ISimilarity.Type => "scripted";
+    /// <inheritdoc cref="IScriptedSimilarity" />
+    public class ScriptedSimilarityDescriptor
+        : DescriptorBase<ScriptedSimilarityDescriptor, IScriptedSimilarity>, IScriptedSimilarity
+    {
+        IScript IScriptedSimilarity.Script { get; set; }
+        string ISimilarity.Type => "scripted";
 
-		/// <inheritdoc cref="IScriptedSimilarity.Script" />
-		public ScriptedSimilarityDescriptor Script(Func<ScriptDescriptor, IScript> selector) =>
-			Assign(selector, (a, v) => a.Script = v?.Invoke(new ScriptDescriptor()));
-	}
+        /// <inheritdoc cref="IScriptedSimilarity.Script" />
+        public ScriptedSimilarityDescriptor Script(Func<ScriptDescriptor, IScript> selector) =>
+            Assign(selector, (a, v) => a.Script = v?.Invoke(new ScriptDescriptor()));
+    }
 }

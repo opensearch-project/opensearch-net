@@ -12,9 +12,9 @@ namespace Tests.Auth.AwsSigV4.Utils;
 
 internal class FixedDateTimeProvider : DateTimeProvider
 {
-	private readonly DateTime _now;
+    private readonly DateTime _now;
 
-	public FixedDateTimeProvider(DateTime now) => _now = now;
+    public FixedDateTimeProvider(DateTime now) => _now = now;
 
-	public override DateTime Now() => _now;
+    public override DateTime Now() => _now;
 }

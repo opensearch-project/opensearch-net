@@ -13,10 +13,10 @@ namespace Tests.Connection.Http;
 
 public class MockableHttpConnection : HttpConnection
 {
-	private readonly MockHttpMessageHandler _handler;
+    private readonly MockHttpMessageHandler _handler;
 
-	public MockableHttpConnection(MockHttpMessageHandler.Handler handler) =>
-		_handler = new MockHttpMessageHandler(handler);
+    public MockableHttpConnection(MockHttpMessageHandler.Handler handler) =>
+        _handler = new MockHttpMessageHandler(handler);
 
-	protected override HttpMessageHandler CreateHttpClientHandler(RequestData requestData) => _handler;
+    protected override HttpMessageHandler CreateHttpClientHandler(RequestData requestData) => _handler;
 }

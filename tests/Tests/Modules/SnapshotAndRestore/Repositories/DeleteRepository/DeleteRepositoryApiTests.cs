@@ -27,37 +27,37 @@
 */
 
 using System;
-using OpenSearch.Net;
 using OpenSearch.Client;
+using OpenSearch.Net;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
 using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Modules.SnapshotAndRestore.Repositories.DeleteRepository
 {
-	public class DeleteRepositoryApiTests
-		: ApiTestBase<ReadOnlyCluster, DeleteRepositoryResponse, IDeleteRepositoryRequest, DeleteRepositoryDescriptor, DeleteRepositoryRequest>
-	{
-		private static readonly string _name = "repository1";
+    public class DeleteRepositoryApiTests
+        : ApiTestBase<ReadOnlyCluster, DeleteRepositoryResponse, IDeleteRepositoryRequest, DeleteRepositoryDescriptor, DeleteRepositoryRequest>
+    {
+        private static readonly string _name = "repository1";
 
-		public DeleteRepositoryApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+        public DeleteRepositoryApiTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override Func<DeleteRepositoryDescriptor, IDeleteRepositoryRequest> Fluent => d => d;
+        protected override Func<DeleteRepositoryDescriptor, IDeleteRepositoryRequest> Fluent => d => d;
 
-		protected override HttpMethod HttpMethod => HttpMethod.DELETE;
+        protected override HttpMethod HttpMethod => HttpMethod.DELETE;
 
-		protected override DeleteRepositoryRequest Initializer => new DeleteRepositoryRequest(_name);
+        protected override DeleteRepositoryRequest Initializer => new DeleteRepositoryRequest(_name);
 
-		protected override bool SupportsDeserialization => false;
-		protected override string UrlPath => $"/_snapshot/{_name}";
+        protected override bool SupportsDeserialization => false;
+        protected override string UrlPath => $"/_snapshot/{_name}";
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Snapshot.DeleteRepository(_name, f),
-			(client, f) => client.Snapshot.DeleteRepositoryAsync(_name, f),
-			(client, r) => client.Snapshot.DeleteRepository(r),
-			(client, r) => client.Snapshot.DeleteRepositoryAsync(r)
-		);
+        protected override LazyResponses ClientUsage() => Calls(
+            (client, f) => client.Snapshot.DeleteRepository(_name, f),
+            (client, f) => client.Snapshot.DeleteRepositoryAsync(_name, f),
+            (client, r) => client.Snapshot.DeleteRepository(r),
+            (client, r) => client.Snapshot.DeleteRepositoryAsync(r)
+        );
 
-		protected override DeleteRepositoryDescriptor NewDescriptor() => new DeleteRepositoryDescriptor(_name);
-	}
+        protected override DeleteRepositoryDescriptor NewDescriptor() => new DeleteRepositoryDescriptor(_name);
+    }
 }

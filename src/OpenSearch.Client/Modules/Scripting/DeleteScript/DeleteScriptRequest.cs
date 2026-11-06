@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("delete_script.json")]
-	public partial interface IDeleteScriptRequest { }
+    [MapsApi("delete_script.json")]
+    public partial interface IDeleteScriptRequest { }
 
-	public partial class DeleteScriptRequest { }
+    public partial class DeleteScriptRequest { }
 
-	public partial class DeleteScriptDescriptor { }
+    public partial class DeleteScriptDescriptor { }
 }

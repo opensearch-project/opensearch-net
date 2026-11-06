@@ -32,13 +32,13 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum Operator
-	{
-		[EnumMember(Value = "and")]
-		And,
+    [StringEnum]
+    public enum Operator
+    {
+        [EnumMember(Value = "and")]
+        And,
 
-		[EnumMember(Value = "or")]
-		Or
-	}
+        [EnumMember(Value = "or")]
+        Or
+    }
 }

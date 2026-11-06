@@ -30,6 +30,6 @@ using System;
 
 namespace OpenSearch.Client
 {
-	[AttributeUsage(AttributeTargets.Property)]
-	public class StringTimeSpanAttribute : Attribute { }
+    [AttributeUsage(AttributeTargets.Property)]
+    public class StringTimeSpanAttribute : Attribute { }
 }

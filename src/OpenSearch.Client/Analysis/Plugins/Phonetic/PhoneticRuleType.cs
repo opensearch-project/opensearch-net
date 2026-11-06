@@ -31,13 +31,13 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum PhoneticRuleType
-	{
-		[EnumMember(Value = "approx")]
-		Approximate,
+    [StringEnum]
+    public enum PhoneticRuleType
+    {
+        [EnumMember(Value = "approx")]
+        Approximate,
 
-		[EnumMember(Value = "exact")]
-		Exact
-	}
+        [EnumMember(Value = "exact")]
+        Exact
+    }
 }

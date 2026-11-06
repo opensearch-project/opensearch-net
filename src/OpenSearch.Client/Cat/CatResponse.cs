@@ -32,11 +32,11 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[DataContract]
-	public class CatResponse<TCatRecord> : ResponseBase
-		where TCatRecord : ICatRecord
-	{
-		[IgnoreDataMember]
-		public IReadOnlyCollection<TCatRecord> Records { get; internal set; } = EmptyReadOnly<TCatRecord>.Collection;
-	}
+    [DataContract]
+    public class CatResponse<TCatRecord> : ResponseBase
+        where TCatRecord : ICatRecord
+    {
+        [IgnoreDataMember]
+        public IReadOnlyCollection<TCatRecord> Records { get; internal set; } = EmptyReadOnly<TCatRecord>.Collection;
+    }
 }

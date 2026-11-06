@@ -14,20 +14,20 @@ namespace OpenSearch.Client;
 [ReadAs(typeof(ComponentTemplate))]
 public interface IComponentTemplate
 {
-	[DataMember(Name = "template")]
-	ITemplate Template { get; set; }
+    [DataMember(Name = "template")]
+    ITemplate Template { get; set; }
 
-	[DataMember(Name = "version")]
-	long? Version { get; set; }
+    [DataMember(Name = "version")]
+    long? Version { get; set; }
 
-	[DataMember(Name = "_meta")]
-	[JsonFormatter(typeof(VerbatimDictionaryInterfaceKeysFormatter<string, object>))]
-	IDictionary<string, object> Meta { get; set; }
+    [DataMember(Name = "_meta")]
+    [JsonFormatter(typeof(VerbatimDictionaryInterfaceKeysFormatter<string, object>))]
+    IDictionary<string, object> Meta { get; set; }
 }
 
 public class ComponentTemplate : IComponentTemplate
 {
-	public ITemplate Template { get; set; }
-	public long? Version { get; set; }
-	public IDictionary<string, object> Meta { get; set; }
+    public ITemplate Template { get; set; }
+    public long? Version { get; set; }
+    public IDictionary<string, object> Meta { get; set; }
 }

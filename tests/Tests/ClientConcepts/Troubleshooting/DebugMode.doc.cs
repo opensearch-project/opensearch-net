@@ -28,9 +28,9 @@
 
 using System.Linq;
 using FluentAssertions;
+using OpenSearch.Client;
 using OpenSearch.Net;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
@@ -38,7 +38,7 @@ using Tests.Framework.DocumentationTests;
 
 namespace Tests.ClientConcepts.Troubleshooting
 {
-	/**
+    /**
 	 * === Debug mode
 	 *
 	 * The <<debug-information, Debug information>> explains that every response from OpenSearch.Net
@@ -57,51 +57,51 @@ namespace Tests.ClientConcepts.Troubleshooting
 	 * * collecting thread pool statistics when a request is made
 	 * * including the OpenSearch stack trace in the response if there is a an error on the server side
 	 */
-	public class DebugMode : IntegrationDocumentationTestBase, IClusterFixture<ReadOnlyCluster>
-	{
-		public DebugMode(ReadOnlyCluster cluster) : base(cluster) { }
+    public class DebugMode : IntegrationDocumentationTestBase, IClusterFixture<ReadOnlyCluster>
+    {
+        public DebugMode(ReadOnlyCluster cluster) : base(cluster) { }
 
-		[I]
-		public void EnableDebugMode()
-		{
-			var pool = new StaticConnectionPool(Cluster.NodesUris());
+        [I]
+        public void EnableDebugMode()
+        {
+            var pool = new StaticConnectionPool(Cluster.NodesUris());
 
-			var settings = new ConnectionSettings(pool)
-				.DefaultIndex(Client.ConnectionSettings.DefaultIndex)
-				.EnableDebugMode(); // <1> configure debug mode
-			settings = (ConnectionSettings)Cluster.UpdateSettings(settings);
+            var settings = new ConnectionSettings(pool)
+                .DefaultIndex(Client.ConnectionSettings.DefaultIndex)
+                .EnableDebugMode(); // <1> configure debug mode
+            settings = (ConnectionSettings)Cluster.UpdateSettings(settings);
 
-			var client = new OpenSearchClient(settings);
+            var client = new OpenSearchClient(settings);
 
-			var response = client.Search<Project>(s => s
-				.Query(q => q
-					.MatchAll()
-				)
-			);
+            var response = client.Search<Project>(s => s
+                .Query(q => q
+                    .MatchAll()
+                )
+            );
 
-			var debugInformation = response.DebugInformation; // <2> verbose debug information
+            var debugInformation = response.DebugInformation; // <2> verbose debug information
 
-			debugInformation.Should().Contain("TCP states:");
-			debugInformation.Should().Contain("ThreadPool statistics:");
-		}
+            debugInformation.Should().Contain("TCP states:");
+            debugInformation.Should().Contain("ThreadPool statistics:");
+        }
 
-		/**
+        /**
 		 * In addition to exposing debug information on the response, debug mode will also cause the debug
 		 * information to be written to the trace listeners in the `System.Diagnostics.Debug.Listeners` collection
 		 * by default, when the request has completed. A delegate can be passed when enabling debug mode to perform
 		 * a different action when a request has completed, using <<logging-with-on-request-completed, `OnRequestCompleted`>>
 		 */
-		public void DebugModeOnRequestCompleted()
-		{
-			var pool = new SingleNodeConnectionPool(Cluster.NodesUris().First());
-			var settings = new ConnectionSettings(pool)
-				.EnableDebugMode(apiCallDetails =>
-				{
-					// do something with the call details e.g. send with logging framework
-				});
-			settings = (ConnectionSettings)Cluster.UpdateSettings(settings);
-			var client = new OpenSearchClient(settings);
-		}
-	}
+        public void DebugModeOnRequestCompleted()
+        {
+            var pool = new SingleNodeConnectionPool(Cluster.NodesUris().First());
+            var settings = new ConnectionSettings(pool)
+                .EnableDebugMode(apiCallDetails =>
+                {
+                    // do something with the call details e.g. send with logging framework
+                });
+            settings = (ConnectionSettings)Cluster.UpdateSettings(settings);
+            var client = new OpenSearchClient(settings);
+        }
+    }
 
 }

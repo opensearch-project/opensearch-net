@@ -215,7 +215,8 @@ public sealed class OperationGroupModel
 
     private static IReadOnlyList<OperationParameter> ExtractParameters(OpenApiOperation op)
     {
-        if (op.Parameters == null) return Array.Empty<OperationParameter>();
+        if (op.Parameters == null)
+            return Array.Empty<OperationParameter>();
 
         return op.ActualParameters
             .Select(p => new OperationParameter(
@@ -238,8 +239,10 @@ public sealed class OperationGroupModel
     private static JsonSchema? ExtractRequestBodySchema(OpenApiOperation op)
     {
         var content = op.ActualRequestBody?.Content;
-        if (content == null) return null;
-        if (!content.TryGetValue("application/json", out var mt)) return null;
+        if (content == null)
+            return null;
+        if (!content.TryGetValue("application/json", out var mt))
+            return null;
         return mt.Schema?.ActualSchema;
     }
 
@@ -247,11 +250,13 @@ public sealed class OperationGroupModel
         OpenApiOperation op)
     {
         var result = new Dictionary<string, OperationSuccessResponse>(StringComparer.Ordinal);
-        if (op.ActualResponses == null) return result;
+        if (op.ActualResponses == null)
+            return result;
 
         foreach (var (status, response) in op.ActualResponses)
         {
-            if (!status.StartsWith("2", StringComparison.Ordinal)) continue;
+            if (!status.StartsWith("2", StringComparison.Ordinal))
+                continue;
 
             JsonSchema? schema = null;
             string? referencePath = null;
@@ -375,32 +380,32 @@ public sealed class OperationGroupModel
             .ToList();
 
         var result = new Dictionary<string, OperationSuccessResponse>(StringComparer.Ordinal);
-        foreach (var item in responses)
+        foreach (var (OperationId, Response) in responses)
         {
-            if (!result.TryGetValue(item.Response.StatusCode, out var existing))
+            if (!result.TryGetValue(Response.StatusCode, out var existing))
             {
-                result[item.Response.StatusCode] = item.Response;
+                result[Response.StatusCode] = Response;
                 continue;
             }
 
-            if ((existing.Schema == null) != (item.Response.Schema == null))
+            if ((existing.Schema == null) != (Response.Schema == null))
             {
                 diagnostics.Add(new OperationGroupDiagnostic(
                     operationGroup,
                     DiagnosticSeverity.Error,
                     "INCOMPATIBLE_RESPONSE",
-                    $"Incompatible {item.Response.StatusCode} response in '{item.OperationId}': "
+                    $"Incompatible {Response.StatusCode} response in '{OperationId}': "
                     + "variants disagree on whether the response has a JSON body."));
             }
             else if (existing.Schema != null
-                && item.Response.Schema != null
-                && !AreSchemasEquivalent(existing.Schema, item.Response.Schema, schemas))
+                && Response.Schema != null
+                && !AreSchemasEquivalent(existing.Schema, Response.Schema, schemas))
             {
                 diagnostics.Add(new OperationGroupDiagnostic(
                     operationGroup,
                     DiagnosticSeverity.Error,
                     "INCOMPATIBLE_RESPONSE",
-                    $"Incompatible {item.Response.StatusCode} response schema in '{item.OperationId}'."));
+                    $"Incompatible {Response.StatusCode} response schema in '{OperationId}'."));
             }
         }
 
@@ -409,28 +414,31 @@ public sealed class OperationGroupModel
         var bodyResponses = responses.Where(item => item.Response.Schema != null).ToList();
         if (bodyResponses.Count > 1)
         {
-            var canonical = bodyResponses
+            var (OperationId, Response) = bodyResponses
                 .OrderBy(item => item.Response.StatusCode == "200" ? 0 : 1)
                 .ThenBy(item => item.Response.StatusCode, StringComparer.Ordinal)
                 .First();
 
             foreach (var item in bodyResponses)
             {
-                if (ReferenceEquals(item.Response, canonical.Response)) continue;
-                if (AreSchemasEquivalent(canonical.Response.Schema!, item.Response.Schema!, schemas)) continue;
+                if (ReferenceEquals(item.Response, Response))
+                    continue;
+                if (AreSchemasEquivalent(Response.Schema!, item.Response.Schema!, schemas))
+                    continue;
 
                 var alreadyReported = diagnostics.Any(d =>
                     d.Code == "INCOMPATIBLE_RESPONSE"
                     && d.Message.Contains(item.OperationId, StringComparison.Ordinal));
-                if (alreadyReported) continue;
+                if (alreadyReported)
+                    continue;
 
                 diagnostics.Add(new OperationGroupDiagnostic(
                     operationGroup,
                     DiagnosticSeverity.Error,
                     "INCOMPATIBLE_RESPONSE",
                     $"Incompatible successful response schema for status {item.Response.StatusCode} "
-                    + $"in '{item.OperationId}' compared with status {canonical.Response.StatusCode} "
-                    + $"in '{canonical.OperationId}'."));
+                    + $"in '{item.OperationId}' compared with status {Response.StatusCode} "
+                    + $"in '{OperationId}'."));
             }
         }
 
@@ -449,7 +457,8 @@ public sealed class OperationGroupModel
 
         foreach (var variant in variants)
         {
-            if (variant.RequestBodySchema == null) continue;
+            if (variant.RequestBodySchema == null)
+                continue;
 
             if (canonical == null)
             {
@@ -475,7 +484,8 @@ public sealed class OperationGroupModel
         SchemaCatalog schemas,
         int depth = 0)
     {
-        if (ReferenceEquals(left, right)) return true;
+        if (ReferenceEquals(left, right))
+            return true;
 
         var hasLeftId = schemas.TryGetId(left, out var leftId);
         var hasRightId = schemas.TryGetId(right, out var rightId);
@@ -493,15 +503,18 @@ public sealed class OperationGroupModel
             .OrderBy(name => name, StringComparer.Ordinal);
         var rightRequired = (right.RequiredProperties ?? Array.Empty<string>())
             .OrderBy(name => name, StringComparer.Ordinal);
-        if (!leftRequired.SequenceEqual(rightRequired, StringComparer.Ordinal)) return false;
+        if (!leftRequired.SequenceEqual(rightRequired, StringComparer.Ordinal))
+            return false;
 
         var leftEnum = left.Enumeration.Select(value => value?.ToString()).ToList();
         var rightEnum = right.Enumeration.Select(value => value?.ToString()).ToList();
-        if (!leftEnum.SequenceEqual(rightEnum, StringComparer.Ordinal)) return false;
+        if (!leftEnum.SequenceEqual(rightEnum, StringComparer.Ordinal))
+            return false;
 
         var leftProperties = left.Properties ?? new Dictionary<string, JsonSchemaProperty>();
         var rightProperties = right.Properties ?? new Dictionary<string, JsonSchemaProperty>();
-        if (leftProperties.Count != rightProperties.Count) return false;
+        if (leftProperties.Count != rightProperties.Count)
+            return false;
         foreach (var (name, leftProperty) in leftProperties)
         {
             if (!rightProperties.TryGetValue(name, out var rightProperty)
@@ -513,7 +526,8 @@ public sealed class OperationGroupModel
                 return false;
         }
 
-        if ((left.Item == null) != (right.Item == null)) return false;
+        if ((left.Item == null) != (right.Item == null))
+            return false;
         if (left.Item != null
             && !AreSchemasEquivalent(left.Item.ActualSchema, right.Item!.ActualSchema, schemas, depth + 1))
             return false;
@@ -529,7 +543,8 @@ public sealed class OperationGroupModel
         SchemaCatalog schemas,
         int depth)
     {
-        if (left.Count != right.Count) return false;
+        if (left.Count != right.Count)
+            return false;
         return left.Zip(right).All(pair =>
             AreSchemasEquivalent(pair.First.ActualSchema, pair.Second.ActualSchema, schemas, depth + 1));
     }

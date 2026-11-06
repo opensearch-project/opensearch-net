@@ -13,27 +13,27 @@ namespace Samples;
 
 public abstract class Sample
 {
-	public static IEnumerable<Sample> GetAllSamples() =>
-		typeof(Sample)
-			.Assembly
-			.GetTypes()
-			.Where(t => !t.IsAbstract && t.IsSubclassOf(typeof(Sample)))
-			.Select(t => (Sample) Activator.CreateInstance(t)!);
+    public static IEnumerable<Sample> GetAllSamples() =>
+        typeof(Sample)
+            .Assembly
+            .GetTypes()
+            .Where(t => !t.IsAbstract && t.IsSubclassOf(typeof(Sample)))
+            .Select(t => (Sample)Activator.CreateInstance(t)!);
 
-	private readonly string _name;
-	private readonly string _description;
+    private readonly string _name;
+    private readonly string _description;
 
-	protected Sample(string name, string description)
-	{
-		_name = name;
-		_description = description;
-	}
+    protected Sample(string name, string description)
+    {
+        _name = name;
+        _description = description;
+    }
 
-	public Command AsCommand(Func<ParseResult, IOpenSearchClient> clientDescriptor)
-	{
-		var command = new Command(_name, _description);
+    public Command AsCommand(Func<ParseResult, IOpenSearchClient> clientDescriptor)
+    {
+        var command = new Command(_name, _description);
 
-		command.SetAction(async parseResult =>
+        command.SetAction(async parseResult =>
         {
             var client = clientDescriptor.Invoke(parseResult);
             try
@@ -53,16 +53,17 @@ public abstract class Sample
             }
         });
 
-		return command;
-	}
+        return command;
+    }
 
-	protected abstract Task Run(IOpenSearchClient client);
+    protected abstract Task Run(IOpenSearchClient client);
 
     protected virtual Task Cleanup(IOpenSearchClient client) => Task.CompletedTask;
 
     protected static void Assert<T>(T response, Func<T, bool> condition) where T : IOpenSearchResponse
     {
-        if (condition(response)) return;
+        if (condition(response))
+            return;
 
         throw new Exception($"Assertion failed:\n{response.ApiCall?.DebugInformation}");
     }

@@ -35,7 +35,8 @@ public sealed class ModelsGenerator : RazorGeneratorBase
 
     public override async Task Generate(RestApiSpec spec, ProgressBar progressBar, CancellationToken token)
     {
-        if (spec.Document is null) return;
+        if (spec.Document is null)
+            return;
 
         // One catalog and normalization per document, shared across ALL plugins.
         var catalog = new SchemaCatalog(spec.Document);
@@ -77,7 +78,8 @@ public sealed class ModelsGenerator : RazorGeneratorBase
             }
         }
 
-        if (!plugin.GenerateBodyOps && !plugin.GenerateNonBodyOps) return;
+        if (!plugin.GenerateBodyOps && !plugin.GenerateNonBodyOps)
+            return;
 
         var emittedEnums = new HashSet<string>(
             ns.TypesToEmit.OfType<EnumModel>().Select(t => t.CsharpName),
@@ -103,7 +105,8 @@ public sealed class ModelsGenerator : RazorGeneratorBase
                 foreach (var e in op.ReferencedEnums)
                 {
                     token.ThrowIfCancellationRequested();
-                    if (!emittedEnums.Add(e.CsharpName)) continue;
+                    if (!emittedEnums.Add(e.CsharpName))
+                        continue;
                     await DoRazor(e, ViewLocations.HighLevel("Model.cshtml"),
                         GeneratorLocations.HighLevel(plugin.OutputFolder, e.CsharpName + ".g.cs"), token);
                     progressBar.Tick($"Generated {plugin.Namespace} enum: {e.CsharpName}");
@@ -127,7 +130,8 @@ public sealed class ModelsGenerator : RazorGeneratorBase
                 foreach (var e in CollectNewEnums(doc, resp, plugin, emittedEnums))
                 {
                     token.ThrowIfCancellationRequested();
-                    if (!emittedEnums.Add(e.CsharpName)) continue;
+                    if (!emittedEnums.Add(e.CsharpName))
+                        continue;
                     await DoRazor(e, ViewLocations.HighLevel("Model.cshtml"),
                         GeneratorLocations.HighLevel(plugin.OutputFolder, e.CsharpName + ".g.cs"), token);
                     progressBar.Tick($"Generated {plugin.Namespace} enum: {e.CsharpName}");
@@ -300,16 +304,20 @@ public sealed class ModelsGenerator : RazorGeneratorBase
         foreach (var prop in resp.Properties)
         {
             var csharpType = prop.CsharpType.TrimEnd('?');
-            if (alreadyEmitted.Contains(csharpType) || !seen.Add(csharpType)) continue;
+            if (alreadyEmitted.Contains(csharpType) || !seen.Add(csharpType))
+                continue;
 
             foreach (var (id, schema) in doc.Components.Schemas)
             {
-                if (!schema.ActualSchema.IsEnum()) continue;
+                if (!schema.ActualSchema.IsEnum())
+                    continue;
                 var name = plugin.RenamedTypes.TryGetValue(id, out var renamed)
                     ? renamed
                     : ModelTypeResolver.RefToTypeName(id);
-                if (name != csharpType) continue;
-                if (plugin.MappedCsharpType(id) != null) continue;
+                if (name != csharpType)
+                    continue;
+                if (plugin.MappedCsharpType(id) != null)
+                    continue;
 
                 var members = schema.ActualSchema.GetEnumValues()
                     .Select(v => new EnumMember(v.Value, EnumToPascal(v.Alias ?? v.Value)))

@@ -52,33 +52,33 @@
 
 namespace OpenSearch.Net.Utf8Json
 {
-	internal interface IJsonProperty
-	{
-		string Name { get; set; }
+    internal interface IJsonProperty
+    {
+        string Name { get; set; }
 
-		int Order { get; }
+        int Order { get; }
 
-		bool Ignore { get; set; }
+        bool Ignore { get; set; }
 
-		bool? AllowPrivate { get; set; }
-	}
+        bool? AllowPrivate { get; set; }
+    }
 
-	internal class JsonProperty : IJsonProperty
-	{
-		public JsonProperty(string name) => Name = name;
+    internal class JsonProperty : IJsonProperty
+    {
+        public JsonProperty(string name) => Name = name;
 
-		public string Name { get; set; }
+        public string Name { get; set; }
 
-		public int Order => 0;
+        public int Order => 0;
 
-		public bool Ignore { get; set; }
+        public bool Ignore { get; set; }
 
-		public bool? AllowPrivate { get; set; }
+        public bool? AllowPrivate { get; set; }
 
-		/// <summary>
-		/// An instance of an <see cref="IJsonFormatter"/> that will be used
-		/// to serialize/deserialize the property
-		/// </summary>
-		public object JsonFormatter { get; set; }
-	}
+        /// <summary>
+        /// An instance of an <see cref="IJsonFormatter"/> that will be used
+        /// to serialize/deserialize the property
+        /// </summary>
+        public object JsonFormatter { get; set; }
+    }
 }

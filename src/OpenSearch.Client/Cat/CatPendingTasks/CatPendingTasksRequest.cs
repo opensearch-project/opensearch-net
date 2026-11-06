@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("cat.pending_tasks.json")]
-	public partial interface ICatPendingTasksRequest { }
+    [MapsApi("cat.pending_tasks.json")]
+    public partial interface ICatPendingTasksRequest { }
 
-	public partial class CatPendingTasksRequest { }
+    public partial class CatPendingTasksRequest { }
 
-	public partial class CatPendingTasksDescriptor { }
+    public partial class CatPendingTasksDescriptor { }
 }

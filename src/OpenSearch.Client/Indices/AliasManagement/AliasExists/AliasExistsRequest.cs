@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("indices.exists_alias.json")]
-	public partial interface IAliasExistsRequest { }
+    [MapsApi("indices.exists_alias.json")]
+    public partial interface IAliasExistsRequest { }
 
-	public partial class AliasExistsRequest { }
+    public partial class AliasExistsRequest { }
 
-	public partial class AliasExistsDescriptor { }
+    public partial class AliasExistsDescriptor { }
 }

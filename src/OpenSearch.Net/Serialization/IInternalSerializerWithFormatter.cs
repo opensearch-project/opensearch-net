@@ -30,9 +30,9 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Net
 {
-	internal interface IInternalSerializer
-	{
-		bool TryGetJsonFormatter(out IJsonFormatterResolver formatterResolver);
-	}
+    internal interface IInternalSerializer
+    {
+        bool TryGetJsonFormatter(out IJsonFormatterResolver formatterResolver);
+    }
 
 }

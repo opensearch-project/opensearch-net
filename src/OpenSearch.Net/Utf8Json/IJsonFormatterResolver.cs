@@ -55,48 +55,48 @@ using System.Reflection;
 
 namespace OpenSearch.Net.Utf8Json
 {
-	internal interface IJsonFormatterResolver
-	{
-		IJsonFormatter<T> GetFormatter<T>();
-	}
+    internal interface IJsonFormatterResolver
+    {
+        IJsonFormatter<T> GetFormatter<T>();
+    }
 
-	internal static class JsonFormatterResolverExtensions
-	{
-		public static IJsonFormatter<T> GetFormatterWithVerify<T>(this IJsonFormatterResolver resolver)
-		{
-			IJsonFormatter<T> formatter;
-			try
-			{
-				formatter = resolver.GetFormatter<T>();
-			}
-			catch (TypeInitializationException ex)
-			{
-				Exception inner = ex;
-				while (inner.InnerException != null)
-					inner = inner.InnerException;
+    internal static class JsonFormatterResolverExtensions
+    {
+        public static IJsonFormatter<T> GetFormatterWithVerify<T>(this IJsonFormatterResolver resolver)
+        {
+            IJsonFormatter<T> formatter;
+            try
+            {
+                formatter = resolver.GetFormatter<T>();
+            }
+            catch (TypeInitializationException ex)
+            {
+                Exception inner = ex;
+                while (inner.InnerException != null)
+                    inner = inner.InnerException;
 
-				throw inner;
-			}
+                throw inner;
+            }
 
-			if (formatter == null)
-				throw new FormatterNotRegisteredException(typeof(T).FullName + " is not registered in this resolver. resolver:" + resolver.GetType().Name);
+            if (formatter == null)
+                throw new FormatterNotRegisteredException(typeof(T).FullName + " is not registered in this resolver. resolver:" + resolver.GetType().Name);
 
-			return formatter;
-		}
+            return formatter;
+        }
 
-		private static readonly MethodInfo GetFormatterMethod =
-			typeof(IJsonFormatterResolver).GetRuntimeMethod(nameof(IJsonFormatterResolver.GetFormatter), Type.EmptyTypes);
-		public static object GetFormatterDynamic(this IJsonFormatterResolver resolver, Type type)
-		{
-			var formatter = GetFormatterMethod.MakeGenericMethod(type).Invoke(resolver, null);
-			return formatter;
-		}
-	}
+        private static readonly MethodInfo GetFormatterMethod =
+            typeof(IJsonFormatterResolver).GetRuntimeMethod(nameof(IJsonFormatterResolver.GetFormatter), Type.EmptyTypes);
+        public static object GetFormatterDynamic(this IJsonFormatterResolver resolver, Type type)
+        {
+            var formatter = GetFormatterMethod.MakeGenericMethod(type).Invoke(resolver, null);
+            return formatter;
+        }
+    }
 
-	internal class FormatterNotRegisteredException : Exception
-	{
-		public FormatterNotRegisteredException(string message) : base(message)
-		{
-		}
-	}
+    internal class FormatterNotRegisteredException : Exception
+    {
+        public FormatterNotRegisteredException(string message) : base(message)
+        {
+        }
+    }
 }

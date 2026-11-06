@@ -13,12 +13,12 @@ namespace Tests.Core.Connection.Http;
 
 public class MockHttpMessageHandler : HttpMessageHandler
 {
-	public delegate HttpResponseMessage Handler(HttpRequestMessage request);
+    public delegate HttpResponseMessage Handler(HttpRequestMessage request);
 
-	private readonly Handler _handler;
+    private readonly Handler _handler;
 
-	public MockHttpMessageHandler(Handler handler) => _handler = handler;
+    public MockHttpMessageHandler(Handler handler) => _handler = handler;
 
-	protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken) =>
-		Task.FromResult(_handler(request));
+    protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken) =>
+        Task.FromResult(_handler(request));
 }

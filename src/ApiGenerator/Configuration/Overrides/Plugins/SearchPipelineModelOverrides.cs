@@ -50,8 +50,8 @@ public sealed class SearchPipelineModelOverrides : ModelOverridesBase
     public override IDictionary<string, string> OpNameOverrides { get; } =
         new Dictionary<string, string>(StringComparer.Ordinal)
         {
-            ["search_pipeline.put"]    = "PutSearchPipeline",
-            ["search_pipeline.get"]    = "GetSearchPipeline",
+            ["search_pipeline.put"] = "PutSearchPipeline",
+            ["search_pipeline.get"] = "GetSearchPipeline",
             ["search_pipeline.delete"] = "DeleteSearchPipeline",
         };
 
@@ -66,8 +66,8 @@ public sealed class SearchPipelineModelOverrides : ModelOverridesBase
     public override IDictionary<string, string> MappedTypes { get; } =
         new Dictionary<string, string>(StringComparer.Ordinal)
         {
-            ["search_pipeline._common___RequestProcessor"]      = "IRequestProcessor",
-            ["search_pipeline._common___ResponseProcessor"]     = "IResponseProcessor",
+            ["search_pipeline._common___RequestProcessor"] = "IRequestProcessor",
+            ["search_pipeline._common___ResponseProcessor"] = "IResponseProcessor",
             ["search_pipeline._common___PhaseResultsProcessor"] = "IPhaseResultsProcessor",
         };
 

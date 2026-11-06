@@ -28,5 +28,5 @@
 
 namespace OpenSearch.Client
 {
-	public interface ICatRecord { }
+    public interface ICatRecord { }
 }

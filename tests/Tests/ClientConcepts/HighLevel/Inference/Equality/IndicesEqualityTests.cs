@@ -26,57 +26,62 @@
 *  under the License.
 */
 
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Extensions;
 using Tests.Domain;
 
 namespace Tests.ClientConcepts.HighLevel.Inference.Equality
 {
-	public class IndicesEqualityTests
-	{
-		[U] public void Eq()
-		{
-			OpenSearch.Client.Indices types = "foo,bar";
-			OpenSearch.Client.Indices[] equal = { "foo,bar", "bar,foo", "foo,  bar", "bar,  foo   " };
-			foreach (var t in equal)
-			{
-				(t == types).ShouldBeTrue(t);
-				t.Should().Be(types);
-			}
+    public class IndicesEqualityTests
+    {
+        [U]
+        public void Eq()
+        {
+            OpenSearch.Client.Indices types = "foo,bar";
+            OpenSearch.Client.Indices[] equal = { "foo,bar", "bar,foo", "foo,  bar", "bar,  foo   " };
+            foreach (var t in equal)
+            {
+                (t == types).ShouldBeTrue(t);
+                t.Should().Be(types);
+            }
 
-			(OpenSearch.Client.Indices.All == "_all").Should().BeTrue();
-		}
+            (OpenSearch.Client.Indices.All == "_all").Should().BeTrue();
+        }
 
 
-		[U] public void NotEq()
-		{
-			OpenSearch.Client.Indices types = "foo,bar";
-			OpenSearch.Client.Indices[] notEqual = { "foo,bar,x", "foo", typeof(Project) };
-			foreach (var t in notEqual)
-			{
-				(t != types).ShouldBeTrue(t);
-				t.Should().NotBe(types);
-			}
-		}
+        [U]
+        public void NotEq()
+        {
+            OpenSearch.Client.Indices types = "foo,bar";
+            OpenSearch.Client.Indices[] notEqual = { "foo,bar,x", "foo", typeof(Project) };
+            foreach (var t in notEqual)
+            {
+                (t != types).ShouldBeTrue(t);
+                t.Should().NotBe(types);
+            }
+        }
 
-		[U] public void TypedEq()
-		{
-			OpenSearch.Client.Indices t1 = typeof(Project), t2 = typeof(Project);
-			(t1 == t2).ShouldBeTrue(t2);
-		}
+        [U]
+        public void TypedEq()
+        {
+            OpenSearch.Client.Indices t1 = typeof(Project), t2 = typeof(Project);
+            (t1 == t2).ShouldBeTrue(t2);
+        }
 
-		[U] public void TypedNotEq()
-		{
-			OpenSearch.Client.Indices t1 = typeof(Project), t2 = typeof(CommitActivity);
-			(t1 != t2).ShouldBeTrue(t2);
-		}
+        [U]
+        public void TypedNotEq()
+        {
+            OpenSearch.Client.Indices t1 = typeof(Project), t2 = typeof(CommitActivity);
+            (t1 != t2).ShouldBeTrue(t2);
+        }
 
-		[U] public void Null()
-		{
-			OpenSearch.Client.Indices value = typeof(Project);
-			(value == null).Should().BeFalse();
-			(null == value).Should().BeFalse();
-		}
-	}
+        [U]
+        public void Null()
+        {
+            OpenSearch.Client.Indices value = typeof(Project);
+            (value == null).Should().BeFalse();
+            (null == value).Should().BeFalse();
+        }
+    }
 }

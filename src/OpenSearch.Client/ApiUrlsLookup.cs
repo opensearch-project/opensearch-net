@@ -43,9 +43,9 @@
 // -----------------------------------------------
 namespace OpenSearch.Client
 {
-	internal static partial class ApiUrlsLookups
-	{
-		///<remarks>Deprecated as of OpenSearch 2.0</remarks>
-		internal static ApiUrls IndicesTypeExists = new(["{index}/_mapping/{type}"]);
-	}
+    internal static partial class ApiUrlsLookups
+    {
+        ///<remarks>Deprecated as of OpenSearch 2.0</remarks>
+        internal static ApiUrls IndicesTypeExists = new(["{index}/_mapping/{type}"]);
+    }
 }
