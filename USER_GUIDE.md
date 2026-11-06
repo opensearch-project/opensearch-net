@@ -1,5 +1,5 @@
 - [User Guide](#user-guide)
-  - [OpenSearch.Client](#opensearchclient) 
+  - [OpenSearch.Client](#opensearchclient)
     - [Getting Started](#getting-started)
     - [Connecting](#connecting)
     - [Indexing](#indexing)
@@ -342,10 +342,10 @@ var connection = new HttpConnection(requestData => httpClient);
 var connection = new HttpConnection(requestData => httpMessageHandler);
 ```
 
-The client or handler is then yours: they are not disposed by the connection, and the handler-level settings listed above are **not** applied, so configure decompression, `MaxConnectionsPerServer`, proxy and certificates on your own handler. `HttpConnection.CreateDefaultHttpClientHandler(settings)` creates a handler configured from your connection settings:
+The client or handler is then yours: they are not disposed by the connection, and the handler-level settings listed above are **not** applied, so configure decompression, `MaxConnectionsPerServer`, proxy and certificates on your own handler. `HttpConnection.CreateDefaultHttpMessageHandler(settings)` creates a handler configured from your connection settings:
 
 ```csharp
-var httpClient = new HttpClient(new MyDelegatingHandler(HttpConnection.CreateDefaultHttpClientHandler(settings)));
+var httpClient = new HttpClient(new MyDelegatingHandler(HttpConnection.CreateDefaultHttpMessageHandler(settings)));
 ```
 
 Because the connection creates no handlers in this mode, per-request client certificates (`RequestConfiguration.ClientCertificates`) and overrides of `CreateHttpClientHandler` in a subclass are not applied either.
@@ -359,7 +359,7 @@ To send requests through a named `IHttpClientFactory` client's handler pipeline,
 ```csharp
 builder.Services.AddHttpClient("opensearch")
     .ConfigurePrimaryHttpMessageHandler(serviceProvider =>
-        HttpConnection.CreateDefaultHttpClientHandler(serviceProvider.GetRequiredService<IConnectionSettingsValues>()))
+        HttpConnection.CreateDefaultHttpMessageHandler(serviceProvider.GetRequiredService<IConnectionSettingsValues>()))
     .AddStandardResilienceHandler();
 
 builder.Services.AddSingleton<IConnectionSettingsValues>(serviceProvider =>
@@ -372,7 +372,7 @@ builder.Services.AddSingleton<IOpenSearchClient>(serviceProvider =>
     new OpenSearchClient(serviceProvider.GetRequiredService<IConnectionSettingsValues>()));
 ```
 
-The factory still pools and rotates the handlers and runs every handler added to the builder, and `CreateDefaultHttpClientHandler` gives it the same primary handler `HttpConnection` would create. Sending through the handler rather than `CreateClient` means `RequestTimeout` is the only timeout; settings applied with `ConfigureHttpClient` are not used. Use `SetHandlerLifetime` to match `DnsRefreshTimeout` if you rely on it. The limitations described in [Supplying Your Own HttpClient](#supplying-your-own-httpclient) apply.
+The factory still pools and rotates the handlers and runs every handler added to the builder, and `CreateDefaultHttpMessageHandler` gives it the same primary handler `HttpConnection` would create. Sending through the handler rather than `CreateClient` means `RequestTimeout` is the only timeout; settings applied with `ConfigureHttpClient` are not used. Use `SetHandlerLifetime` to match `DnsRefreshTimeout` if you rely on it. The limitations described in [Supplying Your Own HttpClient](#supplying-your-own-httpclient) apply.
 
 Note that the client already retries and fails over across nodes (see `MaxRetries`). Resilience handlers such as `AddStandardResilienceHandler()` retry within each of those attempts and apply their own timeouts, so tune them with that in mind. When a resilience handler gives up (e.g. its timeout elapses or its circuit is open), the attempt fails and the client moves on to the next node.
 

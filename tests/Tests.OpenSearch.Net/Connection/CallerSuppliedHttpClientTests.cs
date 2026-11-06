@@ -143,19 +143,57 @@ namespace Tests.OpenSearch.Net.Connection
 
 		[U] public void DefaultHttpClientHandlerIsConfiguredFromSettings()
 		{
-			var settings = new ConnectionConfiguration(Node)
+			var handler = HttpConnection.CreateDefaultHttpClientHandler(ConfiguredSettings());
+
+			AssertHttpClientHandlerIsConfigured(handler);
+			((Action)(() => HttpConnection.CreateDefaultHttpClientHandler(null))).Should().Throw<ArgumentNullException>();
+		}
+
+		[U] public void DefaultMessageHandlerIsConfiguredFromSettings()
+		{
+			var handler = HttpConnection.CreateDefaultHttpMessageHandler(ConfiguredSettings());
+
+#if NETCOREAPP2_1_OR_GREATER
+			AssertSocketsHandlerIsConfigured(handler.Should().BeOfType<SocketsHttpHandler>().Subject);
+#else
+			AssertHttpClientHandlerIsConfigured(handler.Should().BeOfType<HttpClientHandler>().Subject);
+#endif
+            ((Action)(() => HttpConnection.CreateDefaultHttpMessageHandler(null))).Should().Throw<ArgumentNullException>();
+		}
+
+#if NETCOREAPP2_1_OR_GREATER
+		[U] public void DefaultSocketsHttpHandlerIsConfiguredFromSettings()
+		{
+			var handler = HttpConnection.CreateDefaultSocketsHttpHandler(ConfiguredSettings());
+
+			AssertSocketsHandlerIsConfigured(handler);
+			((Action)(() => HttpConnection.CreateDefaultSocketsHttpHandler(null))).Should().Throw<ArgumentNullException>();
+		}
+#endif
+
+		private static ConnectionConfiguration ConfiguredSettings() =>
+			new ConnectionConfiguration(Node)
 				.EnableHttpCompression()
 				.ConnectionLimit(12)
 				.Proxy(new Uri("http://proxy:8080"), "user", "pass");
 
-			var handler = HttpConnection.CreateDefaultHttpClientHandler(settings);
-
+		private static void AssertHttpClientHandlerIsConfigured(HttpClientHandler handler)
+		{
 			handler.AutomaticDecompression.Should().Be(DecompressionMethods.GZip | DecompressionMethods.Deflate);
 			handler.MaxConnectionsPerServer.Should().Be(12);
 			handler.Proxy.GetProxy(new Uri("http://remote:9200")).Should().Be(new Uri("http://proxy:8080"));
 			handler.Proxy.IsBypassed(new Uri("http://127.0.0.1:9200")).Should().BeTrue();
-			((Action)(() => HttpConnection.CreateDefaultHttpClientHandler(null))).Should().Throw<ArgumentNullException>();
 		}
+
+#if NETCOREAPP2_1_OR_GREATER
+		private static void AssertSocketsHandlerIsConfigured(SocketsHttpHandler handler)
+		{
+			handler.AutomaticDecompression.Should().Be(DecompressionMethods.GZip | DecompressionMethods.Deflate);
+			handler.MaxConnectionsPerServer.Should().Be(12);
+			handler.Proxy.GetProxy(new Uri("http://remote:9200")).Should().Be(new Uri("http://proxy:8080"));
+			handler.Proxy.IsBypassed(new Uri("http://127.0.0.1:9200")).Should().BeTrue();
+		}
+#endif
 
 		[U] public async Task SendsSyncAndAsyncRequestsThroughSuppliedHandler()
 		{

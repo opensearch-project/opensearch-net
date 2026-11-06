@@ -176,7 +176,7 @@ namespace OpenSearch.Net
 				if (requestData.PostData != null)
 					SetContent(requestMessage, requestData);
 
-				using(requestMessage?.Content ?? (IDisposable)Stream.Null)
+				using (requestMessage?.Content ?? (IDisposable)Stream.Null)
 				using (var d = DiagnosticSource.Diagnose<RequestData, int?>(DiagnosticSources.HttpConnection.SendAndReceiveHeaders, requestData))
 				{
 					if (requestData.TcpStats)
@@ -208,7 +208,7 @@ namespace OpenSearch.Net
 			{
 				ex = e;
 			}
-			using(receive)
+			using (receive)
 			using (responseStream ??= Stream.Null)
 			{
 				var response = ResponseBuilder.ToResponse<TResponse>(requestData, ex, statusCode, warnings, responseStream, mimeType);
@@ -244,7 +244,7 @@ namespace OpenSearch.Net
 				if (requestData.PostData != null)
 					await SetContentAsync(requestMessage, requestData, cancellationToken).ConfigureAwait(false);
 
-				using(requestMessage?.Content ?? (IDisposable)Stream.Null)
+				using (requestMessage?.Content ?? (IDisposable)Stream.Null)
 				using (var d = DiagnosticSource.Diagnose<RequestData, int?>(DiagnosticSources.HttpConnection.SendAndReceiveHeaders, requestData))
 				{
 					if (requestData.TcpStats)
@@ -345,49 +345,23 @@ namespace OpenSearch.Net
 		/// Creates the handler this connection would create for <paramref name="settings" />, applying response decompression,
 		/// <see cref="IConnectionConfigurationValues.ConnectionLimit" />, proxy settings, server certificate validation and client certificates.
 		/// Useful as the primary handler of an <see cref="HttpClient" /> passed to <see cref="HttpConnection(Func{RequestData, HttpClient})" />.
-		/// </summary>
 		public static HttpClientHandler CreateDefaultHttpClientHandler(IConnectionConfigurationValues settings)
 		{
-			if (settings == null) throw new ArgumentNullException(nameof(settings));
+#pragma warning disable CA1510 // Targets without ArgumentNullException.ThrowIfNull
+			if (settings == null)
+				throw new ArgumentNullException(nameof(settings));
+#pragma warning restore CA1510
 
 			return BuildHttpClientHandler(settings, settings.ClientCertificates);
 		}
 
 		private static HttpClientHandler BuildHttpClientHandler(IConnectionConfigurationValues settings, X509CertificateCollection clientCertificates)
 		{
-			var handler = new HttpClientHandler { AutomaticDecompression = settings.EnableHttpCompression ? GZip | Deflate : None, };
-
-			// same limit as desktop clr
-			if (settings.ConnectionLimit > 0)
-			{
-				try
-				{
-					handler.MaxConnectionsPerServer = settings.ConnectionLimit;
-				}
-				catch (MissingMethodException e)
-				{
-					throw new Exception(MissingConnectionLimitMethodError, e);
-				}
-				catch (PlatformNotSupportedException e)
-				{
-					throw new Exception(MissingConnectionLimitMethodError, e);
-				}
-			}
-
-			if (!settings.ProxyAddress.IsNullOrEmpty())
-			{
-				var uri = new Uri(settings.ProxyAddress);
-				var proxy = new WebProxy(uri);
-				if (!string.IsNullOrEmpty(settings.ProxyUsername))
-				{
-					var credentials = new NetworkCredential(settings.ProxyUsername, settings.ProxyPassword);
-					proxy.Credentials = credentials;
-				}
-				handler.Proxy = proxy;
-			}
-			else if (settings.DisableAutomaticProxyDetection) handler.UseProxy = false;
+			var handler = new HttpClientHandler();
+			ConfigureCommon(handler, settings);
 
 			var callback = settings.ServerCertificateValidationCallback;
+
 			if (callback != null && handler.ServerCertificateCustomValidationCallback == null)
 				handler.ServerCertificateCustomValidationCallback = callback;
 
@@ -398,6 +372,126 @@ namespace OpenSearch.Net
 			}
 
 			return handler;
+		}
+
+#if NETCOREAPP2_1_OR_GREATER
+		/// <summary>
+		/// Creates the <see cref="SocketsHttpHandler" /> this connection would create for <paramref name="settings" />, applying response decompression,
+		/// <see cref="IConnectionConfigurationValues.ConnectionLimit" />, proxy settings, server certificate validation and client certificates.
+		/// Useful as the primary handler of an <see cref="HttpClient" /> passed to <see cref="HttpConnection(Func{RequestData, HttpClient})" />.
+		/// </summary>
+		/// <param name="settings">The connection settings to configure the handler from.</param>
+		/// <returns>A <see cref="SocketsHttpHandler" /> configured from <paramref name="settings" />.</returns>
+		public static SocketsHttpHandler CreateDefaultSocketsHttpHandler(IConnectionConfigurationValues settings)
+		{
+#pragma warning disable CA1510 // Targets without ArgumentNullException.ThrowIfNull
+			if (settings == null)
+				throw new ArgumentNullException(nameof(settings));
+#pragma warning restore CA1510
+
+			return BuildSocketsHttpHandler(settings, settings.ClientCertificates);
+		}
+
+		private static SocketsHttpHandler BuildSocketsHttpHandler(IConnectionConfigurationValues settings, X509CertificateCollection clientCertificates)
+		{
+			var handler = new SocketsHttpHandler();
+			ConfigureCommon(handler, settings);
+
+			var callback = settings.ServerCertificateValidationCallback;
+
+			if (callback != null && handler.SslOptions.RemoteCertificateValidationCallback == null)
+				handler.SslOptions.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors)
+					=> callback(sender, certificate, chain, sslPolicyErrors);
+
+			if (clientCertificates != null)
+			{
+				handler.SslOptions.ClientCertificates ??= [];
+				handler.SslOptions.ClientCertificates.AddRange(clientCertificates);
+			}
+
+			return handler;
+		}
+#endif
+
+		/// <summary>
+		/// Creates the handler this connection would create for <paramref name="settings" />: a
+#if NETCOREAPP2_1_OR_GREATER
+		/// <see cref="SocketsHttpHandler" /> on .NET Core, and an <see cref="HttpClientHandler" /> on the rest of targets.
+#else
+		/// <see cref="HttpClientHandler" /> on this target.
+#endif
+		/// </summary>
+		/// <param name="settings">The connection settings to configure the handler from.</param>
+		/// <returns>An <see cref="HttpMessageHandler" /> configured from <paramref name="settings" />.</returns>
+		public static HttpMessageHandler CreateDefaultHttpMessageHandler(IConnectionConfigurationValues settings)
+		{
+#pragma warning disable CA1510 // Targets without ArgumentNullException.ThrowIfNull
+			if (settings == null)
+				throw new ArgumentNullException(nameof(settings));
+#pragma warning restore CA1510
+
+#if NETCOREAPP2_1_OR_GREATER
+			return BuildSocketsHttpHandler(settings, settings.ClientCertificates);
+#else
+			return BuildHttpClientHandler(settings, settings.ClientCertificates);
+#endif
+		}
+
+		private static void ConfigureCommon(HttpMessageHandler handler, IConnectionConfigurationValues settings)
+		{
+			var automaticDecompression = settings.EnableHttpCompression ? GZip | Deflate : None;
+			var proxy = CreateProxy(settings);
+			var useProxy = proxy != null || !settings.DisableAutomaticProxyDetection;
+
+			switch (handler)
+			{
+#if NETCOREAPP2_1_OR_GREATER
+				case SocketsHttpHandler sockets:
+					sockets.AutomaticDecompression = automaticDecompression;
+					sockets.Proxy = proxy;
+					sockets.UseProxy = useProxy;
+
+					// same limit as desktop clr
+					if (settings.ConnectionLimit > 0)
+						sockets.MaxConnectionsPerServer = settings.ConnectionLimit;
+					break;
+#endif
+				case HttpClientHandler classic:
+					classic.AutomaticDecompression = automaticDecompression;
+					classic.Proxy = proxy;
+					classic.UseProxy = useProxy;
+
+					// same limit as desktop clr
+					if (settings.ConnectionLimit > 0)
+					{
+						try
+						{
+							classic.MaxConnectionsPerServer = settings.ConnectionLimit;
+						}
+						catch (MissingMethodException e)
+						{
+							throw new Exception(MissingConnectionLimitMethodError, e);
+						}
+						catch (PlatformNotSupportedException e)
+						{
+							throw new Exception(MissingConnectionLimitMethodError, e);
+						}
+					}
+					break;
+			}
+		}
+
+		private static WebProxy CreateProxy(IConnectionConfigurationValues settings)
+		{
+			if (settings.ProxyAddress.IsNullOrEmpty())
+				return null;
+
+			var proxy = new WebProxy(new Uri(settings.ProxyAddress));
+
+			if (!string.IsNullOrEmpty(settings.ProxyUsername))
+				proxy.Credentials = new NetworkCredential(settings.ProxyUsername, settings.ProxyPassword);
+
+			return proxy;
 		}
 
 		protected virtual HttpRequestMessage CreateHttpRequestMessage(RequestData requestData)
@@ -546,7 +640,7 @@ namespace OpenSearch.Net
 				{
 					message.Content = new ByteArrayContent(requestData.PostData.WrittenBytes);
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_0_OR_GREATER
-						await stream.DisposeAsync().ConfigureAwait(false);
+					await stream.DisposeAsync().ConfigureAwait(false);
 
 #else
 						stream.Dispose();

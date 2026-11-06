@@ -6,6 +6,8 @@ Inspired from [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 ### Changed
 - Moved NuGet package versions to a central `Directory.Packages.props` using Central Package Management, so each project no longer pins its own package versions ([#1091](https://github.com/opensearch-project/opensearch-net/pull/1091))
 ### Added
+- Added `HttpConnection.CreateDefaultSocketsHttpHandler(settings)` to build a `SocketsHttpHandler` from connection settings, for use as the primary handler of an `HttpClient` passed to `HttpConnection(Func<RequestData, HttpClient>)`
+- Added `HttpConnection.CreateDefaultHttpMessageHandler(settings)` to build the default `HttpMessageHandler` for connection settings, returning either `HttpClientHandler` or `SocketsHttpHandler` depending on the framework
 ### Removed
 ### Fixed
 ### Dependencies
