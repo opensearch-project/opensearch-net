@@ -37,88 +37,88 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Aggregations.Pipeline.Derivative
 {
-    public class DerivativeAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
-    {
-        public DerivativeAggregationUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+	public class DerivativeAggregationUsageTests : AggregationUsageTestBase<ReadOnlyCluster>
+	{
+		public DerivativeAggregationUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-        protected override object AggregationJson => new
-        {
-            projects_started_per_month = new
-            {
-                date_histogram = new
-                {
-                    field = "startedOn",
-                    calendar_interval = "month",
-                    min_doc_count = 0
-                },
-                aggs = new
-                {
-                    commits = new
-                    {
-                        sum = new
-                        {
-                            field = "numberOfCommits"
-                        }
-                    },
-                    commits_derivative = new
-                    {
-                        derivative = new
-                        {
-                            buckets_path = "commits"
-                        }
-                    }
-                }
-            }
-        };
+		protected override object AggregationJson => new
+		{
+			projects_started_per_month = new
+			{
+				date_histogram = new
+				{
+					field = "startedOn",
+					calendar_interval = "month",
+					min_doc_count = 0
+				},
+				aggs = new
+				{
+					commits = new
+					{
+						sum = new
+						{
+							field = "numberOfCommits"
+						}
+					},
+					commits_derivative = new
+					{
+						derivative = new
+						{
+							buckets_path = "commits"
+						}
+					}
+				}
+			}
+		};
 
-        protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
-            .DateHistogram("projects_started_per_month", dh => dh
-                .Field(p => p.StartedOn)
-                .CalendarInterval(DateInterval.Month)
-                .MinimumDocumentCount(0)
-                .Aggregations(aa => aa
-                    .Sum("commits", sm => sm
-                        .Field(p => p.NumberOfCommits)
-                    )
-                    .Derivative("commits_derivative", d => d
-                        .BucketsPath("commits")
-                    )
-                )
-            );
+		protected override Func<AggregationContainerDescriptor<Project>, IAggregationContainer> FluentAggs => a => a
+			.DateHistogram("projects_started_per_month", dh => dh
+				.Field(p => p.StartedOn)
+				.CalendarInterval(DateInterval.Month)
+				.MinimumDocumentCount(0)
+				.Aggregations(aa => aa
+					.Sum("commits", sm => sm
+						.Field(p => p.NumberOfCommits)
+					)
+					.Derivative("commits_derivative", d => d
+						.BucketsPath("commits")
+					)
+				)
+			);
 
-        protected override AggregationDictionary InitializerAggs =>
-            new DateHistogramAggregation("projects_started_per_month")
-            {
-                Field = "startedOn",
-                CalendarInterval = DateInterval.Month,
-                MinimumDocumentCount = 0,
-                Aggregations =
-                    new SumAggregation("commits", "numberOfCommits") &&
-                    new DerivativeAggregation("commits_derivative", "commits")
-            };
+		protected override AggregationDictionary InitializerAggs =>
+			new DateHistogramAggregation("projects_started_per_month")
+			{
+				Field = "startedOn",
+				CalendarInterval = DateInterval.Month,
+				MinimumDocumentCount = 0,
+				Aggregations =
+					new SumAggregation("commits", "numberOfCommits") &&
+					new DerivativeAggregation("commits_derivative", "commits")
+			};
 
-        protected override void ExpectResponse(ISearchResponse<Project> response)
-        {
-            response.ShouldBeValid();
+		protected override void ExpectResponse(ISearchResponse<Project> response)
+		{
+			response.ShouldBeValid();
 
-            var projectsPerMonth = response.Aggregations.DateHistogram("projects_started_per_month");
-            projectsPerMonth.Should().NotBeNull();
-            projectsPerMonth.Buckets.Should().NotBeNull();
-            projectsPerMonth.Buckets.Count.Should().BeGreaterThan(0);
+			var projectsPerMonth = response.Aggregations.DateHistogram("projects_started_per_month");
+			projectsPerMonth.Should().NotBeNull();
+			projectsPerMonth.Buckets.Should().NotBeNull();
+			projectsPerMonth.Buckets.Count.Should().BeGreaterThan(0);
 
-            // The date histogram uses min_doc_count:0, so empty months appear as zero-valued buckets
-            // and the derivative for a bucket adjacent to an empty month can legitimately be absent.
-            // Verify deserialization correctness — the derivative values that ARE present parse to
-            // valid numbers (which may be negative, zero, or positive) — rather than requiring one in
-            // every bucket, which made this test seed/date-dependent.
-            var derivatives = projectsPerMonth.Buckets
-                .Skip(1) // derivative not calculated for the first bucket
-                .Select(b => b.Derivative("commits_derivative"))
-                .Where(d => d?.Value != null)
-                .Select(d => d.Value.Value)
-                .ToList();
+			// The date histogram uses min_doc_count:0, so empty months appear as zero-valued buckets
+			// and the derivative for a bucket adjacent to an empty month can legitimately be absent.
+			// Verify deserialization correctness — the derivative values that ARE present parse to
+			// valid numbers (which may be negative, zero, or positive) — rather than requiring one in
+			// every bucket, which made this test seed/date-dependent.
+			var derivatives = projectsPerMonth.Buckets
+				.Skip(1) // derivative not calculated for the first bucket
+				.Select(b => b.Derivative("commits_derivative"))
+				.Where(d => d?.Value != null)
+				.Select(d => d.Value.Value)
+				.ToList();
 
-            derivatives.Should().NotBeEmpty();
-        }
-    }
+			derivatives.Should().NotBeEmpty();
+		}
+	}
 }

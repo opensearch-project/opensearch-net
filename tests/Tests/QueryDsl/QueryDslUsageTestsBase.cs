@@ -29,12 +29,12 @@
 using System;
 using System.Text;
 using System.Threading.Tasks;
-using FluentAssertions;
-using Newtonsoft.Json;
-using OpenSearch.Client;
-using OpenSearch.Net;
-using OpenSearch.OpenSearch.Ephemeral;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
+using OpenSearch.Net;
+using FluentAssertions;
+using OpenSearch.Client;
+using Newtonsoft.Json;
+using OpenSearch.OpenSearch.Ephemeral;
 using Tests.Core.Client;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
@@ -91,8 +91,7 @@ public abstract class QueryDslUsageTestsBase<TCluster, TDocument>
 
     protected abstract QueryContainer QueryFluent(QueryContainerDescriptor<TDocument> q);
 
-    [U]
-    public void FluentIsNotConditionless() =>
+    [U] public void FluentIsNotConditionless() =>
         AssertIsNotConditionless(QueryFluent(new QueryContainerDescriptor<TDocument>()));
 
     [U] public void InitializerIsNotConditionless() => AssertIsNotConditionless(QueryInitializer);
@@ -103,8 +102,7 @@ public abstract class QueryDslUsageTestsBase<TCluster, TDocument>
             c.IsConditionless.Should().BeFalse();
     }
 
-    [U]
-    public void SeenByVisitor()
+    [U] public void SeenByVisitor()
     {
         var visitor = new DslPrettyPrintVisitor(TestClient.DefaultInMemoryClient.ConnectionSettings);
         var query = QueryFluent(new QueryContainerDescriptor<TDocument>());
@@ -114,11 +112,9 @@ public abstract class QueryDslUsageTestsBase<TCluster, TDocument>
         pretty.Should().NotBeNullOrWhiteSpace();
     }
 
-    [U]
-    public void ConditionlessWhenExpectedToBe()
+    [U] public void ConditionlessWhenExpectedToBe()
     {
-        if (ConditionlessWhen == null)
-            return;
+        if (ConditionlessWhen == null) return;
 
         foreach (var when in ConditionlessWhen)
         {
@@ -129,11 +125,9 @@ public abstract class QueryDslUsageTestsBase<TCluster, TDocument>
         ((IQueryContainer)QueryInitializer).IsConditionless.Should().BeFalse();
     }
 
-    [U]
-    public void NotConditionlessWhenExpectedToBe()
+    [U] public void NotConditionlessWhenExpectedToBe()
     {
-        if (NotConditionlessWhen == null)
-            return;
+        if (NotConditionlessWhen == null) return;
 
         foreach (var when in NotConditionlessWhen)
         {

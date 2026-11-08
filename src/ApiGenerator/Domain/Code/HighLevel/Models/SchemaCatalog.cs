@@ -51,8 +51,10 @@ public sealed class SchemaCatalog
     public bool TryGetSchema(string id, out JsonSchema schema) =>
         _schemasById.TryGetValue(id, out schema!);
 
-    private void Register(JsonSchema schema, string id) =>
+    private void Register(JsonSchema schema, string id)
+    {
         // NSwag may reuse one ActualSchema instance for multiple component aliases. Preserve the
         // previous reverse-map behavior: the later component in document order is canonical.
         _idsBySchema[schema] = id;
+    }
 }

@@ -32,49 +32,49 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-    internal static class StatefulSerializerExtensions
-    {
-        // Unwraps the (possibly DiagnosticsSerializerProxy-wrapped) serializer to the System.Text.Json high-level
-        // serializer when that engine is active, so per-request response builders can use the STJ per-request converter
-        // path instead of the legacy CreateStateful (Utf8Json formatter) path.
-        public static bool TryGetSystemTextJsonSerializer(IOpenSearchSerializer serializer, out SystemTextJsonHighLevelSerializer stj)
-        {
-            if (serializer is DiagnosticsSerializerProxy proxy)
-                serializer = proxy.InnerSerializer;
+	internal static class StatefulSerializerExtensions
+	{
+		// Unwraps the (possibly DiagnosticsSerializerProxy-wrapped) serializer to the System.Text.Json high-level
+		// serializer when that engine is active, so per-request response builders can use the STJ per-request converter
+		// path instead of the legacy CreateStateful (Utf8Json formatter) path.
+		public static bool TryGetSystemTextJsonSerializer(IOpenSearchSerializer serializer, out SystemTextJsonHighLevelSerializer stj)
+		{
+			if (serializer is DiagnosticsSerializerProxy proxy)
+				serializer = proxy.InnerSerializer;
 
-            stj = serializer as SystemTextJsonHighLevelSerializer;
-            return stj != null;
-        }
+			stj = serializer as SystemTextJsonHighLevelSerializer;
+			return stj != null;
+		}
 
-        public static DefaultHighLevelSerializer CreateStateful<T>(this IOpenSearchSerializer serializer, IJsonFormatter<T> formatter)
-        {
-            if (!(serializer is IInternalSerializer s) || !s.TryGetJsonFormatter(out var currentFormatterResolver))
-                throw new Exception($"Can not create a stateful serializer because {serializer.GetType()} does not yield a json formatter");
+		public static DefaultHighLevelSerializer CreateStateful<T>(this IOpenSearchSerializer serializer, IJsonFormatter<T> formatter)
+		{
+			if (!(serializer is IInternalSerializer s) || !s.TryGetJsonFormatter(out var currentFormatterResolver))
+				throw new Exception($"Can not create a stateful serializer because {serializer.GetType()} does not yield a json formatter");
 
-            var formatterResolver = new StatefulFormatterResolver<T>(formatter, currentFormatterResolver);
-            return new DefaultHighLevelSerializer(formatterResolver);
-        }
+			var formatterResolver = new StatefulFormatterResolver<T>(formatter, currentFormatterResolver);
+			return new DefaultHighLevelSerializer(formatterResolver);
+		}
 
-        private class StatefulFormatterResolver<TStateful> : IJsonFormatterResolver, IJsonFormatterResolverWithSettings
-        {
-            private readonly IJsonFormatter<TStateful> _jsonFormatter;
-            private readonly IJsonFormatterResolver _formatterResolver;
+		private class StatefulFormatterResolver<TStateful> : IJsonFormatterResolver, IJsonFormatterResolverWithSettings
+		{
+			private readonly IJsonFormatter<TStateful> _jsonFormatter;
+			private readonly IJsonFormatterResolver _formatterResolver;
 
-            public StatefulFormatterResolver(IJsonFormatter<TStateful> jsonFormatter, IJsonFormatterResolver formatterResolver)
-            {
-                _jsonFormatter = jsonFormatter;
-                _formatterResolver = formatterResolver;
-            }
+			public StatefulFormatterResolver(IJsonFormatter<TStateful> jsonFormatter, IJsonFormatterResolver formatterResolver)
+			{
+				_jsonFormatter = jsonFormatter;
+				_formatterResolver = formatterResolver;
+			}
 
-            public IJsonFormatter<T> GetFormatter<T>()
-            {
-                if (typeof(T) == typeof(TStateful))
-                    return (IJsonFormatter<T>)_jsonFormatter;
+			public IJsonFormatter<T> GetFormatter<T>()
+			{
+				if (typeof(T) == typeof(TStateful))
+					return (IJsonFormatter<T>)_jsonFormatter;
 
-                return _formatterResolver.GetFormatter<T>();
-            }
+				return _formatterResolver.GetFormatter<T>();
+			}
 
-            public IConnectionSettingsValues Settings => ((IJsonFormatterResolverWithSettings)_formatterResolver).Settings;
-        }
-    }
+			public IConnectionSettingsValues Settings => ((IJsonFormatterResolverWithSettings)_formatterResolver).Settings;
+		}
+	}
 }

@@ -33,52 +33,52 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-    public class SourceRequestResponseBuilder<TDocument> : CustomResponseBuilderBase
-    {
-        public static SourceRequestResponseBuilder<TDocument> Instance { get; } = new SourceRequestResponseBuilder<TDocument>();
+	public class SourceRequestResponseBuilder<TDocument> : CustomResponseBuilderBase
+	{
+		public static SourceRequestResponseBuilder<TDocument> Instance { get; } = new SourceRequestResponseBuilder<TDocument>();
 
-        public override object DeserializeResponse(IOpenSearchSerializer builtInSerializer, IApiCallDetails response, Stream stream)
-        {
-            if (response.Success)
-            {
-                var sourceSerializer = GetSourceSerializer(builtInSerializer);
-                return new SourceResponse<TDocument>
-                {
-                    Body = (sourceSerializer ?? builtInSerializer).Deserialize<TDocument>(stream)
-                };
-            }
+		public override object DeserializeResponse(IOpenSearchSerializer builtInSerializer, IApiCallDetails response, Stream stream)
+		{
+			if (response.Success)
+			{
+				var sourceSerializer = GetSourceSerializer(builtInSerializer);
+				return new SourceResponse<TDocument>
+				{
+					Body = (sourceSerializer ?? builtInSerializer).Deserialize<TDocument>(stream)
+				};
+			}
 
-            return new SourceResponse<TDocument>();
-        }
+			return new SourceResponse<TDocument>();
+		}
 
-        public override async Task<object> DeserializeResponseAsync(IOpenSearchSerializer builtInSerializer, IApiCallDetails response, Stream stream, CancellationToken ctx = default)
-        {
-            if (response.Success)
-            {
-                var sourceSerializer = GetSourceSerializer(builtInSerializer);
-                return new SourceResponse<TDocument>
-                {
-                    Body = await (sourceSerializer ?? builtInSerializer).DeserializeAsync<TDocument>(stream, ctx).ConfigureAwait(false)
-                };
-            }
+		public override async Task<object> DeserializeResponseAsync(IOpenSearchSerializer builtInSerializer, IApiCallDetails response, Stream stream, CancellationToken ctx = default)
+		{
+			if (response.Success)
+			{
+				var sourceSerializer = GetSourceSerializer(builtInSerializer);
+				return new SourceResponse<TDocument>
+				{
+					Body = await (sourceSerializer ?? builtInSerializer).DeserializeAsync<TDocument>(stream, ctx).ConfigureAwait(false)
+				};
+			}
 
-            return new SourceResponse<TDocument>();
-        }
+			return new SourceResponse<TDocument>();
+		}
 
-        // The _source document body is (de)serialized by the connection's configured SourceSerializer (e.g. a
-        // Newtonsoft JsonNetSerializer) rather than the built-in serializer. The legacy engine reached it via the
-        // Utf8Json formatter resolver; under System.Text.Json unwrap the STJ serializer and read its Settings. Returns
-        // null when neither engine exposes settings, in which case the caller falls back to the built-in serializer.
-        private static IOpenSearchSerializer GetSourceSerializer(IOpenSearchSerializer builtInSerializer)
-        {
-            if (builtInSerializer is IInternalSerializer internalSerializer &&
-                internalSerializer.TryGetJsonFormatter(out var formatter))
-                return formatter.GetConnectionSettings().SourceSerializer;
+		// The _source document body is (de)serialized by the connection's configured SourceSerializer (e.g. a
+		// Newtonsoft JsonNetSerializer) rather than the built-in serializer. The legacy engine reached it via the
+		// Utf8Json formatter resolver; under System.Text.Json unwrap the STJ serializer and read its Settings. Returns
+		// null when neither engine exposes settings, in which case the caller falls back to the built-in serializer.
+		private static IOpenSearchSerializer GetSourceSerializer(IOpenSearchSerializer builtInSerializer)
+		{
+			if (builtInSerializer is IInternalSerializer internalSerializer &&
+				internalSerializer.TryGetJsonFormatter(out var formatter))
+				return formatter.GetConnectionSettings().SourceSerializer;
 
-            if (StatefulSerializerExtensions.TryGetSystemTextJsonSerializer(builtInSerializer, out var stj))
-                return stj.Settings.SourceSerializer;
+			if (StatefulSerializerExtensions.TryGetSystemTextJsonSerializer(builtInSerializer, out var stj))
+				return stj.Settings.SourceSerializer;
 
-            return null;
-        }
-    }
+			return null;
+		}
+	}
 }

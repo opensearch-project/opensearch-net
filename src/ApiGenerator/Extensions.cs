@@ -46,8 +46,7 @@ namespace ApiGenerator
 
         public static string ToPascalCase(this string s, bool removeLeadingUnderscore = false)
         {
-            if (string.IsNullOrEmpty(s))
-                return s;
+            if (string.IsNullOrEmpty(s)) return s;
 
             var textInfo = new CultureInfo("en-US").TextInfo;
             var titleCased = textInfo.ToTitleCase(s.ToLowerInvariant());
@@ -59,12 +58,10 @@ namespace ApiGenerator
 
         public static string ToCamelCase(this string s)
         {
-            if (string.IsNullOrEmpty(s))
-                return s;
+            if (string.IsNullOrEmpty(s)) return s;
 
             var pascal = s.ToPascalCase(true);
-            if (pascal.Length <= 1)
-                return pascal;
+            if (pascal.Length <= 1) return pascal;
 
             return char.ToLower(pascal[0]) + pascal.Substring(1);
         }
@@ -72,10 +69,10 @@ namespace ApiGenerator
         public static string SplitPascalCase(this string s) =>
             Regex.Replace(s, "([A-Z]+[a-z]*)", " $1").Trim();
 
-        public static bool IsNullOrEmpty(this string s) =>
-            string.IsNullOrEmpty(s);
+		public static bool IsNullOrEmpty(this string s) =>
+			string.IsNullOrEmpty(s);
 
-        public static void SortBy<TElem, TKey>(this List<TElem> list, Func<TElem, TKey> selector) =>
-            list.Sort((a, b) => Comparer<TKey>.Default.Compare(selector(a), selector(b)));
-    }
+		public static void SortBy<TElem, TKey>(this List<TElem> list, Func<TElem, TKey> selector) =>
+			list.Sort((a, b) => Comparer<TKey>.Default.Compare(selector(a), selector(b)));
+	}
 }

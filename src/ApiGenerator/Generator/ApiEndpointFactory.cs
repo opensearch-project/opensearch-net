@@ -135,8 +135,7 @@ namespace ApiGenerator.Generator
 
             paths.SortBy(p => string.Join(",", p.Parts.Select(part => part.Name)));
 
-            foreach (var partName in requiredPathParts ?? Enumerable.Empty<string>())
-                allParts[partName].Required = true;
+            foreach (var partName in requiredPathParts ?? Enumerable.Empty<string>()) allParts[partName].Required = true;
 
             IDictionary<string, QueryParameters> queryParams = variants.SelectMany(v => v.Path.Parameters.Concat(v.Operation.Parameters))
                 .Select(p => p.ActualParameter)
@@ -181,8 +180,7 @@ namespace ApiGenerator.Generator
                 List<PathParameter> paramCombo
             )
             {
-                if (i == paramCount)
-                    return [(variantHttpPath, paramCombo)];
+                if (i == paramCount) return [(variantHttpPath, paramCombo)];
 
                 var originalParameter = pathParams[i];
                 var overloads = !originalParameter.IsOverloaded()
@@ -195,19 +193,17 @@ namespace ApiGenerator.Generator
                             )
                         );
 
-                return overloads.SelectMany(o => GenerateVariants(o.HttpPath, i + 1, [.. paramCombo, o.PathParameter]));
+                return overloads.SelectMany(o => GenerateVariants(o.HttpPath, i + 1, [..paramCombo, o.PathParameter]));
             }
         }
 
         private record PathParameter(string Name, JsonSchema Schema, string Description, bool IsDeprecated)
         {
             public PathParameter(OpenApiParameter parameter) :
-                this(parameter.Name, parameter.Schema, parameter.GetDescription(), parameter.IsDeprecated)
-            { }
+                this(parameter.Name, parameter.Schema, parameter.GetDescription(), parameter.IsDeprecated) { }
 
             public PathParameter(string name, OpenApiParameter parameter, JsonSchema schema) : this(name, schema, parameter.GetDescription(),
-                parameter.IsDeprecated)
-            { }
+                parameter.IsDeprecated) { }
         }
 
         private static IEndpointOverrides LoadOverrides(string endpointName, string methodName)
@@ -246,15 +242,12 @@ namespace ApiGenerator.Generator
             {
                 var oneOf = (schema.OneOf.Count > 0 ? schema.OneOf : schema.AnyOf).ToArray();
 
-                if (oneOf.Length != 2)
-                    throw new Exception("Unable to determine type of oneOf");
+                if (oneOf.Length != 2) throw new Exception("Unable to determine type of oneOf");
 
                 var first = GetOpenSearchType(oneOf[0], trackEnumToGenerate);
                 var second = GetOpenSearchType(oneOf[1], trackEnumToGenerate);
-                if (first.EndsWith("?"))
-                    return first;
-                if (first == second)
-                    return first;
+                if (first.EndsWith("?")) return first;
+                if (first == second) return first;
 
                 return (first, second) switch
                 {
@@ -320,11 +313,9 @@ namespace ApiGenerator.Generator
         {
             while (true)
             {
-                if (!string.IsNullOrWhiteSpace(schema.Description))
-                    return schema.Description;
+                if (!string.IsNullOrWhiteSpace(schema.Description)) return schema.Description;
 
-                if (!schema.HasReference)
-                    return null;
+                if (!schema.HasReference) return null;
 
                 schema = schema.ActualSchema;
             }
@@ -375,15 +366,13 @@ namespace ApiGenerator.Generator
 
         private static string SanitizeDescription(this string description, bool renderMarkdown = true)
         {
-            if (string.IsNullOrWhiteSpace(description))
-                return null;
+            if (string.IsNullOrWhiteSpace(description)) return null;
 
             description = Regex.Replace(description, @"\s+", " ")
                 .Replace("{{site.url}}", "https://opensearch.org")
                 .Replace("{{site.baseurl}}", "/docs/latest");
 
-            if (!description.EndsWith('.'))
-                description += '.';
+            if (!description.EndsWith('.')) description += '.';
 
             if (renderMarkdown)
                 description = Markdown.ToHtml(description, MarkdownPipeline).TrimEnd('\r', '\n');

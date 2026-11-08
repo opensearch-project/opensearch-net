@@ -165,8 +165,7 @@ public sealed class OperationModel
         OperationGroupModel groupModel)
     {
         var response = groupModel.PrimarySuccessResponse;
-        if (response?.Schema == null)
-            return (null, false);
+        if (response?.Schema == null) return (null, false);
 
         var isWriteBase = response.ReferencePath?
             .EndsWith("/_common___WriteResponseBase", StringComparison.Ordinal) == true;
@@ -233,25 +232,20 @@ public sealed class OperationModel
         var result = new List<EnumModel>();
 
         foreach (var root in roots)
-            foreach (var prop in root.Properties ?? new Dictionary<string, JsonSchemaProperty>())
-            {
-                var s = prop.Value.ActualSchema;
-                if (!s.IsEnum())
-                    continue;
-                if (!resolver.TryGetSchemaId(prop.Value, out var id))
-                    continue;
-                if (registry.MappedCsharpType(id) != null)
-                    continue;
-                if (!seen.Add(id))
-                    continue;
+        foreach (var prop in root.Properties ?? new Dictionary<string, JsonSchemaProperty>())
+        {
+            var s = prop.Value.ActualSchema;
+            if (!s.IsEnum()) continue;
+            if (!resolver.TryGetSchemaId(prop.Value, out var id)) continue;
+            if (registry.MappedCsharpType(id) != null) continue;
+            if (!seen.Add(id)) continue;
 
-                var members = s.GetEnumValues()
-                    .Select(v => new EnumMember(v.Value, ToPascal(v.Alias ?? v.Value)))
-                    .ToList();
-                if (members.Count == 0)
-                    continue;
-                result.Add(new EnumModel(id, resolver.CsharpTypeName(id), members));
-            }
+            var members = s.GetEnumValues()
+                .Select(v => new EnumMember(v.Value, ToPascal(v.Alias ?? v.Value)))
+                .ToList();
+            if (members.Count == 0) continue;
+            result.Add(new EnumModel(id, resolver.CsharpTypeName(id), members));
+        }
 
         return result.OrderBy(t => t.CsharpName, StringComparer.Ordinal).ToList();
     }
@@ -266,8 +260,7 @@ public sealed class OperationModel
     private static bool HasFlattenableComposition(JsonSchema schema)
     {
         var actual = schema.ActualSchema;
-        if ((actual.Properties?.Count ?? 0) > 0)
-            return false;
+        if ((actual.Properties?.Count ?? 0) > 0) return false;
         return actual.OneOf.Count > 0 || actual.AnyOf.Count > 0;
     }
 
@@ -300,10 +293,8 @@ public sealed class OperationModel
 
             foreach (var p in variantProps.OrderBy(p => p.Key, StringComparer.Ordinal))
             {
-                if (skipWireNames != null && skipWireNames.Contains(p.Key))
-                    continue;
-                if (!seen.Add(p.Key))
-                    continue;
+                if (skipWireNames != null && skipWireNames.Contains(p.Key)) continue;
+                if (!seen.Add(p.Key)) continue;
                 var typeRef = resolver.ResolveTypeRef(p.Value);
                 props.Add(new ModelProperty(
                     WireName: p.Key,

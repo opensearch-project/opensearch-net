@@ -99,8 +99,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
         public void SerializeToPropertyName(ref JsonWriter writer, sbyte? value, IJsonFormatterResolver formatterResolver)
         {
-            if (value == null)
-            { writer.WriteNull(); return; }
+            if (value == null) { writer.WriteNull(); return; }
 
             writer.WriteQuotation();
             writer.WriteSByte(value.Value);
@@ -109,8 +108,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
         public sbyte? DeserializeFromPropertyName(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
         {
-            if (reader.ReadIsNull())
-                return null;
+            if (reader.ReadIsNull()) return null;
 
             var key = reader.ReadStringSegmentRaw();
             return NumberConverter.ReadSByte(key.Array, key.Offset, out _);
@@ -206,8 +204,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
         public void SerializeToPropertyName(ref JsonWriter writer, short? value, IJsonFormatterResolver formatterResolver)
         {
-            if (value == null)
-            { writer.WriteNull(); return; }
+            if (value == null) { writer.WriteNull(); return; }
 
             writer.WriteQuotation();
             writer.WriteInt16(value.Value);
@@ -216,8 +213,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
         public short? DeserializeFromPropertyName(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
         {
-            if (reader.ReadIsNull())
-                return null;
+            if (reader.ReadIsNull()) return null;
 
             var key = reader.ReadStringSegmentRaw();
             return NumberConverter.ReadInt16(key.Array, key.Offset, out _);
@@ -313,8 +309,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
         public void SerializeToPropertyName(ref JsonWriter writer, int? value, IJsonFormatterResolver formatterResolver)
         {
-            if (value == null)
-            { writer.WriteNull(); return; }
+            if (value == null) { writer.WriteNull(); return; }
 
             writer.WriteQuotation();
             writer.WriteInt32(value.Value);
@@ -323,8 +318,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
         public int? DeserializeFromPropertyName(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
         {
-            if (reader.ReadIsNull())
-                return null;
+            if (reader.ReadIsNull()) return null;
 
             var key = reader.ReadStringSegmentRaw();
             return NumberConverter.ReadInt32(key.Array, key.Offset, out _);
@@ -420,8 +414,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
         public void SerializeToPropertyName(ref JsonWriter writer, long? value, IJsonFormatterResolver formatterResolver)
         {
-            if (value == null)
-            { writer.WriteNull(); return; }
+            if (value == null) { writer.WriteNull(); return; }
 
             writer.WriteQuotation();
             writer.WriteInt64(value.Value);
@@ -430,8 +423,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
         public long? DeserializeFromPropertyName(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
         {
-            if (reader.ReadIsNull())
-                return null;
+            if (reader.ReadIsNull()) return null;
 
             var key = reader.ReadStringSegmentRaw();
             return NumberConverter.ReadInt64(key.Array, key.Offset, out _);
@@ -527,8 +519,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
         public void SerializeToPropertyName(ref JsonWriter writer, byte? value, IJsonFormatterResolver formatterResolver)
         {
-            if (value == null)
-            { writer.WriteNull(); return; }
+            if (value == null) { writer.WriteNull(); return; }
 
             writer.WriteQuotation();
             writer.WriteByte(value.Value);
@@ -537,8 +528,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
         public byte? DeserializeFromPropertyName(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
         {
-            if (reader.ReadIsNull())
-                return null;
+            if (reader.ReadIsNull()) return null;
 
             var key = reader.ReadStringSegmentRaw();
             return NumberConverter.ReadByte(key.Array, key.Offset, out _);
@@ -590,8 +580,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
         public void SerializeToPropertyName(ref JsonWriter writer, ushort? value, IJsonFormatterResolver formatterResolver)
         {
-            if (value == null)
-            { writer.WriteNull(); return; }
+            if (value == null) { writer.WriteNull(); return; }
 
             writer.WriteQuotation();
             writer.WriteUInt16(value.Value);
@@ -600,8 +589,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
         public ushort? DeserializeFromPropertyName(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
         {
-            if (reader.ReadIsNull())
-                return null;
+            if (reader.ReadIsNull()) return null;
 
             var key = reader.ReadStringSegmentRaw();
             return NumberConverter.ReadUInt16(key.Array, key.Offset, out _);
@@ -697,8 +685,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
         public void SerializeToPropertyName(ref JsonWriter writer, uint? value, IJsonFormatterResolver formatterResolver)
         {
-            if (value == null)
-            { writer.WriteNull(); return; }
+            if (value == null) { writer.WriteNull(); return; }
 
             writer.WriteQuotation();
             writer.WriteUInt32(value.Value);
@@ -707,8 +694,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
         public uint? DeserializeFromPropertyName(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
         {
-            if (reader.ReadIsNull())
-                return null;
+            if (reader.ReadIsNull()) return null;
 
             var key = reader.ReadStringSegmentRaw();
             return NumberConverter.ReadUInt32(key.Array, key.Offset, out _);
@@ -804,8 +790,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
         public void SerializeToPropertyName(ref JsonWriter writer, ulong? value, IJsonFormatterResolver formatterResolver)
         {
-            if (value == null)
-            { writer.WriteNull(); return; }
+            if (value == null) { writer.WriteNull(); return; }
 
             writer.WriteQuotation();
             writer.WriteUInt64(value.Value);
@@ -814,8 +799,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
         public ulong? DeserializeFromPropertyName(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
         {
-            if (reader.ReadIsNull())
-                return null;
+            if (reader.ReadIsNull()) return null;
 
             var key = reader.ReadStringSegmentRaw();
             return NumberConverter.ReadUInt64(key.Array, key.Offset, out _);
@@ -911,8 +895,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
         public void SerializeToPropertyName(ref JsonWriter writer, float? value, IJsonFormatterResolver formatterResolver)
         {
-            if (value == null)
-            { writer.WriteNull(); return; }
+            if (value == null) { writer.WriteNull(); return; }
 
             writer.WriteQuotation();
             writer.WriteSingle(value.Value);
@@ -921,8 +904,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
         public float? DeserializeFromPropertyName(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
         {
-            if (reader.ReadIsNull())
-                return null;
+            if (reader.ReadIsNull()) return null;
 
             var key = reader.ReadStringSegmentRaw();
             return NumberConverter.ReadSingle(key.Array, key.Offset, out _);
@@ -1018,8 +1000,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
         public void SerializeToPropertyName(ref JsonWriter writer, double? value, IJsonFormatterResolver formatterResolver)
         {
-            if (value == null)
-            { writer.WriteNull(); return; }
+            if (value == null) { writer.WriteNull(); return; }
 
             writer.WriteQuotation();
             writer.WriteDouble(value.Value);
@@ -1028,8 +1009,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
         public double? DeserializeFromPropertyName(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
         {
-            if (reader.ReadIsNull())
-                return null;
+            if (reader.ReadIsNull()) return null;
 
             var key = reader.ReadStringSegmentRaw();
             return NumberConverter.ReadDouble(key.Array, key.Offset, out _);
@@ -1125,8 +1105,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
         public void SerializeToPropertyName(ref JsonWriter writer, bool? value, IJsonFormatterResolver formatterResolver)
         {
-            if (value == null)
-            { writer.WriteNull(); return; }
+            if (value == null) { writer.WriteNull(); return; }
 
             writer.WriteQuotation();
             writer.WriteBoolean(value.Value);
@@ -1135,8 +1114,7 @@ namespace OpenSearch.Net.Utf8Json.Formatters
 
         public bool? DeserializeFromPropertyName(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
         {
-            if (reader.ReadIsNull())
-                return null;
+            if (reader.ReadIsNull()) return null;
 
             var key = reader.ReadStringSegmentRaw();
             return NumberConverter.ReadBoolean(key.Array, key.Offset, out _);

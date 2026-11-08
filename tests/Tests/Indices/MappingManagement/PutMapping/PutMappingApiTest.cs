@@ -405,7 +405,6 @@ public class PutMappingApiTests
 
     protected override void IntegrationTeardown(IOpenSearchClient client, CallUniqueValues values)
     {
-        foreach (var v in values.Values)
-            client.Indices.Delete(v);
+        foreach (var v in values.Values) client.Indices.Delete(v);
     }
 }

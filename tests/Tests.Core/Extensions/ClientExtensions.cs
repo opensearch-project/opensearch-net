@@ -26,14 +26,14 @@
 *  under the License.
 */
 
-using OpenSearch.Client;
 using OpenSearch.Net;
+using OpenSearch.Client;
 
 namespace Tests.Core.Extensions
 {
-    public static class ClientExtensions
-    {
-        public static ClusterHealthResponse WaitForSecurityIndices(this IOpenSearchClient client) =>
-            client.Cluster.Health(new ClusterHealthRequest(".security-*") { WaitForStatus = HealthStatus.Green });
-    }
+	public static class ClientExtensions
+	{
+		public static ClusterHealthResponse WaitForSecurityIndices(this IOpenSearchClient client) =>
+			client.Cluster.Health(new ClusterHealthRequest(".security-*") { WaitForStatus = HealthStatus.Green });
+	}
 }

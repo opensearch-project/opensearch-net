@@ -37,15 +37,15 @@ namespace ApiGenerator.Domain.Specification
     {
         public IDictionary<string, QueryParameters> Params { get; set; } = new SortedDictionary<string, QueryParameters>();
 
-        public IEnumerable<UrlPath> Paths => AllPaths.Where(p => p.Deprecation == null);
-        public IEnumerable<UrlPath> DeprecatedPaths => AllPaths.Where(p => p.Deprecation != null);
+		public IEnumerable<UrlPath> Paths => AllPaths.Where(p => p.Deprecation == null);
+		public IEnumerable<UrlPath> DeprecatedPaths => AllPaths.Where(p => p.Deprecation != null);
 
-        public IList<UrlPath> AllPaths = new List<UrlPath>();
+		public IList<UrlPath> AllPaths = new List<UrlPath>();
 
         public IReadOnlyCollection<UrlPart> Parts => Paths
-                .SelectMany(p => p.Parts)
-                .DistinctBy(p => p.Name)
-                .ToList();
+				.SelectMany(p => p.Parts)
+				.DistinctBy(p => p.Name)
+				.ToList();
 
         public bool IsPartless => !Parts.Any();
 
@@ -61,8 +61,7 @@ namespace ApiGenerator.Domain.Specification
         public bool TryGetDocumentApiPath(out UrlPath path)
         {
             path = null;
-            if (!IsDocumentApi)
-                return false;
+            if (!IsDocumentApi) return false;
 
             var mostVerbosePath = Paths.OrderByDescending(p => p.Parts.Count).First();
             path = new UrlPath(mostVerbosePath.Path, mostVerbosePath.Parts, mostVerbosePath.Deprecation, mostVerbosePath.VersionAdded, mostVerbosePath.Parts);

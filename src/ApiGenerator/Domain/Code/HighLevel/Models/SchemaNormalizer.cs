@@ -140,8 +140,7 @@ public sealed class SchemaNormalizer
                     foreach (var (statusCode, response) in op.ActualResponses
                         .OrderBy(kv => kv.Key, StringComparer.Ordinal))
                     {
-                        if (response.Content == null)
-                            continue;
+                        if (response.Content == null) continue;
                         foreach (var (mediaType, content) in response.Content
                             .OrderBy(kv => kv.Key, StringComparer.Ordinal))
                         {
@@ -162,11 +161,9 @@ public sealed class SchemaNormalizer
     private static void TraverseAndRegister(
         NormalizationContext context, JsonSchema schema, HashSet<JsonSchema> visited)
     {
-        if (schema == null)
-            return;
+        if (schema == null) return;
         var actual = schema.ActualSchema;
-        if (!visited.Add(actual))
-            return; // cycle protection via reference identity
+        if (!visited.Add(actual)) return; // cycle protection via reference identity
 
         // Ensure this schema instance has an ID (catalog or synthetic)
         context.GetOrCreateSchemaId(actual);
@@ -612,14 +609,12 @@ public sealed class AllOfPropertyCollectionPass : INormalizationPass
         NormalizationContext context,
         HashSet<JsonSchema> visited)
     {
-        if (!visited.Add(inlineSchema))
-            return; // cycle guard for inline schemas
+        if (!visited.Add(inlineSchema)) return; // cycle guard for inline schemas
 
         // If this inline schema itself has nested allOf, recurse into its inline members
         foreach (var nestedSub in inlineSchema.AllOf)
         {
-            if (nestedSub.HasReference)
-                continue; // nested $ref = base dependency, skip
+            if (nestedSub.HasReference) continue; // nested $ref = base dependency, skip
             CollectInlineAllOfProperties(nestedSub.ActualSchema, target, inlineRefs, context, visited);
         }
 
@@ -672,7 +667,7 @@ public sealed class CompositionPreservationPass : INormalizationPass
             foreach (var sub in actual.AllOf)
             {
                 string? refId = null;
-                var isRef = sub.HasReference || !string.IsNullOrEmpty(sub.Reference?.Id);
+                bool isRef = sub.HasReference || !string.IsNullOrEmpty(sub.Reference?.Id);
                 if (isRef)
                 {
                     refId = sub.Reference?.Id;
@@ -691,7 +686,7 @@ public sealed class CompositionPreservationPass : INormalizationPass
             foreach (var variant in actual.OneOf)
             {
                 string? refId = null;
-                var isRef = variant.HasReference || !string.IsNullOrEmpty(variant.Reference?.Id);
+                bool isRef = variant.HasReference || !string.IsNullOrEmpty(variant.Reference?.Id);
                 if (isRef)
                 {
                     refId = variant.Reference?.Id;
@@ -714,7 +709,7 @@ public sealed class CompositionPreservationPass : INormalizationPass
             foreach (var variant in actual.AnyOf)
             {
                 string? refId = null;
-                var isRef = variant.HasReference || !string.IsNullOrEmpty(variant.Reference?.Id);
+                bool isRef = variant.HasReference || !string.IsNullOrEmpty(variant.Reference?.Id);
                 if (isRef)
                 {
                     refId = variant.Reference?.Id;
@@ -887,13 +882,11 @@ public sealed class RequiredFieldPropagationPass : INormalizationPass
     private static void CollectInlineRequired(
         JsonSchema schema, HashSet<string> required, HashSet<JsonSchema> visited)
     {
-        if (!visited.Add(schema))
-            return;
+        if (!visited.Add(schema)) return;
 
         foreach (var sub in schema.AllOf)
         {
-            if (sub.HasReference)
-                continue;
+            if (sub.HasReference) continue;
             var subActual = sub.ActualSchema;
             if (subActual.RequiredProperties != null)
             {

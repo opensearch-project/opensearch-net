@@ -80,62 +80,54 @@ public sealed class ReferenceGraphBuilder
         var prefix = _plugin.Namespace + ".";
 
         foreach (var pathItem in _document.Paths.Values)
-            foreach (var op in pathItem.Values)
+        foreach (var op in pathItem.Values)
+        {
+            if (op.ExtensionData == null) continue;
+            if (!op.ExtensionData.TryGetValue("x-operation-group", out var g)) continue;
+            var grp = g?.ToString();
+            if (grp == null || !grp.StartsWith(prefix, StringComparison.Ordinal)) continue;
+            if (_plugin.ExcludedOps.Contains(grp)) continue;
+
+            // Request body schema is a root
+            if (op.ActualRequestBody?.Content?.TryGetValue("application/json", out var reqMt) == true
+                && reqMt.Schema != null)
             {
-                if (op.ExtensionData == null)
-                    continue;
-                if (!op.ExtensionData.TryGetValue("x-operation-group", out var g))
-                    continue;
-                var grp = g?.ToString();
-                if (grp == null || !grp.StartsWith(prefix, StringComparison.Ordinal))
-                    continue;
-                if (_plugin.ExcludedOps.Contains(grp))
-                    continue;
-
-                // Request body schema is a root
-                if (op.ActualRequestBody?.Content?.TryGetValue("application/json", out var reqMt) == true
-                    && reqMt.Schema != null)
+                var reqSchemaId = GetSchemaId(reqMt.Schema);
+                if (reqSchemaId != null)
                 {
-                    var reqSchemaId = GetSchemaId(reqMt.Schema);
-                    if (reqSchemaId != null)
-                    {
-                        _graph.MarkAsRoot(reqSchemaId);
-                        TraverseSchema(reqMt.Schema, reqSchemaId);
-                    }
-                    else
-                    {
-                        // Inline request schema - traverse its dependencies
-                        TraverseInlineSchema(reqMt.Schema);
-                    }
+                    _graph.MarkAsRoot(reqSchemaId);
+                    TraverseSchema(reqMt.Schema, reqSchemaId);
                 }
-
-                // All 2xx response schemas are roots
-                foreach (var (statusCode, response) in op.ActualResponses)
+                else
                 {
-                    if (!statusCode.StartsWith("2", StringComparison.Ordinal))
-                        continue;
-                    if (response.Content == null)
-                        continue;
-                    if (!response.Content.TryGetValue("application/json", out var respMt))
-                        continue;
-                    if (respMt.Schema == null)
-                        continue;
-
-                    var respSchemaId = GetSchemaId(respMt.Schema);
-                    if (respSchemaId != null)
-                    {
-                        _graph.MarkAsRoot(respSchemaId);
-                        if (respSchemaId.StartsWith(prefix, StringComparison.Ordinal)
-                            && respSchemaId.EndsWith("Response", StringComparison.Ordinal))
-                            _graph.MarkAsOpOwned(respSchemaId);
-                        TraverseSchema(respMt.Schema, respSchemaId);
-                    }
-                    else
-                    {
-                        TraverseInlineSchema(respMt.Schema);
-                    }
+                    // Inline request schema - traverse its dependencies
+                    TraverseInlineSchema(reqMt.Schema);
                 }
             }
+
+            // All 2xx response schemas are roots
+            foreach (var (statusCode, response) in op.ActualResponses)
+            {
+                if (!statusCode.StartsWith("2", StringComparison.Ordinal)) continue;
+                if (response.Content == null) continue;
+                if (!response.Content.TryGetValue("application/json", out var respMt)) continue;
+                if (respMt.Schema == null) continue;
+
+                var respSchemaId = GetSchemaId(respMt.Schema);
+                if (respSchemaId != null)
+                {
+                    _graph.MarkAsRoot(respSchemaId);
+                    if (respSchemaId.StartsWith(prefix, StringComparison.Ordinal)
+                        && respSchemaId.EndsWith("Response", StringComparison.Ordinal))
+                        _graph.MarkAsOpOwned(respSchemaId);
+                    TraverseSchema(respMt.Schema, respSchemaId);
+                }
+                else
+                {
+                    TraverseInlineSchema(respMt.Schema);
+                }
+            }
+        }
     }
 
     private void RegisterNamespaceSchemas()
@@ -146,8 +138,7 @@ public sealed class ReferenceGraphBuilder
             .Where(kv => kv.Key.StartsWith(prefix, StringComparison.Ordinal))
             .OrderBy(kv => kv.Key, StringComparer.Ordinal))
         {
-            if (_visited.Contains(schemaId))
-                continue;
+            if (_visited.Contains(schemaId)) continue;
             _graph.RegisterNode(schemaId);
             TraverseSchema(schema, schemaId);
         }

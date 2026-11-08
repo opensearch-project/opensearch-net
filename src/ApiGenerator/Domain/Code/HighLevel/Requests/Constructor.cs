@@ -110,38 +110,37 @@ namespace ApiGenerator.Domain.Code.HighLevel.Requests
 
             var paths = url.Paths.ToList();
 
-            if (url.IsPartless)
-                return ctors;
+            if (url.IsPartless) return ctors;
 
             ctors.AddRange(from path in paths
-                           let baseArgs = inheritsFromPlainRequestBase ? path.RequestBaseArguments : path.TypedSubClassBaseArguments
-                           let constParams = path.ConstructorArguments
-                           let generated = $"public {typeName}({constParams}) : base({baseArgs})"
-                           select new Constructor
-                           {
-                               Parameterless = string.IsNullOrEmpty(constParams),
-                               Generated = generated,
-                               Description = path.GetXmlDocs(Indent),
-                               //Body = isDocumentApi ? $" => Q(\"routing\", new Routing(() => AutoRouteDocument()));" : string.Empty
-                               Body = string.Empty
-                           });
+                let baseArgs = inheritsFromPlainRequestBase ? path.RequestBaseArguments : path.TypedSubClassBaseArguments
+                let constParams = path.ConstructorArguments
+                let generated = $"public {typeName}({constParams}) : base({baseArgs})"
+                select new Constructor
+                {
+                    Parameterless = string.IsNullOrEmpty(constParams),
+                    Generated = generated,
+                    Description = path.GetXmlDocs(Indent),
+                    //Body = isDocumentApi ? $" => Q(\"routing\", new Routing(() => AutoRouteDocument()));" : string.Empty
+                    Body = string.Empty
+                });
 
             if (generateGeneric && !string.IsNullOrWhiteSpace(generic))
             {
                 ctors.AddRange(from path in paths.Where(path => path.HasResolvableArguments)
-                               let baseArgs = path.AutoResolveBaseArguments(generic)
-                               let constructorArgs = path.AutoResolveConstructorArguments
-                               let baseOrThis = inheritsFromPlainRequestBase
-                                   ? "this"
-                                   : "base"
-                               let generated = $"public {typeName}({constructorArgs}) : {baseOrThis}({baseArgs})"
-                               select new Constructor
-                               {
-                                   Parameterless = string.IsNullOrEmpty(constructorArgs),
-                                   Generated = generated,
-                                   Description = path.GetXmlDocs(Indent, skipResolvable: true),
-                                   Body = string.Empty
-                               });
+                    let baseArgs = path.AutoResolveBaseArguments(generic)
+                    let constructorArgs = path.AutoResolveConstructorArguments
+                    let baseOrThis = inheritsFromPlainRequestBase
+                        ? "this"
+                        : "base"
+                    let generated = $"public {typeName}({constructorArgs}) : {baseOrThis}({baseArgs})"
+                    select new Constructor
+                    {
+                        Parameterless = string.IsNullOrEmpty(constructorArgs),
+                        Generated = generated,
+                        Description = path.GetXmlDocs(Indent, skipResolvable: true),
+                        Body = string.Empty
+                    });
 
                 if (url.TryGetDocumentApiPath(out var docPath))
                 {
@@ -163,7 +162,7 @@ namespace ApiGenerator.Domain.Code.HighLevel.Requests
             // even if the parameter *names* differ (e.g. `GetStatsRequest(string nodeId)` and
             // `GetStatsRequest(string stat)` both become `GetStatsRequest(string)`).
             var constructors = ctors.GroupBy(c => NormalizeConstructorSignature(c.Generated)).Select(g => g.Last()).ToList();
-            if (!constructors.Any(c => c.Parameterless))
+            if (!constructors.Any(c=>c.Parameterless))
                 constructors.Add(new Constructor
                 {
                     Parameterless = true,

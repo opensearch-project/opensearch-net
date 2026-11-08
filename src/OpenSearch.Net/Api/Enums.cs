@@ -43,50 +43,50 @@
 // -----------------------------------------------
 // ReSharper disable RedundantUsingDirective
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Collections.Concurrent;
 using System.Linq;
+using System.Text;
 using System.Reflection;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace OpenSearch.Net
 {
-    public static partial class KnownEnums
-    {
-        private static readonly ConcurrentDictionary<Type, Func<Enum, string>> EnumStringResolvers = new();
+	public static partial class KnownEnums
+	{
+		private static readonly ConcurrentDictionary<Type, Func<Enum, string>> EnumStringResolvers = new();
 
-        static KnownEnums() => RegisterEnumStringResolvers();
+		static KnownEnums() => RegisterEnumStringResolvers();
 
         private static void AddEnumStringResolver<T>(Func<T, string> resolver) where T : Enum =>
-            EnumStringResolvers.TryAdd(typeof(T), e => resolver((T)e));
+			EnumStringResolvers.TryAdd(typeof(T), e => resolver((T) e));
 
-        static partial void RegisterEnumStringResolvers();
+		static partial void RegisterEnumStringResolvers();
 
-        public static string GetStringValue(this Enum e)
-        {
-            var type = e.GetType();
-            var resolver = EnumStringResolvers.GetOrAdd(type, GetEnumStringResolver);
-            return resolver(e);
-        }
+		public static string GetStringValue(this Enum e)
+		{
+			var type = e.GetType();
+			var resolver = EnumStringResolvers.GetOrAdd(type, GetEnumStringResolver);
+			return resolver(e);
+		}
 
-        private static Func<Enum, string> GetEnumStringResolver(Type type)
-        {
-            var values = Enum.GetValues(type);
-            var dictionary = new Dictionary<Enum, string>(values.Length);
-            for (var index = 0; index < values.Length; index++)
-            {
-                var value = (Enum)values.GetValue(index);
-                var info = type.GetField(value.ToString());
+		private static Func<Enum, string> GetEnumStringResolver(Type type)
+		{
+			var values = Enum.GetValues(type);
+			var dictionary = new Dictionary<Enum, string>(values.Length);
+			for (var index = 0; index < values.Length; index++)
+			{
+				var value = (Enum) values.GetValue(index);
+				var info = type.GetField(value.ToString());
                 var attr = info.GetCustomAttribute<EnumMemberAttribute>(false);
-                var stringValue = attr != null ? attr.Value : Enum.GetName(type, value);
-                dictionary.Add(value, stringValue);
-            }
+				var stringValue = attr != null ? attr.Value : Enum.GetName(type, value);
+				dictionary.Add(value, stringValue);
+			}
 
-            var isFlag = type.GetCustomAttribute<FlagsAttribute>(false) != null;
+			var isFlag = type.GetCustomAttribute<FlagsAttribute>(false) != null;
             return isFlag
                 ? e => string.Join(",", dictionary.Where(kv => e.HasFlag(kv.Key)).Select(kv => kv.Value))
                 : e => dictionary[e];
-        }
-    }
+		}
+	}
 }

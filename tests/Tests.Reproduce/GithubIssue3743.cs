@@ -27,35 +27,35 @@
 */
 
 using System.Linq;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
+using OpenSearch.Net;
 using FluentAssertions;
 using Newtonsoft.Json;
-using OpenSearch.Net;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Serialization;
 
 namespace Tests.Reproduce
 {
-    public class GithubIssue3743
-    {
-        [U]
-        public void SerializesUnicodeEscapeSequences()
-        {
-            var value = new string(Enumerable.Range(0, 9727).Select(i => (char)i).ToArray());
-            var doc = new { value };
+	public class GithubIssue3743
+	{
+		[U]
+		public void SerializesUnicodeEscapeSequences()
+		{
+			var value = new string(Enumerable.Range(0, 9727).Select(i => (char)i).ToArray());
+			var doc = new { value };
 
-            var internalJson = SerializationTester.Default.Client.SourceSerializer.SerializeToString(doc, formatting: SerializationFormatting.None);
-            var jsonNet = JsonConvert.SerializeObject(doc, Formatting.None);
+			var internalJson = SerializationTester.Default.Client.SourceSerializer.SerializeToString(doc, formatting: SerializationFormatting.None);
+			var jsonNet = JsonConvert.SerializeObject(doc, Formatting.None);
 
-            // The built-in serializers emit valid JSON but escape some characters differently: the case of the hex
-            // digits differs (json.net lowercases, utf8json uppercases), and the System.Text.Json engine
-            // (UnsafeRelaxedJsonEscaping) escapes U+007F and the C1 control block that Json.NET writes raw. All variants
-            // are valid and accepted, so rather than compare the raw escaping we verify both serializers preserve the
-            // exact string value by decoding them back to it.
-            var internalValue = JsonConvert.DeserializeAnonymousType(internalJson, new { value = "" }).value;
-            var jsonNetValue = JsonConvert.DeserializeAnonymousType(jsonNet, new { value = "" }).value;
+			// The built-in serializers emit valid JSON but escape some characters differently: the case of the hex
+			// digits differs (json.net lowercases, utf8json uppercases), and the System.Text.Json engine
+			// (UnsafeRelaxedJsonEscaping) escapes U+007F and the C1 control block that Json.NET writes raw. All variants
+			// are valid and accepted, so rather than compare the raw escaping we verify both serializers preserve the
+			// exact string value by decoding them back to it.
+			var internalValue = JsonConvert.DeserializeAnonymousType(internalJson, new { value = "" }).value;
+			var jsonNetValue = JsonConvert.DeserializeAnonymousType(jsonNet, new { value = "" }).value;
 
-            internalValue.Should().Be(value);
-            jsonNetValue.Should().Be(value);
-        }
-    }
+			internalValue.Should().Be(value);
+			jsonNetValue.Should().Be(value);
+		}
+	}
 }

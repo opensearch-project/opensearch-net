@@ -49,12 +49,9 @@ namespace ApiGenerator.Generator
         public static string Property(string @namespace, string type, string name, string key, string setter, string obsolete, Version versionAdded, params string[] doc)
         {
             var components = new List<string>();
-            foreach (var d in RenderDocumentation(doc))
-                A(d);
-            if (versionAdded != null)
-                A($"/// <remarks>Supported by OpenSearch servers of version {versionAdded} or greater.</remarks>");
-            if (!string.IsNullOrWhiteSpace(obsolete))
-                A($"[Obsolete(\"{obsolete}\")]");
+            foreach (var d in RenderDocumentation(doc)) A(d);
+			if (versionAdded != null) A($"/// <remarks>Supported by OpenSearch servers of version {versionAdded} or greater.</remarks>");
+            if (!string.IsNullOrWhiteSpace(obsolete)) A($"[Obsolete(\"{obsolete}\")]");
 
             var generated = @namespace != null && @namespace == "Cat" && name == "Format"
                 ? CatFormatPropertyGenerator(type, name, key, setter)
@@ -72,16 +69,12 @@ namespace ApiGenerator.Generator
         public static string Constructor(Constructor c)
         {
             var components = new List<string>();
-            if (!c.Description.IsNullOrEmpty())
-                A(c.Description);
+            if (!c.Description.IsNullOrEmpty()) A(c.Description);
             var generated = c.Generated;
-            if (c.Body.IsNullOrEmpty())
-                generated += "{}";
+            if (c.Body.IsNullOrEmpty()) generated += "{}";
             A(generated);
-            if (!c.Body.IsNullOrEmpty())
-                A(c.Body);
-            if (!c.AdditionalCode.IsNullOrEmpty())
-                A(c.AdditionalCode);
+            if (!c.Body.IsNullOrEmpty()) A(c.Body);
+            if (!c.AdditionalCode.IsNullOrEmpty()) A(c.AdditionalCode);
             return string.Join($"{Environment.NewLine}\t\t", components);
 
             void A(string s)
@@ -95,8 +88,7 @@ namespace ApiGenerator.Generator
             doc = (doc?.SelectMany(WrapDocumentation) ?? Enumerable.Empty<string>()).ToArray();
             switch (doc.Length)
             {
-                case 0:
-                    yield break;
+                case 0: yield break;
                 case 1:
                     yield return $"/// <summary>{doc[0]}</summary>";
 
@@ -104,8 +96,7 @@ namespace ApiGenerator.Generator
                 default:
                     yield return "/// <summary>";
 
-                    foreach (var d in doc)
-                        yield return $"/// {d}";
+                    foreach (var d in doc) yield return $"/// {d}";
 
                     yield return "/// </summary>";
 
@@ -115,8 +106,7 @@ namespace ApiGenerator.Generator
 
         private static string[] WrapDocumentation(string documentation)
         {
-            if (string.IsNullOrWhiteSpace(documentation))
-                return Array.Empty<string>();
+            if (string.IsNullOrWhiteSpace(documentation)) return Array.Empty<string>();
             const int max = 140;
             var lines = documentation.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             var charCount = 0;

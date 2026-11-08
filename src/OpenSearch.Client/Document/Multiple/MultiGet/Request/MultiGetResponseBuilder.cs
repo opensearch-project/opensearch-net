@@ -33,49 +33,49 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-    internal class MultiGetResponseBuilder : CustomResponseBuilderBase
-    {
-        private readonly IMultiGetRequest _request;
+	internal class MultiGetResponseBuilder : CustomResponseBuilderBase
+	{
+		private readonly IMultiGetRequest _request;
 
-        public MultiGetResponseBuilder(IMultiGetRequest request)
-        {
-            _request = request;
-            Formatter = new MultiGetResponseFormatter(request);
-        }
+		public MultiGetResponseBuilder(IMultiGetRequest request)
+		{
+			_request = request;
+			Formatter = new MultiGetResponseFormatter(request);
+		}
 
-        private MultiGetResponseFormatter Formatter { get; }
+		private MultiGetResponseFormatter Formatter { get; }
 
-        public override object DeserializeResponse(IOpenSearchSerializer builtInSerializer, IApiCallDetails response, Stream stream)
-        {
-            if (!response.Success)
-                return new MultiGetResponse();
+		public override object DeserializeResponse(IOpenSearchSerializer builtInSerializer, IApiCallDetails response, Stream stream)
+		{
+			if (!response.Success)
+				return new MultiGetResponse();
 
-            // Under System.Text.Json the legacy CreateStateful path (which needs a Utf8Json formatter resolver) is not
-            // available, so deserialize through a per-request MultiGetResponseConverter that carries the request's
-            // document CLR types.
-            if (StatefulSerializerExtensions.TryGetSystemTextJsonSerializer(builtInSerializer, out var stj))
-                return stj.DeserializeWithConverter<MultiGetResponse>(new MultiGetResponseConverter(_request), stream);
+			// Under System.Text.Json the legacy CreateStateful path (which needs a Utf8Json formatter resolver) is not
+			// available, so deserialize through a per-request MultiGetResponseConverter that carries the request's
+			// document CLR types.
+			if (StatefulSerializerExtensions.TryGetSystemTextJsonSerializer(builtInSerializer, out var stj))
+				return stj.DeserializeWithConverter<MultiGetResponse>(new MultiGetResponseConverter(_request), stream);
 
-            return builtInSerializer.CreateStateful(Formatter).Deserialize<MultiGetResponse>(stream);
-        }
+			return builtInSerializer.CreateStateful(Formatter).Deserialize<MultiGetResponse>(stream);
+		}
 
-        public override async Task<object> DeserializeResponseAsync(
-            IOpenSearchSerializer builtInSerializer,
-            IApiCallDetails response,
-            Stream stream,
-            CancellationToken ctx = default
-        )
-        {
-            if (!response.Success)
-                return new MultiGetResponse();
+		public override async Task<object> DeserializeResponseAsync(
+			IOpenSearchSerializer builtInSerializer,
+			IApiCallDetails response,
+			Stream stream,
+			CancellationToken ctx = default
+		)
+		{
+			if (!response.Success)
+				return new MultiGetResponse();
 
-            if (StatefulSerializerExtensions.TryGetSystemTextJsonSerializer(builtInSerializer, out var stj))
-                return await stj.DeserializeWithConverterAsync<MultiGetResponse>(new MultiGetResponseConverter(_request), stream, ctx)
-                    .ConfigureAwait(false);
+			if (StatefulSerializerExtensions.TryGetSystemTextJsonSerializer(builtInSerializer, out var stj))
+				return await stj.DeserializeWithConverterAsync<MultiGetResponse>(new MultiGetResponseConverter(_request), stream, ctx)
+					.ConfigureAwait(false);
 
-            return await builtInSerializer.CreateStateful(Formatter)
-                .DeserializeAsync<MultiGetResponse>(stream, ctx)
-                .ConfigureAwait(false);
-        }
-    }
+			return await builtInSerializer.CreateStateful(Formatter)
+				.DeserializeAsync<MultiGetResponse>(stream, ctx)
+				.ConfigureAwait(false);
+		}
+	}
 }

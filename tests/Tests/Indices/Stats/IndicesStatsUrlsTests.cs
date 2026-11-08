@@ -6,9 +6,9 @@
 */
 
 using System.Threading.Tasks;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
 using OpenSearch.Net;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
 
@@ -16,8 +16,7 @@ namespace Tests.Indices.Stats;
 
 public class IndexStatsUrlsTests
 {
-    [U]
-    public async Task Urls()
+    [U] public async Task Urls()
     {
         // "_stats", "{index}/_stats", "{index}/_stats/{metric}", "_stats/{metric}"
         const string index = "test_index_1";

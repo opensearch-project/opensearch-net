@@ -17,51 +17,51 @@ using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
 namespace Tests.Reproduce
 {
-    public class GitHubIssue997
-    {
-        [U]
-        public void DeleteByQueryIsNotValidOnTransportFailure()
-        {
-            var client = TransportFailureClient();
+	public class GitHubIssue997
+	{
+		[U]
+		public void DeleteByQueryIsNotValidOnTransportFailure()
+		{
+			var client = TransportFailureClient();
 
-            var response = client.DeleteByQuery<object>(d => d.Index("test-index").Query(q => q.MatchAll()));
+			var response = client.DeleteByQuery<object>(d => d.Index("test-index").Query(q => q.MatchAll()));
 
-            response.ApiCall.Success.Should().BeFalse();
-            response.ApiCall.HttpStatusCode.Should().BeNull();
-            response.IsValid.Should().BeFalse();
-        }
+			response.ApiCall.Success.Should().BeFalse();
+			response.ApiCall.HttpStatusCode.Should().BeNull();
+			response.IsValid.Should().BeFalse();
+		}
 
-        [U]
-        public void UpdateByQueryIsNotValidOnTransportFailure()
-        {
-            var client = TransportFailureClient();
+		[U]
+		public void UpdateByQueryIsNotValidOnTransportFailure()
+		{
+			var client = TransportFailureClient();
 
-            var response = client.UpdateByQuery<object>(d => d.Index("test-index").Query(q => q.MatchAll()));
+			var response = client.UpdateByQuery<object>(d => d.Index("test-index").Query(q => q.MatchAll()));
 
-            response.ApiCall.Success.Should().BeFalse();
-            response.ApiCall.HttpStatusCode.Should().BeNull();
-            response.IsValid.Should().BeFalse();
-        }
+			response.ApiCall.Success.Should().BeFalse();
+			response.ApiCall.HttpStatusCode.Should().BeNull();
+			response.IsValid.Should().BeFalse();
+		}
 
-        private static OpenSearchClient TransportFailureClient()
-        {
-            var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
-            var settings = new ConnectionSettings(pool, new TransportFailureConnection()).DisablePing();
-            return new OpenSearchClient(settings);
-        }
+		private static OpenSearchClient TransportFailureClient()
+		{
+			var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+			var settings = new ConnectionSettings(pool, new TransportFailureConnection()).DisablePing();
+			return new OpenSearchClient(settings);
+		}
 
-        private sealed class TransportFailureConnection : IConnection
-        {
-            public TResponse Request<TResponse>(RequestData requestData)
-                where TResponse : class, IOpenSearchResponse, new() =>
-                ResponseBuilder.ToResponse<TResponse>(requestData, new HttpRequestException("simulated transport failure"), null, null,
-                    Stream.Null, RequestData.MimeType);
+		private sealed class TransportFailureConnection : IConnection
+		{
+			public TResponse Request<TResponse>(RequestData requestData)
+				where TResponse : class, IOpenSearchResponse, new() =>
+				ResponseBuilder.ToResponse<TResponse>(requestData, new HttpRequestException("simulated transport failure"), null, null,
+					Stream.Null, RequestData.MimeType);
 
-            public Task<TResponse> RequestAsync<TResponse>(RequestData requestData, CancellationToken cancellationToken)
-                where TResponse : class, IOpenSearchResponse, new() =>
-                Task.FromResult(Request<TResponse>(requestData));
+			public Task<TResponse> RequestAsync<TResponse>(RequestData requestData, CancellationToken cancellationToken)
+				where TResponse : class, IOpenSearchResponse, new() =>
+				Task.FromResult(Request<TResponse>(requestData));
 
-            public void Dispose() { }
-        }
-    }
+			public void Dispose() { }
+		}
+	}
 }

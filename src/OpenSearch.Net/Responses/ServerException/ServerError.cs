@@ -34,59 +34,59 @@ using System.Threading.Tasks;
 
 namespace OpenSearch.Net
 {
-    [DataContract]
-    public class ServerError
-    {
-        public ServerError() { }
+	[DataContract]
+	public class ServerError
+	{
+		public ServerError() { }
 
-        public ServerError(Error error, int? statusCode)
-        {
-            Error = error;
-            Status = statusCode.GetValueOrDefault(-1);
-        }
+		public ServerError(Error error, int? statusCode)
+		{
+			Error = error;
+			Status = statusCode.GetValueOrDefault(-1);
+		}
 
-        [DataMember(Name = "error")]
-        public Error Error { get; internal set; }
+		[DataMember(Name = "error")]
+		public Error Error { get; internal set; }
 
-        [DataMember(Name = "status")]
-        public int Status { get; internal set; } = -1;
+		[DataMember(Name = "status")]
+		public int Status { get; internal set; } = -1;
 
-        /// <param name="stream">The response stream containing the server's error body.</param>
-        /// <param name="serializer">
-        /// The serializer to deserialize with; defaults to the legacy Utf8Json <see cref="LowLevelRequestResponseSerializer"/>
-        /// when omitted. Callers with access to the request's configured serializer (e.g. a response's
-        /// <see cref="IApiCallDetails.ConnectionConfiguration"/>) should pass it, so error parsing honors the same
-        /// engine as every other response type.
-        /// </param>
-        /// <param name="serverError">The parsed error, or <c>null</c> if parsing failed.</param>
-        public static bool TryCreate(Stream stream, out ServerError serverError, IOpenSearchSerializer serializer = null)
-        {
-            try
-            {
-                serverError = Create(stream, serializer);
-                return true;
-            }
-            catch
-            {
-                serverError = null;
-                return false;
-            }
-        }
+		/// <param name="stream">The response stream containing the server's error body.</param>
+		/// <param name="serializer">
+		/// The serializer to deserialize with; defaults to the legacy Utf8Json <see cref="LowLevelRequestResponseSerializer"/>
+		/// when omitted. Callers with access to the request's configured serializer (e.g. a response's
+		/// <see cref="IApiCallDetails.ConnectionConfiguration"/>) should pass it, so error parsing honors the same
+		/// engine as every other response type.
+		/// </param>
+		/// <param name="serverError">The parsed error, or <c>null</c> if parsing failed.</param>
+		public static bool TryCreate(Stream stream, out ServerError serverError, IOpenSearchSerializer serializer = null)
+		{
+			try
+			{
+				serverError = Create(stream, serializer);
+				return true;
+			}
+			catch
+			{
+				serverError = null;
+				return false;
+			}
+		}
 
-        public static ServerError Create(Stream stream, IOpenSearchSerializer serializer = null) =>
-            (serializer ?? LowLevelRequestResponseSerializer.Instance).Deserialize<ServerError>(stream);
+		public static ServerError Create(Stream stream, IOpenSearchSerializer serializer = null) =>
+			(serializer ?? LowLevelRequestResponseSerializer.Instance).Deserialize<ServerError>(stream);
 
-        // ReSharper disable once UnusedMember.Global
-        public static Task<ServerError> CreateAsync(Stream stream, CancellationToken token = default, IOpenSearchSerializer serializer = null) =>
-            (serializer ?? LowLevelRequestResponseSerializer.Instance).DeserializeAsync<ServerError>(stream, token);
+		// ReSharper disable once UnusedMember.Global
+		public static Task<ServerError> CreateAsync(Stream stream, CancellationToken token = default, IOpenSearchSerializer serializer = null) =>
+			(serializer ?? LowLevelRequestResponseSerializer.Instance).DeserializeAsync<ServerError>(stream, token);
 
-        public override string ToString()
-        {
-            var sb = new StringBuilder();
-            sb.Append($"ServerError: {Status}");
-            if (Error != null)
-                sb.Append(Error);
-            return sb.ToString();
-        }
-    }
+		public override string ToString()
+		{
+			var sb = new StringBuilder();
+			sb.Append($"ServerError: {Status}");
+			if (Error != null)
+				sb.Append(Error);
+			return sb.ToString();
+		}
+	}
 }

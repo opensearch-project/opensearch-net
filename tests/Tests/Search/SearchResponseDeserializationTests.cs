@@ -19,9 +19,9 @@ namespace Tests.Search;
 
 public class SearchResponseDeserializationTests
 {
-    // A search response exercising hits, _explanation, suggest, and collapsed inner_hits — the four areas the
-    // integration tests (ExplainUsageTests, SuggestUsageTests, FieldCollapseUsageTests, SearchProfileApiTests) cover.
-    private const string Json = @"{
+	// A search response exercising hits, _explanation, suggest, and collapsed inner_hits — the four areas the
+	// integration tests (ExplainUsageTests, SuggestUsageTests, FieldCollapseUsageTests, SearchProfileApiTests) cover.
+	private const string Json = @"{
 		""took"": 1,
 		""timed_out"": false,
 		""_shards"": { ""total"": 1, ""successful"": 1, ""skipped"": 0, ""failed"": 0 },
@@ -50,19 +50,18 @@ public class SearchResponseDeserializationTests
 		}
 	}";
 
-    [U]
-    public void DeserializesHitsExplanationSuggestAndInnerHits()
-    {
-        var response = TestClient.DisabledStreaming.RequestResponseSerializer.Deserialize<SearchResponse<Project>>(
-            new MemoryStream(Encoding.UTF8.GetBytes(Json)));
+	[U] public void DeserializesHitsExplanationSuggestAndInnerHits()
+	{
+		var response = TestClient.DisabledStreaming.RequestResponseSerializer.Deserialize<SearchResponse<Project>>(
+			new MemoryStream(Encoding.UTF8.GetBytes(Json)));
 
-        response.Total.Should().Be(2);
-        response.Hits.Should().NotBeEmpty("hits must deserialize");
-        var hit = response.Hits.First();
-        hit.Id.Should().Be("1");
-        hit.Explanation.Should().NotBeNull("_explanation must deserialize");
-        hit.Explanation.Value.Should().Be(1.0f);
-        hit.InnerHits.ContainsKey("commits").Should().BeTrue("inner_hits must deserialize");
-        response.Suggest.ContainsKey("my-suggest").Should().BeTrue("suggest must deserialize");
-    }
+		response.Total.Should().Be(2);
+		response.Hits.Should().NotBeEmpty("hits must deserialize");
+		var hit = response.Hits.First();
+		hit.Id.Should().Be("1");
+		hit.Explanation.Should().NotBeNull("_explanation must deserialize");
+		hit.Explanation.Value.Should().Be(1.0f);
+		hit.InnerHits.ContainsKey("commits").Should().BeTrue("inner_hits must deserialize");
+		response.Suggest.ContainsKey("my-suggest").Should().BeTrue("suggest must deserialize");
+	}
 }

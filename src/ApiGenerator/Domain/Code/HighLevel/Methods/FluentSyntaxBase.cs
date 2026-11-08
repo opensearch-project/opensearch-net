@@ -89,18 +89,16 @@ namespace ApiGenerator.Domain.Code.HighLevel.Methods
                     parts.FirstOrDefault(p => p.Type == "list" && (p.Name == "index" || p.Name == "indices") && !willInferFromDocument),
                     parts.FirstOrDefault(p => p.Name == "name"),
                 };
-                requiredParts = candidates.Where(p => p != null).Take(1).ToList();
+                requiredParts = candidates.Where(p=>p!= null).Take(1).ToList();
             }
-            if (!willInferFromDocument)
-                return requiredParts;
+            if (!willInferFromDocument) return requiredParts;
 
             //if index, indices is required but the descriptor is generic these will be inferred so no need to pass explicitly
             requiredParts = requiredParts.Where(p => p.Name != "index" && p.Name != "indices").ToList();
             var idPart = requiredParts.FirstOrDefault(i => i.Name == "id");
             if ((idPart != null && UrlInformation.IsADocumentRoute(parts)) || IsDocumentRequest)
             {
-                if (requiredParts.Contains(idPart))
-                    requiredParts.Remove(idPart);
+                if (requiredParts.Contains(idPart)) requiredParts.Remove(idPart);
                 var generic = GenericFirstArgument;
                 var typeName = IsDocumentRequest ? generic : $"DocumentPath<{generic}>";
                 var arg = IsDocumentRequest ? "document" : idPart.Name;
@@ -121,11 +119,11 @@ namespace ApiGenerator.Domain.Code.HighLevel.Methods
 
         public string DescriptorArguments()
         {
-            if (CodeConfiguration.DescriptorConstructors.TryGetValue(CsharpNames.DescriptorName, out var codeArgs))
+            string codeArgs;
+            if (CodeConfiguration.DescriptorConstructors.TryGetValue(CsharpNames.DescriptorName, out codeArgs))
                 codeArgs += ",";
 
-            if (!UrlParts.Any())
-                return codeArgs;
+            if (!UrlParts.Any()) return codeArgs;
 
             string Optional(UrlPart p) => !p.Required && SelectorIsOptional ? " = null" : string.Empty;
             return codeArgs + string.Join(", ", UrlParts.Select(p => $"{p.HighLevelTypeName} {p.Name.ToCamelCase()}{Optional(p)}")) + ", ";
@@ -133,20 +131,19 @@ namespace ApiGenerator.Domain.Code.HighLevel.Methods
 
         public string SelectorArguments()
         {
-            if (CodeConfiguration.DescriptorConstructors.TryGetValue(CsharpNames.DescriptorName, out var codeArgs))
+            string codeArgs = null;
+            if (CodeConfiguration.DescriptorConstructors.TryGetValue(CsharpNames.DescriptorName, out codeArgs))
             {
-                codeArgs = string.Join(", ", codeArgs.Split(',').Select(a => a.Split(' ').Last()));
+                codeArgs = string.Join(", ", codeArgs.Split(',').Select(a=>a.Split(' ').Last()));
                 return codeArgs;
             }
 
             var parts = UrlParts.Where(p => p.Required).ToList();
-            if (!parts.Any())
-                return null;
+            if (!parts.Any()) return null;
 
             string ToArg(UrlPart p)
             {
-                if (IsDocumentRequest)
-                    return "documentWithId: document";
+                if (IsDocumentRequest) return "documentWithId: document";
 
                 if (p.HighLevelTypeName.StartsWith("DocumentPath"))
                     return "documentWithId: id?.Document, index: id?.Self?.Index, id: id?.Self?.Id";
@@ -161,8 +158,7 @@ namespace ApiGenerator.Domain.Code.HighLevel.Methods
         public string SelectorChainedDefaults()
         {
             var parts = UrlParts.Where(p => !p.Required).ToList();
-            if (!parts.Any())
-                return null;
+            if (!parts.Any()) return null;
 
             return "." + string.Join(".", parts.Select(p => $"{p.Name.ToPascalCase()}({p.Name.ToCamelCase()}: {p.Name.ToCamelCase()})"));
         }

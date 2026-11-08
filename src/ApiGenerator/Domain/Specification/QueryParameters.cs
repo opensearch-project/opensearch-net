@@ -46,7 +46,7 @@ namespace ApiGenerator.Domain.Specification
 
         public string Description { get; set; }
 
-        public Version VersionAdded { get; set; }
+		public Version VersionAdded { get; set; }
 
         public IEnumerable<string> DescriptionHighLevel
         {
@@ -99,9 +99,9 @@ namespace ApiGenerator.Domain.Specification
         public string Obsolete
         {
             get => !string.IsNullOrEmpty(_obsolete)
-                ? _obsolete
-                : Deprecated?.ToString();
-            set => _obsolete = value;
+				? _obsolete
+				: Deprecated?.ToString();
+			set => _obsolete = value;
         }
 
         public Deprecation Deprecated { get; set; }
@@ -129,25 +129,21 @@ namespace ApiGenerator.Domain.Specification
         {
             get
             {
-                if (QueryStringKey == "routing")
-                    return "Routing";
+                if (QueryStringKey == "routing") return "Routing";
 
                 var isFields = FieldsParams.Contains(QueryStringKey) || QueryStringKey.EndsWith("_fields");
 
                 var csharpType = TypeLowLevel;
                 switch (csharpType)
                 {
-                    case "TimeSpan":
-                        return "Time";
+                    case "TimeSpan": return "Time";
                 }
 
                 switch (Type)
                 {
                     case "list" when isFields:
-                    case "string" when isFields:
-                        return "Fields";
-                    case "string" when QueryStringKey.Contains("field"):
-                        return "Field";
+                    case "string" when isFields: return "Fields";
+                    case "string" when QueryStringKey.Contains("field"): return "Field";
                     default:
                         return csharpType;
                 }

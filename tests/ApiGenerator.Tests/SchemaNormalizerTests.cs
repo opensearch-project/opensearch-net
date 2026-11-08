@@ -992,8 +992,7 @@ public class SchemaNormalizerTests
         foreach (var fileName in disallowedFiles)
         {
             var filePath = System.IO.Path.Combine(sourceDir, fileName);
-            if (!System.IO.File.Exists(filePath))
-                continue;
+            if (!System.IO.File.Exists(filePath)) continue;
             var content = await System.IO.File.ReadAllTextAsync(filePath);
             Assert.DoesNotContain(".AllOf", content, StringComparison.Ordinal);
         }

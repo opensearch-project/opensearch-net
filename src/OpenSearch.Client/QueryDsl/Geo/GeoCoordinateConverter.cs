@@ -11,47 +11,47 @@ using System.Text.Json.Serialization;
 
 namespace OpenSearch.Client
 {
-    /// <summary>
-    /// System.Text.Json replacement for the legacy Utf8Json <c>GeoCoordinateFormatter</c>. A
-    /// <see cref="GeoCoordinate"/> is serialized as a <c>[lon, lat]</c> or <c>[lon, lat, z]</c> array.
-    /// </summary>
-    internal class GeoCoordinateConverter : JsonConverter<GeoCoordinate>
-    {
-        public override GeoCoordinate Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-        {
-            if (reader.TokenType != JsonTokenType.StartArray)
-            {
-                reader.Skip();
-                return null;
-            }
+	/// <summary>
+	/// System.Text.Json replacement for the legacy Utf8Json <c>GeoCoordinateFormatter</c>. A
+	/// <see cref="GeoCoordinate"/> is serialized as a <c>[lon, lat]</c> or <c>[lon, lat, z]</c> array.
+	/// </summary>
+	internal class GeoCoordinateConverter : JsonConverter<GeoCoordinate>
+	{
+		public override GeoCoordinate Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+		{
+			if (reader.TokenType != JsonTokenType.StartArray)
+			{
+				reader.Skip();
+				return null;
+			}
 
-            var doubles = JsonSerializer.Deserialize<double[]>(ref reader, options);
-            switch (doubles.Length)
-            {
-                case 2:
-                    return new GeoCoordinate(doubles[1], doubles[0]);
-                case 3:
-                    return new GeoCoordinate(doubles[1], doubles[0], doubles[2]);
-                default:
-                    return null;
-            }
-        }
+			var doubles = JsonSerializer.Deserialize<double[]>(ref reader, options);
+			switch (doubles.Length)
+			{
+				case 2:
+					return new GeoCoordinate(doubles[1], doubles[0]);
+				case 3:
+					return new GeoCoordinate(doubles[1], doubles[0], doubles[2]);
+				default:
+					return null;
+			}
+		}
 
-        public override void Write(Utf8JsonWriter writer, GeoCoordinate value, JsonSerializerOptions options)
-        {
-            if (value == null)
-            {
-                writer.WriteNullValue();
-                return;
-            }
+		public override void Write(Utf8JsonWriter writer, GeoCoordinate value, JsonSerializerOptions options)
+		{
+			if (value == null)
+			{
+				writer.WriteNullValue();
+				return;
+			}
 
-            writer.WriteStartArray();
-            // Write through the shared double formatter so integral coordinates keep the legacy trailing ".0".
-            OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, value.Longitude);
-            OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, value.Latitude);
-            if (value.Z.HasValue)
-                OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, value.Z.Value);
-            writer.WriteEndArray();
-        }
-    }
+			writer.WriteStartArray();
+			// Write through the shared double formatter so integral coordinates keep the legacy trailing ".0".
+			OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, value.Longitude);
+			OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, value.Latitude);
+			if (value.Z.HasValue)
+				OpenSearch.Net.Serialization.Converters.RealNumberFormat.WriteDouble(writer, value.Z.Value);
+			writer.WriteEndArray();
+		}
+	}
 }

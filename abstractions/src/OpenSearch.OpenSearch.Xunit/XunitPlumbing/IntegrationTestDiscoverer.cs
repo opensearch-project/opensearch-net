@@ -80,8 +80,7 @@ public class IntegrationTestDiscoverer : OpenSearchTestCaseDiscoverer
         skipReason = null;
         var runIntegrationTests =
             discoveryOptions.GetValue<bool>(nameof(OpenSearchXunitRunOptions.RunIntegrationTests));
-        if (!runIntegrationTests)
-            return true;
+        if (!runIntegrationTests) return true;
 
         var cluster = TestAssemblyRunner.GetClusterForClass(testMethod.TestClass.Class);
         if (cluster == null)
@@ -114,12 +113,10 @@ public class IntegrationTestDiscoverer : OpenSearchTestCaseDiscoverer
                 foreach (var range in skipVersionRanges)
                 {
                     // inrange takes prereleases into account
-                    if (!openSearchVersion.InRange(range))
-                        continue;
+                    if (!openSearchVersion.InRange(range)) continue;
                     skipReason =
                         $"{nameof(SkipVersionAttribute)} has range {range} that {openSearchVersion} satisfies";
-                    if (!string.IsNullOrWhiteSpace(reason))
-                        skipReason += $": {reason}";
+                    if (!string.IsNullOrWhiteSpace(reason)) skipReason += $": {reason}";
                     return true;
                 }
             }
@@ -131,16 +128,14 @@ public class IntegrationTestDiscoverer : OpenSearchTestCaseDiscoverer
         {
             skipReason = $"{nameof(SkipPrereleaseVersionsAttribute)} has been applied to this test";
             var reason = skipPrerelease.GetNamedArgument<string>(nameof(SkipVersionAttribute.Reason));
-            if (!string.IsNullOrWhiteSpace(reason))
-                skipReason += $": {reason}";
+            if (!string.IsNullOrWhiteSpace(reason)) skipReason += $": {reason}";
             return true;
         }
 
         var skipTests = GetAttributes<SkipTestAttributeBase>(testMethod)
             .FirstOrDefault(a => a.GetNamedArgument<bool>(nameof(SkipTestAttributeBase.Skip)));
 
-        if (skipTests == null)
-            return false;
+        if (skipTests == null) return false;
 
         skipReason = skipTests.GetNamedArgument<string>(nameof(SkipTestAttributeBase.Reason));
         return true;

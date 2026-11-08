@@ -31,8 +31,7 @@ public class NeuralQueryCluster : ClientTestClusterBase
             OpenSearchPlugin.Knn,
             OpenSearchPlugin.MachineLearning,
             OpenSearchPlugin.NeuralSearch,
-            OpenSearchPlugin.Security)
-        { MaxConcurrency = 4, ValidatePluginsToInstall = false, };
+            OpenSearchPlugin.Security) { MaxConcurrency = 4, ValidatePluginsToInstall = false, };
 
         config.DefaultNodeSettings.Add("indices.breaker.total.limit", "100%");
         config.DefaultNodeSettings.Add("plugins.ml_commons.only_run_on_ml_node", "false");
@@ -94,8 +93,7 @@ public class NeuralQueryCluster : ClientTestClusterBase
         {
             var getTaskResp = Client.Http.Get<DynamicResponse>($"/_plugins/_ml/tasks/{modelDeployTaskId}");
             getTaskResp.ShouldNotBeFailed();
-            if (((string)getTaskResp.Body.state).StartsWith("COMPLETED"))
-                break;
+            if (((string)getTaskResp.Body.state).StartsWith("COMPLETED")) break;
 
             Thread.Sleep(5000);
         }
@@ -111,8 +109,7 @@ public class NeuralQueryCluster : ClientTestClusterBase
     {
         get
         {
-            if (_adminCertClient != null)
-                return _adminCertClient;
+            if (_adminCertClient != null) return _adminCertClient;
 
             var settings = this.CreateConnectionSettings()
                 .ClientCertificate(X509Certificate2.CreateFromPemFile(FileSystem.ConfigPath + "/kirk.pem", FileSystem.ConfigPath + "/kirk-key.pem"));
@@ -144,10 +141,7 @@ public class NeuralQueryUsageTests
 
     protected override QueryContainer QueryInitializer => new NeuralQuery
     {
-        Field = Infer.Field<NeuralSearchDoc>(d => d.PassageEmbedding),
-        QueryText = "wild west",
-        K = 5,
-        ModelId = ModelId
+        Field = Infer.Field<NeuralSearchDoc>(d => d.PassageEmbedding), QueryText = "wild west", K = 5, ModelId = ModelId
     };
 
     protected override object QueryJson => new { neural = new { passage_embedding = new { query_text = "wild west", k = 5, model_id = ModelId } } };
@@ -261,13 +255,11 @@ internal static class Helpers
 {
     public static void ShouldBeCreated(this DynamicResponse r)
     {
-        if (!r.Success || r.Body.status != "CREATED")
-            throw new Exception("Expected to be created, was: " + r.DebugInformation);
+        if (!r.Success || r.Body.status != "CREATED") throw new Exception("Expected to be created, was: " + r.DebugInformation);
     }
 
     public static void ShouldNotBeFailed(this DynamicResponse r)
     {
-        if (!r.Success || r.Body.state == "FAILED")
-            throw new Exception("Expected to not be failed, was: " + r.DebugInformation);
+        if (!r.Success || r.Body.state == "FAILED") throw new Exception("Expected to not be failed, was: " + r.DebugInformation);
     }
 }

@@ -34,66 +34,66 @@ using static Tests.Domain.Helpers.TestValueHelper;
 
 namespace Tests.QueryDsl.TermLevel.Range
 {
-    public class DateRangeQueryUsageTests : QueryDslUsageTestsBase
-    {
-        public DateRangeQueryUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+	public class DateRangeQueryUsageTests : QueryDslUsageTestsBase
+	{
+		public DateRangeQueryUsageTests(ReadOnlyCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-        protected override ConditionlessWhen ConditionlessWhen => new ConditionlessWhen<IDateRangeQuery>(q => q.Range as IDateRangeQuery)
-        {
-            q => q.Field = null,
-            q =>
-            {
-                q.GreaterThan = null;
-                q.GreaterThanOrEqualTo = null;
-                q.LessThan = null;
-                q.LessThanOrEqualTo = null;
-            },
-            q =>
-            {
-                q.GreaterThan = default;
-                q.GreaterThanOrEqualTo = default;
-                q.LessThan = default;
-                q.LessThanOrEqualTo = default;
-            }
-        };
+		protected override ConditionlessWhen ConditionlessWhen => new ConditionlessWhen<IDateRangeQuery>(q => q.Range as IDateRangeQuery)
+		{
+			q => q.Field = null,
+			q =>
+			{
+				q.GreaterThan = null;
+				q.GreaterThanOrEqualTo = null;
+				q.LessThan = null;
+				q.LessThanOrEqualTo = null;
+			},
+			q =>
+			{
+				q.GreaterThan = default;
+				q.GreaterThanOrEqualTo = default;
+				q.LessThan = default;
+				q.LessThanOrEqualTo = default;
+			}
+		};
 
-        protected override QueryContainer QueryInitializer => new DateRangeQuery
-        {
-            Name = "named_query",
-            Boost = 1.1,
-            Field = "description",
-            GreaterThan = FixedDate,
-            LessThan = "01/01/2016",
-            TimeZone = "+01:00",
-            Format = "dd/MM/yyyy||yyyy"
-        };
+		protected override QueryContainer QueryInitializer => new DateRangeQuery
+			{
+				Name = "named_query",
+				Boost = 1.1,
+				Field = "description",
+				GreaterThan = FixedDate,
+				LessThan = "01/01/2016",
+				TimeZone = "+01:00",
+				Format = "dd/MM/yyyy||yyyy"
+			};
 
-        protected override object QueryJson => new
-        {
-            range = new
-            {
-                description = new
-                {
-                    _name = "named_query",
-                    boost = 1.1,
-                    format = "dd/MM/yyyy||yyyy",
-                    gt = "2015-06-06T12:01:02.123",
-                    lt = "01/01/2016",
-                    time_zone = "+01:00"
-                }
-            }
-        };
+			protected override object QueryJson => new
+			{
+				range = new
+				{
+					description = new
+					{
+						_name = "named_query",
+						boost = 1.1,
+						format = "dd/MM/yyyy||yyyy",
+						gt = "2015-06-06T12:01:02.123",
+						lt = "01/01/2016",
+						time_zone = "+01:00"
+					}
+				}
+			};
 
-        protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) => q
-            .DateRange(c => c
-                .Name("named_query")
-                .Boost(1.1)
-                .Field(p => p.Description)
-                .GreaterThan(FixedDate)
-                .LessThan("01/01/2016")
-                .Format("dd/MM/yyyy||yyyy")
-                .TimeZone("+01:00")
-            );
-    }
+			protected override QueryContainer QueryFluent(QueryContainerDescriptor<Project> q) => q
+				.DateRange(c => c
+					.Name("named_query")
+					.Boost(1.1)
+					.Field(p => p.Description)
+					.GreaterThan(FixedDate)
+					.LessThan("01/01/2016")
+					.Format("dd/MM/yyyy||yyyy")
+					.TimeZone("+01:00")
+				);
+	}
 
 }

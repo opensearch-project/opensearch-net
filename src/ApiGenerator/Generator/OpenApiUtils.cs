@@ -27,13 +27,11 @@ public static class OpenApiUtils
 
         foreach (var s in schema.OneOf)
         {
-            if (s.Type == JsonObjectType.Null)
-                continue;
+            if (s.Type == JsonObjectType.Null) continue;
 
             if (s.Type == JsonObjectType.Boolean)
                 booleanCount++;
-            else if (s.IsEnum())
-                enumCount++;
+            else if (s.IsEnum()) enumCount++;
 
             totalCount++;
         }
@@ -50,24 +48,21 @@ public static class OpenApiUtils
 
         void Add(string value, string alias)
         {
-            if (normalized.Add(value.ToLowerInvariant()))
-                values.Add((value, alias));
+            if (normalized.Add(value.ToLowerInvariant())) values.Add((value, alias));
         }
 
         void Visit(JsonSchema s)
         {
             if (s.HasOneOf())
-                foreach (var oneOf in schema.OneOf)
-                    Visit(oneOf);
+                foreach (var oneOf in schema.OneOf) Visit(oneOf);
             else if (s.Enumeration.Count > 0)
-                foreach (var v in s.Enumeration.Where(v => v != null))
-                    Add((string)v, null);
+                foreach (var v in s.Enumeration.Where(v => v != null)) Add((string) v, null);
             else if (s.Const<string>() != null)
                 Add(s.Const<string>(), s.Title);
         }
     }
 
-    public static T Const<T>(this JsonSchema schema) where T : class =>
+    public static T Const<T>(this JsonSchema schema) where T: class =>
         schema.GetExtension("const") as T;
 
     public static object GetExtension(this IJsonExtensionObject schema, string key) =>

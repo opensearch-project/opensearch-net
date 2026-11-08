@@ -66,8 +66,7 @@ public class DefaultSeeder
     public void SeedNode()
     {
         var alreadySeeded = false;
-        if (!TestClient.Configuration.ForceReseed && (alreadySeeded = AlreadySeeded()))
-            return;
+        if (!TestClient.Configuration.ForceReseed && (alreadySeeded = AlreadySeeded())) return;
 
         var t = Task.Run(async () => await SeedNodeAsync(alreadySeeded).ConfigureAwait(false));
 
@@ -77,8 +76,7 @@ public class DefaultSeeder
     public void SeedNodeNoData()
     {
         var alreadySeeded = false;
-        if (!TestClient.Configuration.ForceReseed && (alreadySeeded = AlreadySeeded()))
-            return;
+        if (!TestClient.Configuration.ForceReseed && (alreadySeeded = AlreadySeeded())) return;
 
         var t = Task.Run(async () => await SeedNodeNoDataAsync(alreadySeeded).ConfigureAwait(false));
 

@@ -28,7 +28,7 @@ public class IndicesStatsApiTests
     protected override int ExpectStatusCode => 200;
     protected override HttpMethod HttpMethod => HttpMethod.GET;
 
-    protected override IndicesStatsRequest Initializer => new(ProjectIndex, IndicesStatsMetric.Docs | IndicesStatsMetric.Segments);
+    protected override IndicesStatsRequest Initializer => new (ProjectIndex, IndicesStatsMetric.Docs | IndicesStatsMetric.Segments);
 
     protected override Func<IndicesStatsDescriptor, IIndicesStatsRequest> Fluent =>
         d => d.Metric(IndicesStatsMetric.Docs | IndicesStatsMetric.Segments);

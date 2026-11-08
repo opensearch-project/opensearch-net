@@ -27,26 +27,25 @@
 */
 
 using System.Threading.Tasks;
-using OpenSearch.Client;
 using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
+using OpenSearch.Client;
 using Tests.Framework.EndpointTests;
 using static Tests.Framework.EndpointTests.UrlTester;
 
 namespace Tests.Modules.Scripting.DeleteScript
 {
-    public class DeleteScriptUrlTests
-    {
-        [U]
-        public async Task Urls()
-        {
-            var id = "id";
+	public class DeleteScriptUrlTests
+	{
+		[U] public async Task Urls()
+		{
+			var id = "id";
 
-            await DELETE($"/_scripts/{id}")
-                    .Fluent(c => c.DeleteScript(id))
-                    .Request(c => c.DeleteScript(new DeleteScriptRequest(id)))
-                    .FluentAsync(c => c.DeleteScriptAsync(id))
-                    .RequestAsync(c => c.DeleteScriptAsync(new DeleteScriptRequest(id)))
-                ;
-        }
-    }
+			await DELETE($"/_scripts/{id}")
+					.Fluent(c => c.DeleteScript(id))
+					.Request(c => c.DeleteScript(new DeleteScriptRequest(id)))
+					.FluentAsync(c => c.DeleteScriptAsync(id))
+					.RequestAsync(c => c.DeleteScriptAsync(new DeleteScriptRequest(id)))
+				;
+		}
+	}
 }

@@ -11,30 +11,30 @@ using System.Text.Json.Serialization;
 
 namespace OpenSearch.Client
 {
-    /// <summary>
-    /// System.Text.Json replacement for the legacy Utf8Json <c>NormalizerFormatter</c>. Deserializes an
-    /// <see cref="INormalizer"/> as the concrete <see cref="CustomNormalizer"/> (the only normalizer shape), and
-    /// serializes via the <see cref="ICustomNormalizer"/> contract.
-    /// </summary>
-    internal class NormalizerConverter : JsonConverter<INormalizer>
-    {
-        public override INormalizer Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
-        {
-            if (reader.TokenType == JsonTokenType.Null)
-                return null;
+	/// <summary>
+	/// System.Text.Json replacement for the legacy Utf8Json <c>NormalizerFormatter</c>. Deserializes an
+	/// <see cref="INormalizer"/> as the concrete <see cref="CustomNormalizer"/> (the only normalizer shape), and
+	/// serializes via the <see cref="ICustomNormalizer"/> contract.
+	/// </summary>
+	internal class NormalizerConverter : JsonConverter<INormalizer>
+	{
+		public override INormalizer Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+		{
+			if (reader.TokenType == JsonTokenType.Null)
+				return null;
 
-            return JsonSerializer.Deserialize<CustomNormalizer>(ref reader, options);
-        }
+			return JsonSerializer.Deserialize<CustomNormalizer>(ref reader, options);
+		}
 
-        public override void Write(Utf8JsonWriter writer, INormalizer value, JsonSerializerOptions options)
-        {
-            if (value == null)
-            {
-                writer.WriteNullValue();
-                return;
-            }
+		public override void Write(Utf8JsonWriter writer, INormalizer value, JsonSerializerOptions options)
+		{
+			if (value == null)
+			{
+				writer.WriteNullValue();
+				return;
+			}
 
-            JsonSerializer.Serialize(writer, value as ICustomNormalizer, options);
-        }
-    }
+			JsonSerializer.Serialize(writer, value as ICustomNormalizer, options);
+		}
+	}
 }

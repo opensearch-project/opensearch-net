@@ -59,7 +59,7 @@ public class NeuralSearchSample : Sample
             }));
         AssertCreatedStatus(registerModelGroupResp);
         Console.WriteLine($"Model group named {MlModelGroupName} {registerModelGroupResp.Body.status}: {registerModelGroupResp.Body.model_group_id}");
-        _modelGroupId = (string)registerModelGroupResp.Body.model_group_id;
+        _modelGroupId = (string) registerModelGroupResp.Body.model_group_id;
 
         // Register the ML model
         var registerModelResp = await client.Http.PostAsync<DynamicResponse>(
@@ -73,7 +73,7 @@ public class NeuralSearchSample : Sample
             }));
         AssertCreatedStatus(registerModelResp);
         Console.WriteLine($"Model registration task {registerModelResp.Body.status}: {registerModelResp.Body.task_id}");
-        _modelRegistrationTaskId = (string)registerModelResp.Body.task_id;
+        _modelRegistrationTaskId = (string) registerModelResp.Body.task_id;
 
         // Wait for ML model registration to complete
         while (true)
@@ -94,7 +94,7 @@ public class NeuralSearchSample : Sample
         var deployModelResp = await client.Http.PostAsync<DynamicResponse>($"/_plugins/_ml/models/{_modelId}/_deploy");
         AssertCreatedStatus(deployModelResp);
         Console.WriteLine($"Model deployment task {deployModelResp.Body.status}: {deployModelResp.Body.task_id}");
-        _modelDeployTaskId = (string)deployModelResp.Body.task_id;
+        _modelDeployTaskId = (string) deployModelResp.Body.task_id;
 
         // Wait for ML model deployment to complete
         while (true)
@@ -102,8 +102,7 @@ public class NeuralSearchSample : Sample
             var getTaskResp = await client.Http.GetAsync<DynamicResponse>($"/_plugins/_ml/tasks/{_modelDeployTaskId}");
             Console.WriteLine($"Model deployment: {getTaskResp.Body.state}");
             AssertNotFailedState(getTaskResp);
-            if (((string)getTaskResp.Body.state).StartsWith("COMPLETED"))
-                break;
+            if (((string)getTaskResp.Body.state).StartsWith("COMPLETED")) break;
             await Task.Delay(10000);
         }
         Console.WriteLine($"Model deployed: {_modelId}");
@@ -173,8 +172,7 @@ public class NeuralSearchSample : Sample
                     .K(5))));
         AssertValid(searchResp);
         Console.WriteLine($"Found {searchResp.Hits.Count} documents");
-        foreach (var hit in searchResp.Hits)
-            Console.WriteLine($"- Document id: {hit.Source.Id}, score: {hit.Score}, text: {hit.Source.Text}");
+        foreach (var hit in searchResp.Hits) Console.WriteLine($"- Document id: {hit.Source.Id}, score: {hit.Score}, text: {hit.Source.Text}");
     }
 
     protected override async Task Cleanup(IOpenSearchClient client)
@@ -216,7 +214,7 @@ public class NeuralSearchSample : Sample
                     break;
                 }
 
-                Assert(deleteModelResp, r => ((string?)r.Body.error?.reason)?.Contains("Try undeploy") ?? false);
+                Assert(deleteModelResp, r => ((string?) r.Body.error?.reason)?.Contains("Try undeploy") ?? false);
 
                 // Undeploy the ML model
                 var undeployModelResp = await client.Http.PostAsync<DynamicResponse>($"/_plugins/_ml/models/{_modelId}/_undeploy");
@@ -247,8 +245,8 @@ public class NeuralSearchSample : Sample
         Assert(response, r => r.Success && (string)r.Body.status == "CREATED");
 
     private static void AssertNotFailedState(DynamicResponse response) =>
-        Assert(response, r => r.Success && (string)r.Body.state != "FAILED");
+        Assert(response, r => r.Success && (string) r.Body.state != "FAILED");
 
     private static void AssertDeletedResult(DynamicResponse response) =>
-        Assert(response, r => r.Success && (string)r.Body.result == "deleted");
+        Assert(response, r => r.Success && (string) r.Body.result == "deleted");
 }
