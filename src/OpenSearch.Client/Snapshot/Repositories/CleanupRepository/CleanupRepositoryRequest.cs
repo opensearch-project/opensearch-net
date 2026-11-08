@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("snapshot.cleanup_repository.json")]
-	public partial interface ICleanupRepositoryRequest { }
+    [MapsApi("snapshot.cleanup_repository.json")]
+    public partial interface ICleanupRepositoryRequest { }
 
-	public partial class CleanupRepositoryRequest { }
+    public partial class CleanupRepositoryRequest { }
 
-	public partial class CleanupRepositoryDescriptor { }
+    public partial class CleanupRepositoryDescriptor { }
 }

@@ -77,7 +77,8 @@ public sealed class NamespaceModel
                 var members = s.GetEnumValues()
                     .Select(v => new EnumMember(v.Value, ToPascal(v.Alias ?? v.Value)))
                     .ToList();
-                if (members.Count == 0) continue;
+                if (members.Count == 0)
+                    continue;
                 allModels.TryAdd(id, new EnumModel(id, resolver.CsharpTypeName(id), members));
                 continue;
             }
@@ -95,7 +96,8 @@ public sealed class NamespaceModel
                 : (IReadOnlyDictionary<string, NJsonSchema.JsonSchema>)new Dictionary<string, NJsonSchema.JsonSchema>(StringComparer.Ordinal);
             var isOpen = normalization.IsExplicitlyOpen(id);
             // Skip schemas with no properties unless they're explicitly open (pure dictionary wrappers).
-            if (propSource.Count == 0 && !isOpen) continue;
+            if (propSource.Count == 0 && !isOpen)
+                continue;
 
             var requiredNames = normalization.TryGet(id, out var normalizedReq)
                 ? normalizedReq.RequiredProperties
@@ -110,7 +112,8 @@ public sealed class NamespaceModel
 
                     // Global schema-scoped property type override
                     var overrideType = plugin.ResolvePropertyTypeOverride("", p.Key, id);
-                    if (overrideType != null) csharpType = overrideType;
+                    if (overrideType != null)
+                        csharpType = overrideType;
 
                     return new ModelProperty(
                         WireName: p.Key,
@@ -243,7 +246,8 @@ public sealed class NamespaceModel
             variants.Add(new WrapperKeyVariant(variant.Key, variantCsharpName, variant.VersionAdded, bodyProps));
         }
 
-        if (variants.Count == 0) return false;
+        if (variants.Count == 0)
+            return false;
 
         // Build base properties from the shared properties
         var basePropsList = unionModel.SharedProperties
@@ -262,8 +266,7 @@ public sealed class NamespaceModel
             .ToList();
 
         // Apply rendering policy if one is configured for this union schema
-        Configuration.Overrides.UnionRenderingPolicy? policy = null;
-        registry.UnionPolicies.TryGetValue(schemaId, out policy);
+        registry.UnionPolicies.TryGetValue(schemaId, out var policy);
 
         // Apply variant-level policy overrides
         if (policy != null)
@@ -276,22 +279,23 @@ public sealed class NamespaceModel
                 IReadOnlySet<string> fieldProps = policy.FieldProperties.Count > 0
                     ? new HashSet<string>(policy.FieldProperties, StringComparer.Ordinal)
                     : new HashSet<string>(StringComparer.Ordinal);
-                string? fluentOverride = null;
-                string? ifaceOverride = null;
                 string? additionalIface = null;
-                bool retained = false;
+                var retained = false;
 
                 policy.VariantNameOverrides.TryGetValue(v.Key, out var nameOverride);
-                policy.FluentMethodNameOverrides.TryGetValue(v.Key, out fluentOverride);
-                policy.InterfaceNameOverrides.TryGetValue(v.Key, out ifaceOverride);
+                policy.FluentMethodNameOverrides.TryGetValue(v.Key, out var fluentOverride);
+                policy.InterfaceNameOverrides.TryGetValue(v.Key, out var ifaceOverride);
 
                 if (policy.VariantOverrides.TryGetValue(v.Key, out var vp))
                 {
-                    if (vp.BaseClass != null) baseClass = vp.BaseClass;
-                    if (vp.DescriptorBasePattern != null) descBase = vp.DescriptorBasePattern;
+                    if (vp.BaseClass != null)
+                        baseClass = vp.BaseClass;
+                    if (vp.DescriptorBasePattern != null)
+                        descBase = vp.DescriptorBasePattern;
                     retained = vp.Retained;
                     additionalIface = vp.AdditionalInterface;
-                    if (vp.NonGenericDescriptor) isGeneric = false;
+                    if (vp.NonGenericDescriptor)
+                        isGeneric = false;
                     // Exclude properties that come from the behavioral base
                     if (vp.ExcludedProperties.Count > 0)
                     {

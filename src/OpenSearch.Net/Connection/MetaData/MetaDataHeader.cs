@@ -30,35 +30,35 @@ using System.Text;
 
 namespace OpenSearch.Net
 {
-	internal sealed class MetaDataHeader
-	{
-		private const char _separator = ',';
+    internal sealed class MetaDataHeader
+    {
+        private const char _separator = ',';
 
-		private readonly string _headerValue;
+        private readonly string _headerValue;
 
-		public MetaDataHeader(VersionInfo version, string serviceIdentifier, bool isAsync)
-		{
-			ClientVersion = version.ToString();
-			RuntimeVersion = new RuntimeVersionInfo().ToString();
-			ServiceIdentifier = serviceIdentifier;
+        public MetaDataHeader(VersionInfo version, string serviceIdentifier, bool isAsync)
+        {
+            ClientVersion = version.ToString();
+            RuntimeVersion = new RuntimeVersionInfo().ToString();
+            ServiceIdentifier = serviceIdentifier;
 
-			// This code is expected to be called infrequently so we're not concerns with over optimising this
+            // This code is expected to be called infrequently so we're not concerns with over optimising this
 
-			_headerValue = new StringBuilder(64)
-				.Append(serviceIdentifier).Append("=").Append(ClientVersion).Append(_separator)
-				.Append("a=").Append(isAsync ? "1" : "0").Append(_separator)
-				.Append("net=").Append(RuntimeVersion).Append(_separator)
-				.Append(_httpClientIdentifier).Append("=").Append(RuntimeVersion)
-				.ToString();
-		}
+            _headerValue = new StringBuilder(64)
+                .Append(serviceIdentifier).Append("=").Append(ClientVersion).Append(_separator)
+                .Append("a=").Append(isAsync ? "1" : "0").Append(_separator)
+                .Append("net=").Append(RuntimeVersion).Append(_separator)
+                .Append(_httpClientIdentifier).Append("=").Append(RuntimeVersion)
+                .ToString();
+        }
 
-		private static readonly string _httpClientIdentifier =
-			ConnectionInfo.UsingCurlHandler ? "cu" : "so";
+        private static readonly string _httpClientIdentifier =
+            ConnectionInfo.UsingCurlHandler ? "cu" : "so";
 
-		public string ServiceIdentifier { get; private set; }
-		public string ClientVersion { get; private set; }
-		public string RuntimeVersion { get; private set; }
+        public string ServiceIdentifier { get; private set; }
+        public string ClientVersion { get; private set; }
+        public string RuntimeVersion { get; private set; }
 
-		public override string ToString() => _headerValue;
-	}
+        public override string ToString() => _headerValue;
+    }
 }

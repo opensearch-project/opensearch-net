@@ -16,11 +16,11 @@ namespace Tests.Auth.AwsSigV4.Utils;
 
 internal class TestableAwsSigV4HttpConnection : AwsSigV4HttpConnection
 {
-	private readonly MockHttpMessageHandler _handler;
+    private readonly MockHttpMessageHandler _handler;
 
-	public TestableAwsSigV4HttpConnection(AWSCredentials credentials, RegionEndpoint region, string service, IDateTimeProvider dateTimeProvider, MockHttpMessageHandler.Handler handler)
-		: base(credentials, region, service, dateTimeProvider) =>
-		_handler = new MockHttpMessageHandler(handler);
+    public TestableAwsSigV4HttpConnection(AWSCredentials credentials, RegionEndpoint region, string service, IDateTimeProvider dateTimeProvider, MockHttpMessageHandler.Handler handler)
+        : base(credentials, region, service, dateTimeProvider) =>
+        _handler = new MockHttpMessageHandler(handler);
 
-	protected override HttpMessageHandler InnerCreateHttpClientHandler(RequestData requestData) => _handler;
+    protected override HttpMessageHandler InnerCreateHttpClientHandler(RequestData requestData) => _handler;
 }

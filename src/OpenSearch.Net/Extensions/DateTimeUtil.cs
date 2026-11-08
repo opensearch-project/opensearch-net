@@ -30,8 +30,8 @@ using System;
 
 namespace OpenSearch.Net.Extensions
 {
-	internal static class DateTimeUtil
-	{
-		public static readonly DateTimeOffset UnixEpoch = new DateTimeOffset(1970, 1, 1, 0, 0, 0, 0, TimeSpan.Zero);
-	}
+    internal static class DateTimeUtil
+    {
+        public static readonly DateTimeOffset UnixEpoch = new DateTimeOffset(1970, 1, 1, 0, 0, 0, 0, TimeSpan.Zero);
+    }
 }

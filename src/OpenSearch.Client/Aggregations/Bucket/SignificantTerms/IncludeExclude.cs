@@ -33,61 +33,61 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	[JsonFormatter(typeof(IncludeExcludeFormatter))]
-	public class IncludeExclude
-	{
-		public IncludeExclude(string pattern) => Pattern = pattern;
+    [JsonFormatter(typeof(IncludeExcludeFormatter))]
+    public class IncludeExclude
+    {
+        public IncludeExclude(string pattern) => Pattern = pattern;
 
-		public IncludeExclude(IEnumerable<string> values) => Values = values;
+        public IncludeExclude(IEnumerable<string> values) => Values = values;
 
-		[IgnoreDataMember]
-		public string Pattern { get; set; }
+        [IgnoreDataMember]
+        public string Pattern { get; set; }
 
-		[IgnoreDataMember]
-		public IEnumerable<string> Values { get; set; }
-	}
+        [IgnoreDataMember]
+        public IEnumerable<string> Values { get; set; }
+    }
 
-	internal class IncludeExcludeFormatter : IJsonFormatter<IncludeExclude>
-	{
-		public void Serialize(ref JsonWriter writer, IncludeExclude value, IJsonFormatterResolver formatterResolver)
-		{
-			if (value == null)
-				writer.WriteNull();
-			else if (value.Values != null)
-			{
-				var formatter = formatterResolver.GetFormatter<IEnumerable<string>>();
-				formatter.Serialize(ref writer, value.Values, formatterResolver);
-			}
-			else
-				writer.WriteString(value.Pattern);
-		}
+    internal class IncludeExcludeFormatter : IJsonFormatter<IncludeExclude>
+    {
+        public void Serialize(ref JsonWriter writer, IncludeExclude value, IJsonFormatterResolver formatterResolver)
+        {
+            if (value == null)
+                writer.WriteNull();
+            else if (value.Values != null)
+            {
+                var formatter = formatterResolver.GetFormatter<IEnumerable<string>>();
+                formatter.Serialize(ref writer, value.Values, formatterResolver);
+            }
+            else
+                writer.WriteString(value.Pattern);
+        }
 
-		public IncludeExclude Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
-		{
-			var token = reader.GetCurrentJsonToken();
+        public IncludeExclude Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
+        {
+            var token = reader.GetCurrentJsonToken();
 
-			if (token == JsonToken.Null)
-			{
-				reader.ReadNext();
-				return null;
-			}
+            if (token == JsonToken.Null)
+            {
+                reader.ReadNext();
+                return null;
+            }
 
-			IncludeExclude termsInclude;
+            IncludeExclude termsInclude;
 
-			switch (token)
-			{
-				case JsonToken.BeginArray:
-					var formatter = formatterResolver.GetFormatter<IEnumerable<string>>();
-					termsInclude = new IncludeExclude(formatter.Deserialize(ref reader, formatterResolver));
-					break;
-				case JsonToken.String:
-					termsInclude = new IncludeExclude(reader.ReadString());
-					break;
-				default:
-					throw new Exception($"Unexpected token {token} when deserializing {nameof(IncludeExclude)}");
-			}
+            switch (token)
+            {
+                case JsonToken.BeginArray:
+                    var formatter = formatterResolver.GetFormatter<IEnumerable<string>>();
+                    termsInclude = new IncludeExclude(formatter.Deserialize(ref reader, formatterResolver));
+                    break;
+                case JsonToken.String:
+                    termsInclude = new IncludeExclude(reader.ReadString());
+                    break;
+                default:
+                    throw new Exception($"Unexpected token {token} when deserializing {nameof(IncludeExclude)}");
+            }
 
-			return termsInclude;
-		}
-	}
+            return termsInclude;
+        }
+    }
 }

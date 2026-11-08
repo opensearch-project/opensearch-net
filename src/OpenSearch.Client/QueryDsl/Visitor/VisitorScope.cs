@@ -28,16 +28,16 @@
 
 namespace OpenSearch.Client
 {
-	public enum VisitorScope
-	{
-		Unknown,
-		Query,
-		Filter,
-		Must,
-		MustNot,
-		Should,
-		PositiveQuery,
-		NegativeQuery,
-		Span,
-	}
+    public enum VisitorScope
+    {
+        Unknown,
+        Query,
+        Filter,
+        Must,
+        MustNot,
+        Should,
+        PositiveQuery,
+        NegativeQuery,
+        Span,
+    }
 }

@@ -163,16 +163,19 @@ public class CreateModelSample : Sample
         if (_modelId != null)
         {
             var undeployResp = await client.Ml.UndeployModelAsync(new UndeployModelRequest(_modelId));
-            if (undeployResp.IsValid) Console.WriteLine($"Undeployed model: {_modelId}");
+            if (undeployResp.IsValid)
+                Console.WriteLine($"Undeployed model: {_modelId}");
 
             var deleteModelResp = await client.Ml.DeleteModelAsync(new DeleteModelRequest(_modelId));
-            if (deleteModelResp.IsValid) Console.WriteLine($"Deleted model: {_modelId}");
+            if (deleteModelResp.IsValid)
+                Console.WriteLine($"Deleted model: {_modelId}");
         }
 
         if (_connectorId != null)
         {
             var deleteConnectorResp = await client.Ml.DeleteConnectorAsync(new DeleteConnectorRequest(_connectorId));
-            if (deleteConnectorResp.IsValid) Console.WriteLine($"Deleted connector: {_connectorId}");
+            if (deleteConnectorResp.IsValid)
+                Console.WriteLine($"Deleted connector: {_connectorId}");
         }
     }
 

@@ -123,8 +123,10 @@ public abstract class ModelOverridesBase : IModelOverrides
 
     public string? MappedCsharpType(string schemaId)
     {
-        if (MappedTypes.TryGetValue(schemaId, out var t)) return t;
-        if (GlobalMappedTypes.TryGetValue(schemaId, out t)) return t;
+        if (MappedTypes.TryGetValue(schemaId, out var t))
+            return t;
+        if (GlobalMappedTypes.TryGetValue(schemaId, out t))
+            return t;
         return null;
     }
 
@@ -139,17 +141,20 @@ public abstract class ModelOverridesBase : IModelOverrides
     {
         // Per-plugin operation-scoped override (most specific)
         var opKey = $"{operationGroup}.{wireName}";
-        if (PropertyTypeOverrides.TryGetValue(opKey, out var t)) return t;
+        if (PropertyTypeOverrides.TryGetValue(opKey, out var t))
+            return t;
 
         if (schemaId != null)
         {
             var schemaKey = $"{schemaId}.{wireName}";
 
             // Per-plugin schema-scoped override
-            if (PropertyTypeOverrides.TryGetValue(schemaKey, out t)) return t;
+            if (PropertyTypeOverrides.TryGetValue(schemaKey, out t))
+                return t;
 
             // Global schema-scoped override
-            if (GlobalPropertyTypeOverrides.TryGetValue(schemaKey, out t)) return t;
+            if (GlobalPropertyTypeOverrides.TryGetValue(schemaKey, out t))
+                return t;
         }
 
         return null;

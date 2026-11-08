@@ -31,30 +31,30 @@ using System.Threading;
 
 namespace OpenSearch.Client
 {
-	public class BulkAllObserver : CoordinatedRequestObserverBase<BulkAllResponse>
-	{
-		private long _totalNumberOfFailedBuffers;
-		private long _totalNumberOfRetries;
-		private long _totalDocumentsProcessed;
+    public class BulkAllObserver : CoordinatedRequestObserverBase<BulkAllResponse>
+    {
+        private long _totalNumberOfFailedBuffers;
+        private long _totalNumberOfRetries;
+        private long _totalDocumentsProcessed;
 
-		public BulkAllObserver(
-			Action<BulkAllResponse> onNext = null,
-			Action<Exception> onError = null,
-			Action onCompleted = null
-		)
-			: base(onNext, onError, onCompleted) { }
+        public BulkAllObserver(
+            Action<BulkAllResponse> onNext = null,
+            Action<Exception> onError = null,
+            Action onCompleted = null
+        )
+            : base(onNext, onError, onCompleted) { }
 
-		public long TotalNumberOfFailedBuffers => _totalNumberOfFailedBuffers;
+        public long TotalNumberOfFailedBuffers => _totalNumberOfFailedBuffers;
 
-		public long TotalNumberOfRetries => _totalNumberOfRetries;
+        public long TotalNumberOfRetries => _totalNumberOfRetries;
 
-		/// <summary>The total number of documents in buffers that were successfully processed (delivered to <see cref="IObserver{T}.OnNext"/>).</summary>
-		public long TotalDocumentsProcessed => _totalDocumentsProcessed;
+        /// <summary>The total number of documents in buffers that were successfully processed (delivered to <see cref="IObserver{T}.OnNext"/>).</summary>
+        public long TotalDocumentsProcessed => _totalDocumentsProcessed;
 
-		internal void IncrementTotalNumberOfRetries() => Interlocked.Increment(ref _totalNumberOfRetries);
+        internal void IncrementTotalNumberOfRetries() => Interlocked.Increment(ref _totalNumberOfRetries);
 
-		internal void IncrementTotalNumberOfFailedBuffers() => Interlocked.Increment(ref _totalNumberOfFailedBuffers);
+        internal void IncrementTotalNumberOfFailedBuffers() => Interlocked.Increment(ref _totalNumberOfFailedBuffers);
 
-		internal void AddDocumentsProcessed(long count) => Interlocked.Add(ref _totalDocumentsProcessed, count);
-	}
+        internal void AddDocumentsProcessed(long count) => Interlocked.Add(ref _totalDocumentsProcessed, count);
+    }
 }

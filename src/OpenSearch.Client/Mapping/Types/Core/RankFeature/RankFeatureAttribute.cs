@@ -28,20 +28,20 @@
 
 namespace OpenSearch.Client
 {
-	/// <inheritdoc cref="IRankFeatureProperty"/>
-	public class RankFeatureAttribute : OpenSearchPropertyAttributeBase, IRankFeatureProperty
-	{
-		public RankFeatureAttribute() : base(FieldType.RankFeature) { }
+    /// <inheritdoc cref="IRankFeatureProperty"/>
+    public class RankFeatureAttribute : OpenSearchPropertyAttributeBase, IRankFeatureProperty
+    {
+        public RankFeatureAttribute() : base(FieldType.RankFeature) { }
 
-		private IRankFeatureProperty Self => this;
+        private IRankFeatureProperty Self => this;
 
-		/// <inheritdoc cref="IRankFeatureProperty.PositiveScoreImpact"/>
-		public bool PositiveScoreImpact
-		{
-			get => Self.PositiveScoreImpact.GetValueOrDefault(true);
-			set => Self.PositiveScoreImpact = value;
-		}
+        /// <inheritdoc cref="IRankFeatureProperty.PositiveScoreImpact"/>
+        public bool PositiveScoreImpact
+        {
+            get => Self.PositiveScoreImpact.GetValueOrDefault(true);
+            set => Self.PositiveScoreImpact = value;
+        }
 
-		bool? IRankFeatureProperty.PositiveScoreImpact { get; set; }
-	}
+        bool? IRankFeatureProperty.PositiveScoreImpact { get; set; }
+    }
 }

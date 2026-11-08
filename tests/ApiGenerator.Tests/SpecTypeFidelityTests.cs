@@ -57,7 +57,8 @@ public class SpecTypeFidelityTests
         var ns = NamespaceModel.Build(doc, plugin.Namespace, plugin, resolver, normalization);
         foreach (var model in ns.TypesToEmit.OfType<ObjectModel>())
         {
-            if (!catalog.TryGetSchema(model.SchemaId, out var schema)) continue;
+            if (!catalog.TryGetSchema(model.SchemaId, out var schema))
+                continue;
             var specProps = normalization.TryGetForSchema(schema, out var normalized)
                 ? normalized.EffectiveProperties
                 : SpecProperties(schema);
@@ -96,7 +97,8 @@ public class SpecTypeFidelityTests
     {
         foreach (var prop in generated)
         {
-            if (!specProps.TryGetValue(prop.WireName, out var specSchema)) continue;
+            if (!specProps.TryGetValue(prop.WireName, out var specSchema))
+                continue;
 
             var (spec, actual) = UnwrapArrays(specSchema, prop.CsharpType);
             var expected = Kind(spec);
@@ -124,7 +126,8 @@ public class SpecTypeFidelityTests
         {
             var s = spec.ActualSchema;
             var list = ListTypes.FirstOrDefault(l => csharp.StartsWith(l, StringComparison.Ordinal));
-            if (!s.Type.HasFlag(JsonObjectType.Array) || s.Item == null || list == null) return (spec, csharp);
+            if (!s.Type.HasFlag(JsonObjectType.Array) || s.Item == null || list == null)
+                return (spec, csharp);
             spec = s.Item;
             csharp = csharp.Substring(list.Length, csharp.Length - list.Length - 1);
         }
@@ -137,17 +140,23 @@ public class SpecTypeFidelityTests
     private static SpecKind Kind(JsonSchema schema)
     {
         var s = schema.ActualSchema;
-        if (s.IsEnum()) return SpecKind.Other;
-        if (IsOnly(s, JsonObjectType.Number) || IsOnly(s, JsonObjectType.Integer)) return SpecKind.Number;
-        if (IsOnly(s, JsonObjectType.Boolean)) return SpecKind.Boolean;
-        if ((s.Properties?.Count ?? 0) > 0) return SpecKind.Object;
+        if (s.IsEnum())
+            return SpecKind.Other;
+        if (IsOnly(s, JsonObjectType.Number) || IsOnly(s, JsonObjectType.Integer))
+            return SpecKind.Number;
+        if (IsOnly(s, JsonObjectType.Boolean))
+            return SpecKind.Boolean;
+        if ((s.Properties?.Count ?? 0) > 0)
+            return SpecKind.Object;
 
         var members = s.OneOf.Concat(s.AnyOf).ToList();
-        if (members.Count == 0) return SpecKind.Other;
+        if (members.Count == 0)
+            return SpecKind.Other;
 
         var kinds = members.Select(m => IsPlainString(m) ? (SpecKind?)null : Kind(m)).ToList();
         // A union of objects (e.g. BulkByScrollFailure's anyOf of two failure shapes) is still an object.
-        if (kinds.All(k => k == SpecKind.Object)) return SpecKind.Object;
+        if (kinds.All(k => k == SpecKind.Object))
+            return SpecKind.Object;
         foreach (var kind in new[] { SpecKind.Number, SpecKind.Boolean })
             if (kinds.Contains(kind) && kinds.All(k => k == null || k == kind))
                 return kind;
@@ -175,14 +184,16 @@ public class SpecTypeFidelityTests
     private static IReadOnlyDictionary<string, JsonSchema> SpecProperties(JsonSchema? schema)
     {
         var result = new Dictionary<string, JsonSchema>(StringComparer.Ordinal);
-        if (schema == null) return result;
+        if (schema == null)
+            return result;
 
         void Collect(JsonSchema s, int depth)
         {
             var actual = s.ActualSchema;
             foreach (var (name, prop) in actual.Properties ?? new Dictionary<string, JsonSchemaProperty>())
                 result.TryAdd(name, prop);
-            if (depth > 3) return;
+            if (depth > 3)
+                return;
             foreach (var member in actual.AllOf.Concat(actual.OneOf).Concat(actual.AnyOf))
                 Collect(member, depth + 1);
         }
@@ -196,7 +207,8 @@ public class SpecTypeFidelityTests
         for (var dir = new DirectoryInfo(AppContext.BaseDirectory); dir != null; dir = dir.Parent)
         {
             var candidate = Path.Combine(dir.FullName, "src", "ApiGenerator", "opensearch-openapi.yaml");
-            if (File.Exists(candidate)) return candidate;
+            if (File.Exists(candidate))
+                return candidate;
         }
         throw new FileNotFoundException("Could not locate src/ApiGenerator/opensearch-openapi.yaml above " + AppContext.BaseDirectory);
     }

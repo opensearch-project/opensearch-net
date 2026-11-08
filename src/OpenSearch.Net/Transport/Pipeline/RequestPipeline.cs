@@ -40,648 +40,668 @@ using static OpenSearch.Net.AuditEvent;
 
 namespace OpenSearch.Net
 {
-	public class RequestPipeline : IRequestPipeline
-	{
-		private static readonly string NoNodesAttemptedMessage =
-			"No nodes were attempted, this can happen when a node predicate does not match any nodes";
+    public class RequestPipeline : IRequestPipeline
+    {
+        private static readonly string NoNodesAttemptedMessage =
+            "No nodes were attempted, this can happen when a node predicate does not match any nodes";
 
-		private readonly IConnection _connection;
-		private readonly IConnectionPool _connectionPool;
-		private readonly IDateTimeProvider _dateTimeProvider;
-		private readonly IMemoryStreamFactory _memoryStreamFactory;
-		private readonly IConnectionConfigurationValues _settings;
+        private readonly IConnection _connection;
+        private readonly IConnectionPool _connectionPool;
+        private readonly IDateTimeProvider _dateTimeProvider;
+        private readonly IMemoryStreamFactory _memoryStreamFactory;
+        private readonly IConnectionConfigurationValues _settings;
 
-		private static DiagnosticSource DiagnosticSource { get; } = new DiagnosticListener(DiagnosticSources.RequestPipeline.SourceName);
+        private static DiagnosticSource DiagnosticSource { get; } = new DiagnosticListener(DiagnosticSources.RequestPipeline.SourceName);
 
-		public RequestPipeline(
-			IConnectionConfigurationValues configurationValues,
-			IDateTimeProvider dateTimeProvider,
-			IMemoryStreamFactory memoryStreamFactory,
-			IRequestParameters requestParameters
-		)
-		{
-			_settings = configurationValues;
-			_connectionPool = _settings.ConnectionPool;
-			_connection = _settings.Connection;
-			_dateTimeProvider = dateTimeProvider;
-			_memoryStreamFactory = memoryStreamFactory;
+        public RequestPipeline(
+            IConnectionConfigurationValues configurationValues,
+            IDateTimeProvider dateTimeProvider,
+            IMemoryStreamFactory memoryStreamFactory,
+            IRequestParameters requestParameters
+        )
+        {
+            _settings = configurationValues;
+            _connectionPool = _settings.ConnectionPool;
+            _connection = _settings.Connection;
+            _dateTimeProvider = dateTimeProvider;
+            _memoryStreamFactory = memoryStreamFactory;
 
-			RequestConfiguration = requestParameters?.RequestConfiguration;
-			StartedOn = dateTimeProvider.Now();
-		}
+            RequestConfiguration = requestParameters?.RequestConfiguration;
+            StartedOn = dateTimeProvider.Now();
+        }
 
-		public List<Audit> AuditTrail { get; } = new List<Audit>();
+        public List<Audit> AuditTrail { get; } = new List<Audit>();
 
-		public bool DepletedRetries => Retried >= MaxRetries + 1 || IsTakingTooLong;
+        public bool DepletedRetries => Retried >= MaxRetries + 1 || IsTakingTooLong;
 
-		public bool FirstPoolUsageNeedsSniffing =>
-			!RequestDisabledSniff
-			&& _connectionPool.SupportsReseeding && _settings.SniffsOnStartup && !_connectionPool.SniffedOnStartup;
+        public bool FirstPoolUsageNeedsSniffing =>
+            !RequestDisabledSniff
+            && _connectionPool.SupportsReseeding && _settings.SniffsOnStartup && !_connectionPool.SniffedOnStartup;
 
-		public bool IsTakingTooLong
-		{
-			get
-			{
-				var timeout = _settings.MaxRetryTimeout.GetValueOrDefault(RequestTimeout);
-				var now = _dateTimeProvider.Now();
+        public bool IsTakingTooLong
+        {
+            get
+            {
+                var timeout = _settings.MaxRetryTimeout.GetValueOrDefault(RequestTimeout);
+                var now = _dateTimeProvider.Now();
 
-				//we apply a soft margin so that if a request timesout at 59 seconds when the maximum is 60 we also abort.
-				var margin = timeout.TotalMilliseconds / 100.0 * 98;
-				var marginTimeSpan = TimeSpan.FromMilliseconds(margin);
-				var timespanCall = now - StartedOn;
-				var tookToLong = timespanCall >= marginTimeSpan;
-				return tookToLong;
-			}
-		}
+                //we apply a soft margin so that if a request timesout at 59 seconds when the maximum is 60 we also abort.
+                var margin = timeout.TotalMilliseconds / 100.0 * 98;
+                var marginTimeSpan = TimeSpan.FromMilliseconds(margin);
+                var timespanCall = now - StartedOn;
+                var tookToLong = timespanCall >= marginTimeSpan;
+                return tookToLong;
+            }
+        }
 
-		public int MaxRetries =>
-			RequestConfiguration?.ForceNode != null
-				? 0
-				: Math.Min(RequestConfiguration?.MaxRetries ?? _settings.MaxRetries.GetValueOrDefault(int.MaxValue), _connectionPool.MaxRetries);
+        public int MaxRetries =>
+            RequestConfiguration?.ForceNode != null
+                ? 0
+                : Math.Min(RequestConfiguration?.MaxRetries ?? _settings.MaxRetries.GetValueOrDefault(int.MaxValue), _connectionPool.MaxRetries);
 
-		public bool Refresh { get; private set; }
-		public int Retried { get; private set; }
+        public bool Refresh { get; private set; }
+        public int Retried { get; private set; }
 
-		public IEnumerable<Node> SniffNodes => _connectionPool
-			.CreateView(LazyAuditable)
-			.ToList()
-			.OrderBy(n => n.ClusterManagerEligible ? n.Uri.Port : int.MaxValue);
+        public IEnumerable<Node> SniffNodes => _connectionPool
+            .CreateView(LazyAuditable)
+            .ToList()
+            .OrderBy(n => n.ClusterManagerEligible ? n.Uri.Port : int.MaxValue);
 
-		public static string SniffPath => "_nodes/http,settings";
+        public static string SniffPath => "_nodes/http,settings";
 
-		public bool SniffsOnConnectionFailure =>
-			!RequestDisabledSniff
-			&& _connectionPool.SupportsReseeding && _settings.SniffsOnConnectionFault;
+        public bool SniffsOnConnectionFailure =>
+            !RequestDisabledSniff
+            && _connectionPool.SupportsReseeding && _settings.SniffsOnConnectionFault;
 
-		public bool SniffsOnStaleCluster =>
-			!RequestDisabledSniff
-			&& _connectionPool.SupportsReseeding && _settings.SniffInformationLifeSpan.HasValue;
+        public bool SniffsOnStaleCluster =>
+            !RequestDisabledSniff
+            && _connectionPool.SupportsReseeding && _settings.SniffInformationLifeSpan.HasValue;
 
-		public bool StaleClusterState
-		{
-			get
-			{
-				if (!SniffsOnStaleCluster) return false;
+        public bool StaleClusterState
+        {
+            get
+            {
+                if (!SniffsOnStaleCluster)
+                    return false;
 
-				// ReSharper disable once PossibleInvalidOperationException
-				// already checked by SniffsOnStaleCluster
-				var sniffLifeSpan = _settings.SniffInformationLifeSpan.Value;
+                // ReSharper disable once PossibleInvalidOperationException
+                // already checked by SniffsOnStaleCluster
+                var sniffLifeSpan = _settings.SniffInformationLifeSpan.Value;
 
-				var now = _dateTimeProvider.Now();
-				var lastSniff = _connectionPool.LastUpdate;
+                var now = _dateTimeProvider.Now();
+                var lastSniff = _connectionPool.LastUpdate;
 
-				return sniffLifeSpan < now - lastSniff;
-			}
-		}
+                return sniffLifeSpan < now - lastSniff;
+            }
+        }
 
-		public DateTime StartedOn { get; }
+        public DateTime StartedOn { get; }
 
-		private TimeSpan PingTimeout =>
-			RequestConfiguration?.PingTimeout
-			?? _settings.PingTimeout
-			?? (_connectionPool.UsingSsl ? ConnectionConfiguration.DefaultPingTimeoutOnSSL : ConnectionConfiguration.DefaultPingTimeout);
+        private TimeSpan PingTimeout =>
+            RequestConfiguration?.PingTimeout
+            ?? _settings.PingTimeout
+            ?? (_connectionPool.UsingSsl ? ConnectionConfiguration.DefaultPingTimeoutOnSSL : ConnectionConfiguration.DefaultPingTimeout);
 
-		private IRequestConfiguration RequestConfiguration { get; }
+        private IRequestConfiguration RequestConfiguration { get; }
 
-		private bool RequestDisabledSniff => RequestConfiguration != null && (RequestConfiguration.DisableSniff ?? false);
+        private bool RequestDisabledSniff => RequestConfiguration != null && (RequestConfiguration.DisableSniff ?? false);
 
-		private TimeSpan RequestTimeout => RequestConfiguration?.RequestTimeout ?? _settings.RequestTimeout;
+        private TimeSpan RequestTimeout => RequestConfiguration?.RequestTimeout ?? _settings.RequestTimeout;
 
-		private NodesInfoRequestParameters SniffParameters => new NodesInfoRequestParameters
-		{
-			Timeout = PingTimeout,
-			FlatSettings = true
-		};
+        private NodesInfoRequestParameters SniffParameters => new NodesInfoRequestParameters
+        {
+            Timeout = PingTimeout,
+            FlatSettings = true
+        };
 
-		void IDisposable.Dispose() => Dispose();
+        void IDisposable.Dispose() => Dispose();
 
-		public void AuditCancellationRequested() => Audit(CancellationRequested).Dispose();
+        public void AuditCancellationRequested() => Audit(CancellationRequested).Dispose();
 
-		public void BadResponse<TResponse>(ref TResponse response, IApiCallDetails callDetails, RequestData data,
-			OpenSearchClientException exception
-		)
-			where TResponse : class, IOpenSearchResponse, new()
-		{
-			if (response == null)
-			{
-				//make sure we copy over the error body in case we disabled direct streaming.
-				var s = callDetails?.ResponseBodyInBytes == null ? Stream.Null : _memoryStreamFactory.Create(callDetails.ResponseBodyInBytes);
-				var m = callDetails?.ResponseMimeType ?? RequestData.MimeType;
-				response = ResponseBuilder.ToResponse<TResponse>(data, exception, callDetails?.HttpStatusCode, null, s, m);
-			}
+        public void BadResponse<TResponse>(ref TResponse response, IApiCallDetails callDetails, RequestData data,
+            OpenSearchClientException exception
+        )
+            where TResponse : class, IOpenSearchResponse, new()
+        {
+            if (response == null)
+            {
+                //make sure we copy over the error body in case we disabled direct streaming.
+                var s = callDetails?.ResponseBodyInBytes == null ? Stream.Null : _memoryStreamFactory.Create(callDetails.ResponseBodyInBytes);
+                var m = callDetails?.ResponseMimeType ?? RequestData.MimeType;
+                response = ResponseBuilder.ToResponse<TResponse>(data, exception, callDetails?.HttpStatusCode, null, s, m);
+            }
 
-			response.ApiCall.AuditTrail = AuditTrail;
-		}
+            response.ApiCall.AuditTrail = AuditTrail;
+        }
 
-		public TResponse CallOpenSearch<TResponse>(RequestData requestData)
-			where TResponse : class, IOpenSearchResponse, new()
-		{
-			using (var audit = Audit(HealthyResponse, requestData.Node))
-			using (var activity = StartActivity(requestData))
-			using (var d = DiagnosticSource.Diagnose<RequestData, IApiCallDetails>(DiagnosticSources.RequestPipeline.CallOpenSearch, requestData))
-			{
-				audit.Path = requestData.PathAndQuery;
-				try
-				{
-					var response = _connection.Request<TResponse>(requestData);
-					d.EndState = response.ApiCall;
-					SetActivityEndState(activity, response.ApiCall);
-					response.ApiCall.AuditTrail = AuditTrail;
-					audit.Stop();
-					ThrowBadAuthPipelineExceptionWhenNeeded(response.ApiCall, response);
-					if (!response.ApiCall.Success) audit.Event = requestData.OnFailureAuditEvent;
-					return response;
-				}
-				catch (Exception e)
-				{
-					audit.Event = requestData.OnFailureAuditEvent;
-					audit.Exception = e;
-					SetActivityError(activity);
-					throw;
-				}
-			}
-		}
+        public TResponse CallOpenSearch<TResponse>(RequestData requestData)
+            where TResponse : class, IOpenSearchResponse, new()
+        {
+            using (var audit = Audit(HealthyResponse, requestData.Node))
+            using (var activity = StartActivity(requestData))
+            using (var d = DiagnosticSource.Diagnose<RequestData, IApiCallDetails>(DiagnosticSources.RequestPipeline.CallOpenSearch, requestData))
+            {
+                audit.Path = requestData.PathAndQuery;
+                try
+                {
+                    var response = _connection.Request<TResponse>(requestData);
+                    d.EndState = response.ApiCall;
+                    SetActivityEndState(activity, response.ApiCall);
+                    response.ApiCall.AuditTrail = AuditTrail;
+                    audit.Stop();
+                    ThrowBadAuthPipelineExceptionWhenNeeded(response.ApiCall, response);
+                    if (!response.ApiCall.Success)
+                        audit.Event = requestData.OnFailureAuditEvent;
+                    return response;
+                }
+                catch (Exception e)
+                {
+                    audit.Event = requestData.OnFailureAuditEvent;
+                    audit.Exception = e;
+                    SetActivityError(activity);
+                    throw;
+                }
+            }
+        }
 
-		public async Task<TResponse> CallOpenSearchAsync<TResponse>(RequestData requestData, CancellationToken cancellationToken)
-			where TResponse : class, IOpenSearchResponse, new()
-		{
-			using (var audit = Audit(HealthyResponse, requestData.Node))
-			using (var activity = StartActivity(requestData))
-			using (var d = DiagnosticSource.Diagnose<RequestData, IApiCallDetails>(DiagnosticSources.RequestPipeline.CallOpenSearch, requestData))
-			{
-				audit.Path = requestData.PathAndQuery;
-				try
-				{
-					var response = await _connection.RequestAsync<TResponse>(requestData, cancellationToken).ConfigureAwait(false);
-					d.EndState = response.ApiCall;
-					SetActivityEndState(activity, response.ApiCall);
-					response.ApiCall.AuditTrail = AuditTrail;
-					audit.Stop();
-					ThrowBadAuthPipelineExceptionWhenNeeded(response.ApiCall, response);
-					if (!response.ApiCall.Success) audit.Event = requestData.OnFailureAuditEvent;
-					return response;
-				}
-				catch (Exception e)
-				{
-					audit.Event = requestData.OnFailureAuditEvent;
-					audit.Exception = e;
-					SetActivityError(activity);
-					throw;
-				}
-			}
-		}
+        public async Task<TResponse> CallOpenSearchAsync<TResponse>(RequestData requestData, CancellationToken cancellationToken)
+            where TResponse : class, IOpenSearchResponse, new()
+        {
+            using (var audit = Audit(HealthyResponse, requestData.Node))
+            using (var activity = StartActivity(requestData))
+            using (var d = DiagnosticSource.Diagnose<RequestData, IApiCallDetails>(DiagnosticSources.RequestPipeline.CallOpenSearch, requestData))
+            {
+                audit.Path = requestData.PathAndQuery;
+                try
+                {
+                    var response = await _connection.RequestAsync<TResponse>(requestData, cancellationToken).ConfigureAwait(false);
+                    d.EndState = response.ApiCall;
+                    SetActivityEndState(activity, response.ApiCall);
+                    response.ApiCall.AuditTrail = AuditTrail;
+                    audit.Stop();
+                    ThrowBadAuthPipelineExceptionWhenNeeded(response.ApiCall, response);
+                    if (!response.ApiCall.Success)
+                        audit.Event = requestData.OnFailureAuditEvent;
+                    return response;
+                }
+                catch (Exception e)
+                {
+                    audit.Event = requestData.OnFailureAuditEvent;
+                    audit.Exception = e;
+                    SetActivityError(activity);
+                    throw;
+                }
+            }
+        }
 
-		/// <summary>
-		/// Starts an OpenTelemetry <see cref="Activity"/> for a request to OpenSearch and stamps it with the
-		/// request-side semantic convention tags. Returns <c>null</c> when nobody is listening, in which case
-		/// no span is created and callers incur virtually no cost.
-		/// </summary>
-		private static Activity StartActivity(RequestData requestData)
-		{
-			if (!OpenSearchClientActivitySource.HasListeners) return null;
+        /// <summary>
+        /// Starts an OpenTelemetry <see cref="Activity"/> for a request to OpenSearch and stamps it with the
+        /// request-side semantic convention tags. Returns <c>null</c> when nobody is listening, in which case
+        /// no span is created and callers incur virtually no cost.
+        /// </summary>
+        private static Activity StartActivity(RequestData requestData)
+        {
+            if (!OpenSearchClientActivitySource.HasListeners)
+                return null;
 
-			// Prefer the REST API operation name (e.g. "search") for the span name; fall back to the HTTP
-			// method when the request does not map to a named operation (ping, sniff, raw low-level calls).
-			var operationName = requestData.OperationName;
-			var spanName = string.IsNullOrEmpty(operationName) ? requestData.Method.GetStringValue() : operationName;
+            // Prefer the REST API operation name (e.g. "search") for the span name; fall back to the HTTP
+            // method when the request does not map to a named operation (ping, sniff, raw low-level calls).
+            var operationName = requestData.OperationName;
+            var spanName = string.IsNullOrEmpty(operationName) ? requestData.Method.GetStringValue() : operationName;
 
-			var activity = OpenSearchClientActivitySource.ActivitySource.StartActivity(spanName, ActivityKind.Client);
+            var activity = OpenSearchClientActivitySource.ActivitySource.StartActivity(spanName, ActivityKind.Client);
 
-			if (activity is not { IsAllDataRequested: true }) return activity;
+            if (activity is not { IsAllDataRequested: true })
+                return activity;
 
-			activity.SetTag(OpenTelemetryAttributes.DbSystem, OpenTelemetryAttributes.DbSystemValue);
-			if (!string.IsNullOrEmpty(operationName))
-				activity.SetTag(OpenTelemetryAttributes.DbOperation, operationName);
-			activity.SetTag(OpenTelemetryAttributes.HttpRequestMethod, requestData.Method.GetStringValue());
+            activity.SetTag(OpenTelemetryAttributes.DbSystem, OpenTelemetryAttributes.DbSystemValue);
+            if (!string.IsNullOrEmpty(operationName))
+                activity.SetTag(OpenTelemetryAttributes.DbOperation, operationName);
+            activity.SetTag(OpenTelemetryAttributes.HttpRequestMethod, requestData.Method.GetStringValue());
 
-			var uri = requestData.Uri;
-			if (uri is not null)
-			{
-				activity.SetTag(OpenTelemetryAttributes.UrlFull, uri.AbsoluteUri);
-				activity.SetTag(OpenTelemetryAttributes.ServerAddress, uri.Host);
-				activity.SetTag(OpenTelemetryAttributes.ServerPort, uri.Port);
-			}
+            var uri = requestData.Uri;
+            if (uri is not null)
+            {
+                activity.SetTag(OpenTelemetryAttributes.UrlFull, uri.AbsoluteUri);
+                activity.SetTag(OpenTelemetryAttributes.ServerAddress, uri.Host);
+                activity.SetTag(OpenTelemetryAttributes.ServerPort, uri.Port);
+            }
 
-			return activity;
-		}
+            return activity;
+        }
 
-		/// <summary>Stamps an <see cref="Activity"/> with the response-side tags and status once a call completes.</summary>
-		private static void SetActivityEndState(Activity activity, IApiCallDetails apiCall)
-		{
-			if (activity is not { IsAllDataRequested: true } || apiCall is null) return;
+        /// <summary>Stamps an <see cref="Activity"/> with the response-side tags and status once a call completes.</summary>
+        private static void SetActivityEndState(Activity activity, IApiCallDetails apiCall)
+        {
+            if (activity is not { IsAllDataRequested: true } || apiCall is null)
+                return;
 
-			if (apiCall.HttpStatusCode.HasValue)
-				activity.SetTag(OpenTelemetryAttributes.HttpResponseStatusCode, apiCall.HttpStatusCode.Value);
+            if (apiCall.HttpStatusCode.HasValue)
+                activity.SetTag(OpenTelemetryAttributes.HttpResponseStatusCode, apiCall.HttpStatusCode.Value);
 
 #if !NETSTANDARD2_0 && !NETSTANDARD2_1
-			activity.SetStatus(apiCall.Success ? ActivityStatusCode.Ok : ActivityStatusCode.Error);
+            activity.SetStatus(apiCall.Success ? ActivityStatusCode.Ok : ActivityStatusCode.Error);
 #endif
-		}
+        }
 
-		/// <summary>Marks an <see cref="Activity"/> as failed when a call throws before producing a response.</summary>
-		private static void SetActivityError(Activity activity)
-		{
+        /// <summary>Marks an <see cref="Activity"/> as failed when a call throws before producing a response.</summary>
+        private static void SetActivityError(Activity activity)
+        {
 #if !NETSTANDARD2_0 && !NETSTANDARD2_1
-			if (activity is { IsAllDataRequested: true })
-				activity.SetStatus(ActivityStatusCode.Error);
+            if (activity is { IsAllDataRequested: true })
+                activity.SetStatus(ActivityStatusCode.Error);
 #endif
-		}
+        }
 
-		public OpenSearchClientException CreateClientException<TResponse>(
-			TResponse response, IApiCallDetails callDetails, RequestData data, List<PipelineException> pipelineExceptions
-		)
-			where TResponse : class, IOpenSearchResponse, new()
-		{
-			if (callDetails?.Success ?? false) return null;
+        public OpenSearchClientException CreateClientException<TResponse>(
+            TResponse response, IApiCallDetails callDetails, RequestData data, List<PipelineException> pipelineExceptions
+        )
+            where TResponse : class, IOpenSearchResponse, new()
+        {
+            if (callDetails?.Success ?? false)
+                return null;
 
-			var innerException = pipelineExceptions.HasAny() ? pipelineExceptions.AsAggregateOrFirst() : callDetails?.OriginalException;
+            var innerException = pipelineExceptions.HasAny() ? pipelineExceptions.AsAggregateOrFirst() : callDetails?.OriginalException;
 
-			var statusCode = callDetails?.HttpStatusCode != null ? callDetails.HttpStatusCode.Value.ToString() : "unknown";
-			var resource = callDetails == null
-				? "unknown resource"
-				: $"Status code {statusCode} from: {callDetails.HttpMethod} {callDetails.Uri.PathAndQuery}";
+            var statusCode = callDetails?.HttpStatusCode != null ? callDetails.HttpStatusCode.Value.ToString() : "unknown";
+            var resource = callDetails == null
+                ? "unknown resource"
+                : $"Status code {statusCode} from: {callDetails.HttpMethod} {callDetails.Uri.PathAndQuery}";
 
 
-			var exceptionMessage = innerException?.Message ?? "Request failed to execute";
+            var exceptionMessage = innerException?.Message ?? "Request failed to execute";
 
-			var pipelineFailure = data.OnFailurePipelineFailure;
-			if (pipelineExceptions.HasAny())
-				pipelineFailure = pipelineExceptions.Last().FailureReason;
+            var pipelineFailure = data.OnFailurePipelineFailure;
+            if (pipelineExceptions.HasAny())
+                pipelineFailure = pipelineExceptions.Last().FailureReason;
 
-			if (IsTakingTooLong)
-			{
-				pipelineFailure = PipelineFailure.MaxTimeoutReached;
-				Audit(MaxTimeoutReached).Dispose();
-				exceptionMessage = "Maximum timeout reached while retrying request";
-			}
-			else if (Retried >= MaxRetries && MaxRetries > 0)
-			{
-				pipelineFailure = PipelineFailure.MaxRetriesReached;
-				Audit(MaxRetriesReached).Dispose();
-				exceptionMessage = "Maximum number of retries reached";
+            if (IsTakingTooLong)
+            {
+                pipelineFailure = PipelineFailure.MaxTimeoutReached;
+                Audit(MaxTimeoutReached).Dispose();
+                exceptionMessage = "Maximum timeout reached while retrying request";
+            }
+            else if (Retried >= MaxRetries && MaxRetries > 0)
+            {
+                pipelineFailure = PipelineFailure.MaxRetriesReached;
+                Audit(MaxRetriesReached).Dispose();
+                exceptionMessage = "Maximum number of retries reached";
 
-				var now = _dateTimeProvider.Now();
-				var activeNodes = _connectionPool.Nodes.Count(n => n.IsAlive || n.DeadUntil <= now);
-				if (Retried >= activeNodes)
-				{
-					Audit(FailedOverAllNodes).Dispose();
-					exceptionMessage += ", failed over to all the known alive nodes before failing";
-				}
-			}
+                var now = _dateTimeProvider.Now();
+                var activeNodes = _connectionPool.Nodes.Count(n => n.IsAlive || n.DeadUntil <= now);
+                if (Retried >= activeNodes)
+                {
+                    Audit(FailedOverAllNodes).Dispose();
+                    exceptionMessage += ", failed over to all the known alive nodes before failing";
+                }
+            }
 
-			exceptionMessage += $". Call: {resource}";
-			if (response != null && response.TryGetServerErrorReason(out var reason))
-				exceptionMessage += $". ServerError: {reason}";
+            exceptionMessage += $". Call: {resource}";
+            if (response != null && response.TryGetServerErrorReason(out var reason))
+                exceptionMessage += $". ServerError: {reason}";
 
-			var clientException = new OpenSearchClientException(pipelineFailure, exceptionMessage, innerException)
-			{
-				Request = data,
-				Response = callDetails,
-				AuditTrail = AuditTrail
-			};
+            var clientException = new OpenSearchClientException(pipelineFailure, exceptionMessage, innerException)
+            {
+                Request = data,
+                Response = callDetails,
+                AuditTrail = AuditTrail
+            };
 
-			return clientException;
-		}
+            return clientException;
+        }
 
-		public void FirstPoolUsage(SemaphoreSlim semaphore)
-		{
-			if (!FirstPoolUsageNeedsSniffing) return;
+        public void FirstPoolUsage(SemaphoreSlim semaphore)
+        {
+            if (!FirstPoolUsageNeedsSniffing)
+                return;
 
-			if (!semaphore.Wait(_settings.RequestTimeout))
-			{
-				if (FirstPoolUsageNeedsSniffing)
-					throw new PipelineException(PipelineFailure.CouldNotStartSniffOnStartup, null);
+            if (!semaphore.Wait(_settings.RequestTimeout))
+            {
+                if (FirstPoolUsageNeedsSniffing)
+                    throw new PipelineException(PipelineFailure.CouldNotStartSniffOnStartup, null);
 
-				return;
-			}
+                return;
+            }
 
-			if (!FirstPoolUsageNeedsSniffing)
-			{
-				semaphore.Release();
-				return;
-			}
+            if (!FirstPoolUsageNeedsSniffing)
+            {
+                semaphore.Release();
+                return;
+            }
 
-			try
-			{
-				using (Audit(SniffOnStartup))
-				{
-					Sniff();
-					_connectionPool.SniffedOnStartup = true;
-				}
-			}
-			finally
-			{
-				semaphore.Release();
-			}
-		}
+            try
+            {
+                using (Audit(SniffOnStartup))
+                {
+                    Sniff();
+                    _connectionPool.SniffedOnStartup = true;
+                }
+            }
+            finally
+            {
+                semaphore.Release();
+            }
+        }
 
-		public async Task FirstPoolUsageAsync(SemaphoreSlim semaphore, CancellationToken cancellationToken)
-		{
-			if (!FirstPoolUsageNeedsSniffing) return;
+        public async Task FirstPoolUsageAsync(SemaphoreSlim semaphore, CancellationToken cancellationToken)
+        {
+            if (!FirstPoolUsageNeedsSniffing)
+                return;
 
-			// TODO cancellationToken could throw here and will bubble out as OperationCancelledException
-			// everywhere else it would bubble out wrapped in a `UnexpectedOpenSearchClientException`
-			var success = await semaphore.WaitAsync(_settings.RequestTimeout, cancellationToken).ConfigureAwait(false);
-			if (!success)
-			{
-				if (FirstPoolUsageNeedsSniffing)
-					throw new PipelineException(PipelineFailure.CouldNotStartSniffOnStartup, null);
+            // TODO cancellationToken could throw here and will bubble out as OperationCancelledException
+            // everywhere else it would bubble out wrapped in a `UnexpectedOpenSearchClientException`
+            var success = await semaphore.WaitAsync(_settings.RequestTimeout, cancellationToken).ConfigureAwait(false);
+            if (!success)
+            {
+                if (FirstPoolUsageNeedsSniffing)
+                    throw new PipelineException(PipelineFailure.CouldNotStartSniffOnStartup, null);
 
-				return;
-			}
+                return;
+            }
 
-			if (!FirstPoolUsageNeedsSniffing)
-			{
-				semaphore.Release();
-				return;
-			}
-			try
-			{
-				using (Audit(SniffOnStartup))
-				{
-					await SniffAsync(cancellationToken).ConfigureAwait(false);
-					_connectionPool.SniffedOnStartup = true;
-				}
-			}
-			finally
-			{
-				semaphore.Release();
-			}
-		}
+            if (!FirstPoolUsageNeedsSniffing)
+            {
+                semaphore.Release();
+                return;
+            }
+            try
+            {
+                using (Audit(SniffOnStartup))
+                {
+                    await SniffAsync(cancellationToken).ConfigureAwait(false);
+                    _connectionPool.SniffedOnStartup = true;
+                }
+            }
+            finally
+            {
+                semaphore.Release();
+            }
+        }
 
-		public void MarkAlive(Node node) => node.MarkAlive();
+        public void MarkAlive(Node node) => node.MarkAlive();
 
-		public void MarkDead(Node node)
-		{
-			var deadUntil = _dateTimeProvider.DeadTime(node.FailedAttempts, _settings.DeadTimeout, _settings.MaxDeadTimeout);
-			node.MarkDead(deadUntil);
-			Retried++;
-		}
+        public void MarkDead(Node node)
+        {
+            var deadUntil = _dateTimeProvider.DeadTime(node.FailedAttempts, _settings.DeadTimeout, _settings.MaxDeadTimeout);
+            node.MarkDead(deadUntil);
+            Retried++;
+        }
 
-		public IEnumerable<Node> NextNode()
-		{
-			if (RequestConfiguration?.ForceNode != null)
-			{
-				yield return new Node(RequestConfiguration.ForceNode);
+        public IEnumerable<Node> NextNode()
+        {
+            if (RequestConfiguration?.ForceNode != null)
+            {
+                yield return new Node(RequestConfiguration.ForceNode);
 
-				yield break;
-			}
+                yield break;
+            }
 
-			//This for loop allows to break out of the view state machine if we need to
-			//force a refresh (after reseeding connectionpool). We have a hardcoded limit of only
-			//allowing 100 of these refreshes per call
-			var refreshed = false;
-			for (var i = 0; i < 100; i++)
-			{
-				if (DepletedRetries) yield break;
+            //This for loop allows to break out of the view state machine if we need to
+            //force a refresh (after reseeding connectionpool). We have a hardcoded limit of only
+            //allowing 100 of these refreshes per call
+            var refreshed = false;
+            for (var i = 0; i < 100; i++)
+            {
+                if (DepletedRetries)
+                    yield break;
 
-				foreach (var node in _connectionPool
-					.CreateView(LazyAuditable)
-					.TakeWhile(node => !DepletedRetries))
-				{
-					if (!_settings.NodePredicate(node)) continue;
+                foreach (var node in _connectionPool
+                    .CreateView(LazyAuditable)
+                    .TakeWhile(node => !DepletedRetries))
+                {
+                    if (!_settings.NodePredicate(node))
+                        continue;
 
-					yield return node;
+                    yield return node;
 
-					if (!Refresh) continue;
+                    if (!Refresh)
+                        continue;
 
-					Refresh = false;
-					refreshed = true;
-					break;
-				}
-				//unless a refresh was requested we will not iterate over more then a single view.
-				//keep in mind refreshes are also still bound to overall maxretry count/timeout.
-				if (!refreshed) break;
-			}
-		}
+                    Refresh = false;
+                    refreshed = true;
+                    break;
+                }
+                //unless a refresh was requested we will not iterate over more then a single view.
+                //keep in mind refreshes are also still bound to overall maxretry count/timeout.
+                if (!refreshed)
+                    break;
+            }
+        }
 
-		public void Ping(Node node)
-		{
-			if (PingDisabled(node)) return;
+        public void Ping(Node node)
+        {
+            if (PingDisabled(node))
+                return;
 
-			var pingData = CreatePingRequestData(node);
-			using (var audit = Audit(PingSuccess, node))
-			using (var d = DiagnosticSource.Diagnose<RequestData, IApiCallDetails>(DiagnosticSources.RequestPipeline.Ping, pingData))
-			{
-				audit.Path = pingData.PathAndQuery;
-				try
-				{
-					var response = _connection.Request<VoidResponse>(pingData);
-					d.EndState = response;
-					audit.Stop();
-					ThrowBadAuthPipelineExceptionWhenNeeded(response);
-					//ping should not silently accept bad but valid http responses
-					if (!response.Success)
-						throw new PipelineException(pingData.OnFailurePipelineFailure, response.OriginalException) { ApiCall = response };
-				}
-				catch (Exception e)
-				{
-					var response = (e as PipelineException)?.ApiCall;
-					audit.Event = PingFailure;
-					audit.Exception = e;
-					throw new PipelineException(PipelineFailure.PingFailure, e) { ApiCall = response };
-				}
-			}
-		}
+            var pingData = CreatePingRequestData(node);
+            using (var audit = Audit(PingSuccess, node))
+            using (var d = DiagnosticSource.Diagnose<RequestData, IApiCallDetails>(DiagnosticSources.RequestPipeline.Ping, pingData))
+            {
+                audit.Path = pingData.PathAndQuery;
+                try
+                {
+                    var response = _connection.Request<VoidResponse>(pingData);
+                    d.EndState = response;
+                    audit.Stop();
+                    ThrowBadAuthPipelineExceptionWhenNeeded(response);
+                    //ping should not silently accept bad but valid http responses
+                    if (!response.Success)
+                        throw new PipelineException(pingData.OnFailurePipelineFailure, response.OriginalException) { ApiCall = response };
+                }
+                catch (Exception e)
+                {
+                    var response = (e as PipelineException)?.ApiCall;
+                    audit.Event = PingFailure;
+                    audit.Exception = e;
+                    throw new PipelineException(PipelineFailure.PingFailure, e) { ApiCall = response };
+                }
+            }
+        }
 
-		public async Task PingAsync(Node node, CancellationToken cancellationToken)
-		{
-			if (PingDisabled(node)) return;
+        public async Task PingAsync(Node node, CancellationToken cancellationToken)
+        {
+            if (PingDisabled(node))
+                return;
 
-			var pingData = CreatePingRequestData(node);
-			using (var audit = Audit(PingSuccess, node))
-			using (var d = DiagnosticSource.Diagnose<RequestData, IApiCallDetails>(DiagnosticSources.RequestPipeline.Ping, pingData))
-			{
-				audit.Path = pingData.PathAndQuery;
-				try
-				{
-					var response = await _connection.RequestAsync<VoidResponse>(pingData, cancellationToken).ConfigureAwait(false);
-					d.EndState = response;
-					audit.Stop();
-					ThrowBadAuthPipelineExceptionWhenNeeded(response);
-					//ping should not silently accept bad but valid http responses
-					if (!response.Success)
-						throw new PipelineException(pingData.OnFailurePipelineFailure, response.OriginalException) { ApiCall = response };
-				}
-				catch (Exception e)
-				{
-					var response = (e as PipelineException)?.ApiCall;
-					audit.Event = PingFailure;
-					audit.Exception = e;
-					throw new PipelineException(PipelineFailure.PingFailure, e) { ApiCall = response };
-				}
-			}
-		}
+            var pingData = CreatePingRequestData(node);
+            using (var audit = Audit(PingSuccess, node))
+            using (var d = DiagnosticSource.Diagnose<RequestData, IApiCallDetails>(DiagnosticSources.RequestPipeline.Ping, pingData))
+            {
+                audit.Path = pingData.PathAndQuery;
+                try
+                {
+                    var response = await _connection.RequestAsync<VoidResponse>(pingData, cancellationToken).ConfigureAwait(false);
+                    d.EndState = response;
+                    audit.Stop();
+                    ThrowBadAuthPipelineExceptionWhenNeeded(response);
+                    //ping should not silently accept bad but valid http responses
+                    if (!response.Success)
+                        throw new PipelineException(pingData.OnFailurePipelineFailure, response.OriginalException) { ApiCall = response };
+                }
+                catch (Exception e)
+                {
+                    var response = (e as PipelineException)?.ApiCall;
+                    audit.Event = PingFailure;
+                    audit.Exception = e;
+                    throw new PipelineException(PipelineFailure.PingFailure, e) { ApiCall = response };
+                }
+            }
+        }
 
-		public void Sniff()
-		{
-			var exceptions = new List<Exception>();
-			foreach (var node in SniffNodes)
-			{
-				var requestData = CreateSniffRequestData(node);
-				using (var audit = Audit(SniffSuccess, node))
-				using (var d = DiagnosticSource.Diagnose<RequestData, IApiCallDetails>(DiagnosticSources.RequestPipeline.Sniff, requestData))
-				using(DiagnosticSource.Diagnose(DiagnosticSources.RequestPipeline.Sniff, requestData))
-				{
-					try
-					{
-						audit.Path = requestData.PathAndQuery;
-						var response = _connection.Request<SniffResponse>(requestData);
-						d.EndState = response;
-						audit.Stop();
-						ThrowBadAuthPipelineExceptionWhenNeeded(response);
-						//sniff should not silently accept bad but valid http responses
-						if (!response.Success)
-							throw new PipelineException(requestData.OnFailurePipelineFailure, response.OriginalException) { ApiCall = response };
+        public void Sniff()
+        {
+            var exceptions = new List<Exception>();
+            foreach (var node in SniffNodes)
+            {
+                var requestData = CreateSniffRequestData(node);
+                using (var audit = Audit(SniffSuccess, node))
+                using (var d = DiagnosticSource.Diagnose<RequestData, IApiCallDetails>(DiagnosticSources.RequestPipeline.Sniff, requestData))
+                using (DiagnosticSource.Diagnose(DiagnosticSources.RequestPipeline.Sniff, requestData))
+                {
+                    try
+                    {
+                        audit.Path = requestData.PathAndQuery;
+                        var response = _connection.Request<SniffResponse>(requestData);
+                        d.EndState = response;
+                        audit.Stop();
+                        ThrowBadAuthPipelineExceptionWhenNeeded(response);
+                        //sniff should not silently accept bad but valid http responses
+                        if (!response.Success)
+                            throw new PipelineException(requestData.OnFailurePipelineFailure, response.OriginalException) { ApiCall = response };
 
-						var nodes = response.ToNodes(_connectionPool.UsingSsl);
-						_connectionPool.Reseed(nodes);
-						Refresh = true;
-						return;
-					}
-					catch (Exception e)
-					{
-						audit.Event = SniffFailure;
-						audit.Exception = e;
-						exceptions.Add(e);
-					}
-				}
-			}
+                        var nodes = response.ToNodes(_connectionPool.UsingSsl);
+                        _connectionPool.Reseed(nodes);
+                        Refresh = true;
+                        return;
+                    }
+                    catch (Exception e)
+                    {
+                        audit.Event = SniffFailure;
+                        audit.Exception = e;
+                        exceptions.Add(e);
+                    }
+                }
+            }
 
-			throw new PipelineException(PipelineFailure.SniffFailure, exceptions.AsAggregateOrFirst());
-		}
+            throw new PipelineException(PipelineFailure.SniffFailure, exceptions.AsAggregateOrFirst());
+        }
 
-		public async Task SniffAsync(CancellationToken cancellationToken)
-		{
-			var exceptions = new List<Exception>();
-			foreach (var node in SniffNodes)
-			{
-				var requestData = CreateSniffRequestData(node);
-				using (var audit = Audit(SniffSuccess, node))
-				using (var d = DiagnosticSource.Diagnose<RequestData, IApiCallDetails>(DiagnosticSources.RequestPipeline.Sniff, requestData))
-				{
-					try
-					{
-						audit.Path = requestData.PathAndQuery;
-						var response = await _connection.RequestAsync<SniffResponse>(requestData, cancellationToken).ConfigureAwait(false);
-						d.EndState = response;
-						audit.Stop();
-						ThrowBadAuthPipelineExceptionWhenNeeded(response);
-						//sniff should not silently accept bad but valid http responses
-						if (!response.Success)
-							throw new PipelineException(requestData.OnFailurePipelineFailure, response.OriginalException) { ApiCall = response };
+        public async Task SniffAsync(CancellationToken cancellationToken)
+        {
+            var exceptions = new List<Exception>();
+            foreach (var node in SniffNodes)
+            {
+                var requestData = CreateSniffRequestData(node);
+                using (var audit = Audit(SniffSuccess, node))
+                using (var d = DiagnosticSource.Diagnose<RequestData, IApiCallDetails>(DiagnosticSources.RequestPipeline.Sniff, requestData))
+                {
+                    try
+                    {
+                        audit.Path = requestData.PathAndQuery;
+                        var response = await _connection.RequestAsync<SniffResponse>(requestData, cancellationToken).ConfigureAwait(false);
+                        d.EndState = response;
+                        audit.Stop();
+                        ThrowBadAuthPipelineExceptionWhenNeeded(response);
+                        //sniff should not silently accept bad but valid http responses
+                        if (!response.Success)
+                            throw new PipelineException(requestData.OnFailurePipelineFailure, response.OriginalException) { ApiCall = response };
 
-						_connectionPool.Reseed(response.ToNodes(_connectionPool.UsingSsl));
-						Refresh = true;
-						return;
-					}
-					catch (Exception e)
-					{
-						audit.Event = SniffFailure;
-						audit.Exception = e;
-						exceptions.Add(e);
-					}
-				}
-			}
+                        _connectionPool.Reseed(response.ToNodes(_connectionPool.UsingSsl));
+                        Refresh = true;
+                        return;
+                    }
+                    catch (Exception e)
+                    {
+                        audit.Event = SniffFailure;
+                        audit.Exception = e;
+                        exceptions.Add(e);
+                    }
+                }
+            }
 
-			throw new PipelineException(PipelineFailure.SniffFailure, exceptions.AsAggregateOrFirst());
-		}
+            throw new PipelineException(PipelineFailure.SniffFailure, exceptions.AsAggregateOrFirst());
+        }
 
-		public void SniffOnConnectionFailure()
-		{
-			if (!SniffsOnConnectionFailure) return;
+        public void SniffOnConnectionFailure()
+        {
+            if (!SniffsOnConnectionFailure)
+                return;
 
-			using (Audit(SniffOnFail))
-				Sniff();
-		}
+            using (Audit(SniffOnFail))
+                Sniff();
+        }
 
-		public async Task SniffOnConnectionFailureAsync(CancellationToken cancellationToken)
-		{
-			if (!SniffsOnConnectionFailure) return;
+        public async Task SniffOnConnectionFailureAsync(CancellationToken cancellationToken)
+        {
+            if (!SniffsOnConnectionFailure)
+                return;
 
-			using (Audit(SniffOnFail))
-				await SniffAsync(cancellationToken).ConfigureAwait(false);
-		}
+            using (Audit(SniffOnFail))
+                await SniffAsync(cancellationToken).ConfigureAwait(false);
+        }
 
-		public void SniffOnStaleCluster()
-		{
-			if (!StaleClusterState) return;
+        public void SniffOnStaleCluster()
+        {
+            if (!StaleClusterState)
+                return;
 
-			using (Audit(AuditEvent.SniffOnStaleCluster))
-			{
-				Sniff();
-				_connectionPool.SniffedOnStartup = true;
-			}
-		}
+            using (Audit(AuditEvent.SniffOnStaleCluster))
+            {
+                Sniff();
+                _connectionPool.SniffedOnStartup = true;
+            }
+        }
 
-		public async Task SniffOnStaleClusterAsync(CancellationToken cancellationToken)
-		{
-			if (!StaleClusterState) return;
+        public async Task SniffOnStaleClusterAsync(CancellationToken cancellationToken)
+        {
+            if (!StaleClusterState)
+                return;
 
-			using (Audit(AuditEvent.SniffOnStaleCluster))
-			{
-				await SniffAsync(cancellationToken).ConfigureAwait(false);
-				_connectionPool.SniffedOnStartup = true;
-			}
-		}
+            using (Audit(AuditEvent.SniffOnStaleCluster))
+            {
+                await SniffAsync(cancellationToken).ConfigureAwait(false);
+                _connectionPool.SniffedOnStartup = true;
+            }
+        }
 
-		public void ThrowNoNodesAttempted(RequestData requestData, List<PipelineException> seenExceptions)
-		{
-			var clientException = new OpenSearchClientException(PipelineFailure.NoNodesAttempted, NoNodesAttemptedMessage, (Exception)null);
-			using (Audit(NoNodesAttempted))
-				throw new UnexpectedOpenSearchClientException(clientException, seenExceptions)
-				{
-					Request = requestData,
-					AuditTrail = AuditTrail
-				};
-		}
+        public void ThrowNoNodesAttempted(RequestData requestData, List<PipelineException> seenExceptions)
+        {
+            var clientException = new OpenSearchClientException(PipelineFailure.NoNodesAttempted, NoNodesAttemptedMessage, (Exception)null);
+            using (Audit(NoNodesAttempted))
+                throw new UnexpectedOpenSearchClientException(clientException, seenExceptions)
+                {
+                    Request = requestData,
+                    AuditTrail = AuditTrail
+                };
+        }
 
-		private bool PingDisabled(Node node) =>
-			(RequestConfiguration?.DisablePing).GetValueOrDefault(false)
-			|| _settings.DisablePings || !_connectionPool.SupportsPinging || !node.IsResurrected;
+        private bool PingDisabled(Node node) =>
+            (RequestConfiguration?.DisablePing).GetValueOrDefault(false)
+            || _settings.DisablePings || !_connectionPool.SupportsPinging || !node.IsResurrected;
 
-		private Auditable Audit(AuditEvent type, Node node = null) => new Auditable(type, AuditTrail, _dateTimeProvider, node);
+        private Auditable Audit(AuditEvent type, Node node = null) => new Auditable(type, AuditTrail, _dateTimeProvider, node);
 
-		private RequestData CreatePingRequestData(Node node)
-		{
+        private RequestData CreatePingRequestData(Node node)
+        {
 
-			var requestOverrides = new RequestConfiguration
-			{
-				PingTimeout = PingTimeout,
-				RequestTimeout = PingTimeout,
-				BasicAuthenticationCredentials = _settings.BasicAuthenticationCredentials,
-				ApiKeyAuthenticationCredentials = _settings.ApiKeyAuthenticationCredentials,
-				EnableHttpPipelining = RequestConfiguration?.EnableHttpPipelining ?? _settings.HttpPipeliningEnabled,
-				ForceNode = RequestConfiguration?.ForceNode
-			};
+            var requestOverrides = new RequestConfiguration
+            {
+                PingTimeout = PingTimeout,
+                RequestTimeout = PingTimeout,
+                BasicAuthenticationCredentials = _settings.BasicAuthenticationCredentials,
+                ApiKeyAuthenticationCredentials = _settings.ApiKeyAuthenticationCredentials,
+                EnableHttpPipelining = RequestConfiguration?.EnableHttpPipelining ?? _settings.HttpPipeliningEnabled,
+                ForceNode = RequestConfiguration?.ForceNode
+            };
 
-			IRequestParameters requestParameters = new RootNodeInfoRequestParameters { RequestConfiguration = requestOverrides };
+            IRequestParameters requestParameters = new RootNodeInfoRequestParameters { RequestConfiguration = requestOverrides };
 
-			var data = new RequestData(HttpMethod.HEAD, string.Empty, null, _settings, requestParameters, _memoryStreamFactory) { Node = node };
-			return data;
-		}
+            var data = new RequestData(HttpMethod.HEAD, string.Empty, null, _settings, requestParameters, _memoryStreamFactory) { Node = node };
+            return data;
+        }
 
-		private static void ThrowBadAuthPipelineExceptionWhenNeeded(IApiCallDetails details, IOpenSearchResponse response = null)
-		{
-			if (details?.HttpStatusCode == 401)
-				throw new PipelineException(PipelineFailure.BadAuthentication, details.OriginalException)
-				{
-					Response = response,
-					ApiCall = details
-				};
-		}
+        private static void ThrowBadAuthPipelineExceptionWhenNeeded(IApiCallDetails details, IOpenSearchResponse response = null)
+        {
+            if (details?.HttpStatusCode == 401)
+                throw new PipelineException(PipelineFailure.BadAuthentication, details.OriginalException)
+                {
+                    Response = response,
+                    ApiCall = details
+                };
+        }
 
-		private void LazyAuditable(AuditEvent e, Node n)
-		{
-			using (new Auditable(e, AuditTrail, _dateTimeProvider, n)) { }
-		}
+        private void LazyAuditable(AuditEvent e, Node n)
+        {
+            using (new Auditable(e, AuditTrail, _dateTimeProvider, n))
+            { }
+        }
 
-		private RequestData CreateSniffRequestData(Node node) =>
-			new RequestData(HttpMethod.GET, SniffPath, null, _settings, SniffParameters, _memoryStreamFactory)
-			{
-				Node = node
-			};
+        private RequestData CreateSniffRequestData(Node node) =>
+            new RequestData(HttpMethod.GET, SniffPath, null, _settings, SniffParameters, _memoryStreamFactory)
+            {
+                Node = node
+            };
 
-		protected virtual void Dispose() { }
-	}
+        protected virtual void Dispose() { }
+    }
 }

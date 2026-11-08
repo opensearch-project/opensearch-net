@@ -55,7 +55,8 @@ public sealed class ModelTypeResolver
             if (enumRefId != null)
             {
                 var mappedEnum = _registry.MappedCsharpType(enumRefId);
-                if (mappedEnum != null) return Mapped(enumRefId, mappedEnum);
+                if (mappedEnum != null)
+                    return Mapped(enumRefId, mappedEnum);
                 return new EnumType(CsharpTypeName(enumRefId), true);
             }
         }
@@ -68,13 +69,17 @@ public sealed class ModelTypeResolver
                 && strRefId != null)
             {
                 var mappedStr = _registry.MappedCsharpType(strRefId);
-                if (mappedStr != null) return Mapped(strRefId, mappedStr);
+                if (mappedStr != null)
+                    return Mapped(strRefId, mappedStr);
             }
             return new StringType();
         }
-        if (s.Type.HasFlag(JsonObjectType.Boolean)) return new PrimitiveType("bool", true);
-        if (s.Type.HasFlag(JsonObjectType.Integer)) return new PrimitiveType(s.Format == "int64" ? "long" : "int", true);
-        if (s.Type.HasFlag(JsonObjectType.Number)) return new PrimitiveType(s.Format == "double" ? "double" : "float", true);
+        if (s.Type.HasFlag(JsonObjectType.Boolean))
+            return new PrimitiveType("bool", true);
+        if (s.Type.HasFlag(JsonObjectType.Integer))
+            return new PrimitiveType(s.Format == "int64" ? "long" : "int", true);
+        if (s.Type.HasFlag(JsonObjectType.Number))
+            return new PrimitiveType(s.Format == "double" ? "double" : "float", true);
 
         if (s.Type.HasFlag(JsonObjectType.Array) && s.Item != null)
         {
@@ -95,7 +100,8 @@ public sealed class ModelTypeResolver
             if (objRefId != null)
             {
                 var mappedObj = _registry.MappedCsharpType(objRefId);
-                if (mappedObj != null) return Mapped(objRefId, mappedObj);
+                if (mappedObj != null)
+                    return Mapped(objRefId, mappedObj);
                 return new ObjectRefType(CsharpTypeName(objRefId), false);
             }
         }
@@ -116,7 +122,8 @@ public sealed class ModelTypeResolver
             if (refSchemaId != null)
             {
                 var mapped = _registry.MappedCsharpType(refSchemaId);
-                if (mapped != null) return Mapped(refSchemaId, mapped);
+                if (mapped != null)
+                    return Mapped(refSchemaId, mapped);
                 // Only emit ObjectRefType for schemas with actual properties (true object types).
                 // Schemas that are just unions/aliases (oneOf, $ref to primitives) without properties
                 // should fall through to FallbackType to avoid generating non-existent interfaces.
@@ -133,7 +140,8 @@ public sealed class ModelTypeResolver
 
     private bool TryGetObjectSchemaId(JsonSchema schema, out string schemaId)
     {
-        if (TryGetReferenceId(schema, out schemaId)) return true;
+        if (TryGetReferenceId(schema, out schemaId))
+            return true;
 
         var actual = schema.ActualSchema;
         if (actual.Type.HasFlag(JsonObjectType.Object) && (actual.Properties?.Count ?? 0) > 0

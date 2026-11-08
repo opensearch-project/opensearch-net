@@ -33,27 +33,27 @@ using OpenSearch.Stack.ArtifactsApi;
 
 namespace OpenSearch.OpenSearch.Xunit
 {
-	public class XunitClusterConfiguration : EphemeralClusterConfiguration
-	{
-		public XunitClusterConfiguration(
-			OpenSearchVersion version,
-			ClusterFeatures features = ClusterFeatures.None,
-			OpenSearchPlugins plugins = null,
-			int numberOfNodes = 1)
-			: base(version, features, plugins, numberOfNodes) =>
-			AdditionalAfterStartedTasks.Add(new PrintXunitAfterStartedTask());
+    public class XunitClusterConfiguration : EphemeralClusterConfiguration
+    {
+        public XunitClusterConfiguration(
+            OpenSearchVersion version,
+            ClusterFeatures features = ClusterFeatures.None,
+            OpenSearchPlugins plugins = null,
+            int numberOfNodes = 1)
+            : base(version, features, plugins, numberOfNodes) =>
+            AdditionalAfterStartedTasks.Add(new PrintXunitAfterStartedTask());
 
-		/// <inheritdoc />
-		protected override string NodePrefix => "xunit";
+        /// <inheritdoc />
+        protected override string NodePrefix => "xunit";
 
-		/// <summary>
-		///     The maximum number of tests that can run concurrently against a cluster using this configuration.
-		/// </summary>
-		public int MaxConcurrency { get; set; }
+        /// <summary>
+        ///     The maximum number of tests that can run concurrently against a cluster using this configuration.
+        /// </summary>
+        public int MaxConcurrency { get; set; }
 
-		/// <summary>
-		///     The maximum amount of time a cluster can run using this configuration.
-		/// </summary>
-		public TimeSpan? Timeout { get; set; }
-	}
+        /// <summary>
+        ///     The maximum amount of time a cluster can run using this configuration.
+        /// </summary>
+        public TimeSpan? Timeout { get; set; }
+    }
 }

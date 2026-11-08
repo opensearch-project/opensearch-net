@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("indices.exists_template.json")]
-	public partial interface IIndexTemplateExistsRequest { }
+    [MapsApi("indices.exists_template.json")]
+    public partial interface IIndexTemplateExistsRequest { }
 
-	public partial class IndexTemplateExistsRequest { }
+    public partial class IndexTemplateExistsRequest { }
 
-	public partial class IndexTemplateExistsDescriptor { }
+    public partial class IndexTemplateExistsDescriptor { }
 }

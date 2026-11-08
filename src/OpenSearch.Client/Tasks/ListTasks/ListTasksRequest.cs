@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("tasks.list.json")]
-	public partial interface IListTasksRequest { }
+    [MapsApi("tasks.list.json")]
+    public partial interface IListTasksRequest { }
 
-	public partial class ListTasksRequest { }
+    public partial class ListTasksRequest { }
 
-	public partial class ListTasksDescriptor { }
+    public partial class ListTasksDescriptor { }
 }

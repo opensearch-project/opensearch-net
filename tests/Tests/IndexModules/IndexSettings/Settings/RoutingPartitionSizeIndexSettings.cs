@@ -28,32 +28,32 @@
 
 using System;
 using System.Collections.Generic;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
 namespace Tests.IndexModules.IndexSettings.Settings
 {
-	using OpenSearch.Client;
+    using OpenSearch.Client;
 
-	public class RoutingPartitionSizeIndexSettingsUsage : PromiseUsageTestBase<IIndexSettings, IndexSettingsDescriptor, IndexSettings>
-	{
-		protected override object ExpectJson => new Dictionary<string, object>
-		{
-			{ FixedIndexSettings.RoutingPartitionSize, 6 },
-		};
+    public class RoutingPartitionSizeIndexSettingsUsage : PromiseUsageTestBase<IIndexSettings, IndexSettingsDescriptor, IndexSettings>
+    {
+        protected override object ExpectJson => new Dictionary<string, object>
+        {
+            { FixedIndexSettings.RoutingPartitionSize, 6 },
+        };
 
-		/**
+        /**
 		 *
 		 */
-		protected override Func<IndexSettingsDescriptor, IPromise<IIndexSettings>> Fluent => s => s
-			.RoutingPartitionSize(6);
+        protected override Func<IndexSettingsDescriptor, IPromise<IIndexSettings>> Fluent => s => s
+            .RoutingPartitionSize(6);
 
-		/**
+        /**
 		 */
-		protected override IndexSettings Initializer =>
-			new()
-			{
-				RoutingPartitionSize = 6,
-			};
-	}
+        protected override IndexSettings Initializer =>
+            new()
+            {
+                RoutingPartitionSize = 6,
+            };
+    }
 }

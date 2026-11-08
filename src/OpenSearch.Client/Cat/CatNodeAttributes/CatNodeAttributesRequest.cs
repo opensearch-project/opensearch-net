@@ -30,12 +30,12 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("cat.nodeattrs.json")]
-	public partial interface ICatNodeAttributesRequest { }
+    [MapsApi("cat.nodeattrs.json")]
+    public partial interface ICatNodeAttributesRequest { }
 
-	public partial class CatNodeAttributesRequest { }
+    public partial class CatNodeAttributesRequest { }
 
-	public partial class CatNodeAttributesDescriptor { }
+    public partial class CatNodeAttributesDescriptor { }
 }
 
 #pragma warning restore 612, 618

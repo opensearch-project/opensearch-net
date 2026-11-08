@@ -28,39 +28,39 @@
 
 using System;
 using System.Text;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 
 namespace Tests.Reproduce
 {
-	public class GithubIssue4703
-	{
-		[U]
-		public void NullableValueTupleDoesNotThrow()
-		{
-			var connectionSettings = new ConnectionSettings(new InMemoryConnection()).DisableDirectStreaming();
-			var client = new OpenSearchClient(connectionSettings);
+    public class GithubIssue4703
+    {
+        [U]
+        public void NullableValueTupleDoesNotThrow()
+        {
+            var connectionSettings = new ConnectionSettings(new InMemoryConnection()).DisableDirectStreaming();
+            var client = new OpenSearchClient(connectionSettings);
 
-			Func<IndexResponse> action = () =>
-				client.Index(
-					new ExampleDoc
-					{
-						tupleNullable = ("somestring", 42),
-					}, i => i.Index("index"));
+            Func<IndexResponse> action = () =>
+                client.Index(
+                    new ExampleDoc
+                    {
+                        tupleNullable = ("somestring", 42),
+                    }, i => i.Index("index"));
 
-			var a = action.Should().NotThrow();
-			var response = a.Subject;
+            var a = action.Should().NotThrow();
+            var response = a.Subject;
 
-			var json = Encoding.UTF8.GetString(response.ApiCall.RequestBodyInBytes);
-			json.Should().Be(@"{""tupleNullable"":{""Item1"":""somestring"",""Item2"":42}}");
-		}
-	}
+            var json = Encoding.UTF8.GetString(response.ApiCall.RequestBodyInBytes);
+            json.Should().Be(@"{""tupleNullable"":{""Item1"":""somestring"",""Item2"":42}}");
+        }
+    }
 
-	public class ExampleDoc
-	{
-		public (string info, int number)? tupleNullable { get; set; }
-	}
+    public class ExampleDoc
+    {
+        public (string info, int number)? tupleNullable { get; set; }
+    }
 }

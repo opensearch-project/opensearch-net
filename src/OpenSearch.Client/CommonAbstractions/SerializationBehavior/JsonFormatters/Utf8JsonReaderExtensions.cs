@@ -32,36 +32,36 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	internal static class Utf8JsonReaderExtensions
-	{
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static double? ReadNullableDouble(this ref JsonReader reader)
-		{
-			if (reader.GetCurrentJsonToken() != JsonToken.Null)
-				return reader.ReadDouble();
+    internal static class Utf8JsonReaderExtensions
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double? ReadNullableDouble(this ref JsonReader reader)
+        {
+            if (reader.GetCurrentJsonToken() != JsonToken.Null)
+                return reader.ReadDouble();
 
-			reader.ReadNext();
-			return null;
-		}
+            reader.ReadNext();
+            return null;
+        }
 
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static long? ReadNullableLong(this ref JsonReader reader)
-		{
-			if (reader.GetCurrentJsonToken() != JsonToken.Null)
-				return reader.ReadInt64();
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static long? ReadNullableLong(this ref JsonReader reader)
+        {
+            if (reader.GetCurrentJsonToken() != JsonToken.Null)
+                return reader.ReadInt64();
 
-			reader.ReadNext();
-			return null;
-		}
+            reader.ReadNext();
+            return null;
+        }
 
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		public static bool? ReadNullableBoolean(this ref JsonReader reader)
-		{
-			if (reader.GetCurrentJsonToken() != JsonToken.Null)
-				return reader.ReadBoolean();
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool? ReadNullableBoolean(this ref JsonReader reader)
+        {
+            if (reader.GetCurrentJsonToken() != JsonToken.Null)
+                return reader.ReadBoolean();
 
-			reader.ReadNext();
-			return null;
-		}
-	}
+            reader.ReadNext();
+            return null;
+        }
+    }
 }

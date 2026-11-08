@@ -26,10 +26,10 @@
 *  under the License.
 */
 
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Extensions;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Framework.EndpointTests;
@@ -37,54 +37,54 @@ using Tests.Framework.EndpointTests.TestState;
 
 namespace Tests.Indices.IndexManagement.OpenCloseIndex.CloseIndex
 {
-	public class CloseIndexApiTests
-		: ApiIntegrationAgainstNewIndexTestBase<WritableCluster, CloseIndexResponse, ICloseIndexRequest, CloseIndexDescriptor, CloseIndexRequest>
-	{
-		public CloseIndexApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public class CloseIndexApiTests
+        : ApiIntegrationAgainstNewIndexTestBase<WritableCluster, CloseIndexResponse, ICloseIndexRequest, CloseIndexDescriptor, CloseIndexRequest>
+    {
+        public CloseIndexApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override bool ExpectIsValid => true;
-		protected override int ExpectStatusCode => 200;
-		protected override HttpMethod HttpMethod => HttpMethod.POST;
+        protected override bool ExpectIsValid => true;
+        protected override int ExpectStatusCode => 200;
+        protected override HttpMethod HttpMethod => HttpMethod.POST;
 
-		protected override CloseIndexRequest Initializer => new CloseIndexRequest(CallIsolatedValue);
-		protected override string UrlPath => $"/{CallIsolatedValue}/_close";
+        protected override CloseIndexRequest Initializer => new CloseIndexRequest(CallIsolatedValue);
+        protected override string UrlPath => $"/{CallIsolatedValue}/_close";
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Indices.Close(CallIsolatedValue),
-			(client, f) => client.Indices.CloseAsync(CallIsolatedValue),
-			(client, r) => client.Indices.Close(r),
-			(client, r) => client.Indices.CloseAsync(r)
-		);
-	}
+        protected override LazyResponses ClientUsage() => Calls(
+            (client, f) => client.Indices.Close(CallIsolatedValue),
+            (client, f) => client.Indices.CloseAsync(CallIsolatedValue),
+            (client, r) => client.Indices.Close(r),
+            (client, r) => client.Indices.CloseAsync(r)
+        );
+    }
 
-	public class CloseIndexWithShardsAcknowledgedApiTests
-		: ApiIntegrationAgainstNewIndexTestBase<WritableCluster, CloseIndexResponse, ICloseIndexRequest, CloseIndexDescriptor, CloseIndexRequest>
-	{
-		public CloseIndexWithShardsAcknowledgedApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
+    public class CloseIndexWithShardsAcknowledgedApiTests
+        : ApiIntegrationAgainstNewIndexTestBase<WritableCluster, CloseIndexResponse, ICloseIndexRequest, CloseIndexDescriptor, CloseIndexRequest>
+    {
+        public CloseIndexWithShardsAcknowledgedApiTests(WritableCluster cluster, EndpointUsage usage) : base(cluster, usage) { }
 
-		protected override bool ExpectIsValid => true;
-		protected override int ExpectStatusCode => 200;
-		protected override HttpMethod HttpMethod => HttpMethod.POST;
+        protected override bool ExpectIsValid => true;
+        protected override int ExpectStatusCode => 200;
+        protected override HttpMethod HttpMethod => HttpMethod.POST;
 
-		protected override CloseIndexRequest Initializer => new CloseIndexRequest(CallIsolatedValue);
-		protected override string UrlPath => $"/{CallIsolatedValue}/_close";
+        protected override CloseIndexRequest Initializer => new CloseIndexRequest(CallIsolatedValue);
+        protected override string UrlPath => $"/{CallIsolatedValue}/_close";
 
-		protected override LazyResponses ClientUsage() => Calls(
-			(client, f) => client.Indices.Close(CallIsolatedValue),
-			(client, f) => client.Indices.CloseAsync(CallIsolatedValue),
-			(client, r) => client.Indices.Close(r),
-			(client, r) => client.Indices.CloseAsync(r)
-		);
+        protected override LazyResponses ClientUsage() => Calls(
+            (client, f) => client.Indices.Close(CallIsolatedValue),
+            (client, f) => client.Indices.CloseAsync(CallIsolatedValue),
+            (client, r) => client.Indices.Close(r),
+            (client, r) => client.Indices.CloseAsync(r)
+        );
 
-		protected override void ExpectResponse(CloseIndexResponse response)
-		{
-			response.ShouldBeValid();
-			response.ShardsAcknowledged.Should().BeTrue();
-			response.Indices.Should().NotBeNull().And.ContainKey(CallIsolatedValue);
+        protected override void ExpectResponse(CloseIndexResponse response)
+        {
+            response.ShouldBeValid();
+            response.ShardsAcknowledged.Should().BeTrue();
+            response.Indices.Should().NotBeNull().And.ContainKey(CallIsolatedValue);
 
-			var closeIndexResult = response.Indices[CallIsolatedValue];
-			closeIndexResult.Closed.Should().BeTrue();
-			closeIndexResult.Shards.Should().NotBeNull();
-		}
-	}
+            var closeIndexResult = response.Indices[CallIsolatedValue];
+            closeIndexResult.Closed.Should().BeTrue();
+            closeIndexResult.Shards.Should().NotBeNull();
+        }
+    }
 }

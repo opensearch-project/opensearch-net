@@ -7,24 +7,24 @@
 
 namespace OpenSearch.Client
 {
-	public class WildcardAttribute : OpenSearchDocValuesPropertyAttributeBase, IWildcardProperty
-	{
-		public WildcardAttribute() : base(FieldType.Wildcard) { }
+    public class WildcardAttribute : OpenSearchDocValuesPropertyAttributeBase, IWildcardProperty
+    {
+        public WildcardAttribute() : base(FieldType.Wildcard) { }
 
-		public string NullValue
-		{
-			get => Self.NullValue;
-			set => Self.NullValue = value;
-		}
+        public string NullValue
+        {
+            get => Self.NullValue;
+            set => Self.NullValue = value;
+        }
 
-		public string Normalizer
-		{
-			get => Self.Normalizer;
-			set => Self.Normalizer = value;
-		}
+        public string Normalizer
+        {
+            get => Self.Normalizer;
+            set => Self.Normalizer = value;
+        }
 
-		string IWildcardProperty.NullValue { get; set; }
-		string IWildcardProperty.Normalizer { get; set; }
-		private IWildcardProperty Self => this;
-	}
+        string IWildcardProperty.NullValue { get; set; }
+        string IWildcardProperty.Normalizer { get; set; }
+        private IWildcardProperty Self => this;
+    }
 }

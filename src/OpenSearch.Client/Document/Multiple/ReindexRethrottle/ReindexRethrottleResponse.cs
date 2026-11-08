@@ -33,10 +33,10 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	public class ReindexRethrottleResponse : ResponseBase
-	{
-		[DataMember(Name ="nodes")]
-		[JsonFormatter(typeof(VerbatimInterfaceReadOnlyDictionaryKeysFormatter<string, ReindexNode>))]
-		public IReadOnlyDictionary<string, ReindexNode> Nodes { get; internal set; } = EmptyReadOnly<string, ReindexNode>.Dictionary;
-	}
+    public class ReindexRethrottleResponse : ResponseBase
+    {
+        [DataMember(Name = "nodes")]
+        [JsonFormatter(typeof(VerbatimInterfaceReadOnlyDictionaryKeysFormatter<string, ReindexNode>))]
+        public IReadOnlyDictionary<string, ReindexNode> Nodes { get; internal set; } = EmptyReadOnly<string, ReindexNode>.Dictionary;
+    }
 }

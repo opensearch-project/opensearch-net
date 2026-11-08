@@ -28,20 +28,20 @@
 
 using System;
 using System.Text;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Net;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.Net;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Extensions;
 
 namespace Tests.Document.Multiple.Bulk
 {
-	public class BulkSourceDeserialize
-	{
-		[U]
-		public void CanDeserialize()
-		{
-			var json = @"{
+    public class BulkSourceDeserialize
+    {
+        [U]
+        public void CanDeserialize()
+        {
+            var json = @"{
 							""took"": 61,
 							""errors"": false,
 							""items"": [{
@@ -72,27 +72,27 @@ namespace Tests.Document.Multiple.Bulk
 							}]
 						}";
 
-			var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
+            var pool = new SingleNodeConnectionPool(new Uri("http://localhost:9200"));
 
-			var connection = new InMemoryConnection(Encoding.UTF8.GetBytes(json));
-			var settings = new ConnectionSettings(pool, connection);
-			var client = new OpenSearchClient(settings);
+            var connection = new InMemoryConnection(Encoding.UTF8.GetBytes(json));
+            var settings = new ConnectionSettings(pool, connection);
+            var client = new OpenSearchClient(settings);
 
-			var bulkResponse = client.Bulk(r => r);
+            var bulkResponse = client.Bulk(r => r);
 
-			bulkResponse.ShouldBeValid();
+            bulkResponse.ShouldBeValid();
 
-			var simpleObject = bulkResponse.Items[0].GetResponse<SimpleObject>();
+            var simpleObject = bulkResponse.Items[0].GetResponse<SimpleObject>();
 
-			simpleObject.Found.Should().BeTrue();
-			simpleObject.Source.field1.Should().Be("value1");
-			simpleObject.Source.field2.Should().Be("value2");
-		}
+            simpleObject.Found.Should().BeTrue();
+            simpleObject.Source.field1.Should().Be("value1");
+            simpleObject.Source.field2.Should().Be("value2");
+        }
 
-		private class SimpleObject
-		{
-			public string field1 { get; set; }
-			public string field2 { get; set; }
-		}
-	}
+        private class SimpleObject
+        {
+            public string field1 { get; set; }
+            public string field2 { get; set; }
+        }
+    }
 }

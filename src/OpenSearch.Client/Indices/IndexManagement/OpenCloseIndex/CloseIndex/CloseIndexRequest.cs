@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("indices.close.json")]
-	public partial interface ICloseIndexRequest { }
+    [MapsApi("indices.close.json")]
+    public partial interface ICloseIndexRequest { }
 
-	public partial class CloseIndexRequest { }
+    public partial class CloseIndexRequest { }
 
-	public partial class CloseIndexDescriptor { }
+    public partial class CloseIndexDescriptor { }
 }

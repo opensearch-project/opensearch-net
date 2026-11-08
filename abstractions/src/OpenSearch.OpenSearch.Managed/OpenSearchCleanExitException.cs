@@ -30,14 +30,14 @@ using System;
 
 namespace OpenSearch.OpenSearch.Managed
 {
-	public class OpenSearchCleanExitException : Exception
-	{
-		public OpenSearchCleanExitException(string message) : base(message)
-		{
-		}
+    public class OpenSearchCleanExitException : Exception
+    {
+        public OpenSearchCleanExitException(string message) : base(message)
+        {
+        }
 
-		public OpenSearchCleanExitException(string message, Exception innerException) : base(message, innerException)
-		{
-		}
-	}
+        public OpenSearchCleanExitException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+    }
 }

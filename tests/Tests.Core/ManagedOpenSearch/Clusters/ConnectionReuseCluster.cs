@@ -28,5 +28,5 @@
 
 namespace Tests.Core.ManagedOpenSearch.Clusters
 {
-	public class ConnectionReuseCluster : ClientTestClusterBase { }
+    public class ConnectionReuseCluster : ClientTestClusterBase { }
 }

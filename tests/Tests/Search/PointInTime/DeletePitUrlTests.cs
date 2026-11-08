@@ -15,14 +15,15 @@ namespace Tests.Search.PointInTime;
 
 public class DeletePitUrlTests
 {
-	[U] public async Task Urls()
-	{
-		var pitIds = new[] { "pitid1", "pitid2" };
+    [U]
+    public async Task Urls()
+    {
+        var pitIds = new[] { "pitid1", "pitid2" };
 
-		await DELETE("/_search/point_in_time")
-			.Fluent(c => c.DeletePit(d => d.PitId(pitIds)))
-			.Request(c => c.DeletePit(new DeletePitRequest(pitIds)))
-			.FluentAsync(c => c.DeletePitAsync(d => d.PitId(pitIds)))
-			.RequestAsync(c => c.DeletePitAsync(new DeletePitRequest(pitIds)));
-	}
+        await DELETE("/_search/point_in_time")
+            .Fluent(c => c.DeletePit(d => d.PitId(pitIds)))
+            .Request(c => c.DeletePit(new DeletePitRequest(pitIds)))
+            .FluentAsync(c => c.DeletePitAsync(d => d.PitId(pitIds)))
+            .RequestAsync(c => c.DeletePitAsync(new DeletePitRequest(pitIds)));
+    }
 }

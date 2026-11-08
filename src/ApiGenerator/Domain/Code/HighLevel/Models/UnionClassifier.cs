@@ -23,10 +23,7 @@ public sealed class UnionClassifier
 {
     private readonly SchemaCatalog _catalog;
 
-    public UnionClassifier(SchemaCatalog catalog)
-    {
-        _catalog = catalog ?? throw new ArgumentNullException(nameof(catalog));
-    }
+    public UnionClassifier(SchemaCatalog catalog) => _catalog = catalog ?? throw new ArgumentNullException(nameof(catalog));
 
     /// <summary>
     /// Attempts to classify a schema as a union. Returns null if the schema is not a union pattern.
@@ -60,11 +57,8 @@ public sealed class UnionClassifier
     /// <summary>
     /// Classifies a schema known to be a union. Returns Unknown encoding with diagnostic if classification fails.
     /// </summary>
-    public UnionModel Classify(string schemaId, JsonSchema schema)
-    {
-        return TryClassify(schemaId, schema)
+    public UnionModel Classify(string schemaId, JsonSchema schema) => TryClassify(schemaId, schema)
             ?? UnionModel.Failed(schemaId, "Schema does not match any known union pattern");
-    }
 
     /// <summary>
     /// Checks if a schema matches any union pattern without fully classifying it.
@@ -148,7 +142,8 @@ public sealed class UnionClassifier
     private string? GetMappedDiscriminatorValue(JsonSchema schema, JsonSchema variant)
     {
         var mapping = schema.DiscriminatorObject?.Mapping;
-        if (mapping == null) return null;
+        if (mapping == null)
+            return null;
 
         foreach (var (key, mappedSchema) in mapping)
         {
@@ -354,7 +349,8 @@ public sealed class UnionClassifier
     private bool TryClassifyTypedKeys(string schemaId, JsonSchema schema, out UnionModel? model)
     {
         model = null;
-        if (!HasTypedKeysExtension(schema)) return false;
+        if (!HasTypedKeysExtension(schema))
+            return false;
 
         var variants = new List<UnionVariant>();
         var valueSchema = schema.AdditionalPropertiesSchema?.ActualSchema;
@@ -366,7 +362,8 @@ public sealed class UnionClassifier
                 var key = variant.Title
                     ?? variant.ActualSchema.Title
                     ?? bodySchemaId?.Split("___").Last();
-                if (string.IsNullOrEmpty(key)) continue;
+                if (string.IsNullOrEmpty(key))
+                    continue;
 
                 variants.Add(new UnionVariant(
                     key,

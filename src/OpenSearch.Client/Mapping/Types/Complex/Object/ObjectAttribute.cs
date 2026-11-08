@@ -28,21 +28,21 @@
 
 namespace OpenSearch.Client
 {
-	public class ObjectAttribute : OpenSearchCorePropertyAttributeBase, IObjectProperty
-	{
-		public ObjectAttribute() : base(FieldType.Object) { }
+    public class ObjectAttribute : OpenSearchCorePropertyAttributeBase, IObjectProperty
+    {
+        public ObjectAttribute() : base(FieldType.Object) { }
 
-		protected ObjectAttribute(FieldType type) : base(type) { }
+        protected ObjectAttribute(FieldType type) : base(type) { }
 
-		public bool Enabled
-		{
-			get => Self.Enabled.GetValueOrDefault();
-			set => Self.Enabled = value;
-		}
+        public bool Enabled
+        {
+            get => Self.Enabled.GetValueOrDefault();
+            set => Self.Enabled = value;
+        }
 
-		Union<bool, DynamicMapping> IObjectProperty.Dynamic { get; set; }
-		bool? IObjectProperty.Enabled { get; set; }
-		IProperties IObjectProperty.Properties { get; set; }
-		private IObjectProperty Self => this;
-	}
+        Union<bool, DynamicMapping> IObjectProperty.Dynamic { get; set; }
+        bool? IObjectProperty.Enabled { get; set; }
+        IProperties IObjectProperty.Properties { get; set; }
+        private IObjectProperty Self => this;
+    }
 }

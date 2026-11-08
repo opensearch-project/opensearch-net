@@ -28,8 +28,8 @@
 
 namespace OpenSearch.Net
 {
-	public class VoidResponse : OpenSearchResponse<VoidResponse.VoidBody>
-	{
-		public class VoidBody { }
-	}
+    public class VoidResponse : OpenSearchResponse<VoidResponse.VoidBody>
+    {
+        public class VoidBody { }
+    }
 }

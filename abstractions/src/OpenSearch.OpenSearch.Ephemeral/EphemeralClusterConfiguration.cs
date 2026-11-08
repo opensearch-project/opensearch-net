@@ -54,7 +54,8 @@ public class EphemeralClusterConfiguration : ClusterConfiguration<EphemeralFileS
         Plugins = new OpenSearchPlugins(pluginsList);
 
         Add("plugins.security.disabled", (!EnableSsl).ToString().ToLowerInvariant());
-        if (EnableSsl) Add("plugins.security.audit.type", "debug");
+        if (EnableSsl)
+            Add("plugins.security.audit.type", "debug");
     }
 
     private static string UniqueishSuffix => Guid.NewGuid().ToString("N").Substring(0, 6);

@@ -28,40 +28,41 @@
 
 using System.Linq;
 using System.Reflection;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using FluentAssertions;
 using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 
 namespace Tests.Aggregations
 {
-	public class AggregationVisitorTests
-	{
-		[U] public void VisitMethodForEachTypeOfAggregation()
-		{
-			// exclude intermediate aggregations
-			var exclude = new[]
-			{
-				typeof(IMetricAggregation), typeof(IBucketAggregation), typeof(IPipelineAggregation), typeof(IMatrixAggregation),
-				typeof(IFormattableMetricAggregation)
-			};
+    public class AggregationVisitorTests
+    {
+        [U]
+        public void VisitMethodForEachTypeOfAggregation()
+        {
+            // exclude intermediate aggregations
+            var exclude = new[]
+            {
+                typeof(IMetricAggregation), typeof(IBucketAggregation), typeof(IPipelineAggregation), typeof(IMatrixAggregation),
+                typeof(IFormattableMetricAggregation)
+            };
 
-			var aggregationTypes =
-				(from t in typeof(IAggregation).Assembly.Types()
-				where typeof(IAggregation).IsAssignableFrom(t)
-				where t.IsInterface && !exclude.Contains(t)
-				select t).ToList();
+            var aggregationTypes =
+                (from t in typeof(IAggregation).Assembly.Types()
+                 where typeof(IAggregation).IsAssignableFrom(t)
+                 where t.IsInterface && !exclude.Contains(t)
+                 select t).ToList();
 
-			var visitorMethodParameters =
-				(from m in typeof(IAggregationVisitor).GetMethods()
-				where m.Name == "Visit"
-				let aggregationInterface = m.GetParameters().First().ParameterType
-				where aggregationInterface != typeof(IAggregationContainer)
-				select aggregationInterface).ToList();
+            var visitorMethodParameters =
+                (from m in typeof(IAggregationVisitor).GetMethods()
+                 where m.Name == "Visit"
+                 let aggregationInterface = m.GetParameters().First().ParameterType
+                 where aggregationInterface != typeof(IAggregationContainer)
+                 select aggregationInterface).ToList();
 
-			if (aggregationTypes.Count < visitorMethodParameters.Count)
-				visitorMethodParameters.Except(aggregationTypes).Should().BeEmpty();
-			else
-				aggregationTypes.Except(visitorMethodParameters).Should().BeEmpty();
-		}
-	}
+            if (aggregationTypes.Count < visitorMethodParameters.Count)
+                visitorMethodParameters.Except(aggregationTypes).Should().BeEmpty();
+            else
+                aggregationTypes.Except(visitorMethodParameters).Should().BeEmpty();
+        }
+    }
 }

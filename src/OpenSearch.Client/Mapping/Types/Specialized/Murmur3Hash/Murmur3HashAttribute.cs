@@ -28,8 +28,8 @@
 
 namespace OpenSearch.Client
 {
-	public class Murmur3HashAttribute : OpenSearchDocValuesPropertyAttributeBase, IMurmur3HashProperty
-	{
-		public Murmur3HashAttribute() : base(FieldType.Murmur3Hash) { }
-	}
+    public class Murmur3HashAttribute : OpenSearchDocValuesPropertyAttributeBase, IMurmur3HashProperty
+    {
+        public Murmur3HashAttribute() : base(FieldType.Murmur3Hash) { }
+    }
 }

@@ -32,13 +32,13 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum FielddataLoading
-	{
-		[EnumMember(Value = "eager")]
-		Eager,
+    [StringEnum]
+    public enum FielddataLoading
+    {
+        [EnumMember(Value = "eager")]
+        Eager,
 
-		[EnumMember(Value = "eager_global_ordinals")]
-		EagerGlobalOrdinals
-	}
+        [EnumMember(Value = "eager_global_ordinals")]
+        EagerGlobalOrdinals
+    }
 }

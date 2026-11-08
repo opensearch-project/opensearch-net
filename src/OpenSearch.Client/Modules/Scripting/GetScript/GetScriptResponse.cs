@@ -30,10 +30,10 @@ using System.Runtime.Serialization;
 
 namespace OpenSearch.Client
 {
-	[DataContract]
-	public class GetScriptResponse : ResponseBase
-	{
-		[DataMember(Name ="script")]
-		public IStoredScript Script { get; set; }
-	}
+    [DataContract]
+    public class GetScriptResponse : ResponseBase
+    {
+        [DataMember(Name = "script")]
+        public IStoredScript Script { get; set; }
+    }
 }

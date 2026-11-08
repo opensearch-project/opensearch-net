@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("ingest.processor_grok.json")]
-	public partial interface IGrokProcessorPatternsRequest { }
+    [MapsApi("ingest.processor_grok.json")]
+    public partial interface IGrokProcessorPatternsRequest { }
 
-	public partial class GrokProcessorPatternsRequest { }
+    public partial class GrokProcessorPatternsRequest { }
 
-	public partial class GrokProcessorPatternsDescriptor { }
+    public partial class GrokProcessorPatternsDescriptor { }
 }

@@ -31,13 +31,13 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum GapPolicy
-	{
-		[EnumMember(Value = "skip")]
-		Skip,
+    [StringEnum]
+    public enum GapPolicy
+    {
+        [EnumMember(Value = "skip")]
+        Skip,
 
-		[EnumMember(Value = "insert_zeros")]
-		InsertZeros
-	}
+        [EnumMember(Value = "insert_zeros")]
+        InsertZeros
+    }
 }

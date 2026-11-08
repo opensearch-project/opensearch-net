@@ -33,54 +33,54 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	public class Snapshot
-	{
-		[DataMember(Name ="duration_in_millis")]
-		public long DurationInMilliseconds { get; internal set; }
+    public class Snapshot
+    {
+        [DataMember(Name = "duration_in_millis")]
+        public long DurationInMilliseconds { get; internal set; }
 
-		[DataMember(Name ="end_time")]
-		public DateTime EndTime { get; internal set; }
+        [DataMember(Name = "end_time")]
+        public DateTime EndTime { get; internal set; }
 
-		[DataMember(Name ="end_time_in_millis")]
-		public long EndTimeInMilliseconds { get; internal set; }
+        [DataMember(Name = "end_time_in_millis")]
+        public long EndTimeInMilliseconds { get; internal set; }
 
-		[DataMember(Name ="failures")]
-		public IReadOnlyCollection<SnapshotShardFailure> Failures { get; internal set; }
+        [DataMember(Name = "failures")]
+        public IReadOnlyCollection<SnapshotShardFailure> Failures { get; internal set; }
 
-		[DataMember(Name ="indices")]
-		public IReadOnlyCollection<IndexName> Indices { get; internal set; }
+        [DataMember(Name = "indices")]
+        public IReadOnlyCollection<IndexName> Indices { get; internal set; }
 
-		[DataMember(Name ="snapshot")]
-		public string Name { get; internal set; }
+        [DataMember(Name = "snapshot")]
+        public string Name { get; internal set; }
 
-		[DataMember(Name ="uuid")]
-		public string Uuid { get; internal set; }
+        [DataMember(Name = "uuid")]
+        public string Uuid { get; internal set; }
 
-		[DataMember(Name ="version")]
-		public string Version { get; internal set; }
+        [DataMember(Name = "version")]
+        public string Version { get; internal set; }
 
-		[DataMember(Name ="version_id")]
-		public int? VersionId { get; internal set; }
+        [DataMember(Name = "version_id")]
+        public int? VersionId { get; internal set; }
 
-		[DataMember(Name ="remote_store_index_shallow_copy")]
-		public bool? RemoteStoreIndexShallowCopy { get; internal set; }
+        [DataMember(Name = "remote_store_index_shallow_copy")]
+        public bool? RemoteStoreIndexShallowCopy { get; internal set; }
 
-		[DataMember(Name ="data_streams")]
-		public IReadOnlyCollection<string> DataStreams { get; internal set; }
+        [DataMember(Name = "data_streams")]
+        public IReadOnlyCollection<string> DataStreams { get; internal set; }
 
-		[DataMember(Name ="shards")]
-		public ShardStatistics Shards { get; internal set; }
+        [DataMember(Name = "shards")]
+        public ShardStatistics Shards { get; internal set; }
 
-		[DataMember(Name ="start_time")]
-		public DateTime StartTime { get; internal set; }
+        [DataMember(Name = "start_time")]
+        public DateTime StartTime { get; internal set; }
 
-		[DataMember(Name ="start_time_in_millis")]
-		public long StartTimeInMilliseconds { get; internal set; }
+        [DataMember(Name = "start_time_in_millis")]
+        public long StartTimeInMilliseconds { get; internal set; }
 
-		[DataMember(Name ="state")]
-		public string State { get; internal set; }
+        [DataMember(Name = "state")]
+        public string State { get; internal set; }
 
-		[DataMember(Name ="metadata")]
-		public IReadOnlyDictionary<string, object> Metadata { get; internal set; } = EmptyReadOnly<string, object>.Dictionary;
-	}
+        [DataMember(Name = "metadata")]
+        public IReadOnlyDictionary<string, object> Metadata { get; internal set; } = EmptyReadOnly<string, object>.Dictionary;
+    }
 }

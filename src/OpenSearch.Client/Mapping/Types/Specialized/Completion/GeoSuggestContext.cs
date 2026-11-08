@@ -33,36 +33,36 @@ using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-	[InterfaceDataContract]
-	public interface IGeoSuggestContext : ISuggestContext
-	{
-		/// <summary>
-		/// The precision of the geohash to encode the query geo point.
-		/// Only the first value will be serialized.
-		/// </summary>
-		[JsonFormatter(typeof(SerializeAsSingleFormatter<string>))]
-		[DataMember(Name = "precision")]
-		IEnumerable<string> Precision { get; set; }
-	}
+    [InterfaceDataContract]
+    public interface IGeoSuggestContext : ISuggestContext
+    {
+        /// <summary>
+        /// The precision of the geohash to encode the query geo point.
+        /// Only the first value will be serialized.
+        /// </summary>
+        [JsonFormatter(typeof(SerializeAsSingleFormatter<string>))]
+        [DataMember(Name = "precision")]
+        IEnumerable<string> Precision { get; set; }
+    }
 
-	[DataContract]
-	public class GeoSuggestContext : SuggestContextBase, IGeoSuggestContext
-	{
-		/// <inheritdoc />
-		public IEnumerable<string> Precision { get; set; }
-		public override string Type => "geo";
-	}
+    [DataContract]
+    public class GeoSuggestContext : SuggestContextBase, IGeoSuggestContext
+    {
+        /// <inheritdoc />
+        public IEnumerable<string> Precision { get; set; }
+        public override string Type => "geo";
+    }
 
-	[DataContract]
-	public class GeoSuggestContextDescriptor<T>
-		: SuggestContextDescriptorBase<GeoSuggestContextDescriptor<T>, IGeoSuggestContext, T>, IGeoSuggestContext
-		where T : class
-	{
-		protected override string Type => "geo";
+    [DataContract]
+    public class GeoSuggestContextDescriptor<T>
+        : SuggestContextDescriptorBase<GeoSuggestContextDescriptor<T>, IGeoSuggestContext, T>, IGeoSuggestContext
+        where T : class
+    {
+        protected override string Type => "geo";
 
-		IEnumerable<string> IGeoSuggestContext.Precision { get; set; }
+        IEnumerable<string> IGeoSuggestContext.Precision { get; set; }
 
-		/// <inheritdoc cref="IGeoSuggestContext.Precision" />
-		public GeoSuggestContextDescriptor<T> Precision(params string[] precisions) => Assign(precisions, (a, v) => a.Precision = v);
-	}
+        /// <inheritdoc cref="IGeoSuggestContext.Precision" />
+        public GeoSuggestContextDescriptor<T> Precision(params string[] precisions) => Assign(precisions, (a, v) => a.Precision = v);
+    }
 }

@@ -29,9 +29,9 @@
 using System;
 using System.Linq;
 using System.Text;
-using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
-using OpenSearch.Client;
 using Newtonsoft.Json.Linq;
+using OpenSearch.Client;
+using OpenSearch.OpenSearch.Xunit.XunitPlumbing;
 using Tests.Core.Client;
 using Tests.Core.ManagedOpenSearch.Clusters;
 using Tests.Domain;
@@ -40,22 +40,22 @@ using static Tests.Core.Serialization.SerializationTestHelper;
 
 namespace Tests.Search
 {
-	// TODO: Additional sections on Paging results (from/size, scroll and search_after), Multisearch and Conditionless queries
-	/**=== Writing queries
+    // TODO: Additional sections on Paging results (from/size, scroll and search_after), Multisearch and Conditionless queries
+    /**=== Writing queries
 	 *
 	 * Once you have data indexed within OpenSearch, you're going to want to be able to search it. OpenSearch
 	 * offers a powerful query DSL to define queries to execute against OpenSearch. This DSL is based on JSON
 	 * and is exposed in OSC in the form of both a Fluent API and an Object Initializer syntax
 	 *
 	 */
-	public class WritingQueries : IClusterFixture<ReadOnlyCluster>
-	{
-		private readonly ReadOnlyCluster _cluster;
-		private readonly IOpenSearchClient _client = TestClient.DisabledStreaming;
+    public class WritingQueries : IClusterFixture<ReadOnlyCluster>
+    {
+        private readonly ReadOnlyCluster _cluster;
+        private readonly IOpenSearchClient _client = TestClient.DisabledStreaming;
 
-		public WritingQueries(ReadOnlyCluster cluster) => _cluster = cluster;
+        public WritingQueries(ReadOnlyCluster cluster) => _cluster = cluster;
 
-		/**==== Match All query
+        /**==== Match All query
 		 *
 		 * The simplest of queries is the {ref_current}/query-dsl-match-all-query.html[match_all] query;
 		 * this will return all documents, giving them all a `_score` of 1.0
@@ -66,56 +66,56 @@ namespace Tests.Search
 		 * are returned. You can use `from` and `size` to paginate results.
 		 * --
 		 */
-		[U]
-		public void MatchAllQuery()
-		{
-			var searchResponse = _client.Search<Project>(s => s
-				.Query(q => q
-					.MatchAll()
-				)
-			);
+        [U]
+        public void MatchAllQuery()
+        {
+            var searchResponse = _client.Search<Project>(s => s
+                .Query(q => q
+                    .MatchAll()
+                )
+            );
 
-			/**
+            /**
 			 * which serializes to the following JSON
 			 */
-			//json
-			var expected = new
-			{
-				query = new
-				{
-					match_all = new {}
-				}
-			};
+            //json
+            var expected = new
+            {
+                query = new
+                {
+                    match_all = new { }
+                }
+            };
 
-			//hide
-			Expect(expected).FromRequest(searchResponse);
+            //hide
+            Expect(expected).FromRequest(searchResponse);
 
-			/**Since `match_all` queries are common, the previous example also has a shorthand which
+            /**Since `match_all` queries are common, the previous example also has a shorthand which
 			 * serializes to the same query DSL JSON
 			 */
-			searchResponse = _client.Search<Project>(s => s
-				.MatchAll()
-			);
+            searchResponse = _client.Search<Project>(s => s
+                .MatchAll()
+            );
 
-			//hide
-			Expect(expected).FromRequest(searchResponse);
+            //hide
+            Expect(expected).FromRequest(searchResponse);
 
-			/**
+            /**
 			 * The two previous examples both used the Fluent API to express the query. OSC also exposes an
 			 * Object Initializer syntax to compose queries
 			 */
-			var searchRequest = new SearchRequest<Project>
-			{
-				Query = new MatchAllQuery()
-			};
+            var searchRequest = new SearchRequest<Project>
+            {
+                Query = new MatchAllQuery()
+            };
 
-			searchResponse = _client.Search<Project>(searchRequest);
+            searchResponse = _client.Search<Project>(searchRequest);
 
-			//hide
-			Expect(expected).FromRequest(searchResponse);
-		}
+            //hide
+            Expect(expected).FromRequest(searchResponse);
+        }
 
-		/**==== Search request parameters
+        /**==== Search request parameters
 		 *
 		 * There are several parameters available on a search request; take a look at the reference section
 		 * on <<reference-search, search>> for more details.
@@ -148,152 +148,153 @@ namespace Tests.Search
 		 * The <<term-level-queries, term level queries>> are typically used for structured search. Here's an
 		 * example that looks for documents whose started on date falls within a specified range
 		 */
-		[U]
-		public void StructuredSearch()
-		{
-			var searchResponse = _client.Search<Project>(s => s
-				.Query(q => q
-					.DateRange(r => r
-						.Field(f => f.StartedOn)
-						.GreaterThanOrEquals(new DateTime(2017, 01, 01))
-						.LessThan(new DateTime(2018, 01, 01))// <1> Find all the projects that have been started in 2017
-					)
-				)
-			);
+        [U]
+        public void StructuredSearch()
+        {
+            var searchResponse = _client.Search<Project>(s => s
+                .Query(q => q
+                    .DateRange(r => r
+                        .Field(f => f.StartedOn)
+                        .GreaterThanOrEquals(new DateTime(2017, 01, 01))
+                        .LessThan(new DateTime(2018, 01, 01))// <1> Find all the projects that have been started in 2017
+                    )
+                )
+            );
 
-			/**which yields the following query JSON
+            /**which yields the following query JSON
 			 *
 			 */
-			// json
-			var expected = new
-			{
-				query = new
-				{
-					range = new
-					{
-						startedOn = new {
-							lt = "2018-01-01T00:00:00",
-							gte = "2017-01-01T00:00:00"
-						}
-					}
-				}
-			};
+            // json
+            var expected = new
+            {
+                query = new
+                {
+                    range = new
+                    {
+                        startedOn = new
+                        {
+                            lt = "2018-01-01T00:00:00",
+                            gte = "2017-01-01T00:00:00"
+                        }
+                    }
+                }
+            };
 
-			//hide
-			Expect(expected).FromRequest(searchResponse);
+            //hide
+            Expect(expected).FromRequest(searchResponse);
 
-			/**
+            /**
 			 * Since the answer to this query is always yes or no, we don't want to _score_ the query. To do this,
 			 * we can get the query to be __executed in a filter context__ by wrapping it in a `bool` query `filter`
 			 * clause
 			 */
-			searchResponse = _client.Search<Project>(s => s
-			   .Query(q => q
-				   .Bool(b => b
-					   .Filter(bf => bf
-						   .DateRange(r => r
-							   .Field(f => f.StartedOn)
-							   .GreaterThanOrEquals(new DateTime(2017, 01, 01))
-							   .LessThan(new DateTime(2018, 01, 01))
-						   )
-					   )
-				   )
+            searchResponse = _client.Search<Project>(s => s
+               .Query(q => q
+                   .Bool(b => b
+                       .Filter(bf => bf
+                           .DateRange(r => r
+                               .Field(f => f.StartedOn)
+                               .GreaterThanOrEquals(new DateTime(2017, 01, 01))
+                               .LessThan(new DateTime(2018, 01, 01))
+                           )
+                       )
+                   )
 
-			   )
-			);
+               )
+            );
 
-			//json
-			var expected2 = new
-			{
-				query = new
-				{
-					@bool = new
-					{
-						filter = new object[]
-						{
-							new
-							{
-								range = new
-								{
-									startedOn = new
-									{
-										lt = "2018-01-01T00:00:00",
-										gte = "2017-01-01T00:00:00"
-									}
-								}
-							}
-						}
-					}
+            //json
+            var expected2 = new
+            {
+                query = new
+                {
+                    @bool = new
+                    {
+                        filter = new object[]
+                        {
+                            new
+                            {
+                                range = new
+                                {
+                                    startedOn = new
+                                    {
+                                        lt = "2018-01-01T00:00:00",
+                                        gte = "2017-01-01T00:00:00"
+                                    }
+                                }
+                            }
+                        }
+                    }
 
-				}
-			};
+                }
+            };
 
-			//hide
-			Expect(expected2).FromRequest(searchResponse);
-		}
+            //hide
+            Expect(expected2).FromRequest(searchResponse);
+        }
 
-		 /**
-		 * The benefit of executing a query in a filter context is that OpenSearch is able to
-		 * forgo calculating a relevancy score, as well as cache filters for faster subsequent performance.
-		 *
-		 * [IMPORTANT]
-		 * --
-		 * <<term-level-queries, term level queries>> have no analysis phase, that is, the query input
-		 * is not analyzed, and an *exact match* to the input is looked for in the inverted index. This can
-		 * trip many new users up when using a term level query against a field that is analyzed at index
-		 * time.
-		 *
-		 * When a field is _only_ to be used for exact matching, you should consider indexing it as a
-		 * {ref_current}/keyword.html[keyword] datatype. If a field is used for both exact matches and
-		 * full text search, you should consider indexing it with <<multi-fields, multi fields>>.
-		 * --
-		 *
-		 * [[unstructured-search]]
-		 * ==== Unstructured search
-		 *
-		 * Another common use case is to search within full text fields in order to find the most relevant documents.
-		 *
-		 * <<full-text-queries, Full text queries>> are used for unstructured search; here we use the `match` query
-		 * to find all documents that contain `"Russ"` in the lead developer first name field
-		 */
-		[U]
-		public void UnstructuredSearch()
-		{
-			var searchResponse = _client.Search<Project>(s => s
-				.Query(q => q
-					.Match(m => m
-						.Field(f => f.LeadDeveloper.FirstName)
-						.Query("Russ")
-					)
-				)
-			);
+        /**
+        * The benefit of executing a query in a filter context is that OpenSearch is able to
+        * forgo calculating a relevancy score, as well as cache filters for faster subsequent performance.
+        *
+        * [IMPORTANT]
+        * --
+        * <<term-level-queries, term level queries>> have no analysis phase, that is, the query input
+        * is not analyzed, and an *exact match* to the input is looked for in the inverted index. This can
+        * trip many new users up when using a term level query against a field that is analyzed at index
+        * time.
+        *
+        * When a field is _only_ to be used for exact matching, you should consider indexing it as a
+        * {ref_current}/keyword.html[keyword] datatype. If a field is used for both exact matches and
+        * full text search, you should consider indexing it with <<multi-fields, multi fields>>.
+        * --
+        *
+        * [[unstructured-search]]
+        * ==== Unstructured search
+        *
+        * Another common use case is to search within full text fields in order to find the most relevant documents.
+        *
+        * <<full-text-queries, Full text queries>> are used for unstructured search; here we use the `match` query
+        * to find all documents that contain `"Russ"` in the lead developer first name field
+        */
+        [U]
+        public void UnstructuredSearch()
+        {
+            var searchResponse = _client.Search<Project>(s => s
+                .Query(q => q
+                    .Match(m => m
+                        .Field(f => f.LeadDeveloper.FirstName)
+                        .Query("Russ")
+                    )
+                )
+            );
 
-			/**which yields the following query JSON
+            /**which yields the following query JSON
 			 *
 			 */
-			// json
-			var expected = new
-			{
-				query = new
-				{
-					match = new JObject
-					{
-						{
-							"leadDeveloper.firstName", new JObject
-							{
-								{ "query", "Russ" }
-							}
-						}
-					}
-				}
-			};
+            // json
+            var expected = new
+            {
+                query = new
+                {
+                    match = new JObject
+                    {
+                        {
+                            "leadDeveloper.firstName", new JObject
+                            {
+                                { "query", "Russ" }
+                            }
+                        }
+                    }
+                }
+            };
 
-			//hide
-			Expect(expected).FromRequest(searchResponse);
-		}
+            //hide
+            Expect(expected).FromRequest(searchResponse);
+        }
 
 
-		/**
+        /**
 		 *
 		 * [IMPORTANT]
 		 * --
@@ -312,92 +313,92 @@ namespace Tests.Search
 		* An extremely common scenario is to combine separate queries together to form a
 		* <<compound-queries, compound query>>, the most common of which is the `bool` query
 		*/
-		[U]
-		public void BoolQuery()
-		{
-			var searchResponse = _client.Search<Project>(s => s
-				.Query(q => q
-					.Bool(b => b
-						.Must(mu => mu
-							.Match(m => m // <1> match documents where lead developer first name contains Russ
-								.Field(f => f.LeadDeveloper.FirstName)
-								.Query("Russ")
-							), mu => mu
-							.Match(m => m // <2> ...and where the lead developer last name contains Cam
-								.Field(f => f.LeadDeveloper.LastName)
-								.Query("Cam")
-							)
-						)
-						.Filter(fi => fi
-							 .DateRange(r => r
-								.Field(f => f.StartedOn)
-								.GreaterThanOrEquals(new DateTime(2017, 01, 01))
-								.LessThan(new DateTime(2018, 01, 01)) // <3> ...and where the project started in 2017
-							)
-						)
-					)
-				)
-			);
+        [U]
+        public void BoolQuery()
+        {
+            var searchResponse = _client.Search<Project>(s => s
+                .Query(q => q
+                    .Bool(b => b
+                        .Must(mu => mu
+                            .Match(m => m // <1> match documents where lead developer first name contains Russ
+                                .Field(f => f.LeadDeveloper.FirstName)
+                                .Query("Russ")
+                            ), mu => mu
+                            .Match(m => m // <2> ...and where the lead developer last name contains Cam
+                                .Field(f => f.LeadDeveloper.LastName)
+                                .Query("Cam")
+                            )
+                        )
+                        .Filter(fi => fi
+                             .DateRange(r => r
+                                .Field(f => f.StartedOn)
+                                .GreaterThanOrEquals(new DateTime(2017, 01, 01))
+                                .LessThan(new DateTime(2018, 01, 01)) // <3> ...and where the project started in 2017
+                            )
+                        )
+                    )
+                )
+            );
 
-			/**which yields the following query JSON
+            /**which yields the following query JSON
 			 *
 			 */
-			// json
-			var expected = new
-			{
-				query = new
-				{
-					@bool = new
-					{
-						must = new object[]
-						{
-							new
-							{
-								match = new JObject
-								{
-									{
-										"leadDeveloper.firstName", new JObject
-										{
-											{ "query", "Russ" }
-										}
-									}
-								}
-							},
-							new
-							{
-								match = new JObject
-								{
-									{
-										"leadDeveloper.lastName", new JObject
-										{
-											{ "query", "Cam" }
-										}
-									}
-								}
-							},
-						},
-						filter = new object[]
-						{
-							new
-							{
-								range = new
-								{
-									startedOn = new
-									{
-										lt = "2018-01-01T00:00:00",
-										gte = "2017-01-01T00:00:00"
-									}
-								}
-							}
-						}
-					}
-				}
-			};
+            // json
+            var expected = new
+            {
+                query = new
+                {
+                    @bool = new
+                    {
+                        must = new object[]
+                        {
+                            new
+                            {
+                                match = new JObject
+                                {
+                                    {
+                                        "leadDeveloper.firstName", new JObject
+                                        {
+                                            { "query", "Russ" }
+                                        }
+                                    }
+                                }
+                            },
+                            new
+                            {
+                                match = new JObject
+                                {
+                                    {
+                                        "leadDeveloper.lastName", new JObject
+                                        {
+                                            { "query", "Cam" }
+                                        }
+                                    }
+                                }
+                            },
+                        },
+                        filter = new object[]
+                        {
+                            new
+                            {
+                                range = new
+                                {
+                                    startedOn = new
+                                    {
+                                        lt = "2018-01-01T00:00:00",
+                                        gte = "2017-01-01T00:00:00"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
 
-			//hide
-			Expect(expected).FromRequest(searchResponse);
+            //hide
+            Expect(expected).FromRequest(searchResponse);
 
-			/**
+            /**
 			 * A document must
 			 * satisfy all three queries in this example to be a match
 			 *
@@ -412,33 +413,33 @@ namespace Tests.Search
 			 * `bool` queries much more succinct. The previous `bool` query can be more concisely
 			 * expressed as
 			 */
-			searchResponse = _client.Search<Project>(s => s
-				.Query(q => q
-					.Match(m => m
-						.Field(f => f.LeadDeveloper.FirstName)
-						.Query("Russ")
-					) && q // <1> combine queries using the binary `&&` operator
-					.Match(m => m
-						.Field(f => f.LeadDeveloper.LastName)
-						.Query("Cam")
-					) && +q // <2> wrap a query in a `bool` query filter clause using the unary `+` operator and combine using the binary `&&` operator
-					.DateRange(r => r
-						.Field(f => f.StartedOn)
-						.GreaterThanOrEquals(new DateTime(2017, 01, 01))
-						.LessThan(new DateTime(2018, 01, 01))
-					)
-				)
-			);
+            searchResponse = _client.Search<Project>(s => s
+                .Query(q => q
+                    .Match(m => m
+                        .Field(f => f.LeadDeveloper.FirstName)
+                        .Query("Russ")
+                    ) && q // <1> combine queries using the binary `&&` operator
+                    .Match(m => m
+                        .Field(f => f.LeadDeveloper.LastName)
+                        .Query("Cam")
+                    ) && +q // <2> wrap a query in a `bool` query filter clause using the unary `+` operator and combine using the binary `&&` operator
+                    .DateRange(r => r
+                        .Field(f => f.StartedOn)
+                        .GreaterThanOrEquals(new DateTime(2017, 01, 01))
+                        .LessThan(new DateTime(2018, 01, 01))
+                    )
+                )
+            );
 
-			/**
+            /**
 			 * Take a look at the dedicated section on <<bool-queries, writing `bool` queries>> for more detail
 			 * and further examples.
 			 */
-			//hide
-			Expect(expected).FromRequest(searchResponse);
-		}
+            //hide
+            Expect(expected).FromRequest(searchResponse);
+        }
 
-		/**
+        /**
 		* ==== Search response
 		*
 		* The response returned from a search query is an `SearchResponse<T>`, where `T` is the
@@ -450,33 +451,33 @@ namespace Tests.Search
 		*
 		* To get the documents in the response that match the search query is easy enough
 		*/
-		[I]
-		public void GettingDocuments()
-		{
-			// hide
-			var client = _cluster.Client;
+        [I]
+        public void GettingDocuments()
+        {
+            // hide
+            var client = _cluster.Client;
 
-			var searchResponse = client.Search<Project>(s => s
-				.Query(q => q
-					.MatchAll()
-				)
-			);
+            var searchResponse = client.Search<Project>(s => s
+                .Query(q => q
+                    .MatchAll()
+                )
+            );
 
-			var projects = searchResponse.Documents;
+            var projects = searchResponse.Documents;
 
-			/**
+            /**
 			 * `.Documents` is a convenient shorthand for retrieving the `_source`
 			 * for each hit
 			 */
-			var sources = searchResponse.HitsMetadata.Hits.Select(h => h.Source);
+            var sources = searchResponse.HitsMetadata.Hits.Select(h => h.Source);
 
-			/**
+            /**
 			 * and it's possible to retrieve other metadata about each hit from the hits collection. Here's
 			 * an example that retrieves the highlights for a hit, when using <<highlighting-usage, highlighting>>
 			 */
-			var highlights = searchResponse.HitsMetadata.Hits.Select(h => h
-				.Highlight // <1> Get the highlights for the hit, when using highlighting
-			);
-		}
-	}
+            var highlights = searchResponse.HitsMetadata.Hits.Select(h => h
+                .Highlight // <1> Get the highlights for the hit, when using highlighting
+            );
+        }
+    }
 }

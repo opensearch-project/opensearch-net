@@ -45,9 +45,9 @@ namespace ApiGenerator.Generator.Razor
     {
         private static readonly RazorLightEngine Engine = new RazorLightEngineBuilder()
             .UseProject(new EmbeddedRazorProject(typeof(CodeTemplatePage<>).Assembly, "ApiGenerator.Views"))
-			.SetOperatingAssembly(typeof(CodeTemplatePage<>).Assembly)
-			.UseMemoryCachingProvider()
-			.EnableDebugMode()
+            .SetOperatingAssembly(typeof(CodeTemplatePage<>).Assembly)
+            .UseMemoryCachingProvider()
+            .EnableDebugMode()
             .Build();
 
         protected static Task<string> RenderAsync<TModel>(string viewLocation, TModel model)
@@ -58,12 +58,13 @@ namespace ApiGenerator.Generator.Razor
             try
             {
                 token.ThrowIfCancellationRequested();
-                var generated = await Engine.CompileRenderAsync(viewLocation,  model);
+                var generated = await Engine.CompileRenderAsync(viewLocation, model);
                 await WriteFormattedCsharpFile(targetLocation, generated);
             }
             catch (TemplateGenerationException e)
             {
-                foreach (var d in e.Diagnostics) Console.WriteLine(d.GetMessage());
+                foreach (var d in e.Diagnostics)
+                    Console.WriteLine(d.GetMessage());
                 throw;
             }
         }
@@ -73,28 +74,29 @@ namespace ApiGenerator.Generator.Razor
             Func<TModel, string> identifier, Func<string, string> target,
             CancellationToken token
             )
-		{
-			using var c = pbar.Spawn(items.Count, "Generating namespaces", new ProgressBarOptions
-			{
-				ProgressCharacter = '─',
-				ForegroundColor = ConsoleColor.Yellow
-			});
-			foreach (var item in items)
-			{
-				var id = identifier(item);
-				var targetLocation = target(id);
-				await DoRazor(item, viewLocation, targetLocation, token);
-				c.Tick($"{Title}: {id}");
-			}
-		}
+        {
+            using var c = pbar.Spawn(items.Count, "Generating namespaces", new ProgressBarOptions
+            {
+                ProgressCharacter = '─',
+                ForegroundColor = ConsoleColor.Yellow
+            });
+            foreach (var item in items)
+            {
+                var id = identifier(item);
+                var targetLocation = target(id);
+                await DoRazor(item, viewLocation, targetLocation, token);
+                c.Tick($"{Title}: {id}");
+            }
+        }
 
         private static async Task WriteFormattedCsharpFile(string path, string contents)
         {
-			contents = (await CSharpFormatter.FormatAsync(contents)).Code;
+            contents = (await CSharpFormatter.FormatAsync(contents)).Code;
 
-			if (Directory.GetParent(path) is { Exists: false } dir) dir.Create();
+            if (Directory.GetParent(path) is { Exists: false } dir)
+                dir.Create();
 
-			await File.WriteAllTextAsync(path, contents);
+            await File.WriteAllTextAsync(path, contents);
         }
 
         public abstract string Title { get; }

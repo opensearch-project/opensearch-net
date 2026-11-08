@@ -39,32 +39,32 @@ namespace ApiGenerator.Domain
     public class EnumDescription
     {
         public string Name { get; set; }
-		public bool IsFlag { get; set; }
+        public bool IsFlag { get; set; }
         public IEnumerable<(string Value, string Alias)> Options { get; set; }
     }
 
     public class RestApiSpec
     {
-		public ImmutableSortedDictionary<string, ApiEndpoint> Endpoints { get; set; }
+        public ImmutableSortedDictionary<string, ApiEndpoint> Endpoints { get; set; }
 
 #nullable enable
-		/// <summary>
-		/// The raw NSwag OpenApiDocument used to build this spec.
-		/// Populated by <see cref="Generator.ApiGenerator.CreateRestApiSpecModel"/> and consumed by
-		/// <see cref="Generator.Razor.ModelsGenerator"/> when <c>--include-high-level</c> is passed.
-		/// </summary>
-		internal OpenApiDocument? Document { get; set; }
+        /// <summary>
+        /// The raw NSwag OpenApiDocument used to build this spec.
+        /// Populated by <see cref="Generator.ApiGenerator.CreateRestApiSpecModel"/> and consumed by
+        /// <see cref="Generator.Razor.ModelsGenerator"/> when <c>--include-high-level</c> is passed.
+        /// </summary>
+        internal OpenApiDocument? Document { get; set; }
 
-	/// <summary>
-	/// Schema IDs that have <c>additionalProperties: true</c> explicitly in the OpenAPI spec.
-	/// NJsonSchema cannot distinguish "not set" from "explicitly true", so this set is extracted
-	/// from the raw YAML during preprocessing.
-	/// </summary>
-	internal HashSet<string> ExplicitlyOpenSchemaIds { get; set; } = new(System.StringComparer.Ordinal);
+        /// <summary>
+        /// Schema IDs that have <c>additionalProperties: true</c> explicitly in the OpenAPI spec.
+        /// NJsonSchema cannot distinguish "not set" from "explicitly true", so this set is extracted
+        /// from the raw YAML during preprocessing.
+        /// </summary>
+        internal HashSet<string> ExplicitlyOpenSchemaIds { get; set; } = new(System.StringComparer.Ordinal);
 #nullable restore
 
         public ImmutableSortedDictionary<string, ReadOnlyCollection<ApiEndpoint>> EndpointsPerNamespaceLowLevel =>
-            Endpoints.Values.GroupBy(e=>e.CsharpNames.Namespace)
+            Endpoints.Values.GroupBy(e => e.CsharpNames.Namespace)
                 .ToImmutableSortedDictionary(kv => kv.Key, kv => kv.ToList().AsReadOnly());
 
         public ImmutableSortedDictionary<string, ReadOnlyCollection<ApiEndpoint>> EndpointsPerNamespaceHighLevel =>

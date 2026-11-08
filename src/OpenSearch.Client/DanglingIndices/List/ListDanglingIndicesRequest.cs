@@ -28,19 +28,19 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("dangling_indices.list_dangling_indices.json")]
-	public partial interface IListDanglingIndicesRequest
-	{
+    [MapsApi("dangling_indices.list_dangling_indices.json")]
+    public partial interface IListDanglingIndicesRequest
+    {
 
-	}
+    }
 
-	public partial class ListDanglingIndicesRequest : IListDanglingIndicesRequest
-	{
+    public partial class ListDanglingIndicesRequest : IListDanglingIndicesRequest
+    {
 
-	}
+    }
 
-	public partial class ListDanglingIndicesDescriptor : IListDanglingIndicesRequest
-	{
+    public partial class ListDanglingIndicesDescriptor : IListDanglingIndicesRequest
+    {
 
-	}
+    }
 }

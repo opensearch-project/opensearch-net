@@ -28,10 +28,10 @@
 
 namespace OpenSearch.Client
 {
-	[MapsApi("indices.get_settings.json")]
-	public partial interface IGetIndexSettingsRequest { }
+    [MapsApi("indices.get_settings.json")]
+    public partial interface IGetIndexSettingsRequest { }
 
-	public partial class GetIndexSettingsRequest { }
+    public partial class GetIndexSettingsRequest { }
 
-	public partial class GetIndexSettingsDescriptor { }
+    public partial class GetIndexSettingsDescriptor { }
 }

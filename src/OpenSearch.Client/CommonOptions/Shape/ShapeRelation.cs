@@ -31,16 +31,16 @@ using OpenSearch.Net;
 
 namespace OpenSearch.Client
 {
-	[StringEnum]
-	public enum ShapeRelation
-	{
-		[EnumMember(Value = "intersects")]
-		Intersects,
+    [StringEnum]
+    public enum ShapeRelation
+    {
+        [EnumMember(Value = "intersects")]
+        Intersects,
 
-		[EnumMember(Value = "disjoint")]
-		Disjoint,
+        [EnumMember(Value = "disjoint")]
+        Disjoint,
 
-		[EnumMember(Value = "within")]
-		Within
-	}
+        [EnumMember(Value = "within")]
+        Within
+    }
 }

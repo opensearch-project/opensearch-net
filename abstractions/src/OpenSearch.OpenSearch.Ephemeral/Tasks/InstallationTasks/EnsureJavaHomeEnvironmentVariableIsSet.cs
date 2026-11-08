@@ -32,32 +32,32 @@ using OpenSearch.OpenSearch.Managed.ConsoleWriters;
 
 namespace OpenSearch.OpenSearch.Ephemeral.Tasks.InstallationTasks
 {
-	public class EnsureJavaHomeEnvironmentVariableIsSet : ClusterComposeTask
-	{
-		public override void Run(IEphemeralCluster<EphemeralClusterConfiguration> cluster)
-		{
-			var fs = cluster.FileSystem;
+    public class EnsureJavaHomeEnvironmentVariableIsSet : ClusterComposeTask
+    {
+        public override void Run(IEphemeralCluster<EphemeralClusterConfiguration> cluster)
+        {
+            var fs = cluster.FileSystem;
 
-			var envVarName = cluster.ClusterConfiguration.JavaHomeEnvironmentVariable;
-			var javaHome = Environment.GetEnvironmentVariable(envVarName);
-			var cachedOpenSearchHomeFolder = Path.Combine(fs.LocalFolder, cluster.GetCacheFolderName());
-			var jdkFolder = Path.Combine(cachedOpenSearchHomeFolder, "jdk");
-			if (Directory.Exists(jdkFolder))
-			{
-				//prefer bundled jdk
-				cluster.Writer?.WriteDiagnostic(
-					$"{{{nameof(EnsureJavaHomeEnvironmentVariableIsSet)}}} [{envVarName}] is set to bundled jdk: {{{jdkFolder}}} ");
-				Environment.SetEnvironmentVariable("JAVA_HOME", jdkFolder);
-			}
-			else if (!string.IsNullOrWhiteSpace(javaHome))
-			{
-				cluster.Writer?.WriteDiagnostic(
-					$"{{{nameof(EnsureJavaHomeEnvironmentVariableIsSet)}}} [{envVarName}] is set; clearing value for process to prefer bundled jdk...");
-				Environment.SetEnvironmentVariable(envVarName, null);
-			}
-			else
-				cluster.Writer?.WriteDiagnostic(
-					$"{{{nameof(EnsureJavaHomeEnvironmentVariableIsSet)}}} {envVarName} is not set proceeding or using default JDK");
-		}
-	}
+            var envVarName = cluster.ClusterConfiguration.JavaHomeEnvironmentVariable;
+            var javaHome = Environment.GetEnvironmentVariable(envVarName);
+            var cachedOpenSearchHomeFolder = Path.Combine(fs.LocalFolder, cluster.GetCacheFolderName());
+            var jdkFolder = Path.Combine(cachedOpenSearchHomeFolder, "jdk");
+            if (Directory.Exists(jdkFolder))
+            {
+                //prefer bundled jdk
+                cluster.Writer?.WriteDiagnostic(
+                    $"{{{nameof(EnsureJavaHomeEnvironmentVariableIsSet)}}} [{envVarName}] is set to bundled jdk: {{{jdkFolder}}} ");
+                Environment.SetEnvironmentVariable("JAVA_HOME", jdkFolder);
+            }
+            else if (!string.IsNullOrWhiteSpace(javaHome))
+            {
+                cluster.Writer?.WriteDiagnostic(
+                    $"{{{nameof(EnsureJavaHomeEnvironmentVariableIsSet)}}} [{envVarName}] is set; clearing value for process to prefer bundled jdk...");
+                Environment.SetEnvironmentVariable(envVarName, null);
+            }
+            else
+                cluster.Writer?.WriteDiagnostic(
+                    $"{{{nameof(EnsureJavaHomeEnvironmentVariableIsSet)}}} {envVarName} is not set proceeding or using default JDK");
+        }
+    }
 }
