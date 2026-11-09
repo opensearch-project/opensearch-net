@@ -225,7 +225,7 @@ namespace Tests.CommonOptions.DateMath
 			 * `DateMathTime` supports implements equality and comparison
 			 */
 
-            DateMathTime twoSeconds = new DateMathTime(2, DateMathTimeUnit.Second);
+            var twoSeconds = new DateMathTime(2, DateMathTimeUnit.Second);
             DateMathTime twoSecondsFromString = "2s";
             DateMathTime twoSecondsFromTimeSpan = TimeSpan.FromSeconds(2);
             DateMathTime twoSecondsFromDouble = 2000;
@@ -247,16 +247,16 @@ namespace Tests.CommonOptions.DateMath
 			 * - A year is approximated to 365 days
 			 * - A month is approximated to (365 / 12) days
 			 */
-            DateMathTime oneYear = new DateMathTime(1, DateMathTimeUnit.Year);
+            var oneYear = new DateMathTime(1, DateMathTimeUnit.Year);
             DateMathTime oneYearFromString = "1y";
-            DateMathTime twelveMonths = new DateMathTime(12, DateMathTimeUnit.Month);
+            var twelveMonths = new DateMathTime(12, DateMathTimeUnit.Month);
             DateMathTime twelveMonthsFromString = "12M";
 
             oneYear.Should().Be(oneYearFromString);
             oneYear.Should().Be(twelveMonths);
             twelveMonths.Should().Be(twelveMonthsFromString);
 
-            DateMathTime thirteenMonths = new DateMathTime(13, DateMathTimeUnit.Month);
+            var thirteenMonths = new DateMathTime(13, DateMathTimeUnit.Month);
             DateMathTime thirteenMonthsFromString = "13M";
             DateMathTime fiftyTwoWeeks = "52w";
 

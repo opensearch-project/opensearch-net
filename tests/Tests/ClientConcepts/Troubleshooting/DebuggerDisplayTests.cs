@@ -65,7 +65,7 @@ namespace Tests.ClientConcepts.Troubleshooting
         public void FieldsDebug()
         {
             Fields fromString = "field1, field2";
-            Fields multiple = Infer.Field("somefield").And<Project>(p => p.Description, 12);
+            var multiple = Infer.Field("somefield").And<Project>(p => p.Description, 12);
 
             DebugFor(fromString).Should().Be($"Count: 2 [(1: field1),(2: field2)]");
             DebugFor(multiple).Should().Be($"Count: 2 [(1: somefield),(2: p => p.Description^12 typeof: {nameof(Project)})]");
@@ -145,10 +145,10 @@ namespace Tests.ClientConcepts.Troubleshooting
         [U]
         public void IndicesDebug()
         {
-            OpenSearch.Client.Indices all = OpenSearch.Client.Indices.All;
+            var all = OpenSearch.Client.Indices.All;
             OpenSearch.Client.Indices fromTypeName = Infer.Index<Project>();
             OpenSearch.Client.Indices fromType = typeof(CommitActivity);
-            OpenSearch.Client.Indices multiple = Infer.Index("someindex").And<Project>();
+            var multiple = Infer.Index("someindex").And<Project>();
 
             DebugFor(all).Should().Be("_all");
             DebugFor(fromTypeName).Should().Be($"Count: 1 [(1: IndexName for typeof: {nameof(Project)})]");

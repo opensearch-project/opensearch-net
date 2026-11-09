@@ -196,3 +196,8 @@ insert_final_newline=true
 
 [*.sh]
 end_of_line = lf
+
+# Code produced by the ApiGenerator is formatted with CSharpier; mark it as generated so
+# `dotnet format` and analyzers leave it alone.
+[src/**/_Generated/**.cs]
+generated_code = true
