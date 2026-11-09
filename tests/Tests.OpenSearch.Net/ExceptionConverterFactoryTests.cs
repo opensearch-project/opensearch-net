@@ -63,7 +63,7 @@ namespace Tests.OpenSearch.Net.Serialization
         public void Serialize_DeepChain_IsCappedAt20()
         {
             // Build a chain deeper than the 20-exception cap.
-            Exception ex = new Exception("level-0");
+            var ex = new Exception("level-0");
             for (var i = 1; i < 30; i++)
                 ex = new Exception($"level-{i}", ex);
 

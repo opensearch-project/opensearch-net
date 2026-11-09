@@ -135,7 +135,7 @@ namespace Tests.CommonOptions.TimeUnit
             /**
 			 * Equality has down to 1/10 nanosecond precision
 			 */
-            Time oneNanosecond = new Time(1, OpenSearch.Net.TimeUnit.Nanoseconds);
+            var oneNanosecond = new Time(1, OpenSearch.Net.TimeUnit.Nanoseconds);
             Time onePointNoughtNineNanoseconds = "1.09nanos";
             Time onePointOneNanoseconds = "1.1nanos";
 
