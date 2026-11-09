@@ -73,6 +73,25 @@ public class CodeLayoutTests
     }
 
     [Fact]
+    public void ShortCollectionExpressionStaysOnOneLine() =>
+        Assert.Equal(
+            "internal static readonly ApiUrls Bulk = new([\"_bulk\", \"{index}/_bulk\"]);",
+            CodeLayout.CollectionExpression("internal static readonly ApiUrls Bulk = new(", new[] { "\"_bulk\"", "\"{index}/_bulk\"" }, ");", 8));
+
+    [Fact]
+    public void LongCollectionExpressionPutsEachElementOnItsOwnLine() =>
+        Assert.Equal(
+            "internal static readonly ApiUrls CatThreadPool = new([\n"
+            + "            \"_cat/thread_pool\",\n"
+            + "            \"_cat/thread_pool/{thread_pool_patterns}\",\n"
+            + "        ]);",
+            CodeLayout.CollectionExpression(
+                "internal static readonly ApiUrls CatThreadPool = new(",
+                new[] { "\"_cat/thread_pool\"", "\"_cat/thread_pool/{thread_pool_patterns}\"" },
+                ");",
+                8));
+
+    [Fact]
     public void NormalizeBlankLinesCollapsesRunsAndTrimsAroundBraces()
     {
         const string input = "namespace X\r\n{\n\n    class A { }   \n\n\n\n    class B { }\n\n}\n\n";

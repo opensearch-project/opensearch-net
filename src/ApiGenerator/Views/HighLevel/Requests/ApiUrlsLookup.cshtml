@@ -17,24 +17,9 @@ namespace OpenSearch.Client
     var propertyName = $"{endpoint.CsharpNames.Namespace}{endpoint.CsharpNames.HighLevelMethodName}";
     var paths = !endpoint.Url.Paths.Any() ? endpoint.Url.AllPaths : endpoint.Url.Paths;
     var quoted = paths.Select(p => $"\"{p.Path.TrimStart('/')}\"").ToList();
-    if (quoted.Count == 1)
-    {
 <text>
-internal static readonly ApiUrls @(Raw(propertyName)) = new([@Raw(quoted[0])]);
+        @Raw(global::ApiGenerator.Generator.CodeLayout.CollectionExpression($"internal static readonly ApiUrls {propertyName} = new(", quoted, ");", 8))
 </text>
-    }
-    else
-    {
-<text>
-internal static readonly ApiUrls @(Raw(propertyName)) = new([
-@foreach (var q in quoted)
-{
-<text>@Raw(q),
-</text>
-}
-]);
-</text>
-    }
 }
     }
 }

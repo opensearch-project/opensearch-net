@@ -74,6 +74,24 @@ namespace ApiGenerator.Generator
             return $"{member[..arrow]} =>\n{new string(' ', indent)}{IndentUnit}{member[(arrow + 4)..]}";
         }
 
+        /// <summary>
+        /// Renders a collection expression <c>[a, b]</c> between <paramref name="head" /> and <paramref name="tail" />,
+        /// putting each element on its own line (with a trailing comma) when the line would exceed
+        /// <see cref="MaxLineLength"/>.
+        /// </summary>
+        public static string CollectionExpression(string head, IReadOnlyCollection<string> elements, string tail, int indent)
+        {
+            var singleLine = $"{head}[{string.Join(", ", elements)}]{tail}";
+            if (indent + singleLine.Length <= MaxLineLength || elements.Count == 0)
+                return singleLine;
+
+            var baseIndent = new string(' ', indent);
+            var sb = new StringBuilder(head).Append('[');
+            foreach (var element in elements)
+                sb.Append('\n').Append(baseIndent).Append(IndentUnit).Append(element).Append(',');
+            return sb.Append('\n').Append(baseIndent).Append(']').Append(tail).ToString();
+        }
+
         /// <summary>Splits on commas that are not nested inside <c>&lt;&gt;</c>, <c>()</c> or <c>[]</c>.</summary>
         private static List<string> SplitTopLevel(string list)
         {
