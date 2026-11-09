@@ -786,9 +786,9 @@ namespace OpenSearch.Net
 
         public static implicit operator Guid(DynamicValue dynamicValue)
         {
-            if (dynamicValue._value is Guid)
+            if (dynamicValue._value is Guid guid)
             {
-                return (Guid)dynamicValue._value;
+                return guid;
             }
 
             return Guid.Parse(dynamicValue.ToString(CultureInfo.InvariantCulture));
@@ -796,9 +796,9 @@ namespace OpenSearch.Net
 
         public static implicit operator DateTime(DynamicValue dynamicValue)
         {
-            if (dynamicValue._value is DateTime)
+            if (dynamicValue._value is DateTime dateTime)
             {
-                return (DateTime)dynamicValue._value;
+                return dateTime;
             }
 
             return DateTime.Parse(dynamicValue.ToString(CultureInfo.InvariantCulture));
@@ -806,9 +806,9 @@ namespace OpenSearch.Net
 
         public static implicit operator TimeSpan(DynamicValue dynamicValue)
         {
-            if (dynamicValue._value is TimeSpan)
+            if (dynamicValue._value is TimeSpan timeSpan)
             {
-                return (TimeSpan)dynamicValue._value;
+                return timeSpan;
             }
 
             return TimeSpan.Parse(dynamicValue.ToString(CultureInfo.InvariantCulture));

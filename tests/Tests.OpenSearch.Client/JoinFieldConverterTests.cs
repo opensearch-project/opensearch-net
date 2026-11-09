@@ -31,7 +31,7 @@ namespace Tests.OpenSearch.Client.Serialization
         [U]
         public void Serialize_Parent_WritesString()
         {
-            JoinField field = JoinField.Root("my-parent");
+            var field = JoinField.Root("my-parent");
             var json = JsonSerializer.Serialize(field, Options());
             json.Should().Be(@"""my-parent""");
         }
@@ -39,7 +39,7 @@ namespace Tests.OpenSearch.Client.Serialization
         [U]
         public void Serialize_Child_WritesObject()
         {
-            JoinField field = JoinField.Link("my-child", "parent-id");
+            var field = JoinField.Link("my-child", "parent-id");
             var json = JsonSerializer.Serialize(field, Options());
             json.Should().Be(@"{""name"":""my-child"",""parent"":""parent-id""}");
         }
@@ -72,7 +72,7 @@ namespace Tests.OpenSearch.Client.Serialization
         [U]
         public void RoundTrip_Child()
         {
-            JoinField field = JoinField.Link("my-child", "parent-id");
+            var field = JoinField.Link("my-child", "parent-id");
             var json = JsonSerializer.Serialize(field, Options());
             var back = JsonSerializer.Deserialize<JoinField>(json, Options());
             back.Match(p => (RelationName)null, c => c.Name).Should().Be((RelationName)"my-child");
