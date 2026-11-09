@@ -84,8 +84,12 @@ namespace ApiGenerator.Generator
             {
                 switch (list[i])
                 {
-                    case '<' or '(' or '[': depth++; break;
-                    case '>' or ')' or ']': depth--; break;
+                    case '<' or '(' or '[':
+                        depth++;
+                        break;
+                    case '>' or ')' or ']':
+                        depth--;
+                        break;
                     case ',' when depth == 0:
                         parts.Add(list[start..i].Trim());
                         start = i + 1;

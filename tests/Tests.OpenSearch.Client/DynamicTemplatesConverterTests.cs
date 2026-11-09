@@ -143,7 +143,7 @@ namespace Tests.OpenSearch.Client.Serialization
         public void InterfaceConverter_SerializesSameShapeAsConcrete()
         {
             var options = Options();
-            DynamicTemplateContainer concrete = SampleContainer();
+            var concrete = SampleContainer();
             IDynamicTemplateContainer asInterface = concrete;
 
             var concreteJson = JsonSerializer.Serialize(concrete, options);
