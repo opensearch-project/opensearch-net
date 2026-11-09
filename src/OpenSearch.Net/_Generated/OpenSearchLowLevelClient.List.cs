@@ -204,5 +204,138 @@ namespace OpenSearch.Net.Specification.ListApi
                 null,
                 RequestParams(requestParameters)
             );
+
+        /// <summary>GET on /_list/wlm_stats</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
+        public TResponse WlmStats<TResponse>(WlmStatsRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_list/wlm_stats", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_list/wlm_stats</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
+        [MapsApi("list.wlm_stats", "")]
+        public Task<TResponse> WlmStatsAsync<TResponse>(
+            WlmStatsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_list/wlm_stats",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_list/wlm_stats/{node_id}/stats</summary>
+        /// <param name="nodeId">A comma-separated list of node IDs or names used to limit the returned statistics.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
+        public TResponse WlmStats<TResponse>(
+            string nodeId,
+            WlmStatsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_list/wlm_stats/{nodeId:nodeId}/stats"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_list/wlm_stats/{node_id}/stats</summary>
+        /// <param name="nodeId">A comma-separated list of node IDs or names used to limit the returned statistics.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
+        [MapsApi("list.wlm_stats", "node_id")]
+        public Task<TResponse> WlmStatsAsync<TResponse>(
+            string nodeId,
+            WlmStatsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_list/wlm_stats/{nodeId:nodeId}/stats"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_list/wlm_stats/{node_id}/stats/{workload_group_id}</summary>
+        /// <param name="nodeId">A comma-separated list of node IDs or names used to limit the returned statistics.</param>
+        /// <param name="workloadGroupId">A comma-separated list of workload group IDs used to limit the returned statistics. Use &lt;c&gt;_all&lt;/c&gt; to return statistics for every workload group.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
+        public TResponse WlmStats<TResponse>(
+            string nodeId,
+            string workloadGroupId,
+            WlmStatsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_list/wlm_stats/{nodeId:nodeId}/stats/{workloadGroupId:workloadGroupId}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_list/wlm_stats/{node_id}/stats/{workload_group_id}</summary>
+        /// <param name="nodeId">A comma-separated list of node IDs or names used to limit the returned statistics.</param>
+        /// <param name="workloadGroupId">A comma-separated list of workload group IDs used to limit the returned statistics. Use &lt;c&gt;_all&lt;/c&gt; to return statistics for every workload group.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
+        [MapsApi("list.wlm_stats", "node_id, workload_group_id")]
+        public Task<TResponse> WlmStatsAsync<TResponse>(
+            string nodeId,
+            string workloadGroupId,
+            WlmStatsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_list/wlm_stats/{nodeId:nodeId}/stats/{workloadGroupId:workloadGroupId}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_list/wlm_stats/stats/{workload_group_id}</summary>
+        /// <param name="workloadGroupId">A comma-separated list of workload group IDs used to limit the returned statistics. Use &lt;c&gt;_all&lt;/c&gt; to return statistics for every workload group.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
+        public TResponse WlmStats<TResponse>(
+            string workloadGroupId,
+            WlmStatsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_list/wlm_stats/stats/{workloadGroupId:workloadGroupId}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_list/wlm_stats/stats/{workload_group_id}</summary>
+        /// <param name="workloadGroupId">A comma-separated list of workload group IDs used to limit the returned statistics. Use &lt;c&gt;_all&lt;/c&gt; to return statistics for every workload group.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
+        [MapsApi("list.wlm_stats", "workload_group_id")]
+        public Task<TResponse> WlmStatsAsync<TResponse>(
+            string workloadGroupId,
+            WlmStatsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_list/wlm_stats/stats/{workloadGroupId:workloadGroupId}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
     }
 }

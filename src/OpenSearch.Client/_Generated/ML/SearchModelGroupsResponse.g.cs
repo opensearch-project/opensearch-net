@@ -31,46 +31,22 @@ namespace OpenSearch.Client
     [ReadAs(typeof(SearchModelGroupsResponse))]
     public interface ISearchModelGroupsResponse
     {
-        [DataMember(Name = "_shards")]
-        ShardStatistics Shards { get; set; }
-
         [DataMember(Name = "hits")]
-        ISearchHits Hits { get; set; }
-
-        [DataMember(Name = "timed_out")]
-        bool? TimedOut { get; set; }
-
-        [DataMember(Name = "took")]
-        int? Took { get; set; }
+        IDictionary<string, object> Hits { get; set; }
     }
 
     public class SearchModelGroupsResponse : ISearchModelGroupsResponse
     {
-        public ShardStatistics Shards { get; set; }
-        public ISearchHits Hits { get; set; }
-        public bool? TimedOut { get; set; }
-        public int? Took { get; set; }
+        public IDictionary<string, object> Hits { get; set; }
     }
 
     public class SearchModelGroupsResponseDescriptor
         : DescriptorBase<SearchModelGroupsResponseDescriptor, ISearchModelGroupsResponse>,
             ISearchModelGroupsResponse
     {
-        ShardStatistics ISearchModelGroupsResponse.Shards { get; set; }
-        ISearchHits ISearchModelGroupsResponse.Hits { get; set; }
-        bool? ISearchModelGroupsResponse.TimedOut { get; set; }
-        int? ISearchModelGroupsResponse.Took { get; set; }
+        IDictionary<string, object> ISearchModelGroupsResponse.Hits { get; set; }
 
-        public SearchModelGroupsResponseDescriptor Shards(ShardStatistics shards) =>
-            Assign(shards, (a, v) => a.Shards = v);
-
-        public SearchModelGroupsResponseDescriptor Hits(ISearchHits hits) =>
+        public SearchModelGroupsResponseDescriptor Hits(IDictionary<string, object> hits) =>
             Assign(hits, (a, v) => a.Hits = v);
-
-        public SearchModelGroupsResponseDescriptor TimedOut(bool? timedOut = true) =>
-            Assign(timedOut, (a, v) => a.TimedOut = v);
-
-        public SearchModelGroupsResponseDescriptor Took(int? took) =>
-            Assign(took, (a, v) => a.Took = v);
     }
 }

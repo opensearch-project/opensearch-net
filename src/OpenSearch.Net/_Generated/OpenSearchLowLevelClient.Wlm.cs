@@ -99,6 +99,41 @@ namespace OpenSearch.Net.Specification.WlmApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>PUT on /_wlm/workload_group</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.0.0 or greater.</remarks>
+        public TResponse CreateWorkloadGroup<TResponse>(
+            PostData body,
+            CreateWorkloadGroupRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                "_wlm/workload_group",
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_wlm/workload_group</summary>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.0.0 or greater.</remarks>
+        [MapsApi("wlm.create_workload_group", "body")]
+        public Task<TResponse> CreateWorkloadGroupAsync<TResponse>(
+            PostData body,
+            CreateWorkloadGroupRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                "_wlm/workload_group",
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>DELETE on /_wlm/query_group/{name}</summary>
         /// <param name="name">The name of the query group.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -129,6 +164,41 @@ namespace OpenSearch.Net.Specification.WlmApi
             DoRequestAsync<TResponse>(
                 DELETE,
                 Url($"_wlm/query_group/{name:name}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_wlm/workload_group/{name}</summary>
+        /// <param name="name">The name of the workload group.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.0.0 or greater.</remarks>
+        public TResponse DeleteWorkloadGroup<TResponse>(
+            string name,
+            DeleteWorkloadGroupRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                DELETE,
+                Url($"_wlm/workload_group/{name:name}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>DELETE on /_wlm/workload_group/{name}</summary>
+        /// <param name="name">The name of the workload group.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.0.0 or greater.</remarks>
+        [MapsApi("wlm.delete_workload_group", "name")]
+        public Task<TResponse> DeleteWorkloadGroupAsync<TResponse>(
+            string name,
+            DeleteWorkloadGroupRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                DELETE,
+                Url($"_wlm/workload_group/{name:name}"),
                 ctx,
                 null,
                 RequestParams(requestParameters)
@@ -195,6 +265,205 @@ namespace OpenSearch.Net.Specification.WlmApi
                 RequestParams(requestParameters)
             );
 
+        /// <summary>GET on /_wlm/workload_group</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.0.0 or greater.</remarks>
+        public TResponse GetWorkloadGroup<TResponse>(
+            GetWorkloadGroupRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                "_wlm/workload_group",
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_wlm/workload_group</summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.0.0 or greater.</remarks>
+        [MapsApi("wlm.get_workload_group", "")]
+        public Task<TResponse> GetWorkloadGroupAsync<TResponse>(
+            GetWorkloadGroupRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_wlm/workload_group",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_wlm/workload_group/{name}</summary>
+        /// <param name="name">The name of the workload group.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.0.0 or greater.</remarks>
+        public TResponse GetWorkloadGroup<TResponse>(
+            string name,
+            GetWorkloadGroupRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_wlm/workload_group/{name:name}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_wlm/workload_group/{name}</summary>
+        /// <param name="name">The name of the workload group.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.0.0 or greater.</remarks>
+        [MapsApi("wlm.get_workload_group", "name")]
+        public Task<TResponse> GetWorkloadGroupAsync<TResponse>(
+            string name,
+            GetWorkloadGroupRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_wlm/workload_group/{name:name}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_wlm/stats <para>https://docs.opensearch.org/latest/tuning-your-cluster/availability-and-recovery/workload-management/wlm-feature-overview/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
+        public TResponse Stats<TResponse>(StatsRequestParameters requestParameters = null)
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(GET, "_wlm/stats", null, RequestParams(requestParameters));
+
+        /// <summary>GET on /_wlm/stats <para>https://docs.opensearch.org/latest/tuning-your-cluster/availability-and-recovery/workload-management/wlm-feature-overview/</para></summary>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
+        [MapsApi("wlm.stats", "")]
+        public Task<TResponse> StatsAsync<TResponse>(
+            StatsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                "_wlm/stats",
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_wlm/{node_id}/stats <para>https://docs.opensearch.org/latest/tuning-your-cluster/availability-and-recovery/workload-management/wlm-feature-overview/</para></summary>
+        /// <param name="nodeId">A comma-separated list of node IDs or names used to limit the returned statistics.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
+        public TResponse Stats<TResponse>(
+            string nodeId,
+            StatsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_wlm/{nodeId:nodeId}/stats"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_wlm/{node_id}/stats <para>https://docs.opensearch.org/latest/tuning-your-cluster/availability-and-recovery/workload-management/wlm-feature-overview/</para></summary>
+        /// <param name="nodeId">A comma-separated list of node IDs or names used to limit the returned statistics.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
+        [MapsApi("wlm.stats", "node_id")]
+        public Task<TResponse> StatsAsync<TResponse>(
+            string nodeId,
+            StatsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_wlm/{nodeId:nodeId}/stats"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_wlm/{node_id}/stats/{workload_group_id} <para>https://docs.opensearch.org/latest/tuning-your-cluster/availability-and-recovery/workload-management/wlm-feature-overview/</para></summary>
+        /// <param name="nodeId">A comma-separated list of node IDs or names used to limit the returned statistics.</param>
+        /// <param name="workloadGroupId">A comma-separated list of workload group IDs used to limit the returned statistics. Use &lt;c&gt;_all&lt;/c&gt; to return statistics for every workload group.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
+        public TResponse Stats<TResponse>(
+            string nodeId,
+            string workloadGroupId,
+            StatsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_wlm/{nodeId:nodeId}/stats/{workloadGroupId:workloadGroupId}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_wlm/{node_id}/stats/{workload_group_id} <para>https://docs.opensearch.org/latest/tuning-your-cluster/availability-and-recovery/workload-management/wlm-feature-overview/</para></summary>
+        /// <param name="nodeId">A comma-separated list of node IDs or names used to limit the returned statistics.</param>
+        /// <param name="workloadGroupId">A comma-separated list of workload group IDs used to limit the returned statistics. Use &lt;c&gt;_all&lt;/c&gt; to return statistics for every workload group.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
+        [MapsApi("wlm.stats", "node_id, workload_group_id")]
+        public Task<TResponse> StatsAsync<TResponse>(
+            string nodeId,
+            string workloadGroupId,
+            StatsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_wlm/{nodeId:nodeId}/stats/{workloadGroupId:workloadGroupId}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_wlm/stats/{workload_group_id} <para>https://docs.opensearch.org/latest/tuning-your-cluster/availability-and-recovery/workload-management/wlm-feature-overview/</para></summary>
+        /// <param name="workloadGroupId">A comma-separated list of workload group IDs used to limit the returned statistics. Use &lt;c&gt;_all&lt;/c&gt; to return statistics for every workload group.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
+        public TResponse Stats<TResponse>(
+            string workloadGroupId,
+            StatsRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                GET,
+                Url($"_wlm/stats/{workloadGroupId:workloadGroupId}"),
+                null,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>GET on /_wlm/stats/{workload_group_id} <para>https://docs.opensearch.org/latest/tuning-your-cluster/availability-and-recovery/workload-management/wlm-feature-overview/</para></summary>
+        /// <param name="workloadGroupId">A comma-separated list of workload group IDs used to limit the returned statistics. Use &lt;c&gt;_all&lt;/c&gt; to return statistics for every workload group.</param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 2.18.0 or greater.</remarks>
+        [MapsApi("wlm.stats", "workload_group_id")]
+        public Task<TResponse> StatsAsync<TResponse>(
+            string workloadGroupId,
+            StatsRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                GET,
+                Url($"_wlm/stats/{workloadGroupId:workloadGroupId}"),
+                ctx,
+                null,
+                RequestParams(requestParameters)
+            );
+
         /// <summary>PUT on /_wlm/query_group/{name}</summary>
         /// <param name="name">The name of the query group.</param>
         /// <param name="body"></param>
@@ -229,6 +498,45 @@ namespace OpenSearch.Net.Specification.WlmApi
             DoRequestAsync<TResponse>(
                 PUT,
                 Url($"_wlm/query_group/{name:name}"),
+                ctx,
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_wlm/workload_group/{name}</summary>
+        /// <param name="name">The name of the workload group.</param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.0.0 or greater.</remarks>
+        public TResponse UpdateWorkloadGroup<TResponse>(
+            string name,
+            PostData body,
+            UpdateWorkloadGroupRequestParameters requestParameters = null
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequest<TResponse>(
+                PUT,
+                Url($"_wlm/workload_group/{name:name}"),
+                body,
+                RequestParams(requestParameters)
+            );
+
+        /// <summary>PUT on /_wlm/workload_group/{name}</summary>
+        /// <param name="name">The name of the workload group.</param>
+        /// <param name="body"></param>
+        /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
+        /// <remarks>Supported by OpenSearch servers of version 3.0.0 or greater.</remarks>
+        [MapsApi("wlm.update_workload_group", "name, body")]
+        public Task<TResponse> UpdateWorkloadGroupAsync<TResponse>(
+            string name,
+            PostData body,
+            UpdateWorkloadGroupRequestParameters requestParameters = null,
+            CancellationToken ctx = default
+        )
+            where TResponse : class, IOpenSearchResponse, new() =>
+            DoRequestAsync<TResponse>(
+                PUT,
+                Url($"_wlm/workload_group/{name:name}"),
                 ctx,
                 body,
                 RequestParams(requestParameters)

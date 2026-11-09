@@ -23,35 +23,35 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using OpenSearch.Net;
-using OpenSearch.Net.Utf8Json;
 
 namespace OpenSearch.Client
 {
-    [InterfaceDataContract]
-    [ReadAs(typeof(HitsTotal))]
-    public interface IHitsTotal
+    /// <remarks>Supported by OpenSearch servers of version 3.6 or greater.</remarks>
+    public partial interface IPatchExperimentRequest
     {
-        [DataMember(Name = "relation")]
-        string Relation { get; set; }
+        [DataMember(Name = "description")]
+        string Description { get; set; }
 
-        [DataMember(Name = "value")]
-        long? Value { get; set; }
+        [DataMember(Name = "name")]
+        string Name { get; set; }
     }
 
-    public class HitsTotal : IHitsTotal
+    public partial class PatchExperimentRequest
     {
-        public string Relation { get; set; }
-        public long? Value { get; set; }
+        /// <summary>Minimum OpenSearch version required for this API.</summary>
+        public const string MinimumServerVersion = "3.6";
+        public string Description { get; set; }
+        public string Name { get; set; }
     }
 
-    public class HitsTotalDescriptor : DescriptorBase<HitsTotalDescriptor, IHitsTotal>, IHitsTotal
+    public partial class PatchExperimentDescriptor
     {
-        string IHitsTotal.Relation { get; set; }
-        long? IHitsTotal.Value { get; set; }
+        string IPatchExperimentRequest.Description { get; set; }
+        string IPatchExperimentRequest.Name { get; set; }
 
-        public HitsTotalDescriptor Relation(string relation) =>
-            Assign(relation, (a, v) => a.Relation = v);
+        public PatchExperimentDescriptor Description(string description) =>
+            Assign(description, (a, v) => a.Description = v);
 
-        public HitsTotalDescriptor Value(long? value) => Assign(value, (a, v) => a.Value = v);
+        public PatchExperimentDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
     }
 }

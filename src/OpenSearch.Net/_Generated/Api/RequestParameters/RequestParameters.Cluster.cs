@@ -168,19 +168,10 @@ namespace OpenSearch.Net.Specification.ClusterApi
         public override string OperationName => "cluster.describe_settings";
 
         /// <summary>
-        /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
-        /// href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.
-        /// </summary>
-        /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
-        public TimeSpan ClusterManagerTimeout
-        {
-            get => Q<TimeSpan>("cluster_manager_timeout");
-            set => Q("cluster_manager_timeout", value);
-        }
-
-        /// <summary>
-        /// A comma-separated list of exact setting names to describe. Wildcards are not supported; each name must be an exact, valid setting key. At
-        /// least one name is required.
+        /// A comma-separated list of setting names to describe. Each entry is either an exact setting name or a prefix ending in <c>.*</c>, such as
+        /// <c>cluster.routing.allocation.*</c>, which expands to every registered setting under it at any depth. Exact names and prefixes can be
+        /// mixed. Other wildcard forms are rejected. Affix and group setting templates and secure (keystore) settings are not listed under a prefix;
+        /// their concrete names can still be requested exactly. At least one entry is required.
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.10.0 or greater.</remarks>
         public string[] Settings

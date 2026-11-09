@@ -247,6 +247,15 @@ namespace OpenSearch.Net.Specification.SearchRelevanceApi
         public override string OperationName => "search_relevance.judgments_search";
     }
 
+    /// <summary>Request options for PatchExperiment</summary>
+    public partial class PatchExperimentRequestParameters
+        : RequestParameters<PatchExperimentRequestParameters>
+    {
+        public override HttpMethod DefaultHttpMethod => HttpMethod.PATCH;
+        public override bool SupportsBody => true;
+        public override string OperationName => "search_relevance.patch_experiment";
+    }
+
     /// <summary>Request options for PostQuerySets</summary>
     public partial class PostQuerySetsRequestParameters
         : RequestParameters<PostQuerySetsRequestParameters>

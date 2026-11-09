@@ -498,7 +498,10 @@ namespace OpenSearch.Net
             set => Q("ignore_unavailable", value);
         }
 
-        /// <summary>Specify the keep alive for point in time.</summary>
+        /// <summary>
+        /// Specify the keep alive for point in time. Each search against the PIT restarts it, and a search cannot shorten it. It cannot exceed the
+        /// <c>point_in_time.max_keep_alive</c> cluster setting (24 hours by default).
+        /// </summary>
         public TimeSpan KeepAlive
         {
             get => Q<TimeSpan>("keep_alive");
