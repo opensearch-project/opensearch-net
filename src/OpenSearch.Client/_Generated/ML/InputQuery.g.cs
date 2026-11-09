@@ -49,9 +49,7 @@ namespace OpenSearch.Client
         public long? Size { get; set; }
     }
 
-    public class InputQueryDescriptor
-        : DescriptorBase<InputQueryDescriptor, IInputQuery>,
-            IInputQuery
+    public class InputQueryDescriptor : DescriptorBase<InputQueryDescriptor, IInputQuery>, IInputQuery
     {
         IList<string> IInputQuery.Source { get; set; }
         IQueryContainer IInputQuery.Query { get; set; }
@@ -63,11 +61,10 @@ namespace OpenSearch.Client
         public InputQueryDescriptor Query(IQueryContainer query) =>
             Assign(query, (a, v) => a.Query = v);
 
-        public InputQueryDescriptor Query(
-            Func<QueryContainerDescriptor<object>, QueryContainer> selector
-        ) =>
+        public InputQueryDescriptor Query(Func<QueryContainerDescriptor<object>, QueryContainer> selector) =>
             Assign(selector, (a, v) => a.Query = v?.Invoke(new QueryContainerDescriptor<object>()));
 
-        public InputQueryDescriptor Size(long? size) => Assign(size, (a, v) => a.Size = v);
+        public InputQueryDescriptor Size(long? size) =>
+            Assign(size, (a, v) => a.Size = v);
     }
 }

@@ -64,9 +64,8 @@ namespace OpenSearch.Client
         public PutPairwiseExperimentRequestDescriptor QuerySetId(string querySetId) =>
             Assign(querySetId, (a, v) => a.QuerySetId = v);
 
-        public PutPairwiseExperimentRequestDescriptor SearchConfigurationList(
-            IList<string> searchConfigurationList
-        ) => Assign(searchConfigurationList, (a, v) => a.SearchConfigurationList = v);
+        public PutPairwiseExperimentRequestDescriptor SearchConfigurationList(IList<string> searchConfigurationList) =>
+            Assign(searchConfigurationList, (a, v) => a.SearchConfigurationList = v);
 
         public PutPairwiseExperimentRequestDescriptor Size(int? size) =>
             Assign(size, (a, v) => a.Size = v);

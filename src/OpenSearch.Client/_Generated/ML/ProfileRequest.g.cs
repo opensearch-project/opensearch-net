@@ -56,9 +56,7 @@ namespace OpenSearch.Client
         public IList<Id> TaskIds { get; set; }
     }
 
-    public class ProfileRequestDescriptor
-        : DescriptorBase<ProfileRequestDescriptor, IProfileRequest>,
-            IProfileRequest
+    public class ProfileRequestDescriptor : DescriptorBase<ProfileRequestDescriptor, IProfileRequest>, IProfileRequest
     {
         IList<Id> IProfileRequest.ModelIds { get; set; }
         IList<Id> IProfileRequest.NodeIds { get; set; }

@@ -29,5 +29,7 @@ namespace OpenSearch.Client
 {
     [DataContract]
     /// <remarks>Supported by OpenSearch servers of version 3.1 or greater.</remarks>
-    public class DeleteExperimentsResponse : WriteResponseBase { }
+    public class DeleteExperimentsResponse : WriteResponseBase
+    {
+    }
 }

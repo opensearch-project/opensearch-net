@@ -70,10 +70,13 @@ namespace OpenSearch.Client
         public ToolDescriptor Description(string description) =>
             Assign(description, (a, v) => a.Description = v);
 
-        public ToolDescriptor Name(Name name) => Assign(name, (a, v) => a.Name = v);
+        public ToolDescriptor Name(Name name) =>
+            Assign(name, (a, v) => a.Name = v);
 
-        public ToolDescriptor Type(string type) => Assign(type, (a, v) => a.Type = v);
+        public ToolDescriptor Type(string type) =>
+            Assign(type, (a, v) => a.Type = v);
 
-        public ToolDescriptor Version(string version) => Assign(version, (a, v) => a.Version = v);
+        public ToolDescriptor Version(string version) =>
+            Assign(version, (a, v) => a.Version = v);
     }
 }

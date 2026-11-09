@@ -59,23 +59,17 @@ namespace OpenSearch.Client
 {
     /// <summary>Descriptor for HotThreads <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-hot-threads/</para></summary>
     public partial class NodesHotThreadsDescriptor
-        : RequestDescriptorBase<
-            NodesHotThreadsDescriptor,
-            NodesHotThreadsRequestParameters,
-            INodesHotThreadsRequest
-        >,
+        : RequestDescriptorBase<NodesHotThreadsDescriptor, NodesHotThreadsRequestParameters, INodesHotThreadsRequest>,
             INodesHotThreadsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesHotThreads;
 
         /// <summary>/_nodes/hot_threads</summary>
-        public NodesHotThreadsDescriptor()
-            : base() { }
+        public NodesHotThreadsDescriptor() : base() { }
 
         /// <summary>/_nodes/{node_id}/hot_threads</summary>
         /// <param name="nodeId">Optional, accepts null</param>
-        public NodesHotThreadsDescriptor(NodeIds nodeId)
-            : base(r => r.Optional("node_id", nodeId)) { }
+        public NodesHotThreadsDescriptor(NodeIds nodeId) : base(r => r.Optional("node_id", nodeId)) { }
 
         // values part of the url path
         NodeIds INodesHotThreadsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
@@ -113,32 +107,27 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesInfo;
 
         /// <summary>/_nodes</summary>
-        public NodesInfoDescriptor()
-            : base() { }
+        public NodesInfoDescriptor() : base() { }
 
         /// <summary>/_nodes/{metric}</summary>
         /// <param name="metric">Optional, accepts null</param>
-        public NodesInfoDescriptor(Metrics metric)
-            : base(r => r.Optional("metric", metric)) { }
+        public NodesInfoDescriptor(Metrics metric) : base(r => r.Optional("metric", metric)) { }
 
         /// <summary>/_nodes/{node_id}</summary>
         /// <param name="nodeId">Optional, accepts null</param>
-        public NodesInfoDescriptor(NodeIds nodeId)
-            : base(r => r.Optional("node_id", nodeId)) { }
+        public NodesInfoDescriptor(NodeIds nodeId) : base(r => r.Optional("node_id", nodeId)) { }
 
         /// <summary>/_nodes/{node_id}/{metric}</summary>
         /// <param name="nodeId">Optional, accepts null</param>
         /// <param name="metric">Optional, accepts null</param>
-        public NodesInfoDescriptor(NodeIds nodeId, Metrics metric)
-            : base(r => r.Optional("node_id", nodeId).Optional("metric", metric)) { }
+        public NodesInfoDescriptor(NodeIds nodeId, Metrics metric) : base(r => r.Optional("node_id", nodeId).Optional("metric", metric)) { }
 
         // values part of the url path
         Metrics INodesInfoRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
         NodeIds INodesInfoRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
         /// <summary>Limits the information returned to the specific metrics. Supports a comma-separated list, such as <c>http,ingest</c>.</summary>
-        public NodesInfoDescriptor Metric(Metrics metric) =>
-            Assign(metric, (a, v) => a.RouteValues.Optional("metric", v));
+        public NodesInfoDescriptor Metric(Metrics metric) => Assign(metric, (a, v) => a.RouteValues.Optional("metric", v));
 
         /// <summary>A comma-separated list of node IDs or names used to limit returned information.</summary>
         public NodesInfoDescriptor NodeId(NodeIds nodeId) =>
@@ -146,8 +135,7 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>When <c>true</c>, returns settings in flat format.</summary>
-        public NodesInfoDescriptor FlatSettings(bool? flatsettings = true) =>
-            Qs("flat_settings", flatsettings);
+        public NodesInfoDescriptor FlatSettings(bool? flatsettings = true) => Qs("flat_settings", flatsettings);
 
         /// <summary>The amount of time to wait for a response. If no response is received before the timeout expires, the request fails and returns an error.</summary>
         public NodesInfoDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
@@ -155,23 +143,17 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for ReloadSecureSettings <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-reload-secure/</para></summary>
     public partial class ReloadSecureSettingsDescriptor
-        : RequestDescriptorBase<
-            ReloadSecureSettingsDescriptor,
-            ReloadSecureSettingsRequestParameters,
-            IReloadSecureSettingsRequest
-        >,
+        : RequestDescriptorBase<ReloadSecureSettingsDescriptor, ReloadSecureSettingsRequestParameters, IReloadSecureSettingsRequest>,
             IReloadSecureSettingsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesReloadSecureSettings;
 
         /// <summary>/_nodes/reload_secure_settings</summary>
-        public ReloadSecureSettingsDescriptor()
-            : base() { }
+        public ReloadSecureSettingsDescriptor() : base() { }
 
         /// <summary>/_nodes/{node_id}/reload_secure_settings</summary>
         /// <param name="nodeId">Optional, accepts null</param>
-        public ReloadSecureSettingsDescriptor(NodeIds nodeId)
-            : base(r => r.Optional("node_id", nodeId)) { }
+        public ReloadSecureSettingsDescriptor(NodeIds nodeId) : base(r => r.Optional("node_id", nodeId)) { }
 
         // values part of the url path
         NodeIds IReloadSecureSettingsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
@@ -187,55 +169,40 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Stats <para>https://docs.opensearch.org/latest/api-reference/nodes-apis/nodes-usage/</para></summary>
     public partial class NodesStatsDescriptor
-        : RequestDescriptorBase<
-            NodesStatsDescriptor,
-            NodesStatsRequestParameters,
-            INodesStatsRequest
-        >,
+        : RequestDescriptorBase<NodesStatsDescriptor, NodesStatsRequestParameters, INodesStatsRequest>,
             INodesStatsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesStats;
 
         /// <summary>/_nodes/stats</summary>
-        public NodesStatsDescriptor()
-            : base() { }
+        public NodesStatsDescriptor() : base() { }
 
         /// <summary>/_nodes/stats/{metric}</summary>
         /// <param name="metric">Optional, accepts null</param>
-        public NodesStatsDescriptor(Metrics metric)
-            : base(r => r.Optional("metric", metric)) { }
+        public NodesStatsDescriptor(Metrics metric) : base(r => r.Optional("metric", metric)) { }
 
         /// <summary>/_nodes/stats/{metric}/{index_metric}</summary>
         /// <param name="metric">Optional, accepts null</param>
         /// <param name="indexMetric">Optional, accepts null</param>
-        public NodesStatsDescriptor(Metrics metric, IndexMetrics indexMetric)
-            : base(r => r.Optional("metric", metric).Optional("index_metric", indexMetric)) { }
+        public NodesStatsDescriptor(Metrics metric, IndexMetrics indexMetric) : base(r => r.Optional("metric", metric).Optional("index_metric", indexMetric)) { }
 
         /// <summary>/_nodes/{node_id}/stats</summary>
         /// <param name="nodeId">Optional, accepts null</param>
-        public NodesStatsDescriptor(NodeIds nodeId)
-            : base(r => r.Optional("node_id", nodeId)) { }
+        public NodesStatsDescriptor(NodeIds nodeId) : base(r => r.Optional("node_id", nodeId)) { }
 
         /// <summary>/_nodes/{node_id}/stats/{metric}</summary>
         /// <param name="nodeId">Optional, accepts null</param>
         /// <param name="metric">Optional, accepts null</param>
-        public NodesStatsDescriptor(NodeIds nodeId, Metrics metric)
-            : base(r => r.Optional("node_id", nodeId).Optional("metric", metric)) { }
+        public NodesStatsDescriptor(NodeIds nodeId, Metrics metric) : base(r => r.Optional("node_id", nodeId).Optional("metric", metric)) { }
 
         /// <summary>/_nodes/{node_id}/stats/{metric}/{index_metric}</summary>
         /// <param name="nodeId">Optional, accepts null</param>
         /// <param name="metric">Optional, accepts null</param>
         /// <param name="indexMetric">Optional, accepts null</param>
-        public NodesStatsDescriptor(NodeIds nodeId, Metrics metric, IndexMetrics indexMetric)
-            : base(r =>
-                r.Optional("node_id", nodeId)
-                    .Optional("metric", metric)
-                    .Optional("index_metric", indexMetric)
-            ) { }
+        public NodesStatsDescriptor(NodeIds nodeId, Metrics metric, IndexMetrics indexMetric) : base(r => r.Optional("node_id", nodeId).Optional("metric", metric).Optional("index_metric", indexMetric)) { }
 
         // values part of the url path
-        IndexMetrics INodesStatsRequest.IndexMetric =>
-            Self.RouteValues.Get<IndexMetrics>("index_metric");
+        IndexMetrics INodesStatsRequest.IndexMetric => Self.RouteValues.Get<IndexMetrics>("index_metric");
         Metrics INodesStatsRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
         NodeIds INodesStatsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
@@ -257,23 +224,22 @@ namespace OpenSearch.Client
             Qs("completion_fields", completionfields);
 
         /// <summary>A comma-separated list or wildcard expressions of fields to include in field data and suggest statistics.</summary>
-        public NodesStatsDescriptor CompletionFields<T>(params Expression<Func<T, object>>[] fields)
-            where T : class => Qs("completion_fields", fields?.Select(e => (Field)e));
+        public NodesStatsDescriptor CompletionFields<T>(params Expression<Func<T, object>>[] fields) where T : class =>
+            Qs("completion_fields", fields?.Select(e => (Field)e));
 
         /// <summary>A comma-separated list or wildcard expressions of fields to include in field data statistics.</summary>
-        public NodesStatsDescriptor FielddataFields(Fields fielddatafields) =>
-            Qs("fielddata_fields", fielddatafields);
+        public NodesStatsDescriptor FielddataFields(Fields fielddatafields) => Qs("fielddata_fields", fielddatafields);
 
         /// <summary>A comma-separated list or wildcard expressions of fields to include in field data statistics.</summary>
-        public NodesStatsDescriptor FielddataFields<T>(params Expression<Func<T, object>>[] fields)
-            where T : class => Qs("fielddata_fields", fields?.Select(e => (Field)e));
+        public NodesStatsDescriptor FielddataFields<T>(params Expression<Func<T, object>>[] fields) where T : class =>
+            Qs("fielddata_fields", fields?.Select(e => (Field)e));
 
         /// <summary>A comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
         public NodesStatsDescriptor Fields(Fields fields) => Qs("fields", fields);
 
         /// <summary>A comma-separated list or wildcard expressions of fields to include in the statistics.</summary>
-        public NodesStatsDescriptor Fields<T>(params Expression<Func<T, object>>[] fields)
-            where T : class => Qs("fields", fields?.Select(e => (Field)e));
+        public NodesStatsDescriptor Fields<T>(params Expression<Func<T, object>>[] fields) where T : class =>
+            Qs("fields", fields?.Select(e => (Field)e));
 
         /// <summary>A comma-separated list of search groups to include in the search statistics.</summary>
         public NodesStatsDescriptor Groups(params string[] groups) => Qs("groups", groups);
@@ -294,34 +260,26 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Usage <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class NodesUsageDescriptor
-        : RequestDescriptorBase<
-            NodesUsageDescriptor,
-            NodesUsageRequestParameters,
-            INodesUsageRequest
-        >,
+        : RequestDescriptorBase<NodesUsageDescriptor, NodesUsageRequestParameters, INodesUsageRequest>,
             INodesUsageRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NodesUsage;
 
         /// <summary>/_nodes/usage</summary>
-        public NodesUsageDescriptor()
-            : base() { }
+        public NodesUsageDescriptor() : base() { }
 
         /// <summary>/_nodes/usage/{metric}</summary>
         /// <param name="metric">Optional, accepts null</param>
-        public NodesUsageDescriptor(Metrics metric)
-            : base(r => r.Optional("metric", metric)) { }
+        public NodesUsageDescriptor(Metrics metric) : base(r => r.Optional("metric", metric)) { }
 
         /// <summary>/_nodes/{node_id}/usage</summary>
         /// <param name="nodeId">Optional, accepts null</param>
-        public NodesUsageDescriptor(NodeIds nodeId)
-            : base(r => r.Optional("node_id", nodeId)) { }
+        public NodesUsageDescriptor(NodeIds nodeId) : base(r => r.Optional("node_id", nodeId)) { }
 
         /// <summary>/_nodes/{node_id}/usage/{metric}</summary>
         /// <param name="nodeId">Optional, accepts null</param>
         /// <param name="metric">Optional, accepts null</param>
-        public NodesUsageDescriptor(NodeIds nodeId, Metrics metric)
-            : base(r => r.Optional("node_id", nodeId).Optional("metric", metric)) { }
+        public NodesUsageDescriptor(NodeIds nodeId, Metrics metric) : base(r => r.Optional("node_id", nodeId).Optional("metric", metric)) { }
 
         // values part of the url path
         Metrics INodesUsageRequest.Metric => Self.RouteValues.Get<Metrics>("metric");

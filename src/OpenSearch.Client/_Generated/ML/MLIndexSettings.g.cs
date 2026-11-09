@@ -63,27 +63,19 @@ namespace OpenSearch.Client
         IMemoryIndexSettings IMLIndexSettings.ShortTermMemoryIndex { get; set; }
         IDictionary<string, object> IHasAdditionalProperties.AdditionalProperties { get; set; }
 
-        public MLIndexSettingsDescriptor LongTermMemoryHistoryIndex(
-            IMemoryIndexSettings longTermMemoryHistoryIndex
-        ) => Assign(longTermMemoryHistoryIndex, (a, v) => a.LongTermMemoryHistoryIndex = v);
+        public MLIndexSettingsDescriptor LongTermMemoryHistoryIndex(IMemoryIndexSettings longTermMemoryHistoryIndex) =>
+            Assign(longTermMemoryHistoryIndex, (a, v) => a.LongTermMemoryHistoryIndex = v);
 
-        public MLIndexSettingsDescriptor LongTermMemoryIndex(
-            IMemoryIndexSettings longTermMemoryIndex
-        ) => Assign(longTermMemoryIndex, (a, v) => a.LongTermMemoryIndex = v);
+        public MLIndexSettingsDescriptor LongTermMemoryIndex(IMemoryIndexSettings longTermMemoryIndex) =>
+            Assign(longTermMemoryIndex, (a, v) => a.LongTermMemoryIndex = v);
 
         public MLIndexSettingsDescriptor SessionIndex(IMemoryIndexSettings sessionIndex) =>
             Assign(sessionIndex, (a, v) => a.SessionIndex = v);
 
-        public MLIndexSettingsDescriptor ShortTermMemoryIndex(
-            IMemoryIndexSettings shortTermMemoryIndex
-        ) => Assign(shortTermMemoryIndex, (a, v) => a.ShortTermMemoryIndex = v);
+        public MLIndexSettingsDescriptor ShortTermMemoryIndex(IMemoryIndexSettings shortTermMemoryIndex) =>
+            Assign(shortTermMemoryIndex, (a, v) => a.ShortTermMemoryIndex = v);
 
-        public MLIndexSettingsDescriptor AdditionalProperties(
-            IDictionary<string, object> additionalProperties
-        ) =>
-            Assign(
-                additionalProperties,
-                (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v
-            );
+        public MLIndexSettingsDescriptor AdditionalProperties(IDictionary<string, object> additionalProperties) =>
+            Assign(additionalProperties, (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v);
     }
 }

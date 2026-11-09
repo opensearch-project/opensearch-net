@@ -59,24 +59,18 @@ namespace OpenSearch.Client
 {
     /// <summary>Descriptor for CleanupRepository <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class CleanupRepositoryDescriptor
-        : RequestDescriptorBase<
-            CleanupRepositoryDescriptor,
-            CleanupRepositoryRequestParameters,
-            ICleanupRepositoryRequest
-        >,
+        : RequestDescriptorBase<CleanupRepositoryDescriptor, CleanupRepositoryRequestParameters, ICleanupRepositoryRequest>,
             ICleanupRepositoryRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SnapshotCleanupRepository;
 
         /// <summary>/_snapshot/{repository}/_cleanup</summary>
         /// <param name="repository">this parameter is required</param>
-        public CleanupRepositoryDescriptor(Name repository)
-            : base(r => r.Required("repository", repository)) { }
+        public CleanupRepositoryDescriptor(Name repository) : base(r => r.Required("repository", repository)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected CleanupRepositoryDescriptor()
-            : base() { }
+        protected CleanupRepositoryDescriptor() : base() { }
 
         // values part of the url path
         Name ICleanupRepositoryRequest.RepositoryName => Self.RouteValues.Get<Name>("repository");
@@ -88,11 +82,8 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>Period to wait for a connection to the cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public CleanupRepositoryDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public CleanupRepositoryDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>The amount of time to wait for a response.</summary>
         public CleanupRepositoryDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
@@ -100,11 +91,7 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Clone <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class CloneSnapshotDescriptor
-        : RequestDescriptorBase<
-            CloneSnapshotDescriptor,
-            CloneSnapshotRequestParameters,
-            ICloneSnapshotRequest
-        >,
+        : RequestDescriptorBase<CloneSnapshotDescriptor, CloneSnapshotRequestParameters, ICloneSnapshotRequest>,
             ICloneSnapshotRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SnapshotClone;
@@ -113,17 +100,11 @@ namespace OpenSearch.Client
         /// <param name="repository">this parameter is required</param>
         /// <param name="snapshot">this parameter is required</param>
         /// <param name="targetSnapshot">this parameter is required</param>
-        public CloneSnapshotDescriptor(Name repository, Name snapshot, Name targetSnapshot)
-            : base(r =>
-                r.Required("repository", repository)
-                    .Required("snapshot", snapshot)
-                    .Required("target_snapshot", targetSnapshot)
-            ) { }
+        public CloneSnapshotDescriptor(Name repository, Name snapshot, Name targetSnapshot) : base(r => r.Required("repository", repository).Required("snapshot", snapshot).Required("target_snapshot", targetSnapshot)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected CloneSnapshotDescriptor()
-            : base() { }
+        protected CloneSnapshotDescriptor() : base() { }
 
         // values part of the url path
         Name ICloneSnapshotRequest.RepositoryName => Self.RouteValues.Get<Name>("repository");
@@ -137,11 +118,8 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public CloneSnapshotDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public CloneSnapshotDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
     }
 
     /// <summary>Descriptor for Snapshot <para>https://docs.opensearch.org/latest/api-reference/snapshots/create-snapshot/</para></summary>
@@ -154,13 +132,11 @@ namespace OpenSearch.Client
         /// <summary>/_snapshot/{repository}/{snapshot}</summary>
         /// <param name="repository">this parameter is required</param>
         /// <param name="snapshot">this parameter is required</param>
-        public SnapshotDescriptor(Name repository, Name snapshot)
-            : base(r => r.Required("repository", repository).Required("snapshot", snapshot)) { }
+        public SnapshotDescriptor(Name repository, Name snapshot) : base(r => r.Required("repository", repository).Required("snapshot", snapshot)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected SnapshotDescriptor()
-            : base() { }
+        protected SnapshotDescriptor() : base() { }
 
         // values part of the url path
         Name ISnapshotRequest.RepositoryName => Self.RouteValues.Get<Name>("repository");
@@ -173,11 +149,8 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public SnapshotDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public SnapshotDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>When <c>true</c>, the request returns a response when the snapshot is complete. When <c>false</c>, the request returns a response when the snapshot initializes.</summary>
         public SnapshotDescriptor WaitForCompletion(bool? waitforcompletion = true) =>
@@ -186,24 +159,18 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for CreateRepository <para>https://docs.opensearch.org/latest/api-reference/snapshots/create-repository/</para></summary>
     public partial class CreateRepositoryDescriptor
-        : RequestDescriptorBase<
-            CreateRepositoryDescriptor,
-            CreateRepositoryRequestParameters,
-            ICreateRepositoryRequest
-        >,
+        : RequestDescriptorBase<CreateRepositoryDescriptor, CreateRepositoryRequestParameters, ICreateRepositoryRequest>,
             ICreateRepositoryRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SnapshotCreateRepository;
 
         /// <summary>/_snapshot/{repository}</summary>
         /// <param name="repository">this parameter is required</param>
-        public CreateRepositoryDescriptor(Name repository)
-            : base(r => r.Required("repository", repository)) { }
+        public CreateRepositoryDescriptor(Name repository) : base(r => r.Required("repository", repository)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected CreateRepositoryDescriptor()
-            : base() { }
+        protected CreateRepositoryDescriptor() : base() { }
 
         // values part of the url path
         Name ICreateRepositoryRequest.RepositoryName => Self.RouteValues.Get<Name>("repository");
@@ -215,11 +182,8 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public CreateRepositoryDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public CreateRepositoryDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>The amount of time to wait for a response.</summary>
         public CreateRepositoryDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
@@ -230,11 +194,7 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Delete <para>https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot/</para></summary>
     public partial class DeleteSnapshotDescriptor
-        : RequestDescriptorBase<
-            DeleteSnapshotDescriptor,
-            DeleteSnapshotRequestParameters,
-            IDeleteSnapshotRequest
-        >,
+        : RequestDescriptorBase<DeleteSnapshotDescriptor, DeleteSnapshotRequestParameters, IDeleteSnapshotRequest>,
             IDeleteSnapshotRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SnapshotDelete;
@@ -242,13 +202,11 @@ namespace OpenSearch.Client
         /// <summary>/_snapshot/{repository}/{snapshot}</summary>
         /// <param name="repository">this parameter is required</param>
         /// <param name="snapshot">this parameter is required</param>
-        public DeleteSnapshotDescriptor(Name repository, Name snapshot)
-            : base(r => r.Required("repository", repository).Required("snapshot", snapshot)) { }
+        public DeleteSnapshotDescriptor(Name repository, Name snapshot) : base(r => r.Required("repository", repository).Required("snapshot", snapshot)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteSnapshotDescriptor()
-            : base() { }
+        protected DeleteSnapshotDescriptor() : base() { }
 
         // values part of the url path
         Name IDeleteSnapshotRequest.RepositoryName => Self.RouteValues.Get<Name>("repository");
@@ -261,33 +219,24 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public DeleteSnapshotDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public DeleteSnapshotDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
     }
 
     /// <summary>Descriptor for DeleteRepository <para>https://docs.opensearch.org/latest/api-reference/snapshots/delete-snapshot-repository/</para></summary>
     public partial class DeleteRepositoryDescriptor
-        : RequestDescriptorBase<
-            DeleteRepositoryDescriptor,
-            DeleteRepositoryRequestParameters,
-            IDeleteRepositoryRequest
-        >,
+        : RequestDescriptorBase<DeleteRepositoryDescriptor, DeleteRepositoryRequestParameters, IDeleteRepositoryRequest>,
             IDeleteRepositoryRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SnapshotDeleteRepository;
 
         /// <summary>/_snapshot/{repository}</summary>
         /// <param name="repository">this parameter is required</param>
-        public DeleteRepositoryDescriptor(Names repository)
-            : base(r => r.Required("repository", repository)) { }
+        public DeleteRepositoryDescriptor(Names repository) : base(r => r.Required("repository", repository)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteRepositoryDescriptor()
-            : base() { }
+        protected DeleteRepositoryDescriptor() : base() { }
 
         // values part of the url path
         Names IDeleteRepositoryRequest.RepositoryName => Self.RouteValues.Get<Names>("repository");
@@ -299,11 +248,8 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public DeleteRepositoryDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public DeleteRepositoryDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>The amount of time to wait for a response.</summary>
         public DeleteRepositoryDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
@@ -311,11 +257,7 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Get <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class GetSnapshotDescriptor
-        : RequestDescriptorBase<
-            GetSnapshotDescriptor,
-            GetSnapshotRequestParameters,
-            IGetSnapshotRequest
-        >,
+        : RequestDescriptorBase<GetSnapshotDescriptor, GetSnapshotRequestParameters, IGetSnapshotRequest>,
             IGetSnapshotRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SnapshotGet;
@@ -323,13 +265,11 @@ namespace OpenSearch.Client
         /// <summary>/_snapshot/{repository}/{snapshot}</summary>
         /// <param name="repository">this parameter is required</param>
         /// <param name="snapshot">this parameter is required</param>
-        public GetSnapshotDescriptor(Name repository, Names snapshot)
-            : base(r => r.Required("repository", repository).Required("snapshot", snapshot)) { }
+        public GetSnapshotDescriptor(Name repository, Names snapshot) : base(r => r.Required("repository", repository).Required("snapshot", snapshot)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetSnapshotDescriptor()
-            : base() { }
+        protected GetSnapshotDescriptor() : base() { }
 
         // values part of the url path
         Name IGetSnapshotRequest.RepositoryName => Self.RouteValues.Get<Name>("repository");
@@ -346,11 +286,8 @@ namespace OpenSearch.Client
             Qs("ignore_unavailable", ignoreunavailable);
 
         /// <summary>Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and returns an error.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public GetSnapshotDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public GetSnapshotDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>When <c>true</c>, returns additional information about each snapshot, such as the version of OpenSearch which took the snapshot, the start and end times of the snapshot, and the number of shards contained in the snapshot. When <c>false</c>, returns only snapshot names and contained indexes. This is useful when the snapshots belong to a cloud-based repository, where each blob read is a cost or performance concern.</summary>
         public GetSnapshotDescriptor Verbose(bool? verbose = true) => Qs("verbose", verbose);
@@ -358,23 +295,17 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for GetRepository <para>https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-repository/</para></summary>
     public partial class GetRepositoryDescriptor
-        : RequestDescriptorBase<
-            GetRepositoryDescriptor,
-            GetRepositoryRequestParameters,
-            IGetRepositoryRequest
-        >,
+        : RequestDescriptorBase<GetRepositoryDescriptor, GetRepositoryRequestParameters, IGetRepositoryRequest>,
             IGetRepositoryRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SnapshotGetRepository;
 
         /// <summary>/_snapshot</summary>
-        public GetRepositoryDescriptor()
-            : base() { }
+        public GetRepositoryDescriptor() : base() { }
 
         /// <summary>/_snapshot/{repository}</summary>
         /// <param name="repository">Optional, accepts null</param>
-        public GetRepositoryDescriptor(Names repository)
-            : base(r => r.Optional("repository", repository)) { }
+        public GetRepositoryDescriptor(Names repository) : base(r => r.Optional("repository", repository)) { }
 
         // values part of the url path
         Names IGetRepositoryRequest.RepositoryName => Self.RouteValues.Get<Names>("repository");
@@ -393,11 +324,8 @@ namespace OpenSearch.Client
         public GetRepositoryDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public GetRepositoryDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public GetRepositoryDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
     }
 
     /// <summary>Descriptor for Restore <para>https://docs.opensearch.org/latest/api-reference/snapshots/restore-snapshot/</para></summary>
@@ -410,13 +338,11 @@ namespace OpenSearch.Client
         /// <summary>/_snapshot/{repository}/{snapshot}/_restore</summary>
         /// <param name="repository">this parameter is required</param>
         /// <param name="snapshot">this parameter is required</param>
-        public RestoreDescriptor(Name repository, Name snapshot)
-            : base(r => r.Required("repository", repository).Required("snapshot", snapshot)) { }
+        public RestoreDescriptor(Name repository, Name snapshot) : base(r => r.Required("repository", repository).Required("snapshot", snapshot)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected RestoreDescriptor()
-            : base() { }
+        protected RestoreDescriptor() : base() { }
 
         // values part of the url path
         Name IRestoreRequest.RepositoryName => Self.RouteValues.Get<Name>("repository");
@@ -429,11 +355,8 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public RestoreDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public RestoreDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>-| Whether to return a response after the restore operation has completed. When <c>false</c>, the request returns a response when the restore operation initializes. When <c>true</c>, the request returns a response when the restore operation completes.</summary>
         public RestoreDescriptor WaitForCompletion(bool? waitforcompletion = true) =>
@@ -442,29 +365,22 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Status <para>https://docs.opensearch.org/latest/api-reference/snapshots/get-snapshot-status/</para></summary>
     public partial class SnapshotStatusDescriptor
-        : RequestDescriptorBase<
-            SnapshotStatusDescriptor,
-            SnapshotStatusRequestParameters,
-            ISnapshotStatusRequest
-        >,
+        : RequestDescriptorBase<SnapshotStatusDescriptor, SnapshotStatusRequestParameters, ISnapshotStatusRequest>,
             ISnapshotStatusRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SnapshotStatus;
 
         /// <summary>/_snapshot/_status</summary>
-        public SnapshotStatusDescriptor()
-            : base() { }
+        public SnapshotStatusDescriptor() : base() { }
 
         /// <summary>/_snapshot/{repository}/_status</summary>
         /// <param name="repository">Optional, accepts null</param>
-        public SnapshotStatusDescriptor(Name repository)
-            : base(r => r.Optional("repository", repository)) { }
+        public SnapshotStatusDescriptor(Name repository) : base(r => r.Optional("repository", repository)) { }
 
         /// <summary>/_snapshot/{repository}/{snapshot}/_status</summary>
         /// <param name="repository">Optional, accepts null</param>
         /// <param name="snapshot">Optional, accepts null</param>
-        public SnapshotStatusDescriptor(Name repository, Names snapshot)
-            : base(r => r.Optional("repository", repository).Optional("snapshot", snapshot)) { }
+        public SnapshotStatusDescriptor(Name repository, Names snapshot) : base(r => r.Optional("repository", repository).Optional("snapshot", snapshot)) { }
 
         // values part of the url path
         Name ISnapshotStatusRequest.RepositoryName => Self.RouteValues.Get<Name>("repository");
@@ -489,33 +405,24 @@ namespace OpenSearch.Client
             Qs("ignore_unavailable", ignoreunavailable);
 
         /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public SnapshotStatusDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public SnapshotStatusDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
     }
 
     /// <summary>Descriptor for VerifyRepository <para>https://docs.opensearch.org/latest/api-reference/snapshots/verify-snapshot-repository/</para></summary>
     public partial class VerifyRepositoryDescriptor
-        : RequestDescriptorBase<
-            VerifyRepositoryDescriptor,
-            VerifyRepositoryRequestParameters,
-            IVerifyRepositoryRequest
-        >,
+        : RequestDescriptorBase<VerifyRepositoryDescriptor, VerifyRepositoryRequestParameters, IVerifyRepositoryRequest>,
             IVerifyRepositoryRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SnapshotVerifyRepository;
 
         /// <summary>/_snapshot/{repository}/_verify</summary>
         /// <param name="repository">this parameter is required</param>
-        public VerifyRepositoryDescriptor(Name repository)
-            : base(r => r.Required("repository", repository)) { }
+        public VerifyRepositoryDescriptor(Name repository) : base(r => r.Required("repository", repository)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected VerifyRepositoryDescriptor()
-            : base() { }
+        protected VerifyRepositoryDescriptor() : base() { }
 
         // values part of the url path
         Name IVerifyRepositoryRequest.RepositoryName => Self.RouteValues.Get<Name>("repository");
@@ -527,11 +434,8 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>Explicit operation timeout for connection to cluster-manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public VerifyRepositoryDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public VerifyRepositoryDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>The amount of time to wait for a response.</summary>
         public VerifyRepositoryDescriptor Timeout(Time timeout) => Qs("timeout", timeout);

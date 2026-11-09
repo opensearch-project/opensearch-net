@@ -85,12 +85,14 @@ namespace OpenSearch.Client
         public RegisterAgentsDescriptor Description(string description) =>
             Assign(description, (a, v) => a.Description = v);
 
-        public RegisterAgentsDescriptor Llm(ILLM llm) => Assign(llm, (a, v) => a.Llm = v);
+        public RegisterAgentsDescriptor Llm(ILLM llm) =>
+            Assign(llm, (a, v) => a.Llm = v);
 
         public RegisterAgentsDescriptor Memory(IMemory memory) =>
             Assign(memory, (a, v) => a.Memory = v);
 
-        public RegisterAgentsDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public RegisterAgentsDescriptor Name(string name) =>
+            Assign(name, (a, v) => a.Name = v);
 
         public RegisterAgentsDescriptor Parameters(IParameters parameters) =>
             Assign(parameters, (a, v) => a.Parameters = v);
@@ -98,6 +100,7 @@ namespace OpenSearch.Client
         public RegisterAgentsDescriptor Tools(IList<IToolItems> tools) =>
             Assign(tools, (a, v) => a.Tools = v);
 
-        public RegisterAgentsDescriptor Type(string type) => Assign(type, (a, v) => a.Type = v);
+        public RegisterAgentsDescriptor Type(string type) =>
+            Assign(type, (a, v) => a.Type = v);
     }
 }

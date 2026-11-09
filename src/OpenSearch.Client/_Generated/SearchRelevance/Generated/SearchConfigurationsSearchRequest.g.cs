@@ -66,10 +66,8 @@ namespace OpenSearch.Client
         public SearchConfigurationsSearchDescriptor Query(IQueryContainer query) =>
             Assign(query, (a, v) => a.Query = v);
 
-        public SearchConfigurationsSearchDescriptor Query(
-            Func<QueryContainerDescriptor<object>, QueryContainer> selector
-        ) =>
-            Assign(selector, (a, v) => a.Query = v?.Invoke(new QueryContainerDescriptor<object>()));
+        public SearchConfigurationsSearchDescriptor Query(Func<QueryContainerDescriptor<object>, QueryContainer> selector) =>
+    Assign(selector, (a, v) => a.Query = v?.Invoke(new QueryContainerDescriptor<object>()));
 
         public SearchConfigurationsSearchDescriptor Size(int? size) =>
             Assign(size, (a, v) => a.Size = v);

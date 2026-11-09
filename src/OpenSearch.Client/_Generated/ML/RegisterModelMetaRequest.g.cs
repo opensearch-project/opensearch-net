@@ -107,12 +107,14 @@ namespace OpenSearch.Client
         public RegisterModelMetaDescriptor ModelGroupId(Id modelGroupId) =>
             Assign(modelGroupId, (a, v) => a.ModelGroupId = v);
 
-        public RegisterModelMetaDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public RegisterModelMetaDescriptor Name(string name) =>
+            Assign(name, (a, v) => a.Name = v);
 
         public RegisterModelMetaDescriptor TotalChunks(long? totalChunks) =>
             Assign(totalChunks, (a, v) => a.TotalChunks = v);
 
-        public RegisterModelMetaDescriptor Url(string url) => Assign(url, (a, v) => a.Url = v);
+        public RegisterModelMetaDescriptor Url(string url) =>
+            Assign(url, (a, v) => a.Url = v);
 
         public RegisterModelMetaDescriptor Version(string version) =>
             Assign(version, (a, v) => a.Version = v);

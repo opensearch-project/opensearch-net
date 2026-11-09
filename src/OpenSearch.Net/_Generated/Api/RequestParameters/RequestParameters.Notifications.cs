@@ -53,8 +53,7 @@ using System.Text;
 namespace OpenSearch.Net.Specification.NotificationsApi
 {
     /// <summary>Request options for CreateConfig <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#create-channel-configuration</para></summary>
-    public partial class CreateConfigRequestParameters
-        : RequestParameters<CreateConfigRequestParameters>
+    public partial class CreateConfigRequestParameters : RequestParameters<CreateConfigRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -62,8 +61,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
     }
 
     /// <summary>Request options for DeleteConfig <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#delete-channel-configuration</para></summary>
-    public partial class DeleteConfigRequestParameters
-        : RequestParameters<DeleteConfigRequestParameters>
+    public partial class DeleteConfigRequestParameters : RequestParameters<DeleteConfigRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -71,8 +69,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
     }
 
     /// <summary>Request options for DeleteConfigs <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#delete-channel-configuration</para></summary>
-    public partial class DeleteConfigsRequestParameters
-        : RequestParameters<DeleteConfigsRequestParameters>
+    public partial class DeleteConfigsRequestParameters : RequestParameters<DeleteConfigsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -102,17 +99,18 @@ namespace OpenSearch.Net.Specification.NotificationsApi
     }
 
     /// <summary>Request options for GetConfigs <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#list-all-notification-configurations</para></summary>
-    public partial class GetConfigsRequestParameters
-        : RequestParameters<GetConfigsRequestParameters>
+    public partial class GetConfigsRequestParameters : RequestParameters<GetConfigsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => true;
         public override string OperationName => "notifications.get_configs";
+
         public string ChimeUrl
         {
             get => Q<string>("chime.url");
             set => Q("chime.url", value);
         }
+
         public string ChimeUrlKeyword
         {
             get => Q<string>("chime.url.keyword");
@@ -139,176 +137,211 @@ namespace OpenSearch.Net.Specification.NotificationsApi
             get => Q<NotificationsNotificationConfigType?>("config_type");
             set => Q("config_type", value);
         }
+
         public long? CreatedTimeMs
         {
             get => Q<long?>("created_time_ms");
             set => Q("created_time_ms", value);
         }
+
         public string Description
         {
             get => Q<string>("description");
             set => Q("description", value);
         }
+
         public string DescriptionKeyword
         {
             get => Q<string>("description.keyword");
             set => Q("description.keyword", value);
         }
+
         public string EmailEmailAccountId
         {
             get => Q<string>("email.email_account_id");
             set => Q("email.email_account_id", value);
         }
+
         public string EmailEmailGroupIdList
         {
             get => Q<string>("email.email_group_id_list");
             set => Q("email.email_group_id_list", value);
         }
+
         public string EmailGroupRecipientListRecipient
         {
             get => Q<string>("email_group.recipient_list.recipient");
             set => Q("email_group.recipient_list.recipient", value);
         }
+
         public string EmailGroupRecipientListRecipientKeyword
         {
             get => Q<string>("email_group.recipient_list.recipient.keyword");
             set => Q("email_group.recipient_list.recipient.keyword", value);
         }
+
         public string EmailRecipientListRecipient
         {
             get => Q<string>("email.recipient_list.recipient");
             set => Q("email.recipient_list.recipient", value);
         }
+
         public string EmailRecipientListRecipientKeyword
         {
             get => Q<string>("email.recipient_list.recipient.keyword");
             set => Q("email.recipient_list.recipient.keyword", value);
         }
+
         public bool? IsEnabled
         {
             get => Q<bool?>("is_enabled");
             set => Q("is_enabled", value);
         }
+
         public long? LastUpdatedTimeMs
         {
             get => Q<long?>("last_updated_time_ms");
             set => Q("last_updated_time_ms", value);
         }
+
         public string MicrosoftTeamsUrl
         {
             get => Q<string>("microsoft_teams.url");
             set => Q("microsoft_teams.url", value);
         }
+
         public string MicrosoftTeamsUrlKeyword
         {
             get => Q<string>("microsoft_teams.url.keyword");
             set => Q("microsoft_teams.url.keyword", value);
         }
+
         public string Name
         {
             get => Q<string>("name");
             set => Q("name", value);
         }
+
         public string NameKeyword
         {
             get => Q<string>("name.keyword");
             set => Q("name.keyword", value);
         }
+
         public string Query
         {
             get => Q<string>("query");
             set => Q("query", value);
         }
+
         public string SesAccountFromAddress
         {
             get => Q<string>("ses_account.from_address");
             set => Q("ses_account.from_address", value);
         }
+
         public string SesAccountFromAddressKeyword
         {
             get => Q<string>("ses_account.from_address.keyword");
             set => Q("ses_account.from_address.keyword", value);
         }
+
         public string SesAccountRegion
         {
             get => Q<string>("ses_account.region");
             set => Q("ses_account.region", value);
         }
+
         public string SesAccountRoleArn
         {
             get => Q<string>("ses_account.role_arn");
             set => Q("ses_account.role_arn", value);
         }
+
         public string SesAccountRoleArnKeyword
         {
             get => Q<string>("ses_account.role_arn.keyword");
             set => Q("ses_account.role_arn.keyword", value);
         }
+
         public string SlackUrl
         {
             get => Q<string>("slack.url");
             set => Q("slack.url", value);
         }
+
         public string SlackUrlKeyword
         {
             get => Q<string>("slack.url.keyword");
             set => Q("slack.url.keyword", value);
         }
+
         public string SmtpAccountFromAddress
         {
             get => Q<string>("smtp_account.from_address");
             set => Q("smtp_account.from_address", value);
         }
+
         public string SmtpAccountFromAddressKeyword
         {
             get => Q<string>("smtp_account.from_address.keyword");
             set => Q("smtp_account.from_address.keyword", value);
         }
+
         public string SmtpAccountHost
         {
             get => Q<string>("smtp_account.host");
             set => Q("smtp_account.host", value);
         }
+
         public string SmtpAccountHostKeyword
         {
             get => Q<string>("smtp_account.host.keyword");
             set => Q("smtp_account.host.keyword", value);
         }
+
         public string SmtpAccountMethod
         {
             get => Q<string>("smtp_account.method");
             set => Q("smtp_account.method", value);
         }
+
         public string SnsRoleArn
         {
             get => Q<string>("sns.role_arn");
             set => Q("sns.role_arn", value);
         }
+
         public string SnsRoleArnKeyword
         {
             get => Q<string>("sns.role_arn.keyword");
             set => Q("sns.role_arn.keyword", value);
         }
+
         public string SnsTopicArn
         {
             get => Q<string>("sns.topic_arn");
             set => Q("sns.topic_arn", value);
         }
+
         public string SnsTopicArnKeyword
         {
             get => Q<string>("sns.topic_arn.keyword");
             set => Q("sns.topic_arn.keyword", value);
         }
+
         public string TextQuery
         {
             get => Q<string>("text_query");
             set => Q("text_query", value);
         }
+
         public string WebhookUrl
         {
             get => Q<string>("webhook.url");
             set => Q("webhook.url", value);
         }
+
         public string WebhookUrlKeyword
         {
             get => Q<string>("webhook.url.keyword");
@@ -317,8 +350,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
     }
 
     /// <summary>Request options for ListChannels <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#list-all-notification-channels</para></summary>
-    public partial class ListChannelsRequestParameters
-        : RequestParameters<ListChannelsRequestParameters>
+    public partial class ListChannelsRequestParameters : RequestParameters<ListChannelsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -326,8 +358,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
     }
 
     /// <summary>Request options for ListFeatures <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#list-supported-channel-configurations</para></summary>
-    public partial class ListFeaturesRequestParameters
-        : RequestParameters<ListFeaturesRequestParameters>
+    public partial class ListFeaturesRequestParameters : RequestParameters<ListFeaturesRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -343,8 +374,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
     }
 
     /// <summary>Request options for UpdateConfig <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#update-channel-configuration</para></summary>
-    public partial class UpdateConfigRequestParameters
-        : RequestParameters<UpdateConfigRequestParameters>
+    public partial class UpdateConfigRequestParameters : RequestParameters<UpdateConfigRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;

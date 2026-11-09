@@ -71,13 +71,11 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceBulk;
 
         /// <summary>/_bulk</summary>
-        public BulkRequest()
-            : base() { }
+        public BulkRequest() : base() { }
 
         /// <summary>/{index}/_bulk</summary>
         /// <param name="index">Optional, accepts null</param>
-        public BulkRequest(IndexName index)
-            : base(r => r.Optional("index", index)) { }
+        public BulkRequest(IndexName index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -181,21 +179,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for BulkStream <para>https://docs.opensearch.org/latest/api-reference/document-apis/bulk-streaming/</para></summary>
-    public partial class BulkStreamRequest
-        : PlainRequestBase<BulkStreamRequestParameters>,
-            IBulkStreamRequest
+    public partial class BulkStreamRequest : PlainRequestBase<BulkStreamRequestParameters>, IBulkStreamRequest
     {
         protected IBulkStreamRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceBulkStream;
 
         /// <summary>/_bulk/stream</summary>
-        public BulkStreamRequest()
-            : base() { }
+        public BulkStreamRequest() : base() { }
 
         /// <summary>/{index}/_bulk/stream</summary>
         /// <param name="index">Optional, accepts null</param>
-        public BulkStreamRequest(IndexName index)
-            : base(r => r.Optional("index", index)) { }
+        public BulkStreamRequest(IndexName index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -306,17 +300,17 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IClearScrollRequest : IRequest<ClearScrollRequestParameters> { }
+    public partial interface IClearScrollRequest : IRequest<ClearScrollRequestParameters>
+    {
+    }
 
     /// <summary>Request for ClearScroll <para>https://docs.opensearch.org/latest/api-reference/scroll/</para></summary>
-    public partial class ClearScrollRequest
-        : PlainRequestBase<ClearScrollRequestParameters>,
-            IClearScrollRequest
+    public partial class ClearScrollRequest : PlainRequestBase<ClearScrollRequestParameters>, IClearScrollRequest
     {
         protected IClearScrollRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceClearScroll;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
@@ -336,13 +330,11 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceCount;
 
         /// <summary>/_count</summary>
-        public CountRequest()
-            : base() { }
+        public CountRequest() : base() { }
 
         /// <summary>/{index}/_count</summary>
         /// <param name="index">Optional, accepts null</param>
-        public CountRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public CountRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -475,13 +467,11 @@ namespace OpenSearch.Client
         protected ICountRequest<TDocument> TypedSelf => this;
 
         /// <summary>/{index}/_count</summary>
-        public CountRequest()
-            : base(typeof(TDocument)) { }
+        public CountRequest() : base(typeof(TDocument)) { }
 
         /// <summary>/{index}/_count</summary>
         /// <param name="index">Optional, accepts null</param>
-        public CountRequest(Indices index)
-            : base(index) { }
+        public CountRequest(Indices index) : base(index) { }
     }
 
     [InterfaceDataContract]
@@ -495,9 +485,7 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Create <para>https://docs.opensearch.org/latest/api-reference/document-apis/index-document/</para></summary>
-    public partial class CreateRequest<TDocument>
-        : PlainRequestBase<CreateRequestParameters>,
-            ICreateRequest<TDocument>
+    public partial class CreateRequest<TDocument> : PlainRequestBase<CreateRequestParameters>, ICreateRequest<TDocument>
     {
         protected ICreateRequest<TDocument> Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceCreate;
@@ -505,31 +493,26 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_create/{id}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="id">this parameter is required</param>
-        public CreateRequest(IndexName index, Id id)
-            : base(r => r.Required("index", index).Required("id", id)) { }
+        public CreateRequest(IndexName index, Id id) : base(r => r.Required("index", index).Required("id", id)) { }
 
         /// <summary>/{index}/_create/{id}</summary>
         /// <param name="id">this parameter is required</param>
-        public CreateRequest(Id id)
-            : this(typeof(TDocument), id) { }
+        public CreateRequest(Id id) : this(typeof(TDocument), id) { }
 
         /// <summary>/{index}/_create/{id}</summary>
         /// <param name="id">The document used to resolve the path from</param>
-        public CreateRequest(TDocument documentWithId, IndexName index = null, Id id = null)
-            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
-            DocumentFromPath(documentWithId);
+        public CreateRequest(TDocument documentWithId, IndexName index = null, Id id = null) : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId))
+        => DocumentFromPath(documentWithId);
 
         partial void DocumentFromPath(TDocument document);
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected CreateRequest()
-            : base() { }
+        protected CreateRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         Id ICreateRequest<TDocument>.Id => Self.RouteValues.Get<Id>("id");
-
         [IgnoreDataMember]
         IndexName ICreateRequest<TDocument>.Index => Self.RouteValues.Get<IndexName>("index");
 
@@ -613,22 +596,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for CreatePit <para>https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#create-a-pit</para></summary>
-    public partial class CreatePitRequest
-        : PlainRequestBase<CreatePitRequestParameters>,
-            ICreatePitRequest
+    public partial class CreatePitRequest : PlainRequestBase<CreatePitRequestParameters>, ICreatePitRequest
     {
         protected ICreatePitRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceCreatePit;
 
         /// <summary>/{index}/_search/point_in_time</summary>
         /// <param name="index">this parameter is required</param>
-        public CreatePitRequest(Indices index)
-            : base(r => r.Required("index", index)) { }
+        public CreatePitRequest(Indices index) : base(r => r.Required("index", index)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected CreatePitRequest()
-            : base() { }
+        protected CreatePitRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -723,18 +702,15 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_doc/{id}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="id">this parameter is required</param>
-        public DeleteRequest(IndexName index, Id id)
-            : base(r => r.Required("index", index).Required("id", id)) { }
+        public DeleteRequest(IndexName index, Id id) : base(r => r.Required("index", index).Required("id", id)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteRequest()
-            : base() { }
+        protected DeleteRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         Id IDeleteRequest.Id => Self.RouteValues.Get<Id>("id");
-
         [IgnoreDataMember]
         IndexName IDeleteRequest.Index => Self.RouteValues.Get<IndexName>("index");
 
@@ -820,40 +796,36 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_doc/{id}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="id">this parameter is required</param>
-        public DeleteRequest(IndexName index, Id id)
-            : base(index, id) { }
+        public DeleteRequest(IndexName index, Id id) : base(index, id) { }
 
         /// <summary>/{index}/_doc/{id}</summary>
         /// <param name="id">this parameter is required</param>
-        public DeleteRequest(Id id)
-            : base(typeof(TDocument), id) { }
+        public DeleteRequest(Id id) : base(typeof(TDocument), id) { }
 
         /// <summary>/{index}/_doc/{id}</summary>
         /// <param name="id">The document used to resolve the path from</param>
-        public DeleteRequest(TDocument documentWithId, IndexName index = null, Id id = null)
-            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
-            DocumentFromPath(documentWithId);
+        public DeleteRequest(TDocument documentWithId, IndexName index = null, Id id = null) : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId))
+        => DocumentFromPath(documentWithId);
 
         partial void DocumentFromPath(TDocument document);
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteRequest()
-            : base() { }
+        protected DeleteRequest() : base() { }
     }
 
     [InterfaceDataContract]
-    public partial interface IDeleteAllPitsRequest : IRequest<DeleteAllPitsRequestParameters> { }
+    public partial interface IDeleteAllPitsRequest : IRequest<DeleteAllPitsRequestParameters>
+    {
+    }
 
     /// <summary>Request for DeleteAllPits <para>https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits</para></summary>
-    public partial class DeleteAllPitsRequest
-        : PlainRequestBase<DeleteAllPitsRequestParameters>,
-            IDeleteAllPitsRequest
+    public partial class DeleteAllPitsRequest : PlainRequestBase<DeleteAllPitsRequestParameters>, IDeleteAllPitsRequest
     {
         protected IDeleteAllPitsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceDeleteAllPits;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
@@ -867,22 +839,18 @@ namespace OpenSearch.Client
     public partial interface IDeleteByQueryRequest<TDocument> : IDeleteByQueryRequest { }
 
     /// <summary>Request for DeleteByQuery <para>https://docs.opensearch.org/latest/api-reference/document-apis/delete-by-query/</para></summary>
-    public partial class DeleteByQueryRequest
-        : PlainRequestBase<DeleteByQueryRequestParameters>,
-            IDeleteByQueryRequest
+    public partial class DeleteByQueryRequest : PlainRequestBase<DeleteByQueryRequestParameters>, IDeleteByQueryRequest
     {
         protected IDeleteByQueryRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceDeleteByQuery;
 
         /// <summary>/{index}/_delete_by_query</summary>
         /// <param name="index">this parameter is required</param>
-        public DeleteByQueryRequest(Indices index)
-            : base(r => r.Required("index", index)) { }
+        public DeleteByQueryRequest(Indices index) : base(r => r.Required("index", index)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteByQueryRequest()
-            : base() { }
+        protected DeleteByQueryRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1130,25 +1098,20 @@ namespace OpenSearch.Client
         }
     }
 
-    public partial class DeleteByQueryRequest<TDocument>
-        : DeleteByQueryRequest,
-            IDeleteByQueryRequest<TDocument>
+    public partial class DeleteByQueryRequest<TDocument> : DeleteByQueryRequest, IDeleteByQueryRequest<TDocument>
     {
         protected IDeleteByQueryRequest<TDocument> TypedSelf => this;
 
         /// <summary>/{index}/_delete_by_query</summary>
         /// <param name="index">this parameter is required</param>
-        public DeleteByQueryRequest(Indices index)
-            : base(index) { }
+        public DeleteByQueryRequest(Indices index) : base(index) { }
 
         /// <summary>/{index}/_delete_by_query</summary>
-        public DeleteByQueryRequest()
-            : base(typeof(TDocument)) { }
+        public DeleteByQueryRequest() : base(typeof(TDocument)) { }
     }
 
     [InterfaceDataContract]
-    public partial interface IDeleteByQueryRethrottleRequest
-        : IRequest<DeleteByQueryRethrottleRequestParameters>
+    public partial interface IDeleteByQueryRethrottleRequest : IRequest<DeleteByQueryRethrottleRequestParameters>
     {
         [IgnoreDataMember]
         TaskId TaskId { get; }
@@ -1164,13 +1127,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_delete_by_query/{task_id}/_rethrottle</summary>
         /// <param name="taskId">this parameter is required</param>
-        public DeleteByQueryRethrottleRequest(TaskId taskId)
-            : base(r => r.Required("task_id", taskId)) { }
+        public DeleteByQueryRethrottleRequest(TaskId taskId) : base(r => r.Required("task_id", taskId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteByQueryRethrottleRequest()
-            : base() { }
+        protected DeleteByQueryRethrottleRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1186,17 +1147,17 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IDeletePitRequest : IRequest<DeletePitRequestParameters> { }
+    public partial interface IDeletePitRequest : IRequest<DeletePitRequestParameters>
+    {
+    }
 
     /// <summary>Request for DeletePit <para>https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits</para></summary>
-    public partial class DeletePitRequest
-        : PlainRequestBase<DeletePitRequestParameters>,
-            IDeletePitRequest
+    public partial class DeletePitRequest : PlainRequestBase<DeletePitRequestParameters>, IDeletePitRequest
     {
         protected IDeletePitRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceDeletePit;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
@@ -1208,22 +1169,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for DeleteScript <para>https://docs.opensearch.org/latest/api-reference/script-apis/delete-script/</para></summary>
-    public partial class DeleteScriptRequest
-        : PlainRequestBase<DeleteScriptRequestParameters>,
-            IDeleteScriptRequest
+    public partial class DeleteScriptRequest : PlainRequestBase<DeleteScriptRequestParameters>, IDeleteScriptRequest
     {
         protected IDeleteScriptRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceDeleteScript;
 
         /// <summary>/_scripts/{id}</summary>
         /// <param name="id">this parameter is required</param>
-        public DeleteScriptRequest(Id id)
-            : base(r => r.Required("id", id)) { }
+        public DeleteScriptRequest(Id id) : base(r => r.Required("id", id)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteScriptRequest()
-            : base() { }
+        protected DeleteScriptRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1242,9 +1199,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -1282,18 +1237,15 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_doc/{id}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="id">this parameter is required</param>
-        public DocumentExistsRequest(IndexName index, Id id)
-            : base(r => r.Required("index", index).Required("id", id)) { }
+        public DocumentExistsRequest(IndexName index, Id id) : base(r => r.Required("index", index).Required("id", id)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DocumentExistsRequest()
-            : base() { }
+        protected DocumentExistsRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         Id IDocumentExistsRequest.Id => Self.RouteValues.Get<Id>("id");
-
         [IgnoreDataMember]
         IndexName IDocumentExistsRequest.Index => Self.RouteValues.Get<IndexName>("index");
 
@@ -1382,35 +1334,29 @@ namespace OpenSearch.Client
         }
     }
 
-    public partial class DocumentExistsRequest<TDocument>
-        : DocumentExistsRequest,
-            IDocumentExistsRequest<TDocument>
+    public partial class DocumentExistsRequest<TDocument> : DocumentExistsRequest, IDocumentExistsRequest<TDocument>
     {
         protected IDocumentExistsRequest<TDocument> TypedSelf => this;
 
         /// <summary>/{index}/_doc/{id}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="id">this parameter is required</param>
-        public DocumentExistsRequest(IndexName index, Id id)
-            : base(index, id) { }
+        public DocumentExistsRequest(IndexName index, Id id) : base(index, id) { }
 
         /// <summary>/{index}/_doc/{id}</summary>
         /// <param name="id">this parameter is required</param>
-        public DocumentExistsRequest(Id id)
-            : base(typeof(TDocument), id) { }
+        public DocumentExistsRequest(Id id) : base(typeof(TDocument), id) { }
 
         /// <summary>/{index}/_doc/{id}</summary>
         /// <param name="id">The document used to resolve the path from</param>
-        public DocumentExistsRequest(TDocument documentWithId, IndexName index = null, Id id = null)
-            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
-            DocumentFromPath(documentWithId);
+        public DocumentExistsRequest(TDocument documentWithId, IndexName index = null, Id id = null) : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId))
+        => DocumentFromPath(documentWithId);
 
         partial void DocumentFromPath(TDocument document);
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DocumentExistsRequest()
-            : base() { }
+        protected DocumentExistsRequest() : base() { }
     }
 
     [InterfaceDataContract]
@@ -1426,9 +1372,7 @@ namespace OpenSearch.Client
     public partial interface ISourceExistsRequest<TDocument> : ISourceExistsRequest { }
 
     /// <summary>Request for SourceExists <para>https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</para></summary>
-    public partial class SourceExistsRequest
-        : PlainRequestBase<SourceExistsRequestParameters>,
-            ISourceExistsRequest
+    public partial class SourceExistsRequest : PlainRequestBase<SourceExistsRequestParameters>, ISourceExistsRequest
     {
         protected ISourceExistsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceSourceExists;
@@ -1436,18 +1380,15 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_source/{id}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="id">this parameter is required</param>
-        public SourceExistsRequest(IndexName index, Id id)
-            : base(r => r.Required("index", index).Required("id", id)) { }
+        public SourceExistsRequest(IndexName index, Id id) : base(r => r.Required("index", index).Required("id", id)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected SourceExistsRequest()
-            : base() { }
+        protected SourceExistsRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         Id ISourceExistsRequest.Id => Self.RouteValues.Get<Id>("id");
-
         [IgnoreDataMember]
         IndexName ISourceExistsRequest.Index => Self.RouteValues.Get<IndexName>("index");
 
@@ -1526,35 +1467,29 @@ namespace OpenSearch.Client
         }
     }
 
-    public partial class SourceExistsRequest<TDocument>
-        : SourceExistsRequest,
-            ISourceExistsRequest<TDocument>
+    public partial class SourceExistsRequest<TDocument> : SourceExistsRequest, ISourceExistsRequest<TDocument>
     {
         protected ISourceExistsRequest<TDocument> TypedSelf => this;
 
         /// <summary>/{index}/_source/{id}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="id">this parameter is required</param>
-        public SourceExistsRequest(IndexName index, Id id)
-            : base(index, id) { }
+        public SourceExistsRequest(IndexName index, Id id) : base(index, id) { }
 
         /// <summary>/{index}/_source/{id}</summary>
         /// <param name="id">this parameter is required</param>
-        public SourceExistsRequest(Id id)
-            : base(typeof(TDocument), id) { }
+        public SourceExistsRequest(Id id) : base(typeof(TDocument), id) { }
 
         /// <summary>/{index}/_source/{id}</summary>
         /// <param name="id">The document used to resolve the path from</param>
-        public SourceExistsRequest(TDocument documentWithId, IndexName index = null, Id id = null)
-            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
-            DocumentFromPath(documentWithId);
+        public SourceExistsRequest(TDocument documentWithId, IndexName index = null, Id id = null) : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId))
+        => DocumentFromPath(documentWithId);
 
         partial void DocumentFromPath(TDocument document);
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected SourceExistsRequest()
-            : base() { }
+        protected SourceExistsRequest() : base() { }
     }
 
     [InterfaceDataContract]
@@ -1573,9 +1508,7 @@ namespace OpenSearch.Client
     public partial interface IExplainRequest<TDocument> : IExplainRequest { }
 
     /// <summary>Request for Explain <para>https://docs.opensearch.org/latest/api-reference/explain/</para></summary>
-    public partial class ExplainRequest
-        : PlainRequestBase<ExplainRequestParameters>,
-            IExplainRequest
+    public partial class ExplainRequest : PlainRequestBase<ExplainRequestParameters>, IExplainRequest
     {
         protected IExplainRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceExplain;
@@ -1583,18 +1516,15 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_explain/{id}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="id">this parameter is required</param>
-        public ExplainRequest(IndexName index, Id id)
-            : base(r => r.Required("index", index).Required("id", id)) { }
+        public ExplainRequest(IndexName index, Id id) : base(r => r.Required("index", index).Required("id", id)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected ExplainRequest()
-            : base() { }
+        protected ExplainRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         Id IExplainRequest.Id => Self.RouteValues.Get<Id>("id");
-
         [IgnoreDataMember]
         IndexName IExplainRequest.Index => Self.RouteValues.Get<IndexName>("index");
 
@@ -1691,31 +1621,26 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_explain/{id}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="id">this parameter is required</param>
-        public ExplainRequest(IndexName index, Id id)
-            : base(index, id) { }
+        public ExplainRequest(IndexName index, Id id) : base(index, id) { }
 
         /// <summary>/{index}/_explain/{id}</summary>
         /// <param name="id">this parameter is required</param>
-        public ExplainRequest(Id id)
-            : base(typeof(TDocument), id) { }
+        public ExplainRequest(Id id) : base(typeof(TDocument), id) { }
 
         /// <summary>/{index}/_explain/{id}</summary>
         /// <param name="id">The document used to resolve the path from</param>
-        public ExplainRequest(TDocument documentWithId, IndexName index = null, Id id = null)
-            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
-            DocumentFromPath(documentWithId);
+        public ExplainRequest(TDocument documentWithId, IndexName index = null, Id id = null) : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId))
+        => DocumentFromPath(documentWithId);
 
         partial void DocumentFromPath(TDocument document);
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected ExplainRequest()
-            : base() { }
+        protected ExplainRequest() : base() { }
     }
 
     [InterfaceDataContract]
-    public partial interface IFieldCapabilitiesRequest
-        : IRequest<FieldCapabilitiesRequestParameters>
+    public partial interface IFieldCapabilitiesRequest : IRequest<FieldCapabilitiesRequestParameters>
     {
         [IgnoreDataMember]
         Indices Index { get; }
@@ -1730,13 +1655,11 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceFieldCapabilities;
 
         /// <summary>/_field_caps</summary>
-        public FieldCapabilitiesRequest()
-            : base() { }
+        public FieldCapabilitiesRequest() : base() { }
 
         /// <summary>/{index}/_field_caps</summary>
         /// <param name="index">Optional, accepts null</param>
-        public FieldCapabilitiesRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public FieldCapabilitiesRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1807,18 +1730,15 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_doc/{id}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="id">this parameter is required</param>
-        public GetRequest(IndexName index, Id id)
-            : base(r => r.Required("index", index).Required("id", id)) { }
+        public GetRequest(IndexName index, Id id) : base(r => r.Required("index", index).Required("id", id)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetRequest()
-            : base() { }
+        protected GetRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         Id IGetRequest.Id => Self.RouteValues.Get<Id>("id");
-
         [IgnoreDataMember]
         IndexName IGetRequest.Index => Self.RouteValues.Get<IndexName>("index");
 
@@ -1917,40 +1837,36 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_doc/{id}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="id">this parameter is required</param>
-        public GetRequest(IndexName index, Id id)
-            : base(index, id) { }
+        public GetRequest(IndexName index, Id id) : base(index, id) { }
 
         /// <summary>/{index}/_doc/{id}</summary>
         /// <param name="id">this parameter is required</param>
-        public GetRequest(Id id)
-            : base(typeof(TDocument), id) { }
+        public GetRequest(Id id) : base(typeof(TDocument), id) { }
 
         /// <summary>/{index}/_doc/{id}</summary>
         /// <param name="id">The document used to resolve the path from</param>
-        public GetRequest(TDocument documentWithId, IndexName index = null, Id id = null)
-            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
-            DocumentFromPath(documentWithId);
+        public GetRequest(TDocument documentWithId, IndexName index = null, Id id = null) : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId))
+        => DocumentFromPath(documentWithId);
 
         partial void DocumentFromPath(TDocument document);
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetRequest()
-            : base() { }
+        protected GetRequest() : base() { }
     }
 
     [InterfaceDataContract]
-    public partial interface IGetAllPitsRequest : IRequest<GetAllPitsRequestParameters> { }
+    public partial interface IGetAllPitsRequest : IRequest<GetAllPitsRequestParameters>
+    {
+    }
 
     /// <summary>Request for GetAllPits <para>https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#list-all-pits</para></summary>
-    public partial class GetAllPitsRequest
-        : PlainRequestBase<GetAllPitsRequestParameters>,
-            IGetAllPitsRequest
+    public partial class GetAllPitsRequest : PlainRequestBase<GetAllPitsRequestParameters>, IGetAllPitsRequest
     {
         protected IGetAllPitsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceGetAllPits;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
@@ -1962,22 +1878,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for GetScript <para>https://docs.opensearch.org/latest/api-reference/script-apis/get-stored-script/</para></summary>
-    public partial class GetScriptRequest
-        : PlainRequestBase<GetScriptRequestParameters>,
-            IGetScriptRequest
+    public partial class GetScriptRequest : PlainRequestBase<GetScriptRequestParameters>, IGetScriptRequest
     {
         protected IGetScriptRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceGetScript;
 
         /// <summary>/_scripts/{id}</summary>
         /// <param name="id">this parameter is required</param>
-        public GetScriptRequest(Id id)
-            : base(r => r.Required("id", id)) { }
+        public GetScriptRequest(Id id) : base(r => r.Required("id", id)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetScriptRequest()
-            : base() { }
+        protected GetScriptRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -1993,9 +1905,7 @@ namespace OpenSearch.Client
         }
 
         /// <summary>Specify timeout for connection to master.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -2024,18 +1934,15 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_source/{id}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="id">this parameter is required</param>
-        public SourceRequest(IndexName index, Id id)
-            : base(r => r.Required("index", index).Required("id", id)) { }
+        public SourceRequest(IndexName index, Id id) : base(r => r.Required("index", index).Required("id", id)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected SourceRequest()
-            : base() { }
+        protected SourceRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         Id ISourceRequest.Id => Self.RouteValues.Get<Id>("id");
-
         [IgnoreDataMember]
         IndexName ISourceRequest.Index => Self.RouteValues.Get<IndexName>("index");
 
@@ -2124,26 +2031,22 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_source/{id}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="id">this parameter is required</param>
-        public SourceRequest(IndexName index, Id id)
-            : base(index, id) { }
+        public SourceRequest(IndexName index, Id id) : base(index, id) { }
 
         /// <summary>/{index}/_source/{id}</summary>
         /// <param name="id">this parameter is required</param>
-        public SourceRequest(Id id)
-            : base(typeof(TDocument), id) { }
+        public SourceRequest(Id id) : base(typeof(TDocument), id) { }
 
         /// <summary>/{index}/_source/{id}</summary>
         /// <param name="id">The document used to resolve the path from</param>
-        public SourceRequest(TDocument documentWithId, IndexName index = null, Id id = null)
-            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
-            DocumentFromPath(documentWithId);
+        public SourceRequest(TDocument documentWithId, IndexName index = null, Id id = null) : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId))
+        => DocumentFromPath(documentWithId);
 
         partial void DocumentFromPath(TDocument document);
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected SourceRequest()
-            : base() { }
+        protected SourceRequest() : base() { }
     }
 
     [InterfaceDataContract]
@@ -2157,45 +2060,37 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Index <para>https://docs.opensearch.org/latest/api-reference/document-apis/index-document/</para></summary>
-    public partial class IndexRequest<TDocument>
-        : PlainRequestBase<IndexRequestParameters>,
-            IIndexRequest<TDocument>
+    public partial class IndexRequest<TDocument> : PlainRequestBase<IndexRequestParameters>, IIndexRequest<TDocument>
     {
         protected IIndexRequest<TDocument> Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceIndex;
 
         /// <summary>/{index}/_doc</summary>
         /// <param name="index">this parameter is required</param>
-        public IndexRequest(IndexName index)
-            : base(r => r.Required("index", index)) { }
+        public IndexRequest(IndexName index) : base(r => r.Required("index", index)) { }
 
         /// <summary>/{index}/_doc/{id}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="id">Optional, accepts null</param>
-        public IndexRequest(IndexName index, Id id)
-            : base(r => r.Required("index", index).Optional("id", id)) { }
+        public IndexRequest(IndexName index, Id id) : base(r => r.Required("index", index).Optional("id", id)) { }
 
         /// <summary>/{index}/_doc</summary>
-        public IndexRequest()
-            : this(typeof(TDocument)) { }
+        public IndexRequest() : this(typeof(TDocument)) { }
 
         /// <summary>/{index}/_doc/{id}</summary>
         /// <param name="id">Optional, accepts null</param>
-        public IndexRequest(Id id)
-            : this(typeof(TDocument), id) { }
+        public IndexRequest(Id id) : this(typeof(TDocument), id) { }
 
         /// <summary>/{index}/_doc/{id}</summary>
         /// <param name="id">The document used to resolve the path from</param>
-        public IndexRequest(TDocument documentWithId, IndexName index = null, Id id = null)
-            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
-            DocumentFromPath(documentWithId);
+        public IndexRequest(TDocument documentWithId, IndexName index = null, Id id = null) : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId))
+        => DocumentFromPath(documentWithId);
 
         partial void DocumentFromPath(TDocument document);
 
         // values part of the url path
         [IgnoreDataMember]
         Id IIndexRequest<TDocument>.Id => Self.RouteValues.Get<Id>("id");
-
         [IgnoreDataMember]
         IndexName IIndexRequest<TDocument>.Index => Self.RouteValues.Get<IndexName>("index");
 
@@ -2304,17 +2199,17 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IRootNodeInfoRequest : IRequest<RootNodeInfoRequestParameters> { }
+    public partial interface IRootNodeInfoRequest : IRequest<RootNodeInfoRequestParameters>
+    {
+    }
 
     /// <summary>Request for RootNodeInfo <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class RootNodeInfoRequest
-        : PlainRequestBase<RootNodeInfoRequestParameters>,
-            IRootNodeInfoRequest
+    public partial class RootNodeInfoRequest : PlainRequestBase<RootNodeInfoRequestParameters>, IRootNodeInfoRequest
     {
         protected IRootNodeInfoRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceRootNodeInfo;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
@@ -2329,21 +2224,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for MultiGet <para>https://docs.opensearch.org/latest/api-reference/document-apis/multi-get/</para></summary>
-    public partial class MultiGetRequest
-        : PlainRequestBase<MultiGetRequestParameters>,
-            IMultiGetRequest
+    public partial class MultiGetRequest : PlainRequestBase<MultiGetRequestParameters>, IMultiGetRequest
     {
         protected IMultiGetRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceMultiGet;
 
         /// <summary>/_mget</summary>
-        public MultiGetRequest()
-            : base() { }
+        public MultiGetRequest() : base() { }
 
         /// <summary>/{index}/_mget</summary>
         /// <param name="index">Optional, accepts null</param>
-        public MultiGetRequest(IndexName index)
-            : base(r => r.Optional("index", index)) { }
+        public MultiGetRequest(IndexName index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -2422,21 +2313,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for MultiSearch <para>https://docs.opensearch.org/latest/api-reference/multi-search/</para></summary>
-    public partial class MultiSearchRequest
-        : PlainRequestBase<MultiSearchRequestParameters>,
-            IMultiSearchRequest
+    public partial class MultiSearchRequest : PlainRequestBase<MultiSearchRequestParameters>, IMultiSearchRequest
     {
         protected IMultiSearchRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceMultiSearch;
 
         /// <summary>/_msearch</summary>
-        public MultiSearchRequest()
-            : base() { }
+        public MultiSearchRequest() : base() { }
 
         /// <summary>/{index}/_msearch</summary>
         /// <param name="index">Optional, accepts null</param>
-        public MultiSearchRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public MultiSearchRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -2506,8 +2393,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IMultiSearchTemplateRequest
-        : IRequest<MultiSearchTemplateRequestParameters>
+    public partial interface IMultiSearchTemplateRequest : IRequest<MultiSearchTemplateRequestParameters>
     {
         [IgnoreDataMember]
         Indices Index { get; }
@@ -2522,13 +2408,11 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceMultiSearchTemplate;
 
         /// <summary>/_msearch/template</summary>
-        public MultiSearchTemplateRequest()
-            : base() { }
+        public MultiSearchTemplateRequest() : base() { }
 
         /// <summary>/{index}/_msearch/template</summary>
         /// <param name="index">Optional, accepts null</param>
-        public MultiSearchTemplateRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public MultiSearchTemplateRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -2587,13 +2471,11 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceMultiTermVectors;
 
         /// <summary>/_mtermvectors</summary>
-        public MultiTermVectorsRequest()
-            : base() { }
+        public MultiTermVectorsRequest() : base() { }
 
         /// <summary>/{index}/_mtermvectors</summary>
         /// <param name="index">Optional, accepts null</param>
-        public MultiTermVectorsRequest(IndexName index)
-            : base(r => r.Optional("index", index)) { }
+        public MultiTermVectorsRequest(IndexName index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -2694,15 +2576,17 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IPingRequest : IRequest<PingRequestParameters> { }
+    public partial interface IPingRequest : IRequest<PingRequestParameters>
+    {
+    }
 
     /// <summary>Request for Ping <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class PingRequest : PlainRequestBase<PingRequestParameters>, IPingRequest
     {
         protected IPingRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespacePing;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
@@ -2717,33 +2601,27 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for PutScript <para>https://docs.opensearch.org/latest/api-reference/script-apis/create-stored-script/</para></summary>
-    public partial class PutScriptRequest
-        : PlainRequestBase<PutScriptRequestParameters>,
-            IPutScriptRequest
+    public partial class PutScriptRequest : PlainRequestBase<PutScriptRequestParameters>, IPutScriptRequest
     {
         protected IPutScriptRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespacePutScript;
 
         /// <summary>/_scripts/{id}</summary>
         /// <param name="id">this parameter is required</param>
-        public PutScriptRequest(Id id)
-            : base(r => r.Required("id", id)) { }
+        public PutScriptRequest(Id id) : base(r => r.Required("id", id)) { }
 
         /// <summary>/_scripts/{id}/{context}</summary>
         /// <param name="id">this parameter is required</param>
         /// <param name="context">Optional, accepts null</param>
-        public PutScriptRequest(Id id, Name context)
-            : base(r => r.Required("id", id).Optional("context", context)) { }
+        public PutScriptRequest(Id id, Name context) : base(r => r.Required("id", id).Optional("context", context)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected PutScriptRequest()
-            : base() { }
+        protected PutScriptRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         Name IPutScriptRequest.Context => Self.RouteValues.Get<Name>("context");
-
         [IgnoreDataMember]
         Id IPutScriptRequest.Id => Self.RouteValues.Get<Id>("id");
 
@@ -2760,9 +2638,7 @@ namespace OpenSearch.Client
         /// Period to wait for a connection to the cluster-manager node. If no response is received before the timeout expires, the request fails and
         /// returns an error.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -2778,8 +2654,9 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IReindexOnServerRequest
-        : IRequest<ReindexOnServerRequestParameters> { }
+    public partial interface IReindexOnServerRequest : IRequest<ReindexOnServerRequestParameters>
+    {
+    }
 
     /// <summary>Request for ReindexOnServer <para>https://docs.opensearch.org/latest/im-plugin/reindex-data/</para></summary>
     public partial class ReindexOnServerRequest
@@ -2790,7 +2667,6 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceReindexOnServer;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>If <c>true</c>, the request refreshes affected shards to make this operation visible to search.</summary>
         public Refresh? Refresh
@@ -2846,8 +2722,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IReindexRethrottleRequest
-        : IRequest<ReindexRethrottleRequestParameters>
+    public partial interface IReindexRethrottleRequest : IRequest<ReindexRethrottleRequestParameters>
     {
         [IgnoreDataMember]
         TaskId TaskId { get; }
@@ -2863,13 +2738,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_reindex/{task_id}/_rethrottle</summary>
         /// <param name="taskId">this parameter is required</param>
-        public ReindexRethrottleRequest(TaskId taskId)
-            : base(r => r.Required("task_id", taskId)) { }
+        public ReindexRethrottleRequest(TaskId taskId) : base(r => r.Required("task_id", taskId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected ReindexRethrottleRequest()
-            : base() { }
+        protected ReindexRethrottleRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -2885,8 +2758,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IRenderSearchTemplateRequest
-        : IRequest<RenderSearchTemplateRequestParameters>
+    public partial interface IRenderSearchTemplateRequest : IRequest<RenderSearchTemplateRequestParameters>
     {
         [IgnoreDataMember]
         Id Id { get; }
@@ -2901,13 +2773,11 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceRenderSearchTemplate;
 
         /// <summary>/_render/template</summary>
-        public RenderSearchTemplateRequest()
-            : base() { }
+        public RenderSearchTemplateRequest() : base() { }
 
         /// <summary>/_render/template/{id}</summary>
         /// <param name="id">Optional, accepts null</param>
-        public RenderSearchTemplateRequest(Id id)
-            : base(r => r.Optional("id", id)) { }
+        public RenderSearchTemplateRequest(Id id) : base(r => r.Optional("id", id)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -2917,8 +2787,9 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IExecutePainlessScriptRequest
-        : IRequest<ExecutePainlessScriptRequestParameters> { }
+    public partial interface IExecutePainlessScriptRequest : IRequest<ExecutePainlessScriptRequestParameters>
+    {
+    }
 
     /// <summary>Request for ExecutePainlessScript <para>https://docs.opensearch.org/latest/api-reference/script-apis/exec-script/</para></summary>
     public partial class ExecutePainlessScriptRequest
@@ -2927,13 +2798,15 @@ namespace OpenSearch.Client
     {
         protected IExecutePainlessScriptRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceExecutePainlessScript;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface IScrollRequest : IRequest<ScrollRequestParameters> { }
+    public partial interface IScrollRequest : IRequest<ScrollRequestParameters>
+    {
+    }
 
     /// <summary>Request for Scroll <para>https://docs.opensearch.org/latest/api-reference/search-apis/scroll/#endpoints</para></summary>
     public partial class ScrollRequest : PlainRequestBase<ScrollRequestParameters>, IScrollRequest
@@ -2942,7 +2815,6 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceScroll;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>
         /// If <c>true</c>, the API response's <c>hit.total</c> property is returned as an integer. If <c>false</c>, the API response's
@@ -2977,13 +2849,11 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceSearch;
 
         /// <summary>/_search</summary>
-        public SearchRequest()
-            : base() { }
+        public SearchRequest() : base() { }
 
         /// <summary>/{index}/_search</summary>
         /// <param name="index">Optional, accepts null</param>
-        public SearchRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public SearchRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -3300,20 +3170,16 @@ namespace OpenSearch.Client
         }
     }
 
-    public partial class SearchRequest<TInferDocument>
-        : SearchRequest,
-            ISearchRequest<TInferDocument>
+    public partial class SearchRequest<TInferDocument> : SearchRequest, ISearchRequest<TInferDocument>
     {
         protected ISearchRequest<TInferDocument> TypedSelf => this;
 
         /// <summary>/{index}/_search</summary>
-        public SearchRequest()
-            : base(typeof(TInferDocument)) { }
+        public SearchRequest() : base(typeof(TInferDocument)) { }
 
         /// <summary>/{index}/_search</summary>
         /// <param name="index">Optional, accepts null</param>
-        public SearchRequest(Indices index)
-            : base(index) { }
+        public SearchRequest(Indices index) : base(index) { }
     }
 
     [InterfaceDataContract]
@@ -3326,21 +3192,17 @@ namespace OpenSearch.Client
     public partial interface ISearchShardsRequest<TDocument> : ISearchShardsRequest { }
 
     /// <summary>Request for SearchShards <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class SearchShardsRequest
-        : PlainRequestBase<SearchShardsRequestParameters>,
-            ISearchShardsRequest
+    public partial class SearchShardsRequest : PlainRequestBase<SearchShardsRequestParameters>, ISearchShardsRequest
     {
         protected ISearchShardsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceSearchShards;
 
         /// <summary>/_search_shards</summary>
-        public SearchShardsRequest()
-            : base() { }
+        public SearchShardsRequest() : base() { }
 
         /// <summary>/{index}/_search_shards</summary>
         /// <param name="index">Optional, accepts null</param>
-        public SearchShardsRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public SearchShardsRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -3405,20 +3267,16 @@ namespace OpenSearch.Client
         }
     }
 
-    public partial class SearchShardsRequest<TDocument>
-        : SearchShardsRequest,
-            ISearchShardsRequest<TDocument>
+    public partial class SearchShardsRequest<TDocument> : SearchShardsRequest, ISearchShardsRequest<TDocument>
     {
         protected ISearchShardsRequest<TDocument> TypedSelf => this;
 
         /// <summary>/{index}/_search_shards</summary>
-        public SearchShardsRequest()
-            : base(typeof(TDocument)) { }
+        public SearchShardsRequest() : base(typeof(TDocument)) { }
 
         /// <summary>/{index}/_search_shards</summary>
         /// <param name="index">Optional, accepts null</param>
-        public SearchShardsRequest(Indices index)
-            : base(index) { }
+        public SearchShardsRequest(Indices index) : base(index) { }
     }
 
     [InterfaceDataContract]
@@ -3437,13 +3295,11 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceSearchTemplate;
 
         /// <summary>/_search/template</summary>
-        public SearchTemplateRequest()
-            : base() { }
+        public SearchTemplateRequest() : base() { }
 
         /// <summary>/{index}/_search/template</summary>
         /// <param name="index">Optional, accepts null</param>
-        public SearchTemplateRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public SearchTemplateRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -3591,36 +3447,30 @@ namespace OpenSearch.Client
 
         /// <summary>/{index}/_termvectors</summary>
         /// <param name="index">this parameter is required</param>
-        public TermVectorsRequest(IndexName index)
-            : base(r => r.Required("index", index)) { }
+        public TermVectorsRequest(IndexName index) : base(r => r.Required("index", index)) { }
 
         /// <summary>/{index}/_termvectors/{id}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="id">Optional, accepts null</param>
-        public TermVectorsRequest(IndexName index, Id id)
-            : base(r => r.Required("index", index).Optional("id", id)) { }
+        public TermVectorsRequest(IndexName index, Id id) : base(r => r.Required("index", index).Optional("id", id)) { }
 
         /// <summary>/{index}/_termvectors</summary>
-        public TermVectorsRequest()
-            : this(typeof(TDocument)) { }
+        public TermVectorsRequest() : this(typeof(TDocument)) { }
 
         /// <summary>/{index}/_termvectors/{id}</summary>
         /// <param name="id">Optional, accepts null</param>
-        public TermVectorsRequest(Id id)
-            : this(typeof(TDocument), id) { }
+        public TermVectorsRequest(Id id) : this(typeof(TDocument), id) { }
 
         /// <summary>/{index}/_termvectors/{id}</summary>
         /// <param name="id">The document used to resolve the path from</param>
-        public TermVectorsRequest(TDocument documentWithId, IndexName index = null, Id id = null)
-            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
-            DocumentFromPath(documentWithId);
+        public TermVectorsRequest(TDocument documentWithId, IndexName index = null, Id id = null) : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId))
+        => DocumentFromPath(documentWithId);
 
         partial void DocumentFromPath(TDocument document);
 
         // values part of the url path
         [IgnoreDataMember]
         Id ITermVectorsRequest<TDocument>.Id => Self.RouteValues.Get<Id>("id");
-
         [IgnoreDataMember]
         IndexName ITermVectorsRequest<TDocument>.Index => Self.RouteValues.Get<IndexName>("index");
 
@@ -3719,8 +3569,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IUpdateRequest<TDocument, TPartialDocument>
-        : IRequest<UpdateRequestParameters>
+    public partial interface IUpdateRequest<TDocument, TPartialDocument> : IRequest<UpdateRequestParameters>
     {
         [IgnoreDataMember]
         Id Id { get; }
@@ -3740,34 +3589,28 @@ namespace OpenSearch.Client
         /// <summary>/{index}/_update/{id}</summary>
         /// <param name="index">this parameter is required</param>
         /// <param name="id">this parameter is required</param>
-        public UpdateRequest(IndexName index, Id id)
-            : base(r => r.Required("index", index).Required("id", id)) { }
+        public UpdateRequest(IndexName index, Id id) : base(r => r.Required("index", index).Required("id", id)) { }
 
         /// <summary>/{index}/_update/{id}</summary>
         /// <param name="id">this parameter is required</param>
-        public UpdateRequest(Id id)
-            : this(typeof(TDocument), id) { }
+        public UpdateRequest(Id id) : this(typeof(TDocument), id) { }
 
         /// <summary>/{index}/_update/{id}</summary>
         /// <param name="id">The document used to resolve the path from</param>
-        public UpdateRequest(TDocument documentWithId, IndexName index = null, Id id = null)
-            : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId)) =>
-            DocumentFromPath(documentWithId);
+        public UpdateRequest(TDocument documentWithId, IndexName index = null, Id id = null) : this(index ?? typeof(TDocument), id ?? OpenSearch.Client.Id.From(documentWithId))
+        => DocumentFromPath(documentWithId);
 
         partial void DocumentFromPath(TDocument document);
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected UpdateRequest()
-            : base() { }
+        protected UpdateRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
         Id IUpdateRequest<TDocument, TPartialDocument>.Id => Self.RouteValues.Get<Id>("id");
-
         [IgnoreDataMember]
-        IndexName IUpdateRequest<TDocument, TPartialDocument>.Index =>
-            Self.RouteValues.Get<IndexName>("index");
+        IndexName IUpdateRequest<TDocument, TPartialDocument>.Index => Self.RouteValues.Get<IndexName>("index");
 
         // Request parameters
         /// <summary>Only perform the operation if the document has this primary term.</summary>
@@ -3867,22 +3710,18 @@ namespace OpenSearch.Client
     public partial interface IUpdateByQueryRequest<TDocument> : IUpdateByQueryRequest { }
 
     /// <summary>Request for UpdateByQuery <para>https://docs.opensearch.org/latest/api-reference/document-apis/update-by-query/</para></summary>
-    public partial class UpdateByQueryRequest
-        : PlainRequestBase<UpdateByQueryRequestParameters>,
-            IUpdateByQueryRequest
+    public partial class UpdateByQueryRequest : PlainRequestBase<UpdateByQueryRequestParameters>, IUpdateByQueryRequest
     {
         protected IUpdateByQueryRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.NoNamespaceUpdateByQuery;
 
         /// <summary>/{index}/_update_by_query</summary>
         /// <param name="index">this parameter is required</param>
-        public UpdateByQueryRequest(Indices index)
-            : base(r => r.Required("index", index)) { }
+        public UpdateByQueryRequest(Indices index) : base(r => r.Required("index", index)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected UpdateByQueryRequest()
-            : base() { }
+        protected UpdateByQueryRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -4141,25 +3980,20 @@ namespace OpenSearch.Client
         }
     }
 
-    public partial class UpdateByQueryRequest<TDocument>
-        : UpdateByQueryRequest,
-            IUpdateByQueryRequest<TDocument>
+    public partial class UpdateByQueryRequest<TDocument> : UpdateByQueryRequest, IUpdateByQueryRequest<TDocument>
     {
         protected IUpdateByQueryRequest<TDocument> TypedSelf => this;
 
         /// <summary>/{index}/_update_by_query</summary>
         /// <param name="index">this parameter is required</param>
-        public UpdateByQueryRequest(Indices index)
-            : base(index) { }
+        public UpdateByQueryRequest(Indices index) : base(index) { }
 
         /// <summary>/{index}/_update_by_query</summary>
-        public UpdateByQueryRequest()
-            : base(typeof(TDocument)) { }
+        public UpdateByQueryRequest() : base(typeof(TDocument)) { }
     }
 
     [InterfaceDataContract]
-    public partial interface IUpdateByQueryRethrottleRequest
-        : IRequest<UpdateByQueryRethrottleRequestParameters>
+    public partial interface IUpdateByQueryRethrottleRequest : IRequest<UpdateByQueryRethrottleRequestParameters>
     {
         [IgnoreDataMember]
         TaskId TaskId { get; }
@@ -4175,13 +4009,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_update_by_query/{task_id}/_rethrottle</summary>
         /// <param name="taskId">this parameter is required</param>
-        public UpdateByQueryRethrottleRequest(TaskId taskId)
-            : base(r => r.Required("task_id", taskId)) { }
+        public UpdateByQueryRethrottleRequest(TaskId taskId) : base(r => r.Required("task_id", taskId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected UpdateByQueryRethrottleRequest()
-            : base() { }
+        protected UpdateByQueryRethrottleRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]

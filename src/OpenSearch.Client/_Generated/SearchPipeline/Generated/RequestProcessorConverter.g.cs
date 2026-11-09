@@ -27,19 +27,12 @@ namespace OpenSearch.Client
     /// <summary>
     /// System.Text.Json converter for <see cref="IRequestProcessor"/> wrapper-key union.
     /// </summary>
-    internal class RequestProcessorConverter
-        : System.Text.Json.Serialization.JsonConverter<IRequestProcessor>
+    internal class RequestProcessorConverter : System.Text.Json.Serialization.JsonConverter<IRequestProcessor>
     {
-        public override IRequestProcessor Read(
-            ref System.Text.Json.Utf8JsonReader reader,
-            Type typeToConvert,
-            System.Text.Json.JsonSerializerOptions options
-        )
+        public override IRequestProcessor Read(ref System.Text.Json.Utf8JsonReader reader, Type typeToConvert, System.Text.Json.JsonSerializerOptions options)
         {
             if (reader.TokenType == System.Text.Json.JsonTokenType.Null)
-            {
-                return null;
-            }
+            { return null; }
             using var doc = System.Text.Json.JsonDocument.ParseValue(ref reader);
             var root = doc.RootElement;
             if (root.ValueKind != System.Text.Json.JsonValueKind.Object)
@@ -50,52 +43,27 @@ namespace OpenSearch.Client
                 switch (property.Name)
                 {
                     case "agentic_query_translator":
-                        return System.Text.Json.JsonSerializer.Deserialize<AgenticQueryTranslatorRequestProcessor>(
-                            body,
-                            options
-                        );
+                        return System.Text.Json.JsonSerializer.Deserialize<AgenticQueryTranslatorRequestProcessor>(body, options);
                     case "filter_query":
-                        return System.Text.Json.JsonSerializer.Deserialize<FilterQueryRequestProcessor>(
-                            body,
-                            options
-                        );
+                        return System.Text.Json.JsonSerializer.Deserialize<FilterQueryRequestProcessor>(body, options);
                     case "neural_query_enricher":
-                        return System.Text.Json.JsonSerializer.Deserialize<NeuralQueryEnricherRequestProcessor>(
-                            body,
-                            options
-                        );
+                        return System.Text.Json.JsonSerializer.Deserialize<NeuralQueryEnricherRequestProcessor>(body, options);
                     case "script":
-                        return System.Text.Json.JsonSerializer.Deserialize<SearchScriptRequestProcessor>(
-                            body,
-                            options
-                        );
+                        return System.Text.Json.JsonSerializer.Deserialize<SearchScriptRequestProcessor>(body, options);
                     case "oversample":
-                        return System.Text.Json.JsonSerializer.Deserialize<OversampleRequestProcessor>(
-                            body,
-                            options
-                        );
+                        return System.Text.Json.JsonSerializer.Deserialize<OversampleRequestProcessor>(body, options);
                     case "ml_inference":
-                        return System.Text.Json.JsonSerializer.Deserialize<MLInferenceRequestProcessor>(
-                            body,
-                            options
-                        );
+                        return System.Text.Json.JsonSerializer.Deserialize<MLInferenceRequestProcessor>(body, options);
                 }
                 break; // only first key matters
             }
             return null;
         }
 
-        public override void Write(
-            System.Text.Json.Utf8JsonWriter writer,
-            IRequestProcessor value,
-            System.Text.Json.JsonSerializerOptions options
-        )
+        public override void Write(System.Text.Json.Utf8JsonWriter writer, IRequestProcessor value, System.Text.Json.JsonSerializerOptions options)
         {
             if (value?.Name == null)
-            {
-                writer.WriteNullValue();
-                return;
-            }
+            { writer.WriteNullValue(); return; }
             writer.WriteStartObject();
             writer.WritePropertyName(value.Name);
             switch (value)
@@ -119,12 +87,7 @@ namespace OpenSearch.Client
                     System.Text.Json.JsonSerializer.Serialize(writer, v, options);
                     break;
                 default:
-                    System.Text.Json.JsonSerializer.Serialize(
-                        writer,
-                        value,
-                        value.GetType(),
-                        options
-                    );
+                    System.Text.Json.JsonSerializer.Serialize(writer, value, value.GetType(), options);
                     break;
             }
             writer.WriteEndObject();

@@ -35,12 +35,12 @@
 }
 // ReSharper disable RedundantUsingDirective
 using System;
-using System.Collections.Generic;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text;
 
 namespace OpenSearch.Net
 {
@@ -53,11 +53,14 @@ namespace OpenSearch.Net
 	{
 	@foreach (var (o, i) in e.Options.OrderBy(o => o.Value == "_all" ? 1 : 0).Select((o, i) => (o, i)))
 	{
-		<text>@(i > 0 ? "," : null)
+		<text>
+
 		[EnumMember(Value = "@(o.Value)")]
-		@(GetEnumMember(e.Name, o))@(isFlag ? Raw($" = 1 << {i}") : null)</text>
+		@(GetEnumMember(e.Name, o))@(isFlag ? Raw($" = 1 << {i}") : null),
+</text>
 	}
-    }</text>
+    }
+</text>
 }
 
     public static partial class KnownEnums

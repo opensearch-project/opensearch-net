@@ -53,8 +53,7 @@ using System.Text;
 namespace OpenSearch.Net.Specification.ObservabilityApi
 {
     /// <summary>Request options for CreateObject</summary>
-    public partial class CreateObjectRequestParameters
-        : RequestParameters<CreateObjectRequestParameters>
+    public partial class CreateObjectRequestParameters : RequestParameters<CreateObjectRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -62,8 +61,7 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
     }
 
     /// <summary>Request options for DeleteObject</summary>
-    public partial class DeleteObjectRequestParameters
-        : RequestParameters<DeleteObjectRequestParameters>
+    public partial class DeleteObjectRequestParameters : RequestParameters<DeleteObjectRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -71,8 +69,7 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
     }
 
     /// <summary>Request options for DeleteObjects</summary>
-    public partial class DeleteObjectsRequestParameters
-        : RequestParameters<DeleteObjectsRequestParameters>
+    public partial class DeleteObjectsRequestParameters : RequestParameters<DeleteObjectsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -94,8 +91,7 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
     }
 
     /// <summary>Request options for GetLocalstats</summary>
-    public partial class GetLocalstatsRequestParameters
-        : RequestParameters<GetLocalstatsRequestParameters>
+    public partial class GetLocalstatsRequestParameters : RequestParameters<GetLocalstatsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -111,8 +107,7 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
     }
 
     /// <summary>Request options for ListObjects</summary>
-    public partial class ListObjectsRequestParameters
-        : RequestParameters<ListObjectsRequestParameters>
+    public partial class ListObjectsRequestParameters : RequestParameters<ListObjectsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -120,8 +115,7 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
     }
 
     /// <summary>Request options for UpdateObject</summary>
-    public partial class UpdateObjectRequestParameters
-        : RequestParameters<UpdateObjectRequestParameters>
+    public partial class UpdateObjectRequestParameters : RequestParameters<UpdateObjectRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;

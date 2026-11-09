@@ -107,23 +107,20 @@ namespace OpenSearch.Client
         public MemoryContainerConfigurationDescriptor DisableSession(bool? disableSession = true) =>
             Assign(disableSession, (a, v) => a.DisableSession = v);
 
-        public MemoryContainerConfigurationDescriptor EmbeddingDimension(
-            long? embeddingDimension
-        ) => Assign(embeddingDimension, (a, v) => a.EmbeddingDimension = v);
+        public MemoryContainerConfigurationDescriptor EmbeddingDimension(long? embeddingDimension) =>
+            Assign(embeddingDimension, (a, v) => a.EmbeddingDimension = v);
 
         public MemoryContainerConfigurationDescriptor EmbeddingModelId(string embeddingModelId) =>
             Assign(embeddingModelId, (a, v) => a.EmbeddingModelId = v);
 
-        public MemoryContainerConfigurationDescriptor EmbeddingModelType(
-            string embeddingModelType
-        ) => Assign(embeddingModelType, (a, v) => a.EmbeddingModelType = v);
+        public MemoryContainerConfigurationDescriptor EmbeddingModelType(string embeddingModelType) =>
+            Assign(embeddingModelType, (a, v) => a.EmbeddingModelType = v);
 
         public MemoryContainerConfigurationDescriptor IndexPrefix(string indexPrefix) =>
             Assign(indexPrefix, (a, v) => a.IndexPrefix = v);
 
-        public MemoryContainerConfigurationDescriptor IndexSettings(
-            IMLIndexSettings indexSettings
-        ) => Assign(indexSettings, (a, v) => a.IndexSettings = v);
+        public MemoryContainerConfigurationDescriptor IndexSettings(IMLIndexSettings indexSettings) =>
+            Assign(indexSettings, (a, v) => a.IndexSettings = v);
 
         public MemoryContainerConfigurationDescriptor LlmId(string llmId) =>
             Assign(llmId, (a, v) => a.LlmId = v);

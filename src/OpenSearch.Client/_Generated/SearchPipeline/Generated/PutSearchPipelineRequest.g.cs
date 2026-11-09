@@ -68,45 +68,23 @@ namespace OpenSearch.Client
         public PutSearchPipelineDescriptor Description(string description) =>
             Assign(description, (a, v) => a.Description = v);
 
-        public PutSearchPipelineDescriptor PhaseResultsProcessors(
-            IList<IPhaseResultsProcessor> phaseResultsProcessors
-        ) => Assign(phaseResultsProcessors, (a, v) => a.PhaseResultsProcessors = v);
+        public PutSearchPipelineDescriptor PhaseResultsProcessors(IList<IPhaseResultsProcessor> phaseResultsProcessors) =>
+            Assign(phaseResultsProcessors, (a, v) => a.PhaseResultsProcessors = v);
 
-        public PutSearchPipelineDescriptor PhaseResultsProcessors(
-            Func<PhaseResultsProcessorsDescriptor, IPromise<IList<IPhaseResultsProcessor>>> selector
-        ) =>
-            Assign(
-                selector,
-                (a, v) =>
-                    a.PhaseResultsProcessors = v
-                        ?.Invoke(new PhaseResultsProcessorsDescriptor())
-                        ?.Value
-            );
+        public PutSearchPipelineDescriptor PhaseResultsProcessors(Func<PhaseResultsProcessorsDescriptor, IPromise<IList<IPhaseResultsProcessor>>> selector) =>
+            Assign(selector, (a, v) => a.PhaseResultsProcessors = v?.Invoke(new PhaseResultsProcessorsDescriptor())?.Value);
 
-        public PutSearchPipelineDescriptor RequestProcessors(
-            IList<IRequestProcessor> requestProcessors
-        ) => Assign(requestProcessors, (a, v) => a.RequestProcessors = v);
+        public PutSearchPipelineDescriptor RequestProcessors(IList<IRequestProcessor> requestProcessors) =>
+            Assign(requestProcessors, (a, v) => a.RequestProcessors = v);
 
-        public PutSearchPipelineDescriptor RequestProcessors(
-            Func<RequestProcessorsDescriptor, IPromise<IList<IRequestProcessor>>> selector
-        ) =>
-            Assign(
-                selector,
-                (a, v) => a.RequestProcessors = v?.Invoke(new RequestProcessorsDescriptor())?.Value
-            );
+        public PutSearchPipelineDescriptor RequestProcessors(Func<RequestProcessorsDescriptor, IPromise<IList<IRequestProcessor>>> selector) =>
+            Assign(selector, (a, v) => a.RequestProcessors = v?.Invoke(new RequestProcessorsDescriptor())?.Value);
 
-        public PutSearchPipelineDescriptor ResponseProcessors(
-            IList<IResponseProcessor> responseProcessors
-        ) => Assign(responseProcessors, (a, v) => a.ResponseProcessors = v);
+        public PutSearchPipelineDescriptor ResponseProcessors(IList<IResponseProcessor> responseProcessors) =>
+            Assign(responseProcessors, (a, v) => a.ResponseProcessors = v);
 
-        public PutSearchPipelineDescriptor ResponseProcessors(
-            Func<ResponseProcessorsDescriptor, IPromise<IList<IResponseProcessor>>> selector
-        ) =>
-            Assign(
-                selector,
-                (a, v) =>
-                    a.ResponseProcessors = v?.Invoke(new ResponseProcessorsDescriptor())?.Value
-            );
+        public PutSearchPipelineDescriptor ResponseProcessors(Func<ResponseProcessorsDescriptor, IPromise<IList<IResponseProcessor>>> selector) =>
+            Assign(selector, (a, v) => a.ResponseProcessors = v?.Invoke(new ResponseProcessorsDescriptor())?.Value);
 
         public PutSearchPipelineDescriptor Version(int? version) =>
             Assign(version, (a, v) => a.Version = v);

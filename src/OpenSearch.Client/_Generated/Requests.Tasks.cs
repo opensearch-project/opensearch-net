@@ -66,21 +66,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Cancel <para>https://docs.opensearch.org/latest/api-reference/tasks/cancel-tasks/</para></summary>
-    public partial class CancelTasksRequest
-        : PlainRequestBase<CancelTasksRequestParameters>,
-            ICancelTasksRequest
+    public partial class CancelTasksRequest : PlainRequestBase<CancelTasksRequestParameters>, ICancelTasksRequest
     {
         protected ICancelTasksRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.TasksCancel;
 
         /// <summary>/_tasks/_cancel</summary>
-        public CancelTasksRequest()
-            : base() { }
+        public CancelTasksRequest() : base() { }
 
         /// <summary>/_tasks/{task_id}/_cancel</summary>
         /// <param name="taskId">Optional, accepts null</param>
-        public CancelTasksRequest(TaskId taskId)
-            : base(r => r.Optional("task_id", taskId)) { }
+        public CancelTasksRequest(TaskId taskId) : base(r => r.Optional("task_id", taskId)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -128,22 +124,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for GetTask <para>https://docs.opensearch.org/latest/api-reference/tasks/</para></summary>
-    public partial class GetTaskRequest
-        : PlainRequestBase<GetTaskRequestParameters>,
-            IGetTaskRequest
+    public partial class GetTaskRequest : PlainRequestBase<GetTaskRequestParameters>, IGetTaskRequest
     {
         protected IGetTaskRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.TasksGetTask;
 
         /// <summary>/_tasks/{task_id}</summary>
         /// <param name="taskId">this parameter is required</param>
-        public GetTaskRequest(TaskId taskId)
-            : base(r => r.Required("task_id", taskId)) { }
+        public GetTaskRequest(TaskId taskId) : base(r => r.Required("task_id", taskId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetTaskRequest()
-            : base() { }
+        protected GetTaskRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -166,18 +158,17 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IListTasksRequest : IRequest<ListTasksRequestParameters> { }
+    public partial interface IListTasksRequest : IRequest<ListTasksRequestParameters>
+    {
+    }
 
     /// <summary>Request for List <para>https://docs.opensearch.org/latest/api-reference/tasks/</para></summary>
-    public partial class ListTasksRequest
-        : PlainRequestBase<ListTasksRequestParameters>,
-            IListTasksRequest
+    public partial class ListTasksRequest : PlainRequestBase<ListTasksRequestParameters>, IListTasksRequest
     {
         protected IListTasksRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.TasksList;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>A comma-separated list of actions that should be returned. Keep empty to return all.</summary>
         public string[] Actions

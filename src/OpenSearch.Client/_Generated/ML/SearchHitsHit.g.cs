@@ -68,9 +68,7 @@ namespace OpenSearch.Client
         public IList<float?> Sort { get; set; }
     }
 
-    public class SearchHitsHitDescriptor
-        : DescriptorBase<SearchHitsHitDescriptor, ISearchHitsHit>,
-            ISearchHitsHit
+    public class SearchHitsHitDescriptor : DescriptorBase<SearchHitsHitDescriptor, ISearchHitsHit>, ISearchHitsHit
     {
         Id ISearchHitsHit.Id { get; set; }
         IndexName ISearchHitsHit.Index { get; set; }
@@ -81,7 +79,8 @@ namespace OpenSearch.Client
         long? ISearchHitsHit.Version { get; set; }
         IList<float?> ISearchHitsHit.Sort { get; set; }
 
-        public SearchHitsHitDescriptor Id(Id id) => Assign(id, (a, v) => a.Id = v);
+        public SearchHitsHitDescriptor Id(Id id) =>
+            Assign(id, (a, v) => a.Id = v);
 
         public SearchHitsHitDescriptor Index(IndexName index) =>
             Assign(index, (a, v) => a.Index = v);
@@ -89,9 +88,11 @@ namespace OpenSearch.Client
         public SearchHitsHitDescriptor PrimaryTerm(int? primaryTerm) =>
             Assign(primaryTerm, (a, v) => a.PrimaryTerm = v);
 
-        public SearchHitsHitDescriptor Score(float? score) => Assign(score, (a, v) => a.Score = v);
+        public SearchHitsHitDescriptor Score(float? score) =>
+            Assign(score, (a, v) => a.Score = v);
 
-        public SearchHitsHitDescriptor SeqNo(long? seqNo) => Assign(seqNo, (a, v) => a.SeqNo = v);
+        public SearchHitsHitDescriptor SeqNo(long? seqNo) =>
+            Assign(seqNo, (a, v) => a.SeqNo = v);
 
         public SearchHitsHitDescriptor Source(ISource source) =>
             Assign(source, (a, v) => a.Source = v);

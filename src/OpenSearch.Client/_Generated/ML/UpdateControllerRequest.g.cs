@@ -44,8 +44,7 @@ namespace OpenSearch.Client
     {
         IDictionary<string, IRateLimiter> IUpdateControllerRequest.UserRateLimiter { get; set; }
 
-        public UpdateControllerDescriptor UserRateLimiter(
-            IDictionary<string, IRateLimiter> userRateLimiter
-        ) => Assign(userRateLimiter, (a, v) => a.UserRateLimiter = v);
+        public UpdateControllerDescriptor UserRateLimiter(IDictionary<string, IRateLimiter> userRateLimiter) =>
+            Assign(userRateLimiter, (a, v) => a.UserRateLimiter = v);
     }
 }

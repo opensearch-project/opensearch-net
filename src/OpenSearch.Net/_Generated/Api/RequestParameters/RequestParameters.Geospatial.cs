@@ -53,8 +53,7 @@ using System.Text;
 namespace OpenSearch.Net.Specification.GeospatialApi
 {
     /// <summary>Request options for DeleteIp2geoDatasource <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#deleting-the-ip2geo-data-source</para></summary>
-    public partial class DeleteIp2geoDatasourceRequestParameters
-        : RequestParameters<DeleteIp2geoDatasourceRequestParameters>
+    public partial class DeleteIp2geoDatasourceRequestParameters : RequestParameters<DeleteIp2geoDatasourceRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -62,8 +61,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
     }
 
     /// <summary>Request options for GeojsonUploadPost</summary>
-    public partial class GeojsonUploadPostRequestParameters
-        : RequestParameters<GeojsonUploadPostRequestParameters>
+    public partial class GeojsonUploadPostRequestParameters : RequestParameters<GeojsonUploadPostRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -71,8 +69,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
     }
 
     /// <summary>Request options for GeojsonUploadPut</summary>
-    public partial class GeojsonUploadPutRequestParameters
-        : RequestParameters<GeojsonUploadPutRequestParameters>
+    public partial class GeojsonUploadPutRequestParameters : RequestParameters<GeojsonUploadPutRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
@@ -80,8 +77,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
     }
 
     /// <summary>Request options for GetIp2geoDatasource <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#sending-a-get-request</para></summary>
-    public partial class GetIp2geoDatasourceRequestParameters
-        : RequestParameters<GetIp2geoDatasourceRequestParameters>
+    public partial class GetIp2geoDatasourceRequestParameters : RequestParameters<GetIp2geoDatasourceRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -89,8 +85,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
     }
 
     /// <summary>Request options for GetUploadStats</summary>
-    public partial class GetUploadStatsRequestParameters
-        : RequestParameters<GetUploadStatsRequestParameters>
+    public partial class GetUploadStatsRequestParameters : RequestParameters<GetUploadStatsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -98,8 +93,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
     }
 
     /// <summary>Request options for PutIp2geoDatasource <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#data-source-options</para></summary>
-    public partial class PutIp2geoDatasourceRequestParameters
-        : RequestParameters<PutIp2geoDatasourceRequestParameters>
+    public partial class PutIp2geoDatasourceRequestParameters : RequestParameters<PutIp2geoDatasourceRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
@@ -107,8 +101,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
     }
 
     /// <summary>Request options for PutIp2geoDatasourceSettings <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#updating-an-ip2geo-data-source</para></summary>
-    public partial class PutIp2geoDatasourceSettingsRequestParameters
-        : RequestParameters<PutIp2geoDatasourceSettingsRequestParameters>
+    public partial class PutIp2geoDatasourceSettingsRequestParameters : RequestParameters<PutIp2geoDatasourceSettingsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;

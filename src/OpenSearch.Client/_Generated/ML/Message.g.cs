@@ -113,7 +113,8 @@ namespace OpenSearch.Client
         public MessageDescriptor CreateTime(string createTime) =>
             Assign(createTime, (a, v) => a.CreateTime = v);
 
-        public MessageDescriptor Input(string input) => Assign(input, (a, v) => a.Input = v);
+        public MessageDescriptor Input(string input) =>
+            Assign(input, (a, v) => a.Input = v);
 
         public MessageDescriptor MemoryId(Name memoryId) =>
             Assign(memoryId, (a, v) => a.MemoryId = v);
@@ -121,7 +122,8 @@ namespace OpenSearch.Client
         public MessageDescriptor MessageId(Name messageId) =>
             Assign(messageId, (a, v) => a.MessageId = v);
 
-        public MessageDescriptor Origin(string origin) => Assign(origin, (a, v) => a.Origin = v);
+        public MessageDescriptor Origin(string origin) =>
+            Assign(origin, (a, v) => a.Origin = v);
 
         public MessageDescriptor ParentMessageId(string parentMessageId) =>
             Assign(parentMessageId, (a, v) => a.ParentMessageId = v);
@@ -132,7 +134,8 @@ namespace OpenSearch.Client
         public MessageDescriptor Response(string response) =>
             Assign(response, (a, v) => a.Response = v);
 
-        public MessageDescriptor Role(string role) => Assign(role, (a, v) => a.Role = v);
+        public MessageDescriptor Role(string role) =>
+            Assign(role, (a, v) => a.Role = v);
 
         public MessageDescriptor TraceNumber(long? traceNumber) =>
             Assign(traceNumber, (a, v) => a.TraceNumber = v);

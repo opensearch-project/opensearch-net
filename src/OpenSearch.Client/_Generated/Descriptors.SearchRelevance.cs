@@ -38,171 +38,133 @@ namespace OpenSearch.Client
 {
     /// <summary>Descriptor for DeleteExperiments</summary>
     public partial class DeleteExperimentsDescriptor
-        : RequestDescriptorBase<
-            DeleteExperimentsDescriptor,
-            DeleteExperimentsRequestParameters,
-            IDeleteExperimentsRequest
-        >,
+        : RequestDescriptorBase<DeleteExperimentsDescriptor, DeleteExperimentsRequestParameters, IDeleteExperimentsRequest>,
             IDeleteExperimentsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceDeleteExperiments;
 
         /// <summary>/_plugins/_search_relevance/experiments/{experiment_id}</summary>
         /// <param name="experimentId">this parameter is required</param>
-        public DeleteExperimentsDescriptor(Id experimentId)
-            : base(r => r.Required("experiment_id", experimentId)) { }
+        public DeleteExperimentsDescriptor(Id experimentId) : base(r => r.Required("experiment_id", experimentId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteExperimentsDescriptor()
-            : base() { }
+        protected DeleteExperimentsDescriptor() : base() { }
 
         // values part of the url path
         Id IDeleteExperimentsRequest.ExperimentId => Self.RouteValues.Get<Id>("experiment_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for DeleteJudgments</summary>
     public partial class DeleteJudgmentsDescriptor
-        : RequestDescriptorBase<
-            DeleteJudgmentsDescriptor,
-            DeleteJudgmentsRequestParameters,
-            IDeleteJudgmentsRequest
-        >,
+        : RequestDescriptorBase<DeleteJudgmentsDescriptor, DeleteJudgmentsRequestParameters, IDeleteJudgmentsRequest>,
             IDeleteJudgmentsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceDeleteJudgments;
 
         /// <summary>/_plugins/_search_relevance/judgments/{judgment_id}</summary>
         /// <param name="judgmentId">this parameter is required</param>
-        public DeleteJudgmentsDescriptor(Id judgmentId)
-            : base(r => r.Required("judgment_id", judgmentId)) { }
+        public DeleteJudgmentsDescriptor(Id judgmentId) : base(r => r.Required("judgment_id", judgmentId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteJudgmentsDescriptor()
-            : base() { }
+        protected DeleteJudgmentsDescriptor() : base() { }
 
         // values part of the url path
         Id IDeleteJudgmentsRequest.JudgmentId => Self.RouteValues.Get<Id>("judgment_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for DeleteQuerySets</summary>
     public partial class DeleteQuerySetsDescriptor
-        : RequestDescriptorBase<
-            DeleteQuerySetsDescriptor,
-            DeleteQuerySetsRequestParameters,
-            IDeleteQuerySetsRequest
-        >,
+        : RequestDescriptorBase<DeleteQuerySetsDescriptor, DeleteQuerySetsRequestParameters, IDeleteQuerySetsRequest>,
             IDeleteQuerySetsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceDeleteQuerySets;
 
         /// <summary>/_plugins/_search_relevance/query_sets/{query_set_id}</summary>
         /// <param name="querySetId">this parameter is required</param>
-        public DeleteQuerySetsDescriptor(Id querySetId)
-            : base(r => r.Required("query_set_id", querySetId)) { }
+        public DeleteQuerySetsDescriptor(Id querySetId) : base(r => r.Required("query_set_id", querySetId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteQuerySetsDescriptor()
-            : base() { }
+        protected DeleteQuerySetsDescriptor() : base() { }
 
         // values part of the url path
         Id IDeleteQuerySetsRequest.QuerySetId => Self.RouteValues.Get<Id>("query_set_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for DeleteScheduledExperiments</summary>
     public partial class DeleteScheduledExperimentsDescriptor
-        : RequestDescriptorBase<
-            DeleteScheduledExperimentsDescriptor,
-            DeleteScheduledExperimentsRequestParameters,
-            IDeleteScheduledExperimentsRequest
-        >,
+        : RequestDescriptorBase<DeleteScheduledExperimentsDescriptor, DeleteScheduledExperimentsRequestParameters, IDeleteScheduledExperimentsRequest>,
             IDeleteScheduledExperimentsRequest
     {
-        internal override ApiUrls ApiUrls =>
-            ApiUrlsLookups.SearchRelevanceDeleteScheduledExperiments;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceDeleteScheduledExperiments;
 
         /// <summary>/_plugins/_search_relevance/experiments/schedule/{experiment_id}</summary>
         /// <param name="experimentId">this parameter is required</param>
-        public DeleteScheduledExperimentsDescriptor(Id experimentId)
-            : base(r => r.Required("experiment_id", experimentId)) { }
+        public DeleteScheduledExperimentsDescriptor(Id experimentId) : base(r => r.Required("experiment_id", experimentId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteScheduledExperimentsDescriptor()
-            : base() { }
+        protected DeleteScheduledExperimentsDescriptor() : base() { }
 
         // values part of the url path
-        Id IDeleteScheduledExperimentsRequest.ExperimentId =>
-            Self.RouteValues.Get<Id>("experiment_id");
+        Id IDeleteScheduledExperimentsRequest.ExperimentId => Self.RouteValues.Get<Id>("experiment_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for DeleteSearchConfigurations</summary>
     public partial class DeleteSearchConfigurationsDescriptor
-        : RequestDescriptorBase<
-            DeleteSearchConfigurationsDescriptor,
-            DeleteSearchConfigurationsRequestParameters,
-            IDeleteSearchConfigurationsRequest
-        >,
+        : RequestDescriptorBase<DeleteSearchConfigurationsDescriptor, DeleteSearchConfigurationsRequestParameters, IDeleteSearchConfigurationsRequest>,
             IDeleteSearchConfigurationsRequest
     {
-        internal override ApiUrls ApiUrls =>
-            ApiUrlsLookups.SearchRelevanceDeleteSearchConfigurations;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceDeleteSearchConfigurations;
 
         /// <summary>/_plugins/_search_relevance/search_configurations/{search_configuration_id}</summary>
         /// <param name="searchConfigurationId">this parameter is required</param>
-        public DeleteSearchConfigurationsDescriptor(Id searchConfigurationId)
-            : base(r => r.Required("search_configuration_id", searchConfigurationId)) { }
+        public DeleteSearchConfigurationsDescriptor(Id searchConfigurationId) : base(r => r.Required("search_configuration_id", searchConfigurationId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteSearchConfigurationsDescriptor()
-            : base() { }
+        protected DeleteSearchConfigurationsDescriptor() : base() { }
 
         // values part of the url path
-        Id IDeleteSearchConfigurationsRequest.SearchConfigurationId =>
-            Self.RouteValues.Get<Id>("search_configuration_id");
+        Id IDeleteSearchConfigurationsRequest.SearchConfigurationId => Self.RouteValues.Get<Id>("search_configuration_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for ExperimentsSearch</summary>
     public partial class ExperimentsSearchDescriptor
-        : RequestDescriptorBase<
-            ExperimentsSearchDescriptor,
-            ExperimentsSearchRequestParameters,
-            IExperimentsSearchRequest
-        >,
+        : RequestDescriptorBase<ExperimentsSearchDescriptor, ExperimentsSearchRequestParameters, IExperimentsSearchRequest>,
             IExperimentsSearchRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceExperimentsSearch;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for GetExperiments</summary>
     public partial class GetExperimentsDescriptor
-        : RequestDescriptorBase<
-            GetExperimentsDescriptor,
-            GetExperimentsRequestParameters,
-            IGetExperimentsRequest
-        >,
+        : RequestDescriptorBase<GetExperimentsDescriptor, GetExperimentsRequestParameters, IGetExperimentsRequest>,
             IGetExperimentsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceGetExperiments;
 
         /// <summary>/_plugins/_search_relevance/experiments</summary>
-        public GetExperimentsDescriptor()
-            : base() { }
+        public GetExperimentsDescriptor() : base() { }
 
         /// <summary>/_plugins/_search_relevance/experiments/{experiment_id}</summary>
         /// <param name="experimentId">Optional, accepts null</param>
-        public GetExperimentsDescriptor(Id experimentId)
-            : base(r => r.Optional("experiment_id", experimentId)) { }
+        public GetExperimentsDescriptor(Id experimentId) : base(r => r.Optional("experiment_id", experimentId)) { }
 
         // values part of the url path
         Id IGetExperimentsRequest.ExperimentId => Self.RouteValues.Get<Id>("experiment_id");
@@ -210,28 +172,23 @@ namespace OpenSearch.Client
         /// <summary>The experiment id.</summary>
         public GetExperimentsDescriptor ExperimentId(Id experimentId) =>
             Assign(experimentId, (a, v) => a.RouteValues.Optional("experiment_id", v));
+
         // Request parameters
     }
 
     /// <summary>Descriptor for GetJudgments</summary>
     public partial class GetJudgmentsDescriptor
-        : RequestDescriptorBase<
-            GetJudgmentsDescriptor,
-            GetJudgmentsRequestParameters,
-            IGetJudgmentsRequest
-        >,
+        : RequestDescriptorBase<GetJudgmentsDescriptor, GetJudgmentsRequestParameters, IGetJudgmentsRequest>,
             IGetJudgmentsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceGetJudgments;
 
         /// <summary>/_plugins/_search_relevance/judgments</summary>
-        public GetJudgmentsDescriptor()
-            : base() { }
+        public GetJudgmentsDescriptor() : base() { }
 
         /// <summary>/_plugins/_search_relevance/judgments/{judgment_id}</summary>
         /// <param name="judgmentId">Optional, accepts null</param>
-        public GetJudgmentsDescriptor(Id judgmentId)
-            : base(r => r.Optional("judgment_id", judgmentId)) { }
+        public GetJudgmentsDescriptor(Id judgmentId) : base(r => r.Optional("judgment_id", judgmentId)) { }
 
         // values part of the url path
         Id IGetJudgmentsRequest.JudgmentId => Self.RouteValues.Get<Id>("judgment_id");
@@ -239,48 +196,40 @@ namespace OpenSearch.Client
         /// <summary>The judgment id.</summary>
         public GetJudgmentsDescriptor JudgmentId(Id judgmentId) =>
             Assign(judgmentId, (a, v) => a.RouteValues.Optional("judgment_id", v));
+
         // Request parameters
     }
 
     /// <summary>Descriptor for GetNodeStats</summary>
     public partial class GetNodeStatsDescriptor
-        : RequestDescriptorBase<
-            GetNodeStatsDescriptor,
-            GetNodeStatsRequestParameters,
-            IGetNodeStatsRequest
-        >,
+        : RequestDescriptorBase<GetNodeStatsDescriptor, GetNodeStatsRequestParameters, IGetNodeStatsRequest>,
             IGetNodeStatsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceGetNodeStats;
 
         /// <summary>/_plugins/_search_relevance/{node_id}/stats</summary>
         /// <param name="nodeId">this parameter is required</param>
-        public GetNodeStatsDescriptor(Name nodeId)
-            : base(r => r.Required("node_id", nodeId)) { }
+        public GetNodeStatsDescriptor(Name nodeId) : base(r => r.Required("node_id", nodeId)) { }
 
         /// <summary>/_plugins/_search_relevance/{node_id}/stats/{stat}</summary>
         /// <param name="nodeId">this parameter is required</param>
         /// <param name="stat">Optional, accepts null</param>
-        public GetNodeStatsDescriptor(Name nodeId, Name stat)
-            : base(r => r.Required("node_id", nodeId).Optional("stat", stat)) { }
+        public GetNodeStatsDescriptor(Name nodeId, Name stat) : base(r => r.Required("node_id", nodeId).Optional("stat", stat)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetNodeStatsDescriptor()
-            : base() { }
+        protected GetNodeStatsDescriptor() : base() { }
 
         // values part of the url path
         Name IGetNodeStatsRequest.NodeId => Self.RouteValues.Get<Name>("node_id");
         Name IGetNodeStatsRequest.Stat => Self.RouteValues.Get<Name>("stat");
 
         /// <summary>The statistic to return.</summary>
-        public GetNodeStatsDescriptor Stat(Name stat) =>
-            Assign(stat, (a, v) => a.RouteValues.Optional("stat", v));
+        public GetNodeStatsDescriptor Stat(Name stat) => Assign(stat, (a, v) => a.RouteValues.Optional("stat", v));
 
         // Request parameters
         /// <summary>Requests flattened stat paths as keys.</summary>
-        public GetNodeStatsDescriptor FlatStatPaths(string flatstatpaths) =>
-            Qs("flat_stat_paths", flatstatpaths);
+        public GetNodeStatsDescriptor FlatStatPaths(string flatstatpaths) => Qs("flat_stat_paths", flatstatpaths);
 
         /// <summary>Whether to include all nodes.</summary>
         public GetNodeStatsDescriptor IncludeAllNodes(string includeallnodes) =>
@@ -291,8 +240,7 @@ namespace OpenSearch.Client
             Qs("include_individual_nodes", includeindividualnodes);
 
         /// <summary>Whether to include info.</summary>
-        public GetNodeStatsDescriptor IncludeInfo(string includeinfo) =>
-            Qs("include_info", includeinfo);
+        public GetNodeStatsDescriptor IncludeInfo(string includeinfo) => Qs("include_info", includeinfo);
 
         /// <summary>Whether to include metadata.</summary>
         public GetNodeStatsDescriptor IncludeMetadata(string includemetadata) =>
@@ -301,23 +249,17 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for GetQuerySets</summary>
     public partial class GetQuerySetsDescriptor
-        : RequestDescriptorBase<
-            GetQuerySetsDescriptor,
-            GetQuerySetsRequestParameters,
-            IGetQuerySetsRequest
-        >,
+        : RequestDescriptorBase<GetQuerySetsDescriptor, GetQuerySetsRequestParameters, IGetQuerySetsRequest>,
             IGetQuerySetsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceGetQuerySets;
 
         /// <summary>/_plugins/_search_relevance/query_sets</summary>
-        public GetQuerySetsDescriptor()
-            : base() { }
+        public GetQuerySetsDescriptor() : base() { }
 
         /// <summary>/_plugins/_search_relevance/query_sets/{query_set_id}</summary>
         /// <param name="querySetId">Optional, accepts null</param>
-        public GetQuerySetsDescriptor(Id querySetId)
-            : base(r => r.Optional("query_set_id", querySetId)) { }
+        public GetQuerySetsDescriptor(Id querySetId) : base(r => r.Optional("query_set_id", querySetId)) { }
 
         // values part of the url path
         Id IGetQuerySetsRequest.QuerySetId => Self.RouteValues.Get<Id>("query_set_id");
@@ -325,91 +267,71 @@ namespace OpenSearch.Client
         /// <summary>The query set id.</summary>
         public GetQuerySetsDescriptor QuerySetId(Id querySetId) =>
             Assign(querySetId, (a, v) => a.RouteValues.Optional("query_set_id", v));
+
         // Request parameters
     }
 
     /// <summary>Descriptor for GetScheduledExperiments</summary>
     public partial class GetScheduledExperimentsDescriptor
-        : RequestDescriptorBase<
-            GetScheduledExperimentsDescriptor,
-            GetScheduledExperimentsRequestParameters,
-            IGetScheduledExperimentsRequest
-        >,
+        : RequestDescriptorBase<GetScheduledExperimentsDescriptor, GetScheduledExperimentsRequestParameters, IGetScheduledExperimentsRequest>,
             IGetScheduledExperimentsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceGetScheduledExperiments;
 
         /// <summary>/_plugins/_search_relevance/experiments/schedule</summary>
-        public GetScheduledExperimentsDescriptor()
-            : base() { }
+        public GetScheduledExperimentsDescriptor() : base() { }
 
         /// <summary>/_plugins/_search_relevance/experiments/schedule/{experiment_id}</summary>
         /// <param name="experimentId">Optional, accepts null</param>
-        public GetScheduledExperimentsDescriptor(Id experimentId)
-            : base(r => r.Optional("experiment_id", experimentId)) { }
+        public GetScheduledExperimentsDescriptor(Id experimentId) : base(r => r.Optional("experiment_id", experimentId)) { }
 
         // values part of the url path
-        Id IGetScheduledExperimentsRequest.ExperimentId =>
-            Self.RouteValues.Get<Id>("experiment_id");
+        Id IGetScheduledExperimentsRequest.ExperimentId => Self.RouteValues.Get<Id>("experiment_id");
 
         /// <summary>The experiment id.</summary>
         public GetScheduledExperimentsDescriptor ExperimentId(Id experimentId) =>
             Assign(experimentId, (a, v) => a.RouteValues.Optional("experiment_id", v));
+
         // Request parameters
     }
 
     /// <summary>Descriptor for GetSearchConfigurations</summary>
     public partial class GetSearchConfigurationsDescriptor
-        : RequestDescriptorBase<
-            GetSearchConfigurationsDescriptor,
-            GetSearchConfigurationsRequestParameters,
-            IGetSearchConfigurationsRequest
-        >,
+        : RequestDescriptorBase<GetSearchConfigurationsDescriptor, GetSearchConfigurationsRequestParameters, IGetSearchConfigurationsRequest>,
             IGetSearchConfigurationsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceGetSearchConfigurations;
 
         /// <summary>/_plugins/_search_relevance/search_configurations</summary>
-        public GetSearchConfigurationsDescriptor()
-            : base() { }
+        public GetSearchConfigurationsDescriptor() : base() { }
 
         /// <summary>/_plugins/_search_relevance/search_configurations/{search_configuration_id}</summary>
         /// <param name="searchConfigurationId">Optional, accepts null</param>
-        public GetSearchConfigurationsDescriptor(Id searchConfigurationId)
-            : base(r => r.Optional("search_configuration_id", searchConfigurationId)) { }
+        public GetSearchConfigurationsDescriptor(Id searchConfigurationId) : base(r => r.Optional("search_configuration_id", searchConfigurationId)) { }
 
         // values part of the url path
-        Id IGetSearchConfigurationsRequest.SearchConfigurationId =>
-            Self.RouteValues.Get<Id>("search_configuration_id");
+        Id IGetSearchConfigurationsRequest.SearchConfigurationId => Self.RouteValues.Get<Id>("search_configuration_id");
 
         /// <summary>The search configuration id.</summary>
         public GetSearchConfigurationsDescriptor SearchConfigurationId(Id searchConfigurationId) =>
-            Assign(
-                searchConfigurationId,
-                (a, v) => a.RouteValues.Optional("search_configuration_id", v)
-            );
+            Assign(searchConfigurationId, (a, v) => a.RouteValues.Optional("search_configuration_id", v));
+
         // Request parameters
     }
 
     /// <summary>Descriptor for GetStats</summary>
     public partial class GetSearchRelevanceStatsDescriptor
-        : RequestDescriptorBase<
-            GetSearchRelevanceStatsDescriptor,
-            GetStatsRequestParameters,
-            IGetSearchRelevanceStatsRequest
-        >,
+        : RequestDescriptorBase<GetSearchRelevanceStatsDescriptor, GetStatsRequestParameters, IGetSearchRelevanceStatsRequest>,
             IGetSearchRelevanceStatsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceGetStats;
 
         /// <summary>/_plugins/_search_relevance/stats</summary>
-        public GetSearchRelevanceStatsDescriptor()
-            : base() { }
+        public GetSearchRelevanceStatsDescriptor() : base() { }
 
         /// <summary>/_plugins/_search_relevance/stats/{stat}</summary>
         /// <param name="stat">Optional, accepts null</param>
-        public GetSearchRelevanceStatsDescriptor(Name stat)
-            : base(r => r.Optional("stat", stat)) { }
+        public GetSearchRelevanceStatsDescriptor(Name stat) : base(r => r.Optional("stat", stat)) { }
 
         // values part of the url path
         Name IGetSearchRelevanceStatsRequest.Stat => Self.RouteValues.Get<Name>("stat");
@@ -428,13 +350,11 @@ namespace OpenSearch.Client
             Qs("include_all_nodes", includeallnodes);
 
         /// <summary>Whether to include individual nodes.</summary>
-        public GetSearchRelevanceStatsDescriptor IncludeIndividualNodes(
-            string includeindividualnodes
-        ) => Qs("include_individual_nodes", includeindividualnodes);
+        public GetSearchRelevanceStatsDescriptor IncludeIndividualNodes(string includeindividualnodes) =>
+            Qs("include_individual_nodes", includeindividualnodes);
 
         /// <summary>Whether to include info.</summary>
-        public GetSearchRelevanceStatsDescriptor IncludeInfo(string includeinfo) =>
-            Qs("include_info", includeinfo);
+        public GetSearchRelevanceStatsDescriptor IncludeInfo(string includeinfo) => Qs("include_info", includeinfo);
 
         /// <summary>Whether to include metadata.</summary>
         public GetSearchRelevanceStatsDescriptor IncludeMetadata(string includemetadata) =>
@@ -443,127 +363,99 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for JudgmentsSearch</summary>
     public partial class JudgmentsSearchDescriptor
-        : RequestDescriptorBase<
-            JudgmentsSearchDescriptor,
-            JudgmentsSearchRequestParameters,
-            IJudgmentsSearchRequest
-        >,
+        : RequestDescriptorBase<JudgmentsSearchDescriptor, JudgmentsSearchRequestParameters, IJudgmentsSearchRequest>,
             IJudgmentsSearchRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceJudgmentsSearch;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for PostQuerySets</summary>
     public partial class PostQuerySetsDescriptor
-        : RequestDescriptorBase<
-            PostQuerySetsDescriptor,
-            PostQuerySetsRequestParameters,
-            IPostQuerySetsRequest
-        >,
+        : RequestDescriptorBase<PostQuerySetsDescriptor, PostQuerySetsRequestParameters, IPostQuerySetsRequest>,
             IPostQuerySetsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevancePostQuerySets;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for PostScheduledExperiments</summary>
     public partial class PostScheduledExperimentsDescriptor
-        : RequestDescriptorBase<
-            PostScheduledExperimentsDescriptor,
-            PostScheduledExperimentsRequestParameters,
-            IPostScheduledExperimentsRequest
-        >,
+        : RequestDescriptorBase<PostScheduledExperimentsDescriptor, PostScheduledExperimentsRequestParameters, IPostScheduledExperimentsRequest>,
             IPostScheduledExperimentsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevancePostScheduledExperiments;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for PutExperiments</summary>
     public partial class PutExperimentsDescriptor
-        : RequestDescriptorBase<
-            PutExperimentsDescriptor,
-            PutExperimentsRequestParameters,
-            IPutExperimentsRequest
-        >,
+        : RequestDescriptorBase<PutExperimentsDescriptor, PutExperimentsRequestParameters, IPutExperimentsRequest>,
             IPutExperimentsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevancePutExperiments;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for PutJudgments</summary>
     public partial class PutJudgmentsDescriptor
-        : RequestDescriptorBase<
-            PutJudgmentsDescriptor,
-            PutJudgmentsRequestParameters,
-            IPutJudgmentsRequest
-        >,
+        : RequestDescriptorBase<PutJudgmentsDescriptor, PutJudgmentsRequestParameters, IPutJudgmentsRequest>,
             IPutJudgmentsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevancePutJudgments;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for PutQuerySets</summary>
     public partial class PutQuerySetsDescriptor
-        : RequestDescriptorBase<
-            PutQuerySetsDescriptor,
-            PutQuerySetsRequestParameters,
-            IPutQuerySetsRequest
-        >,
+        : RequestDescriptorBase<PutQuerySetsDescriptor, PutQuerySetsRequestParameters, IPutQuerySetsRequest>,
             IPutQuerySetsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevancePutQuerySets;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for PutSearchConfigurations</summary>
     public partial class PutSearchConfigurationsDescriptor
-        : RequestDescriptorBase<
-            PutSearchConfigurationsDescriptor,
-            PutSearchConfigurationsRequestParameters,
-            IPutSearchConfigurationsRequest
-        >,
+        : RequestDescriptorBase<PutSearchConfigurationsDescriptor, PutSearchConfigurationsRequestParameters, IPutSearchConfigurationsRequest>,
             IPutSearchConfigurationsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevancePutSearchConfigurations;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for QuerySetsSearch</summary>
     public partial class QuerySetsSearchDescriptor
-        : RequestDescriptorBase<
-            QuerySetsSearchDescriptor,
-            QuerySetsSearchRequestParameters,
-            IQuerySetsSearchRequest
-        >,
+        : RequestDescriptorBase<QuerySetsSearchDescriptor, QuerySetsSearchRequestParameters, IQuerySetsSearchRequest>,
             IQuerySetsSearchRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceQuerySetsSearch;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for SearchConfigurationsSearch</summary>
     public partial class SearchConfigurationsSearchDescriptor
-        : RequestDescriptorBase<
-            SearchConfigurationsSearchDescriptor,
-            SearchConfigurationsSearchRequestParameters,
-            ISearchConfigurationsSearchRequest
-        >,
+        : RequestDescriptorBase<SearchConfigurationsSearchDescriptor, SearchConfigurationsSearchRequestParameters, ISearchConfigurationsSearchRequest>,
             ISearchConfigurationsSearchRequest
     {
-        internal override ApiUrls ApiUrls =>
-            ApiUrlsLookups.SearchRelevanceSearchConfigurationsSearch;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevanceSearchConfigurationsSearch;
+
         // values part of the url path
         // Request parameters
     }

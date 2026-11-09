@@ -149,7 +149,8 @@ foreach (var bp in m.BaseProperties)
     {
         var propType = PropertyType(p);
         var needsNew = !string.IsNullOrEmpty(baseClass) && p.CsharpName == "Name";
-<text>        [DataMember(Name = "@p.WireName")]
+<text>
+        [DataMember(Name = "@p.WireName")]
         @Raw(needsNew ? "new " : "")@Raw(propType) @p.CsharpName { get; set; }
 </text>
     }

@@ -78,10 +78,7 @@ namespace OpenSearch.Client
 
     /// <inheritdoc cref="IAgenticContextResponseProcessor" />
     public class AgenticContextResponseProcessorDescriptor
-        : DescriptorBase<
-            AgenticContextResponseProcessorDescriptor,
-            IAgenticContextResponseProcessor
-        >,
+        : DescriptorBase<AgenticContextResponseProcessorDescriptor, IAgenticContextResponseProcessor>,
             IAgenticContextResponseProcessor
     {
         string IResponseProcessor.Name => "agentic_context";
@@ -91,9 +88,8 @@ namespace OpenSearch.Client
         bool? IAgenticContextResponseProcessor.IgnoreFailure { get; set; }
         string IAgenticContextResponseProcessor.Tag { get; set; }
 
-        public AgenticContextResponseProcessorDescriptor AgentStepsSummary(
-            bool? agentStepsSummary = true
-        ) => Assign(agentStepsSummary, (a, val) => a.AgentStepsSummary = val);
+        public AgenticContextResponseProcessorDescriptor AgentStepsSummary(bool? agentStepsSummary = true) =>
+            Assign(agentStepsSummary, (a, val) => a.AgentStepsSummary = val);
 
         public AgenticContextResponseProcessorDescriptor Description(string description) =>
             Assign(description, (a, val) => a.Description = val);
@@ -101,9 +97,8 @@ namespace OpenSearch.Client
         public AgenticContextResponseProcessorDescriptor DslQuery(bool? dslQuery = true) =>
             Assign(dslQuery, (a, val) => a.DslQuery = val);
 
-        public AgenticContextResponseProcessorDescriptor IgnoreFailure(
-            bool? ignoreFailure = true
-        ) => Assign(ignoreFailure, (a, val) => a.IgnoreFailure = val);
+        public AgenticContextResponseProcessorDescriptor IgnoreFailure(bool? ignoreFailure = true) =>
+            Assign(ignoreFailure, (a, val) => a.IgnoreFailure = val);
 
         public AgenticContextResponseProcessorDescriptor Tag(string tag) =>
             Assign(tag, (a, val) => a.Tag = val);
@@ -138,8 +133,7 @@ namespace OpenSearch.Client
     }
 
     /// <inheritdoc cref="IPersonalizeSearchRankingResponseProcessor" />
-    public class PersonalizeSearchRankingResponseProcessor
-        : IPersonalizeSearchRankingResponseProcessor
+    public class PersonalizeSearchRankingResponseProcessor : IPersonalizeSearchRankingResponseProcessor
     {
         string IResponseProcessor.Name => "personalize_search_ranking";
         public string CampaignArn { get; set; }
@@ -154,10 +148,7 @@ namespace OpenSearch.Client
 
     /// <inheritdoc cref="IPersonalizeSearchRankingResponseProcessor" />
     public class PersonalizeSearchRankingResponseProcessorDescriptor
-        : DescriptorBase<
-            PersonalizeSearchRankingResponseProcessorDescriptor,
-            IPersonalizeSearchRankingResponseProcessor
-        >,
+        : DescriptorBase<PersonalizeSearchRankingResponseProcessorDescriptor, IPersonalizeSearchRankingResponseProcessor>,
             IPersonalizeSearchRankingResponseProcessor
     {
         string IResponseProcessor.Name => "personalize_search_ranking";
@@ -170,24 +161,20 @@ namespace OpenSearch.Client
         string IPersonalizeSearchRankingResponseProcessor.Tag { get; set; }
         float? IPersonalizeSearchRankingResponseProcessor.Weight { get; set; }
 
-        public PersonalizeSearchRankingResponseProcessorDescriptor CampaignArn(
-            string campaignArn
-        ) => Assign(campaignArn, (a, val) => a.CampaignArn = val);
+        public PersonalizeSearchRankingResponseProcessorDescriptor CampaignArn(string campaignArn) =>
+            Assign(campaignArn, (a, val) => a.CampaignArn = val);
 
-        public PersonalizeSearchRankingResponseProcessorDescriptor Description(
-            string description
-        ) => Assign(description, (a, val) => a.Description = val);
+        public PersonalizeSearchRankingResponseProcessorDescriptor Description(string description) =>
+            Assign(description, (a, val) => a.Description = val);
 
         public PersonalizeSearchRankingResponseProcessorDescriptor IamRoleArn(string iamRoleArn) =>
             Assign(iamRoleArn, (a, val) => a.IamRoleArn = val);
 
-        public PersonalizeSearchRankingResponseProcessorDescriptor IgnoreFailure(
-            bool? ignoreFailure = true
-        ) => Assign(ignoreFailure, (a, val) => a.IgnoreFailure = val);
+        public PersonalizeSearchRankingResponseProcessorDescriptor IgnoreFailure(bool? ignoreFailure = true) =>
+            Assign(ignoreFailure, (a, val) => a.IgnoreFailure = val);
 
-        public PersonalizeSearchRankingResponseProcessorDescriptor ItemIdField(
-            string itemIdField
-        ) => Assign(itemIdField, (a, val) => a.ItemIdField = val);
+        public PersonalizeSearchRankingResponseProcessorDescriptor ItemIdField(string itemIdField) =>
+            Assign(itemIdField, (a, val) => a.ItemIdField = val);
 
         public PersonalizeSearchRankingResponseProcessorDescriptor Recipe(string recipe) =>
             Assign(recipe, (a, val) => a.Recipe = val);
@@ -222,8 +209,7 @@ namespace OpenSearch.Client
     }
 
     /// <inheritdoc cref="IRetrievalAugmentedGenerationResponseProcessor" />
-    public class RetrievalAugmentedGenerationResponseProcessor
-        : IRetrievalAugmentedGenerationResponseProcessor
+    public class RetrievalAugmentedGenerationResponseProcessor : IRetrievalAugmentedGenerationResponseProcessor
     {
         string IResponseProcessor.Name => "retrieval_augmented_generation";
         public IList<string> ContextFieldList { get; set; }
@@ -236,10 +222,7 @@ namespace OpenSearch.Client
 
     /// <inheritdoc cref="IRetrievalAugmentedGenerationResponseProcessor" />
     public class RetrievalAugmentedGenerationResponseProcessorDescriptor
-        : DescriptorBase<
-            RetrievalAugmentedGenerationResponseProcessorDescriptor,
-            IRetrievalAugmentedGenerationResponseProcessor
-        >,
+        : DescriptorBase<RetrievalAugmentedGenerationResponseProcessorDescriptor, IRetrievalAugmentedGenerationResponseProcessor>,
             IRetrievalAugmentedGenerationResponseProcessor
     {
         string IResponseProcessor.Name => "retrieval_augmented_generation";
@@ -250,27 +233,23 @@ namespace OpenSearch.Client
         string IRetrievalAugmentedGenerationResponseProcessor.Tag { get; set; }
         string IRetrievalAugmentedGenerationResponseProcessor.UserInstructions { get; set; }
 
-        public RetrievalAugmentedGenerationResponseProcessorDescriptor ContextFieldList(
-            IList<string> contextFieldList
-        ) => Assign(contextFieldList, (a, val) => a.ContextFieldList = val);
+        public RetrievalAugmentedGenerationResponseProcessorDescriptor ContextFieldList(IList<string> contextFieldList) =>
+            Assign(contextFieldList, (a, val) => a.ContextFieldList = val);
 
-        public RetrievalAugmentedGenerationResponseProcessorDescriptor Description(
-            string description
-        ) => Assign(description, (a, val) => a.Description = val);
+        public RetrievalAugmentedGenerationResponseProcessorDescriptor Description(string description) =>
+            Assign(description, (a, val) => a.Description = val);
 
         public RetrievalAugmentedGenerationResponseProcessorDescriptor ModelId(string modelId) =>
             Assign(modelId, (a, val) => a.ModelId = val);
 
-        public RetrievalAugmentedGenerationResponseProcessorDescriptor SystemPrompt(
-            string systemPrompt
-        ) => Assign(systemPrompt, (a, val) => a.SystemPrompt = val);
+        public RetrievalAugmentedGenerationResponseProcessorDescriptor SystemPrompt(string systemPrompt) =>
+            Assign(systemPrompt, (a, val) => a.SystemPrompt = val);
 
         public RetrievalAugmentedGenerationResponseProcessorDescriptor Tag(string tag) =>
             Assign(tag, (a, val) => a.Tag = val);
 
-        public RetrievalAugmentedGenerationResponseProcessorDescriptor UserInstructions(
-            string userInstructions
-        ) => Assign(userInstructions, (a, val) => a.UserInstructions = val);
+        public RetrievalAugmentedGenerationResponseProcessorDescriptor UserInstructions(string userInstructions) =>
+            Assign(userInstructions, (a, val) => a.UserInstructions = val);
     }
 
     [InterfaceDataContract]
@@ -382,9 +361,8 @@ namespace OpenSearch.Client
         public RerankResponseProcessorDescriptor IgnoreFailure(bool? ignoreFailure = true) =>
             Assign(ignoreFailure, (a, val) => a.IgnoreFailure = val);
 
-        public RerankResponseProcessorDescriptor MlOpensearch(
-            ISearchPipelineMLOpenSearchReranker mlOpensearch
-        ) => Assign(mlOpensearch, (a, val) => a.MlOpensearch = val);
+        public RerankResponseProcessorDescriptor MlOpensearch(ISearchPipelineMLOpenSearchReranker mlOpensearch) =>
+            Assign(mlOpensearch, (a, val) => a.MlOpensearch = val);
 
         public RerankResponseProcessorDescriptor Tag(string tag) =>
             Assign(tag, (a, val) => a.Tag = val);
@@ -653,108 +631,44 @@ namespace OpenSearch.Client
     // ──────────────────────────────────────────────────────────────────────
 
     public class ResponseProcessorsDescriptor
-        : DescriptorPromiseBase<ResponseProcessorsDescriptor, IList<IResponseProcessor>>
+    : DescriptorPromiseBase<ResponseProcessorsDescriptor, IList<IResponseProcessor>>
     {
-        public ResponseProcessorsDescriptor()
-            : base(new List<IResponseProcessor>()) { }
+        public ResponseProcessorsDescriptor() : base(new List<IResponseProcessor>()) { }
 
         /// <inheritdoc cref="IAgenticContextResponseProcessor" />
-        public ResponseProcessorsDescriptor AgenticContext(
-            Func<
-                AgenticContextResponseProcessorDescriptor,
-                IAgenticContextResponseProcessor
-            > selector
-        ) =>
-            Assign(
-                selector,
-                (a, sel) =>
-                    a.AddIfNotNull(sel?.Invoke(new AgenticContextResponseProcessorDescriptor()))
-            );
+        public ResponseProcessorsDescriptor AgenticContext(Func<AgenticContextResponseProcessorDescriptor, IAgenticContextResponseProcessor> selector) =>
+            Assign(selector, (a, sel) => a.AddIfNotNull(sel?.Invoke(new AgenticContextResponseProcessorDescriptor())));
 
         /// <inheritdoc cref="IPersonalizeSearchRankingResponseProcessor" />
-        public ResponseProcessorsDescriptor PersonalizeSearchRanking(
-            Func<
-                PersonalizeSearchRankingResponseProcessorDescriptor,
-                IPersonalizeSearchRankingResponseProcessor
-            > selector
-        ) =>
-            Assign(
-                selector,
-                (a, sel) =>
-                    a.AddIfNotNull(
-                        sel?.Invoke(new PersonalizeSearchRankingResponseProcessorDescriptor())
-                    )
-            );
+        public ResponseProcessorsDescriptor PersonalizeSearchRanking(Func<PersonalizeSearchRankingResponseProcessorDescriptor, IPersonalizeSearchRankingResponseProcessor> selector) =>
+            Assign(selector, (a, sel) => a.AddIfNotNull(sel?.Invoke(new PersonalizeSearchRankingResponseProcessorDescriptor())));
 
         /// <inheritdoc cref="IRetrievalAugmentedGenerationResponseProcessor" />
-        public ResponseProcessorsDescriptor RetrievalAugmentedGeneration(
-            Func<
-                RetrievalAugmentedGenerationResponseProcessorDescriptor,
-                IRetrievalAugmentedGenerationResponseProcessor
-            > selector
-        ) =>
-            Assign(
-                selector,
-                (a, sel) =>
-                    a.AddIfNotNull(
-                        sel?.Invoke(new RetrievalAugmentedGenerationResponseProcessorDescriptor())
-                    )
-            );
+        public ResponseProcessorsDescriptor RetrievalAugmentedGeneration(Func<RetrievalAugmentedGenerationResponseProcessorDescriptor, IRetrievalAugmentedGenerationResponseProcessor> selector) =>
+            Assign(selector, (a, sel) => a.AddIfNotNull(sel?.Invoke(new RetrievalAugmentedGenerationResponseProcessorDescriptor())));
 
         /// <inheritdoc cref="IRenameFieldResponseProcessor" />
-        public ResponseProcessorsDescriptor RenameField(
-            Func<RenameFieldResponseProcessorDescriptor, IRenameFieldResponseProcessor> selector
-        ) =>
-            Assign(
-                selector,
-                (a, sel) =>
-                    a.AddIfNotNull(sel?.Invoke(new RenameFieldResponseProcessorDescriptor()))
-            );
+        public ResponseProcessorsDescriptor RenameField(Func<RenameFieldResponseProcessorDescriptor, IRenameFieldResponseProcessor> selector) =>
+            Assign(selector, (a, sel) => a.AddIfNotNull(sel?.Invoke(new RenameFieldResponseProcessorDescriptor())));
 
         /// <inheritdoc cref="IRerankResponseProcessor" />
-        public ResponseProcessorsDescriptor Rerank(
-            Func<RerankResponseProcessorDescriptor, IRerankResponseProcessor> selector
-        ) =>
-            Assign(
-                selector,
-                (a, sel) => a.AddIfNotNull(sel?.Invoke(new RerankResponseProcessorDescriptor()))
-            );
+        public ResponseProcessorsDescriptor Rerank(Func<RerankResponseProcessorDescriptor, IRerankResponseProcessor> selector) =>
+            Assign(selector, (a, sel) => a.AddIfNotNull(sel?.Invoke(new RerankResponseProcessorDescriptor())));
 
         /// <inheritdoc cref="ICollapseResponseProcessor" />
-        public ResponseProcessorsDescriptor Collapse(
-            Func<CollapseResponseProcessorDescriptor, ICollapseResponseProcessor> selector
-        ) =>
-            Assign(
-                selector,
-                (a, sel) => a.AddIfNotNull(sel?.Invoke(new CollapseResponseProcessorDescriptor()))
-            );
+        public ResponseProcessorsDescriptor Collapse(Func<CollapseResponseProcessorDescriptor, ICollapseResponseProcessor> selector) =>
+            Assign(selector, (a, sel) => a.AddIfNotNull(sel?.Invoke(new CollapseResponseProcessorDescriptor())));
 
         /// <inheritdoc cref="ITruncateHitsResponseProcessor" />
-        public ResponseProcessorsDescriptor TruncateHits(
-            Func<TruncateHitsResponseProcessorDescriptor, ITruncateHitsResponseProcessor> selector
-        ) =>
-            Assign(
-                selector,
-                (a, sel) =>
-                    a.AddIfNotNull(sel?.Invoke(new TruncateHitsResponseProcessorDescriptor()))
-            );
+        public ResponseProcessorsDescriptor TruncateHits(Func<TruncateHitsResponseProcessorDescriptor, ITruncateHitsResponseProcessor> selector) =>
+            Assign(selector, (a, sel) => a.AddIfNotNull(sel?.Invoke(new TruncateHitsResponseProcessorDescriptor())));
 
         /// <inheritdoc cref="ISortResponseProcessor" />
-        public ResponseProcessorsDescriptor Sort(
-            Func<SortResponseProcessorDescriptor, ISortResponseProcessor> selector
-        ) =>
-            Assign(
-                selector,
-                (a, sel) => a.AddIfNotNull(sel?.Invoke(new SortResponseProcessorDescriptor()))
-            );
+        public ResponseProcessorsDescriptor Sort(Func<SortResponseProcessorDescriptor, ISortResponseProcessor> selector) =>
+            Assign(selector, (a, sel) => a.AddIfNotNull(sel?.Invoke(new SortResponseProcessorDescriptor())));
 
         /// <inheritdoc cref="ISplitResponseProcessor" />
-        public ResponseProcessorsDescriptor Split(
-            Func<SplitResponseProcessorDescriptor, ISplitResponseProcessor> selector
-        ) =>
-            Assign(
-                selector,
-                (a, sel) => a.AddIfNotNull(sel?.Invoke(new SplitResponseProcessorDescriptor()))
-            );
+        public ResponseProcessorsDescriptor Split(Func<SplitResponseProcessorDescriptor, ISplitResponseProcessor> selector) =>
+            Assign(selector, (a, sel) => a.AddIfNotNull(sel?.Invoke(new SplitResponseProcessorDescriptor())));
     }
 }

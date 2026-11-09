@@ -1,3 +1,5 @@
+@using System
+@using System.Linq
 @using ApiGenerator.Domain
 @using ApiGenerator.Domain.Code
 @inherits ApiGenerator.CodeTemplatePage<RestApiSpec>
@@ -6,9 +8,13 @@
 	namespaces.Remove(CsharpNames.RootNamespace);
 	namespaces.Add("Http");
 
-	foreach (var ns in namespaces)
+	var usings = namespaces
+		.Select(ns => $"{CsharpNames.ApiNamespace}.{ns}{CsharpNames.ApiNamespaceSuffix}")
+		.OrderBy(u => u, StringComparer.Ordinal);
+
+	foreach (var u in usings)
 	{
-<text>using OpenSearch.Net.@(CsharpNames.ApiNamespace).@(ns)@(CsharpNames.ApiNamespaceSuffix);
+<text>using OpenSearch.Net.@(u);
 </text>
 	}
 }

@@ -66,19 +66,13 @@ namespace OpenSearch.Net.Specification.UbiApi
     /// </summary>
     public partial class LowLevelUbiNamespace : NamespacedClientProxy
     {
-        internal LowLevelUbiNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelUbiNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>POST on /_plugins/ubi/initialize</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Initialize<TResponse>(InitializeRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/ubi/initialize",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/ubi/initialize", null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/ubi/initialize</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -88,12 +82,6 @@ namespace OpenSearch.Net.Specification.UbiApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/ubi/initialize",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/ubi/initialize", ctx, null, RequestParams(requestParameters));
     }
 }

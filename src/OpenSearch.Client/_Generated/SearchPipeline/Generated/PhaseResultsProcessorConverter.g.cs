@@ -27,19 +27,12 @@ namespace OpenSearch.Client
     /// <summary>
     /// System.Text.Json converter for <see cref="IPhaseResultsProcessor"/> wrapper-key union.
     /// </summary>
-    internal class PhaseResultsProcessorConverter
-        : System.Text.Json.Serialization.JsonConverter<IPhaseResultsProcessor>
+    internal class PhaseResultsProcessorConverter : System.Text.Json.Serialization.JsonConverter<IPhaseResultsProcessor>
     {
-        public override IPhaseResultsProcessor Read(
-            ref System.Text.Json.Utf8JsonReader reader,
-            Type typeToConvert,
-            System.Text.Json.JsonSerializerOptions options
-        )
+        public override IPhaseResultsProcessor Read(ref System.Text.Json.Utf8JsonReader reader, Type typeToConvert, System.Text.Json.JsonSerializerOptions options)
         {
             if (reader.TokenType == System.Text.Json.JsonTokenType.Null)
-            {
-                return null;
-            }
+            { return null; }
             using var doc = System.Text.Json.JsonDocument.ParseValue(ref reader);
             var root = doc.RootElement;
             if (root.ValueKind != System.Text.Json.JsonValueKind.Object)
@@ -50,32 +43,19 @@ namespace OpenSearch.Client
                 switch (property.Name)
                 {
                     case "normalization-processor":
-                        return System.Text.Json.JsonSerializer.Deserialize<NormalizationPhaseResultsProcessor>(
-                            body,
-                            options
-                        );
+                        return System.Text.Json.JsonSerializer.Deserialize<NormalizationPhaseResultsProcessor>(body, options);
                     case "score-ranker-processor":
-                        return System.Text.Json.JsonSerializer.Deserialize<ScoreRankerPhaseResultsProcessor>(
-                            body,
-                            options
-                        );
+                        return System.Text.Json.JsonSerializer.Deserialize<ScoreRankerPhaseResultsProcessor>(body, options);
                 }
                 break; // only first key matters
             }
             return null;
         }
 
-        public override void Write(
-            System.Text.Json.Utf8JsonWriter writer,
-            IPhaseResultsProcessor value,
-            System.Text.Json.JsonSerializerOptions options
-        )
+        public override void Write(System.Text.Json.Utf8JsonWriter writer, IPhaseResultsProcessor value, System.Text.Json.JsonSerializerOptions options)
         {
             if (value?.Name == null)
-            {
-                writer.WriteNullValue();
-                return;
-            }
+            { writer.WriteNullValue(); return; }
             writer.WriteStartObject();
             writer.WritePropertyName(value.Name);
             switch (value)
@@ -87,12 +67,7 @@ namespace OpenSearch.Client
                     System.Text.Json.JsonSerializer.Serialize(writer, v, options);
                     break;
                 default:
-                    System.Text.Json.JsonSerializer.Serialize(
-                        writer,
-                        value,
-                        value.GetType(),
-                        options
-                    );
+                    System.Text.Json.JsonSerializer.Serialize(writer, value, value.GetType(), options);
                     break;
             }
             writer.WriteEndObject();

@@ -169,8 +169,7 @@ namespace OpenSearch.Client.Specification.SearchPipelineApi
     /// </summary>
     public partial class SearchPipelineNamespace : NamespacedClientProxy, ISearchPipelineNamespace
     {
-        internal SearchPipelineNamespace(OpenSearchClient client)
-            : base(client) { }
+        internal SearchPipelineNamespace(OpenSearchClient client) : base(client) { }
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_pipeline.delete</c> API, read more about this API online:
@@ -181,7 +180,8 @@ namespace OpenSearch.Client.Specification.SearchPipelineApi
         public DeleteSearchPipelineResponse Delete(
             Id id,
             Func<DeleteSearchPipelineDescriptor, IDeleteSearchPipelineRequest> selector = null
-        ) => Delete(selector.InvokeOrDefault(new DeleteSearchPipelineDescriptor(id: id)));
+        ) =>
+            Delete(selector.InvokeOrDefault(new DeleteSearchPipelineDescriptor(id: id)));
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_pipeline.delete</c> API, read more about this API online:
@@ -193,7 +193,8 @@ namespace OpenSearch.Client.Specification.SearchPipelineApi
             Id id,
             Func<DeleteSearchPipelineDescriptor, IDeleteSearchPipelineRequest> selector = null,
             CancellationToken ct = default
-        ) => DeleteAsync(selector.InvokeOrDefault(new DeleteSearchPipelineDescriptor(id: id)), ct);
+        ) =>
+            DeleteAsync(selector.InvokeOrDefault(new DeleteSearchPipelineDescriptor(id: id)), ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_pipeline.delete</c> API, read more about this API online:
@@ -202,10 +203,7 @@ namespace OpenSearch.Client.Specification.SearchPipelineApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
         public DeleteSearchPipelineResponse Delete(IDeleteSearchPipelineRequest request) =>
-            DoRequest<IDeleteSearchPipelineRequest, DeleteSearchPipelineResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IDeleteSearchPipelineRequest, DeleteSearchPipelineResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_pipeline.delete</c> API, read more about this API online:
@@ -217,11 +215,7 @@ namespace OpenSearch.Client.Specification.SearchPipelineApi
             IDeleteSearchPipelineRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IDeleteSearchPipelineRequest, DeleteSearchPipelineResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IDeleteSearchPipelineRequest, DeleteSearchPipelineResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_pipeline.get</c> API, read more about this API online:
@@ -231,7 +225,8 @@ namespace OpenSearch.Client.Specification.SearchPipelineApi
         /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
         public GetSearchPipelineResponse Get(
             Func<GetSearchPipelineDescriptor, IGetSearchPipelineRequest> selector = null
-        ) => Get(selector.InvokeOrDefault(new GetSearchPipelineDescriptor()));
+        ) =>
+            Get(selector.InvokeOrDefault(new GetSearchPipelineDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_pipeline.get</c> API, read more about this API online:
@@ -242,7 +237,8 @@ namespace OpenSearch.Client.Specification.SearchPipelineApi
         public Task<GetSearchPipelineResponse> GetAsync(
             Func<GetSearchPipelineDescriptor, IGetSearchPipelineRequest> selector = null,
             CancellationToken ct = default
-        ) => GetAsync(selector.InvokeOrDefault(new GetSearchPipelineDescriptor()), ct);
+        ) =>
+            GetAsync(selector.InvokeOrDefault(new GetSearchPipelineDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_pipeline.get</c> API, read more about this API online:
@@ -251,10 +247,7 @@ namespace OpenSearch.Client.Specification.SearchPipelineApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
         public GetSearchPipelineResponse Get(IGetSearchPipelineRequest request) =>
-            DoRequest<IGetSearchPipelineRequest, GetSearchPipelineResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IGetSearchPipelineRequest, GetSearchPipelineResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_pipeline.get</c> API, read more about this API online:
@@ -266,11 +259,7 @@ namespace OpenSearch.Client.Specification.SearchPipelineApi
             IGetSearchPipelineRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetSearchPipelineRequest, GetSearchPipelineResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetSearchPipelineRequest, GetSearchPipelineResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>search_pipeline.put</c> API, read more about this API online:
@@ -281,7 +270,8 @@ namespace OpenSearch.Client.Specification.SearchPipelineApi
         public PutSearchPipelineResponse Put(
             Id id,
             Func<PutSearchPipelineDescriptor, IPutSearchPipelineRequest> selector
-        ) => Put(selector.InvokeOrDefault(new PutSearchPipelineDescriptor(id: id)));
+        ) =>
+            Put(selector.InvokeOrDefault(new PutSearchPipelineDescriptor(id: id)));
 
         /// <summary>
         /// <c>PUT</c> request to the <c>search_pipeline.put</c> API, read more about this API online:
@@ -293,7 +283,8 @@ namespace OpenSearch.Client.Specification.SearchPipelineApi
             Id id,
             Func<PutSearchPipelineDescriptor, IPutSearchPipelineRequest> selector,
             CancellationToken ct = default
-        ) => PutAsync(selector.InvokeOrDefault(new PutSearchPipelineDescriptor(id: id)), ct);
+        ) =>
+            PutAsync(selector.InvokeOrDefault(new PutSearchPipelineDescriptor(id: id)), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>search_pipeline.put</c> API, read more about this API online:
@@ -302,10 +293,7 @@ namespace OpenSearch.Client.Specification.SearchPipelineApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
         public PutSearchPipelineResponse Put(IPutSearchPipelineRequest request) =>
-            DoRequest<IPutSearchPipelineRequest, PutSearchPipelineResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IPutSearchPipelineRequest, PutSearchPipelineResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>search_pipeline.put</c> API, read more about this API online:
@@ -317,10 +305,6 @@ namespace OpenSearch.Client.Specification.SearchPipelineApi
             IPutSearchPipelineRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IPutSearchPipelineRequest, PutSearchPipelineResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IPutSearchPipelineRequest, PutSearchPipelineResponse>(request, request.RequestParameters, ct);
     }
 }

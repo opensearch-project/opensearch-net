@@ -53,9 +53,7 @@ namespace OpenSearch.Client
         public IDictionary<string, object> AdditionalProperties { get; set; }
     }
 
-    public class ParametersDescriptor
-        : DescriptorBase<ParametersDescriptor, IParameters>,
-            IParameters
+    public class ParametersDescriptor : DescriptorBase<ParametersDescriptor, IParameters>, IParameters
     {
         string IParameters.LlmInterface { get; set; }
         string IParameters.Inputs { get; set; }
@@ -66,7 +64,8 @@ namespace OpenSearch.Client
         public ParametersDescriptor LlmInterface(string llmInterface) =>
             Assign(llmInterface, (a, v) => a.LlmInterface = v);
 
-        public ParametersDescriptor Inputs(string inputs) => Assign(inputs, (a, v) => a.Inputs = v);
+        public ParametersDescriptor Inputs(string inputs) =>
+            Assign(inputs, (a, v) => a.Inputs = v);
 
         public ParametersDescriptor Messages(IList<IMessages> messages) =>
             Assign(messages, (a, v) => a.Messages = v);
@@ -74,12 +73,7 @@ namespace OpenSearch.Client
         public ParametersDescriptor Question(string question) =>
             Assign(question, (a, v) => a.Question = v);
 
-        public ParametersDescriptor AdditionalProperties(
-            IDictionary<string, object> additionalProperties
-        ) =>
-            Assign(
-                additionalProperties,
-                (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v
-            );
+        public ParametersDescriptor AdditionalProperties(IDictionary<string, object> additionalProperties) =>
+            Assign(additionalProperties, (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v);
     }
 }

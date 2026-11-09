@@ -66,20 +66,14 @@ namespace OpenSearch.Net.Specification.NeuralApi
     /// </summary>
     public partial class LowLevelNeuralNamespace : NamespacedClientProxy
     {
-        internal LowLevelNeuralNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelNeuralNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>GET on /_plugins/_neural/stats</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.0.0 or greater.</remarks>
         public TResponse StatsForAll<TResponse>(StatsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_neural/stats",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_neural/stats", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_neural/stats</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -90,29 +84,15 @@ namespace OpenSearch.Net.Specification.NeuralApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_neural/stats",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_neural/stats", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_neural/{node_id}/stats</summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; leave empty to get information from all nodes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.0.0 or greater.</remarks>
-        public TResponse Stats<TResponse>(
-            string nodeId,
-            StatsRequestParameters requestParameters = null
-        )
+        public TResponse Stats<TResponse>(string nodeId, StatsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_neural/{nodeId:nodeId}/stats"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_neural/{nodeId:nodeId}/stats"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_neural/{node_id}/stats</summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; leave empty to get information from all nodes.</param>
@@ -125,13 +105,7 @@ namespace OpenSearch.Net.Specification.NeuralApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_neural/{nodeId:nodeId}/stats"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_neural/{nodeId:nodeId}/stats"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_neural/{node_id}/stats/{stat}</summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; leave empty to get information from all nodes.</param>
@@ -144,12 +118,7 @@ namespace OpenSearch.Net.Specification.NeuralApi
             StatsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_neural/{nodeId:nodeId}/stats/{stat:stat}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_neural/{nodeId:nodeId}/stats/{stat:stat}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_neural/{node_id}/stats/{stat}</summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; leave empty to get information from all nodes.</param>
@@ -164,29 +133,15 @@ namespace OpenSearch.Net.Specification.NeuralApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_neural/{nodeId:nodeId}/stats/{stat:stat}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_neural/{nodeId:nodeId}/stats/{stat:stat}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_neural/stats/{stat}</summary>
         /// <param name="stat">A comma-separated list of stats to retrieve; use empty string to retrieve all stats.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 3.0.0 or greater.</remarks>
-        public TResponse StatsForAll<TResponse>(
-            NeuralStatName? stat,
-            StatsRequestParameters requestParameters = null
-        )
+        public TResponse StatsForAll<TResponse>(NeuralStatName? stat, StatsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_neural/stats/{stat:stat}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_neural/stats/{stat:stat}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_neural/stats/{stat}</summary>
         /// <param name="stat">A comma-separated list of stats to retrieve; use empty string to retrieve all stats.</param>
@@ -199,12 +154,6 @@ namespace OpenSearch.Net.Specification.NeuralApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_neural/stats/{stat:stat}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_neural/stats/{stat:stat}"), ctx, null, RequestParams(requestParameters));
     }
 }

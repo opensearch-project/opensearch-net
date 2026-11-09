@@ -23,6 +23,8 @@ namespace OpenSearch.Client
     {
 @foreach (var p in Model.Properties)
 {
+<text>
+</text>
 @if (p.EffectiveJsonFormatterType != null)
 {
 <text>        [JsonFormatter(typeof(@Raw(p.EffectiveJsonFormatterType)))]

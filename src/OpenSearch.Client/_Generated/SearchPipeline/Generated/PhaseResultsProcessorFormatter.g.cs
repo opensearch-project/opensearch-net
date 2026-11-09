@@ -34,10 +34,7 @@ namespace OpenSearch.Client
             { "score-ranker-processor", 1 },
         };
 
-        public IPhaseResultsProcessor Deserialize(
-            ref JsonReader reader,
-            IJsonFormatterResolver formatterResolver
-        )
+        public IPhaseResultsProcessor Deserialize(ref JsonReader reader, IJsonFormatterResolver formatterResolver)
         {
             if (reader.GetCurrentJsonToken() != JsonToken.BeginObject)
             {
@@ -51,13 +48,9 @@ namespace OpenSearch.Client
             {
                 result = keyIdx switch
                 {
-                    0 => formatterResolver
-                        .GetFormatter<NormalizationPhaseResultsProcessor>()
-                        .Deserialize(ref reader, formatterResolver),
-                    1 => formatterResolver
-                        .GetFormatter<ScoreRankerPhaseResultsProcessor>()
-                        .Deserialize(ref reader, formatterResolver),
-                    _ => null,
+                    0 => formatterResolver.GetFormatter<NormalizationPhaseResultsProcessor>().Deserialize(ref reader, formatterResolver),
+                    1 => formatterResolver.GetFormatter<ScoreRankerPhaseResultsProcessor>().Deserialize(ref reader, formatterResolver),
+                    _ => null
                 };
             }
             else
@@ -66,42 +59,24 @@ namespace OpenSearch.Client
             return result;
         }
 
-        public void Serialize(
-            ref JsonWriter writer,
-            IPhaseResultsProcessor value,
-            IJsonFormatterResolver formatterResolver
-        )
+        public void Serialize(ref JsonWriter writer, IPhaseResultsProcessor value, IJsonFormatterResolver formatterResolver)
         {
             if (value?.Name == null)
-            {
-                writer.WriteNull();
-                return;
-            }
+            { writer.WriteNull(); return; }
             writer.WriteBeginObject();
             writer.WritePropertyName(value.Name);
             switch (value.Name)
             {
                 case "normalization-processor":
-                    formatterResolver
-                        .GetFormatter<INormalizationPhaseResultsProcessor>()
-                        .Serialize(
-                            ref writer,
-                            value as INormalizationPhaseResultsProcessor,
-                            formatterResolver
-                        );
+                    formatterResolver.GetFormatter<INormalizationPhaseResultsProcessor>()
+                        .Serialize(ref writer, value as INormalizationPhaseResultsProcessor, formatterResolver);
                     break;
                 case "score-ranker-processor":
-                    formatterResolver
-                        .GetFormatter<IScoreRankerPhaseResultsProcessor>()
-                        .Serialize(
-                            ref writer,
-                            value as IScoreRankerPhaseResultsProcessor,
-                            formatterResolver
-                        );
+                    formatterResolver.GetFormatter<IScoreRankerPhaseResultsProcessor>()
+                        .Serialize(ref writer, value as IScoreRankerPhaseResultsProcessor, formatterResolver);
                     break;
                 default:
-                    DynamicObjectResolver
-                        .ExcludeNullCamelCase.GetFormatter<IPhaseResultsProcessor>()
+                    DynamicObjectResolver.ExcludeNullCamelCase.GetFormatter<IPhaseResultsProcessor>()
                         .Serialize(ref writer, value, formatterResolver);
                     break;
             }

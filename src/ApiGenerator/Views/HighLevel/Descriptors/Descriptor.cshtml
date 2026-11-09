@@ -11,28 +11,36 @@
     var apiLookup = $"ApiUrlsLookups.{Model.CsharpNames.Namespace}{Model.CsharpNames.HighLevelMethodName}";
 }
     /// <summary>Descriptor for @names.HighLevelMethodName@(Raw(Model.OfficialDocumentationLink.IsNullOrEmpty() ? "" : " <para>" + Model.OfficialDocumentationLink + "</para>"))</summary>
-    public partial class @Raw(type) @(Raw(string.Format(" : RequestDescriptorBase<{0},{1}, {2}>, {2}", type,names.ParametersName, concreteInterface)))
+    @Raw(CodeLayout.BaseList($"public partial class {type}", $"RequestDescriptorBase<{type}, {names.ParametersName}, {concreteInterface}>, {concreteInterface}", 4))
     {
         internal override ApiUrls ApiUrls => @apiLookup;
 @foreach (var c in Model.Constructors)
 {
-<text>      @(Raw(CodeGenerator.Constructor(c)))
+<text>
+@(Raw(CodeGenerator.Constructor(c)))
 </text>
 }
+
         // values part of the url path
 @foreach (var part in Model.Parts.OrderBy(p => p.Name))
 {
-<text>      @(Raw(part.HighLevelTypeName)) @(Raw(baseInterface)).@(part.InterfaceName) => Self.RouteValues.Get@(Raw($"<{part.HighLevelTypeName}>"))("@(part.Name)");
+<text>@(Raw(part.HighLevelTypeName)) @(Raw(baseInterface)).@(part.InterfaceName) => Self.RouteValues.Get@(Raw($"<{part.HighLevelTypeName}>"))("@(part.Name)");
 </text>
 }
 @foreach (var c in Model.GetFluentRouteSetters())
 {
 <text>
         @(Raw(c.XmlDoc))
-        @(Raw(c.Code))
+        @(Raw(CodeLayout.ExpressionBody(c.Code, 8)))
+</text>
+}
+@if (Model.Parts.Any())
+{
+<text>
 </text>
 }
         // Request parameters
+@{ var firstParam = true; }
 @foreach (var param in Model.Params)
 {
     var original = param.QueryStringKey;
@@ -50,6 +58,12 @@
     var tSuffix = (t == "bool" || t == "bool?") ? " = true" : "";
     var typed = !string.IsNullOrEmpty(names.GenericsDeclaredOnDescriptor);
     var g = typed ? names.GenericsDeclaredOnDescriptor.Replace("<", "").Replace(">", "") : "T";
+    if (!firstParam)
+    {
+<text>
+</text>
+    }
+    firstParam = false;
 
     await IncludeAsync("HighLevel/Descriptors/XmlDocs.cshtml", param);
 
@@ -58,29 +72,29 @@
 <text>        [Obsolete("@Raw(param.Obsolete)")]
 </text>
     }
-<text>        public @Raw(type) @(param.ClsName)(@param.DescriptorArgumentType @param.ClsArgumentName@tSuffix) => Qs("@original", @(param.ClsArgumentName));
+    var member = $"public {type} {param.ClsName}({param.DescriptorArgumentType} {param.ClsArgumentName}{tSuffix}) => Qs(\"{original}\", {param.ClsArgumentName});";
+<text>        @Raw(CodeLayout.ExpressionBody(member, 8))
 </text>
     if (param.IsFieldsParam)
     {
 <text>
         /// <summary>@param.Description</summary>
-        public @Raw(type) @param.ClsName@(Raw(typed ? "" : "<T>"))(params @Raw("Expression<Func<" + g + ", object>>[]") fields) @Raw(typed ? "" : "where " + g + " : class") => Qs("@original", fields?@Raw(".Select(e=>(Field)e)"));
+        @Raw(CodeLayout.ExpressionBody($"public {type} {param.ClsName}{(typed ? "" : "<T>")}(params Expression<Func<{g}, object>>[] fields){(typed ? "" : $" where {g} : class")} => Qs(\"{original}\", fields?.Select(e => (Field)e));", 8))
 </text>
     }
     else if (param.IsFieldParam)
     {
 <text>
         /// <summary>@param.Description</summary>
-        public @Raw(type) @param.ClsName@(Raw(typed ? "" : "<T>"))(@Raw("Expression<Func<"+ g +", object>>") field) @Raw(typed ? "" : "where " + g + " : class") => Qs("@original", (Field)field);
+        @Raw(CodeLayout.ExpressionBody($"public {type} {param.ClsName}{(typed ? "" : "<T>")}(Expression<Func<{g}, object>> field){(typed ? "" : $" where {g} : class")} => Qs(\"{original}\", (Field)field);", 8))
 </text>
     }
 }
-    @if (names.DescriptorNotFoundInCodebase)
-    {<text>
+@if (names.DescriptorNotFoundInCodebase)
+{<text>
         [Obsolete("Unmapped, blacklist this API in CodeConfiguration.cs or implement @names.DescriptorName and @names.RequestName in a file called @(names.RequestName).cs in OSC's codebase", true)]
         public bool IsUnmapped => true;
         public bool UseIsUnmapped => IsUnmapped;
-     </text>
+</text>
+}
     }
-    }
-

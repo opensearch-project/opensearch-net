@@ -170,10 +170,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
         DeleteScheduledExperimentsResponse DeleteScheduledExperiments(
             Id experimentId,
-            Func<
-                DeleteScheduledExperimentsDescriptor,
-                IDeleteScheduledExperimentsRequest
-            > selector = null
+            Func<DeleteScheduledExperimentsDescriptor, IDeleteScheduledExperimentsRequest> selector = null
         );
 
         /// <summary>
@@ -184,10 +181,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
         Task<DeleteScheduledExperimentsResponse> DeleteScheduledExperimentsAsync(
             Id experimentId,
-            Func<
-                DeleteScheduledExperimentsDescriptor,
-                IDeleteScheduledExperimentsRequest
-            > selector = null,
+            Func<DeleteScheduledExperimentsDescriptor, IDeleteScheduledExperimentsRequest> selector = null,
             CancellationToken ct = default
         );
 
@@ -220,10 +214,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         DeleteSearchConfigurationsResponse DeleteSearchConfigurations(
             Id searchConfigurationId,
-            Func<
-                DeleteSearchConfigurationsDescriptor,
-                IDeleteSearchConfigurationsRequest
-            > selector = null
+            Func<DeleteSearchConfigurationsDescriptor, IDeleteSearchConfigurationsRequest> selector = null
         );
 
         /// <summary>
@@ -234,10 +225,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         Task<DeleteSearchConfigurationsResponse> DeleteSearchConfigurationsAsync(
             Id searchConfigurationId,
-            Func<
-                DeleteSearchConfigurationsDescriptor,
-                IDeleteSearchConfigurationsRequest
-            > selector = null,
+            Func<DeleteSearchConfigurationsDescriptor, IDeleteSearchConfigurationsRequest> selector = null,
             CancellationToken ct = default
         );
 
@@ -481,8 +469,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
         Task<GetScheduledExperimentsResponse> GetScheduledExperimentsAsync(
-            Func<GetScheduledExperimentsDescriptor, IGetScheduledExperimentsRequest> selector =
-                null,
+            Func<GetScheduledExperimentsDescriptor, IGetScheduledExperimentsRequest> selector = null,
             CancellationToken ct = default
         );
 
@@ -492,9 +479,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
-        GetScheduledExperimentsResponse GetScheduledExperiments(
-            IGetScheduledExperimentsRequest request
-        );
+        GetScheduledExperimentsResponse GetScheduledExperiments(IGetScheduledExperimentsRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_scheduled_experiments</c> API, read more about this API online:
@@ -524,8 +509,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         Task<GetSearchConfigurationsResponse> GetSearchConfigurationsAsync(
-            Func<GetSearchConfigurationsDescriptor, IGetSearchConfigurationsRequest> selector =
-                null,
+            Func<GetSearchConfigurationsDescriptor, IGetSearchConfigurationsRequest> selector = null,
             CancellationToken ct = default
         );
 
@@ -535,9 +519,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
-        GetSearchConfigurationsResponse GetSearchConfigurations(
-            IGetSearchConfigurationsRequest request
-        );
+        GetSearchConfigurationsResponse GetSearchConfigurations(IGetSearchConfigurationsRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_search_configurations</c> API, read more about this API online:
@@ -567,8 +549,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         Task<GetSearchRelevanceStatsResponse> GetStatsAsync(
-            Func<GetSearchRelevanceStatsDescriptor, IGetSearchRelevanceStatsRequest> selector =
-                null,
+            Func<GetSearchRelevanceStatsDescriptor, IGetSearchRelevanceStatsRequest> selector = null,
             CancellationToken ct = default
         );
 
@@ -678,8 +659,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
         PostScheduledExperimentsResponse PostScheduledExperiments(
-            Func<PostScheduledExperimentsDescriptor, IPostScheduledExperimentsRequest> selector =
-                null
+            Func<PostScheduledExperimentsDescriptor, IPostScheduledExperimentsRequest> selector = null
         );
 
         /// <summary>
@@ -689,8 +669,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
         Task<PostScheduledExperimentsResponse> PostScheduledExperimentsAsync(
-            Func<PostScheduledExperimentsDescriptor, IPostScheduledExperimentsRequest> selector =
-                null,
+            Func<PostScheduledExperimentsDescriptor, IPostScheduledExperimentsRequest> selector = null,
             CancellationToken ct = default
         );
 
@@ -700,9 +679,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
-        PostScheduledExperimentsResponse PostScheduledExperiments(
-            IPostScheduledExperimentsRequest request
-        );
+        PostScheduledExperimentsResponse PostScheduledExperiments(IPostScheduledExperimentsRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.post_scheduled_experiments</c> API, read more about this API online:
@@ -852,8 +829,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         Task<PutSearchConfigurationsResponse> PutSearchConfigurationsAsync(
-            Func<PutSearchConfigurationsDescriptor, IPutSearchConfigurationsRequest> selector =
-                null,
+            Func<PutSearchConfigurationsDescriptor, IPutSearchConfigurationsRequest> selector = null,
             CancellationToken ct = default
         );
 
@@ -863,9 +839,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
-        PutSearchConfigurationsResponse PutSearchConfigurations(
-            IPutSearchConfigurationsRequest request
-        );
+        PutSearchConfigurationsResponse PutSearchConfigurations(IPutSearchConfigurationsRequest request);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>search_relevance.put_search_configurations</c> API, read more about this API online:
@@ -925,10 +899,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.5.0 or greater.</remarks>
         SearchConfigurationsSearchResponse SearchConfigurationsSearch(
-            Func<
-                SearchConfigurationsSearchDescriptor,
-                ISearchConfigurationsSearchRequest
-            > selector = null
+            Func<SearchConfigurationsSearchDescriptor, ISearchConfigurationsSearchRequest> selector = null
         );
 
         /// <summary>
@@ -938,10 +909,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.5.0 or greater.</remarks>
         Task<SearchConfigurationsSearchResponse> SearchConfigurationsSearchAsync(
-            Func<
-                SearchConfigurationsSearchDescriptor,
-                ISearchConfigurationsSearchRequest
-            > selector = null,
+            Func<SearchConfigurationsSearchDescriptor, ISearchConfigurationsSearchRequest> selector = null,
             CancellationToken ct = default
         );
 
@@ -975,8 +943,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
     /// </summary>
     public partial class SearchRelevanceNamespace : NamespacedClientProxy, ISearchRelevanceNamespace
     {
-        internal SearchRelevanceNamespace(OpenSearchClient client)
-            : base(client) { }
+        internal SearchRelevanceNamespace(OpenSearchClient client) : base(client) { }
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_relevance.delete_experiments</c> API, read more about this API online:
@@ -988,11 +955,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             Id experimentId,
             Func<DeleteExperimentsDescriptor, IDeleteExperimentsRequest> selector = null
         ) =>
-            DeleteExperiments(
-                selector.InvokeOrDefault(
-                    new DeleteExperimentsDescriptor(experimentId: experimentId)
-                )
-            );
+            DeleteExperiments(selector.InvokeOrDefault(new DeleteExperimentsDescriptor(experimentId: experimentId)));
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_relevance.delete_experiments</c> API, read more about this API online:
@@ -1005,12 +968,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             Func<DeleteExperimentsDescriptor, IDeleteExperimentsRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            DeleteExperimentsAsync(
-                selector.InvokeOrDefault(
-                    new DeleteExperimentsDescriptor(experimentId: experimentId)
-                ),
-                ct
-            );
+            DeleteExperimentsAsync(selector.InvokeOrDefault(new DeleteExperimentsDescriptor(experimentId: experimentId)), ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_relevance.delete_experiments</c> API, read more about this API online:
@@ -1019,10 +977,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public DeleteExperimentsResponse DeleteExperiments(IDeleteExperimentsRequest request) =>
-            DoRequest<IDeleteExperimentsRequest, DeleteExperimentsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IDeleteExperimentsRequest, DeleteExperimentsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_relevance.delete_experiments</c> API, read more about this API online:
@@ -1034,11 +989,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             IDeleteExperimentsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IDeleteExperimentsRequest, DeleteExperimentsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IDeleteExperimentsRequest, DeleteExperimentsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_relevance.delete_judgments</c> API, read more about this API online:
@@ -1050,9 +1001,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             Id judgmentId,
             Func<DeleteJudgmentsDescriptor, IDeleteJudgmentsRequest> selector = null
         ) =>
-            DeleteJudgments(
-                selector.InvokeOrDefault(new DeleteJudgmentsDescriptor(judgmentId: judgmentId))
-            );
+            DeleteJudgments(selector.InvokeOrDefault(new DeleteJudgmentsDescriptor(judgmentId: judgmentId)));
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_relevance.delete_judgments</c> API, read more about this API online:
@@ -1065,10 +1014,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             Func<DeleteJudgmentsDescriptor, IDeleteJudgmentsRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            DeleteJudgmentsAsync(
-                selector.InvokeOrDefault(new DeleteJudgmentsDescriptor(judgmentId: judgmentId)),
-                ct
-            );
+            DeleteJudgmentsAsync(selector.InvokeOrDefault(new DeleteJudgmentsDescriptor(judgmentId: judgmentId)), ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_relevance.delete_judgments</c> API, read more about this API online:
@@ -1077,10 +1023,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public DeleteJudgmentsResponse DeleteJudgments(IDeleteJudgmentsRequest request) =>
-            DoRequest<IDeleteJudgmentsRequest, DeleteJudgmentsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IDeleteJudgmentsRequest, DeleteJudgmentsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_relevance.delete_judgments</c> API, read more about this API online:
@@ -1092,11 +1035,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             IDeleteJudgmentsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IDeleteJudgmentsRequest, DeleteJudgmentsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IDeleteJudgmentsRequest, DeleteJudgmentsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_relevance.delete_query_sets</c> API, read more about this API online:
@@ -1108,9 +1047,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             Id querySetId,
             Func<DeleteQuerySetsDescriptor, IDeleteQuerySetsRequest> selector = null
         ) =>
-            DeleteQuerySets(
-                selector.InvokeOrDefault(new DeleteQuerySetsDescriptor(querySetId: querySetId))
-            );
+            DeleteQuerySets(selector.InvokeOrDefault(new DeleteQuerySetsDescriptor(querySetId: querySetId)));
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_relevance.delete_query_sets</c> API, read more about this API online:
@@ -1123,10 +1060,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             Func<DeleteQuerySetsDescriptor, IDeleteQuerySetsRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            DeleteQuerySetsAsync(
-                selector.InvokeOrDefault(new DeleteQuerySetsDescriptor(querySetId: querySetId)),
-                ct
-            );
+            DeleteQuerySetsAsync(selector.InvokeOrDefault(new DeleteQuerySetsDescriptor(querySetId: querySetId)), ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_relevance.delete_query_sets</c> API, read more about this API online:
@@ -1135,10 +1069,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public DeleteQuerySetsResponse DeleteQuerySets(IDeleteQuerySetsRequest request) =>
-            DoRequest<IDeleteQuerySetsRequest, DeleteQuerySetsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IDeleteQuerySetsRequest, DeleteQuerySetsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_relevance.delete_query_sets</c> API, read more about this API online:
@@ -1150,11 +1081,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             IDeleteQuerySetsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IDeleteQuerySetsRequest, DeleteQuerySetsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IDeleteQuerySetsRequest, DeleteQuerySetsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_relevance.delete_scheduled_experiments</c> API, read more about this API online:
@@ -1164,16 +1091,9 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
         public DeleteScheduledExperimentsResponse DeleteScheduledExperiments(
             Id experimentId,
-            Func<
-                DeleteScheduledExperimentsDescriptor,
-                IDeleteScheduledExperimentsRequest
-            > selector = null
+            Func<DeleteScheduledExperimentsDescriptor, IDeleteScheduledExperimentsRequest> selector = null
         ) =>
-            DeleteScheduledExperiments(
-                selector.InvokeOrDefault(
-                    new DeleteScheduledExperimentsDescriptor(experimentId: experimentId)
-                )
-            );
+            DeleteScheduledExperiments(selector.InvokeOrDefault(new DeleteScheduledExperimentsDescriptor(experimentId: experimentId)));
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_relevance.delete_scheduled_experiments</c> API, read more about this API online:
@@ -1183,18 +1103,10 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
         public Task<DeleteScheduledExperimentsResponse> DeleteScheduledExperimentsAsync(
             Id experimentId,
-            Func<
-                DeleteScheduledExperimentsDescriptor,
-                IDeleteScheduledExperimentsRequest
-            > selector = null,
+            Func<DeleteScheduledExperimentsDescriptor, IDeleteScheduledExperimentsRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            DeleteScheduledExperimentsAsync(
-                selector.InvokeOrDefault(
-                    new DeleteScheduledExperimentsDescriptor(experimentId: experimentId)
-                ),
-                ct
-            );
+            DeleteScheduledExperimentsAsync(selector.InvokeOrDefault(new DeleteScheduledExperimentsDescriptor(experimentId: experimentId)), ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_relevance.delete_scheduled_experiments</c> API, read more about this API online:
@@ -1205,10 +1117,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         public DeleteScheduledExperimentsResponse DeleteScheduledExperiments(
             IDeleteScheduledExperimentsRequest request
         ) =>
-            DoRequest<IDeleteScheduledExperimentsRequest, DeleteScheduledExperimentsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IDeleteScheduledExperimentsRequest, DeleteScheduledExperimentsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_relevance.delete_scheduled_experiments</c> API, read more about this API online:
@@ -1220,11 +1129,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             IDeleteScheduledExperimentsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IDeleteScheduledExperimentsRequest, DeleteScheduledExperimentsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IDeleteScheduledExperimentsRequest, DeleteScheduledExperimentsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_relevance.delete_search_configurations</c> API, read more about this API online:
@@ -1234,18 +1139,9 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public DeleteSearchConfigurationsResponse DeleteSearchConfigurations(
             Id searchConfigurationId,
-            Func<
-                DeleteSearchConfigurationsDescriptor,
-                IDeleteSearchConfigurationsRequest
-            > selector = null
+            Func<DeleteSearchConfigurationsDescriptor, IDeleteSearchConfigurationsRequest> selector = null
         ) =>
-            DeleteSearchConfigurations(
-                selector.InvokeOrDefault(
-                    new DeleteSearchConfigurationsDescriptor(
-                        searchConfigurationId: searchConfigurationId
-                    )
-                )
-            );
+            DeleteSearchConfigurations(selector.InvokeOrDefault(new DeleteSearchConfigurationsDescriptor(searchConfigurationId: searchConfigurationId)));
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_relevance.delete_search_configurations</c> API, read more about this API online:
@@ -1255,20 +1151,10 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public Task<DeleteSearchConfigurationsResponse> DeleteSearchConfigurationsAsync(
             Id searchConfigurationId,
-            Func<
-                DeleteSearchConfigurationsDescriptor,
-                IDeleteSearchConfigurationsRequest
-            > selector = null,
+            Func<DeleteSearchConfigurationsDescriptor, IDeleteSearchConfigurationsRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            DeleteSearchConfigurationsAsync(
-                selector.InvokeOrDefault(
-                    new DeleteSearchConfigurationsDescriptor(
-                        searchConfigurationId: searchConfigurationId
-                    )
-                ),
-                ct
-            );
+            DeleteSearchConfigurationsAsync(selector.InvokeOrDefault(new DeleteSearchConfigurationsDescriptor(searchConfigurationId: searchConfigurationId)), ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_relevance.delete_search_configurations</c> API, read more about this API online:
@@ -1279,10 +1165,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         public DeleteSearchConfigurationsResponse DeleteSearchConfigurations(
             IDeleteSearchConfigurationsRequest request
         ) =>
-            DoRequest<IDeleteSearchConfigurationsRequest, DeleteSearchConfigurationsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IDeleteSearchConfigurationsRequest, DeleteSearchConfigurationsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>search_relevance.delete_search_configurations</c> API, read more about this API online:
@@ -1294,11 +1177,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             IDeleteSearchConfigurationsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IDeleteSearchConfigurationsRequest, DeleteSearchConfigurationsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IDeleteSearchConfigurationsRequest, DeleteSearchConfigurationsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.experiments_search</c> API, read more about this API online:
@@ -1308,7 +1187,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <remarks>Supported by OpenSearch servers of version 3.5.0 or greater.</remarks>
         public ExperimentsSearchResponse ExperimentsSearch(
             Func<ExperimentsSearchDescriptor, IExperimentsSearchRequest> selector = null
-        ) => ExperimentsSearch(selector.InvokeOrDefault(new ExperimentsSearchDescriptor()));
+        ) =>
+            ExperimentsSearch(selector.InvokeOrDefault(new ExperimentsSearchDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.experiments_search</c> API, read more about this API online:
@@ -1329,10 +1209,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.5.0 or greater.</remarks>
         public ExperimentsSearchResponse ExperimentsSearch(IExperimentsSearchRequest request) =>
-            DoRequest<IExperimentsSearchRequest, ExperimentsSearchResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IExperimentsSearchRequest, ExperimentsSearchResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.experiments_search</c> API, read more about this API online:
@@ -1344,11 +1221,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             IExperimentsSearchRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IExperimentsSearchRequest, ExperimentsSearchResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IExperimentsSearchRequest, ExperimentsSearchResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_experiments</c> API, read more about this API online:
@@ -1358,7 +1231,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public GetExperimentsResponse GetExperiments(
             Func<GetExperimentsDescriptor, IGetExperimentsRequest> selector = null
-        ) => GetExperiments(selector.InvokeOrDefault(new GetExperimentsDescriptor()));
+        ) =>
+            GetExperiments(selector.InvokeOrDefault(new GetExperimentsDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_experiments</c> API, read more about this API online:
@@ -1369,7 +1243,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         public Task<GetExperimentsResponse> GetExperimentsAsync(
             Func<GetExperimentsDescriptor, IGetExperimentsRequest> selector = null,
             CancellationToken ct = default
-        ) => GetExperimentsAsync(selector.InvokeOrDefault(new GetExperimentsDescriptor()), ct);
+        ) =>
+            GetExperimentsAsync(selector.InvokeOrDefault(new GetExperimentsDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_experiments</c> API, read more about this API online:
@@ -1378,10 +1253,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public GetExperimentsResponse GetExperiments(IGetExperimentsRequest request) =>
-            DoRequest<IGetExperimentsRequest, GetExperimentsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IGetExperimentsRequest, GetExperimentsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_experiments</c> API, read more about this API online:
@@ -1393,11 +1265,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             IGetExperimentsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetExperimentsRequest, GetExperimentsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetExperimentsRequest, GetExperimentsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_judgments</c> API, read more about this API online:
@@ -1407,7 +1275,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public GetJudgmentsResponse GetJudgments(
             Func<GetJudgmentsDescriptor, IGetJudgmentsRequest> selector = null
-        ) => GetJudgments(selector.InvokeOrDefault(new GetJudgmentsDescriptor()));
+        ) =>
+            GetJudgments(selector.InvokeOrDefault(new GetJudgmentsDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_judgments</c> API, read more about this API online:
@@ -1418,7 +1287,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         public Task<GetJudgmentsResponse> GetJudgmentsAsync(
             Func<GetJudgmentsDescriptor, IGetJudgmentsRequest> selector = null,
             CancellationToken ct = default
-        ) => GetJudgmentsAsync(selector.InvokeOrDefault(new GetJudgmentsDescriptor()), ct);
+        ) =>
+            GetJudgmentsAsync(selector.InvokeOrDefault(new GetJudgmentsDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_judgments</c> API, read more about this API online:
@@ -1427,10 +1297,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public GetJudgmentsResponse GetJudgments(IGetJudgmentsRequest request) =>
-            DoRequest<IGetJudgmentsRequest, GetJudgmentsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IGetJudgmentsRequest, GetJudgmentsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_judgments</c> API, read more about this API online:
@@ -1442,11 +1309,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             IGetJudgmentsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetJudgmentsRequest, GetJudgmentsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetJudgmentsRequest, GetJudgmentsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_node_stats</c> API, read more about this API online:
@@ -1457,7 +1320,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         public GetNodeStatsResponse GetNodeStats(
             Name nodeId,
             Func<GetNodeStatsDescriptor, IGetNodeStatsRequest> selector = null
-        ) => GetNodeStats(selector.InvokeOrDefault(new GetNodeStatsDescriptor(nodeId: nodeId)));
+        ) =>
+            GetNodeStats(selector.InvokeOrDefault(new GetNodeStatsDescriptor(nodeId: nodeId)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_node_stats</c> API, read more about this API online:
@@ -1470,10 +1334,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             Func<GetNodeStatsDescriptor, IGetNodeStatsRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            GetNodeStatsAsync(
-                selector.InvokeOrDefault(new GetNodeStatsDescriptor(nodeId: nodeId)),
-                ct
-            );
+            GetNodeStatsAsync(selector.InvokeOrDefault(new GetNodeStatsDescriptor(nodeId: nodeId)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_node_stats</c> API, read more about this API online:
@@ -1482,10 +1343,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public GetNodeStatsResponse GetNodeStats(IGetNodeStatsRequest request) =>
-            DoRequest<IGetNodeStatsRequest, GetNodeStatsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IGetNodeStatsRequest, GetNodeStatsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_node_stats</c> API, read more about this API online:
@@ -1497,11 +1355,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             IGetNodeStatsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetNodeStatsRequest, GetNodeStatsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetNodeStatsRequest, GetNodeStatsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_query_sets</c> API, read more about this API online:
@@ -1511,7 +1365,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public GetQuerySetsResponse GetQuerySets(
             Func<GetQuerySetsDescriptor, IGetQuerySetsRequest> selector = null
-        ) => GetQuerySets(selector.InvokeOrDefault(new GetQuerySetsDescriptor()));
+        ) =>
+            GetQuerySets(selector.InvokeOrDefault(new GetQuerySetsDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_query_sets</c> API, read more about this API online:
@@ -1522,7 +1377,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         public Task<GetQuerySetsResponse> GetQuerySetsAsync(
             Func<GetQuerySetsDescriptor, IGetQuerySetsRequest> selector = null,
             CancellationToken ct = default
-        ) => GetQuerySetsAsync(selector.InvokeOrDefault(new GetQuerySetsDescriptor()), ct);
+        ) =>
+            GetQuerySetsAsync(selector.InvokeOrDefault(new GetQuerySetsDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_query_sets</c> API, read more about this API online:
@@ -1531,10 +1387,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public GetQuerySetsResponse GetQuerySets(IGetQuerySetsRequest request) =>
-            DoRequest<IGetQuerySetsRequest, GetQuerySetsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IGetQuerySetsRequest, GetQuerySetsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_query_sets</c> API, read more about this API online:
@@ -1546,11 +1399,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             IGetQuerySetsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetQuerySetsRequest, GetQuerySetsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetQuerySetsRequest, GetQuerySetsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_scheduled_experiments</c> API, read more about this API online:
@@ -1561,9 +1410,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         public GetScheduledExperimentsResponse GetScheduledExperiments(
             Func<GetScheduledExperimentsDescriptor, IGetScheduledExperimentsRequest> selector = null
         ) =>
-            GetScheduledExperiments(
-                selector.InvokeOrDefault(new GetScheduledExperimentsDescriptor())
-            );
+            GetScheduledExperiments(selector.InvokeOrDefault(new GetScheduledExperimentsDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_scheduled_experiments</c> API, read more about this API online:
@@ -1572,14 +1419,10 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
         public Task<GetScheduledExperimentsResponse> GetScheduledExperimentsAsync(
-            Func<GetScheduledExperimentsDescriptor, IGetScheduledExperimentsRequest> selector =
-                null,
+            Func<GetScheduledExperimentsDescriptor, IGetScheduledExperimentsRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            GetScheduledExperimentsAsync(
-                selector.InvokeOrDefault(new GetScheduledExperimentsDescriptor()),
-                ct
-            );
+            GetScheduledExperimentsAsync(selector.InvokeOrDefault(new GetScheduledExperimentsDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_scheduled_experiments</c> API, read more about this API online:
@@ -1587,13 +1430,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
-        public GetScheduledExperimentsResponse GetScheduledExperiments(
-            IGetScheduledExperimentsRequest request
-        ) =>
-            DoRequest<IGetScheduledExperimentsRequest, GetScheduledExperimentsResponse>(
-                request,
-                request.RequestParameters
-            );
+        public GetScheduledExperimentsResponse GetScheduledExperiments(IGetScheduledExperimentsRequest request) =>
+            DoRequest<IGetScheduledExperimentsRequest, GetScheduledExperimentsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_scheduled_experiments</c> API, read more about this API online:
@@ -1605,11 +1443,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             IGetScheduledExperimentsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetScheduledExperimentsRequest, GetScheduledExperimentsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetScheduledExperimentsRequest, GetScheduledExperimentsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_search_configurations</c> API, read more about this API online:
@@ -1620,9 +1454,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         public GetSearchConfigurationsResponse GetSearchConfigurations(
             Func<GetSearchConfigurationsDescriptor, IGetSearchConfigurationsRequest> selector = null
         ) =>
-            GetSearchConfigurations(
-                selector.InvokeOrDefault(new GetSearchConfigurationsDescriptor())
-            );
+            GetSearchConfigurations(selector.InvokeOrDefault(new GetSearchConfigurationsDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_search_configurations</c> API, read more about this API online:
@@ -1631,14 +1463,10 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public Task<GetSearchConfigurationsResponse> GetSearchConfigurationsAsync(
-            Func<GetSearchConfigurationsDescriptor, IGetSearchConfigurationsRequest> selector =
-                null,
+            Func<GetSearchConfigurationsDescriptor, IGetSearchConfigurationsRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            GetSearchConfigurationsAsync(
-                selector.InvokeOrDefault(new GetSearchConfigurationsDescriptor()),
-                ct
-            );
+            GetSearchConfigurationsAsync(selector.InvokeOrDefault(new GetSearchConfigurationsDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_search_configurations</c> API, read more about this API online:
@@ -1646,13 +1474,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
-        public GetSearchConfigurationsResponse GetSearchConfigurations(
-            IGetSearchConfigurationsRequest request
-        ) =>
-            DoRequest<IGetSearchConfigurationsRequest, GetSearchConfigurationsResponse>(
-                request,
-                request.RequestParameters
-            );
+        public GetSearchConfigurationsResponse GetSearchConfigurations(IGetSearchConfigurationsRequest request) =>
+            DoRequest<IGetSearchConfigurationsRequest, GetSearchConfigurationsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_search_configurations</c> API, read more about this API online:
@@ -1664,11 +1487,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             IGetSearchConfigurationsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetSearchConfigurationsRequest, GetSearchConfigurationsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetSearchConfigurationsRequest, GetSearchConfigurationsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_stats</c> API, read more about this API online:
@@ -1678,7 +1497,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public GetSearchRelevanceStatsResponse GetStats(
             Func<GetSearchRelevanceStatsDescriptor, IGetSearchRelevanceStatsRequest> selector = null
-        ) => GetStats(selector.InvokeOrDefault(new GetSearchRelevanceStatsDescriptor()));
+        ) =>
+            GetStats(selector.InvokeOrDefault(new GetSearchRelevanceStatsDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_stats</c> API, read more about this API online:
@@ -1687,10 +1507,10 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public Task<GetSearchRelevanceStatsResponse> GetStatsAsync(
-            Func<GetSearchRelevanceStatsDescriptor, IGetSearchRelevanceStatsRequest> selector =
-                null,
+            Func<GetSearchRelevanceStatsDescriptor, IGetSearchRelevanceStatsRequest> selector = null,
             CancellationToken ct = default
-        ) => GetStatsAsync(selector.InvokeOrDefault(new GetSearchRelevanceStatsDescriptor()), ct);
+        ) =>
+            GetStatsAsync(selector.InvokeOrDefault(new GetSearchRelevanceStatsDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_stats</c> API, read more about this API online:
@@ -1699,10 +1519,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public GetSearchRelevanceStatsResponse GetStats(IGetSearchRelevanceStatsRequest request) =>
-            DoRequest<IGetSearchRelevanceStatsRequest, GetSearchRelevanceStatsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IGetSearchRelevanceStatsRequest, GetSearchRelevanceStatsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>search_relevance.get_stats</c> API, read more about this API online:
@@ -1714,11 +1531,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             IGetSearchRelevanceStatsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetSearchRelevanceStatsRequest, GetSearchRelevanceStatsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetSearchRelevanceStatsRequest, GetSearchRelevanceStatsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.judgments_search</c> API, read more about this API online:
@@ -1728,7 +1541,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <remarks>Supported by OpenSearch servers of version 3.5.0 or greater.</remarks>
         public JudgmentsSearchResponse JudgmentsSearch(
             Func<JudgmentsSearchDescriptor, IJudgmentsSearchRequest> selector = null
-        ) => JudgmentsSearch(selector.InvokeOrDefault(new JudgmentsSearchDescriptor()));
+        ) =>
+            JudgmentsSearch(selector.InvokeOrDefault(new JudgmentsSearchDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.judgments_search</c> API, read more about this API online:
@@ -1739,7 +1553,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         public Task<JudgmentsSearchResponse> JudgmentsSearchAsync(
             Func<JudgmentsSearchDescriptor, IJudgmentsSearchRequest> selector = null,
             CancellationToken ct = default
-        ) => JudgmentsSearchAsync(selector.InvokeOrDefault(new JudgmentsSearchDescriptor()), ct);
+        ) =>
+            JudgmentsSearchAsync(selector.InvokeOrDefault(new JudgmentsSearchDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.judgments_search</c> API, read more about this API online:
@@ -1748,10 +1563,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.5.0 or greater.</remarks>
         public JudgmentsSearchResponse JudgmentsSearch(IJudgmentsSearchRequest request) =>
-            DoRequest<IJudgmentsSearchRequest, JudgmentsSearchResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IJudgmentsSearchRequest, JudgmentsSearchResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.judgments_search</c> API, read more about this API online:
@@ -1763,11 +1575,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             IJudgmentsSearchRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IJudgmentsSearchRequest, JudgmentsSearchResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IJudgmentsSearchRequest, JudgmentsSearchResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.post_query_sets</c> API, read more about this API online:
@@ -1777,7 +1585,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public PostQuerySetsResponse PostQuerySets(
             Func<PostQuerySetsDescriptor, IPostQuerySetsRequest> selector = null
-        ) => PostQuerySets(selector.InvokeOrDefault(new PostQuerySetsDescriptor()));
+        ) =>
+            PostQuerySets(selector.InvokeOrDefault(new PostQuerySetsDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.post_query_sets</c> API, read more about this API online:
@@ -1788,7 +1597,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         public Task<PostQuerySetsResponse> PostQuerySetsAsync(
             Func<PostQuerySetsDescriptor, IPostQuerySetsRequest> selector = null,
             CancellationToken ct = default
-        ) => PostQuerySetsAsync(selector.InvokeOrDefault(new PostQuerySetsDescriptor()), ct);
+        ) =>
+            PostQuerySetsAsync(selector.InvokeOrDefault(new PostQuerySetsDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.post_query_sets</c> API, read more about this API online:
@@ -1797,10 +1607,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public PostQuerySetsResponse PostQuerySets(IPostQuerySetsRequest request) =>
-            DoRequest<IPostQuerySetsRequest, PostQuerySetsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IPostQuerySetsRequest, PostQuerySetsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.post_query_sets</c> API, read more about this API online:
@@ -1812,11 +1619,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             IPostQuerySetsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IPostQuerySetsRequest, PostQuerySetsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IPostQuerySetsRequest, PostQuerySetsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.post_scheduled_experiments</c> API, read more about this API online:
@@ -1825,12 +1628,9 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
         public PostScheduledExperimentsResponse PostScheduledExperiments(
-            Func<PostScheduledExperimentsDescriptor, IPostScheduledExperimentsRequest> selector =
-                null
+            Func<PostScheduledExperimentsDescriptor, IPostScheduledExperimentsRequest> selector = null
         ) =>
-            PostScheduledExperiments(
-                selector.InvokeOrDefault(new PostScheduledExperimentsDescriptor())
-            );
+            PostScheduledExperiments(selector.InvokeOrDefault(new PostScheduledExperimentsDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.post_scheduled_experiments</c> API, read more about this API online:
@@ -1839,14 +1639,10 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
         public Task<PostScheduledExperimentsResponse> PostScheduledExperimentsAsync(
-            Func<PostScheduledExperimentsDescriptor, IPostScheduledExperimentsRequest> selector =
-                null,
+            Func<PostScheduledExperimentsDescriptor, IPostScheduledExperimentsRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            PostScheduledExperimentsAsync(
-                selector.InvokeOrDefault(new PostScheduledExperimentsDescriptor()),
-                ct
-            );
+            PostScheduledExperimentsAsync(selector.InvokeOrDefault(new PostScheduledExperimentsDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.post_scheduled_experiments</c> API, read more about this API online:
@@ -1854,13 +1650,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.4.0 or greater.</remarks>
-        public PostScheduledExperimentsResponse PostScheduledExperiments(
-            IPostScheduledExperimentsRequest request
-        ) =>
-            DoRequest<IPostScheduledExperimentsRequest, PostScheduledExperimentsResponse>(
-                request,
-                request.RequestParameters
-            );
+        public PostScheduledExperimentsResponse PostScheduledExperiments(IPostScheduledExperimentsRequest request) =>
+            DoRequest<IPostScheduledExperimentsRequest, PostScheduledExperimentsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.post_scheduled_experiments</c> API, read more about this API online:
@@ -1872,11 +1663,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             IPostScheduledExperimentsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IPostScheduledExperimentsRequest, PostScheduledExperimentsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IPostScheduledExperimentsRequest, PostScheduledExperimentsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>search_relevance.put_experiments</c> API, read more about this API online:
@@ -1886,7 +1673,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public PutExperimentsResponse PutExperiments(
             Func<PutExperimentsDescriptor, IPutExperimentsRequest> selector = null
-        ) => PutExperiments(selector.InvokeOrDefault(new PutExperimentsDescriptor()));
+        ) =>
+            PutExperiments(selector.InvokeOrDefault(new PutExperimentsDescriptor()));
 
         /// <summary>
         /// <c>PUT</c> request to the <c>search_relevance.put_experiments</c> API, read more about this API online:
@@ -1897,7 +1685,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         public Task<PutExperimentsResponse> PutExperimentsAsync(
             Func<PutExperimentsDescriptor, IPutExperimentsRequest> selector = null,
             CancellationToken ct = default
-        ) => PutExperimentsAsync(selector.InvokeOrDefault(new PutExperimentsDescriptor()), ct);
+        ) =>
+            PutExperimentsAsync(selector.InvokeOrDefault(new PutExperimentsDescriptor()), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>search_relevance.put_experiments</c> API, read more about this API online:
@@ -1906,10 +1695,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public PutExperimentsResponse PutExperiments(IPutExperimentsRequest request) =>
-            DoRequest<IPutExperimentsRequest, PutExperimentsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IPutExperimentsRequest, PutExperimentsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>search_relevance.put_experiments</c> API, read more about this API online:
@@ -1921,11 +1707,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             IPutExperimentsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IPutExperimentsRequest, PutExperimentsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IPutExperimentsRequest, PutExperimentsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>search_relevance.put_judgments</c> API, read more about this API online:
@@ -1935,7 +1717,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public PutJudgmentsResponse PutJudgments(
             Func<PutJudgmentsDescriptor, IPutJudgmentsRequest> selector = null
-        ) => PutJudgments(selector.InvokeOrDefault(new PutJudgmentsDescriptor()));
+        ) =>
+            PutJudgments(selector.InvokeOrDefault(new PutJudgmentsDescriptor()));
 
         /// <summary>
         /// <c>PUT</c> request to the <c>search_relevance.put_judgments</c> API, read more about this API online:
@@ -1946,7 +1729,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         public Task<PutJudgmentsResponse> PutJudgmentsAsync(
             Func<PutJudgmentsDescriptor, IPutJudgmentsRequest> selector = null,
             CancellationToken ct = default
-        ) => PutJudgmentsAsync(selector.InvokeOrDefault(new PutJudgmentsDescriptor()), ct);
+        ) =>
+            PutJudgmentsAsync(selector.InvokeOrDefault(new PutJudgmentsDescriptor()), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>search_relevance.put_judgments</c> API, read more about this API online:
@@ -1955,10 +1739,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public PutJudgmentsResponse PutJudgments(IPutJudgmentsRequest request) =>
-            DoRequest<IPutJudgmentsRequest, PutJudgmentsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IPutJudgmentsRequest, PutJudgmentsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>search_relevance.put_judgments</c> API, read more about this API online:
@@ -1970,11 +1751,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             IPutJudgmentsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IPutJudgmentsRequest, PutJudgmentsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IPutJudgmentsRequest, PutJudgmentsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>search_relevance.put_query_sets</c> API, read more about this API online:
@@ -1984,7 +1761,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public PutQuerySetsResponse PutQuerySets(
             Func<PutQuerySetsDescriptor, IPutQuerySetsRequest> selector = null
-        ) => PutQuerySets(selector.InvokeOrDefault(new PutQuerySetsDescriptor()));
+        ) =>
+            PutQuerySets(selector.InvokeOrDefault(new PutQuerySetsDescriptor()));
 
         /// <summary>
         /// <c>PUT</c> request to the <c>search_relevance.put_query_sets</c> API, read more about this API online:
@@ -1995,7 +1773,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         public Task<PutQuerySetsResponse> PutQuerySetsAsync(
             Func<PutQuerySetsDescriptor, IPutQuerySetsRequest> selector = null,
             CancellationToken ct = default
-        ) => PutQuerySetsAsync(selector.InvokeOrDefault(new PutQuerySetsDescriptor()), ct);
+        ) =>
+            PutQuerySetsAsync(selector.InvokeOrDefault(new PutQuerySetsDescriptor()), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>search_relevance.put_query_sets</c> API, read more about this API online:
@@ -2004,10 +1783,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public PutQuerySetsResponse PutQuerySets(IPutQuerySetsRequest request) =>
-            DoRequest<IPutQuerySetsRequest, PutQuerySetsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IPutQuerySetsRequest, PutQuerySetsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>search_relevance.put_query_sets</c> API, read more about this API online:
@@ -2019,11 +1795,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             IPutQuerySetsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IPutQuerySetsRequest, PutQuerySetsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IPutQuerySetsRequest, PutQuerySetsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>search_relevance.put_search_configurations</c> API, read more about this API online:
@@ -2034,9 +1806,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         public PutSearchConfigurationsResponse PutSearchConfigurations(
             Func<PutSearchConfigurationsDescriptor, IPutSearchConfigurationsRequest> selector = null
         ) =>
-            PutSearchConfigurations(
-                selector.InvokeOrDefault(new PutSearchConfigurationsDescriptor())
-            );
+            PutSearchConfigurations(selector.InvokeOrDefault(new PutSearchConfigurationsDescriptor()));
 
         /// <summary>
         /// <c>PUT</c> request to the <c>search_relevance.put_search_configurations</c> API, read more about this API online:
@@ -2045,14 +1815,10 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
         public Task<PutSearchConfigurationsResponse> PutSearchConfigurationsAsync(
-            Func<PutSearchConfigurationsDescriptor, IPutSearchConfigurationsRequest> selector =
-                null,
+            Func<PutSearchConfigurationsDescriptor, IPutSearchConfigurationsRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            PutSearchConfigurationsAsync(
-                selector.InvokeOrDefault(new PutSearchConfigurationsDescriptor()),
-                ct
-            );
+            PutSearchConfigurationsAsync(selector.InvokeOrDefault(new PutSearchConfigurationsDescriptor()), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>search_relevance.put_search_configurations</c> API, read more about this API online:
@@ -2060,13 +1826,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.1.0 or greater.</remarks>
-        public PutSearchConfigurationsResponse PutSearchConfigurations(
-            IPutSearchConfigurationsRequest request
-        ) =>
-            DoRequest<IPutSearchConfigurationsRequest, PutSearchConfigurationsResponse>(
-                request,
-                request.RequestParameters
-            );
+        public PutSearchConfigurationsResponse PutSearchConfigurations(IPutSearchConfigurationsRequest request) =>
+            DoRequest<IPutSearchConfigurationsRequest, PutSearchConfigurationsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>search_relevance.put_search_configurations</c> API, read more about this API online:
@@ -2078,11 +1839,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             IPutSearchConfigurationsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IPutSearchConfigurationsRequest, PutSearchConfigurationsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IPutSearchConfigurationsRequest, PutSearchConfigurationsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.query_sets_search</c> API, read more about this API online:
@@ -2092,7 +1849,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// <remarks>Supported by OpenSearch servers of version 3.5.0 or greater.</remarks>
         public QuerySetsSearchResponse QuerySetsSearch(
             Func<QuerySetsSearchDescriptor, IQuerySetsSearchRequest> selector = null
-        ) => QuerySetsSearch(selector.InvokeOrDefault(new QuerySetsSearchDescriptor()));
+        ) =>
+            QuerySetsSearch(selector.InvokeOrDefault(new QuerySetsSearchDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.query_sets_search</c> API, read more about this API online:
@@ -2103,7 +1861,8 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         public Task<QuerySetsSearchResponse> QuerySetsSearchAsync(
             Func<QuerySetsSearchDescriptor, IQuerySetsSearchRequest> selector = null,
             CancellationToken ct = default
-        ) => QuerySetsSearchAsync(selector.InvokeOrDefault(new QuerySetsSearchDescriptor()), ct);
+        ) =>
+            QuerySetsSearchAsync(selector.InvokeOrDefault(new QuerySetsSearchDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.query_sets_search</c> API, read more about this API online:
@@ -2112,10 +1871,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.5.0 or greater.</remarks>
         public QuerySetsSearchResponse QuerySetsSearch(IQuerySetsSearchRequest request) =>
-            DoRequest<IQuerySetsSearchRequest, QuerySetsSearchResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IQuerySetsSearchRequest, QuerySetsSearchResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.query_sets_search</c> API, read more about this API online:
@@ -2127,11 +1883,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             IQuerySetsSearchRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IQuerySetsSearchRequest, QuerySetsSearchResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IQuerySetsSearchRequest, QuerySetsSearchResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.search_configurations_search</c> API, read more about this API online:
@@ -2140,14 +1892,9 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.5.0 or greater.</remarks>
         public SearchConfigurationsSearchResponse SearchConfigurationsSearch(
-            Func<
-                SearchConfigurationsSearchDescriptor,
-                ISearchConfigurationsSearchRequest
-            > selector = null
+            Func<SearchConfigurationsSearchDescriptor, ISearchConfigurationsSearchRequest> selector = null
         ) =>
-            SearchConfigurationsSearch(
-                selector.InvokeOrDefault(new SearchConfigurationsSearchDescriptor())
-            );
+            SearchConfigurationsSearch(selector.InvokeOrDefault(new SearchConfigurationsSearchDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.search_configurations_search</c> API, read more about this API online:
@@ -2156,16 +1903,10 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.5.0 or greater.</remarks>
         public Task<SearchConfigurationsSearchResponse> SearchConfigurationsSearchAsync(
-            Func<
-                SearchConfigurationsSearchDescriptor,
-                ISearchConfigurationsSearchRequest
-            > selector = null,
+            Func<SearchConfigurationsSearchDescriptor, ISearchConfigurationsSearchRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            SearchConfigurationsSearchAsync(
-                selector.InvokeOrDefault(new SearchConfigurationsSearchDescriptor()),
-                ct
-            );
+            SearchConfigurationsSearchAsync(selector.InvokeOrDefault(new SearchConfigurationsSearchDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.search_configurations_search</c> API, read more about this API online:
@@ -2176,10 +1917,7 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         public SearchConfigurationsSearchResponse SearchConfigurationsSearch(
             ISearchConfigurationsSearchRequest request
         ) =>
-            DoRequest<ISearchConfigurationsSearchRequest, SearchConfigurationsSearchResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<ISearchConfigurationsSearchRequest, SearchConfigurationsSearchResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.search_configurations_search</c> API, read more about this API online:
@@ -2191,10 +1929,6 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             ISearchConfigurationsSearchRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<ISearchConfigurationsSearchRequest, SearchConfigurationsSearchResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<ISearchConfigurationsSearchRequest, SearchConfigurationsSearchResponse>(request, request.RequestParameters, ct);
     }
 }

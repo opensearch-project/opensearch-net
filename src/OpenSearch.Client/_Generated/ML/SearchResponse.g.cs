@@ -52,9 +52,7 @@ namespace OpenSearch.Client
         public int? Took { get; set; }
     }
 
-    public class SearchResponseDescriptor
-        : DescriptorBase<SearchResponseDescriptor, ISearchResponse>,
-            ISearchResponse
+    public class SearchResponseDescriptor : DescriptorBase<SearchResponseDescriptor, ISearchResponse>, ISearchResponse
     {
         ShardStatistics ISearchResponse.Shards { get; set; }
         ISearchHits ISearchResponse.Hits { get; set; }
@@ -70,6 +68,7 @@ namespace OpenSearch.Client
         public SearchResponseDescriptor TimedOut(bool? timedOut = true) =>
             Assign(timedOut, (a, v) => a.TimedOut = v);
 
-        public SearchResponseDescriptor Took(int? took) => Assign(took, (a, v) => a.Took = v);
+        public SearchResponseDescriptor Took(int? took) =>
+            Assign(took, (a, v) => a.Took = v);
     }
 }

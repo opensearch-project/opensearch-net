@@ -65,7 +65,8 @@ namespace OpenSearch.Client
         public EntityDescriptor ContributionValue(double? contributionValue) =>
             Assign(contributionValue, (a, v) => a.ContributionValue = v);
 
-        public EntityDescriptor Key(IList<string> key) => Assign(key, (a, v) => a.Key = v);
+        public EntityDescriptor Key(IList<string> key) =>
+            Assign(key, (a, v) => a.Key = v);
 
         public EntityDescriptor NewValue(double? newValue) =>
             Assign(newValue, (a, v) => a.NewValue = v);

@@ -59,11 +59,7 @@ namespace OpenSearch.Client
 {
     /// <summary>Descriptor for AllocationExplain <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-allocation/</para></summary>
     public partial class ClusterAllocationExplainDescriptor
-        : RequestDescriptorBase<
-            ClusterAllocationExplainDescriptor,
-            ClusterAllocationExplainRequestParameters,
-            IClusterAllocationExplainRequest
-        >,
+        : RequestDescriptorBase<ClusterAllocationExplainDescriptor, ClusterAllocationExplainRequestParameters, IClusterAllocationExplainRequest>,
             IClusterAllocationExplainRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterAllocationExplain;
@@ -75,31 +71,24 @@ namespace OpenSearch.Client
             Qs("include_disk_info", includediskinfo);
 
         /// <summary>When <c>true</c>, returns any <c>YES</c> decisions in the allocation explanation. <c>YES</c> decisions indicate when a particular shard allocation attempt was successful for the given node.</summary>
-        public ClusterAllocationExplainDescriptor IncludeYesDecisions(
-            bool? includeyesdecisions = true
-        ) => Qs("include_yes_decisions", includeyesdecisions);
+        public ClusterAllocationExplainDescriptor IncludeYesDecisions(bool? includeyesdecisions = true) =>
+            Qs("include_yes_decisions", includeyesdecisions);
     }
 
     /// <summary>Descriptor for DeleteComponentTemplate <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class DeleteComponentTemplateDescriptor
-        : RequestDescriptorBase<
-            DeleteComponentTemplateDescriptor,
-            DeleteComponentTemplateRequestParameters,
-            IDeleteComponentTemplateRequest
-        >,
+        : RequestDescriptorBase<DeleteComponentTemplateDescriptor, DeleteComponentTemplateRequestParameters, IDeleteComponentTemplateRequest>,
             IDeleteComponentTemplateRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterDeleteComponentTemplate;
 
         /// <summary>/_component_template/{name}</summary>
         /// <param name="name">this parameter is required</param>
-        public DeleteComponentTemplateDescriptor(Name name)
-            : base(r => r.Required("name", name)) { }
+        public DeleteComponentTemplateDescriptor(Name name) : base(r => r.Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteComponentTemplateDescriptor()
-            : base() { }
+        protected DeleteComponentTemplateDescriptor() : base() { }
 
         // values part of the url path
         Name IDeleteComponentTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
@@ -107,14 +96,11 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
-        public DeleteComponentTemplateDescriptor ClusterManagerTimeout(
-            Time clustermanagertimeout
-        ) => Qs("cluster_manager_timeout", clustermanagertimeout);
+        public DeleteComponentTemplateDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public DeleteComponentTemplateDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
 
@@ -124,11 +110,7 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for DeleteVotingConfigExclusions <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class DeleteVotingConfigExclusionsDescriptor
-        : RequestDescriptorBase<
-            DeleteVotingConfigExclusionsDescriptor,
-            DeleteVotingConfigExclusionsRequestParameters,
-            IDeleteVotingConfigExclusionsRequest
-        >,
+        : RequestDescriptorBase<DeleteVotingConfigExclusionsDescriptor, DeleteVotingConfigExclusionsRequestParameters, IDeleteVotingConfigExclusionsRequest>,
             IDeleteVotingConfigExclusionsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterDeleteVotingConfigExclusions;
@@ -142,24 +124,18 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for ComponentTemplateExists <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ComponentTemplateExistsDescriptor
-        : RequestDescriptorBase<
-            ComponentTemplateExistsDescriptor,
-            ComponentTemplateExistsRequestParameters,
-            IComponentTemplateExistsRequest
-        >,
+        : RequestDescriptorBase<ComponentTemplateExistsDescriptor, ComponentTemplateExistsRequestParameters, IComponentTemplateExistsRequest>,
             IComponentTemplateExistsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterComponentTemplateExists;
 
         /// <summary>/_component_template/{name}</summary>
         /// <param name="name">this parameter is required</param>
-        public ComponentTemplateExistsDescriptor(Name name)
-            : base(r => r.Required("name", name)) { }
+        public ComponentTemplateExistsDescriptor(Name name) : base(r => r.Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected ComponentTemplateExistsDescriptor()
-            : base() { }
+        protected ComponentTemplateExistsDescriptor() : base() { }
 
         // values part of the url path
         Name IComponentTemplateExistsRequest.Name => Self.RouteValues.Get<Name>("name");
@@ -167,47 +143,37 @@ namespace OpenSearch.Client
         // Request parameters
         /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
-        public ComponentTemplateExistsDescriptor ClusterManagerTimeout(
-            Time clustermanagertimeout
-        ) => Qs("cluster_manager_timeout", clustermanagertimeout);
+        public ComponentTemplateExistsDescriptor ClusterManagerTimeout(Time clustermanagertimeout) =>
+            Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>When <c>true</c>, the request retrieves information from the local node only. When <c>false</c>, information is retrieved from the cluster manager node.</summary>
         public ComponentTemplateExistsDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public ComponentTemplateExistsDescriptor MasterTimeout(Time mastertimeout) =>
             Qs("master_timeout", mastertimeout);
     }
 
     /// <summary>Descriptor for GetComponentTemplate <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class GetComponentTemplateDescriptor
-        : RequestDescriptorBase<
-            GetComponentTemplateDescriptor,
-            GetComponentTemplateRequestParameters,
-            IGetComponentTemplateRequest
-        >,
+        : RequestDescriptorBase<GetComponentTemplateDescriptor, GetComponentTemplateRequestParameters, IGetComponentTemplateRequest>,
             IGetComponentTemplateRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterGetComponentTemplate;
 
         /// <summary>/_component_template</summary>
-        public GetComponentTemplateDescriptor()
-            : base() { }
+        public GetComponentTemplateDescriptor() : base() { }
 
         /// <summary>/_component_template/{name}</summary>
         /// <param name="name">Optional, accepts null</param>
-        public GetComponentTemplateDescriptor(Name name)
-            : base(r => r.Optional("name", name)) { }
+        public GetComponentTemplateDescriptor(Name name) : base(r => r.Optional("name", name)) { }
 
         // values part of the url path
         Name IGetComponentTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
 
         /// <summary>The name of the component template to retrieve. Wildcard (<c>*</c>) expressions are supported.</summary>
-        public GetComponentTemplateDescriptor Name(Name name) =>
-            Assign(name, (a, v) => a.RouteValues.Optional("name", v));
+        public GetComponentTemplateDescriptor Name(Name name) => Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
         // Request parameters
         /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
@@ -223,20 +189,13 @@ namespace OpenSearch.Client
         public GetComponentTemplateDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public GetComponentTemplateDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public GetComponentTemplateDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
     }
 
     /// <summary>Descriptor for GetSettings <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-settings/</para></summary>
     public partial class ClusterGetSettingsDescriptor
-        : RequestDescriptorBase<
-            ClusterGetSettingsDescriptor,
-            ClusterGetSettingsRequestParameters,
-            IClusterGetSettingsRequest
-        >,
+        : RequestDescriptorBase<ClusterGetSettingsDescriptor, ClusterGetSettingsRequestParameters, IClusterGetSettingsRequest>,
             IClusterGetSettingsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterGetSettings;
@@ -257,11 +216,8 @@ namespace OpenSearch.Client
             Qs("include_defaults", includedefaults);
 
         /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public ClusterGetSettingsDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public ClusterGetSettingsDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
         public ClusterGetSettingsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
@@ -269,34 +225,26 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Health <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-health/</para></summary>
     public partial class ClusterHealthDescriptor
-        : RequestDescriptorBase<
-            ClusterHealthDescriptor,
-            ClusterHealthRequestParameters,
-            IClusterHealthRequest
-        >,
+        : RequestDescriptorBase<ClusterHealthDescriptor, ClusterHealthRequestParameters, IClusterHealthRequest>,
             IClusterHealthRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterHealth;
 
         /// <summary>/_cluster/health</summary>
-        public ClusterHealthDescriptor()
-            : base() { }
+        public ClusterHealthDescriptor() : base() { }
 
         /// <summary>/_cluster/health/{index}</summary>
         /// <param name="index">Optional, accepts null</param>
-        public ClusterHealthDescriptor(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public ClusterHealthDescriptor(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         Indices IClusterHealthRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
-        public ClusterHealthDescriptor Index(Indices index) =>
-            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+        public ClusterHealthDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public ClusterHealthDescriptor Index<TOther>()
-            where TOther : class =>
+        public ClusterHealthDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -323,11 +271,8 @@ namespace OpenSearch.Client
         public ClusterHealthDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public ClusterHealthDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public ClusterHealthDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a href="https://docs.opensearch.org/latest/api-reference/common-parameters/#time-units">Common parameters</a>.</summary>
         public ClusterHealthDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
@@ -341,18 +286,15 @@ namespace OpenSearch.Client
             Qs("wait_for_events", waitforevents);
 
         /// <summary>Waits until the specified number of nodes (<c>N</c>) is available. Accepts <c>&gt;=N</c>, <c>&lt;=N</c>, <c>&gt;N</c>, and <c>&lt;N</c>. You can also use <c>ge(N)</c>, <c>le(N)</c>, <c>gt(N)</c>, and <c>lt(N)</c> notation.</summary>
-        public ClusterHealthDescriptor WaitForNodes(string waitfornodes) =>
-            Qs("wait_for_nodes", waitfornodes);
+        public ClusterHealthDescriptor WaitForNodes(string waitfornodes) => Qs("wait_for_nodes", waitfornodes);
 
         /// <summary>Whether to wait until there are no initializing shards in the cluster.</summary>
-        public ClusterHealthDescriptor WaitForNoInitializingShards(
-            bool? waitfornoinitializingshards = true
-        ) => Qs("wait_for_no_initializing_shards", waitfornoinitializingshards);
+        public ClusterHealthDescriptor WaitForNoInitializingShards(bool? waitfornoinitializingshards = true) =>
+            Qs("wait_for_no_initializing_shards", waitfornoinitializingshards);
 
         /// <summary>Whether to wait until there are no relocating shards in the cluster.</summary>
-        public ClusterHealthDescriptor WaitForNoRelocatingShards(
-            bool? waitfornorelocatingshards = true
-        ) => Qs("wait_for_no_relocating_shards", waitfornorelocatingshards);
+        public ClusterHealthDescriptor WaitForNoRelocatingShards(bool? waitfornorelocatingshards = true) =>
+            Qs("wait_for_no_relocating_shards", waitfornorelocatingshards);
 
         /// <summary>Waits until the cluster health reaches the specified status or better.</summary>
         public ClusterHealthDescriptor WaitForStatus(HealthStatus? waitforstatus) =>
@@ -361,11 +303,7 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for PendingTasks <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ClusterPendingTasksDescriptor
-        : RequestDescriptorBase<
-            ClusterPendingTasksDescriptor,
-            ClusterPendingTasksRequestParameters,
-            IClusterPendingTasksRequest
-        >,
+        : RequestDescriptorBase<ClusterPendingTasksDescriptor, ClusterPendingTasksRequestParameters, IClusterPendingTasksRequest>,
             IClusterPendingTasksRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPendingTasks;
@@ -381,20 +319,13 @@ namespace OpenSearch.Client
         public ClusterPendingTasksDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public ClusterPendingTasksDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public ClusterPendingTasksDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
     }
 
     /// <summary>Descriptor for PostVotingConfigExclusions <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class PostVotingConfigExclusionsDescriptor
-        : RequestDescriptorBase<
-            PostVotingConfigExclusionsDescriptor,
-            PostVotingConfigExclusionsRequestParameters,
-            IPostVotingConfigExclusionsRequest
-        >,
+        : RequestDescriptorBase<PostVotingConfigExclusionsDescriptor, PostVotingConfigExclusionsRequestParameters, IPostVotingConfigExclusionsRequest>,
             IPostVotingConfigExclusionsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPostVotingConfigExclusions;
@@ -402,12 +333,10 @@ namespace OpenSearch.Client
         // values part of the url path
         // Request parameters
         /// <summary>A comma-separated list of node IDs to exclude from the voting configuration. When using this setting, you cannot also specify <c>node_names</c>. Either <c>node_ids</c> or <c>node_names</c> are required to receive a valid response.</summary>
-        public PostVotingConfigExclusionsDescriptor NodeIds(params string[] nodeids) =>
-            Qs("node_ids", nodeids);
+        public PostVotingConfigExclusionsDescriptor NodeIds(params string[] nodeids) => Qs("node_ids", nodeids);
 
         /// <summary>A comma-separated list of node names to exclude from the voting configuration. When using this setting, you cannot also specify <c>node_ids</c>. Either <c>node_ids</c> or <c>node_names</c> are required to receive a valid response.</summary>
-        public PostVotingConfigExclusionsDescriptor NodeNames(params string[] nodenames) =>
-            Qs("node_names", nodenames);
+        public PostVotingConfigExclusionsDescriptor NodeNames(params string[] nodenames) => Qs("node_names", nodenames);
 
         /// <summary>When adding a voting configuration exclusion, the API waits for the specified nodes to be excluded from the voting configuration before returning a response. If the timeout expires before the appropriate condition is satisfied, the request fails and returns an error.</summary>
         public PostVotingConfigExclusionsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
@@ -415,24 +344,18 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for PutComponentTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</para></summary>
     public partial class PutComponentTemplateDescriptor
-        : RequestDescriptorBase<
-            PutComponentTemplateDescriptor,
-            PutComponentTemplateRequestParameters,
-            IPutComponentTemplateRequest
-        >,
+        : RequestDescriptorBase<PutComponentTemplateDescriptor, PutComponentTemplateRequestParameters, IPutComponentTemplateRequest>,
             IPutComponentTemplateRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPutComponentTemplate;
 
         /// <summary>/_component_template/{name}</summary>
         /// <param name="name">this parameter is required</param>
-        public PutComponentTemplateDescriptor(Name name)
-            : base(r => r.Required("name", name)) { }
+        public PutComponentTemplateDescriptor(Name name) : base(r => r.Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected PutComponentTemplateDescriptor()
-            : base() { }
+        protected PutComponentTemplateDescriptor() : base() { }
 
         // values part of the url path
         Name IPutComponentTemplateRequest.Name => Self.RouteValues.Get<Name>("name");
@@ -447,11 +370,8 @@ namespace OpenSearch.Client
         public PutComponentTemplateDescriptor Create(bool? create = true) => Qs("create", create);
 
         /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public PutComponentTemplateDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public PutComponentTemplateDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
         public PutComponentTemplateDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
@@ -459,11 +379,7 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for PutSettings <para>https://docs.opensearch.org/latest/api-reference/cluster-settings/</para></summary>
     public partial class ClusterPutSettingsDescriptor
-        : RequestDescriptorBase<
-            ClusterPutSettingsDescriptor,
-            ClusterPutSettingsRequestParameters,
-            IClusterPutSettingsRequest
-        >,
+        : RequestDescriptorBase<ClusterPutSettingsDescriptor, ClusterPutSettingsRequestParameters, IClusterPutSettingsRequest>,
             IClusterPutSettingsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPutSettings;
@@ -480,11 +396,8 @@ namespace OpenSearch.Client
             Qs("flat_settings", flatsettings);
 
         /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public ClusterPutSettingsDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public ClusterPutSettingsDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
         public ClusterPutSettingsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
@@ -492,25 +405,18 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for RemoteInfo <para>https://docs.opensearch.org/latest/api-reference/remote-info/</para></summary>
     public partial class RemoteInfoDescriptor
-        : RequestDescriptorBase<
-            RemoteInfoDescriptor,
-            RemoteInfoRequestParameters,
-            IRemoteInfoRequest
-        >,
+        : RequestDescriptorBase<RemoteInfoDescriptor, RemoteInfoRequestParameters, IRemoteInfoRequest>,
             IRemoteInfoRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterRemoteInfo;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for Reroute <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ClusterRerouteDescriptor
-        : RequestDescriptorBase<
-            ClusterRerouteDescriptor,
-            ClusterRerouteRequestParameters,
-            IClusterRerouteRequest
-        >,
+        : RequestDescriptorBase<ClusterRerouteDescriptor, ClusterRerouteRequestParameters, IClusterRerouteRequest>,
             IClusterRerouteRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterReroute;
@@ -529,19 +435,14 @@ namespace OpenSearch.Client
         public ClusterRerouteDescriptor Explain(bool? explain = true) => Qs("explain", explain);
 
         /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public ClusterRerouteDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public ClusterRerouteDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>Limits the information returned to the specified metrics.</summary>
-        public ClusterRerouteDescriptor Metric(ClusterRerouteMetric? metric) =>
-            Qs("metric", metric);
+        public ClusterRerouteDescriptor Metric(ClusterRerouteMetric? metric) => Qs("metric", metric);
 
         /// <summary>When <c>true</c>, retries shard allocation if it was blocked because of too many subsequent failures.</summary>
-        public ClusterRerouteDescriptor RetryFailed(bool? retryfailed = true) =>
-            Qs("retry_failed", retryfailed);
+        public ClusterRerouteDescriptor RetryFailed(bool? retryfailed = true) => Qs("retry_failed", retryfailed);
 
         /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
         public ClusterRerouteDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
@@ -549,41 +450,32 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for State <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ClusterStateDescriptor
-        : RequestDescriptorBase<
-            ClusterStateDescriptor,
-            ClusterStateRequestParameters,
-            IClusterStateRequest
-        >,
+        : RequestDescriptorBase<ClusterStateDescriptor, ClusterStateRequestParameters, IClusterStateRequest>,
             IClusterStateRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterState;
 
         /// <summary>/_cluster/state</summary>
-        public ClusterStateDescriptor()
-            : base() { }
+        public ClusterStateDescriptor() : base() { }
 
         /// <summary>/_cluster/state/{metric}</summary>
         /// <param name="metric">Optional, accepts null</param>
-        public ClusterStateDescriptor(Metrics metric)
-            : base(r => r.Optional("metric", metric)) { }
+        public ClusterStateDescriptor(Metrics metric) : base(r => r.Optional("metric", metric)) { }
 
         /// <summary>/_cluster/state/{metric}/{index}</summary>
         /// <param name="metric">Optional, accepts null</param>
         /// <param name="index">Optional, accepts null</param>
-        public ClusterStateDescriptor(Metrics metric, Indices index)
-            : base(r => r.Optional("metric", metric).Optional("index", index)) { }
+        public ClusterStateDescriptor(Metrics metric, Indices index) : base(r => r.Optional("metric", metric).Optional("index", index)) { }
 
         // values part of the url path
         Indices IClusterStateRequest.Index => Self.RouteValues.Get<Indices>("index");
         Metrics IClusterStateRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
 
         /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
-        public ClusterStateDescriptor Index(Indices index) =>
-            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+        public ClusterStateDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public ClusterStateDescriptor Index<TOther>()
-            where TOther : class =>
+        public ClusterStateDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -608,8 +500,7 @@ namespace OpenSearch.Client
             Qs("expand_wildcards", expandwildcards);
 
         /// <summary>Whether to return settings in the flat form, which can improve readability, especially for heavily nested settings. For example, the flat form of <c>&quot;cluster&quot;: { &quot;max_shards_per_node&quot;: 500 }</c> is <c>&quot;cluster.max_shards_per_node&quot;: &quot;500&quot;</c>.</summary>
-        public ClusterStateDescriptor FlatSettings(bool? flatsettings = true) =>
-            Qs("flat_settings", flatsettings);
+        public ClusterStateDescriptor FlatSettings(bool? flatsettings = true) => Qs("flat_settings", flatsettings);
 
         /// <summary>Whether the specified concrete indexes should be ignored when unavailable (missing or closed).</summary>
         public ClusterStateDescriptor IgnoreUnavailable(bool? ignoreunavailable = true) =>
@@ -619,61 +510,44 @@ namespace OpenSearch.Client
         public ClusterStateDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours) and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public ClusterStateDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public ClusterStateDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>Wait for the metadata version to be equal or greater than the specified metadata version.</summary>
         public ClusterStateDescriptor WaitForMetadataVersion(long? waitformetadataversion) =>
             Qs("wait_for_metadata_version", waitformetadataversion);
 
         /// <summary>The maximum time to wait for <c>wait_for_metadata_version</c> before timing out.</summary>
-        public ClusterStateDescriptor WaitForTimeout(Time waitfortimeout) =>
-            Qs("wait_for_timeout", waitfortimeout);
+        public ClusterStateDescriptor WaitForTimeout(Time waitfortimeout) => Qs("wait_for_timeout", waitfortimeout);
     }
 
     /// <summary>Descriptor for Stats <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/</para></summary>
     public partial class ClusterStatsDescriptor
-        : RequestDescriptorBase<
-            ClusterStatsDescriptor,
-            ClusterStatsRequestParameters,
-            IClusterStatsRequest
-        >,
+        : RequestDescriptorBase<ClusterStatsDescriptor, ClusterStatsRequestParameters, IClusterStatsRequest>,
             IClusterStatsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterStats;
 
         /// <summary>/_cluster/stats</summary>
-        public ClusterStatsDescriptor()
-            : base() { }
+        public ClusterStatsDescriptor() : base() { }
 
         /// <summary>/_cluster/stats/{metric}/{index_metric}/nodes/{node_id}</summary>
         /// <param name="metric">Optional, accepts null</param>
         /// <param name="indexMetric">Optional, accepts null</param>
         /// <param name="nodeId">Optional, accepts null</param>
-        public ClusterStatsDescriptor(Metrics metric, IndexMetrics indexMetric, NodeIds nodeId)
-            : base(r =>
-                r.Optional("metric", metric)
-                    .Optional("index_metric", indexMetric)
-                    .Optional("node_id", nodeId)
-            ) { }
+        public ClusterStatsDescriptor(Metrics metric, IndexMetrics indexMetric, NodeIds nodeId) : base(r => r.Optional("metric", metric).Optional("index_metric", indexMetric).Optional("node_id", nodeId)) { }
 
         /// <summary>/_cluster/stats/{metric}/nodes/{node_id}</summary>
         /// <param name="metric">Optional, accepts null</param>
         /// <param name="nodeId">Optional, accepts null</param>
-        public ClusterStatsDescriptor(Metrics metric, NodeIds nodeId)
-            : base(r => r.Optional("metric", metric).Optional("node_id", nodeId)) { }
+        public ClusterStatsDescriptor(Metrics metric, NodeIds nodeId) : base(r => r.Optional("metric", metric).Optional("node_id", nodeId)) { }
 
         /// <summary>/_cluster/stats/nodes/{node_id}</summary>
         /// <param name="nodeId">Optional, accepts null</param>
-        public ClusterStatsDescriptor(NodeIds nodeId)
-            : base(r => r.Optional("node_id", nodeId)) { }
+        public ClusterStatsDescriptor(NodeIds nodeId) : base(r => r.Optional("node_id", nodeId)) { }
 
         // values part of the url path
-        IndexMetrics IClusterStatsRequest.IndexMetric =>
-            Self.RouteValues.Get<IndexMetrics>("index_metric");
+        IndexMetrics IClusterStatsRequest.IndexMetric => Self.RouteValues.Get<IndexMetrics>("index_metric");
         Metrics IClusterStatsRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
         NodeIds IClusterStatsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 
@@ -691,8 +565,7 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>Whether to return settings in the flat form, which can improve readability, especially for heavily nested settings. For example, the flat form of <c>&quot;cluster&quot;: { &quot;max_shards_per_node&quot;: 500 }</c> is <c>&quot;cluster.max_shards_per_node&quot;: &quot;500&quot;</c>.</summary>
-        public ClusterStatsDescriptor FlatSettings(bool? flatsettings = true) =>
-            Qs("flat_settings", flatsettings);
+        public ClusterStatsDescriptor FlatSettings(bool? flatsettings = true) => Qs("flat_settings", flatsettings);
 
         /// <summary>The amount of time to wait for each node to respond. If a node does not respond before its timeout expires, the response does not include its stats. However, timed out nodes are included in the response's <c>_nodes.failed</c> property. Defaults to no timeout.</summary>
         public ClusterStatsDescriptor Timeout(Time timeout) => Qs("timeout", timeout);

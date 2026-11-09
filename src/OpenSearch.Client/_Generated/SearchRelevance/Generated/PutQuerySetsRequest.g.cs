@@ -62,11 +62,11 @@ namespace OpenSearch.Client
         public PutQuerySetsDescriptor Description(string description) =>
             Assign(description, (a, v) => a.Description = v);
 
-        public PutQuerySetsDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public PutQuerySetsDescriptor Name(string name) =>
+            Assign(name, (a, v) => a.Name = v);
 
-        public PutQuerySetsDescriptor QuerySetQueries(
-            IList<IDictionary<string, object>> querySetQueries
-        ) => Assign(querySetQueries, (a, v) => a.QuerySetQueries = v);
+        public PutQuerySetsDescriptor QuerySetQueries(IList<IDictionary<string, object>> querySetQueries) =>
+            Assign(querySetQueries, (a, v) => a.QuerySetQueries = v);
 
         public PutQuerySetsDescriptor Sampling(string sampling) =>
             Assign(sampling, (a, v) => a.Sampling = v);

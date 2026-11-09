@@ -56,13 +56,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_search/pipeline/{id}</summary>
         /// <param name="id">this parameter is required</param>
-        public DeleteSearchPipelineRequest(Id id)
-            : base(r => r.Required("id", id)) { }
+        public DeleteSearchPipelineRequest(Id id) : base(r => r.Required("id", id)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteSearchPipelineRequest()
-            : base() { }
+        protected DeleteSearchPipelineRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -93,21 +91,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Get</summary>
-    public partial class GetSearchPipelineRequest
-        : PlainRequestBase<GetRequestParameters>,
-            IGetSearchPipelineRequest
+    public partial class GetSearchPipelineRequest : PlainRequestBase<GetRequestParameters>, IGetSearchPipelineRequest
     {
         protected IGetSearchPipelineRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchPipelineGet;
 
         /// <summary>/_search/pipeline</summary>
-        public GetSearchPipelineRequest()
-            : base() { }
+        public GetSearchPipelineRequest() : base() { }
 
         /// <summary>/_search/pipeline/{id}</summary>
         /// <param name="id">Optional, accepts null</param>
-        public GetSearchPipelineRequest(Id id)
-            : base(r => r.Optional("id", id)) { }
+        public GetSearchPipelineRequest(Id id) : base(r => r.Optional("id", id)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -131,22 +125,18 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Put <para>https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/</para></summary>
-    public partial class PutSearchPipelineRequest
-        : PlainRequestBase<PutRequestParameters>,
-            IPutSearchPipelineRequest
+    public partial class PutSearchPipelineRequest : PlainRequestBase<PutRequestParameters>, IPutSearchPipelineRequest
     {
         protected IPutSearchPipelineRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchPipelinePut;
 
         /// <summary>/_search/pipeline/{id}</summary>
         /// <param name="id">this parameter is required</param>
-        public PutSearchPipelineRequest(Id id)
-            : base(r => r.Required("id", id)) { }
+        public PutSearchPipelineRequest(Id id) : base(r => r.Required("id", id)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected PutSearchPipelineRequest()
-            : base() { }
+        protected PutSearchPipelineRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]

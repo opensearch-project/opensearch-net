@@ -66,23 +66,14 @@ namespace OpenSearch.Net.Specification.KnnApi
     /// </summary>
     public partial class LowLevelKnnNamespace : NamespacedClientProxy
     {
-        internal LowLevelKnnNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelKnnNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>DELETE on /_plugins/_knn/models/{model_id} <para>https://docs.opensearch.org/latest/vector-search/api/knn/#delete-a-model</para></summary>
         /// <param name="modelId">The id of the model.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse DeleteModel<TResponse>(
-            string modelId,
-            DeleteModelRequestParameters requestParameters = null
-        )
+        public TResponse DeleteModel<TResponse>(string modelId, DeleteModelRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_plugins/_knn/models/{modelId:modelId}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_plugins/_knn/models/{modelId:modelId}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_knn/models/{model_id} <para>https://docs.opensearch.org/latest/vector-search/api/knn/#delete-a-model</para></summary>
         /// <param name="modelId">The id of the model.</param>
@@ -94,28 +85,14 @@ namespace OpenSearch.Net.Specification.KnnApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_plugins/_knn/models/{modelId:modelId}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_plugins/_knn/models/{modelId:modelId}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_knn/models/{model_id} <para>https://docs.opensearch.org/latest/vector-search/api/knn/#get-a-model</para></summary>
         /// <param name="modelId">The id of the model.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse GetModel<TResponse>(
-            string modelId,
-            GetModelRequestParameters requestParameters = null
-        )
+        public TResponse GetModel<TResponse>(string modelId, GetModelRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_knn/models/{modelId:modelId}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_knn/models/{modelId:modelId}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_knn/models/{model_id} <para>https://docs.opensearch.org/latest/vector-search/api/knn/#get-a-model</para></summary>
         /// <param name="modelId">The id of the model.</param>
@@ -127,28 +104,14 @@ namespace OpenSearch.Net.Specification.KnnApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_knn/models/{modelId:modelId}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_knn/models/{modelId:modelId}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_knn/models/_search <para>https://docs.opensearch.org/latest/vector-search/api/knn/#search-for-a-model</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse SearchModels<TResponse>(
-            PostData body,
-            SearchModelsRequestParameters requestParameters = null
-        )
+        public TResponse SearchModels<TResponse>(PostData body, SearchModelsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_knn/models/_search",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_knn/models/_search", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_knn/models/_search <para>https://docs.opensearch.org/latest/vector-search/api/knn/#search-for-a-model</para></summary>
         /// <param name="body"></param>
@@ -160,24 +123,13 @@ namespace OpenSearch.Net.Specification.KnnApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_knn/models/_search",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_knn/models/_search", ctx, body, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_knn/stats <para>https://docs.opensearch.org/latest/vector-search/api/knn/#stats</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse StatsForAll<TResponse>(StatsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_knn/stats",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_knn/stats", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_knn/stats <para>https://docs.opensearch.org/latest/vector-search/api/knn/#stats</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -187,28 +139,14 @@ namespace OpenSearch.Net.Specification.KnnApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_knn/stats",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_knn/stats", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_knn/{node_id}/stats <para>https://docs.opensearch.org/latest/vector-search/api/knn/#stats</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Stats<TResponse>(
-            string nodeId,
-            StatsRequestParameters requestParameters = null
-        )
+        public TResponse Stats<TResponse>(string nodeId, StatsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_knn/{nodeId:nodeId}/stats"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_knn/{nodeId:nodeId}/stats"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_knn/{node_id}/stats <para>https://docs.opensearch.org/latest/vector-search/api/knn/#stats</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
@@ -220,13 +158,7 @@ namespace OpenSearch.Net.Specification.KnnApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_knn/{nodeId:nodeId}/stats"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_knn/{nodeId:nodeId}/stats"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_knn/{node_id}/stats/{stat} <para>https://docs.opensearch.org/latest/vector-search/api/knn/#stats</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
@@ -238,12 +170,7 @@ namespace OpenSearch.Net.Specification.KnnApi
             StatsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_knn/{nodeId:nodeId}/stats/{stat:stat}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_knn/{nodeId:nodeId}/stats/{stat:stat}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_knn/{node_id}/stats/{stat} <para>https://docs.opensearch.org/latest/vector-search/api/knn/#stats</para></summary>
         /// <param name="nodeId">A comma-separated list of node IDs or names to limit the returned information; use &lt;c&gt;_local&lt;/c&gt; to return information from the node you&#x27;re connecting to, leave empty to get information from all nodes.</param>
@@ -257,28 +184,14 @@ namespace OpenSearch.Net.Specification.KnnApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_knn/{nodeId:nodeId}/stats/{stat:stat}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_knn/{nodeId:nodeId}/stats/{stat:stat}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_knn/stats/{stat} <para>https://docs.opensearch.org/latest/vector-search/api/knn/#stats</para></summary>
         /// <param name="stat">A comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse StatsForAll<TResponse>(
-            KnnStatName? stat,
-            StatsRequestParameters requestParameters = null
-        )
+        public TResponse StatsForAll<TResponse>(KnnStatName? stat, StatsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_knn/stats/{stat:stat}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_knn/stats/{stat:stat}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_knn/stats/{stat} <para>https://docs.opensearch.org/latest/vector-search/api/knn/#stats</para></summary>
         /// <param name="stat">A comma-separated list of stats to retrieve; use &lt;c&gt;_all&lt;/c&gt; or empty string to retrieve all stats.</param>
@@ -290,28 +203,14 @@ namespace OpenSearch.Net.Specification.KnnApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_knn/stats/{stat:stat}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_knn/stats/{stat:stat}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_knn/models/_train <para>https://docs.opensearch.org/latest/vector-search/api/knn/#train-a-model</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse TrainModel<TResponse>(
-            PostData body,
-            TrainModelRequestParameters requestParameters = null
-        )
+        public TResponse TrainModel<TResponse>(PostData body, TrainModelRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_knn/models/_train",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_knn/models/_train", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_knn/models/_train <para>https://docs.opensearch.org/latest/vector-search/api/knn/#train-a-model</para></summary>
         /// <param name="body"></param>
@@ -323,13 +222,7 @@ namespace OpenSearch.Net.Specification.KnnApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_knn/models/_train",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_knn/models/_train", ctx, body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_knn/models/{model_id}/_train <para>https://docs.opensearch.org/latest/vector-search/api/knn/#train-a-model</para></summary>
         /// <param name="modelId">The id of the model.</param>
@@ -341,12 +234,7 @@ namespace OpenSearch.Net.Specification.KnnApi
             TrainModelRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_plugins/_knn/models/{modelId:modelId}/_train"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_plugins/_knn/models/{modelId:modelId}/_train"), body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_knn/models/{model_id}/_train <para>https://docs.opensearch.org/latest/vector-search/api/knn/#train-a-model</para></summary>
         /// <param name="modelId">The id of the model.</param>
@@ -360,28 +248,14 @@ namespace OpenSearch.Net.Specification.KnnApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_plugins/_knn/models/{modelId:modelId}/_train"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_plugins/_knn/models/{modelId:modelId}/_train"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_knn/warmup/{index} <para>https://docs.opensearch.org/latest/vector-search/api/knn/#warmup-operation</para></summary>
         /// <param name="index">A comma-separated list of indexes; use &lt;c&gt;_all&lt;/c&gt; or empty string to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Warmup<TResponse>(
-            string index,
-            WarmupRequestParameters requestParameters = null
-        )
+        public TResponse Warmup<TResponse>(string index, WarmupRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_knn/warmup/{index:index}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_knn/warmup/{index:index}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_knn/warmup/{index} <para>https://docs.opensearch.org/latest/vector-search/api/knn/#warmup-operation</para></summary>
         /// <param name="index">A comma-separated list of indexes; use &lt;c&gt;_all&lt;/c&gt; or empty string to perform the operation on all indexes.</param>
@@ -393,12 +267,6 @@ namespace OpenSearch.Net.Specification.KnnApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_knn/warmup/{index:index}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_knn/warmup/{index:index}"), ctx, null, RequestParams(requestParameters));
     }
 }

@@ -44,15 +44,15 @@ namespace OpenSearch.Client
         public ByteOrder? Order { get; set; }
     }
 
-    public class ByteBufferDescriptor
-        : DescriptorBase<ByteBufferDescriptor, IByteBuffer>,
-            IByteBuffer
+    public class ByteBufferDescriptor : DescriptorBase<ByteBufferDescriptor, IByteBuffer>, IByteBuffer
     {
         string IByteBuffer.Array { get; set; }
         ByteOrder? IByteBuffer.Order { get; set; }
 
-        public ByteBufferDescriptor Array(string array) => Assign(array, (a, v) => a.Array = v);
+        public ByteBufferDescriptor Array(string array) =>
+            Assign(array, (a, v) => a.Array = v);
 
-        public ByteBufferDescriptor Order(ByteOrder? order) => Assign(order, (a, v) => a.Order = v);
+        public ByteBufferDescriptor Order(ByteOrder? order) =>
+            Assign(order, (a, v) => a.Order = v);
     }
 }

@@ -178,9 +178,7 @@ namespace OpenSearch.Client
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/scroll/">https://docs.opensearch.org/latest/api-reference/scroll/</a>
         /// </summary>
-        ClearScrollResponse ClearScroll(
-            Func<ClearScrollDescriptor, IClearScrollRequest> selector = null
-        );
+        ClearScrollResponse ClearScroll(Func<ClearScrollDescriptor, IClearScrollRequest> selector = null);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>clear_scroll</c> API, read more about this API online:
@@ -214,9 +212,7 @@ namespace OpenSearch.Client
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/count/">https://docs.opensearch.org/latest/api-reference/count/</a>
         /// </summary>
-        CountResponse Count<TDocument>(
-            Func<CountDescriptor<TDocument>, ICountRequest> selector = null
-        )
+        CountResponse Count<TDocument>(Func<CountDescriptor<TDocument>, ICountRequest> selector = null)
             where TDocument : class;
 
         /// <summary>
@@ -323,10 +319,7 @@ namespace OpenSearch.Client
         /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#create-a-pit">https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#create-a-pit</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        Task<CreatePitResponse> CreatePitAsync(
-            ICreatePitRequest request,
-            CancellationToken ct = default
-        );
+        Task<CreatePitResponse> CreatePitAsync(ICreatePitRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>delete</c> API, read more about this API online:
@@ -460,8 +453,7 @@ namespace OpenSearch.Client
         /// </summary>
         Task<ListTasksResponse> DeleteByQueryRethrottleAsync(
             TaskId taskId,
-            Func<DeleteByQueryRethrottleDescriptor, IDeleteByQueryRethrottleRequest> selector =
-                null,
+            Func<DeleteByQueryRethrottleDescriptor, IDeleteByQueryRethrottleRequest> selector = null,
             CancellationToken ct = default
         );
 
@@ -515,10 +507,7 @@ namespace OpenSearch.Client
         /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits">https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        Task<DeletePitResponse> DeletePitAsync(
-            IDeletePitRequest request,
-            CancellationToken ct = default
-        );
+        Task<DeletePitResponse> DeletePitAsync(IDeletePitRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>delete_script</c> API, read more about this API online:
@@ -766,9 +755,7 @@ namespace OpenSearch.Client
         /// <a href="https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#list-all-pits">https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#list-all-pits</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        GetAllPitsResponse GetAllPits(
-            Func<GetAllPitsDescriptor, IGetAllPitsRequest> selector = null
-        );
+        GetAllPitsResponse GetAllPits(Func<GetAllPitsDescriptor, IGetAllPitsRequest> selector = null);
 
         /// <summary>
         /// <c>GET</c> request to the <c>get_all_pits</c> API, read more about this API online:
@@ -805,10 +792,7 @@ namespace OpenSearch.Client
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/script-apis/get-stored-script/">https://docs.opensearch.org/latest/api-reference/script-apis/get-stored-script/</a>
         /// </summary>
-        GetScriptResponse GetScript(
-            Id id,
-            Func<GetScriptDescriptor, IGetScriptRequest> selector = null
-        );
+        GetScriptResponse GetScript(Id id, Func<GetScriptDescriptor, IGetScriptRequest> selector = null);
 
         /// <summary>
         /// <c>GET</c> request to the <c>get_script</c> API, read more about this API online:
@@ -833,10 +817,7 @@ namespace OpenSearch.Client
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/script-apis/get-stored-script/">https://docs.opensearch.org/latest/api-reference/script-apis/get-stored-script/</a>
         /// </summary>
-        Task<GetScriptResponse> GetScriptAsync(
-            IGetScriptRequest request,
-            CancellationToken ct = default
-        );
+        Task<GetScriptResponse> GetScriptAsync(IGetScriptRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>GET</c> request to the <c>get_source</c> API, read more about this API online:
@@ -987,10 +968,7 @@ namespace OpenSearch.Client
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/document-apis/multi-get/">https://docs.opensearch.org/latest/api-reference/document-apis/multi-get/</a>
         /// </summary>
-        Task<MultiGetResponse> MultiGetAsync(
-            IMultiGetRequest request,
-            CancellationToken ct = default
-        );
+        Task<MultiGetResponse> MultiGetAsync(IMultiGetRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>POST</c> request to the <c>msearch</c> API, read more about this API online:
@@ -1165,10 +1143,7 @@ namespace OpenSearch.Client
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/script-apis/create-stored-script/">https://docs.opensearch.org/latest/api-reference/script-apis/create-stored-script/</a>
         /// </summary>
-        Task<PutScriptResponse> PutScriptAsync(
-            IPutScriptRequest request,
-            CancellationToken ct = default
-        );
+        Task<PutScriptResponse> PutScriptAsync(IPutScriptRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>POST</c> request to the <c>reindex</c> API, read more about this API online:
@@ -1328,8 +1303,7 @@ namespace OpenSearch.Client
             string scrollId,
             Func<ScrollDescriptor<TInferDocument>, IScrollRequest> selector = null
         )
-            where TInferDocument : class
-            where TDocument : class;
+            where TInferDocument : class where TDocument : class;
 
         /// <summary>
         /// <c>POST</c> request to the <c>scroll</c> API, read more about this API online:
@@ -1342,8 +1316,7 @@ namespace OpenSearch.Client
             Func<ScrollDescriptor<TInferDocument>, IScrollRequest> selector = null,
             CancellationToken ct = default
         )
-            where TInferDocument : class
-            where TDocument : class;
+            where TInferDocument : class where TDocument : class;
 
         /// <summary>
         /// <c>POST</c> request to the <c>scroll</c> API, read more about this API online:
@@ -1397,8 +1370,7 @@ namespace OpenSearch.Client
         ISearchResponse<TDocument> Search<TInferDocument, TDocument>(
             Func<SearchDescriptor<TInferDocument>, ISearchRequest> selector = null
         )
-            where TInferDocument : class
-            where TDocument : class;
+            where TInferDocument : class where TDocument : class;
 
         /// <summary>
         /// <c>POST</c> request to the <c>search</c> API, read more about this API online:
@@ -1409,8 +1381,7 @@ namespace OpenSearch.Client
             Func<SearchDescriptor<TInferDocument>, ISearchRequest> selector = null,
             CancellationToken ct = default
         )
-            where TInferDocument : class
-            where TDocument : class;
+            where TInferDocument : class where TDocument : class;
 
         /// <summary>
         /// <c>POST</c> request to the <c>search</c> API, read more about this API online:
@@ -1577,13 +1548,9 @@ namespace OpenSearch.Client
         /// </summary>
         UpdateResponse<TDocument> Update<TDocument, TPartialDocument>(
             DocumentPath<TDocument> id,
-            Func<
-                UpdateDescriptor<TDocument, TPartialDocument>,
-                IUpdateRequest<TDocument, TPartialDocument>
-            > selector
+            Func<UpdateDescriptor<TDocument, TPartialDocument>, IUpdateRequest<TDocument, TPartialDocument>> selector
         )
-            where TDocument : class
-            where TPartialDocument : class;
+            where TDocument : class where TPartialDocument : class;
 
         /// <summary>
         /// <c>POST</c> request to the <c>update</c> API, read more about this API online:
@@ -1592,14 +1559,10 @@ namespace OpenSearch.Client
         /// </summary>
         Task<UpdateResponse<TDocument>> UpdateAsync<TDocument, TPartialDocument>(
             DocumentPath<TDocument> id,
-            Func<
-                UpdateDescriptor<TDocument, TPartialDocument>,
-                IUpdateRequest<TDocument, TPartialDocument>
-            > selector,
+            Func<UpdateDescriptor<TDocument, TPartialDocument>, IUpdateRequest<TDocument, TPartialDocument>> selector,
             CancellationToken ct = default
         )
-            where TDocument : class
-            where TPartialDocument : class;
+            where TDocument : class where TPartialDocument : class;
 
         /// <summary>
         /// <c>POST</c> request to the <c>update</c> API, read more about this API online:
@@ -1608,10 +1571,7 @@ namespace OpenSearch.Client
         /// </summary>
         UpdateResponse<TDocument> Update<TDocument>(
             DocumentPath<TDocument> id,
-            Func<
-                UpdateDescriptor<TDocument, TDocument>,
-                IUpdateRequest<TDocument, TDocument>
-            > selector
+            Func<UpdateDescriptor<TDocument, TDocument>, IUpdateRequest<TDocument, TDocument>> selector
         )
             where TDocument : class;
 
@@ -1622,10 +1582,7 @@ namespace OpenSearch.Client
         /// </summary>
         Task<UpdateResponse<TDocument>> UpdateAsync<TDocument>(
             DocumentPath<TDocument> id,
-            Func<
-                UpdateDescriptor<TDocument, TDocument>,
-                IUpdateRequest<TDocument, TDocument>
-            > selector,
+            Func<UpdateDescriptor<TDocument, TDocument>, IUpdateRequest<TDocument, TDocument>> selector,
             CancellationToken ct = default
         )
             where TDocument : class;
@@ -1638,8 +1595,7 @@ namespace OpenSearch.Client
         UpdateResponse<TDocument> Update<TDocument, TPartialDocument>(
             IUpdateRequest<TDocument, TPartialDocument> request
         )
-            where TDocument : class
-            where TPartialDocument : class;
+            where TDocument : class where TPartialDocument : class;
 
         /// <summary>
         /// <c>POST</c> request to the <c>update</c> API, read more about this API online:
@@ -1650,8 +1606,7 @@ namespace OpenSearch.Client
             IUpdateRequest<TDocument, TPartialDocument> request,
             CancellationToken ct = default
         )
-            where TDocument : class
-            where TPartialDocument : class;
+            where TDocument : class where TPartialDocument : class;
 
         /// <summary>
         /// <c>POST</c> request to the <c>update_by_query</c> API, read more about this API online:
@@ -1708,8 +1663,7 @@ namespace OpenSearch.Client
         /// </summary>
         Task<ListTasksResponse> UpdateByQueryRethrottleAsync(
             TaskId taskId,
-            Func<UpdateByQueryRethrottleDescriptor, IUpdateByQueryRethrottleRequest> selector =
-                null,
+            Func<UpdateByQueryRethrottleDescriptor, IUpdateByQueryRethrottleRequest> selector = null,
             CancellationToken ct = default
         );
 

@@ -29,7 +29,9 @@ namespace OpenSearch.Client
 {
     [JsonFormatter(typeof(OpenObjectFormatter<Namespace, INamespace>))]
     [ReadAs(typeof(Namespace))]
-    public interface INamespace : IHasAdditionalProperties { }
+    public interface INamespace : IHasAdditionalProperties
+    {
+    }
 
     public class Namespace : INamespace
     {
@@ -40,12 +42,7 @@ namespace OpenSearch.Client
     {
         IDictionary<string, object> IHasAdditionalProperties.AdditionalProperties { get; set; }
 
-        public NamespaceDescriptor AdditionalProperties(
-            IDictionary<string, object> additionalProperties
-        ) =>
-            Assign(
-                additionalProperties,
-                (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v
-            );
+        public NamespaceDescriptor AdditionalProperties(IDictionary<string, object> additionalProperties) =>
+            Assign(additionalProperties, (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v);
     }
 }

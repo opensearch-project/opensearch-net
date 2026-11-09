@@ -66,24 +66,15 @@ namespace OpenSearch.Net.Specification.NotificationsApi
     /// </summary>
     public partial class LowLevelNotificationsNamespace : NamespacedClientProxy
     {
-        internal LowLevelNotificationsNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelNotificationsNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>POST on /_plugins/_notifications/configs <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#create-channel-configuration</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
-        public TResponse CreateConfig<TResponse>(
-            PostData body,
-            CreateConfigRequestParameters requestParameters = null
-        )
+        public TResponse CreateConfig<TResponse>(PostData body, CreateConfigRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_notifications/configs",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_notifications/configs", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_notifications/configs <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#create-channel-configuration</para></summary>
         /// <param name="body"></param>
@@ -96,13 +87,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_notifications/configs",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_notifications/configs", ctx, body, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_notifications/configs/{config_id} <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#delete-channel-configuration</para></summary>
         /// <param name="configId">The ID of the channel configuration to delete.</param>
@@ -113,12 +98,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
             DeleteConfigRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_plugins/_notifications/configs/{configId:configId}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_plugins/_notifications/configs/{configId:configId}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_notifications/configs/{config_id} <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#delete-channel-configuration</para></summary>
         /// <param name="configId">The ID of the channel configuration to delete.</param>
@@ -131,27 +111,14 @@ namespace OpenSearch.Net.Specification.NotificationsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_plugins/_notifications/configs/{configId:configId}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_plugins/_notifications/configs/{configId:configId}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_notifications/configs <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#delete-channel-configuration</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.2.0 or greater.</remarks>
-        public TResponse DeleteConfigs<TResponse>(
-            DeleteConfigsRequestParameters requestParameters = null
-        )
+        public TResponse DeleteConfigs<TResponse>(DeleteConfigsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                "_plugins/_notifications/configs",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, "_plugins/_notifications/configs", null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_notifications/configs <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#delete-channel-configuration</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -162,29 +129,15 @@ namespace OpenSearch.Net.Specification.NotificationsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                "_plugins/_notifications/configs",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, "_plugins/_notifications/configs", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_notifications/configs/{config_id}</summary>
         /// <param name="configId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
-        public TResponse GetConfig<TResponse>(
-            string configId,
-            GetConfigRequestParameters requestParameters = null
-        )
+        public TResponse GetConfig<TResponse>(string configId, GetConfigRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_notifications/configs/{configId:configId}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_notifications/configs/{configId:configId}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_notifications/configs/{config_id}</summary>
         /// <param name="configId"></param>
@@ -197,29 +150,15 @@ namespace OpenSearch.Net.Specification.NotificationsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_notifications/configs/{configId:configId}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_notifications/configs/{configId:configId}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_notifications/configs <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#list-all-notification-configurations</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
-        public TResponse GetConfigs<TResponse>(
-            PostData body,
-            GetConfigsRequestParameters requestParameters = null
-        )
+        public TResponse GetConfigs<TResponse>(PostData body, GetConfigsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_notifications/configs",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_notifications/configs", body, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_notifications/configs <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#list-all-notification-configurations</para></summary>
         /// <param name="body"></param>
@@ -232,27 +171,14 @@ namespace OpenSearch.Net.Specification.NotificationsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_notifications/configs",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_notifications/configs", ctx, body, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_notifications/channels <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#list-all-notification-channels</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
-        public TResponse ListChannels<TResponse>(
-            ListChannelsRequestParameters requestParameters = null
-        )
+        public TResponse ListChannels<TResponse>(ListChannelsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_notifications/channels",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_notifications/channels", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_notifications/channels <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#list-all-notification-channels</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -263,27 +189,14 @@ namespace OpenSearch.Net.Specification.NotificationsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_notifications/channels",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_notifications/channels", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_notifications/features <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#list-supported-channel-configurations</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
-        public TResponse ListFeatures<TResponse>(
-            ListFeaturesRequestParameters requestParameters = null
-        )
+        public TResponse ListFeatures<TResponse>(ListFeaturesRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_notifications/features",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_notifications/features", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_notifications/features <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#list-supported-channel-configurations</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -294,30 +207,16 @@ namespace OpenSearch.Net.Specification.NotificationsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_notifications/features",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_notifications/features", ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_notifications/feature/test/{config_id} <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#send-test-notification</para></summary>
         /// <param name="configId"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         [Obsolete("Deprecated in version 2.3.0: Use the POST method instead.")]
-        public TResponse SendTest<TResponse>(
-            string configId,
-            SendTestRequestParameters requestParameters = null
-        )
+        public TResponse SendTest<TResponse>(string configId, SendTestRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_plugins/_notifications/feature/test/{configId:configId}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_plugins/_notifications/feature/test/{configId:configId}"), null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_notifications/feature/test/{config_id} <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#send-test-notification</para></summary>
         /// <param name="configId"></param>
@@ -331,13 +230,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_plugins/_notifications/feature/test/{configId:configId}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_plugins/_notifications/feature/test/{configId:configId}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_notifications/configs/{config_id} <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#update-channel-configuration</para></summary>
         /// <param name="configId"></param>
@@ -350,12 +243,7 @@ namespace OpenSearch.Net.Specification.NotificationsApi
             UpdateConfigRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_plugins/_notifications/configs/{configId:configId}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_plugins/_notifications/configs/{configId:configId}"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_notifications/configs/{config_id} <para>https://docs.opensearch.org/latest/observing-your-data/notifications/api/#update-channel-configuration</para></summary>
         /// <param name="configId"></param>
@@ -370,12 +258,6 @@ namespace OpenSearch.Net.Specification.NotificationsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_plugins/_notifications/configs/{configId:configId}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_plugins/_notifications/configs/{configId:configId}"), ctx, body, RequestParams(requestParameters));
     }
 }

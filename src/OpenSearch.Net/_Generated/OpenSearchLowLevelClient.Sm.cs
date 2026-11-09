@@ -66,8 +66,7 @@ namespace OpenSearch.Net.Specification.SmApi
     /// </summary>
     public partial class LowLevelSmNamespace : NamespacedClientProxy
     {
-        internal LowLevelSmNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelSmNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>POST on /_plugins/_sm/policies/{policy_name}</summary>
         /// <param name="policyName">The name of the snapshot management policy to create.</param>
@@ -80,12 +79,7 @@ namespace OpenSearch.Net.Specification.SmApi
             CreatePolicyRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_plugins/_sm/policies/{policyName:policyName}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_plugins/_sm/policies/{policyName:policyName}"), body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_sm/policies/{policy_name}</summary>
         /// <param name="policyName">The name of the snapshot management policy to create.</param>
@@ -100,13 +94,7 @@ namespace OpenSearch.Net.Specification.SmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_plugins/_sm/policies/{policyName:policyName}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_plugins/_sm/policies/{policyName:policyName}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_sm/policies/{policy_name}</summary>
         /// <param name="policyName">The name of the snapshot management policy to delete.</param>
@@ -117,12 +105,7 @@ namespace OpenSearch.Net.Specification.SmApi
             DeletePolicyRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_plugins/_sm/policies/{policyName:policyName}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_plugins/_sm/policies/{policyName:policyName}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_sm/policies/{policy_name}</summary>
         /// <param name="policyName">The name of the snapshot management policy to delete.</param>
@@ -135,13 +118,7 @@ namespace OpenSearch.Net.Specification.SmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_plugins/_sm/policies/{policyName:policyName}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_plugins/_sm/policies/{policyName:policyName}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_sm/policies/{policy_name}/_explain</summary>
         /// <param name="policyName">The name of the snapshot management policy to explain.</param>
@@ -152,12 +129,7 @@ namespace OpenSearch.Net.Specification.SmApi
             ExplainPolicyRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_sm/policies/{policyName:policyName}/_explain"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_sm/policies/{policyName:policyName}/_explain"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_sm/policies/{policy_name}/_explain</summary>
         /// <param name="policyName">The name of the snapshot management policy to explain.</param>
@@ -170,27 +142,14 @@ namespace OpenSearch.Net.Specification.SmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_sm/policies/{policyName:policyName}/_explain"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_sm/policies/{policyName:policyName}/_explain"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_sm/policies</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>
-        public TResponse GetPolicies<TResponse>(
-            GetPoliciesRequestParameters requestParameters = null
-        )
+        public TResponse GetPolicies<TResponse>(GetPoliciesRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_sm/policies",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_sm/policies", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_sm/policies</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -201,29 +160,15 @@ namespace OpenSearch.Net.Specification.SmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_sm/policies",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_sm/policies", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_sm/policies/{policy_name}</summary>
         /// <param name="policyName">The name of the snapshot management policy to retrieve.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>
-        public TResponse GetPolicy<TResponse>(
-            string policyName,
-            GetPolicyRequestParameters requestParameters = null
-        )
+        public TResponse GetPolicy<TResponse>(string policyName, GetPolicyRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_sm/policies/{policyName:policyName}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_sm/policies/{policyName:policyName}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_sm/policies/{policy_name}</summary>
         /// <param name="policyName">The name of the snapshot management policy to retrieve.</param>
@@ -236,13 +181,7 @@ namespace OpenSearch.Net.Specification.SmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_sm/policies/{policyName:policyName}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_sm/policies/{policyName:policyName}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_sm/policies/{policy_name}/_start</summary>
         /// <param name="policyName">The name of the snapshot management policy to start.</param>
@@ -253,12 +192,7 @@ namespace OpenSearch.Net.Specification.SmApi
             StartPolicyRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_plugins/_sm/policies/{policyName:policyName}/_start"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_plugins/_sm/policies/{policyName:policyName}/_start"), null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_sm/policies/{policy_name}/_start</summary>
         /// <param name="policyName">The name of the snapshot management policy to start.</param>
@@ -271,29 +205,15 @@ namespace OpenSearch.Net.Specification.SmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_plugins/_sm/policies/{policyName:policyName}/_start"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_plugins/_sm/policies/{policyName:policyName}/_start"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_sm/policies/{policy_name}/_stop</summary>
         /// <param name="policyName">The name of the snapshot management policy to stop.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.1.0 or greater.</remarks>
-        public TResponse StopPolicy<TResponse>(
-            string policyName,
-            StopPolicyRequestParameters requestParameters = null
-        )
+        public TResponse StopPolicy<TResponse>(string policyName, StopPolicyRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_plugins/_sm/policies/{policyName:policyName}/_stop"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_plugins/_sm/policies/{policyName:policyName}/_stop"), null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_sm/policies/{policy_name}/_stop</summary>
         /// <param name="policyName">The name of the snapshot management policy to stop.</param>
@@ -306,13 +226,7 @@ namespace OpenSearch.Net.Specification.SmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_plugins/_sm/policies/{policyName:policyName}/_stop"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_plugins/_sm/policies/{policyName:policyName}/_stop"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_sm/policies/{policy_name}</summary>
         /// <param name="policyName">The name of the snapshot management policy to update.</param>
@@ -325,12 +239,7 @@ namespace OpenSearch.Net.Specification.SmApi
             UpdatePolicyRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_plugins/_sm/policies/{policyName:policyName}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_plugins/_sm/policies/{policyName:policyName}"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_sm/policies/{policy_name}</summary>
         /// <param name="policyName">The name of the snapshot management policy to update.</param>
@@ -345,12 +254,6 @@ namespace OpenSearch.Net.Specification.SmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_plugins/_sm/policies/{policyName:policyName}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_plugins/_sm/policies/{policyName:policyName}"), ctx, body, RequestParams(requestParameters));
     }
 }

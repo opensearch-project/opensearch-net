@@ -22,26 +22,32 @@
     }
 
 <text>/// @Raw("<remarks>Note: " + Model.Stability + " within the OpenSearch server, " + warningMessage + "</remarks>")
-
 </text>}
-    public partial class @Raw(Model.Name) @Raw($": PlainRequestBase<{Model.CsharpNames.ParametersName}>, {Model.InterfaceName}")
+    @Raw(CodeLayout.BaseList($"public partial class {Model.Name}", $"PlainRequestBase<{Model.CsharpNames.ParametersName}>, {Model.InterfaceName}", 4))
     {
         protected @Raw(Model.InterfaceName) Self => this;
         internal override ApiUrls ApiUrls => @apiLookup;
 @foreach (var c in Model.Constructors)
 {
-<text>      @(Raw(CodeGenerator.Constructor(c)))
-</text>
-}
-        // values part of the url path
-@foreach (var part in Model.Parts.OrderBy(p => p.Name))
-{
-<text>      [IgnoreDataMember]
-        @(Raw(part.HighLevelTypeName)) @(Raw(Model.InterfaceName)).@(part.InterfaceName) => Self.RouteValues.Get@(Raw($"<{part.HighLevelTypeName}>"))("@(part.Name)");
+<text>
+@(Raw(CodeGenerator.Constructor(c)))
 </text>
 }
 
+        // values part of the url path
+@foreach (var part in Model.Parts.OrderBy(p => p.Name))
+{
+<text>[IgnoreDataMember]
+@(Raw(part.HighLevelTypeName)) @(Raw(Model.InterfaceName)).@(part.InterfaceName) => Self.RouteValues.Get@(Raw($"<{part.HighLevelTypeName}>"))("@(part.Name)");
+</text>
+}
+@if (Model.Parts.Any())
+{
+<text>
+</text>
+}
         // Request parameters
+@{ var firstParam = true; }
 @foreach (var param in Model.Params)
 {
     var original = param.QueryStringKey;
@@ -57,26 +63,34 @@
         continue;
     }
     var doc = param.DescriptionHighLevel.ToArray();
-	@Raw(param.InitializerGenerator(Model.CsharpNames.Namespace, param.TypeHighLevel, param.ClsName, original, param.SetterHighLevel, param.VersionAdded, doc))
+    if (!firstParam)
+    {
+<text>
+</text>
+    }
+    firstParam = false;
+<text>@Raw(param.InitializerGenerator(Model.CsharpNames.Namespace, param.TypeHighLevel, param.ClsName, original, param.SetterHighLevel, param.VersionAdded, doc))
+</text>
 }
 @if (Model.CsharpNames.DescriptorNotFoundInCodebase)
 {<text>
         [Obsolete("Unmapped, blacklist this API in CodeConfiguration.cs or implement @Model.CsharpNames.DescriptorName and @Model.CsharpNames.RequestName in a file called @(Model.CsharpNames.RequestName).cs in OSC's codebase", true)]
         public bool IsUnmapped => true;
         public bool UseIsUnmapped => IsUnmapped;
- </text>
+</text>
 }
     }
 @if (Model.NeedsGenericImplementation)
-    {<text>
-    public partial class @Raw(Model.CsharpNames.GenericRequestName) @Raw($": {Model.CsharpNames.RequestName}, {Model.CsharpNames.GenericInterfaceName}")
+{<text>
+    @Raw(CodeLayout.BaseList($"public partial class {Model.CsharpNames.GenericRequestName}", $"{Model.CsharpNames.RequestName}, {Model.CsharpNames.GenericInterfaceName}", 4))
     {
         protected @Raw(Model.CsharpNames.GenericInterfaceName) TypedSelf => this;
 @foreach (Constructor c in Model.GenericConstructors)
 {
-<text>      @(Raw(CodeGenerator.Constructor(c)))
+<text>
+@(Raw(CodeGenerator.Constructor(c)))
 </text>
 }
     }
-     </text>
+</text>
 }

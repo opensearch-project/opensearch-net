@@ -66,24 +66,15 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
     /// </summary>
     public partial class LowLevelFlowFrameworkNamespace : NamespacedClientProxy
     {
-        internal LowLevelFlowFrameworkNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelFlowFrameworkNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>POST on /_plugins/_flow_framework/workflow <para>https://docs.opensearch.org/latest/automating-configurations/api/create-workflow/</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
-        public TResponse Create<TResponse>(
-            PostData body,
-            CreateRequestParameters requestParameters = null
-        )
+        public TResponse Create<TResponse>(PostData body, CreateRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_flow_framework/workflow",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_flow_framework/workflow", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_flow_framework/workflow <para>https://docs.opensearch.org/latest/automating-configurations/api/create-workflow/</para></summary>
         /// <param name="body"></param>
@@ -96,29 +87,15 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_flow_framework/workflow",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_flow_framework/workflow", ctx, body, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_flow_framework/workflow/{workflow_id} <para>https://docs.opensearch.org/latest/automating-configurations/api/delete-workflow/</para></summary>
         /// <param name="workflowId">The ID of the workflow.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
-        public TResponse Delete<TResponse>(
-            string workflowId,
-            DeleteRequestParameters requestParameters = null
-        )
+        public TResponse Delete<TResponse>(string workflowId, DeleteRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_flow_framework/workflow/{workflow_id} <para>https://docs.opensearch.org/latest/automating-configurations/api/delete-workflow/</para></summary>
         /// <param name="workflowId">The ID of the workflow.</param>
@@ -131,13 +108,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_flow_framework/workflow/{workflow_id}/_deprovision <para>https://docs.opensearch.org/latest/automating-configurations/api/deprovision-workflow/</para></summary>
         /// <param name="workflowId">The ID of the workflow.</param>
@@ -148,12 +119,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             DeprovisionRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}/_deprovision"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}/_deprovision"), null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_flow_framework/workflow/{workflow_id}/_deprovision <para>https://docs.opensearch.org/latest/automating-configurations/api/deprovision-workflow/</para></summary>
         /// <param name="workflowId">The ID of the workflow.</param>
@@ -166,29 +132,15 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}/_deprovision"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}/_deprovision"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_flow_framework/workflow/{workflow_id} <para>https://docs.opensearch.org/latest/automating-configurations/api/get-workflow/</para></summary>
         /// <param name="workflowId">The ID of the workflow.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
-        public TResponse Get<TResponse>(
-            string workflowId,
-            GetRequestParameters requestParameters = null
-        )
+        public TResponse Get<TResponse>(string workflowId, GetRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_flow_framework/workflow/{workflow_id} <para>https://docs.opensearch.org/latest/automating-configurations/api/get-workflow/</para></summary>
         /// <param name="workflowId">The ID of the workflow.</param>
@@ -201,29 +153,15 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_flow_framework/workflow/{workflow_id}/_status <para>https://docs.opensearch.org/latest/automating-configurations/api/get-workflow-status/</para></summary>
         /// <param name="workflowId">The ID of the workflow.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
-        public TResponse GetStatus<TResponse>(
-            string workflowId,
-            GetStatusRequestParameters requestParameters = null
-        )
+        public TResponse GetStatus<TResponse>(string workflowId, GetStatusRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}/_status"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}/_status"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_flow_framework/workflow/{workflow_id}/_status <para>https://docs.opensearch.org/latest/automating-configurations/api/get-workflow-status/</para></summary>
         /// <param name="workflowId">The ID of the workflow.</param>
@@ -236,25 +174,14 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}/_status"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}/_status"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_flow_framework/workflow/_steps <para>https://docs.opensearch.org/latest/automating-configurations/api/get-workflow-steps/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public TResponse GetSteps<TResponse>(GetStepsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_flow_framework/workflow/_steps",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_flow_framework/workflow/_steps", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_flow_framework/workflow/_steps <para>https://docs.opensearch.org/latest/automating-configurations/api/get-workflow-steps/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -265,13 +192,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_flow_framework/workflow/_steps",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_flow_framework/workflow/_steps", ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_flow_framework/workflow/{workflow_id}/_provision <para>https://docs.opensearch.org/latest/automating-configurations/api/provision-workflow/</para></summary>
         /// <param name="workflowId">The ID of the workflow.</param>
@@ -284,12 +205,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             ProvisionRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}/_provision"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}/_provision"), body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_flow_framework/workflow/{workflow_id}/_provision <para>https://docs.opensearch.org/latest/automating-configurations/api/provision-workflow/</para></summary>
         /// <param name="workflowId">The ID of the workflow.</param>
@@ -304,29 +220,15 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}/_provision"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}/_provision"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_flow_framework/workflow/_search <para>https://docs.opensearch.org/latest/automating-configurations/api/provision-workflow/</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
-        public TResponse Search<TResponse>(
-            PostData body,
-            SearchRequestParameters requestParameters = null
-        )
+        public TResponse Search<TResponse>(PostData body, SearchRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_flow_framework/workflow/_search",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_flow_framework/workflow/_search", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_flow_framework/workflow/_search <para>https://docs.opensearch.org/latest/automating-configurations/api/provision-workflow/</para></summary>
         /// <param name="body"></param>
@@ -339,29 +241,15 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_flow_framework/workflow/_search",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_flow_framework/workflow/_search", ctx, body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_flow_framework/workflow/state/_search <para>https://docs.opensearch.org/latest/automating-configurations/api/search-workflow-state/</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
-        public TResponse SearchState<TResponse>(
-            PostData body,
-            SearchStateRequestParameters requestParameters = null
-        )
+        public TResponse SearchState<TResponse>(PostData body, SearchStateRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_flow_framework/workflow/state/_search",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_flow_framework/workflow/state/_search", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_flow_framework/workflow/state/_search <para>https://docs.opensearch.org/latest/automating-configurations/api/search-workflow-state/</para></summary>
         /// <param name="body"></param>
@@ -374,13 +262,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_flow_framework/workflow/state/_search",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_flow_framework/workflow/state/_search", ctx, body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_flow_framework/workflow/{workflow_id} <para>https://docs.opensearch.org/latest/automating-configurations/api/create-workflow/</para></summary>
         /// <param name="workflowId">The ID of the workflow.</param>
@@ -393,12 +275,7 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             UpdateRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_flow_framework/workflow/{workflow_id} <para>https://docs.opensearch.org/latest/automating-configurations/api/create-workflow/</para></summary>
         /// <param name="workflowId">The ID of the workflow.</param>
@@ -413,12 +290,6 @@ namespace OpenSearch.Net.Specification.FlowFrameworkApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_plugins/_flow_framework/workflow/{workflowId:workflowId}"), ctx, body, RequestParams(requestParameters));
     }
 }

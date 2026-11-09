@@ -53,8 +53,7 @@ using System.Text;
 namespace OpenSearch.Net.Specification.QueryApi
 {
     /// <summary>Request options for DatasourceDelete</summary>
-    public partial class DatasourceDeleteRequestParameters
-        : RequestParameters<DatasourceDeleteRequestParameters>
+    public partial class DatasourceDeleteRequestParameters : RequestParameters<DatasourceDeleteRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -62,8 +61,7 @@ namespace OpenSearch.Net.Specification.QueryApi
     }
 
     /// <summary>Request options for DatasourceRetrieve</summary>
-    public partial class DatasourceRetrieveRequestParameters
-        : RequestParameters<DatasourceRetrieveRequestParameters>
+    public partial class DatasourceRetrieveRequestParameters : RequestParameters<DatasourceRetrieveRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -71,8 +69,7 @@ namespace OpenSearch.Net.Specification.QueryApi
     }
 
     /// <summary>Request options for DatasourcesCreate</summary>
-    public partial class DatasourcesCreateRequestParameters
-        : RequestParameters<DatasourcesCreateRequestParameters>
+    public partial class DatasourcesCreateRequestParameters : RequestParameters<DatasourcesCreateRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -80,8 +77,7 @@ namespace OpenSearch.Net.Specification.QueryApi
     }
 
     /// <summary>Request options for DatasourcesList</summary>
-    public partial class DatasourcesListRequestParameters
-        : RequestParameters<DatasourcesListRequestParameters>
+    public partial class DatasourcesListRequestParameters : RequestParameters<DatasourcesListRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -89,8 +85,7 @@ namespace OpenSearch.Net.Specification.QueryApi
     }
 
     /// <summary>Request options for DatasourcesUpdate</summary>
-    public partial class DatasourcesUpdateRequestParameters
-        : RequestParameters<DatasourcesUpdateRequestParameters>
+    public partial class DatasourcesUpdateRequestParameters : RequestParameters<DatasourcesUpdateRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;

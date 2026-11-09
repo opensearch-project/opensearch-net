@@ -66,20 +66,14 @@ namespace OpenSearch.Net.Specification.SecurityAnalyticsApi
     /// </summary>
     public partial class LowLevelSecurityAnalyticsNamespace : NamespacedClientProxy
     {
-        internal LowLevelSecurityAnalyticsNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelSecurityAnalyticsNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>GET on /_plugins/_security_analytics/alerts <para>https://docs.opensearch.org/latest/security-analytics/api-tools/alert-finding-api/#get-alerts</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public TResponse GetAlerts<TResponse>(GetAlertsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_security_analytics/alerts",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_security_analytics/alerts", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security_analytics/alerts <para>https://docs.opensearch.org/latest/security-analytics/api-tools/alert-finding-api/#get-alerts</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -90,27 +84,14 @@ namespace OpenSearch.Net.Specification.SecurityAnalyticsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_security_analytics/alerts",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_security_analytics/alerts", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security_analytics/findings/_search <para>https://docs.opensearch.org/latest/security-analytics/api-tools/alert-finding-api/#get-findings</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        public TResponse GetFindings<TResponse>(
-            GetFindingsRequestParameters requestParameters = null
-        )
+        public TResponse GetFindings<TResponse>(GetFindingsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_security_analytics/findings/_search",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_security_analytics/findings/_search", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security_analytics/findings/_search <para>https://docs.opensearch.org/latest/security-analytics/api-tools/alert-finding-api/#get-findings</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -121,13 +102,7 @@ namespace OpenSearch.Net.Specification.SecurityAnalyticsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_security_analytics/findings/_search",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_security_analytics/findings/_search", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security_analytics/findings/correlate <para>https://docs.opensearch.org/latest/security-analytics/api-tools/correlation-eng/#list-correlations-for-a-finding-belonging-to-a-log-type</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -136,12 +111,7 @@ namespace OpenSearch.Net.Specification.SecurityAnalyticsApi
             SearchFindingCorrelationsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_security_analytics/findings/correlate",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_security_analytics/findings/correlate", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_security_analytics/findings/correlate <para>https://docs.opensearch.org/latest/security-analytics/api-tools/correlation-eng/#list-correlations-for-a-finding-belonging-to-a-log-type</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -152,12 +122,6 @@ namespace OpenSearch.Net.Specification.SecurityAnalyticsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_security_analytics/findings/correlate",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_security_analytics/findings/correlate", ctx, null, RequestParams(requestParameters));
     }
 }

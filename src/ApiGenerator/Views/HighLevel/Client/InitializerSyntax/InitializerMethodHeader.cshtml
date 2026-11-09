@@ -1,5 +1,6 @@
 @using ApiGenerator.Domain.Code.HighLevel.Methods
-@inherits ApiGenerator.CodeTemplatePage<InitializerSyntaxView>
+@using ApiGenerator.Generator
+@inherits global::ApiGenerator.CodeTemplatePage<InitializerSyntaxView>
 @{
 	var response = !Model.Async ? Model.Syntax.ResponseName : string.Format("Task<{0}>", Model.Syntax.ResponseName);
     var method = !Model.Async ? Model.Syntax.MethodName : string.Format("{0}Async", Model.Syntax.MethodName);
@@ -12,4 +13,5 @@
     }
     var whereClause = Model.Syntax.GenericWhereClause;
 }
-@Raw(response) @(method)@(Raw(requestMethodGenerics))(@Raw(methodsArgs))@whereClause
+@Raw(CodeLayout.ParameterList($"{response} {method}{requestMethodGenerics}", methodsArgs, 0, offset: 8 + "public async ".Length))@if (!string.IsNullOrEmpty(whereClause)) {<text>
+    @whereClause</text>}

@@ -48,9 +48,7 @@ namespace OpenSearch.Client
         public IHitsTotal Total { get; set; }
     }
 
-    public class SearchHitsDescriptor
-        : DescriptorBase<SearchHitsDescriptor, ISearchHits>,
-            ISearchHits
+    public class SearchHitsDescriptor : DescriptorBase<SearchHitsDescriptor, ISearchHits>, ISearchHits
     {
         IList<ISearchHitsHit> ISearchHits.Hits { get; set; }
         float? ISearchHits.MaxScore { get; set; }
@@ -62,6 +60,7 @@ namespace OpenSearch.Client
         public SearchHitsDescriptor MaxScore(float? maxScore) =>
             Assign(maxScore, (a, v) => a.MaxScore = v);
 
-        public SearchHitsDescriptor Total(IHitsTotal total) => Assign(total, (a, v) => a.Total = v);
+        public SearchHitsDescriptor Total(IHitsTotal total) =>
+            Assign(total, (a, v) => a.Total = v);
     }
 }

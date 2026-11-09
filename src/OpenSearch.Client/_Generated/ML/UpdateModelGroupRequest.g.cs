@@ -84,6 +84,7 @@ namespace OpenSearch.Client
         public UpdateModelGroupDescriptor ModelAccessName(string modelAccessName) =>
             Assign(modelAccessName, (a, v) => a.ModelAccessName = v);
 
-        public UpdateModelGroupDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public UpdateModelGroupDescriptor Name(string name) =>
+            Assign(name, (a, v) => a.Name = v);
     }
 }

@@ -64,9 +64,8 @@ namespace OpenSearch.Client
         public PutImportJudgmentsRequestDescriptor Description(string description) =>
             Assign(description, (a, v) => a.Description = v);
 
-        public PutImportJudgmentsRequestDescriptor JudgmentRatings(
-            IList<IDictionary<string, object>> judgmentRatings
-        ) => Assign(judgmentRatings, (a, v) => a.JudgmentRatings = v);
+        public PutImportJudgmentsRequestDescriptor JudgmentRatings(IList<IDictionary<string, object>> judgmentRatings) =>
+            Assign(judgmentRatings, (a, v) => a.JudgmentRatings = v);
 
         public PutImportJudgmentsRequestDescriptor Name(string name) =>
             Assign(name, (a, v) => a.Name = v);

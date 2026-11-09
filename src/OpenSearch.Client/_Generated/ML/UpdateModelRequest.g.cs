@@ -105,7 +105,8 @@ namespace OpenSearch.Client
         public UpdateModelDescriptor ModelConfig(IModelConfig modelConfig) =>
             Assign(modelConfig, (a, v) => a.ModelConfig = v);
 
-        public UpdateModelDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public UpdateModelDescriptor Name(string name) =>
+            Assign(name, (a, v) => a.Name = v);
 
         public UpdateModelDescriptor RateLimiter(IRateLimiter rateLimiter) =>
             Assign(rateLimiter, (a, v) => a.RateLimiter = v);

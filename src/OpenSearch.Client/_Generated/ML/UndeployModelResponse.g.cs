@@ -29,5 +29,7 @@ namespace OpenSearch.Client
 {
     [DataContract]
     /// <remarks>Supported by OpenSearch servers of version 2.7 or greater.</remarks>
-    public class UndeployModelResponse : ResponseBase { }
+    public class UndeployModelResponse : ResponseBase
+    {
+    }
 }

@@ -52,6 +52,7 @@ namespace OpenSearch.Client
         public ValuesDescriptor ColumnType(ColumnType? columnType) =>
             Assign(columnType, (a, v) => a.ColumnType = v);
 
-        public ValuesDescriptor Value(float? value) => Assign(value, (a, v) => a.Value = v);
+        public ValuesDescriptor Value(float? value) =>
+            Assign(value, (a, v) => a.Value = v);
     }
 }

@@ -57,12 +57,7 @@ namespace OpenSearch.Client
         public IndexDescriptor NumberOfShards(string numberOfShards) =>
             Assign(numberOfShards, (a, v) => a.NumberOfShards = v);
 
-        public IndexDescriptor AdditionalProperties(
-            IDictionary<string, object> additionalProperties
-        ) =>
-            Assign(
-                additionalProperties,
-                (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v
-            );
+        public IndexDescriptor AdditionalProperties(IDictionary<string, object> additionalProperties) =>
+            Assign(additionalProperties, (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v);
     }
 }

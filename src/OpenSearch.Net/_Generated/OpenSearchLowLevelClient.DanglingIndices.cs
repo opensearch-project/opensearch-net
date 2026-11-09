@@ -66,8 +66,7 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
     /// </summary>
     public partial class LowLevelDanglingIndicesNamespace : NamespacedClientProxy
     {
-        internal LowLevelDanglingIndicesNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelDanglingIndicesNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>DELETE on /_dangling/{index_uuid} <para>https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</para></summary>
         /// <param name="indexUuid">The UUID of the dangling index.</param>
@@ -77,12 +76,7 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
             DeleteDanglingIndexRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_dangling/{indexUuid:indexUuid}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_dangling/{indexUuid:indexUuid}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_dangling/{index_uuid} <para>https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</para></summary>
         /// <param name="indexUuid">The UUID of the dangling index.</param>
@@ -94,13 +88,7 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_dangling/{indexUuid:indexUuid}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_dangling/{indexUuid:indexUuid}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_dangling/{index_uuid} <para>https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</para></summary>
         /// <param name="indexUuid">The UUID of the dangling index.</param>
@@ -110,12 +98,7 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
             ImportDanglingIndexRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_dangling/{indexUuid:indexUuid}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_dangling/{indexUuid:indexUuid}"), null, RequestParams(requestParameters));
 
         /// <summary>POST on /_dangling/{index_uuid} <para>https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</para></summary>
         /// <param name="indexUuid">The UUID of the dangling index.</param>
@@ -127,19 +110,11 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_dangling/{indexUuid:indexUuid}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_dangling/{indexUuid:indexUuid}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_dangling <para>https://docs.opensearch.org/latest/api-reference/index-apis/dangling-index/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse List<TResponse>(
-            ListDanglingIndicesRequestParameters requestParameters = null
-        )
+        public TResponse List<TResponse>(ListDanglingIndicesRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_dangling", null, RequestParams(requestParameters));
 
@@ -151,12 +126,6 @@ namespace OpenSearch.Net.Specification.DanglingIndicesApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_dangling",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_dangling", ctx, null, RequestParams(requestParameters));
     }
 }

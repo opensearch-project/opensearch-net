@@ -66,8 +66,7 @@ namespace OpenSearch.Net.Specification.WlmApi
     /// </summary>
     public partial class LowLevelWlmNamespace : NamespacedClientProxy
     {
-        internal LowLevelWlmNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelWlmNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>PUT on /_wlm/query_group</summary>
         /// <param name="body"></param>
@@ -91,13 +90,7 @@ namespace OpenSearch.Net.Specification.WlmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                "_wlm/query_group",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, "_wlm/query_group", ctx, body, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_wlm/query_group/{name}</summary>
         /// <param name="name">The name of the query group.</param>
@@ -108,12 +101,7 @@ namespace OpenSearch.Net.Specification.WlmApi
             DeleteQueryGroupRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_wlm/query_group/{name:name}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_wlm/query_group/{name:name}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_wlm/query_group/{name}</summary>
         /// <param name="name">The name of the query group.</param>
@@ -126,20 +114,12 @@ namespace OpenSearch.Net.Specification.WlmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_wlm/query_group/{name:name}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_wlm/query_group/{name:name}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_wlm/query_group</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.17.0 or greater.</remarks>
-        public TResponse GetQueryGroup<TResponse>(
-            GetQueryGroupRequestParameters requestParameters = null
-        )
+        public TResponse GetQueryGroup<TResponse>(GetQueryGroupRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
             DoRequest<TResponse>(GET, "_wlm/query_group", null, RequestParams(requestParameters));
 
@@ -152,29 +132,15 @@ namespace OpenSearch.Net.Specification.WlmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_wlm/query_group",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_wlm/query_group", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_wlm/query_group/{name}</summary>
         /// <param name="name">The name of the query group.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.17.0 or greater.</remarks>
-        public TResponse GetQueryGroup<TResponse>(
-            string name,
-            GetQueryGroupRequestParameters requestParameters = null
-        )
+        public TResponse GetQueryGroup<TResponse>(string name, GetQueryGroupRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_wlm/query_group/{name:name}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_wlm/query_group/{name:name}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_wlm/query_group/{name}</summary>
         /// <param name="name">The name of the query group.</param>
@@ -187,13 +153,7 @@ namespace OpenSearch.Net.Specification.WlmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_wlm/query_group/{name:name}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_wlm/query_group/{name:name}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>PUT on /_wlm/query_group/{name}</summary>
         /// <param name="name">The name of the query group.</param>
@@ -206,12 +166,7 @@ namespace OpenSearch.Net.Specification.WlmApi
             UpdateQueryGroupRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_wlm/query_group/{name:name}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_wlm/query_group/{name:name}"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_wlm/query_group/{name}</summary>
         /// <param name="name">The name of the query group.</param>
@@ -226,12 +181,6 @@ namespace OpenSearch.Net.Specification.WlmApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_wlm/query_group/{name:name}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_wlm/query_group/{name:name}"), ctx, body, RequestParams(requestParameters));
     }
 }

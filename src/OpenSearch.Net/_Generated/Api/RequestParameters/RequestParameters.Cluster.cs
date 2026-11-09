@@ -53,8 +53,7 @@ using System.Text;
 namespace OpenSearch.Net.Specification.ClusterApi
 {
     /// <summary>Request options for AllocationExplain <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-allocation/</para></summary>
-    public partial class ClusterAllocationExplainRequestParameters
-        : RequestParameters<ClusterAllocationExplainRequestParameters>
+    public partial class ClusterAllocationExplainRequestParameters : RequestParameters<ClusterAllocationExplainRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -79,8 +78,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     }
 
     /// <summary>Request options for DeleteComponentTemplate <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class DeleteComponentTemplateRequestParameters
-        : RequestParameters<DeleteComponentTemplateRequestParameters>
+    public partial class DeleteComponentTemplateRequestParameters : RequestParameters<DeleteComponentTemplateRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -101,9 +99,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
         /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -122,8 +118,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     }
 
     /// <summary>Request options for DeleteDecommissionAwareness <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-decommission/#decommissioning-and-recommissioning-a-zone</para></summary>
-    public partial class DeleteDecommissionAwarenessRequestParameters
-        : RequestParameters<DeleteDecommissionAwarenessRequestParameters>
+    public partial class DeleteDecommissionAwarenessRequestParameters : RequestParameters<DeleteDecommissionAwarenessRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -131,8 +126,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     }
 
     /// <summary>Request options for DeleteVotingConfigExclusions <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class DeleteVotingConfigExclusionsRequestParameters
-        : RequestParameters<DeleteVotingConfigExclusionsRequestParameters>
+    public partial class DeleteVotingConfigExclusionsRequestParameters : RequestParameters<DeleteVotingConfigExclusionsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => false;
@@ -151,8 +145,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     }
 
     /// <summary>Request options for DeleteWeightedRouting <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-awareness/#example-request-deleting-the-configuration</para></summary>
-    public partial class DeleteWeightedRoutingRequestParameters
-        : RequestParameters<DeleteWeightedRoutingRequestParameters>
+    public partial class DeleteWeightedRoutingRequestParameters : RequestParameters<DeleteWeightedRoutingRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.DELETE;
         public override bool SupportsBody => true;
@@ -160,8 +153,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     }
 
     /// <summary>Request options for DescribeSettings <para>https://docs.opensearch.org/latest/api-reference/cluster-api/describe-cluster-settings/</para></summary>
-    public partial class DescribeSettingsRequestParameters
-        : RequestParameters<DescribeSettingsRequestParameters>
+    public partial class DescribeSettingsRequestParameters : RequestParameters<DescribeSettingsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -191,8 +183,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     }
 
     /// <summary>Request options for ComponentTemplateExists <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class ComponentTemplateExistsRequestParameters
-        : RequestParameters<ComponentTemplateExistsRequestParameters>
+    public partial class ComponentTemplateExistsRequestParameters : RequestParameters<ComponentTemplateExistsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.HEAD;
         public override bool SupportsBody => false;
@@ -223,9 +214,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
         /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -234,8 +223,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     }
 
     /// <summary>Request options for GetComponentTemplate <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class GetComponentTemplateRequestParameters
-        : RequestParameters<GetComponentTemplateRequestParameters>
+    public partial class GetComponentTemplateRequestParameters : RequestParameters<GetComponentTemplateRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -277,9 +265,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
         /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -288,8 +274,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     }
 
     /// <summary>Request options for GetDecommissionAwareness <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-decommission/#getting-zone-decommission-status</para></summary>
-    public partial class GetDecommissionAwarenessRequestParameters
-        : RequestParameters<GetDecommissionAwarenessRequestParameters>
+    public partial class GetDecommissionAwarenessRequestParameters : RequestParameters<GetDecommissionAwarenessRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -297,8 +282,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     }
 
     /// <summary>Request options for GetSettings <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-settings/</para></summary>
-    public partial class ClusterGetSettingsRequestParameters
-        : RequestParameters<ClusterGetSettingsRequestParameters>
+    public partial class ClusterGetSettingsRequestParameters : RequestParameters<ClusterGetSettingsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -337,9 +321,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
         /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -358,8 +340,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     }
 
     /// <summary>Request options for GetWeightedRouting <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-awareness/#example-request-viewing-the-configuration</para></summary>
-    public partial class GetWeightedRoutingRequestParameters
-        : RequestParameters<GetWeightedRoutingRequestParameters>
+    public partial class GetWeightedRoutingRequestParameters : RequestParameters<GetWeightedRoutingRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -367,8 +348,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     }
 
     /// <summary>Request options for Health <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-health/</para></summary>
-    public partial class ClusterHealthRequestParameters
-        : RequestParameters<ClusterHealthRequestParameters>
+    public partial class ClusterHealthRequestParameters : RequestParameters<ClusterHealthRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -420,9 +400,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
         /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -486,8 +464,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     }
 
     /// <summary>Request options for PendingTasks <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class ClusterPendingTasksRequestParameters
-        : RequestParameters<ClusterPendingTasksRequestParameters>
+    public partial class ClusterPendingTasksRequestParameters : RequestParameters<ClusterPendingTasksRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -518,9 +495,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
         /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -529,8 +504,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     }
 
     /// <summary>Request options for PostVotingConfigExclusions <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class PostVotingConfigExclusionsRequestParameters
-        : RequestParameters<PostVotingConfigExclusionsRequestParameters>
+    public partial class PostVotingConfigExclusionsRequestParameters : RequestParameters<PostVotingConfigExclusionsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => false;
@@ -568,8 +542,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     }
 
     /// <summary>Request options for PutComponentTemplate <para>https://docs.opensearch.org/latest/im-plugin/index-templates/#use-component-templates-to-create-an-index-template</para></summary>
-    public partial class PutComponentTemplateRequestParameters
-        : RequestParameters<PutComponentTemplateRequestParameters>
+    public partial class PutComponentTemplateRequestParameters : RequestParameters<PutComponentTemplateRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
@@ -597,9 +570,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
         /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -618,8 +589,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     }
 
     /// <summary>Request options for PutDecommissionAwareness <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-decommission/#decommissioning-and-recommissioning-a-zone</para></summary>
-    public partial class PutDecommissionAwarenessRequestParameters
-        : RequestParameters<PutDecommissionAwarenessRequestParameters>
+    public partial class PutDecommissionAwarenessRequestParameters : RequestParameters<PutDecommissionAwarenessRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => false;
@@ -627,8 +597,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     }
 
     /// <summary>Request options for PutSettings <para>https://docs.opensearch.org/latest/api-reference/cluster-settings/</para></summary>
-    public partial class ClusterPutSettingsRequestParameters
-        : RequestParameters<ClusterPutSettingsRequestParameters>
+    public partial class ClusterPutSettingsRequestParameters : RequestParameters<ClusterPutSettingsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
@@ -660,9 +629,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
         /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -681,8 +648,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     }
 
     /// <summary>Request options for PutWeightedRouting <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-awareness/#example-request-updating-the-configuration</para></summary>
-    public partial class PutWeightedRoutingRequestParameters
-        : RequestParameters<PutWeightedRoutingRequestParameters>
+    public partial class PutWeightedRoutingRequestParameters : RequestParameters<PutWeightedRoutingRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.PUT;
         public override bool SupportsBody => true;
@@ -690,8 +656,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     }
 
     /// <summary>Request options for RemoteInfo <para>https://docs.opensearch.org/latest/api-reference/remote-info/</para></summary>
-    public partial class RemoteInfoRequestParameters
-        : RequestParameters<RemoteInfoRequestParameters>
+    public partial class RemoteInfoRequestParameters : RequestParameters<RemoteInfoRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -699,8 +664,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     }
 
     /// <summary>Request options for Reroute <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class ClusterRerouteRequestParameters
-        : RequestParameters<ClusterRerouteRequestParameters>
+    public partial class ClusterRerouteRequestParameters : RequestParameters<ClusterRerouteRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.POST;
         public override bool SupportsBody => true;
@@ -735,9 +699,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
         /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -770,8 +732,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     }
 
     /// <summary>Request options for State <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class ClusterStateRequestParameters
-        : RequestParameters<ClusterStateRequestParameters>
+    public partial class ClusterStateRequestParameters : RequestParameters<ClusterStateRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -834,9 +795,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
         /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
         /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -859,8 +818,7 @@ namespace OpenSearch.Net.Specification.ClusterApi
     }
 
     /// <summary>Request options for Stats <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/</para></summary>
-    public partial class ClusterStatsRequestParameters
-        : RequestParameters<ClusterStatsRequestParameters>
+    public partial class ClusterStatsRequestParameters : RequestParameters<ClusterStatsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;

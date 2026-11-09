@@ -80,7 +80,8 @@ namespace OpenSearch.Client
         public MLActionDescriptor Headers(IHeaders headers) =>
             Assign(headers, (a, v) => a.Headers = v);
 
-        public MLActionDescriptor Method(string method) => Assign(method, (a, v) => a.Method = v);
+        public MLActionDescriptor Method(string method) =>
+            Assign(method, (a, v) => a.Method = v);
 
         public MLActionDescriptor PostProcessFunction(string postProcessFunction) =>
             Assign(postProcessFunction, (a, v) => a.PostProcessFunction = v);
@@ -91,6 +92,7 @@ namespace OpenSearch.Client
         public MLActionDescriptor RequestBody(string requestBody) =>
             Assign(requestBody, (a, v) => a.RequestBody = v);
 
-        public MLActionDescriptor Url(string url) => Assign(url, (a, v) => a.Url = v);
+        public MLActionDescriptor Url(string url) =>
+            Assign(url, (a, v) => a.Url = v);
     }
 }

@@ -83,13 +83,16 @@ namespace OpenSearch.Client
         public MemoryDescriptor MemoryId(Name memoryId) =>
             Assign(memoryId, (a, v) => a.MemoryId = v);
 
-        public MemoryDescriptor Name(Name name) => Assign(name, (a, v) => a.Name = v);
+        public MemoryDescriptor Name(Name name) =>
+            Assign(name, (a, v) => a.Name = v);
 
-        public MemoryDescriptor Type(string type) => Assign(type, (a, v) => a.Type = v);
+        public MemoryDescriptor Type(string type) =>
+            Assign(type, (a, v) => a.Type = v);
 
         public MemoryDescriptor UpdatedTime(string updatedTime) =>
             Assign(updatedTime, (a, v) => a.UpdatedTime = v);
 
-        public MemoryDescriptor User(string user) => Assign(user, (a, v) => a.User = v);
+        public MemoryDescriptor User(string user) =>
+            Assign(user, (a, v) => a.User = v);
     }
 }

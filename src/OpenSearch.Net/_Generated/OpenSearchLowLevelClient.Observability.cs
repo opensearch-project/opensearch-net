@@ -66,24 +66,15 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
     /// </summary>
     public partial class LowLevelObservabilityNamespace : NamespacedClientProxy
     {
-        internal LowLevelObservabilityNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelObservabilityNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>POST on /_plugins/_observability/object</summary>
         /// <param name="body">The core observability object containing visualization and query data.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
-        public TResponse CreateObject<TResponse>(
-            PostData body,
-            CreateObjectRequestParameters requestParameters = null
-        )
+        public TResponse CreateObject<TResponse>(PostData body, CreateObjectRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_observability/object",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_observability/object", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_observability/object</summary>
         /// <param name="body">The core observability object containing visualization and query data.</param>
@@ -96,13 +87,7 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_observability/object",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_observability/object", ctx, body, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_observability/object/{object_id}</summary>
         /// <param name="objectId">The ID of the observability object to delete.</param>
@@ -113,12 +98,7 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
             DeleteObjectRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_plugins/_observability/object/{objectId:objectId}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_plugins/_observability/object/{objectId:objectId}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_observability/object/{object_id}</summary>
         /// <param name="objectId">The ID of the observability object to delete.</param>
@@ -131,27 +111,14 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_plugins/_observability/object/{objectId:objectId}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_plugins/_observability/object/{objectId:objectId}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_observability/object</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
-        public TResponse DeleteObjects<TResponse>(
-            DeleteObjectsRequestParameters requestParameters = null
-        )
+        public TResponse DeleteObjects<TResponse>(DeleteObjectsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                "_plugins/_observability/object",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, "_plugins/_observability/object", null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_observability/object</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -162,27 +129,14 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                "_plugins/_observability/object",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, "_plugins/_observability/object", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_observability/_local/stats</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.5.0 or greater.</remarks>
-        public TResponse GetLocalstats<TResponse>(
-            GetLocalstatsRequestParameters requestParameters = null
-        )
+        public TResponse GetLocalstats<TResponse>(GetLocalstatsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_observability/_local/stats",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_observability/_local/stats", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_observability/_local/stats</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -193,29 +147,15 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_observability/_local/stats",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_observability/_local/stats", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_observability/object/{object_id}</summary>
         /// <param name="objectId">The ID of the observability object to retrieve.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
-        public TResponse GetObject<TResponse>(
-            string objectId,
-            GetObjectRequestParameters requestParameters = null
-        )
+        public TResponse GetObject<TResponse>(string objectId, GetObjectRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_observability/object/{objectId:objectId}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_observability/object/{objectId:objectId}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_observability/object/{object_id}</summary>
         /// <param name="objectId">The ID of the observability object to retrieve.</param>
@@ -228,27 +168,14 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_observability/object/{objectId:objectId}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_observability/object/{objectId:objectId}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_observability/object</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 1.1.0 or greater.</remarks>
-        public TResponse ListObjects<TResponse>(
-            ListObjectsRequestParameters requestParameters = null
-        )
+        public TResponse ListObjects<TResponse>(ListObjectsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_observability/object",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_observability/object", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_observability/object</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -259,13 +186,7 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_observability/object",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_observability/object", ctx, null, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_observability/object/{object_id}</summary>
         /// <param name="objectId">The ID of the observability object to update.</param>
@@ -278,12 +199,7 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
             UpdateObjectRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_plugins/_observability/object/{objectId:objectId}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_plugins/_observability/object/{objectId:objectId}"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_observability/object/{object_id}</summary>
         /// <param name="objectId">The ID of the observability object to update.</param>
@@ -298,12 +214,6 @@ namespace OpenSearch.Net.Specification.ObservabilityApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_plugins/_observability/object/{objectId:objectId}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_plugins/_observability/object/{objectId:objectId}"), ctx, body, RequestParams(requestParameters));
     }
 }

@@ -75,7 +75,8 @@ namespace OpenSearch.Client
         public PredictModelOutputDescriptor DataType(MlResultDataType? dataType) =>
             Assign(dataType, (a, v) => a.DataType = v);
 
-        public PredictModelOutputDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public PredictModelOutputDescriptor Name(string name) =>
+            Assign(name, (a, v) => a.Name = v);
 
         public PredictModelOutputDescriptor Shape(IList<long?> shape) =>
             Assign(shape, (a, v) => a.Shape = v);

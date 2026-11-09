@@ -37,57 +37,46 @@ namespace ApiGenerator.Generator
     //TODO this should be in views and models
     public static class CodeGenerator
     {
+        // Generated code is formatted with `dotnet format`, which fixes indentation but does not reflow,
+        // so line breaks are emitted here explicitly.
         public static string CatFormatPropertyGenerator(string type, string name, string key, string setter) =>
-              $"public {type} {name} {{ "
-            + $"    get => Q<{type}>(\"{key}\");"
-            + $"    set {{ Q(\"{key}\", {setter}); SetAcceptHeader({setter}); }}"
-            + $"}}";
+            $"public {type} {name}\n{{\nget => Q<{type}>(\"{key}\");\nset\n{{\nQ(\"{key}\", {setter});\nSetAcceptHeader({setter});\n}}\n}}";
 
         public static string PropertyGenerator(string type, string name, string key, string setter) =>
-            $"public {type} {name} {{ get => Q<{type}>(\"{key}\"); set => Q(\"{key}\", {setter}); }}";
+            $"public {type} {name}\n{{\nget => Q<{type}>(\"{key}\");\nset => Q(\"{key}\", {setter});\n}}";
 
         public static string Property(string @namespace, string type, string name, string key, string setter, string obsolete, Version versionAdded, params string[] doc)
         {
             var components = new List<string>();
             foreach (var d in RenderDocumentation(doc))
-                A(d);
+                components.Add(d);
             if (versionAdded != null)
-                A($"/// <remarks>Supported by OpenSearch servers of version {versionAdded} or greater.</remarks>");
+                components.Add($"/// <remarks>Supported by OpenSearch servers of version {versionAdded} or greater.</remarks>");
             if (!string.IsNullOrWhiteSpace(obsolete))
-                A($"[Obsolete(\"{obsolete}\")]");
+                components.Add($"[Obsolete(\"{obsolete}\")]");
 
             var generated = @namespace != null && @namespace == "Cat" && name == "Format"
                 ? CatFormatPropertyGenerator(type, name, key, setter)
                 : PropertyGenerator(type, name, key, setter);
 
-            A(generated);
-            return string.Join($"{Environment.NewLine}\t\t", components);
-
-            void A(string s)
-            {
-                components.Add(s);
-            }
+            components.Add(generated);
+            return string.Join("\n", components);
         }
 
         public static string Constructor(Constructor c)
         {
             var components = new List<string>();
             if (!c.Description.IsNullOrEmpty())
-                A(c.Description);
+                components.Add(c.Description);
             var generated = c.Generated;
             if (c.Body.IsNullOrEmpty())
-                generated += "{}";
-            A(generated);
-            if (!c.Body.IsNullOrEmpty())
-                A(c.Body);
+                generated += " { }";
+            else
+                generated += $"\n{c.Body}";
+            components.Add(generated);
             if (!c.AdditionalCode.IsNullOrEmpty())
-                A(c.AdditionalCode);
-            return string.Join($"{Environment.NewLine}\t\t", components);
-
-            void A(string s)
-            {
-                components.Add(s);
-            }
+                components.Add($"\n{c.AdditionalCode}");
+            return string.Join("\n", components);
         }
 
         private static IEnumerable<string> RenderDocumentation(params string[] doc)

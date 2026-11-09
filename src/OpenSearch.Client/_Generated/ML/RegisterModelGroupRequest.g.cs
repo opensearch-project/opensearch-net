@@ -73,6 +73,7 @@ namespace OpenSearch.Client
         public RegisterModelGroupDescriptor Description(string description) =>
             Assign(description, (a, v) => a.Description = v);
 
-        public RegisterModelGroupDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public RegisterModelGroupDescriptor Name(string name) =>
+            Assign(name, (a, v) => a.Name = v);
     }
 }

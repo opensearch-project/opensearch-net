@@ -28,5 +28,7 @@ using OpenSearch.Net.Utf8Json;
 namespace OpenSearch.Client
 {
     [DataContract]
-    public class UnloadModelResponse : ResponseBase { }
+    public class UnloadModelResponse : ResponseBase
+    {
+    }
 }

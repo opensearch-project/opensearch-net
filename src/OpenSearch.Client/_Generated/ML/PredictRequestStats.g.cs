@@ -82,14 +82,19 @@ namespace OpenSearch.Client
         public PredictRequestStatsDescriptor Count(long? count) =>
             Assign(count, (a, v) => a.Count = v);
 
-        public PredictRequestStatsDescriptor Max(double? max) => Assign(max, (a, v) => a.Max = v);
+        public PredictRequestStatsDescriptor Max(double? max) =>
+            Assign(max, (a, v) => a.Max = v);
 
-        public PredictRequestStatsDescriptor Min(double? min) => Assign(min, (a, v) => a.Min = v);
+        public PredictRequestStatsDescriptor Min(double? min) =>
+            Assign(min, (a, v) => a.Min = v);
 
-        public PredictRequestStatsDescriptor P50(double? p50) => Assign(p50, (a, v) => a.P50 = v);
+        public PredictRequestStatsDescriptor P50(double? p50) =>
+            Assign(p50, (a, v) => a.P50 = v);
 
-        public PredictRequestStatsDescriptor P90(double? p90) => Assign(p90, (a, v) => a.P90 = v);
+        public PredictRequestStatsDescriptor P90(double? p90) =>
+            Assign(p90, (a, v) => a.P90 = v);
 
-        public PredictRequestStatsDescriptor P99(double? p99) => Assign(p99, (a, v) => a.P99 = v);
+        public PredictRequestStatsDescriptor P99(double? p99) =>
+            Assign(p99, (a, v) => a.P99 = v);
     }
 }

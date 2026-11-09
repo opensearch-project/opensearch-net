@@ -59,7 +59,8 @@ namespace OpenSearch.Client
         double? IBuckets.OverallAggregateValue { get; set; }
         long? IBuckets.StartTime { get; set; }
 
-        public BucketsDescriptor EndTime(long? endTime) => Assign(endTime, (a, v) => a.EndTime = v);
+        public BucketsDescriptor EndTime(long? endTime) =>
+            Assign(endTime, (a, v) => a.EndTime = v);
 
         public BucketsDescriptor Entities(IList<IEntity> entities) =>
             Assign(entities, (a, v) => a.Entities = v);

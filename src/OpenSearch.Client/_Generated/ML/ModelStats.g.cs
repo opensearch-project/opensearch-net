@@ -48,9 +48,7 @@ namespace OpenSearch.Client
         public long? MlExecutingTaskCount { get; set; }
     }
 
-    public class ModelStatsDescriptor
-        : DescriptorBase<ModelStatsDescriptor, IModelStats>,
-            IModelStats
+    public class ModelStatsDescriptor : DescriptorBase<ModelStatsDescriptor, IModelStats>, IModelStats
     {
         long? IModelStats.MlActionFailureCount { get; set; }
         long? IModelStats.MlActionRequestCount { get; set; }

@@ -92,9 +92,7 @@ namespace OpenSearch.Client
         public IList<string> WorkerNodes { get; set; }
     }
 
-    public class ModelProfileDescriptor
-        : DescriptorBase<ModelProfileDescriptor, IModelProfile>,
-            IModelProfile
+    public class ModelProfileDescriptor : DescriptorBase<ModelProfileDescriptor, IModelProfile>, IModelProfile
     {
         IModelStats IModelProfile.Deploy { get; set; }
         IModelStats IModelProfile.Execute { get; set; }
@@ -129,9 +127,8 @@ namespace OpenSearch.Client
         public ModelProfileDescriptor Predict(IModelStats predict) =>
             Assign(predict, (a, v) => a.Predict = v);
 
-        public ModelProfileDescriptor PredictRequestStats(
-            IPredictRequestStats predictRequestStats
-        ) => Assign(predictRequestStats, (a, v) => a.PredictRequestStats = v);
+        public ModelProfileDescriptor PredictRequestStats(IPredictRequestStats predictRequestStats) =>
+            Assign(predictRequestStats, (a, v) => a.PredictRequestStats = v);
 
         public ModelProfileDescriptor Predictor(string predictor) =>
             Assign(predictor, (a, v) => a.Predictor = v);

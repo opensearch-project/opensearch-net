@@ -53,8 +53,7 @@ using System.Text;
 namespace OpenSearch.Net.Specification.InsightsApi
 {
     /// <summary>Request options for TopQueries</summary>
-    public partial class TopQueriesRequestParameters
-        : RequestParameters<TopQueriesRequestParameters>
+    public partial class TopQueriesRequestParameters : RequestParameters<TopQueriesRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;

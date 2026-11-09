@@ -49,12 +49,7 @@ namespace OpenSearch.Client
         public HeadersDescriptor ContentType(string contentType) =>
             Assign(contentType, (a, v) => a.ContentType = v);
 
-        public HeadersDescriptor AdditionalProperties(
-            IDictionary<string, object> additionalProperties
-        ) =>
-            Assign(
-                additionalProperties,
-                (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v
-            );
+        public HeadersDescriptor AdditionalProperties(IDictionary<string, object> additionalProperties) =>
+            Assign(additionalProperties, (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v);
     }
 }

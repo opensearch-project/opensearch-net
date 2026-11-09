@@ -64,9 +64,7 @@ namespace OpenSearch.Client
         public int? RetryTimeoutSeconds { get; set; }
     }
 
-    public class ClientConfigDescriptor
-        : DescriptorBase<ClientConfigDescriptor, IClientConfig>,
-            IClientConfig
+    public class ClientConfigDescriptor : DescriptorBase<ClientConfigDescriptor, IClientConfig>, IClientConfig
     {
         int? IClientConfig.ConnectionTimeout { get; set; }
         int? IClientConfig.MaxConnection { get; set; }

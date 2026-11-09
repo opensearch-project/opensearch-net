@@ -88,7 +88,8 @@ namespace OpenSearch.Client
         public CreateConnectorDescriptor Description(string description) =>
             Assign(description, (a, v) => a.Description = v);
 
-        public CreateConnectorDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public CreateConnectorDescriptor Name(string name) =>
+            Assign(name, (a, v) => a.Name = v);
 
         public CreateConnectorDescriptor Parameters(IParameters parameters) =>
             Assign(parameters, (a, v) => a.Parameters = v);

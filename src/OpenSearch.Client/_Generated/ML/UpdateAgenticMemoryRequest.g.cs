@@ -84,9 +84,8 @@ namespace OpenSearch.Client
         string IUpdateAgenticMemoryRequest.Summary { get; set; }
         IDictionary<string, object> IUpdateAgenticMemoryRequest.Tags { get; set; }
 
-        public UpdateAgenticMemoryDescriptor AdditionalInfo(
-            IDictionary<string, object> additionalInfo
-        ) => Assign(additionalInfo, (a, v) => a.AdditionalInfo = v);
+        public UpdateAgenticMemoryDescriptor AdditionalInfo(IDictionary<string, object> additionalInfo) =>
+            Assign(additionalInfo, (a, v) => a.AdditionalInfo = v);
 
         public UpdateAgenticMemoryDescriptor Agents(IDictionary<string, object> agents) =>
             Assign(agents, (a, v) => a.Agents = v);
@@ -103,9 +102,8 @@ namespace OpenSearch.Client
         public UpdateAgenticMemoryDescriptor Metadata(IDictionary<string, object> metadata) =>
             Assign(metadata, (a, v) => a.Metadata = v);
 
-        public UpdateAgenticMemoryDescriptor StructuredData(
-            IDictionary<string, object> structuredData
-        ) => Assign(structuredData, (a, v) => a.StructuredData = v);
+        public UpdateAgenticMemoryDescriptor StructuredData(IDictionary<string, object> structuredData) =>
+            Assign(structuredData, (a, v) => a.StructuredData = v);
 
         public UpdateAgenticMemoryDescriptor Summary(string summary) =>
             Assign(summary, (a, v) => a.Summary = v);

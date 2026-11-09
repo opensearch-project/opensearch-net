@@ -60,18 +60,19 @@ namespace OpenSearch.Client
         int? IQuerySetsSearchRequest.Size { get; set; }
         object IQuerySetsSearchRequest.Sort { get; set; }
 
-        public QuerySetsSearchDescriptor From(int? from) => Assign(from, (a, v) => a.From = v);
+        public QuerySetsSearchDescriptor From(int? from) =>
+            Assign(from, (a, v) => a.From = v);
 
         public QuerySetsSearchDescriptor Query(IQueryContainer query) =>
             Assign(query, (a, v) => a.Query = v);
 
-        public QuerySetsSearchDescriptor Query(
-            Func<QueryContainerDescriptor<object>, QueryContainer> selector
-        ) =>
-            Assign(selector, (a, v) => a.Query = v?.Invoke(new QueryContainerDescriptor<object>()));
+        public QuerySetsSearchDescriptor Query(Func<QueryContainerDescriptor<object>, QueryContainer> selector) =>
+    Assign(selector, (a, v) => a.Query = v?.Invoke(new QueryContainerDescriptor<object>()));
 
-        public QuerySetsSearchDescriptor Size(int? size) => Assign(size, (a, v) => a.Size = v);
+        public QuerySetsSearchDescriptor Size(int? size) =>
+            Assign(size, (a, v) => a.Size = v);
 
-        public QuerySetsSearchDescriptor Sort(object sort) => Assign(sort, (a, v) => a.Sort = v);
+        public QuerySetsSearchDescriptor Sort(object sort) =>
+            Assign(sort, (a, v) => a.Sort = v);
     }
 }

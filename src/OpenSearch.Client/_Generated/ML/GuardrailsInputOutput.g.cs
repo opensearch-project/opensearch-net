@@ -54,8 +54,7 @@ namespace OpenSearch.Client
         public GuardrailsInputOutputDescriptor ModelId(string modelId) =>
             Assign(modelId, (a, v) => a.ModelId = v);
 
-        public GuardrailsInputOutputDescriptor ResponseValidationRegex(
-            string responseValidationRegex
-        ) => Assign(responseValidationRegex, (a, v) => a.ResponseValidationRegex = v);
+        public GuardrailsInputOutputDescriptor ResponseValidationRegex(string responseValidationRegex) =>
+            Assign(responseValidationRegex, (a, v) => a.ResponseValidationRegex = v);
     }
 }

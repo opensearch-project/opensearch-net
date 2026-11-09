@@ -32,8 +32,6 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using ApiGenerator.Domain;
-using CSharpier;
-using CSharpier.Core.CSharp;
 using RazorLight;
 using RazorLight.Generation;
 using RazorLight.Razor;
@@ -59,7 +57,7 @@ namespace ApiGenerator.Generator.Razor
             {
                 token.ThrowIfCancellationRequested();
                 var generated = await Engine.CompileRenderAsync(viewLocation, model);
-                await WriteFormattedCsharpFile(targetLocation, generated);
+                await WriteCsharpFile(targetLocation, generated);
             }
             catch (TemplateGenerationException e)
             {
@@ -89,14 +87,45 @@ namespace ApiGenerator.Generator.Razor
             }
         }
 
-        private static async Task WriteFormattedCsharpFile(string path, string contents)
+        // Formatting is applied to the whole output folder with `dotnet format` once generation completes,
+        // see DotNetFormat.
+        private static async Task WriteCsharpFile(string path, string contents)
         {
-            contents = (await CSharpFormatter.FormatAsync(contents)).Code;
+            contents = NormalizeBlankLines(contents);
 
             if (Directory.GetParent(path) is { Exists: false } dir)
                 dir.Create();
 
             await File.WriteAllTextAsync(path, contents);
+        }
+
+        /// <summary>
+        /// `dotnet format whitespace` fixes indentation and spacing but leaves blank lines alone, so collapse the
+        /// blank lines that templates leave behind: no runs of blank lines, none right after an opening brace and
+        /// none right before a closing brace.
+        /// </summary>
+        internal static string NormalizeBlankLines(string contents)
+        {
+            var lines = contents.Replace("\r\n", "\n").Split('\n');
+            var result = new List<string>(lines.Length);
+            var pendingBlank = false;
+            foreach (var raw in lines)
+            {
+                var line = raw.TrimEnd();
+                if (line.Length == 0)
+                {
+                    pendingBlank = result.Count > 0;
+                    continue;
+                }
+
+                if (pendingBlank && !result[^1].EndsWith("{") && !line.TrimStart().StartsWith("}"))
+                    result.Add(string.Empty);
+
+                pendingBlank = false;
+                result.Add(line);
+            }
+
+            return string.Join("\n", result) + "\n";
         }
 
         public abstract string Title { get; }

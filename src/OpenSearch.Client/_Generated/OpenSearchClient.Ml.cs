@@ -83,10 +83,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <para></para>
         /// <a></a>
         /// </summary>
-        [Obsolete("Deprecated as of: 2.7.0, reason: Use `upload_chunk` instead.")]
-        ChunkModelResponse ChunkModel(
-            Func<ChunkModelDescriptor, IChunkModelRequest> selector = null
-        );
+        [Obsolete("Deprecated as of: 2.7.0, reason: Use `upload_chunk` instead.")] ChunkModelResponse ChunkModel(Func<ChunkModelDescriptor, IChunkModelRequest> selector = null);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.chunk_model</c> API, read more about this API online:
@@ -104,8 +101,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <para></para>
         /// <a></a>
         /// </summary>
-        [Obsolete("Deprecated as of: 2.7.0, reason: Use `upload_chunk` instead.")]
-        ChunkModelResponse ChunkModel(IChunkModelRequest request);
+        [Obsolete("Deprecated as of: 2.7.0, reason: Use `upload_chunk` instead.")] ChunkModelResponse ChunkModel(IChunkModelRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.chunk_model</c> API, read more about this API online:
@@ -284,10 +280,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
         CreateMemoryContainerSessionResponse CreateMemoryContainerSession(
             Id memoryContainerId,
-            Func<
-                CreateMemoryContainerSessionDescriptor,
-                ICreateMemoryContainerSessionRequest
-            > selector = null
+            Func<CreateMemoryContainerSessionDescriptor, ICreateMemoryContainerSessionRequest> selector = null
         );
 
         /// <summary>
@@ -298,10 +291,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
         Task<CreateMemoryContainerSessionResponse> CreateMemoryContainerSessionAsync(
             Id memoryContainerId,
-            Func<
-                CreateMemoryContainerSessionDescriptor,
-                ICreateMemoryContainerSessionRequest
-            > selector = null,
+            Func<CreateMemoryContainerSessionDescriptor, ICreateMemoryContainerSessionRequest> selector = null,
             CancellationToken ct = default
         );
 
@@ -394,8 +384,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <para></para>
         /// <a></a>
         /// </summary>
-        [Obsolete("Deprecated as of: 2.7.0, reason: Use `_register_meta` instead.")]
-        CreateModelMetaResponse CreateModelMeta(ICreateModelMetaRequest request);
+        [Obsolete("Deprecated as of: 2.7.0, reason: Use `_register_meta` instead.")] CreateModelMetaResponse CreateModelMeta(ICreateModelMetaRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_model_meta</c> API, read more about this API online:
@@ -505,8 +494,7 @@ namespace OpenSearch.Client.Specification.MlApi
         DeleteAgenticMemoryQueryResponse DeleteAgenticMemoryQuery(
             Id memoryContainerId,
             Names type,
-            Func<DeleteAgenticMemoryQueryDescriptor, IDeleteAgenticMemoryQueryRequest> selector =
-                null
+            Func<DeleteAgenticMemoryQueryDescriptor, IDeleteAgenticMemoryQueryRequest> selector = null
         );
 
         /// <summary>
@@ -518,8 +506,7 @@ namespace OpenSearch.Client.Specification.MlApi
         Task<DeleteAgenticMemoryQueryResponse> DeleteAgenticMemoryQueryAsync(
             Id memoryContainerId,
             Names type,
-            Func<DeleteAgenticMemoryQueryDescriptor, IDeleteAgenticMemoryQueryRequest> selector =
-                null,
+            Func<DeleteAgenticMemoryQueryDescriptor, IDeleteAgenticMemoryQueryRequest> selector = null,
             CancellationToken ct = default
         );
 
@@ -529,9 +516,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
-        DeleteAgenticMemoryQueryResponse DeleteAgenticMemoryQuery(
-            IDeleteAgenticMemoryQueryRequest request
-        );
+        DeleteAgenticMemoryQueryResponse DeleteAgenticMemoryQuery(IDeleteAgenticMemoryQueryRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.delete_agentic_memory_query</c> API, read more about this API online:
@@ -1004,10 +989,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.13.0 or greater.</remarks>
-        GetAgentResponse GetAgent(
-            Id agentId,
-            Func<GetAgentDescriptor, IGetAgentRequest> selector = null
-        );
+        GetAgentResponse GetAgent(Id agentId, Func<GetAgentDescriptor, IGetAgentRequest> selector = null);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_agent</c> API, read more about this API online:
@@ -1035,10 +1017,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.13.0 or greater.</remarks>
-        Task<GetAgentResponse> GetAgentAsync(
-            IGetAgentRequest request,
-            CancellationToken ct = default
-        );
+        Task<GetAgentResponse> GetAgentAsync(IGetAgentRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_agentic_memory</c> API, read more about this API online:
@@ -1174,9 +1153,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
-        GetAllToolsResponse GetAllTools(
-            Func<GetAllToolsDescriptor, IGetAllToolsRequest> selector = null
-        );
+        GetAllToolsResponse GetAllTools(Func<GetAllToolsDescriptor, IGetAllToolsRequest> selector = null);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_all_tools</c> API, read more about this API online:
@@ -1329,10 +1306,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
-        Task<GetMemoryResponse> GetMemoryAsync(
-            IGetMemoryRequest request,
-            CancellationToken ct = default
-        );
+        Task<GetMemoryResponse> GetMemoryAsync(IGetMemoryRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_memory_container</c> API, read more about this API online:
@@ -1466,10 +1440,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        GetModelResponse GetModel(
-            Id modelId,
-            Func<GetModelDescriptor, IGetModelRequest> selector = null
-        );
+        GetModelResponse GetModel(Id modelId, Func<GetModelDescriptor, IGetModelRequest> selector = null);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_model</c> API, read more about this API online:
@@ -1497,10 +1468,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        Task<GetModelResponse> GetModelAsync(
-            IGetModelRequest request,
-            CancellationToken ct = default
-        );
+        Task<GetModelResponse> GetModelAsync(IGetModelRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_model_group</c> API, read more about this API online:
@@ -1546,9 +1514,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        GetProfileResponse GetProfile(
-            Func<GetProfileDescriptor, IGetProfileRequest> selector = null
-        );
+        GetProfileResponse GetProfile(Func<GetProfileDescriptor, IGetProfileRequest> selector = null);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_profile</c> API, read more about this API online:
@@ -1693,10 +1659,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        Task<GetStatsResponse> GetStatsAsync(
-            IGetStatsRequest request,
-            CancellationToken ct = default
-        );
+        Task<GetStatsResponse> GetStatsAsync(IGetStatsRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_task</c> API, read more about this API online:
@@ -1735,10 +1698,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        Task<GetMLTaskResponse> GetMLTaskAsync(
-            IGetMLTaskRequest request,
-            CancellationToken ct = default
-        );
+        Task<GetMLTaskResponse> GetMLTaskAsync(IGetMLTaskRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_tool</c> API, read more about this API online:
@@ -1746,10 +1706,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
-        GetToolResponse GetTool(
-            Name toolName,
-            Func<GetToolDescriptor, IGetToolRequest> selector = null
-        );
+        GetToolResponse GetTool(Name toolName, Func<GetToolDescriptor, IGetToolRequest> selector = null);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_tool</c> API, read more about this API online:
@@ -1784,8 +1741,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <para></para>
         /// <a></a>
         /// </summary>
-        [Obsolete("Deprecated as of: 2.7.0, reason: Use `deploy_model` instead.")]
-        LoadModelResponse LoadModel(Func<LoadModelDescriptor, ILoadModelRequest> selector = null);
+        [Obsolete("Deprecated as of: 2.7.0, reason: Use `deploy_model` instead.")] LoadModelResponse LoadModel(Func<LoadModelDescriptor, ILoadModelRequest> selector = null);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.load_model</c> API, read more about this API online:
@@ -1803,19 +1759,14 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <para></para>
         /// <a></a>
         /// </summary>
-        [Obsolete("Deprecated as of: 2.7.0, reason: Use `deploy_model` instead.")]
-        LoadModelResponse LoadModel(ILoadModelRequest request);
+        [Obsolete("Deprecated as of: 2.7.0, reason: Use `deploy_model` instead.")] LoadModelResponse LoadModel(ILoadModelRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.load_model</c> API, read more about this API online:
         /// <para></para>
         /// <a></a>
         /// </summary>
-        [Obsolete("Deprecated as of: 2.7.0, reason: Use `deploy_model` instead.")]
-        Task<LoadModelResponse> LoadModelAsync(
-            ILoadModelRequest request,
-            CancellationToken ct = default
-        );
+        [Obsolete("Deprecated as of: 2.7.0, reason: Use `deploy_model` instead.")] Task<LoadModelResponse> LoadModelAsync(ILoadModelRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.predict</c> API, read more about this API online:
@@ -2388,9 +2339,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        SearchTasksResponse SearchTasks(
-            Func<SearchTasksDescriptor, ISearchTasksRequest> selector = null
-        );
+        SearchTasksResponse SearchTasks(Func<SearchTasksDescriptor, ISearchTasksRequest> selector = null);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_tasks</c> API, read more about this API online:
@@ -2428,10 +2377,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        TrainResponse Train(
-            Name algorithmName,
-            Func<TrainDescriptor, ITrainRequest> selector = null
-        );
+        TrainResponse Train(Name algorithmName, Func<TrainDescriptor, ITrainRequest> selector = null);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.train</c> API, read more about this API online:
@@ -2548,10 +2494,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <para></para>
         /// <a></a>
         /// </summary>
-        [Obsolete("Deprecated as of: 2.7.0, reason: Use `undeploy_model` instead.")]
-        UnloadModelResponse UnloadModel(
-            Func<UnloadModelDescriptor, IUnloadModelRequest> selector = null
-        );
+        [Obsolete("Deprecated as of: 2.7.0, reason: Use `undeploy_model` instead.")] UnloadModelResponse UnloadModel(Func<UnloadModelDescriptor, IUnloadModelRequest> selector = null);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.unload_model</c> API, read more about this API online:
@@ -2569,8 +2512,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <para></para>
         /// <a></a>
         /// </summary>
-        [Obsolete("Deprecated as of: 2.7.0, reason: Use `undeploy_model` instead.")]
-        UnloadModelResponse UnloadModel(IUnloadModelRequest request);
+        [Obsolete("Deprecated as of: 2.7.0, reason: Use `undeploy_model` instead.")] UnloadModelResponse UnloadModel(IUnloadModelRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.unload_model</c> API, read more about this API online:
@@ -2972,10 +2914,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <para></para>
         /// <a></a>
         /// </summary>
-        [Obsolete("Deprecated as of: 2.7.0, reason: Use `register_model` instead.")]
-        UploadModelResponse UploadModel(
-            Func<UploadModelDescriptor, IUploadModelRequest> selector = null
-        );
+        [Obsolete("Deprecated as of: 2.7.0, reason: Use `register_model` instead.")] UploadModelResponse UploadModel(Func<UploadModelDescriptor, IUploadModelRequest> selector = null);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.upload_model</c> API, read more about this API online:
@@ -2993,8 +2932,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <para></para>
         /// <a></a>
         /// </summary>
-        [Obsolete("Deprecated as of: 2.7.0, reason: Use `register_model` instead.")]
-        UploadModelResponse UploadModel(IUploadModelRequest request);
+        [Obsolete("Deprecated as of: 2.7.0, reason: Use `register_model` instead.")] UploadModelResponse UploadModel(IUploadModelRequest request);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.upload_model</c> API, read more about this API online:
@@ -3016,8 +2954,7 @@ namespace OpenSearch.Client.Specification.MlApi
     /// </summary>
     public partial class MlNamespace : NamespacedClientProxy, IMlNamespace
     {
-        internal MlNamespace(OpenSearchClient client)
-            : base(client) { }
+        internal MlNamespace(OpenSearchClient client) : base(client) { }
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.add_agentic_memory</c> API, read more about this API online:
@@ -3029,11 +2966,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Id memoryContainerId,
             Func<AddAgenticMemoryDescriptor, IAddAgenticMemoryRequest> selector = null
         ) =>
-            AddAgenticMemory(
-                selector.InvokeOrDefault(
-                    new AddAgenticMemoryDescriptor(memoryContainerId: memoryContainerId)
-                )
-            );
+            AddAgenticMemory(selector.InvokeOrDefault(new AddAgenticMemoryDescriptor(memoryContainerId: memoryContainerId)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.add_agentic_memory</c> API, read more about this API online:
@@ -3046,12 +2979,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<AddAgenticMemoryDescriptor, IAddAgenticMemoryRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            AddAgenticMemoryAsync(
-                selector.InvokeOrDefault(
-                    new AddAgenticMemoryDescriptor(memoryContainerId: memoryContainerId)
-                ),
-                ct
-            );
+            AddAgenticMemoryAsync(selector.InvokeOrDefault(new AddAgenticMemoryDescriptor(memoryContainerId: memoryContainerId)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.add_agentic_memory</c> API, read more about this API online:
@@ -3060,10 +2988,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
         public AddAgenticMemoryResponse AddAgenticMemory(IAddAgenticMemoryRequest request) =>
-            DoRequest<IAddAgenticMemoryRequest, AddAgenticMemoryResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IAddAgenticMemoryRequest, AddAgenticMemoryResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.add_agentic_memory</c> API, read more about this API online:
@@ -3075,11 +3000,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IAddAgenticMemoryRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IAddAgenticMemoryRequest, AddAgenticMemoryResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IAddAgenticMemoryRequest, AddAgenticMemoryResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.chunk_model</c> API, read more about this API online:
@@ -3087,9 +3008,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         [Obsolete("Deprecated as of: 2.7.0, reason: Use `upload_chunk` instead.")]
-        public ChunkModelResponse ChunkModel(
-            Func<ChunkModelDescriptor, IChunkModelRequest> selector = null
-        ) => ChunkModel(selector.InvokeOrDefault(new ChunkModelDescriptor()));
+        public ChunkModelResponse ChunkModel(Func<ChunkModelDescriptor, IChunkModelRequest> selector = null) =>
+            ChunkModel(selector.InvokeOrDefault(new ChunkModelDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.chunk_model</c> API, read more about this API online:
@@ -3100,7 +3020,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public Task<ChunkModelResponse> ChunkModelAsync(
             Func<ChunkModelDescriptor, IChunkModelRequest> selector = null,
             CancellationToken ct = default
-        ) => ChunkModelAsync(selector.InvokeOrDefault(new ChunkModelDescriptor()), ct);
+        ) =>
+            ChunkModelAsync(selector.InvokeOrDefault(new ChunkModelDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.chunk_model</c> API, read more about this API online:
@@ -3121,11 +3042,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IChunkModelRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IChunkModelRequest, ChunkModelResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IChunkModelRequest, ChunkModelResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_connector</c> API, read more about this API online:
@@ -3134,7 +3051,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         public CreateConnectorResponse CreateConnector(
             Func<CreateConnectorDescriptor, ICreateConnectorRequest> selector = null
-        ) => CreateConnector(selector.InvokeOrDefault(new CreateConnectorDescriptor()));
+        ) =>
+            CreateConnector(selector.InvokeOrDefault(new CreateConnectorDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_connector</c> API, read more about this API online:
@@ -3144,7 +3062,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public Task<CreateConnectorResponse> CreateConnectorAsync(
             Func<CreateConnectorDescriptor, ICreateConnectorRequest> selector = null,
             CancellationToken ct = default
-        ) => CreateConnectorAsync(selector.InvokeOrDefault(new CreateConnectorDescriptor()), ct);
+        ) =>
+            CreateConnectorAsync(selector.InvokeOrDefault(new CreateConnectorDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_connector</c> API, read more about this API online:
@@ -3152,10 +3071,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         public CreateConnectorResponse CreateConnector(ICreateConnectorRequest request) =>
-            DoRequest<ICreateConnectorRequest, CreateConnectorResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<ICreateConnectorRequest, CreateConnectorResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_connector</c> API, read more about this API online:
@@ -3166,11 +3082,7 @@ namespace OpenSearch.Client.Specification.MlApi
             ICreateConnectorRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<ICreateConnectorRequest, CreateConnectorResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<ICreateConnectorRequest, CreateConnectorResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_controller</c> API, read more about this API online:
@@ -3182,9 +3094,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Id modelId,
             Func<CreateControllerDescriptor, ICreateControllerRequest> selector = null
         ) =>
-            CreateController(
-                selector.InvokeOrDefault(new CreateControllerDescriptor(modelId: modelId))
-            );
+            CreateController(selector.InvokeOrDefault(new CreateControllerDescriptor(modelId: modelId)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_controller</c> API, read more about this API online:
@@ -3197,10 +3107,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<CreateControllerDescriptor, ICreateControllerRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            CreateControllerAsync(
-                selector.InvokeOrDefault(new CreateControllerDescriptor(modelId: modelId)),
-                ct
-            );
+            CreateControllerAsync(selector.InvokeOrDefault(new CreateControllerDescriptor(modelId: modelId)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_controller</c> API, read more about this API online:
@@ -3209,10 +3116,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public CreateControllerResponse CreateController(ICreateControllerRequest request) =>
-            DoRequest<ICreateControllerRequest, CreateControllerResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<ICreateControllerRequest, CreateControllerResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_controller</c> API, read more about this API online:
@@ -3224,11 +3128,7 @@ namespace OpenSearch.Client.Specification.MlApi
             ICreateControllerRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<ICreateControllerRequest, CreateControllerResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<ICreateControllerRequest, CreateControllerResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_memory</c> API, read more about this API online:
@@ -3238,7 +3138,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public CreateMemoryResponse CreateMemory(
             Func<CreateMemoryDescriptor, ICreateMemoryRequest> selector = null
-        ) => CreateMemory(selector.InvokeOrDefault(new CreateMemoryDescriptor()));
+        ) =>
+            CreateMemory(selector.InvokeOrDefault(new CreateMemoryDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_memory</c> API, read more about this API online:
@@ -3249,7 +3150,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public Task<CreateMemoryResponse> CreateMemoryAsync(
             Func<CreateMemoryDescriptor, ICreateMemoryRequest> selector = null,
             CancellationToken ct = default
-        ) => CreateMemoryAsync(selector.InvokeOrDefault(new CreateMemoryDescriptor()), ct);
+        ) =>
+            CreateMemoryAsync(selector.InvokeOrDefault(new CreateMemoryDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_memory</c> API, read more about this API online:
@@ -3258,10 +3160,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public CreateMemoryResponse CreateMemory(ICreateMemoryRequest request) =>
-            DoRequest<ICreateMemoryRequest, CreateMemoryResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<ICreateMemoryRequest, CreateMemoryResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_memory</c> API, read more about this API online:
@@ -3273,11 +3172,7 @@ namespace OpenSearch.Client.Specification.MlApi
             ICreateMemoryRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<ICreateMemoryRequest, CreateMemoryResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<ICreateMemoryRequest, CreateMemoryResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_memory_container</c> API, read more about this API online:
@@ -3287,7 +3182,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
         public CreateMemoryContainerResponse CreateMemoryContainer(
             Func<CreateMemoryContainerDescriptor, ICreateMemoryContainerRequest> selector = null
-        ) => CreateMemoryContainer(selector.InvokeOrDefault(new CreateMemoryContainerDescriptor()));
+        ) =>
+            CreateMemoryContainer(selector.InvokeOrDefault(new CreateMemoryContainerDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_memory_container</c> API, read more about this API online:
@@ -3299,10 +3195,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<CreateMemoryContainerDescriptor, ICreateMemoryContainerRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            CreateMemoryContainerAsync(
-                selector.InvokeOrDefault(new CreateMemoryContainerDescriptor()),
-                ct
-            );
+            CreateMemoryContainerAsync(selector.InvokeOrDefault(new CreateMemoryContainerDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_memory_container</c> API, read more about this API online:
@@ -3310,13 +3203,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
-        public CreateMemoryContainerResponse CreateMemoryContainer(
-            ICreateMemoryContainerRequest request
-        ) =>
-            DoRequest<ICreateMemoryContainerRequest, CreateMemoryContainerResponse>(
-                request,
-                request.RequestParameters
-            );
+        public CreateMemoryContainerResponse CreateMemoryContainer(ICreateMemoryContainerRequest request) =>
+            DoRequest<ICreateMemoryContainerRequest, CreateMemoryContainerResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_memory_container</c> API, read more about this API online:
@@ -3328,11 +3216,7 @@ namespace OpenSearch.Client.Specification.MlApi
             ICreateMemoryContainerRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<ICreateMemoryContainerRequest, CreateMemoryContainerResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<ICreateMemoryContainerRequest, CreateMemoryContainerResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_memory_container_session</c> API, read more about this API online:
@@ -3342,16 +3226,9 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
         public CreateMemoryContainerSessionResponse CreateMemoryContainerSession(
             Id memoryContainerId,
-            Func<
-                CreateMemoryContainerSessionDescriptor,
-                ICreateMemoryContainerSessionRequest
-            > selector = null
+            Func<CreateMemoryContainerSessionDescriptor, ICreateMemoryContainerSessionRequest> selector = null
         ) =>
-            CreateMemoryContainerSession(
-                selector.InvokeOrDefault(
-                    new CreateMemoryContainerSessionDescriptor(memoryContainerId: memoryContainerId)
-                )
-            );
+            CreateMemoryContainerSession(selector.InvokeOrDefault(new CreateMemoryContainerSessionDescriptor(memoryContainerId: memoryContainerId)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_memory_container_session</c> API, read more about this API online:
@@ -3361,18 +3238,10 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
         public Task<CreateMemoryContainerSessionResponse> CreateMemoryContainerSessionAsync(
             Id memoryContainerId,
-            Func<
-                CreateMemoryContainerSessionDescriptor,
-                ICreateMemoryContainerSessionRequest
-            > selector = null,
+            Func<CreateMemoryContainerSessionDescriptor, ICreateMemoryContainerSessionRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            CreateMemoryContainerSessionAsync(
-                selector.InvokeOrDefault(
-                    new CreateMemoryContainerSessionDescriptor(memoryContainerId: memoryContainerId)
-                ),
-                ct
-            );
+            CreateMemoryContainerSessionAsync(selector.InvokeOrDefault(new CreateMemoryContainerSessionDescriptor(memoryContainerId: memoryContainerId)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_memory_container_session</c> API, read more about this API online:
@@ -3383,10 +3252,7 @@ namespace OpenSearch.Client.Specification.MlApi
         public CreateMemoryContainerSessionResponse CreateMemoryContainerSession(
             ICreateMemoryContainerSessionRequest request
         ) =>
-            DoRequest<ICreateMemoryContainerSessionRequest, CreateMemoryContainerSessionResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<ICreateMemoryContainerSessionRequest, CreateMemoryContainerSessionResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_memory_container_session</c> API, read more about this API online:
@@ -3398,10 +3264,7 @@ namespace OpenSearch.Client.Specification.MlApi
             ICreateMemoryContainerSessionRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<
-                ICreateMemoryContainerSessionRequest,
-                CreateMemoryContainerSessionResponse
-            >(request, request.RequestParameters, ct);
+            DoRequestAsync<ICreateMemoryContainerSessionRequest, CreateMemoryContainerSessionResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_message</c> API, read more about this API online:
@@ -3413,9 +3276,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Id memoryId,
             Func<CreateMessageDescriptor, ICreateMessageRequest> selector = null
         ) =>
-            CreateMessage(
-                selector.InvokeOrDefault(new CreateMessageDescriptor(memoryId: memoryId))
-            );
+            CreateMessage(selector.InvokeOrDefault(new CreateMessageDescriptor(memoryId: memoryId)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_message</c> API, read more about this API online:
@@ -3428,10 +3289,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<CreateMessageDescriptor, ICreateMessageRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            CreateMessageAsync(
-                selector.InvokeOrDefault(new CreateMessageDescriptor(memoryId: memoryId)),
-                ct
-            );
+            CreateMessageAsync(selector.InvokeOrDefault(new CreateMessageDescriptor(memoryId: memoryId)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_message</c> API, read more about this API online:
@@ -3440,10 +3298,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public CreateMessageResponse CreateMessage(ICreateMessageRequest request) =>
-            DoRequest<ICreateMessageRequest, CreateMessageResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<ICreateMessageRequest, CreateMessageResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_message</c> API, read more about this API online:
@@ -3455,11 +3310,7 @@ namespace OpenSearch.Client.Specification.MlApi
             ICreateMessageRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<ICreateMessageRequest, CreateMessageResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<ICreateMessageRequest, CreateMessageResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_model_meta</c> API, read more about this API online:
@@ -3469,7 +3320,8 @@ namespace OpenSearch.Client.Specification.MlApi
         [Obsolete("Deprecated as of: 2.7.0, reason: Use `_register_meta` instead.")]
         public CreateModelMetaResponse CreateModelMeta(
             Func<CreateModelMetaDescriptor, ICreateModelMetaRequest> selector = null
-        ) => CreateModelMeta(selector.InvokeOrDefault(new CreateModelMetaDescriptor()));
+        ) =>
+            CreateModelMeta(selector.InvokeOrDefault(new CreateModelMetaDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_model_meta</c> API, read more about this API online:
@@ -3480,7 +3332,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public Task<CreateModelMetaResponse> CreateModelMetaAsync(
             Func<CreateModelMetaDescriptor, ICreateModelMetaRequest> selector = null,
             CancellationToken ct = default
-        ) => CreateModelMetaAsync(selector.InvokeOrDefault(new CreateModelMetaDescriptor()), ct);
+        ) =>
+            CreateModelMetaAsync(selector.InvokeOrDefault(new CreateModelMetaDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_model_meta</c> API, read more about this API online:
@@ -3489,10 +3342,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         [Obsolete("Deprecated as of: 2.7.0, reason: Use `_register_meta` instead.")]
         public CreateModelMetaResponse CreateModelMeta(ICreateModelMetaRequest request) =>
-            DoRequest<ICreateModelMetaRequest, CreateModelMetaResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<ICreateModelMetaRequest, CreateModelMetaResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.create_model_meta</c> API, read more about this API online:
@@ -3504,11 +3354,7 @@ namespace OpenSearch.Client.Specification.MlApi
             ICreateModelMetaRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<ICreateModelMetaRequest, CreateModelMetaResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<ICreateModelMetaRequest, CreateModelMetaResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_agent</c> API, read more about this API online:
@@ -3519,7 +3365,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public DeleteAgentResponse DeleteAgent(
             Id agentId,
             Func<DeleteAgentDescriptor, IDeleteAgentRequest> selector = null
-        ) => DeleteAgent(selector.InvokeOrDefault(new DeleteAgentDescriptor(agentId: agentId)));
+        ) =>
+            DeleteAgent(selector.InvokeOrDefault(new DeleteAgentDescriptor(agentId: agentId)));
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_agent</c> API, read more about this API online:
@@ -3532,10 +3379,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<DeleteAgentDescriptor, IDeleteAgentRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            DeleteAgentAsync(
-                selector.InvokeOrDefault(new DeleteAgentDescriptor(agentId: agentId)),
-                ct
-            );
+            DeleteAgentAsync(selector.InvokeOrDefault(new DeleteAgentDescriptor(agentId: agentId)), ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_agent</c> API, read more about this API online:
@@ -3556,11 +3400,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IDeleteAgentRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IDeleteAgentRequest, DeleteAgentResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IDeleteAgentRequest, DeleteAgentResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_agentic_memory</c> API, read more about this API online:
@@ -3574,15 +3414,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Id id,
             Func<DeleteAgenticMemoryDescriptor, IDeleteAgenticMemoryRequest> selector = null
         ) =>
-            DeleteAgenticMemory(
-                selector.InvokeOrDefault(
-                    new DeleteAgenticMemoryDescriptor(
-                        memoryContainerId: memoryContainerId,
-                        type: type,
-                        id: id
-                    )
-                )
-            );
+            DeleteAgenticMemory(selector.InvokeOrDefault(new DeleteAgenticMemoryDescriptor(memoryContainerId: memoryContainerId, type: type, id: id)));
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_agentic_memory</c> API, read more about this API online:
@@ -3597,16 +3429,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<DeleteAgenticMemoryDescriptor, IDeleteAgenticMemoryRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            DeleteAgenticMemoryAsync(
-                selector.InvokeOrDefault(
-                    new DeleteAgenticMemoryDescriptor(
-                        memoryContainerId: memoryContainerId,
-                        type: type,
-                        id: id
-                    )
-                ),
-                ct
-            );
+            DeleteAgenticMemoryAsync(selector.InvokeOrDefault(new DeleteAgenticMemoryDescriptor(memoryContainerId: memoryContainerId, type: type, id: id)), ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_agentic_memory</c> API, read more about this API online:
@@ -3614,13 +3437,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
-        public DeleteAgenticMemoryResponse DeleteAgenticMemory(
-            IDeleteAgenticMemoryRequest request
-        ) =>
-            DoRequest<IDeleteAgenticMemoryRequest, DeleteAgenticMemoryResponse>(
-                request,
-                request.RequestParameters
-            );
+        public DeleteAgenticMemoryResponse DeleteAgenticMemory(IDeleteAgenticMemoryRequest request) =>
+            DoRequest<IDeleteAgenticMemoryRequest, DeleteAgenticMemoryResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_agentic_memory</c> API, read more about this API online:
@@ -3632,11 +3450,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IDeleteAgenticMemoryRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IDeleteAgenticMemoryRequest, DeleteAgenticMemoryResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IDeleteAgenticMemoryRequest, DeleteAgenticMemoryResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.delete_agentic_memory_query</c> API, read more about this API online:
@@ -3647,17 +3461,9 @@ namespace OpenSearch.Client.Specification.MlApi
         public DeleteAgenticMemoryQueryResponse DeleteAgenticMemoryQuery(
             Id memoryContainerId,
             Names type,
-            Func<DeleteAgenticMemoryQueryDescriptor, IDeleteAgenticMemoryQueryRequest> selector =
-                null
+            Func<DeleteAgenticMemoryQueryDescriptor, IDeleteAgenticMemoryQueryRequest> selector = null
         ) =>
-            DeleteAgenticMemoryQuery(
-                selector.InvokeOrDefault(
-                    new DeleteAgenticMemoryQueryDescriptor(
-                        memoryContainerId: memoryContainerId,
-                        type: type
-                    )
-                )
-            );
+            DeleteAgenticMemoryQuery(selector.InvokeOrDefault(new DeleteAgenticMemoryQueryDescriptor(memoryContainerId: memoryContainerId, type: type)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.delete_agentic_memory_query</c> API, read more about this API online:
@@ -3668,19 +3474,10 @@ namespace OpenSearch.Client.Specification.MlApi
         public Task<DeleteAgenticMemoryQueryResponse> DeleteAgenticMemoryQueryAsync(
             Id memoryContainerId,
             Names type,
-            Func<DeleteAgenticMemoryQueryDescriptor, IDeleteAgenticMemoryQueryRequest> selector =
-                null,
+            Func<DeleteAgenticMemoryQueryDescriptor, IDeleteAgenticMemoryQueryRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            DeleteAgenticMemoryQueryAsync(
-                selector.InvokeOrDefault(
-                    new DeleteAgenticMemoryQueryDescriptor(
-                        memoryContainerId: memoryContainerId,
-                        type: type
-                    )
-                ),
-                ct
-            );
+            DeleteAgenticMemoryQueryAsync(selector.InvokeOrDefault(new DeleteAgenticMemoryQueryDescriptor(memoryContainerId: memoryContainerId, type: type)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.delete_agentic_memory_query</c> API, read more about this API online:
@@ -3688,13 +3485,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
-        public DeleteAgenticMemoryQueryResponse DeleteAgenticMemoryQuery(
-            IDeleteAgenticMemoryQueryRequest request
-        ) =>
-            DoRequest<IDeleteAgenticMemoryQueryRequest, DeleteAgenticMemoryQueryResponse>(
-                request,
-                request.RequestParameters
-            );
+        public DeleteAgenticMemoryQueryResponse DeleteAgenticMemoryQuery(IDeleteAgenticMemoryQueryRequest request) =>
+            DoRequest<IDeleteAgenticMemoryQueryRequest, DeleteAgenticMemoryQueryResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.delete_agentic_memory_query</c> API, read more about this API online:
@@ -3706,11 +3498,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IDeleteAgenticMemoryQueryRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IDeleteAgenticMemoryQueryRequest, DeleteAgenticMemoryQueryResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IDeleteAgenticMemoryQueryRequest, DeleteAgenticMemoryQueryResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_connector</c> API, read more about this API online:
@@ -3721,9 +3509,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Id connectorId,
             Func<DeleteConnectorDescriptor, IDeleteConnectorRequest> selector = null
         ) =>
-            DeleteConnector(
-                selector.InvokeOrDefault(new DeleteConnectorDescriptor(connectorId: connectorId))
-            );
+            DeleteConnector(selector.InvokeOrDefault(new DeleteConnectorDescriptor(connectorId: connectorId)));
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_connector</c> API, read more about this API online:
@@ -3735,10 +3521,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<DeleteConnectorDescriptor, IDeleteConnectorRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            DeleteConnectorAsync(
-                selector.InvokeOrDefault(new DeleteConnectorDescriptor(connectorId: connectorId)),
-                ct
-            );
+            DeleteConnectorAsync(selector.InvokeOrDefault(new DeleteConnectorDescriptor(connectorId: connectorId)), ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_connector</c> API, read more about this API online:
@@ -3746,10 +3529,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         public DeleteConnectorResponse DeleteConnector(IDeleteConnectorRequest request) =>
-            DoRequest<IDeleteConnectorRequest, DeleteConnectorResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IDeleteConnectorRequest, DeleteConnectorResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_connector</c> API, read more about this API online:
@@ -3760,11 +3540,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IDeleteConnectorRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IDeleteConnectorRequest, DeleteConnectorResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IDeleteConnectorRequest, DeleteConnectorResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_controller</c> API, read more about this API online:
@@ -3776,9 +3552,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Id modelId,
             Func<DeleteControllerDescriptor, IDeleteControllerRequest> selector = null
         ) =>
-            DeleteController(
-                selector.InvokeOrDefault(new DeleteControllerDescriptor(modelId: modelId))
-            );
+            DeleteController(selector.InvokeOrDefault(new DeleteControllerDescriptor(modelId: modelId)));
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_controller</c> API, read more about this API online:
@@ -3791,10 +3565,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<DeleteControllerDescriptor, IDeleteControllerRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            DeleteControllerAsync(
-                selector.InvokeOrDefault(new DeleteControllerDescriptor(modelId: modelId)),
-                ct
-            );
+            DeleteControllerAsync(selector.InvokeOrDefault(new DeleteControllerDescriptor(modelId: modelId)), ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_controller</c> API, read more about this API online:
@@ -3803,10 +3574,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public DeleteControllerResponse DeleteController(IDeleteControllerRequest request) =>
-            DoRequest<IDeleteControllerRequest, DeleteControllerResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IDeleteControllerRequest, DeleteControllerResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_controller</c> API, read more about this API online:
@@ -3818,11 +3586,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IDeleteControllerRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IDeleteControllerRequest, DeleteControllerResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IDeleteControllerRequest, DeleteControllerResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_memory</c> API, read more about this API online:
@@ -3833,7 +3597,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public DeleteMemoryResponse DeleteMemory(
             Id memoryId,
             Func<DeleteMemoryDescriptor, IDeleteMemoryRequest> selector = null
-        ) => DeleteMemory(selector.InvokeOrDefault(new DeleteMemoryDescriptor(memoryId: memoryId)));
+        ) =>
+            DeleteMemory(selector.InvokeOrDefault(new DeleteMemoryDescriptor(memoryId: memoryId)));
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_memory</c> API, read more about this API online:
@@ -3846,10 +3611,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<DeleteMemoryDescriptor, IDeleteMemoryRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            DeleteMemoryAsync(
-                selector.InvokeOrDefault(new DeleteMemoryDescriptor(memoryId: memoryId)),
-                ct
-            );
+            DeleteMemoryAsync(selector.InvokeOrDefault(new DeleteMemoryDescriptor(memoryId: memoryId)), ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_memory</c> API, read more about this API online:
@@ -3858,10 +3620,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public DeleteMemoryResponse DeleteMemory(IDeleteMemoryRequest request) =>
-            DoRequest<IDeleteMemoryRequest, DeleteMemoryResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IDeleteMemoryRequest, DeleteMemoryResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_memory</c> API, read more about this API online:
@@ -3873,11 +3632,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IDeleteMemoryRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IDeleteMemoryRequest, DeleteMemoryResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IDeleteMemoryRequest, DeleteMemoryResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_memory_container</c> API, read more about this API online:
@@ -3889,11 +3644,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Id memoryContainerId,
             Func<DeleteMemoryContainerDescriptor, IDeleteMemoryContainerRequest> selector = null
         ) =>
-            DeleteMemoryContainer(
-                selector.InvokeOrDefault(
-                    new DeleteMemoryContainerDescriptor(memoryContainerId: memoryContainerId)
-                )
-            );
+            DeleteMemoryContainer(selector.InvokeOrDefault(new DeleteMemoryContainerDescriptor(memoryContainerId: memoryContainerId)));
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_memory_container</c> API, read more about this API online:
@@ -3906,12 +3657,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<DeleteMemoryContainerDescriptor, IDeleteMemoryContainerRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            DeleteMemoryContainerAsync(
-                selector.InvokeOrDefault(
-                    new DeleteMemoryContainerDescriptor(memoryContainerId: memoryContainerId)
-                ),
-                ct
-            );
+            DeleteMemoryContainerAsync(selector.InvokeOrDefault(new DeleteMemoryContainerDescriptor(memoryContainerId: memoryContainerId)), ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_memory_container</c> API, read more about this API online:
@@ -3919,13 +3665,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
-        public DeleteMemoryContainerResponse DeleteMemoryContainer(
-            IDeleteMemoryContainerRequest request
-        ) =>
-            DoRequest<IDeleteMemoryContainerRequest, DeleteMemoryContainerResponse>(
-                request,
-                request.RequestParameters
-            );
+        public DeleteMemoryContainerResponse DeleteMemoryContainer(IDeleteMemoryContainerRequest request) =>
+            DoRequest<IDeleteMemoryContainerRequest, DeleteMemoryContainerResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_memory_container</c> API, read more about this API online:
@@ -3937,11 +3678,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IDeleteMemoryContainerRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IDeleteMemoryContainerRequest, DeleteMemoryContainerResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IDeleteMemoryContainerRequest, DeleteMemoryContainerResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_model</c> API, read more about this API online:
@@ -3952,7 +3689,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public DeleteModelResponse DeleteModel(
             Id modelId,
             Func<DeleteModelDescriptor, IDeleteModelRequest> selector = null
-        ) => DeleteModel(selector.InvokeOrDefault(new DeleteModelDescriptor(modelId: modelId)));
+        ) =>
+            DeleteModel(selector.InvokeOrDefault(new DeleteModelDescriptor(modelId: modelId)));
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_model</c> API, read more about this API online:
@@ -3965,10 +3703,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<DeleteModelDescriptor, IDeleteModelRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            DeleteModelAsync(
-                selector.InvokeOrDefault(new DeleteModelDescriptor(modelId: modelId)),
-                ct
-            );
+            DeleteModelAsync(selector.InvokeOrDefault(new DeleteModelDescriptor(modelId: modelId)), ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_model</c> API, read more about this API online:
@@ -3989,11 +3724,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IDeleteModelRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IDeleteModelRequest, DeleteModelResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IDeleteModelRequest, DeleteModelResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_model_group</c> API, read more about this API online:
@@ -4004,9 +3735,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Id modelGroupId,
             Func<DeleteModelGroupDescriptor, IDeleteModelGroupRequest> selector = null
         ) =>
-            DeleteModelGroup(
-                selector.InvokeOrDefault(new DeleteModelGroupDescriptor(modelGroupId: modelGroupId))
-            );
+            DeleteModelGroup(selector.InvokeOrDefault(new DeleteModelGroupDescriptor(modelGroupId: modelGroupId)));
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_model_group</c> API, read more about this API online:
@@ -4018,12 +3747,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<DeleteModelGroupDescriptor, IDeleteModelGroupRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            DeleteModelGroupAsync(
-                selector.InvokeOrDefault(
-                    new DeleteModelGroupDescriptor(modelGroupId: modelGroupId)
-                ),
-                ct
-            );
+            DeleteModelGroupAsync(selector.InvokeOrDefault(new DeleteModelGroupDescriptor(modelGroupId: modelGroupId)), ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_model_group</c> API, read more about this API online:
@@ -4031,10 +3755,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         public DeleteModelGroupResponse DeleteModelGroup(IDeleteModelGroupRequest request) =>
-            DoRequest<IDeleteModelGroupRequest, DeleteModelGroupResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IDeleteModelGroupRequest, DeleteModelGroupResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_model_group</c> API, read more about this API online:
@@ -4045,11 +3766,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IDeleteModelGroupRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IDeleteModelGroupRequest, DeleteModelGroupResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IDeleteModelGroupRequest, DeleteModelGroupResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_task</c> API, read more about this API online:
@@ -4060,7 +3777,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public DeleteTaskResponse DeleteTask(
             Id taskId,
             Func<DeleteTaskDescriptor, IDeleteTaskRequest> selector = null
-        ) => DeleteTask(selector.InvokeOrDefault(new DeleteTaskDescriptor(taskId: taskId)));
+        ) =>
+            DeleteTask(selector.InvokeOrDefault(new DeleteTaskDescriptor(taskId: taskId)));
 
         /// <summary>
         /// <c>DELETE</c> request to the <c>ml.delete_task</c> API, read more about this API online:
@@ -4094,11 +3812,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IDeleteTaskRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IDeleteTaskRequest, DeleteTaskResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IDeleteTaskRequest, DeleteTaskResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.deploy_model</c> API, read more about this API online:
@@ -4109,7 +3823,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public DeployModelResponse DeployModel(
             Id modelId,
             Func<DeployModelDescriptor, IDeployModelRequest> selector = null
-        ) => DeployModel(selector.InvokeOrDefault(new DeployModelDescriptor(modelId: modelId)));
+        ) =>
+            DeployModel(selector.InvokeOrDefault(new DeployModelDescriptor(modelId: modelId)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.deploy_model</c> API, read more about this API online:
@@ -4122,10 +3837,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<DeployModelDescriptor, IDeployModelRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            DeployModelAsync(
-                selector.InvokeOrDefault(new DeployModelDescriptor(modelId: modelId)),
-                ct
-            );
+            DeployModelAsync(selector.InvokeOrDefault(new DeployModelDescriptor(modelId: modelId)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.deploy_model</c> API, read more about this API online:
@@ -4146,11 +3858,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IDeployModelRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IDeployModelRequest, DeployModelResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IDeployModelRequest, DeployModelResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.execute_agent</c> API, read more about this API online:
@@ -4161,7 +3869,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public ExecuteAgentResponse ExecuteAgent(
             Id agentId,
             Func<ExecuteAgentDescriptor, IExecuteAgentRequest> selector = null
-        ) => ExecuteAgent(selector.InvokeOrDefault(new ExecuteAgentDescriptor(agentId: agentId)));
+        ) =>
+            ExecuteAgent(selector.InvokeOrDefault(new ExecuteAgentDescriptor(agentId: agentId)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.execute_agent</c> API, read more about this API online:
@@ -4174,10 +3883,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<ExecuteAgentDescriptor, IExecuteAgentRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            ExecuteAgentAsync(
-                selector.InvokeOrDefault(new ExecuteAgentDescriptor(agentId: agentId)),
-                ct
-            );
+            ExecuteAgentAsync(selector.InvokeOrDefault(new ExecuteAgentDescriptor(agentId: agentId)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.execute_agent</c> API, read more about this API online:
@@ -4186,10 +3892,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.13.0 or greater.</remarks>
         public ExecuteAgentResponse ExecuteAgent(IExecuteAgentRequest request) =>
-            DoRequest<IExecuteAgentRequest, ExecuteAgentResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IExecuteAgentRequest, ExecuteAgentResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.execute_agent</c> API, read more about this API online:
@@ -4201,11 +3904,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IExecuteAgentRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IExecuteAgentRequest, ExecuteAgentResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IExecuteAgentRequest, ExecuteAgentResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.execute_algorithm</c> API, read more about this API online:
@@ -4217,11 +3916,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Name algorithmName,
             Func<ExecuteAlgorithmDescriptor, IExecuteAlgorithmRequest> selector = null
         ) =>
-            ExecuteAlgorithm(
-                selector.InvokeOrDefault(
-                    new ExecuteAlgorithmDescriptor(algorithmName: algorithmName)
-                )
-            );
+            ExecuteAlgorithm(selector.InvokeOrDefault(new ExecuteAlgorithmDescriptor(algorithmName: algorithmName)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.execute_algorithm</c> API, read more about this API online:
@@ -4234,12 +3929,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<ExecuteAlgorithmDescriptor, IExecuteAlgorithmRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            ExecuteAlgorithmAsync(
-                selector.InvokeOrDefault(
-                    new ExecuteAlgorithmDescriptor(algorithmName: algorithmName)
-                ),
-                ct
-            );
+            ExecuteAlgorithmAsync(selector.InvokeOrDefault(new ExecuteAlgorithmDescriptor(algorithmName: algorithmName)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.execute_algorithm</c> API, read more about this API online:
@@ -4248,10 +3938,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public ExecuteAlgorithmResponse ExecuteAlgorithm(IExecuteAlgorithmRequest request) =>
-            DoRequest<IExecuteAlgorithmRequest, ExecuteAlgorithmResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IExecuteAlgorithmRequest, ExecuteAlgorithmResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.execute_algorithm</c> API, read more about this API online:
@@ -4263,11 +3950,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IExecuteAlgorithmRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IExecuteAlgorithmRequest, ExecuteAlgorithmResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IExecuteAlgorithmRequest, ExecuteAlgorithmResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.execute_tool</c> API, read more about this API online:
@@ -4278,7 +3961,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public ExecuteToolResponse ExecuteTool(
             Name toolName,
             Func<ExecuteToolDescriptor, IExecuteToolRequest> selector = null
-        ) => ExecuteTool(selector.InvokeOrDefault(new ExecuteToolDescriptor(toolName: toolName)));
+        ) =>
+            ExecuteTool(selector.InvokeOrDefault(new ExecuteToolDescriptor(toolName: toolName)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.execute_tool</c> API, read more about this API online:
@@ -4291,10 +3975,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<ExecuteToolDescriptor, IExecuteToolRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            ExecuteToolAsync(
-                selector.InvokeOrDefault(new ExecuteToolDescriptor(toolName: toolName)),
-                ct
-            );
+            ExecuteToolAsync(selector.InvokeOrDefault(new ExecuteToolDescriptor(toolName: toolName)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.execute_tool</c> API, read more about this API online:
@@ -4315,11 +3996,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IExecuteToolRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IExecuteToolRequest, ExecuteToolResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IExecuteToolRequest, ExecuteToolResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_agent</c> API, read more about this API online:
@@ -4327,10 +4004,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.13.0 or greater.</remarks>
-        public GetAgentResponse GetAgent(
-            Id agentId,
-            Func<GetAgentDescriptor, IGetAgentRequest> selector = null
-        ) => GetAgent(selector.InvokeOrDefault(new GetAgentDescriptor(agentId: agentId)));
+        public GetAgentResponse GetAgent(Id agentId, Func<GetAgentDescriptor, IGetAgentRequest> selector = null) =>
+            GetAgent(selector.InvokeOrDefault(new GetAgentDescriptor(agentId: agentId)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_agent</c> API, read more about this API online:
@@ -4342,7 +4017,8 @@ namespace OpenSearch.Client.Specification.MlApi
             Id agentId,
             Func<GetAgentDescriptor, IGetAgentRequest> selector = null,
             CancellationToken ct = default
-        ) => GetAgentAsync(selector.InvokeOrDefault(new GetAgentDescriptor(agentId: agentId)), ct);
+        ) =>
+            GetAgentAsync(selector.InvokeOrDefault(new GetAgentDescriptor(agentId: agentId)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_agent</c> API, read more about this API online:
@@ -4359,15 +4035,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.13.0 or greater.</remarks>
-        public Task<GetAgentResponse> GetAgentAsync(
-            IGetAgentRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IGetAgentRequest, GetAgentResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<GetAgentResponse> GetAgentAsync(IGetAgentRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<IGetAgentRequest, GetAgentResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_agentic_memory</c> API, read more about this API online:
@@ -4381,15 +4050,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Id id,
             Func<GetAgenticMemoryDescriptor, IGetAgenticMemoryRequest> selector = null
         ) =>
-            GetAgenticMemory(
-                selector.InvokeOrDefault(
-                    new GetAgenticMemoryDescriptor(
-                        memoryContainerId: memoryContainerId,
-                        type: type,
-                        id: id
-                    )
-                )
-            );
+            GetAgenticMemory(selector.InvokeOrDefault(new GetAgenticMemoryDescriptor(memoryContainerId: memoryContainerId, type: type, id: id)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_agentic_memory</c> API, read more about this API online:
@@ -4404,16 +4065,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<GetAgenticMemoryDescriptor, IGetAgenticMemoryRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            GetAgenticMemoryAsync(
-                selector.InvokeOrDefault(
-                    new GetAgenticMemoryDescriptor(
-                        memoryContainerId: memoryContainerId,
-                        type: type,
-                        id: id
-                    )
-                ),
-                ct
-            );
+            GetAgenticMemoryAsync(selector.InvokeOrDefault(new GetAgenticMemoryDescriptor(memoryContainerId: memoryContainerId, type: type, id: id)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_agentic_memory</c> API, read more about this API online:
@@ -4422,10 +4074,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
         public GetAgenticMemoryResponse GetAgenticMemory(IGetAgenticMemoryRequest request) =>
-            DoRequest<IGetAgenticMemoryRequest, GetAgenticMemoryResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IGetAgenticMemoryRequest, GetAgenticMemoryResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_agentic_memory</c> API, read more about this API online:
@@ -4437,11 +4086,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IGetAgenticMemoryRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetAgenticMemoryRequest, GetAgenticMemoryResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetAgenticMemoryRequest, GetAgenticMemoryResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_all_memories</c> API, read more about this API online:
@@ -4451,7 +4096,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public GetAllMemoriesResponse GetAllMemories(
             Func<GetAllMemoriesDescriptor, IGetAllMemoriesRequest> selector = null
-        ) => GetAllMemories(selector.InvokeOrDefault(new GetAllMemoriesDescriptor()));
+        ) =>
+            GetAllMemories(selector.InvokeOrDefault(new GetAllMemoriesDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_all_memories</c> API, read more about this API online:
@@ -4462,7 +4108,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public Task<GetAllMemoriesResponse> GetAllMemoriesAsync(
             Func<GetAllMemoriesDescriptor, IGetAllMemoriesRequest> selector = null,
             CancellationToken ct = default
-        ) => GetAllMemoriesAsync(selector.InvokeOrDefault(new GetAllMemoriesDescriptor()), ct);
+        ) =>
+            GetAllMemoriesAsync(selector.InvokeOrDefault(new GetAllMemoriesDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_all_memories</c> API, read more about this API online:
@@ -4471,10 +4118,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public GetAllMemoriesResponse GetAllMemories(IGetAllMemoriesRequest request) =>
-            DoRequest<IGetAllMemoriesRequest, GetAllMemoriesResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IGetAllMemoriesRequest, GetAllMemoriesResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_all_memories</c> API, read more about this API online:
@@ -4486,11 +4130,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IGetAllMemoriesRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetAllMemoriesRequest, GetAllMemoriesResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetAllMemoriesRequest, GetAllMemoriesResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_all_messages</c> API, read more about this API online:
@@ -4502,9 +4142,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Id memoryId,
             Func<GetAllMessagesDescriptor, IGetAllMessagesRequest> selector = null
         ) =>
-            GetAllMessages(
-                selector.InvokeOrDefault(new GetAllMessagesDescriptor(memoryId: memoryId))
-            );
+            GetAllMessages(selector.InvokeOrDefault(new GetAllMessagesDescriptor(memoryId: memoryId)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_all_messages</c> API, read more about this API online:
@@ -4517,10 +4155,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<GetAllMessagesDescriptor, IGetAllMessagesRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            GetAllMessagesAsync(
-                selector.InvokeOrDefault(new GetAllMessagesDescriptor(memoryId: memoryId)),
-                ct
-            );
+            GetAllMessagesAsync(selector.InvokeOrDefault(new GetAllMessagesDescriptor(memoryId: memoryId)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_all_messages</c> API, read more about this API online:
@@ -4529,10 +4164,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public GetAllMessagesResponse GetAllMessages(IGetAllMessagesRequest request) =>
-            DoRequest<IGetAllMessagesRequest, GetAllMessagesResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IGetAllMessagesRequest, GetAllMessagesResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_all_messages</c> API, read more about this API online:
@@ -4544,11 +4176,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IGetAllMessagesRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetAllMessagesRequest, GetAllMessagesResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetAllMessagesRequest, GetAllMessagesResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_all_tools</c> API, read more about this API online:
@@ -4556,9 +4184,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
-        public GetAllToolsResponse GetAllTools(
-            Func<GetAllToolsDescriptor, IGetAllToolsRequest> selector = null
-        ) => GetAllTools(selector.InvokeOrDefault(new GetAllToolsDescriptor()));
+        public GetAllToolsResponse GetAllTools(Func<GetAllToolsDescriptor, IGetAllToolsRequest> selector = null) =>
+            GetAllTools(selector.InvokeOrDefault(new GetAllToolsDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_all_tools</c> API, read more about this API online:
@@ -4569,7 +4196,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public Task<GetAllToolsResponse> GetAllToolsAsync(
             Func<GetAllToolsDescriptor, IGetAllToolsRequest> selector = null,
             CancellationToken ct = default
-        ) => GetAllToolsAsync(selector.InvokeOrDefault(new GetAllToolsDescriptor()), ct);
+        ) =>
+            GetAllToolsAsync(selector.InvokeOrDefault(new GetAllToolsDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_all_tools</c> API, read more about this API online:
@@ -4590,11 +4218,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IGetAllToolsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetAllToolsRequest, GetAllToolsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetAllToolsRequest, GetAllToolsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_connector</c> API, read more about this API online:
@@ -4606,9 +4230,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Id connectorId,
             Func<GetConnectorDescriptor, IGetConnectorRequest> selector = null
         ) =>
-            GetConnector(
-                selector.InvokeOrDefault(new GetConnectorDescriptor(connectorId: connectorId))
-            );
+            GetConnector(selector.InvokeOrDefault(new GetConnectorDescriptor(connectorId: connectorId)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_connector</c> API, read more about this API online:
@@ -4621,10 +4243,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<GetConnectorDescriptor, IGetConnectorRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            GetConnectorAsync(
-                selector.InvokeOrDefault(new GetConnectorDescriptor(connectorId: connectorId)),
-                ct
-            );
+            GetConnectorAsync(selector.InvokeOrDefault(new GetConnectorDescriptor(connectorId: connectorId)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_connector</c> API, read more about this API online:
@@ -4633,10 +4252,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.11.0 or greater.</remarks>
         public GetConnectorResponse GetConnector(IGetConnectorRequest request) =>
-            DoRequest<IGetConnectorRequest, GetConnectorResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IGetConnectorRequest, GetConnectorResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_connector</c> API, read more about this API online:
@@ -4648,11 +4264,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IGetConnectorRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetConnectorRequest, GetConnectorResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetConnectorRequest, GetConnectorResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_controller</c> API, read more about this API online:
@@ -4663,7 +4275,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public GetControllerResponse GetController(
             Id modelId,
             Func<GetControllerDescriptor, IGetControllerRequest> selector = null
-        ) => GetController(selector.InvokeOrDefault(new GetControllerDescriptor(modelId: modelId)));
+        ) =>
+            GetController(selector.InvokeOrDefault(new GetControllerDescriptor(modelId: modelId)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_controller</c> API, read more about this API online:
@@ -4676,10 +4289,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<GetControllerDescriptor, IGetControllerRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            GetControllerAsync(
-                selector.InvokeOrDefault(new GetControllerDescriptor(modelId: modelId)),
-                ct
-            );
+            GetControllerAsync(selector.InvokeOrDefault(new GetControllerDescriptor(modelId: modelId)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_controller</c> API, read more about this API online:
@@ -4688,10 +4298,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public GetControllerResponse GetController(IGetControllerRequest request) =>
-            DoRequest<IGetControllerRequest, GetControllerResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IGetControllerRequest, GetControllerResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_controller</c> API, read more about this API online:
@@ -4703,11 +4310,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IGetControllerRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetControllerRequest, GetControllerResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetControllerRequest, GetControllerResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_memory</c> API, read more about this API online:
@@ -4718,7 +4321,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public GetMemoryResponse GetMemory(
             Id memoryId,
             Func<GetMemoryDescriptor, IGetMemoryRequest> selector = null
-        ) => GetMemory(selector.InvokeOrDefault(new GetMemoryDescriptor(memoryId: memoryId)));
+        ) =>
+            GetMemory(selector.InvokeOrDefault(new GetMemoryDescriptor(memoryId: memoryId)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_memory</c> API, read more about this API online:
@@ -4731,10 +4335,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<GetMemoryDescriptor, IGetMemoryRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            GetMemoryAsync(
-                selector.InvokeOrDefault(new GetMemoryDescriptor(memoryId: memoryId)),
-                ct
-            );
+            GetMemoryAsync(selector.InvokeOrDefault(new GetMemoryDescriptor(memoryId: memoryId)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_memory</c> API, read more about this API online:
@@ -4751,15 +4352,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
-        public Task<GetMemoryResponse> GetMemoryAsync(
-            IGetMemoryRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IGetMemoryRequest, GetMemoryResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<GetMemoryResponse> GetMemoryAsync(IGetMemoryRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<IGetMemoryRequest, GetMemoryResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_memory_container</c> API, read more about this API online:
@@ -4771,11 +4365,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Id memoryContainerId,
             Func<GetMemoryContainerDescriptor, IGetMemoryContainerRequest> selector = null
         ) =>
-            GetMemoryContainer(
-                selector.InvokeOrDefault(
-                    new GetMemoryContainerDescriptor(memoryContainerId: memoryContainerId)
-                )
-            );
+            GetMemoryContainer(selector.InvokeOrDefault(new GetMemoryContainerDescriptor(memoryContainerId: memoryContainerId)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_memory_container</c> API, read more about this API online:
@@ -4788,12 +4378,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<GetMemoryContainerDescriptor, IGetMemoryContainerRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            GetMemoryContainerAsync(
-                selector.InvokeOrDefault(
-                    new GetMemoryContainerDescriptor(memoryContainerId: memoryContainerId)
-                ),
-                ct
-            );
+            GetMemoryContainerAsync(selector.InvokeOrDefault(new GetMemoryContainerDescriptor(memoryContainerId: memoryContainerId)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_memory_container</c> API, read more about this API online:
@@ -4802,10 +4387,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
         public GetMemoryContainerResponse GetMemoryContainer(IGetMemoryContainerRequest request) =>
-            DoRequest<IGetMemoryContainerRequest, GetMemoryContainerResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IGetMemoryContainerRequest, GetMemoryContainerResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_memory_container</c> API, read more about this API online:
@@ -4817,11 +4399,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IGetMemoryContainerRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetMemoryContainerRequest, GetMemoryContainerResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetMemoryContainerRequest, GetMemoryContainerResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_message</c> API, read more about this API online:
@@ -4832,7 +4410,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public GetMessageResponse GetMessage(
             Id messageId,
             Func<GetMessageDescriptor, IGetMessageRequest> selector = null
-        ) => GetMessage(selector.InvokeOrDefault(new GetMessageDescriptor(messageId: messageId)));
+        ) =>
+            GetMessage(selector.InvokeOrDefault(new GetMessageDescriptor(messageId: messageId)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_message</c> API, read more about this API online:
@@ -4845,10 +4424,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<GetMessageDescriptor, IGetMessageRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            GetMessageAsync(
-                selector.InvokeOrDefault(new GetMessageDescriptor(messageId: messageId)),
-                ct
-            );
+            GetMessageAsync(selector.InvokeOrDefault(new GetMessageDescriptor(messageId: messageId)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_message</c> API, read more about this API online:
@@ -4869,11 +4445,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IGetMessageRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetMessageRequest, GetMessageResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetMessageRequest, GetMessageResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_message_traces</c> API, read more about this API online:
@@ -4885,9 +4457,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Id messageId,
             Func<GetMessageTracesDescriptor, IGetMessageTracesRequest> selector = null
         ) =>
-            GetMessageTraces(
-                selector.InvokeOrDefault(new GetMessageTracesDescriptor(messageId: messageId))
-            );
+            GetMessageTraces(selector.InvokeOrDefault(new GetMessageTracesDescriptor(messageId: messageId)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_message_traces</c> API, read more about this API online:
@@ -4900,10 +4470,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<GetMessageTracesDescriptor, IGetMessageTracesRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            GetMessageTracesAsync(
-                selector.InvokeOrDefault(new GetMessageTracesDescriptor(messageId: messageId)),
-                ct
-            );
+            GetMessageTracesAsync(selector.InvokeOrDefault(new GetMessageTracesDescriptor(messageId: messageId)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_message_traces</c> API, read more about this API online:
@@ -4912,10 +4479,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public GetMessageTracesResponse GetMessageTraces(IGetMessageTracesRequest request) =>
-            DoRequest<IGetMessageTracesRequest, GetMessageTracesResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IGetMessageTracesRequest, GetMessageTracesResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_message_traces</c> API, read more about this API online:
@@ -4927,11 +4491,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IGetMessageTracesRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetMessageTracesRequest, GetMessageTracesResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetMessageTracesRequest, GetMessageTracesResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_model</c> API, read more about this API online:
@@ -4939,10 +4499,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        public GetModelResponse GetModel(
-            Id modelId,
-            Func<GetModelDescriptor, IGetModelRequest> selector = null
-        ) => GetModel(selector.InvokeOrDefault(new GetModelDescriptor(modelId: modelId)));
+        public GetModelResponse GetModel(Id modelId, Func<GetModelDescriptor, IGetModelRequest> selector = null) =>
+            GetModel(selector.InvokeOrDefault(new GetModelDescriptor(modelId: modelId)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_model</c> API, read more about this API online:
@@ -4954,7 +4512,8 @@ namespace OpenSearch.Client.Specification.MlApi
             Id modelId,
             Func<GetModelDescriptor, IGetModelRequest> selector = null,
             CancellationToken ct = default
-        ) => GetModelAsync(selector.InvokeOrDefault(new GetModelDescriptor(modelId: modelId)), ct);
+        ) =>
+            GetModelAsync(selector.InvokeOrDefault(new GetModelDescriptor(modelId: modelId)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_model</c> API, read more about this API online:
@@ -4971,15 +4530,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        public Task<GetModelResponse> GetModelAsync(
-            IGetModelRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IGetModelRequest, GetModelResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<GetModelResponse> GetModelAsync(IGetModelRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<IGetModelRequest, GetModelResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_model_group</c> API, read more about this API online:
@@ -4990,9 +4542,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Id modelGroupId,
             Func<GetModelGroupDescriptor, IGetModelGroupRequest> selector = null
         ) =>
-            GetModelGroup(
-                selector.InvokeOrDefault(new GetModelGroupDescriptor(modelGroupId: modelGroupId))
-            );
+            GetModelGroup(selector.InvokeOrDefault(new GetModelGroupDescriptor(modelGroupId: modelGroupId)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_model_group</c> API, read more about this API online:
@@ -5004,10 +4554,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<GetModelGroupDescriptor, IGetModelGroupRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            GetModelGroupAsync(
-                selector.InvokeOrDefault(new GetModelGroupDescriptor(modelGroupId: modelGroupId)),
-                ct
-            );
+            GetModelGroupAsync(selector.InvokeOrDefault(new GetModelGroupDescriptor(modelGroupId: modelGroupId)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_model_group</c> API, read more about this API online:
@@ -5015,10 +4562,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         public GetModelGroupResponse GetModelGroup(IGetModelGroupRequest request) =>
-            DoRequest<IGetModelGroupRequest, GetModelGroupResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IGetModelGroupRequest, GetModelGroupResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_model_group</c> API, read more about this API online:
@@ -5029,11 +4573,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IGetModelGroupRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetModelGroupRequest, GetModelGroupResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetModelGroupRequest, GetModelGroupResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_profile</c> API, read more about this API online:
@@ -5041,9 +4581,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        public GetProfileResponse GetProfile(
-            Func<GetProfileDescriptor, IGetProfileRequest> selector = null
-        ) => GetProfile(selector.InvokeOrDefault(new GetProfileDescriptor()));
+        public GetProfileResponse GetProfile(Func<GetProfileDescriptor, IGetProfileRequest> selector = null) =>
+            GetProfile(selector.InvokeOrDefault(new GetProfileDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_profile</c> API, read more about this API online:
@@ -5054,7 +4593,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public Task<GetProfileResponse> GetProfileAsync(
             Func<GetProfileDescriptor, IGetProfileRequest> selector = null,
             CancellationToken ct = default
-        ) => GetProfileAsync(selector.InvokeOrDefault(new GetProfileDescriptor()), ct);
+        ) =>
+            GetProfileAsync(selector.InvokeOrDefault(new GetProfileDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_profile</c> API, read more about this API online:
@@ -5075,11 +4615,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IGetProfileRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetProfileRequest, GetProfileResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetProfileRequest, GetProfileResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_profile_models</c> API, read more about this API online:
@@ -5089,7 +4625,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public GetProfileModelsResponse GetProfileModels(
             Func<GetProfileModelsDescriptor, IGetProfileModelsRequest> selector = null
-        ) => GetProfileModels(selector.InvokeOrDefault(new GetProfileModelsDescriptor()));
+        ) =>
+            GetProfileModels(selector.InvokeOrDefault(new GetProfileModelsDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_profile_models</c> API, read more about this API online:
@@ -5100,7 +4637,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public Task<GetProfileModelsResponse> GetProfileModelsAsync(
             Func<GetProfileModelsDescriptor, IGetProfileModelsRequest> selector = null,
             CancellationToken ct = default
-        ) => GetProfileModelsAsync(selector.InvokeOrDefault(new GetProfileModelsDescriptor()), ct);
+        ) =>
+            GetProfileModelsAsync(selector.InvokeOrDefault(new GetProfileModelsDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_profile_models</c> API, read more about this API online:
@@ -5109,10 +4647,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public GetProfileModelsResponse GetProfileModels(IGetProfileModelsRequest request) =>
-            DoRequest<IGetProfileModelsRequest, GetProfileModelsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IGetProfileModelsRequest, GetProfileModelsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_profile_models</c> API, read more about this API online:
@@ -5124,11 +4659,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IGetProfileModelsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetProfileModelsRequest, GetProfileModelsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetProfileModelsRequest, GetProfileModelsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_profile_tasks</c> API, read more about this API online:
@@ -5138,7 +4669,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public GetProfileTasksResponse GetProfileTasks(
             Func<GetProfileTasksDescriptor, IGetProfileTasksRequest> selector = null
-        ) => GetProfileTasks(selector.InvokeOrDefault(new GetProfileTasksDescriptor()));
+        ) =>
+            GetProfileTasks(selector.InvokeOrDefault(new GetProfileTasksDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_profile_tasks</c> API, read more about this API online:
@@ -5149,7 +4681,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public Task<GetProfileTasksResponse> GetProfileTasksAsync(
             Func<GetProfileTasksDescriptor, IGetProfileTasksRequest> selector = null,
             CancellationToken ct = default
-        ) => GetProfileTasksAsync(selector.InvokeOrDefault(new GetProfileTasksDescriptor()), ct);
+        ) =>
+            GetProfileTasksAsync(selector.InvokeOrDefault(new GetProfileTasksDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_profile_tasks</c> API, read more about this API online:
@@ -5158,10 +4691,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public GetProfileTasksResponse GetProfileTasks(IGetProfileTasksRequest request) =>
-            DoRequest<IGetProfileTasksRequest, GetProfileTasksResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IGetProfileTasksRequest, GetProfileTasksResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_profile_tasks</c> API, read more about this API online:
@@ -5173,11 +4703,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IGetProfileTasksRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IGetProfileTasksRequest, GetProfileTasksResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IGetProfileTasksRequest, GetProfileTasksResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_stats</c> API, read more about this API online:
@@ -5185,9 +4711,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        public GetStatsResponse GetStats(
-            Func<GetStatsDescriptor, IGetStatsRequest> selector = null
-        ) => GetStats(selector.InvokeOrDefault(new GetStatsDescriptor()));
+        public GetStatsResponse GetStats(Func<GetStatsDescriptor, IGetStatsRequest> selector = null) =>
+            GetStats(selector.InvokeOrDefault(new GetStatsDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_stats</c> API, read more about this API online:
@@ -5198,7 +4723,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public Task<GetStatsResponse> GetStatsAsync(
             Func<GetStatsDescriptor, IGetStatsRequest> selector = null,
             CancellationToken ct = default
-        ) => GetStatsAsync(selector.InvokeOrDefault(new GetStatsDescriptor()), ct);
+        ) =>
+            GetStatsAsync(selector.InvokeOrDefault(new GetStatsDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_stats</c> API, read more about this API online:
@@ -5215,15 +4741,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        public Task<GetStatsResponse> GetStatsAsync(
-            IGetStatsRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IGetStatsRequest, GetStatsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<GetStatsResponse> GetStatsAsync(IGetStatsRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<IGetStatsRequest, GetStatsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_task</c> API, read more about this API online:
@@ -5234,7 +4753,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public GetMLTaskResponse GetMLTask(
             Id taskId,
             Func<GetMLTaskDescriptor, IGetMLTaskRequest> selector = null
-        ) => GetMLTask(selector.InvokeOrDefault(new GetMLTaskDescriptor(taskId: taskId)));
+        ) =>
+            GetMLTask(selector.InvokeOrDefault(new GetMLTaskDescriptor(taskId: taskId)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_task</c> API, read more about this API online:
@@ -5246,7 +4766,8 @@ namespace OpenSearch.Client.Specification.MlApi
             Id taskId,
             Func<GetMLTaskDescriptor, IGetMLTaskRequest> selector = null,
             CancellationToken ct = default
-        ) => GetMLTaskAsync(selector.InvokeOrDefault(new GetMLTaskDescriptor(taskId: taskId)), ct);
+        ) =>
+            GetMLTaskAsync(selector.InvokeOrDefault(new GetMLTaskDescriptor(taskId: taskId)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_task</c> API, read more about this API online:
@@ -5263,15 +4784,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        public Task<GetMLTaskResponse> GetMLTaskAsync(
-            IGetMLTaskRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IGetMLTaskRequest, GetMLTaskResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<GetMLTaskResponse> GetMLTaskAsync(IGetMLTaskRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<IGetMLTaskRequest, GetMLTaskResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_tool</c> API, read more about this API online:
@@ -5279,10 +4793,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
-        public GetToolResponse GetTool(
-            Name toolName,
-            Func<GetToolDescriptor, IGetToolRequest> selector = null
-        ) => GetTool(selector.InvokeOrDefault(new GetToolDescriptor(toolName: toolName)));
+        public GetToolResponse GetTool(Name toolName, Func<GetToolDescriptor, IGetToolRequest> selector = null) =>
+            GetTool(selector.InvokeOrDefault(new GetToolDescriptor(toolName: toolName)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_tool</c> API, read more about this API online:
@@ -5294,7 +4806,8 @@ namespace OpenSearch.Client.Specification.MlApi
             Name toolName,
             Func<GetToolDescriptor, IGetToolRequest> selector = null,
             CancellationToken ct = default
-        ) => GetToolAsync(selector.InvokeOrDefault(new GetToolDescriptor(toolName: toolName)), ct);
+        ) =>
+            GetToolAsync(selector.InvokeOrDefault(new GetToolDescriptor(toolName: toolName)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.get_tool</c> API, read more about this API online:
@@ -5311,15 +4824,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
-        public Task<GetToolResponse> GetToolAsync(
-            IGetToolRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IGetToolRequest, GetToolResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<GetToolResponse> GetToolAsync(IGetToolRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<IGetToolRequest, GetToolResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.load_model</c> API, read more about this API online:
@@ -5327,9 +4833,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         [Obsolete("Deprecated as of: 2.7.0, reason: Use `deploy_model` instead.")]
-        public LoadModelResponse LoadModel(
-            Func<LoadModelDescriptor, ILoadModelRequest> selector = null
-        ) => LoadModel(selector.InvokeOrDefault(new LoadModelDescriptor()));
+        public LoadModelResponse LoadModel(Func<LoadModelDescriptor, ILoadModelRequest> selector = null) =>
+            LoadModel(selector.InvokeOrDefault(new LoadModelDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.load_model</c> API, read more about this API online:
@@ -5340,7 +4845,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public Task<LoadModelResponse> LoadModelAsync(
             Func<LoadModelDescriptor, ILoadModelRequest> selector = null,
             CancellationToken ct = default
-        ) => LoadModelAsync(selector.InvokeOrDefault(new LoadModelDescriptor()), ct);
+        ) =>
+            LoadModelAsync(selector.InvokeOrDefault(new LoadModelDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.load_model</c> API, read more about this API online:
@@ -5357,15 +4863,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         [Obsolete("Deprecated as of: 2.7.0, reason: Use `deploy_model` instead.")]
-        public Task<LoadModelResponse> LoadModelAsync(
-            ILoadModelRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<ILoadModelRequest, LoadModelResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<LoadModelResponse> LoadModelAsync(ILoadModelRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<ILoadModelRequest, LoadModelResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.predict</c> API, read more about this API online:
@@ -5378,11 +4877,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Id modelId,
             Func<PredictDescriptor, IPredictRequest> selector = null
         ) =>
-            Predict(
-                selector.InvokeOrDefault(
-                    new PredictDescriptor(algorithmName: algorithmName, modelId: modelId)
-                )
-            );
+            Predict(selector.InvokeOrDefault(new PredictDescriptor(algorithmName: algorithmName, modelId: modelId)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.predict</c> API, read more about this API online:
@@ -5396,12 +4891,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<PredictDescriptor, IPredictRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            PredictAsync(
-                selector.InvokeOrDefault(
-                    new PredictDescriptor(algorithmName: algorithmName, modelId: modelId)
-                ),
-                ct
-            );
+            PredictAsync(selector.InvokeOrDefault(new PredictDescriptor(algorithmName: algorithmName, modelId: modelId)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.predict</c> API, read more about this API online:
@@ -5418,15 +4908,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        public Task<PredictResponse> PredictAsync(
-            IPredictRequest request,
-            CancellationToken ct = default
-        ) =>
-            DoRequestAsync<IPredictRequest, PredictResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+        public Task<PredictResponse> PredictAsync(IPredictRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<IPredictRequest, PredictResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.predict_model</c> API, read more about this API online:
@@ -5437,7 +4920,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public PredictModelResponse PredictModel(
             Id modelId,
             Func<PredictModelDescriptor, IPredictModelRequest> selector = null
-        ) => PredictModel(selector.InvokeOrDefault(new PredictModelDescriptor(modelId: modelId)));
+        ) =>
+            PredictModel(selector.InvokeOrDefault(new PredictModelDescriptor(modelId: modelId)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.predict_model</c> API, read more about this API online:
@@ -5450,10 +4934,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<PredictModelDescriptor, IPredictModelRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            PredictModelAsync(
-                selector.InvokeOrDefault(new PredictModelDescriptor(modelId: modelId)),
-                ct
-            );
+            PredictModelAsync(selector.InvokeOrDefault(new PredictModelDescriptor(modelId: modelId)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.predict_model</c> API, read more about this API online:
@@ -5462,10 +4943,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public PredictModelResponse PredictModel(IPredictModelRequest request) =>
-            DoRequest<IPredictModelRequest, PredictModelResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IPredictModelRequest, PredictModelResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.predict_model</c> API, read more about this API online:
@@ -5477,11 +4955,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IPredictModelRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IPredictModelRequest, PredictModelResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IPredictModelRequest, PredictModelResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.register_agents</c> API, read more about this API online:
@@ -5491,7 +4965,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <remarks>Supported by OpenSearch servers of version 2.13.0 or greater.</remarks>
         public RegisterAgentsResponse RegisterAgents(
             Func<RegisterAgentsDescriptor, IRegisterAgentsRequest> selector = null
-        ) => RegisterAgents(selector.InvokeOrDefault(new RegisterAgentsDescriptor()));
+        ) =>
+            RegisterAgents(selector.InvokeOrDefault(new RegisterAgentsDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.register_agents</c> API, read more about this API online:
@@ -5502,7 +4977,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public Task<RegisterAgentsResponse> RegisterAgentsAsync(
             Func<RegisterAgentsDescriptor, IRegisterAgentsRequest> selector = null,
             CancellationToken ct = default
-        ) => RegisterAgentsAsync(selector.InvokeOrDefault(new RegisterAgentsDescriptor()), ct);
+        ) =>
+            RegisterAgentsAsync(selector.InvokeOrDefault(new RegisterAgentsDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.register_agents</c> API, read more about this API online:
@@ -5511,10 +4987,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.13.0 or greater.</remarks>
         public RegisterAgentsResponse RegisterAgents(IRegisterAgentsRequest request) =>
-            DoRequest<IRegisterAgentsRequest, RegisterAgentsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IRegisterAgentsRequest, RegisterAgentsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.register_agents</c> API, read more about this API online:
@@ -5526,11 +4999,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IRegisterAgentsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IRegisterAgentsRequest, RegisterAgentsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IRegisterAgentsRequest, RegisterAgentsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.register_model</c> API, read more about this API online:
@@ -5540,7 +5009,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         public RegisterModelResponse RegisterModel(
             Func<RegisterModelDescriptor, IRegisterModelRequest> selector = null
-        ) => RegisterModel(selector.InvokeOrDefault(new RegisterModelDescriptor()));
+        ) =>
+            RegisterModel(selector.InvokeOrDefault(new RegisterModelDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.register_model</c> API, read more about this API online:
@@ -5551,7 +5021,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public Task<RegisterModelResponse> RegisterModelAsync(
             Func<RegisterModelDescriptor, IRegisterModelRequest> selector = null,
             CancellationToken ct = default
-        ) => RegisterModelAsync(selector.InvokeOrDefault(new RegisterModelDescriptor()), ct);
+        ) =>
+            RegisterModelAsync(selector.InvokeOrDefault(new RegisterModelDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.register_model</c> API, read more about this API online:
@@ -5560,10 +5031,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         public RegisterModelResponse RegisterModel(IRegisterModelRequest request) =>
-            DoRequest<IRegisterModelRequest, RegisterModelResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IRegisterModelRequest, RegisterModelResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.register_model</c> API, read more about this API online:
@@ -5575,11 +5043,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IRegisterModelRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IRegisterModelRequest, RegisterModelResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IRegisterModelRequest, RegisterModelResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.register_model_group</c> API, read more about this API online:
@@ -5588,7 +5052,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         public RegisterModelGroupResponse RegisterModelGroup(
             Func<RegisterModelGroupDescriptor, IRegisterModelGroupRequest> selector = null
-        ) => RegisterModelGroup(selector.InvokeOrDefault(new RegisterModelGroupDescriptor()));
+        ) =>
+            RegisterModelGroup(selector.InvokeOrDefault(new RegisterModelGroupDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.register_model_group</c> API, read more about this API online:
@@ -5599,10 +5064,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<RegisterModelGroupDescriptor, IRegisterModelGroupRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            RegisterModelGroupAsync(
-                selector.InvokeOrDefault(new RegisterModelGroupDescriptor()),
-                ct
-            );
+            RegisterModelGroupAsync(selector.InvokeOrDefault(new RegisterModelGroupDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.register_model_group</c> API, read more about this API online:
@@ -5610,10 +5072,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         public RegisterModelGroupResponse RegisterModelGroup(IRegisterModelGroupRequest request) =>
-            DoRequest<IRegisterModelGroupRequest, RegisterModelGroupResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IRegisterModelGroupRequest, RegisterModelGroupResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.register_model_group</c> API, read more about this API online:
@@ -5624,11 +5083,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IRegisterModelGroupRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IRegisterModelGroupRequest, RegisterModelGroupResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IRegisterModelGroupRequest, RegisterModelGroupResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.register_model_meta</c> API, read more about this API online:
@@ -5638,7 +5093,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         public RegisterModelMetaResponse RegisterModelMeta(
             Func<RegisterModelMetaDescriptor, IRegisterModelMetaRequest> selector = null
-        ) => RegisterModelMeta(selector.InvokeOrDefault(new RegisterModelMetaDescriptor()));
+        ) =>
+            RegisterModelMeta(selector.InvokeOrDefault(new RegisterModelMetaDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.register_model_meta</c> API, read more about this API online:
@@ -5659,10 +5115,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         public RegisterModelMetaResponse RegisterModelMeta(IRegisterModelMetaRequest request) =>
-            DoRequest<IRegisterModelMetaRequest, RegisterModelMetaResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IRegisterModelMetaRequest, RegisterModelMetaResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.register_model_meta</c> API, read more about this API online:
@@ -5674,11 +5127,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IRegisterModelMetaRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IRegisterModelMetaRequest, RegisterModelMetaResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IRegisterModelMetaRequest, RegisterModelMetaResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.search_agentic_memory</c> API, read more about this API online:
@@ -5691,14 +5140,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Name type,
             Func<SearchAgenticMemoryDescriptor, ISearchAgenticMemoryRequest> selector = null
         ) =>
-            SearchAgenticMemory(
-                selector.InvokeOrDefault(
-                    new SearchAgenticMemoryDescriptor(
-                        memoryContainerId: memoryContainerId,
-                        type: type
-                    )
-                )
-            );
+            SearchAgenticMemory(selector.InvokeOrDefault(new SearchAgenticMemoryDescriptor(memoryContainerId: memoryContainerId, type: type)));
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.search_agentic_memory</c> API, read more about this API online:
@@ -5712,15 +5154,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<SearchAgenticMemoryDescriptor, ISearchAgenticMemoryRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            SearchAgenticMemoryAsync(
-                selector.InvokeOrDefault(
-                    new SearchAgenticMemoryDescriptor(
-                        memoryContainerId: memoryContainerId,
-                        type: type
-                    )
-                ),
-                ct
-            );
+            SearchAgenticMemoryAsync(selector.InvokeOrDefault(new SearchAgenticMemoryDescriptor(memoryContainerId: memoryContainerId, type: type)), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.search_agentic_memory</c> API, read more about this API online:
@@ -5728,13 +5162,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
-        public SearchAgenticMemoryResponse SearchAgenticMemory(
-            ISearchAgenticMemoryRequest request
-        ) =>
-            DoRequest<ISearchAgenticMemoryRequest, SearchAgenticMemoryResponse>(
-                request,
-                request.RequestParameters
-            );
+        public SearchAgenticMemoryResponse SearchAgenticMemory(ISearchAgenticMemoryRequest request) =>
+            DoRequest<ISearchAgenticMemoryRequest, SearchAgenticMemoryResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>GET</c> request to the <c>ml.search_agentic_memory</c> API, read more about this API online:
@@ -5746,11 +5175,7 @@ namespace OpenSearch.Client.Specification.MlApi
             ISearchAgenticMemoryRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<ISearchAgenticMemoryRequest, SearchAgenticMemoryResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<ISearchAgenticMemoryRequest, SearchAgenticMemoryResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_agents</c> API, read more about this API online:
@@ -5760,7 +5185,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <remarks>Supported by OpenSearch servers of version 2.13.0 or greater.</remarks>
         public SearchAgentsResponse SearchAgents(
             Func<SearchAgentsDescriptor, ISearchAgentsRequest> selector = null
-        ) => SearchAgents(selector.InvokeOrDefault(new SearchAgentsDescriptor()));
+        ) =>
+            SearchAgents(selector.InvokeOrDefault(new SearchAgentsDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_agents</c> API, read more about this API online:
@@ -5771,7 +5197,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public Task<SearchAgentsResponse> SearchAgentsAsync(
             Func<SearchAgentsDescriptor, ISearchAgentsRequest> selector = null,
             CancellationToken ct = default
-        ) => SearchAgentsAsync(selector.InvokeOrDefault(new SearchAgentsDescriptor()), ct);
+        ) =>
+            SearchAgentsAsync(selector.InvokeOrDefault(new SearchAgentsDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_agents</c> API, read more about this API online:
@@ -5780,10 +5207,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.13.0 or greater.</remarks>
         public SearchAgentsResponse SearchAgents(ISearchAgentsRequest request) =>
-            DoRequest<ISearchAgentsRequest, SearchAgentsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<ISearchAgentsRequest, SearchAgentsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_agents</c> API, read more about this API online:
@@ -5795,11 +5219,7 @@ namespace OpenSearch.Client.Specification.MlApi
             ISearchAgentsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<ISearchAgentsRequest, SearchAgentsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<ISearchAgentsRequest, SearchAgentsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_connectors</c> API, read more about this API online:
@@ -5809,7 +5229,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <remarks>Supported by OpenSearch servers of version 2.11.0 or greater.</remarks>
         public SearchConnectorsResponse SearchConnectors(
             Func<SearchConnectorsDescriptor, ISearchConnectorsRequest> selector = null
-        ) => SearchConnectors(selector.InvokeOrDefault(new SearchConnectorsDescriptor()));
+        ) =>
+            SearchConnectors(selector.InvokeOrDefault(new SearchConnectorsDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_connectors</c> API, read more about this API online:
@@ -5820,7 +5241,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public Task<SearchConnectorsResponse> SearchConnectorsAsync(
             Func<SearchConnectorsDescriptor, ISearchConnectorsRequest> selector = null,
             CancellationToken ct = default
-        ) => SearchConnectorsAsync(selector.InvokeOrDefault(new SearchConnectorsDescriptor()), ct);
+        ) =>
+            SearchConnectorsAsync(selector.InvokeOrDefault(new SearchConnectorsDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_connectors</c> API, read more about this API online:
@@ -5829,10 +5251,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.11.0 or greater.</remarks>
         public SearchConnectorsResponse SearchConnectors(ISearchConnectorsRequest request) =>
-            DoRequest<ISearchConnectorsRequest, SearchConnectorsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<ISearchConnectorsRequest, SearchConnectorsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_connectors</c> API, read more about this API online:
@@ -5844,11 +5263,7 @@ namespace OpenSearch.Client.Specification.MlApi
             ISearchConnectorsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<ISearchConnectorsRequest, SearchConnectorsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<ISearchConnectorsRequest, SearchConnectorsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_memory</c> API, read more about this API online:
@@ -5858,7 +5273,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public SearchMemoryResponse SearchMemory(
             Func<SearchMemoryDescriptor, ISearchMemoryRequest> selector = null
-        ) => SearchMemory(selector.InvokeOrDefault(new SearchMemoryDescriptor()));
+        ) =>
+            SearchMemory(selector.InvokeOrDefault(new SearchMemoryDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_memory</c> API, read more about this API online:
@@ -5869,7 +5285,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public Task<SearchMemoryResponse> SearchMemoryAsync(
             Func<SearchMemoryDescriptor, ISearchMemoryRequest> selector = null,
             CancellationToken ct = default
-        ) => SearchMemoryAsync(selector.InvokeOrDefault(new SearchMemoryDescriptor()), ct);
+        ) =>
+            SearchMemoryAsync(selector.InvokeOrDefault(new SearchMemoryDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_memory</c> API, read more about this API online:
@@ -5878,10 +5295,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public SearchMemoryResponse SearchMemory(ISearchMemoryRequest request) =>
-            DoRequest<ISearchMemoryRequest, SearchMemoryResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<ISearchMemoryRequest, SearchMemoryResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_memory</c> API, read more about this API online:
@@ -5893,11 +5307,7 @@ namespace OpenSearch.Client.Specification.MlApi
             ISearchMemoryRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<ISearchMemoryRequest, SearchMemoryResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<ISearchMemoryRequest, SearchMemoryResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_memory_container</c> API, read more about this API online:
@@ -5907,7 +5317,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
         public SearchMemoryContainerResponse SearchMemoryContainer(
             Func<SearchMemoryContainerDescriptor, ISearchMemoryContainerRequest> selector = null
-        ) => SearchMemoryContainer(selector.InvokeOrDefault(new SearchMemoryContainerDescriptor()));
+        ) =>
+            SearchMemoryContainer(selector.InvokeOrDefault(new SearchMemoryContainerDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_memory_container</c> API, read more about this API online:
@@ -5919,10 +5330,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<SearchMemoryContainerDescriptor, ISearchMemoryContainerRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            SearchMemoryContainerAsync(
-                selector.InvokeOrDefault(new SearchMemoryContainerDescriptor()),
-                ct
-            );
+            SearchMemoryContainerAsync(selector.InvokeOrDefault(new SearchMemoryContainerDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_memory_container</c> API, read more about this API online:
@@ -5930,13 +5338,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
-        public SearchMemoryContainerResponse SearchMemoryContainer(
-            ISearchMemoryContainerRequest request
-        ) =>
-            DoRequest<ISearchMemoryContainerRequest, SearchMemoryContainerResponse>(
-                request,
-                request.RequestParameters
-            );
+        public SearchMemoryContainerResponse SearchMemoryContainer(ISearchMemoryContainerRequest request) =>
+            DoRequest<ISearchMemoryContainerRequest, SearchMemoryContainerResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_memory_container</c> API, read more about this API online:
@@ -5948,11 +5351,7 @@ namespace OpenSearch.Client.Specification.MlApi
             ISearchMemoryContainerRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<ISearchMemoryContainerRequest, SearchMemoryContainerResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<ISearchMemoryContainerRequest, SearchMemoryContainerResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_message</c> API, read more about this API online:
@@ -5964,9 +5363,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Id memoryId,
             Func<SearchMessageDescriptor, ISearchMessageRequest> selector = null
         ) =>
-            SearchMessage(
-                selector.InvokeOrDefault(new SearchMessageDescriptor(memoryId: memoryId))
-            );
+            SearchMessage(selector.InvokeOrDefault(new SearchMessageDescriptor(memoryId: memoryId)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_message</c> API, read more about this API online:
@@ -5979,10 +5376,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<SearchMessageDescriptor, ISearchMessageRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            SearchMessageAsync(
-                selector.InvokeOrDefault(new SearchMessageDescriptor(memoryId: memoryId)),
-                ct
-            );
+            SearchMessageAsync(selector.InvokeOrDefault(new SearchMessageDescriptor(memoryId: memoryId)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_message</c> API, read more about this API online:
@@ -5991,10 +5385,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public SearchMessageResponse SearchMessage(ISearchMessageRequest request) =>
-            DoRequest<ISearchMessageRequest, SearchMessageResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<ISearchMessageRequest, SearchMessageResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_message</c> API, read more about this API online:
@@ -6006,11 +5397,7 @@ namespace OpenSearch.Client.Specification.MlApi
             ISearchMessageRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<ISearchMessageRequest, SearchMessageResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<ISearchMessageRequest, SearchMessageResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_model_group</c> API, read more about this API online:
@@ -6020,7 +5407,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
         public SearchModelGroupResponse SearchModelGroup(
             Func<SearchModelGroupDescriptor, ISearchModelGroupRequest> selector = null
-        ) => SearchModelGroup(selector.InvokeOrDefault(new SearchModelGroupDescriptor()));
+        ) =>
+            SearchModelGroup(selector.InvokeOrDefault(new SearchModelGroupDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_model_group</c> API, read more about this API online:
@@ -6031,7 +5419,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public Task<SearchModelGroupResponse> SearchModelGroupAsync(
             Func<SearchModelGroupDescriptor, ISearchModelGroupRequest> selector = null,
             CancellationToken ct = default
-        ) => SearchModelGroupAsync(selector.InvokeOrDefault(new SearchModelGroupDescriptor()), ct);
+        ) =>
+            SearchModelGroupAsync(selector.InvokeOrDefault(new SearchModelGroupDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_model_group</c> API, read more about this API online:
@@ -6040,10 +5429,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
         public SearchModelGroupResponse SearchModelGroup(ISearchModelGroupRequest request) =>
-            DoRequest<ISearchModelGroupRequest, SearchModelGroupResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<ISearchModelGroupRequest, SearchModelGroupResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_model_group</c> API, read more about this API online:
@@ -6055,11 +5441,7 @@ namespace OpenSearch.Client.Specification.MlApi
             ISearchModelGroupRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<ISearchModelGroupRequest, SearchModelGroupResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<ISearchModelGroupRequest, SearchModelGroupResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_models</c> API, read more about this API online:
@@ -6069,7 +5451,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         public SearchModelsResponse SearchModels(
             Func<SearchModelsDescriptor, ISearchModelsRequest> selector = null
-        ) => SearchModels(selector.InvokeOrDefault(new SearchModelsDescriptor()));
+        ) =>
+            SearchModels(selector.InvokeOrDefault(new SearchModelsDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_models</c> API, read more about this API online:
@@ -6080,7 +5463,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public Task<SearchModelsResponse> SearchModelsAsync(
             Func<SearchModelsDescriptor, ISearchModelsRequest> selector = null,
             CancellationToken ct = default
-        ) => SearchModelsAsync(selector.InvokeOrDefault(new SearchModelsDescriptor()), ct);
+        ) =>
+            SearchModelsAsync(selector.InvokeOrDefault(new SearchModelsDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_models</c> API, read more about this API online:
@@ -6089,10 +5473,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         public SearchModelsResponse SearchModels(ISearchModelsRequest request) =>
-            DoRequest<ISearchModelsRequest, SearchModelsResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<ISearchModelsRequest, SearchModelsResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_models</c> API, read more about this API online:
@@ -6104,11 +5485,7 @@ namespace OpenSearch.Client.Specification.MlApi
             ISearchModelsRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<ISearchModelsRequest, SearchModelsResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<ISearchModelsRequest, SearchModelsResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_tasks</c> API, read more about this API online:
@@ -6116,9 +5493,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        public SearchTasksResponse SearchTasks(
-            Func<SearchTasksDescriptor, ISearchTasksRequest> selector = null
-        ) => SearchTasks(selector.InvokeOrDefault(new SearchTasksDescriptor()));
+        public SearchTasksResponse SearchTasks(Func<SearchTasksDescriptor, ISearchTasksRequest> selector = null) =>
+            SearchTasks(selector.InvokeOrDefault(new SearchTasksDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_tasks</c> API, read more about this API online:
@@ -6129,7 +5505,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public Task<SearchTasksResponse> SearchTasksAsync(
             Func<SearchTasksDescriptor, ISearchTasksRequest> selector = null,
             CancellationToken ct = default
-        ) => SearchTasksAsync(selector.InvokeOrDefault(new SearchTasksDescriptor()), ct);
+        ) =>
+            SearchTasksAsync(selector.InvokeOrDefault(new SearchTasksDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.search_tasks</c> API, read more about this API online:
@@ -6150,11 +5527,7 @@ namespace OpenSearch.Client.Specification.MlApi
             ISearchTasksRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<ISearchTasksRequest, SearchTasksResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<ISearchTasksRequest, SearchTasksResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.train</c> API, read more about this API online:
@@ -6162,10 +5535,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        public TrainResponse Train(
-            Name algorithmName,
-            Func<TrainDescriptor, ITrainRequest> selector = null
-        ) => Train(selector.InvokeOrDefault(new TrainDescriptor(algorithmName: algorithmName)));
+        public TrainResponse Train(Name algorithmName, Func<TrainDescriptor, ITrainRequest> selector = null) =>
+            Train(selector.InvokeOrDefault(new TrainDescriptor(algorithmName: algorithmName)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.train</c> API, read more about this API online:
@@ -6178,10 +5549,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<TrainDescriptor, ITrainRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            TrainAsync(
-                selector.InvokeOrDefault(new TrainDescriptor(algorithmName: algorithmName)),
-                ct
-            );
+            TrainAsync(selector.InvokeOrDefault(new TrainDescriptor(algorithmName: algorithmName)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.train</c> API, read more about this API online:
@@ -6198,10 +5566,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
-        public Task<TrainResponse> TrainAsync(
-            ITrainRequest request,
-            CancellationToken ct = default
-        ) => DoRequestAsync<ITrainRequest, TrainResponse>(request, request.RequestParameters, ct);
+        public Task<TrainResponse> TrainAsync(ITrainRequest request, CancellationToken ct = default) =>
+            DoRequestAsync<ITrainRequest, TrainResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.train_predict</c> API, read more about this API online:
@@ -6213,9 +5579,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Name algorithmName,
             Func<TrainPredictDescriptor, ITrainPredictRequest> selector = null
         ) =>
-            TrainPredict(
-                selector.InvokeOrDefault(new TrainPredictDescriptor(algorithmName: algorithmName))
-            );
+            TrainPredict(selector.InvokeOrDefault(new TrainPredictDescriptor(algorithmName: algorithmName)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.train_predict</c> API, read more about this API online:
@@ -6228,10 +5592,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<TrainPredictDescriptor, ITrainPredictRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            TrainPredictAsync(
-                selector.InvokeOrDefault(new TrainPredictDescriptor(algorithmName: algorithmName)),
-                ct
-            );
+            TrainPredictAsync(selector.InvokeOrDefault(new TrainPredictDescriptor(algorithmName: algorithmName)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.train_predict</c> API, read more about this API online:
@@ -6240,10 +5601,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 1.3.0 or greater.</remarks>
         public TrainPredictResponse TrainPredict(ITrainPredictRequest request) =>
-            DoRequest<ITrainPredictRequest, TrainPredictResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<ITrainPredictRequest, TrainPredictResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.train_predict</c> API, read more about this API online:
@@ -6255,11 +5613,7 @@ namespace OpenSearch.Client.Specification.MlApi
             ITrainPredictRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<ITrainPredictRequest, TrainPredictResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<ITrainPredictRequest, TrainPredictResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.undeploy_model</c> API, read more about this API online:
@@ -6269,7 +5623,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         public UndeployModelResponse UndeployModel(
             Func<UndeployModelDescriptor, IUndeployModelRequest> selector = null
-        ) => UndeployModel(selector.InvokeOrDefault(new UndeployModelDescriptor()));
+        ) =>
+            UndeployModel(selector.InvokeOrDefault(new UndeployModelDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.undeploy_model</c> API, read more about this API online:
@@ -6280,7 +5635,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public Task<UndeployModelResponse> UndeployModelAsync(
             Func<UndeployModelDescriptor, IUndeployModelRequest> selector = null,
             CancellationToken ct = default
-        ) => UndeployModelAsync(selector.InvokeOrDefault(new UndeployModelDescriptor()), ct);
+        ) =>
+            UndeployModelAsync(selector.InvokeOrDefault(new UndeployModelDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.undeploy_model</c> API, read more about this API online:
@@ -6289,10 +5645,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.7.0 or greater.</remarks>
         public UndeployModelResponse UndeployModel(IUndeployModelRequest request) =>
-            DoRequest<IUndeployModelRequest, UndeployModelResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IUndeployModelRequest, UndeployModelResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.undeploy_model</c> API, read more about this API online:
@@ -6304,11 +5657,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IUndeployModelRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IUndeployModelRequest, UndeployModelResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IUndeployModelRequest, UndeployModelResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.unload_model</c> API, read more about this API online:
@@ -6316,9 +5665,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         [Obsolete("Deprecated as of: 2.7.0, reason: Use `undeploy_model` instead.")]
-        public UnloadModelResponse UnloadModel(
-            Func<UnloadModelDescriptor, IUnloadModelRequest> selector = null
-        ) => UnloadModel(selector.InvokeOrDefault(new UnloadModelDescriptor()));
+        public UnloadModelResponse UnloadModel(Func<UnloadModelDescriptor, IUnloadModelRequest> selector = null) =>
+            UnloadModel(selector.InvokeOrDefault(new UnloadModelDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.unload_model</c> API, read more about this API online:
@@ -6329,7 +5677,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public Task<UnloadModelResponse> UnloadModelAsync(
             Func<UnloadModelDescriptor, IUnloadModelRequest> selector = null,
             CancellationToken ct = default
-        ) => UnloadModelAsync(selector.InvokeOrDefault(new UnloadModelDescriptor()), ct);
+        ) =>
+            UnloadModelAsync(selector.InvokeOrDefault(new UnloadModelDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.unload_model</c> API, read more about this API online:
@@ -6350,11 +5699,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IUnloadModelRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IUnloadModelRequest, UnloadModelResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IUnloadModelRequest, UnloadModelResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_agentic_memory</c> API, read more about this API online:
@@ -6368,15 +5713,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Id id,
             Func<UpdateAgenticMemoryDescriptor, IUpdateAgenticMemoryRequest> selector = null
         ) =>
-            UpdateAgenticMemory(
-                selector.InvokeOrDefault(
-                    new UpdateAgenticMemoryDescriptor(
-                        memoryContainerId: memoryContainerId,
-                        type: type,
-                        id: id
-                    )
-                )
-            );
+            UpdateAgenticMemory(selector.InvokeOrDefault(new UpdateAgenticMemoryDescriptor(memoryContainerId: memoryContainerId, type: type, id: id)));
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_agentic_memory</c> API, read more about this API online:
@@ -6391,16 +5728,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<UpdateAgenticMemoryDescriptor, IUpdateAgenticMemoryRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            UpdateAgenticMemoryAsync(
-                selector.InvokeOrDefault(
-                    new UpdateAgenticMemoryDescriptor(
-                        memoryContainerId: memoryContainerId,
-                        type: type,
-                        id: id
-                    )
-                ),
-                ct
-            );
+            UpdateAgenticMemoryAsync(selector.InvokeOrDefault(new UpdateAgenticMemoryDescriptor(memoryContainerId: memoryContainerId, type: type, id: id)), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_agentic_memory</c> API, read more about this API online:
@@ -6408,13 +5736,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
-        public UpdateAgenticMemoryResponse UpdateAgenticMemory(
-            IUpdateAgenticMemoryRequest request
-        ) =>
-            DoRequest<IUpdateAgenticMemoryRequest, UpdateAgenticMemoryResponse>(
-                request,
-                request.RequestParameters
-            );
+        public UpdateAgenticMemoryResponse UpdateAgenticMemory(IUpdateAgenticMemoryRequest request) =>
+            DoRequest<IUpdateAgenticMemoryRequest, UpdateAgenticMemoryResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_agentic_memory</c> API, read more about this API online:
@@ -6426,11 +5749,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IUpdateAgenticMemoryRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IUpdateAgenticMemoryRequest, UpdateAgenticMemoryResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IUpdateAgenticMemoryRequest, UpdateAgenticMemoryResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_connector</c> API, read more about this API online:
@@ -6442,9 +5761,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Id connectorId,
             Func<UpdateConnectorDescriptor, IUpdateConnectorRequest> selector = null
         ) =>
-            UpdateConnector(
-                selector.InvokeOrDefault(new UpdateConnectorDescriptor(connectorId: connectorId))
-            );
+            UpdateConnector(selector.InvokeOrDefault(new UpdateConnectorDescriptor(connectorId: connectorId)));
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_connector</c> API, read more about this API online:
@@ -6457,10 +5774,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<UpdateConnectorDescriptor, IUpdateConnectorRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            UpdateConnectorAsync(
-                selector.InvokeOrDefault(new UpdateConnectorDescriptor(connectorId: connectorId)),
-                ct
-            );
+            UpdateConnectorAsync(selector.InvokeOrDefault(new UpdateConnectorDescriptor(connectorId: connectorId)), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_connector</c> API, read more about this API online:
@@ -6469,10 +5783,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public UpdateConnectorResponse UpdateConnector(IUpdateConnectorRequest request) =>
-            DoRequest<IUpdateConnectorRequest, UpdateConnectorResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IUpdateConnectorRequest, UpdateConnectorResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_connector</c> API, read more about this API online:
@@ -6484,11 +5795,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IUpdateConnectorRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IUpdateConnectorRequest, UpdateConnectorResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IUpdateConnectorRequest, UpdateConnectorResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_controller</c> API, read more about this API online:
@@ -6500,9 +5807,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Id modelId,
             Func<UpdateControllerDescriptor, IUpdateControllerRequest> selector = null
         ) =>
-            UpdateController(
-                selector.InvokeOrDefault(new UpdateControllerDescriptor(modelId: modelId))
-            );
+            UpdateController(selector.InvokeOrDefault(new UpdateControllerDescriptor(modelId: modelId)));
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_controller</c> API, read more about this API online:
@@ -6515,10 +5820,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<UpdateControllerDescriptor, IUpdateControllerRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            UpdateControllerAsync(
-                selector.InvokeOrDefault(new UpdateControllerDescriptor(modelId: modelId)),
-                ct
-            );
+            UpdateControllerAsync(selector.InvokeOrDefault(new UpdateControllerDescriptor(modelId: modelId)), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_controller</c> API, read more about this API online:
@@ -6527,10 +5829,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public UpdateControllerResponse UpdateController(IUpdateControllerRequest request) =>
-            DoRequest<IUpdateControllerRequest, UpdateControllerResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IUpdateControllerRequest, UpdateControllerResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_controller</c> API, read more about this API online:
@@ -6542,11 +5841,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IUpdateControllerRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IUpdateControllerRequest, UpdateControllerResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IUpdateControllerRequest, UpdateControllerResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_memory</c> API, read more about this API online:
@@ -6557,7 +5852,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public UpdateMemoryResponse UpdateMemory(
             Id memoryId,
             Func<UpdateMemoryDescriptor, IUpdateMemoryRequest> selector = null
-        ) => UpdateMemory(selector.InvokeOrDefault(new UpdateMemoryDescriptor(memoryId: memoryId)));
+        ) =>
+            UpdateMemory(selector.InvokeOrDefault(new UpdateMemoryDescriptor(memoryId: memoryId)));
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_memory</c> API, read more about this API online:
@@ -6570,10 +5866,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<UpdateMemoryDescriptor, IUpdateMemoryRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            UpdateMemoryAsync(
-                selector.InvokeOrDefault(new UpdateMemoryDescriptor(memoryId: memoryId)),
-                ct
-            );
+            UpdateMemoryAsync(selector.InvokeOrDefault(new UpdateMemoryDescriptor(memoryId: memoryId)), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_memory</c> API, read more about this API online:
@@ -6582,10 +5875,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public UpdateMemoryResponse UpdateMemory(IUpdateMemoryRequest request) =>
-            DoRequest<IUpdateMemoryRequest, UpdateMemoryResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IUpdateMemoryRequest, UpdateMemoryResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_memory</c> API, read more about this API online:
@@ -6597,11 +5887,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IUpdateMemoryRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IUpdateMemoryRequest, UpdateMemoryResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IUpdateMemoryRequest, UpdateMemoryResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_memory_container</c> API, read more about this API online:
@@ -6613,11 +5899,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Id memoryContainerId,
             Func<UpdateMemoryContainerDescriptor, IUpdateMemoryContainerRequest> selector = null
         ) =>
-            UpdateMemoryContainer(
-                selector.InvokeOrDefault(
-                    new UpdateMemoryContainerDescriptor(memoryContainerId: memoryContainerId)
-                )
-            );
+            UpdateMemoryContainer(selector.InvokeOrDefault(new UpdateMemoryContainerDescriptor(memoryContainerId: memoryContainerId)));
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_memory_container</c> API, read more about this API online:
@@ -6630,12 +5912,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<UpdateMemoryContainerDescriptor, IUpdateMemoryContainerRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            UpdateMemoryContainerAsync(
-                selector.InvokeOrDefault(
-                    new UpdateMemoryContainerDescriptor(memoryContainerId: memoryContainerId)
-                ),
-                ct
-            );
+            UpdateMemoryContainerAsync(selector.InvokeOrDefault(new UpdateMemoryContainerDescriptor(memoryContainerId: memoryContainerId)), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_memory_container</c> API, read more about this API online:
@@ -6643,13 +5920,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 3.3.0 or greater.</remarks>
-        public UpdateMemoryContainerResponse UpdateMemoryContainer(
-            IUpdateMemoryContainerRequest request
-        ) =>
-            DoRequest<IUpdateMemoryContainerRequest, UpdateMemoryContainerResponse>(
-                request,
-                request.RequestParameters
-            );
+        public UpdateMemoryContainerResponse UpdateMemoryContainer(IUpdateMemoryContainerRequest request) =>
+            DoRequest<IUpdateMemoryContainerRequest, UpdateMemoryContainerResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_memory_container</c> API, read more about this API online:
@@ -6661,11 +5933,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IUpdateMemoryContainerRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IUpdateMemoryContainerRequest, UpdateMemoryContainerResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IUpdateMemoryContainerRequest, UpdateMemoryContainerResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_message</c> API, read more about this API online:
@@ -6677,9 +5945,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Id messageId,
             Func<UpdateMessageDescriptor, IUpdateMessageRequest> selector = null
         ) =>
-            UpdateMessage(
-                selector.InvokeOrDefault(new UpdateMessageDescriptor(messageId: messageId))
-            );
+            UpdateMessage(selector.InvokeOrDefault(new UpdateMessageDescriptor(messageId: messageId)));
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_message</c> API, read more about this API online:
@@ -6692,10 +5958,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<UpdateMessageDescriptor, IUpdateMessageRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            UpdateMessageAsync(
-                selector.InvokeOrDefault(new UpdateMessageDescriptor(messageId: messageId)),
-                ct
-            );
+            UpdateMessageAsync(selector.InvokeOrDefault(new UpdateMessageDescriptor(messageId: messageId)), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_message</c> API, read more about this API online:
@@ -6704,10 +5967,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.12.0 or greater.</remarks>
         public UpdateMessageResponse UpdateMessage(IUpdateMessageRequest request) =>
-            DoRequest<IUpdateMessageRequest, UpdateMessageResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IUpdateMessageRequest, UpdateMessageResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_message</c> API, read more about this API online:
@@ -6719,11 +5979,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IUpdateMessageRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IUpdateMessageRequest, UpdateMessageResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IUpdateMessageRequest, UpdateMessageResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_model</c> API, read more about this API online:
@@ -6734,7 +5990,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public UpdateModelResponse UpdateModel(
             Id modelId,
             Func<UpdateModelDescriptor, IUpdateModelRequest> selector = null
-        ) => UpdateModel(selector.InvokeOrDefault(new UpdateModelDescriptor(modelId: modelId)));
+        ) =>
+            UpdateModel(selector.InvokeOrDefault(new UpdateModelDescriptor(modelId: modelId)));
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_model</c> API, read more about this API online:
@@ -6747,10 +6004,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<UpdateModelDescriptor, IUpdateModelRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            UpdateModelAsync(
-                selector.InvokeOrDefault(new UpdateModelDescriptor(modelId: modelId)),
-                ct
-            );
+            UpdateModelAsync(selector.InvokeOrDefault(new UpdateModelDescriptor(modelId: modelId)), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_model</c> API, read more about this API online:
@@ -6771,11 +6025,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IUpdateModelRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IUpdateModelRequest, UpdateModelResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IUpdateModelRequest, UpdateModelResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_model_group</c> API, read more about this API online:
@@ -6787,9 +6037,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Id modelGroupId,
             Func<UpdateModelGroupDescriptor, IUpdateModelGroupRequest> selector = null
         ) =>
-            UpdateModelGroup(
-                selector.InvokeOrDefault(new UpdateModelGroupDescriptor(modelGroupId: modelGroupId))
-            );
+            UpdateModelGroup(selector.InvokeOrDefault(new UpdateModelGroupDescriptor(modelGroupId: modelGroupId)));
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_model_group</c> API, read more about this API online:
@@ -6802,12 +6050,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<UpdateModelGroupDescriptor, IUpdateModelGroupRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            UpdateModelGroupAsync(
-                selector.InvokeOrDefault(
-                    new UpdateModelGroupDescriptor(modelGroupId: modelGroupId)
-                ),
-                ct
-            );
+            UpdateModelGroupAsync(selector.InvokeOrDefault(new UpdateModelGroupDescriptor(modelGroupId: modelGroupId)), ct);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_model_group</c> API, read more about this API online:
@@ -6816,10 +6059,7 @@ namespace OpenSearch.Client.Specification.MlApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.9.0 or greater.</remarks>
         public UpdateModelGroupResponse UpdateModelGroup(IUpdateModelGroupRequest request) =>
-            DoRequest<IUpdateModelGroupRequest, UpdateModelGroupResponse>(
-                request,
-                request.RequestParameters
-            );
+            DoRequest<IUpdateModelGroupRequest, UpdateModelGroupResponse>(request, request.RequestParameters);
 
         /// <summary>
         /// <c>PUT</c> request to the <c>ml.update_model_group</c> API, read more about this API online:
@@ -6831,11 +6071,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IUpdateModelGroupRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IUpdateModelGroupRequest, UpdateModelGroupResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IUpdateModelGroupRequest, UpdateModelGroupResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.upload_chunk</c> API, read more about this API online:
@@ -6848,11 +6084,7 @@ namespace OpenSearch.Client.Specification.MlApi
             long? chunkNumber,
             Func<UploadChunkDescriptor, IUploadChunkRequest> selector = null
         ) =>
-            UploadChunk(
-                selector.InvokeOrDefault(
-                    new UploadChunkDescriptor(modelId: modelId, chunkNumber: chunkNumber)
-                )
-            );
+            UploadChunk(selector.InvokeOrDefault(new UploadChunkDescriptor(modelId: modelId, chunkNumber: chunkNumber)));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.upload_chunk</c> API, read more about this API online:
@@ -6866,12 +6098,7 @@ namespace OpenSearch.Client.Specification.MlApi
             Func<UploadChunkDescriptor, IUploadChunkRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            UploadChunkAsync(
-                selector.InvokeOrDefault(
-                    new UploadChunkDescriptor(modelId: modelId, chunkNumber: chunkNumber)
-                ),
-                ct
-            );
+            UploadChunkAsync(selector.InvokeOrDefault(new UploadChunkDescriptor(modelId: modelId, chunkNumber: chunkNumber)), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.upload_chunk</c> API, read more about this API online:
@@ -6892,11 +6119,7 @@ namespace OpenSearch.Client.Specification.MlApi
             IUploadChunkRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IUploadChunkRequest, UploadChunkResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IUploadChunkRequest, UploadChunkResponse>(request, request.RequestParameters, ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.upload_model</c> API, read more about this API online:
@@ -6904,9 +6127,8 @@ namespace OpenSearch.Client.Specification.MlApi
         /// <a></a>
         /// </summary>
         [Obsolete("Deprecated as of: 2.7.0, reason: Use `register_model` instead.")]
-        public UploadModelResponse UploadModel(
-            Func<UploadModelDescriptor, IUploadModelRequest> selector = null
-        ) => UploadModel(selector.InvokeOrDefault(new UploadModelDescriptor()));
+        public UploadModelResponse UploadModel(Func<UploadModelDescriptor, IUploadModelRequest> selector = null) =>
+            UploadModel(selector.InvokeOrDefault(new UploadModelDescriptor()));
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.upload_model</c> API, read more about this API online:
@@ -6917,7 +6139,8 @@ namespace OpenSearch.Client.Specification.MlApi
         public Task<UploadModelResponse> UploadModelAsync(
             Func<UploadModelDescriptor, IUploadModelRequest> selector = null,
             CancellationToken ct = default
-        ) => UploadModelAsync(selector.InvokeOrDefault(new UploadModelDescriptor()), ct);
+        ) =>
+            UploadModelAsync(selector.InvokeOrDefault(new UploadModelDescriptor()), ct);
 
         /// <summary>
         /// <c>POST</c> request to the <c>ml.upload_model</c> API, read more about this API online:
@@ -6938,10 +6161,6 @@ namespace OpenSearch.Client.Specification.MlApi
             IUploadModelRequest request,
             CancellationToken ct = default
         ) =>
-            DoRequestAsync<IUploadModelRequest, UploadModelResponse>(
-                request,
-                request.RequestParameters,
-                ct
-            );
+            DoRequestAsync<IUploadModelRequest, UploadModelResponse>(request, request.RequestParameters, ct);
     }
 }

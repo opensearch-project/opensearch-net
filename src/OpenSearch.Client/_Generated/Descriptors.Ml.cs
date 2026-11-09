@@ -38,213 +38,167 @@ namespace OpenSearch.Client
 {
     /// <summary>Descriptor for AddAgenticMemory</summary>
     public partial class AddAgenticMemoryDescriptor
-        : RequestDescriptorBase<
-            AddAgenticMemoryDescriptor,
-            AddAgenticMemoryRequestParameters,
-            IAddAgenticMemoryRequest
-        >,
+        : RequestDescriptorBase<AddAgenticMemoryDescriptor, AddAgenticMemoryRequestParameters, IAddAgenticMemoryRequest>,
             IAddAgenticMemoryRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlAddAgenticMemory;
 
         /// <summary>/_plugins/_ml/memory_containers/{memory_container_id}/memories</summary>
         /// <param name="memoryContainerId">this parameter is required</param>
-        public AddAgenticMemoryDescriptor(Id memoryContainerId)
-            : base(r => r.Required("memory_container_id", memoryContainerId)) { }
+        public AddAgenticMemoryDescriptor(Id memoryContainerId) : base(r => r.Required("memory_container_id", memoryContainerId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected AddAgenticMemoryDescriptor()
-            : base() { }
+        protected AddAgenticMemoryDescriptor() : base() { }
 
         // values part of the url path
-        Id IAddAgenticMemoryRequest.MemoryContainerId =>
-            Self.RouteValues.Get<Id>("memory_container_id");
+        Id IAddAgenticMemoryRequest.MemoryContainerId => Self.RouteValues.Get<Id>("memory_container_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for ChunkModel</summary>
     public partial class ChunkModelDescriptor
-        : RequestDescriptorBase<
-            ChunkModelDescriptor,
-            ChunkModelRequestParameters,
-            IChunkModelRequest
-        >,
+        : RequestDescriptorBase<ChunkModelDescriptor, ChunkModelRequestParameters, IChunkModelRequest>,
             IChunkModelRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlChunkModel;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for CreateConnector</summary>
     public partial class CreateConnectorDescriptor
-        : RequestDescriptorBase<
-            CreateConnectorDescriptor,
-            CreateConnectorRequestParameters,
-            ICreateConnectorRequest
-        >,
+        : RequestDescriptorBase<CreateConnectorDescriptor, CreateConnectorRequestParameters, ICreateConnectorRequest>,
             ICreateConnectorRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlCreateConnector;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for CreateController</summary>
     public partial class CreateControllerDescriptor
-        : RequestDescriptorBase<
-            CreateControllerDescriptor,
-            CreateControllerRequestParameters,
-            ICreateControllerRequest
-        >,
+        : RequestDescriptorBase<CreateControllerDescriptor, CreateControllerRequestParameters, ICreateControllerRequest>,
             ICreateControllerRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlCreateController;
 
         /// <summary>/_plugins/_ml/controllers/{model_id}</summary>
         /// <param name="modelId">this parameter is required</param>
-        public CreateControllerDescriptor(Id modelId)
-            : base(r => r.Required("model_id", modelId)) { }
+        public CreateControllerDescriptor(Id modelId) : base(r => r.Required("model_id", modelId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected CreateControllerDescriptor()
-            : base() { }
+        protected CreateControllerDescriptor() : base() { }
 
         // values part of the url path
         Id ICreateControllerRequest.ModelId => Self.RouteValues.Get<Id>("model_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for CreateMemory</summary>
     public partial class CreateMemoryDescriptor
-        : RequestDescriptorBase<
-            CreateMemoryDescriptor,
-            CreateMemoryRequestParameters,
-            ICreateMemoryRequest
-        >,
+        : RequestDescriptorBase<CreateMemoryDescriptor, CreateMemoryRequestParameters, ICreateMemoryRequest>,
             ICreateMemoryRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlCreateMemory;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for CreateMemoryContainer</summary>
     public partial class CreateMemoryContainerDescriptor
-        : RequestDescriptorBase<
-            CreateMemoryContainerDescriptor,
-            CreateMemoryContainerRequestParameters,
-            ICreateMemoryContainerRequest
-        >,
+        : RequestDescriptorBase<CreateMemoryContainerDescriptor, CreateMemoryContainerRequestParameters, ICreateMemoryContainerRequest>,
             ICreateMemoryContainerRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlCreateMemoryContainer;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for CreateMemoryContainerSession</summary>
     public partial class CreateMemoryContainerSessionDescriptor
-        : RequestDescriptorBase<
-            CreateMemoryContainerSessionDescriptor,
-            CreateMemoryContainerSessionRequestParameters,
-            ICreateMemoryContainerSessionRequest
-        >,
+        : RequestDescriptorBase<CreateMemoryContainerSessionDescriptor, CreateMemoryContainerSessionRequestParameters, ICreateMemoryContainerSessionRequest>,
             ICreateMemoryContainerSessionRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlCreateMemoryContainerSession;
 
         /// <summary>/_plugins/_ml/memory_containers/{memory_container_id}/memories/sessions</summary>
         /// <param name="memoryContainerId">this parameter is required</param>
-        public CreateMemoryContainerSessionDescriptor(Id memoryContainerId)
-            : base(r => r.Required("memory_container_id", memoryContainerId)) { }
+        public CreateMemoryContainerSessionDescriptor(Id memoryContainerId) : base(r => r.Required("memory_container_id", memoryContainerId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected CreateMemoryContainerSessionDescriptor()
-            : base() { }
+        protected CreateMemoryContainerSessionDescriptor() : base() { }
 
         // values part of the url path
-        Id ICreateMemoryContainerSessionRequest.MemoryContainerId =>
-            Self.RouteValues.Get<Id>("memory_container_id");
+        Id ICreateMemoryContainerSessionRequest.MemoryContainerId => Self.RouteValues.Get<Id>("memory_container_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for CreateMessage</summary>
     public partial class CreateMessageDescriptor
-        : RequestDescriptorBase<
-            CreateMessageDescriptor,
-            CreateMessageRequestParameters,
-            ICreateMessageRequest
-        >,
+        : RequestDescriptorBase<CreateMessageDescriptor, CreateMessageRequestParameters, ICreateMessageRequest>,
             ICreateMessageRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlCreateMessage;
 
         /// <summary>/_plugins/_ml/memory/{memory_id}/messages</summary>
         /// <param name="memoryId">this parameter is required</param>
-        public CreateMessageDescriptor(Id memoryId)
-            : base(r => r.Required("memory_id", memoryId)) { }
+        public CreateMessageDescriptor(Id memoryId) : base(r => r.Required("memory_id", memoryId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected CreateMessageDescriptor()
-            : base() { }
+        protected CreateMessageDescriptor() : base() { }
 
         // values part of the url path
         Id ICreateMessageRequest.MemoryId => Self.RouteValues.Get<Id>("memory_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for CreateModelMeta</summary>
     public partial class CreateModelMetaDescriptor
-        : RequestDescriptorBase<
-            CreateModelMetaDescriptor,
-            CreateModelMetaRequestParameters,
-            ICreateModelMetaRequest
-        >,
+        : RequestDescriptorBase<CreateModelMetaDescriptor, CreateModelMetaRequestParameters, ICreateModelMetaRequest>,
             ICreateModelMetaRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlCreateModelMeta;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for DeleteAgent</summary>
     public partial class DeleteAgentDescriptor
-        : RequestDescriptorBase<
-            DeleteAgentDescriptor,
-            DeleteAgentRequestParameters,
-            IDeleteAgentRequest
-        >,
+        : RequestDescriptorBase<DeleteAgentDescriptor, DeleteAgentRequestParameters, IDeleteAgentRequest>,
             IDeleteAgentRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlDeleteAgent;
 
         /// <summary>/_plugins/_ml/agents/{agent_id}</summary>
         /// <param name="agentId">this parameter is required</param>
-        public DeleteAgentDescriptor(Id agentId)
-            : base(r => r.Required("agent_id", agentId)) { }
+        public DeleteAgentDescriptor(Id agentId) : base(r => r.Required("agent_id", agentId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteAgentDescriptor()
-            : base() { }
+        protected DeleteAgentDescriptor() : base() { }
 
         // values part of the url path
         Id IDeleteAgentRequest.AgentId => Self.RouteValues.Get<Id>("agent_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for DeleteAgenticMemory</summary>
     public partial class DeleteAgenticMemoryDescriptor
-        : RequestDescriptorBase<
-            DeleteAgenticMemoryDescriptor,
-            DeleteAgenticMemoryRequestParameters,
-            IDeleteAgenticMemoryRequest
-        >,
+        : RequestDescriptorBase<DeleteAgenticMemoryDescriptor, DeleteAgenticMemoryRequestParameters, IDeleteAgenticMemoryRequest>,
             IDeleteAgenticMemoryRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlDeleteAgenticMemory;
@@ -253,33 +207,23 @@ namespace OpenSearch.Client
         /// <param name="memoryContainerId">this parameter is required</param>
         /// <param name="type">this parameter is required</param>
         /// <param name="id">this parameter is required</param>
-        public DeleteAgenticMemoryDescriptor(Id memoryContainerId, Names type, Id id)
-            : base(r =>
-                r.Required("memory_container_id", memoryContainerId)
-                    .Required("type", type)
-                    .Required("id", id)
-            ) { }
+        public DeleteAgenticMemoryDescriptor(Id memoryContainerId, Names type, Id id) : base(r => r.Required("memory_container_id", memoryContainerId).Required("type", type).Required("id", id)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteAgenticMemoryDescriptor()
-            : base() { }
+        protected DeleteAgenticMemoryDescriptor() : base() { }
 
         // values part of the url path
         Id IDeleteAgenticMemoryRequest.Id => Self.RouteValues.Get<Id>("id");
-        Id IDeleteAgenticMemoryRequest.MemoryContainerId =>
-            Self.RouteValues.Get<Id>("memory_container_id");
+        Id IDeleteAgenticMemoryRequest.MemoryContainerId => Self.RouteValues.Get<Id>("memory_container_id");
         Names IDeleteAgenticMemoryRequest.Type => Self.RouteValues.Get<Names>("type");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for DeleteAgenticMemoryQuery</summary>
     public partial class DeleteAgenticMemoryQueryDescriptor
-        : RequestDescriptorBase<
-            DeleteAgenticMemoryQueryDescriptor,
-            DeleteAgenticMemoryQueryRequestParameters,
-            IDeleteAgenticMemoryQueryRequest
-        >,
+        : RequestDescriptorBase<DeleteAgenticMemoryQueryDescriptor, DeleteAgenticMemoryQueryRequestParameters, IDeleteAgenticMemoryQueryRequest>,
             IDeleteAgenticMemoryQueryRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlDeleteAgenticMemoryQuery;
@@ -287,124 +231,99 @@ namespace OpenSearch.Client
         /// <summary>/_plugins/_ml/memory_containers/{memory_container_id}/memories/{type}/_delete_by_query</summary>
         /// <param name="memoryContainerId">this parameter is required</param>
         /// <param name="type">this parameter is required</param>
-        public DeleteAgenticMemoryQueryDescriptor(Id memoryContainerId, Names type)
-            : base(r => r.Required("memory_container_id", memoryContainerId).Required("type", type))
-        { }
+        public DeleteAgenticMemoryQueryDescriptor(Id memoryContainerId, Names type) : base(r => r.Required("memory_container_id", memoryContainerId).Required("type", type)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteAgenticMemoryQueryDescriptor()
-            : base() { }
+        protected DeleteAgenticMemoryQueryDescriptor() : base() { }
 
         // values part of the url path
-        Id IDeleteAgenticMemoryQueryRequest.MemoryContainerId =>
-            Self.RouteValues.Get<Id>("memory_container_id");
+        Id IDeleteAgenticMemoryQueryRequest.MemoryContainerId => Self.RouteValues.Get<Id>("memory_container_id");
         Names IDeleteAgenticMemoryQueryRequest.Type => Self.RouteValues.Get<Names>("type");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for DeleteConnector</summary>
     public partial class DeleteConnectorDescriptor
-        : RequestDescriptorBase<
-            DeleteConnectorDescriptor,
-            DeleteConnectorRequestParameters,
-            IDeleteConnectorRequest
-        >,
+        : RequestDescriptorBase<DeleteConnectorDescriptor, DeleteConnectorRequestParameters, IDeleteConnectorRequest>,
             IDeleteConnectorRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlDeleteConnector;
 
         /// <summary>/_plugins/_ml/connectors/{connector_id}</summary>
         /// <param name="connectorId">this parameter is required</param>
-        public DeleteConnectorDescriptor(Id connectorId)
-            : base(r => r.Required("connector_id", connectorId)) { }
+        public DeleteConnectorDescriptor(Id connectorId) : base(r => r.Required("connector_id", connectorId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteConnectorDescriptor()
-            : base() { }
+        protected DeleteConnectorDescriptor() : base() { }
 
         // values part of the url path
         Id IDeleteConnectorRequest.ConnectorId => Self.RouteValues.Get<Id>("connector_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for DeleteController</summary>
     public partial class DeleteControllerDescriptor
-        : RequestDescriptorBase<
-            DeleteControllerDescriptor,
-            DeleteControllerRequestParameters,
-            IDeleteControllerRequest
-        >,
+        : RequestDescriptorBase<DeleteControllerDescriptor, DeleteControllerRequestParameters, IDeleteControllerRequest>,
             IDeleteControllerRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlDeleteController;
 
         /// <summary>/_plugins/_ml/controllers/{model_id}</summary>
         /// <param name="modelId">this parameter is required</param>
-        public DeleteControllerDescriptor(Id modelId)
-            : base(r => r.Required("model_id", modelId)) { }
+        public DeleteControllerDescriptor(Id modelId) : base(r => r.Required("model_id", modelId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteControllerDescriptor()
-            : base() { }
+        protected DeleteControllerDescriptor() : base() { }
 
         // values part of the url path
         Id IDeleteControllerRequest.ModelId => Self.RouteValues.Get<Id>("model_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for DeleteMemory</summary>
     public partial class DeleteMemoryDescriptor
-        : RequestDescriptorBase<
-            DeleteMemoryDescriptor,
-            DeleteMemoryRequestParameters,
-            IDeleteMemoryRequest
-        >,
+        : RequestDescriptorBase<DeleteMemoryDescriptor, DeleteMemoryRequestParameters, IDeleteMemoryRequest>,
             IDeleteMemoryRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlDeleteMemory;
 
         /// <summary>/_plugins/_ml/memory/{memory_id}</summary>
         /// <param name="memoryId">this parameter is required</param>
-        public DeleteMemoryDescriptor(Id memoryId)
-            : base(r => r.Required("memory_id", memoryId)) { }
+        public DeleteMemoryDescriptor(Id memoryId) : base(r => r.Required("memory_id", memoryId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteMemoryDescriptor()
-            : base() { }
+        protected DeleteMemoryDescriptor() : base() { }
 
         // values part of the url path
         Id IDeleteMemoryRequest.MemoryId => Self.RouteValues.Get<Id>("memory_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for DeleteMemoryContainer</summary>
     public partial class DeleteMemoryContainerDescriptor
-        : RequestDescriptorBase<
-            DeleteMemoryContainerDescriptor,
-            DeleteMemoryContainerRequestParameters,
-            IDeleteMemoryContainerRequest
-        >,
+        : RequestDescriptorBase<DeleteMemoryContainerDescriptor, DeleteMemoryContainerRequestParameters, IDeleteMemoryContainerRequest>,
             IDeleteMemoryContainerRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlDeleteMemoryContainer;
 
         /// <summary>/_plugins/_ml/memory_containers/{memory_container_id}</summary>
         /// <param name="memoryContainerId">this parameter is required</param>
-        public DeleteMemoryContainerDescriptor(Id memoryContainerId)
-            : base(r => r.Required("memory_container_id", memoryContainerId)) { }
+        public DeleteMemoryContainerDescriptor(Id memoryContainerId) : base(r => r.Required("memory_container_id", memoryContainerId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteMemoryContainerDescriptor()
-            : base() { }
+        protected DeleteMemoryContainerDescriptor() : base() { }
 
         // values part of the url path
-        Id IDeleteMemoryContainerRequest.MemoryContainerId =>
-            Self.RouteValues.Get<Id>("memory_container_id");
+        Id IDeleteMemoryContainerRequest.MemoryContainerId => Self.RouteValues.Get<Id>("memory_container_id");
 
         // Request parameters
         /// <summary>TODO</summary>
@@ -418,183 +337,148 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for DeleteModel</summary>
     public partial class DeleteModelDescriptor
-        : RequestDescriptorBase<
-            DeleteModelDescriptor,
-            DeleteModelRequestParameters,
-            IDeleteModelRequest
-        >,
+        : RequestDescriptorBase<DeleteModelDescriptor, DeleteModelRequestParameters, IDeleteModelRequest>,
             IDeleteModelRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlDeleteModel;
 
         /// <summary>/_plugins/_ml/models/{model_id}</summary>
         /// <param name="modelId">this parameter is required</param>
-        public DeleteModelDescriptor(Id modelId)
-            : base(r => r.Required("model_id", modelId)) { }
+        public DeleteModelDescriptor(Id modelId) : base(r => r.Required("model_id", modelId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteModelDescriptor()
-            : base() { }
+        protected DeleteModelDescriptor() : base() { }
 
         // values part of the url path
         Id IDeleteModelRequest.ModelId => Self.RouteValues.Get<Id>("model_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for DeleteModelGroup</summary>
     public partial class DeleteModelGroupDescriptor
-        : RequestDescriptorBase<
-            DeleteModelGroupDescriptor,
-            DeleteModelGroupRequestParameters,
-            IDeleteModelGroupRequest
-        >,
+        : RequestDescriptorBase<DeleteModelGroupDescriptor, DeleteModelGroupRequestParameters, IDeleteModelGroupRequest>,
             IDeleteModelGroupRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlDeleteModelGroup;
 
         /// <summary>/_plugins/_ml/model_groups/{model_group_id}</summary>
         /// <param name="modelGroupId">this parameter is required</param>
-        public DeleteModelGroupDescriptor(Id modelGroupId)
-            : base(r => r.Required("model_group_id", modelGroupId)) { }
+        public DeleteModelGroupDescriptor(Id modelGroupId) : base(r => r.Required("model_group_id", modelGroupId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteModelGroupDescriptor()
-            : base() { }
+        protected DeleteModelGroupDescriptor() : base() { }
 
         // values part of the url path
         Id IDeleteModelGroupRequest.ModelGroupId => Self.RouteValues.Get<Id>("model_group_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for DeleteTask</summary>
     public partial class DeleteTaskDescriptor
-        : RequestDescriptorBase<
-            DeleteTaskDescriptor,
-            DeleteTaskRequestParameters,
-            IDeleteTaskRequest
-        >,
+        : RequestDescriptorBase<DeleteTaskDescriptor, DeleteTaskRequestParameters, IDeleteTaskRequest>,
             IDeleteTaskRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlDeleteTask;
 
         /// <summary>/_plugins/_ml/tasks/{task_id}</summary>
         /// <param name="taskId">this parameter is required</param>
-        public DeleteTaskDescriptor(Id taskId)
-            : base(r => r.Required("task_id", taskId)) { }
+        public DeleteTaskDescriptor(Id taskId) : base(r => r.Required("task_id", taskId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteTaskDescriptor()
-            : base() { }
+        protected DeleteTaskDescriptor() : base() { }
 
         // values part of the url path
         Id IDeleteTaskRequest.TaskId => Self.RouteValues.Get<Id>("task_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for DeployModel</summary>
     public partial class DeployModelDescriptor
-        : RequestDescriptorBase<
-            DeployModelDescriptor,
-            DeployModelRequestParameters,
-            IDeployModelRequest
-        >,
+        : RequestDescriptorBase<DeployModelDescriptor, DeployModelRequestParameters, IDeployModelRequest>,
             IDeployModelRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlDeployModel;
 
         /// <summary>/_plugins/_ml/models/{model_id}/_deploy</summary>
         /// <param name="modelId">this parameter is required</param>
-        public DeployModelDescriptor(Id modelId)
-            : base(r => r.Required("model_id", modelId)) { }
+        public DeployModelDescriptor(Id modelId) : base(r => r.Required("model_id", modelId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeployModelDescriptor()
-            : base() { }
+        protected DeployModelDescriptor() : base() { }
 
         // values part of the url path
         Id IDeployModelRequest.ModelId => Self.RouteValues.Get<Id>("model_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for ExecuteAgent</summary>
     public partial class ExecuteAgentDescriptor
-        : RequestDescriptorBase<
-            ExecuteAgentDescriptor,
-            ExecuteAgentRequestParameters,
-            IExecuteAgentRequest
-        >,
+        : RequestDescriptorBase<ExecuteAgentDescriptor, ExecuteAgentRequestParameters, IExecuteAgentRequest>,
             IExecuteAgentRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlExecuteAgent;
 
         /// <summary>/_plugins/_ml/agents/{agent_id}/_execute</summary>
         /// <param name="agentId">this parameter is required</param>
-        public ExecuteAgentDescriptor(Id agentId)
-            : base(r => r.Required("agent_id", agentId)) { }
+        public ExecuteAgentDescriptor(Id agentId) : base(r => r.Required("agent_id", agentId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected ExecuteAgentDescriptor()
-            : base() { }
+        protected ExecuteAgentDescriptor() : base() { }
 
         // values part of the url path
         Id IExecuteAgentRequest.AgentId => Self.RouteValues.Get<Id>("agent_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for ExecuteAlgorithm</summary>
     public partial class ExecuteAlgorithmDescriptor
-        : RequestDescriptorBase<
-            ExecuteAlgorithmDescriptor,
-            ExecuteAlgorithmRequestParameters,
-            IExecuteAlgorithmRequest
-        >,
+        : RequestDescriptorBase<ExecuteAlgorithmDescriptor, ExecuteAlgorithmRequestParameters, IExecuteAlgorithmRequest>,
             IExecuteAlgorithmRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlExecuteAlgorithm;
 
         /// <summary>/_plugins/_ml/_execute/{algorithm_name}</summary>
         /// <param name="algorithmName">this parameter is required</param>
-        public ExecuteAlgorithmDescriptor(Name algorithmName)
-            : base(r => r.Required("algorithm_name", algorithmName)) { }
+        public ExecuteAlgorithmDescriptor(Name algorithmName) : base(r => r.Required("algorithm_name", algorithmName)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected ExecuteAlgorithmDescriptor()
-            : base() { }
+        protected ExecuteAlgorithmDescriptor() : base() { }
 
         // values part of the url path
         Name IExecuteAlgorithmRequest.AlgorithmName => Self.RouteValues.Get<Name>("algorithm_name");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for ExecuteTool</summary>
     public partial class ExecuteToolDescriptor
-        : RequestDescriptorBase<
-            ExecuteToolDescriptor,
-            ExecuteToolRequestParameters,
-            IExecuteToolRequest
-        >,
+        : RequestDescriptorBase<ExecuteToolDescriptor, ExecuteToolRequestParameters, IExecuteToolRequest>,
             IExecuteToolRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlExecuteTool;
 
         /// <summary>/_plugins/_ml/tools/_execute/{tool_name}</summary>
         /// <param name="toolName">this parameter is required</param>
-        public ExecuteToolDescriptor(Name toolName)
-            : base(r => r.Required("tool_name", toolName)) { }
+        public ExecuteToolDescriptor(Name toolName) : base(r => r.Required("tool_name", toolName)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected ExecuteToolDescriptor()
-            : base() { }
+        protected ExecuteToolDescriptor() : base() { }
 
         // values part of the url path
         Name IExecuteToolRequest.ToolName => Self.RouteValues.Get<Name>("tool_name");
+
         // Request parameters
     }
 
@@ -607,26 +491,21 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/agents/{agent_id}</summary>
         /// <param name="agentId">this parameter is required</param>
-        public GetAgentDescriptor(Id agentId)
-            : base(r => r.Required("agent_id", agentId)) { }
+        public GetAgentDescriptor(Id agentId) : base(r => r.Required("agent_id", agentId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetAgentDescriptor()
-            : base() { }
+        protected GetAgentDescriptor() : base() { }
 
         // values part of the url path
         Id IGetAgentRequest.AgentId => Self.RouteValues.Get<Id>("agent_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for GetAgenticMemory</summary>
     public partial class GetAgenticMemoryDescriptor
-        : RequestDescriptorBase<
-            GetAgenticMemoryDescriptor,
-            GetAgenticMemoryRequestParameters,
-            IGetAgenticMemoryRequest
-        >,
+        : RequestDescriptorBase<GetAgenticMemoryDescriptor, GetAgenticMemoryRequestParameters, IGetAgenticMemoryRequest>,
             IGetAgenticMemoryRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetAgenticMemory;
@@ -635,33 +514,23 @@ namespace OpenSearch.Client
         /// <param name="memoryContainerId">this parameter is required</param>
         /// <param name="type">this parameter is required</param>
         /// <param name="id">this parameter is required</param>
-        public GetAgenticMemoryDescriptor(Id memoryContainerId, Names type, Id id)
-            : base(r =>
-                r.Required("memory_container_id", memoryContainerId)
-                    .Required("type", type)
-                    .Required("id", id)
-            ) { }
+        public GetAgenticMemoryDescriptor(Id memoryContainerId, Names type, Id id) : base(r => r.Required("memory_container_id", memoryContainerId).Required("type", type).Required("id", id)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetAgenticMemoryDescriptor()
-            : base() { }
+        protected GetAgenticMemoryDescriptor() : base() { }
 
         // values part of the url path
         Id IGetAgenticMemoryRequest.Id => Self.RouteValues.Get<Id>("id");
-        Id IGetAgenticMemoryRequest.MemoryContainerId =>
-            Self.RouteValues.Get<Id>("memory_container_id");
+        Id IGetAgenticMemoryRequest.MemoryContainerId => Self.RouteValues.Get<Id>("memory_container_id");
         Names IGetAgenticMemoryRequest.Type => Self.RouteValues.Get<Names>("type");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for GetAllMemories</summary>
     public partial class GetAllMemoriesDescriptor
-        : RequestDescriptorBase<
-            GetAllMemoriesDescriptor,
-            GetAllMemoriesRequestParameters,
-            IGetAllMemoriesRequest
-        >,
+        : RequestDescriptorBase<GetAllMemoriesDescriptor, GetAllMemoriesRequestParameters, IGetAllMemoriesRequest>,
             IGetAllMemoriesRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetAllMemories;
@@ -669,8 +538,7 @@ namespace OpenSearch.Client
         // values part of the url path
         // Request parameters
         /// <summary>The maximum number of results to return. If there are fewer memories than the number set in <c>max_results</c>, the response returns only the number of memories that exist. Default is <c>10</c>.</summary>
-        public GetAllMemoriesDescriptor MaxResults(int? maxresults) =>
-            Qs("max_results", maxresults);
+        public GetAllMemoriesDescriptor MaxResults(int? maxresults) => Qs("max_results", maxresults);
 
         /// <summary>The index of the first memory in the sorted list of memories to return. Memories are ordered by <c>create_time</c>. For example, if memories <c>A</c>, <c>B</c>, and <c>C</c> exist, <c>next_token=1</c> returns memories <c>B</c> and <c>C</c>. Default is <c>0</c> (return all memories).</summary>
         public GetAllMemoriesDescriptor NextToken(int? nexttoken) => Qs("next_token", nexttoken);
@@ -678,32 +546,25 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for GetAllMessages</summary>
     public partial class GetAllMessagesDescriptor
-        : RequestDescriptorBase<
-            GetAllMessagesDescriptor,
-            GetAllMessagesRequestParameters,
-            IGetAllMessagesRequest
-        >,
+        : RequestDescriptorBase<GetAllMessagesDescriptor, GetAllMessagesRequestParameters, IGetAllMessagesRequest>,
             IGetAllMessagesRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetAllMessages;
 
         /// <summary>/_plugins/_ml/memory/{memory_id}/messages</summary>
         /// <param name="memoryId">this parameter is required</param>
-        public GetAllMessagesDescriptor(Id memoryId)
-            : base(r => r.Required("memory_id", memoryId)) { }
+        public GetAllMessagesDescriptor(Id memoryId) : base(r => r.Required("memory_id", memoryId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetAllMessagesDescriptor()
-            : base() { }
+        protected GetAllMessagesDescriptor() : base() { }
 
         // values part of the url path
         Id IGetAllMessagesRequest.MemoryId => Self.RouteValues.Get<Id>("memory_id");
 
         // Request parameters
         /// <summary>TODO</summary>
-        public GetAllMessagesDescriptor MaxResults(int? maxresults) =>
-            Qs("max_results", maxresults);
+        public GetAllMessagesDescriptor MaxResults(int? maxresults) => Qs("max_results", maxresults);
 
         /// <summary>TODO</summary>
         public GetAllMessagesDescriptor NextToken(int? nexttoken) => Qs("next_token", nexttoken);
@@ -711,67 +572,54 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for GetAllTools</summary>
     public partial class GetAllToolsDescriptor
-        : RequestDescriptorBase<
-            GetAllToolsDescriptor,
-            GetAllToolsRequestParameters,
-            IGetAllToolsRequest
-        >,
+        : RequestDescriptorBase<GetAllToolsDescriptor, GetAllToolsRequestParameters, IGetAllToolsRequest>,
             IGetAllToolsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetAllTools;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for GetConnector</summary>
     public partial class GetConnectorDescriptor
-        : RequestDescriptorBase<
-            GetConnectorDescriptor,
-            GetConnectorRequestParameters,
-            IGetConnectorRequest
-        >,
+        : RequestDescriptorBase<GetConnectorDescriptor, GetConnectorRequestParameters, IGetConnectorRequest>,
             IGetConnectorRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetConnector;
 
         /// <summary>/_plugins/_ml/connectors/{connector_id}</summary>
         /// <param name="connectorId">this parameter is required</param>
-        public GetConnectorDescriptor(Id connectorId)
-            : base(r => r.Required("connector_id", connectorId)) { }
+        public GetConnectorDescriptor(Id connectorId) : base(r => r.Required("connector_id", connectorId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetConnectorDescriptor()
-            : base() { }
+        protected GetConnectorDescriptor() : base() { }
 
         // values part of the url path
         Id IGetConnectorRequest.ConnectorId => Self.RouteValues.Get<Id>("connector_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for GetController</summary>
     public partial class GetControllerDescriptor
-        : RequestDescriptorBase<
-            GetControllerDescriptor,
-            GetControllerRequestParameters,
-            IGetControllerRequest
-        >,
+        : RequestDescriptorBase<GetControllerDescriptor, GetControllerRequestParameters, IGetControllerRequest>,
             IGetControllerRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetController;
 
         /// <summary>/_plugins/_ml/controllers/{model_id}</summary>
         /// <param name="modelId">this parameter is required</param>
-        public GetControllerDescriptor(Id modelId)
-            : base(r => r.Required("model_id", modelId)) { }
+        public GetControllerDescriptor(Id modelId) : base(r => r.Required("model_id", modelId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetControllerDescriptor()
-            : base() { }
+        protected GetControllerDescriptor() : base() { }
 
         // values part of the url path
         Id IGetControllerRequest.ModelId => Self.RouteValues.Get<Id>("model_id");
+
         // Request parameters
     }
 
@@ -784,100 +632,81 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/memory/{memory_id}</summary>
         /// <param name="memoryId">this parameter is required</param>
-        public GetMemoryDescriptor(Id memoryId)
-            : base(r => r.Required("memory_id", memoryId)) { }
+        public GetMemoryDescriptor(Id memoryId) : base(r => r.Required("memory_id", memoryId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetMemoryDescriptor()
-            : base() { }
+        protected GetMemoryDescriptor() : base() { }
 
         // values part of the url path
         Id IGetMemoryRequest.MemoryId => Self.RouteValues.Get<Id>("memory_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for GetMemoryContainer</summary>
     public partial class GetMemoryContainerDescriptor
-        : RequestDescriptorBase<
-            GetMemoryContainerDescriptor,
-            GetMemoryContainerRequestParameters,
-            IGetMemoryContainerRequest
-        >,
+        : RequestDescriptorBase<GetMemoryContainerDescriptor, GetMemoryContainerRequestParameters, IGetMemoryContainerRequest>,
             IGetMemoryContainerRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetMemoryContainer;
 
         /// <summary>/_plugins/_ml/memory_containers/{memory_container_id}</summary>
         /// <param name="memoryContainerId">this parameter is required</param>
-        public GetMemoryContainerDescriptor(Id memoryContainerId)
-            : base(r => r.Required("memory_container_id", memoryContainerId)) { }
+        public GetMemoryContainerDescriptor(Id memoryContainerId) : base(r => r.Required("memory_container_id", memoryContainerId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetMemoryContainerDescriptor()
-            : base() { }
+        protected GetMemoryContainerDescriptor() : base() { }
 
         // values part of the url path
-        Id IGetMemoryContainerRequest.MemoryContainerId =>
-            Self.RouteValues.Get<Id>("memory_container_id");
+        Id IGetMemoryContainerRequest.MemoryContainerId => Self.RouteValues.Get<Id>("memory_container_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for GetMessage</summary>
     public partial class GetMessageDescriptor
-        : RequestDescriptorBase<
-            GetMessageDescriptor,
-            GetMessageRequestParameters,
-            IGetMessageRequest
-        >,
+        : RequestDescriptorBase<GetMessageDescriptor, GetMessageRequestParameters, IGetMessageRequest>,
             IGetMessageRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetMessage;
 
         /// <summary>/_plugins/_ml/memory/message/{message_id}</summary>
         /// <param name="messageId">this parameter is required</param>
-        public GetMessageDescriptor(Id messageId)
-            : base(r => r.Required("message_id", messageId)) { }
+        public GetMessageDescriptor(Id messageId) : base(r => r.Required("message_id", messageId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetMessageDescriptor()
-            : base() { }
+        protected GetMessageDescriptor() : base() { }
 
         // values part of the url path
         Id IGetMessageRequest.MessageId => Self.RouteValues.Get<Id>("message_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for GetMessageTraces</summary>
     public partial class GetMessageTracesDescriptor
-        : RequestDescriptorBase<
-            GetMessageTracesDescriptor,
-            GetMessageTracesRequestParameters,
-            IGetMessageTracesRequest
-        >,
+        : RequestDescriptorBase<GetMessageTracesDescriptor, GetMessageTracesRequestParameters, IGetMessageTracesRequest>,
             IGetMessageTracesRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetMessageTraces;
 
         /// <summary>/_plugins/_ml/memory/message/{message_id}/traces</summary>
         /// <param name="messageId">this parameter is required</param>
-        public GetMessageTracesDescriptor(Id messageId)
-            : base(r => r.Required("message_id", messageId)) { }
+        public GetMessageTracesDescriptor(Id messageId) : base(r => r.Required("message_id", messageId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetMessageTracesDescriptor()
-            : base() { }
+        protected GetMessageTracesDescriptor() : base() { }
 
         // values part of the url path
         Id IGetMessageTracesRequest.MessageId => Self.RouteValues.Get<Id>("message_id");
 
         // Request parameters
         /// <summary>TODO</summary>
-        public GetMessageTracesDescriptor MaxResults(int? maxresults) =>
-            Qs("max_results", maxresults);
+        public GetMessageTracesDescriptor MaxResults(int? maxresults) => Qs("max_results", maxresults);
 
         /// <summary>TODO</summary>
         public GetMessageTracesDescriptor NextToken(int? nexttoken) => Qs("next_token", nexttoken);
@@ -892,78 +721,63 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/models/{model_id}</summary>
         /// <param name="modelId">this parameter is required</param>
-        public GetModelDescriptor(Id modelId)
-            : base(r => r.Required("model_id", modelId)) { }
+        public GetModelDescriptor(Id modelId) : base(r => r.Required("model_id", modelId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetModelDescriptor()
-            : base() { }
+        protected GetModelDescriptor() : base() { }
 
         // values part of the url path
         Id IGetModelRequest.ModelId => Self.RouteValues.Get<Id>("model_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for GetModelGroup</summary>
     public partial class GetModelGroupDescriptor
-        : RequestDescriptorBase<
-            GetModelGroupDescriptor,
-            GetModelGroupRequestParameters,
-            IGetModelGroupRequest
-        >,
+        : RequestDescriptorBase<GetModelGroupDescriptor, GetModelGroupRequestParameters, IGetModelGroupRequest>,
             IGetModelGroupRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetModelGroup;
 
         /// <summary>/_plugins/_ml/model_groups/{model_group_id}</summary>
         /// <param name="modelGroupId">this parameter is required</param>
-        public GetModelGroupDescriptor(Id modelGroupId)
-            : base(r => r.Required("model_group_id", modelGroupId)) { }
+        public GetModelGroupDescriptor(Id modelGroupId) : base(r => r.Required("model_group_id", modelGroupId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetModelGroupDescriptor()
-            : base() { }
+        protected GetModelGroupDescriptor() : base() { }
 
         // values part of the url path
         Id IGetModelGroupRequest.ModelGroupId => Self.RouteValues.Get<Id>("model_group_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for GetProfile</summary>
     public partial class GetProfileDescriptor
-        : RequestDescriptorBase<
-            GetProfileDescriptor,
-            GetProfileRequestParameters,
-            IGetProfileRequest
-        >,
+        : RequestDescriptorBase<GetProfileDescriptor, GetProfileRequestParameters, IGetProfileRequest>,
             IGetProfileRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetProfile;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for GetProfileModels</summary>
     public partial class GetProfileModelsDescriptor
-        : RequestDescriptorBase<
-            GetProfileModelsDescriptor,
-            GetProfileModelsRequestParameters,
-            IGetProfileModelsRequest
-        >,
+        : RequestDescriptorBase<GetProfileModelsDescriptor, GetProfileModelsRequestParameters, IGetProfileModelsRequest>,
             IGetProfileModelsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetProfileModels;
 
         /// <summary>/_plugins/_ml/profile/models</summary>
-        public GetProfileModelsDescriptor()
-            : base() { }
+        public GetProfileModelsDescriptor() : base() { }
 
         /// <summary>/_plugins/_ml/profile/models/{model_id}</summary>
         /// <param name="modelId">Optional, accepts null</param>
-        public GetProfileModelsDescriptor(Id modelId)
-            : base(r => r.Optional("model_id", modelId)) { }
+        public GetProfileModelsDescriptor(Id modelId) : base(r => r.Optional("model_id", modelId)) { }
 
         // values part of the url path
         Id IGetProfileModelsRequest.ModelId => Self.RouteValues.Get<Id>("model_id");
@@ -971,28 +785,23 @@ namespace OpenSearch.Client
         /// <summary></summary>
         public GetProfileModelsDescriptor ModelId(Id modelId) =>
             Assign(modelId, (a, v) => a.RouteValues.Optional("model_id", v));
+
         // Request parameters
     }
 
     /// <summary>Descriptor for GetProfileTasks</summary>
     public partial class GetProfileTasksDescriptor
-        : RequestDescriptorBase<
-            GetProfileTasksDescriptor,
-            GetProfileTasksRequestParameters,
-            IGetProfileTasksRequest
-        >,
+        : RequestDescriptorBase<GetProfileTasksDescriptor, GetProfileTasksRequestParameters, IGetProfileTasksRequest>,
             IGetProfileTasksRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetProfileTasks;
 
         /// <summary>/_plugins/_ml/profile/tasks</summary>
-        public GetProfileTasksDescriptor()
-            : base() { }
+        public GetProfileTasksDescriptor() : base() { }
 
         /// <summary>/_plugins/_ml/profile/tasks/{task_id}</summary>
         /// <param name="taskId">Optional, accepts null</param>
-        public GetProfileTasksDescriptor(Id taskId)
-            : base(r => r.Optional("task_id", taskId)) { }
+        public GetProfileTasksDescriptor(Id taskId) : base(r => r.Optional("task_id", taskId)) { }
 
         // values part of the url path
         Id IGetProfileTasksRequest.TaskId => Self.RouteValues.Get<Id>("task_id");
@@ -1000,6 +809,7 @@ namespace OpenSearch.Client
         /// <summary></summary>
         public GetProfileTasksDescriptor TaskId(Id taskId) =>
             Assign(taskId, (a, v) => a.RouteValues.Optional("task_id", v));
+
         // Request parameters
     }
 
@@ -1011,31 +821,27 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlGetStats;
 
         /// <summary>/_plugins/_ml/stats</summary>
-        public GetStatsDescriptor()
-            : base() { }
+        public GetStatsDescriptor() : base() { }
 
         /// <summary>/_plugins/_ml/stats/{stat}</summary>
         /// <param name="stat">Optional, accepts null</param>
-        public GetStatsDescriptor(Name stat)
-            : base(r => r.Optional("stat", stat)) { }
+        public GetStatsDescriptor(Name stat) : base(r => r.Optional("stat", stat)) { }
 
         /// <summary>/_plugins/_ml/{node_id}/stats/{stat}</summary>
         /// <param name="nodeId">Optional, accepts null</param>
         /// <param name="stat">Optional, accepts null</param>
-        public GetStatsDescriptor(Name nodeId, Name stat)
-            : base(r => r.Optional("node_id", nodeId).Optional("stat", stat)) { }
+        public GetStatsDescriptor(Name nodeId, Name stat) : base(r => r.Optional("node_id", nodeId).Optional("stat", stat)) { }
 
         // values part of the url path
         Name IGetStatsRequest.NodeId => Self.RouteValues.Get<Name>("node_id");
         Name IGetStatsRequest.Stat => Self.RouteValues.Get<Name>("stat");
 
         /// <summary></summary>
-        public GetStatsDescriptor NodeId(Name nodeId) =>
-            Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
+        public GetStatsDescriptor NodeId(Name nodeId) => Assign(nodeId, (a, v) => a.RouteValues.Optional("node_id", v));
 
         /// <summary></summary>
-        public GetStatsDescriptor Stat(Name stat) =>
-            Assign(stat, (a, v) => a.RouteValues.Optional("stat", v));
+        public GetStatsDescriptor Stat(Name stat) => Assign(stat, (a, v) => a.RouteValues.Optional("stat", v));
+
         // Request parameters
     }
 
@@ -1048,16 +854,15 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/tasks/{task_id}</summary>
         /// <param name="taskId">this parameter is required</param>
-        public GetMLTaskDescriptor(Id taskId)
-            : base(r => r.Required("task_id", taskId)) { }
+        public GetMLTaskDescriptor(Id taskId) : base(r => r.Required("task_id", taskId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetMLTaskDescriptor()
-            : base() { }
+        protected GetMLTaskDescriptor() : base() { }
 
         // values part of the url path
         Id IGetMLTaskRequest.TaskId => Self.RouteValues.Get<Id>("task_id");
+
         // Request parameters
     }
 
@@ -1070,16 +875,15 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/tools/{tool_name}</summary>
         /// <param name="toolName">this parameter is required</param>
-        public GetToolDescriptor(Name toolName)
-            : base(r => r.Required("tool_name", toolName)) { }
+        public GetToolDescriptor(Name toolName) : base(r => r.Required("tool_name", toolName)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected GetToolDescriptor()
-            : base() { }
+        protected GetToolDescriptor() : base() { }
 
         // values part of the url path
         Name IGetToolRequest.ToolName => Self.RouteValues.Get<Name>("tool_name");
+
         // Request parameters
     }
 
@@ -1089,6 +893,7 @@ namespace OpenSearch.Client
             ILoadModelRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlLoadModel;
+
         // values part of the url path
         // Request parameters
     }
@@ -1103,110 +908,87 @@ namespace OpenSearch.Client
         /// <summary>/_plugins/_ml/_predict/{algorithm_name}/{model_id}</summary>
         /// <param name="algorithmName">this parameter is required</param>
         /// <param name="modelId">this parameter is required</param>
-        public PredictDescriptor(Name algorithmName, Id modelId)
-            : base(r => r.Required("algorithm_name", algorithmName).Required("model_id", modelId))
-        { }
+        public PredictDescriptor(Name algorithmName, Id modelId) : base(r => r.Required("algorithm_name", algorithmName).Required("model_id", modelId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected PredictDescriptor()
-            : base() { }
+        protected PredictDescriptor() : base() { }
 
         // values part of the url path
         Name IPredictRequest.AlgorithmName => Self.RouteValues.Get<Name>("algorithm_name");
         Id IPredictRequest.ModelId => Self.RouteValues.Get<Id>("model_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for PredictModel</summary>
     public partial class PredictModelDescriptor
-        : RequestDescriptorBase<
-            PredictModelDescriptor,
-            PredictModelRequestParameters,
-            IPredictModelRequest
-        >,
+        : RequestDescriptorBase<PredictModelDescriptor, PredictModelRequestParameters, IPredictModelRequest>,
             IPredictModelRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlPredictModel;
 
         /// <summary>/_plugins/_ml/models/{model_id}/_predict</summary>
         /// <param name="modelId">this parameter is required</param>
-        public PredictModelDescriptor(Id modelId)
-            : base(r => r.Required("model_id", modelId)) { }
+        public PredictModelDescriptor(Id modelId) : base(r => r.Required("model_id", modelId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected PredictModelDescriptor()
-            : base() { }
+        protected PredictModelDescriptor() : base() { }
 
         // values part of the url path
         Id IPredictModelRequest.ModelId => Self.RouteValues.Get<Id>("model_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for RegisterAgents</summary>
     public partial class RegisterAgentsDescriptor
-        : RequestDescriptorBase<
-            RegisterAgentsDescriptor,
-            RegisterAgentsRequestParameters,
-            IRegisterAgentsRequest
-        >,
+        : RequestDescriptorBase<RegisterAgentsDescriptor, RegisterAgentsRequestParameters, IRegisterAgentsRequest>,
             IRegisterAgentsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlRegisterAgents;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for RegisterModel</summary>
     public partial class RegisterModelDescriptor
-        : RequestDescriptorBase<
-            RegisterModelDescriptor,
-            RegisterModelRequestParameters,
-            IRegisterModelRequest
-        >,
+        : RequestDescriptorBase<RegisterModelDescriptor, RegisterModelRequestParameters, IRegisterModelRequest>,
             IRegisterModelRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlRegisterModel;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for RegisterModelGroup</summary>
     public partial class RegisterModelGroupDescriptor
-        : RequestDescriptorBase<
-            RegisterModelGroupDescriptor,
-            RegisterModelGroupRequestParameters,
-            IRegisterModelGroupRequest
-        >,
+        : RequestDescriptorBase<RegisterModelGroupDescriptor, RegisterModelGroupRequestParameters, IRegisterModelGroupRequest>,
             IRegisterModelGroupRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlRegisterModelGroup;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for RegisterModelMeta</summary>
     public partial class RegisterModelMetaDescriptor
-        : RequestDescriptorBase<
-            RegisterModelMetaDescriptor,
-            RegisterModelMetaRequestParameters,
-            IRegisterModelMetaRequest
-        >,
+        : RequestDescriptorBase<RegisterModelMetaDescriptor, RegisterModelMetaRequestParameters, IRegisterModelMetaRequest>,
             IRegisterModelMetaRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlRegisterModelMeta;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for SearchAgenticMemory</summary>
     public partial class SearchAgenticMemoryDescriptor
-        : RequestDescriptorBase<
-            SearchAgenticMemoryDescriptor,
-            SearchAgenticMemoryRequestParameters,
-            ISearchAgenticMemoryRequest
-        >,
+        : RequestDescriptorBase<SearchAgenticMemoryDescriptor, SearchAgenticMemoryRequestParameters, ISearchAgenticMemoryRequest>,
             ISearchAgenticMemoryRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlSearchAgenticMemory;
@@ -1214,142 +996,113 @@ namespace OpenSearch.Client
         /// <summary>/_plugins/_ml/memory_containers/{memory_container_id}/memories/{type}/_search</summary>
         /// <param name="memoryContainerId">this parameter is required</param>
         /// <param name="type">this parameter is required</param>
-        public SearchAgenticMemoryDescriptor(Id memoryContainerId, Name type)
-            : base(r => r.Required("memory_container_id", memoryContainerId).Required("type", type))
-        { }
+        public SearchAgenticMemoryDescriptor(Id memoryContainerId, Name type) : base(r => r.Required("memory_container_id", memoryContainerId).Required("type", type)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected SearchAgenticMemoryDescriptor()
-            : base() { }
+        protected SearchAgenticMemoryDescriptor() : base() { }
 
         // values part of the url path
-        Id ISearchAgenticMemoryRequest.MemoryContainerId =>
-            Self.RouteValues.Get<Id>("memory_container_id");
+        Id ISearchAgenticMemoryRequest.MemoryContainerId => Self.RouteValues.Get<Id>("memory_container_id");
         Name ISearchAgenticMemoryRequest.Type => Self.RouteValues.Get<Name>("type");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for SearchAgents</summary>
     public partial class SearchAgentsDescriptor
-        : RequestDescriptorBase<
-            SearchAgentsDescriptor,
-            SearchAgentsRequestParameters,
-            ISearchAgentsRequest
-        >,
+        : RequestDescriptorBase<SearchAgentsDescriptor, SearchAgentsRequestParameters, ISearchAgentsRequest>,
             ISearchAgentsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlSearchAgents;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for SearchConnectors</summary>
     public partial class SearchConnectorsDescriptor
-        : RequestDescriptorBase<
-            SearchConnectorsDescriptor,
-            SearchConnectorsRequestParameters,
-            ISearchConnectorsRequest
-        >,
+        : RequestDescriptorBase<SearchConnectorsDescriptor, SearchConnectorsRequestParameters, ISearchConnectorsRequest>,
             ISearchConnectorsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlSearchConnectors;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for SearchMemory</summary>
     public partial class SearchMemoryDescriptor
-        : RequestDescriptorBase<
-            SearchMemoryDescriptor,
-            SearchMemoryRequestParameters,
-            ISearchMemoryRequest
-        >,
+        : RequestDescriptorBase<SearchMemoryDescriptor, SearchMemoryRequestParameters, ISearchMemoryRequest>,
             ISearchMemoryRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlSearchMemory;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for SearchMemoryContainer</summary>
     public partial class SearchMemoryContainerDescriptor
-        : RequestDescriptorBase<
-            SearchMemoryContainerDescriptor,
-            SearchMemoryContainerRequestParameters,
-            ISearchMemoryContainerRequest
-        >,
+        : RequestDescriptorBase<SearchMemoryContainerDescriptor, SearchMemoryContainerRequestParameters, ISearchMemoryContainerRequest>,
             ISearchMemoryContainerRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlSearchMemoryContainer;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for SearchMessage</summary>
     public partial class SearchMessageDescriptor
-        : RequestDescriptorBase<
-            SearchMessageDescriptor,
-            SearchMessageRequestParameters,
-            ISearchMessageRequest
-        >,
+        : RequestDescriptorBase<SearchMessageDescriptor, SearchMessageRequestParameters, ISearchMessageRequest>,
             ISearchMessageRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlSearchMessage;
 
         /// <summary>/_plugins/_ml/memory/{memory_id}/_search</summary>
         /// <param name="memoryId">this parameter is required</param>
-        public SearchMessageDescriptor(Id memoryId)
-            : base(r => r.Required("memory_id", memoryId)) { }
+        public SearchMessageDescriptor(Id memoryId) : base(r => r.Required("memory_id", memoryId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected SearchMessageDescriptor()
-            : base() { }
+        protected SearchMessageDescriptor() : base() { }
 
         // values part of the url path
         Id ISearchMessageRequest.MemoryId => Self.RouteValues.Get<Id>("memory_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for SearchModelGroup</summary>
     public partial class SearchModelGroupDescriptor
-        : RequestDescriptorBase<
-            SearchModelGroupDescriptor,
-            SearchModelGroupRequestParameters,
-            ISearchModelGroupRequest
-        >,
+        : RequestDescriptorBase<SearchModelGroupDescriptor, SearchModelGroupRequestParameters, ISearchModelGroupRequest>,
             ISearchModelGroupRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlSearchModelGroup;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for SearchModels</summary>
     public partial class SearchModelsDescriptor
-        : RequestDescriptorBase<
-            SearchModelsDescriptor,
-            SearchModelsRequestParameters,
-            ISearchModelsRequest
-        >,
+        : RequestDescriptorBase<SearchModelsDescriptor, SearchModelsRequestParameters, ISearchModelsRequest>,
             ISearchModelsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlSearchModels;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for SearchTasks</summary>
     public partial class SearchTasksDescriptor
-        : RequestDescriptorBase<
-            SearchTasksDescriptor,
-            SearchTasksRequestParameters,
-            ISearchTasksRequest
-        >,
+        : RequestDescriptorBase<SearchTasksDescriptor, SearchTasksRequestParameters, ISearchTasksRequest>,
             ISearchTasksRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlSearchTasks;
+
         // values part of the url path
         // Request parameters
     }
@@ -1363,64 +1116,52 @@ namespace OpenSearch.Client
 
         /// <summary>/_plugins/_ml/_train/{algorithm_name}</summary>
         /// <param name="algorithmName">this parameter is required</param>
-        public TrainDescriptor(Name algorithmName)
-            : base(r => r.Required("algorithm_name", algorithmName)) { }
+        public TrainDescriptor(Name algorithmName) : base(r => r.Required("algorithm_name", algorithmName)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected TrainDescriptor()
-            : base() { }
+        protected TrainDescriptor() : base() { }
 
         // values part of the url path
         Name ITrainRequest.AlgorithmName => Self.RouteValues.Get<Name>("algorithm_name");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for TrainPredict</summary>
     public partial class TrainPredictDescriptor
-        : RequestDescriptorBase<
-            TrainPredictDescriptor,
-            TrainPredictRequestParameters,
-            ITrainPredictRequest
-        >,
+        : RequestDescriptorBase<TrainPredictDescriptor, TrainPredictRequestParameters, ITrainPredictRequest>,
             ITrainPredictRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlTrainPredict;
 
         /// <summary>/_plugins/_ml/_train_predict/{algorithm_name}</summary>
         /// <param name="algorithmName">this parameter is required</param>
-        public TrainPredictDescriptor(Name algorithmName)
-            : base(r => r.Required("algorithm_name", algorithmName)) { }
+        public TrainPredictDescriptor(Name algorithmName) : base(r => r.Required("algorithm_name", algorithmName)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected TrainPredictDescriptor()
-            : base() { }
+        protected TrainPredictDescriptor() : base() { }
 
         // values part of the url path
         Name ITrainPredictRequest.AlgorithmName => Self.RouteValues.Get<Name>("algorithm_name");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for UndeployModel</summary>
     public partial class UndeployModelDescriptor
-        : RequestDescriptorBase<
-            UndeployModelDescriptor,
-            UndeployModelRequestParameters,
-            IUndeployModelRequest
-        >,
+        : RequestDescriptorBase<UndeployModelDescriptor, UndeployModelRequestParameters, IUndeployModelRequest>,
             IUndeployModelRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlUndeployModel;
 
         /// <summary>/_plugins/_ml/models/_undeploy</summary>
-        public UndeployModelDescriptor()
-            : base() { }
+        public UndeployModelDescriptor() : base() { }
 
         /// <summary>/_plugins/_ml/models/{model_id}/_undeploy</summary>
         /// <param name="modelId">Optional, accepts null</param>
-        public UndeployModelDescriptor(Id modelId)
-            : base(r => r.Optional("model_id", modelId)) { }
+        public UndeployModelDescriptor(Id modelId) : base(r => r.Optional("model_id", modelId)) { }
 
         // values part of the url path
         Id IUndeployModelRequest.ModelId => Self.RouteValues.Get<Id>("model_id");
@@ -1428,30 +1169,24 @@ namespace OpenSearch.Client
         /// <summary></summary>
         public UndeployModelDescriptor ModelId(Id modelId) =>
             Assign(modelId, (a, v) => a.RouteValues.Optional("model_id", v));
+
         // Request parameters
     }
 
     /// <summary>Descriptor for UnloadModel</summary>
     public partial class UnloadModelDescriptor
-        : RequestDescriptorBase<
-            UnloadModelDescriptor,
-            UnloadModelRequestParameters,
-            IUnloadModelRequest
-        >,
+        : RequestDescriptorBase<UnloadModelDescriptor, UnloadModelRequestParameters, IUnloadModelRequest>,
             IUnloadModelRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlUnloadModel;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for UpdateAgenticMemory</summary>
     public partial class UpdateAgenticMemoryDescriptor
-        : RequestDescriptorBase<
-            UpdateAgenticMemoryDescriptor,
-            UpdateAgenticMemoryRequestParameters,
-            IUpdateAgenticMemoryRequest
-        >,
+        : RequestDescriptorBase<UpdateAgenticMemoryDescriptor, UpdateAgenticMemoryRequestParameters, IUpdateAgenticMemoryRequest>,
             IUpdateAgenticMemoryRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlUpdateAgenticMemory;
@@ -1460,216 +1195,170 @@ namespace OpenSearch.Client
         /// <param name="memoryContainerId">this parameter is required</param>
         /// <param name="type">this parameter is required</param>
         /// <param name="id">this parameter is required</param>
-        public UpdateAgenticMemoryDescriptor(Id memoryContainerId, Names type, Id id)
-            : base(r =>
-                r.Required("memory_container_id", memoryContainerId)
-                    .Required("type", type)
-                    .Required("id", id)
-            ) { }
+        public UpdateAgenticMemoryDescriptor(Id memoryContainerId, Names type, Id id) : base(r => r.Required("memory_container_id", memoryContainerId).Required("type", type).Required("id", id)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected UpdateAgenticMemoryDescriptor()
-            : base() { }
+        protected UpdateAgenticMemoryDescriptor() : base() { }
 
         // values part of the url path
         Id IUpdateAgenticMemoryRequest.Id => Self.RouteValues.Get<Id>("id");
-        Id IUpdateAgenticMemoryRequest.MemoryContainerId =>
-            Self.RouteValues.Get<Id>("memory_container_id");
+        Id IUpdateAgenticMemoryRequest.MemoryContainerId => Self.RouteValues.Get<Id>("memory_container_id");
         Names IUpdateAgenticMemoryRequest.Type => Self.RouteValues.Get<Names>("type");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for UpdateConnector</summary>
     public partial class UpdateConnectorDescriptor
-        : RequestDescriptorBase<
-            UpdateConnectorDescriptor,
-            UpdateConnectorRequestParameters,
-            IUpdateConnectorRequest
-        >,
+        : RequestDescriptorBase<UpdateConnectorDescriptor, UpdateConnectorRequestParameters, IUpdateConnectorRequest>,
             IUpdateConnectorRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlUpdateConnector;
 
         /// <summary>/_plugins/_ml/connectors/{connector_id}</summary>
         /// <param name="connectorId">this parameter is required</param>
-        public UpdateConnectorDescriptor(Id connectorId)
-            : base(r => r.Required("connector_id", connectorId)) { }
+        public UpdateConnectorDescriptor(Id connectorId) : base(r => r.Required("connector_id", connectorId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected UpdateConnectorDescriptor()
-            : base() { }
+        protected UpdateConnectorDescriptor() : base() { }
 
         // values part of the url path
         Id IUpdateConnectorRequest.ConnectorId => Self.RouteValues.Get<Id>("connector_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for UpdateController</summary>
     public partial class UpdateControllerDescriptor
-        : RequestDescriptorBase<
-            UpdateControllerDescriptor,
-            UpdateControllerRequestParameters,
-            IUpdateControllerRequest
-        >,
+        : RequestDescriptorBase<UpdateControllerDescriptor, UpdateControllerRequestParameters, IUpdateControllerRequest>,
             IUpdateControllerRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlUpdateController;
 
         /// <summary>/_plugins/_ml/controllers/{model_id}</summary>
         /// <param name="modelId">this parameter is required</param>
-        public UpdateControllerDescriptor(Id modelId)
-            : base(r => r.Required("model_id", modelId)) { }
+        public UpdateControllerDescriptor(Id modelId) : base(r => r.Required("model_id", modelId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected UpdateControllerDescriptor()
-            : base() { }
+        protected UpdateControllerDescriptor() : base() { }
 
         // values part of the url path
         Id IUpdateControllerRequest.ModelId => Self.RouteValues.Get<Id>("model_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for UpdateMemory</summary>
     public partial class UpdateMemoryDescriptor
-        : RequestDescriptorBase<
-            UpdateMemoryDescriptor,
-            UpdateMemoryRequestParameters,
-            IUpdateMemoryRequest
-        >,
+        : RequestDescriptorBase<UpdateMemoryDescriptor, UpdateMemoryRequestParameters, IUpdateMemoryRequest>,
             IUpdateMemoryRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlUpdateMemory;
 
         /// <summary>/_plugins/_ml/memory/{memory_id}</summary>
         /// <param name="memoryId">this parameter is required</param>
-        public UpdateMemoryDescriptor(Id memoryId)
-            : base(r => r.Required("memory_id", memoryId)) { }
+        public UpdateMemoryDescriptor(Id memoryId) : base(r => r.Required("memory_id", memoryId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected UpdateMemoryDescriptor()
-            : base() { }
+        protected UpdateMemoryDescriptor() : base() { }
 
         // values part of the url path
         Id IUpdateMemoryRequest.MemoryId => Self.RouteValues.Get<Id>("memory_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for UpdateMemoryContainer</summary>
     public partial class UpdateMemoryContainerDescriptor
-        : RequestDescriptorBase<
-            UpdateMemoryContainerDescriptor,
-            UpdateMemoryContainerRequestParameters,
-            IUpdateMemoryContainerRequest
-        >,
+        : RequestDescriptorBase<UpdateMemoryContainerDescriptor, UpdateMemoryContainerRequestParameters, IUpdateMemoryContainerRequest>,
             IUpdateMemoryContainerRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlUpdateMemoryContainer;
 
         /// <summary>/_plugins/_ml/memory_containers/{memory_container_id}</summary>
         /// <param name="memoryContainerId">this parameter is required</param>
-        public UpdateMemoryContainerDescriptor(Id memoryContainerId)
-            : base(r => r.Required("memory_container_id", memoryContainerId)) { }
+        public UpdateMemoryContainerDescriptor(Id memoryContainerId) : base(r => r.Required("memory_container_id", memoryContainerId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected UpdateMemoryContainerDescriptor()
-            : base() { }
+        protected UpdateMemoryContainerDescriptor() : base() { }
 
         // values part of the url path
-        Id IUpdateMemoryContainerRequest.MemoryContainerId =>
-            Self.RouteValues.Get<Id>("memory_container_id");
+        Id IUpdateMemoryContainerRequest.MemoryContainerId => Self.RouteValues.Get<Id>("memory_container_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for UpdateMessage</summary>
     public partial class UpdateMessageDescriptor
-        : RequestDescriptorBase<
-            UpdateMessageDescriptor,
-            UpdateMessageRequestParameters,
-            IUpdateMessageRequest
-        >,
+        : RequestDescriptorBase<UpdateMessageDescriptor, UpdateMessageRequestParameters, IUpdateMessageRequest>,
             IUpdateMessageRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlUpdateMessage;
 
         /// <summary>/_plugins/_ml/memory/message/{message_id}</summary>
         /// <param name="messageId">this parameter is required</param>
-        public UpdateMessageDescriptor(Id messageId)
-            : base(r => r.Required("message_id", messageId)) { }
+        public UpdateMessageDescriptor(Id messageId) : base(r => r.Required("message_id", messageId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected UpdateMessageDescriptor()
-            : base() { }
+        protected UpdateMessageDescriptor() : base() { }
 
         // values part of the url path
         Id IUpdateMessageRequest.MessageId => Self.RouteValues.Get<Id>("message_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for UpdateModel</summary>
     public partial class UpdateModelDescriptor
-        : RequestDescriptorBase<
-            UpdateModelDescriptor,
-            UpdateModelRequestParameters,
-            IUpdateModelRequest
-        >,
+        : RequestDescriptorBase<UpdateModelDescriptor, UpdateModelRequestParameters, IUpdateModelRequest>,
             IUpdateModelRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlUpdateModel;
 
         /// <summary>/_plugins/_ml/models/{model_id}</summary>
         /// <param name="modelId">this parameter is required</param>
-        public UpdateModelDescriptor(Id modelId)
-            : base(r => r.Required("model_id", modelId)) { }
+        public UpdateModelDescriptor(Id modelId) : base(r => r.Required("model_id", modelId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected UpdateModelDescriptor()
-            : base() { }
+        protected UpdateModelDescriptor() : base() { }
 
         // values part of the url path
         Id IUpdateModelRequest.ModelId => Self.RouteValues.Get<Id>("model_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for UpdateModelGroup</summary>
     public partial class UpdateModelGroupDescriptor
-        : RequestDescriptorBase<
-            UpdateModelGroupDescriptor,
-            UpdateModelGroupRequestParameters,
-            IUpdateModelGroupRequest
-        >,
+        : RequestDescriptorBase<UpdateModelGroupDescriptor, UpdateModelGroupRequestParameters, IUpdateModelGroupRequest>,
             IUpdateModelGroupRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlUpdateModelGroup;
 
         /// <summary>/_plugins/_ml/model_groups/{model_group_id}</summary>
         /// <param name="modelGroupId">this parameter is required</param>
-        public UpdateModelGroupDescriptor(Id modelGroupId)
-            : base(r => r.Required("model_group_id", modelGroupId)) { }
+        public UpdateModelGroupDescriptor(Id modelGroupId) : base(r => r.Required("model_group_id", modelGroupId)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected UpdateModelGroupDescriptor()
-            : base() { }
+        protected UpdateModelGroupDescriptor() : base() { }
 
         // values part of the url path
         Id IUpdateModelGroupRequest.ModelGroupId => Self.RouteValues.Get<Id>("model_group_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for UploadChunk</summary>
     public partial class UploadChunkDescriptor
-        : RequestDescriptorBase<
-            UploadChunkDescriptor,
-            UploadChunkRequestParameters,
-            IUploadChunkRequest
-        >,
+        : RequestDescriptorBase<UploadChunkDescriptor, UploadChunkRequestParameters, IUploadChunkRequest>,
             IUploadChunkRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlUploadChunk;
@@ -1677,33 +1366,26 @@ namespace OpenSearch.Client
         /// <summary>/_plugins/_ml/models/{model_id}/upload_chunk/{chunk_number}</summary>
         /// <param name="modelId">this parameter is required</param>
         /// <param name="chunkNumber">this parameter is required</param>
-        public UploadChunkDescriptor(Id modelId, long? chunkNumber)
-            : base(r =>
-                r.Required("model_id", modelId)
-                    .Required("chunk_number", (Name)(chunkNumber?.ToString()))
-            ) { }
+        public UploadChunkDescriptor(Id modelId, long? chunkNumber) : base(r => r.Required("model_id", modelId).Required("chunk_number", (Name)(chunkNumber?.ToString()))) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected UploadChunkDescriptor()
-            : base() { }
+        protected UploadChunkDescriptor() : base() { }
 
         // values part of the url path
         long? IUploadChunkRequest.ChunkNumber => Self.RouteValues.Get<long?>("chunk_number");
         Id IUploadChunkRequest.ModelId => Self.RouteValues.Get<Id>("model_id");
+
         // Request parameters
     }
 
     /// <summary>Descriptor for UploadModel</summary>
     public partial class UploadModelDescriptor
-        : RequestDescriptorBase<
-            UploadModelDescriptor,
-            UploadModelRequestParameters,
-            IUploadModelRequest
-        >,
+        : RequestDescriptorBase<UploadModelDescriptor, UploadModelRequestParameters, IUploadModelRequest>,
             IUploadModelRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.MlUploadModel;
+
         // values part of the url path
         // Request parameters
     }

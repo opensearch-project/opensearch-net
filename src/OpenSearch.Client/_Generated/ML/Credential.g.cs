@@ -49,9 +49,7 @@ namespace OpenSearch.Client
         public IDictionary<string, object> AdditionalProperties { get; set; }
     }
 
-    public class CredentialDescriptor
-        : DescriptorBase<CredentialDescriptor, ICredential>,
-            ICredential
+    public class CredentialDescriptor : DescriptorBase<CredentialDescriptor, ICredential>, ICredential
     {
         string ICredential.AccessKey { get; set; }
         string ICredential.SecretKey { get; set; }
@@ -67,12 +65,7 @@ namespace OpenSearch.Client
         public CredentialDescriptor SessionToken(string sessionToken) =>
             Assign(sessionToken, (a, v) => a.SessionToken = v);
 
-        public CredentialDescriptor AdditionalProperties(
-            IDictionary<string, object> additionalProperties
-        ) =>
-            Assign(
-                additionalProperties,
-                (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v
-            );
+        public CredentialDescriptor AdditionalProperties(IDictionary<string, object> additionalProperties) =>
+            Assign(additionalProperties, (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v);
     }
 }

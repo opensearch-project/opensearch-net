@@ -373,7 +373,8 @@ namespace OpenSearch.Client
         public SourceDescriptor Algorithm(string algorithm) =>
             Assign(algorithm, (a, v) => a.Algorithm = v);
 
-        public SourceDescriptor AppType(string appType) => Assign(appType, (a, v) => a.AppType = v);
+        public SourceDescriptor AppType(string appType) =>
+            Assign(appType, (a, v) => a.AppType = v);
 
         public SourceDescriptor ApplicationType(string applicationType) =>
             Assign(applicationType, (a, v) => a.ApplicationType = v);
@@ -408,12 +409,14 @@ namespace OpenSearch.Client
         public SourceDescriptor Description(string description) =>
             Assign(description, (a, v) => a.Description = v);
 
-        public SourceDescriptor Error(string error) => Assign(error, (a, v) => a.Error = v);
+        public SourceDescriptor Error(string error) =>
+            Assign(error, (a, v) => a.Error = v);
 
         public SourceDescriptor FunctionName(FunctionName? functionName) =>
             Assign(functionName, (a, v) => a.FunctionName = v);
 
-        public SourceDescriptor Input(string input) => Assign(input, (a, v) => a.Input = v);
+        public SourceDescriptor Input(string input) =>
+            Assign(input, (a, v) => a.Input = v);
 
         public SourceDescriptor InputType(MlInputDataType? inputType) =>
             Assign(inputType, (a, v) => a.InputType = v);
@@ -439,7 +442,8 @@ namespace OpenSearch.Client
         public SourceDescriptor LatestVersion(int? latestVersion) =>
             Assign(latestVersion, (a, v) => a.LatestVersion = v);
 
-        public SourceDescriptor Memory(IMemory memory) => Assign(memory, (a, v) => a.Memory = v);
+        public SourceDescriptor Memory(IMemory memory) =>
+            Assign(memory, (a, v) => a.Memory = v);
 
         public SourceDescriptor MemoryId(Name memoryId) =>
             Assign(memoryId, (a, v) => a.MemoryId = v);
@@ -462,7 +466,8 @@ namespace OpenSearch.Client
         public SourceDescriptor ModelGroupId(string modelGroupId) =>
             Assign(modelGroupId, (a, v) => a.ModelGroupId = v);
 
-        public SourceDescriptor ModelId(Name modelId) => Assign(modelId, (a, v) => a.ModelId = v);
+        public SourceDescriptor ModelId(Name modelId) =>
+            Assign(modelId, (a, v) => a.ModelId = v);
 
         public SourceDescriptor ModelState(ModelState? modelState) =>
             Assign(modelState, (a, v) => a.ModelState = v);
@@ -473,7 +478,8 @@ namespace OpenSearch.Client
         public SourceDescriptor ModelVersion(string modelVersion) =>
             Assign(modelVersion, (a, v) => a.ModelVersion = v);
 
-        public SourceDescriptor Name(Name name) => Assign(name, (a, v) => a.Name = v);
+        public SourceDescriptor Name(Name name) =>
+            Assign(name, (a, v) => a.Name = v);
 
         public SourceDescriptor Namespace(IDictionary<string, object> @namespace) =>
             Assign(@namespace, (a, v) => a.Namespace = v);
@@ -481,11 +487,14 @@ namespace OpenSearch.Client
         public SourceDescriptor NamespaceSize(long? namespaceSize) =>
             Assign(namespaceSize, (a, v) => a.NamespaceSize = v);
 
-        public SourceDescriptor Origin(string origin) => Assign(origin, (a, v) => a.Origin = v);
+        public SourceDescriptor Origin(string origin) =>
+            Assign(origin, (a, v) => a.Origin = v);
 
-        public SourceDescriptor Owner(IOwner owner) => Assign(owner, (a, v) => a.Owner = v);
+        public SourceDescriptor Owner(IOwner owner) =>
+            Assign(owner, (a, v) => a.Owner = v);
 
-        public SourceDescriptor OwnerId(string ownerId) => Assign(ownerId, (a, v) => a.OwnerId = v);
+        public SourceDescriptor OwnerId(string ownerId) =>
+            Assign(ownerId, (a, v) => a.OwnerId = v);
 
         public SourceDescriptor Parameters(IParameters parameters) =>
             Assign(parameters, (a, v) => a.Parameters = v);
@@ -511,7 +520,8 @@ namespace OpenSearch.Client
         public SourceDescriptor Response(string response) =>
             Assign(response, (a, v) => a.Response = v);
 
-        public SourceDescriptor State(Status? state) => Assign(state, (a, v) => a.State = v);
+        public SourceDescriptor State(Status? state) =>
+            Assign(state, (a, v) => a.State = v);
 
         public SourceDescriptor TaskType(MlTaskType? taskType) =>
             Assign(taskType, (a, v) => a.TaskType = v);
@@ -525,26 +535,25 @@ namespace OpenSearch.Client
         public SourceDescriptor TraceNumber(string traceNumber) =>
             Assign(traceNumber, (a, v) => a.TraceNumber = v);
 
-        public SourceDescriptor Type(AgentType? type) => Assign(type, (a, v) => a.Type = v);
+        public SourceDescriptor Type(AgentType? type) =>
+            Assign(type, (a, v) => a.Type = v);
 
         public SourceDescriptor UpdatedTime(string updatedTime) =>
             Assign(updatedTime, (a, v) => a.UpdatedTime = v);
 
-        public SourceDescriptor Url(string url) => Assign(url, (a, v) => a.Url = v);
+        public SourceDescriptor Url(string url) =>
+            Assign(url, (a, v) => a.Url = v);
 
-        public SourceDescriptor User(string user) => Assign(user, (a, v) => a.User = v);
+        public SourceDescriptor User(string user) =>
+            Assign(user, (a, v) => a.User = v);
 
-        public SourceDescriptor Version(string version) => Assign(version, (a, v) => a.Version = v);
+        public SourceDescriptor Version(string version) =>
+            Assign(version, (a, v) => a.Version = v);
 
         public SourceDescriptor WorkerNode(IList<string> workerNode) =>
             Assign(workerNode, (a, v) => a.WorkerNode = v);
 
-        public SourceDescriptor AdditionalProperties(
-            IDictionary<string, object> additionalProperties
-        ) =>
-            Assign(
-                additionalProperties,
-                (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v
-            );
+        public SourceDescriptor AdditionalProperties(IDictionary<string, object> additionalProperties) =>
+            Assign(additionalProperties, (a, v) => ((IHasAdditionalProperties)a).AdditionalProperties = v);
     }
 }

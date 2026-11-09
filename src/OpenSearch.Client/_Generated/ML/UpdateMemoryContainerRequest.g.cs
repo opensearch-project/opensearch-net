@@ -54,9 +54,8 @@ namespace OpenSearch.Client
         string IUpdateMemoryContainerRequest.Description { get; set; }
         Name IUpdateMemoryContainerRequest.Name { get; set; }
 
-        public UpdateMemoryContainerDescriptor Configuration(
-            IMemoryContainerConfiguration configuration
-        ) => Assign(configuration, (a, v) => a.Configuration = v);
+        public UpdateMemoryContainerDescriptor Configuration(IMemoryContainerConfiguration configuration) =>
+            Assign(configuration, (a, v) => a.Configuration = v);
 
         public UpdateMemoryContainerDescriptor Description(string description) =>
             Assign(description, (a, v) => a.Description = v);

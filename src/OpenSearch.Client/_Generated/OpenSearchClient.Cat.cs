@@ -214,9 +214,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-count/">https://docs.opensearch.org/latest/api-reference/cat/cat-count/</a>
         /// </summary>
-        CatResponse<CatCountRecord> Count(
-            Func<CatCountDescriptor, ICatCountRequest> selector = null
-        );
+        CatResponse<CatCountRecord> Count(Func<CatCountDescriptor, ICatCountRequest> selector = null);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.count</c> API, read more about this API online:
@@ -286,9 +284,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-health/">https://docs.opensearch.org/latest/api-reference/cat/cat-health/</a>
         /// </summary>
-        CatResponse<CatHealthRecord> Health(
-            Func<CatHealthDescriptor, ICatHealthRequest> selector = null
-        );
+        CatResponse<CatHealthRecord> Health(Func<CatHealthDescriptor, ICatHealthRequest> selector = null);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.health</c> API, read more about this API online:
@@ -346,10 +342,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/index/">https://docs.opensearch.org/latest/api-reference/cat/index/</a>
         /// </summary>
-        Task<CatResponse<CatHelpRecord>> HelpAsync(
-            ICatHelpRequest request,
-            CancellationToken ct = default
-        );
+        Task<CatResponse<CatHelpRecord>> HelpAsync(ICatHelpRequest request, CancellationToken ct = default);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.indices</c> API, read more about this API online:
@@ -392,21 +385,14 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead."
-        )]
-        CatResponse<CatMasterRecord> Master(
-            Func<CatMasterDescriptor, ICatMasterRequest> selector = null
-        );
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead.")] CatResponse<CatMasterRecord> Master(Func<CatMasterDescriptor, ICatMasterRequest> selector = null);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.master</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead.")]
         Task<CatResponse<CatMasterRecord>> MasterAsync(
             Func<CatMasterDescriptor, ICatMasterRequest> selector = null,
             CancellationToken ct = default
@@ -417,19 +403,14 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead."
-        )]
-        CatResponse<CatMasterRecord> Master(ICatMasterRequest request);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead.")] CatResponse<CatMasterRecord> Master(ICatMasterRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.master</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead.")]
         Task<CatResponse<CatMasterRecord>> MasterAsync(
             ICatMasterRequest request,
             CancellationToken ct = default
@@ -476,9 +457,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/">https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/</a>
         /// </summary>
-        CatResponse<CatNodesRecord> Nodes(
-            Func<CatNodesDescriptor, ICatNodesRequest> selector = null
-        );
+        CatResponse<CatNodesRecord> Nodes(Func<CatNodesDescriptor, ICatNodesRequest> selector = null);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.nodes</c> API, read more about this API online:
@@ -718,9 +697,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/">https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.6.0 or greater.</remarks>
-        CatResponse<CatSegmentReplicationRecord> SegmentReplication(
-            ICatSegmentReplicationRequest request
-        );
+        CatResponse<CatSegmentReplicationRecord> SegmentReplication(ICatSegmentReplicationRequest request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segment_replication</c> API, read more about this API online:
@@ -774,9 +751,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-shards/">https://docs.opensearch.org/latest/api-reference/cat/cat-shards/</a>
         /// </summary>
-        CatResponse<CatShardsRecord> Shards(
-            Func<CatShardsDescriptor, ICatShardsRequest> selector = null
-        );
+        CatResponse<CatShardsRecord> Shards(Func<CatShardsDescriptor, ICatShardsRequest> selector = null);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.shards</c> API, read more about this API online:
@@ -846,9 +821,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/">https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/</a>
         /// </summary>
-        CatResponse<CatTasksRecord> Tasks(
-            Func<CatTasksDescriptor, ICatTasksRequest> selector = null
-        );
+        CatResponse<CatTasksRecord> Tasks(Func<CatTasksDescriptor, ICatTasksRequest> selector = null);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.tasks</c> API, read more about this API online:
@@ -958,8 +931,7 @@ namespace OpenSearch.Client.Specification.CatApi
     /// </summary>
     public partial class CatNamespace : NamespacedClientProxy, ICatNamespace
     {
-        internal CatNamespace(OpenSearchClient client)
-            : base(client) { }
+        internal CatNamespace(OpenSearchClient client) : base(client) { }
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.aliases</c> API, read more about this API online:
@@ -968,7 +940,8 @@ namespace OpenSearch.Client.Specification.CatApi
         /// </summary>
         public CatResponse<CatAliasesRecord> Aliases(
             Func<CatAliasesDescriptor, ICatAliasesRequest> selector = null
-        ) => Aliases(selector.InvokeOrDefault(new CatAliasesDescriptor()));
+        ) =>
+            Aliases(selector.InvokeOrDefault(new CatAliasesDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.aliases</c> API, read more about this API online:
@@ -978,7 +951,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatAliasesRecord>> AliasesAsync(
             Func<CatAliasesDescriptor, ICatAliasesRequest> selector = null,
             CancellationToken ct = default
-        ) => AliasesAsync(selector.InvokeOrDefault(new CatAliasesDescriptor()), ct);
+        ) =>
+            AliasesAsync(selector.InvokeOrDefault(new CatAliasesDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.aliases</c> API, read more about this API online:
@@ -997,10 +971,7 @@ namespace OpenSearch.Client.Specification.CatApi
             ICatAliasesRequest request,
             CancellationToken ct = default
         ) =>
-            DoCatAsync<ICatAliasesRequest, CatAliasesRequestParameters, CatAliasesRecord>(
-                request,
-                ct
-            );
+            DoCatAsync<ICatAliasesRequest, CatAliasesRequestParameters, CatAliasesRecord>(request, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.all_pit_segments</c> API, read more about this API online:
@@ -1010,7 +981,8 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public CatResponse<CatAllPitSegmentsRecord> AllPitSegments(
             Func<CatAllPitSegmentsDescriptor, ICatAllPitSegmentsRequest> selector = null
-        ) => AllPitSegments(selector.InvokeOrDefault(new CatAllPitSegmentsDescriptor()));
+        ) =>
+            AllPitSegments(selector.InvokeOrDefault(new CatAllPitSegmentsDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.all_pit_segments</c> API, read more about this API online:
@@ -1021,7 +993,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatAllPitSegmentsRecord>> AllPitSegmentsAsync(
             Func<CatAllPitSegmentsDescriptor, ICatAllPitSegmentsRequest> selector = null,
             CancellationToken ct = default
-        ) => AllPitSegmentsAsync(selector.InvokeOrDefault(new CatAllPitSegmentsDescriptor()), ct);
+        ) =>
+            AllPitSegmentsAsync(selector.InvokeOrDefault(new CatAllPitSegmentsDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.all_pit_segments</c> API, read more about this API online:
@@ -1029,14 +1002,8 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <a href="https://docs.opensearch.org/latest/search-plugins/point-in-time-api/">https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        public CatResponse<CatAllPitSegmentsRecord> AllPitSegments(
-            ICatAllPitSegmentsRequest request
-        ) =>
-            DoCat<
-                ICatAllPitSegmentsRequest,
-                CatAllPitSegmentsRequestParameters,
-                CatAllPitSegmentsRecord
-            >(request);
+        public CatResponse<CatAllPitSegmentsRecord> AllPitSegments(ICatAllPitSegmentsRequest request) =>
+            DoCat<ICatAllPitSegmentsRequest, CatAllPitSegmentsRequestParameters, CatAllPitSegmentsRecord>(request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.all_pit_segments</c> API, read more about this API online:
@@ -1048,11 +1015,7 @@ namespace OpenSearch.Client.Specification.CatApi
             ICatAllPitSegmentsRequest request,
             CancellationToken ct = default
         ) =>
-            DoCatAsync<
-                ICatAllPitSegmentsRequest,
-                CatAllPitSegmentsRequestParameters,
-                CatAllPitSegmentsRecord
-            >(request, ct);
+            DoCatAsync<ICatAllPitSegmentsRequest, CatAllPitSegmentsRequestParameters, CatAllPitSegmentsRecord>(request, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.allocation</c> API, read more about this API online:
@@ -1061,7 +1024,8 @@ namespace OpenSearch.Client.Specification.CatApi
         /// </summary>
         public CatResponse<CatAllocationRecord> Allocation(
             Func<CatAllocationDescriptor, ICatAllocationRequest> selector = null
-        ) => Allocation(selector.InvokeOrDefault(new CatAllocationDescriptor()));
+        ) =>
+            Allocation(selector.InvokeOrDefault(new CatAllocationDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.allocation</c> API, read more about this API online:
@@ -1071,7 +1035,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatAllocationRecord>> AllocationAsync(
             Func<CatAllocationDescriptor, ICatAllocationRequest> selector = null,
             CancellationToken ct = default
-        ) => AllocationAsync(selector.InvokeOrDefault(new CatAllocationDescriptor()), ct);
+        ) =>
+            AllocationAsync(selector.InvokeOrDefault(new CatAllocationDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.allocation</c> API, read more about this API online:
@@ -1079,9 +1044,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/">https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/</a>
         /// </summary>
         public CatResponse<CatAllocationRecord> Allocation(ICatAllocationRequest request) =>
-            DoCat<ICatAllocationRequest, CatAllocationRequestParameters, CatAllocationRecord>(
-                request
-            );
+            DoCat<ICatAllocationRequest, CatAllocationRequestParameters, CatAllocationRecord>(request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.allocation</c> API, read more about this API online:
@@ -1092,10 +1055,7 @@ namespace OpenSearch.Client.Specification.CatApi
             ICatAllocationRequest request,
             CancellationToken ct = default
         ) =>
-            DoCatAsync<ICatAllocationRequest, CatAllocationRequestParameters, CatAllocationRecord>(
-                request,
-                ct
-            );
+            DoCatAsync<ICatAllocationRequest, CatAllocationRequestParameters, CatAllocationRecord>(request, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.cluster_manager</c> API, read more about this API online:
@@ -1105,7 +1065,8 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
         public CatResponse<CatClusterManagerRecord> ClusterManager(
             Func<CatClusterManagerDescriptor, ICatClusterManagerRequest> selector = null
-        ) => ClusterManager(selector.InvokeOrDefault(new CatClusterManagerDescriptor()));
+        ) =>
+            ClusterManager(selector.InvokeOrDefault(new CatClusterManagerDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.cluster_manager</c> API, read more about this API online:
@@ -1116,7 +1077,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatClusterManagerRecord>> ClusterManagerAsync(
             Func<CatClusterManagerDescriptor, ICatClusterManagerRequest> selector = null,
             CancellationToken ct = default
-        ) => ClusterManagerAsync(selector.InvokeOrDefault(new CatClusterManagerDescriptor()), ct);
+        ) =>
+            ClusterManagerAsync(selector.InvokeOrDefault(new CatClusterManagerDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.cluster_manager</c> API, read more about this API online:
@@ -1124,14 +1086,8 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.0.0 or greater.</remarks>
-        public CatResponse<CatClusterManagerRecord> ClusterManager(
-            ICatClusterManagerRequest request
-        ) =>
-            DoCat<
-                ICatClusterManagerRequest,
-                CatClusterManagerRequestParameters,
-                CatClusterManagerRecord
-            >(request);
+        public CatResponse<CatClusterManagerRecord> ClusterManager(ICatClusterManagerRequest request) =>
+            DoCat<ICatClusterManagerRequest, CatClusterManagerRequestParameters, CatClusterManagerRecord>(request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.cluster_manager</c> API, read more about this API online:
@@ -1143,20 +1099,15 @@ namespace OpenSearch.Client.Specification.CatApi
             ICatClusterManagerRequest request,
             CancellationToken ct = default
         ) =>
-            DoCatAsync<
-                ICatClusterManagerRequest,
-                CatClusterManagerRequestParameters,
-                CatClusterManagerRecord
-            >(request, ct);
+            DoCatAsync<ICatClusterManagerRequest, CatClusterManagerRequestParameters, CatClusterManagerRecord>(request, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.count</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-count/">https://docs.opensearch.org/latest/api-reference/cat/cat-count/</a>
         /// </summary>
-        public CatResponse<CatCountRecord> Count(
-            Func<CatCountDescriptor, ICatCountRequest> selector = null
-        ) => Count(selector.InvokeOrDefault(new CatCountDescriptor()));
+        public CatResponse<CatCountRecord> Count(Func<CatCountDescriptor, ICatCountRequest> selector = null) =>
+            Count(selector.InvokeOrDefault(new CatCountDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.count</c> API, read more about this API online:
@@ -1166,7 +1117,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatCountRecord>> CountAsync(
             Func<CatCountDescriptor, ICatCountRequest> selector = null,
             CancellationToken ct = default
-        ) => CountAsync(selector.InvokeOrDefault(new CatCountDescriptor()), ct);
+        ) =>
+            CountAsync(selector.InvokeOrDefault(new CatCountDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.count</c> API, read more about this API online:
@@ -1184,7 +1136,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatCountRecord>> CountAsync(
             ICatCountRequest request,
             CancellationToken ct = default
-        ) => DoCatAsync<ICatCountRequest, CatCountRequestParameters, CatCountRecord>(request, ct);
+        ) =>
+            DoCatAsync<ICatCountRequest, CatCountRequestParameters, CatCountRecord>(request, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.fielddata</c> API, read more about this API online:
@@ -1193,7 +1146,8 @@ namespace OpenSearch.Client.Specification.CatApi
         /// </summary>
         public CatResponse<CatFielddataRecord> Fielddata(
             Func<CatFielddataDescriptor, ICatFielddataRequest> selector = null
-        ) => Fielddata(selector.InvokeOrDefault(new CatFielddataDescriptor()));
+        ) =>
+            Fielddata(selector.InvokeOrDefault(new CatFielddataDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.fielddata</c> API, read more about this API online:
@@ -1203,7 +1157,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatFielddataRecord>> FielddataAsync(
             Func<CatFielddataDescriptor, ICatFielddataRequest> selector = null,
             CancellationToken ct = default
-        ) => FielddataAsync(selector.InvokeOrDefault(new CatFielddataDescriptor()), ct);
+        ) =>
+            FielddataAsync(selector.InvokeOrDefault(new CatFielddataDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.fielddata</c> API, read more about this API online:
@@ -1222,19 +1177,15 @@ namespace OpenSearch.Client.Specification.CatApi
             ICatFielddataRequest request,
             CancellationToken ct = default
         ) =>
-            DoCatAsync<ICatFielddataRequest, CatFielddataRequestParameters, CatFielddataRecord>(
-                request,
-                ct
-            );
+            DoCatAsync<ICatFielddataRequest, CatFielddataRequestParameters, CatFielddataRecord>(request, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.health</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-health/">https://docs.opensearch.org/latest/api-reference/cat/cat-health/</a>
         /// </summary>
-        public CatResponse<CatHealthRecord> Health(
-            Func<CatHealthDescriptor, ICatHealthRequest> selector = null
-        ) => Health(selector.InvokeOrDefault(new CatHealthDescriptor()));
+        public CatResponse<CatHealthRecord> Health(Func<CatHealthDescriptor, ICatHealthRequest> selector = null) =>
+            Health(selector.InvokeOrDefault(new CatHealthDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.health</c> API, read more about this API online:
@@ -1244,7 +1195,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatHealthRecord>> HealthAsync(
             Func<CatHealthDescriptor, ICatHealthRequest> selector = null,
             CancellationToken ct = default
-        ) => HealthAsync(selector.InvokeOrDefault(new CatHealthDescriptor()), ct);
+        ) =>
+            HealthAsync(selector.InvokeOrDefault(new CatHealthDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.health</c> API, read more about this API online:
@@ -1270,9 +1222,8 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/index/">https://docs.opensearch.org/latest/api-reference/cat/index/</a>
         /// </summary>
-        public CatResponse<CatHelpRecord> Help(
-            Func<CatHelpDescriptor, ICatHelpRequest> selector = null
-        ) => Help(selector.InvokeOrDefault(new CatHelpDescriptor()));
+        public CatResponse<CatHelpRecord> Help(Func<CatHelpDescriptor, ICatHelpRequest> selector = null) =>
+            Help(selector.InvokeOrDefault(new CatHelpDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.help</c> API, read more about this API online:
@@ -1282,7 +1233,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatHelpRecord>> HelpAsync(
             Func<CatHelpDescriptor, ICatHelpRequest> selector = null,
             CancellationToken ct = default
-        ) => HelpAsync(selector.InvokeOrDefault(new CatHelpDescriptor()), ct);
+        ) =>
+            HelpAsync(selector.InvokeOrDefault(new CatHelpDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.help</c> API, read more about this API online:
@@ -1297,10 +1249,8 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/index/">https://docs.opensearch.org/latest/api-reference/cat/index/</a>
         /// </summary>
-        public Task<CatResponse<CatHelpRecord>> HelpAsync(
-            ICatHelpRequest request,
-            CancellationToken ct = default
-        ) => DoCatAsync<ICatHelpRequest, CatHelpRequestParameters, CatHelpRecord>(request, ct);
+        public Task<CatResponse<CatHelpRecord>> HelpAsync(ICatHelpRequest request, CancellationToken ct = default) =>
+            DoCatAsync<ICatHelpRequest, CatHelpRequestParameters, CatHelpRecord>(request, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.indices</c> API, read more about this API online:
@@ -1309,7 +1259,8 @@ namespace OpenSearch.Client.Specification.CatApi
         /// </summary>
         public CatResponse<CatIndicesRecord> Indices(
             Func<CatIndicesDescriptor, ICatIndicesRequest> selector = null
-        ) => Indices(selector.InvokeOrDefault(new CatIndicesDescriptor()));
+        ) =>
+            Indices(selector.InvokeOrDefault(new CatIndicesDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.indices</c> API, read more about this API online:
@@ -1319,7 +1270,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatIndicesRecord>> IndicesAsync(
             Func<CatIndicesDescriptor, ICatIndicesRequest> selector = null,
             CancellationToken ct = default
-        ) => IndicesAsync(selector.InvokeOrDefault(new CatIndicesDescriptor()), ct);
+        ) =>
+            IndicesAsync(selector.InvokeOrDefault(new CatIndicesDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.indices</c> API, read more about this API online:
@@ -1338,44 +1290,35 @@ namespace OpenSearch.Client.Specification.CatApi
             ICatIndicesRequest request,
             CancellationToken ct = default
         ) =>
-            DoCatAsync<ICatIndicesRequest, CatIndicesRequestParameters, CatIndicesRecord>(
-                request,
-                ct
-            );
+            DoCatAsync<ICatIndicesRequest, CatIndicesRequestParameters, CatIndicesRecord>(request, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.master</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead."
-        )]
-        public CatResponse<CatMasterRecord> Master(
-            Func<CatMasterDescriptor, ICatMasterRequest> selector = null
-        ) => Master(selector.InvokeOrDefault(new CatMasterDescriptor()));
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead.")]
+        public CatResponse<CatMasterRecord> Master(Func<CatMasterDescriptor, ICatMasterRequest> selector = null) =>
+            Master(selector.InvokeOrDefault(new CatMasterDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.master</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead.")]
         public Task<CatResponse<CatMasterRecord>> MasterAsync(
             Func<CatMasterDescriptor, ICatMasterRequest> selector = null,
             CancellationToken ct = default
-        ) => MasterAsync(selector.InvokeOrDefault(new CatMasterDescriptor()), ct);
+        ) =>
+            MasterAsync(selector.InvokeOrDefault(new CatMasterDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.master</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead.")]
         public CatResponse<CatMasterRecord> Master(ICatMasterRequest request) =>
             DoCat<ICatMasterRequest, CatMasterRequestParameters, CatMasterRecord>(request);
 
@@ -1384,9 +1327,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/">https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</a>
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use '/_cat/cluster_manager' instead.")]
         public Task<CatResponse<CatMasterRecord>> MasterAsync(
             ICatMasterRequest request,
             CancellationToken ct = default
@@ -1400,7 +1341,8 @@ namespace OpenSearch.Client.Specification.CatApi
         /// </summary>
         public CatResponse<CatNodeAttributesRecord> NodeAttributes(
             Func<CatNodeAttributesDescriptor, ICatNodeAttributesRequest> selector = null
-        ) => NodeAttributes(selector.InvokeOrDefault(new CatNodeAttributesDescriptor()));
+        ) =>
+            NodeAttributes(selector.InvokeOrDefault(new CatNodeAttributesDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.nodeattrs</c> API, read more about this API online:
@@ -1410,21 +1352,16 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatNodeAttributesRecord>> NodeAttributesAsync(
             Func<CatNodeAttributesDescriptor, ICatNodeAttributesRequest> selector = null,
             CancellationToken ct = default
-        ) => NodeAttributesAsync(selector.InvokeOrDefault(new CatNodeAttributesDescriptor()), ct);
+        ) =>
+            NodeAttributesAsync(selector.InvokeOrDefault(new CatNodeAttributesDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.nodeattrs</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/">https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/</a>
         /// </summary>
-        public CatResponse<CatNodeAttributesRecord> NodeAttributes(
-            ICatNodeAttributesRequest request
-        ) =>
-            DoCat<
-                ICatNodeAttributesRequest,
-                CatNodeAttributesRequestParameters,
-                CatNodeAttributesRecord
-            >(request);
+        public CatResponse<CatNodeAttributesRecord> NodeAttributes(ICatNodeAttributesRequest request) =>
+            DoCat<ICatNodeAttributesRequest, CatNodeAttributesRequestParameters, CatNodeAttributesRecord>(request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.nodeattrs</c> API, read more about this API online:
@@ -1435,20 +1372,15 @@ namespace OpenSearch.Client.Specification.CatApi
             ICatNodeAttributesRequest request,
             CancellationToken ct = default
         ) =>
-            DoCatAsync<
-                ICatNodeAttributesRequest,
-                CatNodeAttributesRequestParameters,
-                CatNodeAttributesRecord
-            >(request, ct);
+            DoCatAsync<ICatNodeAttributesRequest, CatNodeAttributesRequestParameters, CatNodeAttributesRecord>(request, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.nodes</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/">https://docs.opensearch.org/latest/api-reference/cat/cat-nodes/</a>
         /// </summary>
-        public CatResponse<CatNodesRecord> Nodes(
-            Func<CatNodesDescriptor, ICatNodesRequest> selector = null
-        ) => Nodes(selector.InvokeOrDefault(new CatNodesDescriptor()));
+        public CatResponse<CatNodesRecord> Nodes(Func<CatNodesDescriptor, ICatNodesRequest> selector = null) =>
+            Nodes(selector.InvokeOrDefault(new CatNodesDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.nodes</c> API, read more about this API online:
@@ -1458,7 +1390,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatNodesRecord>> NodesAsync(
             Func<CatNodesDescriptor, ICatNodesRequest> selector = null,
             CancellationToken ct = default
-        ) => NodesAsync(selector.InvokeOrDefault(new CatNodesDescriptor()), ct);
+        ) =>
+            NodesAsync(selector.InvokeOrDefault(new CatNodesDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.nodes</c> API, read more about this API online:
@@ -1476,7 +1409,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatNodesRecord>> NodesAsync(
             ICatNodesRequest request,
             CancellationToken ct = default
-        ) => DoCatAsync<ICatNodesRequest, CatNodesRequestParameters, CatNodesRecord>(request, ct);
+        ) =>
+            DoCatAsync<ICatNodesRequest, CatNodesRequestParameters, CatNodesRecord>(request, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pending_tasks</c> API, read more about this API online:
@@ -1485,7 +1419,8 @@ namespace OpenSearch.Client.Specification.CatApi
         /// </summary>
         public CatResponse<CatPendingTasksRecord> PendingTasks(
             Func<CatPendingTasksDescriptor, ICatPendingTasksRequest> selector = null
-        ) => PendingTasks(selector.InvokeOrDefault(new CatPendingTasksDescriptor()));
+        ) =>
+            PendingTasks(selector.InvokeOrDefault(new CatPendingTasksDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pending_tasks</c> API, read more about this API online:
@@ -1495,7 +1430,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatPendingTasksRecord>> PendingTasksAsync(
             Func<CatPendingTasksDescriptor, ICatPendingTasksRequest> selector = null,
             CancellationToken ct = default
-        ) => PendingTasksAsync(selector.InvokeOrDefault(new CatPendingTasksDescriptor()), ct);
+        ) =>
+            PendingTasksAsync(selector.InvokeOrDefault(new CatPendingTasksDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pending_tasks</c> API, read more about this API online:
@@ -1503,9 +1439,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/">https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/</a>
         /// </summary>
         public CatResponse<CatPendingTasksRecord> PendingTasks(ICatPendingTasksRequest request) =>
-            DoCat<ICatPendingTasksRequest, CatPendingTasksRequestParameters, CatPendingTasksRecord>(
-                request
-            );
+            DoCat<ICatPendingTasksRequest, CatPendingTasksRequestParameters, CatPendingTasksRecord>(request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pending_tasks</c> API, read more about this API online:
@@ -1516,11 +1450,7 @@ namespace OpenSearch.Client.Specification.CatApi
             ICatPendingTasksRequest request,
             CancellationToken ct = default
         ) =>
-            DoCatAsync<
-                ICatPendingTasksRequest,
-                CatPendingTasksRequestParameters,
-                CatPendingTasksRecord
-            >(request, ct);
+            DoCatAsync<ICatPendingTasksRequest, CatPendingTasksRequestParameters, CatPendingTasksRecord>(request, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pit_segments</c> API, read more about this API online:
@@ -1530,7 +1460,8 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public CatResponse<CatPitSegmentsRecord> PitSegments(
             Func<CatPitSegmentsDescriptor, ICatPitSegmentsRequest> selector = null
-        ) => PitSegments(selector.InvokeOrDefault(new CatPitSegmentsDescriptor()));
+        ) =>
+            PitSegments(selector.InvokeOrDefault(new CatPitSegmentsDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pit_segments</c> API, read more about this API online:
@@ -1541,7 +1472,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatPitSegmentsRecord>> PitSegmentsAsync(
             Func<CatPitSegmentsDescriptor, ICatPitSegmentsRequest> selector = null,
             CancellationToken ct = default
-        ) => PitSegmentsAsync(selector.InvokeOrDefault(new CatPitSegmentsDescriptor()), ct);
+        ) =>
+            PitSegmentsAsync(selector.InvokeOrDefault(new CatPitSegmentsDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pit_segments</c> API, read more about this API online:
@@ -1550,9 +1482,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
         public CatResponse<CatPitSegmentsRecord> PitSegments(ICatPitSegmentsRequest request) =>
-            DoCat<ICatPitSegmentsRequest, CatPitSegmentsRequestParameters, CatPitSegmentsRecord>(
-                request
-            );
+            DoCat<ICatPitSegmentsRequest, CatPitSegmentsRequestParameters, CatPitSegmentsRecord>(request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.pit_segments</c> API, read more about this API online:
@@ -1564,11 +1494,7 @@ namespace OpenSearch.Client.Specification.CatApi
             ICatPitSegmentsRequest request,
             CancellationToken ct = default
         ) =>
-            DoCatAsync<
-                ICatPitSegmentsRequest,
-                CatPitSegmentsRequestParameters,
-                CatPitSegmentsRecord
-            >(request, ct);
+            DoCatAsync<ICatPitSegmentsRequest, CatPitSegmentsRequestParameters, CatPitSegmentsRecord>(request, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.plugins</c> API, read more about this API online:
@@ -1577,7 +1503,8 @@ namespace OpenSearch.Client.Specification.CatApi
         /// </summary>
         public CatResponse<CatPluginsRecord> Plugins(
             Func<CatPluginsDescriptor, ICatPluginsRequest> selector = null
-        ) => Plugins(selector.InvokeOrDefault(new CatPluginsDescriptor()));
+        ) =>
+            Plugins(selector.InvokeOrDefault(new CatPluginsDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.plugins</c> API, read more about this API online:
@@ -1587,7 +1514,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatPluginsRecord>> PluginsAsync(
             Func<CatPluginsDescriptor, ICatPluginsRequest> selector = null,
             CancellationToken ct = default
-        ) => PluginsAsync(selector.InvokeOrDefault(new CatPluginsDescriptor()), ct);
+        ) =>
+            PluginsAsync(selector.InvokeOrDefault(new CatPluginsDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.plugins</c> API, read more about this API online:
@@ -1606,10 +1534,7 @@ namespace OpenSearch.Client.Specification.CatApi
             ICatPluginsRequest request,
             CancellationToken ct = default
         ) =>
-            DoCatAsync<ICatPluginsRequest, CatPluginsRequestParameters, CatPluginsRecord>(
-                request,
-                ct
-            );
+            DoCatAsync<ICatPluginsRequest, CatPluginsRequestParameters, CatPluginsRecord>(request, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.recovery</c> API, read more about this API online:
@@ -1618,7 +1543,8 @@ namespace OpenSearch.Client.Specification.CatApi
         /// </summary>
         public CatResponse<CatRecoveryRecord> Recovery(
             Func<CatRecoveryDescriptor, ICatRecoveryRequest> selector = null
-        ) => Recovery(selector.InvokeOrDefault(new CatRecoveryDescriptor()));
+        ) =>
+            Recovery(selector.InvokeOrDefault(new CatRecoveryDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.recovery</c> API, read more about this API online:
@@ -1628,7 +1554,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatRecoveryRecord>> RecoveryAsync(
             Func<CatRecoveryDescriptor, ICatRecoveryRequest> selector = null,
             CancellationToken ct = default
-        ) => RecoveryAsync(selector.InvokeOrDefault(new CatRecoveryDescriptor()), ct);
+        ) =>
+            RecoveryAsync(selector.InvokeOrDefault(new CatRecoveryDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.recovery</c> API, read more about this API online:
@@ -1647,10 +1574,7 @@ namespace OpenSearch.Client.Specification.CatApi
             ICatRecoveryRequest request,
             CancellationToken ct = default
         ) =>
-            DoCatAsync<ICatRecoveryRequest, CatRecoveryRequestParameters, CatRecoveryRecord>(
-                request,
-                ct
-            );
+            DoCatAsync<ICatRecoveryRequest, CatRecoveryRequestParameters, CatRecoveryRecord>(request, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.repositories</c> API, read more about this API online:
@@ -1659,7 +1583,8 @@ namespace OpenSearch.Client.Specification.CatApi
         /// </summary>
         public CatResponse<CatRepositoriesRecord> Repositories(
             Func<CatRepositoriesDescriptor, ICatRepositoriesRequest> selector = null
-        ) => Repositories(selector.InvokeOrDefault(new CatRepositoriesDescriptor()));
+        ) =>
+            Repositories(selector.InvokeOrDefault(new CatRepositoriesDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.repositories</c> API, read more about this API online:
@@ -1669,7 +1594,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatRepositoriesRecord>> RepositoriesAsync(
             Func<CatRepositoriesDescriptor, ICatRepositoriesRequest> selector = null,
             CancellationToken ct = default
-        ) => RepositoriesAsync(selector.InvokeOrDefault(new CatRepositoriesDescriptor()), ct);
+        ) =>
+            RepositoriesAsync(selector.InvokeOrDefault(new CatRepositoriesDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.repositories</c> API, read more about this API online:
@@ -1677,9 +1603,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/">https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/</a>
         /// </summary>
         public CatResponse<CatRepositoriesRecord> Repositories(ICatRepositoriesRequest request) =>
-            DoCat<ICatRepositoriesRequest, CatRepositoriesRequestParameters, CatRepositoriesRecord>(
-                request
-            );
+            DoCat<ICatRepositoriesRequest, CatRepositoriesRequestParameters, CatRepositoriesRecord>(request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.repositories</c> API, read more about this API online:
@@ -1690,11 +1614,7 @@ namespace OpenSearch.Client.Specification.CatApi
             ICatRepositoriesRequest request,
             CancellationToken ct = default
         ) =>
-            DoCatAsync<
-                ICatRepositoriesRequest,
-                CatRepositoriesRequestParameters,
-                CatRepositoriesRecord
-            >(request, ct);
+            DoCatAsync<ICatRepositoriesRequest, CatRepositoriesRequestParameters, CatRepositoriesRecord>(request, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segment_replication</c> API, read more about this API online:
@@ -1704,7 +1624,8 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <remarks>Supported by OpenSearch servers of version 2.6.0 or greater.</remarks>
         public CatResponse<CatSegmentReplicationRecord> SegmentReplication(
             Func<CatSegmentReplicationDescriptor, ICatSegmentReplicationRequest> selector = null
-        ) => SegmentReplication(selector.InvokeOrDefault(new CatSegmentReplicationDescriptor()));
+        ) =>
+            SegmentReplication(selector.InvokeOrDefault(new CatSegmentReplicationDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segment_replication</c> API, read more about this API online:
@@ -1716,10 +1637,7 @@ namespace OpenSearch.Client.Specification.CatApi
             Func<CatSegmentReplicationDescriptor, ICatSegmentReplicationRequest> selector = null,
             CancellationToken ct = default
         ) =>
-            SegmentReplicationAsync(
-                selector.InvokeOrDefault(new CatSegmentReplicationDescriptor()),
-                ct
-            );
+            SegmentReplicationAsync(selector.InvokeOrDefault(new CatSegmentReplicationDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segment_replication</c> API, read more about this API online:
@@ -1727,14 +1645,8 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/">https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/</a>
         /// </summary>
         /// <remarks>Supported by OpenSearch servers of version 2.6.0 or greater.</remarks>
-        public CatResponse<CatSegmentReplicationRecord> SegmentReplication(
-            ICatSegmentReplicationRequest request
-        ) =>
-            DoCat<
-                ICatSegmentReplicationRequest,
-                CatSegmentReplicationRequestParameters,
-                CatSegmentReplicationRecord
-            >(request);
+        public CatResponse<CatSegmentReplicationRecord> SegmentReplication(ICatSegmentReplicationRequest request) =>
+            DoCat<ICatSegmentReplicationRequest, CatSegmentReplicationRequestParameters, CatSegmentReplicationRecord>(request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segment_replication</c> API, read more about this API online:
@@ -1746,11 +1658,7 @@ namespace OpenSearch.Client.Specification.CatApi
             ICatSegmentReplicationRequest request,
             CancellationToken ct = default
         ) =>
-            DoCatAsync<
-                ICatSegmentReplicationRequest,
-                CatSegmentReplicationRequestParameters,
-                CatSegmentReplicationRecord
-            >(request, ct);
+            DoCatAsync<ICatSegmentReplicationRequest, CatSegmentReplicationRequestParameters, CatSegmentReplicationRecord>(request, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segments</c> API, read more about this API online:
@@ -1759,7 +1667,8 @@ namespace OpenSearch.Client.Specification.CatApi
         /// </summary>
         public CatResponse<CatSegmentsRecord> Segments(
             Func<CatSegmentsDescriptor, ICatSegmentsRequest> selector = null
-        ) => Segments(selector.InvokeOrDefault(new CatSegmentsDescriptor()));
+        ) =>
+            Segments(selector.InvokeOrDefault(new CatSegmentsDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segments</c> API, read more about this API online:
@@ -1769,7 +1678,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatSegmentsRecord>> SegmentsAsync(
             Func<CatSegmentsDescriptor, ICatSegmentsRequest> selector = null,
             CancellationToken ct = default
-        ) => SegmentsAsync(selector.InvokeOrDefault(new CatSegmentsDescriptor()), ct);
+        ) =>
+            SegmentsAsync(selector.InvokeOrDefault(new CatSegmentsDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.segments</c> API, read more about this API online:
@@ -1788,19 +1698,15 @@ namespace OpenSearch.Client.Specification.CatApi
             ICatSegmentsRequest request,
             CancellationToken ct = default
         ) =>
-            DoCatAsync<ICatSegmentsRequest, CatSegmentsRequestParameters, CatSegmentsRecord>(
-                request,
-                ct
-            );
+            DoCatAsync<ICatSegmentsRequest, CatSegmentsRequestParameters, CatSegmentsRecord>(request, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.shards</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-shards/">https://docs.opensearch.org/latest/api-reference/cat/cat-shards/</a>
         /// </summary>
-        public CatResponse<CatShardsRecord> Shards(
-            Func<CatShardsDescriptor, ICatShardsRequest> selector = null
-        ) => Shards(selector.InvokeOrDefault(new CatShardsDescriptor()));
+        public CatResponse<CatShardsRecord> Shards(Func<CatShardsDescriptor, ICatShardsRequest> selector = null) =>
+            Shards(selector.InvokeOrDefault(new CatShardsDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.shards</c> API, read more about this API online:
@@ -1810,7 +1716,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatShardsRecord>> ShardsAsync(
             Func<CatShardsDescriptor, ICatShardsRequest> selector = null,
             CancellationToken ct = default
-        ) => ShardsAsync(selector.InvokeOrDefault(new CatShardsDescriptor()), ct);
+        ) =>
+            ShardsAsync(selector.InvokeOrDefault(new CatShardsDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.shards</c> API, read more about this API online:
@@ -1838,7 +1745,8 @@ namespace OpenSearch.Client.Specification.CatApi
         /// </summary>
         public CatResponse<CatSnapshotsRecord> Snapshots(
             Func<CatSnapshotsDescriptor, ICatSnapshotsRequest> selector = null
-        ) => Snapshots(selector.InvokeOrDefault(new CatSnapshotsDescriptor()));
+        ) =>
+            Snapshots(selector.InvokeOrDefault(new CatSnapshotsDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.snapshots</c> API, read more about this API online:
@@ -1848,7 +1756,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatSnapshotsRecord>> SnapshotsAsync(
             Func<CatSnapshotsDescriptor, ICatSnapshotsRequest> selector = null,
             CancellationToken ct = default
-        ) => SnapshotsAsync(selector.InvokeOrDefault(new CatSnapshotsDescriptor()), ct);
+        ) =>
+            SnapshotsAsync(selector.InvokeOrDefault(new CatSnapshotsDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.snapshots</c> API, read more about this API online:
@@ -1867,19 +1776,15 @@ namespace OpenSearch.Client.Specification.CatApi
             ICatSnapshotsRequest request,
             CancellationToken ct = default
         ) =>
-            DoCatAsync<ICatSnapshotsRequest, CatSnapshotsRequestParameters, CatSnapshotsRecord>(
-                request,
-                ct
-            );
+            DoCatAsync<ICatSnapshotsRequest, CatSnapshotsRequestParameters, CatSnapshotsRecord>(request, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.tasks</c> API, read more about this API online:
         /// <para></para>
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/">https://docs.opensearch.org/latest/api-reference/cat/cat-tasks/</a>
         /// </summary>
-        public CatResponse<CatTasksRecord> Tasks(
-            Func<CatTasksDescriptor, ICatTasksRequest> selector = null
-        ) => Tasks(selector.InvokeOrDefault(new CatTasksDescriptor()));
+        public CatResponse<CatTasksRecord> Tasks(Func<CatTasksDescriptor, ICatTasksRequest> selector = null) =>
+            Tasks(selector.InvokeOrDefault(new CatTasksDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.tasks</c> API, read more about this API online:
@@ -1889,7 +1794,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatTasksRecord>> TasksAsync(
             Func<CatTasksDescriptor, ICatTasksRequest> selector = null,
             CancellationToken ct = default
-        ) => TasksAsync(selector.InvokeOrDefault(new CatTasksDescriptor()), ct);
+        ) =>
+            TasksAsync(selector.InvokeOrDefault(new CatTasksDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.tasks</c> API, read more about this API online:
@@ -1907,7 +1813,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatTasksRecord>> TasksAsync(
             ICatTasksRequest request,
             CancellationToken ct = default
-        ) => DoCatAsync<ICatTasksRequest, CatTasksRequestParameters, CatTasksRecord>(request, ct);
+        ) =>
+            DoCatAsync<ICatTasksRequest, CatTasksRequestParameters, CatTasksRecord>(request, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.templates</c> API, read more about this API online:
@@ -1916,7 +1823,8 @@ namespace OpenSearch.Client.Specification.CatApi
         /// </summary>
         public CatResponse<CatTemplatesRecord> Templates(
             Func<CatTemplatesDescriptor, ICatTemplatesRequest> selector = null
-        ) => Templates(selector.InvokeOrDefault(new CatTemplatesDescriptor()));
+        ) =>
+            Templates(selector.InvokeOrDefault(new CatTemplatesDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.templates</c> API, read more about this API online:
@@ -1926,7 +1834,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatTemplatesRecord>> TemplatesAsync(
             Func<CatTemplatesDescriptor, ICatTemplatesRequest> selector = null,
             CancellationToken ct = default
-        ) => TemplatesAsync(selector.InvokeOrDefault(new CatTemplatesDescriptor()), ct);
+        ) =>
+            TemplatesAsync(selector.InvokeOrDefault(new CatTemplatesDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.templates</c> API, read more about this API online:
@@ -1945,10 +1854,7 @@ namespace OpenSearch.Client.Specification.CatApi
             ICatTemplatesRequest request,
             CancellationToken ct = default
         ) =>
-            DoCatAsync<ICatTemplatesRequest, CatTemplatesRequestParameters, CatTemplatesRecord>(
-                request,
-                ct
-            );
+            DoCatAsync<ICatTemplatesRequest, CatTemplatesRequestParameters, CatTemplatesRecord>(request, ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.thread_pool</c> API, read more about this API online:
@@ -1957,7 +1863,8 @@ namespace OpenSearch.Client.Specification.CatApi
         /// </summary>
         public CatResponse<CatThreadPoolRecord> ThreadPool(
             Func<CatThreadPoolDescriptor, ICatThreadPoolRequest> selector = null
-        ) => ThreadPool(selector.InvokeOrDefault(new CatThreadPoolDescriptor()));
+        ) =>
+            ThreadPool(selector.InvokeOrDefault(new CatThreadPoolDescriptor()));
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.thread_pool</c> API, read more about this API online:
@@ -1967,7 +1874,8 @@ namespace OpenSearch.Client.Specification.CatApi
         public Task<CatResponse<CatThreadPoolRecord>> ThreadPoolAsync(
             Func<CatThreadPoolDescriptor, ICatThreadPoolRequest> selector = null,
             CancellationToken ct = default
-        ) => ThreadPoolAsync(selector.InvokeOrDefault(new CatThreadPoolDescriptor()), ct);
+        ) =>
+            ThreadPoolAsync(selector.InvokeOrDefault(new CatThreadPoolDescriptor()), ct);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.thread_pool</c> API, read more about this API online:
@@ -1975,9 +1883,7 @@ namespace OpenSearch.Client.Specification.CatApi
         /// <a href="https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/">https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/</a>
         /// </summary>
         public CatResponse<CatThreadPoolRecord> ThreadPool(ICatThreadPoolRequest request) =>
-            DoCat<ICatThreadPoolRequest, CatThreadPoolRequestParameters, CatThreadPoolRecord>(
-                request
-            );
+            DoCat<ICatThreadPoolRequest, CatThreadPoolRequestParameters, CatThreadPoolRecord>(request);
 
         /// <summary>
         /// <c>GET</c> request to the <c>cat.thread_pool</c> API, read more about this API online:
@@ -1988,9 +1894,6 @@ namespace OpenSearch.Client.Specification.CatApi
             ICatThreadPoolRequest request,
             CancellationToken ct = default
         ) =>
-            DoCatAsync<ICatThreadPoolRequest, CatThreadPoolRequestParameters, CatThreadPoolRecord>(
-                request,
-                ct
-            );
+            DoCatAsync<ICatThreadPoolRequest, CatThreadPoolRequestParameters, CatThreadPoolRecord>(request, ct);
     }
 }

@@ -62,7 +62,8 @@ namespace OpenSearch.Client
         public PostQuerySetsDescriptor Description(string description) =>
             Assign(description, (a, v) => a.Description = v);
 
-        public PostQuerySetsDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public PostQuerySetsDescriptor Name(string name) =>
+            Assign(name, (a, v) => a.Name = v);
 
         public PostQuerySetsDescriptor QuerySetSize(int? querySetSize) =>
             Assign(querySetSize, (a, v) => a.QuerySetSize = v);

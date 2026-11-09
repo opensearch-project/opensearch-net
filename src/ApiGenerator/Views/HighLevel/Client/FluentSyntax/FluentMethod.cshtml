@@ -13,6 +13,7 @@
     var selectorChained = Model.Syntax.SelectorChainedDefaults();
     var cancellationToken = !Model.Async ? string.Empty : ", ct";
 }
+
 @{ await IncludeAsync("HighLevel/Client/MethodXmlDocs.cshtml", Model.Syntax); }
 public @(asyncKeyword)@{ await IncludeAsync("HighLevel/Client/FluentSyntax/FluentMethodHeader.cshtml", Model);} @Raw("=>")
     @(awaitKeyWord)@(method)@(Raw(requestMethodGenerics))(selector.InvokeOrDefault(new @(Raw(descriptor))(@Raw(selectorArgs))@(@selectorChained))@cancellationToken)@Raw(configureAwait);

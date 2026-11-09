@@ -44,4 +44,6 @@
 
 namespace OpenSearch.Client;
 
-public abstract partial class PlainRequestBase<TParameters> { }
+public abstract partial class PlainRequestBase<TParameters>
+{
+}

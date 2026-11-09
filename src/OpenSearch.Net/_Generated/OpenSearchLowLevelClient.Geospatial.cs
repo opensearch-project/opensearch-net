@@ -66,8 +66,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
     /// </summary>
     public partial class LowLevelGeospatialNamespace : NamespacedClientProxy
     {
-        internal LowLevelGeospatialNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelGeospatialNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>DELETE on /_plugins/geospatial/ip2geo/datasource/{name} <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#deleting-the-ip2geo-data-source</para></summary>
         /// <param name="name"></param>
@@ -78,12 +77,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
             DeleteIp2geoDatasourceRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_plugins/geospatial/ip2geo/datasource/{name:name}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_plugins/geospatial/ip2geo/datasource/{name:name}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/geospatial/ip2geo/datasource/{name} <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#deleting-the-ip2geo-data-source</para></summary>
         /// <param name="name"></param>
@@ -96,13 +90,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_plugins/geospatial/ip2geo/datasource/{name:name}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_plugins/geospatial/ip2geo/datasource/{name:name}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/geospatial/geojson/_upload</summary>
         /// <param name="body"></param>
@@ -113,12 +101,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
             GeojsonUploadPostRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/geospatial/geojson/_upload",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/geospatial/geojson/_upload", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/geospatial/geojson/_upload</summary>
         /// <param name="body"></param>
@@ -131,13 +114,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/geospatial/geojson/_upload",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/geospatial/geojson/_upload", ctx, body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/geospatial/geojson/_upload</summary>
         /// <param name="body"></param>
@@ -148,12 +125,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
             GeojsonUploadPutRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                "_plugins/geospatial/geojson/_upload",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, "_plugins/geospatial/geojson/_upload", body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/geospatial/geojson/_upload</summary>
         /// <param name="body"></param>
@@ -166,27 +138,14 @@ namespace OpenSearch.Net.Specification.GeospatialApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                "_plugins/geospatial/geojson/_upload",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, "_plugins/geospatial/geojson/_upload", ctx, body, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/geospatial/ip2geo/datasource <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#sending-a-get-request</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.11.0 or greater.</remarks>
-        public TResponse GetIp2geoDatasource<TResponse>(
-            GetIp2geoDatasourceRequestParameters requestParameters = null
-        )
+        public TResponse GetIp2geoDatasource<TResponse>(GetIp2geoDatasourceRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/geospatial/ip2geo/datasource",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/geospatial/ip2geo/datasource", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/geospatial/ip2geo/datasource <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#sending-a-get-request</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -197,13 +156,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/geospatial/ip2geo/datasource",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/geospatial/ip2geo/datasource", ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/geospatial/ip2geo/datasource/{name} <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#sending-a-get-request</para></summary>
         /// <param name="name"></param>
@@ -214,12 +167,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
             GetIp2geoDatasourceRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/geospatial/ip2geo/datasource/{name:name}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/geospatial/ip2geo/datasource/{name:name}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/geospatial/ip2geo/datasource/{name} <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#sending-a-get-request</para></summary>
         /// <param name="name"></param>
@@ -232,27 +180,14 @@ namespace OpenSearch.Net.Specification.GeospatialApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/geospatial/ip2geo/datasource/{name:name}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/geospatial/ip2geo/datasource/{name:name}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/geospatial/_upload/stats</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.11.0 or greater.</remarks>
-        public TResponse GetUploadStats<TResponse>(
-            GetUploadStatsRequestParameters requestParameters = null
-        )
+        public TResponse GetUploadStats<TResponse>(GetUploadStatsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/geospatial/_upload/stats",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/geospatial/_upload/stats", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/geospatial/_upload/stats</summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -263,13 +198,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/geospatial/_upload/stats",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/geospatial/_upload/stats", ctx, null, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/geospatial/ip2geo/datasource/{name} <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#data-source-options</para></summary>
         /// <param name="name"></param>
@@ -282,12 +211,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
             PutIp2geoDatasourceRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_plugins/geospatial/ip2geo/datasource/{name:name}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_plugins/geospatial/ip2geo/datasource/{name:name}"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/geospatial/ip2geo/datasource/{name} <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#data-source-options</para></summary>
         /// <param name="name"></param>
@@ -302,13 +226,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_plugins/geospatial/ip2geo/datasource/{name:name}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_plugins/geospatial/ip2geo/datasource/{name:name}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/geospatial/ip2geo/datasource/{name}/_settings <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#updating-an-ip2geo-data-source</para></summary>
         /// <param name="name"></param>
@@ -321,12 +239,7 @@ namespace OpenSearch.Net.Specification.GeospatialApi
             PutIp2geoDatasourceSettingsRequestParameters requestParameters = null
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_plugins/geospatial/ip2geo/datasource/{name:name}/_settings"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_plugins/geospatial/ip2geo/datasource/{name:name}/_settings"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/geospatial/ip2geo/datasource/{name}/_settings <para>https://docs.opensearch.org/latest/ingest-pipelines/processors/ip2geo/#updating-an-ip2geo-data-source</para></summary>
         /// <param name="name"></param>
@@ -341,12 +254,6 @@ namespace OpenSearch.Net.Specification.GeospatialApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_plugins/geospatial/ip2geo/datasource/{name:name}/_settings"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_plugins/geospatial/ip2geo/datasource/{name:name}/_settings"), ctx, body, RequestParams(requestParameters));
     }
 }

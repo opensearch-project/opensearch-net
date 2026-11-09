@@ -59,30 +59,23 @@ namespace OpenSearch.Client
 {
     /// <summary>Descriptor for Aliases <para>https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/</para></summary>
     public partial class CatAliasesDescriptor
-        : RequestDescriptorBase<
-            CatAliasesDescriptor,
-            CatAliasesRequestParameters,
-            ICatAliasesRequest
-        >,
+        : RequestDescriptorBase<CatAliasesDescriptor, CatAliasesRequestParameters, ICatAliasesRequest>,
             ICatAliasesRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatAliases;
 
         /// <summary>/_cat/aliases</summary>
-        public CatAliasesDescriptor()
-            : base() { }
+        public CatAliasesDescriptor() : base() { }
 
         /// <summary>/_cat/aliases/{name}</summary>
         /// <param name="name">Optional, accepts null</param>
-        public CatAliasesDescriptor(Names name)
-            : base(r => r.Optional("name", name)) { }
+        public CatAliasesDescriptor(Names name) : base(r => r.Optional("name", name)) { }
 
         // values part of the url path
         Names ICatAliasesRequest.Name => Self.RouteValues.Get<Names>("name");
 
         /// <summary>A comma-separated list of aliases to retrieve. Supports wildcards (<c>*</c>). To retrieve all aliases, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
-        public CatAliasesDescriptor Name(Names name) =>
-            Assign(name, (a, v) => a.RouteValues.Optional("name", v));
+        public CatAliasesDescriptor Name(Names name) => Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
         // Request parameters
         /// <summary>Specifies the type of index that wildcard expressions can match. Supports comma-separated values.</summary>
@@ -102,8 +95,7 @@ namespace OpenSearch.Client
         public CatAliasesDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
-        public CatAliasesDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
+        public CatAliasesDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
 
         /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatAliasesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
@@ -111,11 +103,7 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for AllPitSegments <para>https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</para></summary>
     public partial class CatAllPitSegmentsDescriptor
-        : RequestDescriptorBase<
-            CatAllPitSegmentsDescriptor,
-            CatAllPitSegmentsRequestParameters,
-            ICatAllPitSegmentsRequest
-        >,
+        : RequestDescriptorBase<CatAllPitSegmentsDescriptor, CatAllPitSegmentsRequestParameters, ICatAllPitSegmentsRequest>,
             ICatAllPitSegmentsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatAllPitSegments;
@@ -126,8 +114,7 @@ namespace OpenSearch.Client
         public CatAllPitSegmentsDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatAllPitSegmentsDescriptor Format(CatResponseFormat? format) =>
-            Qs("format", format);
+        public CatAllPitSegmentsDescriptor Format(CatResponseFormat? format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatAllPitSegmentsDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -136,8 +123,7 @@ namespace OpenSearch.Client
         public CatAllPitSegmentsDescriptor Help(bool? help = true) => Qs("help", help);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
-        public CatAllPitSegmentsDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
+        public CatAllPitSegmentsDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
 
         /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatAllPitSegmentsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
@@ -145,23 +131,17 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Allocation <para>https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/</para></summary>
     public partial class CatAllocationDescriptor
-        : RequestDescriptorBase<
-            CatAllocationDescriptor,
-            CatAllocationRequestParameters,
-            ICatAllocationRequest
-        >,
+        : RequestDescriptorBase<CatAllocationDescriptor, CatAllocationRequestParameters, ICatAllocationRequest>,
             ICatAllocationRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatAllocation;
 
         /// <summary>/_cat/allocation</summary>
-        public CatAllocationDescriptor()
-            : base() { }
+        public CatAllocationDescriptor() : base() { }
 
         /// <summary>/_cat/allocation/{node_id}</summary>
         /// <param name="nodeId">Optional, accepts null</param>
-        public CatAllocationDescriptor(NodeIds nodeId)
-            : base(r => r.Optional("node_id", nodeId)) { }
+        public CatAllocationDescriptor(NodeIds nodeId) : base(r => r.Optional("node_id", nodeId)) { }
 
         // values part of the url path
         NodeIds ICatAllocationRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
@@ -192,15 +172,11 @@ namespace OpenSearch.Client
         public CatAllocationDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>A timeout for connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public CatAllocationDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public CatAllocationDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
-        public CatAllocationDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
+        public CatAllocationDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
 
         /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatAllocationDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
@@ -208,11 +184,7 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for ClusterManager <para>https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</para></summary>
     public partial class CatClusterManagerDescriptor
-        : RequestDescriptorBase<
-            CatClusterManagerDescriptor,
-            CatClusterManagerRequestParameters,
-            ICatClusterManagerRequest
-        >,
+        : RequestDescriptorBase<CatClusterManagerDescriptor, CatClusterManagerRequestParameters, ICatClusterManagerRequest>,
             ICatClusterManagerRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatClusterManager;
@@ -225,8 +197,7 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>A short version of the HTTP <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatClusterManagerDescriptor Format(CatResponseFormat? format) =>
-            Qs("format", format);
+        public CatClusterManagerDescriptor Format(CatResponseFormat? format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatClusterManagerDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -238,15 +209,11 @@ namespace OpenSearch.Client
         public CatClusterManagerDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>A timeout for connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public CatClusterManagerDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public CatClusterManagerDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
-        public CatClusterManagerDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
+        public CatClusterManagerDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
 
         /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatClusterManagerDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
@@ -260,24 +227,20 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatCount;
 
         /// <summary>/_cat/count</summary>
-        public CatCountDescriptor()
-            : base() { }
+        public CatCountDescriptor() : base() { }
 
         /// <summary>/_cat/count/{index}</summary>
         /// <param name="index">Optional, accepts null</param>
-        public CatCountDescriptor(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public CatCountDescriptor(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         Indices ICatCountRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
-        public CatCountDescriptor Index(Indices index) =>
-            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+        public CatCountDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public CatCountDescriptor Index<TOther>()
-            where TOther : class =>
+        public CatCountDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -294,8 +257,7 @@ namespace OpenSearch.Client
         public CatCountDescriptor Help(bool? help = true) => Qs("help", help);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
-        public CatCountDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
+        public CatCountDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
 
         /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatCountDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
@@ -303,23 +265,17 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Fielddata <para>https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/</para></summary>
     public partial class CatFielddataDescriptor
-        : RequestDescriptorBase<
-            CatFielddataDescriptor,
-            CatFielddataRequestParameters,
-            ICatFielddataRequest
-        >,
+        : RequestDescriptorBase<CatFielddataDescriptor, CatFielddataRequestParameters, ICatFielddataRequest>,
             ICatFielddataRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatFielddata;
 
         /// <summary>/_cat/fielddata</summary>
-        public CatFielddataDescriptor()
-            : base() { }
+        public CatFielddataDescriptor() : base() { }
 
         /// <summary>/_cat/fielddata/{fields}</summary>
         /// <param name="fields">Optional, accepts null</param>
-        public CatFielddataDescriptor(Fields fields)
-            : base(r => r.Optional("fields", fields)) { }
+        public CatFielddataDescriptor(Fields fields) : base(r => r.Optional("fields", fields)) { }
 
         // values part of the url path
         Fields ICatFielddataRequest.Fields => Self.RouteValues.Get<Fields>("fields");
@@ -346,8 +302,7 @@ namespace OpenSearch.Client
         public CatFielddataDescriptor Help(bool? help = true) => Qs("help", help);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
-        public CatFielddataDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
+        public CatFielddataDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
 
         /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatFielddataDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
@@ -372,12 +327,10 @@ namespace OpenSearch.Client
         public CatHealthDescriptor Help(bool? help = true) => Qs("help", help);
 
         /// <summary>When <c>true</c>, returns <c>HH:MM:SS</c> and Unix epoch timestamps.</summary>
-        public CatHealthDescriptor IncludeTimestamp(bool? includetimestamp = true) =>
-            Qs("ts", includetimestamp);
+        public CatHealthDescriptor IncludeTimestamp(bool? includetimestamp = true) => Qs("ts", includetimestamp);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
-        public CatHealthDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
+        public CatHealthDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
 
         /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatHealthDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
@@ -389,40 +342,33 @@ namespace OpenSearch.Client
             ICatHelpRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatHelp;
+
         // values part of the url path
         // Request parameters
     }
 
     /// <summary>Descriptor for Indices <para>https://docs.opensearch.org/latest/api-reference/cat/cat-indices/</para></summary>
     public partial class CatIndicesDescriptor
-        : RequestDescriptorBase<
-            CatIndicesDescriptor,
-            CatIndicesRequestParameters,
-            ICatIndicesRequest
-        >,
+        : RequestDescriptorBase<CatIndicesDescriptor, CatIndicesRequestParameters, ICatIndicesRequest>,
             ICatIndicesRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatIndices;
 
         /// <summary>/_cat/indices</summary>
-        public CatIndicesDescriptor()
-            : base() { }
+        public CatIndicesDescriptor() : base() { }
 
         /// <summary>/_cat/indices/{index}</summary>
         /// <param name="index">Optional, accepts null</param>
-        public CatIndicesDescriptor(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public CatIndicesDescriptor(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         Indices ICatIndicesRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
-        public CatIndicesDescriptor Index(Indices index) =>
-            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+        public CatIndicesDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public CatIndicesDescriptor Index<TOther>()
-            where TOther : class =>
+        public CatIndicesDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -461,18 +407,14 @@ namespace OpenSearch.Client
         public CatIndicesDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public CatIndicesDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public CatIndicesDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>When <c>true</c>, returns information only from the primary shards.</summary>
         public CatIndicesDescriptor Pri(bool? pri = true) => Qs("pri", pri);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
-        public CatIndicesDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
+        public CatIndicesDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
 
         /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatIndicesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
@@ -505,15 +447,11 @@ namespace OpenSearch.Client
         public CatMasterDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public CatMasterDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public CatMasterDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
-        public CatMasterDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
+        public CatMasterDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
 
         /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatMasterDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
@@ -521,11 +459,7 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for NodeAttributes <para>https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/</para></summary>
     public partial class CatNodeAttributesDescriptor
-        : RequestDescriptorBase<
-            CatNodeAttributesDescriptor,
-            CatNodeAttributesRequestParameters,
-            ICatNodeAttributesRequest
-        >,
+        : RequestDescriptorBase<CatNodeAttributesDescriptor, CatNodeAttributesRequestParameters, ICatNodeAttributesRequest>,
             ICatNodeAttributesRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatNodeAttributes;
@@ -538,8 +472,7 @@ namespace OpenSearch.Client
             Qs("cluster_manager_timeout", clustermanagertimeout);
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatNodeAttributesDescriptor Format(CatResponseFormat? format) =>
-            Qs("format", format);
+        public CatNodeAttributesDescriptor Format(CatResponseFormat? format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatNodeAttributesDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -551,15 +484,11 @@ namespace OpenSearch.Client
         public CatNodeAttributesDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public CatNodeAttributesDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public CatNodeAttributesDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
-        public CatNodeAttributesDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
+        public CatNodeAttributesDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
 
         /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatNodeAttributesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
@@ -595,21 +524,15 @@ namespace OpenSearch.Client
         public CatNodesDescriptor Help(bool? help = true) => Qs("help", help);
 
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 1.0.0, reason: This parameter does not cause this API to act locally."
-        )]
+        [Obsolete("Deprecated as of: 1.0.0, reason: This parameter does not cause this API to act locally.")]
         public CatNodesDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public CatNodesDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public CatNodesDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
-        public CatNodesDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
+        public CatNodesDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
 
         /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatNodesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
@@ -617,11 +540,7 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for PendingTasks <para>https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/</para></summary>
     public partial class CatPendingTasksDescriptor
-        : RequestDescriptorBase<
-            CatPendingTasksDescriptor,
-            CatPendingTasksRequestParameters,
-            ICatPendingTasksRequest
-        >,
+        : RequestDescriptorBase<CatPendingTasksDescriptor, CatPendingTasksRequestParameters, ICatPendingTasksRequest>,
             ICatPendingTasksRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatPendingTasks;
@@ -646,15 +565,11 @@ namespace OpenSearch.Client
         public CatPendingTasksDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public CatPendingTasksDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public CatPendingTasksDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
-        public CatPendingTasksDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
+        public CatPendingTasksDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
 
         /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatPendingTasksDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
@@ -662,11 +577,7 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for PitSegments <para>https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</para></summary>
     public partial class CatPitSegmentsDescriptor
-        : RequestDescriptorBase<
-            CatPitSegmentsDescriptor,
-            CatPitSegmentsRequestParameters,
-            ICatPitSegmentsRequest
-        >,
+        : RequestDescriptorBase<CatPitSegmentsDescriptor, CatPitSegmentsRequestParameters, ICatPitSegmentsRequest>,
             ICatPitSegmentsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatPitSegments;
@@ -686,8 +597,7 @@ namespace OpenSearch.Client
         public CatPitSegmentsDescriptor Help(bool? help = true) => Qs("help", help);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
-        public CatPitSegmentsDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
+        public CatPitSegmentsDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
 
         /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatPitSegmentsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
@@ -695,11 +605,7 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Plugins <para>https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</para></summary>
     public partial class CatPluginsDescriptor
-        : RequestDescriptorBase<
-            CatPluginsDescriptor,
-            CatPluginsRequestParameters,
-            ICatPluginsRequest
-        >,
+        : RequestDescriptorBase<CatPluginsDescriptor, CatPluginsRequestParameters, ICatPluginsRequest>,
             ICatPluginsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatPlugins;
@@ -724,15 +630,11 @@ namespace OpenSearch.Client
         public CatPluginsDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public CatPluginsDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public CatPluginsDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
-        public CatPluginsDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
+        public CatPluginsDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
 
         /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatPluginsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
@@ -740,34 +642,26 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Recovery <para>https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</para></summary>
     public partial class CatRecoveryDescriptor
-        : RequestDescriptorBase<
-            CatRecoveryDescriptor,
-            CatRecoveryRequestParameters,
-            ICatRecoveryRequest
-        >,
+        : RequestDescriptorBase<CatRecoveryDescriptor, CatRecoveryRequestParameters, ICatRecoveryRequest>,
             ICatRecoveryRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatRecovery;
 
         /// <summary>/_cat/recovery</summary>
-        public CatRecoveryDescriptor()
-            : base() { }
+        public CatRecoveryDescriptor() : base() { }
 
         /// <summary>/_cat/recovery/{index}</summary>
         /// <param name="index">Optional, accepts null</param>
-        public CatRecoveryDescriptor(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public CatRecoveryDescriptor(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         Indices ICatRecoveryRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
-        public CatRecoveryDescriptor Index(Indices index) =>
-            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+        public CatRecoveryDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public CatRecoveryDescriptor Index<TOther>()
-            where TOther : class =>
+        public CatRecoveryDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -775,8 +669,7 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>If <c>true</c>, the response only includes ongoing shard recoveries.</summary>
-        public CatRecoveryDescriptor ActiveOnly(bool? activeonly = true) =>
-            Qs("active_only", activeonly);
+        public CatRecoveryDescriptor ActiveOnly(bool? activeonly = true) => Qs("active_only", activeonly);
 
         /// <summary>The units used to display byte values.</summary>
         public CatRecoveryDescriptor Bytes(ByteUnit? bytes) => Qs("bytes", bytes);
@@ -794,8 +687,7 @@ namespace OpenSearch.Client
         public CatRecoveryDescriptor Help(bool? help = true) => Qs("help", help);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
-        public CatRecoveryDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
+        public CatRecoveryDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
 
         /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatRecoveryDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
@@ -803,11 +695,7 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Repositories <para>https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/</para></summary>
     public partial class CatRepositoriesDescriptor
-        : RequestDescriptorBase<
-            CatRepositoriesDescriptor,
-            CatRepositoriesRequestParameters,
-            ICatRepositoriesRequest
-        >,
+        : RequestDescriptorBase<CatRepositoriesDescriptor, CatRepositoriesRequestParameters, ICatRepositoriesRequest>,
             ICatRepositoriesRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatRepositories;
@@ -832,15 +720,11 @@ namespace OpenSearch.Client
         public CatRepositoriesDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public CatRepositoriesDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public CatRepositoriesDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
-        public CatRepositoriesDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
+        public CatRepositoriesDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
 
         /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatRepositoriesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
@@ -848,23 +732,17 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for SegmentReplication <para>https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/</para></summary>
     public partial class CatSegmentReplicationDescriptor
-        : RequestDescriptorBase<
-            CatSegmentReplicationDescriptor,
-            CatSegmentReplicationRequestParameters,
-            ICatSegmentReplicationRequest
-        >,
+        : RequestDescriptorBase<CatSegmentReplicationDescriptor, CatSegmentReplicationRequestParameters, ICatSegmentReplicationRequest>,
             ICatSegmentReplicationRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatSegmentReplication;
 
         /// <summary>/_cat/segment_replication</summary>
-        public CatSegmentReplicationDescriptor()
-            : base() { }
+        public CatSegmentReplicationDescriptor() : base() { }
 
         /// <summary>/_cat/segment_replication/{index}</summary>
         /// <param name="index">Optional, accepts null</param>
-        public CatSegmentReplicationDescriptor(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public CatSegmentReplicationDescriptor(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         Indices ICatSegmentReplicationRequest.Index => Self.RouteValues.Get<Indices>("index");
@@ -874,8 +752,7 @@ namespace OpenSearch.Client
             Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public CatSegmentReplicationDescriptor Index<TOther>()
-            where TOther : class =>
+        public CatSegmentReplicationDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -883,8 +760,7 @@ namespace OpenSearch.Client
 
         // Request parameters
         /// <summary>When <c>true</c>, the response only includes ongoing segment replication events.</summary>
-        public CatSegmentReplicationDescriptor ActiveOnly(bool? activeonly = true) =>
-            Qs("active_only", activeonly);
+        public CatSegmentReplicationDescriptor ActiveOnly(bool? activeonly = true) => Qs("active_only", activeonly);
 
         /// <summary>Whether to ignore the index if a wildcard index expression resolves to no concrete indexes. This includes the <c>_all</c> string or when no indexes have been specified.</summary>
         public CatSegmentReplicationDescriptor AllowNoIndices(bool? allownoindices = true) =>
@@ -898,16 +774,14 @@ namespace OpenSearch.Client
             Qs("completed_only", completedonly);
 
         /// <summary>When <c>true</c>, the response includes additional metrics for each stage of a segment replication event.</summary>
-        public CatSegmentReplicationDescriptor Detailed(bool? detailed = true) =>
-            Qs("detailed", detailed);
+        public CatSegmentReplicationDescriptor Detailed(bool? detailed = true) => Qs("detailed", detailed);
 
         /// <summary>Specifies the type of index that wildcard expressions can match. Supports comma-separated values.</summary>
         public CatSegmentReplicationDescriptor ExpandWildcards(ExpandWildcards? expandwildcards) =>
             Qs("expand_wildcards", expandwildcards);
 
         /// <summary>A short version of the <c>Accept</c> header, such as <c>json</c> or <c>yaml</c>.</summary>
-        public CatSegmentReplicationDescriptor Format(CatResponseFormat? format) =>
-            Qs("format", format);
+        public CatSegmentReplicationDescriptor Format(CatResponseFormat? format) => Qs("format", format);
 
         /// <summary>A comma-separated list of column names to display.</summary>
         public CatSegmentReplicationDescriptor Headers(params string[] headers) => Qs("h", headers);
@@ -924,12 +798,10 @@ namespace OpenSearch.Client
             Qs("ignore_unavailable", ignoreunavailable);
 
         /// <summary>A comma-separated list of shards to display.</summary>
-        public CatSegmentReplicationDescriptor Shards(params string[] shards) =>
-            Qs("shards", shards);
+        public CatSegmentReplicationDescriptor Shards(params string[] shards) => Qs("shards", shards);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
-        public CatSegmentReplicationDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
+        public CatSegmentReplicationDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
 
         /// <summary>The operation timeout.</summary>
         public CatSegmentReplicationDescriptor Timeout(Time timeout) => Qs("timeout", timeout);
@@ -940,34 +812,26 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Segments <para>https://docs.opensearch.org/latest/api-reference/cat/cat-segments/</para></summary>
     public partial class CatSegmentsDescriptor
-        : RequestDescriptorBase<
-            CatSegmentsDescriptor,
-            CatSegmentsRequestParameters,
-            ICatSegmentsRequest
-        >,
+        : RequestDescriptorBase<CatSegmentsDescriptor, CatSegmentsRequestParameters, ICatSegmentsRequest>,
             ICatSegmentsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatSegments;
 
         /// <summary>/_cat/segments</summary>
-        public CatSegmentsDescriptor()
-            : base() { }
+        public CatSegmentsDescriptor() : base() { }
 
         /// <summary>/_cat/segments/{index}</summary>
         /// <param name="index">Optional, accepts null</param>
-        public CatSegmentsDescriptor(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public CatSegmentsDescriptor(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         Indices ICatSegmentsRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
-        public CatSegmentsDescriptor Index(Indices index) =>
-            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+        public CatSegmentsDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public CatSegmentsDescriptor Index<TOther>()
-            where TOther : class =>
+        public CatSegmentsDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -992,15 +856,11 @@ namespace OpenSearch.Client
         public CatSegmentsDescriptor Help(bool? help = true) => Qs("help", help);
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public CatSegmentsDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public CatSegmentsDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
-        public CatSegmentsDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
+        public CatSegmentsDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
 
         /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatSegmentsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
@@ -1014,24 +874,20 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatShards;
 
         /// <summary>/_cat/shards</summary>
-        public CatShardsDescriptor()
-            : base() { }
+        public CatShardsDescriptor() : base() { }
 
         /// <summary>/_cat/shards/{index}</summary>
         /// <param name="index">Optional, accepts null</param>
-        public CatShardsDescriptor(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public CatShardsDescriptor(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         Indices ICatShardsRequest.Index => Self.RouteValues.Get<Indices>("index");
 
         /// <summary>A comma-separated list of data streams, indexes, and aliases used to limit the request. Supports wildcards (<c>*</c>). To target all data streams and indexes, omit this parameter or use <c>*</c> or <c>_all</c>.</summary>
-        public CatShardsDescriptor Index(Indices index) =>
-            Assign(index, (a, v) => a.RouteValues.Optional("index", v));
+        public CatShardsDescriptor Index(Indices index) => Assign(index, (a, v) => a.RouteValues.Optional("index", v));
 
         /// <summary>a shortcut into calling Index(typeof(TOther))</summary>
-        public CatShardsDescriptor Index<TOther>()
-            where TOther : class =>
+        public CatShardsDescriptor Index<TOther>() where TOther : class =>
             Assign(typeof(TOther), (a, v) => a.RouteValues.Optional("index", (Indices)v));
 
         /// <summary>A shortcut into calling Index(Indices.All)</summary>
@@ -1059,15 +915,11 @@ namespace OpenSearch.Client
         public CatShardsDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public CatShardsDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public CatShardsDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
-        public CatShardsDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
+        public CatShardsDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
 
         /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatShardsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
@@ -1075,23 +927,17 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Snapshots <para>https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/</para></summary>
     public partial class CatSnapshotsDescriptor
-        : RequestDescriptorBase<
-            CatSnapshotsDescriptor,
-            CatSnapshotsRequestParameters,
-            ICatSnapshotsRequest
-        >,
+        : RequestDescriptorBase<CatSnapshotsDescriptor, CatSnapshotsRequestParameters, ICatSnapshotsRequest>,
             ICatSnapshotsRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatSnapshots;
 
         /// <summary>/_cat/snapshots</summary>
-        public CatSnapshotsDescriptor()
-            : base() { }
+        public CatSnapshotsDescriptor() : base() { }
 
         /// <summary>/_cat/snapshots/{repository}</summary>
         /// <param name="repository">Optional, accepts null</param>
-        public CatSnapshotsDescriptor(Names repository)
-            : base(r => r.Optional("repository", repository)) { }
+        public CatSnapshotsDescriptor(Names repository) : base(r => r.Optional("repository", repository)) { }
 
         // values part of the url path
         Names ICatSnapshotsRequest.RepositoryName => Self.RouteValues.Get<Names>("repository");
@@ -1120,15 +966,11 @@ namespace OpenSearch.Client
             Qs("ignore_unavailable", ignoreunavailable);
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public CatSnapshotsDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public CatSnapshotsDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
-        public CatSnapshotsDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
+        public CatSnapshotsDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
 
         /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatSnapshotsDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
@@ -1162,12 +1004,10 @@ namespace OpenSearch.Client
         public CatTasksDescriptor Nodes(params string[] nodes) => Qs("nodes", nodes);
 
         /// <summary>The parent task identifier, which is used to limit the response.</summary>
-        public CatTasksDescriptor ParentTaskId(string parenttaskid) =>
-            Qs("parent_task_id", parenttaskid);
+        public CatTasksDescriptor ParentTaskId(string parenttaskid) => Qs("parent_task_id", parenttaskid);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
-        public CatTasksDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
+        public CatTasksDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
 
         /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatTasksDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
@@ -1175,30 +1015,23 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Templates <para>https://docs.opensearch.org/latest/api-reference/cat/cat-templates/</para></summary>
     public partial class CatTemplatesDescriptor
-        : RequestDescriptorBase<
-            CatTemplatesDescriptor,
-            CatTemplatesRequestParameters,
-            ICatTemplatesRequest
-        >,
+        : RequestDescriptorBase<CatTemplatesDescriptor, CatTemplatesRequestParameters, ICatTemplatesRequest>,
             ICatTemplatesRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatTemplates;
 
         /// <summary>/_cat/templates</summary>
-        public CatTemplatesDescriptor()
-            : base() { }
+        public CatTemplatesDescriptor() : base() { }
 
         /// <summary>/_cat/templates/{name}</summary>
         /// <param name="name">Optional, accepts null</param>
-        public CatTemplatesDescriptor(Name name)
-            : base(r => r.Optional("name", name)) { }
+        public CatTemplatesDescriptor(Name name) : base(r => r.Optional("name", name)) { }
 
         // values part of the url path
         Name ICatTemplatesRequest.Name => Self.RouteValues.Get<Name>("name");
 
         /// <summary>The name of the template to return. Accepts wildcard expressions. If omitted, all templates are returned.</summary>
-        public CatTemplatesDescriptor Name(Name name) =>
-            Assign(name, (a, v) => a.RouteValues.Optional("name", v));
+        public CatTemplatesDescriptor Name(Name name) => Assign(name, (a, v) => a.RouteValues.Optional("name", v));
 
         // Request parameters
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
@@ -1219,15 +1052,11 @@ namespace OpenSearch.Client
         public CatTemplatesDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public CatTemplatesDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public CatTemplatesDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
-        public CatTemplatesDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
+        public CatTemplatesDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
 
         /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatTemplatesDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);
@@ -1235,27 +1064,20 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for ThreadPool <para>https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/</para></summary>
     public partial class CatThreadPoolDescriptor
-        : RequestDescriptorBase<
-            CatThreadPoolDescriptor,
-            CatThreadPoolRequestParameters,
-            ICatThreadPoolRequest
-        >,
+        : RequestDescriptorBase<CatThreadPoolDescriptor, CatThreadPoolRequestParameters, ICatThreadPoolRequest>,
             ICatThreadPoolRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.CatThreadPool;
 
         /// <summary>/_cat/thread_pool</summary>
-        public CatThreadPoolDescriptor()
-            : base() { }
+        public CatThreadPoolDescriptor() : base() { }
 
         /// <summary>/_cat/thread_pool/{thread_pool_patterns}</summary>
         /// <param name="threadPoolPatterns">Optional, accepts null</param>
-        public CatThreadPoolDescriptor(Names threadPoolPatterns)
-            : base(r => r.Optional("thread_pool_patterns", threadPoolPatterns)) { }
+        public CatThreadPoolDescriptor(Names threadPoolPatterns) : base(r => r.Optional("thread_pool_patterns", threadPoolPatterns)) { }
 
         // values part of the url path
-        Names ICatThreadPoolRequest.ThreadPoolPatterns =>
-            Self.RouteValues.Get<Names>("thread_pool_patterns");
+        Names ICatThreadPoolRequest.ThreadPoolPatterns => Self.RouteValues.Get<Names>("thread_pool_patterns");
 
         /// <summary>A comma-separated list of thread pool names used to limit the request. Accepts wildcard expressions.</summary>
         public CatThreadPoolDescriptor ThreadPoolPatterns(Names threadPoolPatterns) =>
@@ -1280,18 +1102,14 @@ namespace OpenSearch.Client
         public CatThreadPoolDescriptor Local(bool? local = true) => Qs("local", local);
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
-        public CatThreadPoolDescriptor MasterTimeout(Time mastertimeout) =>
-            Qs("master_timeout", mastertimeout);
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
+        public CatThreadPoolDescriptor MasterTimeout(Time mastertimeout) => Qs("master_timeout", mastertimeout);
 
         /// <summary>The multiplier in which to display values.</summary>
         public CatThreadPoolDescriptor Size(int? size) => Qs("size", size);
 
         /// <summary>A comma-separated list of column names or column aliases to sort by.</summary>
-        public CatThreadPoolDescriptor SortByColumns(params string[] sortbycolumns) =>
-            Qs("s", sortbycolumns);
+        public CatThreadPoolDescriptor SortByColumns(params string[] sortbycolumns) => Qs("s", sortbycolumns);
 
         /// <summary>Enables verbose mode, which displays column headers.</summary>
         public CatThreadPoolDescriptor Verbose(bool? verbose = true) => Qs("v", verbose);

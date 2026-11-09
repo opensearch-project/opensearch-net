@@ -59,8 +59,9 @@ using OpenSearch.Net.Utf8Json;
 namespace OpenSearch.Client
 {
     [InterfaceDataContract]
-    public partial interface IClusterAllocationExplainRequest
-        : IRequest<ClusterAllocationExplainRequestParameters> { }
+    public partial interface IClusterAllocationExplainRequest : IRequest<ClusterAllocationExplainRequestParameters>
+    {
+    }
 
     /// <summary>Request for AllocationExplain <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-allocation/</para></summary>
     public partial class ClusterAllocationExplainRequest
@@ -71,7 +72,6 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterAllocationExplain;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>When <c>true</c>, returns information about disk usage and shard sizes.</summary>
         public bool? IncludeDiskInfo
@@ -92,8 +92,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IDeleteComponentTemplateRequest
-        : IRequest<DeleteComponentTemplateRequestParameters>
+    public partial interface IDeleteComponentTemplateRequest : IRequest<DeleteComponentTemplateRequestParameters>
     {
         [IgnoreDataMember]
         Name Name { get; }
@@ -109,13 +108,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_component_template/{name}</summary>
         /// <param name="name">this parameter is required</param>
-        public DeleteComponentTemplateRequest(Name name)
-            : base(r => r.Required("name", name)) { }
+        public DeleteComponentTemplateRequest(Name name) : base(r => r.Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteComponentTemplateRequest()
-            : base() { }
+        protected DeleteComponentTemplateRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -137,9 +134,7 @@ namespace OpenSearch.Client
         /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
         /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -158,8 +153,9 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IDeleteVotingConfigExclusionsRequest
-        : IRequest<DeleteVotingConfigExclusionsRequestParameters> { }
+    public partial interface IDeleteVotingConfigExclusionsRequest : IRequest<DeleteVotingConfigExclusionsRequestParameters>
+    {
+    }
 
     /// <summary>Request for DeleteVotingConfigExclusions <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class DeleteVotingConfigExclusionsRequest
@@ -170,7 +166,6 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterDeleteVotingConfigExclusions;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>
         /// Specifies whether to wait for all excluded nodes to be removed from the cluster before clearing the voting configuration exclusions list.
@@ -185,8 +180,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IComponentTemplateExistsRequest
-        : IRequest<ComponentTemplateExistsRequestParameters>
+    public partial interface IComponentTemplateExistsRequest : IRequest<ComponentTemplateExistsRequestParameters>
     {
         [IgnoreDataMember]
         Name Name { get; }
@@ -202,13 +196,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_component_template/{name}</summary>
         /// <param name="name">this parameter is required</param>
-        public ComponentTemplateExistsRequest(Name name)
-            : base(r => r.Required("name", name)) { }
+        public ComponentTemplateExistsRequest(Name name) : base(r => r.Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected ComponentTemplateExistsRequest()
-            : base() { }
+        protected ComponentTemplateExistsRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -240,9 +232,7 @@ namespace OpenSearch.Client
         /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
         /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -251,8 +241,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IGetComponentTemplateRequest
-        : IRequest<GetComponentTemplateRequestParameters>
+    public partial interface IGetComponentTemplateRequest : IRequest<GetComponentTemplateRequestParameters>
     {
         [IgnoreDataMember]
         Name Name { get; }
@@ -267,13 +256,11 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterGetComponentTemplate;
 
         /// <summary>/_component_template</summary>
-        public GetComponentTemplateRequest()
-            : base() { }
+        public GetComponentTemplateRequest() : base() { }
 
         /// <summary>/_component_template/{name}</summary>
         /// <param name="name">Optional, accepts null</param>
-        public GetComponentTemplateRequest(Name name)
-            : base(r => r.Optional("name", name)) { }
+        public GetComponentTemplateRequest(Name name) : base(r => r.Optional("name", name)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -316,9 +303,7 @@ namespace OpenSearch.Client
         /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
         /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -327,8 +312,9 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IClusterGetSettingsRequest
-        : IRequest<ClusterGetSettingsRequestParameters> { }
+    public partial interface IClusterGetSettingsRequest : IRequest<ClusterGetSettingsRequestParameters>
+    {
+    }
 
     /// <summary>Request for GetSettings <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-settings/</para></summary>
     public partial class ClusterGetSettingsRequest
@@ -339,7 +325,6 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterGetSettings;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
@@ -374,9 +359,7 @@ namespace OpenSearch.Client
         /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
         /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -402,21 +385,17 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Health <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-health/</para></summary>
-    public partial class ClusterHealthRequest
-        : PlainRequestBase<ClusterHealthRequestParameters>,
-            IClusterHealthRequest
+    public partial class ClusterHealthRequest : PlainRequestBase<ClusterHealthRequestParameters>, IClusterHealthRequest
     {
         protected IClusterHealthRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterHealth;
 
         /// <summary>/_cluster/health</summary>
-        public ClusterHealthRequest()
-            : base() { }
+        public ClusterHealthRequest() : base() { }
 
         /// <summary>/_cluster/health/{index}</summary>
         /// <param name="index">Optional, accepts null</param>
-        public ClusterHealthRequest(Indices index)
-            : base(r => r.Optional("index", index)) { }
+        public ClusterHealthRequest(Indices index) : base(r => r.Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -469,9 +448,7 @@ namespace OpenSearch.Client
         /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
         /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -535,8 +512,9 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IClusterPendingTasksRequest
-        : IRequest<ClusterPendingTasksRequestParameters> { }
+    public partial interface IClusterPendingTasksRequest : IRequest<ClusterPendingTasksRequestParameters>
+    {
+    }
 
     /// <summary>Request for PendingTasks <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ClusterPendingTasksRequest
@@ -547,7 +525,6 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPendingTasks;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
@@ -574,9 +551,7 @@ namespace OpenSearch.Client
         /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
         /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -585,8 +560,9 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IPostVotingConfigExclusionsRequest
-        : IRequest<PostVotingConfigExclusionsRequestParameters> { }
+    public partial interface IPostVotingConfigExclusionsRequest : IRequest<PostVotingConfigExclusionsRequestParameters>
+    {
+    }
 
     /// <summary>Request for PostVotingConfigExclusions <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class PostVotingConfigExclusionsRequest
@@ -597,7 +573,6 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPostVotingConfigExclusions;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>
         /// A comma-separated list of node IDs to exclude from the voting configuration. When using this setting, you cannot also specify
@@ -631,8 +606,7 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IPutComponentTemplateRequest
-        : IRequest<PutComponentTemplateRequestParameters>
+    public partial interface IPutComponentTemplateRequest : IRequest<PutComponentTemplateRequestParameters>
     {
         [IgnoreDataMember]
         Name Name { get; }
@@ -648,13 +622,11 @@ namespace OpenSearch.Client
 
         /// <summary>/_component_template/{name}</summary>
         /// <param name="name">this parameter is required</param>
-        public PutComponentTemplateRequest(Name name)
-            : base(r => r.Required("name", name)) { }
+        public PutComponentTemplateRequest(Name name) : base(r => r.Required("name", name)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected PutComponentTemplateRequest()
-            : base() { }
+        protected PutComponentTemplateRequest() : base() { }
 
         // values part of the url path
         [IgnoreDataMember]
@@ -683,9 +655,7 @@ namespace OpenSearch.Client
         /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
         /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -704,8 +674,9 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IClusterPutSettingsRequest
-        : IRequest<ClusterPutSettingsRequestParameters> { }
+    public partial interface IClusterPutSettingsRequest : IRequest<ClusterPutSettingsRequestParameters>
+    {
+    }
 
     /// <summary>Request for PutSettings <para>https://docs.opensearch.org/latest/api-reference/cluster-settings/</para></summary>
     public partial class ClusterPutSettingsRequest
@@ -716,7 +687,6 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterPutSettings;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
@@ -744,9 +714,7 @@ namespace OpenSearch.Client
         /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
         /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -765,22 +733,24 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
-    public partial interface IRemoteInfoRequest : IRequest<RemoteInfoRequestParameters> { }
+    public partial interface IRemoteInfoRequest : IRequest<RemoteInfoRequestParameters>
+    {
+    }
 
     /// <summary>Request for RemoteInfo <para>https://docs.opensearch.org/latest/api-reference/remote-info/</para></summary>
-    public partial class RemoteInfoRequest
-        : PlainRequestBase<RemoteInfoRequestParameters>,
-            IRemoteInfoRequest
+    public partial class RemoteInfoRequest : PlainRequestBase<RemoteInfoRequestParameters>, IRemoteInfoRequest
     {
         protected IRemoteInfoRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterRemoteInfo;
-        // values part of the url path
 
+        // values part of the url path
         // Request parameters
     }
 
     [InterfaceDataContract]
-    public partial interface IClusterRerouteRequest : IRequest<ClusterRerouteRequestParameters> { }
+    public partial interface IClusterRerouteRequest : IRequest<ClusterRerouteRequestParameters>
+    {
+    }
 
     /// <summary>Request for Reroute <para>https://docs.opensearch.org/latest/</para></summary>
     public partial class ClusterRerouteRequest
@@ -791,7 +761,6 @@ namespace OpenSearch.Client
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterReroute;
 
         // values part of the url path
-
         // Request parameters
         /// <summary>
         /// The amount of time to wait for a response from the cluster manager node. For more information about supported time units, see <a
@@ -822,9 +791,7 @@ namespace OpenSearch.Client
         /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
         /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -867,32 +834,26 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for State <para>https://docs.opensearch.org/latest/</para></summary>
-    public partial class ClusterStateRequest
-        : PlainRequestBase<ClusterStateRequestParameters>,
-            IClusterStateRequest
+    public partial class ClusterStateRequest : PlainRequestBase<ClusterStateRequestParameters>, IClusterStateRequest
     {
         protected IClusterStateRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterState;
 
         /// <summary>/_cluster/state</summary>
-        public ClusterStateRequest()
-            : base() { }
+        public ClusterStateRequest() : base() { }
 
         /// <summary>/_cluster/state/{metric}</summary>
         /// <param name="metric">Optional, accepts null</param>
-        public ClusterStateRequest(Metrics metric)
-            : base(r => r.Optional("metric", metric)) { }
+        public ClusterStateRequest(Metrics metric) : base(r => r.Optional("metric", metric)) { }
 
         /// <summary>/_cluster/state/{metric}/{index}</summary>
         /// <param name="metric">Optional, accepts null</param>
         /// <param name="index">Optional, accepts null</param>
-        public ClusterStateRequest(Metrics metric, Indices index)
-            : base(r => r.Optional("metric", metric).Optional("index", index)) { }
+        public ClusterStateRequest(Metrics metric, Indices index) : base(r => r.Optional("metric", metric).Optional("index", index)) { }
 
         // values part of the url path
         [IgnoreDataMember]
         Indices IClusterStateRequest.Index => Self.RouteValues.Get<Indices>("index");
-
         [IgnoreDataMember]
         Metrics IClusterStateRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
 
@@ -954,9 +915,7 @@ namespace OpenSearch.Client
         /// A duration. Units can be <c>nanos</c>, <c>micros</c>, <c>ms</c> (milliseconds), <c>s</c> (seconds), <c>m</c> (minutes), <c>h</c> (hours)
         /// and <c>d</c> (days). Also accepts <c>0</c> without a unit and <c>-1</c> to indicate an unspecified value.
         /// </summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public Time MasterTimeout
         {
             get => Q<Time>("master_timeout");
@@ -992,47 +951,34 @@ namespace OpenSearch.Client
     }
 
     /// <summary>Request for Stats <para>https://docs.opensearch.org/latest/api-reference/cluster-api/cluster-stats/</para></summary>
-    public partial class ClusterStatsRequest
-        : PlainRequestBase<ClusterStatsRequestParameters>,
-            IClusterStatsRequest
+    public partial class ClusterStatsRequest : PlainRequestBase<ClusterStatsRequestParameters>, IClusterStatsRequest
     {
         protected IClusterStatsRequest Self => this;
         internal override ApiUrls ApiUrls => ApiUrlsLookups.ClusterStats;
 
         /// <summary>/_cluster/stats</summary>
-        public ClusterStatsRequest()
-            : base() { }
+        public ClusterStatsRequest() : base() { }
 
         /// <summary>/_cluster/stats/{metric}/{index_metric}/nodes/{node_id}</summary>
         /// <param name="metric">Optional, accepts null</param>
         /// <param name="indexMetric">Optional, accepts null</param>
         /// <param name="nodeId">Optional, accepts null</param>
-        public ClusterStatsRequest(Metrics metric, IndexMetrics indexMetric, NodeIds nodeId)
-            : base(r =>
-                r.Optional("metric", metric)
-                    .Optional("index_metric", indexMetric)
-                    .Optional("node_id", nodeId)
-            ) { }
+        public ClusterStatsRequest(Metrics metric, IndexMetrics indexMetric, NodeIds nodeId) : base(r => r.Optional("metric", metric).Optional("index_metric", indexMetric).Optional("node_id", nodeId)) { }
 
         /// <summary>/_cluster/stats/{metric}/nodes/{node_id}</summary>
         /// <param name="metric">Optional, accepts null</param>
         /// <param name="nodeId">Optional, accepts null</param>
-        public ClusterStatsRequest(Metrics metric, NodeIds nodeId)
-            : base(r => r.Optional("metric", metric).Optional("node_id", nodeId)) { }
+        public ClusterStatsRequest(Metrics metric, NodeIds nodeId) : base(r => r.Optional("metric", metric).Optional("node_id", nodeId)) { }
 
         /// <summary>/_cluster/stats/nodes/{node_id}</summary>
         /// <param name="nodeId">Optional, accepts null</param>
-        public ClusterStatsRequest(NodeIds nodeId)
-            : base(r => r.Optional("node_id", nodeId)) { }
+        public ClusterStatsRequest(NodeIds nodeId) : base(r => r.Optional("node_id", nodeId)) { }
 
         // values part of the url path
         [IgnoreDataMember]
-        IndexMetrics IClusterStatsRequest.IndexMetric =>
-            Self.RouteValues.Get<IndexMetrics>("index_metric");
-
+        IndexMetrics IClusterStatsRequest.IndexMetric => Self.RouteValues.Get<IndexMetrics>("index_metric");
         [IgnoreDataMember]
         Metrics IClusterStatsRequest.Metric => Self.RouteValues.Get<Metrics>("metric");
-
         [IgnoreDataMember]
         NodeIds IClusterStatsRequest.NodeId => Self.RouteValues.Get<NodeIds>("node_id");
 

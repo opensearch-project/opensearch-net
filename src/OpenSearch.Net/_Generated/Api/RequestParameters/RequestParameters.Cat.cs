@@ -53,8 +53,7 @@ using System.Text;
 namespace OpenSearch.Net.Specification.CatApi
 {
     /// <summary>Request options for Aliases <para>https://docs.opensearch.org/latest/api-reference/cat/cat-aliases/</para></summary>
-    public partial class CatAliasesRequestParameters
-        : RequestParameters<CatAliasesRequestParameters>
+    public partial class CatAliasesRequestParameters : RequestParameters<CatAliasesRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -115,8 +114,7 @@ namespace OpenSearch.Net.Specification.CatApi
     }
 
     /// <summary>Request options for AllPitSegments <para>https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</para></summary>
-    public partial class CatAllPitSegmentsRequestParameters
-        : RequestParameters<CatAllPitSegmentsRequestParameters>
+    public partial class CatAllPitSegmentsRequestParameters : RequestParameters<CatAllPitSegmentsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -170,8 +168,7 @@ namespace OpenSearch.Net.Specification.CatApi
     }
 
     /// <summary>Request options for Allocation <para>https://docs.opensearch.org/latest/api-reference/cat/cat-allocation/</para></summary>
-    public partial class CatAllocationRequestParameters
-        : RequestParameters<CatAllocationRequestParameters>
+    public partial class CatAllocationRequestParameters : RequestParameters<CatAllocationRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -225,9 +222,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>A timeout for connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -250,8 +245,7 @@ namespace OpenSearch.Net.Specification.CatApi
     }
 
     /// <summary>Request options for ClusterManager <para>https://docs.opensearch.org/latest/api-reference/cat/cat-cluster_manager/</para></summary>
-    public partial class CatClusterManagerRequestParameters
-        : RequestParameters<CatClusterManagerRequestParameters>
+    public partial class CatClusterManagerRequestParameters : RequestParameters<CatClusterManagerRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -298,9 +292,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>A timeout for connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -370,8 +362,7 @@ namespace OpenSearch.Net.Specification.CatApi
     }
 
     /// <summary>Request options for Fielddata <para>https://docs.opensearch.org/latest/api-reference/cat/cat-field-data/</para></summary>
-    public partial class CatFielddataRequestParameters
-        : RequestParameters<CatFielddataRequestParameters>
+    public partial class CatFielddataRequestParameters : RequestParameters<CatFielddataRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -494,8 +485,7 @@ namespace OpenSearch.Net.Specification.CatApi
     }
 
     /// <summary>Request options for Indices <para>https://docs.opensearch.org/latest/api-reference/cat/cat-indices/</para></summary>
-    public partial class CatIndicesRequestParameters
-        : RequestParameters<CatIndicesRequestParameters>
+    public partial class CatIndicesRequestParameters : RequestParameters<CatIndicesRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -570,9 +560,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -649,9 +637,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -674,8 +660,7 @@ namespace OpenSearch.Net.Specification.CatApi
     }
 
     /// <summary>Request options for NodeAttributes <para>https://docs.opensearch.org/latest/api-reference/cat/cat-nodeattrs/</para></summary>
-    public partial class CatNodeAttributesRequestParameters
-        : RequestParameters<CatNodeAttributesRequestParameters>
+    public partial class CatNodeAttributesRequestParameters : RequestParameters<CatNodeAttributesRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -722,9 +707,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -801,9 +784,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>Returns local information but does not retrieve the state from the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 1.0.0, reason: This parameter does not cause this API to act locally."
-        )]
+        [Obsolete("Deprecated as of: 1.0.0, reason: This parameter does not cause this API to act locally.")]
         public bool? Local
         {
             get => Q<bool?>("local");
@@ -811,9 +792,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -836,8 +815,7 @@ namespace OpenSearch.Net.Specification.CatApi
     }
 
     /// <summary>Request options for PendingTasks <para>https://docs.opensearch.org/latest/api-reference/cat/cat-pending-tasks/</para></summary>
-    public partial class CatPendingTasksRequestParameters
-        : RequestParameters<CatPendingTasksRequestParameters>
+    public partial class CatPendingTasksRequestParameters : RequestParameters<CatPendingTasksRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -884,9 +862,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -909,8 +885,7 @@ namespace OpenSearch.Net.Specification.CatApi
     }
 
     /// <summary>Request options for PitSegments <para>https://docs.opensearch.org/latest/search-plugins/point-in-time-api/</para></summary>
-    public partial class CatPitSegmentsRequestParameters
-        : RequestParameters<CatPitSegmentsRequestParameters>
+    public partial class CatPitSegmentsRequestParameters : RequestParameters<CatPitSegmentsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => true;
@@ -964,8 +939,7 @@ namespace OpenSearch.Net.Specification.CatApi
     }
 
     /// <summary>Request options for Plugins <para>https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</para></summary>
-    public partial class CatPluginsRequestParameters
-        : RequestParameters<CatPluginsRequestParameters>
+    public partial class CatPluginsRequestParameters : RequestParameters<CatPluginsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -1012,9 +986,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -1037,8 +1009,7 @@ namespace OpenSearch.Net.Specification.CatApi
     }
 
     /// <summary>Request options for Recovery <para>https://docs.opensearch.org/latest/api-reference/cat/cat-plugins/</para></summary>
-    public partial class CatRecoveryRequestParameters
-        : RequestParameters<CatRecoveryRequestParameters>
+    public partial class CatRecoveryRequestParameters : RequestParameters<CatRecoveryRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -1116,8 +1087,7 @@ namespace OpenSearch.Net.Specification.CatApi
     }
 
     /// <summary>Request options for Repositories <para>https://docs.opensearch.org/latest/api-reference/cat/cat-repositories/</para></summary>
-    public partial class CatRepositoriesRequestParameters
-        : RequestParameters<CatRepositoriesRequestParameters>
+    public partial class CatRepositoriesRequestParameters : RequestParameters<CatRepositoriesRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -1164,9 +1134,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -1189,8 +1157,7 @@ namespace OpenSearch.Net.Specification.CatApi
     }
 
     /// <summary>Request options for SegmentReplication <para>https://docs.opensearch.org/latest/api-reference/cat/cat-segment-replication/</para></summary>
-    public partial class CatSegmentReplicationRequestParameters
-        : RequestParameters<CatSegmentReplicationRequestParameters>
+    public partial class CatSegmentReplicationRequestParameters : RequestParameters<CatSegmentReplicationRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -1320,8 +1287,7 @@ namespace OpenSearch.Net.Specification.CatApi
     }
 
     /// <summary>Request options for Segments <para>https://docs.opensearch.org/latest/api-reference/cat/cat-segments/</para></summary>
-    public partial class CatSegmentsRequestParameters
-        : RequestParameters<CatSegmentsRequestParameters>
+    public partial class CatSegmentsRequestParameters : RequestParameters<CatSegmentsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -1368,9 +1334,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -1447,9 +1411,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -1472,8 +1434,7 @@ namespace OpenSearch.Net.Specification.CatApi
     }
 
     /// <summary>Request options for Snapshots <para>https://docs.opensearch.org/latest/api-reference/cat/cat-snapshots/</para></summary>
-    public partial class CatSnapshotsRequestParameters
-        : RequestParameters<CatSnapshotsRequestParameters>
+    public partial class CatSnapshotsRequestParameters : RequestParameters<CatSnapshotsRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -1520,9 +1481,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -1634,8 +1593,7 @@ namespace OpenSearch.Net.Specification.CatApi
     }
 
     /// <summary>Request options for Templates <para>https://docs.opensearch.org/latest/api-reference/cat/cat-templates/</para></summary>
-    public partial class CatTemplatesRequestParameters
-        : RequestParameters<CatTemplatesRequestParameters>
+    public partial class CatTemplatesRequestParameters : RequestParameters<CatTemplatesRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -1682,9 +1640,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");
@@ -1707,8 +1663,7 @@ namespace OpenSearch.Net.Specification.CatApi
     }
 
     /// <summary>Request options for ThreadPool <para>https://docs.opensearch.org/latest/api-reference/cat/cat-thread-pool/</para></summary>
-    public partial class CatThreadPoolRequestParameters
-        : RequestParameters<CatThreadPoolRequestParameters>
+    public partial class CatThreadPoolRequestParameters : RequestParameters<CatThreadPoolRequestParameters>
     {
         public override HttpMethod DefaultHttpMethod => HttpMethod.GET;
         public override bool SupportsBody => false;
@@ -1755,9 +1710,7 @@ namespace OpenSearch.Net.Specification.CatApi
         }
 
         /// <summary>The amount of time allowed to establish a connection to the cluster manager node.</summary>
-        [Obsolete(
-            "Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead."
-        )]
+        [Obsolete("Deprecated as of: 2.0.0, reason: To promote inclusive language, use `cluster_manager_timeout` instead.")]
         public TimeSpan MasterTimeout
         {
             get => Q<TimeSpan>("master_timeout");

@@ -77,7 +77,8 @@ namespace OpenSearch.Client
         public OutputDescriptor ByteBuffer(IByteBuffer byteBuffer) =>
             Assign(byteBuffer, (a, v) => a.ByteBuffer = v);
 
-        public OutputDescriptor Data(IList<double?> data) => Assign(data, (a, v) => a.Data = v);
+        public OutputDescriptor Data(IList<double?> data) =>
+            Assign(data, (a, v) => a.Data = v);
 
         public OutputDescriptor DataAsMap(IDataAsMap dataAsMap) =>
             Assign(dataAsMap, (a, v) => a.DataAsMap = v);
@@ -85,10 +86,13 @@ namespace OpenSearch.Client
         public OutputDescriptor DataType(MlResultDataType? dataType) =>
             Assign(dataType, (a, v) => a.DataType = v);
 
-        public OutputDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public OutputDescriptor Name(string name) =>
+            Assign(name, (a, v) => a.Name = v);
 
-        public OutputDescriptor Result(string result) => Assign(result, (a, v) => a.Result = v);
+        public OutputDescriptor Result(string result) =>
+            Assign(result, (a, v) => a.Result = v);
 
-        public OutputDescriptor Shape(IList<long?> shape) => Assign(shape, (a, v) => a.Shape = v);
+        public OutputDescriptor Shape(IList<long?> shape) =>
+            Assign(shape, (a, v) => a.Shape = v);
     }
 }

@@ -45,14 +45,13 @@ namespace OpenSearch.Client
         public RateLimiterUnit? Unit { get; set; }
     }
 
-    public class RateLimiterDescriptor
-        : DescriptorBase<RateLimiterDescriptor, IRateLimiter>,
-            IRateLimiter
+    public class RateLimiterDescriptor : DescriptorBase<RateLimiterDescriptor, IRateLimiter>, IRateLimiter
     {
         double? IRateLimiter.Limit { get; set; }
         RateLimiterUnit? IRateLimiter.Unit { get; set; }
 
-        public RateLimiterDescriptor Limit(double? limit) => Assign(limit, (a, v) => a.Limit = v);
+        public RateLimiterDescriptor Limit(double? limit) =>
+            Assign(limit, (a, v) => a.Limit = v);
 
         public RateLimiterDescriptor Unit(RateLimiterUnit? unit) =>
             Assign(unit, (a, v) => a.Unit = v);

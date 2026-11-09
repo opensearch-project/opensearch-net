@@ -1501,9 +1501,7 @@ namespace OpenSearch.Net
                 ByteUnit.Pb => "pb",
                 ByteUnit.T => "t",
                 ByteUnit.Tb => "tb",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'ByteUnit'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'ByteUnit'")
             };
 
         public static string GetStringValue(this CatResponseFormat enumValue) =>
@@ -1514,9 +1512,7 @@ namespace OpenSearch.Net
                 CatResponseFormat.Smile => "smile",
                 CatResponseFormat.Text => "text",
                 CatResponseFormat.Yaml => "yaml",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'CatResponseFormat'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'CatResponseFormat'")
             };
 
         public static string GetStringValue(this ClusterHealthLevel enumValue) =>
@@ -1526,9 +1522,7 @@ namespace OpenSearch.Net
                 ClusterHealthLevel.Cluster => "cluster",
                 ClusterHealthLevel.Indices => "indices",
                 ClusterHealthLevel.Shards => "shards",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'ClusterHealthLevel'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'ClusterHealthLevel'")
             };
 
         public static string GetStringValue(this ClusterRerouteMetric enumValue)
@@ -1554,7 +1548,6 @@ namespace OpenSearch.Net
                 list.Add("version");
             return string.Join(",", list);
         }
-
         public static string GetStringValue(this ClusterStateMetric enumValue)
         {
             if ((enumValue & ClusterStateMetric.All) != 0)
@@ -1578,7 +1571,6 @@ namespace OpenSearch.Net
                 list.Add("version");
             return string.Join(",", list);
         }
-
         public static string GetStringValue(this ClusterStatsIndexMetric enumValue)
         {
             if ((enumValue & ClusterStatsIndexMetric.All) != 0)
@@ -1604,7 +1596,6 @@ namespace OpenSearch.Net
                 list.Add("store");
             return string.Join(",", list);
         }
-
         public static string GetStringValue(this ClusterStatsMetric enumValue)
         {
             if ((enumValue & ClusterStatsMetric.All) != 0)
@@ -1632,15 +1623,12 @@ namespace OpenSearch.Net
                 list.Add("process");
             return string.Join(",", list);
         }
-
         public static string GetStringValue(this Conflicts enumValue) =>
             enumValue switch
             {
                 Conflicts.Abort => "abort",
                 Conflicts.Proceed => "proceed",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'Conflicts'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Conflicts'")
             };
 
         public static string GetStringValue(this DefaultOperator enumValue) =>
@@ -1648,9 +1636,7 @@ namespace OpenSearch.Net
             {
                 DefaultOperator.And => "and",
                 DefaultOperator.Or => "or",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'DefaultOperator'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'DefaultOperator'")
             };
 
         public static string GetStringValue(this ExpandWildcards enumValue)
@@ -1668,16 +1654,13 @@ namespace OpenSearch.Net
                 list.Add("open");
             return string.Join(",", list);
         }
-
         public static string GetStringValue(this HealthStatus enumValue) =>
             enumValue switch
             {
                 HealthStatus.Green => "green",
                 HealthStatus.Red => "red",
                 HealthStatus.Yellow => "yellow",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'HealthStatus'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'HealthStatus'")
             };
 
         public static string GetStringValue(this IndexApiBlock enumValue) =>
@@ -1687,9 +1670,7 @@ namespace OpenSearch.Net
                 IndexApiBlock.Read => "read",
                 IndexApiBlock.ReadOnly => "read_only",
                 IndexApiBlock.Write => "write",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'IndexApiBlock'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'IndexApiBlock'")
             };
 
         public static string GetStringValue(this IndicesShardStoresShardStoreStatus enumValue)
@@ -1705,7 +1686,6 @@ namespace OpenSearch.Net
                 list.Add("yellow");
             return string.Join(",", list);
         }
-
         public static string GetStringValue(this IndicesStatsMetric enumValue)
         {
             if ((enumValue & IndicesStatsMetric.All) != 0)
@@ -1747,16 +1727,13 @@ namespace OpenSearch.Net
                 list.Add("warmer");
             return string.Join(",", list);
         }
-
         public static string GetStringValue(this InsightsMetricType enumValue) =>
             enumValue switch
             {
                 InsightsMetricType.Cpu => "cpu",
                 InsightsMetricType.Latency => "latency",
                 InsightsMetricType.Memory => "memory",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'InsightsMetricType'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'InsightsMetricType'")
             };
 
         public static string GetStringValue(this KnnStatName enumValue)
@@ -1834,16 +1811,13 @@ namespace OpenSearch.Net
                 list.Add("training_requests");
             return string.Join(",", list);
         }
-
         public static string GetStringValue(this Level enumValue) =>
             enumValue switch
             {
                 Level.Cluster => "cluster",
                 Level.Indices => "indices",
                 Level.Shards => "shards",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'Level'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Level'")
             };
 
         public static string GetStringValue(this ListResponseFormat enumValue) =>
@@ -1854,9 +1828,7 @@ namespace OpenSearch.Net
                 ListResponseFormat.Smile => "smile",
                 ListResponseFormat.Text => "text",
                 ListResponseFormat.Yaml => "yaml",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'ListResponseFormat'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'ListResponseFormat'")
             };
 
         public static string GetStringValue(this LtrStatName enumValue)
@@ -1874,7 +1846,6 @@ namespace OpenSearch.Net
                 list.Add("stores");
             return string.Join(",", list);
         }
-
         public static string GetStringValue(this MlFunctionName enumValue) =>
             enumValue switch
             {
@@ -1897,9 +1868,7 @@ namespace OpenSearch.Net
                 MlFunctionName.SparseTokenize => "SPARSE_TOKENIZE",
                 MlFunctionName.TextEmbedding => "TEXT_EMBEDDING",
                 MlFunctionName.TextSimilarity => "TEXT_SIMILARITY",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'MlFunctionName'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'MlFunctionName'")
             };
 
         public static string GetStringValue(this MlMemoryType enumValue)
@@ -1915,7 +1884,6 @@ namespace OpenSearch.Net
                 list.Add("working");
             return string.Join(",", list);
         }
-
         public static string GetStringValue(this MlStatName enumValue)
         {
             var list = new List<string>();
@@ -1935,7 +1903,6 @@ namespace OpenSearch.Net
                 list.Add("ml_task_index_status");
             return string.Join(",", list);
         }
-
         public static string GetStringValue(this MlToolName enumValue) =>
             enumValue switch
             {
@@ -1960,9 +1927,7 @@ namespace OpenSearch.Net
                 MlToolName.Vectordbtool => "VectorDBTool",
                 MlToolName.Visualizationtool => "VisualizationTool",
                 MlToolName.Writetoscratchpadtool => "WriteToScratchPadTool",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'MlToolName'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'MlToolName'")
             };
 
         public static string GetStringValue(this NeuralStatName enumValue)
@@ -2080,7 +2045,6 @@ namespace OpenSearch.Net
                 list.Add("text_image_embedding_processors");
             return string.Join(",", list);
         }
-
         public static string GetStringValue(this NodesInfoMetric enumValue)
         {
             if ((enumValue & NodesInfoMetric.All) != 0)
@@ -2112,16 +2076,13 @@ namespace OpenSearch.Net
                 list.Add("transport");
             return string.Join(",", list);
         }
-
         public static string GetStringValue(this NodesSampleType enumValue) =>
             enumValue switch
             {
                 NodesSampleType.Block => "block",
                 NodesSampleType.Cpu => "cpu",
                 NodesSampleType.Wait => "wait",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'NodesSampleType'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'NodesSampleType'")
             };
 
         public static string GetStringValue(this NodesStatsIndexMetric enumValue)
@@ -2165,7 +2126,6 @@ namespace OpenSearch.Net
                 list.Add("warmer");
             return string.Join(",", list);
         }
-
         public static string GetStringValue(this NodesStatsMetric enumValue)
         {
             if ((enumValue & NodesStatsMetric.All) != 0)
@@ -2227,7 +2187,6 @@ namespace OpenSearch.Net
                 list.Add("weighted_routing");
             return string.Join(",", list);
         }
-
         public static string GetStringValue(this NodesUsageMetric enumValue)
         {
             if ((enumValue & NodesUsageMetric.All) != 0)
@@ -2239,7 +2198,6 @@ namespace OpenSearch.Net
                 list.Add("rest_actions");
             return string.Join(",", list);
         }
-
         public static string GetStringValue(this NotificationsNotificationConfigType enumValue) =>
             enumValue switch
             {
@@ -2252,9 +2210,7 @@ namespace OpenSearch.Net
                 NotificationsNotificationConfigType.SmtpAccount => "smtp_account",
                 NotificationsNotificationConfigType.Sns => "sns",
                 NotificationsNotificationConfigType.Webhook => "webhook",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'NotificationsNotificationConfigType'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'NotificationsNotificationConfigType'")
             };
 
         public static string GetStringValue(this OpType enumValue) =>
@@ -2262,9 +2218,7 @@ namespace OpenSearch.Net
             {
                 OpType.Create => "create",
                 OpType.Index => "index",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'OpType'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'OpType'")
             };
 
         public static string GetStringValue(this PplResponseFormat enumValue) =>
@@ -2280,9 +2234,7 @@ namespace OpenSearch.Net
                 PplResponseFormat.Standard => "standard",
                 PplResponseFormat.Viz => "viz",
                 PplResponseFormat.Yaml => "yaml",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'PplResponseFormat'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'PplResponseFormat'")
             };
 
         public static string GetStringValue(this Refresh enumValue) =>
@@ -2291,9 +2243,7 @@ namespace OpenSearch.Net
                 Refresh.False => "false",
                 Refresh.True => "true",
                 Refresh.WaitFor => "wait_for",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'Refresh'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'Refresh'")
             };
 
         public static string GetStringValue(this SearchType enumValue) =>
@@ -2301,14 +2251,10 @@ namespace OpenSearch.Net
             {
                 SearchType.DfsQueryThenFetch => "dfs_query_then_fetch",
                 SearchType.QueryThenFetch => "query_then_fetch",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'SearchType'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'SearchType'")
             };
 
-        public static string GetStringValue(
-            this SecurityAnalyticsAlertsAlertSeverityLevel enumValue
-        ) =>
+        public static string GetStringValue(this SecurityAnalyticsAlertsAlertSeverityLevel enumValue) =>
             enumValue switch
             {
                 SecurityAnalyticsAlertsAlertSeverityLevel.One => "1",
@@ -2317,9 +2263,7 @@ namespace OpenSearch.Net
                 SecurityAnalyticsAlertsAlertSeverityLevel.Four => "4",
                 SecurityAnalyticsAlertsAlertSeverityLevel.Five => "5",
                 SecurityAnalyticsAlertsAlertSeverityLevel.All => "ALL",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'SecurityAnalyticsAlertsAlertSeverityLevel'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'SecurityAnalyticsAlertsAlertSeverityLevel'")
             };
 
         public static string GetStringValue(this SecurityAnalyticsAlertsAlertState enumValue) =>
@@ -2330,21 +2274,15 @@ namespace OpenSearch.Net
                 SecurityAnalyticsAlertsAlertState.Completed => "COMPLETED",
                 SecurityAnalyticsAlertsAlertState.Deleted => "DELETED",
                 SecurityAnalyticsAlertsAlertState.Error => "ERROR",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'SecurityAnalyticsAlertsAlertState'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'SecurityAnalyticsAlertsAlertState'")
             };
 
-        public static string GetStringValue(
-            this SecurityAnalyticsFindingsDetectionType enumValue
-        ) =>
+        public static string GetStringValue(this SecurityAnalyticsFindingsDetectionType enumValue) =>
             enumValue switch
             {
                 SecurityAnalyticsFindingsDetectionType.Rule => "rule",
                 SecurityAnalyticsFindingsDetectionType.Threat => "threat",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'SecurityAnalyticsFindingsDetectionType'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'SecurityAnalyticsFindingsDetectionType'")
             };
 
         public static string GetStringValue(this SecurityAnalyticsFindingsRuleSeverity enumValue) =>
@@ -2354,18 +2292,14 @@ namespace OpenSearch.Net
                 SecurityAnalyticsFindingsRuleSeverity.High => "high",
                 SecurityAnalyticsFindingsRuleSeverity.Low => "low",
                 SecurityAnalyticsFindingsRuleSeverity.Medium => "medium",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'SecurityAnalyticsFindingsRuleSeverity'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'SecurityAnalyticsFindingsRuleSeverity'")
             };
 
         public static string GetStringValue(this SlicesCalculation enumValue) =>
             enumValue switch
             {
                 SlicesCalculation.Auto => "auto",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'SlicesCalculation'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'SlicesCalculation'")
             };
 
         public static string GetStringValue(this SortOrder enumValue) =>
@@ -2373,9 +2307,7 @@ namespace OpenSearch.Net
             {
                 SortOrder.Ascending => "asc",
                 SortOrder.Descending => "desc",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'SortOrder'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'SortOrder'")
             };
 
         public static string GetStringValue(this SqlResponseFormat enumValue) =>
@@ -2391,9 +2323,7 @@ namespace OpenSearch.Net
                 SqlResponseFormat.Standard => "standard",
                 SqlResponseFormat.Viz => "viz",
                 SqlResponseFormat.Yaml => "yaml",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'SqlResponseFormat'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'SqlResponseFormat'")
             };
 
         public static string GetStringValue(this SuggestMode enumValue) =>
@@ -2402,9 +2332,7 @@ namespace OpenSearch.Net
                 SuggestMode.Always => "always",
                 SuggestMode.Missing => "missing",
                 SuggestMode.Popular => "popular",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'SuggestMode'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'SuggestMode'")
             };
 
         public static string GetStringValue(this TasksGroupBy enumValue) =>
@@ -2413,9 +2341,7 @@ namespace OpenSearch.Net
                 TasksGroupBy.Nodes => "nodes",
                 TasksGroupBy.None => "none",
                 TasksGroupBy.Parents => "parents",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'TasksGroupBy'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'TasksGroupBy'")
             };
 
         public static string GetStringValue(this TimeUnit enumValue) =>
@@ -2428,9 +2354,7 @@ namespace OpenSearch.Net
                 TimeUnit.Milliseconds => "ms",
                 TimeUnit.Nanoseconds => "nanos",
                 TimeUnit.Seconds => "s",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'TimeUnit'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'TimeUnit'")
             };
 
         public static string GetStringValue(this VersionType enumValue) =>
@@ -2439,18 +2363,14 @@ namespace OpenSearch.Net
                 VersionType.External => "external",
                 VersionType.ExternalGte => "external_gte",
                 VersionType.Internal => "internal",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'VersionType'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'VersionType'")
             };
 
         public static string GetStringValue(this WaitForActiveShardOptions enumValue) =>
             enumValue switch
             {
                 WaitForActiveShardOptions.All => "all",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'WaitForActiveShardOptions'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'WaitForActiveShardOptions'")
             };
 
         public static string GetStringValue(this WaitForEvents enumValue) =>
@@ -2462,9 +2382,7 @@ namespace OpenSearch.Net
                 WaitForEvents.Low => "low",
                 WaitForEvents.Normal => "normal",
                 WaitForEvents.Urgent => "urgent",
-                _ => throw new ArgumentException(
-                    $"'{enumValue.ToString()}' is not a valid value for enum 'WaitForEvents'"
-                ),
+                _ => throw new ArgumentException($"'{enumValue.ToString()}' is not a valid value for enum 'WaitForEvents'")
             };
     }
 }

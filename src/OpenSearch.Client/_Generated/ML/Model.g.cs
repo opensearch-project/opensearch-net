@@ -145,7 +145,8 @@ namespace OpenSearch.Client
         public ModelDescriptor ModelVersion(string modelVersion) =>
             Assign(modelVersion, (a, v) => a.ModelVersion = v);
 
-        public ModelDescriptor Name(string name) => Assign(name, (a, v) => a.Name = v);
+        public ModelDescriptor Name(string name) =>
+            Assign(name, (a, v) => a.Name = v);
 
         public ModelDescriptor TotalChunks(long? totalChunks) =>
             Assign(totalChunks, (a, v) => a.TotalChunks = v);

@@ -66,23 +66,14 @@ namespace OpenSearch.Net.Specification.TransformsApi
     /// </summary>
     public partial class LowLevelTransformsNamespace : NamespacedClientProxy
     {
-        internal LowLevelTransformsNamespace(OpenSearchLowLevelClient client)
-            : base(client) { }
+        internal LowLevelTransformsNamespace(OpenSearchLowLevelClient client) : base(client) { }
 
         /// <summary>DELETE on /_plugins/_transform/{id} <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#delete-a-transform-job</para></summary>
         /// <param name="id">Transform to delete.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Delete<TResponse>(
-            string id,
-            DeleteRequestParameters requestParameters = null
-        )
+        public TResponse Delete<TResponse>(string id, DeleteRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                DELETE,
-                Url($"_plugins/_transform/{id:id}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(DELETE, Url($"_plugins/_transform/{id:id}"), null, RequestParams(requestParameters));
 
         /// <summary>DELETE on /_plugins/_transform/{id} <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#delete-a-transform-job</para></summary>
         /// <param name="id">Transform to delete.</param>
@@ -94,28 +85,14 @@ namespace OpenSearch.Net.Specification.TransformsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                DELETE,
-                Url($"_plugins/_transform/{id:id}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(DELETE, Url($"_plugins/_transform/{id:id}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_transform/{id}/_explain <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#get-the-status-of-a-transform-job</para></summary>
         /// <param name="id">Transform to explain.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Explain<TResponse>(
-            string id,
-            ExplainRequestParameters requestParameters = null
-        )
+        public TResponse Explain<TResponse>(string id, ExplainRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_transform/{id:id}/_explain"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_transform/{id:id}/_explain"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_transform/{id}/_explain <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#get-the-status-of-a-transform-job</para></summary>
         /// <param name="id">Transform to explain.</param>
@@ -127,25 +104,14 @@ namespace OpenSearch.Net.Specification.TransformsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_transform/{id:id}/_explain"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_transform/{id:id}/_explain"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_transform/{id} <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#get-a-transform-jobs-details</para></summary>
         /// <param name="id">Transform to access.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Get<TResponse>(string id, GetRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                Url($"_plugins/_transform/{id:id}"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, Url($"_plugins/_transform/{id:id}"), null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_transform/{id} <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#get-a-transform-jobs-details</para></summary>
         /// <param name="id">Transform to access.</param>
@@ -157,28 +123,14 @@ namespace OpenSearch.Net.Specification.TransformsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                Url($"_plugins/_transform/{id:id}"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, Url($"_plugins/_transform/{id:id}"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_transform/_preview <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#preview-a-transform-jobs-results</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Preview<TResponse>(
-            PostData body,
-            PreviewRequestParameters requestParameters = null
-        )
+        public TResponse Preview<TResponse>(PostData body, PreviewRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                "_plugins/_transform/_preview",
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, "_plugins/_transform/_preview", body, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_transform/_preview <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#preview-a-transform-jobs-results</para></summary>
         /// <param name="body"></param>
@@ -190,30 +142,15 @@ namespace OpenSearch.Net.Specification.TransformsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                "_plugins/_transform/_preview",
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, "_plugins/_transform/_preview", ctx, body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_transform/{id} <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#create-a-transform-job</para></summary>
         /// <param name="id">Transform to create/update.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Put<TResponse>(
-            string id,
-            PostData body,
-            PutRequestParameters requestParameters = null
-        )
+        public TResponse Put<TResponse>(string id, PostData body, PutRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                PUT,
-                Url($"_plugins/_transform/{id:id}"),
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(PUT, Url($"_plugins/_transform/{id:id}"), body, RequestParams(requestParameters));
 
         /// <summary>PUT on /_plugins/_transform/{id} <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#create-a-transform-job</para></summary>
         /// <param name="id">Transform to create/update.</param>
@@ -227,24 +164,13 @@ namespace OpenSearch.Net.Specification.TransformsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                PUT,
-                Url($"_plugins/_transform/{id:id}"),
-                ctx,
-                body,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(PUT, Url($"_plugins/_transform/{id:id}"), ctx, body, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_transform <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#get-a-transform-jobs-details</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Search<TResponse>(SearchRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                GET,
-                "_plugins/_transform",
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(GET, "_plugins/_transform", null, RequestParams(requestParameters));
 
         /// <summary>GET on /_plugins/_transform <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#get-a-transform-jobs-details</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
@@ -254,28 +180,14 @@ namespace OpenSearch.Net.Specification.TransformsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                GET,
-                "_plugins/_transform",
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(GET, "_plugins/_transform", ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_transform/{id}/_start <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#start-a-transform-job</para></summary>
         /// <param name="id">Transform to start.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        public TResponse Start<TResponse>(
-            string id,
-            StartRequestParameters requestParameters = null
-        )
+        public TResponse Start<TResponse>(string id, StartRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_plugins/_transform/{id:id}/_start"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_plugins/_transform/{id:id}/_start"), null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_transform/{id}/_start <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#start-a-transform-job</para></summary>
         /// <param name="id">Transform to start.</param>
@@ -287,25 +199,14 @@ namespace OpenSearch.Net.Specification.TransformsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_plugins/_transform/{id:id}/_start"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_plugins/_transform/{id:id}/_start"), ctx, null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_transform/{id}/_stop <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#stop-a-transform-job</para></summary>
         /// <param name="id">Transform to stop.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         public TResponse Stop<TResponse>(string id, StopRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequest<TResponse>(
-                POST,
-                Url($"_plugins/_transform/{id:id}/_stop"),
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequest<TResponse>(POST, Url($"_plugins/_transform/{id:id}/_stop"), null, RequestParams(requestParameters));
 
         /// <summary>POST on /_plugins/_transform/{id}/_stop <para>https://docs.opensearch.org/latest/im-plugin/index-transforms/transforms-apis/#stop-a-transform-job</para></summary>
         /// <param name="id">Transform to stop.</param>
@@ -317,12 +218,6 @@ namespace OpenSearch.Net.Specification.TransformsApi
             CancellationToken ctx = default
         )
             where TResponse : class, IOpenSearchResponse, new() =>
-            DoRequestAsync<TResponse>(
-                POST,
-                Url($"_plugins/_transform/{id:id}/_stop"),
-                ctx,
-                null,
-                RequestParams(requestParameters)
-            );
+            DoRequestAsync<TResponse>(POST, Url($"_plugins/_transform/{id:id}/_stop"), ctx, null, RequestParams(requestParameters));
     }
 }

@@ -40,24 +40,18 @@ namespace OpenSearch.Client
 {
     /// <summary>Descriptor for Delete</summary>
     public partial class DeleteSearchPipelineDescriptor
-        : RequestDescriptorBase<
-            DeleteSearchPipelineDescriptor,
-            DeleteRequestParameters,
-            IDeleteSearchPipelineRequest
-        >,
+        : RequestDescriptorBase<DeleteSearchPipelineDescriptor, DeleteRequestParameters, IDeleteSearchPipelineRequest>,
             IDeleteSearchPipelineRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchPipelineDelete;
 
         /// <summary>/_search/pipeline/{id}</summary>
         /// <param name="id">this parameter is required</param>
-        public DeleteSearchPipelineDescriptor(Id id)
-            : base(r => r.Required("id", id)) { }
+        public DeleteSearchPipelineDescriptor(Id id) : base(r => r.Required("id", id)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected DeleteSearchPipelineDescriptor()
-            : base() { }
+        protected DeleteSearchPipelineDescriptor() : base() { }
 
         // values part of the url path
         Id IDeleteSearchPipelineRequest.Id => Self.RouteValues.Get<Id>("id");
@@ -74,30 +68,23 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Get</summary>
     public partial class GetSearchPipelineDescriptor
-        : RequestDescriptorBase<
-            GetSearchPipelineDescriptor,
-            GetRequestParameters,
-            IGetSearchPipelineRequest
-        >,
+        : RequestDescriptorBase<GetSearchPipelineDescriptor, GetRequestParameters, IGetSearchPipelineRequest>,
             IGetSearchPipelineRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchPipelineGet;
 
         /// <summary>/_search/pipeline</summary>
-        public GetSearchPipelineDescriptor()
-            : base() { }
+        public GetSearchPipelineDescriptor() : base() { }
 
         /// <summary>/_search/pipeline/{id}</summary>
         /// <param name="id">Optional, accepts null</param>
-        public GetSearchPipelineDescriptor(Id id)
-            : base(r => r.Optional("id", id)) { }
+        public GetSearchPipelineDescriptor(Id id) : base(r => r.Optional("id", id)) { }
 
         // values part of the url path
         Id IGetSearchPipelineRequest.Id => Self.RouteValues.Get<Id>("id");
 
         /// <summary>Comma-separated list of search pipeline ids. Wildcards supported.</summary>
-        public GetSearchPipelineDescriptor Id(Id id) =>
-            Assign(id, (a, v) => a.RouteValues.Optional("id", v));
+        public GetSearchPipelineDescriptor Id(Id id) => Assign(id, (a, v) => a.RouteValues.Optional("id", v));
 
         // Request parameters
         /// <summary>operation timeout for connection to cluster-manager node.</summary>
@@ -108,24 +95,18 @@ namespace OpenSearch.Client
 
     /// <summary>Descriptor for Put <para>https://docs.opensearch.org/latest/search-plugins/search-pipelines/creating-search-pipeline/</para></summary>
     public partial class PutSearchPipelineDescriptor
-        : RequestDescriptorBase<
-            PutSearchPipelineDescriptor,
-            PutRequestParameters,
-            IPutSearchPipelineRequest
-        >,
+        : RequestDescriptorBase<PutSearchPipelineDescriptor, PutRequestParameters, IPutSearchPipelineRequest>,
             IPutSearchPipelineRequest
     {
         internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchPipelinePut;
 
         /// <summary>/_search/pipeline/{id}</summary>
         /// <param name="id">this parameter is required</param>
-        public PutSearchPipelineDescriptor(Id id)
-            : base(r => r.Required("id", id)) { }
+        public PutSearchPipelineDescriptor(Id id) : base(r => r.Required("id", id)) { }
 
         /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
         [SerializationConstructor]
-        protected PutSearchPipelineDescriptor()
-            : base() { }
+        protected PutSearchPipelineDescriptor() : base() { }
 
         // values part of the url path
         Id IPutSearchPipelineRequest.Id => Self.RouteValues.Get<Id>("id");

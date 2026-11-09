@@ -222,11 +222,7 @@ namespace OpenSearch.Net
         /// <param name="index">Name of the data stream, index, or index alias to perform bulk actions on.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        TResponse Bulk<TResponse>(
-            string index,
-            PostData body,
-            BulkRequestParameters requestParameters = null
-        )
+        TResponse Bulk<TResponse>(string index, PostData body, BulkRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_bulk <para>https://docs.opensearch.org/latest/api-reference/document-apis/bulk/</para></summary>
@@ -245,10 +241,7 @@ namespace OpenSearch.Net
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.17.0 or greater.</remarks>
-        TResponse BulkStream<TResponse>(
-            PostData body,
-            BulkStreamRequestParameters requestParameters = null
-        )
+        TResponse BulkStream<TResponse>(PostData body, BulkStreamRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>PUT on /_bulk/stream <para>https://docs.opensearch.org/latest/api-reference/document-apis/bulk-streaming/</para></summary>
@@ -290,10 +283,7 @@ namespace OpenSearch.Net
         /// <summary>DELETE on /_search/scroll <para>https://docs.opensearch.org/latest/api-reference/scroll/</para></summary>
         /// <param name="body">A comma-separated list of scroll IDs to clear if none was specified using the &lt;c&gt;scroll_id&lt;/c&gt; parameter.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        TResponse ClearScroll<TResponse>(
-            PostData body,
-            ClearScrollRequestParameters requestParameters = null
-        )
+        TResponse ClearScroll<TResponse>(PostData body, ClearScrollRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>DELETE on /_search/scroll <para>https://docs.opensearch.org/latest/api-reference/scroll/</para></summary>
@@ -310,9 +300,7 @@ namespace OpenSearch.Net
         /// <param name="scrollId">A comma-separated list of scroll IDs to clear. To clear all scroll IDs, use &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="body">A comma-separated list of scroll IDs to clear if none was specified using the &lt;c&gt;scroll_id&lt;/c&gt; parameter.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        [Obsolete(
-            "Deprecated in version 1.0.0: A scroll id can be quite large and should be specified as part of the body."
-        )]
+        [Obsolete("Deprecated in version 1.0.0: A scroll id can be quite large and should be specified as part of the body.")]
         TResponse ClearScroll<TResponse>(
             string scrollId,
             PostData body,
@@ -324,9 +312,7 @@ namespace OpenSearch.Net
         /// <param name="scrollId">A comma-separated list of scroll IDs to clear. To clear all scroll IDs, use &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="body">A comma-separated list of scroll IDs to clear if none was specified using the &lt;c&gt;scroll_id&lt;/c&gt; parameter.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        [Obsolete(
-            "Deprecated in version 1.0.0: A scroll id can be quite large and should be specified as part of the body."
-        )]
+        [Obsolete("Deprecated in version 1.0.0: A scroll id can be quite large and should be specified as part of the body.")]
         Task<TResponse> ClearScrollAsync<TResponse>(
             string scrollId,
             PostData body,
@@ -355,11 +341,7 @@ namespace OpenSearch.Net
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To search all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="body">Query to restrict the results specified with the Query DSL (optional).</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        TResponse Count<TResponse>(
-            string index,
-            PostData body,
-            CountRequestParameters requestParameters = null
-        )
+        TResponse Count<TResponse>(string index, PostData body, CountRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_count <para>https://docs.opensearch.org/latest/api-reference/count/</para></summary>
@@ -405,10 +387,7 @@ namespace OpenSearch.Net
         /// <param name="index">A comma-separated list of indexes; use &lt;c&gt;_all&lt;/c&gt; or empty string to perform the operation on all indexes.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        TResponse CreatePit<TResponse>(
-            string index,
-            CreatePitRequestParameters requestParameters = null
-        )
+        TResponse CreatePit<TResponse>(string index, CreatePitRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_search/point_in_time <para>https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#create-a-pit</para></summary>
@@ -426,11 +405,7 @@ namespace OpenSearch.Net
         /// <param name="index">Name of the target index.</param>
         /// <param name="id">The unique identifier for the document.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        TResponse Delete<TResponse>(
-            string index,
-            string id,
-            DeleteRequestParameters requestParameters = null
-        )
+        TResponse Delete<TResponse>(string index, string id, DeleteRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>DELETE on /{index}/_doc/{id} <para>https://docs.opensearch.org/latest/api-reference/document-apis/delete-document/</para></summary>
@@ -506,10 +481,7 @@ namespace OpenSearch.Net
         /// <param name="body">The point-in-time ids to be deleted.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
         /// <remarks>Supported by OpenSearch servers of version 2.4.0 or greater.</remarks>
-        TResponse DeletePit<TResponse>(
-            PostData body,
-            DeletePitRequestParameters requestParameters = null
-        )
+        TResponse DeletePit<TResponse>(PostData body, DeletePitRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>DELETE on /_search/point_in_time <para>https://docs.opensearch.org/latest/api-reference/search-apis/point-in-time-api/#delete-pits</para></summary>
@@ -526,10 +498,7 @@ namespace OpenSearch.Net
         /// <summary>DELETE on /_scripts/{id} <para>https://docs.opensearch.org/latest/api-reference/script-apis/delete-script/</para></summary>
         /// <param name="id">Identifier for the stored script or search template.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        TResponse DeleteScript<TResponse>(
-            string id,
-            DeleteScriptRequestParameters requestParameters = null
-        )
+        TResponse DeleteScript<TResponse>(string id, DeleteScriptRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>DELETE on /_scripts/{id} <para>https://docs.opensearch.org/latest/api-reference/script-apis/delete-script/</para></summary>
@@ -661,11 +630,7 @@ namespace OpenSearch.Net
         /// <param name="index">The name of the index containing the document.</param>
         /// <param name="id">The unique identifier of the document.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        TResponse Get<TResponse>(
-            string index,
-            string id,
-            GetRequestParameters requestParameters = null
-        )
+        TResponse Get<TResponse>(string index, string id, GetRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>GET on /{index}/_doc/{id} <para>https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</para></summary>
@@ -698,10 +663,7 @@ namespace OpenSearch.Net
         /// <summary>GET on /_scripts/{id} <para>https://docs.opensearch.org/latest/api-reference/script-apis/get-stored-script/</para></summary>
         /// <param name="id">Identifier for the stored script or search template.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        TResponse GetScript<TResponse>(
-            string id,
-            GetScriptRequestParameters requestParameters = null
-        )
+        TResponse GetScript<TResponse>(string id, GetScriptRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>GET on /_scripts/{id} <para>https://docs.opensearch.org/latest/api-reference/script-apis/get-stored-script/</para></summary>
@@ -716,9 +678,7 @@ namespace OpenSearch.Net
 
         /// <summary>GET on /_script_context <para>https://docs.opensearch.org/latest/api-reference/script-apis/get-script-contexts/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        TResponse GetScriptContext<TResponse>(
-            GetScriptContextRequestParameters requestParameters = null
-        )
+        TResponse GetScriptContext<TResponse>(GetScriptContextRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>GET on /_script_context <para>https://docs.opensearch.org/latest/api-reference/script-apis/get-script-contexts/</para></summary>
@@ -731,9 +691,7 @@ namespace OpenSearch.Net
 
         /// <summary>GET on /_script_language <para>https://docs.opensearch.org/latest/api-reference/script-apis/get-script-language/</para></summary>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        TResponse GetScriptLanguages<TResponse>(
-            GetScriptLanguagesRequestParameters requestParameters = null
-        )
+        TResponse GetScriptLanguages<TResponse>(GetScriptLanguagesRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>GET on /_script_language <para>https://docs.opensearch.org/latest/api-reference/script-apis/get-script-language/</para></summary>
@@ -748,11 +706,7 @@ namespace OpenSearch.Net
         /// <param name="index">The name of the index containing the document.</param>
         /// <param name="id">The unique identifier of the document.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        TResponse Source<TResponse>(
-            string index,
-            string id,
-            SourceRequestParameters requestParameters = null
-        )
+        TResponse Source<TResponse>(string index, string id, SourceRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>GET on /{index}/_source/{id} <para>https://docs.opensearch.org/latest/api-reference/document-apis/get-documents/</para></summary>
@@ -771,11 +725,7 @@ namespace OpenSearch.Net
         /// <param name="index">Name of the data stream or index to target.</param>
         /// <param name="body">The document.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        TResponse Index<TResponse>(
-            string index,
-            PostData body,
-            IndexRequestParameters requestParameters = null
-        )
+        TResponse Index<TResponse>(string index, PostData body, IndexRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_doc <para>https://docs.opensearch.org/latest/api-reference/document-apis/index-document/</para></summary>
@@ -833,10 +783,7 @@ namespace OpenSearch.Net
         /// <summary>POST on /_mget <para>https://docs.opensearch.org/latest/api-reference/document-apis/multi-get/</para></summary>
         /// <param name="body">Document identifiers; can be either &lt;c&gt;docs&lt;/c&gt; (containing full document information) or &lt;c&gt;ids&lt;/c&gt; (when index is provided in the URL.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        TResponse MultiGet<TResponse>(
-            PostData body,
-            MultiGetRequestParameters requestParameters = null
-        )
+        TResponse MultiGet<TResponse>(PostData body, MultiGetRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /_mget <para>https://docs.opensearch.org/latest/api-reference/document-apis/multi-get/</para></summary>
@@ -853,11 +800,7 @@ namespace OpenSearch.Net
         /// <param name="index">The name of the index to retrieve documents from when &lt;c&gt;ids&lt;/c&gt; are specified, or when a document in the &lt;c&gt;docs&lt;/c&gt; array does not specify an index.</param>
         /// <param name="body">Document identifiers; can be either &lt;c&gt;docs&lt;/c&gt; (containing full document information) or &lt;c&gt;ids&lt;/c&gt; (when index is provided in the URL.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        TResponse MultiGet<TResponse>(
-            string index,
-            PostData body,
-            MultiGetRequestParameters requestParameters = null
-        )
+        TResponse MultiGet<TResponse>(string index, PostData body, MultiGetRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_mget <para>https://docs.opensearch.org/latest/api-reference/document-apis/multi-get/</para></summary>
@@ -875,10 +818,7 @@ namespace OpenSearch.Net
         /// <summary>POST on /_msearch <para>https://docs.opensearch.org/latest/api-reference/multi-search/</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        TResponse MultiSearch<TResponse>(
-            PostData body,
-            MultiSearchRequestParameters requestParameters = null
-        )
+        TResponse MultiSearch<TResponse>(PostData body, MultiSearchRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /_msearch <para>https://docs.opensearch.org/latest/api-reference/multi-search/</para></summary>
@@ -959,10 +899,7 @@ namespace OpenSearch.Net
         /// <summary>POST on /_mtermvectors <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        TResponse MultiTermVectors<TResponse>(
-            PostData body,
-            MultiTermVectorsRequestParameters requestParameters = null
-        )
+        TResponse MultiTermVectors<TResponse>(PostData body, MultiTermVectorsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /_mtermvectors <para>https://docs.opensearch.org/latest/</para></summary>
@@ -1015,11 +952,7 @@ namespace OpenSearch.Net
         /// <param name="id">Identifier for the stored script or search template. Must be unique within the cluster.</param>
         /// <param name="body">The document.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        TResponse PutScript<TResponse>(
-            string id,
-            PostData body,
-            PutScriptRequestParameters requestParameters = null
-        )
+        TResponse PutScript<TResponse>(string id, PostData body, PutScriptRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>PUT on /_scripts/{id} <para>https://docs.opensearch.org/latest/api-reference/script-apis/create-stored-script/</para></summary>
@@ -1064,10 +997,7 @@ namespace OpenSearch.Net
         /// <summary>POST on /_rank_eval <para>https://docs.opensearch.org/latest/api-reference/rank-eval/</para></summary>
         /// <param name="body">The ranking evaluation search definition, including search requests, document ratings and ranking metric definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        TResponse RankEval<TResponse>(
-            PostData body,
-            RankEvalRequestParameters requestParameters = null
-        )
+        TResponse RankEval<TResponse>(PostData body, RankEvalRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /_rank_eval <para>https://docs.opensearch.org/latest/api-reference/rank-eval/</para></summary>
@@ -1084,11 +1014,7 @@ namespace OpenSearch.Net
         /// <param name="index">A comma-separated list of data streams, indexes, and index aliases used to limit the request. Wildcard (&lt;c&gt;*&lt;/c&gt;) expressions are supported. To target all data streams and indexes in a cluster, omit this parameter or use &lt;c&gt;_all&lt;/c&gt; or &lt;c&gt;*&lt;/c&gt;.</param>
         /// <param name="body">The ranking evaluation search definition, including search requests, document ratings and ranking metric definition.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        TResponse RankEval<TResponse>(
-            string index,
-            PostData body,
-            RankEvalRequestParameters requestParameters = null
-        )
+        TResponse RankEval<TResponse>(string index, PostData body, RankEvalRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_rank_eval <para>https://docs.opensearch.org/latest/api-reference/rank-eval/</para></summary>
@@ -1106,10 +1032,7 @@ namespace OpenSearch.Net
         /// <summary>POST on /_reindex <para>https://docs.opensearch.org/latest/im-plugin/reindex-data/</para></summary>
         /// <param name="body">The search definition using the Query DSL and the prototype for the index request.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        TResponse ReindexOnServer<TResponse>(
-            PostData body,
-            ReindexOnServerRequestParameters requestParameters = null
-        )
+        TResponse ReindexOnServer<TResponse>(PostData body, ReindexOnServerRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /_reindex <para>https://docs.opensearch.org/latest/im-plugin/reindex-data/</para></summary>
@@ -1222,23 +1145,15 @@ namespace OpenSearch.Net
         /// <param name="scrollId">The scroll ID.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        [Obsolete(
-            "Deprecated in version 1.0.0: A scroll id can be quite large and should be specified as part of the body."
-        )]
-        TResponse Scroll<TResponse>(
-            string scrollId,
-            PostData body,
-            ScrollRequestParameters requestParameters = null
-        )
+        [Obsolete("Deprecated in version 1.0.0: A scroll id can be quite large and should be specified as part of the body.")]
+        TResponse Scroll<TResponse>(string scrollId, PostData body, ScrollRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /_search/scroll/{scroll_id} <para>https://docs.opensearch.org/latest/api-reference/search-apis/scroll/#endpoints</para></summary>
         /// <param name="scrollId">The scroll ID.</param>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        [Obsolete(
-            "Deprecated in version 1.0.0: A scroll id can be quite large and should be specified as part of the body."
-        )]
+        [Obsolete("Deprecated in version 1.0.0: A scroll id can be quite large and should be specified as part of the body.")]
         Task<TResponse> ScrollAsync<TResponse>(
             string scrollId,
             PostData body,
@@ -1267,11 +1182,7 @@ namespace OpenSearch.Net
         /// <param name="index">A comma-separated list of data streams, indexes, and aliases to search. Supports wildcards (&lt;c&gt;*&lt;/c&gt;). To search all data streams and indexes, omit this parameter or use &lt;c&gt;*&lt;/c&gt; or &lt;c&gt;_all&lt;/c&gt;.</param>
         /// <param name="body">The search definition using the Query DSL.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        TResponse Search<TResponse>(
-            string index,
-            PostData body,
-            SearchRequestParameters requestParameters = null
-        )
+        TResponse Search<TResponse>(string index, PostData body, SearchRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /{index}/_search <para>https://docs.opensearch.org/latest/api-reference/search/</para></summary>
@@ -1289,10 +1200,7 @@ namespace OpenSearch.Net
         /// <summary>POST on /_search_shards <para>https://docs.opensearch.org/latest/</para></summary>
         /// <param name="body"></param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        TResponse SearchShards<TResponse>(
-            PostData body,
-            SearchShardsRequestParameters requestParameters = null
-        )
+        TResponse SearchShards<TResponse>(PostData body, SearchShardsRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /_search_shards <para>https://docs.opensearch.org/latest/</para></summary>
@@ -1331,10 +1239,7 @@ namespace OpenSearch.Net
         /// <summary>POST on /_search/template <para>https://docs.opensearch.org/latest/search-plugins/search-template/</para></summary>
         /// <param name="body">The search definition template and its parameters.</param>
         /// <param name="requestParameters">Request specific configuration such as querystring parameters &amp; request specific connection settings.</param>
-        TResponse SearchTemplate<TResponse>(
-            PostData body,
-            SearchTemplateRequestParameters requestParameters = null
-        )
+        TResponse SearchTemplate<TResponse>(PostData body, SearchTemplateRequestParameters requestParameters = null)
             where TResponse : class, IOpenSearchResponse, new();
 
         /// <summary>POST on /_search/template <para>https://docs.opensearch.org/latest/search-plugins/search-template/</para></summary>

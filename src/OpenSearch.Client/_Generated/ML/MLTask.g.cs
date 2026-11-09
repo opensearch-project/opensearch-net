@@ -92,7 +92,8 @@ namespace OpenSearch.Client
         public MLTaskDescriptor CreateTime(long? createTime) =>
             Assign(createTime, (a, v) => a.CreateTime = v);
 
-        public MLTaskDescriptor Error(string error) => Assign(error, (a, v) => a.Error = v);
+        public MLTaskDescriptor Error(string error) =>
+            Assign(error, (a, v) => a.Error = v);
 
         public MLTaskDescriptor FunctionName(FunctionName? functionName) =>
             Assign(functionName, (a, v) => a.FunctionName = v);
@@ -103,11 +104,14 @@ namespace OpenSearch.Client
         public MLTaskDescriptor LastUpdateTime(long? lastUpdateTime) =>
             Assign(lastUpdateTime, (a, v) => a.LastUpdateTime = v);
 
-        public MLTaskDescriptor ModelId(string modelId) => Assign(modelId, (a, v) => a.ModelId = v);
+        public MLTaskDescriptor ModelId(string modelId) =>
+            Assign(modelId, (a, v) => a.ModelId = v);
 
-        public MLTaskDescriptor State(MLTaskState? state) => Assign(state, (a, v) => a.State = v);
+        public MLTaskDescriptor State(MLTaskState? state) =>
+            Assign(state, (a, v) => a.State = v);
 
-        public MLTaskDescriptor TaskId(string taskId) => Assign(taskId, (a, v) => a.TaskId = v);
+        public MLTaskDescriptor TaskId(string taskId) =>
+            Assign(taskId, (a, v) => a.TaskId = v);
 
         public MLTaskDescriptor TaskType(MlTaskType? taskType) =>
             Assign(taskType, (a, v) => a.TaskType = v);

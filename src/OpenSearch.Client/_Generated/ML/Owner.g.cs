@@ -75,9 +75,11 @@ namespace OpenSearch.Client
         public OwnerDescriptor CustomAttributeNames(IList<string> customAttributeNames) =>
             Assign(customAttributeNames, (a, v) => a.CustomAttributeNames = v);
 
-        public OwnerDescriptor Name(Name name) => Assign(name, (a, v) => a.Name = v);
+        public OwnerDescriptor Name(Name name) =>
+            Assign(name, (a, v) => a.Name = v);
 
-        public OwnerDescriptor Roles(IList<string> roles) => Assign(roles, (a, v) => a.Roles = v);
+        public OwnerDescriptor Roles(IList<string> roles) =>
+            Assign(roles, (a, v) => a.Roles = v);
 
         public OwnerDescriptor UserRequestedTenant(string userRequestedTenant) =>
             Assign(userRequestedTenant, (a, v) => a.UserRequestedTenant = v);
