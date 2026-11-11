@@ -372,7 +372,7 @@ builder.Services.AddSingleton<IOpenSearchClient>(serviceProvider =>
     new OpenSearchClient(serviceProvider.GetRequiredService<IConnectionSettingsValues>()));
 ```
 
-The factory still pools and rotates the handlers and runs every handler added to the builder, and `CreateDefaultHttpMessageHandler` gives it the same primary handler `HttpConnection` would create. Sending through the handler rather than `CreateClient` means `RequestTimeout` is the only timeout; settings applied with `ConfigureHttpClient` are not used. Use `SetHandlerLifetime` to match `DnsRefreshTimeout` if you rely on it. The limitations described in [Supplying Your Own HttpClient](#supplying-your-own-httpclient) apply.
+The factory still pools and rotates the handlers and runs every handler added to the builder, and `CreateDefaultHttpMessageHandler` gives it a primary handler configured from your connection settings (a `SocketsHttpHandler` on .NET Core 2.1+, an `HttpClientHandler` otherwise). Sending through the handler rather than `CreateClient` means `RequestTimeout` is the only timeout; settings applied with `ConfigureHttpClient` are not used. Use `SetHandlerLifetime` to match `DnsRefreshTimeout` if you rely on it. The limitations described in [Supplying Your Own HttpClient](#supplying-your-own-httpclient) apply.
 
 Note that the client already retries and fails over across nodes (see `MaxRetries`). Resilience handlers such as `AddStandardResilienceHandler()` retry within each of those attempts and apply their own timeouts, so tune them with that in mind. When a resilience handler gives up (e.g. its timeout elapses or its circuit is open), the attempt fails and the client moves on to the next node.
 
