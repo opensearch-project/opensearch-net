@@ -493,32 +493,35 @@ namespace OpenSearch.Net
         [EnumMember(Value = "nmslib_initialized")]
         NmslibInitialized = 1 << 25,
 
+        [EnumMember(Value = "remote_vector_index_build_stats")]
+        RemoteVectorIndexBuildStats = 1 << 26,
+
         [EnumMember(Value = "script_compilation_errors")]
-        ScriptCompilationErrors = 1 << 26,
+        ScriptCompilationErrors = 1 << 27,
 
         [EnumMember(Value = "script_compilations")]
-        ScriptCompilations = 1 << 27,
+        ScriptCompilations = 1 << 28,
 
         [EnumMember(Value = "script_query_errors")]
-        ScriptQueryErrors = 1 << 28,
+        ScriptQueryErrors = 1 << 29,
 
         [EnumMember(Value = "script_query_requests")]
-        ScriptQueryRequests = 1 << 29,
+        ScriptQueryRequests = 1 << 30,
 
         [EnumMember(Value = "total_load_time")]
-        TotalLoadTime = 1 << 30,
+        TotalLoadTime = 1 << 31,
 
         [EnumMember(Value = "training_errors")]
-        TrainingErrors = 1 << 31,
+        TrainingErrors = 1 << 32,
 
         [EnumMember(Value = "training_memory_usage")]
-        TrainingMemoryUsage = 1 << 32,
+        TrainingMemoryUsage = 1 << 33,
 
         [EnumMember(Value = "training_memory_usage_percentage")]
-        TrainingMemoryUsagePercentage = 1 << 33,
+        TrainingMemoryUsagePercentage = 1 << 34,
 
         [EnumMember(Value = "training_requests")]
-        TrainingRequests = 1 << 34,
+        TrainingRequests = 1 << 35,
     }
 
     [StringEnum]
@@ -744,170 +747,209 @@ namespace OpenSearch.Net
     [Flags, StringEnum]
     public enum NeuralStatName
     {
+        [EnumMember(Value = "agentic_context_executions")]
+        AgenticContextExecutions = 1 << 0,
+
+        [EnumMember(Value = "agentic_context_processors")]
+        AgenticContextProcessors = 1 << 1,
+
+        [EnumMember(Value = "agentic_query_requests")]
+        AgenticQueryRequests = 1 << 2,
+
+        [EnumMember(Value = "agentic_query_translator_executions")]
+        AgenticQueryTranslatorExecutions = 1 << 3,
+
+        [EnumMember(Value = "agentic_query_translator_processors")]
+        AgenticQueryTranslatorProcessors = 1 << 4,
+
         [EnumMember(Value = "cluster_version")]
-        ClusterVersion = 1 << 0,
+        ClusterVersion = 1 << 5,
+
+        [EnumMember(Value = "clustered_posting_usage")]
+        ClusteredPostingUsage = 1 << 6,
 
         [EnumMember(Value = "comb_arithmetic_executions")]
-        CombArithmeticExecutions = 1 << 1,
+        CombArithmeticExecutions = 1 << 7,
 
         [EnumMember(Value = "comb_arithmetic_processors")]
-        CombArithmeticProcessors = 1 << 2,
+        CombArithmeticProcessors = 1 << 8,
 
         [EnumMember(Value = "comb_geometric_executions")]
-        CombGeometricExecutions = 1 << 3,
+        CombGeometricExecutions = 1 << 9,
 
         [EnumMember(Value = "comb_geometric_processors")]
-        CombGeometricProcessors = 1 << 4,
+        CombGeometricProcessors = 1 << 10,
 
         [EnumMember(Value = "comb_harmonic_executions")]
-        CombHarmonicExecutions = 1 << 5,
+        CombHarmonicExecutions = 1 << 11,
 
         [EnumMember(Value = "comb_harmonic_processors")]
-        CombHarmonicProcessors = 1 << 6,
+        CombHarmonicProcessors = 1 << 12,
 
         [EnumMember(Value = "comb_rrf_executions")]
-        CombRrfExecutions = 1 << 7,
+        CombRrfExecutions = 1 << 13,
 
         [EnumMember(Value = "comb_rrf_processors")]
-        CombRrfProcessors = 1 << 8,
+        CombRrfProcessors = 1 << 14,
+
+        [EnumMember(Value = "forward_index_usage")]
+        ForwardIndexUsage = 1 << 15,
 
         [EnumMember(Value = "hybrid_query_requests")]
-        HybridQueryRequests = 1 << 9,
+        HybridQueryRequests = 1 << 16,
 
         [EnumMember(Value = "hybrid_query_with_filter_requests")]
-        HybridQueryWithFilterRequests = 1 << 10,
+        HybridQueryWithFilterRequests = 1 << 17,
 
         [EnumMember(Value = "hybrid_query_with_inner_hits_requests")]
-        HybridQueryWithInnerHitsRequests = 1 << 11,
+        HybridQueryWithInnerHitsRequests = 1 << 18,
 
         [EnumMember(Value = "hybrid_query_with_pagination_requests")]
-        HybridQueryWithPaginationRequests = 1 << 12,
+        HybridQueryWithPaginationRequests = 1 << 19,
+
+        [EnumMember(Value = "mmr_neural_query_transformer_executions")]
+        MmrNeuralQueryTransformerExecutions = 1 << 20,
 
         [EnumMember(Value = "neural_query_against_knn_requests")]
-        NeuralQueryAgainstKnnRequests = 1 << 13,
+        NeuralQueryAgainstKnnRequests = 1 << 21,
 
         [EnumMember(Value = "neural_query_against_semantic_dense_requests")]
-        NeuralQueryAgainstSemanticDenseRequests = 1 << 14,
+        NeuralQueryAgainstSemanticDenseRequests = 1 << 22,
 
         [EnumMember(Value = "neural_query_against_semantic_sparse_requests")]
-        NeuralQueryAgainstSemanticSparseRequests = 1 << 15,
+        NeuralQueryAgainstSemanticSparseRequests = 1 << 23,
 
         [EnumMember(Value = "neural_query_enricher_executions")]
-        NeuralQueryEnricherExecutions = 1 << 16,
+        NeuralQueryEnricherExecutions = 1 << 24,
 
         [EnumMember(Value = "neural_query_enricher_processors")]
-        NeuralQueryEnricherProcessors = 1 << 17,
+        NeuralQueryEnricherProcessors = 1 << 25,
 
         [EnumMember(Value = "neural_query_requests")]
-        NeuralQueryRequests = 1 << 18,
+        NeuralQueryRequests = 1 << 26,
 
         [EnumMember(Value = "neural_sparse_query_requests")]
-        NeuralSparseQueryRequests = 1 << 19,
+        NeuralSparseQueryRequests = 1 << 27,
 
         [EnumMember(Value = "neural_sparse_two_phase_executions")]
-        NeuralSparseTwoPhaseExecutions = 1 << 20,
+        NeuralSparseTwoPhaseExecutions = 1 << 28,
 
         [EnumMember(Value = "neural_sparse_two_phase_processors")]
-        NeuralSparseTwoPhaseProcessors = 1 << 21,
+        NeuralSparseTwoPhaseProcessors = 1 << 29,
 
         [EnumMember(Value = "norm_l2_executions")]
-        NormL2Executions = 1 << 22,
+        NormL2Executions = 1 << 30,
 
         [EnumMember(Value = "norm_l2_processors")]
-        NormL2Processors = 1 << 23,
+        NormL2Processors = 1 << 31,
 
         [EnumMember(Value = "norm_minmax_executions")]
-        NormMinmaxExecutions = 1 << 24,
+        NormMinmaxExecutions = 1 << 32,
 
         [EnumMember(Value = "norm_minmax_processors")]
-        NormMinmaxProcessors = 1 << 25,
+        NormMinmaxProcessors = 1 << 33,
 
         [EnumMember(Value = "norm_zscore_executions")]
-        NormZscoreExecutions = 1 << 26,
+        NormZscoreExecutions = 1 << 34,
 
         [EnumMember(Value = "norm_zscore_processors")]
-        NormZscoreProcessors = 1 << 27,
+        NormZscoreProcessors = 1 << 35,
 
         [EnumMember(Value = "normalization_processor_executions")]
-        NormalizationProcessorExecutions = 1 << 28,
+        NormalizationProcessorExecutions = 1 << 36,
 
         [EnumMember(Value = "normalization_processors")]
-        NormalizationProcessors = 1 << 29,
+        NormalizationProcessors = 1 << 37,
 
         [EnumMember(Value = "rank_based_normalization_processor_executions")]
-        RankBasedNormalizationProcessorExecutions = 1 << 30,
+        RankBasedNormalizationProcessorExecutions = 1 << 38,
 
         [EnumMember(Value = "rank_based_normalization_processors")]
-        RankBasedNormalizationProcessors = 1 << 31,
+        RankBasedNormalizationProcessors = 1 << 39,
 
         [EnumMember(Value = "rerank_by_field_executions")]
-        RerankByFieldExecutions = 1 << 32,
+        RerankByFieldExecutions = 1 << 40,
 
         [EnumMember(Value = "rerank_by_field_processors")]
-        RerankByFieldProcessors = 1 << 33,
+        RerankByFieldProcessors = 1 << 41,
 
         [EnumMember(Value = "rerank_ml_executions")]
-        RerankMlExecutions = 1 << 34,
+        RerankMlExecutions = 1 << 42,
 
         [EnumMember(Value = "rerank_ml_processors")]
-        RerankMlProcessors = 1 << 35,
+        RerankMlProcessors = 1 << 43,
+
+        [EnumMember(Value = "seismic_query_requests")]
+        SeismicQueryRequests = 1 << 44,
 
         [EnumMember(Value = "semantic_field_chunking_executions")]
-        SemanticFieldChunkingExecutions = 1 << 36,
+        SemanticFieldChunkingExecutions = 1 << 45,
 
         [EnumMember(Value = "semantic_field_executions")]
-        SemanticFieldExecutions = 1 << 37,
+        SemanticFieldExecutions = 1 << 46,
+
+        [EnumMember(Value = "semantic_highlighting_batch_request_count")]
+        SemanticHighlightingBatchRequestCount = 1 << 47,
 
         [EnumMember(Value = "semantic_highlighting_request_count")]
-        SemanticHighlightingRequestCount = 1 << 38,
+        SemanticHighlightingRequestCount = 1 << 48,
 
         [EnumMember(Value = "skip_existing_executions")]
-        SkipExistingExecutions = 1 << 39,
+        SkipExistingExecutions = 1 << 49,
 
         [EnumMember(Value = "skip_existing_processors")]
-        SkipExistingProcessors = 1 << 40,
+        SkipExistingProcessors = 1 << 50,
 
         [EnumMember(Value = "sparse_encoding_executions")]
-        SparseEncodingExecutions = 1 << 41,
+        SparseEncodingExecutions = 1 << 51,
 
         [EnumMember(Value = "sparse_encoding_processors")]
-        SparseEncodingProcessors = 1 << 42,
+        SparseEncodingProcessors = 1 << 52,
+
+        [EnumMember(Value = "sparse_encoding_seismic_executions")]
+        SparseEncodingSeismicExecutions = 1 << 53,
+
+        [EnumMember(Value = "sparse_memory_usage")]
+        SparseMemoryUsage = 1 << 54,
+
+        [EnumMember(Value = "sparse_memory_usage_percentage")]
+        SparseMemoryUsagePercentage = 1 << 55,
 
         [EnumMember(Value = "text_chunking_delimiter_executions")]
-        TextChunkingDelimiterExecutions = 1 << 43,
+        TextChunkingDelimiterExecutions = 1 << 56,
 
         [EnumMember(Value = "text_chunking_delimiter_processors")]
-        TextChunkingDelimiterProcessors = 1 << 44,
+        TextChunkingDelimiterProcessors = 1 << 57,
 
         [EnumMember(Value = "text_chunking_executions")]
-        TextChunkingExecutions = 1 << 45,
+        TextChunkingExecutions = 1 << 58,
 
         [EnumMember(Value = "text_chunking_fixed_char_length_executions")]
-        TextChunkingFixedCharLengthExecutions = 1 << 46,
+        TextChunkingFixedCharLengthExecutions = 1 << 59,
 
         [EnumMember(Value = "text_chunking_fixed_char_length_processors")]
-        TextChunkingFixedCharLengthProcessors = 1 << 47,
+        TextChunkingFixedCharLengthProcessors = 1 << 60,
 
         [EnumMember(Value = "text_chunking_fixed_token_length_executions")]
-        TextChunkingFixedTokenLengthExecutions = 1 << 48,
+        TextChunkingFixedTokenLengthExecutions = 1 << 61,
 
         [EnumMember(Value = "text_chunking_fixed_token_length_processors")]
-        TextChunkingFixedTokenLengthProcessors = 1 << 49,
+        TextChunkingFixedTokenLengthProcessors = 1 << 62,
 
         [EnumMember(Value = "text_chunking_processors")]
-        TextChunkingProcessors = 1 << 50,
+        TextChunkingProcessors = 1 << 63,
 
         [EnumMember(Value = "text_embedding_executions")]
-        TextEmbeddingExecutions = 1 << 51,
+        TextEmbeddingExecutions = 1 << 64,
 
         [EnumMember(Value = "text_embedding_processors_in_pipelines")]
-        TextEmbeddingProcessorsInPipelines = 1 << 52,
+        TextEmbeddingProcessorsInPipelines = 1 << 65,
 
         [EnumMember(Value = "text_image_embedding_executions")]
-        TextImageEmbeddingExecutions = 1 << 53,
+        TextImageEmbeddingExecutions = 1 << 66,
 
         [EnumMember(Value = "text_image_embedding_processors")]
-        TextImageEmbeddingProcessors = 1 << 54,
+        TextImageEmbeddingProcessors = 1 << 67,
     }
 
     [Flags, StringEnum]
@@ -1434,6 +1476,16 @@ namespace OpenSearch.Net
         Urgent,
     }
 
+    [StringEnum]
+    public enum WlmStatsSortBy
+    {
+        [EnumMember(Value = "node_id")]
+        NodeId,
+
+        [EnumMember(Value = "workload_group")]
+        WorkloadGroup,
+    }
+
     public static partial class KnownEnums
     {
         static partial void RegisterEnumStringResolvers()
@@ -1485,6 +1537,7 @@ namespace OpenSearch.Net
             AddEnumStringResolver<VersionType>(GetStringValue);
             AddEnumStringResolver<WaitForActiveShardOptions>(GetStringValue);
             AddEnumStringResolver<WaitForEvents>(GetStringValue);
+            AddEnumStringResolver<WlmStatsSortBy>(GetStringValue);
         }
 
         public static string GetStringValue(this ByteUnit enumValue) =>
@@ -1814,6 +1867,8 @@ namespace OpenSearch.Net
                 list.Add("model_index_status");
             if ((enumValue & KnnStatName.NmslibInitialized) != 0)
                 list.Add("nmslib_initialized");
+            if ((enumValue & KnnStatName.RemoteVectorIndexBuildStats) != 0)
+                list.Add("remote_vector_index_build_stats");
             if ((enumValue & KnnStatName.ScriptCompilationErrors) != 0)
                 list.Add("script_compilation_errors");
             if ((enumValue & KnnStatName.ScriptCompilations) != 0)
@@ -1968,8 +2023,20 @@ namespace OpenSearch.Net
         public static string GetStringValue(this NeuralStatName enumValue)
         {
             var list = new List<string>();
+            if ((enumValue & NeuralStatName.AgenticContextExecutions) != 0)
+                list.Add("agentic_context_executions");
+            if ((enumValue & NeuralStatName.AgenticContextProcessors) != 0)
+                list.Add("agentic_context_processors");
+            if ((enumValue & NeuralStatName.AgenticQueryRequests) != 0)
+                list.Add("agentic_query_requests");
+            if ((enumValue & NeuralStatName.AgenticQueryTranslatorExecutions) != 0)
+                list.Add("agentic_query_translator_executions");
+            if ((enumValue & NeuralStatName.AgenticQueryTranslatorProcessors) != 0)
+                list.Add("agentic_query_translator_processors");
             if ((enumValue & NeuralStatName.ClusterVersion) != 0)
                 list.Add("cluster_version");
+            if ((enumValue & NeuralStatName.ClusteredPostingUsage) != 0)
+                list.Add("clustered_posting_usage");
             if ((enumValue & NeuralStatName.CombArithmeticExecutions) != 0)
                 list.Add("comb_arithmetic_executions");
             if ((enumValue & NeuralStatName.CombArithmeticProcessors) != 0)
@@ -1986,6 +2053,8 @@ namespace OpenSearch.Net
                 list.Add("comb_rrf_executions");
             if ((enumValue & NeuralStatName.CombRrfProcessors) != 0)
                 list.Add("comb_rrf_processors");
+            if ((enumValue & NeuralStatName.ForwardIndexUsage) != 0)
+                list.Add("forward_index_usage");
             if ((enumValue & NeuralStatName.HybridQueryRequests) != 0)
                 list.Add("hybrid_query_requests");
             if ((enumValue & NeuralStatName.HybridQueryWithFilterRequests) != 0)
@@ -1994,6 +2063,8 @@ namespace OpenSearch.Net
                 list.Add("hybrid_query_with_inner_hits_requests");
             if ((enumValue & NeuralStatName.HybridQueryWithPaginationRequests) != 0)
                 list.Add("hybrid_query_with_pagination_requests");
+            if ((enumValue & NeuralStatName.MmrNeuralQueryTransformerExecutions) != 0)
+                list.Add("mmr_neural_query_transformer_executions");
             if ((enumValue & NeuralStatName.NeuralQueryAgainstKnnRequests) != 0)
                 list.Add("neural_query_against_knn_requests");
             if ((enumValue & NeuralStatName.NeuralQueryAgainstSemanticDenseRequests) != 0)
@@ -2040,10 +2111,14 @@ namespace OpenSearch.Net
                 list.Add("rerank_ml_executions");
             if ((enumValue & NeuralStatName.RerankMlProcessors) != 0)
                 list.Add("rerank_ml_processors");
+            if ((enumValue & NeuralStatName.SeismicQueryRequests) != 0)
+                list.Add("seismic_query_requests");
             if ((enumValue & NeuralStatName.SemanticFieldChunkingExecutions) != 0)
                 list.Add("semantic_field_chunking_executions");
             if ((enumValue & NeuralStatName.SemanticFieldExecutions) != 0)
                 list.Add("semantic_field_executions");
+            if ((enumValue & NeuralStatName.SemanticHighlightingBatchRequestCount) != 0)
+                list.Add("semantic_highlighting_batch_request_count");
             if ((enumValue & NeuralStatName.SemanticHighlightingRequestCount) != 0)
                 list.Add("semantic_highlighting_request_count");
             if ((enumValue & NeuralStatName.SkipExistingExecutions) != 0)
@@ -2054,6 +2129,12 @@ namespace OpenSearch.Net
                 list.Add("sparse_encoding_executions");
             if ((enumValue & NeuralStatName.SparseEncodingProcessors) != 0)
                 list.Add("sparse_encoding_processors");
+            if ((enumValue & NeuralStatName.SparseEncodingSeismicExecutions) != 0)
+                list.Add("sparse_encoding_seismic_executions");
+            if ((enumValue & NeuralStatName.SparseMemoryUsage) != 0)
+                list.Add("sparse_memory_usage");
+            if ((enumValue & NeuralStatName.SparseMemoryUsagePercentage) != 0)
+                list.Add("sparse_memory_usage_percentage");
             if ((enumValue & NeuralStatName.TextChunkingDelimiterExecutions) != 0)
                 list.Add("text_chunking_delimiter_executions");
             if ((enumValue & NeuralStatName.TextChunkingDelimiterProcessors) != 0)
@@ -2464,6 +2545,16 @@ namespace OpenSearch.Net
                 WaitForEvents.Urgent => "urgent",
                 _ => throw new ArgumentException(
                     $"'{enumValue.ToString()}' is not a valid value for enum 'WaitForEvents'"
+                ),
+            };
+
+        public static string GetStringValue(this WlmStatsSortBy enumValue) =>
+            enumValue switch
+            {
+                WlmStatsSortBy.NodeId => "node_id",
+                WlmStatsSortBy.WorkloadGroup => "workload_group",
+                _ => throw new ArgumentException(
+                    $"'{enumValue.ToString()}' is not a valid value for enum 'WlmStatsSortBy'"
                 ),
             };
     }

@@ -539,6 +539,38 @@ namespace OpenSearch.Client
     }
 
     [InterfaceDataContract]
+    public partial interface IPatchExperimentRequest : IRequest<PatchExperimentRequestParameters>
+    {
+        [IgnoreDataMember]
+        Id ExperimentId { get; }
+    }
+
+    /// <summary>Request for PatchExperiment</summary>
+    public partial class PatchExperimentRequest
+        : PlainRequestBase<PatchExperimentRequestParameters>,
+            IPatchExperimentRequest
+    {
+        protected IPatchExperimentRequest Self => this;
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevancePatchExperiment;
+
+        /// <summary>/_plugins/_search_relevance/experiments/{experiment_id}</summary>
+        /// <param name="experimentId">this parameter is required</param>
+        public PatchExperimentRequest(Id experimentId)
+            : base(r => r.Required("experiment_id", experimentId)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected PatchExperimentRequest()
+            : base() { }
+
+        // values part of the url path
+        [IgnoreDataMember]
+        Id IPatchExperimentRequest.ExperimentId => Self.RouteValues.Get<Id>("experiment_id");
+
+        // Request parameters
+    }
+
+    [InterfaceDataContract]
     public partial interface IPostQuerySetsRequest : IRequest<PostQuerySetsRequestParameters> { }
 
     /// <summary>Request for PostQuerySets</summary>

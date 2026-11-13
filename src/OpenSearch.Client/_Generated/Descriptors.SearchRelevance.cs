@@ -455,6 +455,32 @@ namespace OpenSearch.Client
         // Request parameters
     }
 
+    /// <summary>Descriptor for PatchExperiment</summary>
+    public partial class PatchExperimentDescriptor
+        : RequestDescriptorBase<
+            PatchExperimentDescriptor,
+            PatchExperimentRequestParameters,
+            IPatchExperimentRequest
+        >,
+            IPatchExperimentRequest
+    {
+        internal override ApiUrls ApiUrls => ApiUrlsLookups.SearchRelevancePatchExperiment;
+
+        /// <summary>/_plugins/_search_relevance/experiments/{experiment_id}</summary>
+        /// <param name="experimentId">this parameter is required</param>
+        public PatchExperimentDescriptor(Id experimentId)
+            : base(r => r.Required("experiment_id", experimentId)) { }
+
+        /// <summary>Used for serialization purposes, making sure we have a parameterless constructor</summary>
+        [SerializationConstructor]
+        protected PatchExperimentDescriptor()
+            : base() { }
+
+        // values part of the url path
+        Id IPatchExperimentRequest.ExperimentId => Self.RouteValues.Get<Id>("experiment_id");
+        // Request parameters
+    }
+
     /// <summary>Descriptor for PostQuerySets</summary>
     public partial class PostQuerySetsDescriptor
         : RequestDescriptorBase<

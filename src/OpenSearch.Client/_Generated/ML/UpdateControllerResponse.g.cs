@@ -44,7 +44,7 @@ namespace OpenSearch.Client
         public long? SeqNo { get; internal set; }
 
         [DataMember(Name = "_shards")]
-        public ShardStatistics Shards { get; internal set; }
+        public Ishards Shards { get; internal set; }
 
         [DataMember(Name = "_type")]
         public string Type { get; internal set; }

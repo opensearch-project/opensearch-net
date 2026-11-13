@@ -29,18 +29,5 @@ namespace OpenSearch.Client
 {
     [DataContract]
     /// <remarks>Supported by OpenSearch servers of version 2.12 or greater.</remarks>
-    public class SearchMessageResponse : ResponseBase
-    {
-        [DataMember(Name = "_shards")]
-        public ShardStatistics Shards { get; internal set; }
-
-        [DataMember(Name = "hits")]
-        public ISearchHits Hits { get; internal set; }
-
-        [DataMember(Name = "timed_out")]
-        public bool? TimedOut { get; internal set; }
-
-        [DataMember(Name = "took")]
-        public int? Took { get; internal set; }
-    }
+    public class SearchMessageResponse : ResponseBase { }
 }

@@ -632,6 +632,48 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
         );
 
         /// <summary>
+        /// <c>PATCH</c> request to the <c>search_relevance.patch_experiment</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.6.0 or greater.</remarks>
+        PatchExperimentResponse PatchExperiment(
+            Id experimentId,
+            Func<PatchExperimentDescriptor, IPatchExperimentRequest> selector = null
+        );
+
+        /// <summary>
+        /// <c>PATCH</c> request to the <c>search_relevance.patch_experiment</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.6.0 or greater.</remarks>
+        Task<PatchExperimentResponse> PatchExperimentAsync(
+            Id experimentId,
+            Func<PatchExperimentDescriptor, IPatchExperimentRequest> selector = null,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
+        /// <c>PATCH</c> request to the <c>search_relevance.patch_experiment</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.6.0 or greater.</remarks>
+        PatchExperimentResponse PatchExperiment(IPatchExperimentRequest request);
+
+        /// <summary>
+        /// <c>PATCH</c> request to the <c>search_relevance.patch_experiment</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.6.0 or greater.</remarks>
+        Task<PatchExperimentResponse> PatchExperimentAsync(
+            IPatchExperimentRequest request,
+            CancellationToken ct = default
+        );
+
+        /// <summary>
         /// <c>POST</c> request to the <c>search_relevance.post_query_sets</c> API, read more about this API online:
         /// <para></para>
         /// <a></a>
@@ -1764,6 +1806,64 @@ namespace OpenSearch.Client.Specification.SearchRelevanceApi
             CancellationToken ct = default
         ) =>
             DoRequestAsync<IJudgmentsSearchRequest, JudgmentsSearchResponse>(
+                request,
+                request.RequestParameters,
+                ct
+            );
+
+        /// <summary>
+        /// <c>PATCH</c> request to the <c>search_relevance.patch_experiment</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.6.0 or greater.</remarks>
+        public PatchExperimentResponse PatchExperiment(
+            Id experimentId,
+            Func<PatchExperimentDescriptor, IPatchExperimentRequest> selector = null
+        ) =>
+            PatchExperiment(
+                selector.InvokeOrDefault(new PatchExperimentDescriptor(experimentId: experimentId))
+            );
+
+        /// <summary>
+        /// <c>PATCH</c> request to the <c>search_relevance.patch_experiment</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.6.0 or greater.</remarks>
+        public Task<PatchExperimentResponse> PatchExperimentAsync(
+            Id experimentId,
+            Func<PatchExperimentDescriptor, IPatchExperimentRequest> selector = null,
+            CancellationToken ct = default
+        ) =>
+            PatchExperimentAsync(
+                selector.InvokeOrDefault(new PatchExperimentDescriptor(experimentId: experimentId)),
+                ct
+            );
+
+        /// <summary>
+        /// <c>PATCH</c> request to the <c>search_relevance.patch_experiment</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.6.0 or greater.</remarks>
+        public PatchExperimentResponse PatchExperiment(IPatchExperimentRequest request) =>
+            DoRequest<IPatchExperimentRequest, PatchExperimentResponse>(
+                request,
+                request.RequestParameters
+            );
+
+        /// <summary>
+        /// <c>PATCH</c> request to the <c>search_relevance.patch_experiment</c> API, read more about this API online:
+        /// <para></para>
+        /// <a></a>
+        /// </summary>
+        /// <remarks>Supported by OpenSearch servers of version 3.6.0 or greater.</remarks>
+        public Task<PatchExperimentResponse> PatchExperimentAsync(
+            IPatchExperimentRequest request,
+            CancellationToken ct = default
+        ) =>
+            DoRequestAsync<IPatchExperimentRequest, PatchExperimentResponse>(
                 request,
                 request.RequestParameters,
                 ct
