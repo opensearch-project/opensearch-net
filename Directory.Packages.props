@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <PackageVersion Include="Argu" Version="6.2.5" />
-    <PackageVersion Include="AWSSDK.Core" Version="4.0.102.18" />
+    <PackageVersion Include="AWSSDK.Core" Version="4.1.0" />
     <PackageVersion Include="Ben.Demystifier" Version="0.4.1" />
     <PackageVersion Include="BenchMarkDotNet" Version="0.15.0" />
     <PackageVersion Include="Bogus" Version="35.6.5" />
